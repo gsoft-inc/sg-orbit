@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "@sharegate/react-components-shared": "0.1.1"
+    "@sharegate/react-components-shared": "0.1.1",
+    "lodash": "latest"
   }
 }
