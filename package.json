@@ -21,7 +21,8 @@
   },
   "workspaces": [
     "packages/react-components",
-    "packages/react-components/packages/*"
+    "packages/react-components/packages/*",
+    "websites/*"
   ],
   "devDependencies": {
     "@babel/cli": "7.4.4",
