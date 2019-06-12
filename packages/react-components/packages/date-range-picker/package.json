@@ -13,6 +13,6 @@
     "react": "*"
   },
   "dependencies": {
-    "@sharegate/react-components-shared": "^0.1.1"
+    "@sharegate/react-components-shared": "0.1.1"
   }
 }
