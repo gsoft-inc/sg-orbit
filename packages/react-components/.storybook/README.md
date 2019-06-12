@@ -1,0 +1,1 @@
+We are using a .babelrc config file because storybook doesn't currently support .babelrc.js or babel.config.js file.
