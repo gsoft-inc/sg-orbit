@@ -11,7 +11,7 @@ export class DateRangePicker extends PureComponent {
                             color: pink;
                         }
                     `}</style>
-                    Date Range Picker2 {FOO}
+                    Date Range Picker3 {FOO}
                 </div>
             </>
         );

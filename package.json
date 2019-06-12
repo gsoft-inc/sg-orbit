@@ -5,8 +5,8 @@
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "run-p start:rc",
-    "start:rc": "run-p start:rc:storybook build:rc:watch",
+    "start": "yarn start:rc",
+    "start:rc": "yarn start:rc:storybook && yarn build:rc:watch",
     "start:rc:storybook": "cd packages/react-components && yarn storybook:start",
     "build": "yarn build:rc",
     "prebuild:rc": "yarn delete:rc",
@@ -16,6 +16,7 @@
     "delete:rc": "lerna exec --scope @sharegate/react-* --parallel -- rimraf dist",
     "delete:modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
     "new-version": "lerna version",
+    "publish": "lerna publish",
     "diff": "lerna diff"
   },
   "workspaces": [
