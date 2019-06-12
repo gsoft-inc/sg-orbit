@@ -15,7 +15,7 @@
     "delete": "run-p delete:rc delete:modules",
     "delete:rc": "lerna exec --scope @sharegate/react-* --parallel -- rimraf dist",
     "delete:modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
-    "new-version": "lerna version --conventional-commits",
+    "new-version": "lerna version",
     "diff": "lerna diff"
   },
   "workspaces": [
