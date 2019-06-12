@@ -7,7 +7,6 @@
     "storybook:export": "build-storybook -c .storybook -o .storybook/dist"
   },
   "devDependencies": {
-    "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/plugin-transform-modules-commonjs": "7.4.4",
@@ -19,7 +18,6 @@
     "babel-plugin-named-asset-import": "0.3.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "styled-jsx": "3.2.1",
-    "cpx": "1.5.0"
+    "styled-jsx": "3.2.1"
   }
 }
