@@ -1,6 +1,6 @@
 {
   "name": "@sharegate/react-components-shared",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",

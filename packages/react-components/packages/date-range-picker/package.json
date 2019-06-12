@@ -1,6 +1,6 @@
 {
   "name": "@sharegate/react-date-range-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
@@ -13,6 +13,6 @@
     "react": "*"
   },
   "dependencies": {
-    "@sharegate/react-components-shared": "0.1.0"
+    "@sharegate/react-components-shared": "^0.1.1"
   }
 }
