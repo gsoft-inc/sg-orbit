@@ -4,14 +4,5 @@
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "independent",
-  "command": {
-    "version": {
-      "ignoreChanges": ["react-components"],
-      "allowBranch": "master"
-    },
-    "publish": {
-      "ignoreChanges": ["react-components"]
-    }
-  }
+  "version": "independent"
 }
