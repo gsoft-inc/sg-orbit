@@ -6,6 +6,9 @@
   "useWorkspaces": true,
   "version": "independent",
   "command": {
+    "version": {
+      "allowBranch": "master"
+    },
     "publish": {
       "ignoreChanges": ["react-components"]
     }
