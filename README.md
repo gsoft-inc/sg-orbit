@@ -1,3 +1,5 @@
+# Consumers
+
 # Maintainers
 
 EX doc: https://frint.js.org/docs/contributing/maintainers/
@@ -16,13 +18,23 @@ yarn also natively support packages hoisting which results in less disk space co
 
 This repository use yarn workspace. Therefore, you must install yarn:
 
-`choco install yarn` or `choco update yarn` to get the latest version.
+```
+choco install yarn
+``` 
+
+or to update the latest version of yarn:
+
+```
+choco update yarn
+```
 
 For more options to install yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
 
 To install the packages and link all the workspace dependencies:
 
-`yarn install`
+```
+yarn install
+```
 
 ## Add new packages
 
@@ -62,6 +74,21 @@ For example, take the react-components project, since we execute a babel compila
 
 You can have scripts in sub project. Again, take the react-components project. A script is define in the actual project to start storybook since the workspace doesn't know about storybook, this is a dependency of react-components not of the whole workspace. Therefore, the scripts is define in the react-components project and a script entry has been added to the root package.json to call the script in the sub project.
 
+## Build
+
+To build the whole brand use the command:
+
+```
+yarn build
+```
+
+To build a specific package of the brand, use the specific build command. For example, to build the react components, use:
+
+```
+yarn build:rc
+```
+
+By default, the output should be in a `dist` folder. For more details, view the specific packages README.
 
 
 
