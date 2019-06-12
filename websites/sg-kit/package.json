@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "sg-kit-website",
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@sharegate/react-components-shared": "0.1.0"
+  }
+}
