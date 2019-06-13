@@ -1,3 +1,9 @@
+file:
+https://github.com/lerna/lerna/blob/0b88ffbbcfe95543d71f6c72e7053087cdc7d19a/package.json#L27-L50
+(pour website en autre)
+https://docs.npmjs.com/files/package.json#local-paths
+
+
 # Consumers
 
 # Maintainers
@@ -73,6 +79,8 @@ Every "Lerna" related scripts should be added in the the root package.json since
 For example, take the react-components project, since we execute a babel compilation for all the individual components, we must define a `lerna exec` command, to call the babel CLI, therefore, we added this script in the root package.json
 
 You can have scripts in sub project. Again, take the react-components project. A script is define in the actual project to start storybook since the workspace doesn't know about storybook, this is a dependency of react-components not of the whole workspace. Therefore, the scripts is define in the react-components project and a script entry has been added to the root package.json to call the script in the sub project.
+
+To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
 
 ## Build
 

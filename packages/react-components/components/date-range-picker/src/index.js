@@ -18,8 +18,3 @@ export class DateRangePicker extends PureComponent {
 
     }
 }
-
-
-// const { FOO } = require("@sharegate/react-components-shared");
-
-// console.log(`Hello ${FOO}`);

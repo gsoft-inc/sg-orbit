@@ -1,8 +1,4 @@
 {
-  "packages": [
-    "packages/react-components/packages/date-range-picker",
-    "packages/react-components/packages/shared"
-  ],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent"

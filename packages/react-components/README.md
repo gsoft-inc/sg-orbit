@@ -20,6 +20,8 @@ All packages distribution code in outputted in their respective `dist` folder.
 
 ## Add a new component
 
+
+
 ## Babel
 
 The components are transpiled to ES5 compatible code using babel, you can find the babel configuration in `build/babel.config.js`.

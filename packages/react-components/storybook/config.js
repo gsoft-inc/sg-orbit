@@ -8,7 +8,7 @@ import { configure } from "@storybook/react";
  * If required we can update this to start at route, but for now lets
  * keep it at components.
  */
-const req = require.context("../packages", true, /.story.(jsx?|js?)$/);
+const req = require.context("../components", true, /.story.(jsx?|js?)$/);
 
 function loadStories() {
     req.keys().forEach(filename => req(filename));
