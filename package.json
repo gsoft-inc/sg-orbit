@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "bootstrap": "yarn install",
-    "postinstall": "echo yarn links",
     "start": "lerna run start --parallel",
     "start:rc": "yarn start --scope @sharegate/react-components",
     "build": "lerna run build --parallel",
@@ -20,13 +19,15 @@
   },
   "workspaces": {
     "packages": [
-      "packages/react-components",
+      "packages/*",
       "packages/react-components/components/*"
     ]
   },
   "devDependencies": {
+    "chalk": "2.4.2",
     "lerna": "3.15.0",
     "npm-run-all": "4.1.5",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "shelljs": "0.8.3"
   }
 }
