@@ -20,7 +20,9 @@ All packages distribution code in outputted in their respective `dist` folder.
 
 ## Add a new component
 
+Add a package dependency to the react-components package.json.
 
+Add an export to the react-components index.js file.
 
 ## Babel
 

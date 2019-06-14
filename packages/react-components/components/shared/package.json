@@ -2,7 +2,6 @@
   "name": "@sharegate/react-components-shared",
   "version": "0.1.1",
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
@@ -10,6 +9,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "*",
+    "react-dom": "*"
   }
 }

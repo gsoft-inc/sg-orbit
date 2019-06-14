@@ -1,3 +1,3 @@
 module.exports = {
-    FOO: "foo22"
+    FOO: "foo2"
 };

@@ -5,44 +5,28 @@
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "yarn start:rc",
-    "start:rc": "run-p build:rc:watch storybook:rc",
-    "storybook:rc": "start-storybook -c packages/react-components/storybook",
-    "storybook:rc:build": "build-storybook -c packages/react-components/storybook -o packages/react-components/storybook/dist",
-    "build": "yarn build:rc",
-    "prebuild:rc": "yarn delete:rc",
-    "build:rc": "lerna exec --scope @sharegate/react-* --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
-    "build:rc:watch": "yarn build:rc --watch",
-    "delete": "run-p delete:rc delete:modules",
-    "delete:rc": "lerna exec --scope @sharegate/react-* --parallel -- rimraf dist",
-    "delete:modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
+    "bootstrap": "yarn install",
+    "postinstall": "echo yarn links",
+    "start": "lerna run start --parallel",
+    "start:rc": "yarn start --scope @sharegate/react-components",
+    "build": "lerna run build --parallel",
+    "build:rc": "yarn build --scope @sharegate/react-components",
+    "reset": "run-s clean delete-node-modules",
+    "clean": "lerna run clean --parallel",
+    "delete-node-modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
     "new-version": "lerna version --exact",
     "publish": "lerna publish --exact",
     "diff": "lerna diff"
   },
   "workspaces": {
     "packages": [
-      "packages/react-components/components/*",
-      "website"
+      "packages/react-components",
+      "packages/react-components/components/*"
     ]
   },
   "devDependencies": {
-    "@babel/cli": "7.4.4",
-    "@babel/core": "7.4.5",
-    "@babel/plugin-proposal-class-properties": "7.4.4",
-    "@babel/plugin-transform-modules-commonjs": "7.4.4",
-    "@babel/preset-env": "7.4.5",
-    "@babel/preset-react": "7.0.0",
-    "@storybook/react": "5.1.3",
-    "@svgr/webpack": "4.3.0",
-    "babel-loader": "8.0.6",
-    "babel-plugin-named-asset-import": "0.3.2",
-    "cpx": "1.5.0",
     "lerna": "3.15.0",
     "npm-run-all": "4.1.5",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "rimraf": "2.6.3",
-    "styled-jsx": "3.2.1"
+    "rimraf": "2.6.3"
   }
 }
