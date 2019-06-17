@@ -1,20 +1,5 @@
-import React, { PureComponent } from "react";
-import { FOO } from "@sharegate/react-components-shared";
+import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
+import { DEFAULT_DATES_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_MONTH_PRESET, LAST_WEEK_PRESET, toPreset } from "./presets";
 
-export class DateRangePicker extends PureComponent {
-    render() {
-        return (
-            <>
-                <div className="calendar-test">
-                    <style jsx>{`
-                        .calendar-test {
-                            color: pink;
-                        }
-                    `}</style>
-                    Date Range Picker3 {FOO}
-                </div>
-            </>
-        );
-
-    }
-}
+export * from "./date-range-picker";
+export { toPreset, LAST_WEEK_PRESET, LAST_MONTH_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_12_MONTHS_PRESET, DEFAULT_DATES_PRESETS, ANCHOR_LEFT, ANCHOR_RIGHT };

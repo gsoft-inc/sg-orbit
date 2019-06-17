@@ -9,10 +9,17 @@
     "access": "public"
   },
   "peerDependencies": {
+    "moment": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dates": "*",
+    "react-dom": "*",
+    "semantic-ui-react": "*"
   },
   "dependencies": {
-    "@sharegate/react-components-shared": "0.1.1"
+    "@sharegate/react-components-shared": "0.1.1",
+    "@sharegate/react-popup": "0.1.0",
+    "classnames": "2.2.6",
+    "lodash": "4.17.11",
+    "prop-types": "15.7.2"
   }
 }
