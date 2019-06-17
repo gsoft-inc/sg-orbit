@@ -137,7 +137,7 @@ export class DateRangePickerCalendar extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "flex mt3";
+        const defaultClasses = "calendar flex mt3";
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
@@ -212,106 +212,106 @@ export class DateRangePickerCalendar extends PureComponent {
                 </div>
 
                 <style jsx>{`
-                    :host {
+                    .calendar {
                         border-radius: var(--scale-alpha);
                         box-shadow: var(--shadow-5);
                         background-color: var(--white);
                     }
 
-                    :host :global(.CalendarMonth_table) {
+                    .calendar :global(.CalendarMonth_table) {
                         margin-top: var(--scale-bravo);
                     }
 
-                    :host :global(.CalendarDay__default) {
+                    .calendar :global(.CalendarDay__default) {
                         border: none;
                         color: var(--jet-dark);
                         font-size: 1rem;
                     }
 
-                    :host :global(.CalendarDay__selected) {
+                    .calendar :global(.CalendarDay__selected) {
                         background: var(--primary);
                         color: var(--white);
                     }
 
-                    :host :global(.CalendarDay__selected_span) {
+                    .calendar :global(.CalendarDay__selected_span) {
                         background: var(--primary-lightest);
                     }
 
-                    :host :global(.CalendarDay__hovered_span) {
+                    .calendar :global(.CalendarDay__hovered_span) {
                         background: var(--primary-lightest);
                     }
 
-                    :host :global(.CalendarMonth_caption) {
+                    .calendar :global(.CalendarMonth_caption) {
                         font-size: 24px;
                     }
 
-                    :host :global(.DayPickerNavigation_button__default) {
+                    .calendar :global(.DayPickerNavigation_button__default) {
                         border: 0;
                     }
 
-                    :host :global(.CalendarDay__blocked_calendar) {
+                    .calendar :global(.CalendarDay__blocked_calendar) {
                         background: var(--transparent);
                         color: var(--cloud-dark);
                     }
 
-                    :host :global(.DayPickerNavigation) {
+                    .calendar :global(.DayPickerNavigation) {
                         display: flex;
                         justify-content: space-between;
                         padding: 0 24px;
                     }
 
-                    :host :global(.DayPickerNavigation_button) {
+                    .calendar :global(.DayPickerNavigation_button) {
                         margin-top: 24px;
                     }
 
-                    :host :global(.DayPickerNavigation_button__horizontalDefault) {
+                    .calendar :global(.DayPickerNavigation_button__horizontalDefault) {
                         padding: 0;
                     }
 
-                    :host :global(.DayPickerNavigation_button__disabled) {
+                    .calendar :global(.DayPickerNavigation_button__disabled) {
                         border: 0;
                     }
 
-                    :host :global(.DayPicker_weekHeader_li small) {
+                    .calendar :global(.DayPicker_weekHeader_li small) {
                         font-size: 0.875rem;
                         color: var(--cloud-darkest);
                     }
 
-                    :host :global(.CalendarDay__default:hover),
-                    :host :global(.CalendarDay__default:focus) {
+                    .calendar :global(.CalendarDay__default:hover),
+                    .calendar :global(.CalendarDay__default:focus) {
                         background: var(--cloud-light);
                     }
 
-                    :host :global(.CalendarDay__default:focus) {
+                    .calendar :global(.CalendarDay__default:focus) {
                         outline: none;
                     }
 
-                    :host :global(.DayPickerNavigation_button):focus {
+                    .calendar :global(.DayPickerNavigation_button):focus {
                         outline: none;
                     }
 
-                    :host :global(.CalendarDay__blocked_calendar:hover),
-                    :host :global(.CalendarDay__blocked_calendar:focus) {
+                    .calendar :global(.CalendarDay__blocked_calendar:hover),
+                    .calendar :global(.CalendarDay__blocked_calendar:focus) {
                         background: var(--transparent);
                         color: var(--cloud-dark);
                     }
 
-                    :host :global(.CalendarDay__selected:hover),
-                    :host :global(.CalendarDay__selected:active) {
+                    .calendar :global(.CalendarDay__selected:hover),
+                    .calendar :global(.CalendarDay__selected:active) {
                         background: var(--primary);
                     }
 
-                    :host :global(.CalendarDay__selected_span:hover),
-                    :host :global(.CalendarDay__selected_span:active) {
+                    .calendar :global(.CalendarDay__selected_span:hover),
+                    .calendar :global(.CalendarDay__selected_span:active) {
                         background: var(--primary-lightest);
                     }
 
-                    :host :global(.CalendarDay__default.CalendarDay__selected):focus {
+                    .calendar :global(.CalendarDay__default.CalendarDay__selected):focus {
                         background: var(--primary);
                         color: var(--white);
                     }
 
-                    :host :global(.DayPickerNavigation_button__disabled #Calendar-Components) {
+                    .calendar :global(.DayPickerNavigation_button__disabled #Calendar-Components) {
                         fill: var(--cloud-light);
                     }
                 `}</style>

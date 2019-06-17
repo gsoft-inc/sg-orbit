@@ -60,7 +60,7 @@ export class DateRangePickerInput extends PureComponent {
         const disabledClasses = cx({ "bg-cloud-light cloud-dark crsr-not-allowed": disabled });
         const placeholderClasses = cx({ "jet-dark": !value.isPlaceholder && !disabled });
 
-        const defaultClasses = `pv3 ph4 ba outline-0 f6 h9 br2 flex items-center ${openedClasses} ${placeholderClasses} ${disabledClasses}`;
+        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center ${openedClasses} ${placeholderClasses} ${disabledClasses}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
@@ -107,11 +107,11 @@ export class DateRangePickerInput extends PureComponent {
             {this.renderClearButton(value)}
 
             <style jsx>{`
-                :host:not("disabled") {
+                .input:not("disabled") {
                     cursor: text;
                 }
 
-                :host:focus {
+                .input:focus {
                     border: 1px solid var(--jet-dark);
                     color: var(--jet-dark);
                 }

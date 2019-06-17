@@ -21,6 +21,9 @@ import "@sharegate/semantic-ui-sg/label.css";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
+import "./style/fonts/calibre/calibre.css";
+import "./style/custom.css";
+
 /**
  * Uses Webpack Context
  * https://webpack.js.org/guides/dependency-management/#require-context

@@ -59,7 +59,7 @@ export class DateRangePickerPresets extends PureComponent {
     render() {
         const { presets, icon, className } = this.props;
 
-        const defaultClasses = "flex flex-column pt8 ph8 br b--cloud-light";
+        const defaultClasses = "presets flex flex-column pt8 ph8 br b--cloud-light";
         const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
 
         if (presets.length > 0) {
@@ -69,7 +69,7 @@ export class DateRangePickerPresets extends PureComponent {
                     <ul>{this.renderPresets()}</ul>
 
                     <style jsx>{`
-                        :host {
+                        .presets {
                             min-width: 200px;
                         }
                     `}</style>
