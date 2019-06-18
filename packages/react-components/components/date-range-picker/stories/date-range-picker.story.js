@@ -1,5 +1,8 @@
 import { storiesOf } from "@storybook/react";
-import { DEFAULT_DATES_PRESETS, DateRangePicker } from "../src";
+import { DEFAULT_DATES_PRESETS, DateRangePicker, initializeDateRangePicker } from "../src";
+
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 
 storiesOf("DateRangePicker", module).add("default", () => <DateRangePicker onDatesChange={() => {}} />);
 

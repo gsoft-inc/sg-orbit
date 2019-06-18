@@ -5,7 +5,8 @@
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "license": "Apache-2.0",
   "scripts": {
-    "bootstrap": "run-s install prepare",
+    "bootstrap": "yarn install --ignore-scripts && yarn prepare",
+    "prepare": "lerna run prepare --parallel",
     "start": "lerna run start --parallel",
     "start:rc": "yarn start --scope @sharegate/react-components",
     "start:sui-theme": "yarn start --scope @sharegate/semantic-ui-theme",
