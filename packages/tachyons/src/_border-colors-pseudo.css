@@ -1,0 +1,459 @@
+/*
+
+   BORDER COLORS PSEUDO
+   Docs: http://tachyons.io/docs/themes/borders/
+
+   Border colors can be used to extend the base
+   border classes ba,bt,bb,br,bl found in the _borders.css file.
+
+   The base border class by default will set the color of the border
+   to that of the current text color. These classes are for the cases
+   where you desire for the text and border colors to be different.
+
+   Base:
+     b = border
+
+   Modifiers:
+   --color-name = each color variable name is also a border color name
+
+*/
+
+.hover-b--black:hover, .hover-b--black:focus {
+    border-color: var(--black);
+}
+
+.hover-b--white:hover, .hover-b--white:focus {
+    border-color: var(--white);
+}
+
+.hover-b--white-90:hover, .hover-b--white-90:focus {
+    border-color: var(--white-90);
+}
+
+.hover-b--white-80:hover, .hover-b--white-80:focus {
+    border-color: var(--white-80);
+}
+
+.hover-b--white-70:hover, .hover-b--white-70:focus {
+    border-color: var(--white-70);
+}
+
+.hover-b--white-60:hover, .hover-b--white-60:focus {
+    border-color: var(--white-60);
+}
+
+.hover-b--white-50:hover, .hover-b--white-50:focus {
+    border-color: var(--white-50);
+}
+
+.hover-b--white-40:hover, .hover-b--white-40:focus {
+    border-color: var(--white-40);
+}
+
+.hover-b--white-30:hover, .hover-b--white-30:focus {
+    border-color: var(--white-30);
+}
+
+.hover-b--white-20:hover, .hover-b--white-20:focus {
+    border-color: var(--white-20);
+}
+
+.hover-b--white-10:hover, .hover-b--white-10:focus {
+    border-color: var(--white-10);
+}
+
+.hover-b--white-05:hover, .hover-b--white-05:focus {
+    border-color: var(--white-05);
+}
+
+.hover-b--white-025:hover, .hover-b--white-025:focus {
+    border-color: var(--white-025);
+}
+
+.hover-b--white-0125:hover, .hover-b--white-0125:focus {
+    border-color: var(--white-0125);
+}
+
+.hover-b--black-90:hover, .hover-b--black-90:focus {
+    border-color: var(--black-90);
+}
+
+.hover-b--black-80:hover, .hover-b--black-80:focus {
+    border-color: var(--black-80);
+}
+
+.hover-b--black-70:hover, .hover-b--black-70:focus {
+    border-color: var(--black-70);
+}
+
+.hover-b--black-60:hover, .hover-b--black-60:focus {
+    border-color: var(--black-60);
+}
+
+.hover-b--black-50:hover, .hover-b--black-50:focus {
+    border-color: var(--black-50);
+}
+
+.hover-b--black-40:hover, .hover-b--black-40:focus {
+    border-color: var(--black-40);
+}
+
+.hover-b--black-30:hover, .hover-b--black-30:focus {
+    border-color: var(--black-30);
+}
+
+.hover-b--black-20:hover, .hover-b--black-20:focus {
+    border-color: var(--black-20);
+}
+
+.hover-b--black-10:hover, .hover-b--black-10:focus {
+    border-color: var(--black-10);
+}
+
+.hover-b--black-05:hover, .hover-b--black-05:focus {
+    border-color: var(--black-05);
+}
+
+.hover-b--black-025:hover, .hover-b--black-025:focus {
+    border-color: var(--black-025);
+}
+
+.hover-b--black-0125:hover, .hover-b--black-0125:focus {
+    border-color: var(--black-0125);
+}
+
+/* SG Colors */
+
+.hover-b--marine-lightest:hover, .hover-b--marine-lightest:focus {
+    border-color: var(--marine-lightest);
+}
+
+.hover-b--marine-light:hover, .hover-b--marine-light:focus {
+    border-color: var(--marine-light);
+}
+
+.hover-b--marine:hover, .hover-b--marine:focus {
+    border-color: var(--marine);
+}
+
+.hover-b--marine-dark:hover, .hover-b--marine-dark:focus {
+    border-color: var(--marine-dark);
+}
+
+.hover-b--marine-darkest:hover, .hover-b--marine-darkest:focus {
+    border-color: var(--marine-darkest);
+}
+
+.hover-b--desktop-lightest:hover, .hover-b--desktop-lightest:focus {
+    border-color: var(--desktop-lightest);
+}
+
+.hover-b--desktop-light:hover, .hover-b--desktop-light:focus {
+    border-color: var(--desktop-light);
+}
+
+.hover-b--desktop:hover, .hover-b--desktop:focus {
+    border-color: var(--desktop);
+}
+
+.hover-b--desktop-dark:hover, .hover-b--desktop-dark:focus {
+    border-color: var(--desktop-dark);
+}
+
+.hover-b--desktop-darkest:hover, .hover-b--desktop-darkest:focus {
+    border-color: var(--desktop-darkest);
+}
+
+.hover-b--sunray-lightest:hover, .hover-b--sunray-lightest:focus {
+    border-color: var(--sunray-lightest);
+}
+
+.hover-b--sunray-light:hover, .hover-b--sunray-light:focus {
+    border-color: var(--sunray-light);
+}
+
+.hover-b--sunray:hover, .hover-b--sunray:focus {
+    border-color: var(--sunray);
+}
+
+.hover-b--sunray-dark:hover, .hover-b--sunray-dark:focus {
+    border-color: var(--sunray-dark);
+}
+
+.hover-b--sunray-darkest:hover, .hover-b--sunray-darkest:focus {
+    border-color: var(--sunray-darkest);
+}
+
+.hover-b--apricot-lightest:hover, .hover-b--apricot-lightest:focus {
+    border-color: var(--apricot-lightest);
+}
+
+.hover-b--apricot-light:hover, .hover-b--apricot-light:focus {
+    border-color: var(--apricot-light);
+}
+
+.hover-b--apricot:hover, .hover-b--apricot:focus {
+    border-color: var(--apricot);
+}
+
+.hover-b--apricot-dark:hover, .hover-b--apricot-dark:focus {
+    border-color: var(--apricot-dark);
+}
+
+.hover-b--apricot-darkest:hover, .hover-b--apricot-darkest:focus {
+    border-color: var(--apricot-darkest);
+}
+
+.hover-b--eggplant-lightest:hover, .hover-b--eggplant-lightest:focus {
+    border-color: var(--eggplant-lightest);
+}
+
+.hover-b--eggplant-light:hover, .hover-b--eggplant-light:focus {
+    border-color: var(--eggplant-light);
+}
+
+.hover-b--eggplant:hover, .hover-b--eggplant:focus {
+    border-color: var(--eggplant);
+}
+
+.hover-b--eggplant-dark:hover, .hover-b--eggplant-dark:focus {
+    border-color: var(--eggplant-dark);
+}
+
+.hover-b--eggplant-darkest:hover, .hover-b--eggplant-darkest:focus {
+    border-color: var(--eggplant-darkest);
+}
+
+.hover-b--overcast-lightest:hover, .hover-b--overcast-lightest:focus {
+    border-color: var(--overcast-lightest);
+}
+
+.hover-b--overcast-light:hover, .hover-b--overcast-light:focus {
+    border-color: var(--overcast-light);
+}
+
+.hover-b--overcast:hover, .hover-b--overcast:focus {
+    border-color: var(--overcast);
+}
+
+.hover-b--overcast-dark:hover, .hover-b--overcast-dark:focus {
+    border-color: var(--overcast-dark);
+}
+
+.hover-b--overcast-darkest:hover, .hover-b--overcast-darkest:focus {
+    border-color: var(--overcast-darkest);
+}
+
+.hover-b--moonstone-lightest:hover, .hover-b--moonstone-lightest:focus {
+    border-color: var(--moonstone-lightest);
+}
+
+.hover-b--moonstone-light:hover, .hover-b--moonstone-light:focus {
+    border-color: var(--moonstone-light);
+}
+
+.hover-b--moonstone:hover, .hover-b--moonstone:focus {
+    border-color: var(--moonstone);
+}
+
+.hover-b--moonstone-dark:hover, .hover-b--moonstone-dark:focus {
+    border-color: var(--moonstone-dark);
+}
+
+.hover-b--moonstone-darkest:hover, .hover-b--moonstone-darkest:focus {
+    border-color: var(--moonstone-darkest);
+}
+
+.hover-b--jet-lightest:hover, .hover-b--jet-lightest:focus {
+    border-color: var(--jet-lightest);
+}
+
+.hover-b--jet-light:hover, .hover-b--jet-light:focus {
+    border-color: var(--jet-light);
+}
+
+.hover-b--jet:hover, .hover-b--jet:focus {
+    border-color: var(--jet);
+}
+
+.hover-b--jet-dark:hover, .hover-b--jet-dark:focus {
+    border-color: var(--jet-dark);
+}
+
+.hover-b--jet-darkest:hover, .hover-b--jet-darkest:focus {
+    border-color: var(--jet-darkest);
+}
+
+.hover-b--cloud-lightest:hover, .hover-b--cloud-lightest:focus {
+    border-color: var(--cloud-lightest);
+}
+
+.hover-b--cloud-light:hover, .hover-b--cloud-light:focus {
+    border-color: var(--cloud-light);
+}
+
+.hover-b--cloud:hover, .hover-b--cloud:focus {
+    border-color: var(--cloud);
+}
+
+.hover-b--cloud-dark:hover, .hover-b--cloud-dark:focus {
+    border-color: var(--cloud-dark);
+}
+
+.hover-b--cloud-darkest:hover, .hover-b--cloud-darkest:focus {
+    border-color: var(--cloud-darkest);
+}
+
+.hover-b--prune-lightest:hover, .hover-b--prune-lightest:focus {
+    border-color: var(--prune-lightest);
+}
+
+.hover-b--prune-light:hover, .hover-b--prune-light:focus {
+    border-color: var(--prune-light);
+}
+
+.hover-b--prune:hover, .hover-b--prune:focus {
+    border-color: var(--prune);
+}
+
+.hover-b--prune-dark:hover, .hover-b--prune-dark:focus {
+    border-color: var(--prune-dark);
+}
+
+.hover-b--prune-darkest:hover, .hover-b--prune-darkest:focus {
+    border-color: var(--prune-darkest);
+}
+
+.hover-b--blueberry-lightest:hover, .hover-b--blueberry-lightest:focus {
+    border-color: var(--blueberry-lightest);
+}
+
+.hover-b--blueberry-light:hover, .hover-b--blueberry-light:focus {
+    border-color: var(--blueberry-light);
+}
+
+.hover-b--blueberry:hover, .hover-b--blueberry:focus {
+    border-color: var(--blueberry);
+}
+
+.hover-b--blueberry-dark:hover, .hover-b--blueberry-dark:focus {
+    border-color: var(--blueberry-dark);
+}
+
+.hover-b--blueberry-darkest:hover, .hover-b--blueberry-darkest:focus {
+    border-color: var(--blueberry-darkest);
+}
+
+.hover-b--cherry-lightest:hover, .hover-b--cherry-lightest:focus {
+    border-color: var(--cherry-lightest);
+}
+
+.hover-b--cherry-light:hover, .hover-b--cherry-light:focus {
+    border-color: var(--cherry-light);
+}
+
+.hover-b--cherry:hover, .hover-b--cherry:focus {
+    border-color: var(--cherry);
+}
+
+.hover-b--cherry-dark:hover, .hover-b--cherry-dark:focus {
+    border-color: var(--cherry-dark);
+}
+
+.hover-b--cherry-darkest:hover, .hover-b--cherry-darkest:focus {
+    border-color: var(--cherry-darkest);
+}
+
+.hover-b--alert-lightest:hover, .hover-b--alert-lightest:focus {
+    border-color: var(--alert-lightest);
+}
+
+.hover-b--alert-light:hover, .hover-b--alert-light:focus {
+    border-color: var(--alert-light);
+}
+
+.hover-b--alert:hover, .hover-b--alert:focus {
+    border-color: var(--alert);
+}
+
+.hover-b--alert-dark:hover, .hover-b--alert-dark:focus {
+    border-color: var(--alert-dark);
+}
+
+.hover-b--alert-darkest:hover, .hover-b--alert-darkest:focus {
+    border-color: var(--alert-darkest);
+}
+
+.hover-b--success-lightest:hover, .hover-b--success-lightest:focus {
+    border-color: var(--success-lightest);
+}
+
+.hover-b--success-light:hover, .hover-b--success-light:focus {
+    border-color: var(--success-light);
+}
+
+.hover-b--success:hover, .hover-b--success:focus {
+    border-color: var(--success);
+}
+
+.hover-b--success-dark:hover, .hover-b--success-dark:focus {
+    border-color: var(--success-dark);
+}
+
+.hover-b--success-darkest:hover, .hover-b--success-darkest:focus {
+    border-color: var(--success-darkest);
+}
+
+.hover-b--outlook:hover, .hover-b--outlook:focus {
+    border-color: var(--outlook);
+}
+
+.hover-b--sharepoint:hover, .hover-b--sharepoint:focus {
+    border-color: var(--sharepoint);
+}
+
+.hover-b--teams:hover, .hover-b--teams:focus {
+    border-color: var(--teams);
+}
+
+.hover-b--planner:hover, .hover-b--planner:focus {
+    border-color: var(--planner);
+}
+
+.hover-b--one-drive:hover, .hover-b--one-drive:focus {
+    border-color: var(--one-drive);
+}
+
+.hover-b--transparent:hover, .hover-b--transparent:focus {
+    border-color: var(--transparent);
+}
+
+.hover-b--inherit:hover, .hover-b--inherit:focus {
+    border-color: inherit;
+}
+
+/* Allows to reference a primary and secondary color */
+
+.hover-b--primary:hover, .hover-b--primary:focus {
+    border-color: var(--primary);
+}
+
+.hover-b--primary-dark:hover, .hover-b--primary-dark:focus {
+    border-color: var(--primary-dark);
+}
+
+.hover-b--primary-darkest:hover, .hover-b--primary-darkest:focus {
+    border-color: var(--primary-darkest);
+}
+
+.hover-b--primary-light:hover, .hover-b--primary-light:focus {
+    border-color: var(--primary-light);
+}
+
+.hover-b--primary-lightest:hover, .hover-b--primary-lightest:focus {
+    border-color: var(--primary-lightest);
+}
+
+.hover-b--secondary:hover, .hover-b--secondary:focus {
+    border-color: var(--secondary);
+}

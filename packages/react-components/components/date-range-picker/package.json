@@ -5,6 +5,9 @@
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +17,8 @@
     "react-dates": "*",
     "react-dom": "*",
     "semantic-ui-react": "*",
-    "@sharegate/semantic-ui-theme": "*"
+    "@sharegate/semantic-ui-theme": "*",
+    "@sharegate/tachyons": "*"
   },
   "dependencies": {
     "@sharegate/react-components-shared": "0.1.1",

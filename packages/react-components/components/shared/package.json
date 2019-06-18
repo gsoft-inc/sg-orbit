@@ -5,6 +5,9 @@
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

@@ -1,0 +1,48 @@
+/*
+
+  FLEXBOX Basis
+
+  Media Query Extensions:
+   -ns = not-small
+   -m  = medium
+   -l  = large
+
+*/
+
+.flex-basis-auto {
+    flex-basis: auto;
+}
+
+.flex-basis-min {
+    flex-basis: min-content;
+}
+
+.flex-basis-max {
+    flex-basis: max-content;
+}
+
+.flex-basis-fit {
+    flex-basis: fit-content;
+}
+
+.flex-basis-content {
+    flex-basis: content;
+}
+
+@media (--breakpoint-not-small) {
+    .flex-basis-auto-ns {
+        flex-basis: auto;
+    }
+}
+
+@media (--breakpoint-medium) {
+    .flex-basis-auto-m {
+        flex-basis: auto;
+    }
+}
+
+@media (--breakpoint-large) {
+    .flex-basis-auto-l {
+        flex-basis: auto;
+    }
+}

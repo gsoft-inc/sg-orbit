@@ -1,0 +1,1350 @@
+/* 
+  
+   SKINS:PSEUDO
+
+   Customize the color of an element when
+   ihover-t is focused or hovered ove:hover, it is focused -oveor hovered ihove:focus r
+ 
+ */
+
+/* Text colors */
+.hover-white:hover, .hover-white:focus {
+    color: var(--white);
+}
+
+/* Brand text colors */
+/* Marine */
+.hover-marine-50:hover, .hover-marine-50:focus {
+    color: var(--marine-50);
+}
+
+.hover-marine-100:hover, .hover-marine-100:focus {
+    color: var(--marine-100);
+}
+
+.hover-marine-200:hover, .hover-marine-200:focus {
+    color: var(--marine-200);
+}
+
+.hover-marine-300:hover, .hover-marine-300:focus {
+    color: var(--marine-300);
+}
+
+.hover-marine-400:hover, .hover-marine-400:focus {
+    color: var(--marine-400);
+}
+
+.hover-marine-500:hover, .hover-marine-500:focus {
+    color: var(--marine-500);
+}
+
+.hover-marine-600:hover, .hover-marine-600:focus {
+    color: var(--marine-600);
+}
+
+.hover-marine-700:hover, .hover-marine-700:focus {
+    color: var(--marine-700);
+}
+
+.hover-marine-800:hover, .hover-marine-800:focus {
+    color: var(--marine-800);
+}
+
+.hover-marine-900:hover, .hover-marine-900:focus {
+    color: var(--marine-900);
+}
+
+/* Sunray */
+.hover-sunray-50:hover, .hover-sunray-50:focus {
+    color: var(--sunray-50);
+}
+
+.hover-sunray-100:hover, .hover-sunray-100:focus {
+    color: var(--sunray-100);
+}
+
+.hover-sunray-200:hover, .hover-sunray-200:focus {
+    color: var(--sunray-200);
+}
+
+.hover-sunray-300:hover, .hover-sunray-300:focus {
+    color: var(--sunray-300);
+}
+
+.hover-sunray-400:hover, .hover-sunray-400:focus {
+    color: var(--sunray-400);
+}
+
+.hover-sunray-500:hover, .hover-sunray-500:focus {
+    color: var(--sunray-500);
+}
+
+.hover-sunray-600:hover, .hover-sunray-600:focus {
+    color: var(--sunray-600);
+}
+
+.hover-sunray-700:hover, .hover-sunray-700:focus {
+    color: var(--sunray-700);
+}
+
+.hover-sunray-800:hover, .hover-sunray-800:focus {
+    color: var(--sunray-800);
+}
+
+.hover-sunray-900:hover, .hover-sunray-900:focus {
+    color: var(--sunray-900);
+}
+
+/* Moonstone */
+.hover-moonstone-50:hover, .hover-moonstone-50:focus {
+    color: var(--moonstone-50);
+}
+
+.hover-moonstone-100:hover, .hover-moonstone-100:focus {
+    color: var(--moonstone-100);
+}
+
+.hover-moonstone-200:hover, .hover-moonstone-200:focus {
+    color: var(--moonstone-200);
+}
+
+.hover-moonstone-300:hover, .hover-moonstone-300:focus {
+    color: var(--moonstone-300);
+}
+
+.hover-moonstone-400:hover, .hover-moonstone-400:focus {
+    color: var(--moonstone-400);
+}
+
+.hover-moonstone-500:hover, .hover-moonstone-500:focus {
+    color: var(--moonstone-500);
+}
+
+.hover-moonstone-600:hover, .hover-moonstone-600:focus {
+    color: var(--moonstone-600);
+}
+
+.hover-moonstone-700:hover, .hover-moonstone-700:focus {
+    color: var(--moonstone-700);
+}
+
+.hover-moonstone-800:hover, .hover-moonstone-800:focus {
+    color: var(--moonstone-800);
+}
+
+.hover-moonstone-900:hover, .hover-moonstone-900:focus {
+    color: var(--moonstone-900);
+}
+
+/* Apricot */
+.hover-apricot-50:hover, .hover-apricot-50:focus {
+    color: var(--apricot-50);
+}
+
+.hover-apricot-100:hover, .hover-apricot-100:focus {
+    color: var(--apricot-100);
+}
+
+.hover-apricot-200:hover, .hover-apricot-200:focus {
+    color: var(--apricot-200);
+}
+
+.hover-apricot-300:hover, .hover-apricot-300:focus {
+    color: var(--apricot-300);
+}
+
+.hover-apricot-400:hover, .hover-apricot-400:focus {
+    color: var(--apricot-400);
+}
+
+.hover-apricot-500:hover, .hover-apricot-500:focus {
+    color: var(--apricot-500);
+}
+
+.hover-apricot-600:hover, .hover-apricot-600:focus {
+    color: var(--apricot-600);
+}
+
+.hover-apricot-700:hover, .hover-apricot-700:focus {
+    color: var(--apricot-700);
+}
+
+.hover-apricot-800:hover, .hover-apricot-800:focus {
+    color: var(--apricot-800);
+}
+
+.hover-apricot-900:hover, .hover-apricot-900:focus {
+    color: var(--apricot-900);
+}
+
+/* Desktop */
+.hover-desktop-50:hover, .hover-desktop-50:focus {
+    color: var(--desktop-50);
+}
+
+.hover-desktop-100:hover, .hover-desktop-100:focus {
+    color: var(--desktop-100);
+}
+
+.hover-desktop-200:hover, .hover-desktop-200:focus {
+    color: var(--desktop-200);
+}
+
+.hover-desktop-300:hover, .hover-desktop-300:focus {
+    color: var(--desktop-300);
+}
+
+.hover-desktop-400:hover, .hover-desktop-400:focus {
+    color: var(--desktop-400);
+}
+
+.hover-desktop-500:hover, .hover-desktop-500:focus {
+    color: var(--desktop-500);
+}
+
+.hover-desktop-600:hover, .hover-desktop-600:focus {
+    color: var(--desktop-600);
+}
+
+.hover-desktop-700:hover, .hover-desktop-700:focus {
+    color: var(--desktop-700);
+}
+
+.hover-desktop-800:hover, .hover-desktop-800:focus {
+    color: var(--desktop-800);
+}
+
+.hover-desktop-900:hover, .hover-desktop-900:focus {
+    color: var(--desktop-900);
+}
+
+/* Overcast */
+.hover-overcast-50:hover, .hover-overcast-50:focus {
+    color: var(--overcast-50);
+}
+
+.hover-overcast-100:hover, .hover-overcast-100:focus {
+    color: var(--overcast-100);
+}
+
+.hover-overcast-200:hover, .hover-overcast-200:focus {
+    color: var(--overcast-200);
+}
+
+.hover-overcast-300:hover, .hover-overcast-300:focus {
+    color: var(--overcast-300);
+}
+
+.hover-overcast-400:hover, .hover-overcast-400:focus {
+    color: var(--overcast-400);
+}
+
+.hover-overcast-500:hover, .hover-overcast-500:focus {
+    color: var(--overcast-500);
+}
+
+.hover-overcast-600:hover, .hover-overcast-600:focus {
+    color: var(--overcast-600);
+}
+
+.hover-overcast-700:hover, .hover-overcast-700:focus {
+    color: var(--overcast-700);
+}
+
+.hover-overcast-800:hover, .hover-overcast-800:focus {
+    color: var(--overcast-800);
+}
+
+.hover-overcast-900:hover, .hover-overcast-900:focus {
+    color: var(--overcast-900);
+}
+
+/* Cloud */
+.hover-cloud-50:hover, .hover-cloud-50:focus {
+    color: var(--cloud-50);
+}
+
+.hover-cloud-100:hover, .hover-cloud-100:focus {
+    color: var(--cloud-100);
+}
+
+.hover-cloud-200:hover, .hover-cloud-200:focus {
+    color: var(--cloud-200);
+}
+
+.hover-cloud-300:hover, .hover-cloud-300:focus {
+    color: var(--cloud-300);
+}
+
+.hover-cloud-400:hover, .hover-cloud-400:focus {
+    color: var(--cloud-400);
+}
+
+.hover-cloud-500:hover, .hover-cloud-500:focus {
+    color: var(--cloud-500);
+}
+
+.hover-cloud-600:hover, .hover-cloud-600:focus {
+    color: var(--cloud-600);
+}
+
+.hover-cloud-700:hover, .hover-cloud-700:focus {
+    color: var(--cloud-700);
+}
+
+.hover-cloud-800:hover, .hover-cloud-800:focus {
+    color: var(--cloud-800);
+}
+
+.hover-cloud-900:hover, .hover-cloud-900:focus {
+    color: var(--cloud-900);
+}
+
+/* Alert */
+.hover-alert-50:hover, .hover-alert-50:focus {
+    color: var(--alert-50);
+}
+
+.hover-alert-100:hover, .hover-alert-100:focus {
+    color: var(--alert-100);
+}
+
+.hover-alert-200:hover, .hover-alert-200:focus {
+    color: var(--alert-200);
+}
+
+.hover-alert-300:hover, .hover-alert-300:focus {
+    color: var(--alert-300);
+}
+
+.hover-alert-400:hover, .hover-alert-400:focus {
+    color: var(--alert-400);
+}
+
+.hover-alert-500:hover, .hover-alert-500:focus {
+    color: var(--alert-500);
+}
+
+.hover-alert-600:hover, .hover-alert-600:focus {
+    color: var(--alert-600);
+}
+
+.hover-alert-700:hover, .hover-alert-700:focus {
+    color: var(--alert-700);
+}
+
+.hover-alert-800:hover, .hover-alert-800:focus {
+    color: var(--alert-800);
+}
+
+.hover-alert-900:hover, .hover-alert-900:focus {
+    color: var(--alert-900);
+}
+
+/* Success */
+.hover-success-50:hover, .hover-success-50:focus {
+    color: var(--success-50);
+}
+
+.hover-success-100:hover, .hover-success-100:focus {
+    color: var(--success-100);
+}
+
+.hover-success-200:hover, .hover-success-200:focus {
+    color: var(--success-200);
+}
+
+.hover-success-300:hover, .hover-success-300:focus {
+    color: var(--success-300);
+}
+
+.hover-success-400:hover, .hover-success-400:focus {
+    color: var(--success-400);
+}
+
+.hover-success-500:hover, .hover-success-500:focus {
+    color: var(--success-500);
+}
+
+.hover-success-600:hover, .hover-success-600:focus {
+    color: var(--success-600);
+}
+
+.hover-success-700:hover, .hover-success-700:focus {
+    color: var(--success-700);
+}
+
+.hover-success-800:hover, .hover-success-800:focus {
+    color: var(--success-800);
+}
+
+.hover-success-900:hover, .hover-success-900:focus {
+    color: var(--success-900);
+}
+
+/* Vendors */
+.hover-outlook:hover, .hover-outlook:focus {
+    color: var(--outlook);
+}
+
+.hover-sharepoint:hover, .hover-sharepoint:focus {
+    color: var(--sharepoint);
+}
+
+.hover-teams:hover, .hover-teams:focus {
+    color: var(--teams);
+}
+
+.hover-planner:hover, .hover-planner:focus {
+    color: var(--planner);
+}
+
+.hover-one-drive:hover, .hover-one-drive:focus {
+    color: var(--one-drive);
+}
+
+/* Aliases */
+.hover-primary-50:hover, .primary-50-hover:focus {
+    color: var(--primary-50);
+}
+
+.hover-primary-100:hover, .primary-100-hover:focus {
+    color: var(--primary-100);
+}
+
+.hover-primary-200:hover, .primary-200-hover:focus {
+    color: var(--primary-200);
+}
+
+.hover-primary-300:hover, .primary-300-hover:focus {
+    color: var(--primary-300);
+}
+
+.hover-primary-400:hover, .primary-400-hover:focus {
+    color: var(--primary-400);
+}
+
+.hover-primary-500:hover, .primary-500-hover:focus {
+    color: var(--primary-500);
+}
+
+.hover-primary-600:hover, .primary-600-hover:focus {
+    color: var(--primary-600);
+}
+
+.hover-primary-700:hover, .primary-700-hover:focus {
+    color: var(--primary-700);
+}
+
+.hover-primary-800:hover, .primary-800-hover:focus {
+    color: var(--primary-800);
+}
+
+.hover-primary-900:hover, .primary-900-hover:focus {
+    color: var(--primary-900);
+}
+
+.hover-color-transparent:hover, .hover-transparent-color:focus {
+    color: transparent;
+}
+
+.hover-color-inherit:hover, .hover-color-inherit:focus {
+    color: inherit;
+}
+
+/* Background */
+.hover-bg-white:hover, .hover-bg-white:focus {
+    background-color: var(--white);
+}
+
+/* Brand Background */
+/* Marine */
+.hover-bg-marine-50:hover, .bg-hover-marine-50:focus {
+    background-color: var(--marine-50);
+}
+
+.hover-bg-marine-100:hover, .bg-hover-marine-100:focus {
+    background-color: var(--marine-100);
+}
+
+.hover-bg-marine-200:hover, .bg-hover-marine-200:focus {
+    background-color: var(--marine-200);
+}
+
+.hover-bg-marine-300:hover, .bg-hover-marine-300:focus {
+    background-color: var(--marine-300);
+}
+
+.hover-bg-marine-400:hover, .bg-hover-marine-400:focus {
+    background-color: var(--marine-400);
+}
+
+.hover-bg-marine-500:hover, .bg-hover-marine-500:focus {
+    background-color: var(--marine-500);
+}
+
+.hover-bg-marine-600:hover, .bg-hover-marine-600:focus {
+    background-color: var(--marine-600);
+}
+
+.hover-bg-marine-700:hover, .bg-hover-marine-700:focus {
+    background-color: var(--marine-700);
+}
+
+.hover-bg-marine-800:hover, .bg-hover-marine-800:focus {
+    background-color: var(--marine-800);
+}
+
+.hover-bg-marine-900:hover, .bg-hover-marine-900:focus {
+    background-color: var(--marine-900);
+}
+
+/* Sunray */
+.hover-bg-sunray-50:hover, .bg-hover-sunray-50:focus {
+    background-color: var(--sunray-50);
+}
+
+.hover-bg-sunray-100:hover, .bg-hover-sunray-100:focus {
+    background-color: var(--sunray-100);
+}
+
+.hover-bg-sunray-200:hover, .bg-hover-sunray-200:focus {
+    background-color: var(--sunray-200);
+}
+
+.hover-bg-sunray-300:hover, .bg-hover-sunray-300:focus {
+    background-color: var(--sunray-300);
+}
+
+.hover-bg-sunray-400:hover, .bg-hover-sunray-400:focus {
+    background-color: var(--sunray-400);
+}
+
+.hover-bg-sunray-500:hover, .bg-hover-sunray-500:focus {
+    background-color: var(--sunray-500);
+}
+
+.hover-bg-sunray-600:hover, .bg-hover-sunray-600:focus {
+    background-color: var(--sunray-600);
+}
+
+.hover-bg-sunray-700:hover, .bg-hover-sunray-700:focus {
+    background-color: var(--sunray-700);
+}
+
+.hover-bg-sunray-800:hover, .bg-hover-sunray-800:focus {
+    background-color: var(--sunray-800);
+}
+
+.hover-bg-sunray-900:hover, .bg-hover-sunray-900:focus {
+    background-color: var(--sunray-900);
+}
+
+/* Moonstone */
+.hover-bg-moonstone-50:hover, .bg-hover-moonstone-50:focus {
+    background-color: var(--moonstone-50);
+}
+
+.hover-bg-moonstone-100:hover, .bg-hover-moonstone-100:focus {
+    background-color: var(--moonstone-100);
+}
+
+.hover-bg-moonstone-200:hover, .bg-hover-moonstone-200:focus {
+    background-color: var(--moonstone-200);
+}
+
+.hover-bg-moonstone-300:hover, .bg-hover-moonstone-300:focus {
+    background-color: var(--moonstone-300);
+}
+
+.hover-bg-moonstone-400:hover, .bg-hover-moonstone-400:focus {
+    background-color: var(--moonstone-400);
+}
+
+.hover-bg-moonstone-500:hover, .bg-hover-moonstone-500:focus {
+    background-color: var(--moonstone-500);
+}
+
+.hover-bg-moonstone-600:hover, .bg-hover-moonstone-600:focus {
+    background-color: var(--moonstone-600);
+}
+
+.hover-bg-moonstone-700:hover, .bg-hover-moonstone-700:focus {
+    background-color: var(--moonstone-700);
+}
+
+.hover-bg-moonstone-800:hover, .bg-hover-moonstone-800:focus {
+    background-color: var(--moonstone-800);
+}
+
+.hover-bg-moonstone-900:hover, .bg-hover-moonstone-900:focus {
+    background-color: var(--moonstone-900);
+}
+
+/* Apricot */
+.hover-bg-apricot-50:hover, .bg-hover-apricot-50:focus {
+    background-color: var(--apricot-50);
+}
+
+.hover-bg-apricot-100:hover, .bg-hover-apricot-100:focus {
+    background-color: var(--apricot-100);
+}
+
+.hover-bg-apricot-200:hover, .bg-hover-apricot-200:focus {
+    background-color: var(--apricot-200);
+}
+
+.hover-bg-apricot-300:hover, .bg-hover-apricot-300:focus {
+    background-color: var(--apricot-300);
+}
+
+.hover-bg-apricot-400:hover, .bg-hover-apricot-400:focus {
+    background-color: var(--apricot-400);
+}
+
+.hover-bg-apricot-500:hover, .bg-hover-apricot-500:focus {
+    background-color: var(--apricot-500);
+}
+
+.hover-bg-apricot-600:hover, .bg-hover-apricot-600:focus {
+    background-color: var(--apricot-600);
+}
+
+.hover-bg-apricot-700:hover, .bg-hover-apricot-700:focus {
+    background-color: var(--apricot-700);
+}
+
+.hover-bg-apricot-800:hover, .bg-hover-apricot-800:focus {
+    background-color: var(--apricot-800);
+}
+
+.hover-bg-apricot-900:hover, .bg-hover-apricot-900:focus {
+    background-color: var(--apricot-900);
+}
+
+/* Desktop */
+.hover-bg-desktop-50:hover, .bg-hover-desktop-50:focus {
+    background-color: var(--desktop-50);
+}
+
+.hover-bg-desktop-100:hover, .bg-hover-desktop-100:focus {
+    background-color: var(--desktop-100);
+}
+
+.hover-bg-desktop-200:hover, .bg-hover-desktop-200:focus {
+    background-color: var(--desktop-200);
+}
+
+.hover-bg-desktop-300:hover, .bg-hover-desktop-300:focus {
+    background-color: var(--desktop-300);
+}
+
+.hover-bg-desktop-400:hover, .bg-hover-desktop-400:focus {
+    background-color: var(--desktop-400);
+}
+
+.hover-bg-desktop-500:hover, .bg-hover-desktop-500:focus {
+    background-color: var(--desktop-500);
+}
+
+.hover-bg-desktop-600:hover, .bg-hover-desktop-600:focus {
+    background-color: var(--desktop-600);
+}
+
+.hover-bg-desktop-700:hover, .bg-hover-desktop-700:focus {
+    background-color: var(--desktop-700);
+}
+
+.hover-bg-desktop-800:hover, .bg-hover-desktop-800:focus {
+    background-color: var(--desktop-800);
+}
+
+.hover-bg-desktop-900:hover, .bg-hover-desktop-900:focus {
+    background-color: var(--desktop-900);
+}
+
+/* Overcast */
+.hover-bg-overcast-50:hover, .bg-hover-overcast-50:focus {
+    background-color: var(--overcast-50);
+}
+
+.hover-bg-overcast-100:hover, .bg-hover-overcast-100:focus {
+    background-color: var(--overcast-100);
+}
+
+.hover-bg-overcast-200:hover, .bg-hover-overcast-200:focus {
+    background-color: var(--overcast-200);
+}
+
+.hover-bg-overcast-300:hover, .bg-hover-overcast-300:focus {
+    background-color: var(--overcast-300);
+}
+
+.hover-bg-overcast-400:hover, .bg-hover-overcast-400:focus {
+    background-color: var(--overcast-400);
+}
+
+.hover-bg-overcast-500:hover, .bg-hover-overcast-500:focus {
+    background-color: var(--overcast-500);
+}
+
+.hover-bg-overcast-600:hover, .bg-hover-overcast-600:focus {
+    background-color: var(--overcast-600);
+}
+
+.hover-bg-overcast-700:hover, .bg-hover-overcast-700:focus {
+    background-color: var(--overcast-700);
+}
+
+.hover-bg-overcast-800:hover, .bg-hover-overcast-800:focus {
+    background-color: var(--overcast-800);
+}
+
+.hover-bg-overcast-900:hover, .bg-hover-overcast-900:focus {
+    background-color: var(--overcast-900);
+}
+
+/* Cloud */
+.hover-bg-cloud-50:hover, .bg-hover-cloud-50:focus {
+    background-color: var(--cloud-50);
+}
+
+.hover-bg-cloud-100:hover, .bg-hover-cloud-100:focus {
+    background-color: var(--cloud-100);
+}
+
+.hover-bg-cloud-200:hover, .bg-hover-cloud-200:focus {
+    background-color: var(--cloud-200);
+}
+
+.hover-bg-cloud-300:hover, .bg-hover-cloud-300:focus {
+    background-color: var(--cloud-300);
+}
+
+.hover-bg-cloud-400:hover, .bg-hover-cloud-400:focus {
+    background-color: var(--cloud-400);
+}
+
+.hover-bg-cloud-500:hover, .bg-hover-cloud-500:focus {
+    background-color: var(--cloud-500);
+}
+
+.hover-bg-cloud-600:hover, .bg-hover-cloud-600:focus {
+    background-color: var(--cloud-600);
+}
+
+.hover-bg-cloud-700:hover, .bg-hover-cloud-700:focus {
+    background-color: var(--cloud-700);
+}
+
+.hover-bg-cloud-800:hover, .bg-hover-cloud-800:focus {
+    background-color: var(--cloud-800);
+}
+
+.hover-bg-cloud-900:hover, .bg-hover-cloud-900:focus {
+    background-color: var(--cloud-900);
+}
+
+/* Alert */
+.hover-bg-alert-50:hover, .bg-hover-alert-50:focus {
+    background-color: var(--alert-50);
+}
+
+.hover-bg-alert-100:hover, .bg-hover-alert-100:focus {
+    background-color: var(--alert-100);
+}
+
+.hover-bg-alert-200:hover, .bg-hover-alert-200:focus {
+    background-color: var(--alert-200);
+}
+
+.hover-bg-alert-300:hover, .bg-hover-alert-300:focus {
+    background-color: var(--alert-300);
+}
+
+.hover-bg-alert-400:hover, .bg-hover-alert-400:focus {
+    background-color: var(--alert-400);
+}
+
+.hover-bg-alert-500:hover, .bg-hover-alert-500:focus {
+    background-color: var(--alert-500);
+}
+
+.hover-bg-alert-600:hover, .bg-hover-alert-600:focus {
+    background-color: var(--alert-600);
+}
+
+.hover-bg-alert-700:hover, .bg-hover-alert-700:focus {
+    background-color: var(--alert-700);
+}
+
+.hover-bg-alert-800:hover, .bg-hover-alert-800:focus {
+    background-color: var(--alert-800);
+}
+
+.hover-bg-alert-900:hover, .bg-hover-alert-900:focus {
+    background-color: var(--alert-900);
+}
+
+/* Success */
+.hover-bg-success-50:hover, .bg-hover-success-50:focus {
+    background-color: var(--success-50);
+}
+
+.hover-bg-success-100:hover, .bg-hover-success-100:focus {
+    background-color: var(--success-100);
+}
+
+.hover-bg-success-200:hover, .bg-hover-success-200:focus {
+    background-color: var(--success-200);
+}
+
+.hover-bg-success-300:hover, .bg-hover-success-300:focus {
+    background-color: var(--success-300);
+}
+
+.hover-bg-success-400:hover, .bg-hover-success-400:focus {
+    background-color: var(--success-400);
+}
+
+.hover-bg-success-500:hover, .bg-hover-success-500:focus {
+    background-color: var(--success-500);
+}
+
+.hover-bg-success-600:hover, .bg-hover-success-600:focus {
+    background-color: var(--success-600);
+}
+
+.hover-bg-success-700:hover, .bg-hover-success-700:focus {
+    background-color: var(--success-700);
+}
+
+.hover-bg-success-800:hover, .bg-hover-success-800:focus {
+    background-color: var(--success-800);
+}
+
+.hover-bg-success-900:hover, .bg-hover-success-900:focus {
+    background-color: var(--success-900);
+}
+
+/* Vendors Background */
+
+.hover-bg-outlook:hover, .-outlookbg-hove:focus {
+    background-color: var(--outlook);
+}
+
+.hover-bg-sharepoint:hover, .hover-bg-sharepoint:focus {
+    background-color: var(--sharepoint);
+}
+
+.hover-bg-teams:hover, .hover-bg-teams:focus {
+    background-color: var(--teams);
+}
+
+.hover-bg-planner:hover, .hover-bg-planner:focus {
+    background-color: var(--planner);
+}
+
+.hover-bg-one-drive:hover, .hover-bg-one-drive:focus {
+    background-color: var(--one-drive);
+}
+
+/* Aliases */
+.hover-bg-primary-50:hover, .bg-hover-primary-50:focus {
+    background-color: var(--primary-50);
+}
+
+.hover-bg-primary-100:hover, .bg-hover-primary-100:focus {
+    background-color: var(--primary-100);
+}
+
+.hover-bg-primary-200:hover, .bg-hover-primary-200:focus {
+    background-color: var(--primary-200);
+}
+
+.hover-bg-primary-300:hover, .bg-hover-primary-300:focus {
+    background-color: var(--primary-300);
+}
+
+.hover-bg-primary-400:hover, .bg-hover-primary-400:focus {
+    background-color: var(--primary-400);
+}
+
+.hover-bg-primary-500:hover, .bg-hover-primary-500:focus {
+    background-color: var(--primary-500);
+}
+
+.hover-bg-primary-600:hover, .bg-hover-primary-600:focus {
+    background-color: var(--primary-600);
+}
+
+.hover-bg-primary-700:hover, .bg-hover-primary-700:focus {
+    background-color: var(--primary-700);
+}
+
+.hover-bg-primary-800:hover, .bg-hover-primary-800:focus {
+    background-color: var(--primary-800);
+}
+
+.hover-bg-primary-900:hover, .bg-hover-primary-900:focus {
+    background-color: var(--primary-900);
+}
+
+.hover-bg-transparent:hover, .hover-bg-transparent:focus {
+    background-color: var(--transparent);
+}
+
+.hover-bg-inherit:hover, .hover-bg-inherit:focus {
+    background-color: inherit;
+}
+
+/* Fill - for SVGs */
+
+.hover-fill-black:hover, .hover-fill-black:focus {
+    fill: var(--black);
+}
+
+.hover-fill-white:hover, .hover-fill-white:focus {
+    fill: var(--white);
+}
+
+/* Fill Brand */
+/* Marine */
+.hover-fill-marine-50:hover, .fill-hover-marine-50:focus {
+    fill: var(--marine-50);
+}
+
+.hover-fill-marine-100:hover, .fill-hover-marine-100:focus {
+    fill: var(--marine-100);
+}
+
+.hover-fill-marine-200:hover, .fill-hover-marine-200:focus {
+    fill: var(--marine-200);
+}
+
+.hover-fill-marine-300:hover, .fill-hover-marine-300:focus {
+    fill: var(--marine-300);
+}
+
+.hover-fill-marine-400:hover, .fill-hover-marine-400:focus {
+    fill: var(--marine-400);
+}
+
+.hover-fill-marine-500:hover, .fill-hover-marine-500:focus {
+    fill: var(--marine-500);
+}
+
+.hover-fill-marine-600:hover, .fill-hover-marine-600:focus {
+    fill: var(--marine-600);
+}
+
+.hover-fill-marine-700:hover, .fill-hover-marine-700:focus {
+    fill: var(--marine-700);
+}
+
+.hover-fill-marine-800:hover, .fill-hover-marine-800:focus {
+    fill: var(--marine-800);
+}
+
+.hover-fill-marine-900:hover, .fill-hover-marine-900:focus {
+    fill: var(--marine-900);
+}
+
+/* Sunray */
+.hover-fill-sunray-50:hover, .fill-hover-sunray-50:focus {
+    fill: var(--sunray-50);
+}
+
+.hover-fill-sunray-100:hover, .fill-hover-sunray-100:focus {
+    fill: var(--sunray-100);
+}
+
+.hover-fill-sunray-200:hover, .fill-hover-sunray-200:focus {
+    fill: var(--sunray-200);
+}
+
+.hover-fill-sunray-300:hover, .fill-hover-sunray-300:focus {
+    fill: var(--sunray-300);
+}
+
+.hover-fill-sunray-400:hover, .fill-hover-sunray-400:focus {
+    fill: var(--sunray-400);
+}
+
+.hover-fill-sunray-500:hover, .fill-hover-sunray-500:focus {
+    fill: var(--sunray-500);
+}
+
+.hover-fill-sunray-600:hover, .fill-hover-sunray-600:focus {
+    fill: var(--sunray-600);
+}
+
+.hover-fill-sunray-700:hover, .fill-hover-sunray-700:focus {
+    fill: var(--sunray-700);
+}
+
+.hover-fill-sunray-800:hover, .fill-hover-sunray-800:focus {
+    fill: var(--sunray-800);
+}
+
+.hover-fill-sunray-900:hover, .fill-hover-sunray-900:focus {
+    fill: var(--sunray-900);
+}
+
+/* Moonstone */
+.hover-fill-moonstone-50:hover, .fill-hover-moonstone-50:focus {
+    fill: var(--moonstone-50);
+}
+
+.hover-fill-moonstone-100:hover, .fill-hover-moonstone-100:focus {
+    fill: var(--moonstone-100);
+}
+
+.hover-fill-moonstone-200:hover, .fill-hover-moonstone-200:focus {
+    fill: var(--moonstone-200);
+}
+
+.hover-fill-moonstone-300:hover, .fill-hover-moonstone-300:focus {
+    fill: var(--moonstone-300);
+}
+
+.hover-fill-moonstone-400:hover, .fill-hover-moonstone-400:focus {
+    fill: var(--moonstone-400);
+}
+
+.hover-fill-moonstone-500:hover, .fill-hover-moonstone-500:focus {
+    fill: var(--moonstone-500);
+}
+
+.hover-fill-moonstone-600:hover, .fill-hover-moonstone-600:focus {
+    fill: var(--moonstone-600);
+}
+
+.hover-fill-moonstone-700:hover, .fill-hover-moonstone-700:focus {
+    fill: var(--moonstone-700);
+}
+
+.hover-fill-moonstone-800:hover, .fill-hover-moonstone-800:focus {
+    fill: var(--moonstone-800);
+}
+
+.hover-fill-moonstone-900:hover, .fill-hover-moonstone-900:focus {
+    fill: var(--moonstone-900);
+}
+
+/* Apricot */
+.hover-fill-apricot-50:hover, .fill-hover-apricot-50:focus {
+    fill: var(--apricot-50);
+}
+
+.hover-fill-apricot-100:hover, .fill-hover-apricot-100:focus {
+    fill: var(--apricot-100);
+}
+
+.hover-fill-apricot-200:hover, .fill-hover-apricot-200:focus {
+    fill: var(--apricot-200);
+}
+
+.hover-fill-apricot-300:hover, .fill-hover-apricot-300:focus {
+    fill: var(--apricot-300);
+}
+
+.hover-fill-apricot-400:hover, .fill-hover-apricot-400:focus {
+    fill: var(--apricot-400);
+}
+
+.hover-fill-apricot-500:hover, .fill-hover-apricot-500:focus {
+    fill: var(--apricot-500);
+}
+
+.hover-fill-apricot-600:hover, .fill-hover-apricot-600:focus {
+    fill: var(--apricot-600);
+}
+
+.hover-fill-apricot-700:hover, .fill-hover-apricot-700:focus {
+    fill: var(--apricot-700);
+}
+
+.hover-fill-apricot-800:hover, .fill-hover-apricot-800:focus {
+    fill: var(--apricot-800);
+}
+
+.hover-fill-apricot-900:hover, .fill-hover-apricot-900:focus {
+    fill: var(--apricot-900);
+}
+
+/* Desktop */
+.hover-fill-desktop-50:hover, .fill-hover-desktop-50:focus {
+    fill: var(--desktop-50);
+}
+
+.hover-fill-desktop-100:hover, .fill-hover-desktop-100:focus {
+    fill: var(--desktop-100);
+}
+
+.hover-fill-desktop-200:hover, .fill-hover-desktop-200:focus {
+    fill: var(--desktop-200);
+}
+
+.hover-fill-desktop-300:hover, .fill-hover-desktop-300:focus {
+    fill: var(--desktop-300);
+}
+
+.hover-fill-desktop-400:hover, .fill-hover-desktop-400:focus {
+    fill: var(--desktop-400);
+}
+
+.hover-fill-desktop-500:hover, .fill-hover-desktop-500:focus {
+    fill: var(--desktop-500);
+}
+
+.hover-fill-desktop-600:hover, .fill-hover-desktop-600:focus {
+    fill: var(--desktop-600);
+}
+
+.hover-fill-desktop-700:hover, .fill-hover-desktop-700:focus {
+    fill: var(--desktop-700);
+}
+
+.hover-fill-desktop-800:hover, .fill-hover-desktop-800:focus {
+    fill: var(--desktop-800);
+}
+
+.hover-fill-desktop-900:hover, .fill-hover-desktop-900:focus {
+    fill: var(--desktop-900);
+}
+
+/* Overcast */
+.hover-fill-overcast-50:hover, .fill-hover-overcast-50:focus {
+    fill: var(--overcast-50);
+}
+
+.hover-fill-overcast-100:hover, .fill-hover-overcast-100:focus {
+    fill: var(--overcast-100);
+}
+
+.hover-fill-overcast-200:hover, .fill-hover-overcast-200:focus {
+    fill: var(--overcast-200);
+}
+
+.hover-fill-overcast-300:hover, .fill-hover-overcast-300:focus {
+    fill: var(--overcast-300);
+}
+
+.hover-fill-overcast-400:hover, .fill-hover-overcast-400:focus {
+    fill: var(--overcast-400);
+}
+
+.hover-fill-overcast-500:hover, .fill-hover-overcast-500:focus {
+    fill: var(--overcast-500);
+}
+
+.hover-fill-overcast-600:hover, .fill-hover-overcast-600:focus {
+    fill: var(--overcast-600);
+}
+
+.hover-fill-overcast-700:hover, .fill-hover-overcast-700:focus {
+    fill: var(--overcast-700);
+}
+
+.hover-fill-overcast-800:hover, .fill-hover-overcast-800:focus {
+    fill: var(--overcast-800);
+}
+
+.hover-fill-overcast-900:hover, .fill-hover-overcast-900:focus {
+    fill: var(--overcast-900);
+}
+
+/* Cloud */
+.hover-fill-cloud-50:hover, .fill-hover-cloud-50:focus {
+    fill: var(--cloud-50);
+}
+
+.hover-fill-cloud-100:hover, .fill-hover-cloud-100:focus {
+    fill: var(--cloud-100);
+}
+
+.hover-fill-cloud-200:hover, .fill-hover-cloud-200:focus {
+    fill: var(--cloud-200);
+}
+
+.hover-fill-cloud-300:hover, .fill-hover-cloud-300:focus {
+    fill: var(--cloud-300);
+}
+
+.hover-fill-cloud-400:hover, .fill-hover-cloud-400:focus {
+    fill: var(--cloud-400);
+}
+
+.hover-fill-cloud-500:hover, .fill-hover-cloud-500:focus {
+    fill: var(--cloud-500);
+}
+
+.hover-fill-cloud-600:hover, .fill-hover-cloud-600:focus {
+    fill: var(--cloud-600);
+}
+
+.hover-fill-cloud-700:hover, .fill-hover-cloud-700:focus {
+    fill: var(--cloud-700);
+}
+
+.hover-fill-cloud-800:hover, .fill-hover-cloud-800:focus {
+    fill: var(--cloud-800);
+}
+
+.hover-fill-cloud-900:hover, .fill-hover-cloud-900:focus {
+    fill: var(--cloud-900);
+}
+
+/* Alert */
+.hover-fill-alert-50:hover, .fill-hover-alert-50:focus {
+    fill: var(--alert-50);
+}
+
+.hover-fill-alert-100:hover, .fill-hover-alert-100:focus {
+    fill: var(--alert-100);
+}
+
+.hover-fill-alert-200:hover, .fill-hover-alert-200:focus {
+    fill: var(--alert-200);
+}
+
+.hover-fill-alert-300:hover, .fill-hover-alert-300:focus {
+    fill: var(--alert-300);
+}
+
+.hover-fill-alert-400:hover, .fill-hover-alert-400:focus {
+    fill: var(--alert-400);
+}
+
+.hover-fill-alert-500:hover, .fill-hover-alert-500:focus {
+    fill: var(--alert-500);
+}
+
+.hover-fill-alert-600:hover, .fill-hover-alert-600:focus {
+    fill: var(--alert-600);
+}
+
+.hover-fill-alert-700:hover, .fill-hover-alert-700:focus {
+    fill: var(--alert-700);
+}
+
+.hover-fill-alert-800:hover, .fill-hover-alert-800:focus {
+    fill: var(--alert-800);
+}
+
+.hover-fill-alert-900:hover, .fill-hover-alert-900:focus {
+    fill: var(--alert-900);
+}
+
+/* Success */
+.hover-fill-success-50:hover, .fill-hover-success-50:focus {
+    fill: var(--success-50);
+}
+
+.hover-fill-success-100:hover, .fill-hover-success-100:focus {
+    fill: var(--success-100);
+}
+
+.hover-fill-success-200:hover, .fill-hover-success-200:focus {
+    fill: var(--success-200);
+}
+
+.hover-fill-success-300:hover, .fill-hover-success-300:focus {
+    fill: var(--success-300);
+}
+
+.hover-fill-success-400:hover, .fill-hover-success-400:focus {
+    fill: var(--success-400);
+}
+
+.hover-fill-success-500:hover, .fill-hover-success-500:focus {
+    fill: var(--success-500);
+}
+
+.hover-fill-success-600:hover, .fill-hover-success-600:focus {
+    fill: var(--success-600);
+}
+
+.hover-fill-success-700:hover, .fill-hover-success-700:focus {
+    fill: var(--success-700);
+}
+
+.hover-fill-success-800:hover, .fill-hover-success-800:focus {
+    fill: var(--success-800);
+}
+
+.hover-fill-success-900:hover, .fill-hover-success-900:focus {
+    fill: var(--success-900);
+}
+
+/* Fill vendors */
+
+.hover-fill-outlook:hover, .-outlookfill-hove:focus {
+    fill: var(--outlook);
+}
+
+.hover-fill-sharepoint:hover, .hover-fill-sharepoint:focus {
+    fill: var(--sharepoint);
+}
+
+.hover-fill-teams:hover, .hover-fill-teams:focus {
+    fill: var(--teams);
+}
+
+.hover-fill-planner:hover, .hover-fill-planner:focus {
+    fill: var(--planner);
+}
+
+.hover-fill-one-drive:hover, .hover-fill-one-drive:focus {
+    fill: var(--one-drive);
+}
+
+/* Aliases */
+.hover-fill-primary-50:hover, .fill-hover-primary-50:focus {
+    fill: var(--primary-50);
+}
+
+.hover-fill-primary-100:hover, .fill-hover-primary-100:focus {
+    fill: var(--primary-100);
+}
+
+.hover-fill-primary-200:hover, .fill-hover-primary-200:focus {
+    fill: var(--primary-200);
+}
+
+.hover-fill-primary-300:hover, .fill-hover-primary-300:focus {
+    fill: var(--primary-300);
+}
+
+.hover-fill-primary-400:hover, .fill-hover-primary-400:focus {
+    fill: var(--primary-400);
+}
+
+.hover-fill-primary-500:hover, .fill-hover-primary-500:focus {
+    fill: var(--primary-500);
+}
+
+.hover-fill-primary-600:hover, .fill-hover-primary-600:focus {
+    fill: var(--primary-600);
+}
+
+.hover-fill-primary-700:hover, .fill-hover-primary-700:focus {
+    fill: var(--primary-700);
+}
+
+.hover-fill-primary-800:hover, .fill-hover-primary-800:focus {
+    fill: var(--primary-800);
+}
+
+.hover-fill-primary-900:hover, .fill-hover-primary-900:focus {
+    fill: var(--primary-900);
+}
+
+.hover-fill-inherit:hover, .hover-fill-inherit:focus {
+    fill: inherit;
+}
+
+.hover-fill-current-color:hover, .hover-fill-current-color:focus {
+    fill: currentColor;
+}

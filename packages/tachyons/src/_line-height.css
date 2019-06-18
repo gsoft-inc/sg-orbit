@@ -1,0 +1,72 @@
+/*
+
+   LINE HEIGHT / LEADING
+   Docs: http://tachyons.io/docs/typography/line-height
+
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+
+*/
+
+.lh1 {
+    line-height: 1;
+}
+
+.lh2 {
+    line-height: 1.25;
+}
+
+.lh3 {
+    line-height: 1.33;
+}
+
+.lh4 {
+    line-height: 1.5;
+}
+
+@media (--breakpoint-not-small) {
+    .lh1-ns {
+        line-height: 1;
+    }
+    .lh2-ns {
+        line-height: 1.25;
+    }
+    .lh3-ns {
+        line-height: 1.33;
+    }
+    .lh4-ns {
+        line-height: 1.5;
+    }
+}
+
+@media (--breakpoint-medium) {
+    .lh1-m {
+        line-height: 1;
+    }
+    .lh2-m {
+        line-height: 1.25;
+    }
+    .lh3-m {
+        line-height: 1.33;
+    }
+    .lh4-m {
+        line-height: 1.5;
+    }
+}
+
+@media (--breakpoint-large) {
+    .lh1-l {
+        line-height: 1;
+    }
+    .lh2-l {
+        line-height: 1.25;
+    }
+    .lh3-l {
+        line-height: 1.33;
+    }
+    .lh4-l {
+        line-height: 1.5;
+    }
+}

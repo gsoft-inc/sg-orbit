@@ -39,7 +39,7 @@ For more options to install yarn, view https://yarnpkg.com/lang/en/docs/install/
 To install the packages and link all the workspace dependencies:
 
 ```
-yarn install
+yarn bootstrap
 ```
 
 ## Add new packages
@@ -124,6 +124,8 @@ By default, the output should be in a `dist` folder. For more details, view the 
 - Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Share a browserslist config
+
+- Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 
 

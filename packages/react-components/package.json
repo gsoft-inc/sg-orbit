@@ -1,10 +1,13 @@
 {
   "name": "@sharegate/react-components",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "run-p watch sb:start",
     "prebuild": "yarn clean",
@@ -24,7 +27,7 @@
     "react-dom": "*",
     "semantic-ui-react": "*",
     "@sharegate/semantic-ui-theme": "*",
-    "@sharegate/tachyons-sg": "*"
+    "@sharegate/tachyons": "*"
   },
   "dependencies": {
     "@sharegate/react-components-shared": "0.1.1",
@@ -39,7 +42,7 @@
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
     "@sharegate/semantic-ui-theme": "4.0.5",
-    "@sharegate/tachyons-sg": "3.0.1",
+    "@sharegate/tachyons": "3.0.1",
     "@storybook/react": "5.1.3",
     "@svgr/webpack": "4.3.0",
     "babel-loader": "8.0.6",

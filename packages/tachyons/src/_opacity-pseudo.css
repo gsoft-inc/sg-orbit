@@ -1,0 +1,58 @@
+/*
+
+    OPACITY PSEUDO
+    Docs: http://tachyons.io/docs/themes/opacity/
+
+*/
+
+.hover-o-100:hover {
+    opacity: 1;
+}
+
+.hover-o-90:hover {
+    opacity: .9;
+}
+
+.hover-o-80:hover {
+    opacity: .8;
+}
+
+.hover-o-70:hover {
+    opacity: .7;
+}
+
+.hover-o-60:hover {
+    opacity: .6;
+}
+
+.hover-o-50:hover {
+    opacity: .5;
+}
+
+.hover-o-40:hover {
+    opacity: .4;
+}
+
+.hover-o-30:hover {
+    opacity: .3;
+}
+
+.hover-o-20:hover {
+    opacity: .2;
+}
+
+.hover-o-10:hover {
+    opacity: .1;
+}
+
+.hover-o-05:hover {
+    opacity: .05;
+}
+
+.hover-o-025:hover {
+    opacity: .025;
+}
+
+.hover-o-0:hover {
+    opacity: 0;
+}

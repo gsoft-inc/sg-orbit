@@ -1,16 +1,20 @@
 {
   "name": "@sharegate/react-popup",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "@sharegate/tachyons": "*"
   },
   "dependencies": {
     "lodash": "4.17.11",

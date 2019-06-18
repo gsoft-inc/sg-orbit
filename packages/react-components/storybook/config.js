@@ -1,7 +1,7 @@
 import { configure } from "@storybook/react";
 
-import "@sharegate/tachyons-sg/css/tachyons.css";
-import "@sharegate/semantic-ui-theme/semantic/dist/semantic.css"
+import "@sharegate/tachyons";
+import "@sharegate/semantic-ui-theme/semantic/dist/semantic.css";
 
 import "./style/fonts/calibre/calibre.css";
 import "./style/custom.css";
