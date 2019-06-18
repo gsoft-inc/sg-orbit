@@ -1,5 +1,29 @@
 # Consumers
 
+You can install components from individual packages or with a global package that contains the whole components suit.
+
+To install them individually:
+
+```
+npm install @sharegate/react-date-range-picker
+
+...
+
+import { DateRangePicker } from @sharegate/react-date-range-picker
+
+```
+
+To install them from the global package
+
+```
+npm install @sharegate/react-components
+
+...
+
+import { DateRangePicker } from @sharegate/react-components
+
+```
+
 # Maintainers
 
 ## Installation

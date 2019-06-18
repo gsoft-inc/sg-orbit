@@ -22,7 +22,8 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*",
-    "semantic-ui-react": "*"
+    "semantic-ui-react": "*",
+    "@sharegate/semantic-ui-theme": "*"
   },
   "dependencies": {
     "@sharegate/react-components-shared": "0.1.1",

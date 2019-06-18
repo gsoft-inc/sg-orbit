@@ -113,11 +113,17 @@ By default, the output should be in a `dist` folder. For more details, view the 
 
 - Add vscode-styled-jsx to the recommended workspace extensions
 
-- Packager les licences
+- Packager les licences + README
 
 - The SUI theme should export a semantic.css file that can be added to storybook & the docz website instead of chery picking
 
 - Storybook should use shared babel-preset.js file
+
+- Deprecate old packages
+
+- Pour SUI ajouter le mapping de less au .overrides et .variables
+
+- Share a browserslist config
 
 
 
