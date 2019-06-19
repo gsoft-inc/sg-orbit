@@ -24,7 +24,7 @@
         "build:transpile:minify": "tachyons src/tachyons.css --minify > dist/tachyons.legacy.min.css",
         "watch": "watch \"yarn build:edge:css\" ./src/",
         "clean": "rimraf dist",
-        "create-dist": "node create-dist-folder"
+        "create-dist": "node tasks/create-dist"
     },
     "devDependencies": {
         "copy-files": "0.1.0",
