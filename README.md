@@ -105,8 +105,11 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 # TODO
 
 - Configure babel minimum browser to reduce bundle size
+
 - Use https://github.com/lodash/babel-plugin-lodash to prevent from using the whole lodash? (maybe there is also something to do with SUI react, view https://github.com/Semantic-Org/Semantic-UI-React/issues/830)
+
 - S'inspirer de https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.babel-preset.js
+
 - Use babel with runtime: https://www.youtube.com/watch?v=O_wbkFdr3WM
 
 - Make sure to bundle for env = "production" (styled jsx optimizeForSpeed)

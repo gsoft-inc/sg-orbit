@@ -27,12 +27,14 @@
         "clean": "rimraf dist",
         "create-dist": "node tasks/create-dist"
     },
+    "peerDependencies": {
+        "@sharegate/foundation": "*"
+    },
     "devDependencies": {
         "copy-files": "0.1.0",
         "normalize.css": "8.0.0",
         "tachyons-modules": "1.1.10",
         "tachyons-cli": "1.3.2",
-        "watch": "1.0.2",
-        "@sharegate/sg-brand-foundations": "3.0.4"
+        "watch": "1.0.2"
     }
 }

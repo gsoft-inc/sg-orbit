@@ -46,6 +46,7 @@
     "@babel/preset-react": "7.0.0",
     "@sharegate/semantic-ui-theme": "4.0.5",
     "@sharegate/tachyons": "3.0.1",
+    "@sharegate/foundation": "3.0.4",
     "@storybook/react": "5.1.3",
     "@svgr/webpack": "4.3.0",
     "babel-loader": "8.0.6",
