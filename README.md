@@ -115,17 +115,13 @@ By default, the output should be in a `dist` folder. For more details, view the 
 
 - Packager les licences + README
 
-- The SUI theme should export a semantic.css file that can be added to storybook & the docz website instead of chery picking
-
 - Storybook should use shared babel-preset.js file
 
-- Deprecate old packages
+- Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 - Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Share a browserslist config
-
-- Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 
 

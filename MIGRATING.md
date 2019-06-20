@@ -5,4 +5,4 @@ import @sharegate/tachyons-sg/css/tachyons.legacy.css -> import @sharegate/tachy
 @sharegate/semantic-ui-sg -> @sharegate/semantic-ui-theme
 import @sharegate/semantic-ui-sg/button.css -> @sharegate/semantic-ui-theme/dist/button.css
 
-Now foundation must be imported by the consumer, this is not included anymore with tachyons.
+Now foundation must be imported by the consumer, it's not included anymore with tachyons.
