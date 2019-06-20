@@ -1,0 +1,121 @@
+:root {
+    --white: #fff;
+    --transparent: transparent;
+    /* Marine */
+    --marine-50: #E2E4E8;
+    --marine-100: #B7BBC5;
+    --marine-200: #878E9E;
+    --marine-300: #566077;
+    --marine-400: #323E5A;
+    --marine-500: #0E1C3D;
+    --marine-600: #0C1937;
+    --marine-700: #0A142F;
+    --marine-800: #081127;
+    --marine-900: #04091A;
+    /* Sunray */
+    --sunray-50: #FFF6E7;
+    --sunray-100: #FEE9C3;
+    --sunray-200: #FEDB9B;
+    --sunray-300: #FDCD72;
+    --sunray-400: #FCC254;
+    --sunray-500: #FCB736;
+    --sunray-600: #FCB030;
+    --sunray-700: #FBA729;
+    --sunray-800: #FB9F22;
+    --sunray-900: #FA9016;
+    /* Moonstone */
+    --moonstone-50: #EFF6F6;
+    --moonstone-100: #D6E9E9;
+    --moonstone-200: #BBDBDA;
+    --moonstone-300: #9FCCCB;
+    --moonstone-400: #8BC1C0;
+    --moonstone-500: #76B6B5;
+    --moonstone-600: #6EAFAE;
+    --moonstone-700: #63A6A5;
+    --moonstone-800: #599E9D;
+    --moonstone-900: #468E8D;
+    /* Apricot */
+    --apricot-50: #E6F9F7;
+    --apricot-100: #C1F1EB;
+    --apricot-200: #98E8DE;
+    --apricot-300: #6EDFD1;
+    --apricot-400: #30D1BD;
+    --apricot-500: #2BCCB7;
+    --apricot-600: #29C4B1;
+    --apricot-700: #2BBDAA;
+    --apricot-800: #28B5A2;
+    --apricot-900: #28AB9B;
+    /* Desktop */
+    --desktop-50: #FEEEE4;
+    --desktop-100: #FCD5BC;
+    --desktop-200: #FAB990;
+    --desktop-300: #F79D64;
+    --desktop-400: #F68842;
+    --desktop-500: #F47321;
+    --desktop-600: #F36B1D;
+    --desktop-700: #F16018;
+    --desktop-800: #EF5614;
+    --desktop-900: #EC430B;
+    /* Overcast */
+    --overcast-50: #E4F2FF;
+    --overcast-100: #BCE0FF;
+    --overcast-200: #90CBFF;
+    --overcast-300: #63B6FF;
+    --overcast-400: #41A6FF;
+    --overcast-500: #2096FF;
+    --overcast-600: #1C8EFF;
+    --overcast-700: #1883FF;
+    --overcast-800: #1379FF;
+    --overcast-900: #0B68FF;
+    /* Cloud */
+    --cloud-50: #F0F1F3;
+    --cloud-100: #DADCE2;
+    --cloud-200: #C1C5CF;
+    --cloud-300: #A8ADBB;
+    --cloud-400: #959CAD;
+    --cloud-500: #828A9E;
+    --cloud-600: #7A8296;
+    --cloud-700: #6F778C;
+    --cloud-800: #656D82;
+    --cloud-900: #525A70;
+    /* Alert */
+    --alert-50: #FFE3E8;
+    --alert-100: #FEB8C6;
+    --alert-200: #FE89A1;
+    --alert-300: #FD597B;
+    --alert-400: #FC365E;
+    --alert-500: #FC1242;
+    --alert-600: #FC103C;
+    --alert-700: #FB0D33;
+    --alert-800: #FB0A2B;
+    --alert-900: #FA051D;
+    /* Success */
+    --success-50: #E4F9ED;
+    --success-100: #BBF0D2;
+    --success-200: #8EE7B5;
+    --success-300: #61DD97;
+    --success-400: #3FD580;
+    --success-500: #1DCE6A;
+    --success-600: #1AC962;
+    --success-700: #15C257;
+    --success-800: #11BC4D;
+    --success-900: #0AB03C;
+    /* Vendors */
+    --outlook: #2873ba;
+    --sharepoint: #2873ba;
+    --teams: #575aa7;
+    --planner: #33763a;
+    --one-drive: #0045F5;
+    /* References */
+    --primary-50: var(--apricot-50);
+    --primary-100: var(--apricot-100);
+    --primary-200: var(--apricot-200);
+    --primary-300: var(--apricot-300);
+    --primary-400: var(--apricot-400);
+    --primary-500: var(--apricot-500);
+    --primary-600: var(--apricot-600);
+    --primary-700: var(--apricot-700);
+    --primary-800: var(--apricot-800);
+    --primary-900: var(--apricot-900);
+    --transparent: transparent;
+} 

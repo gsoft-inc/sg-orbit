@@ -1,0 +1,28 @@
+:root {
+    /* 4px */
+    --scale-alpha: .25rem;
+    /* 8px */
+    --scale-bravo: .5rem;
+    /* 12px */
+    --scale-charlie: .75rem;
+    /* 16px */
+    --scale-delta: 1rem;
+    /* 20px */
+    --scale-echo: 1.25rem;
+    /* 24px */
+    --scale-foxtrot: 1.5rem;
+    /* 32px */
+    --scale-golf: 2rem;
+    /* 40px */
+    --scale-hotel: 2.5rem;
+    /* 48px */
+    --scale-india: 3rem;
+    /* 56px */
+    --scale-juliett: 3.5rem;
+    /* 64px */
+    --scale-kilo: 4rem;
+    /* 72px */
+    --scale-lima: 4.5rem;
+    /* 80px */
+    --scale-mike: 5rem;
+}

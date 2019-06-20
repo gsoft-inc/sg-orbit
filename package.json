@@ -19,7 +19,8 @@
     "clean": "lerna run clean --parallel",
     "delete-node-modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
     "new-version": "lerna version --exact",
-    "publish": "lerna publish --exact",
+    "new-publish": "lerna publish from-package --exact",
+    "new-publish:next": "yarn new-publish --dist-tag next",
     "diff": "lerna diff"
   },
   "workspaces": {

@@ -229,7 +229,7 @@ export class DateRangePickerCalendar extends PureComponent {
                     }
 
                     .calendar :global(.CalendarDay__selected) {
-                        background: var(--primary);
+                        background: var(--primary-500);
                         color: var(--white);
                     }
 
@@ -298,7 +298,7 @@ export class DateRangePickerCalendar extends PureComponent {
 
                     .calendar :global(.CalendarDay__selected:hover),
                     .calendar :global(.CalendarDay__selected:active) {
-                        background: var(--primary);
+                        background: var(--primary-500);
                     }
 
                     .calendar :global(.CalendarDay__selected_span:hover),
@@ -307,7 +307,7 @@ export class DateRangePickerCalendar extends PureComponent {
                     }
 
                     .calendar :global(.CalendarDay__default.CalendarDay__selected):focus {
-                        background: var(--primary);
+                        background: var(--primary-500);
                         color: var(--white);
                     }
 

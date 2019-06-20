@@ -1,0 +1,8 @@
+:root {
+    --shadow-lightness: 56%;
+    --shadow-1: 0px 0px 4px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-2: 0px 0px 8px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-3: 2px 2px 4px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-4: 0 4px 12px 0 hsla(223, 13%, var(--shadow-lightness), 0.32);
+    --shadow-5: 0 8px 24px 0 hsla(223, 13%, var(--shadow-lightness), 0.32);
+}

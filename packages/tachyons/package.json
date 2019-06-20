@@ -10,7 +10,8 @@
         "dist"
     ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "scripts": {
         "setup": "yarn create-dist",

@@ -1,7 +1,8 @@
 import { configure } from "@storybook/react";
 
+import "@sharegate/foundation";
 import "@sharegate/tachyons";
-import "@sharegate/semantic-ui-theme/semantic/dist/semantic.css";
+import "@sharegate/semantic-ui-theme";
 
 import "./style/fonts/calibre/calibre.css";
 import "./style/custom.css";

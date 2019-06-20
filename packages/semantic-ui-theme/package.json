@@ -5,14 +5,15 @@
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
-    "main": "semantic/dist/semantic.js",
+    "main": "semantic/dist/semantic.css",
     "style": "semantic/dist/semantic.css",
     "files": [
         "semantic/dist",
         "dist"
     ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "scripts": {
         "setup": "yarn build",
