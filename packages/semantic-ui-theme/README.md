@@ -7,14 +7,14 @@
 Install the library from *npm*
 
 ```bash
-npm install @sharegate/semantic-ui-sg --save
+npm install @sharegate/semantic-ui-theme --save
 ```
 
 ### Usage
 
 To add a new Semantic UI control in your project...
 
-Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@sharegate/semantic/ui-sg/`.
+Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@sharegate/semantic-ui-theme/dist/`.
 
 You should import them in your `main.css`.
 
@@ -22,7 +22,7 @@ You should import them in your `main.css`.
 /* main.css */
 /* ... */
 
-@import "~@sharegate/semantic-ui-sg/button.css";
+@import "~@sharegate/semantic-ui-theme/dist/button.css";
 
 ```
 
@@ -40,28 +40,6 @@ For Semantic UI React documentation: https://react.semantic-ui.com/
 
 The following documentation is _only_ for the maintainers of the package.
 
-### Installation
-
-Clone the repository
-
-Install the dependencies
-
-```bash
-npm install
-```
-
-Build Semantic UI
-
-```bash
-npm run build
-```
-
-Start developping
-
-```bash
-npm start
-```
-
 ### Development flow
 
 To start developing, run the following command:
@@ -70,11 +48,7 @@ To start developing, run the following command:
 npm start
 ```
 
-Once started, a browser tab will open and serve the file `index.html`.
-
-The `index.html` file should showcase all the Semantic UI components that has been customized to follow the `Sharegate Design Guidelines`.
-
-When a change to any Semantic UI file or the `index.html` file is saved, the page will be automatically refresh.
+BLABLA
 
 ### How to work with Semantic UI 
 
@@ -110,52 +84,6 @@ You should never do the followings:
 - Update Semantic UI `default` theme in `semantic/src/themes/default`
 - Use the `Site Theme` layer
 
-### Publish
-
-#### Semantic Versioning
-
-Before you publish, make sure you understand [semantic versioning](https://semver.org/).
-
-#### Go
-
-First thing first... make sure you're logged in to NPM.
-
-If you're not, run the following command
-
-```bash
-npm login
-```
-
-and follow the instructions.
-
-Run the following command and let the magic happen
-
-```bash
-npm version major | minor | patch --otp=[YOU_AUTHENTICATOR_CODE]
-```
-
-If you have the following error
-
-```bash
-npm ERR! Git working directory not clean.
-```
-
-Make sure you've push your changes to Git prior to running the command.
-
-#### What the magic does
-
-The version script is based on the recipe described in the [npm-version documentation](https://docs.npmjs.com/cli/version).
-
-The following steps will be executed in order
-
-1. Bump the version of the package
-2. Build Semantic UI
-3. Delete the `publish` folder
-4. Copy Semantic UI distribution files to the `publish` folder
-5. Copy `package.json`, `LICENCE` and `README.md` files from the root to the `publish` folder
-6. Commit + push the package changes and the tags
-7. Publish the package to `NPM`
-
 ## License
 
-Copyright © 2018, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/sharegate/semantic-ui-sg/blob/master/LICENSE.
+Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/sharegate/semantic-ui-sg/blob/master/LICENSE.
