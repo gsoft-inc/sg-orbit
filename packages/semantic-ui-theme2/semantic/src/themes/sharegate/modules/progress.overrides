@@ -1,0 +1,6 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.indicating.progress[data-percent^="2"] .bar {
+  background-color: @indicatingSecondColor;
+}

@@ -1,0 +1,49 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.input > input {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    height: 48px; // avoid rem conversion
+    width: 240px;
+}
+
+// making sure that the inputs all share the same height
+.input,
+form input {
+    height: 48px;
+}
+
+.ui.input:not(.disabled) input[disabled],
+.ui.disabled.input > input {
+    border-color: var(--cloud-50);
+    background-color: var(--cloud-50);
+}
+
+.ui.input:not(.disabled) input[disabled] > input::-webkit-input-placeholder,
+.ui.disabled.input input::-webkit-input-placeholder,
+.ui.input:not(.disabled) input[disabled] > input ,
+.ui.disabled.input input {
+    color: @cloudDark;
+}
+
+// Success Variation
+.ui.input.success input {
+    border-color: @positiveColor;
+}
+
+.ui.input.success svg {
+    fill: var(--success-500);
+}
+
+// center the loading pseudo element on inputs
+.ui.loading.loading.input > i.icon:after {
+    margin: 0;
+}
+
+// Input Colored
+// .ui.input.colored input {
+//     background-color: @cloudLightest;
+//     border: none;
+// }

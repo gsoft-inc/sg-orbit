@@ -1,0 +1,147 @@
+/*******************************
+            Checkbox
+*******************************/
+
+@checkboxSize: 20px;
+@checkboxColor: @textColor;
+@checkboxLineHeight: @checkboxSize;
+
+/* Label */
+@labelDistance: 1.75em;
+@labelColor: inherit;
+
+/* Checkbox */
+@checkboxBackground: @white;
+@checkboxBorder: 1px solid @cloud;
+@checkboxBorderRadius: @3px;
+@checkboxTransition:
+  border @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing,
+  transform @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
+;
+
+@checkboxFocusBorderColor: @focusedFormMutedBorderColor;
+@disabledCheckboxOpacity: 1;
+
+/* Checkmark */
+@checkboxCheckFontSize: 1em;
+
+/* Label */
+
+
+/*-------------------
+        States
+--------------------*/
+
+/* Hover */
+
+/* Pressed */
+
+/* Focus */
+@checkboxFocusBackground: @white;
+@checkboxFocusBorderColor: @cloud;
+
+/* Active */
+@checkboxActiveBackground: @primaryColor;
+@checkboxActiveBorderColor: @primaryColor;
+
+/* Active Focus */
+@checkboxActiveFocusBackground: @primaryColor;
+@checkboxActiveFocusBorderColor: @primaryColor;
+
+
+/* Indeterminate */
+
+/* Disabled */
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Radio */
+/* Uses px to avoid rounding issues with circles */
+
+@radioSize: 16px;
+@radioTop: 0px;
+
+@bulletTop: 0px;
+@bulletScale: (8 / 16); /* 8px as unitless value from radio size */
+
+@bulletColor: @primaryColor;
+@radioBackground: @white;
+
+@radioFocusBackground: @radioBackground;
+@radioActiveBackground: @radioBackground;
+@radioActiveFocusBackground: @radioBackground;
+
+@radioFocusBulletColor: @bulletColor;
+@radioActiveBulletColor: @bulletColor;
+@radioActiveFocusBulletColor: @bulletColor;
+
+/* Slider & Toggle Handle */
+
+/* Slider */
+
+@sliderHandleSize: 1.25rem;
+@sliderLineHeight: 0.25rem;
+@sliderLineVerticalOffset: 0.375rem;
+@sliderLineColor: @primaryColor;
+@sliderHoverLaneBackground: @sliderLineColor;
+@sliderOnLineColor: @sliderLineColor;
+@sliderOnFocusLineColor: @sliderLineColor;
+/* Slider States */
+
+
+
+/* Toggle */
+@toggleLaneWidth: 2.75rem;
+@toggleHandleSize: 0.875rem;
+@toggleTransitionDuration: 0.2s;
+
+@toggleWidth: @toggleLaneWidth;
+@toggleHeight: 1.25rem;
+
+@toggleHandleRadius: @circularRadius;
+@toggleHandleOffset: .185rem;
+@toggleHandleTransition:
+  background @sliderTransitionDuration @defaultEasing,
+  left @sliderTransitionDuration @defaultEasing
+;
+
+/* Slider & Toggle Handle */
+@handleBackground: @white;
+@handleBoxShadow:
+  0 0 0 0 @borderColor inset
+;
+
+@toggleLaneBackground: var(--cloud-200);
+/* cloud-dark */
+@toggleLaneHeight: 1.25rem;
+@toggleLaneBoxShadow: none;
+@toggleLaneVerticalOffset: 0rem;
+@toggleOffOffset: 0.25rem;
+@toggleOnOffset: (@toggleLaneWidth - @toggleHandleSize) - 0.25rem;
+
+@toggleLabelDistance: @toggleLaneWidth;
+@toggleLabelLineHeight: 1.5rem;
+@toggleLabelOffset: 0;
+
+
+@toggleFocusColor: var(--cloud-200);
+@toggleHoverColor: @toggleFocusColor; 
+
+@toggleOffLabelColor: @checkboxColor;
+@toggleOffHandleBoxShadow: @handleBoxShadow;
+
+@toggleOnLabelColor: @selectedTextColor;
+@toggleOnLaneColor: @primaryColor;
+
+@toggleOnHandleBoxShadow: @handleBoxShadow;
+
+@toggleOnFocusLaneColor: @primaryColor;
+@toggleOnFocusLabelColor: @toggleOnLabelColor;
+
+/*-------------------
+      Variations
+--------------------*/

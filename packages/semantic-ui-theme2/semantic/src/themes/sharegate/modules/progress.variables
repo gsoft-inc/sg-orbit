@@ -1,0 +1,8 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@tinyBarHeight: 0.3em;
+@barMinWidth: 0.5em;
+@red: #db012d;
+@yellow: #fcb736;
+@green: #2bbcaa;

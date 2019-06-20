@@ -1,0 +1,19 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.search {
+    width: 100%;
+}
+
+.ui.search .prompt {
+    height: 48px;
+    width: 100%;
+}
+
+// center the loading pseudo element on 
+.ui.loading.search .input > i.icon:after,
+.ui.loading.search .input > i.icon:before {
+    margin: 0;
+    transform: translate(-50%, -50%);
+}

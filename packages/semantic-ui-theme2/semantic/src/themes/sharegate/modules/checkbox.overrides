@@ -1,0 +1,67 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+// border-box is necessary in order for the radio to be centered everywhere
+.ui.radio.checkbox label:before {
+  box-sizing: border-box;
+}
+
+.ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ label:before {
+    background: @primaryColor url("@{iconsPath}/checkmark.svg") center center no-repeat;
+    background-size: 12px 8px;
+}
+
+.ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ label:before {
+    background: @white url("@{iconsPath}/checkmark.svg") center center no-repeat;
+    background-size: 12px 8px;
+}
+
+.ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ .box:before, .ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ label:before {
+    background-color: @primaryColor;
+}
+
+// Toggle
+// Semantic wants a very high toggle but we don't let's position this
+.ui.toggle.checkbox .box:after,
+.ui.toggle.checkbox label:after {
+    top: 3px;
+}
+
+.ui.toggle.disabled label::before,
+.ui.toggle.disabled label:hover::before,
+.ui.toggle.disabled label:focus::before,
+.ui.toggle.disabled label:active::before,
+.ui.toggle.disabled label:checked::before,
+.ui.toggle.disabled.checkbox input:focus ~ label:before {
+    background-color: var(--cloud-50);
+}
+
+.ui.ui.toggle.checked.disabled label::before,
+.ui.ui.toggle.checked.disabled label:hover::before,
+.ui.ui.toggle.checked.disabled label:focus::before,
+.ui.ui.toggle.checked.disabled label:active::before,
+.ui.ui.toggle.checked.disabled label:checked::before,
+.ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before {
+    background-color: @primaryColorLightest!important;
+}
+
+.ui.slider.checkbox .box:after,
+.ui.slider.checkbox label:after {
+    background: @white;
+    border: @sliderLineHeight solid @primaryColor;
+}
+
+.ui.slider.checkbox input:not([type=radio]):checked ~ .box:before,
+.ui.slider.checkbox input:not([type=radio]):checked ~ label:before {
+    background: none;
+}
+
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before {
+    background-color: @primaryColor;
+}
+
+.ui.slider.checkbox {
+    padding-left: @toggleHandleSize;
+}

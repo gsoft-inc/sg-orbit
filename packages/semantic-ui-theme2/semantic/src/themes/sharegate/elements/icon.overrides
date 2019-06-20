@@ -1,0 +1,85 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.input i.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui.button {
+    display: flex;
+}
+
+.ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
+    margin: 0 .35em 0 0;
+}
+
+.ui.button > .icon:not(.button) {
+    opacity: 1;
+    height: auto;
+}
+
+.ui.icon.input > i.icon:before,
+.ui.icon.input > i.icon:after {
+    margin-top: 0!important;
+    transform: translateY(-50%);
+}
+
+// Search icon
+i.icon.search:before {
+    content: "";
+    display: block;
+    height: 18px;
+    width: 18px;
+    top: 0;
+    margin-top: 0;
+    background: url("@{iconsPath}/magnifier.svg") center center no-repeat !important;
+}
+
+.ui.loading i.icon.search:before {
+    background: none!important;
+}
+
+.ui.disabled i.icon.search:before {
+    background: url("@{iconsPath}/magnifier-disabled.svg") center center no-repeat !important;
+}
+
+
+// Handshake icon
+i.icon.handshake {
+    height: 16px;
+    width: 24px;
+}
+
+i.icon.handshake:before {
+    content: "";
+    display: block;
+    height: 16px;
+    width: 24px;
+    top: 0;
+    margin-top: 0;
+    background: url("@{iconsPath}/handshake.svg") center center no-repeat !important;
+}
+
+// delete Icon
+i.icon.delete {
+    height: 10px;
+    width: 10px;
+}
+
+i.icon.delete:before {
+    content: "";
+    display: block;
+    height: 10px;
+    width: 10px;
+    top: 0;
+    margin-top: 0;
+    background: url("@{iconsPath}/delete.svg") center center no-repeat !important;
+}
+
+.ui.label > .icon {
+  margin: 0!important;
+  margin-left: 8px!important;
+}

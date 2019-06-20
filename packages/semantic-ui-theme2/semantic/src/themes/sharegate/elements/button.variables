@@ -1,0 +1,149 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@disabledOpacity: 1;
+@medium: 1.125rem;
+@inputVerticalPadding: @relative9px;
+
+/*******************************
+            Button
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/* Button */
+@horizontalMargin: 0;
+@backgroundColor: @marine;
+
+/* Button defaults to using same height as input globally */
+@horizontalPadding: 1.5rem;
+
+/* Text */
+@borderRadius: 2em;
+@textColor: @white;
+
+/* Internal Shadow */
+
+/* Box Shadow */
+@boxShadow: none;
+
+/* Icon */
+
+@iconMargin: 0 0.35em 0 0;
+@iconHeight: auto;
+
+/* Loader */
+
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+
+/*-------------------
+        Group
+--------------------*/
+
+@groupBoxShadow: none;
+/*-------------------
+        States
+--------------------*/
+
+/* Hovered */
+@hoverBackgroundColor: @black;
+@hoverColor: @white;
+
+/* Focused */
+@focusColor: @white;
+
+/* Pressed Down */
+@downBackgroundColor: @marineDarkest;
+@downColor: @white;
+
+/* Active */
+@activeBackgroundColor: @black;
+@activeColor: @white;
+
+/* Active + Hovered */
+
+/* Loading */
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Or */
+
+/* Icon */
+
+/* Labeled */
+
+/* Labeled Icon */
+
+/* Inverted */
+@invertedBorderSize: 0;
+@invertedTextColor: @black;
+@invertedTextHoverColor: @marineDark;
+@invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
+@invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
+
+
+/* Basic */
+@basicBackground: transparent none;
+@basicFontWeight: @bold;
+@basicTextColor: @black;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud inset;
+
+/* Basic Hover */
+@basicHoverBackground: @black!important;
+@basicHoverTextColor: @white;
+@basicHoverBoxShadow:
+  0px 0px 0px @basicBorderSize @black inset
+;
+
+/* Basic Focus */
+@basicFocusBackground: @black!important;
+@basicFocusTextColor: @white;
+@basicFocusBoxShadow:
+  0px 0px 0px @basicBorderSize @black inset
+;
+
+/* Basic Down */
+
+/* Basic Active */
+@basicActiveBackground: @black;
+@basicActiveBoxShadow: 0px 0px 0px @basicBorderSize @black inset;
+@basicActiveTextColor: @white;
+
+/* Basic Inverted */
+
+/* Basic Group */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Colors */
+@coloredBoxShadow: none;
+
+/* Colored */
+
+/* Inverted */
+
+/* Ordinality */
+
+@primaryTextColor: @white;
+@secondaryTextColor: @marineDark;
+@secondaryColorFocus: @cloud;
+@positiveTextColor: @white;
+@negativeTextColor: @white;
+
+/* Compact */
+
+/* Attached */
+@attachedBoxShadow: 0px 0px 0px 0px @borderColor;
+
+/* Floated */
+
+/* Animated */

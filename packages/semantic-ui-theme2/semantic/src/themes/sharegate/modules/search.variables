@@ -1,0 +1,68 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+/*******************************
+            Search
+*******************************/
+
+/* Search Prompt */
+@promptBorderRadius: @relative4px;
+@promptFontSize: @relativeMedium;
+
+/* Mobile */
+
+/* Result Box */
+
+
+/* Result */
+@resultDivider: 0;
+@resultsBorder: 0;
+@resultHoverBackground: @cloudLightest;
+@resultsBackground: var(--white);
+
+/* Result Image */
+
+
+/* Result Content */
+
+
+/* Description */
+
+
+/* Price */
+
+
+/* Special Message */
+
+
+/* All Results Link */
+
+
+/*******************************
+            States
+*******************************/
+
+/* Focus */
+@promptFocusBackground: @promptBackground;
+@promptFocusBorderColor: @marineDark;
+
+/* Hover */
+
+
+/* Loading */
+
+/* Active Category */
+
+/* Active Result */
+@resultsBoxShadow: var(--shadow-4);
+
+
+/*******************************
+            Types
+*******************************/
+
+/* Selection */
+
+/* Category */
+

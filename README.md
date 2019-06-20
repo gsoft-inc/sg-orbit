@@ -98,6 +98,9 @@ yarn build:rc
 
 By default, the output should be in a `dist` folder. For more details, view the specific packages README.
 
+## Good to remember
+
+Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-ui will try to reinstall everytime we do a yarn install. Haven't found any other way to prevent it.
 
 # TODO
 

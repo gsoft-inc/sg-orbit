@@ -1,0 +1,5 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@loaderFillColor: #d4d6db;
+@shapeBorderColor: #828a9e transparent transparent;

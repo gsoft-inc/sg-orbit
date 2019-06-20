@@ -1,0 +1,177 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@selectedTextColor: @marineDark;
+@hoveredItemColor: @marineDark;
+@itemColor: @marineDark;
+
+/*******************************
+            Dropdown
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Icon */
+
+/* Current Text */
+
+/* Menu */
+
+/* Text */
+
+/* Menu Item */
+@itemLineHeight: 1.5em;
+@itemFontWeight: 400;
+@itemVerticalPadding: 0.75rem;
+@itemHorizontalPadding: 1.5rem;
+
+/* Sub Menu */
+
+/* Menu Header */
+
+/* Menu Divider */
+
+/* Menu Input */
+
+@selectionMenuBoxShadow: var(--shadow-4);
+
+/* Menu Image */
+@menuImageMaxHeight: 2em;
+@menuImageVerticalMargin: 0;
+
+
+/* Item Sub-Element */
+
+/* Sub-Menu Dropdown Icon */
+
+/* Description */
+
+/* Message */
+
+/* Floated Content */
+
+@floatingMenuDistance: 0.5em;
+@floatingMenuBoxShadow: var(--shadow-4);
+
+/*-------------------
+        Types
+--------------------*/
+
+/*------------
+   Selection
+--------------*/
+@selectionMenuBoxShadow: var(--shadow-4);
+@selectionMinHeight: 2.5em;
+@selectionBorder: 1px solid @cloud;
+@selectionHoverBorderColor: @marineDark;
+@selectionVisibleBorderColor: @white;
+@selectionActiveHoverBorderColor: @white;
+@selectionActiveHoverBoxShadow: var(--shadow-4);
+@selectionFocusMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
+@selectionVisibleBoxShadow: var(--shadow-4);
+@selectionVisibleMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
+@selectionFocusBorderColor: @white;
+@selectionFocusBoxShadow: var(--shadow-4);
+@selectionItemDivider: '';
+@itemVerticalPadding: 0.75rem;
+
+/* Header */
+@menuHeaderPadding: 0 1.5rem;
+@menuInputMargin: 1.5rem 1.5rem 1rem 1.5rem;
+@menuHeaderMargin: 1rem 0 0.5rem 0;
+@menuHeaderColor: @cloudDark;
+@menuHeaderFontSize: 12px;
+@menuHeaderFontWeight: 500;
+@menuHeaderTextTransform: uppercase;
+
+
+/* <select> */
+
+/* Responsive */
+
+/* Derived */
+
+/* Hover */
+@hoveredItemBackground: @cloudLightest;
+
+/* Focus */
+
+/* Visible */
+
+/* Visible Hover */
+
+
+/*--------------
+     Search
+--------------*/
+
+/* Search Selection */
+@searchSelectionLineHeight: 2.5em;
+
+/* Inline */
+
+
+/*--------------
+    Multiple
+--------------*/
+
+/* Split Actual Padding Between Child and Parent (allows for label spacing) */
+
+/* Child Elements */
+
+/* Dropdown Icon */
+
+/* Selection Label */
+
+/*-------------------
+       States
+--------------------*/
+
+/* Hovered */
+
+/* Default Text */
+
+/* Loading */
+
+/* Active Menu Item */
+
+
+/* Selected */
+
+/* Error */
+
+/* Clearable */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Scrolling */
+
+/* Upward */
+@upwardMenuBoxShadow: 0 -4px 12px 0 rgba( 130, 138, 158, .32 );
+@upwardSelectionMenuBoxShadow: 0 -4px 12px 0 rgba( 130, 138, 158, .32 );
+@upwardMenuBorderRadius: @borderRadius @borderRadius 0em 0em;
+@upwardSelectionHoverBoxShadow: 0;
+@upwardSelectionVisibleBoxShadow: 0 -4px 12px 0 rgba( 130, 138, 158, .32 );
+@upwardSelectionActiveHoverBoxShadow: 0 -4px 12px 0 rgba( 130, 138, 158, .32 );
+@upwardSelectionActiveHoverMenuBoxShadow: 0 -4px 12px 0 rgba( 130, 138, 158, .32 );
+
+
+/* Flyout Direction */
+
+/* Left */
+
+/* Simple */
+
+/* Floating */
+
+/* Pointing */
+
+/* Pointing Upward */
