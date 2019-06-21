@@ -112,7 +112,14 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Use babel with runtime: https://www.youtube.com/watch?v=O_wbkFdr3WM
 
-- Make sure to bundle for env = "production" (styled jsx optimizeForSpeed)
+- Make sure to bundle for env = "production" (styled jsx optimizeForSpeed) + les babel transfo
+```
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  },
+```
 
 - Prettier workspace setup
 - ESLint workspace setup

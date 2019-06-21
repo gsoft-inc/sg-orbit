@@ -15,14 +15,14 @@
         "setup": "yarn build",
         "start": "cd semantic && gulp watch",
         "build": "cd semantic && gulp build",
-        "postbuild": "yarn copy-to-dist",
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "copy-to-dist": "node tasks/copy-to-dist"
+        "prepublish": "yarn copy-to-dist",
+        "copy-to-dist": "node scripts/copy-to-dist"
     },
     "devDependencies": {
         "semantic-ui": "2.4.2"
     },
-    "gitHead": "c5032f99bd419dc5fb977d82bc765d585f82fc4b"
+    "gitHead": "3104c40cb184af6984eaf9f6b2d9bf91c29f47a1"
 }

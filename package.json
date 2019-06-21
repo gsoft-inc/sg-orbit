@@ -30,7 +30,7 @@
     "deploy:sb": "",
     "deploy:website": "",
     "delete-node-modules": "lerna exec --parallel -- rimraf node_modules && rimraf node_modules",
-    "link-website": "node setup-website-yarn-links",
+    "link-website": "node scripts/setup-website-yarn-links",
     "diff": "lerna diff"
   },
   "workspaces": {
