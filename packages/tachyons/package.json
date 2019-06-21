@@ -7,8 +7,7 @@
     "main": "dist/tachyons.css",
     "style": "dist/tachyons.css",
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "scripts": {
         "setup": "yarn create-dist",
