@@ -6,9 +6,6 @@
     "license": "Apache-2.0",
     "main": "dist/tachyons.css",
     "style": "dist/tachyons.css",
-    "files": [
-        "dist"
-    ],
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -33,8 +30,9 @@
     "devDependencies": {
         "copy-files": "0.1.0",
         "normalize.css": "8.0.0",
-        "tachyons-modules": "1.1.10",
         "tachyons-cli": "1.3.2",
+        "tachyons-modules": "1.1.10",
         "watch": "1.0.2"
-    }
+    },
+    "gitHead": "c5032f99bd419dc5fb977d82bc765d585f82fc4b"
 }

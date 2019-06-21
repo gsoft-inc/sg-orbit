@@ -12,12 +12,13 @@
     "access": "public"
   },
   "peerDependencies": {
+    "@sharegate/tachyons": "*",
     "react": "*",
-    "react-dom": "*",
-    "@sharegate/tachyons": "*"
+    "react-dom": "*"
   },
   "dependencies": {
     "lodash": "4.17.11",
     "prop-types": "15.7.2"
-  }
+  },
+  "gitHead": "c5032f99bd419dc5fb977d82bc765d585f82fc4b"
 }

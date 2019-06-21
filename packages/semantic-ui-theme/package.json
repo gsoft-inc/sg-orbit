@@ -7,10 +7,6 @@
     "license": "Apache-2.0",
     "main": "semantic/dist/semantic.css",
     "style": "semantic/dist/semantic.css",
-    "files": [
-        "semantic/dist",
-        "dist"
-    ],
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -27,5 +23,6 @@
     },
     "devDependencies": {
         "semantic-ui": "2.4.2"
-    }
+    },
+    "gitHead": "c5032f99bd419dc5fb977d82bc765d585f82fc4b"
 }

@@ -7,11 +7,9 @@
   "license": "Apache-2.0",
   "main": "src/index.css",
   "style": "src/index.css",
-  "files": [
-    "src"
-  ],
   "publishConfig": {
     "access": "public",
     "directory": "src"
-  }
+  },
+  "gitHead": "c5032f99bd419dc5fb977d82bc765d585f82fc4b"
 }
