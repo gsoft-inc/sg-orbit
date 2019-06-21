@@ -16,5 +16,5 @@
     "prepare": "yarn copy-to-dist",
     "copy-to-dist": "node scripts/copy-to-dist"
   },
-  "gitHead": "34b989feabace86cb9fad02568373f2564fb956d"
+  "gitHead": "545f7506e1fe4b5e9125cc4c9853554232b30d21"
 }

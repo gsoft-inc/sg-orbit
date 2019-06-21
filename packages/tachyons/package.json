@@ -22,7 +22,7 @@
         "build:transpile:minify": "tachyons src/tachyons.css --minify > dist/tachyons.legacy.min.css",
         "watch": "watch \"yarn build:edge:css\" ./src/",
         "clean": "yarn clear-dist",
-        "prepare": "yarn copy-to-dist",
+        "prepublish": "yarn copy-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
         "copy-to-dist": "node scripts/copy-to-dist"
@@ -37,5 +37,5 @@
         "tachyons-modules": "1.1.10",
         "watch": "1.0.2"
     },
-    "gitHead": "34b989feabace86cb9fad02568373f2564fb956d"
+    "gitHead": "545f7506e1fe4b5e9125cc4c9853554232b30d21"
 }
