@@ -1,0 +1,43 @@
+---
+name: Button
+menu: Components
+route: /button
+---
+
+import { Playground, Props } from "docz"
+import { Button } from "semantic-ui-react"
+import "@sharegate/semantic-ui-sg/button.css"
+
+# Button
+
+Buttons make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
+
+## Basic usage
+
+<Playground>
+
+<Button>Click me</Button>
+
+</Playground>
+
+## With different styles
+
+<Playground>
+  <Button primary>Click me</Button>
+  <Button basic>Click me</Button>
+  <Button basic primary>
+    Click me
+  </Button>
+  <Button secondary>Click me</Button>
+  <Button className="ghost">Click me</Button>
+  <Button primary className="ghost">
+    Click me
+  </Button>
+</Playground>
+
+## With different heights
+
+<Playground>
+  <Button className="short">Short</Button>
+  <Button className="tall">Tall</Button>
+</Playground>

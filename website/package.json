@@ -1,9 +1,54 @@
 {
   "private": true,
-  "name": "website",
-  "version": "0.0.0",
-  "main": "index.js",
+  "name": "sg-brand-website",
+  "description": "Sharegate Design Guidelines website",
+  "version": "0.1.0",
+  "repository": "https://github.com/gsoft-inc/sg-brand.git",
+  "author": "Groupe Sharegate inc.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "yarn gatsby:develop",
+    "build": "yarn gatsby:build",
+    "clean": "",
+    "gatsby:develop": "gatsby develop",
+    "gatsby:build": "gatsby build",
+    "gatsby:serve": "gatsby serve"
+  },
   "dependencies": {
-    "@sharegate/react-components": "latest"
+    "@sharegate/semantic-ui-theme": "4.0.5",
+    "@sharegate/foundation": "3.0.4",
+    "@sharegate/tachyons-sg": "3.0.1",
+    "@sharegate/react-components": "0.1.0",
+    "gatsby": "2.9.0",
+    "gatsby-image": "2.1.3",
+    "gatsby-plugin-manifest": "2.1.1",
+    "gatsby-plugin-offline": "2.1.1",
+    "gatsby-plugin-react-helmet": "3.0.12",
+    "gatsby-plugin-sharp": "2.1.4",
+    "gatsby-plugin-typography": "2.2.13",
+    "gatsby-remark-copy-linked-files": "2.0.13",
+    "gatsby-remark-images": "3.0.14",
+    "gatsby-remark-prismjs": "3.2.11",
+    "gatsby-remark-responsive-iframe": "2.1.1",
+    "gatsby-remark-smartypants": "2.0.9",
+    "gatsby-source-filesystem": "2.0.39",
+    "gatsby-transformer-remark": "2.3.12",
+    "gatsby-transformer-sharp": "2.1.21",
+    "path": "0.12.7",
+    "prismjs": "1.16.0",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-helmet": "5.2.1",
+    "react-typography": "0.16.19",
+    "rebass": "3.1.1",
+    "semantic-ui-react": "0.87.1",
+    "typography": "0.16.19",
+    "typography-theme-fairy-gates": "0.16.19"
+  },
+  "devDependencies": {
+    "docz": "1.2.0",
+    "docz-theme-default": "1.2.0",
+    "gatsby-theme-docz": "1.2.0"
   }
 }

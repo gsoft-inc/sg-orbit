@@ -22,7 +22,10 @@ function run(command, errorMessage) {
 ////////////////////////////////////////////////////////
 
 const PROJECTS_TO_LINK = [
-    { name: "@sharegate/react-components", path: "packages/react-components" }
+    { name: "@sharegate/foundation", path: "packages/foundation" },
+    { name: "@sharegate/tachyons", path: "packages/tachyons" },
+    { name: "@sharegate/semantic-ui-theme", path: "packages/semantic-ui-theme" },
+    { name: "@sharegate/react-components", path: "packages/react-components" },
 ]
 
 console.log(chalk.bold("Creating yarn links for website project..."));
@@ -43,7 +46,7 @@ PROJECTS_TO_LINK.forEach((project, index) => {
 run(() => shell.cd("website"));
 
 PROJECTS_TO_LINK.forEach((project, index) => {
-    const current = `[${(index + 1) * 2}/${PROJECTS_TO_LINK.length * 2}]`;
+    const current = `[${PROJECTS_TO_LINK.length + 1}/${PROJECTS_TO_LINK.length * 2}]`;
     const result = run(() => shell.exec(`yarn link ${project.name}`, { silent: true }), `${current} Failed to link project "${project.name}".`);
 
     run(() => shell.cd(home));
