@@ -18,11 +18,11 @@
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "prepublish": "yarn copy-to-dist",
+        "prepare": "yarn copy-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist"
     },
     "devDependencies": {
         "semantic-ui": "2.4.2"
     },
-    "gitHead": "3104c40cb184af6984eaf9f6b2d9bf91c29f47a1"
+    "gitHead": "34b989feabace86cb9fad02568373f2564fb956d"
 }
