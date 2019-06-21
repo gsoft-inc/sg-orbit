@@ -7,8 +7,9 @@ const DIST_PATH = "dist";
 shell.rm("-rf", DIST_PATH);
 
 // Make sure the consumers can easily require a single components
-shell.cp("-Rf", `${SRC_PATH}/themes`, DIST_PATH);
+shell.mkdir(DIST_PATH);
 shell.cp("-Rf", `${SRC_PATH}/components/*.css`, DIST_PATH);
+shell.cp("-Rf", `${SRC_PATH}/themes`, DIST_PATH);
 shell.cp("-f", `${SRC_PATH}/semantic*.css`, DIST_PATH);
 shell.cp("-f", "package.json", "README.md", DIST_PATH);
 
