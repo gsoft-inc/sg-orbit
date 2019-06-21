@@ -8,8 +8,7 @@
     "main": "semantic/dist/semantic.css",
     "style": "semantic/dist/semantic.css",
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "scripts": {
         "setup": "yarn build",
@@ -24,5 +23,5 @@
     "devDependencies": {
         "semantic-ui": "2.4.2"
     },
-    "gitHead": "01e795e3fa27dc344180b0fed5d04e702182cb2c"
+    "gitHead": "bbeb6768cd8063db9f9f85ba05a55499a39f5b8b"
 }

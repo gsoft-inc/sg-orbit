@@ -15,7 +15,7 @@ shell.cp("-f", "package.json", "README.md", DIST_PATH);
 
 // Ensure that the "main" file configured in package.json works.
 shell.mkdir("-p", `${DIST_PATH}/${SRC_PATH}`);
-shell.cp("-Rf", `${SRC_PATH}/semantic*.css`, `${DIST_PATH}/${SRC_PATH}`);
+shell.cp("-f", `${SRC_PATH}/semantic*.css`, `${DIST_PATH}/${SRC_PATH}`);
 shell.cp("-Rf", `${SRC_PATH}/themes`, `${DIST_PATH}/${SRC_PATH}`);
 
 console.log(chalk.green("success"), " semantic dist output copied to dist folder.");
