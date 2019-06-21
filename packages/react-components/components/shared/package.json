@@ -5,9 +5,6 @@
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -17,5 +14,5 @@
   "dependencies": {
     "lodash": "4.17.11"
   },
-  "gitHead": "545f7506e1fe4b5e9125cc4c9853554232b30d21"
+  "gitHead": "9c04e5ac6c05da6f6eed6a4e1fd07b1cf9735117"
 }
