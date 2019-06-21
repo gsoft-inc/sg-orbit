@@ -18,7 +18,7 @@
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "prepare": "yarn copy-to-dist",
+        "prepare": "run-s build copy-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist"
     },
     "devDependencies": {

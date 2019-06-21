@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn gatsby:develop",
     "build": "yarn gatsby:build",
-    "clean": "",
+    "clean": "echo clean",
     "gatsby:develop": "gatsby develop",
     "gatsby:build": "gatsby build",
     "gatsby:serve": "gatsby serve"
