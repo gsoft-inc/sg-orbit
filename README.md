@@ -136,5 +136,6 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Share a browserslist config
 
+- Inclure la "files" property dans les package.json
 
 
