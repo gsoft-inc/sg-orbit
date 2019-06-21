@@ -9,7 +9,7 @@
   "style": "src/index.css",
   "publishConfig": {
     "access": "public",
-    "directory": "src"
+    "directory": "dist"
   },
   "scripts": {
     "clean": "rimraf dist",
