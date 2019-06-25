@@ -15,10 +15,10 @@
         "setup": "yarn build",
         "start": "cd semantic && gulp watch",
         "build": "cd semantic && gulp build",
+        "postbuild": "yarn copy-to-dist",
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "prepare": "run-s build copy-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist"
     },
     "devDependencies": {

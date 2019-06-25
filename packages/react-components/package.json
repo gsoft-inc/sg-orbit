@@ -19,9 +19,10 @@
     "clean": "run-p clean:*",
     "clean:this": "rimraf dist",
     "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
-    "prepare": "yarn build",
+    "release:sb": "",
     "sb:start": "start-storybook -c storybook",
-    "sb:build": "build-storybook -c storybook -o storybook/dist"
+    "sb:build": "build-storybook -c storybook -o storybook/dist",
+    "sb:deploy": ""
   },
   "peerDependencies": {
     "@sharegate/semantic-ui-theme": "*",

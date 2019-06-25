@@ -14,6 +14,7 @@
         "setup": "yarn create-dist",
         "start": "yarn watch",
         "build": "run-p build:edge build:transpile",
+        "postbuild": "yarn copy-to-dist",
         "build:edge": "run-s build:edge:*",
         "build:edge:css": "tachyons src/tachyons.css --preserve-variables > dist/tachyons.css",
         "build:edge:minify": "tachyons src/tachyons.css --minify --preserve-variables > dist/tachyons.min.css",
@@ -22,7 +23,6 @@
         "build:transpile:minify": "tachyons src/tachyons.css --minify > dist/tachyons.legacy.min.css",
         "watch": "watch \"yarn build:edge:css\" ./src/",
         "clean": "yarn clear-dist",
-        "prepare": "run-s build copy-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
         "copy-to-dist": "node scripts/copy-to-dist"
