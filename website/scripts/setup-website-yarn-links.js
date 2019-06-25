@@ -39,7 +39,7 @@ PROJECTS_TO_LINK.forEach((project, index) => {
 
     const current = `[${index + 1}/${PROJECTS_TO_LINK.length * 2}]`;
 
-    run(() => shell.exec("yarn unlink", { silent: true }), `${current} Failed to unlink project "${project.name}".`);
+    shell.exec("yarn unlink", { silent: true });
     run(() => shell.exec("yarn link", { silent: true }), `${current} Failed to create yarn link for project "${project.name}".`);
     run(() => shell.cd(rootPath));
 
@@ -51,7 +51,7 @@ run(() => shell.cd(websitePath));
 PROJECTS_TO_LINK.forEach((project, index) => {
     const current = `[${PROJECTS_TO_LINK.length + index + 1}/${PROJECTS_TO_LINK.length * 2}]`;
 
-    run(() => shell.exec(`yarn unlink ${project.name}`, { silent: true }), `${current} Failed to unlink project "${project.name}".`);
+    shell.exec(`yarn unlink ${project.name}`, { silent: true });
     run(() => shell.exec(`yarn link ${project.name}`, { silent: true }), `${current} Failed to link project "${project.name}".`);
     
     console.log(`${current} Linked project "${project.name}"...`);
