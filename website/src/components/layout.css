@@ -1,6 +1,6 @@
 html {
   font-family: "Calibre", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -620,4 +620,7 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+.gatsby-highlight {
+  font-size: 16px;
 }

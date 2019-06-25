@@ -30,26 +30,29 @@ const PROJECTS_TO_LINK = [
 
 console.log(chalk.bold("Creating yarn links for website project..."));
 
-const home = run(() => shell.pwd()).stdout;
+const websitePath = run(() => shell.pwd()).stdout;
+run(() => shell.cd(".."));
+const rootPath = run(() => shell.pwd()).stdout;
 
 PROJECTS_TO_LINK.forEach((project, index) => {
     shell.cd(project.path);
 
     const current = `[${index + 1}/${PROJECTS_TO_LINK.length * 2}]`;
-    const result = run(() => shell.exec("yarn link", { silent: true }), `${current} Failed to create yarn link for project "${project.name}".`);
 
-    run(() => shell.cd(home));
+    run(() => shell.exec("yarn unlink", { silent: true }), `${current} Failed to unlink project "${project.name}".`);
+    run(() => shell.exec("yarn link", { silent: true }), `${current} Failed to create yarn link for project "${project.name}".`);
+    run(() => shell.cd(rootPath));
 
     console.log(`${current} Created yarn link for project "${project.name}"...`);
 });
 
-run(() => shell.cd("website"));
+run(() => shell.cd(websitePath));
 
 PROJECTS_TO_LINK.forEach((project, index) => {
-    const current = `[${PROJECTS_TO_LINK.length + 1}/${PROJECTS_TO_LINK.length * 2}]`;
-    const result = run(() => shell.exec(`yarn link ${project.name}`, { silent: true }), `${current} Failed to link project "${project.name}".`);
+    const current = `[${PROJECTS_TO_LINK.length + index + 1}/${PROJECTS_TO_LINK.length * 2}]`;
 
-    run(() => shell.cd(home));
+    run(() => shell.exec(`yarn unlink ${project.name}`, { silent: true }), `${current} Failed to unlink project "${project.name}".`);
+    run(() => shell.exec(`yarn link ${project.name}`, { silent: true }), `${current} Failed to link project "${project.name}".`);
     
     console.log(`${current} Linked project "${project.name}"...`);
 });

@@ -6,17 +6,19 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <div>
-        {data.allMarkdownRemark.totalCount} Article
-        {data.allMarkdownRemark.totalCount > 1 &&
-        data.allMarkdownRemark.totalCount !== 0
-          ? "s"
-          : ""}
+        <span className="flex mb5 f4 marine-800">
+          {data.allMarkdownRemark.totalCount} Article
+          {data.allMarkdownRemark.totalCount > 1 &&
+          data.allMarkdownRemark.totalCount !== 0
+            ? "s"
+            : ""}
+        </span>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
-            <Link to={node.frontmatter.slug}>
-              <h3>{node.frontmatter.title}</h3>
-              <div>{node.frontmatter.date}</div>
-              <p>{node.excerpt}</p>
+            <Link to={node.frontmatter.slug} className="no-underline">
+              <h3 className="ma0 mb2 apricot-900">{node.frontmatter.title}</h3>
+              <div className="fw6 marine-900">{node.frontmatter.date}</div>
+              <p className="f6 marine-900">{node.excerpt}</p>
             </Link>
           </div>
         ))}
@@ -29,6 +31,7 @@ export const query = graphql`
   query HomePageQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { glob: "**/blog/**/*.md" } }
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
       edges {

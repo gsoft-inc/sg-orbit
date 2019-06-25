@@ -5,11 +5,12 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `var(--marine-500)`,
       marginBottom: `1.45rem`,
     }}
   >
     <div
+      className="flex"
       style={{
         margin: `0 auto`,
         maxWidth: 960,
@@ -18,6 +19,7 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{ margin: 0 }}>
         <Link
+          className="mr4"
           to="/"
           style={{
             color: `white`,
@@ -26,6 +28,14 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
+        <div>
+          <Link to="/blog" className="no-underline">
+            <span className="hover-cloud-200 white f7">Blog</span>
+          </Link>
+          <Link to="/docs" className="no-underline ml4">
+            <span className="hover-cloud-200 white f7 no-underline">Docs</span>
+          </Link>
+        </div>
       </h1>
     </div>
   </header>

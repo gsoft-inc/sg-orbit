@@ -22,10 +22,10 @@ export default () => (
     `}
     render={data => (
       <header>
-        <h1>Files</h1>
         <div className="mw5 mv4">
           <Image></Image>
         </div>
+        <h1>Files</h1>
         {data.allFile.edges.map(({ node }, index) => (
           <tr key={index}>
             <td>{node.relativePath}</td>

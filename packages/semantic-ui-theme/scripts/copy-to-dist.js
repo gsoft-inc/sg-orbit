@@ -9,14 +9,14 @@ shell.rm("-rf", DIST_PATH);
 // Make sure the consumers can easily require a single components
 shell.mkdir("-p", `${DIST_PATH}/themes`);
 shell.cp("-Rf", `${SRC_PATH}/components/*.css`, DIST_PATH);
-shell.cp("-Rf", `${SRC_PATH}/themes/sharegate`, `${DIST_PATH}/themes`);
+shell.cp("-Rf", `${SRC_PATH}/themes/*`, `${DIST_PATH}/themes`);
 shell.cp("-f", `${SRC_PATH}/semantic*.css`, DIST_PATH);
 shell.cp("-f", "package.json", "README.md", DIST_PATH);
 
 // Ensure that the "main" file configured in package.json works.
 shell.mkdir("-p", `${DIST_PATH}/${SRC_PATH}/themes`);
 shell.cp("-f", `${SRC_PATH}/semantic*.css`, `${DIST_PATH}/${SRC_PATH}`);
-shell.cp("-Rf", `${SRC_PATH}/themes/sharegate`, `${DIST_PATH}/${SRC_PATH}/themes`);
+shell.cp("-Rf", `${SRC_PATH}/themes/*`, `${DIST_PATH}/${SRC_PATH}/themes`);
 
 console.log(chalk.green("success"), " semantic dist output copied to dist folder.");
 

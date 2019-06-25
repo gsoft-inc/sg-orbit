@@ -15,4 +15,8 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "docs-index" */ 'docs/index.mdx'
     ),
+  'docs/date-picker.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "docs-date-picker" */ 'docs/date-picker.mdx'
+    ),
 }

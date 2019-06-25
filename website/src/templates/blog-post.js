@@ -1,24 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Box, Heading } from "rebass"
-import styled from "styled-components"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-
-const PostTitle = styled(Heading)`
-  margin-top: ${rhythm(1 / 4)};
-  margin-bottom: ${rhythm(1 / 4)};
-`
-
-const NextLinks = styled(Box)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-`
-
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -31,10 +14,10 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <PostTitle fontSize={5}>{post.frontmatter.title}</PostTitle>
-        <small>{post.frontmatter.date}</small>
-        <Box py={4} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <NextLinks as="ul" m={0}>
+        <h1 className="ma0 pa0">{post.frontmatter.title}</h1>
+        <small className="flex f7 ttu mb3">{post.frontmatter.date}</small>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <ul>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -49,7 +32,7 @@ class BlogPostTemplate extends React.Component {
               </Link>
             )}
           </li>
-        </NextLinks>
+        </ul>
       </Layout>
     )
   }

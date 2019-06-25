@@ -3,7 +3,7 @@
     "title": "ShareGate Components",
     "description": "This is my awesome documentation",
     "menu": [
-      "Getting Started",
+      "Introduction",
       "Atoms",
       "Components"
     ],
@@ -13,10 +13,13 @@
     "codeSandbox": false,
     "themeConfig": {
       "radii": "4px",
+      "colors": {
+        "primary": "#566077"
+      },
       "styles": {
-        "h1": "\n            font-size: 72px;\n            margin-bottom: 16px;\n            ",
+        "h1": "\n        font-size: 72px;\n        margin-bottom: 16px;\n        ",
         "h2": "\n        font-size: 24px;\n        margin-bottom: 16px;\n        margin-top: 24px;\n        ",
-        "paragraph": "\n            font-size: 20px;\n            margin-bottom: 24px;\n            "
+        "paragraph": "\n        font-size: 20px;\n        margin-bottom: 24px;\n        "
       }
     },
     "separator": "-",
@@ -170,7 +173,7 @@
     {
       "key": "docs/index.mdx",
       "value": {
-        "name": "Getting Started",
+        "name": "Introduction",
         "route": "docs/",
         "id": "73498ad0e1e62a714b08085d318f9de1",
         "filepath": "docs/index.mdx",
@@ -179,14 +182,28 @@
         "menu": "",
         "headings": [
           {
-            "slug": "getting-started",
+            "slug": "introduction",
             "depth": 1,
-            "value": "Getting Started"
-          },
+            "value": "Introduction"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/date-picker.mdx",
+      "value": {
+        "name": "Date Picker",
+        "menu": "Components",
+        "route": "docs/date-picker",
+        "id": "cb6f82aa6bfc58744c233eb05f31bbcd",
+        "filepath": "docs/date-picker.mdx",
+        "link": "https://github.com/gsoft-inc/sg-brand\\edit\\master\\website\\docs/date-picker.mdx",
+        "slug": "docs-date-picker",
+        "headings": [
           {
-            "slug": "hello-world",
-            "depth": 2,
-            "value": "Hello world"
+            "slug": "date-picker",
+            "depth": 1,
+            "value": "Date Picker"
           }
         ]
       }
