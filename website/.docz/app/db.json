@@ -1,0 +1,195 @@
+{
+  "config": {
+    "title": "ShareGate Components",
+    "description": "This is my awesome documentation",
+    "menu": [
+      "Getting Started",
+      "Atoms",
+      "Components"
+    ],
+    "version": "0.1.0",
+    "repository": "https://github.com/gsoft-inc/sg-brand",
+    "native": false,
+    "codeSandbox": false,
+    "themeConfig": {
+      "radii": "4px",
+      "styles": {
+        "h1": "\n            font-size: 72px;\n            margin-bottom: 16px;\n            ",
+        "h2": "\n        font-size: 24px;\n        margin-bottom: 16px;\n        margin-top: 24px;\n        ",
+        "paragraph": "\n            font-size: 20px;\n            margin-bottom: 24px;\n            "
+      }
+    },
+    "separator": "-",
+    "base": "docs",
+    "ignore": [
+      "**/blog/**",
+      "**/components/**",
+      "readme.md"
+    ],
+    "linesToScrollEditor": 16
+  },
+  "props": [],
+  "entries": [
+    {
+      "key": "docs/button.mdx",
+      "value": {
+        "name": "Button",
+        "menu": "Components",
+        "route": "docs/button",
+        "id": "5be504dc81ab9dd727e24d2e197914b7",
+        "filepath": "docs/button.mdx",
+        "link": "https://github.com/gsoft-inc/sg-brand\\edit\\master\\website\\docs/button.mdx",
+        "slug": "docs-button",
+        "headings": [
+          {
+            "slug": "button",
+            "depth": 1,
+            "value": "Button"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "with-different-styles",
+            "depth": 2,
+            "value": "With different styles"
+          },
+          {
+            "slug": "with-different-heights",
+            "depth": 2,
+            "value": "With different heights"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/colours.mdx",
+      "value": {
+        "name": "Colours",
+        "menu": "Atoms",
+        "route": "docs/colours",
+        "id": "bcba804dfa54a7b12355ccd99a8d8966",
+        "filepath": "docs/colours.mdx",
+        "link": "https://github.com/gsoft-inc/sg-brand\\edit\\master\\website\\docs/colours.mdx",
+        "slug": "docs-colours",
+        "headings": [
+          {
+            "slug": "colours",
+            "depth": 1,
+            "value": "Colours"
+          },
+          {
+            "slug": "brand",
+            "depth": 2,
+            "value": "Brand"
+          },
+          {
+            "slug": "sunray",
+            "depth": 3,
+            "value": "Sunray"
+          },
+          {
+            "slug": "moonstone",
+            "depth": 3,
+            "value": "Moonstone"
+          },
+          {
+            "slug": "marine",
+            "depth": 3,
+            "value": "Marine"
+          },
+          {
+            "slug": "product",
+            "depth": 2,
+            "value": "Product"
+          },
+          {
+            "slug": "overcast",
+            "depth": 3,
+            "value": "Overcast"
+          },
+          {
+            "slug": "apricot",
+            "depth": 3,
+            "value": "Apricot"
+          },
+          {
+            "slug": "desktop",
+            "depth": 3,
+            "value": "Desktop"
+          },
+          {
+            "slug": "ui",
+            "depth": 2,
+            "value": "UI"
+          },
+          {
+            "slug": "cloud",
+            "depth": 3,
+            "value": "Cloud"
+          },
+          {
+            "slug": "alert",
+            "depth": 3,
+            "value": "Alert"
+          },
+          {
+            "slug": "success",
+            "depth": 3,
+            "value": "Success"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/dropdown.mdx",
+      "value": {
+        "name": "Dropdown",
+        "menu": "Components",
+        "route": "docs/dropdown",
+        "id": "c17addf315a0fd0a8f0abcb3f4bbbb42",
+        "filepath": "docs/dropdown.mdx",
+        "link": "https://github.com/gsoft-inc/sg-brand\\edit\\master\\website\\docs/dropdown.mdx",
+        "slug": "docs-dropdown",
+        "headings": [
+          {
+            "slug": "dropdown",
+            "depth": 1,
+            "value": "Dropdown"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/index.mdx",
+      "value": {
+        "name": "Getting Started",
+        "route": "docs/",
+        "id": "73498ad0e1e62a714b08085d318f9de1",
+        "filepath": "docs/index.mdx",
+        "link": "https://github.com/gsoft-inc/sg-brand\\edit\\master\\website\\docs/index.mdx",
+        "slug": "docs-index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "getting-started",
+            "depth": 1,
+            "value": "Getting Started"
+          },
+          {
+            "slug": "hello-world",
+            "depth": 2,
+            "value": "Hello world"
+          }
+        ]
+      }
+    }
+  ]
+}

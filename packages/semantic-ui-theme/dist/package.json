@@ -1,0 +1,28 @@
+{
+    "name": "@sharegate/semantic-ui-theme",
+    "version": "4.0.5",
+    "description": "Semantic UI customized to follow Sharegate Design Guidelines",
+    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "semantic/dist/semantic.css",
+    "style": "semantic/dist/semantic.css",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "scripts": {
+        "setup": "yarn build",
+        "start": "cd semantic && gulp watch",
+        "build": "cd semantic && gulp build",
+        "postbuild": "yarn copy-to-dist",
+        "clean": "run-p clean:*",
+        "clean:semantic": "cd semantic && gulp clean",
+        "clean:dist": "rimraf dist",
+        "copy-to-dist": "node scripts/copy-to-dist"
+    },
+    "devDependencies": {
+        "semantic-ui": "2.4.2"
+    },
+    "gitHead": "bbeb6768cd8063db9f9f85ba05a55499a39f5b8b"
+}

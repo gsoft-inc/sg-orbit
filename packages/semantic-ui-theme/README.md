@@ -14,7 +14,7 @@ npm install @sharegate/semantic-ui-theme --save
 
 To add a new Semantic UI control in your project...
 
-Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@sharegate/semantic-ui-theme/dist/`.
+Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@sharegate/semantic-ui-theme/`.
 
 You should import them in your `main.css`.
 
@@ -22,9 +22,19 @@ You should import them in your `main.css`.
 /* main.css */
 /* ... */
 
-@import "~@sharegate/semantic-ui-theme/dist/button.css";
-
+@import "~@sharegate/semantic-ui-theme/button.css";
 ```
+
+If you want to add the whole theme you can do the following:
+
+```css
+/* main.css */
+/* ... */
+
+@import "~@sharegate/semantic-ui-theme";
+```
+
+For maintainers installation view the installation section below.
 
 For the behavior of your control (the JavaScript) use the official Semantic UI React library. https://react.semantic-ui.com/
 
@@ -39,6 +49,19 @@ For Semantic UI React documentation: https://react.semantic-ui.com/
 ## Maintainers
 
 The following documentation is _only_ for the maintainers of the package.
+
+### Installation
+
+Use the same installation instruction than consumers but for indivual files add a "/dist" folder.
+
+This means:
+
+```css
+/* main.css */
+/* ... */
+
+@import "~@sharegate/semantic-ui-theme/dist/button.css";
+```
 
 ### Development flow
 

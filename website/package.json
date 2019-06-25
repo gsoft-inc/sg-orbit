@@ -7,9 +7,12 @@
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "yarn gatsby:develop",
+    "start": "yarn gatsby:develop --open",
     "build": "yarn gatsby:build",
-    "clean": "echo clean",
+    "clean": "run-p clean:*",
+    "clean:public": "rimraf public",
+    "clean:cache": "rimraf .cache",
+    "deploy": "",
     "gatsby:develop": "gatsby develop",
     "gatsby:build": "gatsby build",
     "gatsby:serve": "gatsby serve"

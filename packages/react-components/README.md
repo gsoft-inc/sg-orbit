@@ -13,7 +13,7 @@ import { DateRangePicker } from @sharegate/react-date-range-picker
 
 ```
 
-To install them from the global package
+To install all of them with a single package
 
 ```
 npm install @sharegate/react-components
@@ -38,7 +38,7 @@ import { DateRangePicker } from @sharegate/react-components
 
 ## Build
 
-All packages distribution code in outputted in their respective `dist` folder.
+All packages distribution code is outputted in their respective `dist` folder.
 
 ## Add a new dependency to a component
 
