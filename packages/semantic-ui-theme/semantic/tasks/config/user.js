@@ -30,6 +30,7 @@ try {
   // looks for config file across all parent directories
   const startPath = path.resolve(path.join(process.cwd(), path.sep, '..'));
 
+  // looks for config file across all parent directories
   userConfig = requireDotFile('semantic.json', startPath);
 }
 catch(error) {
