@@ -12,7 +12,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "../fonts/calibre.css"
 import "@sharegate/tachyons-sg/css/tachyons.min.css"
-import "./layout.css"
 
 const Layout = ({ children }) => (
   <StaticQuery

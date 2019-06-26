@@ -27,7 +27,7 @@ class Preset extends PureComponent {
                 <button
                     type="button"
                     onClick={this.handleClick}
-                    className={cx("f7 jet-dark lh-solid pa2 mb2 outline-0 pointer hover-primary", { primary: isSelected })}
+                    className={cx("f7 marine-700 lh-solid pa2 mb2 outline-0 pointer hover-primary-500", { primary: isSelected })}
                 >
                     {preset.text}
                 </button>
@@ -59,7 +59,7 @@ export class DateRangePickerPresets extends PureComponent {
     render() {
         const { presets, icon, className } = this.props;
 
-        const defaultClasses = "presets flex flex-column pt8 ph8 br b--cloud-light";
+        const defaultClasses = "presets flex flex-column pt8 ph8 br b--cloud-100";
         const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
 
         if (presets.length > 0) {
