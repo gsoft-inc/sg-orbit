@@ -38,7 +38,7 @@
   },
   "workspaces": {
     "packages": [
-      "packages/foundation"
+      "packages/semantic-ui-theme"
     ]
   },
   "devDependencies": {
