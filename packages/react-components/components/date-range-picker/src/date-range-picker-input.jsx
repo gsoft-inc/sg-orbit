@@ -56,9 +56,9 @@ export class DateRangePickerInput extends PureComponent {
     getCssClasses(value) {
         const { disabled, opened, className } = this.props;
 
-        const openedClasses = opened && !disabled ? " b--jet-dark jet-dark" : " b--cloud marine-lightest";
-        const disabledClasses = cx({ "bg-cloud-light cloud-dark crsr-not-allowed": disabled });
-        const placeholderClasses = cx({ "jet-dark": !value.isPlaceholder && !disabled });
+        const openedClasses = opened && !disabled ? " b--marine-700 marine-700" : " b--cloud-500 marine-200";
+        const disabledClasses = cx({ "bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
+        const placeholderClasses = cx({ "marine-700": !value.isPlaceholder && !disabled });
 
         const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center ${openedClasses} ${placeholderClasses} ${disabledClasses}`;
 
@@ -70,7 +70,7 @@ export class DateRangePickerInput extends PureComponent {
         const { disabled } = this.props;
 
         return cloneElement(icon, {
-            className: `${disabled ? " fill-cloud" : " fill-jet-dark"} mr4`
+            className: `${disabled ? " fill-cloud-500" : " fill-marine-700"} mr4`
         });
     }
 
@@ -112,8 +112,8 @@ export class DateRangePickerInput extends PureComponent {
                 }
 
                 .input:focus {
-                    border: 1px solid var(--jet-dark);
-                    color: var(--jet-dark);
+                    border: 1px solid var(--marine-700);
+                    color: var(--marine-700);
                 }
             `}</style>
         </div>
