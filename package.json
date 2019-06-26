@@ -38,7 +38,7 @@
   },
   "workspaces": {
     "packages": [
-      "packages/react-components/components/*"
+      "packages/foundation"
     ]
   },
   "devDependencies": {
