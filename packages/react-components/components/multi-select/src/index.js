@@ -1,4 +1,4 @@
-import { toMultiSelectItem } from "./items";
+import { multiSelectItem } from "./items";
 
 export * from "./multi-select";
-export { toMultiSelectItem };
+export { multiSelectItem };

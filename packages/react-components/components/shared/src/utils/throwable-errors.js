@@ -46,3 +46,14 @@ export class ArgumentNullError extends ExtendableError {
         this.parameterName = parameterName;
     }
 }
+
+export class InvalidOperationError extends ExtendableError {
+    /**
+     * @param {string} errorMessage
+     */
+    constructor(errorMessage) {
+        const message = isNullOrEmpty(errorMessage) ? "InvalidOperationError" : `InvalidOperationError: "${errorMessage}"`;
+
+        super(message);
+    }
+}

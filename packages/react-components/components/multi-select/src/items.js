@@ -6,7 +6,7 @@ export const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export function toMultiSelectItem(text, value, group, obj) {
+export function multiSelectItem(text, value, group, obj) {
     if (!isNil(obj)) {
         return {
             text,

@@ -138,4 +138,9 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Inclure la "files" property dans les package.json
 
+- Hookify components
+
+- Some sort of intellisense? Like typescript types?
+
+- Add a fake api project to be able to create stories for the remote search input
 
