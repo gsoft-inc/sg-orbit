@@ -38,7 +38,8 @@
   },
   "workspaces": {
     "packages": [
-      "packages/tachyons"
+      "packages/*",
+      "packages/react-components/components/*"
     ]
   },
   "devDependencies": {
