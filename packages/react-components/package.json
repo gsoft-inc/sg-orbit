@@ -9,7 +9,7 @@
     "access": "public"
   },
   "scripts": {
-    "start": "run-p watch sb:start",
+    "start": "yarn watch",
     "prebuild": "yarn clean",
     "build": "run-p build:*",
     "build:this": "babel src -d dist --config-file ./babel.config.js",
