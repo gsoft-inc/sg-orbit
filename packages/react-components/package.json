@@ -42,7 +42,7 @@
     "@babel/plugin-transform-modules-commonjs": "7.4.4",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
-    "@sharegate/foundation": "3.0.4",
+    "@sharegate/foundation": "3.0.5",
     "@sharegate/semantic-ui-theme": "4.0.5",
     "@sharegate/tachyons": "3.0.1",
     "@storybook/react": "5.1.9",

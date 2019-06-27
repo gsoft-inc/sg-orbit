@@ -21,7 +21,7 @@
     },
     "dependencies": {
       "@sharegate/semantic-ui-theme": "4.0.5",
-      "@sharegate/foundation": "3.0.4",
+      "@sharegate/foundation": "3.0.5",
       "@sharegate/tachyons-sg": "3.0.1",
       "@sharegate/react-components": "0.1.0",
       "gatsby": "2.9.0",
