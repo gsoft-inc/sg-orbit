@@ -44,9 +44,13 @@ yarn bootstrap
 
 ## Add new packages
 
-To install a new package:
+Dont add new packages to the root of the workspace unless you know what you are doing.
 
-`yarn ` will install the packages in every projects of the workspace.
+Instead add new packages to sub packages of the workspace.
+
+To do so, in your terminal, navigate to the directory of the package and the use yarn to add the package:
+
+`yarn add PACKAGE_NAME [--dev]` will install the package.
 
 ## Add a yarn scripts
 
@@ -97,6 +101,16 @@ yarn build:rc
 ```
 
 By default, the output should be in a `dist` folder. For more details, view the specific packages README.
+
+## Publish
+
+To release, go to the root project of the workspace and do the following:
+
+```
+yarn new-version
+yarn release:pkg
+git push
+```
 
 ## Good to remember
 
