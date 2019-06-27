@@ -1395,52 +1395,57 @@
     exenv "^1.2.2"
     prop-types "^15.6.2"
 
-"@sharegate/foundation@3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@sharegate/foundation/-/foundation-3.0.5.tgz#b9efd265106ee63cc45b082296f09258d858fa48"
-  integrity sha512-vCfOWWfgce1dABPKay0bvF7W6iykShzf1A+3md9onOspGfoPNgrNCPkZSV3Ki1HaAUTrxLGgNIIm0mg3vQBPNA==
-
-"@sharegate/react-components-shared@0.1.1":
+"@sharegate/css-normalize@latest":
   version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@sharegate/react-components-shared/-/react-components-shared-0.1.1.tgz#5f4e115d5fedf9e0fbc8cc207f048766c3b184d3"
-  integrity sha512-cFXaAWcEFGgUEeQBjmbASNYWNOgZdbwIAeB7+B2a7vlOhWTLcfUn9i45NSWUQYhzORGLRe7gjSE/PBfxETG1kg==
+  resolved "https://registry.yarnpkg.com/@sharegate/css-normalize/-/css-normalize-0.1.1.tgz#0b5c86b79a4120035945cd3223ad645170324ab6"
+  integrity sha512-AV/Q6jeLcvVXDfvCn2pT6Or0/LzFNDHPaituxCF8Kg4aQktwdAkJ6pNYiZvnQgpMT01H1CVrMuHYhFxIdfPGtQ==
+
+"@sharegate/foundation@latest":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@sharegate/foundation/-/foundation-3.0.8.tgz#73a0311040ef46d672f415396e4a0dd9af13721b"
+  integrity sha512-k5ViNsv4g+DbdzTsNWx0q8B0lW8rl2tCX0m4Bg8V7K3r9I6L7GqU+1DOoTb0EA5WFUkcfL9eLFJiwzQptQ4pkQ==
+
+"@sharegate/react-components-shared@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@sharegate/react-components-shared/-/react-components-shared-0.1.2.tgz#55b206b0ee6e5c2b31d61dad1545ea1d81b78c3a"
+  integrity sha512-78Y2PgkZQJ6GnqAD4PoaqMlmOjJsV5dgFJgor9VdXk97ZoMcT3ihvHsfcBysdAxebLJQpx4BDXQWg7mGb9l4Pw==
   dependencies:
     lodash "4.17.11"
 
-"@sharegate/react-components@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/react-components/-/react-components-0.1.0.tgz#a4ca36cf641521f1c7c62c97810ca2a7baa0a36a"
-  integrity sha512-U1UR4zK3jXqLUrclFwogI3WggdpEFjBc/XWHLUSF/vGwhnQZ7RQtKi6bWKpOHyiT8ftVZu+MmblxvaPYZoGxsg==
+"@sharegate/react-components@latest":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@sharegate/react-components/-/react-components-0.1.4.tgz#ca2832eebe068d058b34995f75961f5deff43f6c"
+  integrity sha512-mJ9HzT0jF/sfqgbpu+/0hCcJkOnlBvTjcuviJMslsTaAh/9zY17wjcDkFl163trULCI6+d5stojmyOhCj3RzfQ==
   dependencies:
-    "@sharegate/react-components-shared" "0.1.1"
-    "@sharegate/react-date-range-picker" "0.1.1"
-    "@sharegate/react-popup" "0.1.0"
+    "@sharegate/react-components-shared" "0.1.2"
+    "@sharegate/react-date-range-picker" "0.1.3"
+    "@sharegate/react-popup" "0.1.1"
 
-"@sharegate/react-date-range-picker@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@sharegate/react-date-range-picker/-/react-date-range-picker-0.1.1.tgz#d1e50ad77456266975984f79c3ae8bd7285beddd"
-  integrity sha512-h8FXJ97DPxB3WfA82/zinlXU1UQh1/bjsuR2KC0cQPTChHdlUp1tOyJ775QQ8+qmYF2TiY1BDHmtVpObykSTuA==
+"@sharegate/react-date-range-picker@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@sharegate/react-date-range-picker/-/react-date-range-picker-0.1.3.tgz#8f1f3e917a563c769ebb382983c9e521aced2cfa"
+  integrity sha512-osYvRB30o+zIw+JxzHryjKC48m+4PoKWNRzWFiOVNPfY+LwbBffDthL+HzAmBIUpZuV7kg581fS53OfwIyu0RA==
   dependencies:
-    "@sharegate/react-components-shared" "0.1.1"
-    "@sharegate/react-popup" "0.1.0"
+    "@sharegate/react-components-shared" "0.1.2"
+    "@sharegate/react-popup" "0.1.1"
     classnames "2.2.6"
     lodash "4.17.11"
     prop-types "15.7.2"
 
-"@sharegate/react-popup@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/react-popup/-/react-popup-0.1.0.tgz#123c83ef5f440cbc239c5839efcfc914b57df3ba"
-  integrity sha512-MmAe7pEJbUyW9ZfBgM/Aq0aYQRYVXCRmllj1ptfD8mf6c0j94KEtrK9NhazgnOQN06vjJ6YmKf6gtQSNcwr33A==
+"@sharegate/react-popup@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@sharegate/react-popup/-/react-popup-0.1.1.tgz#b761f15300373416b1981f30db8917fab6841464"
+  integrity sha512-yYNugfeJE2m/91r9Qz+kiO66Gc/Dk3ZjnaGTRPsoJcZtHIkkkcjD9FJ3DDI4Nxu92hXIZPey6WzEVFKhq7zIJA==
   dependencies:
     lodash "4.17.11"
     prop-types "15.7.2"
 
-"@sharegate/semantic-ui-theme@4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@sharegate/semantic-ui-theme/-/semantic-ui-theme-4.0.5.tgz#5e1e58b46210083f6b3dfa6222204835defda630"
-  integrity sha512-weVl21aKNRe9+nmcf9oZ6PVyXdfEK0TPu4VpHQLJ92DRwDjRg4p9qtAc8IbvD2FUv08fAsj8PZrNGc0RsVu3Wg==
+"@sharegate/semantic-ui-theme@latest":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@sharegate/semantic-ui-theme/-/semantic-ui-theme-4.0.8.tgz#f8f279019aa4ec89f57acf711922df213a3404dd"
+  integrity sha512-Dm6TEihgjQb8mFko1+OSEm8Bg/qkFFnMUh/OU6jHjgPa/AuAvSxn3aX3X1Fhdge5CfVCxS3sHpqbJhh1ADrpRg==
 
-"@sharegate/tachyons-sg@3.0.1":
+"@sharegate/tachyons-sg@latest":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sharegate/tachyons-sg/-/tachyons-sg-3.0.1.tgz#efe423f8e5807539da04e31dcf8c3840ed1c47f3"
   integrity sha512-3pK6CpKQ/qweYR64Exq9T/RfosB4u20fgD48SebD1GzHnowJTUCWOALs+DVPgcHqtrzy18FPTYliEkv7GcATRQ==
