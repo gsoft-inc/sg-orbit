@@ -1,6 +1,7 @@
 import { configure } from "@storybook/react";
 
 import "@sharegate/foundation";
+import "@sharegate/css-normalize";
 import "@sharegate/tachyons";
 import "@sharegate/semantic-ui-theme";
 

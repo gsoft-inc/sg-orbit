@@ -21,6 +21,7 @@
     },
     "dependencies": {
       "@sharegate/semantic-ui-theme": "latest",
+      "@sharegate/css-normalize": "latest",
       "@sharegate/foundation": "latest",
       "@sharegate/tachyons-sg": "latest",
       "@sharegate/react-components": "latest",

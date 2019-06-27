@@ -9,6 +9,7 @@
     "access": "public"
   },
   "peerDependencies": {
+    "@sharegate/css-normalize": "*",
     "@sharegate/semantic-ui-theme": "*",
     "@sharegate/tachyons": "*",
     "moment": "*",

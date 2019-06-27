@@ -1,12 +1,12 @@
 {
-  "name": "@sharegate/foundation",
-  "version": "3.0.7",
-  "description": "Sharegate brand foundation",
+  "name": "@sharegate/css-normalize",
+  "version": "0.1.0",
+  "description": "Sharegate CSS normalize",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
-  "main": "src/index.css",
-  "style": "src/index.css",
+  "main": "src/normalize.css",
+  "style": "src/normalize.css",
   "publishConfig": {
     "access": "public",
     "directory": "dist"
@@ -17,6 +17,5 @@
     "prepare": "run-s build copy-license-to-dist",
     "copy-to-dist": "node scripts/copy-to-dist",
     "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
-  },
-  "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
+  }
 }

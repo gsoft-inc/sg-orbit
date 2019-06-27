@@ -25,6 +25,7 @@
     "sb:deploy": ""
   },
   "peerDependencies": {
+    "@sharegate/css-normalize": "*",
     "@sharegate/semantic-ui-theme": "*",
     "@sharegate/tachyons": "*",
     "react": "*",
@@ -44,6 +45,7 @@
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
     "@sharegate/foundation": "3.0.7",
+    "@sharegate/css-normalize": "0.1.0",
     "@sharegate/semantic-ui-theme": "4.0.7",
     "@sharegate/tachyons": "3.0.3",
     "@storybook/react": "5.1.9",
