@@ -8,14 +8,6 @@
   "main": "src/normalize.css",
   "style": "src/normalize.css",
   "publishConfig": {
-    "access": "public",
-    "directory": "dist"
-  },
-  "scripts": {
-    "clean": "rimraf dist",
-    "build": "yarn copy-to-dist",
-    "prepare": "run-s build copy-license-to-dist",
-    "copy-to-dist": "node scripts/copy-to-dist",
-    "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+    "access": "public"
   }
 }
