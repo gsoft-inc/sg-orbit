@@ -1,5 +1,6 @@
 const chalk = require("chalk");
 const shell = require("shelljs");
+const es = require("./ensure-success");
 
 const args = process.argv;
 
@@ -10,10 +11,10 @@ if (args.length !== 4) {
 }
 
 const dest = args[3];
-const projectPath = shell.pwd().stdout;
+const projectPath = es(shell.pwd()).stdout;
 
 if (!shell.test("-d", "dist")) {
-    shell.mkdir("dist");
+    es(shell.mkdir("dist"));
 }
 
-shell.cp("../../LICENSE", `${projectPath}/${dest}/LICENSE`);
+es(shell.cp("../../LICENSE", `${projectPath}/${dest}/LICENSE`));
