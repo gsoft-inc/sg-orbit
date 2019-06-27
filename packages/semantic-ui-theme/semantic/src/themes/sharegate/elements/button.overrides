@@ -3,7 +3,7 @@
 *******************************/
 
 .ui.button {
-    min-height: 41px;
+    min-height: 40px;
     display: flex;
     align-items: center;
 }
