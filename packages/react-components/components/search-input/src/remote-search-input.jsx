@@ -5,8 +5,7 @@ import { bool, func, number, object, string } from "prop-types";
 import { debounce, isArray, isNil, merge } from "lodash";
 
 const KEYS = {
-    esc: 27,
-    dummy: 28
+    esc: 27
 };
 
 function fetchResults(event, url, data, options) {
