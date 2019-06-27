@@ -1395,10 +1395,10 @@
     exenv "^1.2.2"
     prop-types "^15.6.2"
 
-"@sharegate/foundation@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@sharegate/foundation/-/foundation-3.0.4.tgz#5988c89b89d4b999330495d18644afa4acec6d27"
-  integrity sha512-WNyqT2/IdcYTtgCYz/391b7qB5Wy38pxDeVzCV/UlI5jrgRM8mwSNtx5oLEYEevcxG5DvEq3O4bxgJLPAMoiMA==
+"@sharegate/foundation@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@sharegate/foundation/-/foundation-3.0.5.tgz#b9efd265106ee63cc45b082296f09258d858fa48"
+  integrity sha512-vCfOWWfgce1dABPKay0bvF7W6iykShzf1A+3md9onOspGfoPNgrNCPkZSV3Ki1HaAUTrxLGgNIIm0mg3vQBPNA==
 
 "@sharegate/react-components-shared@0.1.1":
   version "0.1.1"
