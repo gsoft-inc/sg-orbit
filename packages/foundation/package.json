@@ -1,6 +1,6 @@
 {
   "name": "@sharegate/foundation",
-  "version": "3.0.4",
+  "version": "3.0.7",
   "description": "Sharegate Design Guidelines foundation",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
@@ -14,7 +14,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "yarn copy-to-dist",
-    "copy-to-dist": "node scripts/copy-to-dist"
+    "prepare": "run-s build copy-license-to-dist",
+    "copy-to-dist": "node scripts/copy-to-dist",
+    "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
   },
-  "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"
+  "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
 }

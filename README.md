@@ -44,9 +44,13 @@ yarn bootstrap
 
 ## Add new packages
 
-To install a new package:
+Dont add new packages to the root of the workspace unless you know what you are doing.
 
-`yarn ` will install the packages in every projects of the workspace.
+Instead add new packages to sub packages of the workspace.
+
+To do so, in your terminal, navigate to the directory of the package and the use yarn to add the package:
+
+`yarn add PACKAGE_NAME [--dev]` will install the package.
 
 ## Add a yarn scripts
 
@@ -98,6 +102,16 @@ yarn build:rc
 
 By default, the output should be in a `dist` folder. For more details, view the specific packages README.
 
+## Publish
+
+To release, go to the root project of the workspace and do the following:
+
+```
+yarn new-version
+yarn release:pkg
+git push
+```
+
 ## Good to remember
 
 Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-ui will try to reinstall everytime we do a yarn install. Haven't found any other way to prevent it.
@@ -122,17 +136,17 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 ```
 
 - Prettier workspace setup
+
 - ESLint workspace setup
 
 - Add vscode-styled-jsx to the recommended workspace extensions
+- Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Packager les licences + README
 
 - Storybook should use shared babel-preset.js file
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
-
-- Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Share a browserslist config
 
@@ -143,4 +157,6 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 - Some sort of intellisense? Like typescript types?
 
 - Add a fake api project to be able to create stories for the remote search input
+
+- Script pour valider que --otp a été passé à release:pkg et que le user est logged in
 

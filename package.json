@@ -21,11 +21,12 @@
     "clean": "run-p clean:*",
     "clean:pkg": "lerna run clean --parallel",
     "clean:website": "cd website && yarn clean",
-    "release:pkg": "run-s build:pkg publish:pkg",
-    "release:pkg:next": "run-s build:pkg publish:pkg:next",
+    "new-version": "lerna version --exact --no-push",
+    "release:pkg": "yarn publish:pkg",
+    "release:pkg:next": "yarn publish:pkg:next",
     "release:sb": "run-s build:sb deploy-sb",
     "release:website": "run-s build:website deploy-website",
-    "publish:pkg": "lerna publish from-package --exact --loglevel verbose",
+    "publish:pkg": "lerna publish from-package --exact --progress --loglevel verbose",
     "publish:pkg:next": "yarn publish:pkg --dist-tag next",
     "deploy-sb": "cd packages/react-components && yarn sb:deploy",
     "deploy:website": "cd website && yarn deploy:staging",
@@ -34,8 +35,7 @@
     "delete-node-modules:pkg": "lerna exec --parallel -- rimraf node_modules",
     "delete-node-modules:website": "cd website && rimraf node_modules",
     "delete-node-modules:root": "rimraf node_modules",
-    "install-website": "cd website && yarn install",
-    "diff": "lerna diff"
+    "install-website": "cd website && yarn install"
   },
   "workspaces": {
     "packages": [

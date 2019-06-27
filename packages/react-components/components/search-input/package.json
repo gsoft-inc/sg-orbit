@@ -1,6 +1,6 @@
 {
   "name": "@sharegate/react-search-input",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "repository": "https://github.com/gsoft-inc/sg-brand.git",
   "author": "Groupe Sharegate inc.",
   "license": "Apache-2.0",
@@ -16,9 +16,10 @@
     "semantic-ui-react": "*"
   },
   "dependencies": {
-    "@sharegate/react-components-shared": "0.1.1",
+    "@sharegate/react-components-shared": "0.1.2",
     "classnames": "2.2.6",
     "lodash": "4.17.11",
     "prop-types": "15.7.2"
-  }
+  },
+  "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
 }
