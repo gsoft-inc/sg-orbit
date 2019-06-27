@@ -158,3 +158,5 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Add a fake api project to be able to create stories for the remote search input
 
+- Script pour valider que --otp a été passé à release:pkg et que le user est logged in
+
