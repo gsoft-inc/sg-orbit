@@ -122,17 +122,17 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 ```
 
 - Prettier workspace setup
+
 - ESLint workspace setup
 
 - Add vscode-styled-jsx to the recommended workspace extensions
+- Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Packager les licences + README
 
 - Storybook should use shared babel-preset.js file
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
-
-- Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Share a browserslist config
 
