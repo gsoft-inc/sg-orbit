@@ -67,7 +67,7 @@ export class DateRangePickerButtons extends PureComponent {
                 <Button onClick={this.handleClear} className={!this.canClear() ? "ghost short disabled" : "ghost short"}>
                     {clearText}
                 </Button>
-                <Button onClick={this.handleApply} className={!this.canApply() ? "ghost short disabled" : "primary-500 ghost short"}>
+                <Button onClick={this.handleApply} className={!this.canApply() ? "ghost short disabled" : "primary ghost short"}>
                     {applyText}
                 </Button>
             </div>
