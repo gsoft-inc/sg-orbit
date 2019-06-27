@@ -1,7 +1,7 @@
 {
     "name": "@sharegate/semantic-ui-theme",
-    "version": "4.0.7",
-    "description": "Semantic UI customized to follow Sharegate Design Guidelines",
+    "version": "4.0.8",
+    "description": "Semantic UI customized to follow Sharegate brand",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -22,6 +22,9 @@
         "prepare": "run-s build copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+    },
+    "peerDependencies": {
+        "@sharegate/css-normalize": "*"
     },
     "devDependencies": {
         "gulp": "4.0.2",

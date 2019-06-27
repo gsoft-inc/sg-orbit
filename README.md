@@ -42,7 +42,7 @@ To install the packages and link all the workspace dependencies:
 yarn bootstrap
 ```
 
-## Add new packages
+## Add a new NPM packages
 
 Dont add new packages to the root of the workspace unless you know what you are doing.
 
@@ -85,6 +85,26 @@ For example, take the react-components project, since we execute a babel compila
 You can have scripts in sub project. Again, take the react-components project. A script is define in the actual project to start storybook since the workspace doesn't know about storybook, this is a dependency of react-components not of the whole workspace. Therefore, the scripts is define in the react-components project and a script entry has been added to the root package.json to call the script in the sub project.
 
 To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
+
+## Add a new project
+
+Create a new folder matching your project name in /packages
+
+Go to that folder with a terminal and execute `yarn init`.
+
+Answer the questions.
+
+Dont forget to add the scope "@sharegate" before your package name. For example if your project name is "toto", your package name should be "@sharegate/toto".
+
+Make sure you set the license to "Apache-2.0"
+
+Make sure you set the author to "Groupe Sharegate inc."
+
+Make sure you set the repository to "https://github.com/gsoft-inc/sg-brand.git"
+
+Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
+
+If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
 
 ## Build
 
@@ -141,8 +161,6 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Add vscode-styled-jsx to the recommended workspace extensions
 - Pour SUI ajouter le mapping de less au .overrides et .variables
-
-- Packager les licences + README
 
 - Storybook should use shared babel-preset.js file
 

@@ -1,0 +1,13 @@
+{
+  "name": "@sharegate/css-normalize",
+  "version": "0.1.1",
+  "description": "Sharegate CSS normalize",
+  "repository": "https://github.com/gsoft-inc/sg-brand.git",
+  "author": "Groupe Sharegate inc.",
+  "license": "Apache-2.0",
+  "main": "src/normalize.css",
+  "style": "src/normalize.css",
+  "publishConfig": {
+    "access": "public"
+  }
+}
