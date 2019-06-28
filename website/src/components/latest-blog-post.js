@@ -31,14 +31,14 @@ export default () => (
         <div className="bg-cloud-50 pa4 mt8">
           <h1 className="ma0 mb3 pa0">Latest Article</h1>
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div>
+            <div key="node.id">
               <h3 className="ma0 pa0">{node.frontmatter.title}</h3>
               <p className="ma0 pa0 mb2 f5">{node.excerpt}</p>
               <Link
                 to={node.frontmatter.slug}
                 className="no-underline apricot-900"
               >
-                <p class="pa0 ma0 f4">Read More</p>
+                <p className="pa0 ma0 f4">Read More</p>
               </Link>
               <Link className="pa0 ma0 mt4 flex no-underline" to="/blog">
                 <p className="f4 pa0 ma0 marine-900">All articles ></p>
