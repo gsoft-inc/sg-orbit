@@ -840,8 +840,8 @@
 @lightBlackFocus          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorFocus       : @positiveColor;
-@negativeColorFocus       : @negativeColor;
+@positiveColorFocus       : var(--success-900);
+@negativeColorFocus       : var(--alert-900);
 
 /*---  Brand   ---*/
 @facebookFocusColor       : @facebookColor;
@@ -962,8 +962,8 @@
 @lightBlackActive          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorActive       : @positiveColor;
-@negativeColorActive       : @negativeColor;
+@positiveColorActive       : var(--success-900);
+@negativeColorActive       : var(--alert-900);
 
 /*---  Brand   ---*/
 @facebookActiveColor       : @facebookColor;

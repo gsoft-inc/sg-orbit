@@ -36,10 +36,10 @@ export default () => (
                 {node.headings.map((item, key) => (
                   <li key={key} className="pa0 pl2  ma0">
                     <Link
-                      className="no-underline f5 marine-400"
-                      to={`${node.route}#${item.slug}`}
+                        className="no-underline f5 marine-400"
+                        to={`${node.route}#${item.slug}`}
                     >
-                      {item.value}
+                        {item.value}
                     </Link>
                   </li>
                 ))}

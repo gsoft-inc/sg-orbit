@@ -297,3 +297,9 @@ details {
 summary {
     display: list-item;
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
