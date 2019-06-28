@@ -31,6 +31,12 @@ class Preset extends PureComponent {
                 >
                     {preset.text}
                 </button>
+                <style jsx>{`
+                    button {
+                        background-color: transparent;
+                        border: none;
+                    }
+                `}</style>
             </li>
         );
     }
@@ -69,6 +75,11 @@ export class DateRangePickerPresets extends PureComponent {
                     <ul>{this.renderPresets()}</ul>
 
                     <style jsx>{`
+                        ul {
+                            padding: 0;
+                            margin: 0;
+                            list-style-type: none;
+                        }
                         .presets {
                             min-width: 200px;
                         }

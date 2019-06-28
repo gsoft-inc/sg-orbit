@@ -13,7 +13,8 @@
       "clean": "run-p clean:*",
       "clean:public": "rimraf public",
       "clean:cache": "rimraf .cache",
-      "deploy": "",
+      "deploy:staging": "netlify deploy --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af",
+      "deploy:prod": "netlify deploy -prod --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af",
       "gatsby:develop": "gatsby develop",
       "gatsby:build": "gatsby build",
       "gatsby:serve": "gatsby serve",
@@ -48,6 +49,7 @@
     "devDependencies": {
       "docz": "1.2.0",
       "docz-theme-default": "1.2.0",
-      "gatsby-theme-docz": "1.2.0"
+      "gatsby-theme-docz": "1.2.0",
+      "netlify": "2.4.6"
     }
   }
