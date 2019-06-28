@@ -171,5 +171,3 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - TESTS for components
 
-- Gatsby, disable eslint pour utiliser le notre?
-
