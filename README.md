@@ -155,8 +155,6 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
   },
 ```
 
-- ESLint workspace setup
-
 - Storybook should use shared babel-preset.js file
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
