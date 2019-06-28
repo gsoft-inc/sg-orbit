@@ -23,7 +23,7 @@
         "build:transpile:minify": "tachyons src/tachyons.css --minify > dist/tachyons.legacy.min.css",
         "watch": "watch \"yarn build:edge:css\" ./src/",
         "clean": "yarn clear-dist",
-        "prepare": "run-s build copy-license-to-dist",
+        "prepublishOnly": "run-s build copy-license-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
         "copy-to-dist": "node scripts/copy-to-dist",

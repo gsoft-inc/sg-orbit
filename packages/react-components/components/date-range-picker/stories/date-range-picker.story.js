@@ -1,5 +1,5 @@
-import { storiesOf } from "@storybook/react";
 import { DEFAULT_DATES_PRESETS, DateRangePicker } from "../src";
+import { storiesOf } from "@storybook/react";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";

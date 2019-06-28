@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const shell = require("shelljs");
 
+// TODO: replace with root ensure-success.
 function run(command, errorMessage) {
     const result = command();
 
