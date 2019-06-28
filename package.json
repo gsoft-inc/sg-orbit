@@ -25,7 +25,7 @@
     "release:pkg": "yarn publish:pkg",
     "release:pkg:next": "yarn publish:pkg:next",
     "release:sb": "run-s build:sb deploy-sb",
-    "release:website": "run-s build:website deploy-website",
+    "release:website": "run-s build:website deploy:website",
     "publish:pkg": "lerna publish from-package --exact --loglevel verbose",
     "publish:pkg:next": "yarn publish:pkg --dist-tag next",
     "deploy-sb": "cd packages/react-components && yarn sb:deploy",
