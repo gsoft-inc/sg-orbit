@@ -1,7 +1,7 @@
-import { storiesOf } from "@storybook/react";
 import { SearchInput, searchInputResult } from "../src";
+import { storiesOf } from "@storybook/react";
 
-storiesOf("SearchInput", module).add("default", () => 
+storiesOf("SearchInput", module).add("default", () =>
     <SearchInput
         results={[
             searchInputResult("1", "George"),

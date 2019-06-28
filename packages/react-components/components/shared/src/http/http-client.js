@@ -1,5 +1,7 @@
-import { toSearch } from "../utils/url";
 import { fetchWithTimeout } from "./fetch";
+import { isNil, pickBy } from "lodash";
+import { isNotNullOrEmpty } from "../utils/types";
+import { toSearch } from "../utils/url";
 
 const DEFAULT_TIMEOUT = 0;
 
@@ -27,4 +29,4 @@ export function httpGet({ url, data, options = {} }) {
         ...DEFAULT_OPTIONS,
         ...options
     });
-};
+}

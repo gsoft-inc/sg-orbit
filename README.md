@@ -155,12 +155,7 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
   },
 ```
 
-- Prettier workspace setup
-
 - ESLint workspace setup
-
-- Add vscode-styled-jsx to the recommended workspace extensions
-- Pour SUI ajouter le mapping de less au .overrides et .variables
 
 - Storybook should use shared babel-preset.js file
 
@@ -176,5 +171,7 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Add a fake api project to be able to create stories for the remote search input
 
-- Script pour valider que --otp a été passé à release:pkg et que le user est logged in
+- TESTS for components
+
+- Gatsby, disable eslint pour utiliser le notre?
 

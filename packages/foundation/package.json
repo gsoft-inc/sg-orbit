@@ -1,22 +1,22 @@
 {
-  "name": "@sharegate/foundation",
-  "version": "3.0.8",
-  "description": "Sharegate brand foundation",
-  "repository": "https://github.com/gsoft-inc/sg-brand.git",
-  "author": "Groupe Sharegate inc.",
-  "license": "Apache-2.0",
-  "main": "src/index.css",
-  "style": "src/index.css",
-  "publishConfig": {
-    "access": "public",
-    "directory": "dist"
-  },
-  "scripts": {
-    "clean": "rimraf dist",
-    "build": "yarn copy-to-dist",
-    "prepare": "run-s build copy-license-to-dist",
-    "copy-to-dist": "node scripts/copy-to-dist",
-    "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
-  },
-  "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
+    "name": "@sharegate/foundation",
+    "version": "3.0.8",
+    "description": "Sharegate brand foundation",
+    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "src/index.css",
+    "style": "src/index.css",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "yarn copy-to-dist",
+        "prepublishOnly": "run-s build copy-license-to-dist",
+        "copy-to-dist": "node scripts/copy-to-dist",
+        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+    },
+    "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
 }

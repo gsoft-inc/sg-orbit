@@ -1,8 +1,8 @@
-import { storiesOf } from "@storybook/react";
 import { MultiSelect, multiSelectItem } from "../src";
+import { storiesOf } from "@storybook/react";
 
-storiesOf("MultiSelect", module).add("default", () => 
-    <MultiSelect                     
+storiesOf("MultiSelect", module).add("default", () =>
+    <MultiSelect
         items={[
             multiSelectItem("Created", "Group Created", "Group Lifecycle"),
             multiSelectItem("Restored", "Group Restored", "Group Lifecycle"),
