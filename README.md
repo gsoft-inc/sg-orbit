@@ -146,17 +146,6 @@ https://medium.com/@lt.tutkus7/save-your-time-reducing-bundle-size-with-webpack-
 
 - S'inspirer de https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.babel-preset.js
 
-- Make sure to bundle for env = "production" (styled jsx optimizeForSpeed) + les babel transfo
-```
-  "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
-  },
-```
-
-- Understand babel.config.js vs .babelrc.js (https://babeljs.io/docs/en/configuration)
-
 - Storybook should use shared babel-preset.js file
 Config Lookup Changes
 For more info, read our 6.x vs 7.x comparison.
