@@ -19,7 +19,7 @@
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
-        "prepublishOnly": "echo lala && yarn build",
+        "prepublishOnly": "yarn build",
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy:staging": "netlify deploy --dir=./public --site=4b420380-aed1-4dc6-b002-6efe7b413025",
@@ -34,6 +34,7 @@
         "semantic-ui-react": "*"
     },
     "dependencies": {
+        "@babel/runtime-corejs3": "7.4.5",
         "@sharegate/react-components-shared": "0.2.0",
         "@sharegate/react-date-range-picker": "0.2.0",
         "@sharegate/react-popup": "0.2.0"
@@ -43,6 +44,7 @@
         "@babel/core": "7.4.5",
         "@babel/plugin-proposal-class-properties": "7.4.4",
         "@babel/plugin-transform-modules-commonjs": "7.4.4",
+        "@babel/plugin-transform-runtime": "7.4.4",
         "@babel/preset-env": "7.4.5",
         "@babel/preset-react": "7.0.0",
         "@sharegate/css-normalize": "0.2.0",
