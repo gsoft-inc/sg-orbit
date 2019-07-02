@@ -1,0 +1,106 @@
+---
+name: Input
+menu: Components
+route: /input
+---
+
+import { Playground, Props } from "docz";
+import { Input } from "semantic-ui-react";
+
+# Input
+
+Use the Input component when an input is needed from the user.
+
+## Standard
+
+### Default
+
+<Playground>
+    <Input placeholder="Search..." />
+</Playground>
+
+### Focus
+
+<Playground>
+    <Input focus placeholder="Search..." />
+</Playground>
+
+### Disabled
+
+<Playground>
+    <Input disabled placeholder="Search..." />
+</Playground>
+
+## Icon
+
+### Standard
+
+<Playground>
+    <Input icon="search" placeholder="Search..." />
+</Playground>
+
+### Left
+
+<Playground>
+    <Input icon="search" iconPosition="left" placeholder="Search..." />
+</Playground>
+
+### Left Disabled
+
+<Playground>
+    <Input disabled icon="search" iconPosition="left" placeholder="Search..." />
+</Playground>
+
+### Left Disabled with value
+
+<Playground>
+    <Input disabled icon="search" iconPosition="left" placeholder="Search..." value="Canada" />
+</Playground>
+
+## Loading
+
+### Standard
+
+<Playground>
+    <Input loading icon="user" iconPosition="left" placeholder="Search..." />
+</Playground>
+
+### No icon
+
+<Playground>
+    <Input loading placeholder="Search..." />
+</Playground>
+
+## Error
+
+## Standard
+
+<Playground>
+    <Input error placeholder="Search..." />
+</Playground>
+
+## Success
+
+## Standard
+
+<Playground>
+    <Input success placeholder="Search..." />
+</Playground>
+
+## Fluid
+
+### Standard
+
+<Playground>
+    <Input fluid placeholder="Search..." />
+</Playground>
+
+## Transparent
+
+Transparent is not a property but a class(className in React)
+
+### Standard
+
+<Playground>
+    <Input placeholder="Search..." className="transparent" />
+</Playground>
