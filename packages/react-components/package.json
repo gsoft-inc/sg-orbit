@@ -19,7 +19,7 @@
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
-        "prepublishOnly": "yarn build",
+        "prepublishOnly": "cross-env NODE_ENV=production && yarn build",
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy:staging": "netlify deploy --dir=./public --site=4b420380-aed1-4dc6-b002-6efe7b413025",
