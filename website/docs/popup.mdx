@@ -9,8 +9,6 @@ import { Button, Popup } from "semantic-ui-react";
 
 # Popup
 
-Lorem
-
 ## Standard
 
 ### Default
@@ -41,4 +39,16 @@ Lorem
 
 <Playground>
     <Popup inverted content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+</Playground>
+
+### Flush
+
+If you need to control your own padding use the className flush then proceed to add the right Tachyon class, make sure to validate with the UI designers that you work with that you still follow standards. _The following example is not approved by designers._
+
+<Playground>
+    <Popup trigger={<Button>Read</Button>} className="flush">
+        <Popup.Content className="pa10">
+            <div>Hello is it tea you are looking for?</div>
+        </Popup.Content>
+    </Popup>
 </Playground>
