@@ -56,6 +56,7 @@
         "babel-plugin-jsx-control-statements": "4.0.0",
         "babel-plugin-named-asset-import": "0.3.2",
         "babel-plugin-react-require": "3.1.1",
+        "babel-plugin-transform-react-remove-prop-types": "0.4.24",
         "moment": "2.24.0",
         "react": "16.8.6",
         "react-dates": "20.2.3",

@@ -29,6 +29,7 @@ module.exports = {
         ],
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
+        "babel-plugin-transform-react-remove-prop-types",
         "styled-jsx/babel",
         [
             "babel-plugin-named-asset-import",

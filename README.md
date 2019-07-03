@@ -138,27 +138,11 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 # TODO
 
-- Configure babel minimum browser to reduce bundle size
-
 - Use https://github.com/lodash/babel-plugin-lodash to prevent from using the whole lodash? (maybe there is also something to do with SUI react, view https://github.com/Semantic-Org/Semantic-UI-React/issues/830)
 - lodash import optimization:
 https://medium.com/@lt.tutkus7/save-your-time-reducing-bundle-size-with-webpack-and-babel-894791374746
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
-
-- Share a browserslist config
-"browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
 
 - Inclure la "files" property dans les package.json
 
@@ -170,11 +154,7 @@ https://medium.com/@lt.tutkus7/save-your-time-reducing-bundle-size-with-webpack-
 
 - TESTS for components
 
-- babel transform-react-remove-prop-types
-
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
 - Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
-
-- Ajouter une browserslist à Tachyons (https://github.com/tachyons-css/cli/issues/22)
 
