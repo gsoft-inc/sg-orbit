@@ -1,0 +1,44 @@
+---
+name: Popup
+menu: Components
+route: /popup
+---
+
+import { Playground } from "docz";
+import { Button, Popup } from "semantic-ui-react";
+
+# Popup
+
+Lorem
+
+## Standard
+
+### Default
+
+<Playground>
+    <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
+</Playground>
+
+### Basic
+
+<Playground>
+    <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
+</Playground>
+
+### Wide
+
+<Playground>
+    <Popup wide content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
+</Playground>
+
+### Very Wide
+
+<Playground>
+    <Popup wide="very" content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
+</Playground>
+
+### Inverted
+
+<Playground>
+    <Popup inverted content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+</Playground>

@@ -1,0 +1,79 @@
+---
+name: Checkbox
+menu: Components
+route: /checkbox
+---
+
+import { Playground } from "docz";
+import { Form, Checkbox } from "semantic-ui-react";
+
+# Checkbox
+
+Lorem
+
+## Standard
+
+### Default
+
+<Playground>
+    <Checkbox label="Make my profile visible" />
+</Playground>
+
+### Disabled
+
+<Playground>
+    <Checkbox disabled label="Make my profile visible" />
+</Playground>
+
+## Toggle
+
+### Default
+
+<Playground>
+    <Checkbox toggle />
+</Playground>
+
+### Checked
+
+<Playground>
+    <Checkbox checked toggle />
+</Playground>
+
+### Disabled
+
+<Playground>
+    <Checkbox disabled toggle />
+</Playground>
+
+### Checked Disabled
+
+<Playground>
+    <Checkbox checked disabled toggle />
+</Playground>
+
+## Radio
+
+<Playground>
+    <Checkbox radio label="Video killed the radio stars" />
+</Playground>
+
+## Radio Group
+
+With React Semantic UI you are responsible of the radio logic [see the official doc](https://react.semantic-ui.com/modules/checkbox/#types-radio-group)
+
+<Playground>
+    <Form>
+        <Form.Field>
+            <Checkbox radio label="Choose this" name="checkboxRadioGroup" value="this" />
+        </Form.Field>
+        <Form.Field>
+            <Checkbox radio label="Or that" name="checkboxRadioGroup" value="that" />
+        </Form.Field>
+    </Form>
+</Playground>
+
+## Slider
+
+<Playground>
+    <Checkbox slider />
+</Playground>
