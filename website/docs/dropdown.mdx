@@ -4,75 +4,130 @@ menu: Components
 route: /dropdown
 ---
 
-import { Playground, Props } from "docz"
-import { Dropdown } from "semantic-ui-react"
+import { Playground, Props } from "docz";
+import { Dropdown } from "semantic-ui-react";
 
 # Dropdown
 
 Dropdown make common more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
 
-## Basic usage
+## Selection
+
+### Standard
 
 <Playground>
-  <Dropdown
-    placeholder="Select Friend"
-    fluid
-    selection
-    options={[
-      {
-        key: "Jenny Hess",
-        text: "Jenny Hess",
-        value: "Jenny Hess",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/women/4.jpg",
-        },
-      },
-      {
-        key: "Elliot Fu",
-        text: "Elliot Fu",
-        value: "Elliot Fu",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/women/12.jpg",
-        },
-      },
-      {
-        key: "Stevie Feliciano",
-        text: "Stevie Feliciano",
-        value: "Stevie Feliciano",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/men/14.jpg",
-        },
-      },
-      {
-        key: "Christian",
-        text: "Christian",
-        value: "Christian",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/men/12.jpg",
-        },
-      },
-      {
-        key: "Matt",
-        text: "Matt",
-        value: "Matt",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/men/44.jpg",
-        },
-      },
-      {
-        key: "Justen Kitsune",
-        text: "Justen Kitsune",
-        value: "Justen Kitsune",
-        image: {
-          avatar: true,
-          src: "https://randomuser.me/api/portraits/women/14.jpg",
-        },
-      },
-    ]}
-  />
+    <Dropdown
+        placeholder="Gender"
+        fluid
+        selection
+        options={[
+            {
+                key: "Male",
+                text: "Male",
+                value: "Male"
+            },
+            {
+                key: "Female",
+                text: "Female",
+                value: "Female"
+            }
+        ]}
+    />
+</Playground>
+
+### Small
+
+A dropdown can be smaller using the class small
+
+<Playground>
+    <Dropdown
+        placeholder="Gender"
+        fluid
+        selection
+        className="small"
+        options={[
+            {
+                key: "Male",
+                text: "Male",
+                value: "Male"
+            },
+            {
+                key: "Female",
+                text: "Female",
+                value: "Female"
+            }
+        ]}
+    />
+</Playground>
+
+## Complex
+
+<Playground>
+    <Dropdown
+        placeholder="Select Friend"
+        fluid
+        selection
+        options={[
+            {
+                key: "Jenny Hess",
+                text: "Jenny Hess",
+                value: "Jenny Hess",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/women/4.jpg",
+                    size: "mini"
+                }
+            },
+            {
+                key: "Elliot Fu",
+                text: "Elliot Fu",
+                value: "Elliot Fu",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/women/12.jpg",
+                    size: "mini"
+                }
+            },
+            {
+                key: "Stevie Feliciano",
+                text: "Stevie Feliciano",
+                value: "Stevie Feliciano",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/men/14.jpg",
+                    size: "mini"
+                }
+            },
+            {
+                key: "Christian",
+                text: "Christian",
+                value: "Christian",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/men/12.jpg",
+                    size: "mini"
+                }
+            },
+            {
+                key: "Matt",
+                text: "Matt",
+                value: "Matt",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/men/44.jpg",
+                    size: "mini"
+                }
+            },
+            {
+                key: "Justen Kitsune",
+                text: "Justen Kitsune",
+                value: "Justen Kitsune",
+                image: {
+                    avatar: true,
+                    src: "https://randomuser.me/api/portraits/women/14.jpg",
+                    size: "mini"
+                }
+            }
+        ]}
+    />
 </Playground>
