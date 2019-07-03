@@ -138,8 +138,6 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 # TODO
 
-- Use https://github.com/lodash/babel-plugin-lodash to prevent from using the whole lodash? (maybe there is also something to do with SUI react, view https://github.com/Semantic-Org/Semantic-UI-React/issues/830)
-
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 - Inclure la "files" property dans les package.json
