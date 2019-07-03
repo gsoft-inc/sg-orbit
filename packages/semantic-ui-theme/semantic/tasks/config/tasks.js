@@ -117,13 +117,14 @@ module.exports = {
 
     /* What Browsers to Prefix */
     prefix: {
-      overrideBrowserslist: [
-        'last 2 versions',
-        '> 1%',
-        'opera 12.1',
-        'bb 10',
-        'android 4'
-      ]
+    //   Removed to use .browserlistrc instead.
+    //   overrideBrowserslist: [
+    //     'last 2 versions',
+    //     '> 1%',
+    //     'opera 12.1',
+    //     'bb 10',
+    //     'android 4'
+    //   ]
     },
 
     /* File Renames */

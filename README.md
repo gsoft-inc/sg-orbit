@@ -144,18 +144,21 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 - lodash import optimization:
 https://medium.com/@lt.tutkus7/save-your-time-reducing-bundle-size-with-webpack-and-babel-894791374746
 
-- S'inspirer de https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.babel-preset.js
-
-- Storybook should use shared babel-preset.js file
-Config Lookup Changes
-For more info, read our 6.x vs 7.x comparison.
-
-Babel has had issues previously with handling node_modules, symlinks, and monorepos. We've made some changes to account for this: Babel will stop lookup at the package.json boundary instead of looking up the chain. For monorepo's we have added a new babel.config.js file that centralizes our config across all the packages (alternatively you could make a config per package). In 7.1, we've introduced a rootMode option for further lookup if necessary.
-https://babeljs.io/docs/en/v7-migration
-
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 - Share a browserslist config
+"browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 
 - Inclure la "files" property dans les package.json
 
@@ -166,4 +169,12 @@ https://babeljs.io/docs/en/v7-migration
 - Add a fake api project to be able to create stories for the remote search input
 
 - TESTS for components
+
+- babel transform-react-remove-prop-types
+
+- Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
+
+- Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
+
+- Ajouter une browserslist à Tachyons (https://github.com/tachyons-css/cli/issues/22)
 
