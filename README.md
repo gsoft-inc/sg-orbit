@@ -141,21 +141,17 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 - Configure babel minimum browser to reduce bundle size
 
 - Use https://github.com/lodash/babel-plugin-lodash to prevent from using the whole lodash? (maybe there is also something to do with SUI react, view https://github.com/Semantic-Org/Semantic-UI-React/issues/830)
+- lodash import optimization:
+https://medium.com/@lt.tutkus7/save-your-time-reducing-bundle-size-with-webpack-and-babel-894791374746
 
 - S'inspirer de https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.babel-preset.js
 
-- Use babel with runtime: https://www.youtube.com/watch?v=O_wbkFdr3WM
-
-- Make sure to bundle for env = "production" (styled jsx optimizeForSpeed) + les babel transfo
-```
-  "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
-  },
-```
-
 - Storybook should use shared babel-preset.js file
+Config Lookup Changes
+For more info, read our 6.x vs 7.x comparison.
+
+Babel has had issues previously with handling node_modules, symlinks, and monorepos. We've made some changes to account for this: Babel will stop lookup at the package.json boundary instead of looking up the chain. For monorepo's we have added a new babel.config.js file that centralizes our config across all the packages (alternatively you could make a config per package). In 7.1, we've introduced a rootMode option for further lookup if necessary.
+https://babeljs.io/docs/en/v7-migration
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
