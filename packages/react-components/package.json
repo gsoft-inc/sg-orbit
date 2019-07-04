@@ -1,6 +1,6 @@
 {
     "name": "@sharegate/react-components",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -35,8 +35,8 @@
     "dependencies": {
         "@babel/runtime-corejs3": "7.4.5",
         "@sharegate/react-components-shared": "0.2.0",
-        "@sharegate/react-date-range-picker": "0.2.0",
-        "@sharegate/react-popup": "0.2.0"
+        "@sharegate/react-date-range-picker": "0.3.0",
+        "@sharegate/react-popup": "0.3.0"
     },
     "devDependencies": {
         "@babel/cli": "7.4.4",
@@ -47,10 +47,10 @@
         "@babel/plugin-transform-runtime": "7.4.4",
         "@babel/preset-env": "7.4.5",
         "@babel/preset-react": "7.0.0",
-        "@sharegate/css-normalize": "0.2.0",
-        "@sharegate/foundation": "3.1.0",
-        "@sharegate/semantic-ui-theme": "4.1.0",
-        "@sharegate/tachyons": "3.1.0",
+        "@sharegate/css-normalize": "0.3.0",
+        "@sharegate/foundation": "3.2.0",
+        "@sharegate/semantic-ui-theme": "4.2.0",
+        "@sharegate/tachyons": "3.2.0",
         "@storybook/react": "5.1.9",
         "@svgr/webpack": "4.3.0",
         "babel-loader": "8.0.6",
