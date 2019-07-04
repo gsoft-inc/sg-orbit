@@ -12,7 +12,7 @@ import React from "react";
 import "../fonts/calibre.css";
 import "@sharegate/css-normalize";
 import "@sharegate/foundation";
-import "@sharegate/tachyons/dist/tachyons.min.css";
+import "@sharegate/tachyons";
 
 import Header from "./header";
 

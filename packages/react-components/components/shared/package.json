@@ -1,18 +1,19 @@
 {
-  "name": "@sharegate/react-components-shared",
-  "version": "0.2.0",
-  "repository": "https://github.com/gsoft-inc/sg-brand.git",
-  "author": "Groupe Sharegate inc.",
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": "*"
-  },
-  "dependencies": {
-    "lodash": "4.17.11"
-  },
-  "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"
+    "name": "@sharegate/react-components-shared",
+    "version": "0.2.0",
+    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "*"
+    },
+    "dependencies": {
+        "@babel/runtime-corejs3": "7.4.5",
+        "lodash": "4.17.11"
+    },
+    "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"
 }

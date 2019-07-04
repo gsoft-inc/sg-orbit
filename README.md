@@ -1,9 +1,3 @@
-file:
-https://github.com/lerna/lerna/blob/0b88ffbbcfe95543d71f6c72e7053087cdc7d19a/package.json#L27-L50
-(pour website en autre)
-https://docs.npmjs.com/files/package.json#local-paths
-
-
 # Consumers
 
 # Maintainers
