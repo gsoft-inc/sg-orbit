@@ -22,5 +22,6 @@
         "classnames": "2.2.6",
         "lodash": "4.17.11",
         "prop-types": "15.7.2"
-    }
+    },
+    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
