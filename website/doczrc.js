@@ -1,9 +1,9 @@
 export default {
     title: "ShareGate Components",
-    base: "docs",
+    base: "system",
     ignore: ["**/blog/**", "**/components/**", "readme.md"],
     menu: ["Introduction", "Foundations", "Components"],
-    description: "This is my awesome documentation",
+    description: "ShareGate Components documentation",
     codeSandbox: false,
     linesToScrollEditor: 16,
     themeConfig: {

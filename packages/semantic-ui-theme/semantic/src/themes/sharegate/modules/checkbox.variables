@@ -5,6 +5,7 @@
 @checkboxSize: 20px;
 @checkboxColor: @textColor;
 @checkboxLineHeight: @checkboxSize;
+@bulletTop: 2px;
 
 /* Label */
 @labelDistance: 1.75em;
@@ -129,7 +130,7 @@
 
 
 @toggleFocusColor: var(--cloud-200);
-@toggleHoverColor: @toggleFocusColor; 
+@toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;
 @toggleOffHandleBoxShadow: @handleBoxShadow;

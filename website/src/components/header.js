@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 
 const Header = ({ siteTitle }) => (
     <header
         style={{
             background: `var(--marine-500)`,
-            marginBottom: `1.45rem`,
+            marginBottom: `1.45rem`
         }}
     >
         <div
@@ -14,7 +14,7 @@ const Header = ({ siteTitle }) => (
             style={{
                 margin: `0 auto`,
                 maxWidth: 960,
-                padding: `1.45rem 1.0875rem`,
+                padding: `1.45rem 1.0875rem`
             }}
         >
             <h1 style={{ margin: 0 }}>
@@ -23,14 +23,14 @@ const Header = ({ siteTitle }) => (
                     to="/"
                     style={{
                         color: `white`,
-                        textDecoration: `none`,
+                        textDecoration: `none`
                     }}
                 >
                     {siteTitle}
                 </Link>
                 <div>
-                    <Link to="/blog" className="no-underline">
-                        <span className="hover-cloud-200 white f7">Blog</span>
+                    <Link to="/system" className="no-underline">
+                        <span className="hover-cloud-200 white f7">System</span>
                     </Link>
                     <Link to="/docs" className="no-underline ml4">
                         <span className="hover-cloud-200 white f7 no-underline">Docs</span>
@@ -39,14 +39,14 @@ const Header = ({ siteTitle }) => (
             </h1>
         </div>
     </header>
-)
+);
 
 Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
+    siteTitle: PropTypes.string
+};
 
 Header.defaultProps = {
-    siteTitle: ``,
-}
+    siteTitle: ``
+};
 
-export default Header
+export default Header;

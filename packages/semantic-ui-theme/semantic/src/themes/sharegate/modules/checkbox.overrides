@@ -7,17 +7,17 @@
   box-sizing: border-box;
 }
 
-.ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ label:before {
+.ui.checkbox:not(.toggle):not(.radio):not(.slider) input:not([type=radio]):checked ~ .box:before, .ui.checkbox:not(.toggle):not(.radio):not(.slider) input:not([type=radio]):checked ~ label:before {
     background: @primaryColor url("@{iconsPath}/checkmark.svg") center center no-repeat;
     background-size: 12px 8px;
 }
 
-.ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ label:before {
+.ui.checkbox:not(.toggle):not(.radio):not(.slider) input:not([type=radio]):indeterminate:focus ~ .box:before, .ui.checkbox:not(.toggle):not(.radio):not(.slider) input:not([type=radio]):indeterminate:focus ~ label:before {
     background: @white url("@{iconsPath}/checkmark.svg") center center no-repeat;
     background-size: 12px 8px;
 }
 
-.ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ .box:before, .ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ label:before {
+.ui.checkbox:not(.toggle):not(.radio):not(.slider) input:checked:not([type=radio]):focus ~ .box:before, .ui.checkbox:not(.toggle):not(.radio):not(.slider) input:checked:not([type=radio]):focus ~ label:before {
     background-color: @primaryColor;
 }
 
