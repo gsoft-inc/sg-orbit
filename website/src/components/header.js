@@ -29,11 +29,11 @@ const Header = ({ siteTitle }) => (
                     {siteTitle}
                 </Link>
                 <div>
-                    <Link to="/system" className="no-underline">
-                        <span className="hover-cloud-200 white f7">System</span>
+                    <Link to="/blog" className="no-underline">
+                        <span className="hover-cloud-200 white f7">Blog</span>
                     </Link>
-                    <Link to="/docs" className="no-underline ml4">
-                        <span className="hover-cloud-200 white f7 no-underline">Docs</span>
+                    <Link to="/system" className="no-underline ml4">
+                        <span className="hover-cloud-200 white f7 no-underline">System</span>
                     </Link>
                 </div>
             </h1>
