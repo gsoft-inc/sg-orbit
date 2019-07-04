@@ -10,7 +10,10 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import "../fonts/calibre.css";
-import "@sharegate/tachyons-sg/css/tachyons.min.css";
+import "@sharegate/css-normalize";
+import "@sharegate/foundation";
+import "@sharegate/tachyons/dist/tachyons.min.css";
+
 import Header from "./header";
 
 const Layout = ({ children }) => (
