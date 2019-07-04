@@ -5,7 +5,7 @@ const es = require("./ensure-success");
 const args = process.argv;
 
 if (args.length !== 4) {
-    console.error(chalk.red("error"), ` --dest parameter must be specified.`);
+    console.error(chalk.red("error"), " --dest parameter must be specified.");
 
     shell.exit(1);
 }
@@ -18,3 +18,5 @@ if (!shell.test("-d", "dist")) {
 }
 
 es(shell.cp("../../LICENSE", `${projectPath}/${dest}/LICENSE`));
+
+console.log(chalk.green("success"), ` Copied LICENSE to ${projectPath}/${dest}`);

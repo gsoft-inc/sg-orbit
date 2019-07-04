@@ -27,8 +27,11 @@ module.exports = {
                 useESModules: true
             }
         ],
+        // To enable Webpack lazy loading. For more info: https://medium.com/walkme-engineering/when-magic-fails-a-programmer-grows-e3289ced0791.
+
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
+        "babel-plugin-transform-react-remove-prop-types",
         "styled-jsx/babel",
         [
             "babel-plugin-named-asset-import",

@@ -1,4 +1,0 @@
-# Consumers
-
-## Installation
-

@@ -20,7 +20,7 @@
         "build:pkg": "lerna run build --parallel",
         "build:sb": "cd packages/react-components && yarn sb:build",
         "build:website": "cd website && yarn build",
-        "reset": "run-s -c clean delete-node-modules",
+        "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
         "clean": "run-p clean:*",
         "clean:pkg": "lerna run clean --parallel",
         "clean:website": "cd website && yarn clean",
@@ -38,7 +38,8 @@
         "delete-node-modules": "run-s -c delete-node-modules:*",
         "delete-node-modules:pkg": "lerna exec --parallel -- rimraf node_modules",
         "delete-node-modules:website": "cd website && rimraf node_modules",
-        "delete-node-modules:root": "rimraf node_modules"
+        "delete-node-modules:root": "rimraf node_modules",
+        "delete-yarn-lock": "node ./scripts/delete-yarn-lock"
     },
     "workspaces": {
         "packages": [
@@ -48,7 +49,9 @@
     },
     "devDependencies": {
         "@sharegate/stylelint-config-sg": "0.1.0",
+        "@sharegate/browserslist-config-sg": "1.1.1",
         "babel-eslint": "10.0.2",
+        "browserslist": "4.6.3",
         "chalk": "2.4.2",
         "cross-env": "5.2.0",
         "eslint": "6.0.1",
