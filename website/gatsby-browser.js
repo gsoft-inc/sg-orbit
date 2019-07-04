@@ -5,5 +5,5 @@
  */
 
 // You can delete this file if you're not using it
-require("prismjs/themes/prism-okaidia.css")
-require("@sharegate/css-normalize/src/normalize.css")
+require("prismjs/themes/prism-okaidia.css");
+require("@sharegate/css-normalize");

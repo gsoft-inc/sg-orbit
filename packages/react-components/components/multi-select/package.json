@@ -1,6 +1,6 @@
 {
     "name": "@sharegate/react-multi-select",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -22,5 +22,6 @@
         "classnames": "2.2.6",
         "lodash": "4.17.11",
         "prop-types": "15.7.2"
-    }
+    },
+    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

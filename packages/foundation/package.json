@@ -1,6 +1,6 @@
 {
     "name": "@sharegate/foundation",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "description": "Sharegate brand foundation",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -18,5 +18,5 @@
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
-    "gitHead": "df4aa7dbd85db34c7f1d79370e5bff841b04ea4d"
+    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
