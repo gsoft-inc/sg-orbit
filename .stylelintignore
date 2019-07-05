@@ -1,2 +1,3 @@
 /packages/semantic-ui-theme
 node_modules
+/website/**/*.js
