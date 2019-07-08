@@ -16,7 +16,7 @@ storiesOf("DateRangePicker", module).add("default", () =>
 
 storiesOf("DateRangePicker/presets", module).add("default", () =>
     <DateRangePicker
-    onDatesChange={logDatesChanged}
+        onDatesChange={logDatesChanged}
         presets={DEFAULT_DATES_PRESETS}
     />
 );
