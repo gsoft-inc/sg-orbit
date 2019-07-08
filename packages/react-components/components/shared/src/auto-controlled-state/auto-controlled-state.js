@@ -12,6 +12,7 @@ import { difference, isFunction, isNil, isUndefined } from "lodash";
  * - Define a propType for every auto controlled properties (using propTypes).
  * - In your component "getDerivedStateFromProps" function, use "getAutoControlledStateFromProps".
  * - Everytime you want to update the state of a value property, instead of using "this.setState", use "this.trySetAutoControlledStateValue".
+ * - Get your controlled or uncontrolled value from the state.
  */
 
 const AUTO_CONTROLLED_PROPS_NAME = "autoControlledProps";

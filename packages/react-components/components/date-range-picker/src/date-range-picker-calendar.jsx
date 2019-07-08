@@ -54,7 +54,7 @@ export class DateRangePickerCalendar extends PureComponent {
             }
         } else {
             // Enable selection of a new single date or range when an end date is selected.
-            // This is mostly usefull to allow the selection of a single date after a range has beem selected.
+            // This is mostly usefull to allow the selection of a single date after a range has been selected.
             // The default behavior is to select a new end date for the current range.
             if (!isNil(endDate)) {
                 this.resetFocusedInput();
