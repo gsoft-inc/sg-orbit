@@ -1,3 +1,6 @@
 module.exports = {
-    extends: "@sharegate/stylelint-config-sg"
+    extends: "@sharegate/stylelint-config-sg",
+    rules: {
+        "declaration-block-trailing-semicolon": "never"
+    }
 };
