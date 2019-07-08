@@ -14,7 +14,6 @@
         "@sharegate/tachyons": "*",
         "moment": "*",
         "react": "*",
-        "react-dates": "*",
         "react-dom": "*",
         "semantic-ui-react": "*"
     },
@@ -24,7 +23,8 @@
         "@sharegate/react-popup": "0.3.0",
         "classnames": "2.2.6",
         "lodash": "4.17.11",
-        "prop-types": "15.7.2"
+        "prop-types": "15.7.2",
+        "react-dates": "20.2.5"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

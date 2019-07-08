@@ -1,6 +1,9 @@
 module.exports = {
     parser: "babel-eslint",
-    plugins: ["jsx-a11y", "react"],
+    extends: [
+        "plugin:jsx-control-statements/recommended"
+    ],
+    plugins: ["jsx-a11y", "react", "jsx-control-statements"],
     parserOptions: {
         sourceType: "module",
         ecmaFeatures: {
@@ -20,7 +23,7 @@ module.exports = {
         "react/jsx-no-comment-textnodes": "warn",
         "react/jsx-no-duplicate-props": ["warn", { ignoreCase: true }],
         "react/jsx-no-target-blank": "warn",
-        "react/jsx-no-undef": ["error", { allowGlobals: true }],
+        "react/jsx-no-undef": ["warn", { allowGlobals: true }],
         "react/jsx-pascal-case": [
         "warn",
         {

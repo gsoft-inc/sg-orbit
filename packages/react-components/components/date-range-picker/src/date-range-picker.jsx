@@ -40,8 +40,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         calendar: node,
         navPrevIcon: node,
         navNextIcon: node,
-        left: string,
-        right: string,
         presetsComponent: node,
         presets: arrayOf(shape(PRESET_SHAPE)),
         presetsIcon: node,

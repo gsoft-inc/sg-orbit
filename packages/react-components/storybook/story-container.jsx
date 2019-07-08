@@ -1,32 +1,15 @@
-import React from 'react';
+import React from "react";
 
-// Learn more or give us feedback
-// const styles = {
-//   style: {
-//     position: 'fixed',
-//     top: '0',
-//     left: '0',
-//     bottom: '0',
-//     right: '0',
-//     display: 'flex',
-//     alignItems: 'center',
-//     overflow: 'auto',
-//   },
-//   innerStyle: {
-//     margin: 'auto',
-//     maxHeight: '100%', // Hack for centering correctly in IE11
-//   },
-// } as const;
+export function StoryContainer({ story, context }) {
+    const { parameters } = context;
+    const { options = {} } = parameters
+    const { layout } = options;
 
-// Avec un width genre 80%
-
-export function StoryContainer({ story }) {
     return (
-        <div className="flex items-center justify-center">
-            <div>
+        <div className="fixed top-0 left-0 right-0 mt10 flex items-center">
+            <div className="center" style={layout}>
                 {story}
             </div>
-
         </div>
     );
 }
