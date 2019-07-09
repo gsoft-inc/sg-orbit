@@ -57,10 +57,10 @@ export class DateRangePickerInput extends PureComponent {
         const { disabled, opened, className } = this.props;
 
         const openedClasses = opened && !disabled ? " b--marine-700 marine-700" : " b--cloud-500 marine-200";
-        const disabledClasses = cx({ "bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
-        const placeholderClasses = cx({ "marine-700": !value.isPlaceholder && !disabled });
+        const disabledClasses = cx({ " bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
+        const placeholderClasses = cx({ " marine-700": !value.isPlaceholder && !disabled });
 
-        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center ${openedClasses} ${placeholderClasses} ${disabledClasses}`;
+        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center${openedClasses}${placeholderClasses}${disabledClasses}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }

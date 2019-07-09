@@ -1,5 +1,9 @@
 import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, toPreset } from "../src";
-import { DualControlledPickers } from "./dual-controlled-pickers";
+import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
+import { ReactComponent as CustomCalendarIcon } from "./assets/icon-custom-calendar.svg";
+import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
+import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
+import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import moment from "moment";
@@ -119,63 +123,6 @@ dateRangePickerStories("DateRangePicker/today")
             onDatesChange={logDatesChanged}
         />
     );
-
-dateRangePickerStories("DateRangePicker/single date selection")
-    .add("default", () =>
-        <DateRangePicker
-            allowSingleDateSelection
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("cannot clear without selection", () =>
-        <DateRangePicker
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("can clear when start date selected", () =>
-        <DateRangePicker
-            startDate={moment(DEFAULT_DATE)}
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("can clear when both selected", () =>
-        <DateRangePicker
-            startDate={moment(DEFAULT_DATE)}
-            endDate={moment(DEFAULT_DATE).add(3, "days")}
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("can apply without selection", () =>
-        <DateRangePicker
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("can apply with only start date selected", () =>
-        <DateRangePicker
-            startDate={moment(DEFAULT_DATE)}
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("can apply with both selected", () =>
-        <DateRangePicker
-            startDate={moment(DEFAULT_DATE)}
-            endDate={moment(DEFAULT_DATE).add(3, "days")}
-            allowSingleDateSelection
-            defaultOpened
-            onDatesChange={logDatesChanged}
-        />
-    );
-
 
 dateRangePickerStories("DateRangePicker/date restrictions")
     .add("min date", () =>
@@ -394,7 +341,79 @@ dateRangePickerStories("DateRangePicker/default dates")
             defaultOpened
             onDatesChange={logDatesChanged}
         />
+    );
+
+dateRangePickerStories("DateRangePicker/single date selection")
+    .add("default", () =>
+        <DateRangePicker
+            allowSingleDateSelection
+            onDatesChange={logDatesChanged}
+        />
     )
+    .add("cannot clear without selection", () =>
+        <DateRangePicker
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can clear when start date selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can clear when both selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can apply without selection", () =>
+        <DateRangePicker
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can apply with only start date selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can apply with both selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            allowSingleDateSelection
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    );
+
+dateRangePickerStories("DateRangePicker/disabled")
+    .add("default", () =>
+        <DateRangePicker
+            disabled
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("selected dates", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            disabled
+            onDatesChange={logDatesChanged}
+        />
+    );
 
 dateRangePickerStories("DateRangePicker")
     .add("inlined", () =>
@@ -414,131 +433,105 @@ dateRangePickerStories("DateRangePicker")
                 />
             </div>
         </div>
-    )
-    .add("disabled", () =>
-        <DateRangePicker
-            disabled
-            onDatesChange={logDatesChanged}
-        />
     );
 
-// dateRangePickerStories("DateRangePicker/specs/presets")
-//     .add("opened", () =>
-//         <DateRangePicker
-//             presets={DEFAULT_DATES_PRESETS}
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add
-
-// dateRangePickerStories("DateRangePicker/specs/date restrictions")
-//     .add("start date outside restrictions", () =>
-//         <>
-//             <DateRangePicker
-//                 startDate={moment(DEFAULT_DATE).subtract(3, "weeks")}
-//                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-//                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-//                 onDatesChange={logDatesChanged}
-//             />
-//             <br />
-//             <DateRangePicker
-//                 startDate={moment(DEFAULT_DATE).subtract(3, "weeks")}
-//                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-//                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-//                 opened
-//                 onDatesChange={logDatesChanged}
-//             />
-//         </>
-//     );
-
-dateRangePickerStories("DateRangePicker/controlled")
-    .add("selected dates", () =>
-        <DualControlledPickers
-            startDate={moment(DEFAULT_DATE)}
-            endDate={moment(DEFAULT_DATE).add(LAST_3_MONTHS_PRESET, "days")}
-            logDatesChanged={logDatesChanged}
+dateRangePickerStories("DateRangePicker/customization")
+    .add("custom input", () =>
+        <DateRangePicker
+            input={<DateRangePicker.Input className="bg-red"></DateRangePicker.Input>}
+            onDatesChange={logDatesChanged}
         />
     )
-    // .add("null ")
+    .add("custom input icon", () =>
+        <DateRangePicker
+            inputIcon={<CustomCalendarIcon />}
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom clear icon", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            inputClearIcon={<CustomClearIcon />}
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom placeholder", () =>
+        <DateRangePicker
+            placeholder="Custom placeholder"
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom range format", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            rangeFormat="{startDate} @@ {endDate}"
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom date format", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            dateFormat="YYYY MMM Do"
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom presets component", () =>
+        <DateRangePicker
+            presetsComponent={<DateRangePicker.Presets className="bg-red"></DateRangePicker.Presets>}
+            presets={DEFAULT_PRESETS}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom presets icon", () =>
+        <DateRangePicker
+            presetsIcon={<CustomCalendarIcon />}
+            presets={DEFAULT_PRESETS}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom buttons component", () =>
+        <DateRangePicker
+            buttons={<DateRangePicker.Buttons className="bg-red"></DateRangePicker.Buttons>}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom buttons text", () =>
+        <DateRangePicker
+            clearText="Custom clear"
+            applyText="Custom apply"
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("custom navigation icons", () =>
+        <DateRangePicker
+            navPrevIcon={<CustomPrevNextIcon />}
+            navNextIcon={<CustomPrevNextIcon />}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
 
-// dateRangePickerStories("DateRangePicker/presets")
-//     .add("default", () =>
-//         <DateRangePicker
-//             presets={DEFAULT_DATES_PRESETS}
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("default dates", () =>
-//         <DateRangePicker
-//             onDatesChange={() => {}}
-//             presets={DEFAULT_DATES_PRESETS}
-//         />
-//     )
-//     .add("allow single date selection", () =>
-//         <DateRangePicker
-//             onDatesChange={() => {}}
-//             presets={DEFAULT_DATES_PRESETS}
-//         />
-//     );
-
-// dateRangePickerStories("DateRangePicker/controlled/closed")
-//     .add("start date", () =>
-//         <DateRangePicker
-//             startDate={moment()}
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("end date", () =>
-//         <DateRangePicker
-//             endDate={moment().add(3, "days")}
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("start & end dates", () =>
-//         <DateRangePicker
-//             startDate={moment()}
-//             endDate={moment().add(3, "days")}
-//             onDatesChange={logDatesChanged}
-//         />
-//     );
-
-// dateRangePickerStories("DateRangePicker/controlled/opened")
-//     .add("default", () =>
-//         <DateRangePicker
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("start date", () =>
-//         <DateRangePicker
-//             startDate={moment()}
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("end date", () =>
-//         <DateRangePicker
-//             endDate={moment().add(3, "days")}
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("start & end dates", () =>
-//         <DateRangePicker
-//             startDate={moment()}
-//             endDate={moment().add(3, "days")}
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     )
-//     .add("presets", () =>
-//         <DateRangePicker
-//             startDate={LAST_WEEK_PRESET.startDate}
-//             endDate={LAST_WEEK_PRESET.endDate}
-//             presets={DEFAULT_DATES_PRESETS}
-//             opened
-//             onDatesChange={logDatesChanged}
-//         />
-//     );
+dateRangePickerStories("DateRangePicker/controlled")
+    .add("default", () =>
+        <ControlledDateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(LAST_3_MONTHS_PRESET, "days")}
+        />
+    )
+    .add("null values", () =>
+        <ControlledDateRangePicker
+            startDate={null}
+            endDate={null}
+        />
+    )
+    .add("mirrored", () =>
+        <MirroredDateRangePickers />
+    );
 

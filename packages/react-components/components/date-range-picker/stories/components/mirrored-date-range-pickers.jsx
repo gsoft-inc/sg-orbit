@@ -1,18 +1,15 @@
-import { DateRangePicker } from "../src";
+import { DateRangePicker } from "../../src";
+import { noop } from "lodash";
 import React, { PureComponent } from "react";
 
-export class DualControlledPickers extends PureComponent {
+export class MirroredDateRangePickers extends PureComponent {
     state = {
-        startDate: this.props.startDate,
-        endDate: this.props.endDate
+        startDate: null,
+        endDate: null
     };
 
-    handleDateChange = (event, startDate, endDate, preset) => {
-        const { logDatesChanged } = this.props;
-
+    handleDateChange = (event, startDate, endDate) => {
         this.setState({ startDate, endDate })
-
-        logDatesChanged(event, startDate, endDate, preset);
     };
 
     render() {
@@ -25,7 +22,7 @@ export class DualControlledPickers extends PureComponent {
                     endDate={endDate}
                     onDatesChange={this.handleDateChange}
                 />
-                <br />
+                <br /><br />
                 <DateRangePicker
                     startDate={startDate}
                     endDate={endDate}

@@ -7,8 +7,11 @@ import "@sharegate/foundation";
 import "@sharegate/semantic-ui-theme";
 import "@sharegate/tachyons";
 
-import "./style/custom.css";
+/* eslint-disable */
 import "./style/fonts/calibre/calibre.css";
+import "./style/theme.css";
+import "./style/stories.css";
+/* eslint-enable */
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);

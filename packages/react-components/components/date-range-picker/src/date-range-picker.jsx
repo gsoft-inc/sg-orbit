@@ -27,6 +27,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         defaultStartDate: object,
         defaultEndDate: object,
         onDatesChange: func.isRequired,
+        onVisibilityChange: func,
         allowSingleDateSelection: bool,
         minDate: object,
         maxDate: object,
@@ -112,11 +113,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         }));
     }
 
-    handleInputClick = () => {
+    handleInputClick = event => {
         const { opened } = this.state;
 
         if (!opened) {
-            this.toggleCalendarVisibility();
+            this.toggleCalendarVisibility(event);
         }
     };
 
@@ -138,15 +139,15 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 event.preventDefault();
             }
 
-            this.toggleCalendarVisibility();
+            this.toggleCalendarVisibility(event);
         }
     };
 
-    handlePopupClose = () => {
+    handlePopupClose = event => {
         const { startDate, endDate } = this.state;
 
         this.setState({ selectedStartDate: startDate, selectedEndDate: endDate, selectedPresetName: null });
-        this.toggleCalendarVisibility();
+        this.toggleCalendarVisibility(event);
     };
 
     handleCalendarDatesChange = (startDate, endDate, presetName) => {
@@ -157,17 +158,22 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { onDatesChange } = this.props;
         const { selectedStartDate, selectedEndDate, selectedPresetName } = this.state;
 
-        this.toggleCalendarVisibility();
+        this.toggleCalendarVisibility(event);
         this.trySetAutoControlledStateValue({ startDate: selectedStartDate });
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
 
         onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName);
     };
 
-    toggleCalendarVisibility() {
+    toggleCalendarVisibility(event) {
+        const { onVisibilityChange } = this.props;
         const { opened } = this.state;
 
         this.trySetAutoControlledStateValue({ opened: !opened });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, !opened);
+        }
     }
 
     getAnchorDirectionProps() {
