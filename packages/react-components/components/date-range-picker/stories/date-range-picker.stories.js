@@ -436,19 +436,19 @@ dateRangePickerStories("DateRangePicker")
     );
 
 dateRangePickerStories("DateRangePicker/customization")
-    .add("custom input", () =>
+    .add("input", () =>
         <DateRangePicker
             input={<DateRangePicker.Input className="bg-red"></DateRangePicker.Input>}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom input icon", () =>
+    .add("input icon", () =>
         <DateRangePicker
             inputIcon={<CustomCalendarIcon />}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom clear icon", () =>
+    .add("clear icon", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
@@ -456,13 +456,13 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom placeholder", () =>
+    .add("placeholder", () =>
         <DateRangePicker
             placeholder="Custom placeholder"
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom range format", () =>
+    .add("range format", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
@@ -470,7 +470,7 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom date format", () =>
+    .add("date format", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
@@ -478,7 +478,7 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom presets component", () =>
+    .add("presets component", () =>
         <DateRangePicker
             presetsComponent={<DateRangePicker.Presets className="bg-red"></DateRangePicker.Presets>}
             presets={DEFAULT_PRESETS}
@@ -486,7 +486,7 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom presets icon", () =>
+    .add("presets icon", () =>
         <DateRangePicker
             presetsIcon={<CustomCalendarIcon />}
             presets={DEFAULT_PRESETS}
@@ -494,14 +494,14 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom buttons component", () =>
+    .add("buttons component", () =>
         <DateRangePicker
             buttons={<DateRangePicker.Buttons className="bg-red"></DateRangePicker.Buttons>}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom buttons text", () =>
+    .add("buttons text", () =>
         <DateRangePicker
             clearText="Custom clear"
             applyText="Custom apply"
@@ -509,7 +509,7 @@ dateRangePickerStories("DateRangePicker/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("custom navigation icons", () =>
+    .add("navigation icons", () =>
         <DateRangePicker
             navPrevIcon={<CustomPrevNextIcon />}
             navNextIcon={<CustomPrevNextIcon />}
