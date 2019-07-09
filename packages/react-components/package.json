@@ -22,7 +22,7 @@
         "prepublishOnly": "cross-env NODE_ENV=production && yarn build",
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
-        "sb:deploy": "netlify deploy -prod --dir=./public --site=4b420380-aed1-4dc6-b002-6efe7b413025"
+        "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open"
     },
     "peerDependencies": {
         "@sharegate/css-normalize": "*",
@@ -64,6 +64,7 @@
         "eslint-plugin-jsx-control-statements": "2.2.1",
         "lodash": "4.17.11",
         "moment": "2.24.0",
+        "netlify-cli": "2.11.23",
         "react": "16.8.6",
         "react-dates": "20.2.3",
         "react-dom": "16.8.6",
