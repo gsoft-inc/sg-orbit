@@ -2,14 +2,19 @@ import { StoryContainer } from "./story-container";
 import { addDecorator, configure } from "@storybook/react";
 import { withConsole } from "@storybook/addon-console";
 
-import "storybook-chromatic";
+// Dont move, it need to be imported after storybook/react.
+import { isChromatic } from "storybook-chromatic";
 
 import "@sharegate/css-normalize";
 import "@sharegate/foundation";
 import "@sharegate/semantic-ui-theme";
 import "@sharegate/tachyons";
 
-import "./style/fonts/calibre/calibre.css";
+// Custom font makes chromatic inconsistent and cause "false positive".
+if (!isChromatic()) {
+    import("./style/fonts/calibre/calibre.css");
+}
+
 import "./style/stories.css";
 import "./style/theme.css";
 

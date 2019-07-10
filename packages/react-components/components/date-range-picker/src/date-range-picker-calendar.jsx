@@ -204,6 +204,7 @@ export class DateRangePickerCalendar extends PureComponent {
                         initialVisibleMonth={this.getInitialVisibleMonth}
                         numberOfMonths={2}
                         phrases={PHRASES}
+                        transitionDuration={0}
                         noBorder
                         keepOpenOnDateSelect
                         hideKeyboardShortcutsPanel

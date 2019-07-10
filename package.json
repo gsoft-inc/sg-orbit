@@ -20,6 +20,8 @@
         "build:pkg": "lerna run build --parallel",
         "build:sb": "cd packages/react-components && yarn sb:build",
         "build:website": "cd website && yarn build",
+        "test:chromatic": "cd packages/react-components && yarn chromatic:test",
+        "ci": "lerna run ci --parallel",
         "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
         "clean": "run-p clean:*",
         "clean:pkg": "lerna run clean --parallel",

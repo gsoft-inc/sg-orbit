@@ -16,6 +16,7 @@
         "build:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
         "prewatch": "yarn clean",
         "watch": "run-p \"build:* --watch\"",
+        "ci": "yarn chromatic:ci",
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
@@ -24,7 +25,7 @@
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
         "sb:chromatic": "yarn sb:start -p 1133 --ci --quiet",
-        "chromatic:run": "chromatic test --app-code=\"77rqvcxzbk5\" --script-name=sb:chromatic",
+        "chromatic:test": "chromatic test --app-code=\"77rqvcxzbk5\" --script-name=sb:chromatic --debug",
         "chromatic:ci": "CI=true && yarn chromatic --no-interactive"
     },
     "peerDependencies": {
@@ -69,7 +70,7 @@
         "moment": "2.24.0",
         "netlify-cli": "2.11.23",
         "react": "16.8.6",
-        "react-dates": "20.2.3",
+        "react-dates": "20.2.5",
         "react-dom": "16.8.6",
         "semantic-ui-react": "0.87.2",
         "storybook-chromatic": "1.4.0",

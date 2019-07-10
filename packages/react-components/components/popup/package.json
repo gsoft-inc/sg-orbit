@@ -15,8 +15,8 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "7.4.5",
-        "lodash": "4.17.11",
-        "prop-types": "15.7.2"
+        "lodash": "*",
+        "prop-types": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

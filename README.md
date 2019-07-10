@@ -130,7 +130,11 @@ git push
 
 Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-ui will try to reinstall everytime we do a yarn install. Haven't found any other way to prevent it.
 
+Chromaticqa is inconsistant if we load a custom font
+
 # TODO
+
+- Prettier + eslint doesn't work everywhere? like react-components.
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
@@ -140,9 +144,7 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Some sort of intellisense? Like typescript types?
 
-- TESTS for components
-
-- Setup storybook visual regression tests
+- unit test for react-components/shared
 
 - Configure Chromatic for CI: https://docs.chromaticqa.com/setup_ci
 

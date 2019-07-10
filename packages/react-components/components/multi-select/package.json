@@ -19,9 +19,9 @@
     "dependencies": {
         "@babel/runtime-corejs3": "7.4.5",
         "@sharegate/react-components-shared": "0.2.1",
-        "classnames": "2.2.6",
-        "lodash": "4.17.11",
-        "prop-types": "15.7.2"
+        "classnames": "*",
+        "lodash": "*",
+        "prop-types": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
