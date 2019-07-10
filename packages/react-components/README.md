@@ -60,6 +60,12 @@ Note that we use a .babelrc config file because storybook doesn't currently supp
 
 You can add a new story for a component adding it in is respective `stories` folder.
 
+## Chromatic
+
+https://www.chromaticqa.com/
+
+Nice talk about why Chromatic: https://www.youtube.com/watch?v=QE-xQxN9Sps
+
 ### Guidelines
 
 https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07
@@ -69,5 +75,6 @@ https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07
 
 Of course we can always reproduce this problem by entering the same input into the knobs, but it's better to write a fixed story for this input. This will increase your regression testing and clearly outline the limits of the component(s) to the rest of your team.
 
-Knobs is a great way to get non-developers playing with your components and stories. 
+Storybook is a fantastic tool for visual regression testing because every story is essentially a test specification.
+
 

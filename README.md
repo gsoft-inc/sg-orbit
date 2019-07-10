@@ -140,9 +140,13 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 
 - Some sort of intellisense? Like typescript types?
 
-- Add a fake api project to be able to create stories for the remote search input
-
 - TESTS for components
+
+- Setup storybook visual regression tests
+
+- Configure Chromatic for CI: https://docs.chromaticqa.com/setup_ci
+
+- Have distinct icon in storybook sidebar for story intented for designers or devs
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 

@@ -2,16 +2,16 @@ import { StoryContainer } from "./story-container";
 import { addDecorator, configure } from "@storybook/react";
 import { withConsole } from "@storybook/addon-console";
 
+import "storybook-chromatic";
+
 import "@sharegate/css-normalize";
 import "@sharegate/foundation";
 import "@sharegate/semantic-ui-theme";
 import "@sharegate/tachyons";
 
-/* eslint-disable */
 import "./style/fonts/calibre/calibre.css";
-import "./style/theme.css";
 import "./style/stories.css";
-/* eslint-enable */
+import "./style/theme.css";
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);

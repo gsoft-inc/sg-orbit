@@ -53,24 +53,32 @@ function presetsKnob(name, defaultValue) {
     });
 }
 
-function dateRangePickerStories(name) {
+// TODO: transform into a shared StoryBuilder
+function dateRangePickerStories(name, { chromatic = true, chromaticDelay = 300 } = {}) {
     return storiesOf(name, module).addParameters({
         options: {
             layout: {
                 width: "80%"
             }
+        },
+        chromatic: {
+            disable: !chromatic,
+            delay: chromaticDelay
         }
     });
 }
 
-dateRangePickerStories("DateRangePicker")
+// TODO: for chromatic ignore use addParameters
+// Or maybe add a flag to dateRangePickerStories to ignore chromatic?
+
+dateRangePickerStories("DateRangePicker", { chromatic: false })
     .add("default", () =>
         <DateRangePicker
             onDatesChange={logDatesChanged}
         />
     );
 
-dateRangePickerStories("DateRangePicker")
+dateRangePickerStories("DateRangePicker", { chromatic: false })
     .addDecorator(withKnobs)
     .add("knobs", () =>
         <DateRangePicker
@@ -92,7 +100,7 @@ dateRangePickerStories("DateRangePicker")
         />
     );
 
-dateRangePickerStories("DateRangePicker/presets")
+dateRangePickerStories("DateRangePicker/presets", { chromatic: false })
     .add("default", () =>
         <DateRangePicker
             presets={DEFAULT_PRESETS}
@@ -124,7 +132,7 @@ dateRangePickerStories("DateRangePicker/today")
         />
     );
 
-dateRangePickerStories("DateRangePicker/date restrictions")
+dateRangePickerStories("DateRangePicker/date restrictions", { chromatic: false })
     .add("min date", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
@@ -143,7 +151,9 @@ dateRangePickerStories("DateRangePicker/date restrictions")
             maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
             onDatesChange={logDatesChanged}
         />
-    )
+    );
+
+dateRangePickerStories("DateRangePicker/date restrictions")
     .add("opened & min date", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE)}
@@ -343,13 +353,15 @@ dateRangePickerStories("DateRangePicker/default dates")
         />
     );
 
-dateRangePickerStories("DateRangePicker/single date selection")
+dateRangePickerStories("DateRangePicker/single date selection", { chromatic: false })
     .add("default", () =>
         <DateRangePicker
             allowSingleDateSelection
             onDatesChange={logDatesChanged}
         />
-    )
+    );
+
+dateRangePickerStories("DateRangePicker/single date selection")
     .add("cannot clear without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
@@ -415,7 +427,7 @@ dateRangePickerStories("DateRangePicker/disabled")
         />
     );
 
-dateRangePickerStories("DateRangePicker")
+dateRangePickerStories("DateRangePicker", { chromatic: false })
     .add("inlined", () =>
         <div className="flex">
             <div className="mr4" style={{ width: "50%" }}>
@@ -518,7 +530,7 @@ dateRangePickerStories("DateRangePicker/customization")
         />
     )
 
-dateRangePickerStories("DateRangePicker/controlled")
+dateRangePickerStories("DateRangePicker/controlled", { chromatic: false })
     .add("default", () =>
         <ControlledDateRangePicker
             startDate={moment(DEFAULT_DATE)}

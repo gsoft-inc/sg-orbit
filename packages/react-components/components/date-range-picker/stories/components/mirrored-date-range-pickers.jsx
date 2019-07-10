@@ -16,19 +16,22 @@ export class MirroredDateRangePickers extends PureComponent {
         const { startDate, endDate } = this.state;
 
         return (
-            <>
-                <DateRangePicker
-                    startDate={startDate}
-                    endDate={endDate}
-                    onDatesChange={this.handleDateChange}
-                />
-                <br /><br />
-                <DateRangePicker
-                    startDate={startDate}
-                    endDate={endDate}
-                    onDatesChange={this.handleDateChange}
-                />
-            </>
+            <div className="flex">
+                <div className="mr4" style={{ width: "50%" }}>
+                    <DateRangePicker
+                        startDate={startDate}
+                        endDate={endDate}
+                        onDatesChange={this.handleDateChange}
+                    />
+                </div>
+                <div style={{ width: "50%" }}>
+                    <DateRangePicker
+                        startDate={startDate}
+                        endDate={endDate}
+                        onDatesChange={this.handleDateChange}
+                    />
+                </div>
+            </div>
         );
     }
 }
