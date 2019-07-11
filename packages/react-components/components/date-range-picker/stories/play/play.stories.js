@@ -45,7 +45,6 @@ stories()
             onDatesChange={logDatesChanged}
         />
     )
-    .addDecorator(withKnobs)
     .add("knobs", () =>
         <DateRangePicker
             defaultStartDate={momentKnob("defaultStartDate", moment(DEFAULT_DATE).toDate())}
@@ -63,7 +62,8 @@ stories()
             disabled={boolean("disabled", false)}
             className={text("className")}
             onDatesChange={logDatesChanged}
-        />
+        />,
+        { decorators: [withKnobs] }
     )
     .add("presets", () =>
         <DateRangePicker

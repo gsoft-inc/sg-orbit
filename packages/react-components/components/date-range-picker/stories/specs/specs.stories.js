@@ -409,7 +409,7 @@ stories("/customization")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("className", () =>
+    .add("css class", () =>
         <DateRangePicker
             className="bg-red"
             onDatesChange={logDatesChanged}

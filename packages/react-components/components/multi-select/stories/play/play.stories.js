@@ -18,7 +18,6 @@ stories()
             onValuesChange={logValuesChanged}
         />
     )
-    .addDecorator(withKnobs)
     .add("knobs", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
@@ -31,7 +30,8 @@ stories()
             clearText={text("clearText", MultiSelect.defaultProps.clearText)}
             disabled={boolean("disabled", false)}
             onValuesChange={logValuesChanged}
-        />
+        />,
+        { decorators: [withKnobs] }
     )
     .add("categories", () =>
         <MultiSelect
@@ -72,6 +72,8 @@ stories()
             onValuesChange={logValuesChanged}
         />
     );
+
+stories()
 
 stories("/controlled")
     .add("stateful", () =>

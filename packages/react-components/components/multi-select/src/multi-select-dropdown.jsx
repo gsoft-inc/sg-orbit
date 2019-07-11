@@ -33,6 +33,7 @@ export class MultiSelectDropdown extends PureComponent {
         searchInput: node,
         searchIcon: node,
         placeholder: string,
+        opened: bool,
         disabled: bool,
         className: string
     };
@@ -45,7 +46,6 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     state = {
-        isOpen: false,
         keyboardItem: null,
         keyboardIndex: null
     };
@@ -155,9 +155,9 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     toggleVisibility(event) {
-        const { isOpen } = this.state;
+        const { opened } = this.props;
 
-        if (isOpen) {
+        if (opened) {
             this.close(event);
         } else {
             this.open(event);
@@ -168,7 +168,6 @@ export class MultiSelectDropdown extends PureComponent {
         const { onOpen } = this.props;
 
         this.bindEvents();
-        this.setState({ isOpen: true });
         this.setKeyboardItem(null, null);
 
         if (!isNil(onOpen)) {
@@ -180,7 +179,6 @@ export class MultiSelectDropdown extends PureComponent {
         const { onClose } = this.props;
 
         this.unbindEvents();
-        this.setState({ isOpen: false });
 
         if (!isNil(onClose)) {
             onClose(event);
@@ -261,21 +259,20 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { disabled } = this.props;
-        const { isOpen } = this.state;
+        const { disabled, opened } = this.props;
 
         return (
             <Ref innerRef={this._dropdownRef}>
                 {/* prettier-ignore */}
                 <Dropdown
-                    open={isOpen}
+                    open={opened}
                     trigger={this.renderTrigger()}
                     className={this.getClasses()}
                     disabled={disabled}
                     upward={false}
                     floating
                 >
-                    <If condition={isOpen}>{this.renderMenu()}</If>
+                    <If condition={opened}>{this.renderMenu()}</If>
                 </Dropdown>
             </Ref>
         );

@@ -21,7 +21,7 @@ function defaultItemRenderer(item, isSelected) {
     return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} />;
 }
 
-function defaultHeaderRenderer(group) {
+function defaultCategoryHeaderRenderer(group) {
     return <Dropdown.Header content={group} />;
 }
 
@@ -68,8 +68,10 @@ export class MultiSelect extends AutoControlledPureComponent {
         onValuesChange: func.isRequired,
         dropdown: node,
         onSearch: func,
+        onOpen: func,
+        onClose: func,
         itemRenderer: func,
-        headerRenderer: func,
+        categoryHeaderRenderer: func,
         closeOnSelect: bool,
         noResultsMessage: string,
         triggerText: string,
@@ -80,6 +82,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         selectedItemRenderer: func,
         clearButton: node,
         clearText: string,
+        defaultOpened: bool,
+        opened: bool,
         disabled: bool,
         className: string
     };
@@ -88,7 +92,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         dropdown: <MultiSelectDropdown />,
         onSearch: startsWithSearch,
         itemRenderer: defaultItemRenderer,
-        headerRenderer: defaultHeaderRenderer,
+        categoryHeaderRenderer: defaultCategoryHeaderRenderer,
         closeOnSelect: false,
         noResultsMessage: "No results",
         triggerText: "Add",
@@ -102,7 +106,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         disabled: false
     };
 
-    static autoControlledProps = ["values"];
+    static autoControlledProps = ["values", "opened"];
 
     // Expose sub-components.
     static Dropdown = MultiSelectDropdown;
@@ -116,7 +120,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         values: [],
         selectedItems: [],
         availableItems: [],
-        dropdownItems: []
+        dropdownItems: [],
+        opened: false
     };
 
     componentDidMount() {
@@ -158,10 +163,26 @@ export class MultiSelect extends AutoControlledPureComponent {
         this.setValues(event, values.filter(x => x !== item.value));
     };
 
-    handleClose = () => {
+    handleOpen = event => {
+        const { onOpen } = this.props;
+
+        this.trySetAutoControlledStateValue({ opened: true });
+
+        if (!isNil(onOpen)) {
+            onOpen(event);
+        }
+    };
+
+    handleClose = event => {
+        const { onClose } = this.props;
         const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
+        this.trySetAutoControlledStateValue({ opened: false });
+
+        if (!isNil(onClose)) {
+            onClose(event);
+        }
     };
 
     handleClear = event => {
@@ -203,22 +224,24 @@ export class MultiSelect extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { itemRenderer, headerRenderer, closeOnSelect, dropdown, triggerText, triggerIcon, searchIcon, placeholder, noResultsMessage, disabled } = this.props;
-        const { dropdownItems } = this.state;
+        const { itemRenderer, categoryHeaderRenderer, closeOnSelect, dropdown, triggerText, triggerIcon, searchIcon, placeholder, noResultsMessage, disabled } = this.props;
+        const { dropdownItems, opened } = this.state;
 
         return cloneElement(dropdown, {
             items: dropdownItems,
             onSearch: this.handleSearch,
             onItemSelect: this.handleItemSelect,
+            onOpen: this.handleOpen,
             onClose: this.handleClose,
             itemRenderer,
-            headerRenderer,
+            headerRenderer: categoryHeaderRenderer,
             closeOnSelect,
             triggerText,
             triggerIcon,
             searchIcon,
             placeholder,
             noResultsMessage,
+            opened,
             disabled
         });
     };

@@ -1,13 +1,15 @@
 import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, shape } from "prop-types";
+import { arrayOf, bool, func, shape, string } from "prop-types";
+import { isNil } from "lodash";
 
 class MultiSelectSelectedItem extends PureComponent {
     static propTypes = {
         item: shape(ITEM_SHAPE).isRequired,
         selectedItemRenderer: func.isRequired,
         onRemove: func.isRequired,
-        disabled: bool
+        disabled: bool,
+        className: string
     };
 
     handleRemove = event => {
@@ -16,10 +18,18 @@ class MultiSelectSelectedItem extends PureComponent {
         onRemove(event, item);
     };
 
+    getClasses() {
+        const { className } = this.props;
+
+        const defaultClasses = "mr2 mb2";
+
+        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+    }
+
     render() {
         const { item, selectedItemRenderer, disabled } = this.props;
 
-        return <div className="mr2 mb2">{selectedItemRenderer(item, { disabled: disabled, onRemove: this.handleRemove })}</div>;
+        return <div className={this.getClasses()}>{selectedItemRenderer(item, { disabled: disabled, onRemove: this.handleRemove })}</div>;
     }
 }
 
@@ -28,7 +38,8 @@ export class MultiSelectSelectedItems extends PureComponent {
         items: arrayOf(shape(ITEM_SHAPE)),
         selectedItemRenderer: func,
         onRemoveSelectedItem: func,
-        disabled: bool
+        disabled: bool,
+        className: string
     };
 
     handleRemoveSelectedItem = (event, item) => {
@@ -38,7 +49,7 @@ export class MultiSelectSelectedItems extends PureComponent {
     };
 
     renderItems() {
-        const { items, selectedItemRenderer, disabled } = this.props;
+        const { items, selectedItemRenderer, disabled, className } = this.props;
 
         return items.map(x => {
             // prettier-ignore
@@ -48,6 +59,7 @@ export class MultiSelectSelectedItems extends PureComponent {
                 onRemove={this.handleRemoveSelectedItem}
                 key={x.value}
                 disabled={disabled}
+                className={className}
             />;
         });
     }
