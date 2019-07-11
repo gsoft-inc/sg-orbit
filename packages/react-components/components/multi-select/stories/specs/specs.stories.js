@@ -198,4 +198,36 @@ stories("/customization")
             onValuesChange={logValuesChanged}
         />
     )
+    .add("selected item renderer", () =>
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            selectedItemRenderer={item => <div>{item.text}</div>}
+            onValuesChange={logValuesChanged}
+        />
+    )
+    .add("clear button", () =>
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            clearButton={<MultiSelect.ClearButton className="bg-red" />}
+            onValuesChange={logValuesChanged}
+        />
+    )
+    .add("clear text", () =>
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            clearText="Custom clear text"
+            onValuesChange={logValuesChanged}
+        />
+    )
+    .add("css class", () =>
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            className="bg-red"
+            onValuesChange={logValuesChanged}
+        />
+    );
 

@@ -15,8 +15,8 @@ if (!isChromatic()) {
     import("./style/fonts/calibre/calibre.css");
 }
 
-import "./style/stories.css";
 import "./style/theme.css";
+import "./utils/stories.css";
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
