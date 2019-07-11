@@ -1,8 +1,8 @@
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "../../src";
 import { ReactComponent as CustomCalendarIcon } from "./assets/icon-custom-calendar.svg";
 import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
 import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
 import { DEFAULT_DATE, DEFAULT_PRESETS,LAST_WEEK_PRESET, logDatesChanged } from "../shared";
-import { DateRangePicker } from "../../src";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
@@ -62,6 +62,24 @@ stories("/date restrictions")
         <DateRangePicker
             minDate={moment(DEFAULT_DATE)}
             maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("selected range is before min date", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE).subtract(5, "days")}
+            endDate={moment(DEFAULT_DATE).subtract(2, "days")}
+            minDate={moment(DEFAULT_DATE)}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("selected range is after max date", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE).add(2, "days")}
+            endDate={moment(DEFAULT_DATE).add(5, "days")}
+            maxDate={moment(DEFAULT_DATE)}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
@@ -387,6 +405,34 @@ stories("/customization")
         <DateRangePicker
             navPrevIcon={<CustomPrevNextIcon />}
             navNextIcon={<CustomPrevNextIcon />}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("className", () =>
+        <DateRangePicker
+            className="bg-red"
+            onDatesChange={logDatesChanged}
+        />
+    );
+
+stories("/anchor")
+    .add("default", () =>
+        <DateRangePicker
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("left", () =>
+        <DateRangePicker
+            anchorDirection={ANCHOR_LEFT}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("right", () =>
+        <DateRangePicker
+            anchorDirection={ANCHOR_RIGHT}
             defaultOpened
             onDatesChange={logDatesChanged}
         />

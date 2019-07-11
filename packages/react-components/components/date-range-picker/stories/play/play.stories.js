@@ -71,6 +71,14 @@ stories()
             onDatesChange={logDatesChanged}
         />
     )
+    .add("selected dates", () =>
+        <DateRangePicker
+            presets={DEFAULT_PRESETS}
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    )
     .add("min date restriction", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
@@ -106,16 +114,12 @@ stories()
         <div className="flex">
             <div className="mr4" style={{ width: "50%" }}>
                 <DateRangePicker
-                    onDatesChange={(event, startDate, endDate, preset) => {
-                        console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-                    }}
+                    onDatesChange={logDatesChanged}
                 />
             </div>
             <div style={{ width: "50%" }}>
                 <DateRangePicker
-                    onDatesChange={(event, startDate, endDate, preset) => {
-                        console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-                    }}
+                    onDatesChange={logDatesChanged}
                 />
             </div>
         </div>
@@ -125,15 +129,19 @@ stories("/controlled")
     .add("stateful", () =>
         <ControlledDateRangePicker
             startDate={moment(DEFAULT_DATE)}
-            endDate={moment(DEFAULT_DATE).add(LAST_3_MONTHS_PRESET, "days")}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            onDatesChange={logDatesChanged}
         />
     )
     .add("null values", () =>
         <ControlledDateRangePicker
             startDate={null}
             endDate={null}
+            onDatesChange={logDatesChanged}
         />
     )
     .add("mirrored", () =>
-        <MirroredDateRangePickers />
+        <MirroredDateRangePickers
+            onDatesChange={logDatesChanged}
+        />
     );

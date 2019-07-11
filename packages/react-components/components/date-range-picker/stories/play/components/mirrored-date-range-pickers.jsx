@@ -7,8 +7,11 @@ export class MirroredDateRangePickers extends PureComponent {
         endDate: null
     };
 
-    handleDateChange = (event, startDate, endDate) => {
-        this.setState({ startDate, endDate })
+    handleDatesChange = (event, startDate, endDate) => {
+        const { onDatesChange } = this.props;
+
+        this.setState({ startDate, endDate });
+        onDatesChange(event, startDate, endDate);
     };
 
     render() {
@@ -20,14 +23,14 @@ export class MirroredDateRangePickers extends PureComponent {
                     <DateRangePicker
                         startDate={startDate}
                         endDate={endDate}
-                        onDatesChange={this.handleDateChange}
+                        onDatesChange={this.handleDatesChange}
                     />
                 </div>
                 <div style={{ width: "50%" }}>
                     <DateRangePicker
                         startDate={startDate}
                         endDate={endDate}
-                        onDatesChange={this.handleDateChange}
+                        onDatesChange={this.handleDatesChange}
                     />
                 </div>
             </div>

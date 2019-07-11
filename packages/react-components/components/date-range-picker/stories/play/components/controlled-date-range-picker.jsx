@@ -14,6 +14,17 @@ export class ControlledDateRangePicker extends PureComponent {
         opened: this.props.opened
     };
 
+    handleDatesChange = (event, startDate, endDate) => {
+        const { onDatesChange } = this.props;
+
+        this.setState({ startDate, endDate });
+        onDatesChange(event, startDate, endDate);
+    };
+
+    handleVisibilityChange = (event, opened) => {
+        this.setState({ opened });
+    };
+
     render() {
         const { startDate, endDate, opened } = this.state;
 
@@ -27,12 +38,8 @@ export class ControlledDateRangePicker extends PureComponent {
                     startDate={startDate}
                     endDate={endDate}
                     opened={opened}
-                    onDatesChange={(event, startDate, endDate) => {
-                        this.setState({ startDate, endDate });
-                    }}
-                    onVisibilityChange={(event, opened) => {
-                        this.setState({ opened })
-                    }}
+                    onDatesChange={this.handleDatesChange}
+                    onVisibilityChange={this.handleVisibilityChange}
                 />
             </>
         )
