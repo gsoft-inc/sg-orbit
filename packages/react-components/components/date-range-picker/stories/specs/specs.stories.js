@@ -3,29 +3,18 @@ import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.sv
 import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
 import { DEFAULT_DATE, DEFAULT_PRESETS,LAST_WEEK_PRESET, logDatesChanged } from "../shared";
 import { DateRangePicker } from "../../src";
-import { storiesOf } from "@storybook/react";
+import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 function stories(segment) {
-    let name = "Date-Range-Picker|specs";
-
-    if (segment) {
-        name += ` ${segment}`;
-    }
-
-    return storiesOf(name, module).addParameters({
-        options: {
-            layout: {
-                width: "80%"
-            }
-        },
-        chromatic: {
-            delay: 100
-        }
-    });
+    return storiesBuilder("Date-Range-Picker|specs")
+        .segment(segment)
+        .layoutWidth("80%")
+        .chromaticDelay(100)
+        .build();
 }
 
 stories("/presets")

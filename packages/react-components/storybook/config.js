@@ -21,7 +21,7 @@ import "./style/theme.css";
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
 
-const req = require.context("../components", true, /.stories.(jsx?|js?)$/);
+const req = require.context("../components", true, /(play|specs).stories.(jsx?|js?)$/);
 
 function loadStories() {
     req.keys().forEach(filename => req(filename));

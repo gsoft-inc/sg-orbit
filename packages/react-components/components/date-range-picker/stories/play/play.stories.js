@@ -3,7 +3,7 @@ import { ControlledDateRangePicker } from "./components/controlled-date-range-pi
 import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_MONTH_PRESET, LAST_WEEK_PRESET, logDatesChanged } from "../shared";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
-import { storiesOf } from "@storybook/react";
+import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
 import "react-dates/initialize";
@@ -31,34 +31,12 @@ function presetsKnob(name, defaultValue) {
     });
 }
 
-// TODO: transform into a shared StoryBuilder
-/*
-storyBuilder
-    .section("Date-Range-Picker|play")
-    .segment("date restrictions")
-    .layout(object)
-    .layoutWitdh(value)
-    .chromatic(object)
-    .chromaticIgnore()
-    .chromaticDelay(value)
-*/
 function stories(segment) {
-    let name = "Date-Range-Picker|play";
-
-    if (segment) {
-        name += segment;
-    }
-
-    return storiesOf(name, module).addParameters({
-        options: {
-            layout: {
-                width: "80%"
-            }
-        },
-        chromatic: {
-            disable: true
-        }
-    });
+    return storiesBuilder("Date-Range-Picker|play")
+        .segment(segment)
+        .layoutWidth("80%")
+        .chromaticIgnoreStory()
+        .build();
 }
 
 stories()
@@ -79,7 +57,7 @@ stories()
             rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
             dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
             anchorDirection={select("anchorDirection", { "Left": ANCHOR_LEFT, "Right": ANCHOR_RIGHT }, ANCHOR_LEFT)}
-            presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS))}
+            presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
             clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
             applyText={text("applyText", DateRangePicker.defaultProps.applyText)}
             disabled={boolean("disabled", false)}
