@@ -1,4 +1,4 @@
-import { DateRangePicker } from "../../src";
+import { DateRangePicker } from "../../../src";
 import { isNil } from "lodash";
 import React, { PureComponent } from "react";
 import moment from "moment";

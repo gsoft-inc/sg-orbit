@@ -25,8 +25,8 @@
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
         "sb:chromatic": "yarn sb:start -p 1133 --ci --quiet",
-        "chromatic:test": "chromatic test --app-code=\"77rqvcxzbk5\" --script-name=sb:chromatic --debug",
-        "chromatic:ci": "CI=true && yarn chromatic --no-interactive"
+        "chromatic:test": "chromatic test --app-code=\"77rqvcxzbk5\" --script-name=sb:chromatic",
+        "chromatic:ci": "cross-env CI=true && yarn chromatic:test --no-interactive"
     },
     "peerDependencies": {
         "@sharegate/css-normalize": "*",

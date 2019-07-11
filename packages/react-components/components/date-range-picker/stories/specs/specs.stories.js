@@ -1,60 +1,21 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, toPreset } from "../src";
-import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { ReactComponent as CustomCalendarIcon } from "./assets/icon-custom-calendar.svg";
 import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
 import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
-import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
-import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
+import { DEFAULT_DATE, DEFAULT_PRESETS,LAST_WEEK_PRESET, logDatesChanged } from "../shared";
+import { DateRangePicker } from "../../src";
 import { storiesOf } from "@storybook/react";
 import moment from "moment";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
-const DEFAULT_DATE = "2019-07-08";
+function stories(segment) {
+    let name = "Date-Range-Picker|specs";
 
-const LAST_WEEK_PRESET = toPreset("Last week", moment(DEFAULT_DATE).subtract(1, "week"), moment(DEFAULT_DATE).startOf("day"));
-const LAST_MONTH_PRESET = toPreset("Last month", moment(DEFAULT_DATE).subtract(1, "months"), moment(DEFAULT_DATE).startOf("day"));
-const LAST_3_MONTHS_PRESET = toPreset("Last 3 months", moment(DEFAULT_DATE).subtract(3, "months"), moment(DEFAULT_DATE).startOf("day"));
-const LAST_6_MONTHS_PRESET = toPreset("Last 6 months", moment(DEFAULT_DATE).subtract(6, "months"), moment(DEFAULT_DATE).startOf("day"));
-const LAST_12_MONTHS_PRESET = toPreset("Last 12 months", moment(DEFAULT_DATE).subtract(12, "months"), moment(DEFAULT_DATE).startOf("day"));
+    if (segment) {
+        name += ` ${segment}`;
+    }
 
-const DEFAULT_PRESETS = [
-    LAST_WEEK_PRESET,
-    LAST_MONTH_PRESET,
-    LAST_3_MONTHS_PRESET,
-    LAST_6_MONTHS_PRESET,
-    LAST_12_MONTHS_PRESET
-];
-
-const DEFAULT_PRESETS_OPTIONS = {
-    "LAST_WEEK_PRESET": LAST_WEEK_PRESET,
-    "LAST_MONTH_PRESET": LAST_MONTH_PRESET,
-    "LAST_3_MONTHS_PRESET": LAST_3_MONTHS_PRESET,
-    "LAST_6_MONTHS_PRESET": LAST_6_MONTHS_PRESET,
-    "LAST_12_MONTHS_PRESET": LAST_12_MONTHS_PRESET,
-};
-
-function logDatesChanged(event, startDate, endDate, preset) {
-    console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-}
-
-function momentKnob(name, defaultValue) {
-    const timestamp = date(name, defaultValue);
-
-    return moment(timestamp);
-}
-
-function presetsKnob(name, defaultValue) {
-    const presets = array(name, defaultValue);
-
-    return presets.map(x => {
-        return DEFAULT_PRESETS_OPTIONS[x]
-    });
-}
-
-// TODO: transform into a shared StoryBuilder
-function dateRangePickerStories(name, { chromatic = true, chromaticDelay = 300 } = {}) {
     return storiesOf(name, module).addParameters({
         options: {
             layout: {
@@ -62,51 +23,12 @@ function dateRangePickerStories(name, { chromatic = true, chromaticDelay = 300 }
             }
         },
         chromatic: {
-            disable: !chromatic,
-            delay: chromaticDelay
+            delay: 100
         }
     });
 }
 
-// TODO: for chromatic ignore use addParameters
-// Or maybe add a flag to dateRangePickerStories to ignore chromatic?
-
-dateRangePickerStories("DateRangePicker", { chromatic: false })
-    .add("default", () =>
-        <DateRangePicker
-            onDatesChange={logDatesChanged}
-        />
-    );
-
-dateRangePickerStories("DateRangePicker", { chromatic: false })
-    .addDecorator(withKnobs)
-    .add("knobs", () =>
-        <DateRangePicker
-            defaultStartDate={momentKnob("defaultStartDate")}
-            defaultEndDate={momentKnob("defaultEndDate", moment(DEFAULT_DATE).add(5, "days").toDate())}
-            allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
-            minDate={momentKnob("minDate", moment(DEFAULT_DATE).subtract(6, "months").toDate())}
-            maxDate={momentKnob("maxDate", moment(DEFAULT_DATE).add(6, "months").toDate())}
-            placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
-            rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
-            dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
-            anchorDirection={select("anchorDirection", { "Left": ANCHOR_LEFT, "Right": ANCHOR_RIGHT }, ANCHOR_LEFT)}
-            presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS))}
-            clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
-            applyText={text("applyText", DateRangePicker.defaultProps.applyText)}
-            disabled={boolean("disabled", false)}
-            className={text("className")}
-            onDatesChange={logDatesChanged}
-        />
-    );
-
-dateRangePickerStories("DateRangePicker/presets", { chromatic: false })
-    .add("default", () =>
-        <DateRangePicker
-            presets={DEFAULT_PRESETS}
-            onDatesChange={logDatesChanged}
-        />
-    )
+stories("/presets")
     .add("opened", () =>
         <DateRangePicker
             presets={DEFAULT_PRESETS}
@@ -124,7 +46,7 @@ dateRangePickerStories("DateRangePicker/presets", { chromatic: false })
         />
     );
 
-dateRangePickerStories("DateRangePicker/today")
+stories("/today")
     .add("is highlighted", () =>
         <DateRangePicker
             defaultOpened
@@ -132,28 +54,7 @@ dateRangePickerStories("DateRangePicker/today")
         />
     );
 
-dateRangePickerStories("DateRangePicker/date restrictions", { chromatic: false })
-    .add("min date", () =>
-        <DateRangePicker
-            minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("max date", () =>
-        <DateRangePicker
-            maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-            onDatesChange={logDatesChanged}
-        />
-    )
-    .add("min & max dates", () =>
-        <DateRangePicker
-            minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-            maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-            onDatesChange={logDatesChanged}
-        />
-    );
-
-dateRangePickerStories("DateRangePicker/date restrictions")
+stories("/date restrictions")
     .add("opened & min date", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE)}
@@ -184,7 +85,7 @@ dateRangePickerStories("DateRangePicker/date restrictions")
         />
     );
 
-dateRangePickerStories("DateRangePicker/selected dates")
+stories("/selected dates")
     .add("closed & empty", () =>
         <DateRangePicker
             onDatesChange={logDatesChanged}
@@ -295,7 +196,7 @@ dateRangePickerStories("DateRangePicker/selected dates")
         />
     );
 
-dateRangePickerStories("DateRangePicker/default dates")
+stories("/default dates")
     .add("closed & start date", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
@@ -353,15 +254,7 @@ dateRangePickerStories("DateRangePicker/default dates")
         />
     );
 
-dateRangePickerStories("DateRangePicker/single date selection", { chromatic: false })
-    .add("default", () =>
-        <DateRangePicker
-            allowSingleDateSelection
-            onDatesChange={logDatesChanged}
-        />
-    );
-
-dateRangePickerStories("DateRangePicker/single date selection")
+stories("/single date selection")
     .add("cannot clear without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
@@ -411,7 +304,7 @@ dateRangePickerStories("DateRangePicker/single date selection")
         />
     );
 
-dateRangePickerStories("DateRangePicker/disabled")
+stories("/disabled")
     .add("default", () =>
         <DateRangePicker
             disabled
@@ -427,27 +320,7 @@ dateRangePickerStories("DateRangePicker/disabled")
         />
     );
 
-dateRangePickerStories("DateRangePicker", { chromatic: false })
-    .add("inlined", () =>
-        <div className="flex">
-            <div className="mr4" style={{ width: "50%" }}>
-                <DateRangePicker
-                    onDatesChange={(event, startDate, endDate, preset) => {
-                        console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-                    }}
-                />
-            </div>
-            <div style={{ width: "50%" }}>
-                <DateRangePicker
-                    onDatesChange={(event, startDate, endDate, preset) => {
-                        console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-                    }}
-                />
-            </div>
-        </div>
-    );
-
-dateRangePickerStories("DateRangePicker/customization")
+stories("/customization")
     .add("input", () =>
         <DateRangePicker
             input={<DateRangePicker.Input className="bg-red"></DateRangePicker.Input>}
@@ -528,22 +401,4 @@ dateRangePickerStories("DateRangePicker/customization")
             defaultOpened
             onDatesChange={logDatesChanged}
         />
-    )
-
-dateRangePickerStories("DateRangePicker/controlled", { chromatic: false })
-    .add("default", () =>
-        <ControlledDateRangePicker
-            startDate={moment(DEFAULT_DATE)}
-            endDate={moment(DEFAULT_DATE).add(LAST_3_MONTHS_PRESET, "days")}
-        />
-    )
-    .add("null values", () =>
-        <ControlledDateRangePicker
-            startDate={null}
-            endDate={null}
-        />
-    )
-    .add("mirrored", () =>
-        <MirroredDateRangePickers />
     );
-

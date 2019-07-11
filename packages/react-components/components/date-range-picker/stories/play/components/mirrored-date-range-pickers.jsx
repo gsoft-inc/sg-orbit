@@ -1,5 +1,4 @@
-import { DateRangePicker } from "../../src";
-import { noop } from "lodash";
+import { DateRangePicker } from "../../../src";
 import React, { PureComponent } from "react";
 
 export class MirroredDateRangePickers extends PureComponent {
