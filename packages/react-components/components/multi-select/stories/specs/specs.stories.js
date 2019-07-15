@@ -90,12 +90,6 @@ stories("/selected values/add button")
     );
 
 stories("/default values")
-    .add("no selection", () =>
-        <MultiSelect
-            items={DEFAULT_ITEMS}
-            onValuesChange={logValuesChanged}
-        />
-    )
     .add("some values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}

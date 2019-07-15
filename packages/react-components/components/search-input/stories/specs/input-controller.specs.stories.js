@@ -194,3 +194,25 @@ stories("/selected value/opened/clear button")
             onSearch={noop}
         />
     );
+
+stories("/default value/closed")
+    .add("value selected", () =>
+        <SearchInputController
+            results={DEFAULT_RESULTS}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+        />
+    );
+
+stories("/default value/opened")
+    .add("value selected", () =>
+        <SearchInputController
+            open
+            results={DEFAULT_RESULTS}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+        />
+    );
+
