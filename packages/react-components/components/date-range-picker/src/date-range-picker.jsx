@@ -214,7 +214,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             icon: inputIcon,
             clearIcon: inputClearIcon,
             disabled: disabled,
-            isCalendarVisible: opened
+            opened: opened
         });
     }
 

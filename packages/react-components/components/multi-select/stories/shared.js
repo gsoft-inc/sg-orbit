@@ -23,5 +23,5 @@ export const DEFAULT_ITEMS_WITH_CATEGORIES = [
 ];
 
 export function logValuesChanged(event, values) {
-    console.log("New values: ", values);
+    console.log("Values: ", values);
 }

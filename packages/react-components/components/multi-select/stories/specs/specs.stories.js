@@ -36,26 +36,28 @@ stories("/dropdown")
     )
 
 stories("/selected values")
-    .add("no values", () =>
+    .add("no selection", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     )
-    .add("some values", () =>
+    .add("some values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             onValuesChange={logValuesChanged}
         />
     )
-    .add("all values", () =>
+    .add("all values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             values={DEFAULT_ITEMS.map(x => x.value)}
             onValuesChange={logValuesChanged}
         />
-    )
+    );
+
+stories("/selected values/clear button")
     .add("can clear when all values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
@@ -63,14 +65,16 @@ stories("/selected values")
             onValuesChange={logValuesChanged}
         />
     )
-    .add("cannot clear when no values selected", () =>
+    .add("cannot clear when no selection", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             values={[]}
             onValuesChange={logValuesChanged}
         />
-    )
-    .add("can add when no values selected", () =>
+    );
+
+stories("/selected values/add button")
+    .add("can add when no selection", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             values={[]}
@@ -86,20 +90,20 @@ stories("/selected values")
     );
 
 stories("/default values")
-    .add("no values", () =>
+    .add("no selection", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     )
-    .add("some values", () =>
+    .add("some values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             onValuesChange={logValuesChanged}
         />
     )
-    .add("all values", () =>
+    .add("all values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             defaultValues={DEFAULT_ITEMS.map(x => x.value)}
@@ -108,14 +112,14 @@ stories("/default values")
     );
 
 stories("/disabled")
-    .add("values", () =>
+    .add("values selected", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             disabled
             onValuesChange={logValuesChanged}
         />
     )
-    .add("no values", () =>
+    .add("no selection", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}

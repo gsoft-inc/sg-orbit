@@ -77,6 +77,10 @@ export class DateRangePickerInput extends PureComponent {
     renderClearButton(value) {
         const { clearIcon, disabled, opened } = this.props;
 
+        console.log("** value.isPlaceholder ", value.isPlaceholder);
+        console.log("** disabled ", disabled);
+        console.log("** opened ", opened);
+
         return (
             <div className={cx({ dn: value.isPlaceholder || disabled || opened })}>
                 <Ref innerRef={this._clearButtonRef}>

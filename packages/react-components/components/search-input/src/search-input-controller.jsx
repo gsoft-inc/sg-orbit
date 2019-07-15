@@ -1,10 +1,10 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps, isNullOrEmpty } from "@sharegate/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
-import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
-import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { RESULT_SHAPE } from "./results";
+import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
+import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
 
 const KEYS = {
@@ -32,7 +32,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         noResultsMessage: string,
         minCharacters: number,
         placeholder: string,
-        fluid: bool,
         debounceDelay: number,
         loading: bool,
         clearIcon: node,
@@ -45,7 +44,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         clearOnSelect: false,
         minCharacters: 1,
         placeholder: "Search",
-        fluid: true,
         debounceDelay: 200,
         loading: false,
         clearIcon: <ClearIcon />,
@@ -328,7 +326,7 @@ export class SearchInputController extends AutoControlledPureComponent {
             <div className="search-input relative w-100">
                 {/* prettier-ignore */}
                 <Search
-                    open={open}
+                    open={open && !disabled}
                     minCharacters={minCharacters}
                     noResultsMessage={noResultsMessage}
                     onResultSelect={this.handleResultSelect}
@@ -337,11 +335,10 @@ export class SearchInputController extends AutoControlledPureComponent {
                     resultRenderer={this.renderResult}
                     results={transformedResults}
                     value={query}
-                    input={{ icon: loading ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, ref: this._inputRef }}
+                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, ref: this._inputRef }}
                     placeholder={placeholder}
-                    fluid={fluid}
                     disabled={disabled}
-                    loading={loading}
+                    loading={loading && !disabled}
                 />
                 {this.renderPropagationFix()}
                 {this.renderClearButton()}

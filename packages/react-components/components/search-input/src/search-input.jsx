@@ -24,7 +24,6 @@ export class SearchInput extends PureComponent {
         debounceDelay: number,
         minCharacters: number,
         placeholder: string,
-        fluid: bool,
         disabled: bool,
         className: string
     };
@@ -100,7 +99,6 @@ export class SearchInput extends PureComponent {
                 minCharacters={minCharacters}
                 debounceDelay={debounceDelay}
                 placeholder={placeholder}
-                fluid={fluid}
                 disabled={disabled}
                 className={className}
             />

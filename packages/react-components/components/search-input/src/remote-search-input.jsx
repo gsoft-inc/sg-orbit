@@ -34,7 +34,6 @@ export class RemoteSearchInput extends PureComponent {
         loadingDelay: number,
         minCharacters: number,
         placeholder: string,
-        fluid: bool,
         disabled: bool,
         className: string
     };
@@ -208,7 +207,6 @@ export class RemoteSearchInput extends PureComponent {
                 minCharacters={minCharacters}
                 debounceDelay={0}
                 placeholder={placeholder}
-                fluid={fluid}
                 disabled={disabled}
                 loading={isLoading}
                 className={className}

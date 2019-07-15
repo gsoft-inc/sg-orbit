@@ -92,59 +92,75 @@ stories("/date restrictions")
         />
     );
 
-stories("/selected dates")
-    .add("closed & empty", () =>
+stories("/selected dates/closed")
+    .add("no selection", () =>
         <DateRangePicker
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & start date", () =>
+    .add("start date selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & end date", () =>
+    .add("end date selected", () =>
         <DateRangePicker
             endDate={moment(DEFAULT_DATE).add(3, "days")}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & both", () =>
+    .add("both selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & null values", () =>
+    .add("null values", () =>
         <DateRangePicker
             startDate={null}
             endDate={null}
             onDatesChange={logDatesChanged}
         />
+    );
+
+stories("/selected dates/closed/input clear button")
+    .add("cannot clear when no selection", () =>
+        <DateRangePicker
+            onDatesChange={logDatesChanged}
+        />
     )
-    .add("opened & empty", () =>
+    .add("can clear when both selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    );
+
+stories("/selected dates/opened")
+    .add("no selection", () =>
         <DateRangePicker
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & start date", () =>
+    .add("start date selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & end date", () =>
+    .add("end date selected", () =>
         <DateRangePicker
             endDate={moment(DEFAULT_DATE).add(3, "days")}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & both", () =>
+    .add("both selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
@@ -152,14 +168,26 @@ stories("/selected dates")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & null values", () =>
+    .add("null values", () =>
         <DateRangePicker
             startDate={null}
             endDate={null}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
-    )
+    );
+
+stories("/selected dates/opened/input clear button")
+    .add("not available", () =>
+        <DateRangePicker
+            startDate={null}
+            endDate={null}
+            defaultOpened
+            onDatesChange={logDatesChanged}
+        />
+    );
+
+stories("/selected dates/opened/calendar clear button")
     .add("cannot clear without selection", () =>
         <DateRangePicker
             defaultOpened
@@ -180,7 +208,9 @@ stories("/selected dates")
             defaultOpened
             onDatesChange={logDatesChanged}
         />
-    )
+    );
+
+stories("/selected dates/opened/calendar apply button")
     .add("can apply without selection", () =>
         <DateRangePicker
             defaultOpened
@@ -203,48 +233,50 @@ stories("/selected dates")
         />
     );
 
-stories("/default dates")
-    .add("closed & start date", () =>
+stories("/default dates/closed")
+    .add("start date selected", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & end date", () =>
+    .add("end date selected", () =>
         <DateRangePicker
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & both", () =>
+    .add("both selected", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
             onDatesChange={logDatesChanged}
         />
     )
-    .add("closed & null values", () =>
+    .add("null values", () =>
         <DateRangePicker
             defaultStartDate={null}
             defaultEndDate={null}
             onDatesChange={logDatesChanged}
         />
-    )
-    .add("opened & start date", () =>
+    );
+
+stories("/default dates/opened")
+    .add("start date selected", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & end date", () =>
+    .add("end date selected", () =>
         <DateRangePicker
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
             defaultOpened
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & both", () =>
+    .add("both selected", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
@@ -252,7 +284,7 @@ stories("/default dates")
             onDatesChange={logDatesChanged}
         />
     )
-    .add("opened & null values", () =>
+    .add("null values", () =>
         <DateRangePicker
             defaultStartDate={null}
             defaultEndDate={null}
@@ -261,7 +293,30 @@ stories("/default dates")
         />
     );
 
-stories("/single date selection")
+stories("/single date selection/input clear button")
+    .add("cannot clear when no selection", () =>
+        <DateRangePicker
+            allowSingleDateSelection
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can clear when start date selected", () =>
+        <DateRangePicker
+            allowSingleDateSelection
+            startDate={moment(DEFAULT_DATE)}
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("can clear when both selected", () =>
+        <DateRangePicker
+            startDate={moment(DEFAULT_DATE)}
+            endDate={moment(DEFAULT_DATE).add(3, "days")}
+            allowSingleDateSelection
+            onDatesChange={logDatesChanged}
+        />
+    );
+
+stories("/single date selection/calendar clear button")
     .add("cannot clear without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
@@ -285,7 +340,9 @@ stories("/single date selection")
             defaultOpened
             onDatesChange={logDatesChanged}
         />
-    )
+    );
+
+stories("/single date selection/calendar apply button")
     .add("can apply without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
@@ -312,7 +369,7 @@ stories("/single date selection")
     );
 
 stories("/disabled")
-    .add("default", () =>
+    .add("no selection", () =>
         <DateRangePicker
             disabled
             onDatesChange={logDatesChanged}

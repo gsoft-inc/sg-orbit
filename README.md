@@ -134,6 +134,8 @@ Chromaticqa is inconsistant if we load a custom font
 
 # TODO
 
+- Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
+
 - Prettier + eslint doesn't work everywhere? like react-components.
 
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
