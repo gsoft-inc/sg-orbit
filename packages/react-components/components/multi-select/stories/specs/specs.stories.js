@@ -118,7 +118,7 @@ stories("/disabled")
     .add("no values", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
             disabled
             onValuesChange={logValuesChanged}
         />
@@ -193,7 +193,7 @@ stories("/customization")
     .add("selected items components", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             selectedItemsComponent={<MultiSelect.SelectedItems className="bg-red" />}
             onValuesChange={logValuesChanged}
         />
@@ -201,7 +201,7 @@ stories("/customization")
     .add("selected item renderer", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             selectedItemRenderer={item => <div>{item.text}</div>}
             onValuesChange={logValuesChanged}
         />
@@ -209,7 +209,7 @@ stories("/customization")
     .add("clear button", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             clearButton={<MultiSelect.ClearButton className="bg-red" />}
             onValuesChange={logValuesChanged}
         />
@@ -217,7 +217,7 @@ stories("/customization")
     .add("clear text", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             clearText="Custom clear text"
             onValuesChange={logValuesChanged}
         />
@@ -225,7 +225,7 @@ stories("/customization")
     .add("css class", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
             className="bg-red"
             onValuesChange={logValuesChanged}
         />

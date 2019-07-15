@@ -44,7 +44,7 @@ export function startsWithSearch(event, items, query) {
 
 function getSelectedItems(items, values) {
     // This is a mapping of the values to preserve the selection order of the items.
-    return values.map(x => items.find(item => item.value === x));
+    return values.map(x => items.find(item => item.value === x)).filter(x => x);
 }
 
 function getAvailableItems(items, values) {
@@ -260,9 +260,9 @@ export class MultiSelect extends AutoControlledPureComponent {
 
     renderClearButton = () => {
         const { clearButton, clearText, disabled } = this.props;
-        const { values } = this.state;
+        const { selectedItems } = this.state;
 
-        if (values.length === 0 || disabled) {
+        if (selectedItems.length === 0 || disabled) {
             return null;
         }
 

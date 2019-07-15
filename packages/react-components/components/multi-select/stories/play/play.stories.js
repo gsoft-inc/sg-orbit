@@ -67,7 +67,7 @@ stories()
     .add("disabled", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            values={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
             disabled
             onValuesChange={logValuesChanged}
         />
