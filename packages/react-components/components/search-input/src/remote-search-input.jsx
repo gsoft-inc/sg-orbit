@@ -1,15 +1,55 @@
-import { InvalidOperationError, cancellablePromise, defer, httpGet } from "@sharegate/react-components-shared";
+import { InvalidOperationError, cancellablePromise, defer, ensure, httpGet } from "@sharegate/react-components-shared";
 import { PureComponent } from "react";
 import { SearchInputController } from "./search-input-controller";
-import { bool, func, number, object, string } from "prop-types";
-import { debounce, isArray, isNil, merge } from "lodash";
+import { bool, func, number, string } from "prop-types";
+import { debounce, isArray, isNil } from "lodash";
 
 const KEYS = {
     esc: 27
 };
 
-function fetchResults(event, url, data, options) {
-    return httpGet({ url, data, ...options });
+function defaultResultsFetcher(event, url, data, options) {
+    return new Promise((resolve, reject) => {
+        httpGet({ url, data, ...options })
+            .then(response => {
+                if (response.ok) {
+                    resolve(response.json());
+                } else {
+                    reject(new InvalidOperationError(`Remote Search Input - The request failed with response: "${response.statusText}"`));
+                }
+            })
+            .catch(error => {
+                if (error.isTimeout) {
+                    reject(new InvalidOperationError("Remote Search Input - The request timed out."));
+                } else {
+                    reject(error);
+                }
+            });
+    });
+}
+
+/**
+ * Create an instance of the default results fetcher
+ * @param {string} url - The query url.
+ * @param {string} [queryParameter="query"] - The query parameter.
+ * @param {Object} [options]
+ * @param {Object} [options.queryData] - Additional query data.
+ * @param {Object} [options.requestOptions]
+ * @param {number} [options.requestOptions.timeout] - Query timeout value in milliseconds.
+ * @param {Object} [options.requestOptions.*] - Any fetch API options.
+ * @returns {Function} - The fetcher instance
+ */
+export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions } = {}) {
+    ensure(url, "url", "useDefaultResultsFetcher").isNotNullOrEmpty();
+
+    return (event, query) => {
+        const data = {
+            [queryParameter]: query,
+            ...queryData
+        };
+
+        return defaultResultsFetcher(event, url, data, requestOptions);
+    }
 }
 
 function isPromise(value) {
@@ -20,12 +60,8 @@ export class RemoteSearchInput extends PureComponent {
     static propTypes = {
         value: string,
         defaultValue: string,
-        url: string.isRequired,
-        urlData: object,
-        queryParameter: string,
-        timeout: number,
         onValueChange: func.isRequired,
-        onFetchResults: func,
+        onFetchResults: func.isRequired,
         onResults: func,
         resultRenderer: func,
         clearOnSelect: bool,
@@ -39,9 +75,6 @@ export class RemoteSearchInput extends PureComponent {
     };
 
     static defaultProps = {
-        onFetchResults: fetchResults,
-        queryParameter: "query",
-        timeout: 0,
         loadingDelay: 150,
         minCharacters: 1,
         debounceDelay: 200
@@ -108,22 +141,18 @@ export class RemoteSearchInput extends PureComponent {
                 this.showLoading();
 
                 try {
-                    const response = await this.fetch(event, this.getFetchData(query));
+                    let results = await this.fetch(event, query);
 
-                    if (response.ok) {
-                        let results = response.content;
+                    if (!isNil(onResults)) {
+                        results = onResults(results, query);
 
-                        if (!isNil(onResults)) {
-                            results = onResults(results, query);
-
-                            if (!isArray(results)) {
-                                throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
-                            }
+                        if (!isArray(results)) {
+                            throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
                         }
-
-                        this.hideLoading();
-                        this.setState({ isOpen: true, results: results });
                     }
+
+                    this.hideLoading();
+                    this.setState({ isOpen: true, results: results });
                 } catch (error) {
                     // To cancel a promise it must be rejected, ignore it. If it's something else, bubble up.
                     if (error.isCancelled !== true) {
@@ -138,22 +167,10 @@ export class RemoteSearchInput extends PureComponent {
         { leading: true }
     );
 
-    getFetchData(query) {
-        const { urlData, queryParameter } = this.props;
+    fetch(event, query) {
+        const { onFetchResults } = this.props;
 
-        const data = { [queryParameter]: query };
-
-        if (isNil(urlData)) {
-            return data;
-        }
-
-        return merge(data, urlData);
-    }
-
-    fetch(event, data) {
-        const { url, timeout, onFetchResults } = this.props;
-
-        const promise = onFetchResults(event, url, data, { timeout });
+        const promise = onFetchResults(event, query);
 
         if (!isPromise(promise)) {
             throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
@@ -188,7 +205,7 @@ export class RemoteSearchInput extends PureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, fluid, disabled, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, className } = this.props;
         const { isOpen, isLoading, results } = this.state;
 
         return (

@@ -1,13 +1,15 @@
-export function fetchWithTimeout(url, options) {
-    const { timeout, ...fetchOptions } = options;
+import { isNil } from "lodash";
 
-    if (timeout > 0) {
+export function fetchWithTimeout(url, options) {
+    const { timeout, ...requestOptions } = options;
+
+    if (!isNil(timeout) && timeout > 0) {
         // prettier-ignore
         return Promise.race([
-            fetch(url, fetchOptions),
+            fetch(url, requestOptions),
             new Promise((resolve, reject) => setTimeout(() => reject({ isTimeout: true }), timeout))
         ]);
     }
 
-    return fetch(url, fetchOptions);
+    return fetch(url, requestOptions);
 }

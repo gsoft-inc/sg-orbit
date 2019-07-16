@@ -6,7 +6,6 @@ import { toSearch } from "../utils/url";
 const DEFAULT_TIMEOUT = 0;
 
 const DEFAULT_OPTIONS = {
-    credentials: "include",
     headers: {
         "Content-Type": "application/json"
     },
