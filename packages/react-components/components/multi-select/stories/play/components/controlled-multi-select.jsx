@@ -5,12 +5,12 @@ import React, { PureComponent } from "react";
 
 export class ControlledMultiSelect extends PureComponent {
     static defaultProps = {
-        opened: false
+        open: false
     };
 
     state = {
         values: this.props.values,
-        opened: this.props.opened
+        open: this.props.open
     };
 
     handleValuesChange = (event, values) => {
@@ -21,25 +21,25 @@ export class ControlledMultiSelect extends PureComponent {
     };
 
     handleOpen = () => {
-        this.setState({ opened: true });
+        this.setState({ open: true });
     };
 
     handleClose = () => {
-        this.setState({ opened: false });
+        this.setState({ open: false });
     };
 
     render() {
-        const { values, opened } = this.state;
+        const { values, open } = this.state;
 
         return (
             <>
                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>values:</span> {isNil(values) ? "null" : JSON.stringify(values, null, 4)}</div>
-                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>opened:</span> {opened ? "true" : "false"}</div>
+                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
                 <br /><br />
                 <MultiSelect
                     items={DEFAULT_ITEMS}
                     values={values}
-                    opened={opened}
+                    open={open}
                     onOpen={this.handleOpen}
                     onClose={this.handleClose}
                     onValuesChange={this.handleValuesChange}

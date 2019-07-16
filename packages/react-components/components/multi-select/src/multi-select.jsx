@@ -82,8 +82,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         selectedItemRenderer: func,
         clearButton: node,
         clearText: string,
-        defaultOpened: bool,
-        opened: bool,
+        defaultOpen: bool,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -106,7 +106,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         disabled: false
     };
 
-    static autoControlledProps = ["values", "opened"];
+    static autoControlledProps = ["values", "open"];
 
     // Expose sub-components.
     static Dropdown = MultiSelectDropdown;
@@ -121,7 +121,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         selectedItems: [],
         availableItems: [],
         dropdownItems: [],
-        opened: false
+        open: false
     };
 
     componentDidMount() {
@@ -166,7 +166,7 @@ export class MultiSelect extends AutoControlledPureComponent {
     handleOpen = event => {
         const { onOpen } = this.props;
 
-        this.trySetAutoControlledStateValue({ opened: true });
+        this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onOpen)) {
             onOpen(event);
@@ -178,7 +178,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
-        this.trySetAutoControlledStateValue({ opened: false });
+        this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onClose)) {
             onClose(event);
@@ -225,7 +225,7 @@ export class MultiSelect extends AutoControlledPureComponent {
 
     renderDropDown = () => {
         const { itemRenderer, categoryHeaderRenderer, closeOnSelect, dropdown, triggerText, triggerIcon, searchIcon, placeholder, noResultsMessage, disabled } = this.props;
-        const { dropdownItems, opened } = this.state;
+        const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
             items: dropdownItems,
@@ -241,7 +241,7 @@ export class MultiSelect extends AutoControlledPureComponent {
             searchIcon,
             placeholder,
             noResultsMessage,
-            opened,
+            open,
             disabled
         });
     };

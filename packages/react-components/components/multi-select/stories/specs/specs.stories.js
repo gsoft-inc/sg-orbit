@@ -16,21 +16,21 @@ stories("/dropdown")
     .add("some items", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
     .add("no items", () =>
         <MultiSelect
             items={[]}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
     .add("categories", () =>
         <MultiSelect
             items={DEFAULT_ITEMS_WITH_CATEGORIES}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
@@ -136,7 +136,7 @@ stories("/customization")
             itemRenderer={(item, isSelected) => {
                 return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} className="bg-red" />;
             }}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
@@ -146,7 +146,7 @@ stories("/customization")
             categoryHeaderRenderer={(group) => {
                 return <Dropdown.Header content={group} className="bg-red" />;
             }}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
@@ -154,7 +154,7 @@ stories("/customization")
         <MultiSelect
             items={[]}
             noResultsMessage="Custom no results message"
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
@@ -176,7 +176,7 @@ stories("/customization")
         <MultiSelect
             items={DEFAULT_ITEMS}
             searchIcon={<CustomSearchIcon />}
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )
@@ -184,7 +184,7 @@ stories("/customization")
         <MultiSelect
             items={DEFAULT_ITEMS}
             placeholder="Custom placeholder"
-            defaultOpened
+            defaultOpen
             onValuesChange={logValuesChanged}
         />
     )

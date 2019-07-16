@@ -21,7 +21,7 @@ stories("/presets")
     .add("opened", () =>
         <DateRangePicker
             presets={DEFAULT_PRESETS}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -30,7 +30,7 @@ stories("/presets")
             presets={DEFAULT_PRESETS}
             startDate={LAST_WEEK_PRESET.startDate}
             endDate={LAST_WEEK_PRESET.endDate}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -38,7 +38,7 @@ stories("/presets")
 stories("/today")
     .add("is highlighted", () =>
         <DateRangePicker
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -47,14 +47,14 @@ stories("/date restrictions")
     .add("opened & min date", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("opened & max date", () =>
         <DateRangePicker
             maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -62,7 +62,7 @@ stories("/date restrictions")
         <DateRangePicker
             minDate={moment(DEFAULT_DATE)}
             maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -71,7 +71,7 @@ stories("/date restrictions")
             startDate={moment(DEFAULT_DATE).subtract(5, "days")}
             endDate={moment(DEFAULT_DATE).subtract(2, "days")}
             minDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -80,14 +80,14 @@ stories("/date restrictions")
             startDate={moment(DEFAULT_DATE).add(2, "days")}
             endDate={moment(DEFAULT_DATE).add(5, "days")}
             maxDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("show current & next month when previous month is blocked", () =>
         <DateRangePicker
             minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -142,21 +142,21 @@ stories("/selected dates/closed/input clear button")
 stories("/selected dates/opened")
     .add("no selection", () =>
         <DateRangePicker
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("start date selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("end date selected", () =>
         <DateRangePicker
             endDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -164,7 +164,7 @@ stories("/selected dates/opened")
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -172,7 +172,7 @@ stories("/selected dates/opened")
         <DateRangePicker
             startDate={null}
             endDate={null}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -182,7 +182,7 @@ stories("/selected dates/opened/input clear button")
         <DateRangePicker
             startDate={null}
             endDate={null}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -190,14 +190,14 @@ stories("/selected dates/opened/input clear button")
 stories("/selected dates/opened/calendar clear button")
     .add("cannot clear without selection", () =>
         <DateRangePicker
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("can clear when start date selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -205,7 +205,7 @@ stories("/selected dates/opened/calendar clear button")
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -213,14 +213,14 @@ stories("/selected dates/opened/calendar clear button")
 stories("/selected dates/opened/calendar apply button")
     .add("can apply without selection", () =>
         <DateRangePicker
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("cannot apply when only start date selected", () =>
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -228,7 +228,7 @@ stories("/selected dates/opened/calendar apply button")
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -265,14 +265,14 @@ stories("/default dates/opened")
     .add("start date selected", () =>
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("end date selected", () =>
         <DateRangePicker
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -280,7 +280,7 @@ stories("/default dates/opened")
         <DateRangePicker
             defaultStartDate={moment(DEFAULT_DATE)}
             defaultEndDate={moment(DEFAULT_DATE).add(3, "days")}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -288,7 +288,7 @@ stories("/default dates/opened")
         <DateRangePicker
             defaultStartDate={null}
             defaultEndDate={null}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -320,7 +320,7 @@ stories("/single date selection/calendar clear button")
     .add("cannot clear without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -328,7 +328,7 @@ stories("/single date selection/calendar clear button")
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -337,7 +337,7 @@ stories("/single date selection/calendar clear button")
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -346,7 +346,7 @@ stories("/single date selection/calendar apply button")
     .add("can apply without selection", () =>
         <DateRangePicker
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -354,7 +354,7 @@ stories("/single date selection/calendar apply button")
         <DateRangePicker
             startDate={moment(DEFAULT_DATE)}
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -363,7 +363,7 @@ stories("/single date selection/calendar apply button")
             startDate={moment(DEFAULT_DATE)}
             endDate={moment(DEFAULT_DATE).add(3, "days")}
             allowSingleDateSelection
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );
@@ -431,7 +431,7 @@ stories("/customization")
         <DateRangePicker
             presetsComponent={<DateRangePicker.Presets className="bg-red"></DateRangePicker.Presets>}
             presets={DEFAULT_PRESETS}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -439,14 +439,14 @@ stories("/customization")
         <DateRangePicker
             presetsIcon={<CustomCalendarIcon />}
             presets={DEFAULT_PRESETS}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("buttons component", () =>
         <DateRangePicker
             buttons={<DateRangePicker.Buttons className="bg-red"></DateRangePicker.Buttons>}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -454,7 +454,7 @@ stories("/customization")
         <DateRangePicker
             clearText="Custom clear"
             applyText="Custom apply"
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -462,7 +462,7 @@ stories("/customization")
         <DateRangePicker
             navPrevIcon={<CustomPrevNextIcon />}
             navNextIcon={<CustomPrevNextIcon />}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
@@ -476,21 +476,21 @@ stories("/customization")
 stories("/anchor")
     .add("default", () =>
         <DateRangePicker
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("left", () =>
         <DateRangePicker
             anchorDirection={ANCHOR_LEFT}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     )
     .add("right", () =>
         <DateRangePicker
             anchorDirection={ANCHOR_RIGHT}
-            defaultOpened
+            defaultOpen
             onDatesChange={logDatesChanged}
         />
     );

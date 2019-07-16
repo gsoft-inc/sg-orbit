@@ -81,7 +81,7 @@ export class SearchInput extends PureComponent {
     };
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, fluid, disabled, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, className } = this.props;
         const { isOpen, visibleResults } = this.state;
 
         return (

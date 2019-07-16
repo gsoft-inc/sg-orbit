@@ -47,8 +47,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         buttons: node,
         clearText: string,
         applyText: string,
-        defaultOpened: bool,
-        opened: bool,
+        defaultOpen: bool,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -74,7 +74,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         disabled: false
     };
 
-    static autoControlledProps = ["startDate", "endDate", "opened"];
+    static autoControlledProps = ["startDate", "endDate", "open"];
 
     // Expose sub-components.
     static Input = DateRangePickerInput;
@@ -88,7 +88,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         selectedStartDate: null,
         selectedEndDate: null,
         selectedPresetName: null,
-        opened: false
+        open: false
     };
 
     _containerRef = createRef();
@@ -114,9 +114,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     handleInputClick = event => {
-        const { opened } = this.state;
+        const { open } = this.state;
 
-        if (!opened) {
+        if (!open) {
             this.toggleCalendarVisibility(event);
         }
     };
@@ -167,12 +167,12 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     toggleCalendarVisibility(event) {
         const { onVisibilityChange } = this.props;
-        const { opened } = this.state;
+        const { open } = this.state;
 
-        this.trySetAutoControlledStateValue({ opened: !opened });
+        this.trySetAutoControlledStateValue({ open: !open });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, !opened);
+            onVisibilityChange(event, !open);
         }
     }
 
@@ -200,7 +200,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, inputIcon, inputClearIcon, placeholder, rangeFormat, dateFormat, disabled } = this.props;
-        const { selectedStartDate, selectedEndDate, opened } = this.state;
+        const { selectedStartDate, selectedEndDate, open } = this.state;
 
         return cloneElement(input, {
             startDate: selectedStartDate,
@@ -214,7 +214,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             icon: inputIcon,
             clearIcon: inputClearIcon,
             disabled: disabled,
-            opened: opened
+            open: open
         });
     }
 
@@ -243,14 +243,14 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     render() {
         const { disabled } = this.props;
-        const { opened } = this.state;
+        const { open } = this.state;
 
         return (
             <div className={this.getCssClasses()}>
                 {this.renderInput()}
                 <If condition={!disabled}>
                     <div className="relative z-2">
-                        <Popup visible={opened} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
+                        <Popup visible={open} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
                             <div ref={this._containerRef}>{this.renderCalendar()}</div>
                         </Popup>
                     </div>

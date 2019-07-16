@@ -4,7 +4,7 @@ import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import { text, withKnobs } from "@storybook/addon-knobs";
 
 function pixelKnob(name) {
-    let value = text(name, undefined);
+    let value = text(name);
 
     if (!isNil(value) && !value.endsWith("px")) {
         value += "px";

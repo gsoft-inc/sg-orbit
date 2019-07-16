@@ -33,7 +33,7 @@ export class MultiSelectDropdown extends PureComponent {
         searchInput: node,
         searchIcon: node,
         placeholder: string,
-        opened: bool,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -155,9 +155,9 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     toggleVisibility(event) {
-        const { opened } = this.props;
+        const { open } = this.props;
 
-        if (opened) {
+        if (open) {
             this.close(event);
         } else {
             this.open(event);
@@ -259,20 +259,20 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { disabled, opened } = this.props;
+        const { disabled, open } = this.props;
 
         return (
             <Ref innerRef={this._dropdownRef}>
                 {/* prettier-ignore */}
                 <Dropdown
-                    open={opened}
+                    open={open}
                     trigger={this.renderTrigger()}
                     className={this.getClasses()}
                     disabled={disabled}
                     upward={false}
                     floating
                 >
-                    <If condition={opened}>{this.renderMenu()}</If>
+                    <If condition={open}>{this.renderMenu()}</If>
                 </Dropdown>
             </Ref>
         );

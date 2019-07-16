@@ -319,7 +319,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder } = this.props;
         const { transformedResults, query } = this.state;
 
         return (

@@ -1,3 +1,4 @@
+import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "../shared";
 import { SearchInputController } from "../../src";
 import { noop } from "lodash";
@@ -7,7 +8,7 @@ function stories(segment) {
     return storiesBuilder("Search-Input-Ctrl|specs")
         .segment(segment)
         .layoutWidth("80%")
-        .chromaticIgnoreStory()
+        .chromaticDelay(100)
         .build();
 }
 
@@ -213,6 +214,53 @@ stories("/default value/opened")
             defaultValue={LAURIE_VALUE}
             onValueChange={logValueChanged}
             onSearch={noop}
+        />
+    );
+
+stories("/customization")
+    .add("no results message", () =>
+        <SearchInputController
+            open
+            results={[]}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+            noResultsMessage="Custom no results message"
+        />
+    )
+    .add("placeholder", () =>
+        <SearchInputController
+            results={[]}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+            placeholder="Custom placeholder"
+        />
+    )
+    .add("clear icon", () =>
+        <SearchInputController
+            results={DEFAULT_RESULTS}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+            clearIcon={<CustomClearIcon />}
+        />
+    )
+    .add("result renderer", () =>
+        <SearchInputController
+            open
+            results={DEFAULT_RESULTS}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+            resultRenderer={({ text }) => {
+                return <div className="bg-red">{text}</div>;
+            }}
+        />
+    )
+    .add("class name", () =>
+        <SearchInputController
+            results={DEFAULT_RESULTS}
+            onValueChange={logValueChanged}
+            onSearch={noop}
+            className="bg-red-inner"
         />
     );
 

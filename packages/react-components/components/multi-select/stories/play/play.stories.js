@@ -73,8 +73,6 @@ stories()
         />
     );
 
-stories()
-
 stories("/controlled")
     .add("stateful", () =>
         <ControlledMultiSelect

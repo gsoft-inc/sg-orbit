@@ -17,7 +17,7 @@ export class DateRangePickerInput extends PureComponent {
         icon: node,
         clearIcon: node,
         disabled: bool,
-        opened: bool,
+        open: bool,
         className: string
     };
 
@@ -54,9 +54,9 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     getCssClasses(value) {
-        const { disabled, opened, className } = this.props;
+        const { disabled, open, className } = this.props;
 
-        const openedClasses = opened && !disabled ? " b--marine-700 marine-700" : " b--cloud-500 marine-200";
+        const openedClasses = open && !disabled ? " b--marine-700 marine-700" : " b--cloud-500 marine-200";
         const disabledClasses = cx({ " bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
         const placeholderClasses = cx({ " marine-700": !value.isPlaceholder && !disabled });
 
@@ -75,14 +75,10 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     renderClearButton(value) {
-        const { clearIcon, disabled, opened } = this.props;
-
-        console.log("** value.isPlaceholder ", value.isPlaceholder);
-        console.log("** disabled ", disabled);
-        console.log("** opened ", opened);
+        const { clearIcon, disabled, open } = this.props;
 
         return (
-            <div className={cx({ dn: value.isPlaceholder || disabled || opened })}>
+            <div className={cx({ dn: value.isPlaceholder || disabled || open })}>
                 <Ref innerRef={this._clearButtonRef}>
                     <Button circular size="mini" primary icon className="transparent" onClick={this.handleClear}>
                         {clearIcon}

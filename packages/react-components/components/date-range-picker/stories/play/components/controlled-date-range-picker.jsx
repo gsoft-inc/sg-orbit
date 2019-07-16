@@ -5,13 +5,13 @@ import moment from "moment";
 
 export class ControlledDateRangePicker extends PureComponent {
     static defaultProps = {
-        opened: false
+        open: false
     };
 
     state = {
         startDate: this.props.startDate,
         endDate: this.props.endDate,
-        opened: this.props.opened
+        open: this.props.open
     };
 
     handleDatesChange = (event, startDate, endDate) => {
@@ -21,23 +21,23 @@ export class ControlledDateRangePicker extends PureComponent {
         onDatesChange(event, startDate, endDate);
     };
 
-    handleVisibilityChange = (event, opened) => {
-        this.setState({ opened });
+    handleVisibilityChange = (event, open) => {
+        this.setState({ open });
     };
 
     render() {
-        const { startDate, endDate, opened } = this.state;
+        const { startDate, endDate, open } = this.state;
 
         return (
             <>
                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>startDate:</span> {isNil(startDate) ? "null" : moment(startDate).format("YYYY-MM-DD")}</div>
                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>endDate:</span> {isNil(endDate) ? "null" : moment(endDate).format("YYYY-MM-DD")}</div>
-                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>opened:</span> {opened ? "true" : "false"}</div>
+                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
                 <br /><br />
                 <DateRangePicker
                     startDate={startDate}
                     endDate={endDate}
-                    opened={opened}
+                    open={open}
                     onDatesChange={this.handleDatesChange}
                     onVisibilityChange={this.handleVisibilityChange}
                 />
