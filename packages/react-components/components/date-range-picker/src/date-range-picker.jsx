@@ -97,9 +97,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { minDate, maxDate } = this.props;
 
         if (!isNil(minDate) && !isNil(maxDate)) {
-            console.log(minDate);
-            console.log(maxDate);
-
             if (minDate.isSameOrAfter(maxDate)) {
                 throw new ArgumentError("DateRangePicker - \"minDate\" must be before \"maxDate\".");
             }

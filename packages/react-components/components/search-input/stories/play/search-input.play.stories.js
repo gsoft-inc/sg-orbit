@@ -1,3 +1,4 @@
+import { ControlledSearchInput } from "./components/controlled-search-input";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "../shared";
 import { SearchInput, SearchInputController } from "../../src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
@@ -55,9 +56,8 @@ stories()
 
 stories("/controlled")
     .add("stateful", () =>
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            disabled
+        <ControlledSearchInput
+            value={LAURIE_VALUE}
             onValueChange={logValueChanged}
         />
     );

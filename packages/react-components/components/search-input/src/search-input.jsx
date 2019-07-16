@@ -1,4 +1,4 @@
-import { PureComponent } from "react";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@sharegate/react-components-shared";
 import { RESULT_SHAPE } from "./results";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
@@ -12,18 +12,21 @@ const KEYS = {
     esc: 27
 };
 
-export class SearchInput extends PureComponent {
+export class SearchInput extends AutoControlledPureComponent {
     static propTypes = {
         results: arrayOf(shape(RESULT_SHAPE)).isRequired,
         value: string,
         defaultValue: string,
         onValueChange: func.isRequired,
+        onVisibilityChange: func,
         resultRenderer: func,
         clearOnSelect: bool,
         noResultsMessage: string,
         debounceDelay: number,
         minCharacters: number,
         placeholder: string,
+        defaultOpen: bool,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -33,29 +36,49 @@ export class SearchInput extends PureComponent {
         debounceDelay: 200
     };
 
+    static autoControlledProps = ["open"];
+
     state = {
-        isOpen: false,
+        open: false,
         visibleResults: []
     };
+
+    static getDerivedStateFromProps(props, state) {
+        return getAutoControlledStateFromProps(props, state, SearchInput.autoControlledProps);
+    }
 
     // TODO: memoizing search result could greatly improved the performance of this component:
     //  - The shallow comparison done by search-input-controller would not force a re-render when this is the same results
     handleSearch = (event, query) => {
-        const { results, minCharacters } = this.props;
+        const { results, minCharacters, onVisibilityChange } = this.props;
 
         if (query.length >= minCharacters) {
             const newResults = startsWithSearch(results, query);
 
-            this.setState({ isOpen: true, visibleResults: newResults });
+            this.setState({ visibleResults: newResults });
+            this.trySetAutoControlledStateValue({ open: true });
+
+            if (!isNil(onVisibilityChange)) {
+                onVisibilityChange(event, true);
+            }
         } else {
-            this.setState({ isOpen: false, visibleResults: [] });
+            this.setState({ visibleResults: [] });
+            this.trySetAutoControlledStateValue({ open: false });
+
+            if (!isNil(onVisibilityChange)) {
+                onVisibilityChange(event, false);
+            }
         }
     };
 
     handleValueChange = (event, value) => {
-        const { onValueChange } = this.props;
+        const { onValueChange, onVisibilityChange } = this.props;
 
-        this.setState({ isOpen: false });
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false)
+        }
 
         if (isNil(value)) {
             this.handleClear(event);
@@ -71,22 +94,32 @@ export class SearchInput extends PureComponent {
     };
 
     handleBlur = () => {
-        this.setState({ isOpen: false });
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false)
+        }
     };
 
     handleKeyDown = event => {
+        const { onVisibilityChange } = this.props;
+
         if (event.keyCode === KEYS.esc) {
-            this.setState({ isOpen: false });
+            this.trySetAutoControlledStateValue({ open: false });
+
+            onVisibilityChange(event, false);
         }
     };
 
     render() {
         const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, className } = this.props;
-        const { isOpen, visibleResults } = this.state;
+        const { open, visibleResults } = this.state;
 
         return (
             <SearchInputController
-                open={isOpen}
+                open={open}
                 results={visibleResults}
                 value={value}
                 defaultValue={defaultValue}

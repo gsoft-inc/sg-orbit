@@ -68,8 +68,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         onValuesChange: func.isRequired,
         dropdown: node,
         onSearch: func,
-        onOpen: func,
-        onClose: func,
+        onVisibilityChange: func,
         itemRenderer: func,
         categoryHeaderRenderer: func,
         closeOnSelect: bool,
@@ -164,24 +163,24 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     handleOpen = event => {
-        const { onOpen } = this.props;
+        const { onVisiblityChange } = this.props;
 
         this.trySetAutoControlledStateValue({ open: true });
 
-        if (!isNil(onOpen)) {
-            onOpen(event);
+        if (!isNil(onVisiblityChange)) {
+            onVisiblityChange(event, true);
         }
     };
 
     handleClose = event => {
-        const { onClose } = this.props;
+        const { onVisiblityChange } = this.props;
         const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
         this.trySetAutoControlledStateValue({ open: false });
 
-        if (!isNil(onClose)) {
-            onClose(event);
+        if (!isNil(onVisiblityChange)) {
+            onVisiblityChange(event, false);
         }
     };
 
