@@ -9,13 +9,11 @@ export class StarWarsCharactersSearchInput extends PureComponent {
     handleFetchResults = useDefaultResultsFetcher("https://swapi.co/api/people", "search");
 
     render() {
-        const { onValueChange } = this.props;
-
         return (
             <RemoteSearchInput
                 onFetchResults={this.handleFetchResults}
-                onValueChange={onValueChange}
                 onResults={this.handleResults}
+                {...this.props}
             />
         )
     }

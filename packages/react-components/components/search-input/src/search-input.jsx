@@ -50,35 +50,23 @@ export class SearchInput extends AutoControlledPureComponent {
     // TODO: memoizing search result could greatly improved the performance of this component:
     //  - The shallow comparison done by search-input-controller would not force a re-render when this is the same results
     handleSearch = (event, query) => {
-        const { results, minCharacters, onVisibilityChange } = this.props;
+        const { results, minCharacters } = this.props;
 
         if (query.length >= minCharacters) {
             const newResults = startsWithSearch(results, query);
 
             this.setState({ visibleResults: newResults });
-            this.trySetAutoControlledStateValue({ open: true });
-
-            if (!isNil(onVisibilityChange)) {
-                onVisibilityChange(event, true);
-            }
+            this.open(event);
         } else {
             this.setState({ visibleResults: [] });
-            this.trySetAutoControlledStateValue({ open: false });
-
-            if (!isNil(onVisibilityChange)) {
-                onVisibilityChange(event, false);
-            }
+            this.close(event);
         }
     };
 
     handleValueChange = (event, value) => {
-        const { onValueChange, onVisibilityChange } = this.props;
+        const { onValueChange } = this.props;
 
-        this.trySetAutoControlledStateValue({ open: false });
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false)
-        }
+        this.close(event);
 
         if (isNil(value)) {
             this.handleClear(event);
@@ -93,25 +81,35 @@ export class SearchInput extends AutoControlledPureComponent {
         this.setState({ visibleResults: results });
     };
 
-    handleBlur = () => {
+    handleBlur = event => {
+        this.close(event);
+    };
+
+    handleKeyDown = event => {
+        if (event.keyCode === KEYS.esc) {
+            this.close(event);
+        }
+    };
+
+    open(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: true });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, true);
+        }
+    }
+
+    close() {
         const { onVisibilityChange } = this.props;
 
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false)
-        }
-    };
-
-    handleKeyDown = event => {
-        const { onVisibilityChange } = this.props;
-
-        if (event.keyCode === KEYS.esc) {
-            this.trySetAutoControlledStateValue({ open: false });
-
             onVisibilityChange(event, false);
         }
-    };
+    }
 
     render() {
         const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, className } = this.props;

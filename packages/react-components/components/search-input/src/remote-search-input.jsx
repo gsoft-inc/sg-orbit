@@ -1,5 +1,4 @@
-import { InvalidOperationError, cancellablePromise, defer, ensure, httpGet } from "@sharegate/react-components-shared";
-import { PureComponent } from "react";
+import { AutoControlledPureComponent, InvalidOperationError, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@sharegate/react-components-shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, func, number, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
@@ -56,13 +55,14 @@ function isPromise(value) {
     return !isNil(value) && !isNil(value.then);
 }
 
-export class RemoteSearchInput extends PureComponent {
+export class RemoteSearchInput extends AutoControlledPureComponent {
     static propTypes = {
         value: string,
         defaultValue: string,
         onValueChange: func.isRequired,
         onFetchResults: func.isRequired,
         onResults: func,
+        onVisibilityChange: func,
         resultRenderer: func,
         clearOnSelect: bool,
         noResultsMessage: string,
@@ -70,6 +70,8 @@ export class RemoteSearchInput extends PureComponent {
         loadingDelay: number,
         minCharacters: number,
         placeholder: string,
+        defaultOpen: bool,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -80,13 +82,19 @@ export class RemoteSearchInput extends PureComponent {
         debounceDelay: 200
     };
 
+    static autoControlledProps = ["open"];
+
     state = {
-        isOpen: false,
+        open: false,
         isLoading: false,
         results: []
     };
 
     _fetchResultsPromise = null;
+
+    static getDerivedStateFromProps(props, state) {
+        return getAutoControlledStateFromProps(props, state, RemoteSearchInput.autoControlledProps);
+    }
 
     componentWillUnmount() {
         this.cancelFetch();
@@ -103,7 +111,7 @@ export class RemoteSearchInput extends PureComponent {
     handleValueChange = (event, value) => {
         const { onValueChange } = this.props;
 
-        this.setState({ isOpen: false });
+        this.close(event);
 
         if (isNil(value)) {
             this.handleClear(event);
@@ -117,16 +125,15 @@ export class RemoteSearchInput extends PureComponent {
         this.hideLoading();
     };
 
-    handleBlur = () => {
+    handleBlur = event => {
         this.cancelFetch();
         this.hideLoading();
-
-        this.setState({ isOpen: false });
+        this.close(event);
     };
 
     handleKeyDown = event => {
         if (event.keyCode === KEYS.esc) {
-            this.setState({ isOpen: false });
+            this.close(event);
         }
     };
 
@@ -152,7 +159,9 @@ export class RemoteSearchInput extends PureComponent {
                     }
 
                     this.hideLoading();
-                    this.setState({ isOpen: true, results: results });
+                    this.open(event);
+
+                    this.setState({ results: results });
                 } catch (error) {
                     // To cancel a promise it must be rejected, ignore it. If it's something else, bubble up.
                     if (error.isCancelled !== true) {
@@ -160,7 +169,8 @@ export class RemoteSearchInput extends PureComponent {
                     }
                 }
             } else {
-                this.setState({ isOpen: false, results: [] });
+                this.close(event);
+                this.setState({ results: [] });
             }
         },
         this.props.debounceDelay,
@@ -187,6 +197,26 @@ export class RemoteSearchInput extends PureComponent {
         }
     }
 
+    open(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: true });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, true);
+        }
+    }
+
+    close(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false);
+        }
+    }
+
     // prettier-ignore
     showLoading = defer(() => { this.setState({ isLoading: true }) }, this.props.loadingDelay);
 
@@ -206,11 +236,11 @@ export class RemoteSearchInput extends PureComponent {
 
     render() {
         const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, className } = this.props;
-        const { isOpen, isLoading, results } = this.state;
+        const { open, isLoading, results } = this.state;
 
         return (
             <SearchInputController
-                open={isOpen}
+                open={open}
                 results={results}
                 value={value}
                 defaultValue={defaultValue}
