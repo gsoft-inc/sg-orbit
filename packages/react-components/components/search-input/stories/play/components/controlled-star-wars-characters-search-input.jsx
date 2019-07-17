@@ -1,4 +1,4 @@
-import { StarWarsCharactersSearchInput } from "./star-wars-characters-search-input";
+import { StarWarsCharactersSearchInput } from "../../components/star-wars-characters-search-input";
 import { isNil } from "lodash";
 import React, { PureComponent } from "react";
 

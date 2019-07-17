@@ -59,7 +59,7 @@ function ensureAutoControlledPropsHasNotChanged(newProps, lastProps) {
 }
 
 /**
- * Computed the state for the auto controlled properties.
+ * Compute the state for the auto controlled properties.
  * The initial value is chosen in this order:
  *  - regular props
  *  - then, default props

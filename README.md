@@ -156,3 +156,5 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
 
+- Setup Chromatic QA, add Francis, Alex & send email alerts maybe?
+

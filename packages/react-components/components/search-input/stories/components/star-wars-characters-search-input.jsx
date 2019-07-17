@@ -1,4 +1,4 @@
-import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "../../../src";
+import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "../../src";
 import React, { PureComponent } from "react";
 
 export class StarWarsCharactersSearchInput extends PureComponent {

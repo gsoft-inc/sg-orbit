@@ -1,7 +1,7 @@
 import { ControlledStarWarsCharactersSearchInput } from "./components/controlled-star-wars-characters-search-input";
 import { LAURIE_VALUE, logValueChanged } from "../shared";
 import { RemoteSearchInput, SearchInputController } from "../../src";
-import { StarWarsCharactersSearchInput } from "./components/star-wars-characters-search-input";
+import { StarWarsCharactersSearchInput } from "../components/star-wars-characters-search-input";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 
