@@ -50,8 +50,8 @@
         ]
     },
     "devDependencies": {
-        "@sharegate/stylelint-config-sg": "0.1.0",
         "@sharegate/browserslist-config-sg": "1.1.1",
+        "@sharegate/stylelint-config-sg": "0.1.0",
         "babel-eslint": "10.0.2",
         "browserslist": "4.6.3",
         "chalk": "2.4.2",

@@ -16,7 +16,8 @@
     "eslint.autoFixOnSave": true,
     "eslint.alwaysShowStatus": true,
     "eslint.provideLintTask": true,
-    "prettier.eslintIntegration": true,
+    "eslint.packageManager": "yarn",
+    "prettier.eslintIntegration": false,
     "prettier.stylelintIntegration": true,
     "files.associations": {
         ".overrides": "less",

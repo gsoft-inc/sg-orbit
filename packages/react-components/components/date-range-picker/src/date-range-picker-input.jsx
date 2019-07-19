@@ -116,6 +116,6 @@ export class DateRangePickerInput extends PureComponent {
                     color: var(--marine-700);
                 }
             `}</style>
-        </div>
+        </div>;
     }
 }

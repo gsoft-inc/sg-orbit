@@ -22,6 +22,19 @@ module.exports = {
                 memberSyntaxSortOrder: ["none", "all", "multiple", "single"]
             }
         ],
-        "no-prototype-builtins": "off"
+        "no-prototype-builtins": "off",
+
+        // ESLint rules to mimicks default Prettier format
+        "max-len": ["warn", { "code": 300, "tabWidth": 4 }],
+        "indent": ["warn", 4],
+        "semi": ["warn", "always"],
+        "quotes": ["warn", "double"],
+        "comma-dangle": ["warn", "never"],
+        "object-curly-spacing": ["warn", "always"],
+        "arrow-parens": ["warn", "as-needed"],
+        "linebreak-style": "off",
+        // "quote-props": ["warn", "as-needed"],
+        "quote-props": "off",
+        "react/jsx-closing-bracket-location": [1, "line-aligned"]
     }
 };

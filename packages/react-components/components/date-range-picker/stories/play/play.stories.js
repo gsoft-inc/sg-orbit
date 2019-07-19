@@ -14,7 +14,7 @@ export const DEFAULT_PRESETS_OPTIONS = {
     "LAST_MONTH_PRESET": LAST_MONTH_PRESET,
     "LAST_3_MONTHS_PRESET": LAST_3_MONTHS_PRESET,
     "LAST_6_MONTHS_PRESET": LAST_6_MONTHS_PRESET,
-    "LAST_12_MONTHS_PRESET": LAST_12_MONTHS_PRESET,
+    "LAST_12_MONTHS_PRESET": LAST_12_MONTHS_PRESET
 };
 
 function momentKnob(name, defaultValue) {
@@ -26,9 +26,7 @@ function momentKnob(name, defaultValue) {
 function presetsKnob(name, defaultValue) {
     const presets = array(name, defaultValue);
 
-    return presets.map(x => {
-        return DEFAULT_PRESETS_OPTIONS[x]
-    });
+    return presets.map(x => DEFAULT_PRESETS_OPTIONS[x]);
 }
 
 function stories(segment) {
@@ -55,7 +53,7 @@ stories()
             placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
             rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
             dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
-            anchorDirection={select("anchorDirection", { "Left": ANCHOR_LEFT, "Right": ANCHOR_RIGHT }, ANCHOR_LEFT)}
+            anchorDirection={select("anchorDirection", { Left: ANCHOR_LEFT, Right: ANCHOR_RIGHT }, ANCHOR_LEFT)}
             presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
             clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
             applyText={text("applyText", DateRangePicker.defaultProps.applyText)}
@@ -63,7 +61,7 @@ stories()
             className={text("className")}
             onDatesChange={logDatesChanged}
         />,
-        { decorators: [withKnobs] }
+    { decorators: [withKnobs] }
     )
     .add("presets", () =>
         <DateRangePicker
