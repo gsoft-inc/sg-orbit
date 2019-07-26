@@ -1,6 +1,7 @@
 import { StoryContainer } from "./story-container";
-import { addDecorator, configure } from "@storybook/react";
+import { addDecorator, addParameters, configure } from "@storybook/react";
 import { withConsole } from "@storybook/addon-console";
+import sgTheme from "./sgtheme";
 
 // Dont move, it need to be imported after storybook/react.
 import { isChromatic } from "storybook-chromatic";
@@ -17,6 +18,14 @@ if (!isChromatic()) {
 
 import "./style/theme.css";
 import "./utils/stories.css";
+
+// Option defaults.
+addParameters({
+    options: {
+        theme: sgTheme
+    }
+});
+
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);

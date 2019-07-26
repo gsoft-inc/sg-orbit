@@ -27,7 +27,7 @@ class Preset extends PureComponent {
                 <button
                     type="button"
                     onClick={this.handleClick}
-                    className={cx("f7 marine-700 lh-solid pa2 mb2 outline-0 pointer hover-primary-500", { primary: isSelected })}
+                    className={cx("f7 marine-700 lh-solid pa2 mb2 outline-0 pointer hover-primary-500", { "primary-500": isSelected })}
                 >
                     {preset.text}
                 </button>
