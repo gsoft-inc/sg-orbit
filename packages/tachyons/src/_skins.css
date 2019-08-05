@@ -456,86 +456,6 @@
 
 /* Background */
 
-.bg-black-90 {
-    background-color: var(--black-90);
-}
-
-.bg-black-80 {
-    background-color: var(--black-80);
-}
-
-.bg-black-70 {
-    background-color: var(--black-70);
-}
-
-.bg-black-60 {
-    background-color: var(--black-60);
-}
-
-.bg-black-50 {
-    background-color: var(--black-50);
-}
-
-.bg-black-40 {
-    background-color: var(--black-40);
-}
-
-.bg-black-30 {
-    background-color: var(--black-30);
-}
-
-.bg-black-20 {
-    background-color: var(--black-20);
-}
-
-.bg-black-10 {
-    background-color: var(--black-10);
-}
-
-.bg-black-05 {
-    background-color: var(--black-05);
-}
-
-.bg-white-90 {
-    background-color: var(--white-90);
-}
-
-.bg-white-80 {
-    background-color: var(--white-80);
-}
-
-.bg-white-70 {
-    background-color: var(--white-70);
-}
-
-.bg-white-60 {
-    background-color: var(--white-60);
-}
-
-.bg-white-50 {
-    background-color: var(--white-50);
-}
-
-.bg-white-40 {
-    background-color: var(--white-40);
-}
-
-.bg-white-30 {
-    background-color: var(--white-30);
-}
-
-.bg-white-20 {
-    background-color: var(--white-20);
-}
-
-.bg-white-10 {
-    background-color: var(--white-10);
-}
-
-.bg-black {
-    background-color: var(--black);
-}
-
 .bg-white {
     background-color: var(--white);
 }
@@ -982,10 +902,6 @@
 }
 
 /* Fill - for SVGs */
-
-.fill-black {
-    fill: var(--black);
-}
 
 .fill-white {
     fill: var(--white);

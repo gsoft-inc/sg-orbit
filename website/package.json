@@ -16,6 +16,7 @@
         "deploy:staging": "netlify deploy --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
         "deploy:prod": "netlify deploy --prod --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
         "gatsby:develop": "gatsby develop",
+        "gatsby:clean": "gatsby clean",
         "gatsby:build": "gatsby build",
         "gatsby:serve": "gatsby serve",
         "setup-website-yarn-links": "node scripts/setup-website-yarn-links"
@@ -26,18 +27,20 @@
         "@sharegate/react-components": "latest",
         "@sharegate/semantic-ui-theme": "latest",
         "@sharegate/tachyons": "latest",
-        "gatsby": "2.9.0",
-        "gatsby-image": "2.1.3",
-        "gatsby-plugin-manifest": "2.1.1",
-        "gatsby-plugin-offline": "2.1.1",
-        "gatsby-plugin-react-helmet": "3.0.12",
-        "gatsby-plugin-sharp": "2.1.4",
-        "gatsby-remark-images": "3.0.14",
-        "gatsby-remark-prismjs": "3.2.11",
-        "gatsby-remark-responsive-iframe": "2.1.1",
-        "gatsby-source-filesystem": "2.0.39",
-        "gatsby-transformer-remark": "2.3.12",
-        "gatsby-transformer-sharp": "2.1.21",
+        "docz": "^2.0.0-rc.1",
+        "gatsby": "2.13.41",
+        "gatsby-image": "2.2.7",
+        "gatsby-plugin-manifest": "2.2.4",
+        "gatsby-plugin-offline": "2.2.4",
+        "gatsby-plugin-react-helmet": "3.1.2",
+        "gatsby-plugin-sharp": "2.2.9",
+        "gatsby-remark-images": "3.1.7",
+        "gatsby-remark-prismjs": "3.3.3",
+        "gatsby-remark-responsive-iframe": "2.2.4",
+        "gatsby-source-filesystem": "2.1.6",
+        "gatsby-theme-docz": "^2.0.0-rc.1",
+        "gatsby-transformer-remark": "2.6.9",
+        "gatsby-transformer-sharp": "2.2.4",
         "path": "0.12.7",
         "prismjs": "1.16.0",
         "prop-types": "15.7.2",
@@ -47,9 +50,7 @@
         "semantic-ui-react": "0.87.2"
     },
     "devDependencies": {
-        "docz": "1.2.0",
         "docz-theme-default": "1.2.0",
-        "gatsby-theme-docz": "1.2.0",
-        "netlify": "2.4.6"
+        "netlify": "2.4.8"
     }
 }

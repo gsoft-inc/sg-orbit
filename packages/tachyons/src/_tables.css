@@ -11,9 +11,9 @@
 }
 
 .stripe-light:nth-child(odd) {
-    background-color: var(--white-10);
+    background-color: var(--moonstone-100);
 }
 
 .stripe-dark:nth-child(odd) {
-    background-color: var(--black-10);
+    background-color: var(--marine-50);
 }

@@ -900,10 +900,6 @@
 
 /* Fill - for SVGs */
 
-.hover-fill-black:hover, .hover-fill-black:focus {
-    fill: var(--black);
-}
-
 .hover-fill-white:hover, .hover-fill-white:focus {
     fill: var(--white);
 }
