@@ -31,7 +31,7 @@ stories()
             disabled={boolean("disabled", false)}
             onValuesChange={logValuesChanged}
         />,
-        { decorators: [withKnobs] }
+    { decorators: [withKnobs] }
     )
     .add("categories", () =>
         <MultiSelect
