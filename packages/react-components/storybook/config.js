@@ -1,3 +1,5 @@
+/* eslint react/jsx-filename-extension: "off" */
+
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorybookTheme } from "./theme";
