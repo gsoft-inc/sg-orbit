@@ -10,28 +10,33 @@ function stories(segment) {
 }
 
 stories()
-    .add("default", () =>
-        <Popup visible>
-            <RedBox />
-        </Popup>
+    .add("default",
+         () =>
+             <Popup visible>
+                 <RedBox />
+             </Popup>
     )
-    .add("top", () =>
-        <Popup visible top="20px">
-            <RedBox />
-        </Popup>
+    .add("top",
+         () =>
+             <Popup visible top="20px">
+                 <RedBox />
+             </Popup>
     )
-    .add("bottom", () =>
-        <Popup visible bottom="20px">
-            <RedBox />
-        </Popup>
+    .add("bottom",
+         () =>
+             <Popup visible bottom="20px">
+                 <RedBox />
+             </Popup>
     )
-    .add("left", () =>
-        <Popup visible left="20px">
-            <RedBox />
-        </Popup>
+    .add("left",
+         () =>
+             <Popup visible left="20px">
+                 <RedBox />
+             </Popup>
     )
-    .add("right", () =>
-        <Popup visible right="20px">
-            <RedBox />
-        </Popup>
+    .add("right",
+         () =>
+             <Popup visible right="20px">
+                 <RedBox />
+             </Popup>
     );

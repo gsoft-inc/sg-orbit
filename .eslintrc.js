@@ -25,8 +25,8 @@ module.exports = {
         "no-prototype-builtins": "off",
 
         // ESLint rules to mimicks default Prettier format
-        "max-len": ["warn", { "code": 300, "tabWidth": 4 }],
-        "indent": ["warn", 4],
+        "max-len": ["warn", { code: 300, tabWidth: 4 }],
+        "indent": ["warn", 4, { SwitchCase: 1, CallExpression: { arguments: "first" } }],
         "semi": ["warn", "always"],
         "quotes": ["warn", "double"],
         "comma-dangle": ["warn", "never"],
@@ -34,7 +34,6 @@ module.exports = {
         "arrow-parens": ["warn", "as-needed"],
         "linebreak-style": "off",
         // "quote-props": ["warn", "as-needed"],
-        "quote-props": "off",
-        "react/jsx-closing-bracket-location": [1, "line-aligned"]
+        "quote-props": "off"
     }
 };

@@ -166,16 +166,16 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onKeyDown } = this.props;
 
         switch (event.keyCode) {
-            case KEYS.enter:
-                this.handleInputEnter(event);
-                break;
-            case KEYS.esc:
-                this.handleInputEscape(event);
-                break;
-            default:
-                if (!isNil(onKeyDown)) {
-                    onKeyDown(event);
-                }
+        case KEYS.enter:
+            this.handleInputEnter(event);
+            break;
+        case KEYS.esc:
+            this.handleInputEscape(event);
+            break;
+        default:
+            if (!isNil(onKeyDown)) {
+                onKeyDown(event);
+            }
         }
     };
 

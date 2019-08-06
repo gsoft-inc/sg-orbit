@@ -11,33 +11,38 @@ function stories(segment) {
 }
 
 stories()
-    .add("closed", () =>
-        <StarWarsCharactersSearchInput
-            onValueChange={logValueChanged}
-        />
+    .add("closed",
+         () =>
+             <StarWarsCharactersSearchInput
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("opened", () =>
-        <StarWarsCharactersSearchInput
-            open
-            onValueChange={logValueChanged}
-        />
+    .add("opened",
+         () =>
+             <StarWarsCharactersSearchInput
+                 open
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("disabled", () =>
-        <StarWarsCharactersSearchInput
-            onValueChange={logValueChanged}
-            disabled
-        />
+    .add("disabled",
+         () =>
+             <StarWarsCharactersSearchInput
+                 onValueChange={logValueChanged}
+                 disabled
+             />
     );
 
 stories("/selected value")
-    .add("no selection", () =>
-        <StarWarsCharactersSearchInput
-            onValueChange={logValueChanged}
-        />
+    .add("no selection",
+         () =>
+             <StarWarsCharactersSearchInput
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("value selected", () =>
-        <StarWarsCharactersSearchInput
-            defaultValue={LAURIE_VALUE}
-            onValueChange={logValueChanged}
-        />
+    .add("value selected",
+         () =>
+             <StarWarsCharactersSearchInput
+                 defaultValue={LAURIE_VALUE}
+                 onValueChange={logValueChanged}
+             />
     );

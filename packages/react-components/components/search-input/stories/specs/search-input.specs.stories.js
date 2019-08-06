@@ -11,38 +11,43 @@ function stories(segment) {
 }
 
 stories()
-    .add("closed", () =>
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            onValueChange={logValueChanged}
-        />
+    .add("closed",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("opened", () =>
-        <SearchInput
-            open
-            results={DEFAULT_RESULTS}
-            onValueChange={logValueChanged}
-        />
+    .add("opened",
+         () =>
+             <SearchInput
+                 open
+                 results={DEFAULT_RESULTS}
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("disabled", () =>
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            onValueChange={logValueChanged}
-            disabled
-        />
+    .add("disabled",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 onValueChange={logValueChanged}
+                 disabled
+             />
     );
 
 stories("/selected value")
-    .add("no selection", () =>
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            onValueChange={logValueChanged}
-        />
+    .add("no selection",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 onValueChange={logValueChanged}
+             />
     )
-    .add("value selected", () =>
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            defaultValue={LAURIE_VALUE}
-            onValueChange={logValueChanged}
-        />
+    .add("value selected",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 defaultValue={LAURIE_VALUE}
+                 onValueChange={logValueChanged}
+             />
     );
