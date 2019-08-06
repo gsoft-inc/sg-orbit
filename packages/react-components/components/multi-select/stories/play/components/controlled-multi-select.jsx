@@ -40,6 +40,6 @@ export class ControlledMultiSelect extends PureComponent {
                     onValuesChange={this.handleValuesChange}
                 />
             </>
-        )
+        );
     }
 }

@@ -42,6 +42,6 @@ export class ControlledDateRangePicker extends PureComponent {
                     onVisibilityChange={this.handleVisibilityChange}
                 />
             </>
-        )
+        );
     }
 }
