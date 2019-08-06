@@ -29,8 +29,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     renderGroupedItems() {
         const { items, headerRenderer } = this.props;
 
-        let results = [];
-
+        const results = [];
         const groups = groupBy(items, x => x.group);
 
         Object.keys(groups).forEach(key => {

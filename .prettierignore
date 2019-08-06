@@ -1,6 +1,6 @@
 /.vscode
-/packages/semantic-ui-theme
-node_modules*
+/packages/semantic-ui-theme/semantic
+node_modules
 .eslintrc.js
 .editorconfig
 *.md
