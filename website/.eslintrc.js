@@ -23,13 +23,13 @@ module.exports = {
         "react/jsx-no-comment-textnodes": "warn",
         "react/jsx-no-duplicate-props": ["warn", { ignoreCase: true }],
         "react/jsx-no-target-blank": "warn",
-        "react/jsx-no-undef": ["error", { allowGlobals: true }],
+        "react/jsx-no-undef": ["warn", { allowGlobals: true }],
         "react/jsx-pascal-case": [
-        "warn",
-        {
-            allowAllCaps: true,
-            ignore: [],
-        },
+            "warn",
+            {
+                allowAllCaps: true,
+                ignore: []
+            },
         ],
         "react/jsx-uses-react": "warn",
         "react/jsx-uses-vars": "warn",
@@ -38,21 +38,37 @@ module.exports = {
         "react/no-is-mounted": "warn",
         "react/no-typos": "error",
         "react/react-in-jsx-scope": "off",
-        "react/require-render-return": "error",
+        "react/require-render-return": "warn",
         "react/style-prop-object": "warn",
-        "react/button-has-type": "error",
-        "react/destructuring-assignment": ["error", "always", { ignoreClassFields: true }],
-        "react/jsx-boolean-value": ["error", "never"],
+        "react/button-has-type": "warn",
+        "react/destructuring-assignment": ["warn", "always", { ignoreClassFields: true }],
+        "react/jsx-boolean-value": ["warn", "never"],
+        "react/jsx-closing-bracket-location": [1, "line-aligned"],
+        "react/default-props-match-prop-types": "warn",
+        "react/no-unknown-property": "warn",
+        "react/no-unused-state": "warn",
+        "react/no-array-index-key": "warn",
+        "react/no-access-state-in-setstate": "warn",
+        "react/jsx-filename-extension": "warn",
+        "react/jsx-tag-spacing": "warn",
+        "react/jsx-curly-brace-presence": "warn",
+        "react/jsx-max-props-per-line": ["warn", { maximum: 1, when: "multiline" }],
+
+        //////////////////////
+
+        "react/no-unused-prop-types": ["warn", { customValidators: [], skipShapeProps: true }],
+
+        /////////////////////
 
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
         "jsx-a11y/accessible-emoji": "warn",
         "jsx-a11y/alt-text": "warn",
         "jsx-a11y/anchor-has-content": "warn",
         "jsx-a11y/anchor-is-valid": [
-        "warn",
-        {
-            aspects: ["noHref", "invalidHref"],
-        },
+            "warn",
+            {
+                aspects: ["noHref", "invalidHref"],
+            }
         ],
         "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
         "jsx-a11y/aria-props": "warn",
@@ -68,8 +84,5 @@ module.exports = {
         "jsx-a11y/role-has-required-aria-props": "warn",
         "jsx-a11y/role-supports-aria-props": "warn",
         "jsx-a11y/scope": "warn",
-
-        // ESLint rules to mimicks default Prettier format
-        "react/jsx-closing-bracket-location": [1, "line-aligned"]
     }
 };
