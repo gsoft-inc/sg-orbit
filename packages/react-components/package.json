@@ -75,7 +75,7 @@
         "react-dates": "20.2.5",
         "react-dom": "16.8.6",
         "semantic-ui-react": "0.87.2",
-        "storybook-chromatic": "1.4.0",
+        "storybook-chromatic": "2.1.1",
         "styled-jsx": "3.2.1"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
