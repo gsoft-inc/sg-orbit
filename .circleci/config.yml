@@ -12,8 +12,8 @@ aliases:
           # Fallback to using the latest cache if no exact match is found
           - v1-yarn-packages-
     - &install-yarn-deps
-      name: "Lint"
-      command: yarn lint:pkg
+      name: Install Dependencies
+      command: yarn install:ci --frozen-lockfile
 jobs:
     build:
         docker:
