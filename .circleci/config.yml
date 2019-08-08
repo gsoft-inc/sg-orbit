@@ -34,7 +34,7 @@ jobs:
                   name: Restore Yarn Package Cache
                   keys:
                       - v1-yarn-packages-{{ checksum "yarn.lock" }}
-                      # fallback to using the latest cache if no exact match is found
+                      # Fallback to using the latest cache if no exact match is found
                       - v1-yarn-packages-
             - run:
                   name: Install Dependencies
@@ -55,8 +55,8 @@ workflows:
     commit:
         jobs:
             - build
-            - chromatic
-                filters:
-                    branches:
-                        only:
-                            - master
+            - chromatic:
+                  filters:
+                      branches:
+                          only:
+                              - master
