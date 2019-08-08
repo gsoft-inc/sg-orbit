@@ -10,4 +10,4 @@ install:
     - yarn install:ci
 
 script:
-    - yarn lint
+    - yarn lint:pkg
