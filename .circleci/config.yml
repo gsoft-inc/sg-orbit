@@ -42,6 +42,7 @@ workflows:
     commit:
         jobs:
             - build
+            - chromatic
     nightly:
         triggers:
             - schedule:
