@@ -6,7 +6,7 @@ version: 2
 jobs:
     build:
         docker:
-            - image: circleci/node:9.9
+            - image: circleci/node:12
         steps:
             - checkout
             # Start download and cache dependencies
@@ -14,7 +14,7 @@ jobs:
                   name: Restore Yarn Package Cache
                   keys:
                       - v1-yarn-packages-{{ checksum "yarn.lock" }}
-                      # fallback to using the latest cache if no exact match is found
+                      # Fallback to using the latest cache if no exact match is found
                       - v1-yarn-packages-
             - run:
                   name: Install Dependencies
