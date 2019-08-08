@@ -23,9 +23,7 @@ jobs:
                   name: Save Yarn Package Cache
                   key: v1-yarn-packages-{{ checksum "yarn.lock" }}
                   paths:
-                      - ~/.cache/yarn
-                      - .yarn-cache
-                      - node_modules
+                      - ~/.yarn-cache
             # End download and cache dependencies
             - run:
                   name: "Lint"
