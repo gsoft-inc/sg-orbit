@@ -27,9 +27,6 @@ jobs:
     chromatic:
         docker:
             - image: circleci/node:12
-        branches:
-            only:
-                - master
         steps:
             - checkout
             # Start download and cache dependencies
@@ -59,3 +56,7 @@ workflows:
         jobs:
             - build
             - chromatic
+                filters:
+                    branches:
+                        only:
+                            - master
