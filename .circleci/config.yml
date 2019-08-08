@@ -27,6 +27,9 @@ jobs:
     chromatic:
         docker:
             - image: circleci/node:12
+        branches:
+            only:
+                - master
         steps:
             - checkout
             # Start download and cache dependencies
@@ -50,3 +53,9 @@ jobs:
             - run:
                   name: "Chromatic"
                   command: yarn chromatic:ci
+workflows:
+    version: 2
+    commit:
+        jobs:
+            - build
+            - chromatic
