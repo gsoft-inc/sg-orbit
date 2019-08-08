@@ -16,7 +16,7 @@
         "build:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
         "prewatch": "yarn clean",
         "watch": "run-p \"build:* --watch\"",
-        "ci": "yarn chromatic:ci",
+        "test:ci": "yarn chromatic:ci",
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
@@ -24,7 +24,7 @@
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-        "sb:chromatic": "yarn sb:start -p 1133 --ci --quiet",
+        "sb:chromatic": "yarn sb:start -p 1135 --ci --quiet",
         "chromatic:test": "chromatic test --app-code=\"77rqvcxzbk5\" --script-name=sb:chromatic",
         "chromatic:ci": "cross-env CI=true && yarn chromatic:test --no-interactive"
     },
