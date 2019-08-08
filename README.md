@@ -148,29 +148,13 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Some sort of intellisense? Like typescript types?
 
-- Configure Chromatic for CI: https://docs.chromaticqa.com/setup_ci
-
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
 - Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
 
-- Setup Chromatic QA, add Francis, Alex & send email alerts maybe?
-
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 
 - Put back babel-runtime optimization for components, gatsby should be fixed now
-
-
-////////
-
-How to use eslint auto-fix instead of prettier and still use prettier for style
-
-1- add "*.js" and "*.jsx" to .prettierignore
-2- in settings.json make sure 
-        "eslint.autoFixOnSave": true,
-        "javascript.format.enable": false,
-        "editor.formatOnSave": true
-        "prettier.eslintIntegration": false
 
 ## License
 
