@@ -15,6 +15,6 @@ export class StarWarsCharactersSearchInput extends PureComponent {
                 onResults={this.handleResults}
                 {...this.props}
             />
-        )
+        );
     }
 }

@@ -55,6 +55,8 @@
         "@sharegate/foundation": "3.2.1",
         "@sharegate/semantic-ui-theme": "4.2.1",
         "@sharegate/tachyons": "3.2.1",
+        "@sharegate/eslint-config-react": "1.0.1",
+        "@sharegate/eslint-config-lodash": "1.0.1",
         "@storybook/addon-actions": "5.1.9",
         "@storybook/addon-console": "1.1.0",
         "@storybook/addon-knobs": "5.1.9",

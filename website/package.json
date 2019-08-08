@@ -50,7 +50,8 @@
         "semantic-ui-react": "0.87.2"
     },
     "devDependencies": {
-        "docz-theme-default": "1.2.0",
+        "@sharegate/eslint-config-react": "1.0.1",
+        "docz": "1.2.0",
         "netlify": "2.4.8"
     }
 }

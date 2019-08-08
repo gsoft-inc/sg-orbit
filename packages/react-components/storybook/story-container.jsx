@@ -2,7 +2,7 @@ import React from "react";
 
 export function StoryContainer({ story, context }) {
     const { parameters } = context;
-    const { options = {} } = parameters
+    const { options = {} } = parameters;
     const { layout } = options;
 
     return (

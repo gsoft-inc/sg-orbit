@@ -48,7 +48,7 @@ export function useDefaultResultsFetcher(url, queryParameter = "query", { queryD
         };
 
         return defaultResultsFetcher(event, url, data, requestOptions);
-    }
+    };
 }
 
 function isPromise(value) {
@@ -218,7 +218,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     // prettier-ignore
-    showLoading = defer(() => { this.setState({ isLoading: true }) }, this.props.loadingDelay);
+    showLoading = defer(() => { this.setState({ isLoading: true }); }, this.props.loadingDelay);
 
     hideLoading() {
         const { isLoading } = this.state;

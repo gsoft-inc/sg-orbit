@@ -21,15 +21,17 @@ function stories(segment) {
 }
 
 stories()
-    .add("default", () =>
-        <ControlledRedBox />
+    .add("default",
+         () =>
+             <ControlledRedBox />
     )
-    .add("knobs", () =>
-        <ControlledRedBox
-            top={pixelKnob("top")}
-            bottom={pixelKnob("bottom")}
-            left={pixelKnob("left")}
-            right={pixelKnob("right")}
-        />,
-        { decorators: [withKnobs] }
+    .add("knobs",
+         () =>
+             <ControlledRedBox
+                 top={pixelKnob("top")}
+                 bottom={pixelKnob("bottom")}
+                 left={pixelKnob("left")}
+                 right={pixelKnob("right")}
+             />,
+         { decorators: [withKnobs] }
     );

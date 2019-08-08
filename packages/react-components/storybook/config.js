@@ -1,7 +1,9 @@
+/* eslint react/jsx-filename-extension: "off" */
+
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
+import { customStorybookTheme } from "./theme";
 import { withConsole } from "@storybook/addon-console";
-import sgTheme from "./sgtheme";
 
 // Dont move, it need to be imported after storybook/react.
 import { isChromatic } from "storybook-chromatic";
@@ -16,16 +18,15 @@ if (!isChromatic()) {
     import("./style/fonts/calibre/calibre.css");
 }
 
-import "./style/theme.css";
+import "./style/components-presets.css";
 import "./utils/stories.css";
 
 // Option defaults.
 addParameters({
     options: {
-        theme: sgTheme
+        theme: customStorybookTheme
     }
 });
-
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);

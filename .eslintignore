@@ -1,4 +1,4 @@
 /.vscode
-/packages/semantic-ui-themes
+/packages/semantic-ui-theme/semantic
 node_modules
 dist

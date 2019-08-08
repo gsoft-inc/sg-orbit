@@ -36,6 +36,10 @@ To install the packages and link all the workspace dependencies:
 yarn bootstrap
 ```
 
+## Start Storybook
+
+## Start Gatsby website
+
 ## Add a new NPM packages
 
 Dont add new packages to the root of the workspace unless you know what you are doing.
@@ -136,8 +140,6 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
 
-- Prettier + eslint doesn't work everywhere? like react-components.
-
 - Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
 
 - Inclure la "files" property dans les package.json
@@ -146,11 +148,7 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Some sort of intellisense? Like typescript types?
 
-- unit test for react-components/shared
-
 - Configure Chromatic for CI: https://docs.chromaticqa.com/setup_ci
-
-- Have distinct icon in storybook sidebar for story intented for designers or devs
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
@@ -159,6 +157,8 @@ Chromaticqa is inconsistant if we load a custom font
 - Setup Chromatic QA, add Francis, Alex & send email alerts maybe?
 
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
+
+- Put back babel-runtime optimization for components, gatsby should be fixed now
 
 
 ////////
@@ -171,4 +171,8 @@ How to use eslint auto-fix instead of prettier and still use prettier for style
         "javascript.format.enable": false,
         "editor.formatOnSave": true
         "prettier.eslintIntegration": false
+
+## License
+
+Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
 

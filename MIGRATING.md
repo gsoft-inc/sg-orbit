@@ -6,3 +6,5 @@ import @sharegate/tachyons-sg/css/tachyons.legacy.css -> import @sharegate/tachy
 import @sharegate/semantic-ui-sg/button.css -> @sharegate/semantic-ui-theme/button.css
 
 Now foundation must be imported by the consumer, it's not included anymore with tachyons.
+
+Use the new ESLint shared config packages.
