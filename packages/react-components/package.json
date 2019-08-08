@@ -24,9 +24,8 @@
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-        "chromatic:test": "chromatic test --storybook-build-dir=storybook/dist",
-        "chromatic:ci": "yarn chromatic:test --no-interactive",
-        "build-storybook": "yarn sb:build"
+        "chromatic:test": "chromatic test --build-script-name=sb:build",
+        "chromatic:ci": "yarn chromatic:test --no-interactive"
     },
     "peerDependencies": {
         "@sharegate/css-normalize": "*",
