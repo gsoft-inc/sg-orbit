@@ -11,9 +11,6 @@ aliases:
           - v1-yarn-packages-{{ checksum "yarn.lock" }}
           # Fallback to using the latest cache if no exact match is found
           - v1-yarn-packages-
-    - &install-yarn-deps
-      name: Install Dependencies
-      command: yarn install:ci --frozen-lockfile
 jobs:
     build:
         docker:
@@ -21,7 +18,9 @@ jobs:
         steps:
             - checkout
             - restore_cache: *restore-yarn-deps
-            - run: *install-yarn-deps
+            - run:
+                  name: Install Dependencies
+                  command: yarn install:without-setup --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: "Lint"
@@ -32,7 +31,9 @@ jobs:
         steps:
             - checkout
             - restore_cache: *restore-yarn-deps
-            - run: *install-yarn-deps
+            - run:
+                  name: Install Dependencies
+                  command: yarn bootstrap:pkg --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: "Chromatic"
