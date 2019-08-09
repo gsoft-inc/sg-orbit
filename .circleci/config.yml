@@ -24,7 +24,7 @@ jobs:
                   command: yarn install:without-setup --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
-                  name: "Lint"
+                  name: Lint
                   command: yarn lint:pkg
     chromatic:
         docker:
@@ -38,7 +38,10 @@ jobs:
                   command: yarn bootstrap:pkg --frozen-lockfile
             # - save_cache: *save-yarn-deps
             - run:
-                  name: "Chromatic"
+                  name: Build Packages
+                  command: yarn build:pkg
+            - run:
+                  name: Run chromatic
                   command: yarn chromatic:ci
 workflows:
     version: 2

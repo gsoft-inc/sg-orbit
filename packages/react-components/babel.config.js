@@ -3,14 +3,15 @@
 module.exports = {
     presets: [
         [
-            "@babel/preset-env"
-            // {
-            //     useBuiltIns: "entry",
-            //     corejs: 3,
-            //     modules: false
-            // }
+            "@babel/preset-env",
+            {
+                useBuiltIns: "entry",
+                corejs: 3,
+                modules: false
+            }
         ],
         [
+            // TODO: set property "development" when in dev
             "@babel/preset-react",
             {
                 useBuiltIns: true
@@ -19,16 +20,14 @@ module.exports = {
     ],
     plugins: [
         "@babel/plugin-proposal-class-properties",
-        // [
-        //     "@babel/plugin-transform-runtime",
-        //     {
-        //         corejs: false,
-        //         regenerator: true,
-        //         useESModules: true
-        //     }
-        // ],
-        // To enable Webpack lazy loading. For more info: https://medium.com/walkme-engineering/when-magic-fails-a-programmer-grows-e3289ced0791.
-        "@babel/plugin-syntax-dynamic-import",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                corejs: false,
+                regenerator: true,
+                useESModules: true
+            }
+        ],
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
         "babel-plugin-transform-react-remove-prop-types",

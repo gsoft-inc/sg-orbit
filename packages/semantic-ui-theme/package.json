@@ -27,8 +27,8 @@
         "@sharegate/css-normalize": "*"
     },
     "devDependencies": {
-        "gulp": "4.0.2",
-        "semantic-ui": "2.4.2"
+        "gulp": "*",
+        "semantic-ui": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
