@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg)](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master)
+
 # Consumers
 
 # Maintainers
