@@ -36,7 +36,6 @@
         "eslint:website": "yarn eslint:run website",
         "install:pkg": "yarn install:without-setup",
         "install:website": "cd website && yarn install",
-        "install:without-setup": "yarn install --ignore-scripts",
         "lint": "run-s lint:*",
         "lint:pkg": "yarn eslint:pkg",
         "lint:website": "yarn eslint:website",
