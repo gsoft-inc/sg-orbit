@@ -154,8 +154,6 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 
-- Put back babel-runtime optimization for components, gatsby should be fixed now
-
 - Babel - compile for production
 
 ## License
