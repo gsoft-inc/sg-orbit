@@ -152,8 +152,6 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
-- Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
-
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 
 - Babel - compile for production
