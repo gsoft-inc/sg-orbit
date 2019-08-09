@@ -15,6 +15,7 @@ jobs:
     build:
         docker:
             - image: circleci/node:12
+        working_directory: ~/build
         steps:
             - checkout
             - restore_cache: *restore-yarn-deps
@@ -28,7 +29,7 @@ jobs:
     chromatic:
         docker:
             - image: circleci/node:12
-        working_directory: ~/repo
+        working_directory: ~/chromatic
         steps:
             - checkout
             # - restore_cache: *restore-yarn-deps
