@@ -34,7 +34,7 @@
         "eslint:pkg": "yarn eslint:run --ignore-pattern \"/website\" .",
         "eslint:run": "eslint --ext .js,.jsx",
         "eslint:website": "yarn eslint:run website",
-        "install:pkg": "yarn install:without-setup",
+        "install:pkg": "yarn install --ignore-scripts",
         "install:website": "cd website && yarn install",
         "lint": "run-s lint:*",
         "lint:pkg": "yarn eslint:pkg",
