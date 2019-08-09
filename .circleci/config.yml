@@ -2,15 +2,15 @@ version: 2
 aliases:
     - &save-yarn-deps
       name: Save Yarn Package Cache
-      key: v1-yarn-packages-{{ checksum "yarn.lock" }}
+      key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
       paths:
-          - ~/.yarn-cache
+          - ~/.cache/yarn
     - &restore-yarn-deps
       name: Restore Yarn Package Cache
       keys:
-          - v1-yarn-packages-{{ checksum "yarn.lock" }}
-          # Fallback to using the latest cache if no exact match is found
-          - v1-yarn-packages-
+          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - yarn-packages-v1-{{ .Branch }}-
+          - yarn-packages-v1-
 jobs:
     build:
         docker:
@@ -32,11 +32,11 @@ jobs:
         working_directory: ~/chromatic
         steps:
             - checkout
-            # - restore_cache: *restore-yarn-deps
+            - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
                   command: yarn bootstrap:pkg --frozen-lockfile
-            # - save_cache: *save-yarn-deps
+            - save_cache: *save-yarn-deps
             - run:
                   name: Build Packages
                   command: yarn build:pkg
