@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg)](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master)
+
 # Consumers
 
 # Maintainers
@@ -150,11 +152,9 @@ Chromaticqa is inconsistant if we load a custom font
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
-- Remove "babel-eslint" dependencies from the root workspace once the new eslint config is done.
-
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 
-- Put back babel-runtime optimization for components, gatsby should be fixed now
+- Babel - compile for production
 
 ## License
 

@@ -1,61 +1,60 @@
 version: 2
+aliases:
+    - &save-yarn-deps
+      name: Save Yarn Package Cache
+      key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      paths:
+          - ~/.cache/yarn
+    - &restore-yarn-deps
+      name: Restore Yarn Package Cache
+      keys:
+          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - yarn-packages-v1-{{ .Branch }}-
+          - yarn-packages-v1-
 jobs:
     build:
         docker:
             - image: circleci/node:12
+        working_directory: ~/build
         steps:
             - checkout
-            # Start download and cache dependencies
-            - restore_cache:
-                  name: Restore Yarn Package Cache
-                  keys:
-                      - v1-yarn-packages-{{ checksum "yarn.lock" }}
-                      # Fallback to using the latest cache if no exact match is found
-                      - v1-yarn-packages-
+            - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:ci --frozen-lockfile
-            - save_cache:
-                  name: Save Yarn Package Cache
-                  key: v1-yarn-packages-{{ checksum "yarn.lock" }}
-                  paths:
-                      - ~/.yarn-cache
-            # End download and cache dependencies
+                  command: yarn install:pkg --frozen-lockfile
+            - save_cache: *save-yarn-deps
             - run:
-                  name: "Lint"
+                  name: Lint
                   command: yarn lint:pkg
     chromatic:
         docker:
             - image: circleci/node:12
-        branches:
-            only:
-                - master
+        working_directory: ~/chromatic
         steps:
             - checkout
-            # Start download and cache dependencies
-            - restore_cache:
-                  name: Restore Yarn Package Cache
-                  keys:
-                      - v1-yarn-packages-{{ checksum "yarn.lock" }}
-                      # fallback to using the latest cache if no exact match is found
-                      - v1-yarn-packages-
+            - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:ci --frozen-lockfile
-            - save_cache:
-                  name: Save Yarn Package Cache
-                  key: v1-yarn-packages-{{ checksum "yarn.lock" }}
-                  paths:
-                      - ~/.cache/yarn
-                      - .yarn-cache
-                      - node_modules
-            # End download and cache dependencies
+                  command: yarn bootstrap:pkg --frozen-lockfile
+            - save_cache: *save-yarn-deps
             - run:
-                  name: "Chromatic"
+                  name: Build Packages
+                  command: yarn build:pkg
+            - run:
+                  name: Run chromatic
                   command: yarn chromatic:ci
 workflows:
     version: 2
     commit:
         jobs:
             - build
+    nightly:
+        triggers:
+            - schedule:
+                  cron: "0 0 * * *"
+                  filters:
+                      branches:
+                          only:
+                              - master
+        jobs:
             - chromatic
