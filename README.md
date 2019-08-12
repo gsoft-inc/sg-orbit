@@ -1,48 +1,141 @@
+# sg-brand
+
+<p align="center">
 [![CircleCI](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg)](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master)
+</p>
 
-# Consumers
+## Consumers
 
-# Maintainers
+### Installation 
 
-EX doc: https://frint.js.org/docs/contributing/maintainers/
+## Maintainers
 
-## Lerna
+This project repository is managed as a monorepo that is componed of many NPM packages. For more info on monorepo:
 
-We use Lerna for managing our mono-repo. All our packages can be found in packages directory excepting the websites.
+- [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
+- [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
+- [Google](https://www.google.com/search?q=monorepo)
 
-### yarn
+We use Lerna for managing our monorepo. All our packages can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. The only exception is the components website that can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
 
-yarn natively support mono-repo with the "workspace" feature. When Lerna is configured to use yarn it delegate all the packages installation and dependencies linking to yarn which result in an increase of performance and less bugs. The native integration between Lerna and yarn make it worthwill to switch from NPM to yarn for this repository.
+Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
-yarn also natively support packages hoisting which results in less disk space consuption and faster installation.
+When Lerna is configured to use Yarn it will delegate the installation of the packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
 
-## Installation
+### Installation
 
-This repository use yarn workspace. Therefore, you must install yarn:
+This project use Yarn workspace. Therefore, you must install Yarn:
 
 ```
 choco install yarn
 ``` 
 
-or to update the latest version of yarn:
+or to update the latest version:
 
-```
+```bash
 choco update yarn
 ```
 
-For more options to install yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
+For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
 
-To install the packages and link all the workspace dependencies:
+To install the project, open a terminal at the root of project and run the following command:
 
-```
+```bash
 yarn bootstrap
 ```
 
-## Start Storybook
+The installation should take up to 5 minutes.
 
-## Start Gatsby website
+By default, the packages and the website are installed.
 
-## Add a new NPM packages
+To only install the packages, instead use the following command:
+
+```bash
+yarn bootstrap:pkg
+```
+
+If you want to install the website later, use the default installation command or:
+
+```bash
+yarn bootstrap:website
+```
+
+### Develop components
+
+**Storybook**
+
+We recommend that every component is developed in [Storybook](https://storybook.js.org).
+
+This is a convenient sandbox that enable the developper to write organized isolated stories for every specifications of the component and offer functionnal and automated testing capabilities.
+
+The whole Storybook will represent a functional catalog of the components that makes the Sharegate Orbit design system and will be fully browsable by the design team.
+
+For more informations about our automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
+
+**Start developing**
+
+The tooling to develop a component involve 2 processes:
+
+- A process that watch & compile the packages
+- A process for the Storybook app
+
+Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
+
+In the first terminal, run the following command to watch & compile the packages:
+
+```bash
+yarn start
+```
+
+In the second terminal, run the following command to start Storybook:
+
+```bash
+yarn start:sb
+```
+
+You can now update any packages (components, SUI theme, tachyons, ...) or write stories and your Storybook will be automatically updated with the changes.
+
+For more information about the development of a component view blabla..
+
+### Start developing website
+
+### Start website
+
+### Build packages
+
+To build the whole brand use the command:
+
+```
+yarn build
+```
+
+To build a specific package of the brand, use the specific build command. For example, to build the react components, use:
+
+```
+yarn build:rc
+```
+
+By default, the output should be in a `dist` folder. For more details, view the specific packages README.
+
+### Publish packages
+
+To release, go to the root project of the workspace and do the following:
+
+```
+yarn new-version
+yarn release:pkg
+git push
+```
+
+### Publish Storybook
+
+### Publish website
+
+### Storybook stories (potentiellement mettre ça dans le packages react-components)
+
+### Other commands
+
+### Add a new NPM packages
 
 Dont add new packages to the root of the workspace unless you know what you are doing.
 
@@ -52,7 +145,7 @@ To do so, in your terminal, navigate to the directory of the package and the use
 
 `yarn add PACKAGE_NAME [--dev]` will install the package.
 
-## Add a yarn scripts
+### Add a yarn scripts
 
 Think of scripts as atomic script. It means that a script should only do one thing, then you can have other scripts than compose those scripts.
 
@@ -86,7 +179,7 @@ You can have scripts in sub project. Again, take the react-components project. A
 
 To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
 
-## Add a new project
+### Add a new project
 
 Create a new folder matching your project name in /packages
 
@@ -106,31 +199,9 @@ Add your new project has "peerDependency", "devDependency" or "dependency" of an
 
 If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
 
-## Build
+### Visual Regression Tests
 
-To build the whole brand use the command:
-
-```
-yarn build
-```
-
-To build a specific package of the brand, use the specific build command. For example, to build the react components, use:
-
-```
-yarn build:rc
-```
-
-By default, the output should be in a `dist` folder. For more details, view the specific packages README.
-
-## Publish
-
-To release, go to the root project of the workspace and do the following:
-
-```
-yarn new-version
-yarn release:pkg
-git push
-```
+### CI
 
 ## Good to remember
 
