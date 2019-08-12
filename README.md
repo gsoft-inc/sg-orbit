@@ -1,7 +1,7 @@
 # sg-brand
 
 <p align="center">
-[![CircleCI](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg)](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master)
+    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
 ## Consumers
