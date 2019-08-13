@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "sg-brand-website",
-    "description": "Sharegate Design Guidelines website",
+    "description": "Sharegate Orbit components documentation website",
     "version": "0.1.0",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -19,24 +19,18 @@
         "deploy:prod": "netlify deploy --prod --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
         "setup-website-yarn-links": "node scripts/setup-website-yarn-links"
     },
-    "dependencies": {
+    "devDependencies": {
         "@sharegate/css-normalize": "latest",
         "@sharegate/foundation": "latest",
         "@sharegate/react-components": "latest",
         "@sharegate/semantic-ui-theme": "latest",
         "@sharegate/tachyons": "latest",
-        "dotenv-webpack": "^1.7.0",
-        "fs": "^0.0.1-security",
-        "optimize-css-assets-webpack-plugin": "^5.0.3",
-        "path": "^0.12.7",
-        "semantic-ui-react": "0.87.2",
-        "terser-webpack-plugin": "^1.4.1",
-        "webpack-filter-warnings-plugin": "^1.2.1"
-    },
-    "devDependencies": {
-        "@sharegate/eslint-config-react": "1.0.1",
-        "docz": "^1.2.0",
-        "docz-theme-default": "^1.2.0",
-        "netlify": "2.4.8"
+        "semantic-ui-react": "0.87.3",
+        "docz": "1.2.0",
+        "docz-theme-default": "1.2.0",
+        "docz-plugin-css": "0.11.0",
+        "react-hot-loader": "4.12.11",
+        "react": "16.9.0",
+        "react-dom": "16.9.0"
     }
 }

@@ -1,3 +1,6 @@
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
 import { ArgumentError, AutoControlledPureComponent, getAutoControlledStateFromProps } from "@sharegate/react-components-shared";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
