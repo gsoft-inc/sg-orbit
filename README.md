@@ -198,9 +198,9 @@ Open a web browser and navigate to https://sg-storybook.netlify.com.
 
 **Netlify**
 
-Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team.
+Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team and to the **sg-storybook** site.
 
-Make sure the site `App ID` match the `--site` parameter of the script `sb:deploy` in the *packages/react-components* directory [package.json](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/package.json) file.
+Make sure the site `App ID` of the site **sg-storybook** match the `--site` parameter of the script `sb:deploy` in the *packages/react-components/package.json* file.
 
 To deploy Storybook without building the static web app everytime, navigate to the *packages/react-components* directory and execute the following command:
 
@@ -220,7 +220,45 @@ The output will be available in the *packages/react-components/storybook/dist* d
 
 ### Release the website
 
-### Storybook stories (potentiellement mettre ça dans le packages react-components)
+Releasing the website includes a few steps:
+
+1. Build the docz into a static web app
+2. Deploy the static web app to Netlify
+
+Before you release, make sure you have access to the GSoft Netlify team and to the **sg-orbit** site.
+
+To release, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn release:sb
+```
+
+Open a web browser and navigate to https://sg-orbit.netlify.com.
+
+#### Troubleshooting
+
+**Netlify**
+
+Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team and to the **sg-orbit** site.
+
+Make sure the site `App ID` of the site **sg-orbit** match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the *website/package.json* file.
+
+To deploy the website without building the static web app everytime, navigate to the *website* directory and execute any of the following commands:
+
+```bash
+yarn deploy:staging
+yarn deploy:prod
+```
+
+**Build the static web app**
+
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
+
+```bash
+yarn build:website
+```
+
+The output will be available in the *packages/react-components/storybook/dist* directory. For more details, view the specific packages README.
 
 ### Other commands
 
@@ -291,6 +329,8 @@ If the "website" project use your new project, make sure you add it to /website/
 ### Visual Regression Tests
 
 ### CI
+
+### Storybook stories (potentiellement mettre ça dans le packages react-components)
 
 ## Good to remember
 
