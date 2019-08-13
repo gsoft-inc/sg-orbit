@@ -4,23 +4,29 @@
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
-## Consumers
-
-### Installation 
+## Installation
 
 ## Maintainers
 
-This project repository is managed as a monorepo that is componed of many NPM packages. For more info on monorepo:
+This project repository is managed as a monorepo that is composed of many NPM packages. 
+
+For more info on monorepo:
 
 - [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
 - [Google](https://www.google.com/search?q=monorepo)
 
-We use Lerna for managing our monorepo. All our packages can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. The only exception is the components website that can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
+We use Lerna for managing our monorepo. All our packages can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
+
+The only exception is the website that is not managed by the monorepo tooling since it's not a package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
-When Lerna is configured to use Yarn it will delegate the installation of the packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+When Lerna is configured to use Yarn it will delegate the installation of the packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+
+So why do we need Lerna if Yarn workspace take care of everything?
+
+Well the Lerna workflow make it very easy to publish the packages of a monorepo. For more info, view the [publish command](https://github.com/lerna/lerna/tree/master/commands/publish#readme) of Lerna.
 
 ### Installation
 
@@ -30,15 +36,9 @@ This project use Yarn workspace. Therefore, you must install Yarn:
 choco install yarn
 ``` 
 
-or to update the latest version:
-
-```bash
-choco update yarn
-```
-
 For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
 
-To install the project, open a terminal at the root of project and run the following command:
+To install the project, open a terminal at the root of the project and execute the following command:
 
 ```bash
 yarn bootstrap
@@ -48,7 +48,7 @@ The installation should take up to 5 minutes.
 
 By default, the packages and the website are installed.
 
-To only install the packages, instead use the following command:
+To only install the packages, instead, use the following command:
 
 ```bash
 yarn bootstrap:pkg
@@ -60,48 +60,69 @@ If you want to install the website later, use the default installation command o
 yarn bootstrap:website
 ```
 
-### Develop components
+### Develop a component
 
 **Storybook**
 
-We recommend that every component is developed in [Storybook](https://storybook.js.org).
+We recommend to develop every components in [Storybook](https://storybook.js.org).
 
-This is a convenient sandbox that enable the developper to write organized isolated stories for every specifications of the component and offer functionnal and automated testing capabilities.
+This is a convenient sandbox that help the developpers write organized isolated stories for every specifications of the component and offer functionnal and automated testing capabilities.
 
-The whole Storybook will represent a functional catalog of the components that makes the Sharegate Orbit design system and will be fully browsable by the design team.
+When done, the whole Storybook will represent a functional catalog of the Sharegate Orbit design system components and will be fully browsable by the design team.
 
-For more informations about our automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
+For more informations about the automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
 
 **Start developing**
 
 The tooling to develop a component involve 2 processes:
 
-- A process that watch & compile the packages
-- A process for the Storybook app
+- A process that watch & re-compile the packages
+- A process that run the Storybook app
 
 Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
 
-In the first terminal, run the following command to watch & compile the packages:
+In the first terminal, execute the following command to watch & compile the packages:
 
 ```bash
 yarn start
 ```
 
-In the second terminal, run the following command to start Storybook:
+In the second terminal, execute the following command to start Storybook:
 
 ```bash
 yarn start:sb
 ```
 
-You can now update any packages (components, SUI theme, tachyons, ...) or write stories and your Storybook will be automatically updated with the changes.
+You can update any packages (components, SUI theme, tachyons, ...) or stories and your Storybook will be automatically refreshed with the changes.
 
 For more information about the development of a component view blabla..
 
-### Start developing website
+### Update the website
 
-### Start website
+The tooling to update the website involve 2 processes:
 
-### Build packages
+- A process that watch & re-compile the packages
+- A process that run the website
+
+Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
+
+In the first terminal, execute the following command to watch & compile the packages:
+
+```bash
+yarn start
+```
+
+In the second terminal, execute the following command to start Storybook:
+
+```bash
+yarn start:website
+```
+
+You can update any packages (components, SUI theme, tachyons, ...) or pages of the website and your website will be automatically refreshed with the changes.
+
+For more information about the development of the website view blabla..
+
+### Build packages (sous section de Publish?)
 
 To build the whole brand use the command:
 
@@ -117,14 +138,35 @@ yarn build:rc
 
 By default, the output should be in a `dist` folder. For more details, view the specific packages README.
 
-### Publish packages
+### Release the packages
 
-To release, go to the root project of the workspace and do the following:
+Releasing the packages to NPM includes a few steps:
 
-```
+- Build the packages code for production
+- Choose which packages to release (based on which packages changed)
+- Bump the version of every packages selected for release
+- Updates all the packages that requires the selected packages to reflect the version bump
+- Publish the packages to NPM
+- Push the changes to Git (the changes are the version bump)
+
+Good news, this is all automated with a few commands!
+
+Before you release, make sure you have **write access** for all the NPM packages that will be published and that you are [logged in to NPM](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+
+To release, open a terminal at the root project of the workspace and execute the following:
+
+```bash
 yarn new-version
 yarn release:pkg
 git push
+```
+
+#### Troubleshooting
+
+If the packages failed to compile you can build without trying to do a new release. To do so, instead execute the following command:
+
+```bash
+yarn build:pkg
 ```
 
 ### Publish Storybook
