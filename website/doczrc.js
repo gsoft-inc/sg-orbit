@@ -17,13 +17,6 @@ export default {
     notUseSpecifiers: true,
     typescript: true,
     codeSandbox: false,
-    htmlContext: {
-        head: {
-            raw: [
-                "<script src=\"https://kit.fontawesome.com/fe2f496166.js\"></script>"
-            ]
-        }
-    },
     /** Control menu order */
     menu: [
         "Introduction",
@@ -40,7 +33,7 @@ export default {
                 {
                     test: /\.css$/,
                     include: [
-                        path.resolve(__dirname, "./components"),
+                        path.resolve(__dirname, "./styles"),
                         path.resolve(__dirname, "./helpers"),
                         path.resolve(__dirname, "./node_modules/rc-tooltip"),
                         path.resolve(__dirname, "./node_modules/rc-slider"),
