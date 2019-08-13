@@ -60,7 +60,7 @@ Since the website is not handled by the monorepo tooling so you will also find a
 
 If the website is not handled by the monorepo tooling how come it can consume the non-published packages of the monorepo?
 
-To make this work, a custom script [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/tree/master/website/scripts) has been developed to automatically create symlinks between the website and the packages of the monorepo.
+To make this work, a [custom script](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
 
 ### Installation
 
@@ -373,7 +373,7 @@ yarn build:sb
 Same as *build* but only for the website.
 
 ```
-yarn build:sb
+yarn build:website
 ```
 
 **reset**
