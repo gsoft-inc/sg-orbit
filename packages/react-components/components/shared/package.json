@@ -12,7 +12,7 @@
         "react": "*"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "7.5.5",
+        "@babel/runtime-corejs3": "*",
         "lodash": "*"
     },
     "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"

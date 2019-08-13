@@ -14,7 +14,7 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "7.5.5",
+        "@babel/runtime-corejs3": "*",
         "lodash": "*",
         "prop-types": "*"
     },
