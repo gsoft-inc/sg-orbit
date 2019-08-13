@@ -10,9 +10,13 @@ Mettre l'équivalent de la page de babel ici?
 
 ## Storybook
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
+
 https://sg-storybook.netlify.com
 
 ## Components documentation
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
 https://sg-orbit.netlify.com
 
@@ -179,6 +183,8 @@ By default, the output of the packages compilation should be in their respective
 
 ### Release Storybook
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
+
 Releasing Storybook includes a few steps:
 
 1. Build the storybook into a static web app
@@ -219,6 +225,8 @@ yarn build:sb
 The output will be available in the *packages/react-components/storybook/dist* directory. For more details, view the specific packages README.
 
 ### Release the website
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
 Releasing the website includes a few steps:
 
