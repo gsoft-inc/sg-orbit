@@ -38,7 +38,7 @@ choco install yarn
 
 For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
 
-To install the project, open a terminal at the root of the project and execute the following command:
+To install the project, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
 yarn bootstrap
@@ -81,13 +81,13 @@ The tooling to develop a component involve 2 processes:
 
 Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
 
-In the first terminal, execute the following command to watch & compile the packages:
+In the first terminal, watch & compile the packages by executing the following command at the root of the workspace:
 
 ```bash
 yarn start
 ```
 
-In the second terminal, execute the following command to start Storybook:
+In the second terminal, start the Storybook app by executing the following command at the root of the workspace:
 
 ```bash
 yarn start:sb
@@ -106,13 +106,13 @@ The tooling to update the website involve 2 processes:
 
 Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
 
-In the first terminal, execute the following command to watch & compile the packages:
+In the first terminal, watch & compile the packages by executing the following command at the root of the workspace:
 
 ```bash
 yarn start
 ```
 
-In the second terminal, execute the following command to start Storybook:
+In the second terminal, start the website by executing the following command at the root of the workspace:
 
 ```bash
 yarn start:website
@@ -122,38 +122,22 @@ You can update any packages (components, SUI theme, tachyons, ...) or pages of t
 
 For more information about the development of the website view blabla..
 
-### Build packages (sous section de Publish?)
-
-To build the whole brand use the command:
-
-```
-yarn build
-```
-
-To build a specific package of the brand, use the specific build command. For example, to build the react components, use:
-
-```
-yarn build:rc
-```
-
-By default, the output should be in a `dist` folder. For more details, view the specific packages README.
-
 ### Release the packages
 
 Releasing the packages to NPM includes a few steps:
 
-- Build the packages code for production
-- Choose which packages to release (based on which packages changed)
-- Bump the version of every packages selected for release
-- Updates all the packages that requires the selected packages to reflect the version bump
-- Publish the packages to NPM
-- Push the changes to Git (the changes are the version bump)
+1. Compile the packages code for production
+2. Choose which packages to release (based on which packages changed)
+3. Bump the version of every packages selected for release
+4. Updates all the packages that requires the selected packages to reflect the version bump
+5. Publish the packages to NPM
+6. Push the changes to Git (the changes are the version bump)
 
 Good news, this is all automated with a few commands!
 
 Before you release, make sure you have **write access** for all the NPM packages that will be published and that you are [logged in to NPM](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
 
-To release, open a terminal at the root project of the workspace and execute the following:
+To release, open a terminal at the root of the workspace and execute the following:
 
 ```bash
 yarn new-version
@@ -163,6 +147,17 @@ git push
 
 #### Troubleshooting
 
+**Github**
+
+Make sure you dont have any pending changes.
+
+**NPM**
+
+- Make sure you have **write access** to the NPM package.
+- If you are using 2FA, make sure you specified a valid OTP
+
+**Compilation**
+
 If the packages failed to compile you can build without trying to do a new release. To do so, instead execute the following command:
 
 ```bash
@@ -171,9 +166,32 @@ yarn build:pkg
 
 By default, the output should be in a `dist` folder. For more details, view the specific packages README.
 
-### Publish Storybook
+### Release Storybook
 
-### Publish website
+Releasing Storybook includes a few steps:
+
+1. Build the storybook into a static web app
+2. Deploy the static web app to Netlify
+
+Before you release, make sure you have access to GSoft Netlify account.
+
+To release, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn release:sb
+```
+
+#### Troubleshooting
+
+**HERE**
+
+Netlify
+
+Build
+
+Deploy
+
+### Release the website
 
 ### Storybook stories (potentiellement mettre ça dans le packages react-components)
 
