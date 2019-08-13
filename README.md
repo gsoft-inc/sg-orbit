@@ -4,13 +4,23 @@
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
-## Installation
+## NPM packages
+
+Mettre l'équivalent de la page de babel ici?
+
+## Storybook
+
+https://sg-storybook.netlify.com
+
+## Components documentation
+
+https://sg-orbit.netlify.com
 
 ## Maintainers
 
 This project repository is managed as a monorepo that is composed of many NPM packages. 
 
-For more info on monorepo:
+For more information on monorepo:
 
 - [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
@@ -153,18 +163,19 @@ Make sure you dont have any pending changes.
 
 **NPM**
 
-- Make sure you have **write access** to the NPM package.
-- If you are using 2FA, make sure you specified a valid OTP
+Make sure you have **write access** to the NPM package.
+
+If you are using 2FA, make sure you specified a valid OTP
 
 **Compilation**
 
-If the packages failed to compile you can build without trying to do a new release. To do so, instead execute the following command:
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
 
 ```bash
 yarn build:pkg
 ```
 
-By default, the output should be in a `dist` folder. For more details, view the specific packages README.
+By default, the output of the packages compilation should be in their respective *dist* directory. For more details, view the specific packages README.
 
 ### Release Storybook
 
@@ -173,7 +184,7 @@ Releasing Storybook includes a few steps:
 1. Build the storybook into a static web app
 2. Deploy the static web app to Netlify
 
-Before you release, make sure you have access to GSoft Netlify account.
+Before you release, make sure you have access to the GSoft Netlify team.
 
 To release, open a terminal at the root of the workspace and execute the following:
 
@@ -181,15 +192,31 @@ To release, open a terminal at the root of the workspace and execute the followi
 yarn release:sb
 ```
 
+Open a web browser and navigate to https://sg-storybook.netlify.com.
+
 #### Troubleshooting
 
-**HERE**
+**Netlify**
 
-Netlify
+Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team.
 
-Build
+Make sure the site `App ID` match the `--site` parameter of the script `sb:deploy` in the *packages/react-components* directory [package.json](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/package.json) file.
 
-Deploy
+To deploy Storybook without building the static web app everytime, navigate to the *packages/react-components* directory and execute the following command:
+
+```bash
+yarn sb:deploy
+```
+
+**Build the static web app**
+
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
+
+```bash
+yarn build:sb
+```
+
+The output will be available in the *packages/react-components/storybook/dist* directory. For more details, view the specific packages README.
 
 ### Release the website
 
