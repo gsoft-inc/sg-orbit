@@ -66,9 +66,9 @@ yarn bootstrap:website
 
 We recommend to develop every components in [Storybook](https://storybook.js.org).
 
-This is a convenient sandbox that help the developpers write organized isolated stories for every specifications of the component and offer functionnal and automated testing capabilities.
+This is a convenient sandbox that help the developpers write organized and isolated stories for every specifications of the component. Storybook also facilitate functionnal testing and integrate very well with automated testing technologies.
 
-When done, the whole Storybook will represent a functional catalog of the Sharegate Orbit design system components and will be fully browsable by the design team.
+When completed, the whole Storybook will represent a functional catalog of all the Sharegate design system components and will be available online for the design team.
 
 For more informations about the automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
 
@@ -169,6 +169,8 @@ If the packages failed to compile you can build without trying to do a new relea
 yarn build:pkg
 ```
 
+By default, the output should be in a `dist` folder. For more details, view the specific packages README.
+
 ### Publish Storybook
 
 ### Publish website
@@ -252,6 +254,8 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 Chromaticqa is inconsistant if we load a custom font
 
 # TODO
+
+- Doc une page packages à la Babel: https://github.com/babel/babel/blob/master/packages/README.md
 
 - Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
 
