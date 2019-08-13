@@ -22,13 +22,17 @@ https://sg-orbit.netlify.com
 
 ## Maintainers
 
+### Monorepo
+
 This project repository is managed as a monorepo that is composed of many NPM packages. 
 
 For more information on monorepo:
 
 - [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
-- [Google](https://www.google.com/search?q=monorepo)
+- [Google it!](https://www.google.com/search?q=monorepo)
+
+**Lerna**
 
 We use Lerna for managing our monorepo. All our packages can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
 
@@ -36,11 +40,27 @@ The only exception is the website that is not managed by the monorepo tooling si
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
-When Lerna is configured to use Yarn it will delegate the installation of the packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+When Lerna is configured to use Yarn it will delegate the installation of the NPM packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
 
 So why do we need Lerna if Yarn workspace take care of everything?
 
-Well the Lerna workflow make it very easy to publish the packages of a monorepo. For more info, view the [publish command](https://github.com/lerna/lerna/tree/master/commands/publish#readme) of Lerna.
+Well the Lerna workflow make it very easy to publish the packages of a monorepo. For more information, view the [publish command](https://github.com/lerna/lerna/tree/master/commands/publish#readme) of Lerna.
+
+**Yarn workspace**
+
+As stated before, the monorepo is using the Yarn workspace feature to handle the installation of the NPM packages and linking the inter-dependencies of the monorepo packages.
+
+Remember that only the **packages** are handled by Yarn workspace, the **website is not handled** by the monorepo tooling.
+
+It's also important to understand that Yarn workspace will **hoist** all the dependencies to the root of the workspace. This means that you won't find any *node_modules* directory inside the packages directory. All the dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated, also at the root of the workspace.
+
+Since the website is not handled by the monorepo tooling so you will also find a *node_modules* directory and a *yarn.lock* file inside the *website* directory.
+
+**Website dependencies linking**
+
+If the website is not handled by the monorepo tooling how come it can consume the non-published packages of the monorepo?
+
+To make this work, a custom script [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/tree/master/website/scripts) has been developed to automatically create symlinks between the website and the packages of the monorepo.
 
 ### Installation
 
@@ -268,7 +288,101 @@ yarn build:website
 
 The output will be available in the *website/dist* directory. For more details, view the specific packages README.
 
-### Other commands
+### Commands
+
+Here's an exhaustive list of all the commands you might need to use. All the following commands must be executed in a terminal opened at the root of the workspace.
+
+**bootstrap**
+
+Install the NPM packages for all the monorepo packages and the website. Once the NPM packages are all installed a **setup** step will be executed in every packages and the website.
+
+Depending of the packages / website, the setup step will perform a number of required additional installation tasks.
+
+For example, the semantic-ui theme must be **build once** before it can be **watch**.
+
+```bash
+yarn bootstrap
+```
+
+**bootstrap:pkg**
+
+Same as *bootstrap* but only for the packages.
+
+```bash
+yarn bootstrap:pkg
+```
+
+**bootstrap:website**
+
+Same as *bootstrap* but only for the website.
+
+```bash
+yarn bootstrap:website
+```
+
+**start**
+
+Compile & watch all the packages.
+
+```bash
+yarn start
+```
+
+**start:sb**
+
+Start Storybook.
+
+```bash
+yarn start:sb
+```
+
+**start:website**
+
+Start the website.
+
+```bash
+yarn start:website
+```
+
+**build**
+
+Build all the packages, Storybook and the website for production.
+
+```bash
+yarn build
+```
+
+**build:pkg**
+
+Same as *build* but only for the packages.
+
+```
+yarn build:pkg
+```
+
+**build:sb**
+
+Same as *build* but only for Storybook.
+
+```
+yarn build:sb
+```
+
+**build:website**
+
+Same as *build* but only for the website.
+
+```
+yarn build:sb
+```
+
+**reset**
+
+**update**
+
+**lint**
+
+**chromatic**
 
 ### Add a new NPM packages
 
