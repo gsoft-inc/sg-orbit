@@ -1,48 +1,390 @@
-[![CircleCI](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg)](https://circleci.com/gh/gsoft-inc/sg-brand/tree/master)
+# sg-brand
 
-# Consumers
+<p align="center">
+    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
+</p>
 
-# Maintainers
+## NPM packages
 
-EX doc: https://frint.js.org/docs/contributing/maintainers/
+Mettre l'équivalent de la page de babel ici?
 
-## Lerna
+## Storybook
 
-We use Lerna for managing our mono-repo. All our packages can be found in packages directory excepting the websites.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
 
-### yarn
+https://sg-storybook.netlify.com
 
-yarn natively support mono-repo with the "workspace" feature. When Lerna is configured to use yarn it delegate all the packages installation and dependencies linking to yarn which result in an increase of performance and less bugs. The native integration between Lerna and yarn make it worthwill to switch from NPM to yarn for this repository.
+## Components documentation
 
-yarn also natively support packages hoisting which results in less disk space consuption and faster installation.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
-## Installation
+https://sg-orbit.netlify.com
 
-This repository use yarn workspace. Therefore, you must install yarn:
+## Maintainers
+
+### Monorepo
+
+This project repository is managed as a monorepo that is composed of many NPM packages. 
+
+For more information on monorepo:
+
+- [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
+- [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
+- [Google it!](https://www.google.com/search?q=monorepo)
+
+**Lerna**
+
+We use Lerna for managing our monorepo. All our packages can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
+
+The only exception is the website that is not managed by the monorepo tooling since it's not a package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
+
+Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
+
+When Lerna is configured to use Yarn it will delegate the installation of the NPM packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+
+So why do we need Lerna if Yarn workspace take care of everything?
+
+Well the Lerna workflow make it very easy to publish the packages of a monorepo. For more information, view the [publish command](https://github.com/lerna/lerna/tree/master/commands/publish#readme) of Lerna.
+
+**Yarn workspace**
+
+As stated before, the monorepo is using the Yarn workspace feature to handle the installation of the NPM packages and linking the inter-dependencies of the monorepo packages.
+
+Remember that only the **packages** are handled by Yarn workspace, the **website is not handled** by the monorepo tooling.
+
+It's also important to understand that Yarn workspace will **hoist** all the dependencies to the root of the workspace. This means that you won't find any *node_modules* directory inside the packages directory. All the dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated, also at the root of the workspace.
+
+Since the website is not handled by the monorepo tooling so you will also find a *node_modules* directory and a *yarn.lock* file inside the *website* directory.
+
+**Website dependencies linking**
+
+If the website is not handled by the monorepo tooling how come it can consume the non-published packages of the monorepo?
+
+To make this work, a [custom script](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
+
+### Installation
+
+This project use Yarn workspace. Therefore, you must install Yarn:
 
 ```
 choco install yarn
 ``` 
 
-or to update the latest version of yarn:
+For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
 
-```
-choco update yarn
-```
+To install the project, open a terminal at the root of the workspace and execute the following command:
 
-For more options to install yarn, view https://yarnpkg.com/lang/en/docs/install/#windows-stable.
-
-To install the packages and link all the workspace dependencies:
-
-```
+```bash
 yarn bootstrap
 ```
 
-## Start Storybook
+The installation should take up to 5 minutes.
 
-## Start Gatsby website
+By default, the packages and the website are installed.
 
-## Add a new NPM packages
+To only install the packages, instead, use the following command:
+
+```bash
+yarn bootstrap:pkg
+```
+
+If you want to install the website later, use the default installation command or:
+
+```bash
+yarn bootstrap:website
+```
+
+### Develop a component
+
+**Storybook**
+
+We recommend to develop every components in [Storybook](https://storybook.js.org).
+
+This is a convenient sandbox that help the developpers write organized and isolated stories for every specifications of the component. Storybook also facilitate functionnal testing and integrate very well with automated testing technologies.
+
+When completed, the whole Storybook will represent a functional catalog of all the Sharegate design system components and will be available online for the design team.
+
+For more informations about the automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
+
+**Start developing**
+
+The tooling to develop a component involve 2 processes:
+
+- A process that watch & re-compile the packages
+- A process that run the Storybook app
+
+Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
+
+In the first terminal, watch & compile the packages by executing the following command at the root of the workspace:
+
+```bash
+yarn start
+```
+
+In the second terminal, start the Storybook app by executing the following command at the root of the workspace:
+
+```bash
+yarn start:sb
+```
+
+You can update any packages (components, SUI theme, tachyons, ...) or stories and your Storybook will be automatically refreshed with the changes.
+
+For more information about the development of a component view blabla..
+
+### Update the website
+
+The tooling to update the website involve 2 processes:
+
+- A process that watch & re-compile the packages
+- A process that run the website
+
+Therefore, you should [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
+
+In the first terminal, watch & compile the packages by executing the following command at the root of the workspace:
+
+```bash
+yarn start
+```
+
+In the second terminal, start the website by executing the following command at the root of the workspace:
+
+```bash
+yarn start:website
+```
+
+You can update any packages (components, SUI theme, tachyons, ...) or pages of the website and your website will be automatically refreshed with the changes.
+
+For more information about the development of the website view blabla..
+
+### Release the packages
+
+Releasing the packages to NPM includes a few steps:
+
+1. Compile the packages code for production
+2. Choose which packages to release (based on which packages changed)
+3. Bump the version of every packages selected for release
+4. Updates all the packages that requires the selected packages to reflect the version bump
+5. Publish the packages to NPM
+6. Push the changes to Git (the changes are the version bump)
+
+Good news, this is all automated with a few commands!
+
+Before you release, make sure you have **write access** for all the NPM packages that will be published and that you are [logged in to NPM](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+
+To release, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn new-version
+yarn release:pkg
+git push
+```
+
+#### Troubleshooting
+
+**Github**
+
+Make sure you dont have any pending changes.
+
+**NPM**
+
+Make sure you have **write access** to the NPM package.
+
+If you are using 2FA, make sure you specified a valid OTP
+
+**Compilation**
+
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
+
+```bash
+yarn build:pkg
+```
+
+By default, the output of the packages compilation should be in their respective *dist* directory. For more details, view the specific packages README.
+
+### Release Storybook
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
+
+Releasing Storybook includes a few steps:
+
+1. Build the storybook into a static web app
+2. Deploy the static web app to Netlify
+
+Before you release, make sure you have access to the GSoft Netlify team.
+
+To release, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn release:sb
+```
+
+Open a web browser and navigate to https://sg-storybook.netlify.com.
+
+#### Troubleshooting
+
+**Netlify**
+
+Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team and to the **sg-storybook** site.
+
+Make sure the site `App ID` of the site **sg-storybook** match the `--site` parameter of the script `sb:deploy` in the *packages/react-components/package.json* file.
+
+To deploy Storybook without building the static web app everytime, navigate to the *packages/react-components* directory and execute the following command:
+
+```bash
+yarn sb:deploy
+```
+
+**Build the static web app**
+
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
+
+```bash
+yarn build:sb
+```
+
+The output will be available in the *packages/react-components/storybook/dist* directory. For more details, view the specific packages README.
+
+### Release the website
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
+
+Releasing the website includes a few steps:
+
+1. Build the docz into a static web app
+2. Deploy the static web app to Netlify
+
+Before you release, make sure you have access to the GSoft Netlify team and to the **sg-orbit** site.
+
+To release, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn release:sb
+```
+
+Open a web browser and navigate to https://sg-orbit.netlify.com.
+
+#### Troubleshooting
+
+**Netlify**
+
+Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team and to the **sg-orbit** site.
+
+Make sure the site `App ID` of the site **sg-orbit** match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the *website/package.json* file.
+
+To deploy the website without building the static web app everytime, navigate to the *website* directory and execute any of the following commands:
+
+```bash
+yarn deploy:staging
+yarn deploy:prod
+```
+
+**Build the static web app**
+
+If the packages failed to compile you can build the packages without executing the whole release flow. To do so, execute the following command:
+
+```bash
+yarn build:website
+```
+
+The output will be available in the *website/.docz/dist* directory. For more details, view the specific packages README.
+
+### Commands
+
+Here's an exhaustive list of all the commands you might need to use. All the following commands must be executed in a terminal opened at the root of the workspace.
+
+**bootstrap**
+
+Install the NPM packages for all the monorepo packages and the website. Once the NPM packages are all installed a **setup** step will be executed in every packages and the website.
+
+Depending of the packages / website, the setup step will perform a number of required additional installation tasks.
+
+For example, the semantic-ui theme must be **build once** before it can be **watch**.
+
+```bash
+yarn bootstrap
+```
+
+**bootstrap:pkg**
+
+Same as *bootstrap* but only for the packages.
+
+```bash
+yarn bootstrap:pkg
+```
+
+**bootstrap:website**
+
+Same as *bootstrap* but only for the website.
+
+```bash
+yarn bootstrap:website
+```
+
+**start**
+
+Compile & watch all the packages.
+
+```bash
+yarn start
+```
+
+**start:sb**
+
+Start Storybook.
+
+```bash
+yarn start:sb
+```
+
+**start:website**
+
+Start the website.
+
+```bash
+yarn start:website
+```
+
+**build**
+
+Build all the packages, Storybook and the website for production.
+
+```bash
+yarn build
+```
+
+**build:pkg**
+
+Same as *build* but only for the packages.
+
+```
+yarn build:pkg
+```
+
+**build:sb**
+
+Same as *build* but only for Storybook.
+
+```
+yarn build:sb
+```
+
+**build:website**
+
+Same as *build* but only for the website.
+
+```
+yarn build:website
+```
+
+**reset**
+
+**update**
+
+**lint**
+
+**chromatic**
+
+### Add a new NPM packages
 
 Dont add new packages to the root of the workspace unless you know what you are doing.
 
@@ -52,7 +394,7 @@ To do so, in your terminal, navigate to the directory of the package and the use
 
 `yarn add PACKAGE_NAME [--dev]` will install the package.
 
-## Add a yarn scripts
+### Add a yarn scripts
 
 Think of scripts as atomic script. It means that a script should only do one thing, then you can have other scripts than compose those scripts.
 
@@ -86,7 +428,7 @@ You can have scripts in sub project. Again, take the react-components project. A
 
 To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
 
-## Add a new project
+### Add a new project
 
 Create a new folder matching your project name in /packages
 
@@ -106,31 +448,11 @@ Add your new project has "peerDependency", "devDependency" or "dependency" of an
 
 If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
 
-## Build
+### Visual Regression Tests
 
-To build the whole brand use the command:
+### CI
 
-```
-yarn build
-```
-
-To build a specific package of the brand, use the specific build command. For example, to build the react components, use:
-
-```
-yarn build:rc
-```
-
-By default, the output should be in a `dist` folder. For more details, view the specific packages README.
-
-## Publish
-
-To release, go to the root project of the workspace and do the following:
-
-```
-yarn new-version
-yarn release:pkg
-git push
-```
+### Storybook stories (potentiellement mettre ça dans le packages react-components)
 
 ## Good to remember
 
@@ -139,6 +461,8 @@ Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-
 Chromaticqa is inconsistant if we load a custom font
 
 # TODO
+
+- Doc une page packages à la Babel: https://github.com/babel/babel/blob/master/packages/README.md
 
 - Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
 
