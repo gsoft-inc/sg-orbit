@@ -1,4 +1,4 @@
-# @sharegate/react-date-range-picker
+# @sharegate/foundation
 
 ## License
 

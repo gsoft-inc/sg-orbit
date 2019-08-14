@@ -1,4 +1,4 @@
-# @sharegate/react-date-range-picker
+# @sharegate/react-popup
 
 ## License
 

@@ -64,9 +64,20 @@ You can add a new story for a component adding it in is respective `stories` fol
 
 https://www.chromaticqa.com/
 
+# @sharegate/react-components
+
+## License
+
+Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+
+## TODO
+
+- Write components developments guidelines
+- Sortir les keys dans "shared"
+
 Nice talk about why Chromatic: https://www.youtube.com/watch?v=QE-xQxN9Sps
 
-### Guidelines
+## Guidelines
 
 https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07
 

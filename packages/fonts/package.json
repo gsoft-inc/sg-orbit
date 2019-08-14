@@ -1,0 +1,11 @@
+{
+    "name": "@sharegate/fonts",
+    "version": "1.0.0",
+    "description": "Sharegate brand fonts",
+    "repository": "https://github.com/gsoft-inc/sg-brand",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "publishConfig": {
+        "access": "public"
+    }
+}
