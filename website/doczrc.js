@@ -7,7 +7,7 @@ export default {
     description: "Sharegate Orbit components documentation",
     menu: [
         { name: "Introduction", menu: [] },
-        { name: "Foundations", menu: [] },
+        { name: "Foundations", menu: ["Colours", "Typography", "Shadows"] },
         { name: "Components", menu: [] }
     ],
     notUseSpecifiers: true,
