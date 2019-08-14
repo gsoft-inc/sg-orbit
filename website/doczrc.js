@@ -5,9 +5,9 @@ export default {
     title: "Sharegate Orbit",
     description: "Sharegate Orbit components documentation",
     menu: [
-        { name: 'Introduction', menu: [] },
-        { name: 'Foundations', menu: [] },
-        { name: 'Components', menu: [] },
+        { name: "Introduction", menu: [] },
+        { name: "Foundations", menu: ["Colours", "Typography", "Shadows"] },
+        { name: "Components", menu: [] }
     ],
     notUseSpecifiers: true,
     filterComponents: files => files.filter(filepath => /w*.(jsx)$/.test(filepath)),
