@@ -255,10 +255,24 @@ Releasing the website includes a few steps:
 
 Before you release, make sure you have access to the GSoft Netlify team and to the **sg-orbit** site.
 
-To release, open a terminal at the root of the workspace and execute the following:
+You can release the website on the staging or production environment.
+
+#### Staging
+
+To release on the staging environment, open a terminal at the root of the workspace and execute the following:
 
 ```bash
-yarn release:sb
+yarn release:website
+```
+
+Open a web browser and navigate to https://5d1663eba8dbff36f23ecdf0--sg-orbit.netlify.com.
+
+#### Production
+
+To release on the production environment, open a terminal at the root of the workspace and execute the following:
+
+```bash
+yarn release:website:prod
 ```
 
 Open a web browser and navigate to https://sg-orbit.netlify.com.
@@ -376,9 +390,19 @@ Same as *build* but only for the website.
 yarn build:website
 ```
 
+**release:pkg**
+
+**release:sb**
+
+**release:website**
+
+**release:website:prod**
+
 **reset**
 
 **update**
+
+
 
 **lint**
 

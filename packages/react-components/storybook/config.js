@@ -15,7 +15,7 @@ import "@sharegate/tachyons";
 
 // Custom font makes chromatic inconsistent and cause "false positive".
 if (!isChromatic()) {
-    import("./style/fonts/calibre/calibre.css");
+    import("@sharegate/fonts/calibre/font.css");
 }
 
 import "./style/components-presets.css";
