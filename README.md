@@ -450,11 +450,11 @@ yarn chromatic
 
 For testing our components we currently rely only on automated visual testing.
 
-We prefered *visual testing* to *structural* or *interactions* testings, since this approach assert on what visuall appears instead of assertings on specifics CSS selectors or DOM elements. We feel this is a more *black box* and robust testing approach since it shouldn't requires to modify the tests if the code refactor haven't change anything visually.
+We prefered *visual testing* to *structural* or *interactions* testings, since this approach assert on what visually appears on the screen instead of assertings on specifics CSS selectors or DOM elements. We feel this is a more *black box* and *robust* testing approach since it shouldn't requires to modify the tests if the code refactor haven't change anything visually.
 
-Also, visual testing can easily perform cross-browsers testing.
+Visual testing can also easily perform cross-browsers testing.
 
-Setuping all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we decided to buy a license of [Chromatic QA](https://www.chromaticqa.com) because it integrates perfectly with Storybook. For more information about how write Storybook stories for Chromatic QA, view the [react-components documentation](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/README.md).
+Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we decided to buy a license of [Chromatic QA](https://www.chromaticqa.com) because it integrates perfectly with Storybook. For more information about how write Storybook stories for Chromatic QA, view the [react-components documentation](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/README.md).
 
 For more information about automated visual testing:
 
@@ -462,6 +462,32 @@ For more information about automated visual testing:
 - https://www.youtube.com/watch?v=QE-xQxN9Sps
 
 ### CI
+
+We use [Circle CI](https://circleci.com) as our continuous integration platform. You can find the 
+
+2 builds are currently configured:
+
+**On commit**
+
+On every commits the CI will execute the linters.
+
+**Nightly**
+
+Once per night, the CI will execute the automated visual tests. We can't execute those tests on every commits since snapshots are pricy and limited.
+
+For more information on the automated visual tests, view the [Testing](https://github.com/gsoft-inc/sg-brand#testing) section.
+
+#### Troubleshooting
+
+**SSH**
+
+To investigate general problems with Circle CI you can [debug with SSH](https://circleci.com/docs/2.0/ssh-access-jobs).
+
+**Chromatic & Storybook**
+
+If Chromatic can't reach the Storybook server, you're Storybook potentially have a compilation error.
+
+Sadly the Chromatic CLI doesn't relay properly Storybook compilation error. To see the error, try to build Storybook locally.
 
 ### Add a new NPM packages
 

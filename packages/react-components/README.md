@@ -24,24 +24,6 @@ import { DateRangePicker } from @sharegate/react-components
 
 ```
 
-# Maintainers
-
-## Installation
-
-## Commands
-
-### start
-
-### build
-
-### watch
-
-## Build
-
-All packages distribution code is outputted in their respective `dist` folder.
-
-## Add a new dependency to a component
-
 ## Add a new component
 
 Add a package dependency to the react-components package.json.
