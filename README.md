@@ -1,6 +1,5 @@
-# sg-brand
-
-<p align="center">
+<p align=center>
+    <h1>Sharegate Orbit</h1>
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
@@ -40,7 +39,7 @@ The only exception is the website that is not managed by the monorepo tooling si
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
-When Lerna is configured to use Yarn it will delegate the installation of the NPM packages and the dependencies linking to Yarn. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+When Lerna is configured to use Yarn it will delegate to Yarn the installation of the NPM packages and the linking the monorepo packages together. It result in an increase of performance and a more reliable experience than using the Lerna dependencies linking feature and NPM. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
 
 So why do we need Lerna if Yarn workspace take care of everything?
 
@@ -48,13 +47,13 @@ Well the Lerna workflow make it very easy to publish the packages of a monorepo.
 
 **Yarn workspace**
 
-As stated before, the monorepo is using the Yarn workspace feature to handle the installation of the NPM packages and linking the inter-dependencies of the monorepo packages.
+As stated before, the monorepo is using the Yarn workspace feature to handle the installation of the NPM packages and linking the monorepo packages together.
 
 Remember that only the **packages** are handled by Yarn workspace, the **website is not handled** by the monorepo tooling.
 
 It's also important to understand that Yarn workspace will **hoist** all the dependencies to the root of the workspace. This means that you won't find any *node_modules* directory inside the packages directory. All the dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated, also at the root of the workspace.
 
-Since the website is not handled by the monorepo tooling so you will also find a *node_modules* directory and a *yarn.lock* file inside the *website* directory.
+Since the website is not handled by the monorepo tooling you will also find a *node_modules* directory and a *yarn.lock* file inside the *website* directory.
 
 **Website dependencies linking**
 
@@ -224,7 +223,7 @@ Open a web browser and navigate to https://sg-storybook.netlify.com.
 
 **Netlify**
 
-Login to [Netlify](https://app.netlify.com) and make sure you have access to te GSoft team and to the **sg-storybook** site.
+Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to the **sg-storybook** site.
 
 Make sure the site `App ID` of the site **sg-storybook** match the `--site` parameter of the script `sb:deploy` in the *packages/react-components/package.json* file.
 
@@ -370,7 +369,7 @@ yarn build
 
 Same as *build* but only for the packages.
 
-```
+```bash
 yarn build:pkg
 ```
 
@@ -378,7 +377,7 @@ yarn build:pkg
 
 Same as *build* but only for Storybook.
 
-```
+```bash
 yarn build:sb
 ```
 
@@ -386,27 +385,66 @@ yarn build:sb
 
 Same as *build* but only for the website.
 
-```
+```bash
 yarn build:website
 ```
 
 **release:pkg**
 
+View the section [Release the packages](https://github.com/gsoft-inc/sg-brand#release-the-packages).
+
+**release:pkg:next**
+
+Same as *release:pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
+
 **release:sb**
 
-**release:website**
+View the section [Release Storybook](https://github.com/gsoft-inc/sg-brand#release-storybook).
 
+**release:website**
 **release:website:prod**
+
+View the section [Release the website](https://github.com/gsoft-inc/sg-brand#release-the-website).
 
 **reset**
 
+Reset the monorepo installation. The following assets will be deleted:
+
+- All the *node_modules* directories
+- All the *yarn.lock* files
+- All the compiled & cache folders
+
+If you encounter an error stating that the *node_modules* cannot be deleted, close & re-open VSCode and try to manually delete the *node_modules*.
+
+```bash
+yarn reset
+```
+
 **update**
 
+You should use this command when you updated the project dependencies and you want to install them without executing the setup steps.
 
+You should also use this command if you added a new packages to the monorepo and you need to re-link the monorepo packages together.
+
+```bash
+yarn update
+```
 
 **lint**
 
+Execute all the linters against the packages and the website.
+
+```bash
+yarn lint
+```
+
 **chromatic**
+
+Launch a visual regression tests sequence on Chromatic QA.
+
+```bash
+yarn chromatic
+```
 
 ### Add a new NPM packages
 
