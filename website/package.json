@@ -20,17 +20,14 @@
         "setup-website-yarn-links": "node scripts/setup-website-yarn-links"
     },
     "devDependencies": {
-        "@sharegate/css-normalize": "latest",
-        "@sharegate/foundation": "latest",
-        "@sharegate/react-components": "latest",
-        "@sharegate/semantic-ui-theme": "latest",
-        "@sharegate/tachyons": "latest",
-        "semantic-ui-react": "0.87.3",
+        "css-loader": "3.2.0",
         "docz": "1.2.0",
         "docz-theme-default": "1.2.0",
-        "docz-plugin-css": "0.11.0",
-        "react-hot-loader": "4.12.11",
-        "react": "16.9.0",
-        "react-dom": "16.9.0"
+        "mini-css-extract-plugin": "0.8.0",
+        "optimize-css-assets-webpack-plugin": "5.0.3",
+        "postcss-flexbugs-fixes": "4.1.0",
+        "postcss-loader": "3.0.0",
+        "postcss-preset-env": "6.7.0",
+        "style-loader": "1.0.0"
     }
 }
