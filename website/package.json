@@ -8,10 +8,9 @@
     "license": "Apache-2.0",
     "scripts": {
         "postinstall": "yarn setup-website-yarn-links",
-        "start": "yarn docz:dev",
+        "start": "run-s clean:cache docz:dev",
         "build": "yarn docz:build",
         "clean": "run-p clean:*",
-        "clean:public": "rimraf public",
         "clean:cache": "rimraf .docz",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
