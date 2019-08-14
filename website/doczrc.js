@@ -4,11 +4,6 @@ import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 export default {
     src: "./src",
     title: "Sharegate Orbit",
-    themeConfig: {
-        colors: {
-            primary: "#566077"
-        }
-    },
     description: "Sharegate Orbit components documentation",
     menu: [
         { name: "Introduction", menu: [] },
@@ -17,6 +12,11 @@ export default {
     ],
     notUseSpecifiers: true,
     codeSandbox: false,
+    themeConfig: {
+        colors: {
+            primary: "#566077"
+        }
+    },
     filterComponents: files => files.filter(filepath => /w*.(jsx)$/.test(filepath)),
     // We could use the docz plugin "docz-plugin-css" instead of defining our own webpack loaders but the packages is not maintained
     // and used obsolete dependencies.

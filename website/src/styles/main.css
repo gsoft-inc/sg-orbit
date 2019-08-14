@@ -2,6 +2,4 @@
 @import "~@sharegate/foundation";
 @import "~@sharegate/semantic-ui-theme";
 @import "~@sharegate/tachyons";
-
-/* @import "./fonts.css"; */
-@import "https://cdn.jsdelivr.net/npm/@sharegate/react-components@0.3.1/storybook/style/fonts/calibre/calibre.css";
+@import "~@sharegate/fonts/calibre/font.css";
