@@ -8,6 +8,7 @@ import "../styles/main.css";
 
 import { Playground } from "docz";
 import { noop } from "lodash";
+import moment from "moment";
 import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-components";
 
 # Date Picker
@@ -15,17 +16,78 @@ import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-compone
 ## Default
 
 <Playground>
-    <DateRangePicker onDatesChange={noop} />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker onDatesChange={noop} className="z-999" />
+    </div>
+</Playground>
+
+## Selected Dates
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker presets={DEFAULT_DATES_PRESETS} startDate={moment("2019-07-08")} endDate={moment("2019-07-08").add(3, "days")} onDatesChange={noop} />
+    </div>
 </Playground>
 
 ## Presets
 
 <Playground>
-    <DateRangePicker presets={DEFAULT_DATES_PRESETS} onDatesChange={noop} />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker presets={DEFAULT_DATES_PRESETS} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Min date restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker minDate={moment(new Date()).subtract(2, "weeks")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Max date restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker maxDate={moment(new Date()).add(1, "weeks")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Min and Max date restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker minDate={moment(new Date()).subtract(2, "weeks")} maxDate={moment(new Date()).add(1, "weeks")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Allow single date selection
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker allowSingleDateSelection onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Inlined
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <div className="flex">
+            <div className="mr4" style={{ width: "50%" }}>
+                <DateRangePicker onDatesChange={noop} />
+            </div>
+            <div style={{ width: "50%" }}>
+                <DateRangePicker onDatesChange={noop} />
+            </div>
+        </div>
+    </div>
 </Playground>
 
 ## Disabled
 
 <Playground>
-    <DateRangePicker disabled />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <DateRangePicker disabled />
+    </div>
 </Playground>
