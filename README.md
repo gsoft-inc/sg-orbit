@@ -440,11 +440,15 @@ yarn lint
 
 **chromatic**
 
-Launch a visual regression tests sequence on Chromatic QA.
+Launch the components visual regression tests on Chromatic QA. For more info on the visual regression tests view the section [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand#visual-regression-tests).
 
 ```bash
 yarn chromatic
 ```
+
+### Visual Regression Tests
+
+
 
 ### Add a new NPM packages
 
@@ -509,8 +513,6 @@ Make sure you set the repository to "https://github.com/gsoft-inc/sg-brand.git"
 Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
 
 If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
-
-### Visual Regression Tests
 
 ### CI
 
