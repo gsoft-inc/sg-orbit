@@ -469,7 +469,7 @@ We use [Circle CI](https://circleci.com) as our continuous integration platform.
 
 2 builds are currently configured:
 
-**On commit**
+**On commits**
 
 On every commits the CI will execute the linters.
 
@@ -489,9 +489,53 @@ To investigate general problems with Circle CI you can [debug with SSH](https://
 
 If Chromatic can't reach the Storybook server, you're Storybook potentially have a compilation error.
 
-Sadly the Chromatic CLI doesn't relay properly Storybook compilation error. To see the error, try to build Storybook locally.
+Sadly the Chromatic CLI doesn't relay properly Storybook compilation errors. To see the errors, try to build Storybook locally.
 
-### Add a new NPM packages
+### Add a new packages to the monorepo
+
+There is a few steps that you must accomplish to add a new packages to the monorepo.
+
+Before you create the package, please read the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name).
+
+When ready, proceed to the next step.
+
+#### Create the package
+
+First, create a new folder matching your package name in the *packages* directory.
+
+Open a terminal and navigate to the newly created directory and execute the command:
+
+```bash
+yarn init
+```
+
+Answer the questions.
+
+Once the *package.json* is generated, please read again [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure your package name, author and license are correct.
+
+Dont forget to add the scope "@sharegate" before your package name. For example if your project name is "toto", your package name should be "@sharegate/toto".
+
+Make sure your package publish access is *public* by adding the following to your package.json:
+
+```javascript
+"publishConfig": {
+    "access": "public"
+}
+```
+
+#### Dependencies
+
+#### Website links
+
+Your packages 
+
+Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
+
+If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
+
+### Add a new NPM package dev dependency
+
+C'EST FAUX
 
 Dont add new packages to the root of the workspace unless you know what you are doing.
 
@@ -534,26 +578,6 @@ For example, take the react-components project, since we execute a babel compila
 You can have scripts in sub project. Again, take the react-components project. A script is define in the actual project to start storybook since the workspace doesn't know about storybook, this is a dependency of react-components not of the whole workspace. Therefore, the scripts is define in the react-components project and a script entry has been added to the root package.json to call the script in the sub project.
 
 To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
-
-### Add a new project
-
-Create a new folder matching your project name in /packages
-
-Go to that folder with a terminal and execute `yarn init`.
-
-Answer the questions.
-
-Dont forget to add the scope "@sharegate" before your package name. For example if your project name is "toto", your package name should be "@sharegate/toto".
-
-Make sure you set the license to "Apache-2.0"
-
-Make sure you set the author to "Groupe Sharegate inc."
-
-Make sure you set the repository to "https://github.com/gsoft-inc/sg-brand.git"
-
-Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
-
-If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
 
 ## Good to remember
 
