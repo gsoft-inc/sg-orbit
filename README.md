@@ -456,6 +456,8 @@ Visual testing can also easily perform cross-browsers testing.
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we decided to buy a license of [Chromatic QA](https://www.chromaticqa.com) because it integrates perfectly with Storybook. For more information about how write Storybook stories for Chromatic QA, view the [react-components documentation](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/README.md).
 
+To have access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
+
 For more information about automated visual testing:
 
 - https://storybook.js.org/docs/testing/automated-visual-testing
@@ -463,7 +465,7 @@ For more information about automated visual testing:
 
 ### CI
 
-We use [Circle CI](https://circleci.com) as our continuous integration platform. You can find the 
+We use [Circle CI](https://circleci.com) as our continuous integration platform. To have access to our CI environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
 
 2 builds are currently configured:
 
