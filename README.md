@@ -103,7 +103,7 @@ This is a convenient sandbox that help the developpers write organized and isola
 
 When completed, the whole Storybook will represent a functional catalog of all the Sharegate design system components and will be available online for the design team.
 
-For more informations about the automated tests, view the [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#visual-regression-tests) section.
+For more informations about the automated visual tests, view the [Testings](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#testing) section.
 
 **Start developing**
 
@@ -440,15 +440,28 @@ yarn lint
 
 **chromatic**
 
-Launch the components visual regression tests on Chromatic QA. For more info on the visual regression tests view the section [Visual Regression Tests](https://github.com/gsoft-inc/sg-brand#visual-regression-tests).
+Launch the components automated visual tests on Chromatic QA. For more information on the automated visual tests, view the [Testing](https://github.com/gsoft-inc/sg-brand#testing) section.
 
 ```bash
 yarn chromatic
 ```
 
-### Visual Regression Tests
+### Testing
 
+For testing our components we currently rely only on automated visual testing.
 
+We prefered *visual testing* to *structural* or *interactions* testings, since this approach assert on what visuall appears instead of assertings on specifics CSS selectors or DOM elements. We feel this is a more *black box* and robust testing approach since it shouldn't requires to modify the tests if the code refactor haven't change anything visually.
+
+Also, visual testing can easily perform cross-browsers testing.
+
+Setuping all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we decided to buy a license of [Chromatic QA](https://www.chromaticqa.com) because it integrates perfectly with Storybook. For more information about how write Storybook stories for Chromatic QA, view the [react-components documentation](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/README.md).
+
+For more information about automated visual testing:
+
+- https://storybook.js.org/docs/testing/automated-visual-testing
+- https://www.youtube.com/watch?v=QE-xQxN9Sps
+
+### CI
 
 ### Add a new NPM packages
 
@@ -513,10 +526,6 @@ Make sure you set the repository to "https://github.com/gsoft-inc/sg-brand.git"
 Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
 
 If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
-
-### CI
-
-### Storybook stories (potentiellement mettre ça dans le packages react-components)
 
 ## Good to remember
 

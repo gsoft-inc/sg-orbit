@@ -77,6 +77,8 @@ Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache 
 
 Nice talk about why Chromatic: https://www.youtube.com/watch?v=QE-xQxN9Sps
 
+### Storybook stories guidelines
+
 ## Guidelines
 
 https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07
