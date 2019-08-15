@@ -551,11 +551,15 @@ If you are uncertain wether or not you should add a *peerDependencies*, please r
 
 If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) script.
 
-### Add a yarn scripts
+### Add a new Yarn script
 
-Think of scripts as atomic script. It means that a script should only do one thing, then you can have other scripts than compose those scripts.
+When adding a new script, there is a few rules to follow.
 
-Example:
+#### Think in term of atomic scripts
+
+A script should only do one thing. This practice promote better readability and reusability.
+
+Then you can write top level script that compose all those atomic scripts to provide a functionnality.
 
 Instead of doing
 
@@ -575,15 +579,23 @@ Do
 }
 ```
 
-Every scripts should be executable from the root of the workspace. Make sure you add a script entry in the package.json located at the root event if your script is already define in a sub-project.
+#### A script should be executable from the root of the workspace
 
-Every "Lerna" related scripts should be added in the the root package.json since Lerna is installed at the root of the workspace.
+Make sure you add a script entry in the *package.json* file at the root of the workspace even if your script is already define in a package or the website.
 
-For example, take the react-components project, since we execute a babel compilation for all the individual components, we must define a `lerna exec` command, to call the babel CLI, therefore, we added this script in the root package.json
+#### Lerna scripts should be executed from the root of the workspace
 
-You can have scripts in sub project. Again, take the react-components project. A script is define in the actual project to start storybook since the workspace doesn't know about storybook, this is a dependency of react-components not of the whole workspace. Therefore, the scripts is define in the react-components project and a script entry has been added to the root package.json to call the script in the sub project.
+Lerna provide the ability to [run](https://github.com/lerna/lerna/tree/master/commands/run) or [execute](https://github.com/lerna/lerna/tree/master/commands/exec) a script through all the packages of the monorepo.
 
-To run multiple commands simultaneously, use `run-p`, to run multiple commands sequentially, use `run-s`, otherwise use `yarn`
+Those scripts must be added in the *package.json* file at the root of the workspace since Lerna is installed at the root.
+
+#### Use run-p or run-s
+
+To run multiple commands simultaneously, use `run-p`.
+
+To run multiple commands sequentially, use `run-s`.
+
+Otherwise use `yarn`.
 
 ## Good to remember
 
