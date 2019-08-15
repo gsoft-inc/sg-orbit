@@ -14,8 +14,8 @@
         "clean:cache": "rimraf .docz",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
-        "deploy:staging": "netlify deploy --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
-        "deploy:prod": "netlify deploy --prod --dir=./public --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
+        "deploy:staging": "netlify deploy --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
+        "deploy:prod": "netlify deploy --prod --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
         "setup-website-yarn-links": "node scripts/setup-website-yarn-links"
     },
     "devDependencies": {
