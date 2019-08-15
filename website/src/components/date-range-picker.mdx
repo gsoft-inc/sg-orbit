@@ -25,7 +25,7 @@ import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-compone
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <DateRangePicker presets={DEFAULT_DATES_PRESETS} startDate={moment("2019-07-08")} endDate={moment("2019-07-08").add(3, "days")} onDatesChange={noop} />
+        <DateRangePicker startDate={moment()} endDate={moment().add(3, "days")} onDatesChange={noop} />
     </div>
 </Playground>
 
@@ -41,7 +41,7 @@ import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-compone
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <DateRangePicker minDate={moment(new Date()).subtract(2, "weeks")} onDatesChange={noop} />
+        <DateRangePicker minDate={moment().subtract(2, "weeks")} onDatesChange={noop} />
     </div>
 </Playground>
 
@@ -49,7 +49,7 @@ import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-compone
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <DateRangePicker maxDate={moment(new Date()).add(1, "weeks")} onDatesChange={noop} />
+        <DateRangePicker maxDate={moment().add(1, "weeks")} onDatesChange={noop} />
     </div>
 </Playground>
 
@@ -57,7 +57,7 @@ import { DateRangePicker, DEFAULT_DATES_PRESETS } from "@sharegate/react-compone
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <DateRangePicker minDate={moment(new Date()).subtract(2, "weeks")} maxDate={moment(new Date()).add(1, "weeks")} onDatesChange={noop} />
+        <DateRangePicker minDate={moment().subtract(2, "weeks")} maxDate={moment().add(1, "weeks")} onDatesChange={noop} />
     </div>
 </Playground>
 

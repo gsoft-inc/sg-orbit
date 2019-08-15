@@ -8,7 +8,7 @@
     "license": "Apache-2.0",
     "scripts": {
         "postinstall": "yarn setup-website-yarn-links",
-        "start": "run-s clean:cache docz:dev",
+        "start": "yarn docz:dev",
         "build": "yarn docz:build",
         "clean": "run-p clean:*",
         "clean:cache": "rimraf .docz",
