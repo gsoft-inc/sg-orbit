@@ -16,7 +16,13 @@
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
-| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components)](https://david-dm.org/sharegate/react-components.svg?path=packages/react-componentse) |
+| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components)](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components) |
+| [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://david-dm.org/sharegate/react-date-range-picker.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/date-range-picker) |
+| [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select) |
+| [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input)](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input) |
+| [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/popup)](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/popup) |
+
+### Brand packages
 
 ## Storybook
 
