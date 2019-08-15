@@ -3,16 +3,20 @@
 </p>
 
 <p align="center">
-  The design system for Sharegate apps.
+  Orbit, the design system for Sharegate apps.
 </p>
 
 <p align=center>
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
-## NPM packages
+## npm packages
 
-Mettre l'équivalent de la page de babel ici?
+### React components packages
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components)](https://david-dm.org/sharegate/react-components.svg?path=packages/react-componentse) |
 
 ## Storybook
 
@@ -32,7 +36,7 @@ The following documentation is only for the maintainers of this repository.
 
 ### Monorepo
 
-This project repository is managed as a monorepo that is composed of many NPM packages. 
+This project repository is managed as a monorepo that is composed of many npm packages. 
 
 For more information on monorepo:
 
@@ -42,13 +46,13 @@ For more information on monorepo:
 
 #### Lerna
 
-[Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
+[Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an NPM package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
+Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
-When Lerna is configured to use Yarn, the installation of the NPM dependencies and the management of the packages inter-dependencies will be delegated to Yarn. It result in an increase of performance and a more reliable experience than using the same features from Lerna. The native integration between Lerna and Yarn make it worthwill to switch from NPM to Yarn for this project.
+When Lerna is configured to use Yarn, the installation of the npm dependencies and the management of the packages inter-dependencies will be delegated to Yarn. It result in an increase of performance and a more reliable experience than using the same features from Lerna. The native integration between Lerna and Yarn make it worthwill to switch from npm to Yarn for this project.
 
 So why do we use Lerna if Yarn workspace take care of everything?
 
@@ -63,11 +67,11 @@ This monorepo is configured to release the packages independently. The decision 
 
 #### Yarn workspace
 
-As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the NPM dependencies and manage the packages inter-dependencies.
+As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the npm dependencies and manage the packages inter-dependencies.
 
 Remember that only the **packages** are handled by Yarn workspace since the **website isn't configured** to be handled by the monorepo tooling.
 
-It's also important to note that Yarn workspace will **hoist** the NPM dependencies at the root of the workspace. This means that there isn't any *node_modules* directory nested inside the packages directories. The NPM dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
+It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there isn't any *node_modules* directory nested inside the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
 Since the website is not handled by the monorepo tooling, the *website* directory will also contain a *node_modules* directory and a *yarn.lock* file.
 
@@ -119,7 +123,7 @@ Storybook is a convenient sandbox that help the developpers write organized and 
 
 The resulting Storybook *playbook* will represent a catalog of all the Sharegate design system components and will be available online for the design team.
 
-For more informations about automated visual tests, view the [Testings](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#testing) section.
+For more informations about automated visual tests, view the [Testings](https://github.com/gsoft-inc/sg-brand#testing) section.
 
 #### Start developing
 
@@ -167,7 +171,7 @@ The second terminal will start the website. Execute the following command at the
 yarn start:website
 ```
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will be automatically re-compile the packages and refresh the website accordingly.
+Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the website accordingly.
 
 For more information about the development of the website view blabla..
 
@@ -179,12 +183,12 @@ Releasing the packages includes several steps:
 2. Identifies packages that have been updated since the previous release (View the [Lerna](https://github.com/gsoft-inc/sg-brand#lerna) section.)
 3. Bump the version of the identified packages
 4. Modifies package metadata to reflect new release
-5. Publish the packages to NPM
+5. Publish the packages to npm
 6. Push those changes to Git
 
 Fortunatelly, this is all automated with a few commands!
 
-Before you release, make sure you have **write access** to every selected NPM packages and that you are [logged in to NPM](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+Before you release, make sure you have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
 
 To release, open a terminal at the root of the workspace and execute the following commands:
 
@@ -200,9 +204,9 @@ git push
 
 Make sure you're Git is clean (No pending changes).
 
-**NPM**
+**npm**
 
-Make sure you have **write access** to the selected NPM packages.
+Make sure you have **write access** to the selected npm packages.
 
 If you are using 2FA, make sure you specified a valid OTP.
 
@@ -323,7 +327,7 @@ Here's an exhaustive list of all the commands you might need to use. The followi
 
 #### bootstrap
 
-Install the NPM dependencies for every packages of the monorepo and the website. Once the NPM dependencies are installed a custom **setup** step will be executed for every packages and the website.
+Install the npm dependencies for every packages of the monorepo and the website. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and the website.
 
 Depending of the packages / website, the setup step will perform a number of required additional installation tasks.
 
@@ -542,7 +546,7 @@ Answer the CLI questions.
 
 Once the *package.json* is generated, please read again the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
 
-Dont forget to add the [NPM scope](https://docs.npmjs.com/about-scopes) *@sharegate* before the package name. For example if the project name is "foo", your package name should be "@sharegate/foo".
+Dont forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *@sharegate* before the package name. For example if the project name is "foo", your package name should be "@sharegate/foo".
 
 Make sure the package publish access is *public* by adding the following to the *package.json* file:
 
@@ -554,7 +558,7 @@ Make sure the package publish access is *public* by adding the following to the 
 
 #### Dependencies
 
-NPM *dependencies* and *peerDependencies* must be added to the package own *package.json* file.
+npm *dependencies* and *peerDependencies* must be added to the package own *package.json* file.
 
 **However**, the *devDependencies* must be added to the *package.json* file at the root of the workspace.
 
