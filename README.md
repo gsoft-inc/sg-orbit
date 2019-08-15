@@ -597,11 +597,19 @@ To run multiple commands sequentially, use `run-s`.
 
 Otherwise use `yarn`.
 
-## Good to remember
+## Gotcha to remember
 
-Bootstrap specify "--ignore-scripts" to yarn install because otherwise semantic-ui will try to reinstall everytime we do a yarn install. Haven't found any other way to prevent it.
+### --ignore-scripts
 
-Chromaticqa is inconsistant if we load a custom font
+The `bootstrap` command specify `--ignore-scripts` to yarn install because otherwise semantic-ui will try to reinstall everytime a `yarn install` is executed. I haven't found any other way to prevent it.
+
+### Chromatic QA & custom font
+
+The Storybook configuration doesn't load the *Calibre* custom font if the app is started by the chromatic CLI because visual tests offer inconsistent results when a custom font is loaded. Not sure why.
+
+## License
+
+Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
 
 # TODO
 
@@ -622,8 +630,4 @@ Chromaticqa is inconsistant if we load a custom font
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 
 - Babel - compile for production
-
-## License
-
-Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
 
