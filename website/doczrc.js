@@ -4,6 +4,7 @@ import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 export default {
     src: "./src",
     public: "./public",
+    dest: "/dist",
     title: "Sharegate Orbit",
     description: "Sharegate Orbit components documentation",
     menu: [
