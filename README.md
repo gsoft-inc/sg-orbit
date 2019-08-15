@@ -48,7 +48,7 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
+Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](/website) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
@@ -79,7 +79,7 @@ Since the website is not handled by the monorepo tooling, the *website* director
 
 How come the website can use unpublished versions of the monorepo packages?
 
-To make this work, a [custom script](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
+To make this work, a [custom script](/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
 
 ### Installation
 
@@ -123,7 +123,7 @@ Storybook is a convenient sandbox that help the developpers write organized and 
 
 The resulting Storybook *playbook* will represent a catalog of all the Sharegate design system components and will be available online for the design team.
 
-For more informations about automated visual tests, view the [Testings](https://github.com/gsoft-inc/sg-brand#testing) section.
+For more informations about automated visual tests, view the [Testings](#testing) section.
 
 #### Start developing
 
