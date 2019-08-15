@@ -24,24 +24,6 @@ import { DateRangePicker } from @sharegate/react-components
 
 ```
 
-# Maintainers
-
-## Installation
-
-## Commands
-
-### start
-
-### build
-
-### watch
-
-## Build
-
-All packages distribution code is outputted in their respective `dist` folder.
-
-## Add a new dependency to a component
-
 ## Add a new component
 
 Add a package dependency to the react-components package.json.
@@ -76,6 +58,8 @@ Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache 
 - Sortir les keys dans "shared"
 
 Nice talk about why Chromatic: https://www.youtube.com/watch?v=QE-xQxN9Sps
+
+### Storybook stories guidelines
 
 ## Guidelines
 
