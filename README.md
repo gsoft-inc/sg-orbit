@@ -50,7 +50,7 @@ Lerna workflow greatly facilitate the release of the packages of a monorepo.
 For more information, view the following Lerna commands documentation:
 
 - [version](https://github.com/lerna/lerna/tree/master/commands/version)
-- [publish command](https://github.com/lerna/lerna/tree/master/commands/publish#readme)
+- [publish](https://github.com/lerna/lerna/tree/master/commands/publish)
 
 This monorepo is configured to release the packages independently. The decision to release or not a package is automatically based on wether the code of the package has changed or not.
 
@@ -422,11 +422,21 @@ Reset the monorepo installation. The following will be deleted:
 - All the *yarn.lock* files
 - All the compiled & cache folders
 
-If any of the *node_modules* directories failed to be deleted, close & re-open VSCode and try to manually delete them.
-
 ```bash
 yarn reset
 ```
+
+If you encounter the following error:
+
+```bash
+C:\Dev\20_gsoft\sg-brand\node_modules\rimraf\bin.js:47
+      throw er
+      ^
+
+[Error: EPERM: operation not permitted, unlink 'XXX\sg-brand\node_modules\@types'] {
+```
+
+Close & re-open VSCode and delete manually the *node_modules* folder at the root of the workspace.
 
 #### update
 
@@ -551,6 +561,10 @@ If you are uncertain wether or not you should add a *peerDependencies*, please r
 
 If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) script.
 
+#### React components
+
+If you're package is a new React component, please read the following blabla.
+
 ### Add a new Yarn script
 
 When adding a new script, there is a few rules to follow.
@@ -563,7 +577,7 @@ Then you can write top level script that compose all those atomic scripts to pro
 
 Instead of doing
 
-```
+```javascript
 "scripts": {
     "build": rimraf dist && babel src -d dist 
 }
@@ -571,7 +585,7 @@ Instead of doing
 
 Do
 
-```
+```javascript
 "scripts": {
     "build": "yarn delete && yarn transpile",
     "delete": "rimraf dist",
@@ -626,6 +640,10 @@ Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache 
 - Some sort of intellisense? Like typescript types?
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
+
+- Prendre l'ajout du onBlur pour le remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3661?_a=files&path=%2Fsrc%2Ffrontend%2Fclient%2Fsrc%2Fapp%2Fcomponents%2Fsearch-input%2Fremote-search-input.jsx)
+
+  Et en profiter pour l'ajouter aussi pour le SearchInput non remote.
 
 - Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
 

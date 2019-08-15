@@ -65,7 +65,6 @@
         "@babel/preset-env": "7.5.5",
         "@babel/preset-react": "7.0.0",
         "@sharegate/browserslist-config-recommended": "1.0.1",
-        "@sharegate/css-normalize": "0.3.1",
         "@sharegate/eslint-config-lodash": "1.0.1",
         "@sharegate/eslint-config-react": "1.0.1",
         "@sharegate/eslint-config-recommended": "1.0.1",
