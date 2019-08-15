@@ -73,7 +73,7 @@ Remember that only the **packages** are handled by Yarn workspace since the **we
 
 It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there isn't any *node_modules* directory nested inside the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
-Since the website is not handled by the monorepo tooling, the *website* directory will also contain a *node_modules* directory and a *yarn.lock* file.
+Since the website is not handled by the monorepo tooling, the [website](/website) directory will also contain a *node_modules* directory and a *yarn.lock* file.
 
 #### Website dependencies linking
 
@@ -180,7 +180,7 @@ For more information about the development of the website view blabla..
 Releasing the packages includes several steps:
 
 1. Compile the packages code for production
-2. Identifies packages that have been updated since the previous release (View the [Lerna](https://github.com/gsoft-inc/sg-brand#lerna) section.)
+2. Identifies packages that have been updated since the previous release (View the [Lerna](#lerna) section.)
 3. Bump the version of the identified packages
 4. Modifies package metadata to reflect new release
 5. Publish the packages to npm
@@ -247,7 +247,7 @@ Login to [Netlify](https://app.netlify.com) and make sure you have access to the
 
 Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `sb:deploy` in the *packages/react-components/package.json* file.
 
-To deploy Storybook without building the static web app everytime, navigate to the *packages/react-components* directory and execute the following command:
+To deploy Storybook without building the static web app everytime, navigate to the [packages/react-components](/packages/react-components) directory and execute the following command:
 
 ```bash
 yarn sb:deploy
@@ -304,7 +304,7 @@ Login to [Netlify](https://app.netlify.com) and make sure you have access to the
 
 Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the *website/package.json* file.
 
-To deploy the website without building the static web app everytime, navigate to the *website* directory and execute any of the following command:
+To deploy the website without building the static web app everytime, navigate to the [website](/website) directory and execute any of the following command:
 
 ```bash
 yarn deploy:staging
@@ -411,7 +411,7 @@ yarn build:website
 
 #### release:pkg
 
-View the section [Release the packages](https://github.com/gsoft-inc/sg-brand#release-the-packages).
+View the section [Release the packages](#release-the-packages).
 
 #### release:pkg:next
 
@@ -419,11 +419,11 @@ Same as *release:pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/
 
 #### release:sb
 
-View the section [Release Storybook](https://github.com/gsoft-inc/sg-brand#release-storybook).
+View the section [Release Storybook](#release-storybook).
 
 #### release:website & release:website:prod
 
-View the section [Release the website](https://github.com/gsoft-inc/sg-brand#release-the-website).
+View the section [Release the website](#release-the-website).
 
 #### reset
 
@@ -469,7 +469,7 @@ yarn lint
 
 #### chromatic
 
-Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, view the [Testing](https://github.com/gsoft-inc/sg-brand#testing) section.
+Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, view the [Testing](#testing) section.
 
 ```bash
 yarn chromatic
@@ -487,7 +487,7 @@ Visual testing can also easily perform cross-browsers testing.
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
 
-To understand how to write Storybook stories for Chromatic QA, view the [react-components documentation](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/README.md).
+To understand how to write Storybook stories for Chromatic QA, view the [react-components documentation](/packages/react-components/README.md).
 
 For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
 
@@ -510,7 +510,7 @@ On every commits the CI will execute the linters.
 
 Once per night, the CI will execute the automated visual tests. Those tests can't be executed on every commits since visual test snapshots are pricy and limited.
 
-For more information on the automated visual tests, view the [Testing](https://github.com/gsoft-inc/sg-brand#testing) section.
+For more information on the automated visual tests, view the [Testing](#testing) section.
 
 #### Troubleshooting
 
@@ -534,7 +534,7 @@ When ready, proceed to the next step.
 
 #### Create the package
 
-First, create a new folder matching the package name in the *packages* directory.
+First, create a new folder matching the package name in the [packages](/packages) directory.
 
 Open a terminal, navigate to the newly created directory and execute the following command:
 
@@ -570,7 +570,7 @@ If you are uncertain wether or not you should add a *peerDependencies*, please r
 
 #### Website dependencies linking
 
-If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) script.
+If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](/website/scripts/setup-website-yarn-links.js) script.
 
 #### React components
 

@@ -2,7 +2,7 @@
 
 This package is a bundle of all the Sharegate Orbit React components.
 
-Individual packages are available in the [components](https://github.com/gsoft-inc/sg-brand/tree/master/packages/react-components/components) directory.
+Individual packages are available in the [components](/components) directory.
 
 ## Maintainers
 
@@ -16,9 +16,9 @@ The package must be available through the *@sharegate/react-components* npm pack
 
 To do so:
 
-1. Add a dependency to the new npm package in the [package.json](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/package.json) file of the *react-components* package. The dependency must be precisely the current version of the new package, otherwise Yarn workspace will fail to create the simlink.
+1. Add a dependency to the new npm package in the [package.json](/package.json) file of the *react-components* package. The dependency must match the current version of the new package, otherwise Yarn workspace will fail to create the symlink.
 
-2. Add an export to the [index.js](https://github.com/gsoft-inc/sg-brand/blob/master/packages/react-components/src/index.js) file of the *react-components* package.
+2. Add an export to the [index.js](/src/index.js) file of the *react-components* package.
 
 ## Storybook
 
