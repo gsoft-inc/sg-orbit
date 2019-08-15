@@ -36,13 +36,12 @@
 /*-------------------
     Brand Colors
 --------------------*/
-
-@primaryColorLightest   :  var(--primary-50);
-@primaryColorLight      :  var(--primary-200);
-@primaryColor           :  var(--primary-500);
+@primaryColor50         :  var(--primary-50);
+@primaryColor200        :  var(--primary-200);
+@primaryColor500        :  var(--primary-500);
 @primaryColorDark       :  var(--primary-600);
-@secondaryColorLight    :  var(--cloud-50);
-@secondaryColor         :  var(--cloud-100);
+@secondaryColor50       :  var(--cloud-50);
+@secondaryColor100      :  var(--cloud-100);
 
 
 /*--------------
@@ -70,7 +69,7 @@
 
 /* Input Text Color */
 @inputColor: @textColor;
-@inputPlaceholderColor: @marineLight;
+@inputPlaceholderColor: @marine100;
 @inputPlaceholderFocusColor: @inputColor;
 
 /* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
@@ -80,10 +79,10 @@
     Focused Input
 --------------------*/
 /* Used on inputs, textarea etc */
-@focusedFormBorderColor: @marineDark;
+@focusedFormBorderColor: @marine600;
 
 /* Used on dropdowns, other larger blocks */
-@focusedFormMutedBorderColor: @marineDark; // weird behaviour with dropdown select might me the cause here
+@focusedFormMutedBorderColor: @marine600; // weird behaviour with dropdown select might me the cause here
 
 /*-------------------
         Sizes
@@ -112,7 +111,7 @@
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
-@textColor           : @marineDark;
+@textColor           : @marine600;
 
 /*-------------------
       Paragraph
@@ -208,22 +207,27 @@
 
 /*---  SG Colors  ---*/
 /*---  marine  ---*/
-@marineLightest: var(--marine-100);
-@marineLight: var(--marine-200);
-@marine: var(--marine-500);
-@marineDark: var(--marine-600);
-@marineDarkest: var(--marine-900);
+@marine50: var(--marine-50);
+@marine100: var(--marine-100);
+@marine200: var(--marine-200);
+@marine300: var(--marine-300);
+@marine400: var(--marine-400);
+@marine500: var(--marine-500);
+@marine600: var(--marine-600);
+@marine700: var(--marine-700);
+@marine800: var(--marine-800);
+@marine900: var(--marine-900);
 
 /*--- Success --*/
-@success: var(--success-500);
+@success500: var(--success-500);
 
 /*--- Alert--*/
 @alert: var(--alert-500);
 
 /*--- Cloud--*/
-@cloudLightest: var(--cloud-50);
-@cloudLight: var(--cloud-100);
-@cloud: var(--cloud-200);
+@cloud50: var(--cloud-50);
+@cloud100: var(--cloud-100);
+@cloud200: var(--cloud-200);
 @cloudDark: var(--cloud-400);
 @cloudDarkest: var(--cloud-900);
 
@@ -240,7 +244,7 @@
 @pink             : #E03997;
 @brown            : #A5673F;
 @grey             : #767676;
-@black            : @marineDarkest;
+@black            : @marine900;
 
 /*---  Light Colors  ---*/
 @lightRed         : #FF695E; // todo
@@ -273,7 +277,7 @@
 @darkestBlack       : #24242A; // marine dark darkest
 
 /*---   Neutrals  ---*/
-@fullBlack        : var(--black);
+@fullBlack        : #000000;
 @offWhite         : #F9FAFB;
 @darkWhite        : #F3F4F5;
 @midWhite         : #DCDDDE;
@@ -370,7 +374,7 @@
 --------------------*/
 
 /* Positive */
-@positiveColor           : @success;
+@positiveColor           : @success500;
 @positiveBackgroundColor : #FCFFF5;
 @positiveBorderColor     : #A3C293;
 @positiveHeaderColor     : #1A531B;
@@ -809,7 +813,7 @@
 
 /*---  Colors  ---*/
 @primaryColorFocus        : @primaryColorDark;
-@secondaryColorFocus      : @secondaryColor;
+@secondaryColorFocus      : @secondaryColor100;
 @lightPrimaryColorFocus   : @lightPrimaryColor;
 @lightSecondaryColorFocus : @lightSecondaryColor;
 
@@ -840,8 +844,8 @@
 @lightBlackFocus          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorFocus       : var(--success-900);
-@negativeColorFocus       : var(--alert-900);
+@positiveColorFocus       : @positiveColor;
+@negativeColorFocus       : @negativeColor;
 
 /*---  Brand   ---*/
 @facebookFocusColor       : @facebookColor;
@@ -869,8 +873,8 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : @primaryColor; //@todo
-@secondaryColorDown      : @secondaryColor;
+@primaryColorDown        : @primaryColor500; //@todo
+@secondaryColorDown      : @secondaryColor100;
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;
 
@@ -931,7 +935,7 @@
 
 /*---  Colors  ---*/
 @primaryColorActive        : @primaryColorDark;
-@secondaryColorActive      : @cloud;
+@secondaryColorActive      : @cloud200;
 @lightPrimaryColorActive   : @lightPrimaryColor;
 @lightSecondaryColorActive : @lightSecondaryColor;
 
@@ -962,8 +966,8 @@
 @lightBlackActive          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorActive       : var(--success-900);
-@negativeColorActive       : var(--alert-900);
+@positiveColorActive       : @positiveColor;
+@negativeColorActive       : @negativeColor;
 
 /*---  Brand   ---*/
 @facebookActiveColor       : @facebookColor;
