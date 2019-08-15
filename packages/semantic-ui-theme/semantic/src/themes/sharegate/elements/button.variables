@@ -16,7 +16,7 @@
 
 /* Button */
 @horizontalMargin: 0;
-@backgroundColor: @marine;
+@backgroundColor: @marine500;
 
 /* Button defaults to using same height as input globally */
 @horizontalPadding: 1.5rem;
@@ -58,7 +58,7 @@
 @focusColor: @white;
 
 /* Pressed Down */
-@downBackgroundColor: @marineDarkest;
+@downBackgroundColor: @marine900;
 @downColor: @white;
 
 /* Active */
@@ -84,7 +84,7 @@
 /* Inverted */
 @invertedBorderSize: 0;
 @invertedTextColor: @black;
-@invertedTextHoverColor: @marineDark;
+@invertedTextHoverColor: @marine600;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
@@ -93,7 +93,7 @@
 @basicBackground: transparent none;
 @basicFontWeight: @bold;
 @basicTextColor: @black;
-@basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud inset;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud200 inset;
 
 /* Basic Hover */
 @basicHoverBackground: @black!important;
@@ -134,8 +134,8 @@
 /* Ordinality */
 
 @primaryTextColor: @white;
-@secondaryTextColor: @marineDark;
-@secondaryColorFocus: @cloud;
+@secondaryTextColor: @marine600;
+@secondaryColorFocus: @cloud200;
 @positiveTextColor: @white;
 @negativeTextColor: @white;
 

@@ -1,3 +1,28 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.menu {
+    font-size: 1.125rem;
+}
+
+.ui.secondary.menu {
+    border-bottom: 1px solid var(--cloud-50);
+}
+
+.ui.secondary.menu .item {
+    font-weight: 500;
+}
+
+.ui.secondary.pointing.menu.animated .item {
+    border-width: 0;
+}
+
+.ui.secondary.menu.pointing.animated {
+    position: relative;
+}
+
+.ui.secondary.pointing.menu .item {
+    margin-right: 1.25rem;
+    padding: 0 0 calc(1.25rem) 0;
+    border-width: 4px;
+}

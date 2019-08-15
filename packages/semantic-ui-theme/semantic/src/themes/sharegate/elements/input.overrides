@@ -44,6 +44,6 @@ form input {
 
 // Input Colored
 // .ui.input.colored input {
-//     background-color: @cloudLightest;
+//     background-color: @@cloud50;
 //     border: none;
 // }

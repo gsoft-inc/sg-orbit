@@ -3,10 +3,10 @@
 *******************************/
 @disabledOpacity: 1;
 @iconOpacity: 1;
-@placeholderErrorColor: @marineLightest;
+@placeholderErrorColor: @marine100;
 
 @background: @white;
-@borderColor: @cloud;
+@borderColor: @cloud200;
 @borderRadius: .25rem;
 
 @padding: 0.75rem 1rem;

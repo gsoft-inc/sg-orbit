@@ -11,13 +11,13 @@
 @horizontalPadding: 1em;
 @verticalMargin: 0;
 @horizontalMargin: 0;
-@borderColor: @cloud;
+@borderColor: @cloud200;
 
 /*-------------------
        Element
 --------------------*/
 
 @backgroundColor: var(--cloud-50);
-@color: @marineDark;
+@color: @marine600;
 @basicBorder: @basicBorderWidth solid @borderColor;
 @mini : 6px;
