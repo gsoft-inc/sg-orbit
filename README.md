@@ -21,6 +21,8 @@ https://sg-orbit.netlify.com
 
 ## Maintainers
 
+The following documentation is only for the maintainers of this repository.
+
 ### Monorepo
 
 This project repository is managed as a monorepo that is composed of many NPM packages. 
@@ -31,7 +33,7 @@ For more information on monorepo:
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
 - [Google it!](https://www.google.com/search?q=monorepo)
 
-**Lerna**
+#### Lerna
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
 
@@ -52,7 +54,7 @@ For more information, view the following Lerna commands documentation:
 
 This monorepo is configured to release the packages independently. The decision to release or not a package is automatically based on wether the code of the package has changed or not.
 
-**Yarn workspace**
+#### Yarn workspace
 
 As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the NPM dependencies and manage the packages inter-dependencies.
 
@@ -62,9 +64,9 @@ It's also important to note that Yarn workspace will **hoist** the NPM dependenc
 
 Since the website is not handled by the monorepo tooling, the *website* directory will also contain a *node_modules* directory and a *yarn.lock* file.
 
-**Website dependencies linking**
+#### Website dependencies linking
 
-How come the website can use non-published packages of the monorepo?
+How come the website can use unpublished versions of the monorepo packages?
 
 To make this work, a [custom script](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
 
@@ -102,7 +104,7 @@ yarn bootstrap:website
 
 ### Develop a component
 
-**Storybook**
+#### Storybook
 
 Every components must be developed in [Storybook](https://storybook.js.org).
 
@@ -112,7 +114,7 @@ The resulting Storybook *playbook* will represent a catalog of all the Sharegate
 
 For more informations about automated visual tests, view the [Testings](https://github.com/gsoft-inc/sg-brand/blob/master/README.md#testing) section.
 
-**Start developing**
+#### Start developing
 
 The tooling to develop a component involve 2 processes:
 
@@ -167,7 +169,7 @@ For more information about the development of the website view blabla..
 Releasing the packages includes several steps:
 
 1. Compile the packages code for production
-2. Identifies packages that have been updated since the previous release (View the [Monorepo](https://github.com/gsoft-inc/sg-brand#monorepo) section.)
+2. Identifies packages that have been updated since the previous release (View the [Lerna](https://github.com/gsoft-inc/sg-brand#lerna) section.)
 3. Bump the version of the identified packages
 4. Modifies package metadata to reflect new release
 5. Publish the packages to NPM
@@ -312,7 +314,7 @@ The output will be available in the *website/.docz/dist* directory. For more det
 
 Here's an exhaustive list of all the commands you might need to use. The following commands must be executed in a terminal opened at the root of the workspace.
 
-**bootstrap**
+#### bootstrap
 
 Install the NPM dependencies for every packages of the monorepo and the website. Once the NPM dependencies are installed a custom **setup** step will be executed for every packages and the website.
 
@@ -324,7 +326,7 @@ As an example, the *semantic-ui-theme* package must be **build once** before it 
 yarn bootstrap
 ```
 
-**bootstrap:pkg**
+#### bootstrap:pkg
 
 Same as *bootstrap* but only for the packages.
 
@@ -332,7 +334,7 @@ Same as *bootstrap* but only for the packages.
 yarn bootstrap:pkg
 ```
 
-**bootstrap:website**
+#### bootstrap:website
 
 Same as *bootstrap* but only for the website.
 
@@ -340,7 +342,7 @@ Same as *bootstrap* but only for the website.
 yarn bootstrap:website
 ```
 
-**start**
+#### start
 
 Compile & watch all the packages.
 
@@ -348,7 +350,7 @@ Compile & watch all the packages.
 yarn start
 ```
 
-**start:sb**
+#### start:sb
 
 Start Storybook.
 
@@ -356,7 +358,7 @@ Start Storybook.
 yarn start:sb
 ```
 
-**start:website**
+#### start:website
 
 Start the website.
 
@@ -364,7 +366,7 @@ Start the website.
 yarn start:website
 ```
 
-**build**
+#### build
 
 Build all the packages, Storybook and the website for production.
 
@@ -372,7 +374,7 @@ Build all the packages, Storybook and the website for production.
 yarn build
 ```
 
-**build:pkg**
+#### build:pkg
 
 Same as *build* but only for the packages.
 
@@ -380,7 +382,7 @@ Same as *build* but only for the packages.
 yarn build:pkg
 ```
 
-**build:sb**
+#### build:sb
 
 Same as *build* but only for Storybook.
 
@@ -388,7 +390,7 @@ Same as *build* but only for Storybook.
 yarn build:sb
 ```
 
-**build:website**
+#### build:website
 
 Same as *build* but only for the website.
 
@@ -396,24 +398,23 @@ Same as *build* but only for the website.
 yarn build:website
 ```
 
-**release:pkg**
+#### release:pkg
 
 View the section [Release the packages](https://github.com/gsoft-inc/sg-brand#release-the-packages).
 
-**release:pkg:next**
+#### release:pkg:next
 
 Same as *release:pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
 
-**release:sb**
+#### release:sb
 
 View the section [Release Storybook](https://github.com/gsoft-inc/sg-brand#release-storybook).
 
-**release:website**
-**release:website:prod**
+#### release:website & release:website:prod
 
 View the section [Release the website](https://github.com/gsoft-inc/sg-brand#release-the-website).
 
-**reset**
+#### reset
 
 Reset the monorepo installation. The following will be deleted:
 
@@ -427,7 +428,7 @@ If any of the *node_modules* directories failed to be deleted, close & re-open V
 yarn reset
 ```
 
-**update**
+#### update
 
 Use this command when you update a dependency and you want it installed without executing the setup steps.
 
@@ -437,7 +438,7 @@ Use this command if you add a new package to the monorepo and you need to update
 yarn update
 ```
 
-**lint**
+#### lint
 
 Execute all the linters against the packages and the website.
 
@@ -445,7 +446,7 @@ Execute all the linters against the packages and the website.
 yarn lint
 ```
 
-**chromatic**
+#### chromatic
 
 Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, view the [Testing](https://github.com/gsoft-inc/sg-brand#testing) section.
 
@@ -480,11 +481,11 @@ For more information about automated visual testing:
 
 2 builds are currently configured:
 
-**On commits**
+#### On commits
 
 On every commits the CI will execute the linters.
 
-**Nightly**
+#### Nightly
 
 Once per night, the CI will execute the automated visual tests. Those tests can't be executed on every commits since visual test snapshots are pricy and limited.
 
@@ -520,11 +521,11 @@ Open a terminal, navigate to the newly created directory and execute the followi
 yarn init
 ```
 
-Answer the questions.
+Answer the CLI questions.
 
-Once the *package.json* is generated, please read again [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
+Once the *package.json* is generated, please read again the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
 
-Dont forget to add the scope *@sharegate* before the package name. For example if the project name is "foo", your package name should be "@sharegate/foo".
+Dont forget to add the [NPM scope](https://docs.npmjs.com/about-scopes) *@sharegate* before the package name. For example if the project name is "foo", your package name should be "@sharegate/foo".
 
 Make sure the package publish access is *public* by adding the following to the *package.json* file:
 
@@ -536,25 +537,19 @@ Make sure the package publish access is *public* by adding the following to the 
 
 #### Dependencies
 
-#### Website links
+NPM *dependencies* and *peerDependencies* must be added to the package own *package.json* file.
 
-Your packages 
+**However**, the *devDependencies* must be added to the *package.json* file at the root of the workspace.
 
-Add your new project has "peerDependency", "devDependency" or "dependency" of any project who need it.
+Why?
 
-If the "website" project use your new project, make sure you add it to /website/scripts/setup-website-yarn-links.js.
+Because packages hoisting is dangerous! When multiple packages of the monorepo requires the same dependencies **but with a different version** there is no garantee on which version will be hoisted to the *node_modules* directory at the root of the workspace and which version will be installed locally. To prevent all kinds of problems, always install the *devDependencies* at the root of the workspace. This ensure that every packages use the same version of the dependencies.
 
-### Add a new NPM package dev dependency
+If you are uncertain wether or not you should add a *peerDependencies*, please read the post [dependencies-done-right](https://yarnpkg.com/blog/2018/04/18/dependencies-done-right/) on the Yarn website.
 
-C'EST FAUX
+#### Website dependencies linking
 
-Dont add new packages to the root of the workspace unless you know what you are doing.
-
-Instead add new packages to sub packages of the workspace.
-
-To do so, in your terminal, navigate to the directory of the package and the use yarn to add the package:
-
-`yarn add PACKAGE_NAME [--dev]` will install the package.
+If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](https://github.com/gsoft-inc/sg-brand/blob/master/website/scripts/setup-website-yarn-links.js) script.
 
 ### Add a yarn scripts
 
