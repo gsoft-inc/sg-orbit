@@ -18,12 +18,12 @@ export default {
             primary: "#566077"
         },
         logo: {
-            src: "/public/images/orbit.svg",
+            src: "https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/assets/orbit.svg?sanitize=true",
             width: 180
         }
     },
     htmlContext: {
-        favicon: "public/images/favicon.ico"
+        favicon: "https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/assets/favicon.ico"
     },
     filterComponents: files => files.filter(filepath => /w*.(jsx)$/.test(filepath)),
     // We could use the docz plugin "docz-plugin-css" instead of defining our own webpack loaders but the packages is not maintained
