@@ -1,5 +1,12 @@
+<p align="center">
+    <img alt="Sharegate Orbit" src="https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/assets/orbit.svg?sanitize=true" width="546">
+</p>
+
+<p align="center">
+  The design system for Sharegate apps.
+</p>
+
 <p align=center>
-    <h1>Sharegate Orbit</h1>
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 

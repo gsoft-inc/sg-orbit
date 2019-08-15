@@ -2,7 +2,7 @@ import { create } from "@storybook/theming";
 
 export const customStorybookTheme = create({
     base: "light",
-    brandTitle: "Sharegate Storybook",
+    brandTitle: "Sharegate Orbit",
     brandUrl: "https://sharegate.com",
-    brandImage: "https://media.sharegate.com/app/uploads/2019/03/logo-sharegate1.svg"
+    brandImage: "https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/assets/orbit.svg?sanitize=true"
 });
