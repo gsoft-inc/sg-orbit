@@ -1,0 +1,70 @@
+---
+name: RemoteSearchInput
+menu: Components
+route: /remote-search-input
+---
+
+import "../styles/main.css";
+
+import { Playground } from "docz";
+import { noop } from "lodash";
+import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@sharegate/react-components";
+
+# Remote search input
+
+## Default
+
+<Playground>
+    <div style={{ minHeight: "480px", zIndex: "9999", position: "relative" }}>
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("https://swapi.co/api/people", "search")}
+            onResults={response => {
+                return response.results.map(x => searchInputResult(x.url, x.name, x));
+            }}
+            onValueChange={noop}
+        />
+    </div>
+</Playground>
+
+## Selected Value
+
+<Playground>
+    <div style={{ minHeight: "480px", zIndex: "9999", position: "relative" }}>
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("https://swapi.co/api/people", "search")}
+            onResults={response => {
+                return response.results.map(x => searchInputResult(x.url, x.name, x));
+            }}
+            defaultValue={"Yoda"}
+            onValueChange={noop}
+        />
+    </div>
+</Playground>
+
+## Clear on select
+
+<Playground>
+    <div style={{ minHeight: "480px", zIndex: "9999", position: "relative" }}>
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("https://swapi.co/api/people", "search")}
+            onResults={response => {
+                return response.results.map(x => searchInputResult(x.url, x.name, x));
+            }}
+            clearOnSelect
+            onValueChange={noop}
+        />
+    </div>
+</Playground>
+
+## Disabled
+
+<Playground>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://swapi.co/api/people", "search")}
+        onResults={response => {
+            return response.results.map(x => searchInputResult(x.url, x.name, x));
+        }}
+        disabled
+        onValueChange={noop}
+    />
+</Playground>
