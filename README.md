@@ -33,9 +33,9 @@ For more information on monorepo:
 
 **Lerna**
 
-We use [Lerna](https://github.com/lerna/lerna) for managing our monorepo. The packages of the monorepo can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
+[Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](https://github.com/gsoft-inc/sg-brand/tree/master/packages) directory. 
 
-Exceptionally the website is not managed by the monorepo tooling since it's not an NPM package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
+Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an NPM package. The website can be found in the [website](https://github.com/gsoft-inc/sg-brand/tree/master/website) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
