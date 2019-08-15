@@ -12,6 +12,7 @@
         "build": "yarn docz:build",
         "clean": "run-p clean:*",
         "clean:cache": "rimraf .docz",
+        "clean:dist": "rimraf dist",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "deploy:staging": "netlify deploy --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",

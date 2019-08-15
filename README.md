@@ -325,7 +325,7 @@ If the packages failed to compile you can build the packages without executing t
 yarn build:website
 ```
 
-The output will be available in the *website/.docz/dist* directory. For more details, view the specific packages README.
+The output will be available in the *website/dist* directory.
 
 ### Commands
 
