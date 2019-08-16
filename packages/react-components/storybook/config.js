@@ -5,7 +5,7 @@ import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorybookTheme } from "./theme";
 import { withConsole } from "@storybook/addon-console";
 
-// Dont move, it need to be imported after storybook/react.
+// Dont move, it must be imported after storybook/react.
 import { isChromatic } from "storybook-chromatic";
 
 import "@sharegate/css-normalize";
