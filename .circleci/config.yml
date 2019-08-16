@@ -28,7 +28,7 @@ jobs:
                   command: yarn lint:pkg
     chromatic:
         docker:
-            - image: circleci/node:12
+            - image: circleci/node:12.5
         working_directory: ~/chromatic
         steps:
             - checkout
