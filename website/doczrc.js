@@ -18,6 +18,14 @@ export default {
         colors: {
             primary: "#566077"
         },
+        styles: {
+            logo: {
+                alignItems: "center"
+            },
+            body: {
+                fontFamily: "Calibre"
+            }
+        },
         logo: {
             src: "https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/assets/orbit.svg?sanitize=true",
             width: 180

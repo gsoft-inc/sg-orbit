@@ -43,6 +43,8 @@
 @secondaryColor50       :  var(--cloud-50);
 @secondaryColor100      :  var(--cloud-100);
 
+/*-------------- Fallback ---------------*/
+@primaryColor           : @primaryColor500;
 
 /*--------------
   Page Heading
