@@ -19,6 +19,7 @@
         "test:ci": "yarn chromatic:ci",
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
+        "clean:storybook": "rimraf storybook/dist",
         "clean:components": "lerna exec --scope @sharegate/react-* --ignore @sharegate/react-components --parallel -- rimraf dist",
         "prepublishOnly": "cross-env NODE_ENV=production && yarn build",
         "sb:start": "start-storybook -c storybook",

@@ -24,7 +24,8 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
-        "@sharegate/css-normalize": "*"
+        "@sharegate/css-normalize": "*",
+        "@sharegate/foundation": "*"
     },
     "devDependencies": {
         "gulp": "*",
