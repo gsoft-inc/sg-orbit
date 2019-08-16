@@ -36,7 +36,7 @@
     min-height: 32px;
     font-size: 1em;
     padding: 0.5em 1em;
-} 
+}
 
 // transparent button
 .ui.transparent.button {
@@ -69,7 +69,7 @@
 .ui.disabled.ghost.active.button {
     background-color: transparent!important;
     border: none;
-    color: @cloudDarkest;
+    color: @cloud900;
     cursor: pointer;
 }
 
@@ -85,7 +85,7 @@
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
     background-color: var(--cloud-50)!important;
-    color: @cloudDark!important;
+    color: @cloud400!important;
 }
 
 .ui.buttons .disabled.button.basic,
@@ -94,7 +94,7 @@
 .ui.disabled.button.basic:hover,
 .ui.disabled.basic.active.button {
     background-color: transparent!important;
-    color: @cloudDark!important;
+    color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
 }
 
@@ -103,7 +103,7 @@
 .ui.button.primary:disabled,
 .ui.disabled.button.primary:hover,
 .ui.disabled.primary.active.button {
-    background-color: @@primaryColor200!important;
+    background-color: @primaryColor200!important;
     color: @white!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primaryColor200 inset;
 }
@@ -114,7 +114,7 @@
 .ui.disabled.button.secondary:hover,
 .ui.disabled.secondary.active.button {
     background-color: @secondaryColor50!important;
-    color: @cloudDark!important;
+    color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @secondaryColor50 inset;
 }
 
@@ -143,15 +143,15 @@
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover,
 .ui.basic.primary.button:focus {
-    background: @primaryColorDark !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorDark inset ;
+    background: @primaryColor600 !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColor600 inset ;
     color: @white !important;
 }
 
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
-    background: @primaryColorDark !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorDark inset ;
+    background: @primaryColor600 !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColor600 inset ;
     color: @white !important;
 }
 
@@ -187,7 +187,7 @@
 
 .ui.button.disabled svg,
 .ui.button:disabled svg {
-    fill: @cloudDark;
+    fill: @cloud400;
 }
 
 .ui.button.primary.disabled svg,
@@ -267,7 +267,7 @@
     background-color: @primaryColor500;
 }
 
-// 
+//
 .ui.basic.buttons .button.icon:active,
 .ui.basic.button.icon:active {
     background-color: @marine600!important;

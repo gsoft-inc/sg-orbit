@@ -18,7 +18,7 @@
 /* Result */
 @resultDivider: 0;
 @resultsBorder: 0;
-@resultHoverBackground: @cloudLightest;
+@resultHoverBackground: @cloud50;
 @resultsBackground: var(--white);
 
 /* Result Image */
@@ -45,7 +45,7 @@
 
 /* Focus */
 @promptFocusBackground: @promptBackground;
-@promptFocusBorderColor: @marineDark;
+@promptFocusBorderColor: @marine700;
 
 /* Hover */
 

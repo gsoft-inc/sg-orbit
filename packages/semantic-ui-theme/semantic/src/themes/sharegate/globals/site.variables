@@ -39,7 +39,7 @@
 @primaryColor50         :  var(--primary-50);
 @primaryColor200        :  var(--primary-200);
 @primaryColor500        :  var(--primary-500);
-@primaryColorDark       :  var(--primary-600);
+@primaryColor600        :  var(--primary-600);
 @secondaryColor50       :  var(--cloud-50);
 @secondaryColor100      :  var(--cloud-100);
 
@@ -228,8 +228,13 @@
 @cloud50: var(--cloud-50);
 @cloud100: var(--cloud-100);
 @cloud200: var(--cloud-200);
-@cloudDark: var(--cloud-400);
-@cloudDarkest: var(--cloud-900);
+@cloud300: var(--cloud-300);
+@cloud400: var(--cloud-400);
+@cloud500: var(--cloud-500);
+@cloud600: var(--cloud-600);
+@cloud700: var(--cloud-700);
+@cloud800: var(--cloud-800);
+@cloud900: var(--cloud-900);
 
 /*---  Colors  ---*/
 @red              : #DB2828;
@@ -812,7 +817,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorFocus        : @primaryColorDark;
+@primaryColorFocus        : @primaryColor600;
 @secondaryColorFocus      : @secondaryColor100;
 @lightPrimaryColorFocus   : @lightPrimaryColor;
 @lightSecondaryColorFocus : @lightSecondaryColor;
@@ -934,7 +939,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorActive        : @primaryColorDark;
+@primaryColorActive        : @primaryColor600;
 @secondaryColorActive      : @cloud200;
 @lightPrimaryColorActive   : @lightPrimaryColor;
 @lightSecondaryColorActive : @lightSecondaryColor;

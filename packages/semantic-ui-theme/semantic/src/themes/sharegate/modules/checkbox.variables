@@ -13,7 +13,7 @@
 
 /* Checkbox */
 @checkboxBackground: @white;
-@checkboxBorder: 1px solid @cloud;
+@checkboxBorder: 1px solid @cloud200;
 @checkboxBorderRadius: @3px;
 @checkboxTransition:
   border @defaultDuration @defaultEasing,
@@ -41,7 +41,7 @@
 
 /* Focus */
 @checkboxFocusBackground: @white;
-@checkboxFocusBorderColor: @cloud;
+@checkboxFocusBorderColor: @cloud200;
 
 /* Active */
 @checkboxActiveBackground: @primaryColor;

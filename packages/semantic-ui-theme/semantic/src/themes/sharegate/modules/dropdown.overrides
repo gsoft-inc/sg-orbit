@@ -42,13 +42,13 @@
 
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
-    background-color: @cloudLightest;
+    background-color: @cloud50;
     position: relative;
 }
 
 .ui.selection.dropdown.selected::before,
 .ui.selection.dropdown .menu .selected.item::before {
-    background-color: @cloudLightest;
+    background-color: @cloud50;
     position: absolute;
     content: "";
     display: block;

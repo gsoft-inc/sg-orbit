@@ -15,58 +15,68 @@ import { MultiSelect, multiSelectItem } from "@sharegate/react-components";
 ## Default
 
 <Playground>
-    <MultiSelect
-        items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
-        onValuesChange={noop}
-    />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <MultiSelect
+            items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
+            onValuesChange={noop}
+        />
+    </div>
 </Playground>
 
 ## Categories
 
 <Playground>
-    <MultiSelect
-        items={[
-            multiSelectItem("Created", "Group Created", "Group Lifecycle"),
-            multiSelectItem("Restored", "Group Restored", "Group Lifecycle"),
-            multiSelectItem("Deleted", "Group Deleted", "Collaboration"),
-            multiSelectItem("Name Changed", "Group Name Changed", "Collaboration"),
-            multiSelectItem("Privacy Changed", "Group Privacy Changed", "Others")
-        ]}
-        onValuesChange={noop}
-    />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <MultiSelect
+            items={[
+                multiSelectItem("Created", "Group Created", "Group Lifecycle"),
+                multiSelectItem("Restored", "Group Restored", "Group Lifecycle"),
+                multiSelectItem("Deleted", "Group Deleted", "Collaboration"),
+                multiSelectItem("Name Changed", "Group Name Changed", "Collaboration"),
+                multiSelectItem("Privacy Changed", "Group Privacy Changed", "Others")
+            ]}
+            onValuesChange={noop}
+        />
+    </div>
 </Playground>
 
 ## Default Values
 
 <Playground>
-    <MultiSelect
-        items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
-        defaultValues={["Group Restored", "Group Name Changed"]}
-        onValuesChange={noop}
-    />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <MultiSelect
+            items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
+            defaultValues={["Group Restored", "Group Name Changed"]}
+            onValuesChange={noop}
+        />
+    </div>
 </Playground>
 
 ## Close on select
 
 <Playground>
-    <MultiSelect
-        items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
-        closeOnSelect
-        onValuesChange={noop}
-    />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <MultiSelect
+            items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
+            closeOnSelect
+            onValuesChange={noop}
+        />
+    </div>
 </Playground>
 
 ## Custom Search
 
 <Playground>
-    <MultiSelect
-        items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
-        onSearch={(event, items, query) => {
-            const surpriseItem = multiSelectItem("Surprise! (a wild Pokemon appears)", "surprise");
-            return [surpriseItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
-        }}
-        onValuesChange={noop}
-    />
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <MultiSelect
+            items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
+            onSearch={(event, items, query) => {
+                const surpriseItem = multiSelectItem("Surprise! (a wild Pokemon appears)", "surprise");
+                return [surpriseItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
+            }}
+            onValuesChange={noop}
+        />
+    </div>
 </Playground>
 
 ## Disabled

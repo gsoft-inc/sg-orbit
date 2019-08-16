@@ -51,7 +51,7 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: @black;
+@hoverBackgroundColor: @marine500;
 @hoverColor: @white;
 
 /* Focused */
@@ -62,7 +62,7 @@
 @downColor: @white;
 
 /* Active */
-@activeBackgroundColor: @black;
+@activeBackgroundColor: @marine500;
 @activeColor: @white;
 
 /* Active + Hovered */
@@ -83,7 +83,7 @@
 
 /* Inverted */
 @invertedBorderSize: 0;
-@invertedTextColor: @black;
+@invertedTextColor: @marine500;
 @invertedTextHoverColor: @marine600;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
@@ -92,28 +92,28 @@
 /* Basic */
 @basicBackground: transparent none;
 @basicFontWeight: @bold;
-@basicTextColor: @black;
+@basicTextColor: @marine500;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud200 inset;
 
 /* Basic Hover */
-@basicHoverBackground: @black!important;
+@basicHoverBackground: @marine500!important;
 @basicHoverTextColor: @white;
 @basicHoverBoxShadow:
-  0px 0px 0px @basicBorderSize @black inset
+  0px 0px 0px @basicBorderSize @marine500 inset
 ;
 
 /* Basic Focus */
-@basicFocusBackground: @black!important;
+@basicFocusBackground: @marine500!important;
 @basicFocusTextColor: @white;
 @basicFocusBoxShadow:
-  0px 0px 0px @basicBorderSize @black inset
+  0px 0px 0px @basicBorderSize @marine500 inset
 ;
 
 /* Basic Down */
 
 /* Basic Active */
-@basicActiveBackground: @black;
-@basicActiveBoxShadow: 0px 0px 0px @basicBorderSize @black inset;
+@basicActiveBackground: @marine500;
+@basicActiveBoxShadow: 0px 0px 0px @basicBorderSize @marine500 inset;
 @basicActiveTextColor: @white;
 
 /* Basic Inverted */
