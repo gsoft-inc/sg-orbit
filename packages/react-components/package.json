@@ -24,7 +24,7 @@
         "sb:start": "start-storybook -c storybook",
         "sb:build": "build-storybook -c storybook -o storybook/dist",
         "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-        "sb:chromatic": "yarn sb:start -p 1135 --ci",
+        "sb:chromatic": "yarn sb:start -p 1135 --ci --debug",
         "chromatic:test": "chromatic test --script-name=sb:chromatic",
         "chromatic:ci": "yarn chromatic:test --no-interactive"
     },

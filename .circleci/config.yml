@@ -14,7 +14,7 @@ aliases:
 jobs:
     build:
         docker:
-            - image: circleci/node:12.5
+            - image: circleci/node:12
         working_directory: ~/build
         steps:
             - checkout
@@ -28,7 +28,7 @@ jobs:
                   command: yarn lint:pkg
     chromatic:
         docker:
-            - image: circleci/node:12.5
+            - image: circleci/node:12
         working_directory: ~/chromatic
         steps:
             - checkout
