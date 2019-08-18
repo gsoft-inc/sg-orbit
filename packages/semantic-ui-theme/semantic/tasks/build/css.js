@@ -52,7 +52,7 @@ const
  * @param opts
  * @return {*}
  */
-function build(src, type, compress, config, opts) {
+function build(src, type, compress, config, opts, failOnError) {
   let fileExtension;
   if (type === 'rtl' && compress) {
     fileExtension = settings.rename.rtlMinCSS;
@@ -62,8 +62,13 @@ function build(src, type, compress, config, opts) {
     fileExtension = settings.rename.minCSS;
   }
 
-  return gulp.src(src, opts)
-    .pipe(plumber(settings.plumber.less))
+  let task = gulp.src(src, opts);
+
+  if (failOnError === false) {
+    task = task.pipe(plumber(settings.plumber.less));
+  }
+
+  return task
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
     .pipe(gulpif(type === 'rtl', rtlcss()))
@@ -112,7 +117,7 @@ function pack(type, compress) {
     ;
 }
 
-function buildCSS(src, type, config, opts, callback) {
+function buildCSS(src, type, config, opts, callback, failOnError = true) {
   if (!install.isSetup()) {
     console.error('Cannot build CSS files. Run "gulp install" to set-up Semantic');
     callback();
@@ -127,10 +132,10 @@ function buildCSS(src, type, config, opts, callback) {
     src      = config.paths.source.definitions + '/**/' + config.globs.components + '.less';
   }
 
-  const buildUncompressed       = () => build(src, type, false, config, opts);
+  const buildUncompressed       = () => build(src, type, false, config, opts, failOnError);
   buildUncompressed.displayName = 'Building uncompressed CSS';
 
-  const buildCompressed       = () => build(src, type, true, config, opts);
+  const buildCompressed       = () => build(src, type, true, config, opts, failOnError);
   buildCompressed.displayName = 'Building compressed CSS';
 
   const packUncompressed       = () => pack(type, false);
@@ -145,15 +150,15 @@ function buildCSS(src, type, config, opts, callback) {
   )(callback);
 }
 
-function rtlAndNormal(src, callback) {
+function rtlAndNormal(src, callback, failOnError) {
   if (callback === undefined) {
     callback = src;
     src      = config.paths.source.definitions + '/**/' + config.globs.components + '.less';
   }
 
-  const rtl       = (callback) => buildCSS(src, 'rtl', config, {}, callback);
+  const rtl       = (callback) => buildCSS(src, 'rtl', config, {}, callback, failOnError);
   rtl.displayName = "CSS Right-To-Left";
-  const css       = (callback) => buildCSS(src, 'default', config, {}, callback);
+  const css       = (callback) => buildCSS(src, 'default', config, {}, callback, failOnError);
   css.displayName = "CSS";
 
   if (config.rtl === true || config.rtl === 'Yes') {
@@ -200,7 +205,7 @@ module.exports.watch = function (type, config) {
       // Clear timeout and reset files
       timeout && clearTimeout(timeout);
       files = [];
-      return gulp.series(method)();
+      return gulp.series((callback) => method(callback, undefined, false))();
     });
 
   // Watch any less / overrides / variables files
@@ -245,7 +250,7 @@ module.exports.watch = function (type, config) {
         // Copy files to build in another array
         const buildFiles = [...files];
         // Call method
-        gulp.series((callback) => method(buildFiles, callback))();
+        gulp.series((callback) => method(buildFiles, callback, false))();
         // Reset internal changed files array
         files = [];
       }, 1000);
