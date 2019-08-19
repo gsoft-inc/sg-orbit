@@ -41,8 +41,8 @@
         "install:pkg": "yarn install --ignore-scripts",
         "install:website": "cd website && yarn install",
         "lint": "run-s lint:*",
-        "lint:pkg": "yarn eslint:pkg",
-        "lint:website": "yarn eslint:website",
+        "lint:pkg": "run-s eslint:pkg stylelint:pkg",
+        "lint:website": "run-s eslint:website stylelint:website",
         "new-version": "lerna version --exact --no-push",
         "publish:pkg": "lerna publish from-package --exact --loglevel verbose",
         "publish:pkg:next": "yarn publish:pkg --dist-tag next",
@@ -57,6 +57,8 @@
         "start:pkg": "lerna run start --parallel",
         "start:sb": "cd packages/react-components && yarn sb:start",
         "start:website": "cd website && yarn start",
+        "stylelint:pkg": "stylelint \"packages/**/*.css\"",
+        "stylelint:website": "stylelint \"website/**/*.css\"",
         "update": "run-s install:pkg install:website"
     },
     "devDependencies": {

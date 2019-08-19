@@ -4,6 +4,7 @@
         "dbaeumer.vscode-eslint",
         "blanu.vscode-styled-jsx",
         "shinnn.stylelint",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "silvenon.mdx"
     ]
 }

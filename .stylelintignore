@@ -1,2 +1,5 @@
 /packages/semantic-ui-theme/semantic
+/packages/tachyons
 node_modules
+dist
+*.mdx
