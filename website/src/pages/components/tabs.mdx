@@ -6,42 +6,14 @@ route: /components/tabs
 
 import "../../styles/main.css";
 
-import { Playground } from "docz";
 import { Label, Menu, Tab } from "semantic-ui-react";
+import { Playground } from "docz";
 
 # Tab
 
-## Standard
+Tabs are spacing agnostic, you are responsible to set the padding in the tabs, an example is provided below
 
-### Default
-
-<Playground>
-    <Tab panes={[{ menuItem: "Tab 1", render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> }, { menuItem: "Tab 2", render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> }, { menuItem: "Tab 3", render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> }]} />
-</Playground>
-
-### Pointing menu
-
-<Playground>
-    <Tab
-        menu={{ pointing: true }}
-        panes={[{ menuItem: "Mars", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Neptune", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Pluto", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
-    />
-</Playground>
-
-## Secondary menu
-
-A tab menu can adjust its appearance to de-emphasize its contents.
-
-<Playground>
-    <Tab
-        menu={{ secondary: true }}
-        panes={[{ menuItem: "Satellite", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Moon", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Hubble", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
-    />
-</Playground>
-
-## Secondary / Pointing menu
-
-A tab menu can adjust its appearance to de-emphasize its contents.
+## Default
 
 <Playground>
     <Tab
@@ -50,7 +22,7 @@ A tab menu can adjust its appearance to de-emphasize its contents.
     />
 </Playground>
 
-## Secondary / Pointing menu with Label
+## With Label
 
 <Playground>
     <Tab
@@ -70,6 +42,46 @@ A tab menu can adjust its appearance to de-emphasize its contents.
                     </Menu.Item>
                 ),
                 render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+            }
+        ]}
+    />
+</Playground>
+
+## Custom padding
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[
+            {
+                menuItem: "Star",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 1 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
+            },
+            {
+                menuItem: "Rocket",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 2 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
+            },
+            {
+                menuItem: "Galaxy",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 3 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
             }
         ]}
     />

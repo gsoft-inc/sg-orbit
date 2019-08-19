@@ -7,8 +7,8 @@ route: /components/remote-search-input
 import "../../styles/main.css";
 
 import { Playground } from "docz";
-import { noop } from "lodash";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@sharegate/react-components";
+import { noop } from "lodash";
 
 # Remote search input
 
@@ -35,7 +35,7 @@ import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "
             onResults={response => {
                 return response.results.map(x => searchInputResult(x.url, x.name, x));
             }}
-            defaultValue={"Yoda"}
+            defaultValue="Yoda"
             onValueChange={noop}
         />
     </div>
