@@ -7,6 +7,10 @@
 </p>
 
 <p align=center>
+    <a href="https://lerna.js.org"><img alt="Maintained with Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
+    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev"><img alt="devDependencies Status" href="https://img.shields.io/david/dev/gsoft-inc/sg-brand.svg" /></a>
+</p>
+<p align=center>
     <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
@@ -16,7 +20,7 @@
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
-| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components)](https://david-dm.org/sharegate/react-components.svg?path=packages/react-components) |
+| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components) |
 | [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://david-dm.org/sharegate/react-date-range-picker.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/date-range-picker) |
 | [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select) |
 | [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input)](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input) |
@@ -118,6 +122,8 @@ If you want to install the website later, use the default installation command o
 ```bash
 yarn bootstrap:website
 ```
+
+During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings.
 
 ### Develop a component
 
@@ -399,6 +405,14 @@ Same as *build* but only for the packages.
 yarn build:pkg
 ```
 
+#### build:theme
+
+Same as *build* but only for the SUI theme.
+
+```bash
+yarn build:theme
+```
+
 #### build:sb
 
 Same as *build* but only for Storybook.
@@ -479,6 +493,22 @@ Launch the automated visual tests on Chromatic QA. For more information on the a
 
 ```bash
 yarn chromatic
+```
+
+### chromatic:components
+
+Same as *chromatic* but only for the components.
+
+```bash
+yarn chromatic:components
+```
+
+### chromatic:theme
+
+Same as *chromatic* but only for the SUI theme.
+
+```bash
+yarn chromatic:theme
 ```
 
 ### Testing
