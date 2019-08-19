@@ -7,8 +7,8 @@ route: /components/search-input
 import "../../styles/main.css";
 
 import { Playground } from "docz";
-import { noop } from "lodash";
 import { SearchInput, searchInputResult } from "@sharegate/react-components";
+import { noop } from "lodash";
 
 # Search input
 
@@ -21,7 +21,7 @@ import { SearchInput, searchInputResult } from "@sharegate/react-components";
 ## Default Value
 
 <Playground>
-    <SearchInput results={[searchInputResult("1", "Mars"), searchInputResult("2", "Uranus"), searchInputResult("3", "Neptune"), searchInputResult("4", "Jupiter"), searchInputResult("5", "Pluto")]} defaultValue={"Neptune"} onValueChange={noop} />
+    <SearchInput results={[searchInputResult("1", "Mars"), searchInputResult("2", "Uranus"), searchInputResult("3", "Neptune"), searchInputResult("4", "Jupiter"), searchInputResult("5", "Pluto")]} defaultValue="Neptune" onValueChange={noop} />
 </Playground>
 
 ## Clear on select

@@ -1,0 +1,88 @@
+---
+name: Tabs
+menu: Components
+route: /components/tabs
+---
+
+import "../../styles/main.css";
+
+import { Label, Menu, Tab } from "semantic-ui-react";
+import { Playground } from "docz";
+
+# Tab
+
+Tabs are spacing agnostic, you are responsible to set the padding in the tabs, an example is provided below
+
+## Default
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[{ menuItem: "Star", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Rocket", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Galaxy", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
+    />
+</Playground>
+
+## With Label
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[
+            {
+                menuItem: { key: "users", content: "Users" },
+                render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+            },
+            {
+                menuItem: (
+                    <Menu.Item key="messages" className="with-label">
+                        Messages
+                        <Label className="primary" size="tiny">
+                            NEW
+                        </Label>
+                    </Menu.Item>
+                ),
+                render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+            }
+        ]}
+    />
+</Playground>
+
+## Custom padding
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[
+            {
+                menuItem: "Star",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 1 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
+            },
+            {
+                menuItem: "Rocket",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 2 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
+            },
+            {
+                menuItem: "Galaxy",
+                render: () => (
+                    <Tab.Pane attached={false}>
+                        <div className="pa8">
+                            <p>Tab 3 Content</p>
+                        </div>
+                    </Tab.Pane>
+                )
+            }
+        ]}
+    />
+</Playground>
