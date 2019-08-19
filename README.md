@@ -7,11 +7,13 @@
 </p>
 
 <p align=center>
-    <a href="https://lerna.js.org"><img alt="Maintained with Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
-    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev"><img alt="devDependencies Status" href="https://img.shields.io/david/dev/gsoft-inc/sg-brand.svg" /></a>
+    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="build" src="https://img.shields.io/circleci/build/github/gsoft-inc/sg-brand/master"></a>
+    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev" title="devDependencies"><img src="https://david-dm.org/gsoft-inc/sg-brand/dev-status.svg"/></a>
 </p>
+
 <p align=center>
-    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
+    <a href="https://lerna.js.org"><img alt="lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
+    <a href="https://yarnpkg.com"><img alt="yarn" src="https://img.shields.io/badge/dependencies%20managed%20by-yarn-blue" /></a>
 </p>
 
 ## npm packages
@@ -21,10 +23,10 @@
 | Package | Version | Dependencies |
 |--------|-------|------------|
 | [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components) |
-| [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://david-dm.org/sharegate/react-date-range-picker.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/date-range-picker) |
-| [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/sharegate/react-multi-select.svg?path=packages/react-components/components/multi-select) |
-| [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input)](https://david-dm.org/sharegate/react-search-input.svg?path=packages/react-components/components/search-input) |
-| [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/popup)](https://david-dm.org/sharegate/react-popup.svg?path=packages/react-components/components/popup) |
+| [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker) |
+| [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select) |
+| [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input) |
+| [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup) |
 
 ### Brand packages
 
