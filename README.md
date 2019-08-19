@@ -16,19 +16,13 @@
     <a href="https://yarnpkg.com"><img alt="yarn" src="https://img.shields.io/badge/dependencies%20managed%20by-yarn-blue" /></a>
 </p>
 
-## npm packages
+Orbit is a design system develop by Sharegate to help create the best experience for our customers and drive consistency between all our websites and web products.
 
-### React components packages
+## Documentation
 
-| Package | Version | Dependencies |
-|--------|-------|------------|
-| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components) |
-| [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker) |
-| [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select) |
-| [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input) |
-| [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup) |
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
-### Brand packages
+https://sg-orbit.netlify.com
 
 ## Storybook
 
@@ -36,19 +30,68 @@
 
 https://sg-storybook.netlify.com
 
-## Components documentation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
+## Packages
 
-https://sg-orbit.netlify.com
+Multiple npm packages compose Orbit. Based on which type of app you're building you will need a different composition of packages.
+
+If you're building a website or any non React app, have a look at the [Core](#core) packages.
+
+If you're building a React app, have a look at the [React Components](#react-components) packages.
+
+### Core
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [@sharegate/css-normalize](/packages/css-normalize) | [![npm](https://img.shields.io/npm/v/@sharegate/css-normalize.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/css-normalize) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/css-normalize)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/css-normalize) |
+| [@sharegate/fonts](/packages/fonts) | [![npm](https://img.shields.io/npm/v/@sharegate/fonts.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/fonts) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/fonts)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/fonts) |
+| [@sharegate/foundation](/packages/foundation) | [![npm](https://img.shields.io/npm/v/@sharegate/foundation.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/foundation) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/foundation)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/foundation) |
+| [@sharegate/tachyons](/packages/tachyons) | [![npm](https://img.shields.io/npm/v/@sharegate/tachyons.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/tachyons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/tachyons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/tachyons) |
+
+- [@sharegate/css-normalize](/packages/css-normalize): is our custom CSS normalize for Edge, Chrome, Firefox and Safari.
+- [@sharegate/fonts](/packages/fonts): 
+
+#### Installation
+
+
+
+### React Components
+
+Semantic UI React
+
+Components
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [@sharegate/semantic-ui-theme](/packages/semantic-ui-theme) | [![npm](https://img.shields.io/npm/v/@sharegate/semantic-ui-theme.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/semantic-ui-theme) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/semantic-ui-theme)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/semantic-ui-theme) |
+| [@sharegate/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components) |
+| [@sharegate/react-date-range-picker](/packages/react-components/components/date-range-picker) | [![npm](https://img.shields.io/npm/v/@sharegate/react-date-range-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-date-range-picker) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/date-range-picker) |
+| [@sharegate/react-multi-select](/packages/react-components/components/multi-select) | [![npm](https://img.shields.io/npm/v/@sharegate/react-multi-select.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-multi-select) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/multi-select) |
+| [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input) |
+| [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup) |
+| [@sharegate/react-components-shared](/packages/react-components/components/shared) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components-shared.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components-shared) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared) |
 
 ## Maintainers
 
 The following documentation is only for the maintainers of this repository.
 
-### Monorepo
+- [Monorepo setup](#monorepo-setup)
+- [Installation](#installation)
+- [Develop a component](#develop-a-component)
+- [Update the website](#update-the-website)
+- [Release the packages](#release-the-packages)
+- [Release Storybook](#release-storybook)
+- [Release the website](#release-the-website)
+- [Available commands](#commands)
+- [Testing](#testing)
+- [CI](#ci)
+- [Add a new package to the monorepo](#add-a-new-package-to-the-monorepo)
+- [Add a new Yarn script](#add-a-new-yarn-script)
+- [Gotcha to remember](#gotcha-to-remember)
 
-This project repository is managed as a monorepo that is composed of many npm packages. 
+### Monorepo setup
+
+This repository is managed as a monorepo that is composed of many npm packages. 
 
 For more information on monorepo:
 
@@ -129,6 +172,8 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 ### Develop a component
 
+The following documentation is a brief overview of the tools and processes involved in the development of a component. For in-depth documentation, please view blabla.
+
 #### Storybook
 
 Every components must be developed in [Storybook](https://storybook.js.org).
@@ -161,8 +206,6 @@ yarn start:sb
 ```
 
 Any updates to the packages (components, SUI theme, tachyons, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
-
-For more information about the development of a component view blabla..
 
 ### Update the website
 
@@ -562,7 +605,7 @@ If Chromatic can't reach the Storybook server, the Storybook potentially can't c
 
 Sadly the Chromatic CLI doesn't properly relay Storybook compilation errors. To see the errors, build the Storybook app locally.
 
-### Add a new packages to the monorepo
+### Add a new package to the monorepo
 
 There is a few steps to add a new packages to the monorepo.
 
@@ -628,7 +671,7 @@ Instead of doing
 
 ```javascript
 "scripts": {
-    "build": rimraf dist && babel src -d dist 
+    "build": "rimraf dist && babel src -d dist"
 }
 ```
 
@@ -660,13 +703,13 @@ To run multiple commands sequentially, use `run-s`.
 
 Otherwise use `yarn`.
 
-## Gotcha to remember
+### Gotcha to remember
 
-### --ignore-scripts
+#### --ignore-scripts
 
 The `bootstrap` command specify `--ignore-scripts` to yarn install because otherwise semantic-ui will try to reinstall everytime a `yarn install` is executed. I haven't found any other way to prevent it.
 
-### Chromatic QA & custom font
+#### Chromatic QA & custom font
 
 The Storybook configuration doesn't load the *Calibre* custom font if the app is started by the chromatic CLI because visual tests offer inconsistent results when a custom font is loaded. Not sure why.
 
