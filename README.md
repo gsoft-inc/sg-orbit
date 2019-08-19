@@ -18,20 +18,23 @@
 
 Orbit is a design system develop by Sharegate to help create the best experience for our customers and drive consistency between all our websites and web products.
 
-## Documentation
+- [Documentation website](#documentation-website)
+- [Storybook website](#storybook-website)
+- [npm packages](#npm-packages)
+
+## Documentation website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
 https://sg-orbit.netlify.com
 
-## Storybook
+## Storybook website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
 
 https://sg-storybook.netlify.com
 
-
-## Packages
+## npm packages
 
 Multiple npm packages compose Orbit. Based on which type of app you're building you will need a different composition of packages.
 
@@ -49,7 +52,9 @@ If you're building a React app, have a look at the [React Components](#react-com
 | [@sharegate/tachyons](/packages/tachyons) | [![npm](https://img.shields.io/npm/v/@sharegate/tachyons.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/tachyons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/tachyons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/tachyons) |
 
 - [@sharegate/css-normalize](/packages/css-normalize): is our custom CSS normalize for Edge, Chrome, Firefox and Safari.
-- [@sharegate/fonts](/packages/fonts): 
+- [@sharegate/fonts](/packages/fonts): contains the fonts for the Sharegate brand.
+- [@sharegate/foundation](/packages/foundation): is a set of CSS variables for the core parts of our UI: colors, spacing and typography.
+- [@sharegate/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of our [@sharegate/foundation](/packages/foundation) package and the spacing scale has been increased to 10.
 
 #### Installation
 
@@ -70,6 +75,10 @@ Components
 | [@sharegate/react-search-input](/packages/react-components/components/search-input) | [![npm](https://img.shields.io/npm/v/@sharegate/react-search-input.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-search-input) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/search-input) |
 | [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup) |
 | [@sharegate/react-components-shared](/packages/react-components/components/shared) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components-shared.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components-shared) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared) |
+
+- [@sharegate/semantic-ui-theme](/packages/semantic-ui-theme): is our custom theme for [Semantic UI](https://semantic-ui.com/). The theme is based on the variables of our [@sharegate/foundation](/packages/foundation) package.
+- [@sharegate/react-components](/packages/react-components): is a bundle of all our custom React components library. Those components are built on top of our custom [Semantic UI](https://semantic-ui.com/) theme and the [Semantic UI React](https://react.semantic-ui.com/) components.
+- [@sharegate/react-*](/packages/react-components/components): are packages thats contains invidual custom React component. 
 
 ## Maintainers
 
@@ -667,7 +676,7 @@ A script should only do one thing. This practice promote better readability and 
 
 Then you can write top level script that compose all those atomic scripts to provide a functionnality.
 
-Instead of doing
+Instead of doing:
 
 ```javascript
 "scripts": {
@@ -675,7 +684,7 @@ Instead of doing
 }
 ```
 
-Do
+Do:
 
 ```javascript
 "scripts": {
