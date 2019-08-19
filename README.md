@@ -119,6 +119,8 @@ If you want to install the website later, use the default installation command o
 yarn bootstrap:website
 ```
 
+During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings.
+
 ### Develop a component
 
 #### Storybook

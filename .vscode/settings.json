@@ -17,6 +17,7 @@
     "eslint.alwaysShowStatus": true,
     "eslint.provideLintTask": true,
     "eslint.packageManager": "yarn",
+    "eslint.validate": [ "javascript", "javascriptreact", { "language": "mdx", "autoFix": true } ],
     "prettier.eslintIntegration": false,
     "prettier.stylelintIntegration": true,
     "files.associations": {
