@@ -7,6 +7,7 @@ import { withConsole } from "@storybook/addon-console";
 
 // Dont move, it must be imported after storybook/react.
 import { isChromatic } from "storybook-chromatic";
+import { isComponents, isTheme } from "./get-storybook-scope";
 
 import "@sharegate/css-normalize";
 import "@sharegate/foundation";
@@ -31,12 +32,25 @@ addParameters({
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
 
-const reqComponents = require.context("../components", true, /(play|specs).stories.jsx$/);
-const reqOthers = require.context("../stories", true, /(play|specs).stories.jsx$/);
+let reqComponents;
+let reqTheme;
+
+if (isComponents) {
+    reqComponents = require.context("../components", true, /(play|specs).stories.jsx$/);
+}
+
+if (isTheme) {
+    reqTheme = require.context("../stories/semantic-ui-theme", true, /(play|specs).stories.jsx$/);
+}
 
 function loadStories() {
-    reqComponents.keys().forEach(filename => reqComponents(filename));
-    reqOthers.keys().forEach(filename => reqOthers(filename));
+    if (isComponents) {
+        reqComponents.keys().forEach(filename => reqComponents(filename));
+    }
+
+    if (isTheme) {
+        reqTheme.keys().forEach(filename => reqTheme(filename));
+    }
 }
 
 configure(loadStories, module);

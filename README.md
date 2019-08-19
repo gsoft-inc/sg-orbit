@@ -399,6 +399,14 @@ Same as *build* but only for the packages.
 yarn build:pkg
 ```
 
+#### build:theme
+
+Same as *build* but only for the SUI theme.
+
+```bash
+yarn build:theme
+```
+
 #### build:sb
 
 Same as *build* but only for Storybook.
@@ -479,6 +487,22 @@ Launch the automated visual tests on Chromatic QA. For more information on the a
 
 ```bash
 yarn chromatic
+```
+
+### chromatic:components
+
+Same as *chromatic* but only for the components.
+
+```bash
+yarn chromatic:components
+```
+
+### chromatic:theme
+
+Same as *chromatic* but only for the SUI theme.
+
+```bash
+yarn chromatic:theme
 ```
 
 ### Testing
