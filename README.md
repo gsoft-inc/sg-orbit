@@ -7,11 +7,13 @@
 </p>
 
 <p align=center>
-    <a href="https://lerna.js.org"><img alt="Maintained with Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
-    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev"><img alt="devDependencies Status" href="https://img.shields.io/david/dev/gsoft-inc/sg-brand.svg" /></a>
+    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="build" src="https://img.shields.io/circleci/build/github/gsoft-inc/sg-brand/master"></a>
+    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev" title="devDependencies"><img src="https://david-dm.org/gsoft-inc/sg-brand/dev-status.svg"/></a>
 </p>
+
 <p align=center>
-    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
+    <a href="https://lerna.js.org"><img alt="lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
+    <a href="https://yarnpkg.com"><img alt="yarn" src="https://img.shields.io/badge/dependencies%20managed%20by-yarn-blue" /></a>
 </p>
 
 ## npm packages
