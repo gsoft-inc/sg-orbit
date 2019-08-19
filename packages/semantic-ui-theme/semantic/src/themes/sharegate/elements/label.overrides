@@ -23,6 +23,15 @@
   padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
 }
 
+/* tiny */
+.ui.label.tiny {
+  padding: 3px @horizontalPadding;
+}
+
+.ui.label.tiny.icon {
+  padding: 3px calc(@horizontalPadding/2) 3px @horizontalPadding;
+}
+
 /* small */
 .ui.label.small {
   padding: 7px @horizontalPadding;
@@ -82,6 +91,14 @@
     min-height: 32px
 }
 
+.ui.label.tiny:not(.circular) {
+  min-height: 24px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
 /* Circular Labels */
 
 .ui.circular.mini.labels .label,
@@ -115,4 +132,15 @@
 .ui.circular.massive.labels .label,
 .ui.circular.massive.label {
   font-size: 2.5rem;
+}
+
+/*  Primary */
+.ui.label.primary {
+  background-color: var(--primary-500);
+  color: @white;
+}
+
+.ui.menu .item > .label.primary {
+    background-color: var(--primary-500);
+    color: @white;
 }
