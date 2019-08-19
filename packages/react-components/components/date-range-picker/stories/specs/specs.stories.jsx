@@ -6,9 +6,6 @@ import { DEFAULT_DATE, DEFAULT_PRESETS,LAST_WEEK_PRESET, logDatesChanged } from 
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-
 function stories(segment) {
     return storiesBuilder("Date-Range-Picker|specs")
         .segment(segment)
