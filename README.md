@@ -7,8 +7,11 @@
 </p>
 
 <p align=center>
-    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
     <a href="https://lerna.js.org"><img alt="Maintained with Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
+    <a href="https://david-dm.org/gsoft-inc/sg-brand?type=dev"><img alt="devDependencies Status" href="https://img.shields.io/david/dev/gsoft-inc/sg-brand.svg" /></a>
+</p>
+<p align=center>
+    <a href="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master"><img alt="CircleCI Status" src="https://circleci.com/gh/gsoft-inc/sg-brand/tree/master.svg?style=svg"></a>
 </p>
 
 ## npm packages
