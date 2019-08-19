@@ -45,6 +45,7 @@
 
 /*-------------- Fallback ---------------*/
 @primaryColor           : @primaryColor500;
+@secondaryColor         : #333333;
 
 /*--------------
   Page Heading
