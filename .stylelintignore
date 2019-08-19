@@ -2,4 +2,5 @@
 /packages/tachyons
 node_modules
 dist
+*.md
 *.mdx
