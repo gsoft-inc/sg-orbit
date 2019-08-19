@@ -1,0 +1,76 @@
+---
+name: Tabs
+menu: Components
+route: /components/tabs
+---
+
+import "../../styles/main.css";
+
+import { Playground } from "docz";
+import { Label, Menu, Tab } from "semantic-ui-react";
+
+# Tab
+
+## Standard
+
+### Default
+
+<Playground>
+    <Tab panes={[{ menuItem: "Tab 1", render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> }, { menuItem: "Tab 2", render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> }, { menuItem: "Tab 3", render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> }]} />
+</Playground>
+
+### Pointing menu
+
+<Playground>
+    <Tab
+        menu={{ pointing: true }}
+        panes={[{ menuItem: "Mars", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Neptune", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Pluto", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
+    />
+</Playground>
+
+## Secondary menu
+
+A tab menu can adjust its appearance to de-emphasize its contents.
+
+<Playground>
+    <Tab
+        menu={{ secondary: true }}
+        panes={[{ menuItem: "Satellite", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Moon", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Hubble", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
+    />
+</Playground>
+
+## Secondary / Pointing menu
+
+A tab menu can adjust its appearance to de-emphasize its contents.
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[{ menuItem: "Star", render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane> }, { menuItem: "Rocket", render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> }, { menuItem: "Galaxy", render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane> }]}
+    />
+</Playground>
+
+## Secondary / Pointing menu with Label
+
+<Playground>
+    <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={[
+            {
+                menuItem: { key: "users", content: "Users" },
+                render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+            },
+            {
+                menuItem: (
+                    <Menu.Item key="messages" className="with-label">
+                        Messages
+                        <Label className="primary" size="tiny">
+                            NEW
+                        </Label>
+                    </Menu.Item>
+                ),
+                render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+            }
+        ]}
+    />
+</Playground>

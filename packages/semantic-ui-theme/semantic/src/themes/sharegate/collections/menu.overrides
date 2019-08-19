@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+    Site Overrides
 *******************************/
 .ui.menu {
     font-size: 1.125rem;
@@ -23,6 +23,10 @@
 
 .ui.secondary.pointing.menu .item {
     margin-right: 1.25rem;
-    padding: 0 0 calc(1.25rem) 0;
+    padding: 0 0 1.125rem 0;
     border-width: 4px;
+}
+
+.ui.secondary.pointing.menu .item.with-label {
+    padding: 0 0 1.125rem 0;
 }

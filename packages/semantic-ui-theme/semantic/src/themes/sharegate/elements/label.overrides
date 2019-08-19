@@ -24,24 +24,30 @@
 }
 
 /* tiny */
-.ui.label.tiny {
+.ui.label.tiny,
+.ui.menu .item > .label.tiny {
   padding: 3px @horizontalPadding;
+  margin-left: var(--scale-bravo);
 }
 
-.ui.label.tiny.icon {
+.ui.label.tiny.icon.item,
+.ui.menu .item > .label.tiny.icon.item {
   padding: 3px calc(@horizontalPadding/2) 3px @horizontalPadding;
+  margin-left: 0;
 }
 
 /* small */
-.ui.label.small {
+.ui.label.small,
+.ui.menu .item > .label.small {
   padding: 7px @horizontalPadding;
 }
 
-.ui.label.small.icon {
+.ui.label.small.icon,
+.ui.menu .item > .label.small.icon {
   padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
 }
 
-// large
+/* large */
 .ui.label.large{
   padding: 15px @horizontalPadding;
 }
@@ -92,7 +98,7 @@
 }
 
 .ui.label.tiny:not(.circular) {
-  min-height: 24px;
+  min-height: 16px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: .5px;
@@ -135,12 +141,8 @@
 }
 
 /*  Primary */
-.ui.label.primary {
+.ui.label.primary,
+.ui.menu .item > .label.primary {
   background-color: var(--primary-500);
   color: @white;
-}
-
-.ui.menu .item > .label.primary {
-    background-color: var(--primary-500);
-    color: @white;
 }
