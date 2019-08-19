@@ -196,10 +196,11 @@ let timeout, files = [];
 module.exports.watch = function (type, config) {
   const method = type === 'docs' ? docs : rtlAndNormal;
 
-  // Watch theme.config file
+  // Watch config & site.variables files
   gulp.watch([
     normalize(config.paths.source.config),
-    normalize(config.paths.source.site + '/**/site.variables')
+    normalize(config.paths.source.site + '/**/site.variables'),
+    normalize(config.paths.source.themes + '/**/site.variables')
   ])
     .on('all', function () {
       // Clear timeout and reset files
