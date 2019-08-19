@@ -22,6 +22,8 @@ Orbit is a design system develop by Sharegate to help create the best experience
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
+The documentation website documents the core parts of Orbit UI and the React components.
+
 https://sg-orbit.netlify.com
 
 ## Storybook website
@@ -30,7 +32,7 @@ https://sg-orbit.netlify.com
 
 The storybook website contains stories for Orbit's custom React components.
 
-Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is mainly for automated testing purpose.
+Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is for automated testing purpose.
 
 https://sg-storybook.netlify.com
 
