@@ -162,7 +162,7 @@ The following documentation is only for the maintainers of this repository.
 - [CI](#ci)
 - [Add a new package to the monorepo](#add-a-new-package-to-the-monorepo)
 - [Add a new Yarn script](#add-a-new-yarn-script)
-- [Gotcha to remember](#gotcha-to-remember)
+- [Gotchas to remember](#gotchas-to-remember)
 
 ### Monorepo setup
 
@@ -778,7 +778,7 @@ To run multiple commands sequentially, use `run-s`.
 
 Otherwise use `yarn`.
 
-### Gotcha to remember
+### Gotchas to remember
 
 #### --ignore-scripts
 
