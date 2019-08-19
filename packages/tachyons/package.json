@@ -30,7 +30,8 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
-        "@sharegate/foundation": "*"
+        "@sharegate/foundation": "*",
+        "@sharegate/css-normalize": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
