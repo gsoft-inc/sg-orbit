@@ -18,10 +18,6 @@
 
 Orbit is a design system develop by Sharegate to help create the best experience for our customers and drive consistency between all our websites and web products.
 
-- [Documentation website](#documentation-website)
-- [Storybook website](#storybook-website)
-- [npm packages](#npm-packages)
-
 ## Documentation website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
@@ -31,6 +27,10 @@ https://sg-orbit.netlify.com
 ## Storybook website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
+
+The storybook website contains stories for Orbit's custom React components.
+
+Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is mainly for automated testing purpose.
 
 https://sg-storybook.netlify.com
 
@@ -51,10 +51,10 @@ If you're building a React app, have a look at the [React Components](#react-com
 | [@sharegate/foundation](/packages/foundation) | [![npm](https://img.shields.io/npm/v/@sharegate/foundation.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/foundation) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/foundation)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/foundation) |
 | [@sharegate/tachyons](/packages/tachyons) | [![npm](https://img.shields.io/npm/v/@sharegate/tachyons.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/tachyons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/tachyons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/tachyons) |
 
-- [@sharegate/css-normalize](/packages/css-normalize): is Sharegate's custom CSS reset for Edge, Chrome, Firefox and Safari.
-- [@sharegate/fonts](/packages/fonts): contains the fonts of the Sharegate brand.
-- [@sharegate/foundation](/packages/foundation): is a set of CSS variables for the core parts of Sharegate UI: colors, spacing and typography.
-- [@sharegate/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of [@sharegate/foundation](/packages/foundation) and the spacing scale has been increased to 10.
+- [@sharegate/css-normalize](/packages/css-normalize): is Orbit's custom CSS reset for Edge, Chrome, Firefox and Safari.
+- [@sharegate/fonts](/packages/fonts): contains the fonts of the Orbit brand.
+- [@sharegate/foundation](/packages/foundation): is a set of CSS variables for the core parts of Orbit UI: colors, spacing and typography.
+- [@sharegate/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of *@sharegate/foundation* and the spacing scale has been increased to 10.
 
 #### Installation
 
@@ -66,7 +66,9 @@ To install all the core packages with NPM:
 npm install @sharegate/css-normalize @sharegate/fonts @sharegate/foundation @sharegate/tachyons
 ```
 
-Then, somewhere at the root of your application in a JS file:
+Then, somewhere at the root of your application...
+
+In a JS file:
 
 ```javascript
 import "@sharegate/fonts/calibre/font.css";
@@ -102,9 +104,9 @@ When available, you should use a components from [Semantic UI React](https://rea
 | [@sharegate/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@sharegate/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/popup) |
 | [@sharegate/react-components-shared](/packages/react-components/components/shared) | [![npm](https://img.shields.io/npm/v/@sharegate/react-components-shared.svg?maxAge=3600)](https://www.npmjs.com/package/@sharegate/react-components-shared) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/react-components/components/shared) |
 
-- [@sharegate/semantic-ui-theme](/packages/semantic-ui-theme): is Sharegate's custom theme for [Semantic UI](https://semantic-ui.com/). The theme is based on the variables of [@sharegate/foundation](/packages/foundation).
-- [@sharegate/react-components](/packages/react-components): is a bundle containing all the Sharegate's custom React components.
-- [@sharegate/react-*](/packages/react-components/components): are packages thats contains invidual Sharegate's custom React component. 
+- [@sharegate/semantic-ui-theme](/packages/semantic-ui-theme): is Orbit's custom theme for [Semantic UI](https://semantic-ui.com/). The theme is based on the variables of *@sharegate/foundation*.
+- [@sharegate/react-components](/packages/react-components): is a bundle containing every Orbit's custom React components.
+- [@sharegate/react-*](/packages/react-components/components): are packages thats contains invidual Orbit's custom React component. 
 
 #### Installation
 
@@ -112,7 +114,7 @@ Before installing any React components packages, please install the [core packag
 
 A few options are available...
 
-**Use Sharegate's custom Semantic UI theme and Semantic UI React**
+**Use Orbit's custom Semantic UI theme and Semantic UI React**
 
 With NPM:
 
@@ -122,7 +124,7 @@ npm install @sharegate/semantic-ui-theme semantic-ui-react
 
 Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
 
-**Use all the Sharegate's custom React components**
+**Use all the Orbit's custom React components**
 
 With NPM:
 
@@ -132,7 +134,7 @@ npm install @sharegate/semantic-ui-theme semantic-ui-react @sharegate/react-comp
 
 Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
 
-**Pick and choose a few Sharegate's custom React components**
+**Pick and choose a few Orbit's custom React components**
 
 With NPM:
 
