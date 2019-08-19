@@ -31,10 +31,12 @@ addParameters({
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
 
-const req = require.context("../components", true, /(play|specs).stories.(jsx?|js?)$/);
+const reqComponents = require.context("../components", true, /(play|specs).stories.jsx$/);
+const reqOthers = require.context("../stories", true, /(play|specs).stories.jsx$/);
 
 function loadStories() {
-    req.keys().forEach(filename => req(filename));
+    reqComponents.keys().forEach(filename => reqComponents(filename));
+    reqOthers.keys().forEach(filename => reqOthers(filename));
 }
 
 configure(loadStories, module);

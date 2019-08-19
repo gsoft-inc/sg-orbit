@@ -6,9 +6,6 @@ import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-
 export const DEFAULT_PRESETS_OPTIONS = {
     "LAST_WEEK_PRESET": LAST_WEEK_PRESET,
     "LAST_MONTH_PRESET": LAST_MONTH_PRESET,
