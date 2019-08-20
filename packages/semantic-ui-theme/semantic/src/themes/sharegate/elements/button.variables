@@ -51,7 +51,7 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: @marine500;
+@hoverBackgroundColor: @marine900;
 @hoverColor: @white;
 
 /* Focused */
@@ -62,7 +62,7 @@
 @downColor: @white;
 
 /* Active */
-@activeBackgroundColor: @marine500;
+@activeBackgroundColor: @marine900;
 @activeColor: @white;
 
 /* Active + Hovered */

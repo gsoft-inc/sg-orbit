@@ -255,34 +255,35 @@
 @black            : @marine900;
 
 /*---  Light Colors  ---*/
-@lightRed         : #FF695E; // todo
-@lightOrange      : #F8B385; // desktop light
-@lightYellow      : #FDCD72; // sunray light
-@lightOlive       : #D9E778; // todo
-@lightGreen       : #2ECC40; // todo
-@lightTeal        : #98E8DE; // apricot light
-@lightBlue        : #54C8FF; // todo
-@lightViolet      : #A291FB; // todo
-@lightPurple      : #9C8897; // eggplant light
-@lightPink        : #FF8EDF; // todo
-@lightBrown       : #D67C1C; // todo
-@lightGrey        : #EDF0F2; // cloud light
-@lightBlack       : #24242A; // marine dark light
+
+@lightRed         : #FF695E;
+@lightOrange      : #F8B385;
+@lightYellow      : #FDCD72;
+@lightOlive       : #D9E778;
+@lightGreen       : #2ECC40;
+@lightTeal        : #98E8DE;
+@lightBlue        : #54C8FF;
+@lightViolet      : #A291FB;
+@lightPurple      : #9C8897;
+@lightPink        : #FF8EDF;
+@lightBrown       : #D67C1C;
+@lightGrey        : #EDF0F2;
+@lightBlack       : #24242A;
 
 /*--- Darkest Colors ---*/
-@darkestRed         : #FF695E; // todo
-@darkestOrange      : #F8B385; // desktop darkest
-@darkestYellow      : #FDCD72; // sunray darkest
-@darkestOlive       : #D9E778; // todo
-@darkestGreen       : #2ECC40; // todo
-@darkestTeal        : #2BBCAA; // apricot darkest
-@darkestBlue        : #54C8FF; // todo
-@darkestViolet      : #A291FB; // todo
-@darkestPurple      : #9C8897; // eggplant darkest
-@darkestPink        : #FF8EDF; // todo
-@darkestBrown       : #D67C1C; // todo
-@darkestGrey        : #EDF0F2; // cloud darkest
-@darkestBlack       : #24242A; // marine dark darkest
+@darkestRed         : #FF695E;
+@darkestOrange      : #F8B385;
+@darkestYellow      : #FDCD72;
+@darkestOlive       : #D9E778;
+@darkestGreen       : #2ECC40;
+@darkestTeal        : #2BBCAA;
+@darkestBlue        : #54C8FF;
+@darkestViolet      : #A291FB;
+@darkestPurple      : #9C8897;
+@darkestPink        : #FF8EDF;
+@darkestBrown       : #D67C1C;
+@darkestGrey        : #EDF0F2;
+@darkestBlack       : #24242A;
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
@@ -320,10 +321,10 @@
 /*--- Colored Text ---*/
 @redTextColor    : @red;
 @orangeTextColor : @orange;
-@yellowTextColor : #B58105; // Yellow text is difficult to read
-@oliveTextColor  : #8ABC1E; // Olive is difficult to read
-@greenTextColor  : #1EBC30; // Green is difficult to read
-@tealTextColor   : #10A3A3; // Teal text is difficult to read
+@yellowTextColor : #B58105;
+@oliveTextColor  : #8ABC1E;
+@greenTextColor  : #1EBC30;
+@tealTextColor   : #10A3A3;
 @blueTextColor   : @blue;
 @violetTextColor : @violet;
 @purpleTextColor : @purple;
@@ -853,7 +854,7 @@
 
 /*---  Emotive  ---*/
 @positiveColorFocus       : @positiveColor;
-@negativeColorFocus       : @negativeColor;
+@negativeColorFocus       : var(--alert-900);
 
 /*---  Brand   ---*/
 @facebookFocusColor       : @facebookColor;
@@ -913,8 +914,8 @@
 @lightBlackDown          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorDown       : @positiveColor;
-@negativeColorDown       : @negativeColor;
+@positiveColorDown       : var(--success-900);
+@negativeColorDown       : var(--alert-900);
 
 /*---  Brand   ---*/
 @facebookDownColor       : @facebookColor;
@@ -974,8 +975,8 @@
 @lightBlackActive          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorActive       : @positiveColor;
-@negativeColorActive       : @negativeColor;
+@positiveColorActive       : var(--success-900);
+@negativeColorActive       : var(--alert-900);
 
 /*---  Brand   ---*/
 @facebookActiveColor       : @facebookColor;

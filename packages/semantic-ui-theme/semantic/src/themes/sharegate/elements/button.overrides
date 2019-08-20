@@ -118,6 +118,24 @@
     box-shadow: 0px 0px 0px @basicBorderSize @secondaryColor50 inset;
 }
 
+.ui.disabled.button.positive,
+.ui.disabled.button.positive,
+.ui.button.positive:disabled,
+.ui.disabled.button.positive:hover,
+.ui.disabled.positive.active.button {
+    background-color: var(--success-100)!important;
+    color: @white!important;
+}
+
+.ui.disabled.button.negative,
+.ui.disabled.button.negative,
+.ui.button.negative:disabled,
+.ui.disabled.button.negative:hover,
+.ui.disabled.negative.active.button {
+    background-color: var(--alert-100)!important;
+    color: @white!important;
+}
+
 .ui.buttons .disabled.button.basic.primary,
 .ui.disabled.button.basic.primary,
 .ui.button.basic.primary:disabled,
@@ -276,4 +294,11 @@
 .ui.basic.buttons .button.icon:active svg,
 .ui.basic.button.icon:active svg{
     fill: @white!important;
+}
+
+/* Visual regression utility class */
+
+.ui.loading.paused.button:before,
+.ui.loading.paused.button:after {
+    animation: none;
 }
