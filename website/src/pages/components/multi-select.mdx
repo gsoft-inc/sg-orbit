@@ -72,7 +72,6 @@ import { noop } from "lodash";
             items={[multiSelectItem("Created", "Group Created"), multiSelectItem("Restored", "Group Restored"), multiSelectItem("Deleted", "Group Deleted"), multiSelectItem("Name Changed", "Group Name Changed"), multiSelectItem("Privacy Changed", "Group Privacy Changed")]}
             onSearch={(event, items, query) => {
                 const surpriseItem = multiSelectItem("Surprise! (a wild Pokemon appears)", "surprise");
-
                 return [surpriseItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
             }}
             onValuesChange={noop}
