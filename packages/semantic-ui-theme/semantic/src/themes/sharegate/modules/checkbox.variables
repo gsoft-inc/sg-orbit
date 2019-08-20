@@ -5,7 +5,6 @@
 @checkboxSize: 20px;
 @checkboxColor: @textColor;
 @checkboxLineHeight: @checkboxSize;
-@bulletTop: 2px;
 
 /* Label */
 @labelDistance: 1.75em;
@@ -16,11 +15,10 @@
 @checkboxBorder: 1px solid @cloud200;
 @checkboxBorderRadius: @3px;
 @checkboxTransition:
-  border @defaultDuration @defaultEasing,
-  opacity @defaultDuration @defaultEasing,
-  transform @defaultDuration @defaultEasing,
-  box-shadow @defaultDuration @defaultEasing
-;
+    border @defaultDuration @defaultEasing,
+    opacity @defaultDuration @defaultEasing,
+    transform @defaultDuration @defaultEasing,
+    box-shadow @defaultDuration @defaultEasing;
 
 @checkboxFocusBorderColor: @focusedFormMutedBorderColor;
 @disabledCheckboxOpacity: 1;
@@ -32,7 +30,7 @@
 
 
 /*-------------------
-        States
+    States
 --------------------*/
 
 /* Hover */
@@ -44,12 +42,12 @@
 @checkboxFocusBorderColor: @cloud200;
 
 /* Active */
-@checkboxActiveBackground: @primaryColor;
-@checkboxActiveBorderColor: @primaryColor;
+@checkboxActiveBackground: @primaryColor500;
+@checkboxActiveBorderColor: @primaryColor500;
 
 /* Active Focus */
-@checkboxActiveFocusBackground: @primaryColor;
-@checkboxActiveFocusBorderColor: @primaryColor;
+@checkboxActiveFocusBackground: @primaryColor500;
+@checkboxActiveFocusBorderColor: @primaryColor500;
 
 
 /* Indeterminate */
@@ -69,7 +67,7 @@
 @bulletTop: 0px;
 @bulletScale: (8 / 16); /* 8px as unitless value from radio size */
 
-@bulletColor: @primaryColor;
+@bulletColor: @primaryColor500;
 @radioBackground: @white;
 
 @radioFocusBackground: @radioBackground;
@@ -87,7 +85,7 @@
 @sliderHandleSize: 1.25rem;
 @sliderLineHeight: 0.25rem;
 @sliderLineVerticalOffset: 0.375rem;
-@sliderLineColor: @primaryColor;
+@sliderLineColor: @primaryColor500;
 @sliderHoverLaneBackground: @sliderLineColor;
 @sliderOnLineColor: @sliderLineColor;
 @sliderOnFocusLineColor: @sliderLineColor;
@@ -106,14 +104,14 @@
 @toggleHandleRadius: @circularRadius;
 @toggleHandleOffset: .185rem;
 @toggleHandleTransition:
-  background @sliderTransitionDuration @defaultEasing,
-  left @sliderTransitionDuration @defaultEasing
+    background @sliderTransitionDuration @defaultEasing,
+    left @sliderTransitionDuration @defaultEasing
 ;
 
 /* Slider & Toggle Handle */
 @handleBackground: @white;
 @handleBoxShadow:
-  0 0 0 0 @borderColor inset
+    0 0 0 0 @borderColor inset
 ;
 
 @toggleLaneBackground: var(--cloud-200);
@@ -136,13 +134,13 @@
 @toggleOffHandleBoxShadow: @handleBoxShadow;
 
 @toggleOnLabelColor: @selectedTextColor;
-@toggleOnLaneColor: @primaryColor;
+@toggleOnLaneColor: @primaryColor500;
 
 @toggleOnHandleBoxShadow: @handleBoxShadow;
 
-@toggleOnFocusLaneColor: @primaryColor;
+@toggleOnFocusLaneColor: @primaryColor500;
 @toggleOnFocusLabelColor: @toggleOnLabelColor;
 
 /*-------------------
-      Variations
+    Variations
 --------------------*/
