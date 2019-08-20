@@ -1,5 +1,5 @@
-@import "~@sharegate/css-normalize";
-@import "~@sharegate/foundation";
-@import "~@sharegate/semantic-ui-theme";
-@import "~@sharegate/tachyons";
-@import "~@sharegate/fonts/calibre/font.css";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/semantic-ui-theme";
+@import "~@orbit-ui/tachyons";
+@import "~@orbit-ui/fonts/calibre/font.css";

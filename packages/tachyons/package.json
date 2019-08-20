@@ -1,7 +1,7 @@
 {
-    "name": "@sharegate/tachyons",
-    "version": "3.2.1",
-    "description": "Tachyons customized to follow Sharegate Design Guidelines",
+    "name": "@orbit-ui/tachyons",
+    "version": "0.1.0",
+    "description": "Custom Tachyons for Sharegate Orbit UI",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "license": "Apache-2.0",
     "main": "dist/tachyons.css",
@@ -30,8 +30,8 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
-        "@sharegate/foundation": "*",
-        "@sharegate/css-normalize": "*"
+        "@orbit-ui/foundation": "*",
+        "@orbit-ui/css-normalize": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

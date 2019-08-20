@@ -1,7 +1,6 @@
 {
     "private": true,
-    "name": "sg-brand-website",
-    "description": "Sharegate Orbit components documentation website",
+    "name": "orbit-ui-website",
     "version": "0.1.0",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",

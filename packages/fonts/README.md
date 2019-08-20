@@ -1,4 +1,4 @@
-# @sharegate/fonts
+# @orbit-ui/fonts
 
 ## License
 

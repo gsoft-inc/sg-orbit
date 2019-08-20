@@ -1,4 +1,4 @@
-# @sharegate/react-multi-select
+# @orbit-ui/react-multi-select
 
 ## License
 

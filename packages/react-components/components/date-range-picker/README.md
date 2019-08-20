@@ -1,4 +1,4 @@
-# @sharegate/react-date-range-picker
+# @orbit-ui/react-date-range-picker
 
 ## License
 

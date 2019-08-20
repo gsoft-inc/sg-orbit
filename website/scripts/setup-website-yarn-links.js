@@ -6,12 +6,12 @@ const es = require("../../scripts/ensure-success");
 ////////////////////////////////////////////////////////
 
 const PROJECTS_TO_LINK = [
-    { name: "@sharegate/foundation", path: "packages/foundation" },
-    { name: "@sharegate/css-normalize", path: "packages/css-normalize" },
-    { name: "@sharegate/tachyons", path: "packages/tachyons" },
-    { name: "@sharegate/semantic-ui-theme", path: "packages/semantic-ui-theme" },
-    { name: "@sharegate/react-components", path: "packages/react-components" },
-    { name: "@sharegate/fonts", path: "packages/fonts" }
+    { name: "@orbit-ui/foundation", path: "packages/foundation" },
+    { name: "@orbit-ui/css-normalize", path: "packages/css-normalize" },
+    { name: "@orbit-ui/tachyons", path: "packages/tachyons" },
+    { name: "@orbit-ui/semantic-ui-theme", path: "packages/semantic-ui-theme" },
+    { name: "@orbit-ui/react-components", path: "packages/react-components" },
+    { name: "@orbit-ui/fonts", path: "packages/fonts" }
 ];
 
 console.log(chalk.bold("Creating yarn links for website project..."));

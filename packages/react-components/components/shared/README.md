@@ -1,4 +1,4 @@
-# @sharegate/react-shared
+# @orbit-ui/react-shared
 
 ## License
 

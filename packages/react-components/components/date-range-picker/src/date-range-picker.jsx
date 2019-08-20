@@ -2,7 +2,7 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
-import { ArgumentError, AutoControlledPureComponent, getAutoControlledStateFromProps } from "@sharegate/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
@@ -12,7 +12,7 @@ import { ReactComponent as InputCalendarIcon } from "./assets/icon-input-calenda
 import { ReactComponent as NavNextIcon } from "./assets/icon-nav-next.svg";
 import { ReactComponent as NavPrevIcon } from "./assets/icon-nav-prev.svg";
 import { PRESET_SHAPE } from "./presets";
-import { Popup } from "@sharegate/react-popup";
+import { Popup } from "@orbit-ui/react-popup";
 import { ReactComponent as PresetsCalendarIcon } from "./assets/icon-presets-calendar.svg";
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
