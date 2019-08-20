@@ -94,7 +94,7 @@ import "~@orbit-ui/tachyons";
 
 Orbit UI React components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
 
-When available, you should use a components from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
+When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
@@ -116,7 +116,7 @@ Before installing any React components packages, please install the [core packag
 
 A few options are available...
 
-**Use Orbit's custom Semantic UI theme and Semantic UI React**
+**Don't use any Orbit UI React components**
 
 With NPM:
 
@@ -126,7 +126,7 @@ npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 
 Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
 
-**Use all the Orbit's custom React components**
+**Use all the Orbit UI React components**
 
 With NPM:
 
@@ -136,7 +136,7 @@ npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-compon
 
 Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
 
-**Pick and choose a few Orbit's custom React components**
+**Pick and choose a few Orbit UI React components**
 
 With NPM:
 
