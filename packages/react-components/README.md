@@ -119,7 +119,7 @@ To do so:
 
 ## Babel
 
-The components are transpiled to ES5 compatible code using [babel][https://babeljs.io/]. The [babel configuration](/babel.config.js) is located at the root of the *react-components* package.
+The components are transpiled to ES5 compatible code using [babel](https://babeljs.io/). The [babel configuration](/babel.config.js) is located at the root of the *react-components* package.
 
 The current configuration use [babel-plugin-transform-runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime) to optimize the file size of the components.
 
