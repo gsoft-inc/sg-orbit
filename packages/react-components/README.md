@@ -12,6 +12,8 @@ The following documentation is only for the maintainers of this repository.
 
 Adding a new component package involve a few additional steps to the [Add a new packages to the monorepo](https://github.com/gsoft-inc/sg-brand#add-a-new-packages-to-the-monorepo) procedure. 
 
+### @sharegate/react-components
+
 The package must be available through the *@sharegate/react-components* npm package.
 
 To do so:
@@ -19,6 +21,14 @@ To do so:
 1. Add a dependency to the new npm package in the [package.json](/package.json) file of the *react-components* package. The dependency must match the current version of the new package, otherwise Yarn workspace will fail to create the symlink.
 
 2. Add an export to the [index.js](/src/index.js) file of the *react-components* package.
+
+### Tests
+
+Add specs storybook stories
+
+### Documentation
+
+Add the packages to the documentation
 
 ## Storybook
 
