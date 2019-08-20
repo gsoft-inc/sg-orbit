@@ -1,46 +1,60 @@
 /*******************************
-         Site Overrides
+        Site Overrides
 *******************************/
 
-// border-box is necessary in order for the radio to be centered everywhere
+/* border-box is necessary in order for the radio to be centered everywhere */
+
 .ui.radio.checkbox label:before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):checked ~ label:before {
+.ui.checkbox input:checked ~ .box:before,
+.ui.checkbox input:checked ~ label:before,
+.ui.checkbox input:checked:focus ~ .box:before,
+.ui.checkbox input:checked:focus ~ label:before {
     background: @primaryColor500 url("@{iconsPath}/checkmark.svg") center center no-repeat;
     background-size: 12px 8px;
 }
 
-.ui.checkbox:not(.toggle) input:not([type=radio]):checked:disabled ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):checked:disabled ~ label:before {
+.ui.checkbox input:checked:disabled ~ .box:before,
+.ui.checkbox input:checked:disabled ~ label:before {
     background: @primaryColor50 url("@{iconsPath}/checkmark.svg") center center no-repeat;
     border-color: @primaryColor50;
 }
 
-.ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ .box:before, .ui.checkbox:not(.toggle) input:not([type=radio]):indeterminate:focus ~ label:before {
+.ui.checkbox input:indeterminate:focus ~ .box:before, .ui.checkbox input:indeterminate:focus ~ label:before {
     background: @white url("@{iconsPath}/checkmark.svg") center center no-repeat;
     background-size: 12px 8px;
 }
 
-.ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ .box:before, .ui.checkbox:not(.toggle) input:checked:not([type=radio]):focus ~ label:before {
+.ui.checkbox input:checked:focus ~ .box:before, .ui.checkbox input:checked:focus ~ label:before {
     background-color: @primaryColor500;
 }
 
-.ui.checkbox.indeterminate:not(.toggle) input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate:not(.toggle) input:not([type=radio]) ~ label:before {
+.ui.checkbox.indeterminate input ~ .box:before, .ui.checkbox.indeterminate input ~ label:before {
     background: @white url("@{iconsPath}/bar.svg") center center no-repeat;
     background-size: 8px 2px;
 }
 
-.ui.checkbox.indeterminate:not(.toggle) input:not([type=radio]):disabled ~ .box:before, .ui.checkbox.indeterminate:not(.toggle) input:not([type=radio]):disabled ~ label:before {
+.ui.checkbox.indeterminate input:disabled ~ .box:before, .ui.checkbox.indeterminate input:disabled ~ label:before {
     background: @white url("@{iconsPath}/bar-disabled.svg") center center no-repeat;
     background-size: 8px 2px;
 }
 
-// Toggle
-// Semantic wants a very high toggle but we don't let's position this
+/* Toggle
+/***********/
+/* Semantic wants a very high toggle but we don't, let's position this */
+
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
     top: 3px;
+}
+
+.ui.checkbox.toggle input:checked ~ .box:before,
+.ui.checkbox.toggle input:checked ~ label:before,
+.ui.checkbox.toggle input:checked:focus ~ .box:before,
+.ui.checkbox.toggle input:checked:focus ~ label:before {
+    background-image: none;
 }
 
 .ui.toggle.disabled label::before,
@@ -49,7 +63,8 @@
 .ui.toggle.disabled label:active::before,
 .ui.toggle.disabled label:checked::before,
 .ui.toggle.disabled.checkbox input:focus ~ label:before {
-    background-color: var(--cloud-50);
+    background: var(--cloud-50);
+    border: none!important;
 }
 
 .ui.ui.toggle.checked.disabled label::before,
@@ -58,10 +73,11 @@
 .ui.ui.toggle.checked.disabled label:active::before,
 .ui.ui.toggle.checked.disabled label:checked::before,
 .ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before {
-    background-color: @primaryColor50!important;
+    background: @primaryColor50!important;
 }
 
-.ui.checkbox .box:hover::before, .ui.checkbox label:hover::before {
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before {
     border: 1px solid var(--cloud-200);
 }
 
@@ -89,8 +105,8 @@
     background: @white;
 }
 
-.ui.disabled.checkbox:not(.toggle) .box:after, .ui.disabled.checkbox:not(.toggle) label::before,
-.ui.checkbox:not(.toggle) input[disabled] ~ label::before {
+.ui.disabled.checkbox .box:after, .ui.disabled.checkbox label::before,
+.ui.checkbox input[disabled] ~ label::before {
     background-color: var(--cloud-50);
     border: 1px solid var(--cloud-100);
 }
