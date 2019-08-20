@@ -1,6 +1,7 @@
 {
-    "name": "@sharegate/react-date-range-picker",
-    "version": "0.3.1",
+    "name": "@orbit-ui/react-date-range-picker",
+    "version": "0.1.1",
+    "description": "Sharegate Orbit UI React date range picker component",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -9,9 +10,9 @@
         "access": "public"
     },
     "peerDependencies": {
-        "@sharegate/css-normalize": "*",
-        "@sharegate/semantic-ui-theme": "*",
-        "@sharegate/tachyons": "*",
+        "@orbit-ui/css-normalize": "*",
+        "@orbit-ui/semantic-ui-theme": "*",
+        "@orbit-ui/tachyons": "*",
         "moment": "*",
         "react": "*",
         "react-dom": "*",
@@ -19,8 +20,8 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@sharegate/react-components-shared": "0.2.1",
-        "@sharegate/react-popup": "0.3.1",
+        "@orbit-ui/react-components-shared": "0.1.1",
+        "@orbit-ui/react-popup": "0.1.1",
         "classnames": "*",
         "lodash": "*",
         "prop-types": "*",

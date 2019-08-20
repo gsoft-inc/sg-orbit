@@ -1,5 +1,5 @@
 import { ReactComponent as AddIcon } from "./assets/icon-add.svg";
-import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@sharegate/react-components-shared";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { Button, Dropdown, Label } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
 import { ReactComponent as MagnifierIcon } from "./assets/icon-magnifier.svg";

@@ -1,4 +1,4 @@
-# @sharegate/react-search-input
+# @orbit-ui/react-search-input
 
 ## License
 

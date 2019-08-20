@@ -1,14 +1,14 @@
 {
-  "name": "@sharegate/css-normalize",
-  "version": "0.3.1",
-  "description": "Sharegate CSS normalize",
-  "repository": "https://github.com/gsoft-inc/sg-brand.git",
-  "author": "Groupe Sharegate inc.",
-  "license": "Apache-2.0",
-  "main": "src/normalize.css",
-  "style": "src/normalize.css",
-  "publishConfig": {
-    "access": "public"
-  },
-  "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
+    "name": "@orbit-ui/css-normalize",
+    "version": "0.1.1",
+    "description": "Sharegate Orbit UI CSS normalize",
+    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "src/normalize.css",
+    "style": "src/normalize.css",
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

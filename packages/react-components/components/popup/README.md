@@ -1,4 +1,4 @@
-# @sharegate/react-popup
+# @orbit-ui/react-popup
 
 ## License
 

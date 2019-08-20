@@ -1,4 +1,4 @@
-# @sharegate
+# @orbit-ui/tachyons
 
 Tachyons CSS customized for Sharegate Design Guidelines. The main differentiators being that you can easily override the default values of Tachyons by importing CSS "config" files and a spacing scale based on 10. 
 

@@ -1,4 +1,4 @@
-# @sharegate/react-components
+# @orbit-ui/react-components
 
 This package is a bundle of all the Sharegate Orbit React components.
 
@@ -12,9 +12,9 @@ The following documentation is only for the maintainers of this repository.
 
 Adding a new component package involve a few additional steps to the [Add a new packages to the monorepo](https://github.com/gsoft-inc/sg-brand#add-a-new-packages-to-the-monorepo) procedure. 
 
-### @sharegate/react-components
+### @orbit-ui/react-components
 
-The package must be available through the *@sharegate/react-components* npm package.
+The package must be available through the *@orbit-ui/react-components* npm package.
 
 To do so:
 
@@ -68,22 +68,22 @@ You can install components from individual packages or with a global package tha
 To install them individually:
 
 ```
-npm install @sharegate/react-date-range-picker
+npm install @orbit-ui/react-date-range-picker
 
 ...
 
-import { DateRangePicker } from @sharegate/react-date-range-picker
+import { DateRangePicker } from @orbit-ui/react-date-range-picker
 
 ```
 
 To install all of them with a single package
 
 ```
-npm install @sharegate/react-components
+npm install @orbit-ui/react-components
 
 ...
 
-import { DateRangePicker } from @sharegate/react-components
+import { DateRangePicker } from @orbit-ui/react-components
 
 ```
 

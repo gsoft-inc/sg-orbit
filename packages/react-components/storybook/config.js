@@ -9,14 +9,14 @@ import { withConsole } from "@storybook/addon-console";
 import { includeComponents, includeTheme } from "./get-storybook-scope";
 import { isChromatic } from "storybook-chromatic";
 
-import "@sharegate/css-normalize";
-import "@sharegate/foundation";
-import "@sharegate/semantic-ui-theme";
-import "@sharegate/tachyons";
+import "@orbit-ui/css-normalize";
+import "@orbit-ui/foundation";
+import "@orbit-ui/semantic-ui-theme";
+import "@orbit-ui/tachyons";
 
 // Custom font makes chromatic inconsistent and cause "false positive".
 if (!isChromatic()) {
-    import("@sharegate/fonts/calibre/font.css");
+    import("@orbit-ui/fonts/calibre/font.css");
 }
 
 import "./style/components-presets.css";

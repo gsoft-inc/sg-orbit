@@ -1,7 +1,7 @@
 {
-    "name": "@sharegate/semantic-ui-theme",
-    "version": "4.2.1",
-    "description": "Semantic UI customized to follow Sharegate brand",
+    "name": "@orbit-ui/semantic-ui-theme",
+    "version": "0.1.1",
+    "description": "Custom Semantic UI theme for Sharegate Orbit UI.",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -24,8 +24,8 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
-        "@sharegate/css-normalize": "*",
-        "@sharegate/foundation": "*"
+        "@orbit-ui/css-normalize": "*",
+        "@orbit-ui/foundation": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

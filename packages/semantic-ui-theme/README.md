@@ -1,4 +1,4 @@
-# @sharegate/semantic-ui-theme
+# @orbit-ui/semantic-ui-theme
 
 ## Consumers
 
@@ -7,14 +7,14 @@
 Install the library from *npm*
 
 ```bash
-npm install @sharegate/semantic-ui-theme --save
+npm install @orbit-ui/semantic-ui-theme --save
 ```
 
 ### Usage
 
 To add a new Semantic UI control in your project...
 
-Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@sharegate/semantic-ui-theme/`.
+Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@orbit-ui/semantic-ui-theme/`.
 
 You should import them in your `main.css`.
 
@@ -22,7 +22,7 @@ You should import them in your `main.css`.
 /* main.css */
 /* ... */
 
-@import "~@sharegate/semantic-ui-theme/button.css";
+@import "~@orbit-ui/semantic-ui-theme/button.css";
 ```
 
 If you want to add the whole theme you can do the following:
@@ -31,7 +31,7 @@ If you want to add the whole theme you can do the following:
 /* main.css */
 /* ... */
 
-@import "~@sharegate/semantic-ui-theme";
+@import "~@orbit-ui/semantic-ui-theme";
 ```
 
 For maintainers installation view the installation section below.
@@ -60,7 +60,7 @@ This means:
 /* main.css */
 /* ... */
 
-@import "~@sharegate/semantic-ui-theme/dist/button.css";
+@import "~@orbit-ui/semantic-ui-theme/dist/button.css";
 ```
 
 ### Development flow

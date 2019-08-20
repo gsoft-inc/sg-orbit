@@ -1,5 +1,5 @@
 
-# @sharegate/css-normalize
+# @orbit-ui/css-normalize
 
 ## TODO:
 
