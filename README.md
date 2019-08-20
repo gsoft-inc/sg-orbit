@@ -62,32 +62,20 @@ If you're building a React app, have a look at the [React Components](#react-com
 
 You can pick and choose the **core** packages to install but you should normally install all of them. Strict *peerDependencies* are defined to ensure that dependent packages are installed together. If a required package is missing during the installation, a warning will be output by your package manager.
 
-To install all the core packages with NPM:
+To install all the core packages with npm:
 
 ```bash
 npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
-Then, somewhere at the root of your application...
-
-In a JS file:
-
-```javascript
-import "@orbit-ui/fonts/calibre/font.css";
-import "@orbit-ui/css-normalize";
-import "@orbit-ui/foundation";
-import "@orbit-ui/semantic-ui-theme";
-import "@orbit-ui/tachyons";
-```
-
-Or a CSS file:
+Then, in your `main.css`:
 
 ```css
-import "~@orbit-ui/fonts/calibre/font.css";
-import "~@orbit-ui/css-normalize";
-import "~@orbit-ui/foundation";
-import "~@orbit-ui/semantic-ui-theme";
-import "~@orbit-ui/tachyons";
+@import "~@orbit-ui/fonts/calibre/font.css";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/semantic-ui-theme";
+@import "~@orbit-ui/tachyons";
 ```
 
 ### React Components
@@ -118,33 +106,33 @@ A few options are available...
 
 **Don't use any Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 **Use all the Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 **Pick and choose a few Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 ## Maintainers
 
