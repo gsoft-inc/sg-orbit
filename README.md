@@ -247,7 +247,7 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 ### Develop a component
 
-The following documentation is a brief overview of the tools and processes involved in the development of a component. For in-depth documentation, please view blabla.
+The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/react-components).
 
 #### Storybook
 
