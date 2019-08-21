@@ -6,6 +6,26 @@
     background: red !important;
 }
 
-.paused:after {
+.paused::after {
+    animation: 0 !important;
+}
+
+.paused::before {
+    animation: 0 !important;
+}
+
+.paused {
+    animation: 0 !important;
+}
+
+.paused > * {
+    animation: 0 !important;
+}
+
+.paused > *::before {
+    animation: 0 !important;
+}
+
+.paused > *::after {
     animation: 0 !important;
 }
