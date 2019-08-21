@@ -147,6 +147,15 @@ stories("/controlled")
                  onDatesChange={logDatesChanged}
              />
     )
+    .add("allow single date selection",
+         () =>
+             <ControlledDateRangePicker
+                 allowSingleDateSelection
+                 //  startDate={null}
+                 //  endDate={null}
+                 onDatesChange={logDatesChanged}
+             />
+    )
     .add("mirrored",
          () =>
              <MirroredDateRangePickers

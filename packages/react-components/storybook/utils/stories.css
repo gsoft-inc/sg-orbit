@@ -1,6 +1,7 @@
 .bg-red {
     background: red !important;
 }
+
 .bg-red-inner > * {
     background: red !important;
 }

@@ -1,5 +1,7 @@
 // @babel/preset-env and @babel/plugin-transform-runtime config has been greetly inspired by: https://github.com/facebook/create-react-app/blob/master/packages/babel-preset-react-app/create.js
 
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
 module.exports = {
     presets: [
         [
@@ -11,10 +13,10 @@ module.exports = {
             }
         ],
         [
-            // TODO: set property "development" when in dev
             "@babel/preset-react",
             {
-                useBuiltIns: true
+                useBuiltIns: true,
+                development: !IS_PRODUCTION
             }
         ]
     ],

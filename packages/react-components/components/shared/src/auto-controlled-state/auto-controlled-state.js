@@ -162,7 +162,7 @@ export class AutoControlledPureComponent extends PureComponent {
             }
 
             if (isUndefined(propTypes)) {
-                throw Error();
+                throw Error(`${AutoControlledPureComponent.name}.ctor - Auto controlled components is missing propTypes`);
             }
 
             // Validate that auto controlled props
