@@ -1,24 +1,27 @@
 # @orbit-ui/tachyons
 
-Tachyons CSS customized for Sharegate Design Guidelines. The main differentiators being that you can easily override the default values of Tachyons by importing CSS "config" files and a spacing scale based on 10. 
+This package is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of *@orbit-ui/foundation* and the spacing scale has been increased to 10.
 
-CSS Variables are not compiled by default, in order to do so please check the package.json file.
-(Changer ça pour expliquer qu'on a différent fichier, dont un pas compilé)
+## Usage
 
-## Getting started
+In your `main.css`, import Tachyons:
 
-Docs can be found at [Tachyons](http://tachyons.io/docs)
-The modules are generally pretty small and thus quick and easy to read. Since this is a fork of Tachyons in some instances the official doc is not exactly the truth, please for the time being open the src css files when in doubt.
+```css
+@import "~@orbit-ui/tachyons";
+```
 
-## Configuration
-
-If you want to override the default variables specified in `tachyons-sg` (for instance, changing the color of the `--primary` variable), simply redeclare the variables in a `:root` css class.
+You can use it as-is or override the default variables by simply redeclaring the variables in a `:root` CSS class.
 
 ``` css
 :root {
     --primary: #c63a0c;
 }
 ```
+
+For more information:
+
+https://sg-orbit.netlify.com
+http://tachyons.io/docs
 
 ## License
 

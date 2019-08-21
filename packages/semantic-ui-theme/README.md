@@ -1,77 +1,27 @@
 # @orbit-ui/semantic-ui-theme
 
-## Consumers
+## Usage
 
-### Installation
+In your `main.css`:
 
-Install the library from *npm*
-
-```bash
-npm install @orbit-ui/semantic-ui-theme --save
-```
-
-### Usage
-
-To add a new Semantic UI control in your project...
-
-Make sure you add all the Semantic UI *CSS* files required by the control. Those file will be located in `@orbit-ui/semantic-ui-theme/`.
-
-You should import them in your `main.css`.
+Import specific Semantic UI modules:
 
 ```css
-/* main.css */
-/* ... */
-
 @import "~@orbit-ui/semantic-ui-theme/button.css";
+@import "~@orbit-ui/semantic-ui-theme/checkbox.css";
 ```
 
-If you want to add the whole theme you can do the following:
+Or import the whole theme:
 
 ```css
-/* main.css */
-/* ... */
-
 @import "~@orbit-ui/semantic-ui-theme";
 ```
 
-For maintainers installation view the installation section below.
-
-For the behavior of your control (the JavaScript) use the official Semantic UI React library. https://react.semantic-ui.com/
-
-### Documentation
-
-For our customization: https://sharegate.github.io/semantic-ui-sg/index.html
-
-For official Semantic UI documentation: https://semantic-ui.com/
-
-For Semantic UI React documentation: https://react.semantic-ui.com/
+https://sg-orbit.netlify.com
 
 ## Maintainers
 
-The following documentation is _only_ for the maintainers of the package.
-
-### Installation
-
-Use the same installation instruction than consumers but for indivual files add a "/dist" folder.
-
-This means:
-
-```css
-/* main.css */
-/* ... */
-
-@import "~@orbit-ui/semantic-ui-theme/dist/button.css";
-```
-
-### Development flow
-
-To start developing, run the following command:
-
-```bash
-npm start
-```
-
-BLABLA
+The following documentation is only for the maintainers of this repository.
 
 ### How to work with Semantic UI 
 
@@ -84,11 +34,11 @@ Semantic UI offer 3 layers of theming:
 
 Customization of Semantic UI should only happens at the **Packaged Theme** layer to ensure we can still benefits from updates.
 
-Our implementation of the `Sharegate Style Guildelines` is located in the packaged theme `sharegate`. You can find it at `semantic/src/themes/sharegate`.
+Our custom theme is located in the theme [sharegate` theme directory](/semantic/src/themes/sharegate).
 
-_Currently, you shouldn't need to create additional packaged theme._
+_Currently, you shouldn't need to create additional theme._
 
-In the `sharegate` theme folder, You will find 2 types of files: `.overrides` and `.variables`.
+In the *sharegate* theme folder, You will find 2 types of files: `.overrides` and `.variables`.
 
 The `.variables` files are used to override the value of existing variables or introduce new variables.
 
@@ -102,10 +52,10 @@ Before you override a selector, you should answer **no** to all the following qu
 Finally ...
 
 You should never do the followings:
-- Update code in `semantic/src/definitions`
-- Update code in `semantic/tasks`
-- Update Semantic UI `default` theme in `semantic/src/themes/default`
-- Use the `Site Theme` layer
+- Update code in [semantic/src/definitions](/semantic/src/definitions)
+- Update code in [semantic/tasks](/semantic/tasks)
+- Update Semantic UI *default* theme in [semantic/src/themes/default](/semantic/src/themes/default)
+- Use the *Site Theme* layer
 
 ## License
 

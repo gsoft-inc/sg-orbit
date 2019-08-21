@@ -4,6 +4,14 @@ This package is a bundle of all the Orbit UI React components.
 
 Individual packages are available in the [components](/components) directory.
 
+## Usage
+
+```javascript
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+```
+
+https://sg-orbit.netlify.com
+
 ## Maintainers
 
 The following documentation is only for the maintainers of this repository.

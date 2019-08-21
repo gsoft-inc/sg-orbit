@@ -16,7 +16,7 @@ import "@orbit-ui/tachyons";
 
 // Custom font makes chromatic inconsistent and cause "false positive".
 if (!isChromatic()) {
-    import("@orbit-ui/fonts/calibre/font.css");
+    import("@orbit-ui/fonts");
 }
 
 import "./style/components-presets.css";

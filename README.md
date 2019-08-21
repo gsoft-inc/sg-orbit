@@ -56,38 +56,26 @@ If you're building a React app, have a look at the [React Components](#react-com
 - [@orbit-ui/css-normalize](/packages/css-normalize): is Orbit UI custom CSS reset for Edge, Chrome, Firefox and Safari.
 - [@orbit-ui/fonts](/packages/fonts): contains the fonts for Orbit UI.
 - [@orbit-ui/foundation](/packages/foundation): is a set of CSS variables for Orbit UI colors, spacing and typography.
-- [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of *@orbit-ui/foundation* and the spacing scale has been increased to 10.
+- [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons).
 
 #### Installation
 
 You can pick and choose the **core** packages to install but you should normally install all of them. Strict *peerDependencies* are defined to ensure that dependent packages are installed together. If a required package is missing during the installation, a warning will be output by your package manager.
 
-To install all the core packages with NPM:
+To install all the core packages with npm:
 
 ```bash
 npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
-Then, somewhere at the root of your application...
-
-In a JS file:
-
-```javascript
-import "@orbit-ui/fonts/calibre/font.css";
-import "@orbit-ui/css-normalize";
-import "@orbit-ui/foundation";
-import "@orbit-ui/semantic-ui-theme";
-import "@orbit-ui/tachyons";
-```
-
-Or a CSS file:
+Then, in your `main.css`:
 
 ```css
-import "~@orbit-ui/fonts/calibre/font.css";
-import "~@orbit-ui/css-normalize";
-import "~@orbit-ui/foundation";
-import "~@orbit-ui/semantic-ui-theme";
-import "~@orbit-ui/tachyons";
+@import "~@orbit-ui/fonts";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/semantic-ui-theme";
+@import "~@orbit-ui/tachyons";
 ```
 
 ### React Components
@@ -118,33 +106,33 @@ A few options are available...
 
 **Don't use any Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 **Use all the Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 **Pick and choose a few Orbit UI React components**
 
-With NPM:
+With npm:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
 ```
 
-Then, view usage on the [documentation website](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 ## Maintainers
 
@@ -188,7 +176,7 @@ So why do we use Lerna if Yarn workspace take care of everything?
 
 Lerna workflow greatly facilitate the release of the packages of a monorepo. 
 
-For more information, view the following Lerna commands documentation:
+For more information, read the following Lerna commands documentation:
 
 - [version](https://github.com/lerna/lerna/tree/master/commands/version)
 - [publish](https://github.com/lerna/lerna/tree/master/commands/publish)
@@ -247,7 +235,7 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 ### Develop a component
 
-The following documentation is a brief overview of the tools and processes involved in the development of a component. For in-depth documentation, please view blabla.
+The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/react-components).
 
 #### Storybook
 
@@ -257,7 +245,7 @@ Storybook is a convenient sandbox that help the developpers write organized and 
 
 The resulting Storybook *playbook* will represent a catalog of all the Sharegate design system components and will be available online for the design team.
 
-For more informations about automated visual tests, view the [Testings](#testing) section.
+For more informations about automated visual tests, read the [Testings](#testing) section.
 
 #### Start developing
 
@@ -305,14 +293,12 @@ yarn start:website
 
 Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the website accordingly.
 
-For more information about the development of the website view blabla..
-
 ### Release the packages
 
 Releasing the packages includes several steps:
 
 1. Compile the packages code for production
-2. Identifies packages that have been updated since the previous release (View the [Lerna](#lerna) section.)
+2. Identifies packages that have been updated since the previous release (Read the [Lerna](#lerna) section.)
 3. Bump the version of the identified packages
 4. Modifies package metadata to reflect new release
 5. Publish the packages to npm
@@ -350,7 +336,7 @@ If the packages failed to compile, it's easier to debug without executing the fu
 yarn build:pkg
 ```
 
-By default, packages compilation output will be in their respective *dist* directory. For more details, view the specific packages README file.
+By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
 
 ### Release Storybook
 
@@ -393,7 +379,7 @@ If the packages failed to compile you can build the packages without executing t
 yarn build:sb
 ```
 
-The output will be available in the *packages/react-components/storybook/dist* directory. For more details, view the specific packages README file.
+The output will be available in the *packages/react-components/storybook/dist* directory. For more details, read the packages README file.
 
 ### Release the website
 
@@ -609,7 +595,7 @@ yarn lint
 
 #### chromatic
 
-Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, view the [Testing](#testing) section.
+Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, read the [Testing](#testing) section.
 
 ```bash
 yarn chromatic
@@ -643,7 +629,7 @@ Visual testing can also easily perform cross-browsers testing.
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
 
-To understand how to write Storybook stories for Chromatic QA, view the [react-components documentation](/packages/react-components/README.md).
+To understand how to write Storybook stories for Chromatic QA, read the [react-components documentation](/packages/react-components/README.md).
 
 For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
 
@@ -666,7 +652,7 @@ On every commits the CI will execute the linters.
 
 Once per night, the CI will execute the automated visual tests. Those tests can't be executed on every commits since visual test snapshots are pricy and limited.
 
-For more information on the automated visual tests, view the [Testing](#testing) section.
+For more information on the automated visual tests, read the [Testing](#testing) section.
 
 #### Troubleshooting
 
@@ -730,7 +716,7 @@ If the package is consumed by the website, add the package to the [setup-website
 
 #### React components
 
-If you're package is a new React component, please read the following blabla.
+If you're package is a new React component, please read the [React components documentation](/packages/react-components)
 
 ### Add a new Yarn script
 
@@ -794,17 +780,9 @@ Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache 
 
 # TODO
 
-- Doc une page packages à la Babel: https://github.com/babel/babel/blob/master/packages/README.md
-
 - Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
 
-- Deprecate old packages (semantic-ui-sg, tachyons-sg, sg-brand-foundation)
-
 - Inclure la "files" property dans les package.json
-
-- Hookify components
-
-- Some sort of intellisense? Like typescript types?
 
 - Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
 
