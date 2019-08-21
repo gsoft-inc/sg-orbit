@@ -778,19 +778,3 @@ The Storybook configuration doesn't load the *Calibre* custom font if the app is
 
 Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
 
-# TODO
-
-- Hot reload doesn't seem to work anymore with storybook? Maybe it's the update to the babel config of the components? Maybe the update to storybook?
-
-- Inclure la "files" property dans les package.json
-
-- Prendre la dernière version de Apricot pour remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3118)
-
-- Prendre l'ajout du onBlur pour le remote-search-input (https://dev.azure.com/sharegate/Sharegate.Gravt/_git/Sharegate.Gravt/pullrequest/3661?_a=files&path=%2Fsrc%2Ffrontend%2Fclient%2Fsrc%2Fapp%2Fcomponents%2Fsearch-input%2Fremote-search-input.jsx)
-
-  Et en profiter pour l'ajouter aussi pour le SearchInput non remote.
-
-- Delete custom script sto copy LICENSE when released: https://github.com/lerna/lerna/commit/d410a58e3039ea7db0ad6f6d50f33b2024cda709
-
-- Babel - compile for production
-
