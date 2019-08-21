@@ -1,10 +1,6 @@
 # @orbit-ui/semantic-ui-theme
 
-## Consumers
-
-https://sg-orbit.netlify.com
-
-### Installation
+## Installation
 
 Install the library with *npm*:
 
@@ -12,7 +8,9 @@ Install the library with *npm*:
 npm install @orbit-ui/semantic-ui-theme
 ```
 
-Then, in your `main.css`:
+## Usage
+
+In your `main.css`:
 
 You can add specific Semantic UI modules:
 
@@ -26,6 +24,8 @@ Or import the whole theme:
 ```css
 @import "~@orbit-ui/semantic-ui-theme";
 ```
+
+https://sg-orbit.netlify.com
 
 ## Maintainers
 

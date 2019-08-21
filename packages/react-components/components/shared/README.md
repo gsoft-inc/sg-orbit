@@ -2,6 +2,16 @@
 
 ## Usage
 
+```javascript
+import { AutoControlledPureComponent, ... } from "@orbit-ui/react-components-shared";
+```
+
+Or
+
+```javascript
+import { AutoControlledPureComponent, ... } from "@orbit-ui/react-components";
+```
+
 https://sg-orbit.netlify.com
 
 ## License

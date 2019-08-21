@@ -2,6 +2,16 @@
 
 ## Usage
 
+```javascript
+import { SearchInput, RemoteSearchInput, searchInputResult } from "@orbit-ui/react-search-input";
+```
+
+Or
+
+```javascript
+import { SearchInput, RemoteSearchInput, searchInputResult } from "@orbit-ui/react-components";
+```
+
 https://sg-orbit.netlify.com
 
 ## License

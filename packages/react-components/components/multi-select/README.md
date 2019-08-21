@@ -2,6 +2,16 @@
 
 ## Usage
 
+```javascript
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select";
+```
+
+Or
+
+```javascript
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-components";
+```
+
 https://sg-orbit.netlify.com
 
 ## License

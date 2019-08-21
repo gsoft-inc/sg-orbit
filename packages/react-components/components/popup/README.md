@@ -2,6 +2,16 @@
 
 ## Usage
 
+```javascript
+import { Popup } from "@orbit-ui/react-popup";
+```
+
+Or
+
+```javascript
+import { Popup } from "@orbit-ui/react-components";
+```
+
 https://sg-orbit.netlify.com
 
 ## License

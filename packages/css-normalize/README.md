@@ -1,9 +1,11 @@
 
 # @orbit-ui/css-normalize
 
-## TODO:
+## Usage
 
-- Transpile with post css based on our browserlistsrc
+```css
+@import "~@orbit-ui/css-normalize";
+```
 
 ## License
 
