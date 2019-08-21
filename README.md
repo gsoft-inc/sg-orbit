@@ -71,7 +71,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-
 Then, in your `main.css`:
 
 ```css
-@import "~@orbit-ui/fonts/calibre/font.css";
+@import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
 @import "~@orbit-ui/foundation";
 @import "~@orbit-ui/semantic-ui-theme";
