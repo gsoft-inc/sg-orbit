@@ -4,3 +4,7 @@
 .bg-red-inner > * {
     background: red !important;
 }
+
+.paused:after {
+    animation: 0 !important;
+}
