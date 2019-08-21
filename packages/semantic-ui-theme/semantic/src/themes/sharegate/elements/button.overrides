@@ -295,10 +295,3 @@
 .ui.basic.button.icon:active svg{
     fill: @white!important;
 }
-
-/* Visual regression utility class */
-
-.ui.loading.paused.button:before,
-.ui.loading.paused.button:after {
-    animation: none;
-}
