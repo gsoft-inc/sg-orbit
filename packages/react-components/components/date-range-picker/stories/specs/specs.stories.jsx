@@ -2,7 +2,7 @@ import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "../../src";
 import { ReactComponent as CustomCalendarIcon } from "./assets/icon-custom-calendar.svg";
 import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
 import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
-import { DEFAULT_DATE, DEFAULT_PRESETS,LAST_WEEK_PRESET, logDatesChanged } from "../shared";
+import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_WEEK_PRESET, logDatesChanged } from "../shared";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
@@ -85,6 +85,50 @@ stories("/date restrictions")
                  startDate={moment(DEFAULT_DATE).add(2, "days")}
                  endDate={moment(DEFAULT_DATE).add(5, "days")}
                  maxDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("selected presets is before min date",
+         () =>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 minDate={moment(LAST_WEEK_PRESET.endDate).add(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("selected presets is after max date",
+         () =>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 maxDate={moment(LAST_WEEK_PRESET.startDate).subtract(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("min date is between the selected presets range",
+         () =>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 minDate={moment(LAST_WEEK_PRESET.startDate).add(3, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("max date is between the selected presets range",
+         () =>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 maxDate={moment(LAST_WEEK_PRESET.endDate).subtract(3, "days")}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
