@@ -56,7 +56,7 @@ If you're building a React app, have a look at the [React Components](#react-com
 - [@orbit-ui/css-normalize](/packages/css-normalize): is Orbit UI custom CSS reset for Edge, Chrome, Firefox and Safari.
 - [@orbit-ui/fonts](/packages/fonts): contains the fonts for Orbit UI.
 - [@orbit-ui/foundation](/packages/foundation): is a set of CSS variables for Orbit UI colors, spacing and typography.
-- [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of *@orbit-ui/foundation* and the spacing scale has been increased to 10.
+- [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons).
 
 #### Installation
 

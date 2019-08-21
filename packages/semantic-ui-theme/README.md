@@ -1,18 +1,10 @@
 # @orbit-ui/semantic-ui-theme
 
-## Installation
-
-Install the library with *npm*:
-
-```bash
-npm install @orbit-ui/semantic-ui-theme
-```
-
 ## Usage
 
 In your `main.css`:
 
-You can add specific Semantic UI modules:
+Import specific Semantic UI modules:
 
 ```css
 @import "~@orbit-ui/semantic-ui-theme/button.css";
