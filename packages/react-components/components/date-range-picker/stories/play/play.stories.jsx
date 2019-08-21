@@ -151,8 +151,8 @@ stories("/controlled")
          () =>
              <ControlledDateRangePicker
                  allowSingleDateSelection
-                 //  startDate={null}
-                 //  endDate={null}
+                 startDate={null}
+                 endDate={null}
                  onDatesChange={logDatesChanged}
              />
     )

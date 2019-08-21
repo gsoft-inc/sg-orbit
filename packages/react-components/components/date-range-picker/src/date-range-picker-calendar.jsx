@@ -293,8 +293,8 @@ export class DateRangePickerCalendar extends PureComponent {
 
                     .calendar :global(.CalendarDay__blocked_calendar:hover),
                     .calendar :global(.CalendarDay__blocked_calendar:focus) {
-                        background: var(--transparent);
-                        color: var(--cloud-400);
+                        background: var(--transparent) !important;
+                        color: var(--cloud-400) !important;
                     }
 
                     .calendar :global(.CalendarDay__selected:hover),

@@ -2,7 +2,7 @@ import { isNil } from "lodash";
 import React, { Component } from "react";
 
 /**
- * Custom stories container that also act as a custom ErrorBoundary because there is some errors that are not handled by Storybook default error boundary.
+ * Custom stories container that also act as a custom ErrorBoundary because there is some errors that are not handled by the Storybook default error boundary.
  */
 export class StoryContainer extends Component {
     state = {
