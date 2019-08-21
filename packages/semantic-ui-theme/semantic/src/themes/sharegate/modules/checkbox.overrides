@@ -31,7 +31,7 @@
     background-color: @primaryColor500;
 }
 
-.ui.checkbox.indeterminate input ~ .box:before, .ui.checkbox.indeterminate input ~ label:before {
+.ui.checkbox.indeterminate input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate input:not([type=radio]) ~ label:before {
     background: @white url("@{iconsPath}/bar.svg") center center no-repeat;
     background-size: 8px 2px;
 }
