@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+    Site Overrides
 *******************************/
 
 .input i.icon {
@@ -27,7 +27,7 @@
     transform: translateY(-50%);
 }
 
-// Search icon
+/* Search icon */
 i.icon.search:before {
     content: "";
     display: block;
@@ -80,6 +80,6 @@ i.icon.delete:before {
 }
 
 .ui.label > .icon {
-  margin: 0!important;
-  margin-left: 8px!important;
+    margin: 0!important;
+    margin-left: 8px!important;
 }
