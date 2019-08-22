@@ -1,7 +1,9 @@
 import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "../../src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_MONTH_PRESET, LAST_WEEK_PRESET, logDatesChanged } from "../shared";
+import { Label } from "semantic-ui-react";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
+import { ShowPresets } from "../components/show-presets";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
@@ -64,10 +66,15 @@ stories()
     )
     .add("presets",
          () =>
-             <DateRangePicker
-                 presets={DEFAULT_PRESETS}
-                 onDatesChange={logDatesChanged}
-             />
+            <>
+                <p>
+                    <ShowPresets presets={DEFAULT_PRESETS} />
+                </p>
+                <DateRangePicker
+                    presets={DEFAULT_PRESETS}
+                    onDatesChange={logDatesChanged}
+                />
+            </>
     )
     .add("selected dates",
          () =>
@@ -80,25 +87,51 @@ stories()
     )
     .add("min date restriction",
          () =>
-             <DateRangePicker
-                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                 onDatesChange={logDatesChanged}
-             />
+            <>
+                <p>
+                    <Label size="small">
+                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
+                    </Label>
+                </p>
+                <DateRangePicker
+                    minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                    onDatesChange={logDatesChanged}
+                />
+            </>
     )
     .add("max date restriction",
          () =>
-             <DateRangePicker
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                 onDatesChange={logDatesChanged}
-             />
+            <>
+                <p>
+                    <Label size="small">
+                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
+                    </Label>
+                </p>
+                <DateRangePicker
+                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                    onDatesChange={logDatesChanged}
+                />
+            </>
     )
     .add("min & max dates restriction",
          () =>
-             <DateRangePicker
-                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                 onDatesChange={logDatesChanged}
-             />
+            <>
+                <p>
+                    <Label size="small">
+                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
+                    </Label>
+                    &nbsp;&nbsp;
+                    <Label size="small">
+                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
+                    </Label>
+                </p>
+                <DateRangePicker
+                    minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                    onDatesChange={logDatesChanged}
+                />
+            </>
+
     )
     .add("allow single date selection",
          () =>
@@ -142,6 +175,15 @@ stories("/controlled")
     .add("null values",
          () =>
              <ControlledDateRangePicker
+                 startDate={null}
+                 endDate={null}
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("allow single date selection",
+         () =>
+             <ControlledDateRangePicker
+                 allowSingleDateSelection
                  startDate={null}
                  endDate={null}
                  onDatesChange={logDatesChanged}

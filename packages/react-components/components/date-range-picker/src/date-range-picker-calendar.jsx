@@ -143,11 +143,13 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     renderPresets() {
-        const { startDate, endDate, presetsComponent, presets, presetsIcon } = this.props;
+        const { startDate, endDate, minDate, maxDate, presetsComponent, presets, presetsIcon } = this.props;
 
         return cloneElement(presetsComponent, {
             startDate,
             endDate,
+            minDate,
+            maxDate,
             onSelectPreset: this.handleSelectPreset,
             presets,
             icon: presetsIcon
@@ -310,6 +312,17 @@ export class DateRangePickerCalendar extends PureComponent {
                     .calendar :global(.CalendarDay__default.CalendarDay__selected):focus {
                         background: var(--primary-500);
                         color: var(--white);
+                    }
+
+                    .calendar :global(.CalendarDay__blocked_calendar.CalendarDay__selected) {
+                        background: var(--primary-500);
+                        color: var(--white);
+                        opacity: 0.6;
+                    }
+
+                    .calendar :global(.CalendarDay__blocked_calendar.CalendarDay__selected_span) {
+                        background: var(--primary-50);
+                        opacity: 0.6;
                     }
 
                     .calendar :global(.DayPickerNavigation_button__disabled #Calendar-Components) {

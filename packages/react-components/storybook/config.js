@@ -40,7 +40,7 @@ if (includeComponents) {
 }
 
 if (includeTheme) {
-    reqTheme = require.context("../stories/semantic-ui-theme", true, /(play|specs).stories.jsx$/);
+    reqTheme = require.context("../stories/semantic-ui-theme", true, /.stories.jsx$/);
 }
 
 function loadStories() {
