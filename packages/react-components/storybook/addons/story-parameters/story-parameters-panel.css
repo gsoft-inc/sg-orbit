@@ -1,0 +1,23 @@
+.story-parameters {
+    padding: 10px 15px;
+}
+
+.story-parameters .parameter {
+    margin-bottom: 5px;
+}
+
+.story-parameters .string-key {
+    font-weight: 700;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.story-parameters .object-key {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.story-parameters pre {
+    margin: 0;
+    padding: 0;
+}
