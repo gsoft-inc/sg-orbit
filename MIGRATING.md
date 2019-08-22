@@ -7,4 +7,5 @@ import @sharegate/semantic-ui-sg/button.css -> @sharegate/semantic-ui-theme/butt
 
 Now foundation must be imported by the consumer, it's not included anymore with tachyons.
 
-Use the new ESLint shared config packages.
+RemoteSearchInput:
+    - resultsFetcher

@@ -19,6 +19,7 @@ export class SearchInput extends AutoControlledPureComponent {
         defaultValue: string,
         onValueChange: func.isRequired,
         onVisibilityChange: func,
+        onBlur: func,
         resultRenderer: func,
         clearOnSelect: bool,
         noResultsMessage: string,
@@ -28,12 +29,14 @@ export class SearchInput extends AutoControlledPureComponent {
         defaultOpen: bool,
         open: bool,
         disabled: bool,
+        autofocus: bool,
         className: string
     };
 
     static defaultProps = {
         minCharacters: 1,
-        debounceDelay: 200
+        debounceDelay: 200,
+        autofocus: false
     };
 
     static autoControlledProps = ["open"];
@@ -82,12 +85,24 @@ export class SearchInput extends AutoControlledPureComponent {
     };
 
     handleBlur = event => {
+        const { onBlur } = this.props;
+
         this.close(event);
+
+        if (!isNil(onBlur)) {
+            onBlur(event);
+        }
     };
 
     handleKeyDown = event => {
+        const { onKeyDown } = this.props;
+
         if (event.keyCode === KEYS.esc) {
             this.close(event);
+        }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event);
         }
     };
 
@@ -112,7 +127,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autoFocus, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -124,6 +139,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 onValueChange={this.handleValueChange}
                 onSearch={this.handleSearch}
                 onBlur={this.handleBlur}
+                onKeyDown={this.handleKeyDown}
                 resultRenderer={resultRenderer}
                 clearOnSelect={clearOnSelect}
                 noResultsMessage={noResultsMessage}
@@ -131,6 +147,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 debounceDelay={debounceDelay}
                 placeholder={placeholder}
                 disabled={disabled}
+                autoFocus={autoFocus}
                 className={className}
             />
         );

@@ -62,6 +62,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onFetchResults: func.isRequired,
         onResults: func,
+        onBlur: func,
+        onKeyDown: func,
         onVisibilityChange: func,
         resultRenderer: func,
         clearOnSelect: bool,
@@ -73,13 +75,15 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         defaultOpen: bool,
         open: bool,
         disabled: bool,
+        autofocus: bool,
         className: string
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200
+        debounceDelay: 200,
+        autoFocus: false
     };
 
     static autoControlledProps = ["open"];
@@ -126,14 +130,26 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleBlur = event => {
+        const { onBlur } = this.props;
+
         this.cancelFetch();
         this.hideLoading();
         this.close(event);
+
+        if (!isNil(onBlur)) {
+            onBlur(event);
+        }
     };
 
     handleKeyDown = event => {
+        const { onKeyDown } = this.props;
+
         if (event.keyCode === KEYS.esc) {
             this.close(event);
+        }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event);
         }
     };
 
@@ -235,7 +251,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autoFocus, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -256,6 +272,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 disabled={disabled}
                 loading={isLoading}
+                autoFocus={autoFocus}
                 className={className}
             />
         );

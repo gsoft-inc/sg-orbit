@@ -29,6 +29,15 @@ stories()
                  onValueChange={logValueChanged}
                  onSearch={noop}
              />
+    )
+    .add("autofocus",
+         () =>
+             <SearchInputController
+                 autoFocus
+                 results={DEFAULT_RESULTS}
+                 onValueChange={logValueChanged}
+                 onSearch={noop}
+             />
     );
 
 stories("/loading/closed")
