@@ -1,5 +1,5 @@
 import { PureComponent, createRef } from "react";
-import { bool, func, string } from "prop-types";
+import { any, bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 
 const KEYS = {
@@ -14,7 +14,8 @@ export class Popup extends PureComponent {
         top: string,
         bottom: string,
         left: string,
-        right: string
+        right: string,
+        children: any.isRequired
     };
 
     _containerRef = createRef();

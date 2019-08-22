@@ -101,6 +101,7 @@
         "react": "16.9.0",
         "react-dates": "20.3.0",
         "react-dom": "16.9.0",
+        "react-spring": "8.0.27",
         "rimraf": "3.0.0",
         "semantic-ui": "2.4.2",
         "semantic-ui-react": "0.87.3",

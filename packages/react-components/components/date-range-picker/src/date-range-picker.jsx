@@ -8,6 +8,7 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
+import { FadeIn } from "./slide-in-top";
 import { ReactComponent as InputCalendarIcon } from "./assets/icon-input-calendar.svg";
 import { ReactComponent as NavNextIcon } from "./assets/icon-nav-next.svg";
 import { ReactComponent as NavPrevIcon } from "./assets/icon-nav-prev.svg";
@@ -249,11 +250,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
             <div className={this.getCssClasses()}>
                 {this.renderInput()}
                 <If condition={!disabled}>
-                    <div className="relative z-2">
+                    <FadeIn active={open} className="relative z-2">
                         <Popup visible={open} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
                             <div ref={this._containerRef}>{this.renderCalendar()}</div>
                         </Popup>
-                    </div>
+                    </FadeIn>
                 </If>
             </div>
         );
