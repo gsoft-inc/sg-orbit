@@ -88,7 +88,7 @@ export class DateRangePickerPresets extends PureComponent {
         const { minDate, maxDate } = this.props;
 
         if (!isNil(minDate) || !isNil(maxDate)) {
-            return this.isDayBlocked(preset.startDate) && this.isDayBlocked(preset.endDate);
+            return this.isDayBlocked(preset.startDate) || this.isDayBlocked(preset.endDate);
         }
 
         return false;
