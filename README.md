@@ -672,8 +672,6 @@ There is a few steps to add a new packages to the monorepo.
 
 Before you add a new package, please read the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name).
 
-When ready, proceed to the next step.
-
 #### Create the package
 
 First, create a new folder matching the package name in the [packages](/packages) directory.
