@@ -23,10 +23,11 @@
         "build:transpile:minify": "tachyons src/tachyons.css --minify > dist/tachyons.legacy.min.css",
         "watch": "watch \"yarn build:edge:css\" ./src/",
         "clean": "yarn clear-dist",
-        "prepublishOnly": "yarn build",
+        "prepublishOnly": "run-s build copy-license-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
-        "copy-to-dist": "node scripts/copy-to-dist"
+        "copy-to-dist": "node scripts/copy-to-dist",
+        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
