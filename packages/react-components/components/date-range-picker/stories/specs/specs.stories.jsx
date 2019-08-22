@@ -2,9 +2,7 @@ import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "../../src";
 import { ReactComponent as CustomCalendarIcon } from "./assets/icon-custom-calendar.svg";
 import { ReactComponent as CustomClearIcon } from "./assets/icon-custom-clear.svg";
 import { ReactComponent as CustomPrevNextIcon } from "./assets/icon-custom-prev-next.svg";
-import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_WEEK_PRESET, logDatesChanged } from "../shared";
-import { Label } from "semantic-ui-react";
-import { ShowPresets } from "../components/show-presets";
+import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_WEEK_PRESET, logDatesChanged, toStoryParametersPresets } from "../shared";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
 
@@ -19,31 +17,31 @@ function stories(segment) {
 stories("/presets")
     .add("opened",
          () =>
-            <>
-                <p>
-                    <ShowPresets presets={DEFAULT_PRESETS} />
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("selected",
          () =>
-            <>
-                <p>
-                    <ShowPresets presets={DEFAULT_PRESETS} />
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    startDate={LAST_WEEK_PRESET.startDate}
-                    endDate={LAST_WEEK_PRESET.endDate}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     );
 
 stories("/today")
@@ -58,209 +56,155 @@ stories("/today")
 stories("/date restrictions")
     .add("opened & min date",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    minDate={moment(DEFAULT_DATE)}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-             </>
+             <DateRangePicker
+                 minDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+             }
+         }
     )
     .add("opened & max date",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     )
     .add("opened & min & max dates",
          () =>
-            <>
-                <p>
-                    <div className="flex items-center">
-                        <div className="mr1">
-                            <Label size="small">
-                                Min Date:<Label.Detail>{moment(DEFAULT_DATE).format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                        <div>
-                            <Label size="small">
-                                Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                    </div>
-                </p>
-                <DateRangePicker
-                    minDate={moment(DEFAULT_DATE)}
-                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 minDate={moment(DEFAULT_DATE)}
+                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     )
     .add("selected range is before min date",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    startDate={moment(DEFAULT_DATE).subtract(5, "days")}
-                    endDate={moment(DEFAULT_DATE).subtract(2, "days")}
-                    minDate={moment(DEFAULT_DATE)}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
-
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE).subtract(5, "days")}
+                 endDate={moment(DEFAULT_DATE).subtract(2, "days")}
+                 minDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+             }
+         }
     )
     .add("selected range is after max date",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    startDate={moment(DEFAULT_DATE).add(2, "days")}
-                    endDate={moment(DEFAULT_DATE).add(5, "days")}
-                    maxDate={moment(DEFAULT_DATE)}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE).add(2, "days")}
+                 endDate={moment(DEFAULT_DATE).add(5, "days")}
+                 maxDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 maxDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+             }
+         }
     )
     .add("selected presets is before min date",
          () =>
-            <>
-                <p>
-                    <div className="flex items-start">
-                        <div className="mr1">
-                            <ShowPresets presets={DEFAULT_PRESETS} />
-                        </div>
-                        <div>
-                            <Label size="small">
-                                Min Date:<Label.Detail>{moment(LAST_WEEK_PRESET.endDate).add(1, "days").format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                    </div>
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    startDate={LAST_WEEK_PRESET.startDate}
-                    endDate={LAST_WEEK_PRESET.endDate}
-                    minDate={moment(LAST_WEEK_PRESET.endDate).add(1, "days")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 minDate={moment(LAST_WEEK_PRESET.endDate).add(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(LAST_WEEK_PRESET.endDate).add(1, "days").format("MMMM Do YYYY"),
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("selected presets is after max date",
          () =>
-            <>
-                <p>
-                    <div className="flex items-start">
-                        <div className="mr1">
-                            <ShowPresets presets={DEFAULT_PRESETS} />
-                        </div>
-                        <div>
-                            <Label size="small">
-                                Max Date:<Label.Detail>{moment(LAST_WEEK_PRESET.startDate).subtract(1, "days").format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                    </div>
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    startDate={LAST_WEEK_PRESET.startDate}
-                    endDate={LAST_WEEK_PRESET.endDate}
-                    maxDate={moment(LAST_WEEK_PRESET.startDate).subtract(1, "days")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 maxDate={moment(LAST_WEEK_PRESET.startDate).subtract(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 maxDate: moment(LAST_WEEK_PRESET.startDate).subtract(1, "days").format("MMMM Do YYYY"),
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("min date is between the selected presets range",
          () =>
-            <>
-                <p>
-                    <div className="flex items-start">
-                        <div className="mr1">
-                            <ShowPresets presets={DEFAULT_PRESETS} />
-                        </div>
-                        <div>
-                            <Label size="small">
-                                Min Date:<Label.Detail>{moment(LAST_WEEK_PRESET.startDate).add(3, "days").format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                    </div>
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    startDate={LAST_WEEK_PRESET.startDate}
-                    endDate={LAST_WEEK_PRESET.endDate}
-                    minDate={moment(LAST_WEEK_PRESET.startDate).add(3, "days")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 minDate={moment(LAST_WEEK_PRESET.startDate).add(3, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(LAST_WEEK_PRESET.startDate).add(3, "days").format("MMMM Do YYYY"),
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("max date is between the selected presets range",
          () =>
-            <>
-                <p>
-                    <div className="flex items-start">
-                        <div className="mr1">
-                            <ShowPresets presets={DEFAULT_PRESETS} />
-                        </div>
-                        <div>
-                            <Label size="small">
-                                Max Date:<Label.Detail>{moment(LAST_WEEK_PRESET.endDate).subtract(3, "days").format("MMMM Do YYYY")}</Label.Detail>
-                            </Label>
-                        </div>
-                    </div>
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    startDate={LAST_WEEK_PRESET.startDate}
-                    endDate={LAST_WEEK_PRESET.endDate}
-                    maxDate={moment(LAST_WEEK_PRESET.endDate).subtract(3, "days")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
-
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 startDate={LAST_WEEK_PRESET.startDate}
+                 endDate={LAST_WEEK_PRESET.endDate}
+                 maxDate={moment(LAST_WEEK_PRESET.endDate).subtract(3, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 maxDate: moment(LAST_WEEK_PRESET.endDate).subtract(3, "days").format("MMMM Do YYYY"),
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("show current & next month when previous month is blocked",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                    defaultOpen
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     );
 
 stories("/selected dates/closed")

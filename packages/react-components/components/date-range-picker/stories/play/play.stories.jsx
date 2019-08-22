@@ -1,9 +1,7 @@
 import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "../../src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
-import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_MONTH_PRESET, LAST_WEEK_PRESET, logDatesChanged } from "../shared";
-import { Label } from "semantic-ui-react";
+import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAST_6_MONTHS_PRESET, LAST_MONTH_PRESET, LAST_WEEK_PRESET, logDatesChanged, toStoryParametersPresets } from "../shared";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
-import { ShowPresets } from "../components/show-presets";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
 import moment from "moment";
@@ -66,15 +64,15 @@ stories()
     )
     .add("presets",
          () =>
-            <>
-                <p>
-                    <ShowPresets presets={DEFAULT_PRESETS} />
-                </p>
-                <DateRangePicker
-                    presets={DEFAULT_PRESETS}
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 presets={DEFAULT_PRESETS}
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+             }
+         }
     )
     .add("selected dates",
          () =>
@@ -87,51 +85,41 @@ stories()
     )
     .add("min date restriction",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     )
     .add("max date restriction",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                    onDatesChange={logDatesChanged}
-                />
-            </>
+             <DateRangePicker
+                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     )
     .add("min & max dates restriction",
          () =>
-            <>
-                <p>
-                    <Label size="small">
-                        Min Date:<Label.Detail>{moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                    &nbsp;&nbsp;
-                    <Label size="small">
-                        Max Date:<Label.Detail>{moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")}</Label.Detail>
-                    </Label>
-                </p>
-                <DateRangePicker
-                    minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                    maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                    onDatesChange={logDatesChanged}
-                />
-            </>
-
+             <DateRangePicker
+                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+             }
+         }
     )
     .add("allow single date selection",
          () =>
