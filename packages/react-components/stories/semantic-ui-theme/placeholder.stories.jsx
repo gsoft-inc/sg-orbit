@@ -1,5 +1,5 @@
 import { Placeholder, Segment } from "semantic-ui-react";
-import { storiesBuilder } from "../../../storybook/utils/stories-builder";
+import { storiesBuilder } from "../../storybook/utils/stories-builder";
 
 function stories(segment) {
     return storiesBuilder("Semantic-UI-Theme|placeholder")
