@@ -14,7 +14,7 @@
     "scripts": {
         "clean": "rimraf dist",
         "build": "yarn copy-to-dist",
-        "prepublishOnly": "run-s build copy-license-to-dist",
+        "prepublishOnly": "yarn build",
         "copy-to-dist": "node scripts/copy-to-dist"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"

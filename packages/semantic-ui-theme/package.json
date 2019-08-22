@@ -19,7 +19,7 @@
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "prepublishOnly": "run-s build copy-license-to-dist",
+        "prepublishOnly": "yarn build",
         "copy-to-dist": "node scripts/copy-to-dist"
     },
     "peerDependencies": {
