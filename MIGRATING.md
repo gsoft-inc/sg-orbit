@@ -9,3 +9,4 @@ Now foundation must be imported by the consumer, it's not included anymore with 
 
 RemoteSearchInput:
     - resultsFetcher
+    - autoFocus -> autofocus

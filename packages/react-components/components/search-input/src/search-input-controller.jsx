@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { RESULT_SHAPE } from "./results";
@@ -6,11 +6,6 @@ import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
-
-const KEYS = {
-    esc: 27,
-    enter: 13
-};
 
 function defaultResultRenderer({ text }) {
     return <div>{text}</div>;
@@ -36,7 +31,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         loading: bool,
         clearIcon: node,
         disabled: bool,
-        autoFocus: bool,
+        autofocus: bool,
         className: string
     };
 
@@ -49,7 +44,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         loading: false,
         clearIcon: <ClearIcon />,
         disabled: false,
-        autoFocus: false
+        autofocus: false
     };
 
     static autoControlledProps = ["value"];
@@ -319,7 +314,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, autoFocus } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, autofocus } = this.props;
         const { transformedResults, query } = this.state;
 
         return (
@@ -334,7 +329,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     resultRenderer={this.renderResult}
                     results={transformedResults}
                     value={query}
-                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, autoFocus: autoFocus, ref: this._inputRef }}
+                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, autoFocus: autofocus, ref: this._inputRef }}
                     placeholder={placeholder}
                     disabled={disabled}
                     loading={loading && !disabled}

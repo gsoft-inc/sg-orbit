@@ -2,7 +2,7 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
-import { ArgumentError, AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
@@ -18,11 +18,6 @@ import { ReactComponent as PresetsCalendarIcon } from "./assets/icon-presets-cal
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
-
-const KEYS = {
-    enter: 13,
-    space: 32
-};
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {

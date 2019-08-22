@@ -1,18 +1,12 @@
 import { Dropdown, Ref } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
+import { KEYS } from "@orbit-ui/react-components-shared";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
-
-const KEYS = {
-    esc: 27,
-    enter: 13,
-    up: 38,
-    down: 40
-};
 
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {

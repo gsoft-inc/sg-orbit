@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { RESULT_SHAPE } from "./results";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
@@ -7,10 +7,6 @@ import { isNil } from "lodash";
 export function startsWithSearch(items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
 }
-
-const KEYS = {
-    esc: 27
-};
 
 export class SearchInput extends AutoControlledPureComponent {
     static propTypes = {
@@ -127,7 +123,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autoFocus, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -147,7 +143,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 debounceDelay={debounceDelay}
                 placeholder={placeholder}
                 disabled={disabled}
-                autoFocus={autoFocus}
+                autofocus={autofocus}
                 className={className}
             />
         );

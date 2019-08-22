@@ -33,7 +33,7 @@ stories()
     .add("autofocus",
          () =>
              <SearchInputController
-                 autoFocus
+                 autofocus
                  results={DEFAULT_RESULTS}
                  onValueChange={logValueChanged}
                  onSearch={noop}

@@ -1,11 +1,7 @@
-import { AutoControlledPureComponent, InvalidOperationError, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, InvalidOperationError, KEYS, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@orbit-ui/react-components-shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, func, number, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
-
-const KEYS = {
-    esc: 27
-};
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {
@@ -83,7 +79,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         loadingDelay: 150,
         minCharacters: 1,
         debounceDelay: 200,
-        autoFocus: false
+        autofocus: false
     };
 
     static autoControlledProps = ["open"];
@@ -251,7 +247,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autoFocus, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -272,7 +268,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 disabled={disabled}
                 loading={isLoading}
-                autoFocus={autoFocus}
+                autofocus={autofocus}
                 className={className}
             />
         );
