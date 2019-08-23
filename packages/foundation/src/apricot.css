@@ -1,0 +1,26 @@
+@import "./core/index.css";
+
+:root {
+    /* Colors */
+    --apricot-50: #E6F9F7;
+    --apricot-100: #C1F1EB;
+    --apricot-200: #98E8DE;
+    --apricot-300: #6EDFD1;
+    --apricot-400: #30D1BD;
+    --apricot-500: #2BCCB7;
+    --apricot-600: #29C4B1;
+    --apricot-700: #2BBDAA;
+    --apricot-800: #28B5A2;
+    --apricot-900: #28AB9B;
+
+    --primary-50: var(--apricot-50);
+    --primary-100: var(--apricot-100);
+    --primary-200: var(--apricot-200);
+    --primary-300: var(--apricot-300);
+    --primary-400: var(--apricot-400);
+    --primary-500: var(--apricot-500);
+    --primary-600: var(--apricot-600);
+    --primary-700: var(--apricot-700);
+    --primary-800: var(--apricot-800);
+    --primary-900: var(--apricot-900);
+}

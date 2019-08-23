@@ -1,4 +1,1 @@
-@import "./colors.css";
-@import "./shadows.css";
-@import "./spacing-scale.css";
-@import "./type-scale.css";
+@import "./core/index.css";

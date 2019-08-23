@@ -73,7 +73,7 @@ Then, in your `main.css`:
 ```css
 @import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/foundation[/apricot.css|overcast.css|desktop.css]";
 @import "~@orbit-ui/semantic-ui-theme";
 @import "~@orbit-ui/tachyons";
 ```

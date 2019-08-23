@@ -2,8 +2,18 @@
 
 ## Usage
 
+To import foundation core variables:
+
 ```css
 @import "~@orbit-ui/foundation";
+```
+
+To import foundation core variables with the variables specific to a Sharegate product:
+
+```css
+@import "~@orbit-ui/foundation/apricot.css";
+@import "~@orbit-ui/foundation/overcast.css";
+@import "~@orbit-ui/foundation/desktop.css";
 ```
 
 ## License

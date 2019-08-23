@@ -5,13 +5,14 @@
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
-    "main": "src/index.css",
-    "style": "src/index.css",
+    "main": "dist/index.css",
+    "style": "dist/index.css",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
     "scripts": {
+        "start": "yarn copy-to-dist",
         "clean": "rimraf dist",
         "build": "yarn copy-to-dist",
         "prepublishOnly": "run-s build copy-license-to-dist",
