@@ -80,7 +80,7 @@ Then, in your `main.css`:
 
 ### React Components
 
-Orbit UI React components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
+Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
 
 When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
 
@@ -100,11 +100,11 @@ When available, you should use a component from [Semantic UI React](https://reac
 
 #### Installation
 
-Before installing any React components packages, please install the [core packages](#core).
+Before installing any components packages, please install the [core packages](#core).
 
 A few options are available...
 
-**Don't use any Orbit UI React components**
+**Only use the components from Semantic UI React**
 
 With npm:
 
@@ -114,7 +114,7 @@ npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
-**Use all the Orbit UI React components**
+**Use all the Orbit UI components**
 
 With npm:
 
@@ -124,7 +124,7 @@ npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-compon
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
-**Pick and choose a few Orbit UI React components**
+**Hand-pick a few Orbit UI components**
 
 With npm:
 
