@@ -1,5 +1,13 @@
 # @orbit-ui/react-search-input
 
+## Installation
+
+With npm:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-search-input
+```
+
 ## Usage
 
 ```javascript

@@ -119,7 +119,7 @@ Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) a
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
+npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
@@ -129,7 +129,7 @@ Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) a
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
+npm install react-spring  @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
