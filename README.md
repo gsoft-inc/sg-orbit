@@ -129,7 +129,7 @@ Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) a
 With npm:
 
 ```bash
-npm install react-spring  @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
+npm install react-spring @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
@@ -738,7 +738,7 @@ Do:
 
 ```javascript
 "scripts": {
-    "build": "yarn delete && yarn transpile",
+    "build": "run-s delete transpile",
     "delete": "rimraf dist",
     "transpile": "babel src -d dist"
 }
