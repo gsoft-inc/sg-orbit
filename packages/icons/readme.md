@@ -26,7 +26,11 @@ As a CSS background file:
 }
 ```
 
-## Icons Guidelines
+## Maintainers
+
+The following documentation is only for the maintainers of this repository.
+
+### Icons Guidelines
 
 In order to be included in Orbit UI an icon must satisfy the followind guidelines
 
@@ -36,7 +40,7 @@ In order to be included in Orbit UI an icon must satisfy the followind guideline
 - It should be uncoloured, any icon that has many colours or need to be coloured, should be in your solution.
 - When the icon is used in a mono repo component it should live in the icon project, the size and colour rules (1 and 2) don't applies in this case.
 
-## Naming convention
+### Naming convention
 
 - An icon name should describe it's look and not usage. (e.g. trash.svg instead of delete.svg)
 - An icon should always be appended by it's numeric size (e.g. trash-32x32.svg)
