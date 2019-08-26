@@ -11,7 +11,8 @@ const PROJECTS_TO_LINK = [
     { name: "@orbit-ui/tachyons", path: "packages/tachyons" },
     { name: "@orbit-ui/semantic-ui-theme", path: "packages/semantic-ui-theme" },
     { name: "@orbit-ui/react-components", path: "packages/react-components" },
-    { name: "@orbit-ui/fonts", path: "packages/fonts" }
+    { name: "@orbit-ui/fonts", path: "packages/fonts" },
+    { name: "@orbit-ui/icons", path: "packages/icons" }
 ];
 
 console.log(chalk.bold("Creating yarn links for website project..."));

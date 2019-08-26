@@ -5,8 +5,24 @@
     "repository": "https://github.com/gsoft-inc/sg-brand",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
-    "main": "index.js",
+    "main": "dist/index.js",
     "publishConfig": {
         "access": "public"
+    },
+    "scripts": {
+        "start": "yarn watch",
+        "prebuild": "yarn clean",
+        "build": "babel src -d dist --copy-files",
+        "prewatch": "yarn clean",
+        "watch": "yarn build --watch",
+        "clean": "rimraf dist",
+        "prepublishOnly": "cross-env NODE_ENV=production && yarn build"
+    },
+    "peerDependencies": {
+        "react": "*",
+        "react-dom": "*"
+    },
+    "dependencies": {
+        "@babel/runtime-corejs3": "*"
     }
 }

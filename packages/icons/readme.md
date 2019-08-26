@@ -1,6 +1,32 @@
-# Icons Guidelines
+# @orbit-ui/icons
 
-In order to be included in Orbit Icons an icon must satisfy the followind guidelines
+## Usage
+
+As a React component
+
+...
+
+As an svg file
+
+...
+
+## Icons Guidelines
+
+EST-CE QUE NOUS DEVRIONS FORCER LE SUFFIXE ICON?
+
+C'EST P-E PLUS CLAIR DE FAIRE, ET DE CHANGE DE NAME CLASHING:
+
+```javascript
+import { CabinetEmptyIcon } from "@orbit-ui/icons";
+```
+
+QUE
+
+```javascript
+import { CabinetEmpty } from "@orbit-ui/icons";
+```
+
+In order to be included in Orbit UI an icon must satisfy the followind guidelines
 
 - The icon (refered as it from now on), must be available in a small(16x16), medium (24x24) and large(32x32) format when used as an interface icon.
 - It should not be specific to an app, e.g. Azure specific icons.
