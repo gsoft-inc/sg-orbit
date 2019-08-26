@@ -27,14 +27,14 @@ export class DateRangePickerInput extends PureComponent {
         const { onClick } = this.props;
 
         if (!this._clearButtonRef.current.contains(event.target)) {
-            onClick(event);
+            onClick(event, this.props);
         }
     };
 
     handleClear = event => {
         const { onClear } = this.props;
 
-        onClear(event);
+        onClear(event, this.props);
     };
 
     getValue() {

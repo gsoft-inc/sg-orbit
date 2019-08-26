@@ -19,7 +19,7 @@ export class DateRangePickerButtons extends PureComponent {
         const { onClear } = this.props;
 
         if (this.canClear()) {
-            onClear(event);
+            onClear(event, this.props);
         }
     };
 
@@ -27,7 +27,7 @@ export class DateRangePickerButtons extends PureComponent {
         const { onApply } = this.props;
 
         if (this.canApply()) {
-            onApply(event);
+            onApply(event, this.props);
         }
     };
 

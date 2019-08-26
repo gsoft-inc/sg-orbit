@@ -48,9 +48,9 @@ export class DateRangePickerCalendar extends PureComponent {
             if (!isNil(startDate) && !isNil(endDate)) {
                 // By default, when the user select a valid full range then select a date previous to the range, react-dates will extend the current range instead of starting a new one.
                 // It works this way because react-dates doesn't reset the endDate.
-                onDatesChange(startDate, null, null);
+                onDatesChange(startDate, null, null, this.props);
             } else {
-                onDatesChange(startDate, endDate, null);
+                onDatesChange(startDate, endDate, null, this.props);
             }
         } else {
             // Enable selection of a new single date or range when an end date is selected.
@@ -60,7 +60,7 @@ export class DateRangePickerCalendar extends PureComponent {
                 this.resetFocusedInput();
             }
 
-            onDatesChange(startDate, endDate, null);
+            onDatesChange(startDate, endDate, null, this.props);
         }
     };
 
@@ -68,21 +68,21 @@ export class DateRangePickerCalendar extends PureComponent {
         const { onDatesChange } = this.props;
 
         this.resetFocusedInput();
-        onDatesChange(null, null, null);
+        onDatesChange(null, null, null, this.props);
     };
 
     handleApply = event => {
         const { onApply } = this.props;
 
         this.resetFocusedInput();
-        onApply(event);
+        onApply(event, this.props);
     };
 
     handleSelectPreset = (event, preset) => {
         const { onDatesChange } = this.props;
 
         this.resetFocusedInput();
-        onDatesChange(preset.startDate, preset.endDate, preset.text);
+        onDatesChange(preset.startDate, preset.endDate, preset.text, this.props);
     };
 
     resetFocusedInput() {
