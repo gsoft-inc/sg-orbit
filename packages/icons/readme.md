@@ -10,7 +10,7 @@ In order to be included in Orbit Icons an icon must satisfy the followind guidel
 
 ## Naming convention
 
-- An icon (refered as it from now on) name should describe it's look and not usage. (e.g. trash.svg instead of delete.svg)
-- It should always be appended by it's numeric size (e.g. trash-32x32.svg)
+- An icon name should describe it's look and not usage. (e.g. trash.svg instead of delete.svg)
+- An icon should always be appended by it's numeric size (e.g. trash-32x32.svg)
 - If an icon has some states, add it to the file name (e.g. trash-empty-32x32.svg)
 - Although not ideal when an svg has to be coloured add the colour name(refer to sg-brand colour names) after it's name and before it's size (e.g. trash-empty-cloud-300-24x24.svg)
