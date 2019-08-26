@@ -21,6 +21,12 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
         }
     }
 
+    handleChange = event => {
+        const { onChange } = this.props;
+
+        onChange(event, this.props);
+    };
+
     getClasses() {
         const { className } = this.props;
 
@@ -30,11 +36,11 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     }
 
     render() {
-        const { onChange, placeholder, icon } = this.props;
+        const { placeholder, icon } = this.props;
 
         return (
             <Ref innerRef={this._inputRef}>
-                <Input onChange={onChange} placeholder={placeholder} icon iconPosition="left" className={this.getClasses()} autoComplete="off">
+                <Input onChange={this.handleChange} placeholder={placeholder} icon iconPosition="left" className={this.getClasses()} autoComplete="off">
                     <i className="icon">{icon}</i>
                     <input />
                 </Input>

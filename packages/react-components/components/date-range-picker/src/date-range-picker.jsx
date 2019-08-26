@@ -2,12 +2,13 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
-import { ArgumentError, AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
+import { FadeIn } from "./fade-in";
 import { ReactComponent as InputCalendarIcon } from "./assets/icon-input-calendar.svg";
 import { ReactComponent as NavNextIcon } from "./assets/icon-nav-next.svg";
 import { ReactComponent as NavPrevIcon } from "./assets/icon-nav-prev.svg";
@@ -17,11 +18,6 @@ import { ReactComponent as PresetsCalendarIcon } from "./assets/icon-presets-cal
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
-
-const KEYS = {
-    enter: 13,
-    space: 32
-};
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
@@ -128,7 +124,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ endDate: null });
         this.setState({ selectedStartDate: null, selectedEndDate: null, selectedPresetName: null });
 
-        onDatesChange(event, null, null, null);
+        onDatesChange(event, null, null, null, this.props);
     };
 
     handleInputKeyDown = event => {
@@ -162,7 +158,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ startDate: selectedStartDate });
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
 
-        onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName);
+        onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName, this.props);
     };
 
     toggleCalendarVisibility(event) {
@@ -172,7 +168,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: !open });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, !open);
+            onVisibilityChange(event, !open, this.props);
         }
     }
 
@@ -249,11 +245,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
             <div className={this.getCssClasses()}>
                 {this.renderInput()}
                 <If condition={!disabled}>
-                    <div className="relative z-2">
+                    <FadeIn active={open} className="relative z-2">
                         <Popup visible={open} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
                             <div ref={this._containerRef}>{this.renderCalendar()}</div>
                         </Popup>
-                    </div>
+                    </FadeIn>
                 </If>
             </div>
         );

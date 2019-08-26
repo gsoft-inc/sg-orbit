@@ -20,7 +20,7 @@ export class ControlledMultiSelect extends PureComponent {
         onValuesChange(event, values);
     };
 
-    handleVisiblityChange = (event, open) => {
+    handleVisibilityChange = (event, open) => {
         this.setState({ open });
     };
 
@@ -36,7 +36,7 @@ export class ControlledMultiSelect extends PureComponent {
                     items={DEFAULT_ITEMS}
                     values={values}
                     open={open}
-                    onVisiblityChange={this.handleVisiblityChange}
+                    onVisibilityChange={this.handleVisibilityChange}
                     onValuesChange={this.handleValuesChange}
                 />
             </>

@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
 import { RESULT_SHAPE } from "./results";
@@ -6,11 +6,6 @@ import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
-
-const KEYS = {
-    esc: 27,
-    enter: 13
-};
 
 function defaultResultRenderer({ text }) {
     return <div>{text}</div>;
@@ -36,6 +31,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         loading: bool,
         clearIcon: node,
         disabled: bool,
+        autofocus: bool,
         className: string
     };
 
@@ -47,7 +43,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         debounceDelay: 200,
         loading: false,
         clearIcon: <ClearIcon />,
-        disabled: false
+        disabled: false,
+        autofocus: false
     };
 
     static autoControlledProps = ["value"];
@@ -101,14 +98,14 @@ export class SearchInputController extends AutoControlledPureComponent {
             this.setState({ query: selectedResult.text });
         }
 
-        onValueChange(event, selectedResult);
+        onValueChange(event, selectedResult, this.props);
     };
 
     handleSearchChange = (event, data) => {
         this.setState({ query: data.value });
 
         if (!isNil(this.onSearch)) {
-            this.onSearch(event, data.value);
+            this.onSearch(event, data.value, this.props);
         }
     };
 
@@ -121,7 +118,7 @@ export class SearchInputController extends AutoControlledPureComponent {
             }
 
             if (!isNil(onBlur)) {
-                onBlur(event);
+                onBlur(event, this.props);
             }
         };
 
@@ -154,7 +151,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onFocus } = this.props;
 
         if (!isNil(onFocus)) {
-            onFocus(event);
+            onFocus(event, this.props);
         }
     };
 
@@ -172,37 +169,29 @@ export class SearchInputController extends AutoControlledPureComponent {
             case KEYS.esc:
                 this.handleInputEscape(event);
                 break;
-            default:
-                if (!isNil(onKeyDown)) {
-                    onKeyDown(event);
-                }
+        }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event, this.props);
         }
     };
 
     handleInputEnter = event => {
-        const { loading, onKeyDown } = this.props;
+        const { loading } = this.props;
         const { query } = this.state;
 
         if (!loading) {
             if (isNullOrEmpty(query)) {
                 this.clear(event);
-            } else {
-                if (!isNil(onKeyDown)) {
-                    onKeyDown(event);
-                }
             }
         }
     };
 
     handleInputEscape = event => {
-        const { open, onKeyDown } = this.props;
+        const { open } = this.props;
 
         if (open === false) {
             this.clear(event);
-        } else {
-            if (!isNil(onKeyDown)) {
-                onKeyDown(event);
-            }
         }
     };
 
@@ -254,7 +243,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         if (!isNil(value)) {
             this.trySetAutoControlledStateValue({ value: null });
 
-            onValueChange(event, null);
+            onValueChange(event, null, this.props);
         }
     }
 
@@ -286,7 +275,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { renderPropagationFix } = this.state;
 
         return (
-            // prettier-ignore
             <div
                 className={cx("absolute top-0 left-0 w-100 h-100 cursor-text o-0", { dn: !renderPropagationFix })}
                 onFocus={this.handlePropagationFixFocus}
@@ -319,12 +307,11 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, autofocus } = this.props;
         const { transformedResults, query } = this.state;
 
         return (
             <div className="search-input relative w-100">
-                {/* prettier-ignore */}
                 <Search
                     open={open && !disabled}
                     minCharacters={minCharacters}
@@ -335,7 +322,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     resultRenderer={this.renderResult}
                     results={transformedResults}
                     value={query}
-                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, ref: this._inputRef }}
+                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, autoFocus: autofocus, ref: this._inputRef }}
                     placeholder={placeholder}
                     disabled={disabled}
                     loading={loading && !disabled}

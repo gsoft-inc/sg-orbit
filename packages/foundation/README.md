@@ -2,8 +2,18 @@
 
 ## Usage
 
+Import only the core of the foundation:
+
 ```css
 @import "~@orbit-ui/foundation";
+```
+
+Or, import foundation themed for a specific product:
+
+```css
+@import "~@orbit-ui/foundation/apricot.css";
+@import "~@orbit-ui/foundation/overcast.css";
+@import "~@orbit-ui/foundation/desktop.css";
 ```
 
 ## License

@@ -68,19 +68,19 @@ To install all the core packages with npm:
 npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
-Then, in your `main.css`:
+Then, in your `main.css` file:
 
 ```css
 @import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/foundation[/apricot.css|overcast.css|desktop.css]";
 @import "~@orbit-ui/semantic-ui-theme";
 @import "~@orbit-ui/tachyons";
 ```
 
 ### React Components
 
-Orbit UI React components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
+Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
 
 When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
 
@@ -100,11 +100,11 @@ When available, you should use a component from [Semantic UI React](https://reac
 
 #### Installation
 
-Before installing any React components packages, please install the [core packages](#core).
+Before installing any components packages, please install the [core packages](#core).
 
 A few options are available...
 
-**Don't use any Orbit UI React components**
+**Only use the components from Semantic UI React**
 
 With npm:
 
@@ -114,22 +114,22 @@ npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
-**Use all the Orbit UI React components**
+**Use all the Orbit UI components**
 
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
+npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
-**Pick and choose a few Orbit UI React components**
+**Hand-pick a few Orbit UI components**
 
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
+npm install react-spring @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
@@ -160,7 +160,7 @@ For more information on monorepo:
 
 - [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
-- [Google it!](https://www.google.com/search?q=monorepo)
+- [Google](https://www.google.com/search?q=monorepo)
 
 #### Lerna
 
@@ -672,8 +672,6 @@ There is a few steps to add a new packages to the monorepo.
 
 Before you add a new package, please read the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name).
 
-When ready, proceed to the next step.
-
 #### Create the package
 
 First, create a new folder matching the package name in the [packages](/packages) directory.
@@ -740,7 +738,7 @@ Do:
 
 ```javascript
 "scripts": {
-    "build": "yarn delete && yarn transpile",
+    "build": "run-s delete transpile",
     "delete": "rimraf dist",
     "transpile": "babel src -d dist"
 }

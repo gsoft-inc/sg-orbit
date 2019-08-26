@@ -10,7 +10,7 @@ import { includeComponents, includeTheme } from "./get-storybook-scope";
 import { isChromatic } from "storybook-chromatic";
 
 import "@orbit-ui/css-normalize";
-import "@orbit-ui/foundation";
+import "@orbit-ui/foundation/dist/apricot.css";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons";
 

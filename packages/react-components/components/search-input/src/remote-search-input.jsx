@@ -1,11 +1,7 @@
-import { AutoControlledPureComponent, InvalidOperationError, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, InvalidOperationError, KEYS, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@orbit-ui/react-components-shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, func, number, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
-
-const KEYS = {
-    esc: 27
-};
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {
@@ -62,6 +58,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onFetchResults: func.isRequired,
         onResults: func,
+        onBlur: func,
+        onKeyDown: func,
         onVisibilityChange: func,
         resultRenderer: func,
         clearOnSelect: bool,
@@ -73,13 +71,15 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         defaultOpen: bool,
         open: bool,
         disabled: bool,
+        autofocus: bool,
         className: string
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200
+        debounceDelay: 200,
+        autofocus: false
     };
 
     static autoControlledProps = ["open"];
@@ -117,7 +117,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
             this.handleClear(event);
         }
 
-        onValueChange(event, value);
+        onValueChange(event, value, this.props);
     };
 
     handleClear = () => {
@@ -126,14 +126,26 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleBlur = event => {
+        const { onBlur } = this.props;
+
         this.cancelFetch();
         this.hideLoading();
         this.close(event);
+
+        if (!isNil(onBlur)) {
+            onBlur(event, this.props);
+        }
     };
 
     handleKeyDown = event => {
+        const { onKeyDown } = this.props;
+
         if (event.keyCode === KEYS.esc) {
             this.close(event);
+        }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event, this.props);
         }
     };
 
@@ -151,7 +163,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                     let results = await this.fetch(event, query);
 
                     if (!isNil(onResults)) {
-                        results = onResults(results, query);
+                        results = onResults(results, query, this.props);
 
                         if (!isArray(results)) {
                             throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
@@ -180,7 +192,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     fetch(event, query) {
         const { onFetchResults } = this.props;
 
-        const promise = onFetchResults(event, query);
+        const promise = onFetchResults(event, query, this.props);
 
         if (!isPromise(promise)) {
             throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
@@ -217,7 +229,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
     }
 
-    // prettier-ignore
     showLoading = defer(() => { this.setState({ isLoading: true }); }, this.props.loadingDelay);
 
     hideLoading() {
@@ -235,7 +246,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -256,6 +267,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 disabled={disabled}
                 loading={isLoading}
+                autofocus={autofocus}
                 className={className}
             />
         );

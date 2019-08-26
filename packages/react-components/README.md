@@ -18,11 +18,16 @@ The following documentation is only for the maintainers of this repository.
 
 ## Add a new component
 
-Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](https://github.com/gsoft-inc/sg-brand#add-a-new-packages-to-the-monorepo) section. 
+Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../README.md#add-a-new-packages-to-the-monorepo) section. 
 
+- [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
 - [Update the documentation](#update-the-documentation)
 - [Include the component in the bundle](#include-the-component-in-the-bundle)
+
+### Guidelines
+
+Make sur you read and understand the following [guidelines](#component-guidelines) before writing a component.
 
 ### Write storybook stories
 
@@ -124,6 +129,151 @@ To do so:
 1. Add a dependency to the new npm package in the [package.json](/package.json) file of the *react-components* package. The dependency must match the current version of the new package, otherwise Yarn workspace will fail to create the symlink.
 
 2. Add an export to the [index.js](/src/index.js) file of the *react-components* package.
+
+## Component guidelines
+
+Every Orbit UI custom components must share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
+
+### Design
+
+#### Controlled & Auto-controlled
+
+A component should always be develop to offer a [controlled](https://reactjs.org/docs/forms.html) mode usage. However, using a *controlled* component involve a lot of additional code
+for the consumer and a component should as flexible as possible but also painless to use.
+
+That's why a component should also offer an *auto-controlled* mode for some properties.
+
+For more information, view the [auto-controlled-state](/components/shared/src/auto-controlled-state) directory.
+
+#### Composable
+
+Components should be composable and configurable. Sub-components should be exposed from the root component.
+
+Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
+
+```javascript
+// definition
+
+export class DateRangePicker extends AutoControlledPureComponent {
+    static Input = DateRangePickerInput;
+}
+
+// usage
+import { DateRangePicker } from "@orbit-ui/react-date-range-picker";
+
+<DateRangePicker.Input />
+```
+
+#### Derived state
+
+If you need to compute a derived state, prefer using `getDerivedStateFromProps` to `componentDidUpdate`.
+
+#### Event handlers exposed by the component
+
+An event handler prop exposed by a component should always:
+
+- Provide the original Synthetic Event as the first argument.
+- Provide the components props as the last argument.
+
+```javascript
+function MyComponent({ onChange }) {
+    function handleChange(event) {
+        onChange(event, this.props);
+    }
+
+    return (
+        <input ... onChange={this.handleChange} />
+    );
+}
+```
+
+#### Never stop event propagation
+
+A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine wether or not it should handle the event.
+
+For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
+
+#### Anonymous functions
+
+Components shouldn't render anonymous functions.
+
+```javascript
+function MyComponent() {
+    function handleChange() {
+        ...
+    }
+
+    return (
+        <input ... onChange={this.handleChange} />
+    );
+}
+```
+
+For more information, read the following posts:
+
+- http://johnnyji.me/react/2016/06/27/why-arrow-functions-murder-react-performance.html
+- https://www.freecodecamp.org/news/the-best-way-to-bind-event-handlers-in-react-282db2cf1530/
+
+### Development experience
+
+#### Props
+
+All available props should be defined in the root component with [prop-types](https://github.com/facebook/prop-types). For most required props, instead of defining the prop as required with prop-types, you should instead provide a default value.
+
+All default props should be defined in the root component.
+
+### Naming
+
+#### Event handlers props
+
+Event handler props should be prefix by `on` and be in the present tense.
+
+Ex:
+
+- Prefer `onChange` to `onChanged`
+- Prefer `onItemClick` to `onItemClicked`
+
+#### Boolean props
+
+A boolean prop should be prefix with `is`.
+
+The reason behind this is that the Semantic UI React components library use this naming convention and we want a consistent experience between the components.
+
+Ex:
+
+- Prefer `open` to `isOpen`
+- Prefer `disabled` to `isDisabled`
+
+#### Render function props
+
+A function prop that is meant to render React component should be suffixed with `renderer`.
+
+Ex:
+
+- `itemRenderer`
+- `valueRenderer`
+
+#### Prefer simpler props name
+
+When there is no possible *ambiguities*, prefer a simpler prop name.
+
+For example, prefer `icon` to `inputIcon`.
+
+#### Initial values props name
+
+Auto-controlled components will usually expose initial values props. Those props should be prefix with `default`.
+
+Ex:
+
+- `defaultOpen`
+- `defaultStartDate`
+- `defaultValues`
+
+### UX
+
+#### Accessibility
+
+A component should fully support keyboard.
 
 ## Babel
 

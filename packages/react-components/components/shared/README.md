@@ -1,5 +1,13 @@
 # @orbit-ui/react-shared
 
+## Installation
+
+With npm:
+
+```bash
+npm install @orbit-ui/react/shared
+```
+
 ## Usage
 
 ```javascript

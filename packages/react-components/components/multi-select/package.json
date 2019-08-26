@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-multi-select",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Sharegate Orbit UI React multi-select component",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/react-components-shared": "0.1.1",
+        "@orbit-ui/react-components-shared": "0.1.2",
         "classnames": "*",
         "lodash": "*",
         "prop-types": "*"

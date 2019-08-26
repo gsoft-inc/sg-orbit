@@ -1,10 +1,7 @@
+import { KEYS } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
-import { bool, func, string } from "prop-types";
+import { any, bool, func, string } from "prop-types";
 import { isNil } from "lodash";
-
-const KEYS = {
-    esc: 27
-};
 
 export class Popup extends PureComponent {
     static propTypes = {
@@ -14,7 +11,8 @@ export class Popup extends PureComponent {
         top: string,
         bottom: string,
         left: string,
-        right: string
+        right: string,
+        children: any.isRequired
     };
 
     _containerRef = createRef();
@@ -40,7 +38,7 @@ export class Popup extends PureComponent {
 
         if (!this._containerRef.current.contains(event.target)) {
             if (!isNil(onOutsideClick)) {
-                onOutsideClick(event);
+                onOutsideClick(event, this.props);
             }
         }
     };
@@ -50,7 +48,7 @@ export class Popup extends PureComponent {
 
         if (event.keyCode === KEYS.esc) {
             if (!isNil(onEscapeKeyDown)) {
-                onEscapeKeyDown(event);
+                onEscapeKeyDown(event, this.props);
             }
         }
     };

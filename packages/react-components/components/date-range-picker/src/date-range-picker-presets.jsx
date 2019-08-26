@@ -16,7 +16,7 @@ class Preset extends PureComponent {
     handleClick = event => {
         const { preset, onSelectPreset } = this.props;
 
-        onSelectPreset(event, preset);
+        onSelectPreset(event, preset, this.props);
     };
 
     render() {

@@ -66,9 +66,9 @@ export class MultiSelect extends AutoControlledPureComponent {
         values: arrayOf(string),
         defaultValues: arrayOf(string),
         onValuesChange: func.isRequired,
-        dropdown: node,
         onSearch: func,
         onVisibilityChange: func,
+        dropdown: node,
         itemRenderer: func,
         categoryHeaderRenderer: func,
         closeOnSelect: bool,
@@ -145,7 +145,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         const { onSearch } = this.props;
         const { availableItems } = this.state;
 
-        const results = onSearch(event, availableItems, query);
+        const results = onSearch(event, availableItems, query, this.props);
 
         this.setState({ dropdownItems: results });
     };
@@ -173,14 +173,14 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     handleClose = event => {
-        const { onVisiblityChange } = this.props;
+        const { onVisibilityChange } = this.props;
         const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
         this.trySetAutoControlledStateValue({ open: false });
 
-        if (!isNil(onVisiblityChange)) {
-            onVisiblityChange(event, false);
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false, this.props);
         }
     };
 
@@ -195,7 +195,7 @@ export class MultiSelect extends AutoControlledPureComponent {
 
         this.trySetAutoControlledStateValue({ values: newValues }, () => computeDerivedState(items, newValues));
 
-        onValuesChange(event, newValues);
+        onValuesChange(event, newValues, this.props);
     }
 
     validateGrouping() {

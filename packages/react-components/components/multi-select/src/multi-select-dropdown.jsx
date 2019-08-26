@@ -1,18 +1,12 @@
 import { Dropdown, Ref } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
+import { KEYS } from "@orbit-ui/react-components-shared";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
-
-const KEYS = {
-    esc: 27,
-    enter: 13,
-    up: 38,
-    down: 40
-};
 
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
@@ -139,7 +133,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     handleSearchChange = (event, { value }) => {
-        this.onSearch(event, value);
+        this.onSearch(event, value, this.props);
     };
 
     handleItemClick = (event, item) => {
@@ -170,9 +164,7 @@ export class MultiSelectDropdown extends PureComponent {
         this.bindEvents();
         this.setKeyboardItem(null, null);
 
-        if (!isNil(onOpen)) {
-            onOpen(event);
-        }
+        onOpen(event, this.props);
     }
 
     close(event) {
@@ -180,9 +172,7 @@ export class MultiSelectDropdown extends PureComponent {
 
         this.unbindEvents();
 
-        if (!isNil(onClose)) {
-            onClose(event);
-        }
+        onClose(event, this.props);
     }
 
     bindEvents() {
@@ -210,7 +200,7 @@ export class MultiSelectDropdown extends PureComponent {
         setTimeout(() => {
             const selectedItem = items.find(x => x.value === item.value);
 
-            onItemSelect(event, selectedItem);
+            onItemSelect(event, selectedItem, this.props);
         }, 0);
     }
 
@@ -263,7 +253,6 @@ export class MultiSelectDropdown extends PureComponent {
 
         return (
             <Ref innerRef={this._dropdownRef}>
-                {/* prettier-ignore */}
                 <Dropdown
                     open={open}
                     trigger={this.renderTrigger()}

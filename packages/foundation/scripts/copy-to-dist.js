@@ -10,8 +10,8 @@ shell.cp("-Rf", SRC_PATH, DIST_PATH);
 shell.cp("-f", "package.json", "README.md", DIST_PATH);
 
 // Ensure that the "main" file configured in package.json is available.
-shell.mkdir(`${DIST_PATH}/${SRC_PATH}`);
-shell.cp("-Rf", `${SRC_PATH}/*`, `${DIST_PATH}/${SRC_PATH}`);
+shell.mkdir(`${DIST_PATH}/${DIST_PATH}`);
+shell.cp("-Rf", [`${DIST_PATH}/index.css`, `${DIST_PATH}/core`], `${DIST_PATH}/${DIST_PATH}`);
 
 console.log(chalk.green("success"), " foundation src copied to dist folder.");
 

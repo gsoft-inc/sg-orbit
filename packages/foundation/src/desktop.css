@@ -1,0 +1,26 @@
+@import "./core/index.css";
+
+:root {
+    /* Colors */
+    --desktop-50: #FEEEE4;
+    --desktop-100: #FCD5BC;
+    --desktop-200: #FAB990;
+    --desktop-300: #F79D64;
+    --desktop-400: #F68842;
+    --desktop-500: #F47321;
+    --desktop-600: #F36B1D;
+    --desktop-700: #F16018;
+    --desktop-800: #EF5614;
+    --desktop-900: #EC430B;
+
+    --primary-50: var(--desktop-50);
+    --primary-100: var(--desktop-100);
+    --primary-200: var(--desktop-200);
+    --primary-300: var(--desktop-300);
+    --primary-400: var(--desktop-400);
+    --primary-500: var(--desktop-500);
+    --primary-600: var(--desktop-600);
+    --primary-700: var(--desktop-700);
+    --primary-800: var(--desktop-800);
+    --primary-900: var(--desktop-900);
+}

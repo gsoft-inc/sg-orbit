@@ -1,5 +1,13 @@
 # @orbit-ui/react-date-range-picker
 
+## Installation
+
+With npm:
+
+```bash
+npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-range-picker
+```
+
 ## Usage
 
 ```javascript
