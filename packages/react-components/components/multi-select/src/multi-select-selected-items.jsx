@@ -15,7 +15,7 @@ class MultiSelectSelectedItem extends PureComponent {
     handleRemove = event => {
         const { item, onRemove } = this.props;
 
-        onRemove(event, item);
+        onRemove(event, item, this.props);
     };
 
     getClasses() {

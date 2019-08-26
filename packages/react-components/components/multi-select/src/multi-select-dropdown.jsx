@@ -133,7 +133,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     handleSearchChange = (event, { value }) => {
-        this.onSearch(event, value);
+        this.onSearch(event, value, this.props);
     };
 
     handleItemClick = (event, item) => {
@@ -164,9 +164,7 @@ export class MultiSelectDropdown extends PureComponent {
         this.bindEvents();
         this.setKeyboardItem(null, null);
 
-        if (!isNil(onOpen)) {
-            onOpen(event);
-        }
+        onOpen(event, this.props);
     }
 
     close(event) {
@@ -174,9 +172,7 @@ export class MultiSelectDropdown extends PureComponent {
 
         this.unbindEvents();
 
-        if (!isNil(onClose)) {
-            onClose(event);
-        }
+        onClose(event, this.props);
     }
 
     bindEvents() {
@@ -204,7 +200,7 @@ export class MultiSelectDropdown extends PureComponent {
         setTimeout(() => {
             const selectedItem = items.find(x => x.value === item.value);
 
-            onItemSelect(event, selectedItem);
+            onItemSelect(event, selectedItem, this.props);
         }, 0);
     }
 

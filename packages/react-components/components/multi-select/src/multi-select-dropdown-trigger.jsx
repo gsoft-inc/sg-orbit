@@ -11,6 +11,12 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         className: string
     };
 
+    handleClick = event => {
+        const { onClick } = this.props;
+
+        onClick(event, this.props);
+    };
+
     getClasses() {
         const { className } = this.props;
 
@@ -20,11 +26,11 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text, icon, onClick } = this.props;
+        const { text, icon } = this.props;
 
         return (
             <div className="mr2 mb2">
-                <Button secondary onClick={onClick} className={this.getClasses()}>
+                <Button secondary onClick={this.handleClick} className={this.getClasses()}>
                     {text} {icon}
                 </Button>
             </div>

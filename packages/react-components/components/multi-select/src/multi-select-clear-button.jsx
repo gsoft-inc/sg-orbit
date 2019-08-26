@@ -10,6 +10,12 @@ export class MultiSelectClearButton extends PureComponent {
         className: string
     };
 
+    handleClick = event => {
+        const { onClick } = this.props;
+
+        onClick(event, this.props);
+    }
+
     getClasses() {
         const { className } = this.props;
 
@@ -19,10 +25,10 @@ export class MultiSelectClearButton extends PureComponent {
     }
 
     render() {
-        const { text, onClick } = this.props;
+        const { text } = this.props;
 
         return (
-            <Button onClick={onClick} className={this.getClasses()}>
+            <Button onClick={this.handleClick} className={this.getClasses()}>
                 {text}
             </Button>
         );

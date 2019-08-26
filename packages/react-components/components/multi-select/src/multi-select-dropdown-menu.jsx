@@ -20,6 +20,12 @@ export class MultiSelectDropdownMenu extends PureComponent {
         itemWidth: "auto"
     };
 
+    handleItemClick = event => {
+        const { onItemClick } = this.props;
+
+        onItemClick(event, this.props);
+    }
+
     setItemWidth = element => {
         if (!isNil(element)) {
             this.setState({ itemWidth: element.getBoundingClientRect().width });
@@ -58,7 +64,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     }
 
     renderItem(item, key) {
-        const { onItemClick, itemRenderer, keyboardItem } = this.props;
+        const { itemRenderer, keyboardItem } = this.props;
         const { itemWidth } = this.state;
 
         const isSelected = !isNil(keyboardItem) && item.value === keyboardItem.value;
@@ -66,7 +72,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
         return cloneElement(itemRenderer(item, isSelected), {
             key: key,
             style: { minWidth: `${itemWidth}px` },
-            onClick: onItemClick
+            onClick: this.handleItemClick
         });
     }
 

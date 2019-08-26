@@ -170,12 +170,15 @@ If you need to compute a derived state, prefer using `getDerivedStateFromProps` 
 
 #### Event handlers exposed by the component
 
-When a component expose an event handler prop, that prop should always receive the the original Synthetic Event as first argument.
+An event handler prop exposed by a component should always:
+
+- Provide the original Synthetic Event as the first argument.
+- Provide the components props as the last argument.
 
 ```javascript
 function MyComponent({ onChange }) {
     function handleChange(event) {
-        onChange(event);
+        onChange(event, this.props);
     }
 
     return (
@@ -184,7 +187,13 @@ function MyComponent({ onChange }) {
 }
 ```
 
-#### Event handler rendered by the component
+#### Never stop event propagation
+
+A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine wether or not it should handle the event.
+
+For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
+
+#### Anonymous functions
 
 Components shouldn't render anonymous functions.
 
