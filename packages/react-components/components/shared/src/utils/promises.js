@@ -18,7 +18,6 @@ export function cancellablePromise(promise) {
     let isCancelled = false;
 
     const wrappedPromise = new Promise((resolve, reject) => {
-        // prettier-ignore
         promise.then(
             value => isCancelled ? reject({ isCancelled: true }) : resolve(value),
             error => isCancelled ? reject({ isCancelled: true }) : reject(error)

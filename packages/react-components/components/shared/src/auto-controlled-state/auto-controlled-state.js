@@ -52,7 +52,6 @@ function ensureAutoControlledPropsHasNotChanged(newProps, lastProps) {
 
     if (illegaProps.length !== 0) {
         throw new Error(
-            // prettier-ignore
             `ensureAutoControlledPropsHasNotChanged - ${illegaProps.join(",")} were not controlled during the previous rendering. A property cannot switch between "controlled" and "uncontrolled" mode. Did you forgot to set a default value to your controlled prop?`
         );
     }
@@ -209,7 +208,6 @@ export class AutoControlledPureComponent extends PureComponent {
 
         if (isUndefined(autoControlledProps)) {
             throw new Error(
-                // prettier-ignore
                 `${name}.trySetAutoControlledStateValue - "autoControlledProps" are not part of the state. Did you setup "${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps" in "getDerivedStateFromProps" ?`
             );
         }

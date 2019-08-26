@@ -257,7 +257,6 @@ export class MultiSelectDropdown extends PureComponent {
 
         return (
             <Ref innerRef={this._dropdownRef}>
-                {/* prettier-ignore */}
                 <Dropdown
                     open={open}
                     trigger={this.renderTrigger()}

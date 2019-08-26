@@ -93,7 +93,6 @@ export class DateRangePickerInput extends PureComponent {
 
         const value = this.getValue();
 
-        // prettier-ignore
         return <div
             onClick={this.handleClick}
             onKeyDown={onKeyDown}

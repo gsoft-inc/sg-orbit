@@ -254,13 +254,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         return !isEmpty(query) && !disabled;
     }
 
-    // getEventState() {
-    //     return {
-    //         props: this.props,
-    //         state: this.state
-    //     };
-    // }
-
     getInputCssClasses() {
         const { className } = this.props;
 

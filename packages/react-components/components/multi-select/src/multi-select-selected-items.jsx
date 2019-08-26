@@ -52,7 +52,6 @@ export class MultiSelectSelectedItems extends PureComponent {
         const { items, selectedItemRenderer, disabled, className } = this.props;
 
         return items.map(x => {
-            // prettier-ignore
             return <MultiSelectSelectedItem
                 item={x}
                 selectedItemRenderer={selectedItemRenderer}

@@ -132,6 +132,8 @@ To do so:
 
 ## Component guidelines
 
+This is very important that every components of Orbit UI share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
+
 ### Design
 
 #### Controlled & Auto-controlled

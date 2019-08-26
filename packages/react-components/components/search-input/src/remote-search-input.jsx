@@ -229,7 +229,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
     }
 
-    // prettier-ignore
     showLoading = defer(() => { this.setState({ isLoading: true }); }, this.props.loadingDelay);
 
     hideLoading() {

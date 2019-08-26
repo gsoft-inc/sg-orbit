@@ -68,7 +68,7 @@ To install all the core packages with npm:
 npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
-Then, in your `main.css`:
+Then, in your `main.css` file:
 
 ```css
 @import "~@orbit-ui/fonts";
@@ -160,7 +160,7 @@ For more information on monorepo:
 
 - [Babel Github](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 - [Shopify Github](https://github.com/Shopify/quilt/blob/master/Decision%20records/00%20-%20Use%20a%20Lerna%20monorepo.md)
-- [Google it!](https://www.google.com/search?q=monorepo)
+- [Google](https://www.google.com/search?q=monorepo)
 
 #### Lerna
 

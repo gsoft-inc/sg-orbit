@@ -15,7 +15,6 @@ export const LAST_3_MONTHS_PRESET = toPreset("Last 3 months", moment().subtract(
 export const LAST_6_MONTHS_PRESET = toPreset("Last 6 months", moment().subtract(6, "months"), moment().startOf("day"));
 export const LAST_12_MONTHS_PRESET = toPreset("Last 12 months", moment().subtract(12, "months"), moment().startOf("day"));
 
-// prettier-ignore
 export const DEFAULT_DATES_PRESETS = [
     LAST_WEEK_PRESET,
     LAST_MONTH_PRESET,
