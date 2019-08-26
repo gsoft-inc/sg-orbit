@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@orbit-ui/storybook",
+  "version": "0.0.0",
+  "author": "Groupe Sharegate inc.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "start-storybook -c storybook",
+    "build": "build-storybook -c storybook -o storybook/dist",
+    "deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
+    "clean": "rimraf storybook/dist",
+    "sb:chromatic": "yarn sb:start -p 1135 --ci",
+    "chromatic:components": "cross-env STORYBOOK_ORBIT_SCOPE=components yarn chromatic:test",
+    "chromatic:theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic:test",
+    "chromatic:test": "chromatic test --script-name=sb:chromatic --debug",
+    "chromatic:ci": "yarn chromatic:test --no-interactive"
+  },
+  "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
+}
