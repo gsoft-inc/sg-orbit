@@ -39,8 +39,9 @@ if (includeComponents) {
     reqComponents = require.context("../components", true, /(play|specs).stories.jsx$/);
 }
 
+// TODO: Rework this once storybook has been moved out of "react-components".
 if (includeTheme) {
-    reqTheme = require.context("../stories/semantic-ui-theme", true, /.stories.jsx$/);
+    reqTheme = require.context("../stories", true, /.stories.jsx$/);
 }
 
 function loadStories() {

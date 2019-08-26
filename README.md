@@ -50,11 +50,13 @@ If you're building a React app, have a look at the [React Components](#react-com
 |--------|-------|------------|
 | [@orbit-ui/css-normalize](/packages/css-normalize) | [![npm](https://img.shields.io/npm/v/@orbit-ui/css-normalize.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/css-normalize) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/css-normalize)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/css-normalize) |
 | [@orbit-ui/fonts](/packages/fonts) | [![npm](https://img.shields.io/npm/v/@orbit-ui/fonts.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/fonts) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/fonts)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/fonts) |
+| [@orbit-ui/icons](/packages/icons) | [![npm](https://img.shields.io/npm/v/@orbit-ui/icons.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/icons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/icons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/icons) |
 | [@orbit-ui/foundation](/packages/foundation) | [![npm](https://img.shields.io/npm/v/@orbit-ui/foundation.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/foundation) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/foundation)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/foundation) |
 | [@orbit-ui/tachyons](/packages/tachyons) | [![npm](https://img.shields.io/npm/v/@orbit-ui/tachyons.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/tachyons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/tachyons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/tachyons) |
 
 - [@orbit-ui/css-normalize](/packages/css-normalize): is Orbit UI custom CSS reset for Edge, Chrome, Firefox and Safari.
-- [@orbit-ui/fonts](/packages/fonts): contains the fonts for Orbit UI.
+- [@orbit-ui/fonts](/packages/fonts): contains the fonts of Orbit UI.
+- [@orbit-ui/icons](/packages/icons): contains the icons of Orbit UI.
 - [@orbit-ui/foundation](/packages/foundation): is a set of CSS variables for Orbit UI colors, spacing and typography.
 - [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons).
 
@@ -65,7 +67,7 @@ You can pick and choose the **core** packages to install but you should normally
 To install all the core packages with npm:
 
 ```bash
-npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/foundation @orbit-ui/tachyons
+npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
 Then, in your `main.css` file:
