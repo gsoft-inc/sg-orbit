@@ -1,4 +1,4 @@
-import { CabinetEmpty, ClearIcon } from "@orbit-ui/icons";
+import { CabinetEmptyIcon, ClearIcon } from "@orbit-ui/icons";
 import { storiesBuilder } from "../../storybook/utils/stories-builder";
 
 function stories() {
@@ -11,7 +11,7 @@ stories()
     .add("default",
          () =>
              <div>
-                 <CabinetEmpty />
+                 <CabinetEmptyIcon />
                  <ClearIcon />
              </div>
     );

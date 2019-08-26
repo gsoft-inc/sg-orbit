@@ -2,29 +2,31 @@
 
 ## Usage
 
-As a React component
-
-...
-
-As an svg file
-
-...
-
-## Icons Guidelines
-
-EST-CE QUE NOUS DEVRIONS FORCER LE SUFFIXE ICON?
-
-C'EST P-E PLUS CLAIR DE FAIRE, ET DE CHANGE DE NAME CLASHING:
+As a React component:
 
 ```javascript
 import { CabinetEmptyIcon } from "@orbit-ui/icons";
+
+<CabinetEmptyIcon />
 ```
 
-QUE
+As a React file:
 
 ```javascript
-import { CabinetEmpty } from "@orbit-ui/icons";
+import cabinetEmpty from "@orbit-ui/icons/cabinet-empty-24x16.svg";
+
+<img src={cabinetEmpty} />
 ```
+
+As a CSS background file:
+
+```css
+.cabinet-empty: {
+    background: url("@orbit-ui/icons/cabinet-empty-24x16.svg");
+}
+```
+
+## Icons Guidelines
 
 In order to be included in Orbit UI an icon must satisfy the followind guidelines
 

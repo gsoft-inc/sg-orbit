@@ -7,16 +7,20 @@
     "license": "Apache-2.0",
     "main": "dist/index.js",
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
         "build": "babel src -d dist --copy-files",
+        "postbuild": "yarn copy-to-dist",
         "prewatch": "yarn clean",
         "watch": "yarn build --watch",
         "clean": "rimraf dist",
-        "prepublishOnly": "cross-env NODE_ENV=production && yarn build"
+        "prepublishOnly": "cross-env NODE_ENV=production && run-s build copy-license-to-dist",
+        "copy-to-dist": "node scripts/copy-to-dist",
+        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
     },
     "peerDependencies": {
         "react": "*",
