@@ -1,0 +1,31 @@
+.bg-red {
+    background: red !important;
+}
+
+.bg-red-inner > * {
+    background: red !important;
+}
+
+.paused::after {
+    animation: 0 !important;
+}
+
+.paused::before {
+    animation: 0 !important;
+}
+
+.paused {
+    animation: 0 !important;
+}
+
+.paused > * {
+    animation: 0 !important;
+}
+
+.paused > *::before {
+    animation: 0 !important;
+}
+
+.paused > *::after {
+    animation: 0 !important;
+}
