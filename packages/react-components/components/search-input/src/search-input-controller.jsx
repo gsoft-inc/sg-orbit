@@ -98,14 +98,14 @@ export class SearchInputController extends AutoControlledPureComponent {
             this.setState({ query: selectedResult.text });
         }
 
-        onValueChange(event, selectedResult);
+        onValueChange(event, selectedResult, this.props);
     };
 
     handleSearchChange = (event, data) => {
         this.setState({ query: data.value });
 
         if (!isNil(this.onSearch)) {
-            this.onSearch(event, data.value);
+            this.onSearch(event, data.value, this.props);
         }
     };
 
@@ -118,7 +118,7 @@ export class SearchInputController extends AutoControlledPureComponent {
             }
 
             if (!isNil(onBlur)) {
-                onBlur(event);
+                onBlur(event, this.props);
             }
         };
 
@@ -151,7 +151,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onFocus } = this.props;
 
         if (!isNil(onFocus)) {
-            onFocus(event);
+            onFocus(event, this.props);
         }
     };
 
@@ -172,7 +172,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event);
+            onKeyDown(event, this.props);
         }
     };
 
@@ -243,7 +243,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         if (!isNil(value)) {
             this.trySetAutoControlledStateValue({ value: null });
 
-            onValueChange(event, null);
+            onValueChange(event, null, this.props);
         }
     }
 

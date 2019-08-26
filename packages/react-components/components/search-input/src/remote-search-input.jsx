@@ -117,7 +117,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
             this.handleClear(event);
         }
 
-        onValueChange(event, value);
+        onValueChange(event, value, this.props);
     };
 
     handleClear = () => {
@@ -133,7 +133,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.close(event);
 
         if (!isNil(onBlur)) {
-            onBlur(event);
+            onBlur(event, this.props);
         }
     };
 
@@ -145,7 +145,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event);
+            onKeyDown(event, this.props);
         }
     };
 
@@ -163,7 +163,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                     let results = await this.fetch(event, query);
 
                     if (!isNil(onResults)) {
-                        results = onResults(results, query);
+                        results = onResults(results, query, this.props);
 
                         if (!isArray(results)) {
                             throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
@@ -192,7 +192,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     fetch(event, query) {
         const { onFetchResults } = this.props;
 
-        const promise = onFetchResults(event, query);
+        const promise = onFetchResults(event, query, this.props);
 
         if (!isPromise(promise)) {
             throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");

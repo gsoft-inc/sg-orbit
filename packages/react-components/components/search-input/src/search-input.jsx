@@ -15,6 +15,7 @@ export class SearchInput extends AutoControlledPureComponent {
         defaultValue: string,
         onValueChange: func.isRequired,
         onVisibilityChange: func,
+        onSearch: func,
         onBlur: func,
         resultRenderer: func,
         clearOnSelect: bool,
@@ -30,6 +31,7 @@ export class SearchInput extends AutoControlledPureComponent {
     };
 
     static defaultProps = {
+        onSearch: startsWithSearch,
         minCharacters: 1,
         debounceDelay: 200,
         autofocus: false
@@ -49,10 +51,10 @@ export class SearchInput extends AutoControlledPureComponent {
     // TODO: memoizing search result could greatly improved the performance of this component:
     //  - The shallow comparison done by search-input-controller would not force a re-render when this is the same results
     handleSearch = (event, query) => {
-        const { results, minCharacters } = this.props;
+        const { results, onSearch, minCharacters } = this.props;
 
         if (query.length >= minCharacters) {
-            const newResults = startsWithSearch(results, query);
+            const newResults = onSearch(results, query, this.props);
 
             this.setState({ visibleResults: newResults });
             this.open(event);
@@ -71,7 +73,7 @@ export class SearchInput extends AutoControlledPureComponent {
             this.handleClear(event);
         }
 
-        onValueChange(event, value);
+        onValueChange(event, value, this.props);
     };
 
     handleClear = () => {
@@ -86,7 +88,7 @@ export class SearchInput extends AutoControlledPureComponent {
         this.close(event);
 
         if (!isNil(onBlur)) {
-            onBlur(event);
+            onBlur(event, this.props);
         }
     };
 
@@ -98,7 +100,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event);
+            onKeyDown(event, this.props);
         }
     };
 
@@ -108,7 +110,7 @@ export class SearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true);
+            onVisibilityChange(event, true, this.props);
         }
     }
 
@@ -118,7 +120,7 @@ export class SearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false);
+            onVisibilityChange(event, false, this.props);
         }
     }
 

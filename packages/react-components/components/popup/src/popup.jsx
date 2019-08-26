@@ -38,7 +38,7 @@ export class Popup extends PureComponent {
 
         if (!this._containerRef.current.contains(event.target)) {
             if (!isNil(onOutsideClick)) {
-                onOutsideClick(event);
+                onOutsideClick(event, this.props);
             }
         }
     };
@@ -48,7 +48,7 @@ export class Popup extends PureComponent {
 
         if (event.keyCode === KEYS.esc) {
             if (!isNil(onEscapeKeyDown)) {
-                onEscapeKeyDown(event);
+                onEscapeKeyDown(event, this.props);
             }
         }
     };
