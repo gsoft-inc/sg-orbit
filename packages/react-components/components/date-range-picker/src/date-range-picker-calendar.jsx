@@ -190,7 +190,6 @@ export class DateRangePickerCalendar extends PureComponent {
             <div className={this.getCssClasses()}>
                 {this.renderPresets()}
                 <div className="flex flex-column">
-                    {/* prettier-ignore */}
                     <DayPickerRangeController
                         startDate={startDate}
                         endDate={endDate}
