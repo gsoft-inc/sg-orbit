@@ -23,6 +23,7 @@
         "@babel/runtime-corejs3": "*",
         "@orbit-ui/react-components-shared": "0.1.2",
         "@orbit-ui/react-popup": "0.1.2",
+        "@orbit-ui/icons": "0.1.2",
         "classnames": "*",
         "lodash": "*",
         "prop-types": "*",
