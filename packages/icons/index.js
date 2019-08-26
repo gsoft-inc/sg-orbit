@@ -1,1 +1,1 @@
-export { CabinetEmpty } from "./src/cabinet-empty.svg";
+export { CabinetEmpty } from "./src/cabinet-empty-24x16.svg";
