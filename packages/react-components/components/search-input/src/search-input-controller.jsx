@@ -50,7 +50,6 @@ export class SearchInputController extends AutoControlledPureComponent {
     static autoControlledProps = ["value"];
 
     state = {
-        results: [],
         transformedResults: [],
         value: null,
         query: null,

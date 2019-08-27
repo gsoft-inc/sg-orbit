@@ -1,8 +1,7 @@
 {
     "private": true,
-    "name": "orbit-ui-website",
-    "version": "0.1.0",
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "name": "@orbit-ui/website",
+    "version": "0.0.0",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "scripts": {
