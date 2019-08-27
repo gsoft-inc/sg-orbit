@@ -34,7 +34,7 @@ Semantic UI offer 3 layers of theming:
 
 Customization of Semantic UI should only happens at the **Packaged Theme** layer to ensure we can still benefits from updates.
 
-Our custom theme is located in the theme [sharegate` theme directory](/semantic/src/themes/sharegate).
+Our custom theme is located in the theme [sharegate theme directory](/semantic/src/themes/sharegate).
 
 _Currently, you shouldn't need to create additional theme._
 

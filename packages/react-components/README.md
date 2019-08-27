@@ -18,7 +18,7 @@ The following documentation is only for the maintainers of this repository.
 
 ## Add a new component
 
-Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../README.md#add-a-new-packages-to-the-monorepo) section. 
+Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../CONTRIBUTING.md#add-a-new-packages-to-the-monorepo) section. 
 
 - [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)

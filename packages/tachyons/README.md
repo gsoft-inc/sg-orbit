@@ -1,6 +1,6 @@
 # @orbit-ui/tachyons
 
-This package is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of *@orbit-ui/foundation* and the spacing scale has been increased to 10.
+This package is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of [@orbit-ui/foundation](../foundation) and the spacing scale has been increased to 10.
 
 ## Usage
 
