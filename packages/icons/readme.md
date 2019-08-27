@@ -5,15 +5,15 @@
 As a React component:
 
 ```javascript
-import { CabinetEmptyIcon } from "@orbit-ui/icons";
+import { IconClear } from "@orbit-ui/icons";
 
-<CabinetEmptyIcon />
+<IconClear />
 ```
 
 As a React file:
 
 ```javascript
-import cabinetEmpty from "@orbit-ui/icons/cabinet-empty-24x16.svg";
+import cabinetEmpty from "@orbit-ui/icons/icon-clear-10x10.svg";
 
 <img src={cabinetEmpty} />
 ```
@@ -22,7 +22,7 @@ As a CSS background file:
 
 ```css
 .cabinet-empty: {
-    background: url("@orbit-ui/icons/cabinet-empty-24x16.svg");
+    background: url("@orbit-ui/icons/icon-clear-10x10.svg");
 }
 ```
 
