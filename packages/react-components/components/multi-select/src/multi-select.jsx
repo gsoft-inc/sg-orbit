@@ -1,15 +1,13 @@
-import { ReactComponent as AddIcon } from "./assets/icon-add.svg";
+import { AddIcon, ClearIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { Button, Dropdown, Label } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
-import { ReactComponent as MagnifierIcon } from "./assets/icon-magnifier.svg";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { MultiSelectSelectedItems } from "./multi-select-selected-items";
-import { ReactComponent as RemoveIcon } from "./assets/icon-remove.svg";
 import { arrayOf, bool, func, node, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -31,7 +29,7 @@ function defaultSelectedItemRenderer(item, { disabled, onRemove }) {
             {item.text}
             <If condition={!disabled}>
                 <Button circular size="mini" icon className="transparent" onClick={onRemove}>
-                    <RemoveIcon />
+                    <ClearIcon />
                 </Button>
             </If>
         </Label>
@@ -95,8 +93,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         closeOnSelect: false,
         noResultsMessage: "No results",
         triggerText: "Add",
-        triggerIcon: <AddIcon />,
-        searchIcon: <MagnifierIcon />,
+        triggerIcon: <AddIcon className="fill-marine-700 ml2" />,
+        searchIcon: <MagnifierIcon className="fill-marine-400" />,
         placeholder: "Search",
         selectedItemsComponent: <MultiSelectSelectedItems />,
         selectedItemRenderer: defaultSelectedItemRenderer,
