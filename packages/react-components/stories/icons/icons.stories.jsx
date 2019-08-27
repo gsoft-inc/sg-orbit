@@ -1,4 +1,4 @@
-import { AddIcon, ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, MagnifierIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
+import { AddIcon, ArrowFullIcon, ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, MagnifierIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { storiesBuilder } from "../../storybook/utils/stories-builder";
 
 function stories() {
@@ -16,6 +16,9 @@ stories()
                  </div>
                  <div className="mb4 flex">
                      <ArrowRightIcon />
+                 </div>
+                 <div className="mb4 flex">
+                     <ArrowFullIcon className="w2 h2" />
                  </div>
                  <div className="mb4 flex">
                      <ClearIcon />
