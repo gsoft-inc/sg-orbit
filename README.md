@@ -168,7 +168,7 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally the website is not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](/website) directory.
+Exceptionally the website and Storybook are not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](/website) directory and Storybook can be found in the [storybook](/storybook) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
@@ -189,17 +189,9 @@ This monorepo is configured to release the packages independently. The decision 
 
 As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the npm dependencies and manage the packages inter-dependencies.
 
-Remember that only the **packages** are handled by Yarn workspace since the **website isn't configured** to be handled by the monorepo tooling.
-
 It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there isn't any *node_modules* directory nested inside the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
-Since the website is not handled by the monorepo tooling, the [website](/website) directory will also contain a *node_modules* directory and a *yarn.lock* file.
-
-#### Website dependencies linking
-
-How come the website can use unpublished versions of the monorepo packages?
-
-To make this work, a [custom script](/website/scripts/setup-website-yarn-links.js) has been developed to automatically create symlinks between the website and the packages of the monorepo.
+Since the website and Storybook are not handled by the monorepo tooling, the [website](/website) and [storybook](/storybook) directories will also contain a *node_modules* directory and a *yarn.lock* file.
 
 ### Installation
 
@@ -219,12 +211,18 @@ yarn bootstrap
 
 The installation should take up to 5 minutes.
 
-By default, the packages and the website are installed.
+By default, the packages, Storybook and the website are installed.
 
 To only install the packages, instead, use the following command:
 
 ```bash
 yarn bootstrap:pkg
+```
+
+If you want to install Storybook later, use the default installation command or:
+
+```bash
+yarn bootstrap:sb
 ```
 
 If you want to install the website later, use the default installation command or:
@@ -233,7 +231,7 @@ If you want to install the website later, use the default installation command o
 yarn bootstrap:website
 ```
 
-During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings.
+During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
 
 ### Develop a component
 
@@ -316,8 +314,8 @@ To release, open a terminal at the root of the workspace and execute the followi
 yarn new-version
 yarn release:pkg
 git push
-git tag [CURRENT_DATE]
-git push origin [CURRENT_DATE]
+git tag [yyyy-MM-dd]
+git push origin [yyyy-MM-dd]
 ```
 
 #### Troubleshooting
@@ -367,9 +365,9 @@ Open a web browser and navigate to https://sg-storybook.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and the **sg-storybook** site.
 
-Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `sb:deploy` in the *packages/react-components/package.json* file.
+Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `sb:deploy` in the [storybook/package.json](/storybook/package.json) file.
 
-To deploy Storybook without building the static web app everytime, navigate to the [packages/react-components](/packages/react-components) directory and execute the following command:
+To deploy Storybook without building the static web app everytime, navigate to the [storybook](/storybook) directory and execute the following command:
 
 ```bash
 yarn sb:deploy
@@ -383,7 +381,7 @@ If the packages failed to compile you can build the packages without executing t
 yarn build:sb
 ```
 
-The output will be available in the *packages/react-components/storybook/dist* directory. For more details, read the packages README file.
+The output will be available in the [storybook/dist](/storybook/dist) directory.
 
 ### Release the website
 
@@ -465,6 +463,14 @@ Same as *bootstrap* but only for the packages.
 
 ```bash
 yarn bootstrap:pkg
+```
+
+#### bootstrap:sb
+
+Same as *bootstrap* but only for Storybook.
+
+```bash
+yarn bootstrap:sb
 ```
 
 #### bootstrap:website
@@ -591,7 +597,7 @@ yarn update
 
 #### lint
 
-Execute all the linters against the packages and the website.
+Execute all the linters.
 
 ```bash
 yarn lint
@@ -621,6 +627,14 @@ Same as *chromatic* but only for the SUI theme.
 yarn chromatic:theme
 ```
 
+### chromatic:materials
+
+Same as *chromatic* but only for the materials parts.
+
+```bash
+yarn chromatic:materials
+```
+
 ### Testing
 
 For testing the components we currently rely only on automated visual testing.
@@ -632,8 +646,6 @@ This is a more *black box* and *robust* testing approach since it shouldn't requ
 Visual testing can also easily perform cross-browsers testing.
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
-
-To understand how to write Storybook stories for Chromatic QA, read the [react-components documentation](/packages/react-components/README.md).
 
 For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
 
@@ -704,17 +716,13 @@ Make sure the package publish access is *public* by adding the following to the 
 
 npm *dependencies* and *peerDependencies* must be added to the package own *package.json* file.
 
-**However**, the *devDependencies* must be added to the *package.json* file at the root of the workspace.
+**However**, the *devDependencies* must be added to the [package.json](package.json) file at the root of the workspace.
 
 Why?
 
 Because packages hoisting is dangerous! When multiple packages of the monorepo requires the same dependencies **but with a different version** there is no garantee on which version will be hoisted to the *node_modules* directory at the root of the workspace and which version will be installed locally. To prevent all kinds of problems, always install the *devDependencies* at the root of the workspace. This ensure that every packages use the same version of the dependencies.
 
 If you are uncertain wether or not you should add a *peerDependencies*, please read the post [dependencies-done-right](https://yarnpkg.com/blog/2018/04/18/dependencies-done-right/) on the Yarn website.
-
-#### Website dependencies linking
-
-If the package is consumed by the website, add the package to the [setup-website-yarn-links.js](/website/scripts/setup-website-yarn-links.js) script.
 
 #### React components
 
@@ -750,7 +758,7 @@ Do:
 
 #### A script should be executable from the root of the workspace
 
-Make sure you add a script entry in the *package.json* file at the root of the workspace even if your script is already define in a package or the website.
+Make sure you add a script entry in the [package.json](package.json) file at the root of the workspace even if your script is already define in a package or the website.
 
 #### Lerna scripts should be executed from the root of the workspace
 

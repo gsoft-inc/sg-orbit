@@ -27,17 +27,17 @@ Adding a new component package involve a few extra steps. Before you go forward 
 
 ### Guidelines
 
-Make sur you read and understand the following [guidelines](#component-guidelines) before writing a component.
+Make sure you read and understand the following [guidelines](#component-guidelines) before writing a component.
 
 ### Write storybook stories
 
-The storybook is configured to look for stories in a *stories* directory under the component directory.
+The storybook is configured to look for stories in the [storybook/stories/react-components][../../storybook/stories/react-components].
 
 ```
-/react-components
-    /components
-        /component-foo
-            /stories
+/storybook
+    /stories
+        /react-components
+            /component-foo
                 play.stories.js
                 specs.stories.js
 ```
@@ -111,10 +111,6 @@ stories("/segment")
 ```
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
-
-**Troubleshooting**
-
-If you encounter issues with Chromatic QA snapshots, try to increment the value of the `chromaticDelay` option.
 
 ### Update the documentation
 

@@ -3,7 +3,7 @@
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorybookTheme } from "./theme";
-import { includeComponents, includeMaterials, includeTheme } from "./get-storybook-scope";
+import { includeComponents, includeMaterials, includeTheme } from "./get-scope";
 import { withConsole } from "@storybook/addon-console";
 
 // Dont move, it must be imported after storybook/react.
