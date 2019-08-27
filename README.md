@@ -346,14 +346,16 @@ By default, packages compilation output will be in their respective *dist* direc
 
 Releasing Storybook includes a few steps:
 
-1. Build storybook into a static web app
-2. Deploy the static web app to Netlify
+1. Build the packages
+2. Build storybook into a static web app
+3. Deploy the static web app to Netlify
 
 Before you release, make sure you have access to the GSoft Netlify team.
 
 To release, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
+yarn build:pkg
 yarn release:sb
 ```
 
@@ -367,21 +369,11 @@ Login to [Netlify](https://app.netlify.com) and make sure you have access to the
 
 Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `sb:deploy` in the [storybook/package.json](/storybook/package.json) file.
 
-To deploy Storybook without building the static web app everytime, navigate to the [storybook](/storybook) directory and execute the following command:
+To deploy Storybook without building the static web app everytime, execute the following command:
 
 ```bash
-yarn sb:deploy
+yarn deploy:sb
 ```
-
-**Build the static web app**
-
-If the packages failed to compile you can build the packages without executing the full release flow everytime. To do so, execute the following command:
-
-```bash
-yarn build:sb
-```
-
-The output will be available in the [storybook/dist](/storybook/dist) directory.
 
 ### Release the website
 
@@ -389,8 +381,9 @@ The output will be available in the [storybook/dist](/storybook/dist) directory.
 
 Releasing the website includes a few steps:
 
-1. Build docz into a static web app
-2. Deploy the static web app to Netlify
+1. Build the packages
+2. Build docz into a static web app
+3. Deploy the static web app to Netlify
 
 Before you release, make sure you have access to the GSoft Netlify team and the **sg-orbit** site.
 
@@ -401,6 +394,7 @@ You can release the website on a staging or production environment.
 To release on the staging environment, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
+yarn build:pkg
 yarn release:website
 ```
 
@@ -411,6 +405,7 @@ Open a web browser and navigate to https://5d1663eba8dbff36f23ecdf0--sg-orbit.ne
 To release on the production environment, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
+yarn build:pkg
 yarn release:website:prod
 ```
 
@@ -422,24 +417,14 @@ Open a web browser and navigate to https://sg-orbit.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to **sg-orbit** site.
 
-Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the *website/package.json* file.
+Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the [website/package.json](/website/package.json) file.
 
-To deploy the website without building the static web app everytime, navigate to the [website](/website) directory and execute any of the following command:
-
-```bash
-yarn deploy:staging
-yarn deploy:prod
-```
-
-**Build the static web app**
-
-If the packages failed to compile you can build the packages without executing the full release flow everytime. To do so, execute the following command:
+To deploy the website without building the static web app everytime, execute any of the following command:
 
 ```bash
-yarn build:website
+yarn deploy:website
+yarn deploy:website:prod
 ```
-
-The output will be available in the *website/dist* directory.
 
 ### Commands
 
