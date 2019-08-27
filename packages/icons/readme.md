@@ -5,15 +5,15 @@
 As a React component:
 
 ```javascript
-import { CabinetEmptyIcon } from "@orbit-ui/icons";
+import { IconClear } from "@orbit-ui/icons";
 
-<CabinetEmptyIcon />
+<IconClear />
 ```
 
 As a React file:
 
 ```javascript
-import cabinetEmpty from "@orbit-ui/icons/cabinet-empty-24x16.svg";
+import cabinetEmpty from "@orbit-ui/icons/icon-clear-10x10.svg";
 
 <img src={cabinetEmpty} />
 ```
@@ -22,7 +22,7 @@ As a CSS background file:
 
 ```css
 .cabinet-empty: {
-    background: url("@orbit-ui/icons/cabinet-empty-24x16.svg");
+    background: url("@orbit-ui/icons/icon-clear-10x10.svg");
 }
 ```
 
@@ -38,7 +38,7 @@ In order to be included in Orbit UI an icon must satisfy the followind guideline
 - It should not be specific to an app, e.g. Azure specific icons.
 - It must be used as part of an interface, illustrations, product icons, should'nt be submitted to this library.
 - It should be uncoloured, any icon that has many colours or need to be coloured, should be in your solution.
-- When the icon is used in a mono repo component it should live in the icon project, the size and colour rules (1 and 2) don't applies in this case.
+- When the icon is used in a mono repo component it should live in the icon project, the size and colour rules (1 and 2) don't apply in those case.
 
 ### Naming convention
 

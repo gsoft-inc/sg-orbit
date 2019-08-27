@@ -70,7 +70,7 @@ export class DateRangePickerInput extends PureComponent {
         const { disabled } = this.props;
 
         return cloneElement(icon, {
-            className: `${disabled ? " fill-cloud-500" : " fill-marine-700"} mr4`
+            className: `w6 h6 ${disabled ? " fill-cloud-500" : " fill-marine-700"} mr4`
         });
     }
 

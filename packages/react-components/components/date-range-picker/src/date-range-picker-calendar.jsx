@@ -159,13 +159,13 @@ export class DateRangePickerCalendar extends PureComponent {
     renderNavPrev() {
         const { navPrevIcon } = this.props;
 
-        return <div tabIndex="0">{navPrevIcon}</div>;
+        return <div tabIndex="0" className="flex">{navPrevIcon}</div>;
     }
 
     renderNavNext() {
         const { navNextIcon } = this.props;
 
-        return <div tabIndex="0">{navNextIcon}</div>;
+        return <div tabIndex="0" className="flex">{navNextIcon}</div>;
     }
 
     renderButtons() {
@@ -324,7 +324,7 @@ export class DateRangePickerCalendar extends PureComponent {
                         opacity: 0.6;
                     }
 
-                    .calendar :global(.DayPickerNavigation_button__disabled #Calendar-Components) {
+                    .calendar :global(.DayPickerNavigation_button__disabled path) {
                         fill: var(--cloud-100);
                     }
                 `}</style>

@@ -3,18 +3,14 @@ import "react-dates/lib/css/_datepicker.css";
 
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
+import { ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { FadeIn } from "./fade-in";
-import { ReactComponent as InputCalendarIcon } from "./assets/icon-input-calendar.svg";
-import { ReactComponent as NavNextIcon } from "./assets/icon-nav-next.svg";
-import { ReactComponent as NavPrevIcon } from "./assets/icon-nav-prev.svg";
 import { PRESET_SHAPE } from "./presets";
 import { Popup } from "@orbit-ui/react-popup";
-import { ReactComponent as PresetsCalendarIcon } from "./assets/icon-presets-calendar.svg";
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
@@ -62,8 +58,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
         calendar: <DateRangePickerCalendar />,
-        navPrevIcon: <NavPrevIcon />,
-        navNextIcon: <NavNextIcon />,
+        navPrevIcon: <ArrowLeftIcon className="fill-cloud-500" />,
+        navNextIcon: <ArrowRightIcon className="fill-cloud-500" />,
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         presetsIcon: <PresetsCalendarIcon />,

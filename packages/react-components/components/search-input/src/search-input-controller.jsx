@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
-import { ReactComponent as ClearIcon } from "./assets/icon-clear.svg";
+import { ClearIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
