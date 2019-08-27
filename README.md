@@ -316,6 +316,8 @@ To release, open a terminal at the root of the workspace and execute the followi
 yarn new-version
 yarn release:pkg
 git push
+git tag [CURRENT_DATE]
+git push origin [CURRENT_DATE]
 ```
 
 #### Troubleshooting

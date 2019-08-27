@@ -10,3 +10,6 @@ Now foundation must be imported by the consumer, it's not included anymore with 
 RemoteSearchInput:
     - resultsFetcher
     - autoFocus -> autofocus
+
+Foundation:
+    @import "~@orbit-ui/foundation"; -> @import "~@orbit-ui/foundation/apricot";

@@ -11,42 +11,22 @@
         "access": "public"
     },
     "scripts": {
-        "start": "yarn watch",
-        "prebuild": "yarn clean",
-        "build": "run-p build:*",
-        "build:this": "babel src -d dist --config-file ./babel.config.js",
-        "build:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
-        "prewatch": "yarn clean",
-        "watch": "run-p \"build:* --watch\"",
-        "test:ci": "yarn chromatic:ci",
-        "clean": "run-p clean:*",
-        "clean:this": "rimraf dist",
-        "clean:storybook": "rimraf storybook/dist",
-        "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist",
-        "prepublishOnly": "cross-env NODE_ENV=production && yarn build",
-        "sb:start": "start-storybook -c storybook",
-        "sb:build": "build-storybook -c storybook -o storybook/dist",
-        "sb:deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
+        "start": "start-storybook -c config",
+        "build": "build-storybook -c config -o storybook/dist",
+        "clean": "rimraf storybook/dist",
+        "deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
         "sb:chromatic": "yarn sb:start -p 1135 --ci",
         "chromatic:components": "cross-env STORYBOOK_ORBIT_SCOPE=components yarn chromatic:test",
         "chromatic:theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic:test",
         "chromatic:test": "chromatic test --script-name=sb:chromatic --debug",
         "chromatic:ci": "yarn chromatic:test --no-interactive"
     },
-    "peerDependencies": {
-        "@orbit-ui/css-normalize": "*",
-        "@orbit-ui/semantic-ui-theme": "*",
-        "@orbit-ui/tachyons": "*",
-        "react": "*",
-        "react-dom": "*",
-        "semantic-ui-react": "*"
-    },
-    "dependencies": {
-        "@orbit-ui/react-components-shared": "0.1.2",
-        "@orbit-ui/react-date-range-picker": "0.1.2",
-        "@orbit-ui/react-multi-select": "0.1.2",
-        "@orbit-ui/react-popup": "0.1.2",
-        "@orbit-ui/react-search-input": "0.1.2"
-    },
-    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
+    "devDependencies": {
+        "@storybook/addon-actions": "5.1.11",
+        "@storybook/addon-console": "1.2.1",
+        "@storybook/addon-knobs": "5.1.11",
+        "@storybook/react": "5.1.11",
+        "babel-loader": "8.0.6",
+        "storybook-chromatic": "2.1.1"
+    }
 }

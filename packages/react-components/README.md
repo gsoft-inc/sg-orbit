@@ -63,7 +63,7 @@ It's very important to configure the play stories to be ignored by chromatic QA 
 To easily follow all the requirements, use the following template:
 
 ```javascript
-import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
+import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
     return storiesBuilder("[COMPONENT_NAME]|play")
@@ -94,7 +94,7 @@ Storybook is a fantastic tool for visual testing because every story is essentia
 To easily add specifications stories, use the following template:
 
 ```javascript
-import { storiesBuilder } from "../../../../storybook/utils/stories-builder";
+import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
     return storiesBuilder("[COMPONENT_NAME]|specs")

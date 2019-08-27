@@ -1,0 +1,27 @@
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
+module.exports = {
+    presets: [
+        "@babel/preset-env",
+        [
+            "@babel/preset-react",
+            {
+                development: !IS_PRODUCTION
+            }
+        ]
+    ],
+    plugins: [
+        "@babel/plugin-proposal-class-properties",
+        "babel-plugin-react-require",
+        [
+            "babel-plugin-named-asset-import",
+            {
+                loaderMap: {
+                    svg: {
+                        "ReactComponent": "@svgr/webpack?-svgo,+ref![path]"
+                    }
+                }
+            }
+        ]
+    ]
+};
