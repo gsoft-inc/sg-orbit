@@ -12,9 +12,9 @@
     },
     "scripts": {
         "start": "start-storybook -c config",
-        "build": "build-storybook -c config -o storybook/dist",
-        "clean": "rimraf storybook/dist",
-        "deploy": "netlify deploy --prod --dir=storybook/dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
+        "build": "build-storybook -c config -o dist",
+        "clean": "rimraf dist",
+        "deploy": "netlify deploy --prod --dir=dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
         "sb:chromatic": "yarn sb:start -p 1135 --ci",
         "chromatic:components": "cross-env STORYBOOK_ORBIT_SCOPE=components yarn chromatic:test",
         "chromatic:theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic:test",

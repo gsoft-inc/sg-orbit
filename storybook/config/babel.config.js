@@ -12,6 +12,7 @@ module.exports = {
     ],
     plugins: [
         "@babel/plugin-proposal-class-properties",
+        "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
         [
             "babel-plugin-named-asset-import",
