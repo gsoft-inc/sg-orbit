@@ -18,6 +18,7 @@
         "sb:chromatic": "yarn sb:start -p 1135 --ci",
         "chromatic:components": "cross-env STORYBOOK_ORBIT_SCOPE=components yarn chromatic:test",
         "chromatic:theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic:test",
+        "chromatic:materials": "cross-env STORYBOOK_ORBIT_SCOPE=materials yarn chromatic:test",
         "chromatic:test": "chromatic test --script-name=sb:chromatic --debug",
         "chromatic:ci": "yarn chromatic:test --no-interactive"
     },

@@ -1,8 +1,17 @@
-import { AddIcon, ArrowFullIcon, ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, MagnifierIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
-import { storiesBuilder } from "../../storybook/utils/stories-builder";
+import {
+    AddIcon,
+    ArrowFullIcon,
+    ArrowLeftIcon,
+    ArrowRightIcon,
+    ClearIcon,
+    InputCalendarIcon,
+    MagnifierIcon,
+    PresetsCalendarIcon
+} from "@orbit-ui/icons";
+import { storiesBuilder } from "@utils/stories-builder";
 
 function stories() {
-    return storiesBuilder("icons")
+    return storiesBuilder("Materials|icons")
         .chromaticDelay(100)
         .build();
 }

@@ -22,7 +22,7 @@ As a CSS background file:
 
 ```css
 .cabinet-empty: {
-    background: url("@orbit-ui/icons/icon-clear-10x10.svg");
+    background: url("~orbit-ui/icons/icon-clear-10x10.svg");
 }
 ```
 

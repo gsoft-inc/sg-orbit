@@ -3,11 +3,10 @@
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorybookTheme } from "./theme";
+import { includeComponents, includeMaterials, includeTheme } from "./get-storybook-scope";
 import { withConsole } from "@storybook/addon-console";
 
 // Dont move, it must be imported after storybook/react.
-// import { includeComponents, includeTheme } from "./get-storybook-scope";
-import { includeComponents } from "./get-storybook-scope";
 import { isChromatic } from "storybook-chromatic";
 
 import "@orbit-ui/css-normalize";
@@ -33,31 +32,34 @@ addParameters({
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
 
-// let reqComponents;
-// let reqTheme;
+let reqComponents;
+let reqTheme;
+let reqMaterials;
 
-// if (includeComponents) {
-//     // reqComponents = require.context("../../packages/react-components/components", true, /(play|specs).stories.jsx$/);
-//     reqComponents = require.context("../../packages/react-components/components/popup", true, /(play|specs).stories.jsx$/);
-// }
+if (includeComponents) {
+    reqComponents = require.context("../stories/react-components", true, /(play|specs).stories.jsx$/);
+}
 
-// TODO: Rework this once storybook has been moved out of "react-components".
-// if (includeTheme) {
-//     reqTheme = require.context("../stories", true, /.stories.jsx$/);
-// }
+if (includeTheme) {
+    reqTheme = require.context("../stories/semantic-ui-theme", true, /.stories.jsx$/);
+}
 
-const stories = require.context("../stories", true, /.stories.jsx$/);
+if (includeMaterials) {
+    reqMaterials = require.context("../stories/materials", true, /.stories.jsx$/);
+}
 
 function loadStories() {
-    stories.keys().forEach(filename => stories(filename));
+    if (includeComponents) {
+        reqComponents.keys().forEach(filename => reqComponents(filename));
+    }
 
-    // if (includeComponents) {
-    //     reqComponents.keys().forEach(filename => reqComponents(filename));
-    // }
+    if (includeTheme) {
+        reqTheme.keys().forEach(filename => reqTheme(filename));
+    }
 
-    // if (includeTheme) {
-    //     reqTheme.keys().forEach(filename => reqTheme(filename));
-    // }
+    if (includeMaterials) {
+        reqMaterials.keys().forEach(filename => reqMaterials(filename));
+    }
 }
 
 configure(loadStories, module);
