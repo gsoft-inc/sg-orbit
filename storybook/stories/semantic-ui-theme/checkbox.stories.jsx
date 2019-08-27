@@ -1,5 +1,5 @@
 import { Checkbox } from "semantic-ui-react";
-import { storiesBuilder } from "../../storybook/utils/stories-builder";
+import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
     return storiesBuilder("Semantic-UI-Theme|checkbox")
