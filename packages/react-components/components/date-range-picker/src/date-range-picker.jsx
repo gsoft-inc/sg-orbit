@@ -52,7 +52,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         allowSingleDateSelection: false,
         input: <DateRangePickerInput />,
         inputIcon: <InputCalendarIcon />,
-        inputClearIcon: <ClearIcon />,
+        inputClearIcon: <ClearIcon className="h3 w3" />,
         placeholder: "Pick a date",
         rangeFormat: "{startDate} - {endDate}",
         dateFormat: "MMM Do YYYY",
