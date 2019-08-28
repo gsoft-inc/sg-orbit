@@ -1,8 +1,7 @@
 import {
     AddIcon,
     ArrowFullIcon,
-    ArrowLeftIcon,
-    ArrowRightIcon,
+    ArrowIcon,
     ClearIcon,
     InputCalendarIcon,
     MagnifierIcon,
@@ -21,28 +20,31 @@ stories()
          () =>
              <div className="flex flex-column items-center">
                  <div className="mb4 flex">
-                     <ArrowLeftIcon />
+                     <ArrowIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
-                     <ArrowRightIcon />
+                     <ArrowIcon className="rotate-180 h3 w3" />
                  </div>
                  <div className="mb4 flex">
                      <ArrowFullIcon className="w2 h2" />
                  </div>
                  <div className="mb4 flex">
-                     <ClearIcon />
+                     <ArrowFullIcon className="rotate-180 w2 h2" />
+                 </div>
+                 <div className="mb4 flex">
+                     <ClearIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
                      <InputCalendarIcon className="w6 h6" />
                  </div>
                  <div className="mb4 flex">
-                     <PresetsCalendarIcon />
+                     <PresetsCalendarIcon className="w8 h8" />
                  </div>
                  <div className="mb4 flex">
-                     <MagnifierIcon />
+                     <MagnifierIcon className="w4 h4" />
                  </div>
                  <div className="mb4 flex">
-                     <AddIcon />
+                     <AddIcon className="w4 h4" />
                  </div>
              </div>
     );

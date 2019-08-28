@@ -417,8 +417,6 @@
 /* For source only. Modified in gulp for dist */
 @imagePath : '../../themes/default/assets/images';
 @fontPath  : '../../themes/default/assets/fonts';
-
-/* For source only. Modified in gulp for dist */
 @iconsPath : 'themes/sharegate/assets/icons';
 
 /*-------------------

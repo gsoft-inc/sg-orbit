@@ -42,7 +42,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
-        clearIcon: <ClearIcon />,
+        clearIcon: <ClearIcon className="h3 w3" />,
         disabled: false,
         autofocus: false
     };

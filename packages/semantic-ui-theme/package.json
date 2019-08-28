@@ -25,6 +25,7 @@
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
+        "@orbit-ui/icons": "*",
         "@orbit-ui/foundation": "*"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"

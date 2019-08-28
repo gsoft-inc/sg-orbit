@@ -3,7 +3,7 @@ import "react-dates/lib/css/_datepicker.css";
 
 import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
+import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
@@ -58,11 +58,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
         calendar: <DateRangePickerCalendar />,
-        navPrevIcon: <ArrowLeftIcon className="fill-cloud-500" />,
-        navNextIcon: <ArrowRightIcon className="fill-cloud-500" />,
+        navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-cloud-500" />,
+        navNextIcon: <ArrowIcon className="w4 h4 fill-cloud-500" />,
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
-        presetsIcon: <PresetsCalendarIcon />,
+        presetsIcon: <PresetsCalendarIcon className="w8 h8 fill-cloud-500" />,
         buttons: <DateRangePickerButtons />,
         clearText: "Clear",
         applyText: "Apply",

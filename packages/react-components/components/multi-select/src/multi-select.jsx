@@ -29,7 +29,7 @@ function defaultSelectedItemRenderer(item, { disabled, onRemove }) {
             {item.text}
             <If condition={!disabled}>
                 <Button circular size="mini" icon className="transparent" onClick={onRemove}>
-                    <ClearIcon />
+                    <ClearIcon className="h3 w3" />
                 </Button>
             </If>
         </Label>
@@ -93,7 +93,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         closeOnSelect: false,
         noResultsMessage: "No results",
         triggerText: "Add",
-        triggerIcon: <AddIcon className="fill-marine-700 ml2" />,
+        triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         searchIcon: <MagnifierIcon className="fill-marine-400" />,
         placeholder: "Search",
         selectedItemsComponent: <MultiSelectSelectedItems />,

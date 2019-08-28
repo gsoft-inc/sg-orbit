@@ -11,6 +11,7 @@ import { isChromatic } from "storybook-chromatic";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/foundation/dist/apricot.css";
+import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons";
 

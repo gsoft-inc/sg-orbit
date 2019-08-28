@@ -6,7 +6,7 @@ route: /components/icons
 
 import "../../styles/main.css";
 
-import { AddIcon, ArrowFullIcon, ArrowLeftIcon, ArrowRightIcon, ClearIcon, InputCalendarIcon, MagnifierIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
+import { AddIcon, ArrowFullIcon, ArrowIcon, ClearIcon, InputCalendarIcon, MagnifierIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { Playground } from "docz";
 
 # Icons
@@ -14,7 +14,7 @@ import { Playground } from "docz";
     import { AddIcon } from "@orbit-ui/icons/";
 
 <Playground>
-    <AddIcon />
+    <AddIcon className="w4 h4" />
 </Playground>
 
     import { ArrowFullIcon } from "@orbit-ui/icons/";
@@ -23,22 +23,24 @@ import { Playground } from "docz";
     <ArrowFullIcon className="w2 h2" />
 </Playground>
 
-    import { ArrowLeftIcon } from "@orbit-ui/icons/";
-
 <Playground>
-    <ArrowLeftIcon />
+    <ArrowFullIcon className="w2 h2 rotate-270" />
 </Playground>
 
-    import { ArrowRightIcon } from "@orbit-ui/icons/";
+    import { ArrowIcon } from "@orbit-ui/icons/";
 
 <Playground>
-    <ArrowRightIcon />
+    <ArrowIcon className="w4 h4" />
+</Playground>
+
+<Playground>
+    <ArrowIcon className="w4 h4 rotate-180" />
 </Playground>
 
     import { ClearIcon } from "@orbit-ui/icons/";
 
 <Playground>
-    <ClearIcon />
+    <ClearIcon className="w3 h3" />
 </Playground>
 
     import { InputCalendarIcon } from "@orbit-ui/icons/";
@@ -50,11 +52,11 @@ import { Playground } from "docz";
     import { PresetsCalendarIcon } from "@orbit-ui/icons/";
 
 <Playground>
-    <PresetsCalendarIcon />
+    <PresetsCalendarIcon className="w8 h8" />
 </Playground>
 
     import { MagnifierIcon } from "@orbit-ui/icons/";
 
 <Playground>
-    <MagnifierIcon />
+    <MagnifierIcon className="w4 h4" />
 </Playground>
