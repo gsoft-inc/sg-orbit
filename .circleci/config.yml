@@ -34,8 +34,11 @@ jobs:
             - checkout
             - restore_cache: *restore-yarn-deps
             - run:
-                  name: Install Dependencies
+                  name: Install Packages Dependencies
                   command: yarn bootstrap:pkg --frozen-lockfile
+            - run:
+                  name: Install Storybook Dependencies
+                  command: yarn bootstrap:sb --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: Build Packages
