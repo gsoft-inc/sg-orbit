@@ -106,10 +106,11 @@ function buildJS(src, type, config, callback) {
   const packUncompressed       = () => pack(type, false);
   packUncompressed.displayName = 'Packing uncompressed Javascript';
 
-  const packCompressed       = () => pack(type, true);
-  packCompressed.displayName = 'Packing compressed Javascript';
+//   const packCompressed       = () => pack(type, true);
+//   packCompressed.displayName = 'Packing compressed Javascript';
 
-  gulp.series(js, gulp.parallel(packUncompressed, packCompressed))(callback);
+//   gulp.series(js, gulp.parallel(packUncompressed, packCompressed))(callback);
+  gulp.series(js, packUncompressed)(callback);
 }
 
 module.exports = function (callback) {

@@ -54,7 +54,7 @@ If you're building a React app, have a look at the [React Components](#react-com
 | [@orbit-ui/foundation](/packages/foundation) | [![npm](https://img.shields.io/npm/v/@orbit-ui/foundation.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/foundation) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/foundation)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/foundation) |
 | [@orbit-ui/tachyons](/packages/tachyons) | [![npm](https://img.shields.io/npm/v/@orbit-ui/tachyons.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/tachyons) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-brand.svg?path=packages/tachyons)](https://david-dm.org/gsoft-inc/sg-brand.svg?path=packages/tachyons) |
 
-- [@orbit-ui/css-normalize](/packages/css-normalize): is Orbit UI custom CSS reset for Edge, Chrome, Firefox and Safari.
+- [@orbit-ui/css-normalize](/packages/css-normalize): is Orbit UI custom CSS normalizer for Edge, Chrome, Firefox and Safari.
 - [@orbit-ui/fonts](/packages/fonts): contains the fonts of Orbit UI.
 - [@orbit-ui/icons](/packages/icons): contains the icons of Orbit UI.
 - [@orbit-ui/foundation](/packages/foundation): is a set of CSS variables for Orbit UI colors, spacing and typography.

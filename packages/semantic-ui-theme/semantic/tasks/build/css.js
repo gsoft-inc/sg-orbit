@@ -135,19 +135,21 @@ function buildCSS(src, type, config, opts, callback, failOnError = true) {
   const buildUncompressed       = () => build(src, type, false, config, opts, failOnError);
   buildUncompressed.displayName = 'Building uncompressed CSS';
 
-  const buildCompressed       = () => build(src, type, true, config, opts, failOnError);
-  buildCompressed.displayName = 'Building compressed CSS';
+//   const buildCompressed       = () => build(src, type, true, config, opts, failOnError);
+//   buildCompressed.displayName = 'Building compressed CSS';
 
   const packUncompressed       = () => pack(type, false);
   packUncompressed.displayName = 'Packing uncompressed CSS';
 
-  const packCompressed       = () => pack(type, true);
-  packCompressed.displayName = 'Packing compressed CSS';
+//   const packCompressed       = () => pack(type, true);
+//   packCompressed.displayName = 'Packing compressed CSS';
 
-  gulp.parallel(
-    gulp.series(buildUncompressed, packUncompressed),
-    gulp.series(buildCompressed, packCompressed)
-  )(callback);
+//   gulp.parallel(
+//     gulp.series(buildUncompressed, packUncompressed),
+//     gulp.series(buildCompressed, packCompressed)
+//   )(callback);
+
+  gulp.series(buildUncompressed, packUncompressed)(callback);
 }
 
 function rtlAndNormal(src, callback, failOnError) {

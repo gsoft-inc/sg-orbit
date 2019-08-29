@@ -45,3 +45,7 @@ This is annoying for a lot of reasons, mostly because our CI doesn't fail on com
 To fix this, a `failOnError` parameter has been added to the functions `build` & `buildCss` of the file `/semantic/tasks/build/css.js`.
 
 The default value is true. This means that for a build, it will fail on error. The watch function provide `false` for `failOnError` to continue on error.
+
+## Compressed
+
+The compressed compilation has been removed for the CSS and the JS.
