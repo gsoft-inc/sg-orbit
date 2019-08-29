@@ -13,3 +13,19 @@ RemoteSearchInput:
 
 Foundation:
     @import "~@orbit-ui/foundation"; -> @import "~@orbit-ui/foundation/apricot";
+
+
+# Migrate Apricot to Orbit UI
+
+## Fonts
+
+## Foundation
+
+## Tachyons
+
+## Semantic UI theme
+
+## React components
+
+### RemoteSearchInput
+
