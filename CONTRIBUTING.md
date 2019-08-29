@@ -180,7 +180,7 @@ git tag [yyyy-MM-dd]
 git push origin [yyyy-MM-dd]
 ```
 
-Once you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-brand/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-brand/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
 
 ### Troubleshooting
 
@@ -581,7 +581,7 @@ If you're package is a new React component, please read the [React components do
 
 When adding a new script, there is a few rules to follow.
 
-### Think in term of atomic scripts
+### Think in terms of atomic scripts
 
 A script should only do one thing. This practice promote better readability and reusability.
 

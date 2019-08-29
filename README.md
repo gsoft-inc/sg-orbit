@@ -75,9 +75,9 @@ Then, in your `main.css` file:
 ```css
 @import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation[/apricot.css|overcast.css|desktop.css]";
+@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
+@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
 @import "~@orbit-ui/semantic-ui-theme";
-@import "~@orbit-ui/tachyons";
 ```
 
 ### React Components

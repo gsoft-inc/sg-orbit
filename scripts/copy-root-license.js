@@ -1,3 +1,5 @@
+// TODO: Use https://www.npmjs.com/package/meow
+
 const chalk = require("chalk");
 const shell = require("shelljs");
 const es = require("./ensure-success");

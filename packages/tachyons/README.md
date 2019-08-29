@@ -4,15 +4,25 @@ This package is a custom version of the [Tachyons library](https://github.com/ta
 
 ## Usage
 
-In your `main.css`, import Tachyons:
+Import the core of Tachyons and [override the default variables manually](#override-defaut-variables) to match your brand:
 
 ```css
 @import "~@orbit-ui/tachyons";
 ```
 
-You can use it as-is or override the default variables by simply redeclaring the variables in a `:root` CSS class.
+Or, import Tachyons for a specific brand:
 
-``` css
+```css
+@import "~@orbit-ui/tachyons/apricot.css";
+@import "~@orbit-ui/tachyons/overcast.css";
+@import "~@orbit-ui/tachyons/desktop.css";
+```
+
+### Override default variables
+
+The following default variables can be overrided by simply redeclaring the variables in a `:root` CSS class:
+
+```css
 :root {
     --primary: #c63a0c;
 }
@@ -23,12 +33,13 @@ For more information:
 https://sg-orbit.netlify.com
 http://tachyons.io/docs
 
-### Legacy
+### Legacy version
 
-To use the legacy version of Tachyons:
+If you support an old browser that doesn't support CSS variable and you dont have a build process to transpile the CSS variables, import the legacy version:
 
 ```css
-@import "~@orbit-ui/tachyons/tachyons.legacy.css";
+@import "~@orbit-ui/tachyons/legacy.css";
+@import "~@orbit-ui/tachyons/legacy.min.css";
 ```
 
 ## License

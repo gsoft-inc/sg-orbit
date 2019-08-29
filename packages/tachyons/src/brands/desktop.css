@@ -1,0 +1,357 @@
+/* border-colors */
+
+.b--desktop-50 {
+    border-color: var(--desktop-50);
+}
+
+.b--desktop-100 {
+    border-color: var(--desktop-100);
+}
+
+.b--desktop-200 {
+    border-color: var(--desktop-200);
+}
+
+.b--desktop-300 {
+    border-color: var(--desktop-300);
+}
+
+.b--desktop-400 {
+    border-color: var(--desktop-400);
+}
+
+.b--desktop-500 {
+    border-color: var(--desktop-500);
+}
+
+.b--desktop-600 {
+    border-color: var(--desktop-600);
+}
+
+.b--desktop-700 {
+    border-color: var(--desktop-700);
+}
+
+.b--desktop-800 {
+    border-color: var(--desktop-800);
+}
+
+.b--desktop-900 {
+    border-color: var(--desktop-900);
+}
+
+/* border-colors-pseudo */
+
+.hover-b--desktop-50:hover {
+    border-color: var(--desktop-50);
+}
+
+.hover-b--desktop-100:hover {
+    border-color: var(--desktop-100);
+}
+
+.hover-b--desktop-200:hover {
+    border-color: var(--desktop-200);
+}
+
+.hover-b--desktop-300:hover {
+    border-color: var(--desktop-300);
+}
+
+.hover-b--desktop-400:hover {
+    border-color: var(--desktop-400);
+}
+
+.hover-b--desktop-500:hover {
+    border-color: var(--desktop-500);
+}
+
+.hover-b--desktop-600:hover {
+    border-color: var(--desktop-600);
+}
+
+.hover-b--desktop-700:hover {
+    border-color: var(--desktop-700);
+}
+
+.hover-b--desktop-800:hover {
+    border-color: var(--desktop-800);
+}
+
+.hover-b--desktop-900:hover {
+    border-color: var(--desktop-900);
+}
+
+/* skins */
+
+.desktop-50 {
+    color: var(--desktop-50);
+}
+
+.desktop-100 {
+    color: var(--desktop-100);
+}
+
+.desktop-200 {
+    color: var(--desktop-200);
+}
+
+.desktop-300 {
+    color: var(--desktop-300);
+}
+
+.desktop-400 {
+    color: var(--desktop-400);
+}
+
+.desktop-500 {
+    color: var(--desktop-500);
+}
+
+.desktop-600 {
+    color: var(--desktop-600);
+}
+
+.desktop-700 {
+    color: var(--desktop-700);
+}
+
+.desktop-800 {
+    color: var(--desktop-800);
+}
+
+.desktop-900 {
+    color: var(--desktop-900);
+}
+
+.bg-desktop-50 {
+    background-color: var(--desktop-50);
+}
+
+.bg-desktop-100 {
+    background-color: var(--desktop-100);
+}
+
+.bg-desktop-200 {
+    background-color: var(--desktop-200);
+}
+
+.bg-desktop-300 {
+    background-color: var(--desktop-300);
+}
+
+.bg-desktop-400 {
+    background-color: var(--desktop-400);
+}
+
+.bg-desktop-500 {
+    background-color: var(--desktop-500);
+}
+
+.bg-desktop-600 {
+    background-color: var(--desktop-600);
+}
+
+.bg-desktop-700 {
+    background-color: var(--desktop-700);
+}
+
+.bg-desktop-800 {
+    background-color: var(--desktop-800);
+}
+
+.bg-desktop-900 {
+    background-color: var(--desktop-900);
+}
+
+.fill-desktop-50 {
+    fill: var(--desktop-50);
+}
+
+.fill-desktop-100 {
+    fill: var(--desktop-100);
+}
+
+.fill-desktop-200 {
+    fill: var(--desktop-200);
+}
+
+.fill-desktop-300 {
+    fill: var(--desktop-300);
+}
+
+.fill-desktop-400 {
+    fill: var(--desktop-400);
+}
+
+.fill-desktop-500 {
+    fill: var(--desktop-500);
+}
+
+.fill-desktop-600 {
+    fill: var(--desktop-600);
+}
+
+.fill-desktop-700 {
+    fill: var(--desktop-700);
+}
+
+.fill-desktop-800 {
+    fill: var(--desktop-800);
+}
+
+.fill-desktop-900 {
+    fill: var(--desktop-900);
+}
+
+/* skins-pseudo */
+
+.hover-desktop-50:hover,
+.hover-desktop-50:focus {
+    color: var(--desktop-50);
+}
+
+.hover-desktop-100:hover,
+.hover-desktop-100:focus {
+    color: var(--desktop-100);
+}
+
+.hover-desktop-200:hover,
+.hover-desktop-200:focus {
+    color: var(--desktop-200);
+}
+
+.hover-desktop-300:hover,
+.hover-desktop-300:focus {
+    color: var(--desktop-300);
+}
+
+.hover-desktop-400:hover,
+.hover-desktop-400:focus {
+    color: var(--desktop-400);
+}
+
+.hover-desktop-500:hover,
+.hover-desktop-500:focus {
+    color: var(--desktop-500);
+}
+
+.hover-desktop-600:hover,
+.hover-desktop-600:focus {
+    color: var(--desktop-600);
+}
+
+.hover-desktop-700:hover,
+.hover-desktop-700:focus {
+    color: var(--desktop-700);
+}
+
+.hover-desktop-800:hover,
+.hover-desktop-800:focus {
+    color: var(--desktop-800);
+}
+
+.hover-desktop-900:hover,
+.hover-desktop-900:focus {
+    color: var(--desktop-900);
+}
+
+.hover-bg-desktop-50:hover,
+.bg-hover-desktop-50:focus {
+    background-color: var(--desktop-50);
+}
+
+.hover-bg-desktop-100:hover,
+.bg-hover-desktop-100:focus {
+    background-color: var(--desktop-100);
+}
+
+.hover-bg-desktop-200:hover,
+.bg-hover-desktop-200:focus {
+    background-color: var(--desktop-200);
+}
+
+.hover-bg-desktop-300:hover,
+.bg-hover-desktop-300:focus {
+    background-color: var(--desktop-300);
+}
+
+.hover-bg-desktop-400:hover,
+.bg-hover-desktop-400:focus {
+    background-color: var(--desktop-400);
+}
+
+.hover-bg-desktop-500:hover,
+.bg-hover-desktop-500:focus {
+    background-color: var(--desktop-500);
+}
+
+.hover-bg-desktop-600:hover,
+.bg-hover-desktop-600:focus {
+    background-color: var(--desktop-600);
+}
+
+.hover-bg-desktop-700:hover,
+.bg-hover-desktop-700:focus {
+    background-color: var(--desktop-700);
+}
+
+.hover-bg-desktop-800:hover,
+.bg-hover-desktop-800:focus {
+    background-color: var(--desktop-800);
+}
+
+.hover-bg-desktop-900:hover,
+.bg-hover-desktop-900:focus {
+    background-color: var(--desktop-900);
+}
+
+.hover-fill-desktop-50:hover,
+.fill-hover-desktop-50:focus {
+    fill: var(--desktop-50);
+}
+
+.hover-fill-desktop-100:hover,
+.fill-hover-desktop-100:focus {
+    fill: var(--desktop-100);
+}
+
+.hover-fill-desktop-200:hover,
+.fill-hover-desktop-200:focus {
+    fill: var(--desktop-200);
+}
+
+.hover-fill-desktop-300:hover,
+.fill-hover-desktop-300:focus {
+    fill: var(--desktop-300);
+}
+
+.hover-fill-desktop-400:hover,
+.fill-hover-desktop-400:focus {
+    fill: var(--desktop-400);
+}
+
+.hover-fill-desktop-500:hover,
+.fill-hover-desktop-500:focus {
+    fill: var(--desktop-500);
+}
+
+.hover-fill-desktop-600:hover,
+.fill-hover-desktop-600:focus {
+    fill: var(--desktop-600);
+}
+
+.hover-fill-desktop-700:hover,
+.fill-hover-desktop-700:focus {
+    fill: var(--desktop-700);
+}
+
+.hover-fill-desktop-800:hover,
+.fill-hover-desktop-800:focus {
+    fill: var(--desktop-800);
+}
+
+.hover-fill-desktop-900:hover,
+.fill-hover-desktop-900:focus {
+    fill: var(--desktop-900);
+}

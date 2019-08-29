@@ -13,7 +13,7 @@ import "@orbit-ui/css-normalize";
 import "@orbit-ui/foundation/dist/apricot.css";
 import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
-import "@orbit-ui/tachyons";
+import "@orbit-ui/tachyons/dist/apricot.css";
 
 // Custom font makes chromatic inconsistent and cause "false positive".
 if (!isChromatic()) {

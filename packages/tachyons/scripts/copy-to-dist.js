@@ -7,7 +7,7 @@ shell.cp("-f", "package.json", "README.md", DIST_PATH);
 
 // Ensure that the "main" file configured in package.json is available.
 shell.mkdir(`${DIST_PATH}/${DIST_PATH}`);
-shell.cp("-Rf", `${DIST_PATH}/tachyons.css`, `${DIST_PATH}/${DIST_PATH}`);
+shell.cp("-Rf", `${DIST_PATH}/*.css`, `${DIST_PATH}/${DIST_PATH}`);
 
 console.log(chalk.green("success"), " tachyons copied to dist folder.");
 
