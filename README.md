@@ -98,7 +98,7 @@ When available, you should use a component from [Semantic UI React](https://reac
 
 - [@orbit-ui/semantic-ui-theme](/packages/semantic-ui-theme): is Orbit UI custom theme for [Semantic UI](https://semantic-ui.com/). The theme is based on the variables of *@orbit-ui/foundation*.
 - [@orbit-ui/react-components](/packages/react-components): is a bundle containing every Orbit UI custom React components.
-- [@orbit-ui/react-*](/packages/react-components/components): are packages thats contains invidual Orbit's custom React component. 
+- [@orbit-ui/react-*](/packages/react-components/components): are packages thats contains invidual Orbit UI custom React component. 
 
 #### Installation
 
