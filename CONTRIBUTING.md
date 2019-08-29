@@ -180,7 +180,7 @@ git tag [yyyy-MM-dd]
 git push origin [yyyy-MM-dd]
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-brand/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
 
 ### Troubleshooting
 
@@ -425,11 +425,11 @@ yarn reset
 If you encounter the following error:
 
 ```bash
-C:\Dev\20_gsoft\sg-brand\node_modules\rimraf\bin.js:47
+C:\Dev\20_gsoft\sg-orbit\node_modules\rimraf\bin.js:47
       throw er
       ^
 
-[Error: EPERM: operation not permitted, unlink 'XXX\sg-brand\node_modules\@types'] {
+[Error: EPERM: operation not permitted, unlink 'XXX\sg-orbit\node_modules\@types'] {
 ```
 
 Close & re-open VSCode and delete manually the *node_modules* folder at the root of the workspace.
@@ -551,7 +551,7 @@ Answer the CLI questions.
 
 Once the *package.json* is generated, please read again the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
 
-Dont forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *@orbit-ui* before the package name. For example if the project name is "foo", your package name should be "@orbit-ui/foo".
+Dont forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *"@orbit-ui"* before the package name. For example if the project name is "foo", your package name should be "@orbit-ui/foo".
 
 Make sure the package publish access is *public* by adding the following to the *package.json* file:
 
