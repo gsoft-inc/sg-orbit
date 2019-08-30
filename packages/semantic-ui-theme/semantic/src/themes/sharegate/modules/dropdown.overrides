@@ -6,7 +6,8 @@
 }
 
 .ui.dropdown > .dropdown.icon {
-    background: url("@{iconsPath}/down-arrow.svg") center center no-repeat!important;
+    background: url("@{iconsPath}/icon-down-arrow-marine-100.svg") center center no-repeat!important;
+    background-size: 12px 12px!important;
 }
 
 .ui.selection.dropdown > .dropdown.icon {
