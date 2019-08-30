@@ -6,6 +6,13 @@
 
 .ui.radio.checkbox label:before {
     box-sizing: border-box;
+    border-width: 2px;
+}
+
+.ui.radio.checkbox input:checked:disabled ~ .box:before,
+.ui.radio.checkbox input:checked:disabled ~ label:before {
+    background-image: none;
+    border-width: 2px;
 }
 
 .ui.checkbox input:checked ~ .box:before,
@@ -18,8 +25,9 @@
 
 .ui.checkbox input:checked:disabled ~ .box:before,
 .ui.checkbox input:checked:disabled ~ label:before {
-    background: @primaryColor50 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
-    border-color: @primaryColor50;
+    background: @primaryColor100 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
+    border-color: @primaryColor100;
+    background-size: 12px 12px;
 }
 
 .ui.checkbox input:indeterminate:focus ~ .box:before, .ui.checkbox input:indeterminate:focus ~ label:before {
@@ -31,13 +39,20 @@
     background-color: @primaryColor500;
 }
 
-.ui.checkbox.indeterminate input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate input:not([type=radio]) ~ label:before {
-    background: @white url("@{iconsPath}/icon-bar-apricot-500.svg") center center no-repeat;
+.ui.checkbox.indeterminate.checked input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate.checked input:not([type=radio]) ~ label:before {
+    background: @primaryColor500 url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
     background-size: 8px 8px;
 }
 
 .ui.checkbox.indeterminate input:disabled ~ .box:before, .ui.checkbox.indeterminate input:disabled ~ label:before {
-    background: @white url("@{iconsPath}/icon-bar-cloud-100.svg") center center no-repeat;
+    background: var(--cloud-50);
+    border: 1px solid var(--cloud-100);
+
+}
+
+.ui.checkbox.indeterminate.checked input:disabled ~ .box:before, .ui.checkbox.indeterminate.checked input:disabled ~ label:before {
+    background: @primaryColor100 url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
+    border-color: @primaryColor100;
     background-size: 8px 8px;
 }
 
@@ -81,6 +96,20 @@
     border: 1px solid var(--cloud-200);
 }
 
+.ui.checkbox.radio {
+    line-height: 1;
+}
+
+.ui.checkbox.radio.checked .box:hover::before,
+.ui.checkbox.radio.checked label:hover::before {
+    border: 2px solid var(--primary-500);
+}
+
+.ui.checkbox.radio .box:hover::before,
+.ui.checkbox.radio label:hover::before {
+    border: 2px solid var(--cloud-200);
+}
+
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
     background: @white;
@@ -105,7 +134,8 @@
     background: @white;
 }
 
-.ui.disabled.checkbox .box:after, .ui.disabled.checkbox label::before,
+.ui.disabled.checkbox .box:after,
+.ui.disabled.checkbox label::before,
 .ui.checkbox input[disabled] ~ label::before {
     background-color: var(--cloud-50);
     border: 1px solid var(--cloud-100);

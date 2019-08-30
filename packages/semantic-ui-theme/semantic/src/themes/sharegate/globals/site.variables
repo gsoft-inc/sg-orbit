@@ -37,6 +37,7 @@
     Brand Colors
 --------------------*/
 @primaryColor50         :  var(--primary-50);
+@primaryColor100         :  var(--primary-100);
 @primaryColor200        :  var(--primary-200);
 @primaryColor500        :  var(--primary-500);
 @primaryColor600        :  var(--primary-600);
