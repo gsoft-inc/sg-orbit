@@ -1,11 +1,11 @@
 import "./story-parameters-panel.css";
 
-import { Component } from "react";
 import { PANEL_ID, PARAM_KEY } from "./config";
+import { PureComponent } from "react";
 import { STORY_CHANGED } from "@storybook/core-events";
 import { isNil, isPlainObject, isString } from "lodash";
 
-class StoryParametersPanel extends Component {
+class StoryParametersPanel extends PureComponent {
     state = {
         values: null
     };

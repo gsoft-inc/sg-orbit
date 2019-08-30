@@ -33,7 +33,7 @@ export class StoryContainer extends Component {
         const { layout } = options;
 
         return (
-            <div className="fixed top-0 left-0 right-0 mt10 flex items-center">
+            <div className="fixed top-0 left-0 right-0 mt10 flex items-center test">
                 <div className="center" style={layout}>
                     {story}
                 </div>
