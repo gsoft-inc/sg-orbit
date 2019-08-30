@@ -196,7 +196,7 @@ handleFetchResults = () => {
     const { url, queryParameter, urlData } = this.props;
 
     return useDefaultResultsFetcher(url, queryParameter, {
-        queryData = urlData
+        queryData: urlData
     });
 };
 
