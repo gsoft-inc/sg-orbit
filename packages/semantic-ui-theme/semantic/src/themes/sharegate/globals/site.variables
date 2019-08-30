@@ -44,6 +44,12 @@
 @secondaryColor50       :  var(--cloud-50);
 @secondaryColor100      :  var(--cloud-100);
 
+@moonstone50            : var(--moonstone-50);
+@sunray50               : var(--sunray-50);
+@sunray100              : var(--sunray-100);
+@sunray500              : var(--sunray-500);
+@sunray700              : var(--sunray-700);
+
 /*-------------- Fallback ---------------*/
 @primaryColor           : @primaryColor500;
 @secondaryColor         : @cloud100;
@@ -223,6 +229,7 @@
 @marine900: var(--marine-900);
 
 /*--- Success --*/
+@success50: var(--success-50);
 @success500: var(--success-500);
 
 /*--- Alert--*/
@@ -366,13 +373,9 @@
 @subtleGradient: linear-gradient(transparent, @transparentBlack);
 
 /* Differentiating Layers */
-@subtleShadow:
-  0px 1px 2px 0 @borderColor
-;
-@floatingShadow:
-  0px 2px 4px 0px rgba(34, 36, 38, 0.12),
-  0px 2px 10px 0px rgba(34, 36, 38, 0.15)
-;
+@subtleShadow: 0px 1px 2px 0 @borderColor;
+
+@floatingShadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 
 /*******************************
            Power-User
@@ -385,9 +388,9 @@
 
 /* Positive */
 @positiveColor           : @success500;
-@positiveBackgroundColor : #FCFFF5;
+@positiveBackgroundColor : @success50;
 @positiveBorderColor     : #A3C293;
-@positiveHeaderColor     : #1A531B;
+@positiveHeaderColor     : #2C662D;
 @positiveTextColor       : #2C662D;
 
 /* Negative */
@@ -398,8 +401,8 @@
 @negativeTextColor       : @textColor;
 
 /* Info */
-@infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FFFF;
+@infoColor              : @primaryColor500;
+@infoBackgroundColor    : @moonstone50;
 @infoBorderColor        : #A9D5DE;
 @infoHeaderColor        : #0E566C;
 @infoTextColor          : #276F86;
@@ -407,8 +410,8 @@
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFAF3;
-@warningHeaderColor     : #794B02;
+@warningBackgroundColor : @sunray50;
+@warningHeaderColor     : @sunray700;
 @warningTextColor       : #573A08;
 
 /*-------------------
