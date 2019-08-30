@@ -23,13 +23,7 @@ stories()
                      <ArrowIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
-                     <ArrowIcon className="rotate-180 h3 w3" />
-                 </div>
-                 <div className="mb4 flex">
                      <ArrowFullIcon className="w2 h2" />
-                 </div>
-                 <div className="mb4 flex">
-                     <ArrowFullIcon className="rotate-180 w2 h2" />
                  </div>
                  <div className="mb4 flex">
                      <ClearIcon className="h3 w3" />
@@ -41,10 +35,10 @@ stories()
                      <PresetsCalendarIcon className="w8 h8" />
                  </div>
                  <div className="mb4 flex">
-                     <MagnifierIcon className="w4 h4" />
+                     <AddIcon className="w4 h4" />
                  </div>
                  <div className="mb4 flex">
-                     <AddIcon className="w4 h4" />
+                     <MagnifierIcon className="w4 h4" />
                  </div>
              </div>
     );

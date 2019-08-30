@@ -12,19 +12,19 @@
 .ui.checkbox input:checked ~ label:before,
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before {
-    background: @primaryColor500 url("@{iconsPath}/checkmark.svg") center center no-repeat;
-    background-size: 12px 8px;
+    background: @primaryColor500 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
+    background-size: 12px 12px;
 }
 
 .ui.checkbox input:checked:disabled ~ .box:before,
 .ui.checkbox input:checked:disabled ~ label:before {
-    background: @primaryColor50 url("@{iconsPath}/checkmark.svg") center center no-repeat;
+    background: @primaryColor50 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
     border-color: @primaryColor50;
 }
 
 .ui.checkbox input:indeterminate:focus ~ .box:before, .ui.checkbox input:indeterminate:focus ~ label:before {
-    background: @white url("@{iconsPath}/checkmark.svg") center center no-repeat;
-    background-size: 12px 8px;
+    background: @white url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
+    background-size: 12px 12px;
 }
 
 .ui.checkbox input:checked:focus ~ .box:before, .ui.checkbox input:checked:focus ~ label:before {
@@ -32,13 +32,13 @@
 }
 
 .ui.checkbox.indeterminate input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate input:not([type=radio]) ~ label:before {
-    background: @white url("@{iconsPath}/bar.svg") center center no-repeat;
-    background-size: 8px 2px;
+    background: @white url("@{iconsPath}/icon-bar-apricot-500.svg") center center no-repeat;
+    background-size: 8px 8px;
 }
 
 .ui.checkbox.indeterminate input:disabled ~ .box:before, .ui.checkbox.indeterminate input:disabled ~ label:before {
-    background: @white url("@{iconsPath}/bar-disabled.svg") center center no-repeat;
-    background-size: 8px 2px;
+    background: @white url("@{iconsPath}/icon-bar-cloud-100.svg") center center no-repeat;
+    background-size: 8px 8px;
 }
 
 /* Toggle

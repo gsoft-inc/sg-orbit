@@ -417,7 +417,7 @@
 /* For source only. Modified in gulp for dist */
 @imagePath : '../../themes/default/assets/images';
 @fontPath  : '../../themes/default/assets/fonts';
-@iconsPath : 'themes/sharegate/assets/icons';
+@iconsPath : '~@orbit-ui/icons/dist';
 
 /*-------------------
        Em Sizes
