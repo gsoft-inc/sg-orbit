@@ -82,8 +82,6 @@ class BrandPickerTool extends PureComponent {
 
         COLORS_WEIGHT.forEach(x => {
             iframeDocument.documentElement.style.setProperty(`--primary-${x}`, computedStyle.getPropertyValue(`--${brand.id}-${x}`));
-
-            console.log(`--primary-${x} `, `--${brand.id}-${x}`);
         });
     }
 

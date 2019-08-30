@@ -9,7 +9,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/fo
 ```
 
 ```bash
-npm install react-spring moment lodash @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
+npm install react-spring styled-jsx moment lodash @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
 Remove the following npm packages:
@@ -40,6 +40,21 @@ Add the following to the file `src/app/styles/main.css`:
 
 ```css
 @import "~@orbit-ui/css-normalize";
+```
+
+Remove the following code from the file `src/app/styles/elements.css`:
+
+```css
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 ```
 
 ## Foundation
@@ -157,6 +172,10 @@ The following utilities has been added:
 
 - `useDefaultResultsFetcher`
 
+The following utilities has been renamed:
+
+- `toMultiSelectItem` -> `multiSelectItem`
+
 In the file `src/app/features/components/people-picker/people-picker.jsx`, update:
 
 ```javascript
@@ -192,13 +211,9 @@ import { RemoteSearchInput, useDefaultResultsFetcher } from "@orbit-ui/react-com
 
 // ....
 
-handleFetchResults = () => {
-    const { url, queryParameter, urlData } = this.props;
-
-    return useDefaultResultsFetcher(url, queryParameter, {
-        queryData = urlData
-    });
-};
+handleFetchResults = useDefaultResultsFetcher(this.props.url, this.props.queryParameter, {
+    queryData: this.props.urlData
+});
 
 // ....
 
@@ -224,6 +239,10 @@ render() {
     );
 }
 ```
+
+In the file `src/app/features/activity/activity-feed-page/active/activity-type-filter.jsx`:
+
+Rename all `toMultiSelectItem` to `multiSelectItem`
 
 
 

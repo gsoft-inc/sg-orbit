@@ -121,7 +121,7 @@ Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) a
 With npm:
 
 ```bash
-npm install react-spring moment lodash @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
+npm install react-spring styled-jsx semantic-ui-react moment lodash @orbit-ui/semantic-ui-theme @orbit-ui/react-components
 ```
 
 Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).

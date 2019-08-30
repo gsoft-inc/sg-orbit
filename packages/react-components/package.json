@@ -29,7 +29,8 @@
         "@orbit-ui/tachyons": "*",
         "react": "*",
         "react-dom": "*",
-        "semantic-ui-react": "*"
+        "semantic-ui-react": "*",
+        "styled-jsx": "*"
     },
     "dependencies": {
         "@orbit-ui/react-components-shared": "0.2.0",

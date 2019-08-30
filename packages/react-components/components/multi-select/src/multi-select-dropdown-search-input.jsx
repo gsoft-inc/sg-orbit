@@ -21,10 +21,10 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
         }
     }
 
-    handleChange = event => {
+    handleChange = (event, { value }) => {
         const { onChange } = this.props;
 
-        onChange(event, this.props);
+        onChange(event, value, this.props);
     };
 
     getClasses() {
