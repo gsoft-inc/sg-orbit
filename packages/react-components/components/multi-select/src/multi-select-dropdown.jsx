@@ -137,7 +137,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     handleItemClick = (event, item) => {
-        this.selectItem(event, item);
+        this.selectItem(event, item, this.props);
     };
 
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay) : this.props.onSearch;

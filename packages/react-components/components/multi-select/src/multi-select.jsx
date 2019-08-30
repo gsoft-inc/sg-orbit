@@ -151,6 +151,8 @@ export class MultiSelect extends AutoControlledPureComponent {
     handleItemSelect = (event, item) => {
         const { values } = this.state;
 
+        console.log(item);
+
         this.setValues(event, [...values, item.value]);
     };
 
