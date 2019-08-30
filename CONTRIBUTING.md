@@ -182,6 +182,8 @@ git push origin [yyyy-MM-dd]
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
 
+Dont forget to **publish** the release.
+
 ### Troubleshooting
 
 #### Github
