@@ -36,7 +36,7 @@ i.icon.search:before {
     top: 0;
     margin-top: 0;
     background: url("@{iconsPath}/icon-magnifier-marine-500.svg") center center no-repeat !important;
-    background-size: 16px 16px;
+    background-size: 16px 16px !important;
 }
 
 .ui.loading i.icon.search:before {
@@ -45,7 +45,7 @@ i.icon.search:before {
 
 .ui.disabled i.icon.search:before {
     background: url("@{iconsPath}/icon-magnifier-marine-100.svg") center center no-repeat !important;
-    background-size: 16px 16px;
+    background-size: 16px 16px !important;
 }
 
 i.icon.handshake {
@@ -61,7 +61,7 @@ i.icon.handshake:before {
     top: 0;
     margin-top: 0;
     background: url("@{iconsPath}/icon-handshake-white.svg") center center no-repeat !important;
-    background-size: 16px 16px;
+    background-size: 16px 16px !important;
 }
 
 i.icon.delete {
@@ -77,7 +77,7 @@ i.icon.delete:before {
     top: 0;
     margin-top: 0;
     background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
-    background-size: 10px 10px;
+    background-size: 10px 10px !important;
 }
 
 .ui.label > .icon {
