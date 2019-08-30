@@ -9,7 +9,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/fo
 ```
 
 ```bash
-npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
+npm install react-spring moment lodash @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-components
 ```
 
 Remove the following npm packages:
