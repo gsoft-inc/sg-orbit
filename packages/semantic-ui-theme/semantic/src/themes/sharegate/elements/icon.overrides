@@ -35,7 +35,8 @@ i.icon.search:before {
     width: 18px;
     top: 0;
     margin-top: 0;
-    background: url("@{iconsPath}/magnifier.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-magnifier-marine-500.svg") center center no-repeat !important;
+    background-size: 16px 16px;
 }
 
 .ui.loading i.icon.search:before {
@@ -43,11 +44,10 @@ i.icon.search:before {
 }
 
 .ui.disabled i.icon.search:before {
-    background: url("@{iconsPath}/magnifier-disabled.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-magnifier-marine-100.svg") center center no-repeat !important;
+    background-size: 16px 16px;
 }
 
-
-// Handshake icon
 i.icon.handshake {
     height: 16px;
     width: 24px;
@@ -60,10 +60,10 @@ i.icon.handshake:before {
     width: 24px;
     top: 0;
     margin-top: 0;
-    background: url("@{iconsPath}/handshake.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-handshake-white.svg") center center no-repeat !important;
+    background-size: 16px 16px;
 }
 
-// delete Icon
 i.icon.delete {
     height: 10px;
     width: 10px;
@@ -76,7 +76,8 @@ i.icon.delete:before {
     width: 10px;
     top: 0;
     margin-top: 0;
-    background: url("@{iconsPath}/delete.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
+    background-size: 10px 10px;
 }
 
 .ui.label > .icon {

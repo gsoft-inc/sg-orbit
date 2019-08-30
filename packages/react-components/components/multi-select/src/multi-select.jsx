@@ -94,7 +94,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         noResultsMessage: "No results",
         triggerText: "Add",
         triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
-        searchIcon: <MagnifierIcon className="fill-marine-400" />,
+        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />,
         placeholder: "Search",
         selectedItemsComponent: <MultiSelectSelectedItems />,
         selectedItemRenderer: defaultSelectedItemRenderer,

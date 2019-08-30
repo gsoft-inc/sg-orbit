@@ -1,7 +1,3 @@
-RemoteSearchInput:
-    - resultsFetcher
-    - autoFocus -> autofocus
-
 # Migrate Apricot to Orbit UI
 
 ## Installation

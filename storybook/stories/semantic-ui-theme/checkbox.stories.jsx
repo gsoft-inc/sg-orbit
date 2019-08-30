@@ -19,7 +19,7 @@ stories()
                     <Checkbox checked disabled label="Supernova" />
                 </div>
                 <div className="flex">
-                    <Checkbox defaultIndeterminate label="Milky Way" />
+                    <Checkbox label="Milky Way" />
                     <Checkbox defaultIndeterminate checked label="Supernova" />
                     <Checkbox defaultIndeterminate disabled label="Supernova" />
                     <Checkbox defaultIndeterminate checked disabled label="Supernova" />

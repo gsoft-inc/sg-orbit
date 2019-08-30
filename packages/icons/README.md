@@ -6,16 +6,14 @@ As a React component:
 
 ```javascript
 import { ClearIcon } from "@orbit-ui/icons";
-
-<ClearIcon />
+<ClearIcon />;
 ```
 
 As a React file:
 
 ```javascript
 import clearIcon from "@orbit-ui/icons/icon-clear.svg";
-
-<img src={clearIcon} />
+<img src={clearIcon} />;
 ```
 
 As a CSS background file:
@@ -32,20 +30,25 @@ The following documentation is only for the maintainers of this repository.
 
 ### Icons Guidelines
 
-In order to be included in Orbit UI an icon must satisfy the followind guidelines
+In order to be included in Orbit UI an icon must satisfy the following guidelines
 
-- The icon (refered as it from now on), must be available in a small(16x16), medium (24x24) and large(32x32) format when used as an interface icon.
-- It should not be specific to an app, e.g. Azure specific icons.
-- It must be used as part of an interface, illustrations, product icons, should'nt be submitted to this library.
-- It should be uncoloured, any icon that has many colours or need to be coloured, should be in your solution.
-- When the icon is used in a mono repo component it should live in the icon project, the size and colour rules (1 and 2) don't apply in those case.
+-   It should not be specific to an app, e.g. Azure specific icons. <img src="https://raw.githubusercontent.com/gsoft-inc/sg-brand/master/packages/icons/assets/app-specific-icon.png" width="27">
+
+-   It must be used as part of an interface, illustrations and product icons should'nt be submitted to this library.
+
+-   It should'nt be coloured, any icon that has many colours should be in your codebase.
+
+-   When an icon is used in a monorepo component it should live in this project.
 
 ### Naming convention
 
-- An icon name should describe it's look and not usage. (e.g. trash.svg instead of delete.svg)
-- An icon should always be appended by it's numeric size (e.g. trash-32x32.svg)
-- If an icon has some states, add it to the file name (e.g. trash-empty-32x32.svg)
-- Although not ideal when an svg has to be coloured add the colour name(refer to sg-brand colour names) after it's name and before it's size (e.g. trash-empty-cloud-300-24x24.svg)
+-   An icon name should describe it's look and not usage. (e.g. _trash_.svg instead of ~~delete.svg~~)
+
+-   An icon should be appended by it's numeric size when an hardcoded dimension (e.g. trash-_32x32_.svg)
+
+-   If an icon represents a specific state add it to the file name (e.g. trash-_empty_-32x32.svg)
+
+-   Although not ideal when an svg has to be coloured add the colour name(refer to sg-brand colour names) after it's name and before it's size (e.g. trash-empty-_cloud-300_-24x24.svg)
 
 ### Additional usage
 

@@ -37,6 +37,7 @@
     Brand Colors
 --------------------*/
 @primaryColor50         :  var(--primary-50);
+@primaryColor100         :  var(--primary-100);
 @primaryColor200        :  var(--primary-200);
 @primaryColor500        :  var(--primary-500);
 @primaryColor600        :  var(--primary-600);
@@ -417,7 +418,7 @@
 /* For source only. Modified in gulp for dist */
 @imagePath : '../../themes/default/assets/images';
 @fontPath  : '../../themes/default/assets/fonts';
-@iconsPath : 'themes/sharegate/assets/icons';
+@iconsPath : '~@orbit-ui/icons/dist';
 
 /*-------------------
        Em Sizes
