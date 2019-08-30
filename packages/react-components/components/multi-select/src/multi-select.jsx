@@ -37,8 +37,6 @@ function defaultSelectedItemRenderer(item, { disabled, onRemove }) {
 }
 
 export function startsWithSearch(event, items, query) {
-    console.log(query);
-
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
 }
 
