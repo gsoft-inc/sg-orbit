@@ -48,6 +48,7 @@
         "install:pkg": "yarn install --ignore-scripts",
         "lint": "run-s eslint stylelint",
         "new-version": "lerna version --exact --no-push",
+        "force-new-version": "yarn new-version --force-publish",
         "publish:pkg": "lerna publish from-package --exact --loglevel verbose",
         "publish:pkg:next": "yarn publish:pkg --dist-tag next",
         "release:pkg": "yarn publish:pkg",
@@ -65,7 +66,7 @@
         "stylelint:pkg": "stylelint \"packages/**/*.css\"",
         "stylelint:sb": "stylelint \"storybook/**/*.css\"",
         "stylelint:website": "stylelint \"website/**/*.css\"",
-        "update": "run-s install:pkg install:website"
+        "update": "run-s install:pkg bootstrap:sb bootstrap:website"
     },
     "devDependencies": {
         "@babel/cli": "7.5.5",

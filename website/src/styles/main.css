@@ -1,5 +1,9 @@
 @import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation/dist/apricot.css";
+@import "~@orbit-ui/foundation/dist/overcast.css";
+@import "~@orbit-ui/foundation/dist/desktop.css";
 @import "~@orbit-ui/semantic-ui-theme";
 @import "~@orbit-ui/tachyons/dist/apricot.css";
 @import "~@orbit-ui/fonts";
+
+/* Dont move, it must be imported after the other foundation */
+@import "~@orbit-ui/foundation/dist/apricot.css";

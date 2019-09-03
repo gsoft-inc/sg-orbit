@@ -20,10 +20,10 @@ export class MultiSelectDropdownMenu extends PureComponent {
         itemWidth: "auto"
     };
 
-    handleItemClick = event => {
+    handleItemClick = (event, data) => {
         const { onItemClick } = this.props;
 
-        onItemClick(event, this.props);
+        onItemClick(event, data, this.props);
     }
 
     setItemWidth = element => {

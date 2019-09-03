@@ -132,12 +132,12 @@ export class MultiSelectDropdown extends PureComponent {
         this.toggleVisibility(event);
     };
 
-    handleSearchChange = (event, { value }) => {
-        this.onSearch(event, value, this.props);
+    handleSearchChange = (event, query) => {
+        this.onSearch(event, query, this.props);
     };
 
     handleItemClick = (event, item) => {
-        this.selectItem(event, item);
+        this.selectItem(event, item, this.props);
     };
 
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay) : this.props.onSearch;
