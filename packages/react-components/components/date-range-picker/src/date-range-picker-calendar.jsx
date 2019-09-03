@@ -144,7 +144,11 @@ export class DateRangePickerCalendar extends PureComponent {
 
         if (this.isMonthBlocked(nextMonth)) {
             // When the next month is blocked, show the previous and current months instead of the current and next months.
-            return moment(initialMonth).subtract(1, "months");
+            const previousMonth = moment(initialMonth).subtract(1, "months");
+
+            if (!this.isMonthBlocked(previousMonth)) {
+                return previousMonth;
+            }
         }
 
         return initialMonth;

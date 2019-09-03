@@ -112,7 +112,6 @@ stories("/date restrictions")
              }
          }
     )
-    // TODO: currently faulty, until code is modified
     .add("min date blocking next month",
          () =>
              <DateRangePicker
@@ -147,7 +146,6 @@ stories("/date restrictions")
              }
          }
     )
-    // TODO: currently faulty, until code is modified
     .add("max date blocking previous month",
          () =>
              <DateRangePicker
@@ -182,7 +180,6 @@ stories("/date restrictions")
              }
          }
     )
-    // TODO: currently faulty, until code is modified
     .add("min+max dates blocking previous & next months",
          () =>
              <DateRangePicker
@@ -199,51 +196,6 @@ stories("/date restrictions")
                  endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
                  minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
                  maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
-         }
-    )
-
-
-
-    .add("opened & min date",
-         () =>
-             <DateRangePicker
-                 minDate={moment(DEFAULT_DATE)}
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />,
-         {
-             storyParameters: {
-                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
-             }
-         }
-    )
-    .add("opened & max date",
-         () =>
-             <DateRangePicker
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />,
-         {
-             storyParameters: {
-                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
-             }
-         }
-    )
-    .add("opened & min & max dates",
-         () =>
-             <DateRangePicker
-                 minDate={moment(DEFAULT_DATE)}
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />,
-         {
-             storyParameters: {
-                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
              }
          }
     )
