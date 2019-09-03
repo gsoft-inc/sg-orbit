@@ -1,3 +1,4 @@
+import { isNil } from "lodash";
 import { storiesOf } from "@storybook/react";
 
 class StoriesConfigurationBuilder {
@@ -15,7 +16,7 @@ class StoriesConfigurationBuilder {
     }
 
     segment(segment) {
-        if (segment) {
+        if (!isNil(segment)) {
             this._segment = segment;
         }
 
@@ -23,15 +24,18 @@ class StoriesConfigurationBuilder {
     }
 
     layout(config) {
-        if (config) {
-            this._layout = config;
+        if (!isNil(config)) {
+            this._layout = {
+                ...this._layout,
+                ...config
+            };
         }
 
         return this;
     }
 
     layoutWidth(width) {
-        if (width) {
+        if (!isNil(width)) {
             this._layout.width = width;
         }
 
@@ -39,8 +43,11 @@ class StoriesConfigurationBuilder {
     }
 
     chromatic(config) {
-        if (config) {
-            this._chromatic = config;
+        if (!isNil(config)) {
+            this._chromatic = {
+                ...this._chromatic,
+                ...config
+            };
         }
 
         return this;
@@ -53,7 +60,7 @@ class StoriesConfigurationBuilder {
     }
 
     chromaticDelay(delay) {
-        if (delay) {
+        if (!isNil(delay)) {
             this._chromatic.delay = delay;
         }
 
@@ -63,7 +70,7 @@ class StoriesConfigurationBuilder {
     build() {
         let name = this._section;
 
-        if (this._segment) {
+        if (!isNil(this._segment)) {
             name += this._segment;
         }
 

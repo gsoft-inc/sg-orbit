@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "@orbit-ui/react-components";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-components";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import {
     DEFAULT_DATE,
@@ -63,6 +63,7 @@ stories()
                  rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
                  dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
                  anchorDirection={select("anchorDirection", { Left: ANCHOR_LEFT, Right: ANCHOR_RIGHT }, ANCHOR_LEFT)}
+                 openDirection={select("openDirection", { Down: OPEN_DOWN, Up: OPEN_UP }, OPEN_DOWN)}
                  presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
                  clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
                  applyText={text("applyText", DateRangePicker.defaultProps.applyText)}

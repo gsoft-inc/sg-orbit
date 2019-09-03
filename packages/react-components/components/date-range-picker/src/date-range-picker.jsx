@@ -1,7 +1,7 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
-import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, OPEN_DOWN, OPEN_UP } from "react-dates/lib/constants";
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
@@ -35,6 +35,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: string,
         dateFormat: string,
         anchorDirection: oneOf([ANCHOR_LEFT, ANCHOR_RIGHT]),
+        openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         calendar: node,
         navPrevIcon: node,
         navNextIcon: node,
@@ -59,6 +60,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: "{startDate} - {endDate}",
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
+        openDirection: OPEN_DOWN,
         calendar: <DateRangePickerCalendar />,
         navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-cloud-500" />,
         navNextIcon: <ArrowIcon className="w4 h4 fill-cloud-500" />,
@@ -184,6 +186,20 @@ export class DateRangePicker extends AutoControlledPureComponent {
         return props;
     }
 
+    getOpenDirectionProps() {
+        const { openDirection } = this.props;
+
+        const props = {};
+
+        if (openDirection === OPEN_UP) {
+            props.bottom = "0";
+        } else {
+            props.top = "0";
+        }
+
+        return props;
+    }
+
     getCssClasses() {
         const { className } = this.props;
 
@@ -245,7 +261,13 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 {this.renderInput()}
                 <If condition={!disabled}>
                     <FadeIn active={open} className="relative z-2">
-                        <Popup visible={open} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
+                        <Popup
+                            visible={open}
+                            onOutsideClick={this.handlePopupClose}
+                            onEscapeKeyDown={this.handlePopupClose}
+                            {...this.getAnchorDirectionProps()}
+                            {...this.getOpenDirectionProps()}
+                        >
                             <div ref={this._containerRef}>{this.renderCalendar()}</div>
                         </Popup>
                     </FadeIn>
