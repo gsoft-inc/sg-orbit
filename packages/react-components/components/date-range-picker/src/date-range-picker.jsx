@@ -11,21 +11,23 @@ import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { FadeIn } from "./fade-in";
 import { PRESET_SHAPE } from "./presets";
 import { Popup } from "@orbit-ui/react-popup";
-import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
+import { momentObj as momentType } from "react-moment-proptypes";
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
-        startDate: object,
-        endDate: object,
-        defaultStartDate: object,
-        defaultEndDate: object,
+        startDate: momentType,
+        endDate: momentType,
+        defaultStartDate: momentType,
+        defaultEndDate: momentType,
         onDatesChange: func.isRequired,
         onVisibilityChange: func,
         allowSingleDateSelection: bool,
-        minDate: object,
-        maxDate: object,
+        minDate: momentType,
+        maxDate: momentType,
+        initialVisibleMonth: oneOfType([momentType, func]),
         input: node,
         inputIcon: node,
         inputClearIcon: node,
@@ -211,7 +213,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowSingleDateSelection, minDate, maxDate, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
+        const { allowSingleDateSelection, minDate, maxDate, initialVisibleMonth, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
@@ -222,6 +224,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             allowSingleDateSelection,
             minDate,
             maxDate,
+            initialVisibleMonth,
             presetsComponent,
             presets,
             presetsIcon,

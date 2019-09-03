@@ -3,23 +3,25 @@
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorybookTheme } from "./theme";
-import { includeComponents, includeMaterials, includeTheme } from "./get-scope";
+import { includeComponents, includeMaterials, includeTheme, isChromatic } from "./utils";
 import { withConsole } from "@storybook/addon-console";
 
-// Dont move, it must be imported after storybook/react.
-import { isChromatic } from "storybook-chromatic";
-
 import "@orbit-ui/css-normalize";
-import "@orbit-ui/foundation/dist/apricot.css";
-import "@orbit-ui/foundation/dist/desktop.css";
-import "@orbit-ui/foundation/dist/overcast.css";
 import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 
-// Custom font makes chromatic inconsistent and cause "false positive".
-if (!isChromatic()) {
+// if (!isChromatic()) {
+if (!isChromatic) {
+    // Custom font makes chromatic inconsistent and cause "false positive".
     import("@orbit-ui/fonts");
+    import("@orbit-ui/foundation/dist/desktop.css");
+    import("@orbit-ui/foundation/dist/overcast.css");
+    import("@orbit-ui/foundation/dist/apricot.css");
+} else {
+    // The custom brand picker cause a rendering delay that we don't want to handle in the stories for
+    // performance reasons. To circonvent this problem, we statically load the apricot brand.
+    import("@orbit-ui/foundation/dist/apricot.css");
 }
 
 import "./style/components-presets.css";

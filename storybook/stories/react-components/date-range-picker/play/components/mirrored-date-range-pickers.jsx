@@ -15,6 +15,7 @@ export class MirroredDateRangePickers extends PureComponent {
     };
 
     render() {
+        const { initialVisibleMonth } = this.props;
         const { startDate, endDate } = this.state;
 
         return (
@@ -23,6 +24,7 @@ export class MirroredDateRangePickers extends PureComponent {
                     <DateRangePicker
                         startDate={startDate}
                         endDate={endDate}
+                        initialVisibleMonth={initialVisibleMonth}
                         onDatesChange={this.handleDatesChange}
                     />
                 </div>
@@ -30,6 +32,7 @@ export class MirroredDateRangePickers extends PureComponent {
                     <DateRangePicker
                         startDate={startDate}
                         endDate={endDate}
+                        initialVisibleMonth={initialVisibleMonth}
                         onDatesChange={this.handleDatesChange}
                     />
                 </div>

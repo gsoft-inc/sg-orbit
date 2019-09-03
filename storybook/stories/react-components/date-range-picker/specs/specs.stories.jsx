@@ -1,6 +1,16 @@
 import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "@orbit-ui/react-components";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
-import { DEFAULT_DATE, DEFAULT_PRESETS, LAST_WEEK_PRESET, logDatesChanged, toStoryParametersPresets } from "@stories/react-components/date-range-picker/shared";
+import {
+    DEFAULT_DATE,
+    DEFAULT_PRESETS,
+    LAST_WEEK_PRESET,
+    getMonthFirstDay,
+    getMonthLastDay,
+    getNextMonthLastDay,
+    getPreviousMonthFirstDay,
+    logDatesChanged,
+    toStoryParametersPresets
+} from "@stories/react-components/date-range-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
@@ -17,6 +27,7 @@ stories("/presets")
          () =>
              <DateRangePicker
                  presets={DEFAULT_PRESETS}
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />,
@@ -46,16 +57,159 @@ stories("/today")
     .add("is highlighted",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
     );
 
+/*
+
+min date not blocking any months (nothing happen)
+min date blocking previous month (nothing happen)
+min date blocking next month (nothing happen) (unusual but can happen if the date come from an external system)
+
+max date not blocking any months (nothing happen)
+max date blocking previous month (nothing happen) (unusual but can happen if the date come from an external system)
+max date blocking next month (months -1)
+
+min & max dates combination blocking previous & next months (nothing happen)
+
+*/
+
 stories("/date restrictions")
+    .add("min date not blocking previous or next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date blocking previous month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    // TODO: currently faulty, until code is modified
+    .add("min date blocking next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date not blocking previous or next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    // TODO: currently faulty, until code is modified
+    .add("max date blocking previous month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date blocking next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    // TODO: currently faulty, until code is modified
+    .add("min+max dates blocking previous & next months",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+
+
+
     .add("opened & min date",
          () =>
              <DateRangePicker
                  minDate={moment(DEFAULT_DATE)}
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />,
@@ -209,6 +363,7 @@ stories("/selected dates/closed")
     .add("no selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  onDatesChange={logDatesChanged}
              />
     )
@@ -247,6 +402,7 @@ stories("/selected dates/closed/input clear button")
     .add("cannot clear when no selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  onDatesChange={logDatesChanged}
              />
     )
@@ -263,6 +419,7 @@ stories("/selected dates/opened")
     .add("no selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -297,6 +454,7 @@ stories("/selected dates/opened")
              <DateRangePicker
                  startDate={null}
                  endDate={null}
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -308,6 +466,7 @@ stories("/selected dates/opened/input clear button")
              <DateRangePicker
                  startDate={null}
                  endDate={null}
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -317,6 +476,7 @@ stories("/selected dates/opened/calendar clear button")
     .add("cannot clear without selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -343,6 +503,7 @@ stories("/selected dates/opened/calendar apply button")
     .add("can apply without selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -437,6 +598,7 @@ stories("/single date selection/input clear button")
     .add("cannot clear when no selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  allowSingleDateSelection
                  onDatesChange={logDatesChanged}
              />
@@ -463,6 +625,7 @@ stories("/single date selection/calendar clear button")
     .add("cannot clear without selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  allowSingleDateSelection
                  defaultOpen
                  onDatesChange={logDatesChanged}
@@ -492,6 +655,7 @@ stories("/single date selection/calendar apply button")
     .add("can apply without selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  allowSingleDateSelection
                  defaultOpen
                  onDatesChange={logDatesChanged}
@@ -521,6 +685,7 @@ stories("/disabled")
     .add("no selection",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  disabled
                  onDatesChange={logDatesChanged}
              />
@@ -539,6 +704,7 @@ stories("/customization")
     .add("input",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  input={<DateRangePicker.Input className="bg-red"></DateRangePicker.Input>}
                  onDatesChange={logDatesChanged}
              />
@@ -546,6 +712,7 @@ stories("/customization")
     .add("input icon",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  inputIcon={<CustomCalendarIcon />}
                  onDatesChange={logDatesChanged}
              />
@@ -562,6 +729,7 @@ stories("/customization")
     .add("placeholder",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  placeholder="Custom placeholder"
                  onDatesChange={logDatesChanged}
              />
@@ -587,6 +755,7 @@ stories("/customization")
     .add("presets component",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  presetsComponent={<DateRangePicker.Presets className="bg-red"></DateRangePicker.Presets>}
                  presets={DEFAULT_PRESETS}
                  defaultOpen
@@ -596,6 +765,7 @@ stories("/customization")
     .add("presets icon",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  presetsIcon={<CustomCalendarIcon />}
                  presets={DEFAULT_PRESETS}
                  defaultOpen
@@ -605,6 +775,7 @@ stories("/customization")
     .add("buttons component",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  buttons={<DateRangePicker.Buttons className="bg-red"></DateRangePicker.Buttons>}
                  defaultOpen
                  onDatesChange={logDatesChanged}
@@ -613,6 +784,7 @@ stories("/customization")
     .add("buttons text",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  clearText="Custom clear"
                  applyText="Custom apply"
                  defaultOpen
@@ -622,6 +794,7 @@ stories("/customization")
     .add("navigation icons",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  navPrevIcon={<CustomPrevNextIcon />}
                  navNextIcon={<CustomPrevNextIcon />}
                  defaultOpen
@@ -631,6 +804,7 @@ stories("/customization")
     .add("css class",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  className="bg-red"
                  onDatesChange={logDatesChanged}
              />
@@ -640,6 +814,7 @@ stories("/anchor")
     .add("default",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -647,6 +822,7 @@ stories("/anchor")
     .add("left",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  anchorDirection={ANCHOR_LEFT}
                  defaultOpen
                  onDatesChange={logDatesChanged}
@@ -655,6 +831,7 @@ stories("/anchor")
     .add("right",
          () =>
              <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  anchorDirection={ANCHOR_RIGHT}
                  defaultOpen
                  onDatesChange={logDatesChanged}

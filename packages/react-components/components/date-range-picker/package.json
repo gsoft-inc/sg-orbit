@@ -28,7 +28,8 @@
         "classnames": "*",
         "lodash": "*",
         "prop-types": "*",
-        "react-dates": "20.3.0"
+        "react-dates": "20.3.0",
+        "react-moment-proptypes": "1.7.0"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

@@ -2,11 +2,12 @@ import { Button } from "semantic-ui-react";
 import { PureComponent } from "react";
 import { bool, func, object, string } from "prop-types";
 import { isNil } from "lodash";
+import momentPropTypes from "react-moment-proptypes";
 
 export class DateRangePickerButtons extends PureComponent {
     static propTypes = {
-        startDate: object,
-        endDate: object,
+        startDate: momentPropTypes.momentObj,
+        endDate: momentPropTypes.momentObj,
         onClear: func,
         onApply: func,
         allowSingleDateSelection: bool,

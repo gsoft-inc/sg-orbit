@@ -23,12 +23,16 @@ class StoryParametersPanel extends PureComponent {
     }
 
     onStoryChange = id => {
+        this.refreshParameters(id);
+    };
+
+    refreshParameters(storyId) {
         const { api } = this.props;
 
-        const storyParameters = api.getParameters(id, PARAM_KEY);
+        const storyParameters = api.getParameters(storyId, PARAM_KEY);
 
         this.setState({ values: storyParameters });
-    };
+    }
 
     returnValues() {
         const { values } = this.state;

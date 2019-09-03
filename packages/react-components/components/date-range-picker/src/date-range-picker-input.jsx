@@ -1,13 +1,14 @@
 import { Button, Ref } from "semantic-ui-react";
 import { PureComponent, cloneElement, createRef } from "react";
-import { bool, func, node, object, string } from "prop-types";
+import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
+import { momentObj as momentType } from "react-moment-proptypes";
 import cx from "classnames";
 
 export class DateRangePickerInput extends PureComponent {
     static propTypes = {
-        startDate: object,
-        endDate: object,
+        startDate: momentType,
+        endDate: momentType,
         onClick: func,
         onClear: func,
         onKeyDown: func,

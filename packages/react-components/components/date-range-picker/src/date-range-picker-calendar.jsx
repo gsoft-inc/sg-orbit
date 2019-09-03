@@ -2,8 +2,9 @@ import { DayPickerRangeController } from "react-dates";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
-import { isNil } from "lodash";
+import { arrayOf, bool, func, node, oneOfType, shape, string } from "prop-types";
+import { isFunction, isNil } from "lodash";
+import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
 const PHRASES = {
@@ -13,13 +14,14 @@ const PHRASES = {
 
 export class DateRangePickerCalendar extends PureComponent {
     static propTypes = {
-        startDate: object,
-        endDate: object,
+        startDate: momentType,
+        endDate: momentType,
         onDatesChange: func,
         onApply: func,
         allowSingleDateSelection: bool,
-        minDate: object,
-        maxDate: object,
+        minDate: momentType,
+        maxDate: momentType,
+        initialVisibleMonth: oneOfType([momentType, func]),
         navPrevIcon: node,
         navNextIcon: node,
         presetsComponent: node,
@@ -121,6 +123,20 @@ export class DateRangePickerCalendar extends PureComponent {
     };
 
     getInitialVisibleMonth = () => {
+        const { initialVisibleMonth } = this.props;
+
+        if (!isNil(initialVisibleMonth)) {
+            if (isFunction(initialVisibleMonth)) {
+                return initialVisibleMonth(this.props);
+            }
+
+            return initialVisibleMonth;
+        }
+
+        return this.getInitialVisibleMonthFromDates();
+    };
+
+    getInitialVisibleMonthFromDates() {
         const { startDate, endDate } = this.props;
 
         const initialMonth = startDate || endDate || moment();
@@ -132,7 +148,7 @@ export class DateRangePickerCalendar extends PureComponent {
         }
 
         return initialMonth;
-    };
+    }
 
     getCssClasses() {
         const { className } = this.props;
