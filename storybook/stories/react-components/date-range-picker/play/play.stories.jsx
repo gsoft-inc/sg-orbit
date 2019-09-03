@@ -48,7 +48,6 @@ stories()
     .add("default",
          () =>
              <DateRangePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  onDatesChange={logDatesChanged}
              />
     )
@@ -76,7 +75,6 @@ stories()
     .add("presets",
          () =>
              <DateRangePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  presets={DEFAULT_PRESETS}
                  onDatesChange={logDatesChanged}
              />,
@@ -136,7 +134,6 @@ stories()
     .add("allow single date selection",
          () =>
              <DateRangePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  allowSingleDateSelection
                  onDatesChange={logDatesChanged}
              />
@@ -144,7 +141,6 @@ stories()
     .add("disabled",
          () =>
              <DateRangePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  disabled
                  onDatesChange={logDatesChanged}
              />
@@ -154,13 +150,11 @@ stories()
              <div className="flex">
                  <div className="mr4" style={{ width: "50%" }}>
                      <DateRangePicker
-                         initialVisibleMonth={moment(DEFAULT_DATE)}
                          onDatesChange={logDatesChanged}
                      />
                  </div>
                  <div style={{ width: "50%" }}>
                      <DateRangePicker
-                         initialVisibleMonth={moment(DEFAULT_DATE)}
                          onDatesChange={logDatesChanged}
                      />
                  </div>
@@ -196,7 +190,6 @@ stories("/controlled")
     .add("mirrored",
          () =>
              <MirroredDateRangePickers
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
                  onDatesChange={logDatesChanged}
              />
     );

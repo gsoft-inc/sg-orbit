@@ -6,12 +6,14 @@ import { customStorybookTheme } from "./theme";
 import { includeComponents, includeMaterials, includeTheme, isChromatic } from "./utils";
 import { withConsole } from "@storybook/addon-console";
 
+// Dont move, it must be imported after storybook/react.
+import "storybook-chromatic";
+
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 
-// if (!isChromatic()) {
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".
     import("@orbit-ui/fonts");
