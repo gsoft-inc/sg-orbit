@@ -1,0 +1,153 @@
+---
+name: Message
+menu: Components
+route: /components/messages
+---
+
+import "../../styles/main.css";
+
+import { Button, Message } from "semantic-ui-react";
+import { Playground } from "docz";
+
+# Message
+
+## Standard
+
+### Default
+
+<Playground>
+    <Message>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+### List
+
+<Playground>
+    <Message>
+        <Message.Header>New Site Features</Message.Header>
+        <Message.List>
+            <Message.Item>You can now have cover images on blog pages</Message.Item>
+            <Message.Item>Drafts will now auto-save while writing</Message.Item>
+        </Message.List>
+    </Message>
+</Playground>
+
+### Dismissible
+
+_Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message._
+
+<Playground>
+    <Message onDismiss>
+        <Message.Header>New Site Features</Message.Header>
+        <Message.List>
+            <Message.Item>You can now have cover images on blog pages</Message.Item>
+            <Message.Item>Drafts will now auto-save while writing</Message.Item>
+        </Message.List>
+    </Message>
+</Playground>
+
+## Info
+
+### Default
+
+<Playground>
+    <Message info>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+## Positive/Success
+
+### Default
+
+<Playground>
+    <Message positive>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+## Warning
+
+### Default
+
+<Playground>
+    <Message warning>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+## Negative/Error
+
+### Default
+
+<Playground>
+    <Message negative>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+## Floating
+
+### Default
+
+<Playground>
+    <Message floating>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+## Negative/Error
+
+<Playground>
+    <Message>
+        <Message.Header>New Site Features</Message.Header>
+        <Message.List>
+            <Message.Item>You can now have cover images on blog pages</Message.Item>
+            <Message.Item>Drafts will now auto-save while writing</Message.Item>
+        </Message.List>
+    </Message>
+</Playground>
+
+## Two up Layout
+
+### Left aligned
+
+<Playground>
+    <Message icon>
+        <Button>Click Here</Button>
+        <Message.Content>
+            <Message.Header>Just one second</Message.Header>
+            <p>We are fetching that content for you.</p>
+        </Message.Content>
+    </Message>
+</Playground>
+
+### Right aligned
+
+<Playground>
+    <Message icon>
+        <Message.Content>
+            <Message.Header>Just one second</Message.Header>
+            <p>We are fetching that content for you.</p>
+        </Message.Content>
+        <Button>Click Here</Button>
+    </Message>
+</Playground>
+
+## Sizes
+
+### Small
+
+<Playground>
+    <Message size="small">
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
