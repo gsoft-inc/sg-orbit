@@ -1,3 +1,5 @@
+// TODO: remove when docz is fixed
+
 const chalk = require("chalk");
 const shell = require("shelljs");
 const es = require("./ensure-success");

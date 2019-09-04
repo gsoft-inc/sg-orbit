@@ -29,7 +29,7 @@
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
-        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",

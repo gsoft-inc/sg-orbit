@@ -20,7 +20,7 @@
         "clean": "rimraf dist",
         "prepublishOnly": "cross-env NODE_ENV=production && run-s build copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
-        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
         "react": "*",
