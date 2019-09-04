@@ -3,10 +3,8 @@
     "useWorkspaces": true,
     "version": "independent",
     "command": {
-        "publish": {
-            "version": {
-                "ignoreChanges": ["**/*.md", "**/*.json", "**/*.config.js", "**/*rc*"]
-            }
+        "version": {
+            "ignoreChanges": ["*.md", "*.json", "*.config.js", "*rc*"]
         }
     }
 }
