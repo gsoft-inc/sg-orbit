@@ -44,6 +44,12 @@
 @secondaryColor50       :  var(--cloud-50);
 @secondaryColor100      :  var(--cloud-100);
 
+@moonstone50            : var(--moonstone-50);
+@sunray50               : var(--sunray-50);
+@sunray100              : var(--sunray-100);
+@sunray500              : var(--sunray-500);
+@sunray700              : var(--sunray-700);
+
 /*-------------- Fallback ---------------*/
 @primaryColor           : @primaryColor500;
 @secondaryColor         : @cloud100;
@@ -115,7 +121,7 @@
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
-@textColor           : @marine600;
+@textColor           : @marine500;
 
 /*-------------------
       Paragraph
@@ -210,7 +216,8 @@
 --------------------*/
 
 /*---  SG Colors  ---*/
-/*---  marine  ---*/
+
+/*---  Marine  ---*/
 @marine50: var(--marine-50);
 @marine100: var(--marine-100);
 @marine200: var(--marine-200);
@@ -222,11 +229,41 @@
 @marine800: var(--marine-800);
 @marine900: var(--marine-900);
 
-/*--- Success --*/
+/*--- Success--*/
+@success50: var(--success-50);
+@success100: var(--success-100);
+@success200: var(--success-200);
+@success300: var(--success-300);
+@success400: var(--success-400);
 @success500: var(--success-500);
+@success600: var(--success-600);
+@success700: var(--success-700);
+@success800: var(--success-800);
+@success900: var(--success-900);
 
 /*--- Alert--*/
-@alert: var(--alert-500);
+@alert50: var(--alert-50);
+@alert100: var(--alert-100);
+@alert200: var(--alert-200);
+@alert300: var(--alert-300);
+@alert400: var(--alert-400);
+@alert500: var(--alert-500);
+@alert600: var(--alert-600);
+@alert700: var(--alert-700);
+@alert800: var(--alert-800);
+@alert900: var(--alert-900);
+
+/*--- Warning--*/
+@warning50: var(--warning-50);
+@warning100: var(--warning-100);
+@warning200: var(--warning-200);
+@warning300: var(--warning-300);
+@warning400: var(--warning-400);
+@warning500: var(--warning-500);
+@warning600: var(--warning-600);
+@warning700: var(--warning-700);
+@warning800: var(--warning-800);
+@warning900: var(--warning-900);
 
 /*--- Cloud--*/
 @cloud50: var(--cloud-50);
@@ -366,13 +403,9 @@
 @subtleGradient: linear-gradient(transparent, @transparentBlack);
 
 /* Differentiating Layers */
-@subtleShadow:
-  0px 1px 2px 0 @borderColor
-;
-@floatingShadow:
-  0px 2px 4px 0px rgba(34, 36, 38, 0.12),
-  0px 2px 10px 0px rgba(34, 36, 38, 0.15)
-;
+@subtleShadow: 0px 1px 2px 0 @borderColor;
+
+@floatingShadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 
 /*******************************
            Power-User
@@ -385,30 +418,32 @@
 
 /* Positive */
 @positiveColor           : @success500;
-@positiveBackgroundColor : #FCFFF5;
+@positive900             : @success900;
+@positiveBackgroundColor : @success50;
 @positiveBorderColor     : #A3C293;
-@positiveHeaderColor     : #1A531B;
+@positiveHeaderColor     : #2C662D;
 @positiveTextColor       : #2C662D;
 
 /* Negative */
-@negativeColor           : @alert;
+@negativeColor           : @alert500;
 @negativeBackgroundColor : transparent;
-@negativeBorderColor     : var(--alert-800);
-@negativeHeaderColor     : var(--alert-900);
+@negativeBorderColor     : @alert800;
+@negativeHeaderColor     : @alert900;
 @negativeTextColor       : @textColor;
+@negative900             : @alert900;
 
 /* Info */
-@infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FFFF;
+@infoColor              : @primaryColor500;
+@infoBackgroundColor    : @moonstone50;
 @infoBorderColor        : #A9D5DE;
-@infoHeaderColor        : #0E566C;
+@infoHeaderColor        : @marine500;
 @infoTextColor          : #276F86;
 
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFAF3;
-@warningHeaderColor     : #794B02;
+@warningBackgroundColor : @sunray50;
+@warningHeaderColor     : @sunray700;
 @warningTextColor       : #573A08;
 
 /*-------------------
