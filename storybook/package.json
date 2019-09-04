@@ -15,12 +15,12 @@
         "build": "build-storybook -c config -o dist",
         "clean": "rimraf dist",
         "deploy": "netlify deploy --prod --dir=dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-        "sb:chromatic": "yarn start -p 1135 --ci",
-        "chromatic:components": "cross-env STORYBOOK_STORYBOOK_ORBIT_SCOPE=components yarn chromatic:test",
-        "chromatic:theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic:test",
-        "chromatic:materials": "cross-env STORYBOOK_ORBIT_SCOPE=materials yarn chromatic:test",
-        "chromatic:test": "cross-env STORYBOOK_ORBIT_IS_CHROMATIC=true chromatic test --script-name=sb:chromatic --debug",
-        "chromatic:ci": "yarn chromatic:test --no-interactive"
+        "sb-chromatic": "yarn start -p 1135 --ci",
+        "chromatic": "cross-env STORYBOOK_ORBIT_IS_CHROMATIC=true chromatic test --script-name=sb-chromatic --debug",
+        "chromatic-components": "cross-env STORYBOOK_STORYBOOK_ORBIT_SCOPE=components yarn chromatic",
+        "chromatic-theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic",
+        "chromatic-materials": "cross-env STORYBOOK_ORBIT_SCOPE=materials yarn chromatic",
+        "chromatic-ci": "yarn chromatic --no-interactive"
     },
     "devDependencies": {
         "@storybook/addon-actions": "5.1.11",

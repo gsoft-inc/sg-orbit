@@ -6,15 +6,15 @@
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "scripts": {
-        "start": "yarn docz:dev",
-        "build": "yarn docz:build",
+        "start": "yarn docz-dev",
+        "build": "yarn docz-build",
         "clean": "run-p clean:*",
         "clean:cache": "rimraf .docz",
         "clean:dist": "rimraf dist",
-        "docz:dev": "docz dev",
-        "docz:build": "docz build",
-        "deploy:staging": "netlify deploy --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
-        "deploy:prod": "netlify deploy --prod --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open"
+        "docz-dev": "docz dev",
+        "docz-build": "docz build",
+        "deploy-staging": "netlify deploy --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
+        "deploy-prod": "netlify deploy --prod --dir=./dist --site=65b52a34-8224-4783-bed2-64ffd05d36af --open"
     },
     "devDependencies": {
         "css-loader": "3.2.0",
