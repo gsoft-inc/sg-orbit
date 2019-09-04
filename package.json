@@ -67,7 +67,8 @@
         "stylelint:pkg": "stylelint \"packages/**/*.css\"",
         "stylelint:sb": "stylelint \"storybook/**/*.css\"",
         "stylelint:website": "stylelint \"website/**/*.css\"",
-        "update": "run-s install:pkg bootstrap:sb bootstrap:website"
+        "update": "run-s install:pkg bootstrap:sb bootstrap:website",
+        "diff": "lerna diff"
     },
     "devDependencies": {
         "@babel/cli": "7.5.5",
