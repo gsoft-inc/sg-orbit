@@ -442,8 +442,8 @@
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : @sunray50;
-@warningHeaderColor     : @sunray700;
+@warningBackgroundColor : #FFF6E7;
+@warningHeaderColor     : #FBA729;
 @warningTextColor       : #573A08;
 
 /*-------------------
