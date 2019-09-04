@@ -8,7 +8,7 @@ aliases:
     - &restore-yarn-deps
       name: Restore Yarn Package Cache
       keys:
-          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "/storybook/yarn.lock" }}
+          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "storybook/yarn.lock" }}
 jobs:
     build:
         docker:
@@ -19,7 +19,7 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:pkg --frozen-lockfile
+                  command: yarn install:pkg --frozen-lockfile && yarn build:theme
             - save_cache: *save-yarn-deps
             - run:
                   name: Lint
