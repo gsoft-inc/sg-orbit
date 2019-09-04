@@ -89,12 +89,12 @@ i.icon.close {
 i.icon.close:before {
     content: "";
     display: block;
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
     top: 0;
     margin-top: 0;
     background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
-    background-size: 12px 12px !important;
+    background-size: 10px 10px !important;
 }
 
 .ui.label > .icon {

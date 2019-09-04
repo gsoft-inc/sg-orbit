@@ -25,5 +25,11 @@ stories()
                  <Icon disabled name="delete" />
                  <Icon disabled flipped="horizontally" name="delete" />
                  <Icon disabled flipped="vertically" name="delete" />
+                 <Icon name="close" />
+                 <Icon flipped="horizontally" name="close" />
+                 <Icon flipped="vertically" name="close" />
+                 <Icon disabled name="close" />
+                 <Icon disabled flipped="horizontally" name="close" />
+                 <Icon disabled flipped="vertically" name="close" />
              </div>
     );
