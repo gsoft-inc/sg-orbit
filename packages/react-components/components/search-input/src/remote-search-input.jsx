@@ -5,7 +5,7 @@ import { debounce, isArray, isNil } from "lodash";
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {
-        httpGet({ url, data, ...options })
+        httpGet({ url, data, options })
             .then(response => {
                 if (response.ok) {
                     resolve(response.json());
@@ -34,7 +34,7 @@ function defaultResultsFetcher(event, url, data, options) {
  * @param {Object} [options.requestOptions.*] - Any fetch API options.
  * @returns {Function} - The fetcher instance
  */
-export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions } = {}) {
+export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
     ensure(url, "url", "useDefaultResultsFetcher").isNotNullOrEmpty();
 
     return (event, query) => {
