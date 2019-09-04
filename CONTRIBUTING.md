@@ -180,7 +180,7 @@ git tag -a [yyyy-MM-dd] -m "[yyyy-MM-dd]"
 git push origin [yyyy-MM-dd]
 ```
 
-**Important: Use the [Git Annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) syntax as shown in the instructions otherwise Lerna will not be able to determine which packages changed the next time you release.**
+**Important: To tag the version, use the [Git Annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) syntax as shown in the instructions otherwise Lerna will not be able to determine which packages changed the next time you release.**
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier and list all the changes that has been published.
 
