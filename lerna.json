@@ -1,5 +1,12 @@
 {
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "version": "independent"
+    "npmClient": "yarn",
+    "useWorkspaces": true,
+    "version": "independent",
+    "command": {
+        "publish": {
+            "version": {
+                "ignoreChanges": ["*.md", "*.json", "*.config.js", "*rc*"]
+            }
+        }
+    }
 }
