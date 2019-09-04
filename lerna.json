@@ -5,7 +5,7 @@
     "command": {
         "publish": {
             "version": {
-                "ignoreChanges": ["*.md", "*.json", "*.config.js", "*rc*"]
+                "ignoreChanges": ["**/*.md", "**/*.json", "**/*.config.js", "**/*rc*"]
             }
         }
     }
