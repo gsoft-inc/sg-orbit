@@ -4,7 +4,7 @@ import { Form, TextArea } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|textarea")
+    return storiesBuilder(module, "Semantic-UI-Theme|textarea")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)

@@ -1,9 +1,9 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInput } from "@orbit-ui/react-components";
+import { SearchInput } from "@orbit-ui/react-search-input";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Search-Input|specs")
+    return storiesBuilder(module, "Search-Input|specs")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)

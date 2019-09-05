@@ -1,4 +1,4 @@
-import { Popup } from "@orbit-ui/react-components";
+import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
 import { RedBox } from "@stories/react-components/popup/components/red-box";
 

@@ -1,11 +1,11 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInput, SearchInputController } from "@orbit-ui/react-components";
+import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Search-Input|play")
+    return storiesBuilder(module, "Search-Input|play")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticIgnoreStory()

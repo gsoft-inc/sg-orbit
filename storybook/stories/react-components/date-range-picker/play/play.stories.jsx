@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-components";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-date-range-picker";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import {
     DEFAULT_DATE,
@@ -37,7 +37,7 @@ function presetsKnob(name, defaultValue) {
 }
 
 function stories(segment) {
-    return storiesBuilder("Date-Range-Picker|play")
+    return storiesBuilder(module, "Date-Range-Picker|play")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticIgnoreStory()

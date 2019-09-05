@@ -4,7 +4,7 @@ import { Button, Icon, Label } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|label")
+    return storiesBuilder(module, "Semantic-UI-Theme|label")
         .segment(segment)
         .chromaticDelay(100)
         .build();

@@ -2,7 +2,7 @@ import { Checkbox } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|checkbox")
+    return storiesBuilder(module, "Semantic-UI-Theme|checkbox")
         .segment(segment)
         .chromaticDelay(100)
         .build();

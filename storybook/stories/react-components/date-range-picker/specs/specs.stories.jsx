@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-components";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-date-range-picker";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
 import {
     DEFAULT_DATE,
@@ -15,7 +15,7 @@ import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
 function stories(segment, layout = {}) {
-    return storiesBuilder("Date-Range-Picker|specs")
+    return storiesBuilder(module, "Date-Range-Picker|specs")
         .segment(segment)
         .layout({
             width: "80%",

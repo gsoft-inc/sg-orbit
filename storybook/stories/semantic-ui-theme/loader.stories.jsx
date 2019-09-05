@@ -2,7 +2,7 @@ import { Dimmer, Image, Loader, Segment } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|loader")
+    return storiesBuilder(module, "Semantic-UI-Theme|loader")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)

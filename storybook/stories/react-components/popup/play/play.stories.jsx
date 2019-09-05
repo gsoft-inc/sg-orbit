@@ -14,7 +14,7 @@ function pixelKnob(name) {
 }
 
 function stories(segment) {
-    return storiesBuilder("Popup|play")
+    return storiesBuilder(module, "Popup|play")
         .segment(segment)
         .chromaticIgnoreStory()
         .build();

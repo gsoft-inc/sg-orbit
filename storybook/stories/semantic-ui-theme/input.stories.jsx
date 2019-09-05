@@ -4,7 +4,7 @@ import { Input } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|input")
+    return storiesBuilder(module, "Semantic-UI-Theme|input")
         .segment(segment)
         .chromaticDelay(100)
         .build();

@@ -4,7 +4,7 @@ import { Button, Popup } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|popup")
+    return storiesBuilder(module, "Semantic-UI-Theme|popup")
         .segment(segment)
         .layoutWidth("1800px")
         .chromaticDelay(100)

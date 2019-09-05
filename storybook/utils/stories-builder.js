@@ -2,16 +2,22 @@ import { isNil } from "lodash";
 import { storiesOf } from "@storybook/react";
 
 class StoriesConfigurationBuilder {
+    _module;
     _section;
     _segment;
     _layout = {}
     _chromatic = {}
 
-    constructor(section) {
-        if (!section) {
-            throw new Error("StoryiesConfigurationBuilder.ctor - section is required.");
+    constructor(theModule, section) {
+        if (!theModule) {
+            throw new Error("StoriesConfigurationBuilder.ctor - module is required.");
         }
 
+        if (!section) {
+            throw new Error("StoriesConfigurationBuilder.ctor - section is required.");
+        }
+
+        this._module = theModule;
         this._section = section;
     }
 
@@ -81,10 +87,10 @@ class StoriesConfigurationBuilder {
             chromatic: this._chromatic
         };
 
-        return storiesOf(name, module).addParameters(parameters);
+        return storiesOf(name, this._module).addParameters(parameters);
     }
 }
 
-export function storiesBuilder(section) {
-    return new StoriesConfigurationBuilder(section);
+export function storiesBuilder(theModule, section) {
+    return new StoriesConfigurationBuilder(theModule, section);
 }

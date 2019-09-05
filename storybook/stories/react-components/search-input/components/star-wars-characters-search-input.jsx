@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-components";
+import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input";
 
 export class StarWarsCharactersSearchInput extends PureComponent {
     handleResults = response => {

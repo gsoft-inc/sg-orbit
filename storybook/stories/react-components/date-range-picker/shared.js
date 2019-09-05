@@ -1,4 +1,4 @@
-import { toPreset } from "@orbit-ui/react-components";
+import { toPreset } from "@orbit-ui/react-date-range-picker";
 import moment from "moment";
 
 export const DEFAULT_DATE = "2019-07-08";
