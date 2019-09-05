@@ -8,8 +8,8 @@ class StoriesConfigurationBuilder {
     _layout = {}
     _chromatic = {}
 
-    constructor(theModule, section) {
-        if (!theModule) {
+    constructor(storiesModule, section) {
+        if (!storiesModule) {
             throw new Error("StoriesConfigurationBuilder.ctor - module is required.");
         }
 
@@ -17,7 +17,7 @@ class StoriesConfigurationBuilder {
             throw new Error("StoriesConfigurationBuilder.ctor - section is required.");
         }
 
-        this._module = theModule;
+        this._module = storiesModule;
         this._section = section;
     }
 
@@ -91,6 +91,6 @@ class StoriesConfigurationBuilder {
     }
 }
 
-export function storiesBuilder(theModule, section) {
-    return new StoriesConfigurationBuilder(theModule, section);
+export function storiesBuilder(storiesModule, section) {
+    return new StoriesConfigurationBuilder(storiesModule, section);
 }
