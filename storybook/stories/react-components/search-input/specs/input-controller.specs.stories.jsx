@@ -1,11 +1,11 @@
 import { CustomClearIcon } from "./assets";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInputController } from "@orbit-ui/react-components";
+import { SearchInputController } from "@orbit-ui/react-search-input";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Search-Input-Ctrl|specs")
+    return storiesBuilder(module, "Search-Input-Ctrl|specs")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)

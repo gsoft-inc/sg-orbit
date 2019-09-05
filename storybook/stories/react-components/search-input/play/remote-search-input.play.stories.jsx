@@ -1,12 +1,12 @@
 import { ControlledStarWarsCharactersSearchInput } from "./components";
 import { LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { RemoteSearchInput, SearchInputController } from "@orbit-ui/react-components";
+import { RemoteSearchInput, SearchInputController } from "@orbit-ui/react-search-input";
 import { StarWarsCharactersSearchInput } from "@stories/react-components/search-input/components";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Remote-Search-Input|play")
+    return storiesBuilder(module, "Remote-Search-Input|play")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticIgnoreStory()

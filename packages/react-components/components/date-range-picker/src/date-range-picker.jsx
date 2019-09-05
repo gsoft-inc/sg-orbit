@@ -1,7 +1,7 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
-import { ANCHOR_LEFT, ANCHOR_RIGHT } from "react-dates/lib/constants";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, OPEN_DOWN, OPEN_UP } from "react-dates/lib/constants";
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
@@ -12,7 +12,7 @@ import { FadeIn } from "./fade-in";
 import { PRESET_SHAPE } from "./presets";
 import { Popup } from "@orbit-ui/react-popup";
 import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
-import { cloneElement, createRef } from "react";
+import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -35,6 +35,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: string,
         dateFormat: string,
         anchorDirection: oneOf([ANCHOR_LEFT, ANCHOR_RIGHT]),
+        openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         calendar: node,
         navPrevIcon: node,
         navNextIcon: node,
@@ -59,6 +60,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: "{startDate} - {endDate}",
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
+        openDirection: OPEN_DOWN,
         calendar: <DateRangePickerCalendar />,
         navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-cloud-500" />,
         navNextIcon: <ArrowIcon className="w4 h4 fill-cloud-500" />,
@@ -85,10 +87,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
         selectedStartDate: null,
         selectedEndDate: null,
         selectedPresetName: null,
-        open: false
+        open: false,
+        inputHeight: 0
     };
-
-    _containerRef = createRef();
 
     componentDidMount() {
         const { minDate, maxDate } = this.props;
@@ -170,18 +171,33 @@ export class DateRangePicker extends AutoControlledPureComponent {
         }
     }
 
+    setInputHeight = ref => {
+        if (!isNil(ref)) {
+            setTimeout(() => {
+                this.setState({ inputHeight: ref.getHeight() });
+            }, 0);
+        }
+    }
+
     getAnchorDirectionProps() {
         const { anchorDirection } = this.props;
 
-        const props = {};
-
         if (anchorDirection === ANCHOR_LEFT) {
-            props.left = "0";
-        } else {
-            props.right = "0";
+            return { left: "0px" };
         }
 
-        return props;
+        return { right: "0px" };
+    }
+
+    getOpenDirectionProps() {
+        const { openDirection } = this.props;
+        const { inputHeight } = this.state;
+
+        if (openDirection === OPEN_UP) {
+            return { bottom: `${inputHeight}px` };
+        }
+
+        return { top: "0px" };
     }
 
     getCssClasses() {
@@ -208,12 +224,13 @@ export class DateRangePicker extends AutoControlledPureComponent {
             icon: inputIcon,
             clearIcon: inputClearIcon,
             disabled: disabled,
-            open: open
+            open: open,
+            ref: this.setInputHeight
         });
     }
 
     renderCalendar() {
-        const { allowSingleDateSelection, minDate, maxDate, initialVisibleMonth, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
+        const { allowSingleDateSelection, minDate, maxDate, initialVisibleMonth, openDirection, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
@@ -225,6 +242,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             minDate,
             maxDate,
             initialVisibleMonth,
+            openDirection,
             presetsComponent,
             presets,
             presetsIcon,
@@ -245,8 +263,14 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 {this.renderInput()}
                 <If condition={!disabled}>
                     <FadeIn active={open} className="relative z-2">
-                        <Popup visible={open} onOutsideClick={this.handlePopupClose} onEscapeKeyDown={this.handlePopupClose} {...this.getAnchorDirectionProps()}>
-                            <div ref={this._containerRef}>{this.renderCalendar()}</div>
+                        <Popup
+                            visible={open}
+                            onOutsideClick={this.handlePopupClose}
+                            onEscapeKeyDown={this.handlePopupClose}
+                            {...this.getAnchorDirectionProps()}
+                            {...this.getOpenDirectionProps()}
+                        >
+                            <div>{this.renderCalendar()}</div>
                         </Popup>
                     </FadeIn>
                 </If>

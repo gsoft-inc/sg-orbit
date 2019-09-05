@@ -10,7 +10,7 @@ import {
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories() {
-    return storiesBuilder("Materials|icons")
+    return storiesBuilder(module, "Materials|icons")
         .chromaticDelay(100)
         .build();
 }

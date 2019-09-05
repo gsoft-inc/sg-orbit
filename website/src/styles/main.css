@@ -7,5 +7,3 @@
 @import "~@orbit-ui/tachyons/dist/desktop.css";
 @import "~@orbit-ui/tachyons/dist/apricot.css";
 @import "~@orbit-ui/fonts";
-
-/* Dont move, it must be imported after the other foundation */

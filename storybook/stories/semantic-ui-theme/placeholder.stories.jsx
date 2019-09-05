@@ -2,7 +2,7 @@ import { Placeholder, Segment } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|placeholder")
+    return storiesBuilder(module, "Semantic-UI-Theme|placeholder")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)

@@ -182,6 +182,8 @@ After you released the packages, create a [Github release](https://github.com/gs
 
 Dont forget to **publish** the release.
 
+If the changes affects [Storybook](#release-storybook) or the [documentation website](#release-the-website), you should also release them.
+
 ### Troubleshooting
 
 #### Github

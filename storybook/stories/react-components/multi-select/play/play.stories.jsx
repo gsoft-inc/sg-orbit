@@ -1,11 +1,11 @@
 import { ControlledMultiSelect } from "./components/controlled-multi-select";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE, logValuesChanged } from "@stories/react-components/multi-select/shared";
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-components";
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Multi-Select|play")
+    return storiesBuilder(module, "Multi-Select|play")
         .segment(segment)
         .chromaticIgnoreStory()
         .build();

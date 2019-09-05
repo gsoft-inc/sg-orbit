@@ -4,7 +4,7 @@ import { Dropdown } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|dropdown")
+    return storiesBuilder(module, "Semantic-UI-Theme|dropdown")
         .segment(segment)
         .layoutWidth("1800px")
         .chromaticDelay(100)

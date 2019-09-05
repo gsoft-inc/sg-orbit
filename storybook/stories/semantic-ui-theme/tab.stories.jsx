@@ -4,7 +4,7 @@ import { Label, Menu, Tab } from "semantic-ui-react";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Semantic-UI-Theme|tab")
+    return storiesBuilder(module, "Semantic-UI-Theme|tab")
         .segment(segment)
         .chromaticDelay(100)
         .build();

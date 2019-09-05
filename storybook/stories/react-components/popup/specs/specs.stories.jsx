@@ -1,9 +1,9 @@
-import { Popup } from "@orbit-ui/react-components";
+import { Popup } from "@orbit-ui/react-popup";
 import { RedBox } from "@stories/react-components/popup/components/red-box";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Popup|specs")
+    return storiesBuilder(module, "Popup|specs")
         .segment(segment)
         .chromaticDelay(100)
         .build();

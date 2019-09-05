@@ -1,21 +1,28 @@
+import { isNil } from "lodash";
 import { storiesOf } from "@storybook/react";
 
 class StoriesConfigurationBuilder {
+    _module;
     _section;
     _segment;
     _layout = {}
     _chromatic = {}
 
-    constructor(section) {
-        if (!section) {
-            throw new Error("StoryiesConfigurationBuilder.ctor - section is required.");
+    constructor(storiesModule, section) {
+        if (!storiesModule) {
+            throw new Error("StoriesConfigurationBuilder.ctor - module is required.");
         }
 
+        if (!section) {
+            throw new Error("StoriesConfigurationBuilder.ctor - section is required.");
+        }
+
+        this._module = storiesModule;
         this._section = section;
     }
 
     segment(segment) {
-        if (segment) {
+        if (!isNil(segment)) {
             this._segment = segment;
         }
 
@@ -23,15 +30,18 @@ class StoriesConfigurationBuilder {
     }
 
     layout(config) {
-        if (config) {
-            this._layout = config;
+        if (!isNil(config)) {
+            this._layout = {
+                ...this._layout,
+                ...config
+            };
         }
 
         return this;
     }
 
     layoutWidth(width) {
-        if (width) {
+        if (!isNil(width)) {
             this._layout.width = width;
         }
 
@@ -39,8 +49,11 @@ class StoriesConfigurationBuilder {
     }
 
     chromatic(config) {
-        if (config) {
-            this._chromatic = config;
+        if (!isNil(config)) {
+            this._chromatic = {
+                ...this._chromatic,
+                ...config
+            };
         }
 
         return this;
@@ -53,7 +66,7 @@ class StoriesConfigurationBuilder {
     }
 
     chromaticDelay(delay) {
-        if (delay) {
+        if (!isNil(delay)) {
             this._chromatic.delay = delay;
         }
 
@@ -63,7 +76,7 @@ class StoriesConfigurationBuilder {
     build() {
         let name = this._section;
 
-        if (this._segment) {
+        if (!isNil(this._segment)) {
             name += this._segment;
         }
 
@@ -74,10 +87,10 @@ class StoriesConfigurationBuilder {
             chromatic: this._chromatic
         };
 
-        return storiesOf(name, module).addParameters(parameters);
+        return storiesOf(name, this._module).addParameters(parameters);
     }
 }
 
-export function storiesBuilder(section) {
-    return new StoriesConfigurationBuilder(section);
+export function storiesBuilder(storiesModule, section) {
+    return new StoriesConfigurationBuilder(storiesModule, section);
 }

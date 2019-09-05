@@ -3,7 +3,7 @@ import { StarWarsCharactersSearchInput } from "@stories/react-components/search-
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
-    return storiesBuilder("Remote-Search-Input|specs")
+    return storiesBuilder(module, "Remote-Search-Input|specs")
         .segment(segment)
         .layoutWidth("80%")
         .chromaticDelay(100)
