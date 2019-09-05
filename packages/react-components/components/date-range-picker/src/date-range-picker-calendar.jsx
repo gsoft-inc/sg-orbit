@@ -1,8 +1,9 @@
 import { DayPickerRangeController } from "react-dates";
+import { OPEN_DOWN, OPEN_UP } from "react-dates/lib/constants";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -22,6 +23,7 @@ export class DateRangePickerCalendar extends PureComponent {
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
+        openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         navPrevIcon: node,
         navNextIcon: node,
         presetsComponent: node,
@@ -155,9 +157,9 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     getCssClasses() {
-        const { className } = this.props;
+        const { className, openDirection } = this.props;
 
-        const defaultClasses = "calendar flex mt3";
+        const defaultClasses = `calendar flex ${openDirection === OPEN_DOWN ? "mt3" : "mb3"}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }

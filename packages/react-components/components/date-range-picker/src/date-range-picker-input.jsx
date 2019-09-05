@@ -23,6 +23,7 @@ export class DateRangePickerInput extends PureComponent {
     };
 
     _clearButtonRef = createRef();
+    _containerRef = createRef();
 
     handleClick = event => {
         const { onClick } = this.props;
@@ -101,6 +102,7 @@ export class DateRangePickerInput extends PureComponent {
             tabIndex={disabled ? null : "0"}
             autoComplete="off"
             disabled={disabled}
+            ref={this._containerRef}
         >
             {this.renderIcon()}
             <span className="flex-grow-1">{value.text}</span>
@@ -117,5 +119,10 @@ export class DateRangePickerInput extends PureComponent {
                 }
             `}</style>
         </div>;
+    }
+
+    // This method is part of the component API and is intended to be used externally
+    getHeight() {
+        return this._containerRef.current.offsetHeight;
     }
 }

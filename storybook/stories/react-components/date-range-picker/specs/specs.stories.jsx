@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker } from "@orbit-ui/react-components";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-components";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
 import {
     DEFAULT_DATE,
@@ -14,10 +14,13 @@ import {
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
-function stories(segment) {
+function stories(segment, layout = {}) {
     return storiesBuilder("Date-Range-Picker|specs")
         .segment(segment)
-        .layoutWidth("80%")
+        .layout({
+            width: "80%",
+            ...layout
+        })
         .chromaticDelay(100)
         .build();
 }
@@ -607,7 +610,7 @@ stories("/single date selection/calendar apply button")
              />
     );
 
-stories("/initialVisibleMonth")
+stories("/initial visible month")
     .add("default",
          () =>
              <DateRangePicker
@@ -745,7 +748,7 @@ stories("/customization")
              />
     );
 
-stories("/anchor")
+stories("/anchor direction")
     .add("default",
          () =>
              <DateRangePicker
@@ -771,4 +774,38 @@ stories("/anchor")
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
+    );
+
+stories("/open direction")
+    .add("default", () =>
+        <DateRangePicker
+            initialVisibleMonth={moment(DEFAULT_DATE)}
+            defaultOpen
+            onDatesChange={logDatesChanged}
+        />
+    )
+    .add("down",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 openDirection={OPEN_DOWN}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("up",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 openDirection={OPEN_UP}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
     );
