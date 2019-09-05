@@ -146,7 +146,7 @@ stories()
                  onDatesChange={logDatesChanged}
              />
     )
-    .add("inlined",
+    .add("dual",
          () =>
              <div className="flex">
                  <div className="mr4" style={{ width: "50%" }}>

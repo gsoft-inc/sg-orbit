@@ -610,7 +610,7 @@ stories("/single date selection/calendar apply button")
              />
     );
 
-stories("/initialVisibleMonth")
+stories("/initial visible month")
     .add("default",
          () =>
              <DateRangePicker
