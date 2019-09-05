@@ -145,21 +145,6 @@ stories()
                  disabled
                  onDatesChange={logDatesChanged}
              />
-    )
-    .add("dual",
-         () =>
-             <div className="flex">
-                 <div className="mr4" style={{ width: "50%" }}>
-                     <DateRangePicker
-                         onDatesChange={logDatesChanged}
-                     />
-                 </div>
-                 <div style={{ width: "50%" }}>
-                     <DateRangePicker
-                         onDatesChange={logDatesChanged}
-                     />
-                 </div>
-             </div>
     );
 
 stories("/controlled")
