@@ -15,14 +15,22 @@
 }
 
 .lh2 {
-    line-height: 1.25;
+    line-height: 1.2;
 }
 
 .lh3 {
-    line-height: 1.33;
+    line-height: 1.25;
 }
 
 .lh4 {
+    line-height: 1.3333333;
+}
+
+.lh5 {
+    line-height: 1.4285714286;
+}
+
+.lh6 {
     line-height: 1.5;
 }
 
@@ -31,12 +39,18 @@
         line-height: 1;
     }
     .lh2-ns {
-        line-height: 1.25;
+        line-height: 1.2;
     }
     .lh3-ns {
-        line-height: 1.33;
+        line-height: 1.25;
     }
     .lh4-ns {
+        line-height: 1.3333333;
+    }
+    .lh5-ns {
+        line-height: 1.4285714286;
+    }
+    .lh6-ns {
         line-height: 1.5;
     }
 }
@@ -46,12 +60,18 @@
         line-height: 1;
     }
     .lh2-m {
-        line-height: 1.25;
+        line-height: 1.2;
     }
     .lh3-m {
-        line-height: 1.33;
+        line-height: 1.25;
     }
     .lh4-m {
+        line-height: 1.3333333;
+    }
+    .lh5-m {
+        line-height: 1.4285714286;
+    }
+    .lh6-m {
         line-height: 1.5;
     }
 }
@@ -61,12 +81,18 @@
         line-height: 1;
     }
     .lh2-l {
-        line-height: 1.25;
+        line-height: 1.2;
     }
     .lh3-l {
-        line-height: 1.33;
+        line-height: 1.25;
     }
     .lh4-l {
+        line-height: 1.3333333;
+    }
+    .lh5-l {
+        line-height: 1.4285714286;
+    }
+    .lh6-l {
         line-height: 1.5;
     }
 }
