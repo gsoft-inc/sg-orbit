@@ -8,6 +8,7 @@ import "../../styles/main.css";
 
 import { Button, Message } from "semantic-ui-react";
 import { Playground } from "docz";
+import { noop } from "lodash";
 
 # Message
 
@@ -39,7 +40,7 @@ import { Playground } from "docz";
 _Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message._
 
 <Playground>
-    <Message onDismiss>
+    <Message onDismiss={noop}>
         <Message.Header>New Site Features</Message.Header>
         <Message.List>
             <Message.Item>You can now have cover images on blog pages</Message.Item>
@@ -100,18 +101,6 @@ _Dismissible blocks do not automatically close. Use the onDismiss callback to re
     <Message floating>
         <Message.Header>Setup a security policy for external sharing</Message.Header>
         <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
-    </Message>
-</Playground>
-
-## Negative/Error
-
-<Playground>
-    <Message>
-        <Message.Header>New Site Features</Message.Header>
-        <Message.List>
-            <Message.Item>You can now have cover images on blog pages</Message.Item>
-            <Message.Item>Drafts will now auto-save while writing</Message.Item>
-        </Message.List>
     </Message>
 </Playground>
 
