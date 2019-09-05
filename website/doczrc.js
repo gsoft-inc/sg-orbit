@@ -1,5 +1,6 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 export default {
     src: "./src",
@@ -39,6 +40,14 @@ export default {
     // and used obsolete dependencies.
     modifyBundlerConfig: (config, isDev) => ({
         ...config,
+        resolve: {
+            ...config.resolve,
+            // Custom alias to fix https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react
+            alias: {
+                "react": path.resolve(__dirname, "..", "node_modules/react"),
+                "react-dom": path.resolve(__dirname, "..", "node_modules/react-dom")
+            }
+        },
         module: {
             ...config.module,
             rules: [

@@ -1,18 +1,28 @@
-// TODO: Use https://www.npmjs.com/package/meow
-
+const meow = require("meow");
 const chalk = require("chalk");
 const shell = require("shelljs");
 const es = require("./ensure-success");
 
-const args = process.argv;
+const USAGE = `
+Usage
+    $ copy-root-license <dest>
 
-if (args.length !== 4) {
-    console.error(chalk.red("error"), " --dest parameter must be specified.");
+    The <dest> input is relative to the current working directory.
 
-    shell.exit(1);
+Examples
+    $ copy-root-license dist
+`;
+
+const cli = meow(USAGE, {
+    description: false
+});
+
+const dest = cli.input[0];
+
+if (!dest) {
+    cli.showHelp(1);
 }
 
-const dest = args[3];
 const projectPath = es(shell.pwd()).stdout;
 
 if (!shell.test("-d", "dist")) {

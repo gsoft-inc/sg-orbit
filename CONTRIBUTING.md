@@ -127,7 +127,7 @@ yarn start
 The second terminal will start the Storybook app. Executing the following command at the root of the workspace:
 
 ```bash
-yarn start:sb
+yarn start-sb
 ```
 
 Any updates to the packages (components, SUI theme, tachyons, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
@@ -150,7 +150,7 @@ yarn start
 The second terminal will start the website. Execute the following command at the root of the workspace:
 
 ```bash
-yarn start:website
+yarn start-website
 ```
 
 Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the website accordingly.
@@ -174,13 +174,11 @@ To release, open a terminal at the root of the workspace and execute the followi
 
 ```bash
 yarn new-version
-yarn release:pkg
-git push
-git tag [yyyy-MM-dd]
-git push origin [yyyy-MM-dd]
+yarn release-pkg
+yarn push-release <yyyy-MM-dd>
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git tag [yyyy-MM-dd] and list all the changes that has been published.
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
 
 Dont forget to **publish** the release.
 
@@ -222,7 +220,7 @@ To release, open a terminal at the root of the workspace and execute the followi
 
 ```bash
 yarn build:pkg
-yarn release:sb
+yarn release-sb
 ```
 
 Open a web browser and navigate to https://sg-storybook.netlify.com.
@@ -233,12 +231,12 @@ Open a web browser and navigate to https://sg-storybook.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and the **sg-storybook** site.
 
-Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `sb:deploy` in the [storybook/package.json](/storybook/package.json) file.
+Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy` in the [storybook/package.json](/storybook/package.json) file.
 
 To deploy Storybook without building the static web app everytime, execute the following command:
 
 ```bash
-yarn deploy:sb
+yarn deploy-sb
 ```
 
 ## Release the website
@@ -261,7 +259,7 @@ To release on the staging environment, open a terminal at the root of the worksp
 
 ```bash
 yarn build:pkg
-yarn release:website
+yarn release-website
 ```
 
 Open a web browser and navigate to https://5d1663eba8dbff36f23ecdf0--sg-orbit.netlify.com.
@@ -272,7 +270,7 @@ To release on the production environment, open a terminal at the root of the wor
 
 ```bash
 yarn build:pkg
-yarn release:website:prod
+yarn release-website-prod
 ```
 
 Open a web browser and navigate to https://sg-orbit.netlify.com.
@@ -283,13 +281,13 @@ Open a web browser and navigate to https://sg-orbit.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to **sg-orbit** site.
 
-Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy:staging` and `deploy:prod` in the [website/package.json](/website/package.json) file.
+Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy-staging` and `deploy-prod` in the [website/package.json](/website/package.json) file.
 
 To deploy the website without building the static web app everytime, execute any of the following command:
 
 ```bash
-yarn deploy:website
-yarn deploy:website:prod
+yarn deploy-website
+yarn deploy-website-prod
 ```
 
 ## Commands
@@ -340,20 +338,20 @@ Compile & watch all the packages.
 yarn start
 ```
 
-### start:sb
+### start-sb
 
 Start Storybook.
 
 ```bash
-yarn start:sb
+yarn start-sb
 ```
 
-### start:website
+### start-website
 
 Start the website.
 
 ```bash
-yarn start:website
+yarn start-website
 ```
 
 ### build
@@ -396,19 +394,19 @@ Same as *build* but only for the website.
 yarn build:website
 ```
 
-### release:pkg
+### release-pkg
 
 View the section [Release the packages](#release-the-packages).
 
-### release:pkg:next
+### release-pkg-next
 
-Same as *release:pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
+Same as *release-pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
 
-### release:sb
+### release-sb
 
 View the section [Release Storybook](#release-storybook).
 
-### release:website & release:website:prod
+### release-website & release-website-prod
 
 View the section [Release the website](#release-the-website).
 
@@ -458,32 +456,28 @@ yarn lint
 
 Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, read the [Testing](#testing) section.
 
+Before running make sure you built the packages with the `build:pkg` command.
+
 ```bash
 yarn chromatic
 ```
 
-## chromatic:components
-
-Same as *chromatic* but only for the components.
-
-```bash
-yarn chromatic:components
-```
-
-## chromatic:theme
+## chromatic-theme
 
 Same as *chromatic* but only for the SUI theme.
 
+Before running make sure you built the thme with the `build:theme` command.
+
 ```bash
-yarn chromatic:theme
+yarn chromatic-theme
 ```
 
-## chromatic:materials
+## chromatic-materials
 
 Same as *chromatic* but only for the materials parts.
 
 ```bash
-yarn chromatic:materials
+yarn chromatic-materials
 ```
 
 ## Testing
@@ -625,6 +619,30 @@ To run multiple commands sequentially, use `run-s`.
 
 Otherwise use `yarn`.
 
+### Naming
+
+If a script can be called in batch, separate the discriminant by ":"
+
+Example:
+
+```bash
+"scripts": {
+    "build": "run-p build:*",
+    "build:pkg": "...",
+    "build:sb": "..."
+}
+```
+
+Otherwise, separare words with "-"
+
+Example:
+
+```bash
+"scripts": {
+    "deploy-sb": "..."
+}
+```
+
 ## Gotchas to remember
 
 ### --ignore-scripts
@@ -634,3 +652,7 @@ The `bootstrap` command specify `--ignore-scripts` to yarn install because other
 ### Chromatic QA & custom font
 
 The Storybook configuration doesn't load the *Calibre* custom font if the app is started by the chromatic CLI because visual tests offer inconsistent results when a custom font is loaded. Not sure why.
+
+### How Lerna collect updated packages
+
+As a starting point to determine which packages changed, Lerna used the last [Git annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) available. Without a tag, Lerna will infer that all the packages changed.

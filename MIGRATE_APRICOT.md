@@ -212,7 +212,10 @@ import { RemoteSearchInput, useDefaultResultsFetcher } from "@orbit-ui/react-com
 // ....
 
 handleFetchResults = useDefaultResultsFetcher(`${config.api.baseUrl}${this.props.url}`, this.props.queryParameter, {
-    queryData: this.props.urlData
+    queryData: this.props.urlData,
+    requestOptions: {
+        credentials: "include"
+    }
 });
 
 // ....

@@ -17,7 +17,7 @@
         "build": "yarn copy-to-dist",
         "prepublishOnly": "run-s build copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
-        "copy-license-to-dist": "node ../../scripts/copy-root-license --dest dist"
+        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "gitHead": "0b89b07249b2a9398baea156ea03a193d4f45910"
 }

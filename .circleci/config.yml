@@ -8,7 +8,7 @@ aliases:
     - &restore-yarn-deps
       name: Restore Yarn Package Cache
       keys:
-          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "/storybook/yarn.lock" }}
+          - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "storybook/yarn.lock" }}
 jobs:
     build:
         docker:
@@ -19,7 +19,7 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:pkg --frozen-lockfile
+                  command: yarn install:pkg --frozen-lockfile && yarn build:theme
             - save_cache: *save-yarn-deps
             - run:
                   name: Lint
@@ -33,17 +33,20 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Packages Dependencies
-                  command: yarn bootstrap:pkg --frozen-lockfile
+                  command: yarn install:pkg --frozen-lockfile
             - run:
                   name: Install Storybook Dependencies
-                  command: yarn bootstrap:sb --frozen-lockfile
+                  command: yarn install:sb --frozen-lockfile
             - save_cache: *save-yarn-deps
+            - run:
+                  name: Setup Packages
+                  command: yarn setup:pkg
             - run:
                   name: Build Packages
                   command: yarn build:pkg
             - run:
                   name: Run chromatic
-                  command: yarn chromatic:ci
+                  command: yarn chromatic-ci
 workflows:
     version: 2
     commit:

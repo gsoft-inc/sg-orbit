@@ -1,3 +1,73 @@
 /*******************************
         Site Overrides
 *******************************/
+.ui.message {
+    border-left: 0.25rem solid;
+    font-size: 1.125rem;
+    border-color: transparent;
+}
+
+.ui.message .header + p,
+.ui.message .list:not(.ui) li {
+    line-height: 1.3333333;
+}
+
+.ui.message .list:not(.ui) li {
+    margin-bottom: 0.25rem;
+}
+
+.ui.message .header:not(.ui) {
+    line-height: 1.25;
+}
+
+/* Support for button in a Message component using icon layout */
+.ui.icon.message > .content ~ .button {
+    margin-left: 1.25rem;
+}
+
+.ui.icon.message > .button {
+    margin-right: 1.25rem;
+}
+
+/* Variations */
+
+.ui.warning.message {
+    border-color: @sunray500;
+}
+
+.ui.info.message {
+    color: @marine500;
+}
+
+.ui.negative.message {
+    /* we can't use the @negativeBackgroundColor since it affects the inputs background color */
+    background-color: @alert50;
+    border-color: @alert900;
+}
+
+/* Sizes */
+
+.ui.message.small {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+}
+
+/* Icons */
+
+.ui.message > .close.icon {
+    background-color: transparent;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    border-radius: 100%;
+    transition: background-color 0.1s ease;
+    top: 0.5em;
+    right: 0.5em;
+}
+
+.ui.message > .close.icon:hover {
+    background-color: @cloud100;
+}

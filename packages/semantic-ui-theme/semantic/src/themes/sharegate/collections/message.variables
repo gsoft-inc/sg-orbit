@@ -1,3 +1,16 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@background: @cloud50;
+@borderWidth: 0;
+@headerFontSize: 1.5rem;
+@headerFontWeight: 600;
+@padding: 1.5rem;
+@headerParagraphDistance: 0.5rem;
+@messageTextOpacity: 1;
+@iconOpacity: 1;
+@listItemMargin: 0;
+@warningTextColor: @marine500;
+@positiveTextColor: @marine500;
+@positiveHeaderColor: @marine500;
+@floatingBoxShadow: var(--shadow-4);
