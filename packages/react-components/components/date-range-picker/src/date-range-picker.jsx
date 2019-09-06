@@ -1,8 +1,8 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
-import { ANCHOR_LEFT, ANCHOR_RIGHT, OPEN_DOWN, OPEN_UP } from "react-dates/lib/constants";
-import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ANCHOR_CENTER, ANCHOR_LEFT, ANCHOR_RIGHT, OPEN_DOWN, OPEN_UP } from "./directions";
+import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared/src";
 import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
@@ -10,7 +10,7 @@ import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { FadeIn } from "./fade-in";
 import { PRESET_SHAPE } from "./presets";
-import { Popup } from "@orbit-ui/react-popup";
+import { Popup } from "@orbit-ui/react-popup/src";
 import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -36,7 +36,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         placeholder: string,
         rangeFormat: string,
         dateFormat: string,
-        anchorDirection: oneOf([ANCHOR_LEFT, ANCHOR_RIGHT]),
+        anchorDirection: oneOf([ANCHOR_LEFT, ANCHOR_RIGHT, ANCHOR_CENTER]),
         openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         calendar: node,
         navPrevIcon: node,
@@ -189,19 +189,29 @@ export class DateRangePicker extends AutoControlledPureComponent {
         if (anchorDirection === ANCHOR_LEFT) {
             return { left: "0px" };
         }
+        else if (anchorDirection === ANCHOR_RIGHT) {
+            return { right: "0px" };
 
-        return { right: "0px" };
+        }
+        else if (anchorDirection === ANCHOR_CENTER) {
+            return { left: "50%", offsetX: "-50%" };
+        }
+
+        return {};
     }
 
     getOpenDirectionProps() {
         const { openDirection } = this.props;
         const { inputHeight } = this.state;
 
-        if (openDirection === OPEN_UP) {
+        if (openDirection === OPEN_DOWN) {
+            return { top: "0px" };
+        }
+        else if (openDirection === OPEN_UP) {
             return { bottom: `${inputHeight}px` };
         }
 
-        return { top: "0px" };
+        return {};
     }
 
     getCssClasses() {

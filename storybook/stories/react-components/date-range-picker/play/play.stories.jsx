@@ -1,4 +1,5 @@
 import {
+    ANCHOR_CENTER,
     ANCHOR_LEFT,
     ANCHOR_RIGHT,
     DEFAULT_DATES_PRESETS,
@@ -65,7 +66,7 @@ stories()
                  placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
                  rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
                  dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
-                 anchorDirection={select("anchorDirection", { Left: ANCHOR_LEFT, Right: ANCHOR_RIGHT }, ANCHOR_LEFT)}
+                 anchorDirection={select("anchorDirection", { Left: ANCHOR_LEFT, Right: ANCHOR_RIGHT, Center: ANCHOR_CENTER }, ANCHOR_LEFT)}
                  openDirection={select("openDirection", { Down: OPEN_DOWN, Up: OPEN_UP }, OPEN_DOWN)}
                  presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
                  clearText={text("clearText", DateRangePicker.defaultProps.clearText)}

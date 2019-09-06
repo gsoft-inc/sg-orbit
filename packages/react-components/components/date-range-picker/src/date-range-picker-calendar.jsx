@@ -1,5 +1,5 @@
 import { DayPickerRangeController } from "react-dates";
-import { OPEN_DOWN, OPEN_UP } from "react-dates/lib/constants";
+import { OPEN_DOWN, OPEN_UP } from "./directions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";

@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP, toPreset } from "@orbit-ui/react-date-range-picker/src";
+import { ANCHOR_CENTER, ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP, toPreset } from "@orbit-ui/react-date-range-picker/src";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
 import {
     getMonthFirstDay,
@@ -795,6 +795,15 @@ stories("/anchor direction")
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
                  anchorDirection={ANCHOR_RIGHT}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("center",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 anchorDirection={ANCHOR_CENTER}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />

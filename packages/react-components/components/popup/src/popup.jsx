@@ -1,4 +1,4 @@
-import { KEYS } from "@orbit-ui/react-components-shared";
+import { KEYS } from "@orbit-ui/react-components-shared/src";
 import { PureComponent, createRef } from "react";
 import { any, bool, func, string } from "prop-types";
 import { isNil } from "lodash";
@@ -12,6 +12,8 @@ export class Popup extends PureComponent {
         bottom: string,
         left: string,
         right: string,
+        offsetX: string,
+        offsetY: string,
         children: any.isRequired
     };
 
@@ -54,27 +56,41 @@ export class Popup extends PureComponent {
     };
 
     getPositioningStyle() {
-        const { top, bottom, left, right } = this.props;
+        const { top, bottom, left, right, offsetX, offsetY } = this.props;
 
-        const positions = {};
+        const style = {};
 
         if (!isNil(top)) {
-            positions.top = top;
+            style.top = top;
         }
 
         if (!isNil(bottom)) {
-            positions.bottom = bottom;
+            style.bottom = bottom;
         }
 
         if (!isNil(left)) {
-            positions.left = left;
+            style.left = left;
         }
 
         if (!isNil(right)) {
-            positions.right = right;
+            style.right = right;
         }
 
-        return positions;
+        if (!isNil(offsetX) || !isNil(offsetY)) {
+            const translates = [];
+
+            if (!isNil(offsetX)) {
+                translates.push(`translateX(${offsetX})`);
+            }
+
+            if (!isNil(offsetY)) {
+                translates.push(`translateY(${offsetY})`);
+            }
+
+            style.transform = translates.join(" ");
+        }
+
+        return style;
     }
 
     bindEvents() {

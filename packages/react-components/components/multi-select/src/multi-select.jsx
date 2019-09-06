@@ -1,5 +1,5 @@
 import { AddIcon, ClearIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared/src";
 import { Button, Dropdown, Label } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
 import { MultiSelectClearButton } from "./multi-select-clear-button";

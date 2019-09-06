@@ -1,4 +1,13 @@
-import { AutoControlledPureComponent, InvalidOperationError, KEYS, cancellablePromise, defer, ensure, getAutoControlledStateFromProps, httpGet } from "@orbit-ui/react-components-shared";
+import {
+    AutoControlledPureComponent,
+    InvalidOperationError,
+    KEYS,
+    cancellablePromise,
+    defer,
+    ensure,
+    getAutoControlledStateFromProps,
+    httpGet
+} from "@orbit-ui/react-components-shared/src";
 import { SearchInputController } from "./search-input-controller";
 import { bool, func, number, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";

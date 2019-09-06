@@ -1,5 +1,5 @@
 import { Button, Ref } from "semantic-ui-react";
-import { PureComponent, cloneElement, createRef } from "react";
+import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
