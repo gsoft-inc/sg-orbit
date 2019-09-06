@@ -23,7 +23,7 @@ class Preset extends PureComponent {
         const { preset, isSelected, isBlocked } = this.props;
 
         return (
-            <li className="pa2 mb2 lh-solid">
+            <li className="pa2 mb2 lh1">
                 <Choose>
                     <When condition={isBlocked}>
                         <span className="f7 cloud-400 outline-0">{preset.text}</span>
@@ -32,7 +32,7 @@ class Preset extends PureComponent {
                         <button
                             type="button"
                             onClick={this.handleClick}
-                            className={cx("f7 marine-700 outline-0 pointer hover-primary-500", { "primary-500": isSelected })}
+                            className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
                         >
                             {preset.text}
                         </button>
@@ -120,7 +120,7 @@ export class DateRangePickerPresets extends PureComponent {
         if (presets.length > 0) {
             return (
                 <div className={classes}>
-                    <div className="self-center mb8">{icon}</div>
+                    <div className="self-center mb7">{icon}</div>
                     <ul>{this.renderPresets()}</ul>
 
                     <style jsx>{`
