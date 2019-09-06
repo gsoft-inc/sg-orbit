@@ -1,6 +1,6 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input";
+import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
 

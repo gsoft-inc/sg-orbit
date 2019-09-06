@@ -1,4 +1,4 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-date-range-picker";
+import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-date-range-picker/src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import {
     DEFAULT_DATE,

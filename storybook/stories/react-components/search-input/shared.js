@@ -1,4 +1,4 @@
-import { searchInputResult } from "@orbit-ui/react-search-input";
+import { searchInputResult } from "@orbit-ui/react-search-input/src";
 
 export const GEORGE_VALUE = "George";
 export const LAURIE_VALUE = "Laurie";

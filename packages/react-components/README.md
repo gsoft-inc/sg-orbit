@@ -112,6 +112,10 @@ stories("/segment")
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
 
+#### Good to know
+
+A stories should always import the Component from the `src` directory of the package. This way, it's possible to break through the source code instead of the *compiled* code. You will also benefits from faster reload time with HMR.
+
 ### Update the documentation
 
 Add the new package to the [React components packages documentation](https://github.com/gsoft-inc/sg-brand#react-components). The badges will only be available once the package has been published.

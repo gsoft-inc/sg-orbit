@@ -1,5 +1,5 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInput } from "@orbit-ui/react-search-input";
+import { SearchInput } from "@orbit-ui/react-search-input/src";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {

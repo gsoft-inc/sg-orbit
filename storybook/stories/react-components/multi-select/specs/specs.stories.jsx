@@ -1,7 +1,7 @@
 import { CustomAddIcon, CustomSearchIcon } from "./assets";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE, logValuesChanged } from "@stories/react-components/multi-select/shared";
 import { Dropdown } from "semantic-ui-react";
-import { MultiSelect } from "@orbit-ui/react-multi-select";
+import { MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {

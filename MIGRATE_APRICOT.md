@@ -121,6 +121,22 @@ By:
 @import "~@orbit-ui/semantic-ui-theme/label.css";
 ```
 
+## Semantic UI React components
+
+The SemanticTab Pane must now have the attached attribut to false.
+
+Before:
+
+```javascript
+<SemanticTab.Pane>
+```
+
+After:
+
+```javascript
+<SemanticTab.Pane attached={false}>
+```
+
 ## React components
 
 The following in-solution components can be replaced by Orbit UI custom React components:

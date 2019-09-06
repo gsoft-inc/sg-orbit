@@ -1,4 +1,4 @@
-import { multiSelectItem } from "@orbit-ui/react-multi-select";
+import { multiSelectItem } from "@orbit-ui/react-multi-select/src";
 
 export const GROUP_CREATED_VALUE = "Group Created";
 export const GROUP_RESTORED_VALUE = "Group Restored";

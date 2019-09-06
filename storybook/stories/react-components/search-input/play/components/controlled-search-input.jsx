@@ -1,6 +1,6 @@
 import { DEFAULT_RESULTS } from "@stories/react-components/search-input/shared";
 import { PureComponent } from "react";
-import { SearchInput } from "@orbit-ui/react-search-input";
+import { SearchInput } from "@orbit-ui/react-search-input/src";
 import { isNil } from "lodash";
 
 export class ControlledSearchInput extends PureComponent {

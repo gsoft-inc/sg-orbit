@@ -1,6 +1,6 @@
 import { CustomClearIcon } from "./assets";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInputController } from "@orbit-ui/react-search-input";
+import { SearchInputController } from "@orbit-ui/react-search-input/src";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 
