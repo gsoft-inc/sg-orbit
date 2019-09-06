@@ -332,13 +332,7 @@ summary {
 }
 
 /* Removing Edge input field decoration. */
-input[type="text"]::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-/* Removing Edge input field decoration. */
+input[type="text"]::-ms-clear,
 input[type="text"]::-ms-reveal {
     display: none;
     width: 0;
