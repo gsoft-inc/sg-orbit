@@ -55,6 +55,14 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* Removing Edge input field decoration. */
+input[type="text"]::-ms-clear,
+input[type="text"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
 ```
 
 ## Foundation

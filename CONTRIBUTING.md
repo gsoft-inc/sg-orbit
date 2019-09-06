@@ -164,7 +164,9 @@ Releasing the packages includes several steps:
 3. Bump the version of the identified packages
 4. Modifies package metadata to reflect new release
 5. Publish the packages to npm
-6. Push those changes to Git
+6. Push those changes to Git with a tag
+7. Create a new Github release associated to the tag created previously
+8. Optionally deploy Storybook and the document Website 
 
 Fortunatelly, this is all automated with a few commands!
 
@@ -176,13 +178,13 @@ To release, open a terminal at the root of the workspace and execute the followi
 yarn new-version
 yarn release-pkg
 yarn push-release <yyyy-MM-dd>
+yarn release-sb [optional]
+yarn release-website [optional]
 ```
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
 
 Dont forget to **publish** the release.
-
-If the changes affects [Storybook](#release-storybook) or the [documentation website](#release-the-website), you should also release them.
 
 ### Troubleshooting
 
