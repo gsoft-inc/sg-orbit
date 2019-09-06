@@ -12,7 +12,7 @@
     "javascript.validate.enable": true,
     "json.format.enable": false,
     "css.validate": false,
-    // Required to allow auto format on save with Prettier + ESLint + Vetur.
+    // Required to allow auto format on save with ESLint.
     "eslint.autoFixOnSave": true,
     "eslint.alwaysShowStatus": true,
     "eslint.packageManager": "yarn",
