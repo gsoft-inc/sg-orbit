@@ -20,6 +20,7 @@ export class DateRangePickerCalendar extends PureComponent {
         onDatesChange: func,
         onApply: func,
         allowSingleDateSelection: bool,
+        allowClear: bool,
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
@@ -191,7 +192,7 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     renderButtons() {
-        const { startDate, endDate, allowSingleDateSelection, buttons, clearText, applyText } = this.props;
+        const { startDate, endDate, allowSingleDateSelection, allowClear, buttons, clearText, applyText } = this.props;
 
         return cloneElement(buttons, {
             startDate,
@@ -199,6 +200,7 @@ export class DateRangePickerCalendar extends PureComponent {
             onClear: this.handleClear,
             onApply: this.handleApply,
             allowSingleDateSelection,
+            allowClear,
             clearText,
             applyText
         });

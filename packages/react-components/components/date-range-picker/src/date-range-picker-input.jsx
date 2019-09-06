@@ -12,10 +12,12 @@ export class DateRangePickerInput extends PureComponent {
         onClick: func,
         onClear: func,
         onKeyDown: func,
+        allowClear: bool,
         placeholder: string,
         rangeFormat: string,
         dateFormat: string,
         icon: node,
+        disabledIcon: node,
         clearIcon: node,
         disabled: bool,
         open: bool,
@@ -26,9 +28,15 @@ export class DateRangePickerInput extends PureComponent {
     _containerRef = createRef();
 
     handleClick = event => {
-        const { onClick } = this.props;
+        const { onClick, allowClear } = this.props;
 
-        if (!this._clearButtonRef.current.contains(event.target)) {
+        let canPropagate = true;
+
+        if (allowClear) {
+            canPropagate = !this._clearButtonRef.current.contains(event.target);
+        }
+
+        if (canPropagate) {
             onClick(event, this.props);
         }
     };
@@ -68,16 +76,18 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { icon } = this.props;
+        const { icon, disabledIcon } = this.props;
         const { disabled } = this.props;
 
-        return cloneElement(icon, {
-            className: `w6 h6 ${disabled ? " fill-cloud-500" : " fill-marine-700"} mr4`
-        });
+        return disabled ? disabledIcon : icon;
     }
 
     renderClearButton(value) {
-        const { clearIcon, disabled, open } = this.props;
+        const { allowClear, clearIcon, disabled, open } = this.props;
+
+        if (!allowClear) {
+            return null;
+        }
 
         return (
             <div className={cx({ dn: value.isPlaceholder || disabled || open })}>
@@ -105,7 +115,7 @@ export class DateRangePickerInput extends PureComponent {
             ref={this._containerRef}
         >
             {this.renderIcon()}
-            <span className="flex-grow-1">{value.text}</span>
+            <span className="flex-grow-1 ml4">{value.text}</span>
             {this.renderClearButton(value)}
 
             <style jsx>{`

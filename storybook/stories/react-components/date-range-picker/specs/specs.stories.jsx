@@ -69,16 +69,6 @@ stories("/presets")
          }
     );
 
-stories("/today")
-    .add("is highlighted",
-         () =>
-             <DateRangePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />
-    );
-
 stories("/date restrictions")
     .add("min date is not blocking previous or next month",
          () =>
@@ -588,6 +578,27 @@ stories("/single date selection/calendar clear button")
                  startDate={moment(DEFAULT_DATE)}
                  endDate={moment(DEFAULT_DATE).add(3, "days")}
                  allowSingleDateSelection
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    );
+
+stories("/disallow clear")
+    .add("closed",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 allowClear={false}
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("opened",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 allowClear={false}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />

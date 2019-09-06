@@ -59,6 +59,7 @@ stories()
                  defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
                  defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
                  allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
+                 allowClear={boolean("allowClear", true)}
                  minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
                  maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
                  placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}

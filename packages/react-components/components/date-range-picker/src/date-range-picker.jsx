@@ -25,11 +25,13 @@ export class DateRangePicker extends AutoControlledPureComponent {
         onDatesChange: func.isRequired,
         onVisibilityChange: func,
         allowSingleDateSelection: bool,
+        allowClear: bool,
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
         input: node,
         inputIcon: node,
+        disabledInputIcon: node,
         inputClearIcon: node,
         placeholder: string,
         rangeFormat: string,
@@ -53,8 +55,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     static defaultProps = {
         allowSingleDateSelection: false,
+        allowClear: true,
         input: <DateRangePickerInput />,
-        inputIcon: <InputCalendarIcon />,
+        inputIcon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
+        disabledInputIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
         inputClearIcon: <ClearIcon className="h3 w3" />,
         placeholder: "Pick a date",
         rangeFormat: "{startDate} - {endDate}",
@@ -209,7 +213,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, inputIcon, inputClearIcon, placeholder, rangeFormat, dateFormat, disabled } = this.props;
+        const { input, inputIcon, disabledInputIcon, inputClearIcon, allowClear, placeholder, rangeFormat, dateFormat, disabled } = this.props;
         const { selectedStartDate, selectedEndDate, open } = this.state;
 
         return cloneElement(input, {
@@ -218,10 +222,12 @@ export class DateRangePicker extends AutoControlledPureComponent {
             onClick: this.handleInputClick,
             onClear: this.handleInputClear,
             onKeyDown: this.handleInputKeyDown,
+            allowClear,
             placeholder,
             rangeFormat,
             dateFormat,
             icon: inputIcon,
+            disabledIcon: disabledInputIcon,
             clearIcon: inputClearIcon,
             disabled: disabled,
             open: open,
@@ -230,7 +236,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowSingleDateSelection, minDate, maxDate, initialVisibleMonth, openDirection, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
+        const { allowSingleDateSelection, allowClear, minDate, maxDate, initialVisibleMonth, openDirection, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
@@ -239,6 +245,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             onDatesChange: this.handleCalendarDatesChange,
             onApply: this.handleCalendarApply,
             allowSingleDateSelection,
+            allowClear,
             minDate,
             maxDate,
             initialVisibleMonth,

@@ -40,9 +40,6 @@ class Preset extends PureComponent {
                 </Choose>
 
                 <style jsx>{`
-                    li {
-
-                    }
                     button {
                         background-color: transparent;
                         border: none;
