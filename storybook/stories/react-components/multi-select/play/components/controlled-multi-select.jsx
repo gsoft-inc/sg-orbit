@@ -1,5 +1,5 @@
 import { DEFAULT_ITEMS } from "@stories/react-components/multi-select/shared";
-import { MultiSelect } from "@orbit-ui/react-multi-select";
+import { MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { PureComponent } from "react";
 import { isNil } from "lodash";
 

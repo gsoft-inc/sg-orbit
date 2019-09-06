@@ -1,6 +1,6 @@
 import { ControlledStarWarsCharactersSearchInput } from "./components";
 import { LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { RemoteSearchInput, SearchInputController } from "@orbit-ui/react-search-input";
+import { RemoteSearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { StarWarsCharactersSearchInput } from "@stories/react-components/search-input/components";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";

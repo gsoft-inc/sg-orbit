@@ -1,6 +1,6 @@
 import { ControlledMultiSelect } from "./components/controlled-multi-select";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE, logValuesChanged } from "@stories/react-components/multi-select/shared";
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select";
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
 

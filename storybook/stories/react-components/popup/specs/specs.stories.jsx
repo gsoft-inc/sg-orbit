@@ -1,4 +1,4 @@
-import { Popup } from "@orbit-ui/react-popup";
+import { Popup } from "@orbit-ui/react-popup/src";
 import { RedBox } from "@stories/react-components/popup/components/red-box";
 import { storiesBuilder } from "@utils/stories-builder";
 

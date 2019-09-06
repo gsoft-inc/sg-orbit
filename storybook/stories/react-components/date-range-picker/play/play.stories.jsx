@@ -1,18 +1,20 @@
-import { ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP } from "@orbit-ui/react-date-range-picker";
-import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import {
-    DEFAULT_DATE,
-    DEFAULT_PRESETS,
+    ANCHOR_LEFT,
+    ANCHOR_RIGHT,
+    DEFAULT_DATES_PRESETS,
+    DateRangePicker,
     LAST_12_MONTHS_PRESET,
     LAST_3_MONTHS_PRESET,
     LAST_6_MONTHS_PRESET,
     LAST_MONTH_PRESET,
     LAST_WEEK_PRESET,
-    logDatesChanged,
-    toStoryParametersPresets
-} from "@stories/react-components/date-range-picker/shared";
+    OPEN_DOWN,
+    OPEN_UP
+} from "@orbit-ui/react-date-range-picker/src";
+import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
+import { logDatesChanged, toStoryParametersPresets } from "@stories/react-components/date-range-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
@@ -54,11 +56,11 @@ stories()
     .add("knobs",
          () =>
              <DateRangePicker
-                 defaultStartDate={momentKnob("defaultStartDate", moment(DEFAULT_DATE).toDate())}
-                 defaultEndDate={momentKnob("defaultEndDate", moment(DEFAULT_DATE).add(5, "days").toDate())}
+                 defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
+                 defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
                  allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
-                 minDate={momentKnob("minDate", moment(DEFAULT_DATE).subtract(6, "months").toDate())}
-                 maxDate={momentKnob("maxDate", moment(DEFAULT_DATE).add(6, "months").toDate())}
+                 minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+                 maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
                  placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
                  rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
                  dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
@@ -76,59 +78,59 @@ stories()
     .add("presets",
          () =>
              <DateRangePicker
-                 presets={DEFAULT_PRESETS}
+                 presets={DEFAULT_DATES_PRESETS}
                  onDatesChange={logDatesChanged}
              />,
          {
              storyParameters: {
-                 presets: toStoryParametersPresets(DEFAULT_PRESETS)
+                 presets: toStoryParametersPresets(DEFAULT_DATES_PRESETS)
              }
          }
     )
     .add("selected dates",
          () =>
              <DateRangePicker
-                 presets={DEFAULT_PRESETS}
-                 startDate={moment(DEFAULT_DATE)}
-                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 presets={DEFAULT_DATES_PRESETS}
+                 startDate={moment()}
+                 endDate={moment().add(3, "days")}
                  onDatesChange={logDatesChanged}
              />
     )
     .add("min date restriction",
          () =>
              <DateRangePicker
-                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
+                 minDate={moment().subtract(2, "weeks")}
                  onDatesChange={logDatesChanged}
              />,
          {
              storyParameters: {
-                 minDate: moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY")
+                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
              }
          }
     )
     .add("max date restriction",
          () =>
              <DateRangePicker
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 maxDate={moment().add(2, "weeks")}
                  onDatesChange={logDatesChanged}
              />,
          {
              storyParameters: {
-                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
              }
          }
     )
     .add("min & max dates restriction",
          () =>
              <DateRangePicker
-                 minDate={moment(DEFAULT_DATE).subtract(2, "weeks")}
-                 maxDate={moment(DEFAULT_DATE).add(2, "weeks")}
+                 minDate={moment().subtract(2, "weeks")}
+                 maxDate={moment().add(2, "weeks")}
                  onDatesChange={logDatesChanged}
              />,
          {
              storyParameters: {
-                 minDate: moment(DEFAULT_DATE).subtract(2, "weeks").format("MMMM Do YYYY"),
-                 maxDate: moment(DEFAULT_DATE).add(2, "weeks").format("MMMM Do YYYY")
+                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
+                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
              }
          }
     )
@@ -151,8 +153,8 @@ stories("/controlled")
     .add("stateful",
          () =>
              <ControlledDateRangePicker
-                 startDate={moment(DEFAULT_DATE)}
-                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 startDate={moment()}
+                 endDate={moment().add(3, "days")}
                  onDatesChange={logDatesChanged}
              />
     )

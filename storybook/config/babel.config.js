@@ -14,6 +14,7 @@ module.exports = {
         "@babel/plugin-proposal-class-properties",
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
+        "styled-jsx/babel",
         [
             "babel-plugin-named-asset-import",
             {
