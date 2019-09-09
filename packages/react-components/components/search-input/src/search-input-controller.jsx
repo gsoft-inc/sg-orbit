@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared/src";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { ClearIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";

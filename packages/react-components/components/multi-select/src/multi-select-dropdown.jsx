@@ -1,6 +1,6 @@
 import { Dropdown, Ref } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
-import { KEYS } from "@orbit-ui/react-components-shared/src";
+import { KEYS } from "@orbit-ui/react-components-shared";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";

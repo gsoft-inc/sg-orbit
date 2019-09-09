@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared/src";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { RESULT_SHAPE } from "./results";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
