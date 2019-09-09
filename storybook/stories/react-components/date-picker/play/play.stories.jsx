@@ -11,11 +11,11 @@ import {
     LAST_WEEK_PRESET,
     OPEN_DOWN,
     OPEN_UP
-} from "@orbit-ui/react-date-range-picker/src";
+} from "@orbit-ui/react-date-picker/src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
-import { logDatesChanged, toStoryParametersPresets } from "@stories/react-components/date-range-picker/shared";
+import { logDatesChanged, toStoryParametersPresets } from "@stories/react-components/date-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 

@@ -1,4 +1,4 @@
-import { ANCHOR_CENTER, ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP, toPreset } from "@orbit-ui/react-date-range-picker/src";
+import { ANCHOR_CENTER, ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP, toPreset } from "@orbit-ui/react-range-picker/src";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
 import {
     getMonthFirstDay,
@@ -7,7 +7,7 @@ import {
     getPreviousMonthFirstDay,
     logDatesChanged,
     toStoryParametersPresets
-} from "@stories/react-components/date-range-picker/shared";
+} from "@stories/react-components/date-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 

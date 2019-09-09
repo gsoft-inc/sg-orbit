@@ -1,4 +1,4 @@
-import { DateRangePicker } from "@orbit-ui/react-date-range-picker/src";
+import { DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { PureComponent } from "react";
 
 export class MirroredDateRangePickers extends PureComponent {

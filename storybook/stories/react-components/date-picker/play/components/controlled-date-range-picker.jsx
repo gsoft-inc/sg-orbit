@@ -1,4 +1,4 @@
-import { DateRangePicker } from "@orbit-ui/react-date-range-picker/src";
+import { DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { PureComponent } from "react";
 import { isNil } from "lodash";
 import moment from "moment";
