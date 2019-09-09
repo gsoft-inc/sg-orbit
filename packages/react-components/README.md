@@ -118,7 +118,7 @@ A stories should always import the Component from the `src` directory of the pac
 
 ### Update the documentation
 
-Add the new package to the [React components packages documentation](https://github.com/gsoft-inc/sg-brand#react-components). The badges will only be available once the package has been published.
+Add the new package to the [React components packages documentation](../../README.md#react-components). The badges will only be available once the package has been published.
 
 ### Include the component in the bundle
 
