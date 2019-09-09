@@ -1,4 +1,4 @@
-import { KEYS } from "@orbit-ui/react-components-shared/src";
+import { KEYS } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { any, bool, func, string } from "prop-types";
 import { isNil } from "lodash";

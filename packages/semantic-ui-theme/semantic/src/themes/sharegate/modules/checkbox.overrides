@@ -6,13 +6,19 @@
 
 .ui.radio.checkbox label:before {
     box-sizing: border-box;
-    border-width: 2px;
+    border: 2px solid var(--cloud-100);
 }
 
 .ui.radio.checkbox input:checked:disabled ~ .box:before,
 .ui.radio.checkbox input:checked:disabled ~ label:before {
     background-image: none;
-    border-width: 2px;
+    background-color: @white;
+    border: 2px solid @primaryColor100;
+}
+
+.ui.radio.checkbox input:checked:disabled ~ .box:after,
+.ui.radio.checkbox input:checked:disabled ~ label:after {
+    background-color: @primaryColor100;
 }
 
 .ui.checkbox input:checked ~ .box:before,
@@ -139,4 +145,10 @@
 .ui.checkbox input[disabled] ~ label::before {
     background-color: var(--cloud-50);
     border: 1px solid var(--cloud-100);
+}
+
+.ui.disabled.radio.checkbox .box:after,
+.ui.disabled.radio.checkbox label::before {
+    background-color: var(--cloud-50);
+    border: 2px solid var(--cloud-100);
 }
