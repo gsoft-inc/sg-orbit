@@ -2,7 +2,7 @@ import { PRESET_SHAPE } from "./presets";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
-import { isSameDay } from "./utils";
+import { isSameDay } from "../utils";
 import cx from "classnames";
 
 class Preset extends PureComponent {

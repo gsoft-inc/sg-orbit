@@ -1,9 +1,6 @@
-import { DayPickerRangeController } from "react-dates";
 import { OPEN_DOWN, OPEN_UP } from "./directions";
-import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
-import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
+import { func, node, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -13,11 +10,9 @@ const PHRASES = {
     chooseAvailableEndDate: ({ date }) => `Choose ${date}.`
 };
 
-export class DateRangePickerCalendar extends PureComponent {
+export class CalendarController extends PureComponent {
     static propTypes = {
-        // startDate: momentType,
-        // endDate: momentType,
-        calendar: node,
+        calendar: node.isRequired,
         onDatesChange: func,
         onApply: func,
         // allowClear: bool,
@@ -28,59 +23,23 @@ export class DateRangePickerCalendar extends PureComponent {
         openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         navPrevIcon: node,
         navNextIcon: node,
-        // presetsComponent: node,
-        // presets: arrayOf(shape(PRESET_SHAPE)),
-        // presetsIcon: node,
         // buttons: node,
         // clearText: string,
         // applyText: string,
         className: string
     };
 
-    // state = {
-    //     // Must be non-null in order to select dates.
-    //     focusedInput: START_DATE
-    // };
-
-    // handleFocusChange = focusedInput => {
-    //     this.setState({ focusedInput });
-    // };
-
-    // handleDatesChange = ({ startDate, endDate }) => {
-    //     const { onDatesChange } = this.props;
-    //     const { focusedInput } = this.state;
-
-    //     if (focusedInput === START_DATE) {
-    //         if (!isNil(startDate) && !isNil(endDate)) {
-    //             // By default, when the user select a valid full range then select a date previous to the range, react-dates will extend the current range instead of starting a new one.
-    //             // It works this way because react-dates doesn't reset the endDate.
-    //             onDatesChange(startDate, null, null, this.props);
-    //         } else {
-    //             onDatesChange(startDate, endDate, null, this.props);
-    //         }
-    //     } else {
-    //         // Enable selection of a new single date or range when an end date is selected.
-    //         // This is mostly usefull to allow the selection of a single date after a range has been selected.
-    //         // The default behavior is to select a new end date for the current range.
-    //         if (!isNil(endDate)) {
-    //             this.resetFocusedInput();
-    //         }
-
-    //         onDatesChange(startDate, endDate, null, this.props);
-    //     }
-    // };
-
     handleDatesChange = data => {
         const { onDatesChange } = this.props;
 
-        onDatesChange(data, null, this.props);
+        onDatesChange(data, this.props);
     }
 
     handleClear = () => {
         const { onDatesChange } = this.props;
 
         // this.resetFocusedInput();
-        onDatesChange(null, null, this.props);
+        onDatesChange(null, this.props);
     };
 
     handleApply = event => {
@@ -89,17 +48,6 @@ export class DateRangePickerCalendar extends PureComponent {
         // this.resetFocusedInput();
         onApply(event, this.props);
     };
-
-    // handleSelectPreset = (event, preset) => {
-    //     const { onDatesChange } = this.props;
-
-    //     this.resetFocusedInput();
-    //     onDatesChange(preset.startDate, preset.endDate, preset.text, this.props);
-    // };
-
-    // resetFocusedInput() {
-    //     this.setState({ focusedInput: START_DATE });
-    // }
 
     isDayBlocked = day => {
         const { minDate, maxDate } = this.props;
@@ -172,20 +120,6 @@ export class DateRangePickerCalendar extends PureComponent {
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
 
-    // renderPresets() {
-    //     const { startDate, endDate, minDate, maxDate, presetsComponent, presets, presetsIcon } = this.props;
-
-    //     return cloneElement(presetsComponent, {
-    //         startDate,
-    //         endDate,
-    //         minDate,
-    //         maxDate,
-    //         onSelectPreset: this.handleSelectPreset,
-    //         presets,
-    //         icon: presetsIcon
-    //     });
-    // }
-
     renderNavPrev() {
         const { navPrevIcon } = this.props;
 
@@ -214,11 +148,10 @@ export class DateRangePickerCalendar extends PureComponent {
     // }
 
     renderCalendar() {
-        const { calendar, allowSingleDateSelection, minDate, maxDate } = this.props;
+        const { calendar, minDate, maxDate } = this.props;
 
         return cloneElement(calendar, {
             onDatesChange: this.handleDatesChange,
-            minimumNights: allowSingleDateSelection ? 0 : 1,
             minDate: minDate,
             maxDate: maxDate,
             navPrev: this.renderNavPrev(),
@@ -240,30 +173,6 @@ export class DateRangePickerCalendar extends PureComponent {
         return (
             <div className={this.getCssClasses()}>
                 {this.renderCalendar()}
-                {/* {this.renderPresets()}
-                <div className="flex flex-column">
-                    <DayPickerRangeController
-                        startDate={startDate}
-                        endDate={endDate}
-                        onDatesChange={this.handleDatesChange}
-                        onFocusChange={this.handleFocusChange}
-                        focusedInput={focusedInput}
-                        minimumNights={allowSingleDateSelection ? 0 : 1}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                        navPrev={this.renderNavPrev()}
-                        navNext={this.renderNavNext()}
-                        isDayBlocked={!isNil(minDate) || !isNil(maxDate) ? this.isDayBlocked : undefined}
-                        initialVisibleMonth={this.getInitialVisibleMonth}
-                        numberOfMonths={2}
-                        phrases={PHRASES}
-                        transitionDuration={0}
-                        noBorder
-                        keepOpenOnDateSelect
-                        hideKeyboardShortcutsPanel
-                    />
-                    {this.renderButtons()}
-                </div> */}
 
                 <style jsx>{`
                     .calendar {
