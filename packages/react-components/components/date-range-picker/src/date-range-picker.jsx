@@ -37,6 +37,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: string,
         dateFormat: string,
         anchorDirection: oneOf([ANCHOR_LEFT, ANCHOR_RIGHT, ANCHOR_CENTER]),
+        anchorOffset: string,
         openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         calendar: node,
         navPrevIcon: node,
@@ -64,6 +65,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         rangeFormat: "{startDate} - {endDate}",
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
+        anchorOffset: "0px",
         openDirection: OPEN_DOWN,
         calendar: <DateRangePickerCalendar />,
         navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
@@ -184,17 +186,17 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     getAnchorDirectionProps() {
-        const { anchorDirection } = this.props;
+        const { anchorDirection, anchorOffset } = this.props;
 
         if (anchorDirection === ANCHOR_LEFT) {
-            return { left: "0px" };
+            return { left: "0px", offsetX: anchorOffset };
         }
         else if (anchorDirection === ANCHOR_RIGHT) {
-            return { right: "0px" };
+            return { right: "0px", offsetX: anchorOffset };
 
         }
         else if (anchorDirection === ANCHOR_CENTER) {
-            return { left: "50%", offsetX: "-50%" };
+            return { left: "50%", offsetX: `calc(-50% + ${anchorOffset}` };
         }
 
         return {};

@@ -780,8 +780,10 @@ stories("/anchor direction")
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
-    )
-    .add("left",
+    );
+
+stories("/anchor direction/left")
+    .add("default",
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -790,7 +792,19 @@ stories("/anchor direction")
                  onDatesChange={logDatesChanged}
              />
     )
-    .add("right",
+    .add("offset",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 anchorDirection={ANCHOR_LEFT}
+                 anchorOffset="150px"
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    );
+
+stories("/anchor direction/right")
+    .add("default",
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -799,11 +813,43 @@ stories("/anchor direction")
                  onDatesChange={logDatesChanged}
              />
     )
-    .add("center",
+    .add("offset",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 anchorDirection={ANCHOR_RIGHT}
+                 anchorOffset="-150px"
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    );
+
+stories("/anchor direction/center")
+    .add("default",
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
                  anchorDirection={ANCHOR_CENTER}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("positive offset",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 anchorDirection={ANCHOR_CENTER}
+                 anchorOffset="150px"
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("negative offset",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 anchorDirection={ANCHOR_CENTER}
+                 anchorOffset="-150px"
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
