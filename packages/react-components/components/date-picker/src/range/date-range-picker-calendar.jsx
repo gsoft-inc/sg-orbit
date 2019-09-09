@@ -1,12 +1,13 @@
 import { CalendarController } from "../calendar-controller";
 import { DayPickerRangeController } from "react-dates";
-import { OPEN_DOWN, OPEN_UP } from "./directions";
+import { OPEN_DOWN, OPEN_UP } from "../directions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
 import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import moment from "moment";
 
 export class DateRangePickerCalendar extends PureComponent {
     static propTypes = {
@@ -37,7 +38,9 @@ export class DateRangePickerCalendar extends PureComponent {
     };
 
     getInitialDate() {
+        const { startDate, endDate } = this.props;
 
+        return startDate || endDate || moment();
     }
 
     handleFocusChange = focusedInput => {
@@ -147,22 +150,19 @@ export class DateRangePickerCalendar extends PureComponent {
 
         return (
             <CalendarController
+                calendar={this.renderCalendar()}
+                buttons={this.renderButtons()}
+                leftContent={this.renderPresets()}
                 onDatesChange={this.handleDatesChange}
                 minDate={minDate}
                 maxDate={maxDate}
-                initialDate={this.getInitialDate}
+                initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
                 openDirection={openDirection}
                 navPrevIcon={navPrevIcon}
                 navNextIcon={navNextIcon}
                 className={className}
-            >
-                {this.renderPresets()}
-                <div className="flex flex-column">
-                    {this.renderCalendar()}
-                    {this.renderButtons()}
-                </div>
-            </CalendarController>
+            />
         );
     }
 }

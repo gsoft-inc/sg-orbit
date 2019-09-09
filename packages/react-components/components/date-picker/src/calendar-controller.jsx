@@ -1,3 +1,6 @@
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+
 import { OPEN_DOWN, OPEN_UP } from "./directions";
 import { PureComponent, cloneElement } from "react";
 import { func, node, oneOf, oneOfType, string } from "prop-types";
@@ -13,19 +16,17 @@ const PHRASES = {
 export class CalendarController extends PureComponent {
     static propTypes = {
         calendar: node.isRequired,
+        buttons: node.isRequired,
+        leftContent: node,
         onDatesChange: func,
         onApply: func,
-        // allowClear: bool,
         minDate: momentType,
         maxDate: momentType,
-        initialDate: momentType,
+        initialDate: momentType.isRequired,
         initialVisibleMonth: oneOfType([momentType, func]),
         openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
         navPrevIcon: node,
         navNextIcon: node,
-        // buttons: node,
-        // clearText: string,
-        // applyText: string,
         className: string
     };
 
@@ -38,14 +39,12 @@ export class CalendarController extends PureComponent {
     handleClear = () => {
         const { onDatesChange } = this.props;
 
-        // this.resetFocusedInput();
         onDatesChange(null, this.props);
     };
 
     handleApply = event => {
         const { onApply } = this.props;
 
-        // this.resetFocusedInput();
         onApply(event, this.props);
     };
 
@@ -132,21 +131,6 @@ export class CalendarController extends PureComponent {
         return <div tabIndex="0" className="flex">{navNextIcon}</div>;
     }
 
-    // renderButtons() {
-    //     const { startDate, endDate, allowSingleDateSelection, allowClear, buttons, clearText, applyText } = this.props;
-
-    //     return cloneElement(buttons, {
-    //         startDate,
-    //         endDate,
-    //         onClear: this.handleClear,
-    //         onApply: this.handleApply,
-    //         allowSingleDateSelection,
-    //         allowClear,
-    //         clearText,
-    //         applyText
-    //     });
-    // }
-
     renderCalendar() {
         const { calendar, minDate, maxDate } = this.props;
 
@@ -167,12 +151,15 @@ export class CalendarController extends PureComponent {
     }
 
     render() {
-        // const { startDate, endDate, allowSingleDateSelection, minDate, maxDate } = this.props;
-        // const { focusedInput } = this.state;
+        const { buttons, leftContent } = this.props;
 
         return (
             <div className={this.getCssClasses()}>
-                {this.renderCalendar()}
+                {leftContent}
+                <div className="flex flex-column">
+                    {this.renderCalendar()}
+                    {buttons}
+                </div>
 
                 <style jsx>{`
                     .calendar {
