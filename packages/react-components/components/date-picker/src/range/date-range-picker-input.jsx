@@ -17,8 +17,8 @@ export class DateRangePickerInput extends PureComponent {
         rangeFormat: string,
         dateFormat: string,
         icon: node,
-        disabledIcon: node,
         clearIcon: node,
+        disabledIcon: node,
         disabled: bool,
         open: bool,
         className: string
@@ -47,13 +47,11 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { startDate, endDate, onClick, onClear, onKeyDown, allowClear, placeholder, icon, disabledIcon, clearIcon, disabled, open, className } = this.props;
+        const { onClick, onClear, onKeyDown, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
 
         return (
             <DatePickerInput
                 value={this.getValue()}
-                startDate={startDate}
-                endDate={endDate}
                 onClick={onClick}
                 onClear={onClear}
                 onKeyDown={onKeyDown}
@@ -61,8 +59,8 @@ export class DateRangePickerInput extends PureComponent {
                 allowClear={allowClear}
                 placeholder={placeholder}
                 icon={icon}
-                disabledIcon={disabledIcon}
                 clearIcon={clearIcon}
+                disabledIcon={disabledIcon}
                 disabled={disabled}
                 open={open}
                 className={className}

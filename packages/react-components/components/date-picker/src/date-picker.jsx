@@ -1,9 +1,18 @@
 import { Anchor } from "./anchor";
+import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { KEYS } from "@orbit-ui/react-components-shared";
 import { POSITIONS, isTop } from "./positions";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
+
+export function ensureMinDateIsNotAfterMaxDate(minDate, maxDate, componentName) {
+    if (!isNil(minDate) && !isNil(maxDate)) {
+        if (minDate.isSameOrAfter(maxDate)) {
+            throw new ArgumentError(`${componentName} - "minDate" must be before "maxDate".`);
+        }
+    }
+}
 
 export function useHandleInputKeyDown(toggleCalendarVisibility) {
     return event => {

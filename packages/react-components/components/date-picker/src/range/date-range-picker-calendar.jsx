@@ -133,6 +133,7 @@ export class DateRangePickerCalendar extends PureComponent {
             <DayPickerRangeController
                 startDate={startDate}
                 endDate={endDate}
+                onDatesChange={this.handleDatesChange}
                 onFocusChange={this.handleFocusChange}
                 focusedInput={focusedInput}
                 minimumNights={allowSingleDateSelection ? 0 : 1}
@@ -149,7 +150,6 @@ export class DateRangePickerCalendar extends PureComponent {
                 calendar={this.renderCalendar()}
                 buttons={this.renderButtons()}
                 leftContent={this.renderPresets()}
-                onDatesChange={this.handleDatesChange}
                 minDate={minDate}
                 maxDate={maxDate}
                 initialDate={this.getInitialDate()}

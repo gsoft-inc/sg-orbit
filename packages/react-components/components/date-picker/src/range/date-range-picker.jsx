@@ -1,7 +1,7 @@
-import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS } from "../positions";
-import { DatePicker, useHandleInputKeyDown } from "../date-picker";
+import { DatePicker, ensureMinDateIsNotAfterMaxDate, useHandleInputKeyDown } from "../date-picker";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
@@ -93,11 +93,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     componentDidMount() {
         const { minDate, maxDate } = this.props;
 
-        if (!isNil(minDate) && !isNil(maxDate)) {
-            if (minDate.isSameOrAfter(maxDate)) {
-                throw new ArgumentError("DateRangePicker - \"minDate\" must be before \"maxDate\".");
-            }
-        }
+        ensureMinDateIsNotAfterMaxDate(minDate, maxDate, DateRangePicker.name);
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -180,8 +176,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
             rangeFormat,
             dateFormat,
             icon: inputIcon,
-            disabledIcon: disabledInputIcon,
             clearIcon: inputClearIcon,
+            disabledIcon: disabledInputIcon,
             disabled: disabled,
             open: open
         });

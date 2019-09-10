@@ -18,8 +18,6 @@ export class DatePickerCalendar extends PureComponent {
         calendar: node.isRequired,
         buttons: node.isRequired,
         leftContent: node,
-        onDatesChange: func,
-        onApply: func,
         minDate: momentType,
         maxDate: momentType,
         initialDate: momentType.isRequired,
@@ -28,24 +26,6 @@ export class DatePickerCalendar extends PureComponent {
         navPrevIcon: node,
         navNextIcon: node,
         className: string
-    };
-
-    handleDatesChange = data => {
-        const { onDatesChange } = this.props;
-
-        onDatesChange(data, this.props);
-    }
-
-    handleClear = () => {
-        const { onDatesChange } = this.props;
-
-        onDatesChange(null, this.props);
-    };
-
-    handleApply = event => {
-        const { onApply } = this.props;
-
-        onApply(event, this.props);
     };
 
     isDayBlocked = day => {
@@ -135,7 +115,6 @@ export class DatePickerCalendar extends PureComponent {
         const { calendar, minDate, maxDate } = this.props;
 
         return cloneElement(calendar, {
-            onDatesChange: this.handleDatesChange,
             minDate: minDate,
             maxDate: maxDate,
             navPrev: this.renderNavPrev(),

@@ -15,8 +15,8 @@ export class DatePickerInput extends PureComponent {
         allowClear: bool,
         placeholder: string,
         icon: node,
-        disabledIcon: node,
         clearIcon: node,
+        disabledIcon: node,
         disabled: bool,
         open: bool,
         className: string
@@ -75,8 +75,7 @@ export class DatePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { icon, disabledIcon } = this.props;
-        const { disabled } = this.props;
+        const { icon, disabledIcon, disabled } = this.props;
 
         return disabled ? disabledIcon : icon;
     }
