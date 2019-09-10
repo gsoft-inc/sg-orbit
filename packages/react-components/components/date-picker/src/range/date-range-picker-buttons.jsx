@@ -1,4 +1,4 @@
-import { CalendarButtonsController } from "../calendar-buttons-controller";
+import { DatePickerButtons } from "../date-picker-buttons";
 import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
@@ -45,7 +45,7 @@ export class DateRangePickerButtons extends PureComponent {
         const { onClear, onApply, allowClear, clearText, applyText, className } = this.props;
 
         return (
-            <CalendarButtonsController
+            <DatePickerButtons
                 canClear={this.canClear()}
                 canApply={this.canApply()}
                 onClear={onClear}

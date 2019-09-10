@@ -1,5 +1,5 @@
-import { InputController } from "../input-controller";
-import { PureComponent, createRef } from "react";
+import { DatePickerInput } from "../date-picker-input";
+import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -11,6 +11,7 @@ export class DateRangePickerInput extends PureComponent {
         onClick: func,
         onClear: func,
         onKeyDown: func,
+        onHeightChange: func,
         allowClear: bool,
         placeholder: string,
         rangeFormat: string,
@@ -23,7 +24,13 @@ export class DateRangePickerInput extends PureComponent {
         className: string
     };
 
-    _controllerRef = createRef();
+    handleHeightChange = value => {
+        const { onHeightChange } = this.props;
+
+        if (!isNil(onHeightChange)) {
+            onHeightChange(value, this.props);
+        }
+    }
 
     getValue() {
         const { startDate, endDate, rangeFormat, dateFormat } = this.props;
@@ -43,13 +50,14 @@ export class DateRangePickerInput extends PureComponent {
         const { startDate, endDate, onClick, onClear, onKeyDown, allowClear, placeholder, icon, disabledIcon, clearIcon, disabled, open, className } = this.props;
 
         return (
-            <InputController
+            <DatePickerInput
                 value={this.getValue()}
                 startDate={startDate}
                 endDate={endDate}
                 onClick={onClick}
                 onClear={onClear}
                 onKeyDown={onKeyDown}
+                onHeightChange={this.handleHeightChange}
                 allowClear={allowClear}
                 placeholder={placeholder}
                 icon={icon}
@@ -58,13 +66,7 @@ export class DateRangePickerInput extends PureComponent {
                 disabled={disabled}
                 open={open}
                 className={className}
-                ref={this._controllerRef}
             />
         );
-    }
-
-    // This method is part of the component API and is intended to be used externally
-    getHeight() {
-        return this._controllerRef.current.getHeight();
     }
 }

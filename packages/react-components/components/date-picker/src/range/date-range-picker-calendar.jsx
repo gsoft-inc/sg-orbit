@@ -1,6 +1,6 @@
-import { CalendarController } from "../calendar-controller";
+import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "react-dates";
-import { OPEN_DOWN, OPEN_UP } from "../directions";
+import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
@@ -19,7 +19,7 @@ export class DateRangePickerCalendar extends PureComponent {
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
-        openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
+        position: oneOf(POSITIONS),
         navPrevIcon: node,
         navNextIcon: node,
         presetsComponent: node,
@@ -75,10 +75,6 @@ export class DateRangePickerCalendar extends PureComponent {
         const { onDatesChange } = this.props;
 
         this.resetFocusedInput();
-
-        // Might need a more generic format like:
-        // onDatesChange(data: object, props);
-        // and then upper date-picker-controller will spread the data.
         onDatesChange(null, null, null, this.props);
     };
 
@@ -146,10 +142,10 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, openDirection, navPrevIcon, navNextIcon, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, position, navPrevIcon, navNextIcon, className } = this.props;
 
         return (
-            <CalendarController
+            <DatePickerCalendar
                 calendar={this.renderCalendar()}
                 buttons={this.renderButtons()}
                 leftContent={this.renderPresets()}
@@ -158,7 +154,7 @@ export class DateRangePickerCalendar extends PureComponent {
                 maxDate={maxDate}
                 initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
-                openDirection={openDirection}
+                position={position}
                 navPrevIcon={navPrevIcon}
                 navNextIcon={navNextIcon}
                 className={className}

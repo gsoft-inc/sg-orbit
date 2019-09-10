@@ -1,7 +1,7 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
-import { OPEN_DOWN, OPEN_UP } from "./directions";
+import { POSITIONS, isBottom } from "./positions";
 import { PureComponent, cloneElement } from "react";
 import { func, node, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -13,7 +13,7 @@ const PHRASES = {
     chooseAvailableEndDate: ({ date }) => `Choose ${date}.`
 };
 
-export class CalendarController extends PureComponent {
+export class DatePickerCalendar extends PureComponent {
     static propTypes = {
         calendar: node.isRequired,
         buttons: node.isRequired,
@@ -24,7 +24,7 @@ export class CalendarController extends PureComponent {
         maxDate: momentType,
         initialDate: momentType.isRequired,
         initialVisibleMonth: oneOfType([momentType, func]),
-        openDirection: oneOf([OPEN_DOWN, OPEN_UP]),
+        position: oneOf(POSITIONS),
         navPrevIcon: node,
         navNextIcon: node,
         className: string
@@ -112,9 +112,9 @@ export class CalendarController extends PureComponent {
     }
 
     getCssClasses() {
-        const { className, openDirection } = this.props;
+        const { className, position } = this.props;
 
-        const defaultClasses = `calendar flex ${openDirection === OPEN_DOWN ? "mt3" : "mb3"}`;
+        const defaultClasses = `calendar flex ${isBottom(position) ? "mt3" : "mb3"}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }

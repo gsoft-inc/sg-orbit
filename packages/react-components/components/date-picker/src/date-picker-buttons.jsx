@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 
-export class CalendarButtonsController extends PureComponent {
+export class DatePickerButtons extends PureComponent {
     static propTypes = {
         canClear: bool.isRequired,
         canApply: bool.isRequired,

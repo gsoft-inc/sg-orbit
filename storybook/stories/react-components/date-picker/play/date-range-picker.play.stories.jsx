@@ -1,7 +1,7 @@
 import {
-    ANCHOR_CENTER,
-    ANCHOR_LEFT,
-    ANCHOR_RIGHT,
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
     DEFAULT_DATES_PRESETS,
     DateRangePicker,
     LAST_12_MONTHS_PRESET,
@@ -9,8 +9,9 @@ import {
     LAST_6_MONTHS_PRESET,
     LAST_MONTH_PRESET,
     LAST_WEEK_PRESET,
-    OPEN_DOWN,
-    OPEN_UP
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
@@ -66,9 +67,7 @@ stories()
                  placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
                  rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
                  dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
-                 anchorDirection={select("anchorDirection", { Left: ANCHOR_LEFT, Right: ANCHOR_RIGHT, Center: ANCHOR_CENTER }, ANCHOR_LEFT)}
-                 anchorOffset={text("anchorOffset", DateRangePicker.defaultProps.anchorOffset)}
-                 openDirection={select("openDirection", { Down: OPEN_DOWN, Up: OPEN_UP }, OPEN_DOWN)}
+                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, DateRangePicker.defaultProps.position)}
                  presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
                  clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
                  applyText={text("applyText", DateRangePicker.defaultProps.applyText)}

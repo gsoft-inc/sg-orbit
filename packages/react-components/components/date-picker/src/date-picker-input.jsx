@@ -5,18 +5,15 @@ import { isNil } from "lodash";
 import { isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
-export class InputController extends PureComponent {
+export class DatePickerInput extends PureComponent {
     static propTypes = {
-        // startDate: momentType,
-        // endDate: momentType,
         value: string.isRequired,
         onClick: func,
         onClear: func,
         onKeyDown: func,
+        onHeightChange: func,
         allowClear: bool,
         placeholder: string,
-        // rangeFormat: string,
-        // dateFormat: string,
         icon: node,
         disabledIcon: node,
         clearIcon: node,
@@ -26,13 +23,24 @@ export class InputController extends PureComponent {
     };
 
     _clearButtonRef = createRef();
-    _containerRef = createRef();
 
     isPlaceholder() {
         const { value } = this.props;
 
         return isNullOrEmpty(value);
     }
+
+    setContainerRef = ref => {
+        const { onHeightChange } = this.props;
+
+        if (!isNil(ref)) {
+            if (!isNil(onHeightChange)) {
+                setTimeout(() => {
+                    onHeightChange(ref.offsetHeight, this.props);
+                }, 0);
+            }
+        }
+    };
 
     handleClick = event => {
         const { onClick, allowClear } = this.props;
@@ -53,22 +61,6 @@ export class InputController extends PureComponent {
 
         onClear(event, this.props);
     };
-
-    // getValue() {
-    //     const { startDate, endDate, placeholder, rangeFormat, dateFormat } = this.props;
-
-    //     const result = (text, isPlaceholder) => ({ text, isPlaceholder });
-
-    //     if (!isNil(startDate)) {
-    //         if (!isNil(endDate)) {
-    //             return result(rangeFormat.replace("{startDate}", startDate.format(dateFormat)).replace("{endDate}", endDate.format(dateFormat)), false);
-    //         }
-
-    //         return result(startDate.format(dateFormat));
-    //     }
-
-    //     return result(placeholder, true);
-    // }
 
     getCssClasses() {
         const { disabled, open, className } = this.props;
@@ -117,7 +109,7 @@ export class InputController extends PureComponent {
             tabIndex={disabled ? null : "0"}
             autoComplete="off"
             disabled={disabled}
-            ref={this._containerRef}
+            ref={this.setContainerRef}
         >
             {this.renderIcon()}
             <span className="flex-grow-1 ml4">{this.isPlaceholder() ? placeholder : value}</span>
@@ -134,10 +126,5 @@ export class InputController extends PureComponent {
                 }
             `}</style>
         </div>;
-    }
-
-    // This method is part of the component API and is intended to be used externally
-    getHeight() {
-        return this._containerRef.current.offsetHeight;
     }
 }
