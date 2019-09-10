@@ -7,8 +7,8 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-// import { ControlledSingleDatePicker } from "./components/controlled-date-range-picker";
-// import { MirroredSingleDatePickers } from "./components/mirrored-date-range-pickers";
+import { ControlledSingleDatePicker } from "./components/controlled-single-date-picker";
+import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pickers";
 import { boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged } from "@stories/react-components/date-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
@@ -106,35 +106,24 @@ stories()
              />
     );
 
-// stories("/controlled")
-//     .add("stateful",
-//          () =>
-//              <ControlledSingleDatePicker
-//                  startDate={moment()}
-//                  endDate={moment().add(3, "days")}
-//                  onDateChange={logDateChanged}
-//              />
-//     )
-//     .add("null values",
-//          () =>
-//              <ControlledSingleDatePicker
-//                  startDate={null}
-//                  endDate={null}
-//                  onDateChange={logDateChanged}
-//              />
-//     )
-//     .add("allow single date selection",
-//          () =>
-//              <ControlledSingleDatePicker
-//                  allowSingleDateSelection
-//                  startDate={null}
-//                  endDate={null}
-//                  onDateChange={logDateChanged}
-//              />
-//     )
-//     .add("mirrored",
-//          () =>
-//              <MirroredSingleDatePickers
-//                  onDateChange={logDateChanged}
-//              />
-//     );
+stories("/controlled")
+    .add("stateful",
+         () =>
+             <ControlledSingleDatePicker
+                 date={moment()}
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("null values",
+         () =>
+             <ControlledSingleDatePicker
+                 date={null}
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("mirrored",
+         () =>
+             <MirroredSingleDatePickers
+                 onDateChange={logDateChanged}
+             />
+    );
