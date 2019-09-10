@@ -67,7 +67,7 @@ You can pick and choose the **core** packages to install but you should normally
 To install all the core packages with npm:
 
 ```bash
-npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
+npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons @orbit-ui/semantic-ui-theme
 ```
 
 Then, in your `main.css` file:
