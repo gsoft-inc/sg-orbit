@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+        Site Overrides
 *******************************/
 
 .ui.button {
@@ -38,15 +38,15 @@
     padding: 0.5em 1em;
 }
 
-// transparent button
+/* transparent button */
 .ui.transparent.button {
-    background-color: transparent;
+    background-color: @transparent;
     border: none;
 }
 
-// ghost button - takes the same size of common buttons but doesnt have a background when not hovered
+/* ghost button - takes the same size of common buttons but doesnt have a background when not hovered */
 .ui.ghost.button {
-    background-color: transparent;
+    background-color: @transparent;
     border: none;
     color: @marine600;
 }
@@ -56,7 +56,7 @@
 .ui.ghost.button:hover,
 .ui.ghost.button:focus,
 .ui.ghost.button.active {
-    background-color: var(--cloud-50);
+    background-color: @cloud50;
     border: none;
     color: @marine600;
 }
@@ -67,7 +67,7 @@
 .ui.button.ghost:disabled,
 .ui.disabled.button.ghost:hover,
 .ui.disabled.ghost.active.button {
-    background-color: transparent!important;
+    background-color: @transparent!important;
     border: none;
     color: @cloud900;
     cursor: pointer;
@@ -75,7 +75,7 @@
 
 /* Ghost Primary */
 .ui.ghost.primary.button {
-    color: @primaryColor500;
+    color: @primary500;
 }
 
 /* Disabled */
@@ -84,7 +84,7 @@
 .ui.button:disabled,
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
-    background-color: var(--cloud-50)!important;
+    background-color: @cloud50!important;
     color: @cloud400!important;
 }
 
@@ -93,7 +93,7 @@
 .ui.button.basic:disabled,
 .ui.disabled.button.basic:hover,
 .ui.disabled.basic.active.button {
-    background-color: transparent!important;
+    background-color: @transparent!important;
     color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
 }
@@ -103,9 +103,9 @@
 .ui.button.primary:disabled,
 .ui.disabled.button.primary:hover,
 .ui.disabled.primary.active.button {
-    background-color: @primaryColor200!important;
+    background-color: @primary200!important;
     color: @white!important;
-    box-shadow: 0px 0px 0px @basicBorderSize @primaryColor200 inset;
+    box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset;
 }
 
 .ui.disabled.button.secondary,
@@ -113,9 +113,9 @@
 .ui.button.secondary:disabled,
 .ui.disabled.button.secondary:hover,
 .ui.disabled.secondary.active.button {
-    background-color: @secondaryColor50!important;
+    background-color: @cloud50!important;
     color: @cloud400!important;
-    box-shadow: 0px 0px 0px @basicBorderSize @secondaryColor50 inset;
+    box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
 }
 
 .ui.disabled.button.positive,
@@ -123,7 +123,7 @@
 .ui.button.positive:disabled,
 .ui.disabled.button.positive:hover,
 .ui.disabled.positive.active.button {
-    background-color: var(--success-100)!important;
+    background-color: @success100!important;
     color: @white!important;
 }
 
@@ -132,7 +132,7 @@
 .ui.button.negative:disabled,
 .ui.disabled.button.negative:hover,
 .ui.disabled.negative.active.button {
-    background-color: var(--alert-100)!important;
+    background-color: @alert100!important;
     color: @white!important;
 }
 
@@ -141,9 +141,9 @@
 .ui.button.basic.primary:disabled,
 .ui.disabled.button.basic.primary:hover,
 .ui.disabled.basic.primary.active.button {
-    background-color: transparent!important;
-    color: @primaryColor200!important;
-    box-shadow: 0px 0px 0px @basicBorderSize @primaryColor200 inset!important;
+    background-color: @transparent!important;
+    color: @primary200!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset!important;
 }
 
 /* Ghost Primary Disabled */
@@ -152,24 +152,24 @@
 .ui.button.ghost.primary:disabled,
 .ui.disabled.button.ghost.primary:hover,
 .ui.disabled.ghost.primary.active.button {
-    background-color: transparent!important;
+    background-color: @transparent!important;
     border: none!important;
     box-shadow: 0;
-    color: @primaryColor200!important;
+    color: @primary200!important;
 }
 
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover,
 .ui.basic.primary.button:focus {
-    background: @primaryColor600 !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColor600 inset ;
+    background: @primary600 !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @primary600 inset ;
     color: @white !important;
 }
 
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
-    background: @primaryColor600 !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColor600 inset ;
+    background: @primary600 !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @primary600 inset ;
     color: @white !important;
 }
 
@@ -196,11 +196,11 @@
 }
 
 .ui.button.transparent.primary svg {
-    fill: @primaryColor500;
+    fill: @primary500;
 }
 
 .ui.button.basic.primary svg {
-    fill: @primaryColor500;
+    fill: @primary500;
 }
 
 .ui.button.disabled svg,
@@ -215,7 +215,7 @@
 
 .ui.button.basic.primary.disabled svg,
 .ui.button.basic.primary:disabled svg {
-    fill: @primaryColor200;
+    fill: @primary200;
 }
 
 .ui.button.icon:hover svg,
@@ -238,22 +238,22 @@
 .ui.button.transparent.primary:hover svg,
 .ui.button.transparent.primary.active svg,
 .ui.button.transparent.primary:focus svg {
-    fill: @primaryColor500;
+    fill: @primary500;
 }
 
 .ui.loading.button:before,
 .ui.loading.button:after {
-  margin: 0;
-  transform: translate(-50%, -50%);
+    margin: 0;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes button-spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 // Inverted
@@ -263,14 +263,14 @@
 
 .ui.inverted.primary.buttons .button,
 .ui.inverted.primary.button {
-     background-color: @white;
-     color: @primaryColor500;
+    background-color: @white;
+    color: @primary500;
 }
 
 .ui.inverted.primary.buttons .active.button,
 .ui.inverted.primary.active.button {
     color: @white;
-    background-color: @primaryColor500;
+    background-color: @primary500;
 }
 
 .ui.inverted.primary.buttons .button:hover,
@@ -282,7 +282,7 @@
 .ui.inverted.primary.buttons .button:active,
 .ui.inverted.primary.button:active {
     color: @white;
-    background-color: @primaryColor500;
+    background-color: @primary500;
 }
 
 //

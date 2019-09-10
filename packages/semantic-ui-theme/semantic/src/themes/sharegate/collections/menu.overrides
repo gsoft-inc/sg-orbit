@@ -6,7 +6,7 @@
 }
 
 .ui.secondary.menu {
-    border-bottom: 1px solid var(--cloud-50);
+    border-bottom: 1px solid @cloud50;
 }
 
 .ui.secondary.menu .item {

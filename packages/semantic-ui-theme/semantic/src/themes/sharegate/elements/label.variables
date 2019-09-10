@@ -14,10 +14,10 @@
 @borderColor: @cloud200;
 
 /*-------------------
-       Element
+    Element
 --------------------*/
 
-@backgroundColor: var(--cloud-50);
+@backgroundColor: @cloud50;
 @color: @marine600;
 @basicBorder: @basicBorderWidth solid @borderColor;
-@mini : 6px;
+@mini: 6px;

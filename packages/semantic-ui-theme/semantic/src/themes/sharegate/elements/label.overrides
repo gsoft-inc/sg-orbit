@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+    Site Overrides
 *******************************/
 
 .ui.empty.circular.labels .label.mini,
@@ -20,44 +20,44 @@
 }
 
 .ui.label.icon {
-  padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
+    padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
 }
 
 /* tiny */
 .ui.label.tiny,
 .ui.menu .item > .label.tiny {
-  padding: 3px @horizontalPadding;
-  margin-left: var(--scale-bravo);
+    padding: 3px @horizontalPadding;
+    margin-left: var(--scale-bravo);
 }
 
 .ui.label.tiny.icon.item,
 .ui.menu .item > .label.tiny.icon.item {
-  padding: 3px calc(@horizontalPadding/2) 3px @horizontalPadding;
-  margin-left: 0;
+    padding: 3px calc(@horizontalPadding/2) 3px @horizontalPadding;
+    margin-left: 0;
 }
 
 /* small */
 .ui.label.small,
 .ui.menu .item > .label.small {
-  padding: 7px @horizontalPadding;
+    padding: 7px @horizontalPadding;
 }
 
 .ui.label.small.icon,
 .ui.menu .item > .label.small.icon {
-  padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
+    padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
 }
 
 /* large */
 .ui.label.large{
-  padding: 15px @horizontalPadding;
+    padding: 15px @horizontalPadding;
 }
 
 .ui.label.basic.large {
-  padding: 7px @horizontalPadding;
+    padding: 7px @horizontalPadding;
 }
 
 .ui.label.basic {
-  padding: 9px @horizontalPadding;
+    padding: 9px @horizontalPadding;
 }
 
 .ui.label.basic.icon {
@@ -65,7 +65,7 @@
 }
 
 .ui.label.basic.small {
-  padding: 5px @horizontalPadding;
+    padding: 5px @horizontalPadding;
 }
 
 .ui.label.small.basic.icon {
@@ -98,51 +98,51 @@
 }
 
 .ui.label.tiny:not(.circular) {
-  min-height: 16px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: .5px;
-  text-transform: uppercase;
+    min-height: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
 }
 
 /* Circular Labels */
 
 .ui.circular.mini.labels .label,
 .ui.circular.mini.label {
-  font-size: 0.5rem;
+    font-size: 0.5rem;
 }
 .ui.circular.tiny.labels .label,
 .ui.circular.tiny.label {
-  font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 .ui.circular.small.labels .label,
 .ui.circular.small.label {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 .ui.circular.labels .label,
 .ui.circular.label {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 .ui.circular.large.labels .label,
 .ui.circular.large.label {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 .ui.circular.big.labels .label,
 .ui.circular.big.label {
-  font-size: 1.75rem;
+    font-size: 1.75rem;
 }
 .ui.circular.huge.labels .label,
 .ui.circular.huge.label {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 .ui.circular.massive.labels .label,
 .ui.circular.massive.label {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 /*  Primary */
 .ui.label.primary,
 .ui.menu .item > .label.primary {
-  background-color: var(--primary-500);
-  color: @white;
+    background-color: @primary500;
+    color: @white;
 }

@@ -1,15 +1,16 @@
 /*******************************
-         Site Overrides
+    Site Overrides
 *******************************/
 
 .ui.input > input {
     font-size: 1.125rem;
     line-height: 1.5rem;
-    height: 48px; // avoid rem conversion
+    /* avoid rem conversion */
+    height: 48px;
     width: 240px;
 }
 
-// making sure that the inputs all share the same height
+/* making sure that the inputs all share the same height */
 .input,
 form input {
     height: 48px;
@@ -17,8 +18,8 @@ form input {
 
 .ui.input:not(.disabled) input[disabled],
 .ui.disabled.input > input {
-    border-color: var(--cloud-50);
-    background-color: var(--cloud-50);
+    border-color: @cloud50;
+    background-color: @cloud50;
 }
 
 .ui.input:not(.disabled) input[disabled] > input::-webkit-input-placeholder,
@@ -34,16 +35,10 @@ form input {
 }
 
 .ui.input.success svg {
-    fill: var(--success-500);
+    fill: @success500;
 }
 
-// center the loading pseudo element on inputs
+/* center the loading pseudo element on inputs */
 .ui.loading.loading.input > i.icon:after {
     margin: 0;
 }
-
-// Input Colored
-// .ui.input.colored input {
-//     background-color: @@cloud50;
-//     border: none;
-// }

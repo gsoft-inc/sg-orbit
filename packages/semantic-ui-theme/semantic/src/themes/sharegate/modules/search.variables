@@ -55,7 +55,7 @@
 /* Active Category */
 
 /* Active Result */
-@resultsBoxShadow: var(--shadow-4);
+@resultsBoxShadow: @shadow4;
 
 
 /*******************************

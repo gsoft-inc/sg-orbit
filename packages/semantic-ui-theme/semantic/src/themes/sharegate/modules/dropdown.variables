@@ -39,7 +39,7 @@
 
 /* Menu Input */
 
-@selectionMenuBoxShadow: var(--shadow-4);
+@selectionMenuBoxShadow: @shadow4;
 
 /* Menu Image */
 @menuImageMaxHeight: 2em;
@@ -57,7 +57,7 @@
 /* Floated Content */
 
 @floatingMenuDistance: 0.5em;
-@floatingMenuBoxShadow: var(--shadow-4);
+@floatingMenuBoxShadow: @shadow4;
 
 /*-------------------
         Types
@@ -66,18 +66,18 @@
 /*------------
    Selection
 --------------*/
-@selectionMenuBoxShadow: var(--shadow-4);
+@selectionMenuBoxShadow: @shadow4;
 @selectionMinHeight: 2.5em;
 @selectionBorder: 1px solid @cloud200;
 @selectionHoverBorderColor: @marine900;
 @selectionVisibleBorderColor: @white;
 @selectionActiveHoverBorderColor: @white;
-@selectionActiveHoverBoxShadow: var(--shadow-4);
+@selectionActiveHoverBoxShadow: @shadow4;
 @selectionFocusMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
-@selectionVisibleBoxShadow: var(--shadow-4);
+@selectionVisibleBoxShadow: @shadow4;
 @selectionVisibleMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
 @selectionFocusBorderColor: @white;
-@selectionFocusBoxShadow: var(--shadow-4);
+@selectionFocusBoxShadow: @shadow4;
 @selectionItemDivider: '';
 @itemVerticalPadding: 0.75rem;
 

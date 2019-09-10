@@ -42,12 +42,12 @@
 @checkboxFocusBorderColor: @cloud200;
 
 /* Active */
-@checkboxActiveBackground: @primaryColor500;
-@checkboxActiveBorderColor: @primaryColor500;
+@checkboxActiveBackground: @primary500;
+@checkboxActiveBorderColor: @primary500;
 
 /* Active Focus */
-@checkboxActiveFocusBackground: @primaryColor500;
-@checkboxActiveFocusBorderColor: @primaryColor500;
+@checkboxActiveFocusBackground: @primary500;
+@checkboxActiveFocusBorderColor: @primary500;
 
 
 /* Indeterminate */
@@ -67,7 +67,7 @@
 @bulletTop: 0px;
 @bulletScale: (8 / 16); /* 8px as unitless value from radio size */
 
-@bulletColor: @primaryColor500;
+@bulletColor: @primary500;
 @radioBackground: @white;
 
 @radioFocusBackground: @radioBackground;
@@ -85,7 +85,7 @@
 @sliderHandleSize: 1.25rem;
 @sliderLineHeight: 0.25rem;
 @sliderLineVerticalOffset: 0.375rem;
-@sliderLineColor: @primaryColor500;
+@sliderLineColor: @primary500;
 @sliderHoverLaneBackground: @sliderLineColor;
 @sliderOnLineColor: @sliderLineColor;
 @sliderOnFocusLineColor: @sliderLineColor;
@@ -134,11 +134,11 @@
 @toggleOffHandleBoxShadow: @handleBoxShadow;
 
 @toggleOnLabelColor: @selectedTextColor;
-@toggleOnLaneColor: @primaryColor500;
+@toggleOnLaneColor: @primary500;
 
 @toggleOnHandleBoxShadow: @handleBoxShadow;
 
-@toggleOnFocusLaneColor: @primaryColor500;
+@toggleOnFocusLaneColor: @primary500;
 @toggleOnFocusLabelColor: @toggleOnLabelColor;
 
 /*-------------------
