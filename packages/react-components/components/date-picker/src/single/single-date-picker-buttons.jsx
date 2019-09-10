@@ -21,19 +21,13 @@ export class SingleDatePickerButtons extends PureComponent {
         return !isNil(date);
     }
 
-    canApply() {
-        const { date } = this.props;
-
-        return !isNil(date);
-    }
-
     render() {
         const { onClear, onApply, allowClear, clearText, applyText, className } = this.props;
 
         return (
             <DatePickerButtons
                 canClear={this.canClear()}
-                canApply={this.canApply()}
+                canApply
                 onClear={onClear}
                 onApply={onApply}
                 allowClear={allowClear}

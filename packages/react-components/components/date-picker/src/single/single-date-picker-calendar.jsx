@@ -48,14 +48,12 @@ export class SingleDatePickerCalendar extends PureComponent {
     handleClear = () => {
         const { onDateChange } = this.props;
 
-        // this.resetFocusedInput();
         onDateChange(null, this.props);
     };
 
     handleApply = event => {
         const { onApply } = this.props;
 
-        // this.resetFocusedInput();
         onApply(event, this.props);
     };
 
@@ -79,7 +77,6 @@ export class SingleDatePickerCalendar extends PureComponent {
         return (
             <DayPickerSingleDateController
                 date={date}
-                // TODO: might want to hardcode it to true.
                 focused={focused}
                 onDateChange={this.handleDateChange}
                 onFocusChange={this.handleFocusChange}
