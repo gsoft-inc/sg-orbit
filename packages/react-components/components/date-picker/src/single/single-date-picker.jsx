@@ -10,6 +10,7 @@ import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
+// WAITING FOR: https://github.com/airbnb/react-dates/pull/1672
 export class SingleDatePicker extends AutoControlledPureComponent {
     static propTypes = {
         date: momentType,
