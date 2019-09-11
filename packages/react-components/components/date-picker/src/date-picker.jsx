@@ -1,17 +1,9 @@
 import { Anchor } from "./anchor";
-import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { POSITIONS, isTop } from "./positions";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
-
-export function ensureMinDateIsNotAfterMaxDate(minDate, maxDate, componentName) {
-    if (!isNil(minDate) && !isNil(maxDate)) {
-        if (minDate.isSameOrAfter(maxDate)) {
-            throw new ArgumentError(`${componentName} - "minDate" must be before "maxDate".`);
-        }
-    }
-}
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class DatePicker extends PureComponent {
     static propTypes = {
@@ -19,7 +11,9 @@ export class DatePicker extends PureComponent {
         calendar: node.isRequired,
         open: bool.isRequired,
         inputHeight: node.isRequired,
+        // eslint-disable-next-line react/no-unused-prop-types
         onOutsideClick: func.isRequired,
+        // eslint-disable-next-line react/no-unused-prop-types
         onEscapeKeyDown: func.isRequired,
         position: oneOf(POSITIONS),
         offsets: arrayOf(string),
@@ -31,17 +25,8 @@ export class DatePicker extends PureComponent {
         disabled: false
     };
 
-    handleOutsideClick = event => {
-        const { onOutsideClick } = this.props;
-
-        onOutsideClick(event, this.props);
-    }
-
-    handleEscapeKeyDown = event => {
-        const { onEscapeKeyDown } = this.props;
-
-        onEscapeKeyDown(event, this.props);
-    }
+    handleOutsideClick = useHandlerProxy(this, "onOutsideClick");
+    handleEscapeKeyDown = useHandlerProxy(this, "onEscapeKeyDown");
 
     getCssClasses() {
         const { className } = this.props;

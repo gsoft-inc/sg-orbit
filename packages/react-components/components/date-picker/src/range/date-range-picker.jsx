@@ -88,9 +88,21 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.setState({ inputHeight: value });
     }
 
-    handleInputToggleVisibility = event => {
-        this.toggleCalendarVisibility(event);
+    handleInputOpen = event => {
+        const { open } = this.state;
+
+        if (!open) {
+            this.toggleCalendarVisibility(event);
+        }
     };
+
+    handleInputClose = event => {
+        const { open } = this.state;
+
+        if (open) {
+            this.toggleCalendarVisibility(event);
+        }
+    }
 
     handleInputClear = event => {
         const { onDatesChange } = this.props;
@@ -142,7 +154,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         return cloneElement(input, {
             startDate: selectedStartDate,
             endDate: selectedEndDate,
-            onToggleVisibility: this.handleInputToggleVisibility,
+            onOpen: this.handleInputOpen,
+            onClose: this.handleInputClose,
             onClear: this.handleInputClear,
             onHeightChange: this.handleInputHeightChange,
             allowClear,

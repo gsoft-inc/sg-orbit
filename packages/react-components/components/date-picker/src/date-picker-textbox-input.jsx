@@ -15,7 +15,7 @@ export class DatePickerTextboxInput extends PureComponent {
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onToggleVisibility: func,
+        onOpen: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         onHeightChange: func,
@@ -57,7 +57,7 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     handleClick = event => {
-        const { onClick, onToggleVisibility, allowClear } = this.props;
+        const { onClick, onOpen, allowClear } = this.props;
 
         let canPropagate = true;
 
@@ -70,12 +70,12 @@ export class DatePickerTextboxInput extends PureComponent {
                 onClick(event, this.props);
             }
 
-            onToggleVisibility(event, this.props);
+            onOpen(event, this.props);
         }
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onToggleVisibility } = this.props;
+        const { onKeyDown, onOpen } = this.props;
 
         const key = event.keyCode;
 
@@ -84,7 +84,7 @@ export class DatePickerTextboxInput extends PureComponent {
                 event.preventDefault();
             }
 
-            onToggleVisibility(event, this.props);
+            onOpen(event, this.props);
         }
 
         if (!isNil(onKeyDown)) {

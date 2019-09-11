@@ -3,6 +3,7 @@ import { POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positio
 import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class Anchor extends PureComponent {
     static propTypes = {
@@ -14,17 +15,8 @@ export class Anchor extends PureComponent {
         onEscapeKeyDown: func.isRequired
     };
 
-    handleOutsideClick = event => {
-        const { onOutsideClick } = this.props;
-
-        onOutsideClick(event, this.props);
-    }
-
-    handleEscapeKeyDown = event => {
-        const { onEscapeKeyDown } = this.props;
-
-        onEscapeKeyDown(event, this.props);
-    }
+    handleOutsideClick = useHandlerProxy(this, "onOutsideClick");
+    handleEscapeKeyDown = useHandlerProxy(this, "onEscapeKeyDown");
 
     getHorizontalPosition() {
         const { position, offsets } = this.props;

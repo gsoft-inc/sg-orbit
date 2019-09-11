@@ -1,5 +1,5 @@
 import { ArrowIcon } from "@orbit-ui/icons";
-import { KEYS } from "@orbit-ui/react-components-shared";
+import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
@@ -13,9 +13,11 @@ export class InlineSingleDatePickerInput extends PureComponent {
         date: momentType,
         onClick: func,
         onKeyDown: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onToggleVisibility: func,
+        onOpen: func,
         onHeightChange: func,
         placeholder: string,
         dateFormat: string,
@@ -30,11 +32,19 @@ export class InlineSingleDatePickerInput extends PureComponent {
 
     static defaultProps = {
         placeholder: "pick a date",
-        openIcon: <ArrowIcon className="w4 h4 rotate-90 fill-marine-500" />,
-        closeIcon: <ArrowIcon className="w4 h4 rotate-rotate-270 fill-marine-500" />,
-        disabledOpenIcon: <ArrowIcon className="w4 h4 rotate-90 fill-cloud-500" />,
-        disabledCloseIcon: <ArrowIcon className="w4 h4 rotate-rotate-270 fill-cloud-500" />
+        openIcon: <ArrowIcon className="w4 h4 rotate-270 fill-marine-500" />,
+        closeIcon: <ArrowIcon className="w4 h4 rotate-90 fill-marine-500" />,
+        disabledOpenIcon: <ArrowIcon className="w4 h4 rotate-270 fill-cloud-500" />,
+        disabledCloseIcon: <ArrowIcon className="w4 h4 rotate-90 fill-cloud-500" />
     };
+
+    componentDidMount() {
+        document.addEventListener("keydown", this.handleDocumentKeyDown);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.handleDocumentKeyDown);
+    }
 
     setButtonRef = ref => {
         const { onHeightChange } = this.props;
@@ -49,17 +59,17 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     handleClick = event => {
-        const { onClick, onToggleVisibility } = this.props;
+        const { onClick, onOpen } = this.props;
 
         if (!isNil(onClick)) {
             onClick(event, this.props);
         }
 
-        onToggleVisibility(event, this.props);
+        onOpen(event, this.props);
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onToggleVisibility } = this.props;
+        const { onKeyDown, onOpen } = this.props;
 
         const key = event.keyCode;
 
@@ -68,7 +78,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 event.preventDefault();
             }
 
-            onToggleVisibility(event, this.props);
+            onOpen(event, this.props);
         }
 
         if (!isNil(onKeyDown)) {
@@ -76,23 +86,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
         }
     }
 
-    // TODO: The standard date picker should also open on focus
-    handleFocus = event => {
-        const { onFocus, onToggleVisibility } = this.props;
-
-        if (!isNil(onFocus)) {
-            onFocus(event, this.props);
-        }
-
-        onToggleVisibility(event, this.props);
-    };
-
-    // TODO: should do something
-    handleBlur = event => {
-        const { onBlur } = this.props;
-
-        onBlur(event, this.props);
-    };
+    handleFocus = useHandlerProxy(this, "onFocus");
+    handleBlur = useHandlerProxy(this, "onBlur");
 
     getValue() {
         const { date, placeholder, dateFormat } = this.props;

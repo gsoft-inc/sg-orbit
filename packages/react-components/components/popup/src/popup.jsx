@@ -36,21 +36,25 @@ export class Popup extends PureComponent {
     }
 
     handleOutsideClick = event => {
-        const { onOutsideClick } = this.props;
+        const { visible, onOutsideClick } = this.props;
 
-        if (!this._containerRef.current.contains(event.target)) {
-            if (!isNil(onOutsideClick)) {
-                onOutsideClick(event, this.props);
+        if (visible) {
+            if (!this._containerRef.current.contains(event.target)) {
+                if (!isNil(onOutsideClick)) {
+                    onOutsideClick(event, this.props);
+                }
             }
         }
     };
 
     handleKeyDown = event => {
-        const { onEscapeKeyDown } = this.props;
+        const { visible, onEscapeKeyDown } = this.props;
 
-        if (event.keyCode === KEYS.esc) {
-            if (!isNil(onEscapeKeyDown)) {
-                onEscapeKeyDown(event, this.props);
+        if (visible) {
+            if (event.keyCode === KEYS.esc) {
+                if (!isNil(onEscapeKeyDown)) {
+                    onEscapeKeyDown(event, this.props);
+                }
             }
         }
     };

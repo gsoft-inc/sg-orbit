@@ -17,7 +17,10 @@ export class DateRangePickerInput extends PureComponent {
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onToggleVisibility: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onOpen: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onClose: func,
         onClear: func,
         onHeightChange: func,
         allowClear: bool,
@@ -49,6 +52,8 @@ export class DateRangePickerInput extends PureComponent {
     handleKeyDown = useHandlerProxy(this, "onKeyDown");
     handleFocus = useHandlerProxy(this, "onFocus");
     handleBlur = useHandlerProxy(this, "onBlur");
+    handleOpen = useHandlerProxy(this, "onOpen");
+    handleClose = useHandlerProxy(this, "onClose");
 
     getValue() {
         const { startDate, endDate, rangeFormat, dateFormat } = this.props;
@@ -65,7 +70,7 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { onToggleVisibility, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
+        const { onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -74,7 +79,8 @@ export class DateRangePickerInput extends PureComponent {
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
-                onToggleVisibility={onToggleVisibility}
+                onOpen={this.handleOpen}
+                onClose={this.handleClose}
                 onClear={onClear}
                 onHeightChange={this.handleHeightChange}
                 allowClear={allowClear}

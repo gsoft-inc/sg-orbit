@@ -72,9 +72,23 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.setState({ inputHeight: value });
     }
 
-    handleInputToggleVisibility = event => {
-        this.toggleCalendarVisibility(event);
+    // TODO: also change in range
+    handleInputOpen = event => {
+        const { open } = this.state;
+
+        if (!open) {
+            this.toggleCalendarVisibility(event);
+        }
     };
+
+    // TODO: also change in range
+    handleInputClose = event => {
+        const { open } = this.state;
+
+        if (open) {
+            this.toggleCalendarVisibility(event);
+        }
+    }
 
     handleInputClear = event => {
         const { onDateChange } = this.props;
@@ -123,7 +137,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
         return cloneElement(input, {
             date: selectedDate,
-            onToggleVisibility: this.handleInputToggleVisibility,
+            onOpen: this.handleInputOpen,
+            onClose: this.handleInputClose,
             onClear: this.handleInputClear,
             onHeightChange: this.handleInputHeightChange,
             allowClear,
