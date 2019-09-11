@@ -30,7 +30,7 @@ export class InlineSingleDatePicker extends PureComponent {
     render() {
         return (
             <SingleDatePicker
-                {...this.otherProps}
+                {...this.props}
                 input={<InlineSingleDatePickerInput />}
                 className={this.getCssClasses()}
             />
