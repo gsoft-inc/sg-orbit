@@ -29,3 +29,7 @@
 .paused > *::after {
     animation: 0 !important;
 }
+
+:root {
+    --white: #00E0FF !important;
+}

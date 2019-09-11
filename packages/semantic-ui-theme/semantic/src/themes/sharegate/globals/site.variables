@@ -541,7 +541,7 @@
 @selectedTextColor           : var(--marine-900);
 @disabledTextColor           : var(--marine-50);
 
-@invertedTextColor           : rgba(255, 255, 255, 0.9);
+@invertedTextColor           : @white;
 @invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
 @invertedLightTextColor      : rgba(255, 255, 255, 0.7);
 @invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
