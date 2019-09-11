@@ -1,5 +1,7 @@
 :root {
     --white: #FFFFFF;
+    --white-light: #FFFFFF;
+    --white-dark: #04091A;
     --transparent: transparent;
     /* Marine */
     --marine-50: #E2E4E8;
@@ -12,6 +14,28 @@
     --marine-700: #0A142F;
     --marine-800: #081127;
     --marine-900: #04091A;
+    /* Marine Dark Theme */
+    --marine-dark-50: red;
+    --marine-dark-100: red;
+    --marine-dark-200: red;
+    --marine-dark-300: red;
+    --marine-dark-400: red;
+    --marine-dark-500: red;
+    --marine-dark-600: red;
+    --marine-dark-700: red;
+    --marine-dark-800: red;
+    --marine-dark-900: red;
+    /* Marine Light Theme */
+    --marine-light-50: #E2E4E8;
+    --marine-light-100: #B7BBC5;
+    --marine-light-200: #878E9E;
+    --marine-light-300: #566077;
+    --marine-light-400: #323E5A;
+    --marine-light-500: #0E1C3D;
+    --marine-light-600: #0C1937;
+    --marine-light-700: #0A142F;
+    --marine-light-800: #081127;
+    --marine-light-900: #04091A;
     /* Sunray */
     --sunray-50: #FFF6E7;
     --sunray-100: #FEE9C3;
@@ -45,6 +69,28 @@
     --cloud-700: #6F778C;
     --cloud-800: #656D82;
     --cloud-900: #525A70;
+    /* Cloud Dark */
+    --cloud-dark-50: teal;
+    --cloud-dark-100: teal;
+    --cloud-dark-200: teal;
+    --cloud-dark-300: teal;
+    --cloud-dark-400: teal;
+    --cloud-dark-500: teal;
+    --cloud-dark-600: teal;
+    --cloud-dark-700: teal;
+    --cloud-dark-800: teal;
+    --cloud-dark-900: teal;
+    /* Cloud Light */
+    --cloud-light-50: #F0F1F3;
+    --cloud-light-100: #DADCE2;
+    --cloud-light-200: #C1C5CF;
+    --cloud-light-300: #A8ADBB;
+    --cloud-light-400: #959CAD;
+    --cloud-light-500: #828A9E;
+    --cloud-light-600: #7A8296;
+    --cloud-light-700: #6F778C;
+    --cloud-light-800: #656D82;
+    --cloud-light-900: #525A70;
     /* Alert */
     --alert-50: #FFE3E8;
     --alert-100: #FEB8C6;
