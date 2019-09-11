@@ -2,7 +2,7 @@ import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } fr
 import { FadeIn } from "./fade-in";
 import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
