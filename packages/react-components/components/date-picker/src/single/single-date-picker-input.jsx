@@ -1,15 +1,23 @@
-import { DatePickerInput } from "../date-picker-input";
+import { DatePickerTextboxInput } from "../date-picker-textbox-input";
 import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared/src/utils";
 
 export class SingleDatePickerInput extends PureComponent {
     static propTypes = {
         date: momentType,
+        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
-        onClear: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onKeyDown: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onFocus: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onBlur: func,
+        onToggleVisibility: func,
+        onClear: func,
         onHeightChange: func,
         allowClear: bool,
         placeholder: string,
@@ -22,6 +30,10 @@ export class SingleDatePickerInput extends PureComponent {
         className: string
     };
 
+    static defaultProps = {
+        dateFormat: "MMM Do YYYY"
+    };
+
     handleHeightChange = value => {
         const { onHeightChange } = this.props;
 
@@ -29,6 +41,11 @@ export class SingleDatePickerInput extends PureComponent {
             onHeightChange(value, this.props);
         }
     }
+
+    handleClick = useHandlerProxy(this, "onClick");
+    handleKeyDown = useHandlerProxy(this, "onKeyDown");
+    handleFocus = useHandlerProxy(this, "onFocus");
+    handleBlur = useHandlerProxy(this, "onBlur");
 
     getValue() {
         const { date, dateFormat } = this.props;
@@ -41,14 +58,17 @@ export class SingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { onClick, onClear, onKeyDown, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
+        const { onToggleVisibility, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
 
         return (
-            <DatePickerInput
+            <DatePickerTextboxInput
                 value={this.getValue()}
-                onClick={onClick}
+                onClick={this.handleClick}
+                onKeyDown={this.handleKeyDown}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                onToggleVisibility={onToggleVisibility}
                 onClear={onClear}
-                onKeyDown={onKeyDown}
                 onHeightChange={this.handleHeightChange}
                 allowClear={allowClear}
                 placeholder={placeholder}

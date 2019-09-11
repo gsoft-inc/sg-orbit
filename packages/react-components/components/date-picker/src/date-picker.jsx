@@ -1,6 +1,5 @@
 import { Anchor } from "./anchor";
 import { ArgumentError } from "@orbit-ui/react-components-shared";
-import { KEYS } from "@orbit-ui/react-components-shared";
 import { POSITIONS, isTop } from "./positions";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
@@ -14,20 +13,6 @@ export function ensureMinDateIsNotAfterMaxDate(minDate, maxDate, componentName) 
     }
 }
 
-export function useHandleInputKeyDown(toggleCalendarVisibility) {
-    return event => {
-        const key = event.keyCode;
-
-        if (key === KEYS.space || key === KEYS.enter) {
-            if (key === KEYS.space) {
-                event.preventDefault();
-            }
-
-            toggleCalendarVisibility(event);
-        }
-    };
-}
-
 export class DatePicker extends PureComponent {
     static propTypes = {
         input: node.isRequired,
@@ -36,10 +21,14 @@ export class DatePicker extends PureComponent {
         inputHeight: node.isRequired,
         onOutsideClick: func.isRequired,
         onEscapeKeyDown: func.isRequired,
-        position: oneOf(POSITIONS).isRequired,
+        position: oneOf(POSITIONS),
         offsets: arrayOf(string),
-        disabled: bool.isRequired,
+        disabled: bool,
         className: string
+    };
+
+    static defaultProps = {
+        disabled: false
     };
 
     handleOutsideClick = event => {

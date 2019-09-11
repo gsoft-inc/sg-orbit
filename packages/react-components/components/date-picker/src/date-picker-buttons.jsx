@@ -15,6 +15,11 @@ export class DatePickerButtons extends PureComponent {
         className: string
     };
 
+    static defaultProps = {
+        clearText: "Clear",
+        applyText: "Apply"
+    };
+
     handleClear = event => {
         const { canClear, onClear } = this.props;
 

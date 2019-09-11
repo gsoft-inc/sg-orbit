@@ -220,8 +220,6 @@ For more information, read the following posts:
 
 All available props should be defined in the root component with [prop-types](https://github.com/facebook/prop-types). For most required props, instead of defining the prop as required with prop-types, you should instead provide a default value.
 
-All default props should be defined in the root component.
-
 ### Naming
 
 #### Event handlers props

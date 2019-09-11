@@ -1,7 +1,6 @@
-import { ArrowIcon, ClearIcon, InputCalendarIcon } from "@orbit-ui/icons";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS } from "../positions";
-import { DatePicker, ensureMinDateIsNotAfterMaxDate, useHandleInputKeyDown } from "../date-picker";
+import { DatePicker } from "../date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -44,19 +43,9 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     static defaultProps = {
         allowClear: true,
         input: <SingleDatePickerInput />,
-        inputIcon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
-        disabledInputIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
-        inputClearIcon: <ClearIcon className="h3 w3" />,
-        placeholder: "Pick a date",
-        dateFormat: "MMM Do YYYY",
         position: BOTTOM_LEFT,
         calendar: <SingleDatePickerCalendar />,
-        navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
-        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />,
-        buttons: <SingleDatePickerButtons />,
-        clearText: "Clear",
-        applyText: "Apply",
-        disabled: false
+        buttons: <SingleDatePickerButtons />
     };
 
     static autoControlledProps = ["date", "open"];
@@ -73,12 +62,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         inputHeight: 0
     };
 
-    componentDidMount() {
-        const { minDate, maxDate } = this.props;
-
-        ensureMinDateIsNotAfterMaxDate(minDate, maxDate, SingleDatePicker.name);
-    }
-
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
             selectedDate: date
@@ -89,12 +72,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.setState({ inputHeight: value });
     }
 
-    handleInputClick = event => {
-        const { open } = this.state;
-
-        if (!open) {
-            this.toggleCalendarVisibility(event);
-        }
+    handleInputToggleVisibility = event => {
+        this.toggleCalendarVisibility(event);
     };
 
     handleInputClear = event => {
@@ -105,8 +84,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
         onDateChange(event, null, this.props);
     };
-
-    handleInputKeyDown = useHandleInputKeyDown(this.toggleCalendarVisibility);
 
     handlePopupClose = event => {
         const { date } = this.state;
@@ -141,14 +118,13 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, inputIcon, disabledInputIcon, inputClearIcon, allowClear, placeholder, dateFormat, disabled } = this.props;
+        const { input, inputIcon, inputClearIcon, disabledInputIcon, allowClear, placeholder, dateFormat, disabled } = this.props;
         const { selectedDate, open } = this.state;
 
         return cloneElement(input, {
             date: selectedDate,
-            onClick: this.handleInputClick,
+            onToggleVisibility: this.handleInputToggleVisibility,
             onClear: this.handleInputClear,
-            onKeyDown: this.handleInputKeyDown,
             onHeightChange: this.handleInputHeightChange,
             allowClear,
             placeholder,

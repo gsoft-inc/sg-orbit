@@ -1,16 +1,23 @@
 import { Button, Ref } from "semantic-ui-react";
+import { ClearIcon, InputCalendarIcon } from "@orbit-ui/icons";
+import { KEYS, isNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
-import { isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
-export class DatePickerInput extends PureComponent {
+export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
         onClick: func,
-        onClear: func,
         onKeyDown: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onFocus: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onBlur: func,
+        onToggleVisibility: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onClear: func,
         onHeightChange: func,
         allowClear: bool,
         placeholder: string,
@@ -20,6 +27,13 @@ export class DatePickerInput extends PureComponent {
         disabled: bool,
         open: bool,
         className: string
+    };
+
+    static defaultProps = {
+        icon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
+        clearIcon: <ClearIcon className="h3 w3" />,
+        disabledIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
+        placeholder: "Pick a date"
     };
 
     _clearButtonRef = createRef();
@@ -43,7 +57,7 @@ export class DatePickerInput extends PureComponent {
     };
 
     handleClick = event => {
-        const { onClick, allowClear } = this.props;
+        const { onClick, onToggleVisibility, allowClear } = this.props;
 
         let canPropagate = true;
 
@@ -52,15 +66,35 @@ export class DatePickerInput extends PureComponent {
         }
 
         if (canPropagate) {
-            onClick(event, this.props);
+            if (!isNil(onClick)) {
+                onClick(event, this.props);
+            }
+
+            onToggleVisibility(event, this.props);
         }
     };
 
-    handleClear = event => {
-        const { onClear } = this.props;
+    handleKeyDown = event => {
+        const { onKeyDown, onToggleVisibility } = this.props;
 
-        onClear(event, this.props);
-    };
+        const key = event.keyCode;
+
+        if (key === KEYS.space || key === KEYS.enter) {
+            if (key === KEYS.space) {
+                event.preventDefault();
+            }
+
+            onToggleVisibility(event, this.props);
+        }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event, this.props);
+        }
+    }
+
+    handleFocus = useHandlerProxy(this, "onFocus");
+    handleBlur = useHandlerProxy(this, "onBlur");
+    handleClear = useHandlerProxy(this, "onClear");
 
     getCssClasses() {
         const { disabled, open, className } = this.props;
@@ -99,11 +133,13 @@ export class DatePickerInput extends PureComponent {
     }
 
     render() {
-        const { value, onKeyDown, placeholder, disabled } = this.props;
+        const { value, placeholder, disabled } = this.props;
 
         return <div
             onClick={this.handleClick}
-            onKeyDown={onKeyDown}
+            onKeyDown={this.handleKeyDown}
+            onFocus={this.handleFocus}
+            onBlur={this.handlerBlur}
             className={this.getCssClasses()}
             tabIndex={disabled ? null : "0"}
             autoComplete="off"

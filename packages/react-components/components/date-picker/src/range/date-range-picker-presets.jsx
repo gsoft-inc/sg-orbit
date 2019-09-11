@@ -1,4 +1,5 @@
 import { PRESET_SHAPE } from "./presets";
+import { PresetsCalendarIcon } from "@orbit-ui/icons";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
@@ -62,6 +63,10 @@ export class DateRangePickerPresets extends PureComponent {
         icon: node,
         className: string
     };
+
+    static defaultProps = {
+        icon: <PresetsCalendarIcon className="w8 h8 fill-marine-500" />
+    }
 
     isDayBlocked = day => {
         const { minDate, maxDate } = this.props;

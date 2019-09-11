@@ -1,6 +1,8 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
+import { ArgumentError } from "@orbit-ui/react-components-shared";
+import { ArrowIcon } from "@orbit-ui/icons";
 import { POSITIONS, isBottom } from "./positions";
 import { PureComponent, cloneElement } from "react";
 import { func, node, oneOf, oneOfType, string } from "prop-types";
@@ -27,6 +29,21 @@ export class DatePickerCalendar extends PureComponent {
         navNextIcon: node,
         className: string
     };
+
+    static defaultProps = {
+        navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
+        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />
+    };
+
+    componentDidMount() {
+        const { minDate, maxDate } = this.props;
+
+        if (!isNil(minDate) && !isNil(maxDate)) {
+            if (minDate.isSameOrAfter(maxDate)) {
+                throw new ArgumentError("DatePicker - \"minDate\" must be before \"maxDate\".");
+            }
+        }
+    }
 
     isDayBlocked = day => {
         const { minDate, maxDate } = this.props;

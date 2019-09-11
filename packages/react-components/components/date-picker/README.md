@@ -20,8 +20,12 @@ import {
     LAST_6_MONTHS_PRESET, 
     LAST_12_MONTHS_PRESET, 
     DEFAULT_DATES_PRESETS, 
-    ANCHOR_LEFT, 
-    ANCHOR_RIGHT 
+    TOP_LEFT, 
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
 } from "@orbit-ui/react-date-range-picker";
 ```
 
@@ -30,15 +34,7 @@ Or
 ```javascript
 import { 
     DateRangePicker, 
-    toPreset, 
-    LAST_WEEK_PRESET, 
-    LAST_MONTH_PRESET, 
-    LAST_3_MONTHS_PRESET, 
-    LAST_6_MONTHS_PRESET, 
-    LAST_12_MONTHS_PRESET, 
-    DEFAULT_DATES_PRESETS, 
-    ANCHOR_LEFT, 
-    ANCHOR_RIGHT 
+    ...
 } from "@orbit-ui/react-components";
 ```
 

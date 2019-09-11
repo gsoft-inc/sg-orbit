@@ -2,6 +2,7 @@ import {
     BOTTOM_CENTER,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
+    InlineSingleDatePicker,
     SingleDatePicker,
     TOP_CENTER,
     TOP_LEFT,
@@ -102,6 +103,12 @@ stories()
          () =>
              <SingleDatePicker
                  disabled
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("inlined",
+         () =>
+             <InlineSingleDatePicker
                  onDateChange={logDateChanged}
              />
     );

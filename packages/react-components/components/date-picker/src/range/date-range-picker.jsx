@@ -1,7 +1,6 @@
-import { ArrowIcon, ClearIcon, InputCalendarIcon, PresetsCalendarIcon } from "@orbit-ui/icons";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS } from "../positions";
-import { DatePicker, ensureMinDateIsNotAfterMaxDate, useHandleInputKeyDown } from "../date-picker";
+import { DatePicker } from "../date-picker";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
@@ -53,23 +52,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         allowSingleDateSelection: false,
         allowClear: true,
         input: <DateRangePickerInput />,
-        inputIcon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
-        disabledInputIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
-        inputClearIcon: <ClearIcon className="h3 w3" />,
-        placeholder: "Pick a date",
-        rangeFormat: "{startDate} - {endDate}",
-        dateFormat: "MMM Do YYYY",
         position: BOTTOM_LEFT,
         calendar: <DateRangePickerCalendar />,
-        navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
-        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />,
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
-        presetsIcon: <PresetsCalendarIcon className="w8 h8 fill-marine-500" />,
-        buttons: <DateRangePickerButtons />,
-        clearText: "Clear",
-        applyText: "Apply",
-        disabled: false
+        buttons: <DateRangePickerButtons />
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -90,12 +77,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         inputHeight: 0
     };
 
-    componentDidMount() {
-        const { minDate, maxDate } = this.props;
-
-        ensureMinDateIsNotAfterMaxDate(minDate, maxDate, DateRangePicker.name);
-    }
-
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, DateRangePicker.autoControlledProps, ({ startDate, endDate }) => ({
             selectedStartDate: startDate,
@@ -107,12 +88,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.setState({ inputHeight: value });
     }
 
-    handleInputClick = event => {
-        const { open } = this.state;
-
-        if (!open) {
-            this.toggleCalendarVisibility(event);
-        }
+    handleInputToggleVisibility = event => {
+        this.toggleCalendarVisibility(event);
     };
 
     handleInputClear = event => {
@@ -124,8 +101,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
         onDatesChange(event, null, null, null, this.props);
     };
-
-    handleInputKeyDown = useHandleInputKeyDown(this.toggleCalendarVisibility);
 
     handlePopupClose = event => {
         const { startDate, endDate } = this.state;
@@ -167,9 +142,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         return cloneElement(input, {
             startDate: selectedStartDate,
             endDate: selectedEndDate,
-            onClick: this.handleInputClick,
+            onToggleVisibility: this.handleInputToggleVisibility,
             onClear: this.handleInputClear,
-            onKeyDown: this.handleInputKeyDown,
             onHeightChange: this.handleInputHeightChange,
             allowClear,
             placeholder,
