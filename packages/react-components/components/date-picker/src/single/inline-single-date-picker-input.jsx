@@ -18,7 +18,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         onOpen: func,
-        onHeightChange: func,
+        onBoundingClientRectChange: func,
         placeholder: string,
         dateFormat: string,
         openIcon: node,
@@ -47,29 +47,31 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     setButtonRef = ref => {
-        const { onHeightChange } = this.props;
+        const { onBoundingClientRectChange } = this.props;
 
         if (!isNil(ref)) {
-            if (!isNil(onHeightChange)) {
+            if (!isNil(onBoundingClientRectChange)) {
                 setTimeout(() => {
-                    onHeightChange(ref.offsetHeight, this.props);
+                    onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
                 }, 0);
             }
         }
     };
 
     handleClick = event => {
-        const { onClick, onOpen } = this.props;
+        const { onClick, onOpen, disabled } = this.props;
 
         if (!isNil(onClick)) {
             onClick(event, this.props);
         }
 
-        onOpen(event, this.props);
+        if (!disabled) {
+            onOpen(event, this.props);
+        }
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onOpen } = this.props;
+        const { onKeyDown, onOpen, disabled } = this.props;
 
         const key = event.keyCode;
 
@@ -78,7 +80,9 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 event.preventDefault();
             }
 
-            onOpen(event, this.props);
+            if (!disabled) {
+                onOpen(event, this.props);
+            }
         }
 
         if (!isNil(onKeyDown)) {
@@ -122,7 +126,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
         const { disabled } = this.props;
 
         return (
-            <button type="button"
+            <div
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
@@ -134,7 +138,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
             >
                 {this.getValue()}
                 {this.renderIcon()}
-            </button>
+            </div>
         );
     }
 }

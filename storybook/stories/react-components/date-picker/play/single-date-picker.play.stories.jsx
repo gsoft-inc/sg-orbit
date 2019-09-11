@@ -12,6 +12,7 @@ import { ControlledSingleDatePicker } from "./components/controlled-single-date-
 import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pickers";
 import { boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged } from "@stories/react-components/date-picker/shared";
+import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
@@ -105,12 +106,22 @@ stories()
                  disabled
                  onDateChange={logDateChanged}
              />
-    )
-    .add("inlined",
+    );
+
+stories("/inlined")
+    .add("default",
          () =>
              <InlineSingleDatePicker
                  onDateChange={logDateChanged}
              />
+    )
+    .add("nested in a block",
+         () =>
+             <div>
+                 <h2>External Sharing</h2>
+                 <div>Ask entrusted owners of active groups to review their external sharing</div>
+                 <div>links once every <input type="text" value="90" onChange={noop}></input> days starting on <InlineSingleDatePicker onDateChange={logDateChanged} /></div>
+             </div>
     );
 
 stories("/controlled")

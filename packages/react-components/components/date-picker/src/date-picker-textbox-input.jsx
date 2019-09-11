@@ -18,7 +18,7 @@ export class DatePickerTextboxInput extends PureComponent {
         onOpen: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
-        onHeightChange: func,
+        onBoundingClientRectChange: func,
         allowClear: bool,
         placeholder: string,
         icon: node,
@@ -45,19 +45,19 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     setContainerRef = ref => {
-        const { onHeightChange } = this.props;
+        const { onBoundingClientRectChange } = this.props;
 
         if (!isNil(ref)) {
-            if (!isNil(onHeightChange)) {
+            if (!isNil(onBoundingClientRectChange)) {
                 setTimeout(() => {
-                    onHeightChange(ref.offsetHeight, this.props);
+                    onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
                 }, 0);
             }
         }
     };
 
     handleClick = event => {
-        const { onClick, onOpen, allowClear } = this.props;
+        const { onClick, onOpen, allowClear, disabled } = this.props;
 
         let canPropagate = true;
 
@@ -70,21 +70,25 @@ export class DatePickerTextboxInput extends PureComponent {
                 onClick(event, this.props);
             }
 
-            onOpen(event, this.props);
+            if (!disabled) {
+                onOpen(event, this.props);
+            }
         }
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onOpen } = this.props;
+        const { onKeyDown, onOpen, disabled } = this.props;
 
-        const key = event.keyCode;
+        if (!disabled) {
+            const key = event.keyCode;
 
-        if (key === KEYS.space || key === KEYS.enter) {
-            if (key === KEYS.space) {
-                event.preventDefault();
+            if (key === KEYS.space || key === KEYS.enter) {
+                if (key === KEYS.space) {
+                    event.preventDefault();
+                }
+
+                onOpen(event, this.props);
             }
-
-            onOpen(event, this.props);
         }
 
         if (!isNil(onKeyDown)) {

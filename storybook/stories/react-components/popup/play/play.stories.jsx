@@ -34,4 +34,8 @@ stories()
                  right={pixelKnob("right")}
              />,
          { decorators: [withKnobs] }
+    )
+    .add("with portal",
+         () =>
+             <ControlledRedBox portal />,
     );

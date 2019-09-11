@@ -1,10 +1,10 @@
+import { Anchor } from "../anchor";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { BOTTOM_LEFT, POSITIONS } from "../positions";
-import { DatePicker } from "../date-picker";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
+import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
 import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
@@ -52,11 +52,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         allowSingleDateSelection: false,
         allowClear: true,
         input: <DateRangePickerInput />,
-        position: BOTTOM_LEFT,
         calendar: <DateRangePickerCalendar />,
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
-        buttons: <DateRangePickerButtons />
+        buttons: <DateRangePickerButtons />,
+        disabled: false
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -171,7 +171,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowSingleDateSelection, allowClear, minDate, maxDate, initialVisibleMonth, position, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
+        const { allowSingleDateSelection, allowClear, minDate, maxDate, initialVisibleMonth, calendar, navPrevIcon, navNextIcon, presetsComponent, presets, presetsIcon, buttons, clearText, applyText } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
@@ -184,7 +184,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
             minDate,
             maxDate,
             initialVisibleMonth,
-            position,
             presetsComponent,
             presets,
             presetsIcon,
@@ -201,15 +200,15 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { open, inputHeight } = this.state;
 
         return (
-            <DatePicker
+            <Anchor
                 input={this.renderInput()}
+                inputHeight={inputHeight}
                 calendar={this.renderCalendar()}
                 open={open}
-                inputHeight={inputHeight}
-                onOutsideClick={this.handlePopupClose}
-                onEscapeKeyDown={this.handlePopupClose}
                 position={position}
                 offsets={offsets}
+                onOutsideClick={this.handlePopupClose}
+                onEscapeKeyDown={this.handlePopupClose}
                 disabled={disabled}
                 className={className}
             />

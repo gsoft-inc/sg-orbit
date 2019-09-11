@@ -1,18 +1,27 @@
+import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
-import { POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
+import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class Anchor extends PureComponent {
     static propTypes = {
-        children: node.isRequired,
+        input: node.isRequired,
+        inputHeight: number.isRequired,
+        calendar: node.isRequired,
         open: bool.isRequired,
-        position: oneOf(POSITIONS).isRequired,
-        offsets: arrayOf(string).isRequired,
+        position: oneOf(POSITIONS),
+        offsets: arrayOf(string),
         onOutsideClick: func.isRequired,
-        onEscapeKeyDown: func.isRequired
+        onEscapeKeyDown: func.isRequired,
+        disabled: bool.isRequired
+    };
+
+    static defaultProps = {
+        position: BOTTOM_LEFT,
+        offsets: ["0px", "10px"]
     };
 
     handleOutsideClick = useHandlerProxy(this, "onOutsideClick");
@@ -36,33 +45,46 @@ export class Anchor extends PureComponent {
     }
 
     getVerticalPosition() {
-        const { position, offsets } = this.props;
+        const { position, offsets, inputHeight } = this.props;
 
         if (isBottom(position)) {
             return { top: "0px", offsetY: offsets[1] };
         }
         else if (isTop(position)) {
-            return { bottom: "0px", offsetY: offsets[1] };
+            return { bottom: `-${inputHeight}px`, offsetY: `-${offsets[1]}` };
         }
 
         return {};
     }
 
+    getCssClasses() {
+        const { className } = this.props;
+
+        const defaultClasses = "relative";
+
+        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+    }
+
     render() {
-        const { children, open } = this.props;
+        const { input, calendar, open, disabled } = this.props;
 
         return (
-            <FadeIn active={open} className="relative z-2">
-                <Popup
-                    visible={open}
-                    onOutsideClick={this.handleOutsideClick}
-                    onEscapeKeyDown={this.handleEscapeKeyDown}
-                    {...this.getHorizontalPosition()}
-                    {...this.getVerticalPosition()}
-                >
-                    {children}
-                </Popup>
-            </FadeIn>
+            <div className={this.getCssClasses()}>
+                {input}
+                <If condition={!disabled}>
+                    <FadeIn active={open} className="relative z-2">
+                        <Popup
+                            visible={open}
+                            onOutsideClick={this.handleOutsideClick}
+                            onEscapeKeyDown={this.handleEscapeKeyDown}
+                            {...this.getHorizontalPosition()}
+                            {...this.getVerticalPosition()}
+                        >
+                            {calendar}
+                        </Popup>
+                    </FadeIn>
+                </If>
+            </div>
         );
     }
 }

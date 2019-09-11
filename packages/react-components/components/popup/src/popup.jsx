@@ -1,6 +1,7 @@
 import { KEYS } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { any, bool, func, string } from "prop-types";
+import { createPortal } from "react-dom";
 import { isNil } from "lodash";
 
 export class Popup extends PureComponent {
@@ -14,7 +15,12 @@ export class Popup extends PureComponent {
         right: string,
         offsetX: string,
         offsetY: string,
+        portal: bool,
         children: any.isRequired
+    };
+
+    static defaultProps = {
+        portal: false
     };
 
     _containerRef = createRef();
@@ -108,16 +114,22 @@ export class Popup extends PureComponent {
     }
 
     render() {
-        const { visible, children } = this.props;
+        const { visible, portal, children } = this.props;
 
         if (!visible) {
             return null;
         }
 
-        return (
+        const component = (
             <div style={{ position: "absolute", zIndex: 10, ...this.getPositioningStyle() }} ref={this._containerRef}>
                 {children}
             </div>
         );
+
+        if (portal) {
+            return createPortal(component, document.body);
+        }
+
+        return component;
     }
 }

@@ -1,6 +1,6 @@
+import { Anchor } from "../anchor";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { BOTTOM_LEFT, POSITIONS } from "../positions";
-import { DatePicker } from "../date-picker";
+import { POSITIONS } from "../positions";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -9,43 +9,45 @@ import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
+export const SINGLE_DATE_PICKER_PROP_TYPES = {
+    date: momentType,
+    defaultDate: momentType,
+    onDateChange: func.isRequired,
+    onVisibilityChange: func,
+    allowClear: bool,
+    minDate: momentType,
+    maxDate: momentType,
+    initialVisibleMonth: oneOfType([momentType, func]),
+    input: node,
+    inputIcon: node,
+    disabledInputIcon: node,
+    inputClearIcon: node,
+    placeholder: string,
+    dateFormat: string,
+    position: oneOf(POSITIONS),
+    offsets: arrayOf(string),
+    calendar: node,
+    navPrevIcon: node,
+    navNextIcon: node,
+    buttons: node,
+    clearText: string,
+    applyText: string,
+    defaultOpen: bool,
+    open: bool,
+    disabled: bool,
+    className: string
+};
+
 // WAITING FOR: https://github.com/airbnb/react-dates/pull/1672
 export class SingleDatePicker extends AutoControlledPureComponent {
-    static propTypes = {
-        date: momentType,
-        defaultDate: momentType,
-        onDateChange: func.isRequired,
-        onVisibilityChange: func,
-        allowClear: bool,
-        minDate: momentType,
-        maxDate: momentType,
-        initialVisibleMonth: oneOfType([momentType, func]),
-        input: node,
-        inputIcon: node,
-        disabledInputIcon: node,
-        inputClearIcon: node,
-        placeholder: string,
-        dateFormat: string,
-        position: oneOf(POSITIONS),
-        offsets: arrayOf(string),
-        calendar: node,
-        navPrevIcon: node,
-        navNextIcon: node,
-        buttons: node,
-        clearText: string,
-        applyText: string,
-        defaultOpen: bool,
-        open: bool,
-        disabled: bool,
-        className: string
-    };
+    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
 
     static defaultProps = {
         allowClear: true,
         input: <SingleDatePickerInput />,
-        position: BOTTOM_LEFT,
         calendar: <SingleDatePickerCalendar />,
-        buttons: <SingleDatePickerButtons />
+        buttons: <SingleDatePickerButtons />,
+        disabled: false
     };
 
     static autoControlledProps = ["date", "open"];
@@ -68,11 +70,10 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         }));
     }
 
-    handleInputHeightChange = value => {
-        this.setState({ inputHeight: value });
+    handleInputBoundingClientRectChange = ({ height }) => {
+        this.setState({ inputHeight: height });
     }
 
-    // TODO: also change in range
     handleInputOpen = event => {
         const { open } = this.state;
 
@@ -81,7 +82,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         }
     };
 
-    // TODO: also change in range
     handleInputClose = event => {
         const { open } = this.state;
 
@@ -140,7 +140,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             onOpen: this.handleInputOpen,
             onClose: this.handleInputClose,
             onClear: this.handleInputClear,
-            onHeightChange: this.handleInputHeightChange,
+            onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
             allowClear,
             placeholder,
             dateFormat,
@@ -153,7 +153,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowClear, minDate, maxDate, initialVisibleMonth, position, calendar, navPrevIcon, navNextIcon, buttons, clearText, applyText } = this.props;
+        const { allowClear, minDate, maxDate, initialVisibleMonth, calendar, navPrevIcon, navNextIcon, buttons, clearText, applyText } = this.props;
         const { selectedDate } = this.state;
 
         return cloneElement(calendar, {
@@ -164,7 +164,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             minDate,
             maxDate,
             initialVisibleMonth,
-            position,
             buttons,
             navPrevIcon,
             navNextIcon,
@@ -178,15 +177,15 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         const { open, inputHeight } = this.state;
 
         return (
-            <DatePicker
+            <Anchor
                 input={this.renderInput()}
+                inputHeight={inputHeight}
                 calendar={this.renderCalendar()}
                 open={open}
-                inputHeight={inputHeight}
-                onOutsideClick={this.handlePopupClose}
-                onEscapeKeyDown={this.handlePopupClose}
                 position={position}
                 offsets={offsets}
+                onOutsideClick={this.handlePopupClose}
+                onEscapeKeyDown={this.handlePopupClose}
                 disabled={disabled}
                 className={className}
             />
