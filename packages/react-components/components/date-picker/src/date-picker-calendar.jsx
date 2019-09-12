@@ -183,13 +183,26 @@ export class DatePickerCalendar extends PureComponent {
 
                     .calendar :global(.CalendarDay__default) {
                         border: none;
+                        background-color: var(--white);
                         color: var(--marine-700);
                         font-size: 1rem;
+                    }
+
+                    .calendar :global(.DayPicker__horizontal) {
+                        background-color: var(--white);
+                    }
+
+                    .calendar :global(.CalendarMonth) {
+                        background-color: var(--white);
                     }
 
                     .calendar :global(.CalendarDay__selected) {
                         background: var(--primary-500);
                         color: var(--white);
+                    }
+
+                    .calendar :global(.CalendarMonthGrid) {
+                        background-color: var(--white);
                     }
 
                     .calendar :global(.CalendarDay__selected_span) {
@@ -203,6 +216,9 @@ export class DatePickerCalendar extends PureComponent {
                     .calendar :global(.CalendarMonth_caption) {
                         font-size: 24px;
                         color: var(--marine-500);
+                        padding-top: 1.25rem;
+                        padding-bottom: 2.5rem;
+                        line-height: 1;
                     }
 
                     .calendar :global(.DayPickerNavigation_button__default) {

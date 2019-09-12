@@ -31,12 +31,12 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     static defaultProps = {
-        placeholder: "pick a date",
         dateFormat: "MMM Do YYYY",
-        openIcon: <ArrowIcon className="w4 h4 rotate-270 fill-marine-500" />,
-        closeIcon: <ArrowIcon className="w4 h4 rotate-90 fill-marine-500" />,
-        disabledOpenIcon: <ArrowIcon className="w4 h4 rotate-270 fill-cloud-500" />,
-        disabledCloseIcon: <ArrowIcon className="w4 h4 rotate-90 fill-cloud-500" />
+        placeholder: "pick a date",
+        openIcon: <ArrowIcon className="w4 h4 rotate-270 fill-primary-500" />,
+        closeIcon: <ArrowIcon className="w4 h4 rotate-90 fill-primary-500" />,
+        disabledOpenIcon: <ArrowIcon className="w4 h4 rotate-270 fill-cloud-200" />,
+        disabledCloseIcon: <ArrowIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
     componentDidMount() {
@@ -107,8 +107,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
     getCssClasses() {
         const { disabled, className } = this.props;
 
-        const disabledClasses = cx({ " cloud-400": disabled });
-        const defaultClasses = `flex items-center marine-500${disabledClasses}`;
+        const textColorClasses = disabled ? " cloud-200" : " primary-500";
+        const defaultClasses = `flex items-center outline-0${textColorClasses}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
@@ -137,8 +137,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 disabled={disabled}
                 ref={this.setButtonRef}
             >
-                {this.getValue()}
-                {this.renderIcon()}
+                <span className="mr2 fw5">{this.getValue()}</span>
+                <span className="flex">{this.renderIcon()}</span>
             </div>
         );
     }

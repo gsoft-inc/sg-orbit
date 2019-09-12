@@ -127,9 +127,8 @@ stories("/inlined")
     .add("in a block",
          () =>
              <div>
-                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                 <div>Donec molestie, orci sed pulvinar euismod <input type="text" value="Hello!" onChange={noop}></input> fermentum malesuada <InlineSingleDatePicker onDateChange={logDateChanged} /> elit vitae.</div>
-                 <div>Duis sed massa dui. Aliquam condimentum rhoncus porttitor. In orci justo, pretium et magna id, lacinia consequat nisl. Cras ornare sed diam vel bibendum. Nam interdum metus sit amet nulla fringilla venenatis.</div>
+                 <h2>External Sharing</h2>
+                 <div className="mw7 lh2 f5">Ask entrusted owners of active groups to review their external sharing links once every <input type="text" value="90" onChange={noop}></input> days starting on <InlineSingleDatePicker onDateChange={logDateChanged} /></div>
              </div>
     )
     .add("disabled",
