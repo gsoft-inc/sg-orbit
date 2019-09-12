@@ -1,0 +1,22 @@
+---
+name: SingleDatePicker
+menu: Components
+route: /components/single-date-picker
+---
+
+import "../../styles/main.css";
+
+import { DEFAULT_DATES_PRESETS, SingleDatePicker } from "@orbit-ui/react-components";
+import { Playground } from "docz";
+import { noop } from "lodash";
+import moment from "moment";
+
+# Date Picker
+
+## Default
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <SingleDatePicker onDatesChange={noop} className="z-999" />
+    </div>
+</Playground>
