@@ -159,7 +159,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
 }
 
 // usage
-import { DateRangePicker } from "@orbit-ui/react-date-range-picker";
+import { DateRangePicker } from "@orbit-ui/react-date-picker";
 
 <DateRangePicker.Input />
 ```

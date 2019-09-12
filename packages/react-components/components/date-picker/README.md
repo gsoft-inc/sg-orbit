@@ -1,18 +1,20 @@
-# @orbit-ui/react-date-range-picker
+# @orbit-ui/react-date-picker
 
 ## Installation
 
 With npm:
 
 ```bash
-npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-range-picker
+npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-picker
 ```
 
 ## Usage
 
 ```javascript
 import { 
-    DateRangePicker, 
+    DateRangePicker,
+    SingleDatePicker,
+    InlineSingleDatePicker,
     toPreset, 
     LAST_WEEK_PRESET, 
     LAST_MONTH_PRESET, 
@@ -26,7 +28,7 @@ import {
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
     BOTTOM_CENTER
-} from "@orbit-ui/react-date-range-picker";
+} from "@orbit-ui/react-date-picker";
 ```
 
 Or
