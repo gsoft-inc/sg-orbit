@@ -58,9 +58,11 @@ export class SearchInputController extends AutoControlledPureComponent {
 
     _inputRef = createRef();
     _clearButtonRef = createRef();
+    _autofocusTimeout = null;
 
     componentDidMount() {
         this.transformResults();
+        this.autofocus();
     }
 
     componentDidUpdate(prevProps) {
@@ -76,12 +78,50 @@ export class SearchInputController extends AutoControlledPureComponent {
 
     componentWillUnmount() {
         this.cancelOnSearchDebounce();
+        this.clearAutofocusTimeout();
     }
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SearchInputController.autoControlledProps, ({ value }) => ({
             query: isNil(value) ? "" : value
         }));
+    }
+
+    autofocus() {
+        const { autofocus } = this.props;
+
+        // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
+        // component is rendered in a popup, modal, etc..
+        if (autofocus) {
+            this._autofocusTimeout = setTimeout(() => {
+                if (!isNil(this._inputRef.current)) {
+                    this._inputRef.current.focus();
+                }
+            }, 50);
+        }
+    }
+
+    clearAutofocusTimeout() {
+        if (!isNil(this._autofocusTimeout)) {
+            clearTimeout(this._autofocusTimeout);
+        }
+    }
+
+    transformResults() {
+        const { results } = this.props;
+
+        // YES, this is a weird hack.
+        // Why do we do this? The current version of the search component render all the props that are not "title", "description", "price" or "image"
+        // as a data properties on the result DOM elements.
+        // Rendering those data properties generates a lot of React errors. React doesn't understand why he have to render a data properties called "userId" or "tenantId".
+        // Until this is fixed, the solution is to provide all our custom properties as a JSON serialized string through the "description" property.
+        // The issue for this matter is: https://github.com/Semantic-Org/Semantic-UI-React/issues/1141
+        const transformedResults = results.map(x => ({
+            title: x.text,
+            description: JSON.stringify(x)
+        }));
+
+        this.setState({ transformedResults: transformedResults });
     }
 
     handleResultSelect = (event, data) => {
@@ -208,23 +248,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    transformResults() {
-        const { results } = this.props;
-
-        // YES, this is a weird hack.
-        // Why do we do this? The current version of the search component render all the props that are not "title", "description", "price" or "image"
-        // as a data properties on the result DOM elements.
-        // Rendering those data properties generates a lot of React errors. React doesn't understand why he have to render a data properties called "userId" or "tenantId".
-        // Until this is fixed, the solution is to provide all our custom properties as a JSON serialized string through the "description" property.
-        // The issue for this matter is: https://github.com/Semantic-Org/Semantic-UI-React/issues/1141
-        const transformedResults = results.map(x => ({
-            title: x.text,
-            description: JSON.stringify(x)
-        }));
-
-        this.setState({ transformedResults: transformedResults });
-    }
-
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay, { leading: true }) : this.props.onSearch;
 
     cancelOnSearchDebounce() {
@@ -308,7 +331,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, autofocus } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder } = this.props;
         const { transformedResults, query } = this.state;
 
         return (
@@ -323,7 +346,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     resultRenderer={this.renderResult}
                     results={transformedResults}
                     value={query}
-                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, autoFocus: autofocus, ref: this._inputRef }}
+                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, ref: this._inputRef }}
                     placeholder={placeholder}
                     disabled={disabled}
                     loading={loading && !disabled}
