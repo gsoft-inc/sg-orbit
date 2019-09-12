@@ -1,5 +1,5 @@
-import { Anchor } from "../anchor";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { DatePickerAnchor } from "../date-picker-anchor";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
@@ -76,8 +76,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         }));
     }
 
-    handleInputHeightChange = value => {
-        this.setState({ inputHeight: value });
+    handleInputBoundingClientRectChange = ({ height }) => {
+        this.setState({ inputHeight: height });
     }
 
     handleInputOpen = event => {
@@ -149,7 +149,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             onOpen: this.handleInputOpen,
             onClose: this.handleInputClose,
             onClear: this.handleInputClear,
-            onHeightChange: this.handleInputHeightChange,
+            onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
             allowClear,
             placeholder,
             rangeFormat,
@@ -184,7 +184,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { open, inputHeight } = this.state;
 
         return (
-            <Anchor
+            <DatePickerAnchor
                 input={this.renderInput()}
                 inputHeight={inputHeight}
                 calendar={this.renderCalendar()}

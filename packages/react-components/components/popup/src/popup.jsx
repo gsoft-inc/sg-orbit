@@ -121,7 +121,7 @@ export class Popup extends PureComponent {
         }
 
         const component = (
-            <div style={{ position: "absolute", zIndex: 10, ...this.getPositioningStyle() }} ref={this._containerRef}>
+            <div style={{ position: "absolute", zIndex: 10, display: visible ? "block" : "none", ...this.getPositioningStyle() }} ref={this._containerRef}>
                 {children}
             </div>
         );

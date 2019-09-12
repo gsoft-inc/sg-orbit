@@ -1,5 +1,5 @@
-import { Anchor } from "../anchor";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { DatePickerAnchor } from "../date-picker-anchor";
 import { POSITIONS } from "../positions";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
@@ -162,7 +162,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         const { open, inputHeight } = this.state;
 
         return (
-            <Anchor
+            <DatePickerAnchor
                 input={this.renderInput()}
                 inputHeight={inputHeight}
                 calendar={this.renderCalendar()}
