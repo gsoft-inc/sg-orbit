@@ -179,7 +179,7 @@ yarn new-version
 yarn release-pkg
 yarn push-release <yyyy-MM-dd>
 yarn release-sb [optional]
-yarn release-website [optional]
+yarn release-website-prod [optional]
 ```
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
