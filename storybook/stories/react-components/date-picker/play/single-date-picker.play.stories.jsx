@@ -118,9 +118,9 @@ stories("/inlined")
     .add("nested in a block",
          () =>
              <div>
-                 <h2>External Sharing</h2>
-                 <div>Ask entrusted owners of active groups to review their external sharing</div>
-                 <div>links once every <input type="text" value="90" onChange={noop}></input> days starting on <InlineSingleDatePicker onDateChange={logDateChanged} /></div>
+                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                 <div>Donec molestie, orci sed pulvinar euismod <input type="text" value="Hello!" onChange={noop}></input> fermentum malesuada <InlineSingleDatePicker onDateChange={logDateChanged} /> elit vitae.</div>
+                 <div>Duis sed massa dui. Aliquam condimentum rhoncus porttitor. In orci justo, pretium et magna id, lacinia consequat nisl. Cras ornare sed diam vel bibendum. Nam interdum metus sit amet nulla fringilla venenatis.</div>
              </div>
     );
 
