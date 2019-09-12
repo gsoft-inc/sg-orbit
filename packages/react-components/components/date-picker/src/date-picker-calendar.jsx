@@ -4,7 +4,7 @@ import "react-dates/lib/css/_datepicker.css";
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ArrowIcon } from "@orbit-ui/icons";
 import { PureComponent, cloneElement } from "react";
-import { func, node, oneOfType, string } from "prop-types";
+import { bool, func, node, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -25,12 +25,14 @@ export class DatePickerCalendar extends PureComponent {
         initialVisibleMonth: oneOfType([momentType, func]),
         navPrevIcon: node,
         navNextIcon: node,
-        className: string
+        className: string,
+        temporarySingleDatePickerFlag: bool
     };
 
     static defaultProps = {
         navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
-        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />
+        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />,
+        temporarySingleDatePickerFlag: false
     };
 
     componentDidMount() {
@@ -109,10 +111,23 @@ export class DatePickerCalendar extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        // const defaultClasses = `calendar flex ${isBottom(position) ? "mt3" : "mb3"}`;
         const defaultClasses = "calendar flex";
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+    }
+
+    // Temporary fix until the following PR is merged: https://github.com/airbnb/react-dates/pull/1672
+    getNavigationRestrictionProps() {
+        const { minDate, maxDate, temporarySingleDatePickerFlag } = this.props;
+
+        if (!temporarySingleDatePickerFlag) {
+            return {
+                minDate,
+                maxDate
+            };
+        }
+
+        return {};
     }
 
     renderNavPrev() {
@@ -131,8 +146,7 @@ export class DatePickerCalendar extends PureComponent {
         const { calendar, minDate, maxDate } = this.props;
 
         return cloneElement(calendar, {
-            minDate: minDate,
-            maxDate: maxDate,
+            ...this.getNavigationRestrictionProps(),
             navPrev: this.renderNavPrev(),
             navNext: this.renderNavNext(),
             isDayBlocked: !isNil(minDate) || !isNil(maxDate) ? this.isDayBlocked : undefined,

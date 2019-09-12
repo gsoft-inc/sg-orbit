@@ -95,6 +95,7 @@ export class SingleDatePickerCalendar extends PureComponent {
                 navPrevIcon={navPrevIcon}
                 navNextIcon={navNextIcon}
                 className={className}
+                temporarySingleDatePickerFlag
             />
         );
     }
