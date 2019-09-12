@@ -111,7 +111,7 @@ export class DatePickerCalendar extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "calendar flex";
+        const defaultClasses = "calendar flex z-2";
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }

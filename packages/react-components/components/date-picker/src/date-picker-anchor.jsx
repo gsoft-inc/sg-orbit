@@ -6,7 +6,7 @@ import { arrayOf, bool, func, node, number, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
-export class Anchor extends PureComponent {
+export class DatePickerAnchor extends PureComponent {
     static propTypes = {
         input: node.isRequired,
         inputHeight: number.isRequired,
@@ -48,7 +48,7 @@ export class Anchor extends PureComponent {
         const { position, offsets, inputHeight } = this.props;
 
         if (isBottom(position)) {
-            return { top: "0px", offsetY: offsets[1] };
+            return { top: `${inputHeight}px`, offsetY: offsets[1] };
         }
         else if (isTop(position)) {
             return { bottom: `-${inputHeight}px`, offsetY: `-${offsets[1]}` };
@@ -72,7 +72,7 @@ export class Anchor extends PureComponent {
             <div className={this.getCssClasses()}>
                 {input}
                 <If condition={!disabled}>
-                    <FadeIn active={open} className="relative z-2">
+                    <FadeIn active={open}>
                         <Popup
                             visible={open}
                             onOutsideClick={this.handleOutsideClick}

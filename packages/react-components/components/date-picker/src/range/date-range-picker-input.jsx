@@ -22,7 +22,8 @@ export class DateRangePickerInput extends PureComponent {
         // eslint-disable-next-line react/no-unused-prop-types
         onClose: func,
         onClear: func,
-        onHeightChange: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onBoundingClientRectChange: func,
         allowClear: bool,
         placeholder: string,
         rangeFormat: string,
@@ -40,14 +41,7 @@ export class DateRangePickerInput extends PureComponent {
         dateFormat: "MMM Do YYYY"
     };
 
-    handleHeightChange = value => {
-        const { onHeightChange } = this.props;
-
-        if (!isNil(onHeightChange)) {
-            onHeightChange(value, this.props);
-        }
-    }
-
+    handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange");
     handleClick = useHandlerProxy(this, "onClick");
     handleKeyDown = useHandlerProxy(this, "onKeyDown");
     handleFocus = useHandlerProxy(this, "onFocus");
@@ -82,7 +76,7 @@ export class DateRangePickerInput extends PureComponent {
                 onOpen={this.handleOpen}
                 onClose={this.handleClose}
                 onClear={onClear}
-                onHeightChange={this.handleHeightChange}
+                onBoundingClientRectChange={this.handleBoundingClientRectChange}
                 allowClear={allowClear}
                 placeholder={placeholder}
                 icon={icon}
