@@ -15,8 +15,9 @@ import {
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
-import { array, boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
+import { array, boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, toStoryParametersPresets } from "@stories/react-components/date-picker/shared";
+import { momentKnob } from "./shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
@@ -27,12 +28,6 @@ export const DEFAULT_PRESETS_OPTIONS = {
     "LAST_6_MONTHS_PRESET": LAST_6_MONTHS_PRESET,
     "LAST_12_MONTHS_PRESET": LAST_12_MONTHS_PRESET
 };
-
-function momentKnob(name, defaultValue) {
-    const timestamp = date(name, defaultValue);
-
-    return moment(timestamp);
-}
 
 function presetsKnob(name, defaultValue) {
     const presets = array(name, defaultValue);
@@ -64,13 +59,11 @@ stories()
                  allowClear={boolean("allowClear", true)}
                  minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
                  maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-                 placeholder={text("placeholder", DateRangePicker.defaultProps.placeholder)}
-                 rangeFormat={text("rangeFormat", DateRangePicker.defaultProps.rangeFormat)}
-                 dateFormat={text("dateFormat", DateRangePicker.defaultProps.dateFormat)}
-                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, DateRangePicker.defaultProps.position)}
+                 placeholder={text("placeholder")}
+                 rangeFormat={text("rangeFormat")}
+                 dateFormat={text("dateFormat")}
+                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
-                 clearText={text("clearText", DateRangePicker.defaultProps.clearText)}
-                 applyText={text("applyText", DateRangePicker.defaultProps.applyText)}
                  disabled={boolean("disabled", false)}
                  className={text("className")}
                  onDatesChange={logDatesChanged}
