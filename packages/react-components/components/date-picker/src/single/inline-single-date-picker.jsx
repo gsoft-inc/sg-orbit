@@ -5,19 +5,12 @@ import { SINGLE_DATE_PICKER_PROP_TYPES, SingleDatePicker } from "./single-date-p
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { isNil } from "lodash";
-import { node } from "prop-types";
 
 export class InlineSingleDatePicker extends PureComponent {
-    static propTypes = {
-        ...SINGLE_DATE_PICKER_PROP_TYPES,
-        openIcon: node,
-        closeIcon: node,
-        disabledOpenIcon: node,
-        disabledCloseIcon: node
-    };
+    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES
 
     static defaultProps = {
-        // eslint-disable-next-line react/default-props-match-prop-types
+        input: <InlineSingleDatePickerInput />,
         position: BOTTOM_CENTER
     };
 
@@ -34,22 +27,10 @@ export class InlineSingleDatePicker extends PureComponent {
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
 
-    renderInput() {
-        const { openIcon, closeIcon, disabledOpenIcon, disabledCloseIcon } = this.props;
-
-        return <InlineSingleDatePickerInput
-            openIcon={openIcon}
-            closeIcon={closeIcon}
-            disabledOpenIcon={disabledOpenIcon}
-            disabledCloseIcon={disabledCloseIcon}
-        />;
-    }
-
     render() {
         return (
             <SingleDatePicker
                 {...this.props}
-                input={this.renderInput()}
                 className={this.getCssClasses()}
             />
         );

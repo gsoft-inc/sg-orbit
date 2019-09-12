@@ -19,8 +19,6 @@ export class SingleDatePickerCalendar extends PureComponent {
         navNextIcon: node,
         buttons: node,
         allowClear: bool,
-        clearText: string,
-        applyText: string,
         className: string
     };
 
@@ -58,15 +56,13 @@ export class SingleDatePickerCalendar extends PureComponent {
     };
 
     renderButtons() {
-        const { date, allowClear, buttons, clearText, applyText } = this.props;
+        const { date, allowClear, buttons } = this.props;
 
         return cloneElement(buttons, {
             date,
             onClear: this.handleClear,
             onApply: this.handleApply,
-            allowClear,
-            clearText,
-            applyText
+            allowClear
         });
     }
 
