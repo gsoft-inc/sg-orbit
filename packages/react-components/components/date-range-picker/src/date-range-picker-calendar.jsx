@@ -249,7 +249,6 @@ export class DateRangePickerCalendar extends PureComponent {
                     }
 
                     .calendar :global(.CalendarDay__default) {
-                        background-color: var(--white);
                         border: none;
                         color: var(--marine-700);
                         font-size: 1rem;
@@ -298,18 +297,6 @@ export class DateRangePickerCalendar extends PureComponent {
 
                     .calendar :global(.DayPickerNavigation_button__disabled) {
                         border: 0;
-                    }
-
-                    .calendar :global(.DayPicker__horizontal) {
-                        background-color: var(--white);
-                    }
-
-                    .calendar :global(.CalendarMonth) {
-                        background-color: var(--white);
-                    }
-
-                    .calendar :global(.CalendarMonthGrid) {
-                        background-color: var(--white);
                     }
 
                     .calendar :global(.DayPicker_weekHeader_li small) {
