@@ -189,6 +189,9 @@ export class DatePickerCalendar extends PureComponent {
                     .calendar :global(.CalendarMonth_caption) {
                         font-size: 24px;
                         color: var(--marine-500);
+                        padding-top: 1.25rem;
+                        padding-bottom: 2.5rem;
+                        line-height: 1;
                     }
 
                     .calendar :global(.DayPickerNavigation_button__default) {
