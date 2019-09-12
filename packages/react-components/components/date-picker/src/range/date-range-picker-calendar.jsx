@@ -24,11 +24,8 @@ export class DateRangePickerCalendar extends PureComponent {
         navNextIcon: node,
         presetsComponent: node,
         presets: arrayOf(shape(PRESET_SHAPE)),
-        presetsIcon: node,
         buttons: node,
         allowClear: bool,
-        clearText: string,
-        applyText: string,
         className: string
     };
 
@@ -97,7 +94,7 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     renderPresets() {
-        const { startDate, endDate, minDate, maxDate, presetsComponent, presets, presetsIcon } = this.props;
+        const { startDate, endDate, minDate, maxDate, presetsComponent, presets } = this.props;
 
         return cloneElement(presetsComponent, {
             startDate,
@@ -105,13 +102,12 @@ export class DateRangePickerCalendar extends PureComponent {
             minDate,
             maxDate,
             onSelectPreset: this.handleSelectPreset,
-            presets,
-            icon: presetsIcon
+            presets
         });
     }
 
     renderButtons() {
-        const { startDate, endDate, allowSingleDateSelection, allowClear, buttons, clearText, applyText } = this.props;
+        const { startDate, endDate, allowSingleDateSelection, allowClear, buttons } = this.props;
 
         return cloneElement(buttons, {
             startDate,
@@ -119,9 +115,7 @@ export class DateRangePickerCalendar extends PureComponent {
             onClear: this.handleClear,
             onApply: this.handleApply,
             allowSingleDateSelection,
-            allowClear,
-            clearText,
-            applyText
+            allowClear
         });
     }
 

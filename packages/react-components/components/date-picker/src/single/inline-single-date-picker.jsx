@@ -6,11 +6,11 @@ import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { isNil } from "lodash";
 
-// TODO: might need to duplicate all the SingleDatePicker props here to make sure the docs generate the prop tables. Or we might redirect to the SingleDatePicker docs.
 export class InlineSingleDatePicker extends PureComponent {
-    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
+    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES
 
     static defaultProps = {
+        input: <InlineSingleDatePickerInput />,
         position: BOTTOM_CENTER
     };
 
@@ -31,7 +31,6 @@ export class InlineSingleDatePicker extends PureComponent {
         return (
             <SingleDatePicker
                 {...this.props}
-                input={<InlineSingleDatePickerInput />}
                 className={this.getCssClasses()}
             />
         );

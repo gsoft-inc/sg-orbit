@@ -10,17 +10,12 @@ import {
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components/controlled-single-date-picker";
 import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pickers";
-import { boolean, date, select, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged } from "@stories/react-components/date-picker/shared";
+import { momentKnob } from "./shared";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
-
-function momentKnob(name, defaultValue) {
-    const timestamp = date(name, defaultValue);
-
-    return moment(timestamp);
-}
 
 function stories(segment) {
     return storiesBuilder(module, "Single-Date-Picker|play")
@@ -44,11 +39,9 @@ stories()
                  allowClear={boolean("allowClear", true)}
                  minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
                  maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-                 placeholder={text("placeholder", SingleDatePicker.defaultProps.placeholder)}
-                 dateFormat={text("dateFormat", SingleDatePicker.defaultProps.dateFormat)}
-                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, SingleDatePicker.defaultProps.position)}
-                 clearText={text("clearText", SingleDatePicker.defaultProps.clearText)}
-                 applyText={text("applyText", SingleDatePicker.defaultProps.applyText)}
+                 placeholder={text("placeholder")}
+                 dateFormat={text("dateFormat")}
+                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  disabled={boolean("disabled", false)}
                  className={text("className")}
                  onDateChange={logDateChanged}
@@ -115,18 +108,35 @@ stories("/inlined")
                  onDateChange={logDateChanged}
              />
     )
-    .add("nested in a block",
+    .add("knobs",
+         () =>
+             <InlineSingleDatePicker
+                 defaultDate={momentKnob("defaultDate", moment().toDate())}
+                 allowClear={boolean("allowClear", true)}
+                 minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+                 maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+                 placeholder={text("placeholder")}
+                 dateFormat={text("dateFormat")}
+                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+                 disabled={boolean("disabled", false)}
+                 className={text("className")}
+                 onDateChange={logDateChanged}
+             />,
+         { decorators: [withKnobs] }
+    )
+    .add("in a block",
          () =>
              <div>
                  <h2>External Sharing</h2>
                  <div className="mw7 lh2 f5">Ask entrusted owners of active groups to review their external sharing links once every <input type="text" value="90" onChange={noop}></input> days starting on <InlineSingleDatePicker onDateChange={logDateChanged} /></div>
              </div>
-    ).add("nested/disabled in a block",
-          () =>
-              <div>
-                  <h2>External Sharing</h2>
-                  <div className="mw7 lh2 f5">Ask entrusted owners of active groups to review their external sharing links once every <input type="text" value="90" onChange={noop}></input> days starting on <InlineSingleDatePicker disabled onDateChange={logDateChanged} /></div>
-              </div>
+    )
+    .add("disabled",
+         () =>
+             <InlineSingleDatePicker
+                 disabled
+                 onDateChange={logDateChanged}
+             />
     );
 
 stories("/controlled")

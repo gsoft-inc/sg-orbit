@@ -31,6 +31,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     static defaultProps = {
+        dateFormat: "MMM Do YYYY",
         placeholder: "pick a date",
         openIcon: <ArrowIcon className="w4 h4 rotate-270 fill-primary-500" />,
         closeIcon: <ArrowIcon className="w4 h4 rotate-90 fill-primary-500" />,
