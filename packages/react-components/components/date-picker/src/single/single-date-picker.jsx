@@ -31,7 +31,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     className: string
 };
 
-// WAITING FOR: https://github.com/airbnb/react-dates/pull/1672
 export class SingleDatePicker extends AutoControlledPureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
 
