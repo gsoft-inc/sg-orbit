@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared/src/utils";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class SingleDatePickerInput extends PureComponent {
     static propTypes = {
