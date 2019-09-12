@@ -4,7 +4,7 @@ import { POSITIONS } from "../positions";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
-import { arrayOf, bool, func, node, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -18,6 +18,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     minDate: momentType,
     maxDate: momentType,
     initialVisibleMonth: oneOfType([momentType, func]),
+    numberOfMonths: number,
     input: node,
     placeholder: string,
     dateFormat: string,
@@ -124,7 +125,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, dateFormat, disabled } = this.props;
+        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled } = this.props;
         const { selectedDate, open } = this.state;
 
         return cloneElement(input, {
@@ -134,6 +135,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             onClear: this.handleInputClear,
             onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
             allowClear,
+            numberOfMonths,
             placeholder,
             dateFormat,
             disabled: disabled,

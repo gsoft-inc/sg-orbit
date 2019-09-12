@@ -10,7 +10,7 @@ import {
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components/controlled-single-date-picker";
 import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pickers";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged } from "@stories/react-components/date-picker/shared";
 import { momentKnob } from "./shared";
 import { noop } from "lodash";
@@ -39,6 +39,7 @@ stories()
                  allowClear={boolean("allowClear", true)}
                  minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
                  maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+                 numberOfMonths={number("numberOfMonths")}
                  placeholder={text("placeholder")}
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
@@ -115,6 +116,7 @@ stories("/inlined")
                  allowClear={boolean("allowClear", true)}
                  minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
                  maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+                 numberOfMonths={number("numberOfMonths")}
                  placeholder={text("placeholder")}
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}

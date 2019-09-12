@@ -2,7 +2,7 @@ import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerSingleDateController } from "react-dates";
 import { POSITIONS } from "../positions";
 import { PureComponent, cloneElement } from "react";
-import { bool, func, node, oneOf, oneOfType, string } from "prop-types";
+import { bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -14,12 +14,17 @@ export class SingleDatePickerCalendar extends PureComponent {
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
+        numberOfMonths: number,
         position: oneOf(POSITIONS),
         navPrevIcon: node,
         navNextIcon: node,
         buttons: node,
         allowClear: bool,
         className: string
+    };
+
+    static defaultProps = {
+        numberOfMonths: 1
     };
 
     state = {
@@ -67,7 +72,7 @@ export class SingleDatePickerCalendar extends PureComponent {
     }
 
     renderCalendar() {
-        const { date } = this.props;
+        const { date, numberOfMonths } = this.props;
         const { focused } = this.state;
 
         return (
@@ -76,6 +81,7 @@ export class SingleDatePickerCalendar extends PureComponent {
                 focused={focused}
                 onDateChange={this.handleDateChange}
                 onFocusChange={this.handleFocusChange}
+                numberOfMonths={numberOfMonths}
             />
         );
     }
