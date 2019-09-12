@@ -201,7 +201,9 @@ export class SearchInputController extends AutoControlledPureComponent {
             this.setState({ renderPropagationFix: false });
 
             setTimeout(() => {
-                this._inputRef.current.focus();
+                if (!isNil(this._inputRef.current)) {
+                    this._inputRef.current.focus();
+                }
             }, 0);
         }
     };
