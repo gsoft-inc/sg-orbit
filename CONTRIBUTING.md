@@ -660,3 +660,21 @@ The Storybook configuration doesn't load the *Calibre* custom font if the app is
 ### How Lerna collect updated packages
 
 As a starting point to determine which packages changed, Lerna used the last [Git annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) available. Without a tag, Lerna will infer that all the packages changed.
+
+### cross-env
+
+`cross-env` is tricky.
+
+The following will not work:
+
+```bash
+"prepublishOnly": "cross-env NODE_ENV=production && yarn build"
+```
+
+But the following work:
+
+```bash
+"prepublishOnly": "cross-env NODE_ENV=production yarn build"
+```
+
+For other variables that need to be pass accross tasks, please read the following issue: https://github.com/kentcdodds/cross-env/issues/176
