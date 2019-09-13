@@ -49,7 +49,6 @@
         "lint": "run-s eslint stylelint",
         "new-version": "lerna version --exact --no-push --loglevel verbose",
         "force-new-version": "yarn new-version --force-publish",
-        "force-new-version-no-git": "yarn new-version --force-publish --no-git-tag-version",
         "push-release": "node scripts/push-release",
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
         "release-pkg": "cross-env NODE_ENV run-s build:pkg yarn publish-pkg",
