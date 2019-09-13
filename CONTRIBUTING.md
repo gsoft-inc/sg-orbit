@@ -663,8 +663,6 @@ As a starting point to determine which packages changed, Lerna used the last [Gi
 
 ### cross-env
 
-`cross-env` is tricky.
-
 The following will not work:
 
 ```bash
