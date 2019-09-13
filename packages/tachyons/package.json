@@ -13,6 +13,7 @@
     "scripts": {
         "setup": "yarn create-dist",
         "start": "yarn watch",
+        "prebuild": "yarn clean",
         "build": "run-p build-edge build-legacy",
         "postbuild": "yarn copy-to-dist",
         "build-edge": "run-p build-edge:*",
@@ -25,7 +26,7 @@
         "build-legacy:minify": "tachyons src/tachyons.legacy.css --minify > dist/legacy.min.css",
         "watch": "watch \"yarn build-edge\" ./src/",
         "clean": "yarn clear-dist",
-        "prepublishOnly": "run-s clean build copy-license-to-dist",
+        "prepublishOnly": "run-s build copy-license-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
