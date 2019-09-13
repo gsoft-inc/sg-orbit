@@ -1,16 +1,17 @@
 ---
-name: SingleDatePicker
+name: Single Date Picker
 menu: Components
 route: /components/single-date-picker
 ---
 
 import "../../styles/main.css";
 
+import { InlineSingleDatePicker, SingleDatePicker } from "@orbit-ui/react-components";
 import { Playground } from "docz";
-import { SingleDatePicker } from "@orbit-ui/react-components";
 import { noop } from "lodash";
+import moment from "moment";
 
-# Date Picker
+# Single Date Picker
 
 ## Default
 
@@ -18,4 +19,85 @@ import { noop } from "lodash";
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
         <SingleDatePicker onDatesChange={noop} className="z-999" />
     </div>
+</Playground>
+
+## Selected Date
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <SingleDatePicker date={moment()} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Minimum date restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <SingleDatePicker minDate={moment().subtract(2, "days")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Maximum date restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <SingleDatePicker maxDate={moment().add(2, "weeks")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Min & max dates restriction
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <SingleDatePicker minDate={moment().subtract(2, "days")} maxDate={moment().add(2, "weeks")} onDatesChange={noop} />
+    </div>
+</Playground>
+
+## Disabled
+
+<Playground>
+    <SingleDatePicker disabled />
+</Playground>
+
+## Inline
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <InlineSingleDatePicker onDateChange={noop} />
+    </div>
+</Playground>
+
+## Inline Selected Date
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <InlineSingleDatePicker date={moment()} onDateChange={noop} />
+    </div>
+</Playground>
+
+## Inline Custom Placeholder
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <InlineSingleDatePicker placeholder="Custom placeholder" onDateChange={noop} />
+    </div>
+</Playground>
+
+## Inline - In a block
+
+<Playground>
+    <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
+        <div className="pa7 bg-sunray-50">
+            <h2>External Sharing</h2>
+            <div className="mw7 lh2 f5">
+                Ask entrusted owners of active groups to review their external sharing links once every 90 days starting on <InlineSingleDatePicker onDateChange={noop} />
+            </div>
+        </div>
+    </div>
+</Playground>
+
+## Inline Disabled
+
+<Playground>
+    <InlineSingleDatePicker disabled />
 </Playground>
