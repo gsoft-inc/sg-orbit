@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -37,7 +37,7 @@
         "@orbit-ui/react-date-range-picker": "1.1.0",
         "@orbit-ui/react-multi-select": "1.0.2",
         "@orbit-ui/react-popup": "1.0.1",
-        "@orbit-ui/react-search-input": "1.0.1"
+        "@orbit-ui/react-search-input": "1.0.2"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
