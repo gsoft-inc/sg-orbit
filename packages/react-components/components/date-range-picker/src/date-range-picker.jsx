@@ -61,7 +61,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         inputIcon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
         disabledInputIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
         inputClearIcon: <ClearIcon className="h3 w3" />,
-        placeholder: "Pick a date",
+        placeholder: "Pick a date2",
         rangeFormat: "{startDate} - {endDate}",
         dateFormat: "MMM Do YYYY",
         anchorDirection: ANCHOR_LEFT,
