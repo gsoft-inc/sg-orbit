@@ -19,7 +19,7 @@
         "clean": "run-p clean:*",
         "clean:semantic": "cd semantic && gulp clean",
         "clean:dist": "rimraf dist",
-        "prepublishOnly": "run-s build copy-license-to-dist",
+        "prepublishOnly": "run-s clean build copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
