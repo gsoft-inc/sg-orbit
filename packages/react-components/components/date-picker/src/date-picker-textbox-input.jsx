@@ -50,7 +50,9 @@ export class DatePickerTextboxInput extends PureComponent {
         if (!isNil(ref)) {
             if (!isNil(onBoundingClientRectChange)) {
                 setTimeout(() => {
-                    onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
+                    if (!isNil(ref)) {
+                        onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
+                    }
                 }, 0);
             }
         }

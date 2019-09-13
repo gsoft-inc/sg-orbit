@@ -1,5 +1,4 @@
-import { ANCHOR_CENTER, ANCHOR_LEFT, ANCHOR_RIGHT, DateRangePicker, OPEN_DOWN, OPEN_UP, toPreset } from "@orbit-ui/react-range-picker/src";
-import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
+import { DateRangePicker, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
     getMonthFirstDay,
     getMonthLastDay,
