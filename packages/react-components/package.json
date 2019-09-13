@@ -19,8 +19,7 @@
         "watch": "run-p \"build:* --watch\"",
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
-        "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist",
-        "prepublishOnly": "cross-env NODE_ENV=production yarn build"
+        "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",

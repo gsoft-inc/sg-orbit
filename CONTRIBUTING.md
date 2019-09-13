@@ -676,3 +676,9 @@ But the following work:
 ```
 
 For other variables that need to be pass accross tasks, please read the following issue: https://github.com/kentcdodds/cross-env/issues/176
+
+### Lerna leaf projects lifecycle & npm-run-all
+
+Never use npm-run-all (run-s, run-p) in a lifecycle scripts of a leaf projects. Instead of running in the leaf project scope, it will run at the root project scope.
+
+For more information, read this issue: https://github.com/lerna/lerna/issues/2145#issuecomment-506801262
