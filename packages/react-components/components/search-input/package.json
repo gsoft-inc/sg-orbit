@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-search-input",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Sharegate Orbit UI React search-input components",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -21,7 +21,7 @@
     "dependencies": {
         "@babel/runtime-corejs3": "*",
         "@orbit-ui/icons": "1.0.3",
-        "@orbit-ui/react-components-shared": "1.0.2",
+        "@orbit-ui/react-components-shared": "1.0.3",
         "classnames": "*",
         "lodash": "*",
         "prop-types": "*"
