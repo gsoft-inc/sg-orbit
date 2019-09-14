@@ -136,6 +136,13 @@ stories()
                  onDatesChange={logDatesChanged}
              />
     )
+    .add("1 month visible",
+         () =>
+             <DateRangePicker
+                 numberOfMonths={1}
+                 onDatesChange={logDatesChanged}
+             />,
+    )
     .add("disabled",
          () =>
              <DateRangePicker

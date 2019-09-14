@@ -94,6 +94,15 @@ stories()
              }
          }
     )
+    .add("2 months visible",
+         () =>
+             <SingleDatePicker
+                 minDate={moment().subtract(2, "weeks")}
+                 maxDate={moment().add(2, "weeks")}
+                 numberOfMonths={2}
+                 onDateChange={logDateChanged}
+             />,
+    )
     .add("disabled",
          () =>
              <SingleDatePicker

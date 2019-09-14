@@ -6,7 +6,7 @@ import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
-import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -24,6 +24,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
+        numberOfMonths: number,
         input: node,
         placeholder: string,
         rangeFormat: string,
@@ -160,7 +161,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowSingleDateSelection, allowClear, minDate, maxDate, initialVisibleMonth, calendar, presetsComponent, presets, buttons } = this.props;
+        const { allowSingleDateSelection, allowClear, minDate, maxDate, initialVisibleMonth, numberOfMonths, calendar, presetsComponent, presets, buttons } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
@@ -173,6 +174,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             minDate,
             maxDate,
             initialVisibleMonth,
+            numberOfMonths,
             presetsComponent,
             presets,
             buttons

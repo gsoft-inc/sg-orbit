@@ -72,7 +72,7 @@ export class SingleDatePickerCalendar extends PureComponent {
     }
 
     renderCalendar() {
-        const { date, numberOfMonths } = this.props;
+        const { date } = this.props;
         const { focused } = this.state;
 
         return (
@@ -81,13 +81,12 @@ export class SingleDatePickerCalendar extends PureComponent {
                 focused={focused}
                 onDateChange={this.handleDateChange}
                 onFocusChange={this.handleFocusChange}
-                numberOfMonths={numberOfMonths}
             />
         );
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, position, navPrevIcon, navNextIcon, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, navPrevIcon, navNextIcon, className } = this.props;
 
         return (
             <DatePickerCalendar
@@ -97,6 +96,7 @@ export class SingleDatePickerCalendar extends PureComponent {
                 maxDate={maxDate}
                 initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
+                numberOfMonths={numberOfMonths}
                 position={position}
                 navPrevIcon={navPrevIcon}
                 navNextIcon={navNextIcon}

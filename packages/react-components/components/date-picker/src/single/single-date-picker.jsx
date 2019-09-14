@@ -144,7 +144,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderCalendar() {
-        const { allowClear, minDate, maxDate, initialVisibleMonth, calendar, buttons } = this.props;
+        const { allowClear, minDate, maxDate, initialVisibleMonth, numberOfMonths, calendar, buttons } = this.props;
         const { selectedDate } = this.state;
 
         return cloneElement(calendar, {
@@ -155,6 +155,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             minDate,
             maxDate,
             initialVisibleMonth,
+            numberOfMonths,
             buttons
         });
     }

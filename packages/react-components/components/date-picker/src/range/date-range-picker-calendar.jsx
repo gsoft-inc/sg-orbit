@@ -4,7 +4,7 @@ import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -19,6 +19,7 @@ export class DateRangePickerCalendar extends PureComponent {
         minDate: momentType,
         maxDate: momentType,
         initialVisibleMonth: oneOfType([momentType, func]),
+        numberOfMonths: number,
         position: oneOf(POSITIONS),
         navPrevIcon: node,
         navNextIcon: node,
@@ -28,6 +29,10 @@ export class DateRangePickerCalendar extends PureComponent {
         allowClear: bool,
         className: string
     };
+
+    static defaultProps = {
+        numberOfMonths: 2
+    }
 
     state = {
         // Must be non-null in order to select dates.
@@ -131,13 +136,12 @@ export class DateRangePickerCalendar extends PureComponent {
                 onFocusChange={this.handleFocusChange}
                 focusedInput={focusedInput}
                 minimumNights={allowSingleDateSelection ? 0 : 1}
-                numberOfMonths={2}
             />
         );
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, position, navPrevIcon, navNextIcon, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, navPrevIcon, navNextIcon, className } = this.props;
 
         return (
             <DatePickerCalendar
@@ -148,6 +152,7 @@ export class DateRangePickerCalendar extends PureComponent {
                 maxDate={maxDate}
                 initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
+                numberOfMonths={numberOfMonths}
                 position={position}
                 navPrevIcon={navPrevIcon}
                 navNextIcon={navNextIcon}

@@ -4,7 +4,7 @@ import "react-dates/lib/css/_datepicker.css";
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ArrowIcon } from "@orbit-ui/icons";
 import { PureComponent, cloneElement } from "react";
-import { bool, func, node, oneOfType, string } from "prop-types";
+import { bool, func, node, number, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -23,6 +23,7 @@ export class DatePickerCalendar extends PureComponent {
         maxDate: momentType,
         initialDate: momentType.isRequired,
         initialVisibleMonth: oneOfType([momentType, func]),
+        numberOfMonths: number,
         navPrevIcon: node,
         navNextIcon: node,
         className: string,
@@ -77,7 +78,7 @@ export class DatePickerCalendar extends PureComponent {
     };
 
     getInitialVisibleMonth = () => {
-        const { initialVisibleMonth } = this.props;
+        const { initialVisibleMonth, numberOfMonths } = this.props;
 
         if (!isNil(initialVisibleMonth)) {
             if (isFunction(initialVisibleMonth)) {
@@ -85,9 +86,11 @@ export class DatePickerCalendar extends PureComponent {
             }
 
             return initialVisibleMonth;
+        } else if (numberOfMonths > 1) {
+            return this.getInitialVisibleMonthFromDates();
         }
 
-        return this.getInitialVisibleMonthFromDates();
+        return moment();
     };
 
     getInitialVisibleMonthFromDates() {
@@ -143,7 +146,7 @@ export class DatePickerCalendar extends PureComponent {
     }
 
     renderCalendar() {
-        const { calendar, minDate, maxDate } = this.props;
+        const { calendar, minDate, maxDate, numberOfMonths } = this.props;
 
         return cloneElement(calendar, {
             ...this.getNavigationRestrictionProps(),
@@ -151,6 +154,7 @@ export class DatePickerCalendar extends PureComponent {
             navNext: this.renderNavNext(),
             isDayBlocked: !isNil(minDate) || !isNil(maxDate) ? this.isDayBlocked : undefined,
             initialVisibleMonth: this.getInitialVisibleMonth,
+            numberOfMonths: numberOfMonths,
             phrases: PHRASES,
             transitionDuration: 0,
             noBorder: true,
