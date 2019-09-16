@@ -67,7 +67,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         selectedEndDate: null,
         selectedPresetName: null,
         open: false,
-        inputHeight: 0
+        inputHeight: null
     };
 
     static getDerivedStateFromProps(props, state) {

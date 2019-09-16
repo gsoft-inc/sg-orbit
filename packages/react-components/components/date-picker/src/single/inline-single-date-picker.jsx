@@ -1,4 +1,3 @@
-import { BOTTOM_CENTER } from "../positions";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
 import { PureComponent } from "react";
 import { SINGLE_DATE_PICKER_PROP_TYPES, SingleDatePicker } from "./single-date-picker";
@@ -10,8 +9,7 @@ export class InlineSingleDatePicker extends PureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES
 
     static defaultProps = {
-        input: <InlineSingleDatePickerInput />,
-        position: BOTTOM_CENTER
+        input: <InlineSingleDatePickerInput />
     };
 
     // Expose sub-components.

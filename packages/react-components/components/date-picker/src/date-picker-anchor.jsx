@@ -66,12 +66,12 @@ export class DatePickerAnchor extends PureComponent {
     }
 
     render() {
-        const { input, calendar, open, disabled } = this.props;
+        const { input, inputHeight, calendar, open, disabled } = this.props;
 
         return (
             <div className={this.getCssClasses()}>
                 {input}
-                <If condition={!disabled}>
+                <If condition={!disabled && !isNil(inputHeight)}>
                     <FadeIn active={open}>
                         <Popup
                             visible={open}

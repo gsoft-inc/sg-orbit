@@ -54,7 +54,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         date: null,
         selectedDate: null,
         open: false,
-        inputHeight: 0
+        inputHeight: null
     };
 
     static getDerivedStateFromProps(props, state) {

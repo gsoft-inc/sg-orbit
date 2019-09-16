@@ -4,9 +4,6 @@ import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import cx from "classnames";
-
-// Auto-Open on focus - Finalement, c'est p-e la job du input de dire au picker quand il doit s'open en exposant un "onOpen"
 
 export class InlineSingleDatePickerInput extends PureComponent {
     static propTypes = {

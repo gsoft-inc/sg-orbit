@@ -1,6 +1,7 @@
+import { ArrowIcon } from "@orbit-ui/icons";
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
 import { DEFAULT_DATE } from "./shared";
-import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { InlineSingleDatePicker, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import {
     getMonthFirstDay,
     getMonthLastDay,
@@ -13,7 +14,6 @@ import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
 // Date restrictions
-// INLINED
 
 function stories(segment, layout = {}) {
     return storiesBuilder(module, "Single-Date-Picker|specs")
@@ -340,4 +340,113 @@ stories("/customization")
                  className="border-red"
                  onDateChange={logDateChanged}
              />
+    );
+
+stories("/inlined")
+    .add("closed",
+         () =>
+             <InlineSingleDatePicker
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("opened",
+         () =>
+             <InlineSingleDatePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 onDateChange={logDateChanged}
+                 defaultOpen
+             />
+    );
+
+stories("/inlined/selected date/closed")
+    .add("no selection", () =>
+        <InlineSingleDatePicker
+            onDateChange={logDateChanged}
+        />
+    )
+    .add("date selected", () =>
+        <InlineSingleDatePicker
+            date={moment(DEFAULT_DATE)}
+            onDateChange={logDateChanged}
+        />
+    )
+    .add("null value", () =>
+        <InlineSingleDatePicker
+            date={null}
+            onDateChange={logDateChanged}
+        />
+    );
+
+stories("/inlined/selected date/opened")
+    .add("no selection", () =>
+        <InlineSingleDatePicker
+            initialVisibleMonth={moment(DEFAULT_DATE)}
+            onDateChange={logDateChanged}
+            defaultOpen
+        />
+    )
+    .add("date selected", () =>
+        <InlineSingleDatePicker
+            date={moment(DEFAULT_DATE)}
+            onDateChange={logDateChanged}
+            defaultOpen
+        />
+    )
+    .add("null value", () =>
+        <InlineSingleDatePicker
+            date={null}
+            initialVisibleMonth={moment(DEFAULT_DATE)}
+            onDateChange={logDateChanged}
+            defaultOpen
+        />
+    );
+
+stories("/inlined/customization")
+    .add("close icon", () =>
+        <InlineSingleDatePicker
+            input={<InlineSingleDatePicker.Input closeIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />}
+            onDateChange={logDateChanged}
+        />
+    )
+    .add("open icon", () =>
+        <InlineSingleDatePicker
+            input={<InlineSingleDatePicker.Input openIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />}
+            initialVisibleMonth={moment(DEFAULT_DATE)}
+            onDateChange={logDateChanged}
+            defaultOpen
+        />
+    )
+    .add("disabled close icon", () =>
+        <InlineSingleDatePicker
+            input={<InlineSingleDatePicker.Input disabledCloseIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />}
+            onDateChange={logDateChanged}
+            disabled
+        />
+    )
+    .add("disabled open icon", () =>
+        <InlineSingleDatePicker
+            input={<InlineSingleDatePicker.Input disabledOpenIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />}
+            onDateChange={logDateChanged}
+            defaultOpen
+            disabled
+        />
+    )
+    .add("placeholder", () =>
+        <InlineSingleDatePicker
+            placeholder="Custom placeholder"
+            onDateChange={logDateChanged}
+        />
+    )
+    .add("date format", () =>
+        <InlineSingleDatePicker
+            date={moment(DEFAULT_DATE)}
+            dateFormat="YYYY MMM Do"
+            onDateChange={logDateChanged}
+        />
+    )
+    .add("css class", () =>
+        <InlineSingleDatePicker
+            className="bg-red"
+            onDateChange={logDateChanged}
+        />
     );

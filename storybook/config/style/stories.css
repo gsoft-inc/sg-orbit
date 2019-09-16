@@ -10,6 +10,10 @@
     border: 1px solid red !important;
 }
 
+.fill-red {
+    fill: red;
+}
+
 .bg-blue {
     background: blue !important;
 }
