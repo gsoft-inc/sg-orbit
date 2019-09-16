@@ -6,6 +6,10 @@
     background: red !important;
 }
 
+.bg-blue {
+    background: blue !important;
+}
+
 .paused::after {
     animation: 0 !important;
 }

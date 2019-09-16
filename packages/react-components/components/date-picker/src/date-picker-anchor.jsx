@@ -4,7 +4,7 @@ import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, number, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { isNotNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
@@ -51,7 +51,7 @@ export class DatePickerAnchor extends PureComponent {
             return { top: `${inputHeight}px`, offsetY: offsets[1] };
         }
         else if (isTop(position)) {
-            return { bottom: `-${inputHeight}px`, offsetY: `-${offsets[1]}` };
+            return { bottom: `${inputHeight}px`, offsetY: `-${offsets[1].startsWith("-") ? offsets[1].substring(1) : offsets[1]}` };
         }
 
         return {};
