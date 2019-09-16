@@ -7,11 +7,11 @@
 @inputVerticalPadding: @relative9px;
 
 /*******************************
-            Button
+    Button
 *******************************/
 
 /*-------------------
-       Element
+    Element
 --------------------*/
 
 /* Button */
@@ -42,12 +42,12 @@
 */
 
 /*-------------------
-        Group
+    Group
 --------------------*/
 
 @groupBoxShadow: none;
 /*-------------------
-        States
+    States
 --------------------*/
 
 /* Hovered */
@@ -98,16 +98,12 @@
 /* Basic Hover */
 @basicHoverBackground: @marine500!important;
 @basicHoverTextColor: @white;
-@basicHoverBoxShadow:
-  0px 0px 0px @basicBorderSize @marine500 inset
-;
+@basicHoverBoxShadow: 0px 0px 0px @basicBorderSize @marine500 inset;
 
 /* Basic Focus */
 @basicFocusBackground: @marine500!important;
 @basicFocusTextColor: @white;
-@basicFocusBoxShadow:
-  0px 0px 0px @basicBorderSize @marine500 inset
-;
+@basicFocusBoxShadow: 0px 0px 0px @basicBorderSize @marine500 inset;
 
 /* Basic Down */
 
@@ -121,7 +117,7 @@
 /* Basic Group */
 
 /*-------------------
-      Variations
+    Variations
 --------------------*/
 
 /* Colors */

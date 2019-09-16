@@ -13,4 +13,4 @@
 @warningTextColor: @marine500;
 @positiveTextColor: @marine500;
 @positiveHeaderColor: @marine500;
-@floatingBoxShadow: var(--shadow-4);
+@floatingBoxShadow: @shadow4;

@@ -4,7 +4,8 @@
     "version": "independent",
     "command": {
         "version": {
-            "ignoreChanges": ["**/*.md", "**/*.json", "**/*.config.js", "**/*rc*", "**/stories/*", "**/tests/*", "**/dist/*"]
+            "ignoreChanges": ["**/*.md", "**/*.json", "**/*.config.js", "**/*rc*", "**/stories/*", "**/tests/*", "**/dist/*"],
+            "allowBranch": ["master"]
         }
     }
 }

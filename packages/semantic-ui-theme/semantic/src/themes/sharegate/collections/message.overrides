@@ -4,7 +4,7 @@
 .ui.message {
     border-left: 0.25rem solid;
     font-size: 1.125rem;
-    border-color: transparent;
+    border-color: @transparent;
 }
 
 .ui.message .header + p,
@@ -55,7 +55,7 @@
 /* Icons */
 
 .ui.message > .close.icon {
-    background-color: transparent;
+    background-color: @transparent;
     opacity: 1;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@
     height: 24px;
     width: 24px;
     border-radius: 100%;
-    transition: background-color 0.1s ease;
+    transition: background-color 0.3s ease;
     top: 0.5em;
     right: 0.5em;
 }

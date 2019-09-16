@@ -8,9 +8,11 @@
     justify-content: center;
 }
 
-.ui.button {
-    display: flex;
+.ui.label > .icon {
+    margin: 0!important;
+    margin-left: 8px!important;
 }
+
 
 .ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
     margin: 0 .35em 0 0;
@@ -95,9 +97,4 @@ i.icon.close:before {
     margin-top: 0;
     background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
     background-size: 10px 10px !important;
-}
-
-.ui.label > .icon {
-    margin: 0!important;
-    margin-left: 8px!important;
 }

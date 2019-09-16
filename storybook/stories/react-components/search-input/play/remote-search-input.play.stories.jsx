@@ -48,6 +48,14 @@ stories()
                  onValueChange={logValueChanged}
              />
     )
+    .add("autofocus",
+         () =>
+             <StarWarsCharactersSearchInput
+                 autofocus
+                 clearOnSelect
+                 onValueChange={logValueChanged}
+             />
+    )
     .add("disabled",
          () =>
              <StarWarsCharactersSearchInput
