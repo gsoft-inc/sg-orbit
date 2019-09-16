@@ -6,3 +6,4 @@ export * from "./date-picker-textbox-input";
 export * from "./date-picker-anchor";
 export * from "./positions";
 export * from "./utils";
+export * from "./assets";

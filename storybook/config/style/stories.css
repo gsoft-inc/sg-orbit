@@ -11,7 +11,7 @@
 }
 
 .fill-red {
-    fill: red;
+    fill: red !important;
 }
 
 .bg-blue {

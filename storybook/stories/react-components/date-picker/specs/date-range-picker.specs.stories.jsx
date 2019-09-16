@@ -1,6 +1,6 @@
-import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
+import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
-import { DateRangePicker, toPreset } from "@orbit-ui/react-date-picker/src";
+import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
     getMonthFirstDay,
     getMonthLastDay,
@@ -797,7 +797,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 input={<DateRangePicker.Input icon={<CustomCalendarIcon />}></DateRangePicker.Input>}
+                 input={<DateRangePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />}></DateRangePicker.Input>}
                  onDatesChange={logDatesChanged}
              />
     )
@@ -806,8 +806,18 @@ stories("/customization")
              <DateRangePicker
                  startDate={moment(DEFAULT_DATE)}
                  endDate={moment(DEFAULT_DATE).add(3, "days")}
-                 input={<DateRangePicker.Input clearIcon={<CustomClearIcon />}></DateRangePicker.Input>}
+                 input={<DateRangePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />}></DateRangePicker.Input>}
                  onDatesChange={logDatesChanged}
+             />
+    )
+    .add("disabled clear icon",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 input={<DateRangePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />}></DateRangePicker.Input>}
+                 onDatesChange={logDatesChanged}
+                 disabled
              />
     )
     .add("placeholder",
@@ -850,7 +860,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 presetsComponent={<DateRangePicker.Presets icon={<CustomCalendarIcon />}></DateRangePicker.Presets>}
+                 presetsComponent={<DateRangePicker.Presets icon={<PresetsCalendarIcon className="w8 h8 fill-red" />}></DateRangePicker.Presets>}
                  presets={DEFAULT_PRESETS}
                  defaultOpen
                  onDatesChange={logDatesChanged}
@@ -887,7 +897,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<DateRangePicker.Calendar navPrevIcon={<CustomPrevNextIcon />} navNextIcon={<CustomPrevNextIcon />}></DateRangePicker.Calendar>}
+                 calendar={<DateRangePicker.Calendar navPrevIcon={<ArrowIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="w4 h4 fill-red" />}></DateRangePicker.Calendar>}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />

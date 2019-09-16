@@ -3,9 +3,7 @@ import {
     ArrowFullIcon,
     ArrowIcon,
     ClearIcon,
-    InputCalendarIcon,
-    MagnifierIcon,
-    PresetsCalendarIcon
+    MagnifierIcon
 } from "@orbit-ui/icons";
 import { storiesBuilder } from "@utils/stories-builder";
 
@@ -27,12 +25,6 @@ stories()
                  </div>
                  <div className="mb4 flex">
                      <ClearIcon className="h3 w3" />
-                 </div>
-                 <div className="mb4 flex">
-                     <InputCalendarIcon className="w6 h6" />
-                 </div>
-                 <div className="mb4 flex">
-                     <PresetsCalendarIcon className="w8 h8" />
                  </div>
                  <div className="mb4 flex">
                      <AddIcon className="w4 h4" />

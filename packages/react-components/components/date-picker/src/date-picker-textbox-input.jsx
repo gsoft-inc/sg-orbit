@@ -1,5 +1,6 @@
 import { Button, Ref } from "semantic-ui-react";
-import { ClearIcon, InputCalendarIcon } from "@orbit-ui/icons";
+import { ClearIcon } from "@orbit-ui/icons";
+import { InputCalendarIcon } from "./assets";
 import { KEYS, isNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";

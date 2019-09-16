@@ -9,7 +9,7 @@ import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
         input: node.isRequired,
-        inputHeight: number.isRequired,
+        inputHeight: number,
         calendar: node.isRequired,
         open: bool.isRequired,
         position: oneOf(POSITIONS),
@@ -71,7 +71,7 @@ export class DatePickerAnchor extends PureComponent {
         return (
             <div className={this.getCssClasses()}>
                 {input}
-                <If condition={!disabled && !isNil(inputHeight)}>
+                <If condition={!isNil(inputHeight) && !disabled}>
                     <FadeIn active={open}>
                         <Popup
                             visible={open}

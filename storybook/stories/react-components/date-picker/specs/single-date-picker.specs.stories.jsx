@@ -1,7 +1,6 @@
-import { ArrowIcon } from "@orbit-ui/icons";
-import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
+import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
-import { InlineSingleDatePicker, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import {
     getMonthFirstDay,
     getMonthLastDay,
@@ -269,7 +268,7 @@ stories("/customization")
          () =>
              <SingleDatePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input icon={<CustomCalendarIcon />}></SingleDatePicker.Input>}
+                 input={<SingleDatePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />}></SingleDatePicker.Input>}
                  onDateChange={logDateChanged}
              />
     )
@@ -277,8 +276,17 @@ stories("/customization")
          () =>
              <SingleDatePicker
                  date={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input clearIcon={<CustomClearIcon />}></SingleDatePicker.Input>}
+                 input={<SingleDatePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />}></SingleDatePicker.Input>}
                  onDateChange={logDateChanged}
+             />
+    )
+    .add("disabled clear icon",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 input={<SingleDatePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />}></SingleDatePicker.Input>}
+                 onDateChange={logDateChanged}
+                 disabled
              />
     )
     .add("placeholder",
@@ -328,7 +336,7 @@ stories("/customization")
          () =>
              <SingleDatePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<SingleDatePicker.Calendar navPrevIcon={<CustomPrevNextIcon />} navNextIcon={<CustomPrevNextIcon />}></SingleDatePicker.Calendar>}
+                 calendar={<SingleDatePicker.Calendar navPrevIcon={<ArrowIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="w4 h4 fill-red" />}></SingleDatePicker.Calendar>}
                  defaultOpen
                  onDateChange={logDateChanged}
              />
