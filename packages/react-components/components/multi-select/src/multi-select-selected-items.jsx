@@ -1,12 +1,28 @@
+import { Button, Label } from "semantic-ui-react";
+import { ClearIcon } from "@orbit-ui/icons";
 import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
 import { isNil } from "lodash";
+import cx from "classnames";
+
+function defaultItemRenderer(item, { disabled, onRemove }) {
+    return (
+        <Label basic className={cx("large", { icon: !disabled })} disabled={disabled}>
+            {item.text}
+            <If condition={!disabled}>
+                <Button circular size="mini" icon className="transparent" onClick={onRemove}>
+                    <ClearIcon className="h3 w3" />
+                </Button>
+            </If>
+        </Label>
+    );
+}
 
 class MultiSelectSelectedItem extends PureComponent {
     static propTypes = {
         item: shape(ITEM_SHAPE).isRequired,
-        selectedItemRenderer: func.isRequired,
+        itemRenderer: func,
         onRemove: func.isRequired,
         disabled: bool,
         className: string
@@ -27,20 +43,24 @@ class MultiSelectSelectedItem extends PureComponent {
     }
 
     render() {
-        const { item, selectedItemRenderer, disabled } = this.props;
+        const { item, itemRenderer, disabled } = this.props;
 
-        return <div className={this.getClasses()}>{selectedItemRenderer(item, { disabled: disabled, onRemove: this.handleRemove })}</div>;
+        return <div className={this.getClasses()}>{itemRenderer(item, { disabled: disabled, onRemove: this.handleRemove })}</div>;
     }
 }
 
 export class MultiSelectSelectedItems extends PureComponent {
     static propTypes = {
         items: arrayOf(shape(ITEM_SHAPE)),
-        selectedItemRenderer: func,
+        itemRenderer: func,
         onRemoveSelectedItem: func,
         disabled: bool,
         className: string
     };
+
+    static defaultProps ={
+        itemRenderer: defaultItemRenderer
+    }
 
     handleRemoveSelectedItem = (event, item) => {
         const { onRemoveSelectedItem } = this.props;
@@ -49,12 +69,12 @@ export class MultiSelectSelectedItems extends PureComponent {
     };
 
     renderItems() {
-        const { items, selectedItemRenderer, disabled, className } = this.props;
+        const { items, itemRenderer, disabled, className } = this.props;
 
         return items.map(x => {
             return <MultiSelectSelectedItem
                 item={x}
-                selectedItemRenderer={selectedItemRenderer}
+                itemRenderer={itemRenderer}
                 onRemove={this.handleRemoveSelectedItem}
                 key={x.value}
                 disabled={disabled}

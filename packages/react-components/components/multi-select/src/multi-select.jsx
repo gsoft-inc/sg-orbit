@@ -1,6 +1,4 @@
-import { AddIcon, ClearIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { Button, Dropdown, Label } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
@@ -11,30 +9,9 @@ import { MultiSelectSelectedItems } from "./multi-select-selected-items";
 import { arrayOf, bool, func, node, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
-import cx from "classnames";
+
 
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
-
-function defaultItemRenderer(item, isSelected) {
-    return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} />;
-}
-
-function defaultCategoryHeaderRenderer(group) {
-    return <Dropdown.Header content={group} />;
-}
-
-function defaultSelectedItemRenderer(item, { disabled, onRemove }) {
-    return (
-        <Label basic className={cx("large", { icon: !disabled })} disabled={disabled}>
-            {item.text}
-            <If condition={!disabled}>
-                <Button circular size="mini" icon className="transparent" onClick={onRemove}>
-                    <ClearIcon className="h3 w3" />
-                </Button>
-            </If>
-        </Label>
-    );
-}
 
 export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
@@ -67,18 +44,12 @@ export class MultiSelect extends AutoControlledPureComponent {
         onSearch: func,
         onVisibilityChange: func,
         dropdown: node,
-        itemRenderer: func,
-        categoryHeaderRenderer: func,
         closeOnSelect: bool,
+        addText: string,
         noResultsMessage: string,
-        triggerText: string,
-        triggerIcon: node,
-        searchIcon: node,
         placeholder: string,
         selectedItemsComponent: node,
-        selectedItemRenderer: func,
         clearButton: node,
-        clearText: string,
         defaultOpen: bool,
         open: bool,
         disabled: bool,
@@ -88,18 +59,12 @@ export class MultiSelect extends AutoControlledPureComponent {
     static defaultProps = {
         dropdown: <MultiSelectDropdown />,
         onSearch: startsWithSearch,
-        itemRenderer: defaultItemRenderer,
-        categoryHeaderRenderer: defaultCategoryHeaderRenderer,
         closeOnSelect: false,
+        addText: "Add",
         noResultsMessage: "No results",
-        triggerText: "Add",
-        triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
-        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />,
         placeholder: "Search",
         selectedItemsComponent: <MultiSelectSelectedItems />,
-        selectedItemRenderer: defaultSelectedItemRenderer,
         clearButton: <MultiSelectClearButton />,
-        clearText: "Clear all",
         disabled: false
     };
 
@@ -223,7 +188,7 @@ export class MultiSelect extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { itemRenderer, categoryHeaderRenderer, closeOnSelect, dropdown, triggerText, triggerIcon, searchIcon, placeholder, noResultsMessage, disabled } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -232,33 +197,28 @@ export class MultiSelect extends AutoControlledPureComponent {
             onItemSelect: this.handleItemSelect,
             onOpen: this.handleOpen,
             onClose: this.handleClose,
-            itemRenderer,
-            headerRenderer: categoryHeaderRenderer,
             closeOnSelect,
-            triggerText,
-            triggerIcon,
-            searchIcon,
             placeholder,
             noResultsMessage,
+            triggerText: addText,
             open,
             disabled
         });
     };
 
     renderSelectedItems = () => {
-        const { selectedItemsComponent, selectedItemRenderer, disabled } = this.props;
+        const { selectedItemsComponent, disabled } = this.props;
         const { selectedItems } = this.state;
 
         return cloneElement(selectedItemsComponent, {
             items: selectedItems,
-            selectedItemRenderer,
             onRemoveSelectedItem: this.handleRemoveSelectedItem,
             disabled
         });
     };
 
     renderClearButton = () => {
-        const { clearButton, clearText, disabled } = this.props;
+        const { clearButton, disabled } = this.props;
         const { selectedItems } = this.state;
 
         if (selectedItems.length === 0 || disabled) {
@@ -266,8 +226,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         }
 
         return cloneElement(clearButton, {
-            onClick: this.handleClear,
-            text: clearText
+            onClick: this.handleClear
         });
     };
 

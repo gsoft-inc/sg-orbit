@@ -34,10 +34,6 @@ export class SingleDatePickerInput extends PureComponent {
         className: string
     };
 
-    static defaultProps = {
-        dateFormat: "MMM Do YYYY"
-    };
-
     handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange");
     handleClick = useHandlerProxy(this, "onClick");
     handleKeyDown = useHandlerProxy(this, "onKeyDown");

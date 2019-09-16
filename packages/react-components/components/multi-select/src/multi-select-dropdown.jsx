@@ -1,12 +1,22 @@
+import { AddIcon } from "@orbit-ui/icons";
 import { Dropdown, Ref } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
 import { KEYS } from "@orbit-ui/react-components-shared";
+import { MagnifierIcon } from "@orbit-ui/icons";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
+
+function defaultItemRenderer(item, isSelected) {
+    return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} />;
+}
+
+function defaultHeaderRenderer(group) {
+    return <Dropdown.Header content={group} />;
+}
 
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
@@ -34,9 +44,13 @@ export class MultiSelectDropdown extends PureComponent {
 
     static defaultProps = {
         debounceDelay: 200,
-        trigger: <MultiSelectDropdownTrigger />,
+        itemRenderer: defaultItemRenderer,
+        headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
-        searchInput: <MultiSelectDropdownSearchInput />
+        trigger: <MultiSelectDropdownTrigger />,
+        triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
+        searchInput: <MultiSelectDropdownSearchInput />,
+        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />
     };
 
     state = {

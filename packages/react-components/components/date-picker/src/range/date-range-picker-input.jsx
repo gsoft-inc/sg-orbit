@@ -37,8 +37,7 @@ export class DateRangePickerInput extends PureComponent {
     };
 
     static defaultProps = {
-        rangeFormat: "{startDate} - {endDate}",
-        dateFormat: "MMM Do YYYY"
+        rangeFormat: "{startDate} - {endDate}"
     };
 
     handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange");

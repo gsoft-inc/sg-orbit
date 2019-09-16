@@ -10,6 +10,10 @@ export class MultiSelectClearButton extends PureComponent {
         className: string
     };
 
+    static defaultProps = {
+        text: "Clear all"
+    };
+
     handleClick = event => {
         const { onClick } = this.props;
 

@@ -140,7 +140,7 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 dropdown={<MultiSelect.Dropdown className="bg-red" />}
+                 dropdown={<MultiSelect.Dropdown className="bg-red border-red" />}
                  onValuesChange={logValuesChanged}
              />
     )
@@ -148,9 +148,9 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 itemRenderer={(item, isSelected) => {
-                     return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} className="bg-red" />;
-                 }}
+                 dropdown={
+                     <MultiSelect.Dropdown itemRenderer={(item, isSelected) => <Dropdown.Item text={item.text} value={item.value} selected={isSelected} className="bg-red" />} />
+                 }
                  defaultOpen
                  onValuesChange={logValuesChanged}
              />
@@ -159,9 +159,9 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                 categoryHeaderRenderer={group => {
-                     return <Dropdown.Header content={group} className="bg-red" />;
-                 }}
+                 dropdown={
+                     <MultiSelect.Dropdown headerRenderer={group => <Dropdown.Header content={group} className="bg-red" />} />
+                 }
                  defaultOpen
                  onValuesChange={logValuesChanged}
              />
@@ -175,19 +175,35 @@ stories("/customization")
                  onValuesChange={logValuesChanged}
              />
     )
-    .add("trigger text",
+    .add("add text",
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 triggerText="Custom trigger text"
+                 addText="Custom add text"
                  onValuesChange={logValuesChanged}
              />
+    )
+    .add("trigger", () =>
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            dropdown={<MultiSelect.Dropdown trigger={<MultiSelect.Trigger className="bg-red" />} />}
+            onValuesChange={logValuesChanged}
+        />
     )
     .add("trigger icon",
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 triggerIcon={<AddIcon className="w3 h3 fill-red ml2" />}
+                 dropdown={<MultiSelect.Dropdown triggerIcon={<AddIcon className="w3 h3 fill-red ml2" />} />}
+                 onValuesChange={logValuesChanged}
+             />
+    )
+    .add("search input",
+         () =>
+             <MultiSelect
+                 items={DEFAULT_ITEMS}
+                 dropdown={<MultiSelect.Dropdown searchInput={<MultiSelect.SearchInput className="bg-red border-red" />} />}
+                 defaultOpen
                  onValuesChange={logValuesChanged}
              />
     )
@@ -195,7 +211,7 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 searchIcon={<MagnifierIcon className="w4 h4 fill-red" />}
+                 dropdown={<MultiSelect.Dropdown searchIcon={<MagnifierIcon className="w4 h4 fill-red" />} />}
                  defaultOpen
                  onValuesChange={logValuesChanged}
              />
@@ -214,7 +230,7 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 selectedItemsComponent={<MultiSelect.SelectedItems className="bg-red" />}
+                 selectedItemsComponent={<MultiSelect.SelectedItems className="bg-red border-red" />}
                  onValuesChange={logValuesChanged}
              />
     )
@@ -223,7 +239,7 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 selectedItemRenderer={item => <div>{item.text}</div>}
+                 selectedItemsComponent={<MultiSelect.SelectedItems itemRenderer={item => <div>{item.text}</div>} />}
                  onValuesChange={logValuesChanged}
              />
     )
@@ -241,7 +257,7 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 clearText="Custom clear text"
+                 clearButton={<MultiSelect.ClearButton text="Custom clear text" />}
                  onValuesChange={logValuesChanged}
              />
     )
@@ -250,7 +266,7 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 className="bg-red"
+                 className="bg-red border-red"
                  onValuesChange={logValuesChanged}
              />
     );

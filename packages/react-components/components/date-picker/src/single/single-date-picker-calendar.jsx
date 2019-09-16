@@ -23,10 +23,6 @@ export class SingleDatePickerCalendar extends PureComponent {
         className: string
     };
 
-    static defaultProps = {
-        numberOfMonths: 1
-    };
-
     state = {
         focused: true
     };

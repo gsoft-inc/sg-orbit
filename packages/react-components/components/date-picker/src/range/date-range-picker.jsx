@@ -44,7 +44,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
     static defaultProps = {
         allowSingleDateSelection: false,
         allowClear: true,
+        numberOfMonths: 2,
         input: <DateRangePickerInput />,
+        dateFormat: "MMM Do YYYY",
         calendar: <DateRangePickerCalendar />,
         presetsComponent: <DateRangePickerPresets />,
         presets: [],

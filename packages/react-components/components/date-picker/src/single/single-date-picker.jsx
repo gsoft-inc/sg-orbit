@@ -37,6 +37,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     static defaultProps = {
         allowClear: true,
+        dateFormat: "MMM Do YYYY",
+        numberOfMonths: 1,
         input: <SingleDatePickerInput />,
         calendar: <SingleDatePickerCalendar />,
         buttons: <SingleDatePickerButtons />,

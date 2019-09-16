@@ -9,7 +9,8 @@ export class InlineSingleDatePicker extends PureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES
 
     static defaultProps = {
-        input: <InlineSingleDatePickerInput />
+        input: <InlineSingleDatePickerInput />,
+        placeholder: "pick a date"
     };
 
     // Expose sub-components.

@@ -30,10 +30,6 @@ export class DateRangePickerCalendar extends PureComponent {
         className: string
     };
 
-    static defaultProps = {
-        numberOfMonths: 2
-    }
-
     state = {
         // Must be non-null in order to select dates.
         focusedInput: START_DATE
