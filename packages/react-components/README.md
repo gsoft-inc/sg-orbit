@@ -10,7 +10,7 @@ Individual packages are available in the [components](/components) directory.
 import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 ```
 
-https://sg-orbit.netlify.com
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers
 
