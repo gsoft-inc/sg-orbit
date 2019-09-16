@@ -28,12 +28,6 @@ function stories(segment, layout = {}) {
         .build();
 }
 
-// Close
-// Visible
-// TOP_LEFT, TOP_RIGHT, TOP_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, BOTTOM_CENTER
-// With offsets
-// className
-
 stories()
     .add("close",
          () =>

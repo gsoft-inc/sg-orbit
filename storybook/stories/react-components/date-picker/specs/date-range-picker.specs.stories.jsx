@@ -1,4 +1,5 @@
 import { CustomCalendarIcon, CustomClearIcon, CustomPrevNextIcon } from "./assets";
+import { DEFAULT_DATE } from "./shared";
 import { DateRangePicker, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
     getMonthFirstDay,
@@ -10,8 +11,6 @@ import {
 } from "@stories/react-components/date-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
-
-export const DEFAULT_DATE = "2019-07-08";
 
 export const LAST_WEEK_PRESET = toPreset("Last week", moment(DEFAULT_DATE).subtract(1, "week"), moment(DEFAULT_DATE).startOf("day"));
 export const LAST_MONTH_PRESET = toPreset("Last month", moment(DEFAULT_DATE).subtract(1, "months"), moment(DEFAULT_DATE).startOf("day"));
@@ -168,6 +167,23 @@ stories("/date restrictions")
              }
          }
     )
+    .add("min date is partially blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
     .add("max date is not blocking previous or next month",
          () =>
              <DateRangePicker
@@ -233,6 +249,23 @@ stories("/date restrictions")
                  startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
                  endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
                  maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is partially blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
              }
          }
     )
@@ -353,7 +386,7 @@ stories("/date restrictions")
              }
          }
     )
-    .add("when only 1 month visible, do nothing",
+    .add("when only 1 month visible, dont optimize initial visible month",
          () =>
              <DateRangePicker
                  startDate={moment(DEFAULT_DATE)}
@@ -473,12 +506,12 @@ stories("/selected dates/opened")
              />
     );
 
-stories("/selected dates/opened/input clear button")
-    .add("not available",
+stories("/selected dates/opened")
+    .add("input clear button is not available",
          () =>
              <DateRangePicker
-                 startDate={null}
-                 endDate={null}
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
                  initialVisibleMonth={moment(DEFAULT_DATE)}
                  defaultOpen
                  onDatesChange={logDatesChanged}

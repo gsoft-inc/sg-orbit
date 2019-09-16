@@ -4,7 +4,7 @@ import { Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, number, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
-import { isNotNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
