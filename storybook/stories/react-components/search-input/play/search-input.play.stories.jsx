@@ -50,6 +50,15 @@ stories()
                  onValueChange={logValueChanged}
              />
     )
+    .add("autofocus",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 autofocus
+                 clearOnSelect
+                 onValueChange={logValueChanged}
+             />
+    )
     .add("disabled",
          () =>
              <SearchInput

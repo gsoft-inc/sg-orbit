@@ -179,7 +179,7 @@ yarn new-version
 yarn release-pkg
 yarn push-release <yyyy-MM-dd>
 yarn release-sb [optional]
-yarn release-website [optional]
+yarn release-website-prod [optional]
 ```
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
@@ -660,3 +660,25 @@ The Storybook configuration doesn't load the *Calibre* custom font if the app is
 ### How Lerna collect updated packages
 
 As a starting point to determine which packages changed, Lerna used the last [Git annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) available. Without a tag, Lerna will infer that all the packages changed.
+
+### cross-env
+
+The following will not work:
+
+```bash
+"prepublishOnly": "cross-env NODE_ENV=production && yarn build"
+```
+
+But the following work:
+
+```bash
+"prepublishOnly": "cross-env NODE_ENV=production yarn build"
+```
+
+For other variables that need to be pass accross tasks, please read the following issue: https://github.com/kentcdodds/cross-env/issues/176
+
+### Lerna leaf projects lifecycle & npm-run-all
+
+Never use npm-run-all (run-s, run-p) in a lifecycle scripts of a leaf projects. Instead of running in the leaf project scope, it will run at the root project scope.
+
+For more information, read this issue: https://github.com/lerna/lerna/issues/2145#issuecomment-506801262

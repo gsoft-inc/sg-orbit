@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/foundation",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "description": "Sharegate Orbit UI foundation",
     "repository": "https://github.com/gsoft-inc/sg-brand.git",
     "author": "Groupe Sharegate inc.",
@@ -13,9 +13,10 @@
     },
     "scripts": {
         "start": "yarn copy-to-dist",
-        "clean": "rimraf dist",
+        "prebuild": "yarn clean",
         "build": "yarn copy-to-dist",
-        "prepublishOnly": "run-s build copy-license-to-dist",
+        "clean": "rimraf dist",
+        "prepublishOnly": "yarn copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
