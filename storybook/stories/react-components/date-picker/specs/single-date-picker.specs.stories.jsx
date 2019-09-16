@@ -12,8 +12,6 @@ import {
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
 
-// Date restrictions
-
 function stories(segment, layout = {}) {
     return storiesBuilder(module, "Single-Date-Picker|specs")
         .segment(segment)
@@ -25,8 +23,21 @@ function stories(segment, layout = {}) {
         .build();
 }
 
-stories()
-    .add("1 month visible",
+stories("/number of visible months")
+    .add("default",
+         () =>
+             <SingleDatePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+             }
+         }
+    )
+    .add("1 month",
          () =>
              <SingleDatePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -40,7 +51,7 @@ stories()
              }
          }
     )
-    .add("2 months visible",
+    .add("2 months",
          () =>
              <SingleDatePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -51,6 +62,355 @@ stories()
          {
              storyParameters: {
                  initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+             }
+         }
+    );
+
+stories("/date restrictions/2 months visible")
+    .add("min date is not blocking previous or next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking previous month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is partially blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is not blocking previous or next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking previous month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is partially blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min+max dates are blocking previous & next months",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    );
+
+stories("/date restrictions/1 month visible")
+    .add("min date is not blocking previous or next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking previous month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is partially blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is not blocking previous or next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking previous month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking next month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is partially blocking current month",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min+max dates are blocking previous & next months",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE)}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
              }
          }
     );

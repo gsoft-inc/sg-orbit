@@ -37,8 +37,20 @@ function stories(segment, layout = {}) {
         .build();
 }
 
-stories()
-    .add("1 month visible",
+stories("/number of visible months")
+    .add("default",
+         () =>
+             <DateRangePicker
+                 initialVisibleMonth={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+             }
+         })
+    .add("1 month",
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -52,7 +64,7 @@ stories()
              }
          }
     )
-    .add("2 months visible",
+    .add("2 months",
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
@@ -98,7 +110,7 @@ stories("/presets")
          }
     );
 
-stories("/date restrictions")
+stories("/date restrictions/2 months visible")
     .add("min date is not blocking previous or next month",
          () =>
              <DateRangePicker
@@ -287,8 +299,212 @@ stories("/date restrictions")
                  maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
              }
          }
+    );
+
+stories("/date restrictions/1 month visible")
+    .add("min date is not blocking previous or next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+             }
+         }
     )
-    .add("selected range is before min date",
+    .add("min date is blocking previous month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min date is partially blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is not blocking previous or next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking previous month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking next month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is partially blocking current month",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("min+max dates are blocking previous & next months",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(1, "days")}
+                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
+                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
+                 numberOfMonths={1}
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />,
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+             }
+         }
+    );
+
+stories("/date restrictions/selected range")
+    .add("is before min date",
          () =>
              <DateRangePicker
                  startDate={moment(DEFAULT_DATE).subtract(5, "days")}
@@ -303,7 +519,7 @@ stories("/date restrictions")
              }
          }
     )
-    .add("selected range is after max date",
+    .add("is after max date",
          () =>
              <DateRangePicker
                  startDate={moment(DEFAULT_DATE).add(2, "days")}
@@ -317,8 +533,10 @@ stories("/date restrictions")
                  maxDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
              }
          }
-    )
-    .add("selected presets is before min date",
+    );
+
+stories("/date restrictions/selected presets")
+    .add("is before min date",
          () =>
              <DateRangePicker
                  presets={DEFAULT_PRESETS}
@@ -335,7 +553,7 @@ stories("/date restrictions")
              }
          }
     )
-    .add("selected presets is after max date",
+    .add("is after max date",
          () =>
              <DateRangePicker
                  presets={DEFAULT_PRESETS}
@@ -385,25 +603,25 @@ stories("/date restrictions")
                  presets: toStoryParametersPresets(DEFAULT_PRESETS)
              }
          }
-    )
-    .add("when only 1 month visible, dont optimize initial visible month",
-         () =>
-             <DateRangePicker
-                 startDate={moment(DEFAULT_DATE)}
-                 endDate={moment(DEFAULT_DATE).add(1, "days")}
-                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />,
-         {
-             storyParameters: {
-                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
-                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-             }
-         }
     );
+// .add("when only 1 month visible, dont optimize initial visible month",
+//      () =>
+//          <DateRangePicker
+//              startDate={moment(DEFAULT_DATE)}
+//              endDate={moment(DEFAULT_DATE).add(1, "days")}
+//              maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
+//              numberOfMonths={1}
+//              defaultOpen
+//              onDatesChange={logDatesChanged}
+//          />,
+//      {
+//          storyParameters: {
+//              startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+//              endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
+//              maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+//          }
+//      }
+// );
 
 
 stories("/selected dates/closed")
