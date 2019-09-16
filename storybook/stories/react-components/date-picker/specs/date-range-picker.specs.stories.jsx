@@ -604,25 +604,6 @@ stories("/date restrictions/selected presets")
              }
          }
     );
-// .add("when only 1 month visible, dont optimize initial visible month",
-//      () =>
-//          <DateRangePicker
-//              startDate={moment(DEFAULT_DATE)}
-//              endDate={moment(DEFAULT_DATE).add(1, "days")}
-//              maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-//              numberOfMonths={1}
-//              defaultOpen
-//              onDatesChange={logDatesChanged}
-//          />,
-//      {
-//          storyParameters: {
-//              startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-//              endDate: moment(DEFAULT_DATE).add(1, "days").format("MMMM Do YYYY"),
-//              maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-//          }
-//      }
-// );
-
 
 stories("/selected dates/closed")
     .add("no selection",

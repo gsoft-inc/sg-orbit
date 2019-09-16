@@ -415,6 +415,36 @@ stories("/date restrictions/1 month visible")
          }
     );
 
+stories("/date restrictions/selected range")
+    .add("is before min date",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE).subtract(5, "days")}
+                 minDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("is after max date",
+         () =>
+             <SingleDatePicker
+                 date={moment(DEFAULT_DATE).add(2, "days")}
+                 maxDate={moment(DEFAULT_DATE)}
+                 defaultOpen
+                 onDateChange={logDateChanged}
+             />,
+         {
+             storyParameters: {
+                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+             }
+         }
+    );
+
 stories("/selected date/closed")
     .add("no selection",
          () =>
