@@ -194,10 +194,10 @@ stories("/offsets/top")
     );
 
 stories()
-    .add("className",
+    .add("css class",
          () =>
              <Anchor
-                 className="w12"
+                 className="border-red"
                  open={false}
              />,
     );

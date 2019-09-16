@@ -6,6 +6,10 @@
     background: red !important;
 }
 
+.border-red {
+    border: 1px solid red !important;
+}
+
 .bg-blue {
     background: blue !important;
 }

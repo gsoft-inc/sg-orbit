@@ -699,27 +699,6 @@ stories("/single date selection/calendar clear button")
              />
     );
 
-stories("/disallow clear")
-    .add("closed",
-         () =>
-             <DateRangePicker
-                 startDate={moment(DEFAULT_DATE)}
-                 endDate={moment(DEFAULT_DATE).add(3, "days")}
-                 allowClear={false}
-                 onDatesChange={logDatesChanged}
-             />
-    )
-    .add("opened",
-         () =>
-             <DateRangePicker
-                 startDate={moment(DEFAULT_DATE)}
-                 endDate={moment(DEFAULT_DATE).add(3, "days")}
-                 allowClear={false}
-                 defaultOpen
-                 onDatesChange={logDatesChanged}
-             />
-    );
-
 stories("/single date selection/calendar apply button")
     .add("can apply without selection",
          () =>
@@ -745,6 +724,27 @@ stories("/single date selection/calendar apply button")
                  startDate={moment(DEFAULT_DATE)}
                  endDate={moment(DEFAULT_DATE).add(3, "days")}
                  allowSingleDateSelection
+                 defaultOpen
+                 onDatesChange={logDatesChanged}
+             />
+    );
+
+stories("/disallow clear")
+    .add("closed",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 allowClear={false}
+                 onDatesChange={logDatesChanged}
+             />
+    )
+    .add("opened",
+         () =>
+             <DateRangePicker
+                 startDate={moment(DEFAULT_DATE)}
+                 endDate={moment(DEFAULT_DATE).add(3, "days")}
+                 allowClear={false}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -860,7 +860,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 buttons={<DateRangePicker.Buttons className="bg-red"></DateRangePicker.Buttons>}
+                 buttons={<DateRangePicker.Buttons className="border-red"></DateRangePicker.Buttons>}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -878,7 +878,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<DateRangePicker.Calendar className="bg-red"></DateRangePicker.Calendar>}
+                 calendar={<DateRangePicker.Calendar className="border-red"></DateRangePicker.Calendar>}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
@@ -896,7 +896,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 className="bg-red"
+                 className="border-red"
                  onDatesChange={logDatesChanged}
              />
     );
