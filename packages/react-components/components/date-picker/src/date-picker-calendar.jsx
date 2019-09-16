@@ -78,7 +78,7 @@ export class DatePickerCalendar extends PureComponent {
     };
 
     getInitialVisibleMonth = () => {
-        const { initialVisibleMonth, numberOfMonths } = this.props;
+        const { initialDate, initialVisibleMonth, numberOfMonths } = this.props;
 
         if (!isNil(initialVisibleMonth)) {
             if (isFunction(initialVisibleMonth)) {
@@ -90,7 +90,7 @@ export class DatePickerCalendar extends PureComponent {
             return this.getInitialVisibleMonthFromDates();
         }
 
-        return moment();
+        return initialDate;
     };
 
     getInitialVisibleMonthFromDates() {

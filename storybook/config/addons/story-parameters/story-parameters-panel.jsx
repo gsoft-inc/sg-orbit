@@ -13,7 +13,7 @@ class StoryParametersPanel extends PureComponent {
     componentDidMount() {
         const { api } = this.props;
 
-        api.on(STORY_CHANGED, this.onStoryChange);
+        api.on(STORY_CHANGED, this.handleStoryChange);
     }
 
     componentWillUnmount() {
@@ -22,7 +22,7 @@ class StoryParametersPanel extends PureComponent {
         api.off(STORY_CHANGED, this.onStoryChange);
     }
 
-    onStoryChange = id => {
+    handleStoryChange = id => {
         this.refreshParameters(id);
     };
 
@@ -43,8 +43,7 @@ class StoryParametersPanel extends PureComponent {
             if (isString(value)) {
                 return (
                     <div key={key} className="parameter">
-                        <span className="string-key">{key}</span>
-                        {value}
+                        <span className="string-key">{key}</span>&nbsp;&nbsp;{value}
                     </div>
                 );
             }
