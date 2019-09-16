@@ -6,3 +6,4 @@ export * from "./types";
 export * from "./promises";
 export * from "./defer";
 export * from "./keyboards";
+export * from "./handlers";

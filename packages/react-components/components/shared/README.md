@@ -20,7 +20,7 @@ Or
 import { AutoControlledPureComponent, ... } from "@orbit-ui/react-components";
 ```
 
-https://sg-orbit.netlify.com
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## License
 

@@ -17,7 +17,7 @@ Or import the whole theme:
 @import "~@orbit-ui/semantic-ui-theme";
 ```
 
-https://sg-orbit.netlify.com
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers
 

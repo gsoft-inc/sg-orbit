@@ -39,4 +39,10 @@ stories()
              <Popup visible right="20px">
                  <RedBox />
              </Popup>
+    )
+    .add("with portal",
+         () =>
+             <Popup visible portal right="20px">
+                 <RedBox />
+             </Popup>
     );

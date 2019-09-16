@@ -10,7 +10,7 @@ Individual packages are available in the [components](/components) directory.
 import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 ```
 
-https://sg-orbit.netlify.com
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers
 
@@ -159,7 +159,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
 }
 
 // usage
-import { DateRangePicker } from "@orbit-ui/react-date-range-picker";
+import { DateRangePicker } from "@orbit-ui/react-components";
 
 <DateRangePicker.Input />
 ```
@@ -219,8 +219,6 @@ For more information, read the following posts:
 #### Props
 
 All available props should be defined in the root component with [prop-types](https://github.com/facebook/prop-types). For most required props, instead of defining the prop as required with prop-types, you should instead provide a default value.
-
-All default props should be defined in the root component.
 
 ### Naming
 

@@ -1,6 +1,7 @@
 import { KEYS } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { any, bool, func, string } from "prop-types";
+import { createPortal } from "react-dom";
 import { isNil } from "lodash";
 
 export class Popup extends PureComponent {
@@ -14,7 +15,12 @@ export class Popup extends PureComponent {
         right: string,
         offsetX: string,
         offsetY: string,
+        portal: bool,
         children: any.isRequired
+    };
+
+    static defaultProps = {
+        portal: false
     };
 
     _containerRef = createRef();
@@ -36,21 +42,25 @@ export class Popup extends PureComponent {
     }
 
     handleOutsideClick = event => {
-        const { onOutsideClick } = this.props;
+        const { visible, onOutsideClick } = this.props;
 
-        if (!this._containerRef.current.contains(event.target)) {
-            if (!isNil(onOutsideClick)) {
-                onOutsideClick(event, this.props);
+        if (visible) {
+            if (!this._containerRef.current.contains(event.target)) {
+                if (!isNil(onOutsideClick)) {
+                    onOutsideClick(event, this.props);
+                }
             }
         }
     };
 
     handleKeyDown = event => {
-        const { onEscapeKeyDown } = this.props;
+        const { visible, onEscapeKeyDown } = this.props;
 
-        if (event.keyCode === KEYS.esc) {
-            if (!isNil(onEscapeKeyDown)) {
-                onEscapeKeyDown(event, this.props);
+        if (visible) {
+            if (event.keyCode === KEYS.esc) {
+                if (!isNil(onEscapeKeyDown)) {
+                    onEscapeKeyDown(event, this.props);
+                }
             }
         }
     };
@@ -104,16 +114,22 @@ export class Popup extends PureComponent {
     }
 
     render() {
-        const { visible, children } = this.props;
+        const { visible, portal, children } = this.props;
 
         if (!visible) {
             return null;
         }
 
-        return (
-            <div style={{ position: "absolute", zIndex: 10, ...this.getPositioningStyle() }} ref={this._containerRef}>
+        const component = (
+            <div style={{ position: "absolute", zIndex: 10, display: visible ? "block" : "none", ...this.getPositioningStyle() }} ref={this._containerRef}>
                 {children}
             </div>
         );
+
+        if (portal) {
+            return createPortal(component, document.body);
+        }
+
+        return component;
     }
 }

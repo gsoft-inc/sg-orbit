@@ -1,4 +1,4 @@
-import { CustomAddIcon, CustomSearchIcon } from "./assets";
+import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE, logValuesChanged } from "@stories/react-components/multi-select/shared";
 import { Dropdown } from "semantic-ui-react";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
@@ -187,7 +187,7 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 triggerIcon={<CustomAddIcon />}
+                 triggerIcon={<AddIcon className="w3 h3 fill-red ml2" />}
                  onValuesChange={logValuesChanged}
              />
     )
@@ -195,7 +195,7 @@ stories("/customization")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 searchIcon={<CustomSearchIcon />}
+                 searchIcon={<MagnifierIcon className="w4 h4 fill-red" />}
                  defaultOpen
                  onValuesChange={logValuesChanged}
              />

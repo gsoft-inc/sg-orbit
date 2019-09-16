@@ -6,6 +6,18 @@
     background: red !important;
 }
 
+.border-red {
+    border: 1px solid red !important;
+}
+
+.fill-red {
+    fill: red !important;
+}
+
+.bg-blue {
+    background: blue !important;
+}
+
 .paused::after {
     animation: 0 !important;
 }

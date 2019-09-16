@@ -20,13 +20,22 @@ export class ControlledRedBox extends PureComponent {
     };
 
     render() {
-        const { top, bottom, left, right } = this.props;
+        const { top, bottom, left, right, portal } = this.props;
         const { visible } = this.state;
 
         return (
             <>
                 <button onClick={this.handleButtonClick} type="button">Open</button>
-                <Popup visible={visible} onOutsideClick={this.handleOutsideClick} onEscapeKeyDown={this.handleEscape} top={top} bottom={bottom} left={left} right={right}>
+                <Popup
+                    visible={visible}
+                    onOutsideClick={this.handleOutsideClick}
+                    onEscapeKeyDown={this.handleEscape}
+                    top={top}
+                    bottom={bottom}
+                    left={left}
+                    right={right}
+                    portal={portal}
+                >
                     <RedBox />
                 </Popup>
             </>

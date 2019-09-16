@@ -107,7 +107,7 @@
         "react-spring": "8.0.27",
         "rimraf": "3.0.0",
         "semantic-ui": "2.4.2",
-        "semantic-ui-react": "0.88.0",
+        "semantic-ui-react": "0.88.1",
         "shelljs": "0.8.3",
         "styled-jsx": "3.2.1",
         "stylelint": "10.1.0",
