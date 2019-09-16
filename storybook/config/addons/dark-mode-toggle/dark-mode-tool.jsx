@@ -15,10 +15,7 @@ class DarkModeToggleTool extends PureComponent {
         const { theme } = this.state;
 
         const newTheme = theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
-
         this.setState({ theme: newTheme });
-        this.applyTheme(newTheme );
-
 
         const previewIframe = document.getElementById(STORYBOOK_PREVIEW_IFRAME_ID);
         const iframeWindow = previewIframe.contentWindow;
@@ -27,10 +24,10 @@ class DarkModeToggleTool extends PureComponent {
         const computedStyle = iframeWindow.getComputedStyle(iframeDocument.documentElement);
 
         COLORS_WEIGHT.forEach(x => {
-            iframeDocument.documentElement.style.setProperty(`--marine-${x}`, computedStyle.getPropertyValue(`--marine-${theme}-${x}`));
-            iframeDocument.documentElement.style.setProperty(`--cloud-${x}`, computedStyle.getPropertyValue(`--cloud-${theme}-${x}`));
+            iframeDocument.documentElement.style.setProperty(`--marine-${x}`, computedStyle.getPropertyValue(`--marine-${newTheme}-${x}`));
+            iframeDocument.documentElement.style.setProperty(`--cloud-${x}`, computedStyle.getPropertyValue(`--cloud-${newTheme}-${x}`));
         });
-        iframeDocument.documentElement.style.setProperty("--white", computedStyle.getPropertyValue(`--white-${theme}`));
+        iframeDocument.documentElement.style.setProperty("--white", computedStyle.getPropertyValue(`--white-${newTheme}`));
     }
 
     render() {

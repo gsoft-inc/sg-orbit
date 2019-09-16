@@ -1,30 +1,19 @@
 :root {
-    --white: #FFFFFF;
+    --white: var(--white-light);
     --white-light: #FFFFFF;
     --white-dark: #04091A;
     --transparent: transparent;
     /* Marine */
-    --marine-50: #E2E4E8;
-    --marine-100: #B7BBC5;
-    --marine-200: #878E9E;
-    --marine-300: #566077;
-    --marine-400: #323E5A;
-    --marine-500: #0E1C3D;
-    --marine-600: #0C1937;
-    --marine-700: #0A142F;
-    --marine-800: #081127;
-    --marine-900: #04091A;
-    /* Marine Dark Theme */
-    --marine-dark-50: red;
-    --marine-dark-100: red;
-    --marine-dark-200: red;
-    --marine-dark-300: red;
-    --marine-dark-400: red;
-    --marine-dark-500: red;
-    --marine-dark-600: red;
-    --marine-dark-700: red;
-    --marine-dark-800: red;
-    --marine-dark-900: red;
+    --marine-50: var(--marine-light-50);
+    --marine-100: var(--marine-light-100);
+    --marine-200: var(--marine-light-200);
+    --marine-300: var(--marine-light-300);
+    --marine-400: var(--marine-light-400);
+    --marine-500: var(--marine-light-500);
+    --marine-600: var(--marine-light-600);
+    --marine-700: var(--marine-light-700);
+    --marine-800: var(--marine-light-800);
+    --marine-900: var(--marine-light-900);
     /* Marine Light Theme */
     --marine-light-50: #E2E4E8;
     --marine-light-100: #B7BBC5;
@@ -36,6 +25,17 @@
     --marine-light-700: #0A142F;
     --marine-light-800: #081127;
     --marine-light-900: #04091A;
+    /* Marine Dark Theme */
+    --marine-dark-50: red;
+    --marine-dark-100: red;
+    --marine-dark-200: red;
+    --marine-dark-300: red;
+    --marine-dark-400: red;
+    --marine-dark-500: red;
+    --marine-dark-600: red;
+    --marine-dark-700: red;
+    --marine-dark-800: red;
+    --marine-dark-900: red;
     /* Sunray */
     --sunray-50: #FFF6E7;
     --sunray-100: #FEE9C3;
@@ -59,27 +59,16 @@
     --moonstone-800: #599E9D;
     --moonstone-900: #468E8D;
     /* Cloud */
-    --cloud-50: #F0F1F3;
-    --cloud-100: #DADCE2;
-    --cloud-200: #C1C5CF;
-    --cloud-300: #A8ADBB;
-    --cloud-400: #959CAD;
-    --cloud-500: #828A9E;
-    --cloud-600: #7A8296;
-    --cloud-700: #6F778C;
-    --cloud-800: #656D82;
-    --cloud-900: #525A70;
-    /* Cloud Dark */
-    --cloud-dark-50: teal;
-    --cloud-dark-100: teal;
-    --cloud-dark-200: teal;
-    --cloud-dark-300: teal;
-    --cloud-dark-400: teal;
-    --cloud-dark-500: teal;
-    --cloud-dark-600: teal;
-    --cloud-dark-700: teal;
-    --cloud-dark-800: teal;
-    --cloud-dark-900: teal;
+    --cloud-50: var(--cloud-light-50);
+    --cloud-100: var(--cloud-light-100);
+    --cloud-200: var(--cloud-light-200);
+    --cloud-300: var(--cloud-light-300);
+    --cloud-400: var(--cloud-light-400);
+    --cloud-500: var(--cloud-light-500);
+    --cloud-600: var(--cloud-light-600);
+    --cloud-700: var(--cloud-light-700);
+    --cloud-800: var(--cloud-light-800);
+    --cloud-900: var(--cloud-light-900);
     /* Cloud Light */
     --cloud-light-50: #F0F1F3;
     --cloud-light-100: #DADCE2;
@@ -91,6 +80,17 @@
     --cloud-light-700: #6F778C;
     --cloud-light-800: #656D82;
     --cloud-light-900: #525A70;
+    /* Cloud Dark */
+    --cloud-dark-50: teal;
+    --cloud-dark-100: teal;
+    --cloud-dark-200: teal;
+    --cloud-dark-300: teal;
+    --cloud-dark-400: teal;
+    --cloud-dark-500: teal;
+    --cloud-dark-600: teal;
+    --cloud-dark-700: teal;
+    --cloud-dark-800: teal;
+    --cloud-dark-900: teal;
     /* Alert */
     --alert-50: #FFE3E8;
     --alert-100: #FEB8C6;
