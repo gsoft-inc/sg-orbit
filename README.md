@@ -48,7 +48,7 @@ To install the package with npm:
 npm install @orbit-ui/react react-spring moment
 ```
 
-Then you can import the files:
+Then import the files:
 
 ```javascript
 import { Button, ... } from "semantic-ui-react";
@@ -60,7 +60,7 @@ import { ClearIcon, ... } from "@orbit-ui/icons";
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
 ```
 
-If your app doesn't use React or you prefer to hand-pick a few [packages](#npm-packages) to install, this is also possible.
+If your app doesn't use React or you prefer to hand-pick a few [packages](#npm-packages), this is also possible.
 
 Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
 
