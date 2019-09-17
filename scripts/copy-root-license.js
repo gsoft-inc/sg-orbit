@@ -29,6 +29,11 @@ if (!shell.test("-d", "dist")) {
     es(shell.mkdir("dist"));
 }
 
-es(shell.cp("../../LICENSE", `${projectPath}/${dest}/LICENSE`));
+// Navigate up until we find the LICENSE file.
+while(!shell.test("-f", "LICENSE")) {
+    shell.cd("..");
+}
+
+es(shell.cp("LICENSE", `${projectPath}/${dest}/LICENSE`));
 
 console.log(chalk.green("success"), ` Copied LICENSE to ${projectPath}/${dest}`);

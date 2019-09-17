@@ -21,16 +21,6 @@
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist"
     },
-    "peerDependencies": {
-        "@orbit-ui/css-normalize": "*",
-        "@orbit-ui/icons": "*",
-        "@orbit-ui/semantic-ui-theme": "*",
-        "@orbit-ui/tachyons": "*",
-        "react": "*",
-        "react-dom": "*",
-        "semantic-ui-react": "*",
-        "styled-jsx": "*"
-    },
     "dependencies": {
         "@orbit-ui/react-components-shared": "1.1.0",
         "@orbit-ui/react-date-picker": "1.0.0",
