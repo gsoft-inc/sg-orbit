@@ -2,7 +2,7 @@
     "name": "@orbit-ui/react-components-shared",
     "version": "1.1.0",
     "description": "Sharegate Orbit UI React components shared code",
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -10,11 +10,11 @@
         "access": "public"
     },
     "peerDependencies": {
+        "lodash": "*",
         "react": "*"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "*",
-        "lodash": "*"
+        "@babel/runtime-corejs3": "*"
     },
     "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"
 }

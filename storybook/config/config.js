@@ -26,8 +26,8 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
-import "./style/components-presets.css";
-import "./style/stories.css";
+import "./styles/components-presets.css";
+import "./styles/stories.css";
 
 // Option defaults.
 addParameters({

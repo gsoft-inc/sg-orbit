@@ -4,12 +4,12 @@ Semantic UI "`require-dot-file` packages goal is to find the `semantic.json` con
 
 The way it works is that it will start with the current directory and search up (parent directory) until it finds the file.
 
-Since we have a mono repo setup the current directory is `C:\Dev\20_gsoft\sg-brand\node_modules` which doesn't work for us the `semantic.json` is not found and the path structure is not working which results in gulp scripts not findind any files.
+Since we have a mono repo setup the current directory is `C:\Dev\20_gsoft\sg-orbit\node_modules` which doesn't work for us the `semantic.json` is not found and the path structure is not working which results in gulp scripts not findind any files.
 
 Here the full directory that the package walk up:
 
-C:\Dev\20_gsoft\sg-brand\node_modules
-C:\Dev\20_gsoft\sg-brand
+C:\Dev\20_gsoft\sg-orbit\node_modules
+C:\Dev\20_gsoft\sg-orbit
 C:\Dev\20_gsoft
 C:\Dev
 C:\

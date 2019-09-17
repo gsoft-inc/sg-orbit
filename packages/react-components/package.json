@@ -2,7 +2,7 @@
     "name": "@orbit-ui/react-components",
     "version": "1.2.0",
     "description": "Sharegate Orbit UI React components",
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -20,16 +20,6 @@
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist"
-    },
-    "peerDependencies": {
-        "@orbit-ui/css-normalize": "*",
-        "@orbit-ui/icons": "*",
-        "@orbit-ui/semantic-ui-theme": "*",
-        "@orbit-ui/tachyons": "*",
-        "react": "*",
-        "react-dom": "*",
-        "semantic-ui-react": "*",
-        "styled-jsx": "*"
     },
     "dependencies": {
         "@orbit-ui/react-components-shared": "1.1.0",

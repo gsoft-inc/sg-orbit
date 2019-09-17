@@ -2,12 +2,13 @@
     "name": "sg-orbit",
     "version": "0.0.0",
     "private": true,
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "license": "Apache-2.0",
     "workspaces": {
         "packages": [
             "packages/*",
-            "packages/react-components/components/*"
+            "packages/react-components/components/*",
+            "packages/bundles/*"
         ]
     },
     "scripts": {
@@ -15,11 +16,11 @@
         "bootstrap:pkg": "yarn install:pkg && yarn setup:pkg",
         "bootstrap:sb": "yarn install:sb",
         "bootstrap:website": "cd website && yarn install",
-        "build": "run-p build:*",
+        "build": "run-s build:*",
         "build:pkg": "lerna run build --parallel",
-        "build:theme": "cd packages/semantic-ui-theme && yarn build",
         "build:sb": "cd storybook && yarn build",
         "build:website": "cd website && yarn build",
+        "build-theme": "cd packages/semantic-ui-theme && yarn build",
         "chromatic": "cd storybook && yarn chromatic",
         "chromatic-theme": "cd storybook && yarn chromatic-theme",
         "chromatic-materials": "cd storybook && yarn chromatic-materials",

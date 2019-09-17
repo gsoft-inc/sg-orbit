@@ -32,17 +32,86 @@ https://sg-orbit.netlify.com
 
 The storybook website contains stories for Orbit UI custom React components.
 
-Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is for automated testing purpose.
+Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is for automated visual testing.
 
 https://sg-storybook.netlify.com
 
+## Installation
+
+Multiple [npm packages](#npm-packages) compose Orbit UI. Based on which type of application you're building you'll choose a different composition of packages.
+
+For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](/packages/bundles/react) package.
+
+To install the package with npm:
+
+```bash
+npm install @orbit-ui/react react-spring moment
+```
+
+Then you can import the files:
+
+```javascript
+import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
+```
+
+```css
+@import "~@orbit-ui/react/[(apricot|overcast|desktop|styles).css]";
+```
+
+If your app doesn't use React or you prefer to hand-pick a few [packages](#npm-packages) to install, this is also possible.
+
+Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
+
+Before installing any [React components packages](#react-components), the [core packages](#core) must be installed.
+
+You can pick and choose the [core packages](#core) to install but you should normally install all of them.
+
+To install all the [core packages](#core) with npm:
+
+```bash
+npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons 
+```
+
+Then, you can import the files:
+
+```css
+@import "~@orbit-ui/fonts";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
+@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
+```
+
+Once the [core packages](#core) are installed, you can optionally add [React component packages](#react-components).
+
+A few options are available...
+
+**Only install the components from Semantic UI React**
+
+With npm:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+
+**Install all the Orbit UI React components**
+
+With npm:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-components semantic-ui-react react-spring styled-jsx moment lodash
+```
+
+**Hand-pick a few Orbit UI React components to install**
+
+With npm:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
+```
+
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
+
 ## npm packages
-
-Multiple npm packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition of packages.
-
-If you're building a website or any non React app, have a look at the [Core](#core) packages.
-
-If you're building a React app, have a look at the [React Components](#react-components) packages.
 
 ### Core
 
@@ -60,26 +129,6 @@ If you're building a React app, have a look at the [React Components](#react-com
 - [@orbit-ui/foundation](/packages/foundation): is a set of CSS variables for Orbit UI colors, spacing and typography.
 - [@orbit-ui/tachyons](/packages/tachyons): is a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons).
 
-#### Installation
-
-You can pick and choose the **core** packages to install but you should normally install all of them. Strict *peerDependencies* are defined to ensure that dependent packages are installed together. If a required package is missing during the installation, a warning will be output by your package manager.
-
-To install all the core packages with npm:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/fonts @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons @orbit-ui/semantic-ui-theme
-```
-
-Then, in your `main.css` file:
-
-```css
-@import "~@orbit-ui/fonts";
-@import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
-@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
-@import "~@orbit-ui/semantic-ui-theme";
-```
-
 ### React Components
 
 Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
@@ -88,6 +137,7 @@ When available, you should use a component from [Semantic UI React](https://reac
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
+| [@orbit-ui/react](/packages/bundles/react) | [![npm](https://img.shields.io/npm/v/@orbit-ui/react.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/react) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/bundles/react)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/bundles/react) |
 | [@orbit-ui/semantic-ui-theme](/packages/semantic-ui-theme) | [![npm](https://img.shields.io/npm/v/@orbit-ui/semantic-ui-theme.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/semantic-ui-theme) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/semantic-ui-theme)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/semantic-ui-theme) |
 | [@orbit-ui/react-components](/packages/react-components) | [![npm](https://img.shields.io/npm/v/@orbit-ui/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/react-components) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/react-components)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/react-components) |
 | [@orbit-ui/react-date-picker](/packages/react-components/components/date-picker) | [![npm](https://img.shields.io/npm/v/@orbit-ui/react-date-picker.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/react-date-picker) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/date-picker)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/date-picker) |
@@ -96,45 +146,10 @@ When available, you should use a component from [Semantic UI React](https://reac
 | [@orbit-ui/react-popup](/packages/react-components/components/popup) | [![npm](https://img.shields.io/npm/v/@orbit-ui/react-popup.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/react-popup) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/popup)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/popup) |
 | [@orbit-ui/react-components-shared](/packages/react-components/components/shared) | [![npm](https://img.shields.io/npm/v/@orbit-ui/react-components-shared.svg?maxAge=3600)](https://www.npmjs.com/package/@orbit-ui/react-components-shared) | [![Dependency Status](https://img.shields.io/david/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/shared)](https://david-dm.org/gsoft-inc/sg-orbit.svg?path=packages/react-components/components/shared) |
 
+- [@orbit-ui/react](/packages/bundles/react): is a bundle containing everything to use Orbit UI in a React app.
 - [@orbit-ui/semantic-ui-theme](/packages/semantic-ui-theme): is Orbit UI custom theme for [Semantic UI](https://semantic-ui.com/). The theme is based on the variables of *@orbit-ui/foundation*.
 - [@orbit-ui/react-components](/packages/react-components): is a bundle containing every Orbit UI custom React components.
 - [@orbit-ui/react-*](/packages/react-components/components): are packages thats contains invidual Orbit UI custom React component. 
-
-#### Installation
-
-Before installing any components packages, please install the [core packages](#core).
-
-A few options are available...
-
-**Only use the components from Semantic UI React**
-
-With npm:
-
-```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react
-```
-
-Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
-
-**Use all the Orbit UI components**
-
-With npm:
-
-```bash
-npm install react-spring styled-jsx semantic-ui-react moment lodash @orbit-ui/semantic-ui-theme @orbit-ui/react-components
-```
-
-Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
-
-**Hand-pick a few Orbit UI components**
-
-With npm:
-
-```bash
-npm install react-spring @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-*
-```
-
-Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
 
 ## Maintainers
 

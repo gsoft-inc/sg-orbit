@@ -1,0 +1,33 @@
+{
+    "name": "@orbit-ui/react",
+    "version": "0.1.0",
+    "description": "Sharegate Orbit UI for React",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "index.js",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "scripts": {
+        "prebuild": "yarn clean",
+        "build": "yarn copy-to-dist",
+        "clean": "rimraf dist",
+        "prepublishOnly": "yarn copy-license-to-dist",
+        "copy-to-dist": "node scripts/copy-to-dist",
+        "copy-license-to-dist": "node ../../../scripts/copy-root-license dist"
+    },
+    "dependencies": {
+        "@orbit-ui/react-components": "1.2.0",
+        "@orbit-ui/css-normalize": "1.0.5",
+        "@orbit-ui/fonts": "1.0.4",
+        "@orbit-ui/foundation": "1.0.4",
+        "@orbit-ui/icons": "2.0.0",
+        "@orbit-ui/semantic-ui-theme": "1.1.6",
+        "@orbit-ui/tachyons": "2.0.4",
+        "lodash": "*",
+        "semantic-ui-react": "0.87.3",
+        "styled-jsx": "3.2.1"
+    }
+}

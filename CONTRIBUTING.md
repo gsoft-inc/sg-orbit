@@ -374,14 +374,6 @@ Same as *build* but only for the packages.
 yarn build:pkg
 ```
 
-### build:theme
-
-Same as *build* but only for the SUI theme.
-
-```bash
-yarn build:theme
-```
-
 ### build:sb
 
 Same as *build* but only for Storybook.
@@ -396,6 +388,14 @@ Same as *build* but only for the website.
 
 ```bash
 yarn build:website
+```
+
+### build-theme
+
+Same as *build* but only for the SUI theme.
+
+```bash
+yarn build-theme
 ```
 
 ### release-pkg
@@ -470,7 +470,7 @@ yarn chromatic
 
 Same as *chromatic* but only for the SUI theme.
 
-Before running make sure you built the thme with the `build:theme` command.
+Before running make sure you built the theme with the `build-theme` command.
 
 ```bash
 yarn chromatic-theme
@@ -573,9 +573,17 @@ Because packages hoisting is dangerous! When multiple packages of the monorepo r
 
 If you are uncertain wether or not you should add a *peerDependencies*, please read the post [dependencies-done-right](https://yarnpkg.com/blog/2018/04/18/dependencies-done-right/) on the Yarn website.
 
+### Scripts
+
+Before adding a script, make sure you read the following [gotcha](#lerna-and-npm-run-all).
+
 ### React components
 
 If you're package is a new React component, please read the [React components documentation](/packages/react-components)
+
+### Bundle
+
+If appropriate, dont forget to add your new package to the [bundle package dependencies](/packages/bundles/react/package.json).
 
 ## Add a new Yarn script
 
@@ -677,7 +685,7 @@ But the following work:
 
 For other variables that need to be pass accross tasks, please read the following issue: https://github.com/kentcdodds/cross-env/issues/176
 
-### Lerna leaf projects lifecycle & npm-run-all
+### Lerna and npm-run-all
 
 Never use npm-run-all (run-s, run-p) in a lifecycle scripts of a leaf projects. Instead of running in the leaf project scope, it will run at the root project scope.
 
