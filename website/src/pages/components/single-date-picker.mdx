@@ -17,7 +17,7 @@ import moment from "moment";
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <SingleDatePicker onDatesChange={noop} className="z-999" />
+        <SingleDatePicker onDateChange={noop} className="z-999" />
     </div>
 </Playground>
 
@@ -25,7 +25,7 @@ import moment from "moment";
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <SingleDatePicker date={moment()} onDatesChange={noop} />
+        <SingleDatePicker date={moment()} onDateChange={noop} />
     </div>
 </Playground>
 
@@ -33,7 +33,7 @@ import moment from "moment";
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <SingleDatePicker minDate={moment().subtract(2, "days")} onDatesChange={noop} />
+        <SingleDatePicker minDate={moment().subtract(2, "days")} onDateChange={noop} />
     </div>
 </Playground>
 
@@ -41,7 +41,7 @@ import moment from "moment";
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <SingleDatePicker maxDate={moment().add(2, "weeks")} onDatesChange={noop} />
+        <SingleDatePicker maxDate={moment().add(2, "weeks")} onDateChange={noop} />
     </div>
 </Playground>
 
@@ -49,7 +49,7 @@ import moment from "moment";
 
 <Playground>
     <div style={{ minHeight: "400px", zIndex: "9999", position: "relative" }}>
-        <SingleDatePicker minDate={moment().subtract(2, "days")} maxDate={moment().add(2, "weeks")} onDatesChange={noop} />
+        <SingleDatePicker minDate={moment().subtract(2, "days")} maxDate={moment().add(2, "weeks")} onDateChange={noop} />
     </div>
 </Playground>
 

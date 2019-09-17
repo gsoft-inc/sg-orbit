@@ -110,7 +110,7 @@ export class DatePickerTextboxInput extends PureComponent {
         const disabledClasses = cx({ " bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
         const placeholderClasses = cx({ " marine-700": !this.isPlaceholder() && !disabled });
 
-        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center${openedClasses}${placeholderClasses}${disabledClasses}`;
+        const defaultClasses = `input pv3 ph4 ba outline-0 pointer hover-b--marine-600 hover-marine-600 f6 h9 br2 flex items-center${openedClasses}${placeholderClasses}${disabledClasses}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
