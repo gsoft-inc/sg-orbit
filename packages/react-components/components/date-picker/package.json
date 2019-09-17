@@ -13,6 +13,7 @@
         "@orbit-ui/css-normalize": "*",
         "@orbit-ui/semantic-ui-theme": "*",
         "@orbit-ui/tachyons": "*",
+        "lodash": "*",
         "moment": "*",
         "react": "*",
         "react-dom": "*",
@@ -26,7 +27,6 @@
         "@orbit-ui/react-components-shared": "1.1.0",
         "@orbit-ui/react-popup": "1.1.0",
         "classnames": "*",
-        "lodash": "*",
         "prop-types": "*",
         "react-dates": "20.3.0",
         "react-moment-proptypes": "1.7.0"

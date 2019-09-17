@@ -18,6 +18,10 @@ The following documentation is only for the maintainers of this repository.
 
 ## Add a new component
 
+Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
+
+When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
+
 Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../CONTRIBUTING.md#add-a-new-packages-to-the-monorepo) section. 
 
 - [Guidelines](#component-guidelines)

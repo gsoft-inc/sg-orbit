@@ -10,11 +10,11 @@
         "access": "public"
     },
     "peerDependencies": {
+        "lodash": "*",
         "react": "*"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "*",
-        "lodash": "*"
+        "@babel/runtime-corejs3": "*"
     },
     "gitHead": "b48af014c8a3e90d525305439f0d57c67e51cf2b"
 }
