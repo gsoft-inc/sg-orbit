@@ -5,6 +5,7 @@ import { RESULT_SHAPE } from "./results";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
@@ -19,6 +20,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         defaultValue: string,
         onValueChange: func.isRequired,
         onSearch: func.isRequired,
+        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         onBlur: func,
         onKeyDown: func,
@@ -186,13 +188,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    handleFocus = event => {
-        const { onFocus } = this.props;
-
-        if (!isNil(onFocus)) {
-            onFocus(event, this.props);
-        }
-    };
+    handleFocus = useHandlerProxy(this, "onFocus");
 
     handleClear = event => {
         this.clear(event);
