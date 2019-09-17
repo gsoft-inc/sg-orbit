@@ -21,7 +21,7 @@ export class InlineSingleDatePicker extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "dib";
+        const defaultClasses = "dib pointer";
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }

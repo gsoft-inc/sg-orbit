@@ -100,10 +100,12 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     getCssClasses() {
-        const { disabled, className } = this.props;
+        const { disabled, open, className } = this.props;
 
-        const textColorClasses = disabled ? " cloud-200" : " primary-500";
-        const defaultClasses = `flex items-center outline-0${textColorClasses}`;
+        const openedClasses = open && !disabled ? " bb bw1 b--primary-500" : " bw0 b--transparent";
+        const disabledClasses = disabled ? " cloud-200 hover-b--transparent crsr-not-allowed": " primary-500 bb bw1 b--transparent hover-b--primary-500";
+
+        const defaultClasses = `flex items-center outline-0${openedClasses}${disabledClasses}`;
 
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
