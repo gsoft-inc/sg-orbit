@@ -12,7 +12,7 @@ Javascript:
 import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
 ```
 
-Style for a specific brand:
+Styles for a specific brand:
 
 ```css
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
