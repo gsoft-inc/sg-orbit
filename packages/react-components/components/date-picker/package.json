@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-date-picker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Sharegate Orbit UI React date picker components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
