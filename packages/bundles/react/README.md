@@ -15,13 +15,13 @@ import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
 Style for a specific brand:
 
 ```css
-import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
+@import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
 ```
 
 Otherwise:
 
 ```css
-import "~@orbit-ui/react/styles.css";
+@import "~@orbit-ui/react/styles.css";
 ```
 
 Full documentation available at: https://sg-orbit.netlify.com
