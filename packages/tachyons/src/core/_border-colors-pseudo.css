@@ -18,319 +18,397 @@
 
 */
 
-.hover-b--white:hover {
+.hover-b--white:hover,
+.hover-b--white:focus {
     border-color: var(--white);
 }
 
 /* Brand */
 
-.hover-b--marine-50:hover {
+.hover-b--marine-50:hover,
+.hover-b--marine-50:focus {
     border-color: var(--marine-50);
 }
 
-.hover-b--marine-100:hover {
+.hover-b--marine-100:hover,
+.hover-b--marine-100:focus {
     border-color: var(--marine-100);
 }
 
-.hover-b--marine-200:hover {
+.hover-b--marine-200:hover,
+.hover-b--marine-200:focus {
     border-color: var(--marine-200);
 }
 
-.hover-b--marine-300:hover {
+.hover-b--marine-300:hover,
+.hover-b--marine-300:focus {
     border-color: var(--marine-300);
 }
 
-.hover-b--marine-400:hover {
+.hover-b--marine-400:hover,
+.hover-b--marine-400:focus {
     border-color: var(--marine-400);
 }
 
-.hover-b--marine-500:hover {
+.hover-b--marine-500:hover,
+.hover-b--marine-500:focus {
     border-color: var(--marine-500);
 }
 
-.hover-b--marine-600:hover {
+.hover-b--marine-600:hover,
+.hover-b--marine-600:focus {
     border-color: var(--marine-600);
 }
 
-.hover-b--marine-700:hover {
+.hover-b--marine-700:hover,
+.hover-b--marine-700:focus {
     border-color: var(--marine-700);
 }
 
-.hover-b--marine-800:hover {
+.hover-b--marine-800:hover,
+.hover-b--marine-800:focus {
     border-color: var(--marine-800);
 }
 
-.hover-b--marine-900:hover {
+.hover-b--marine-900:hover,
+.hover-b--marine-900:focus {
     border-color: var(--marine-900);
 }
 
-.hover-b--sunray-50:hover {
+.hover-b--sunray-50:hover,
+.hover-b--sunray-50:focus {
     border-color: var(--sunray-50);
 }
 
-.hover-b--sunray-100:hover {
+.hover-b--sunray-100:hover,
+.hover-b--sunray-100:focus {
     border-color: var(--sunray-100);
 }
 
-.hover-b--sunray-200:hover {
+.hover-b--sunray-200:hover,
+.hover-b--sunray-200:focus {
     border-color: var(--sunray-200);
 }
 
-.hover-b--sunray-300:hover {
+.hover-b--sunray-300:hover,
+.hover-b--sunray-300:focus {
     border-color: var(--sunray-300);
 }
 
-.hover-b--sunray-400:hover {
+.hover-b--sunray-400:hover,
+.hover-b--sunray-400:focus {
     border-color: var(--sunray-400);
 }
 
-.hover-b--sunray-500:hover {
+.hover-b--sunray-500:hover,
+.hover-b--sunray-500:focus {
     border-color: var(--sunray-500);
 }
 
-.hover-b--sunray-600:hover {
+.hover-b--sunray-600:hover,
+.hover-b--sunray-600:focus {
     border-color: var(--sunray-600);
 }
 
-.hover-b--sunray-700:hover {
+.hover-b--sunray-700:hover,
+.hover-b--sunray-700:focus {
     border-color: var(--sunray-700);
 }
 
-.hover-b--sunray-800:hover {
+.hover-b--sunray-800:hover,
+.hover-b--sunray-800:focus {
     border-color: var(--sunray-800);
 }
 
-.hover-b--sunray-900:hover {
+.hover-b--sunray-900:hover,
+.hover-b--sunray-900:focus {
     border-color: var(--sunray-900);
 }
 
-.hover-b--moonstone-50:hover {
+.hover-b--moonstone-50:hover,
+.hover-b--moonstone-50:focus {
     border-color: var(--moonstone-50);
 }
 
-.hover-b--moonstone-100:hover {
+.hover-b--moonstone-100:hover,
+.hover-b--moonstone-100:focus {
     border-color: var(--moonstone-100);
 }
 
-.hover-b--moonstone-200:hover {
+.hover-b--moonstone-200:hover,
+.hover-b--moonstone-200:focus {
     border-color: var(--moonstone-200);
 }
 
-.hover-b--moonstone-300:hover {
+.hover-b--moonstone-300:hover,
+.hover-b--moonstone-300:focus {
     border-color: var(--moonstone-300);
 }
 
-.hover-b--moonstone-400:hover {
+.hover-b--moonstone-400:hover,
+.hover-b--moonstone-400:focus {
     border-color: var(--moonstone-400);
 }
 
-.hover-b--moonstone-500:hover {
+.hover-b--moonstone-500:hover,
+.hover-b--moonstone-500:focus {
     border-color: var(--moonstone-500);
 }
 
-.hover-b--moonstone-600:hover {
+.hover-b--moonstone-600:hover,
+.hover-b--moonstone-600:focus {
     border-color: var(--moonstone-600);
 }
 
-.hover-b--moonstone-700:hover {
+.hover-b--moonstone-700:hover,
+.hover-b--moonstone-700:focus {
     border-color: var(--moonstone-700);
 }
 
-.hover-b--moonstone-800:hover {
+.hover-b--moonstone-800:hover,
+.hover-b--moonstone-800:focus {
     border-color: var(--moonstone-800);
 }
 
-.hover-b--moonstone-900:hover {
+.hover-b--moonstone-900:hover,
+.hover-b--moonstone-900:focus {
     border-color: var(--moonstone-900);
 }
 
-.hover-b--cloud-50:hover {
+.hover-b--cloud-50:hover,
+.hover-b--cloud-50:focus {
     border-color: var(--cloud-50);
 }
 
-.hover-b--cloud-100:hover {
+.hover-b--cloud-100:hover,
+.hover-b--cloud-100:focus {
     border-color: var(--cloud-100);
 }
 
-.hover-b--cloud-200:hover {
+.hover-b--cloud-200:hover,
+.hover-b--cloud-200:focus {
     border-color: var(--cloud-200);
 }
 
-.hover-b--cloud-300:hover {
+.hover-b--cloud-300:hover,
+.hover-b--cloud-300:focus {
     border-color: var(--cloud-300);
 }
 
-.hover-b--cloud-400:hover {
+.hover-b--cloud-400:hover,
+.hover-b--cloud-400:focus {
     border-color: var(--cloud-400);
 }
 
-.hover-b--cloud-500:hover {
+.hover-b--cloud-500:hover,
+.hover-b--cloud-500:focus {
     border-color: var(--cloud-500);
 }
 
-.hover-b--cloud-600:hover {
+.hover-b--cloud-600:hover,
+.hover-b--cloud-600:focus {
     border-color: var(--cloud-600);
 }
 
-.hover-b--cloud-700:hover {
+.hover-b--cloud-700:hover,
+.hover-b--cloud-700:focus {
     border-color: var(--cloud-700);
 }
 
-.hover-b--cloud-800:hover {
+.hover-b--cloud-800:hover,
+.hover-b--cloud-800:focus {
     border-color: var(--cloud-800);
 }
 
-.hover-b--cloud-900:hover {
+.hover-b--cloud-900:hover,
+.hover-b--cloud-900:focus {
     border-color: var(--cloud-900);
 }
 
-.hover-b--alert-50:hover {
+.hover-b--alert-50:hover,
+.hover-b--alert-50:focus {
     border-color: var(--alert-50);
 }
 
-.hover-b--alert-100:hover {
+.hover-b--alert-100:hover,
+.hover-b--alert-100:focus {
     border-color: var(--alert-100);
 }
 
-.hover-b--alert-200:hover {
+.hover-b--alert-200:hover,
+.hover-b--alert-200:focus {
     border-color: var(--alert-200);
 }
 
-.hover-b--alert-300:hover {
+.hover-b--alert-300:hover,
+.hover-b--alert-300:focus {
     border-color: var(--alert-300);
 }
 
-.hover-b--alert-400:hover {
+.hover-b--alert-400:hover,
+.hover-b--alert-400:focus {
     border-color: var(--alert-400);
 }
 
-.hover-b--alert-500:hover {
+.hover-b--alert-500:hover,
+.hover-b--alert-500:focus {
     border-color: var(--alert-500);
 }
 
-.hover-b--alert-600:hover {
+.hover-b--alert-600:hover,
+.hover-b--alert-600:focus {
     border-color: var(--alert-600);
 }
 
-.hover-b--alert-700:hover {
+.hover-b--alert-700:hover,
+.hover-b--alert-700:focus {
     border-color: var(--alert-700);
 }
 
-.hover-b--alert-800:hover {
+.hover-b--alert-800:hover,
+.hover-b--alert-800:focus {
     border-color: var(--alert-800);
 }
 
-.hover-b--alert-900:hover {
+.hover-b--alert-900:hover,
+.hover-b--alert-900:focus {
     border-color: var(--alert-900);
 }
 
-.hover-b--success-50:hover {
+.hover-b--success-50:hover,
+.hover-b--success-50:focus {
     border-color: var(--success-50);
 }
 
-.hover-b--success-100:hover {
+.hover-b--success-100:hover,
+.hover-b--success-100:focus {
     border-color: var(--success-100);
 }
 
-.hover-b--success-200:hover {
+.hover-b--success-200:hover,
+.hover-b--success-200:focus {
     border-color: var(--success-200);
 }
 
-.hover-b--success-300:hover {
+.hover-b--success-300:hover,
+.hover-b--success-300:focus {
     border-color: var(--success-300);
 }
 
-.hover-b--success-400:hover {
+.hover-b--success-400:hover,
+.hover-b--success-400:focus {
     border-color: var(--success-400);
 }
 
-.hover-b--success-500:hover {
+.hover-b--success-500:hover,
+.hover-b--success-500:focus {
     border-color: var(--success-500);
 }
 
-.hover-b--success-600:hover {
+.hover-b--success-600:hover,
+.hover-b--success-600:focus {
     border-color: var(--success-600);
 }
 
-.hover-b--success-700:hover {
+.hover-b--success-700:hover,
+.hover-b--success-700:focus {
     border-color: var(--success-700);
 }
 
-.hover-b--success-800:hover {
+.hover-b--success-800:hover,
+.hover-b--success-800:focus {
     border-color: var(--success-800);
 }
 
-.hover-b--success-900:hover {
+.hover-b--success-900:hover,
+.hover-b--success-900:focus {
     border-color: var(--success-900);
 }
 
 /* Vendors */
-.hover-b--outlook:hover {
+.hover-b--outlook:hover,
+.hover-b--outlook:focus {
     border-color: var(--outlook);
 }
 
-.hover-b--sharepoint:hover {
+.hover-b--sharepoint:hover,
+.hover-b--sharepoint:focus {
     border-color: var(--sharepoint);
 }
 
-.hover-b--teams:hover {
+.hover-b--teams:hover,
+.hover-b--teams:focus {
     border-color: var(--teams);
 }
 
-.hover-b--planner:hover {
+.hover-b--planner:hover,
+.hover-b--planner:focus {
     border-color: var(--planner);
 }
 
-.hover-b--one-drive:hover {
+.hover-b--one-drive:hover,
+.hover-b--one-drive:focus {
     border-color: var(--one-drive);
 }
 
-.hover-b--transparent:hover {
+.hover-b--transparent:hover,
+.hover-b--transparent:focus {
     border-color: var(--transparent);
 }
 
-.hover-b--inherit:hover {
+.hover-b--inherit:hover,
+.hover-b--inherit:focus {
     border-color: inherit;
 }
 
 /* Allows to reference a primary */
 
-.hover-b--primary-50:hover {
+.hover-b--primary-50:hover,
+.hover-b--primary-50:focus {
     border-color: var(--primary-50);
 }
 
-.hover-b--primary-100:hover {
+.hover-b--primary-100:hover,
+.hover-b--primary-100:focus {
     border-color: var(--primary-100);
 }
 
-.hover-b--primary-200:hover {
+.hover-b--primary-200:hover,
+.hover-b--primary-200:focus {
     border-color: var(--primary-200);
 }
 
-.hover-b--primary-300:hover {
+.hover-b--primary-300:hover,
+.hover-b--primary-300:focus {
     border-color: var(--primary-300);
 }
 
-.hover-b--primary-400:hover {
+.hover-b--primary-400:hover,
+.hover-b--primary-400:focus {
     border-color: var(--primary-400);
 }
 
-.hover-b--primary-500:hover {
+.hover-b--primary-500:hover,
+.hover-b--primary-500:focus {
     border-color: var(--primary-500);
 }
 
-.hover-b--primary-600:hover {
+.hover-b--primary-600:hover,
+.hover-b--primary-600:focus {
     border-color: var(--primary-600);
 }
 
-.hover-b--primary-700:hover {
+.hover-b--primary-700:hover,
+.hover-b--primary-700:focus {
     border-color: var(--primary-700);
 }
 
-.hover-b--primary-800:hover {
+.hover-b--primary-800:hover,
+.hover-b--primary-800:focus {
     border-color: var(--primary-800);
 }
 
-.hover-b--primary-900:hover {
+.hover-b--primary-900:hover,
+.hover-b--primary-900:focus {
     border-color: var(--primary-900);
 }
