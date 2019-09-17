@@ -57,6 +57,10 @@ You should never do the followings:
 - Update Semantic UI *default* theme in [semantic/src/themes/default](/semantic/src/themes/default)
 - Use the *Site Theme* layer
 
+### Bundle
+
+When a new Semantic UI module is supported, dont forget to add it to the [bundle styles](../bundles/react/core.css).
+
 ## License
 
 Copyright © 2019, Groupe Sharegate inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
