@@ -2,7 +2,7 @@
     "name": "@orbit-ui/react-multi-select",
     "version": "1.0.8",
     "description": "Sharegate Orbit UI React multi-select component",
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",

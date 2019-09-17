@@ -2,7 +2,7 @@
     "name": "@orbit-ui/fonts",
     "version": "1.0.4",
     "description": "Sharegate Orbit UI fonts",
-    "repository": "https://github.com/gsoft-inc/sg-brand",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "src/index.css",

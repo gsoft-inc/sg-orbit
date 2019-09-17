@@ -2,7 +2,7 @@
     "name": "@orbit-ui/css-normalize",
     "version": "1.0.5",
     "description": "Sharegate Orbit UI CSS normalize",
-    "repository": "https://github.com/gsoft-inc/sg-brand.git",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "src/normalize.css",
