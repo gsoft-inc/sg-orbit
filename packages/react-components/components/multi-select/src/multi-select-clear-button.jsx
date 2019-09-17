@@ -2,10 +2,12 @@ import { Button } from "semantic-ui-react";
 import { PureComponent } from "react";
 import { func, string } from "prop-types";
 import { isNil } from "lodash";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
         text: string,
+        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         className: string
     };
@@ -14,11 +16,7 @@ export class MultiSelectClearButton extends PureComponent {
         text: "Clear all"
     };
 
-    handleClick = event => {
-        const { onClick } = this.props;
-
-        onClick(event, this.props);
-    }
+    handleClick = useHandlerProxy(this, "onClick");
 
     getClasses() {
         const { className } = this.props;

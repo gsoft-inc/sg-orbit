@@ -2,20 +2,18 @@ import { Button } from "semantic-ui-react";
 import { PureComponent } from "react";
 import { func, node, string } from "prop-types";
 import { isNil } from "lodash";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownTrigger extends PureComponent {
     static propTypes = {
         text: string,
         icon: node,
+        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         className: string
     };
 
-    handleClick = event => {
-        const { onClick } = this.props;
-
-        onClick(event, this.props);
-    };
+    handleClick = useHandlerProxy(this, "onClick");
 
     getClasses() {
         const { className } = this.props;
