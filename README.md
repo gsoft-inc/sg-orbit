@@ -38,7 +38,7 @@ https://sg-storybook.netlify.com
 
 ## Installation
 
-Multiple npm packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition of packages.
+Multiple [npm packages](#npm-packages) compose Orbit UI. Based on which type of application you're building you'll choose a different composition of packages.
 
 For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](/packages/bundles/react) package.
 
@@ -58,15 +58,15 @@ import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
 @import "~@orbit-ui/react/[(apricot|overcast|desktop|styles).css]";
 ```
 
-If your app doesn't use React or you prefer to hand-pick a few [packages](#point-to-packages) to install, this is also possible.
+If your app doesn't use React or you prefer to hand-pick a few [packages](#npm-packages) to install, this is also possible.
 
 Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
 
-Before installing any [React components packages](#point-to-package), the [core packages](#point-to-package) must be installed.
+Before installing any [React components packages](#react-components), the [core packages](#core) must be installed.
 
-You can pick and choose the [core packages](#point-to-package) to install but you should normally install all of them.
+You can pick and choose the [core packages](#core) to install but you should normally install all of them.
 
-To install all the core packages with npm:
+To install all the [core packages](#core) with npm:
 
 ```bash
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons 
@@ -81,7 +81,7 @@ Then, you can import the files:
 @import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
 ```
 
-Once the [core packages](#point-to-package) are installed, you can optionally add [React component packages](#point-to-package).
+Once the [core packages](#core) are installed, you can optionally add [React component packages](#react-components).
 
 A few options are available...
 
