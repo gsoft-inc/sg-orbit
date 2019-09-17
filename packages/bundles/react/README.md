@@ -9,7 +9,8 @@ This package is a bundle of all the Orbit UI packages for a React application.
 Javascript:
 
 ```javascript
-import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { ClearIcon, ... } from "@orbit-ui/icons";
 ```
 
 Styles for a specific brand:
@@ -21,7 +22,7 @@ Styles for a specific brand:
 Otherwise:
 
 ```css
-@import "~@orbit-ui/react/styles.css";
+@import "~@orbit-ui/react";
 ```
 
 Full documentation available at: https://sg-orbit.netlify.com

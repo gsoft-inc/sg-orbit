@@ -51,11 +51,13 @@ npm install @orbit-ui/react react-spring moment
 Then you can import the files:
 
 ```javascript
-import { DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react";
+import { Button, ... } from "semantic-ui-react";
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { ClearIcon, ... } from "@orbit-ui/icons";
 ```
 
 ```css
-@import "~@orbit-ui/react/[(apricot|overcast|desktop|styles).css]";
+@import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
 ```
 
 If your app doesn't use React or you prefer to hand-pick a few [packages](#npm-packages) to install, this is also possible.
@@ -72,7 +74,11 @@ To install all the [core packages](#core) with npm:
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons 
 ```
 
-Then, you can import the files:
+Then, import the files:
+
+```javascript
+import { ClearIcon, ... } from "@orbit-ui/icons";
+```
 
 ```css
 @import "~@orbit-ui/fonts";
@@ -109,7 +115,14 @@ With npm:
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
 ```
 
-Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and read the React components [usage documentation](https://sg-orbit.netlify.com).
+Then, [import the Semantic UI theme](/packages/semantic-ui-theme#installation) and the components:
+
+```javascript
+import { Button, ... } from "semantic-ui-react";
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+```
+
+For more information about the React components, read the [usage documentation](https://sg-orbit.netlify.com).
 
 ## npm packages
 
