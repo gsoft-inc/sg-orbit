@@ -59,6 +59,7 @@ export class MultiSelectDropdown extends PureComponent {
         keyboardIndex: null
     };
 
+    _triggerRef = createRef();
     _dropdownRef = createRef();
 
     componentDidUpdate(prevProps) {
@@ -187,6 +188,12 @@ export class MultiSelectDropdown extends PureComponent {
 
         this.unbindEvents();
 
+        setTimeout(() => {
+            if (!isNil(this._triggerRef.current)) {
+                this._triggerRef.current.focus();
+            }
+        }, 0);
+
         onClose(event, this.props);
     }
 
@@ -233,7 +240,8 @@ export class MultiSelectDropdown extends PureComponent {
         return cloneElement(trigger, {
             onClick: this.handleTriggerClick,
             text: triggerText,
-            icon: triggerIcon
+            icon: triggerIcon,
+            ref: this._triggerRef
         });
     };
 
@@ -274,8 +282,6 @@ export class MultiSelectDropdown extends PureComponent {
                     className={this.getClasses()}
                     disabled={disabled}
                     upward={false}
-                    // // https://github.com/Semantic-Org/Semantic-UI-React/issues/3768
-                    // search
                     floating
                 >
                     <If condition={open}>{this.renderMenu()}</If>

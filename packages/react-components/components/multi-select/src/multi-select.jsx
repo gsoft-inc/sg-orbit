@@ -10,7 +10,6 @@ import { arrayOf, bool, func, node, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
-
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
 export function startsWithSearch(event, items, query) {
@@ -115,8 +114,6 @@ export class MultiSelect extends AutoControlledPureComponent {
 
     handleItemSelect = (event, item) => {
         const { values } = this.state;
-
-        console.log(item);
 
         this.setValues(event, [...values, item.value]);
     };
