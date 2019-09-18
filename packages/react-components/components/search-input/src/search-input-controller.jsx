@@ -230,20 +230,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    handlePropagationFixFocus = () => {
-        const { disabled } = this.props;
-
-        if (!disabled) {
-            this.setState({ renderPropagationFix: false });
-
-            setTimeout(() => {
-                if (!isNil(this._inputRef.current)) {
-                    this._inputRef.current.focus();
-                }
-            }, 0);
-        }
-    };
-
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay, { leading: true }) : this.props.onSearch;
 
     cancelOnSearchDebounce() {
@@ -290,19 +276,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         return resultRenderer(data);
     };
 
-    renderPropagationFix = () => {
-        const { disabled } = this.props;
-        const { renderPropagationFix } = this.state;
-
-        return (
-            <div
-                className={cx("absolute top-0 left-0 w-100 h-100 cursor-text o-0", { dn: !renderPropagationFix })}
-                onFocus={this.handlePropagationFixFocus}
-                tabIndex={disabled ? null : "0"}
-            />
-        );
-    };
-
     renderClearButton = () => {
         const { clearIcon } = this.props;
 
@@ -347,7 +320,6 @@ export class SearchInputController extends AutoControlledPureComponent {
                     disabled={disabled}
                     loading={loading && !disabled}
                 />
-                {this.renderPropagationFix()}
                 {this.renderClearButton()}
 
                 <style jsx>{`
