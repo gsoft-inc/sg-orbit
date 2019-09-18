@@ -34,6 +34,7 @@ export class MultiSelectDropdown extends PureComponent {
         trigger: node,
         triggerText: string,
         triggerIcon: node,
+        triggerDisabledIcon: node,
         menu: node,
         searchInput: node,
         searchIcon: node,
@@ -50,6 +51,7 @@ export class MultiSelectDropdown extends PureComponent {
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
         triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
+        triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         searchInput: <MultiSelectDropdownSearchInput />,
         searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />
     };
@@ -144,9 +146,21 @@ export class MultiSelectDropdown extends PureComponent {
         }
     };
 
-    handleTriggerClick = event => {
-        this.toggleVisibility(event);
-    };
+    handleTriggerOpen = event => {
+        const { open } = this.props;
+
+        if (!open) {
+            this.toggleVisibility(event);
+        }
+    }
+
+    handleTriggerClose = event => {
+        const { open } = this.props;
+
+        if (open) {
+            this.toggleVisibility(event);
+        }
+    }
 
     handleSearchChange = (event, query) => {
         this.onSearch(event, query, this.props);
@@ -235,12 +249,16 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, triggerIcon } = this.props;
+        const { trigger, triggerText, triggerIcon, triggerDisabledIcon, open, disabled } = this.props;
 
         return cloneElement(trigger, {
-            onClick: this.handleTriggerClick,
+            onOpen: this.handleTriggerOpen,
+            onClose: this.handleTriggerClose,
             text: triggerText,
             icon: triggerIcon,
+            disabledIcon: triggerDisabledIcon,
+            open,
+            disabled,
             ref: this._triggerRef
         });
     };

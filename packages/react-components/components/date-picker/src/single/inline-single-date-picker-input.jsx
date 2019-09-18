@@ -69,6 +69,10 @@ export class InlineSingleDatePickerInput extends PureComponent {
     handleKeyDown = event => {
         const { onKeyDown, onOpen, disabled } = this.props;
 
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event, this.props);
+        }
+
         const key = event.keyCode;
 
         if (key === KEYS.space || key === KEYS.enter) {
@@ -79,10 +83,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
             if (!disabled) {
                 onOpen(event, this.props);
             }
-        }
-
-        if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
         }
     }
 
