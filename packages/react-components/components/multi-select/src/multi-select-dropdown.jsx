@@ -1,21 +1,22 @@
 import { AddIcon } from "@orbit-ui/icons";
-import { Dropdown, Ref } from "semantic-ui-react";
 import { ITEM_SHAPE } from "./items";
 import { KEYS } from "@orbit-ui/react-components-shared";
 import { MagnifierIcon } from "@orbit-ui/icons";
+import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
+import { Ref } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
 function defaultItemRenderer(item, isSelected) {
-    return <Dropdown.Item text={item.text} value={item.value} selected={isSelected} />;
+    return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} />;
 }
 
 function defaultHeaderRenderer(group) {
-    return <Dropdown.Header content={group} />;
+    return <MonkeyPatchDropdown.Header content={group} />;
 }
 
 export class MultiSelectDropdown extends PureComponent {
@@ -267,16 +268,18 @@ export class MultiSelectDropdown extends PureComponent {
 
         return (
             <Ref innerRef={this._dropdownRef}>
-                <Dropdown
+                <MonkeyPatchDropdown
                     open={open}
                     trigger={this.renderTrigger()}
                     className={this.getClasses()}
                     disabled={disabled}
                     upward={false}
+                    // // https://github.com/Semantic-Org/Semantic-UI-React/issues/3768
+                    // search
                     floating
                 >
                     <If condition={open}>{this.renderMenu()}</If>
-                </Dropdown>
+                </MonkeyPatchDropdown>
             </Ref>
         );
     }
