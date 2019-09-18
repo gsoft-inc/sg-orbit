@@ -3,6 +3,7 @@ import {
     ArrowFullIcon,
     ArrowIcon,
     ClearIcon,
+    InfoIcon,
     MagnifierIcon
 } from "@orbit-ui/icons";
 import { storiesBuilder } from "@utils/stories-builder";
@@ -31,6 +32,9 @@ stories()
                  </div>
                  <div className="mb4 flex">
                      <MagnifierIcon className="w4 h4" />
+                 </div>
+                 <div className="mb4 flex">
+                     <InfoIcon className="w4 h4" />
                  </div>
              </div>
     );
