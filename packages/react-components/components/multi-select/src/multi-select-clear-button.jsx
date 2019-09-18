@@ -1,8 +1,9 @@
-import { Button } from "semantic-ui-react";
-import { PureComponent } from "react";
+import { Button, Ref } from "semantic-ui-react";
+import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
 import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+// import EventStack from "@semantic-ui-react/event-stack";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
@@ -15,6 +16,8 @@ export class MultiSelectClearButton extends PureComponent {
     static defaultProps = {
         text: "Clear all"
     };
+
+    _buttonRef = createRef();
 
     handleClick = useHandlerProxy(this, "onClick");
 
@@ -30,9 +33,11 @@ export class MultiSelectClearButton extends PureComponent {
         const { text } = this.props;
 
         return (
-            <Button onClick={this.handleClick} className={this.getClasses()}>
-                {text}
-            </Button>
+            <Ref innerRef={this._buttonRef}>
+                <Button onClick={this.handleClick} className={this.getClasses()}>
+                    {text}
+                </Button>
+            </Ref>
         );
     }
 }

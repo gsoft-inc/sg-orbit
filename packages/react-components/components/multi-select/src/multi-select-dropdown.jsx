@@ -34,6 +34,7 @@ export class MultiSelectDropdown extends PureComponent {
         trigger: node,
         triggerText: string,
         triggerIcon: node,
+        triggerDisabledIcon: node,
         menu: node,
         searchInput: node,
         searchIcon: node,
@@ -50,6 +51,7 @@ export class MultiSelectDropdown extends PureComponent {
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
         triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
+        triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         searchInput: <MultiSelectDropdownSearchInput />,
         searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />
     };
@@ -59,6 +61,7 @@ export class MultiSelectDropdown extends PureComponent {
         keyboardIndex: null
     };
 
+    _triggerRef = createRef();
     _dropdownRef = createRef();
 
     componentDidUpdate(prevProps) {
@@ -143,9 +146,21 @@ export class MultiSelectDropdown extends PureComponent {
         }
     };
 
-    handleTriggerClick = event => {
-        this.toggleVisibility(event);
-    };
+    handleTriggerOpen = event => {
+        const { open } = this.props;
+
+        if (!open) {
+            this.toggleVisibility(event);
+        }
+    }
+
+    handleTriggerClose = event => {
+        const { open } = this.props;
+
+        if (open) {
+            this.toggleVisibility(event);
+        }
+    }
 
     handleSearchChange = (event, query) => {
         this.onSearch(event, query, this.props);
@@ -186,6 +201,12 @@ export class MultiSelectDropdown extends PureComponent {
         const { onClose } = this.props;
 
         this.unbindEvents();
+
+        setTimeout(() => {
+            if (!isNil(this._triggerRef.current)) {
+                this._triggerRef.current.focus();
+            }
+        }, 0);
 
         onClose(event, this.props);
     }
@@ -228,12 +249,17 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, triggerIcon } = this.props;
+        const { trigger, triggerText, triggerIcon, triggerDisabledIcon, open, disabled } = this.props;
 
         return cloneElement(trigger, {
-            onClick: this.handleTriggerClick,
+            onOpen: this.handleTriggerOpen,
+            onClose: this.handleTriggerClose,
             text: triggerText,
-            icon: triggerIcon
+            icon: triggerIcon,
+            disabledIcon: triggerDisabledIcon,
+            open,
+            disabled,
+            ref: this._triggerRef
         });
     };
 
@@ -274,8 +300,6 @@ export class MultiSelectDropdown extends PureComponent {
                     className={this.getClasses()}
                     disabled={disabled}
                     upward={false}
-                    // // https://github.com/Semantic-Org/Semantic-UI-React/issues/3768
-                    // search
                     floating
                 >
                     <If condition={open}>{this.renderMenu()}</If>
