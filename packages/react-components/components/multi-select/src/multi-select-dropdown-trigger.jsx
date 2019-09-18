@@ -76,6 +76,8 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                 <Button
                     onClick={this.handleClick}
                     onKeyDown={this.handleKeyDown}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
                     secondary
                     className={this.getClasses()}
                     ref={this._buttonRef}
