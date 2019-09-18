@@ -225,9 +225,11 @@ export class MultiSelect extends AutoControlledPureComponent {
             return null;
         }
 
-        return cloneElement(clearButton, {
-            onClick: this.handleClear
-        });
+        return <div className="mr2 mb2">
+            {cloneElement(clearButton, {
+                onClick: this.handleClear
+            })}
+        </div>;
     };
 
     render() {
@@ -240,7 +242,7 @@ export class MultiSelect extends AutoControlledPureComponent {
             <div className={classes}>
                 {this.renderDropDown()}
                 {this.renderSelectedItems()}
-                <div className="mr2 mb2">{this.renderClearButton()}</div>
+                {this.renderClearButton()}
             </div>
         );
     }
