@@ -17,6 +17,9 @@
         "build:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
         "prewatch": "yarn clean",
         "watch": "run-p \"build:* --watch\"",
+        "test": "yarn jest --watchAll",
+        "test-ci": "yarn jest",
+        "jest": "jest",
         "clean": "run-p clean:*",
         "clean:this": "rimraf dist",
         "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist"

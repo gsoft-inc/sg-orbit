@@ -456,6 +456,14 @@ Execute all the linters.
 yarn lint
 ```
 
+### test
+
+Execute all the interaction tests.
+
+```bash
+yarn test
+```
+
 ### chromatic
 
 Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, read the [Testing](#testing) section.
