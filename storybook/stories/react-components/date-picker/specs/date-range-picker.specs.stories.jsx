@@ -1,4 +1,4 @@
-import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
+import { ArrowIcon, CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
 import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
@@ -1005,7 +1005,7 @@ stories("/customization")
              <DateRangePicker
                  startDate={moment(DEFAULT_DATE)}
                  endDate={moment(DEFAULT_DATE).add(3, "days")}
-                 input={<DateRangePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />}></DateRangePicker.Input>}
+                 input={<DateRangePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />}></DateRangePicker.Input>}
                  onDatesChange={logDatesChanged}
              />
     )

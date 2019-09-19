@@ -1,4 +1,4 @@
-import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
+import { ArrowIcon, CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
 import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import {
@@ -666,7 +666,7 @@ stories("/customization")
          () =>
              <SingleDatePicker
                  date={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />}></SingleDatePicker.Input>}
+                 input={<SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />}></SingleDatePicker.Input>}
                  onDateChange={logDateChanged}
              />
     )

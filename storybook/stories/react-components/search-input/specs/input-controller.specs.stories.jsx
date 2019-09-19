@@ -1,4 +1,4 @@
-import { ClearIcon } from "@orbit-ui/icons";
+import { CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
 import { SearchInputController } from "@orbit-ui/react-search-input/src";
 import { noop } from "lodash";
@@ -275,7 +275,7 @@ stories("/customization")
                  defaultValue={LAURIE_VALUE}
                  onValueChange={logValueChanged}
                  onSearch={noop}
-                 clearIcon={<ClearIcon className="h3 w3 fill-red" />}
+                 clearIcon={<CancelIcon className="h3 w3 fill-red" />}
              />
     )
     .add("result renderer",

@@ -1,5 +1,5 @@
 import { Button, Label } from "semantic-ui-react";
-import { ClearIcon } from "@orbit-ui/icons";
+import { CancelIcon } from "@orbit-ui/icons";
 import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
@@ -12,7 +12,7 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
             {item.text}
             <If condition={!disabled}>
                 <Button circular size="mini" icon className="transparent" onClick={onRemove}>
-                    <ClearIcon className="h3 w3" />
+                    <CancelIcon className="h3 w3" />
                 </Button>
             </If>
         </Label>

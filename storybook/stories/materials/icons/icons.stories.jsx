@@ -2,7 +2,7 @@ import {
     AddIcon,
     ArrowFullIcon,
     ArrowIcon,
-    ClearIcon,
+    CancelIcon,
     InfoIcon,
     MagnifierIcon
 } from "@orbit-ui/icons";
@@ -25,7 +25,7 @@ stories()
                      <ArrowFullIcon className="w2 h2" />
                  </div>
                  <div className="mb4 flex">
-                     <ClearIcon className="h3 w3" />
+                     <CancelIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
                      <AddIcon className="w4 h4" />
