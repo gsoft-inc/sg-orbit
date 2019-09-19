@@ -1,4 +1,4 @@
-import { ArrowIcon, CancelIcon } from "@orbit-ui/icons";
+import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
 import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
@@ -1096,7 +1096,7 @@ stories("/customization")
          () =>
              <DateRangePicker
                  initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<DateRangePicker.Calendar navPrevIcon={<ArrowIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="w4 h4 fill-red" />}></DateRangePicker.Calendar>}
+                 calendar={<DateRangePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />}></DateRangePicker.Calendar>}
                  defaultOpen
                  onDatesChange={logDatesChanged}
              />
