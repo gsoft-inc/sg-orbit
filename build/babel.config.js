@@ -41,14 +41,15 @@ module.exports = {
             "@babel/plugin-transform-runtime",
             {
                 corejs: false,
+                helpers: !IS_TEST,
                 regenerator: true,
-                useESModules: true
+                useESModules: !IS_TEST
             }
         ],
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
         "styled-jsx/babel",
-        [
+        !IS_TEST && [
             "babel-plugin-named-asset-import",
             {
                 loaderMap: {

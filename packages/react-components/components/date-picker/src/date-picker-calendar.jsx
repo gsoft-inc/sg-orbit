@@ -167,7 +167,7 @@ export class DatePickerCalendar extends PureComponent {
         const { buttons, leftContent } = this.props;
 
         return (
-            <div className={this.getCssClasses()}>
+            <div className={this.getCssClasses()} data-testid="date-picker-calendar">
                 {leftContent}
                 <div className="flex flex-column">
                     {this.renderCalendar()}

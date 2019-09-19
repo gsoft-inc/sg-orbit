@@ -1,15 +1,22 @@
 const path = require("path");
 
-// setupFiles
-
 module.exports = {
     rootDir: path.resolve(__dirname, ".."),
-    roots: ["<rootDir>/packages/react-components/components"],
+    roots: ["<rootDir>/packages"],
     transform: {
         "^.+\\.(js|jsx)$": path.resolve("tests/babel-transform.js")
     },
+    // https://github.com/facebook/jest/issues/6229#issuecomment-403539460
     transformIgnorePatterns: [
-        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+        "/node_modules/(?!(@babel|@orbit-ui)).+\\.js$"
+    ],
+    moduleNameMapper: {
+        "\\.css": "<rootDir>/tests/css-mock.js",
+        "\\.svg": "<rootDir>/tests/svgr-mock.js"
+    },
+    setupFilesAfterEnv: [
+        "@testing-library/jest-dom/extend-expect"
     ],
     verbose: true
 };
+

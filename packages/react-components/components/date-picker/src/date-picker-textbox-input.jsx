@@ -152,6 +152,7 @@ export class DatePickerTextboxInput extends PureComponent {
             autoComplete="off"
             disabled={disabled}
             ref={this.setContainerRef}
+            data-testid="date-picker-textbox-input"
         >
             {this.renderIcon()}
             <span className="flex-grow-1 ml4">{this.isPlaceholder() ? placeholder : value}</span>
