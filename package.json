@@ -66,8 +66,10 @@
         "stylelint:pkg": "stylelint \"packages/**/*.css\"",
         "stylelint:sb": "stylelint \"storybook/**/*.css\"",
         "stylelint:website": "stylelint \"website/**/*.css\"",
-        "test": "cd packages/react-components && yarn test",
-        "test-ci": "cd packages/react-components && yarn test-ci",
+        "test": "yarn jest-watch",
+        "test-ci": "yarn jest",
+        "jest": "jest --config=tests/jest.config.js",
+        "jest-watch": "yarn jest --watchAll",
         "update": "run-s install:pkg install:sb bootstrap:website",
         "diff": "lerna diff"
     },
