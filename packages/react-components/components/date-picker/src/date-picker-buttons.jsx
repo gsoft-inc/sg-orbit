@@ -45,7 +45,7 @@ export class DatePickerButtons extends PureComponent {
 
         // Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click.
         return (
-            <Button onClick={this.handleClear} className={!canClear ? "ghost short disabled" : "ghost short"}>
+            <Button onClick={this.handleClear} className={!canClear ? "ghost short disabled" : "ghost short"} data-testid="date-picker-clear-button">
                 {clearText}
             </Button>
         );
