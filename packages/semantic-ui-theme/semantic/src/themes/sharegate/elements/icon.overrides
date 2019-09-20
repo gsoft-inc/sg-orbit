@@ -78,7 +78,7 @@ i.icon.delete:before {
     width: 10px;
     top: 0;
     margin-top: 0;
-    background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-cancel-color.svg") center center no-repeat !important;
     background-size: 10px 10px !important;
 }
 
@@ -95,6 +95,6 @@ i.icon.close:before {
     width: 10px;
     top: 0;
     margin-top: 0;
-    background: url("@{iconsPath}/icon-clear-color.svg") center center no-repeat !important;
+    background: url("@{iconsPath}/icon-cancel-color.svg") center center no-repeat !important;
     background-size: 10px 10px !important;
 }
