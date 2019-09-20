@@ -1,10 +1,14 @@
 import { SingleDatePicker as SDP } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
+import moment from "moment";
 
-const TEXTBOX_INPUT_ID = "date-picker-textbox-input";
+const TEXTBOX_ID = "date-picker-textbox-input";
+const TEXTBOX_VALUE_ID = "date-picker-textbox-input-value";
+const TEXTBOX_CLEAR_BUTTON_ID = "date-picker-textbox-clear-button";
 const CALENDAR_ID = "date-picker-calendar";
-const CLEAR_BUTTON_ID = "date-picker-clear-button";
+const CALENDAR_CLEAR_BUTTON_ID = "date-picker-calendar-clear-button";
+const CALENDAR_APPLY_BUTTON_ID = "date-picker-calendar-apply-button";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -33,7 +37,7 @@ function SingleDatePicker(props) {
 }
 
 function openWith(action, params, getByTestId) {
-    fireEvent[action](getByTestId(TEXTBOX_INPUT_ID), params);
+    fireEvent[action](getByTestId(TEXTBOX_ID), params);
 
     return waitForElement(() => getByTestId(CALENDAR_ID));
 }
@@ -93,32 +97,64 @@ test("close the calendar when the input is clicked", async () => {
 
     const calendarNode = await openWithClick(getByTestId);
 
-    fireEvent.click(getByTestId(TEXTBOX_INPUT_ID));
+    fireEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("doesn't close the calendar when the input clear button is clicked", async () => {
+test("clear the date when the input clear button is clicked", async () => {
+    const date = moment();
+    const formattedDate = date.format("MMM Do YYYY");
+
+    const { getByTestId } = render(<SingleDatePicker defaultDate={date} dateFormat="MMM Do YYYY" />);
+
+    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+
+    fireEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+});
+
+test("doesn't close the calendar when the calendar clear button is clicked", async () => {
     const { getByTestId } = render(<SingleDatePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
-    fireEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("doesn't close the calendar when a click occurs inside the calendar", async () => {
+test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
+    const { getByTestId } = render(<SingleDatePicker defaultDate={moment()} />);
 
+    const calendarNode = await openWithClick(getByTestId);
+
+    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("clicking on the input clear button clears the current date", async () => {
+test("clicking on the calendar clear button clears the current date", async () => {
+    const date = moment();
+    const formattedDate = date.format("MMM Do YYYY");
 
+    const { getByTestId } = render(<SingleDatePicker defaultDate={date} dateFormat="MMM Do YYYY" />);
+
+    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+
+    await openWithClick(getByTestId);
+
+    fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
 });
 
-// Calendar tests?
-// Inline tests
+// Inline tests (separate file, only input)
 
 
