@@ -13,7 +13,6 @@ import moment from "moment";
 
 function SingleDatePicker(props) {
     return <SDP
-        animate={false}
         onDateChange={logDateChanged}
         {...props}
     />;
@@ -21,7 +20,6 @@ function SingleDatePicker(props) {
 
 function InlineSingleDatePicker(props) {
     return <ISDP
-        animate={false}
         onDateChange={logDateChanged}
         {...props}
     />;

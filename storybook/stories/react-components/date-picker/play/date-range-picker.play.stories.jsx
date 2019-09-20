@@ -149,13 +149,6 @@ stories()
                  disabled
                  onDatesChange={logDatesChanged}
              />
-    )
-    .add("without animations",
-         () =>
-             <DateRangePicker
-                 animate={false}
-                 onDatesChange={logDatesChanged}
-             />
     );
 
 stories("/controlled")

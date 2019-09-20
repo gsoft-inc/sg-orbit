@@ -13,7 +13,6 @@ function DatePickerAnchor({ open = true, disabled = false, ...otherProps }) {
         disabled={disabled}
         onOutsideClick={noop}
         onEscapeKeyDown={noop}
-        animate={false}
         {...otherProps}
     />;
 }

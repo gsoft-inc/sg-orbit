@@ -1,14 +1,9 @@
 import { animated, useSpring } from "react-spring";
-import { any, bool, string } from "prop-types";
-import { isUndefined } from "lodash";
+import { any, bool } from "prop-types";
 
 // Since the date pickers are currently not based on hooks, the animation must be in an external component.
-export const FadeIn = ({ active, elementType, children, className }) => {
-    const AnimatedComponent = animated[elementType];
-
-    if (isUndefined(AnimatedComponent)) {
-        throw new Error(`SlideInTop - elementType ${elementType} is invalid`);
-    }
+export const FadeIn = ({ active, children, className }) => {
+    const AnimatedComponent = animated["div"];
 
     const transition = useSpring({
         opacity: active ? 1 : 0,
@@ -24,10 +19,5 @@ export const FadeIn = ({ active, elementType, children, className }) => {
 
 FadeIn.propTypes = {
     active: bool.isRequired,
-    elementType: string,
     children: any.isRequired
-};
-
-FadeIn.defaultProps = {
-    elementType: "div"
 };

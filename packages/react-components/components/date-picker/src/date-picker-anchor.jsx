@@ -16,14 +16,12 @@ export class DatePickerAnchor extends PureComponent {
         offsets: arrayOf(string),
         onOutsideClick: func.isRequired,
         onEscapeKeyDown: func.isRequired,
-        disabled: bool.isRequired,
-        animate: bool
+        disabled: bool.isRequired
     };
 
     static defaultProps = {
         position: BOTTOM_LEFT,
-        offsets: ["0px", "10px"],
-        animate: true
+        offsets: ["0px", "10px"]
     };
 
     handleOutsideClick = useHandlerProxy(this, "onOutsideClick");
@@ -84,22 +82,15 @@ export class DatePickerAnchor extends PureComponent {
     }
 
     render() {
-        const { input, inputHeight, open, disabled, animate } = this.props;
+        const { input, inputHeight, open, disabled } = this.props;
 
         return (
             <div className={this.getCssClasses()}>
                 {input}
                 <If condition={!isNil(inputHeight) && !disabled}>
-                    <Choose>
-                        <When condition={animate}>
-                            <FadeIn active={open}>
-                                {this.renderPopup()}
-                            </FadeIn>
-                        </When>
-                        <Otherwise>
-                            {this.renderPopup()}
-                        </Otherwise>
-                    </Choose>
+                    <FadeIn active={open}>
+                        {this.renderPopup()}
+                    </FadeIn>
                 </If>
             </div>
         );

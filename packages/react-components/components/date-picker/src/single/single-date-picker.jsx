@@ -29,7 +29,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     defaultOpen: bool,
     open: bool,
     disabled: bool,
-    animate: bool,
     className: string
 };
 
@@ -164,7 +163,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, disabled, animate, className } = this.props;
+        const { position, offsets, disabled, className } = this.props;
         const { open, inputHeight } = this.state;
 
         return (
@@ -178,7 +177,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 onOutsideClick={this.handlePopupClose}
                 onEscapeKeyDown={this.handlePopupClose}
                 disabled={disabled}
-                animate={animate}
                 className={className}
             />
         );

@@ -28,7 +28,6 @@ export const DEFAULT_PRESETS = [
 
 function DateRangePicker(props) {
     return <DRP
-        animate={false}
         onDatesChange={logDatesChanged}
         {...props}
     />;

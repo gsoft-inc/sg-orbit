@@ -25,6 +25,14 @@ export class Popup extends PureComponent {
 
     _containerRef = createRef();
 
+    componentDidMount() {
+        const { visible } = this.props;
+
+        if (visible) {
+            this.bindEvents();
+        }
+    }
+
     componentDidUpdate(prevProps) {
         const { visible } = this.props;
 
