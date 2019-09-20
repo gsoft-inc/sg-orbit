@@ -5,22 +5,22 @@
 As a React component:
 
 ```javascript
-import { ClearIcon } from "@orbit-ui/icons";
-<ClearIcon />;
+import { CancelIcon } from "@orbit-ui/icons";
+<CancelIcon />;
 ```
 
 As a React file:
 
 ```javascript
-import clearIcon from "@orbit-ui/icons/icon-clear.svg";
-<img src={clearIcon} />;
+import cancelIcon from "@orbit-ui/icons/icon-cancel.svg";
+<img src={cancelIcon} />;
 ```
 
 As a CSS background file:
 
 ```css
-.clear-icon: {
-    background: url("~@orbit-ui/icons/icon-clear.svg");
+.cancel-icon: {
+    background: url("~@orbit-ui/icons/icon-cancel.svg");
 }
 ```
 
@@ -55,7 +55,7 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 If you add an icon as a CSS background to a package of the monorepo, you must add the `/dist` segment to the path.
 
 ```css
-.clear-icon: {
-    background: url("~@orbit-ui/icons/dist/icon-clear.svg");
+.cancel-icon: {
+    background: url("~@orbit-ui/icons/dist/icon-cancel.svg");
 }
 ```

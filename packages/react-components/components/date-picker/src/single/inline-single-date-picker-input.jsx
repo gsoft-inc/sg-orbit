@@ -1,4 +1,4 @@
-import { ArrowIcon } from "@orbit-ui/icons";
+import { ChevronIcon } from "@orbit-ui/icons";
 import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent } from "react";
 import { bool, func, node, string } from "prop-types";
@@ -28,10 +28,10 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     static defaultProps = {
-        openIcon: <ArrowIcon className="w4 h4 rotate-270 fill-primary-500" />,
-        closeIcon: <ArrowIcon className="w4 h4 rotate-90 fill-primary-500" />,
-        disabledOpenIcon: <ArrowIcon className="w4 h4 rotate-270 fill-cloud-200" />,
-        disabledCloseIcon: <ArrowIcon className="w4 h4 rotate-90 fill-cloud-200" />
+        openIcon: <ChevronIcon className="w4 h4 rotate-270 fill-primary-500" />,
+        closeIcon: <ChevronIcon className="w4 h4 rotate-90 fill-primary-500" />,
+        disabledOpenIcon: <ChevronIcon className="w4 h4 rotate-270 fill-cloud-200" />,
+        disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
     componentDidMount() {
