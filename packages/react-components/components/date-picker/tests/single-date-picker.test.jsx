@@ -1,22 +1,13 @@
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
-// import { SingleDatePicker } from "../src";
-import { PureComponent } from "react";
 import { fireEvent, render, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
-// class Foo extends PureComponent {
-//     render() {
-//         return <div data-testid="hey">Hello</div>;
-//     }
-// }
-
-// test("foo", () => {
-//     // const { getByTestId } = render(<Foo />);
-
-//     expect(true).toBeTruthy();
-
-//     // expect(getByTestId("hey")).toBeInTheDocument();
-// });
+jest.mock("../src/react-dates-wrapper.jsx", () => {
+    return {
+        DayPickerSingleDateController: () => <></>,
+        DayPickerRangeController: () => <></>
+    };
+});
 
 test("open when the input is clicked", async () => {
     const { getByTestId } = render(<SingleDatePicker onDateChange={noop} />);

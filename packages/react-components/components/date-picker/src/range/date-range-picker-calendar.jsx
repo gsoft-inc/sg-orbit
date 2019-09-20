@@ -1,5 +1,5 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
-import { DayPickerRangeController } from "react-dates";
+import { DayPickerRangeController } from "../react-dates-wrapper";
 import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";

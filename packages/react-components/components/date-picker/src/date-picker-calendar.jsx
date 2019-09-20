@@ -1,6 +1,3 @@
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ArrowIcon } from "@orbit-ui/icons";
 import { PureComponent, cloneElement } from "react";

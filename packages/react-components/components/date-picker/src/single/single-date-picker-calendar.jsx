@@ -1,5 +1,5 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
-import { DayPickerSingleDateController } from "react-dates";
+import { DayPickerSingleDateController } from "../react-dates-wrapper";
 import { POSITIONS } from "../positions";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
