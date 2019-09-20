@@ -16,12 +16,14 @@ export class DatePickerAnchor extends PureComponent {
         offsets: arrayOf(string),
         onOutsideClick: func.isRequired,
         onEscapeKeyDown: func.isRequired,
-        disabled: bool.isRequired
+        disabled: bool.isRequired,
+        animate: bool
     };
 
     static defaultProps = {
         position: BOTTOM_LEFT,
-        offsets: ["0px", "10px"]
+        offsets: ["0px", "10px"],
+        animate: true
     };
 
     handleOutsideClick = useHandlerProxy(this, "onOutsideClick");
@@ -65,24 +67,39 @@ export class DatePickerAnchor extends PureComponent {
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
 
+    renderPopup() {
+        const { calendar, open } = this.props;
+
+        return (
+            <Popup
+                visible={open}
+                onOutsideClick={this.handleOutsideClick}
+                onEscapeKeyDown={this.handleEscapeKeyDown}
+                {...this.getHorizontalPosition()}
+                {...this.getVerticalPosition()}
+            >
+                {calendar}
+            </Popup>
+        );
+    }
+
     render() {
-        const { input, inputHeight, calendar, open, disabled } = this.props;
+        const { input, inputHeight, open, disabled, animate } = this.props;
 
         return (
             <div className={this.getCssClasses()}>
                 {input}
                 <If condition={!isNil(inputHeight) && !disabled}>
-                    <FadeIn active={open}>
-                        <Popup
-                            visible={open}
-                            onOutsideClick={this.handleOutsideClick}
-                            onEscapeKeyDown={this.handleEscapeKeyDown}
-                            {...this.getHorizontalPosition()}
-                            {...this.getVerticalPosition()}
-                        >
-                            {calendar}
-                        </Popup>
-                    </FadeIn>
+                    <Choose>
+                        <When condition={animate}>
+                            <FadeIn active={open}>
+                                {this.renderPopup()}
+                            </FadeIn>
+                        </When>
+                        <Otherwise>
+                            {this.renderPopup()}
+                        </Otherwise>
+                    </Choose>
                 </If>
             </div>
         );

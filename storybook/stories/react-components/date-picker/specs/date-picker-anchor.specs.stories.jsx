@@ -1,11 +1,11 @@
-import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, DatePickerAnchor, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-date-picker/src";
+import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, DatePickerAnchor as DPA, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-date-picker/src";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 
-function Anchor({ open = true, disabled = false, ...otherProps }) {
+function DatePickerAnchor({ open = true, disabled = false, ...otherProps }) {
     const INPUT_HEIGHT = 30;
 
-    return <DatePickerAnchor
+    return <DPA
         input={<div className="bg-blue" style={{ width: "100%", height: `${INPUT_HEIGHT}px` }}></div>}
         inputHeight={INPUT_HEIGHT}
         calendar={<div className="bg-red" style={{ width: "200px", height: "150px" }}></div>}
@@ -13,6 +13,7 @@ function Anchor({ open = true, disabled = false, ...otherProps }) {
         disabled={disabled}
         onOutsideClick={noop}
         onEscapeKeyDown={noop}
+        animate={false}
         {...otherProps}
     />;
 }
@@ -31,40 +32,40 @@ function stories(segment, layout = {}) {
 stories()
     .add("close",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  open={false}
              />
     )
     .add("open",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  open
              />
     )
     .add("bottom left",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={BOTTOM_LEFT}
                  open
              />
     )
     .add("bottom center",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={BOTTOM_CENTER}
                  open
              />
     )
     .add("bottom right",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={BOTTOM_RIGHT}
                  open
              />
     )
     .add("top left",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={TOP_LEFT}
                  open
              />,
@@ -78,7 +79,7 @@ stories()
     )
     .add("top center",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={TOP_CENTER}
                  open
              />,
@@ -92,7 +93,7 @@ stories()
     )
     .add("top right",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  position={TOP_RIGHT}
                  open
              />,
@@ -107,28 +108,28 @@ stories()
 
 stories("/offsets/bottom")
     .add("left+positive", () =>
-        <Anchor
+        <DatePickerAnchor
             position={BOTTOM_LEFT}
             offsets={["30px", "30px"]}
             open
         />
     )
     .add("left+negative", () =>
-        <Anchor
+        <DatePickerAnchor
             position={BOTTOM_LEFT}
             offsets={["-30px", "-30px"]}
             open
         />
     )
     .add("right+positive", () =>
-        <Anchor
+        <DatePickerAnchor
             position={BOTTOM_RIGHT}
             offsets={["30px", "30px"]}
             open
         />
     )
     .add("right+negative", () =>
-        <Anchor
+        <DatePickerAnchor
             position={BOTTOM_RIGHT}
             offsets={["-30px", "-30px"]}
             open
@@ -137,7 +138,7 @@ stories("/offsets/bottom")
 
 stories("/offsets/top")
     .add("left+positive", () =>
-        <Anchor
+        <DatePickerAnchor
             position={TOP_LEFT}
             offsets={["30px", "30px"]}
             open
@@ -151,7 +152,7 @@ stories("/offsets/top")
          }
     )
     .add("left+negative", () =>
-        <Anchor
+        <DatePickerAnchor
             position={TOP_LEFT}
             offsets={["-30px", "-30px"]}
             open
@@ -165,7 +166,7 @@ stories("/offsets/top")
          }
     )
     .add("right+positive", () =>
-        <Anchor
+        <DatePickerAnchor
             position={TOP_RIGHT}
             offsets={["30px", "30px"]}
             open
@@ -179,7 +180,7 @@ stories("/offsets/top")
          }
     )
     .add("right+negative", () =>
-        <Anchor
+        <DatePickerAnchor
             position={TOP_RIGHT}
             offsets={["-30px", "-30px"]}
             open
@@ -196,7 +197,7 @@ stories("/offsets/top")
 stories()
     .add("css class",
          () =>
-             <Anchor
+             <DatePickerAnchor
                  className="border-red"
                  open={false}
              />,

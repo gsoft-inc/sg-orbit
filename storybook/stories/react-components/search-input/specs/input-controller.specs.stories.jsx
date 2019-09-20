@@ -1,8 +1,16 @@
 import { ClearIcon } from "@orbit-ui/icons";
 import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-input/shared";
-import { SearchInputController } from "@orbit-ui/react-search-input/src";
+import { SearchInputController as SIC } from "@orbit-ui/react-search-input/src";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
+
+function SearchInputController(props) {
+    return <SIC
+        onValueChange={logValueChanged}
+        onSearch={noop}
+        {...props}
+    />;
+}
 
 function stories(segment) {
     return storiesBuilder(module, "Search-Input-Ctrl|specs")
@@ -17,8 +25,6 @@ stories()
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("opened",
@@ -26,8 +32,6 @@ stories()
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("autofocus",
@@ -35,8 +39,6 @@ stories()
              <SearchInputController
                  autofocus
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -46,8 +48,6 @@ stories("/loading/closed")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  loading
              />
     )
@@ -55,8 +55,6 @@ stories("/loading/closed")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  loading
              />
     );
@@ -68,8 +66,6 @@ stories("/loading/opened")
                  open
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  loading
              />
     )
@@ -78,8 +74,6 @@ stories("/loading/opened")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  loading
              />
     );
@@ -90,8 +84,6 @@ stories("/disabled")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  disabled
              />
     )
@@ -99,8 +91,6 @@ stories("/disabled")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  disabled
              />
     )
@@ -109,8 +99,6 @@ stories("/disabled")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  disabled
              />
     )
@@ -118,8 +106,6 @@ stories("/disabled")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  loading
                  disabled
              />
@@ -131,8 +117,6 @@ stories("/results")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("no results",
@@ -140,8 +124,6 @@ stories("/results")
              <SearchInputController
                  open
                  results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -150,8 +132,6 @@ stories("/selected value/closed")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("value selected",
@@ -159,8 +139,6 @@ stories("/selected value/closed")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -169,8 +147,6 @@ stories("/selected value/closed/clear button")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("can clear when value selected",
@@ -178,8 +154,6 @@ stories("/selected value/closed/clear button")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -189,8 +163,6 @@ stories("/selected value/opened")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("value selected",
@@ -199,8 +171,6 @@ stories("/selected value/opened")
                  open
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -210,8 +180,6 @@ stories("/selected value/opened/clear button")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     )
     .add("can clear when value selected",
@@ -220,8 +188,6 @@ stories("/selected value/opened/clear button")
                  open
                  results={DEFAULT_RESULTS}
                  value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -231,8 +197,6 @@ stories("/default value/closed")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -243,8 +207,6 @@ stories("/default value/opened")
                  open
                  results={DEFAULT_RESULTS}
                  defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
              />
     );
 
@@ -254,8 +216,6 @@ stories("/customization")
              <SearchInputController
                  open
                  results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  noResultsMessage="Custom no results message"
              />
     )
@@ -263,8 +223,6 @@ stories("/customization")
          () =>
              <SearchInputController
                  results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  placeholder="Custom placeholder"
              />
     )
@@ -273,8 +231,6 @@ stories("/customization")
              <SearchInputController
                  results={DEFAULT_RESULTS}
                  defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  clearIcon={<ClearIcon className="h3 w3 fill-red" />}
              />
     )
@@ -283,8 +239,6 @@ stories("/customization")
              <SearchInputController
                  open
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  resultRenderer={({ text }) => {
                      return <div className="bg-red">{text}</div>;
                  }}
@@ -294,8 +248,6 @@ stories("/customization")
          () =>
              <SearchInputController
                  results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
                  className="bg-red-inner"
              />
     );

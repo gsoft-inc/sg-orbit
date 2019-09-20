@@ -109,6 +109,13 @@ stories()
                  disabled
                  onDateChange={logDateChanged}
              />
+    )
+    .add("without animations",
+         () =>
+             <SingleDatePicker
+                 animate={false}
+                 onDateChange={logDateChanged}
+             />
     );
 
 stories("/inlined")

@@ -2,7 +2,7 @@ import { animated, useSpring } from "react-spring";
 import { any, bool, string } from "prop-types";
 import { isUndefined } from "lodash";
 
-// Since the date pickers are currently not based on hooks, the animation must be developed in an external component.
+// Since the date pickers are currently not based on hooks, the animation must be in an external component.
 export const FadeIn = ({ active, elementType, children, className }) => {
     const AnimatedComponent = animated[elementType];
 

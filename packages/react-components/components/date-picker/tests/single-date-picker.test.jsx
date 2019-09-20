@@ -10,7 +10,7 @@ jest.mock("../src/react-dates-wrapper.jsx", () => {
 });
 
 test("open when the input is clicked", async () => {
-    const { getByTestId } = render(<SingleDatePicker onDateChange={noop} />);
+    const { getByTestId } = render(<SingleDatePicker animate={false} onDateChange={noop} />);
 
     fireEvent.click(getByTestId("date-picker-textbox-input"));
 

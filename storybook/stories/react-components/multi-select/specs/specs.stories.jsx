@@ -1,8 +1,15 @@
 import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE, logValuesChanged } from "@stories/react-components/multi-select/shared";
 import { Dropdown } from "semantic-ui-react";
-import { MultiSelect } from "@orbit-ui/react-multi-select/src";
+import { MultiSelect as MS } from "@orbit-ui/react-multi-select/src";
 import { storiesBuilder } from "@utils/stories-builder";
+
+function MultiSelect(props) {
+    return <MS
+        onValuesChange={logValuesChanged}
+        {...props}
+    />;
+}
 
 function stories(segment) {
     return storiesBuilder(module, "Multi-Select|specs")
@@ -17,7 +24,6 @@ stories("/dropdown")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("no items",
@@ -25,7 +31,6 @@ stories("/dropdown")
              <MultiSelect
                  items={[]}
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("categories",
@@ -33,7 +38,6 @@ stories("/dropdown")
              <MultiSelect
                  items={DEFAULT_ITEMS_WITH_CATEGORIES}
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -42,7 +46,6 @@ stories("/selected values")
          () =>
              <MultiSelect
                  items={DEFAULT_ITEMS}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("some values selected",
@@ -50,7 +53,6 @@ stories("/selected values")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("all values selected",
@@ -58,7 +60,6 @@ stories("/selected values")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={DEFAULT_ITEMS.map(x => x.value)}
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -68,7 +69,6 @@ stories("/selected values/clear button")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={DEFAULT_ITEMS.map(x => x.value)}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("cannot clear when no selection",
@@ -76,7 +76,6 @@ stories("/selected values/clear button")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={[]}
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -86,7 +85,6 @@ stories("/selected values/add button")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={[]}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("can add when all values selected",
@@ -94,7 +92,6 @@ stories("/selected values/add button")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  values={DEFAULT_ITEMS.map(x => x.value)}
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -104,7 +101,6 @@ stories("/default values")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("all values selected",
@@ -112,7 +108,6 @@ stories("/default values")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  defaultValues={DEFAULT_ITEMS.map(x => x.value)}
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -122,7 +117,6 @@ stories("/disabled")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  disabled
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("no selection",
@@ -131,7 +125,6 @@ stories("/disabled")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
                  disabled
-                 onValuesChange={logValuesChanged}
              />
     );
 
@@ -141,7 +134,6 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  dropdown={<MultiSelect.Dropdown className="bg-red border-red" />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("item renderer",
@@ -152,7 +144,6 @@ stories("/customization")
                      <MultiSelect.Dropdown itemRenderer={(item, isSelected) => <Dropdown.Item text={item.text} value={item.value} selected={isSelected} className="bg-red" />} />
                  }
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("header renderer",
@@ -163,7 +154,6 @@ stories("/customization")
                      <MultiSelect.Dropdown headerRenderer={group => <Dropdown.Header content={group} className="bg-red" />} />
                  }
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("no results message",
@@ -172,7 +162,6 @@ stories("/customization")
                  items={[]}
                  noResultsMessage="Custom no results message"
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("add text",
@@ -180,14 +169,12 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  addText="Custom add text"
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("trigger", () =>
         <MultiSelect
             items={DEFAULT_ITEMS}
             dropdown={<MultiSelect.Dropdown trigger={<MultiSelect.Trigger className="bg-red" />} />}
-            onValuesChange={logValuesChanged}
         />
     )
     .add("trigger icon",
@@ -195,7 +182,6 @@ stories("/customization")
              <MultiSelect
                  items={DEFAULT_ITEMS}
                  dropdown={<MultiSelect.Dropdown triggerIcon={<AddIcon className="w3 h3 fill-red ml2" />} />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("search input",
@@ -204,7 +190,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  dropdown={<MultiSelect.Dropdown searchInput={<MultiSelect.SearchInput className="bg-red border-red" />} />}
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("search icon",
@@ -213,7 +198,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  dropdown={<MultiSelect.Dropdown searchIcon={<MagnifierIcon className="w4 h4 fill-red" />} />}
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("placeholder",
@@ -222,7 +206,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  placeholder="Custom placeholder"
                  defaultOpen
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("selected items components",
@@ -231,7 +214,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
                  selectedItemsComponent={<MultiSelect.SelectedItems className="bg-red border-red" />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("selected item renderer",
@@ -240,7 +222,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
                  selectedItemsComponent={<MultiSelect.SelectedItems itemRenderer={item => <div>{item.text}</div>} />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("clear button",
@@ -249,7 +230,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
                  clearButton={<MultiSelect.ClearButton className="bg-red" />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("clear text",
@@ -258,7 +238,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
                  clearButton={<MultiSelect.ClearButton text="Custom clear text" />}
-                 onValuesChange={logValuesChanged}
              />
     )
     .add("css class",
@@ -267,7 +246,6 @@ stories("/customization")
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
                  className="bg-red border-red"
-                 onValuesChange={logValuesChanged}
              />
     );
 
