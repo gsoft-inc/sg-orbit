@@ -76,7 +76,7 @@ To install all the [core packages](#core) with npm:
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons 
 ```
 
-Then, import the files
+Then, import the styles:
 
 ```css
 @import "~@orbit-ui/fonts";
