@@ -48,7 +48,7 @@ To install the package with npm:
 npm install @orbit-ui/react react-spring moment
 ```
 
-Then import the files:
+Then import the components:
 
 ```javascript
 import { Button, ... } from "semantic-ui-react";
