@@ -1,13 +1,13 @@
 import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
 import { DATE_FORMAT } from "./shared";
-import { SingleDatePicker as SDP } from "@orbit-ui/react-date-picker/src";
+import { DateRangePicker as DRP } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import moment from "moment";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
-        DayPickerSingleDateController: () => <></>
+        DayPickerRangeController: () => <></>
     };
 });
 
@@ -23,9 +23,9 @@ jest.mock("../src/fade-in.jsx", () => {
     };
 });
 
-function SingleDatePicker(props) {
-    return <SDP
-        onDateChange={noop}
+function DateRangePicker(props) {
+    return <DRP
+        onDatesChange={noop}
         {...props}
     />;
 }
@@ -41,7 +41,7 @@ function openWithClick(getByTestId) {
 }
 
 test("open the calendar on input click", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -49,7 +49,7 @@ test("open the calendar on input click", async () => {
 });
 
 test("open the calendar on space", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
 
@@ -57,7 +57,7 @@ test("open the calendar on space", async () => {
 });
 
 test("open the calendar on enter", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
 
@@ -65,7 +65,7 @@ test("open the calendar on enter", async () => {
 });
 
 test("close the calendar on esc", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -76,7 +76,7 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -87,7 +87,7 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -98,21 +98,27 @@ test("close the calendar on input click", async () => {
 });
 
 test("clear the date on input clear button click", async () => {
-    const date = moment();
-    const formattedDate = date.format(DATE_FORMAT);
+    const startDate = moment();
+    const endDate = moment().add(3, "days");
+    const formattedStartDate = startDate.format(DATE_FORMAT);
+    const formattedEndDate = endDate.format(DATE_FORMAT);
 
-    const { getByTestId } = render(<SingleDatePicker defaultDate={date} dateFormat={DATE_FORMAT} />);
+    const { getByTestId } = render(<DateRangePicker defaultStartDate={startDate} defaultEndDate={endDate} dateFormat={DATE_FORMAT} />);
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+
+    expect(textboxNode).toHaveTextContent(formattedStartDate);
+    expect(textboxNode).toHaveTextContent(formattedEndDate);
 
     fireEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
     await wait();
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+    expect(textboxNode).not.toHaveTextContent(formattedStartDate);
+    expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(<SingleDatePicker />);
+    const { getByTestId } = render(<DateRangePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -123,7 +129,7 @@ test("dont close the calendar on calendar clear button click", async () => {
 });
 
 test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(<SingleDatePicker defaultDate={moment()} />);
+    const { getByTestId } = render(<DateRangePicker defaultDate={moment()} />);
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -134,19 +140,25 @@ test("when a date is selected, clicking on the calendar apply button close the c
 });
 
 test("clear the date on calendar clear button click", async () => {
-    const date = moment();
-    const formattedDate = date.format(DATE_FORMAT);
+    const startDate = moment();
+    const endDate = moment().add(3, "days");
+    const formattedStartDate = startDate.format(DATE_FORMAT);
+    const formattedEndDate = endDate.format(DATE_FORMAT);
 
-    const { getByTestId } = render(<SingleDatePicker defaultDate={date} dateFormat={DATE_FORMAT} />);
+    const { getByTestId } = render(<DateRangePicker defaultStartDate={startDate} defaultEndDate={endDate} dateFormat={DATE_FORMAT} />);
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+
+    expect(textboxNode).toHaveTextContent(formattedStartDate);
+    expect(textboxNode).toHaveTextContent(formattedEndDate);
 
     await openWithClick(getByTestId);
 
     fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+    expect(textboxNode).not.toHaveTextContent(formattedStartDate);
+    expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
 
 

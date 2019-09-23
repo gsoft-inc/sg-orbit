@@ -5,8 +5,7 @@ import { noop } from "lodash";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
-        DayPickerSingleDateController: () => <></>,
-        DayPickerRangeController: () => <></>
+        DayPickerSingleDateController: () => <></>
     };
 });
 
