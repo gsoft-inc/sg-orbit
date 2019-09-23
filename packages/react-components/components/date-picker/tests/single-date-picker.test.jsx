@@ -66,7 +66,7 @@ test("open the calendar on input click", async () => {
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on space", async () => {
+test("open the calendar on space bar", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
     const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
@@ -240,7 +240,7 @@ test("call onDateChange when the date is cleared from the input", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
 });
 
-test("call onVisibilityChange when the date picker open", async () => {
+test("call onVisibilityChange when the calendar is opened with an input click", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
@@ -252,7 +252,31 @@ test("call onVisibilityChange when the date picker open", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the date picker is dismissed", async () => {
+test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with enter", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is dismissed", async () => {
     const handler = jest.fn();
 
     render(createSingleDatePicker({
@@ -262,6 +286,21 @@ test("call onVisibilityChange when the date picker is dismissed", async () => {
 
     await wait();
     fireEvent.click(document);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is closed with esc", async () => {
+    const handler = jest.fn();
+
+    render(createSingleDatePicker({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await wait();
+    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
