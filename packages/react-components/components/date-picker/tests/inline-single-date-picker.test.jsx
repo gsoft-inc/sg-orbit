@@ -1,11 +1,12 @@
 import { CALENDAR_ID, INLINE_SINGLE_DATE_PICKER_INPUT } from "./shared";
-import { InlineSingleDatePicker as ISDP } from "@orbit-ui/react-date-picker/src";
+import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
-        DayPickerSingleDateController: () => <></>
+        DayPickerSingleDateController: () => <></>,
+        DayPickerRangeController: () => <></>
     };
 });
 
@@ -21,8 +22,8 @@ jest.mock("../src/fade-in.jsx", () => {
     };
 });
 
-function InlineSingleDatePicker(props) {
-    return <ISDP
+function createInlineSingleDatePicker(props) {
+    return <InlineSingleDatePicker
         onDateChange={noop}
         {...props}
     />;
@@ -39,7 +40,7 @@ function openWithClick(getByTestId) {
 }
 
 test("open the calendar on input click", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -47,7 +48,7 @@ test("open the calendar on input click", async () => {
 });
 
 test("open the calendar on space", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
 
@@ -55,7 +56,7 @@ test("open the calendar on space", async () => {
 });
 
 test("open the calendar on enter", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
 
@@ -63,7 +64,7 @@ test("open the calendar on enter", async () => {
 });
 
 test("close the calendar on esc", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -74,7 +75,7 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -85,7 +86,7 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(<InlineSingleDatePicker />);
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 

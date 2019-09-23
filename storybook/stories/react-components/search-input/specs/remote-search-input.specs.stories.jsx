@@ -2,7 +2,7 @@ import { LAURIE_VALUE, logValueChanged } from "@stories/react-components/search-
 import { StarWarsCharactersSearchInput } from "@stories/react-components/search-input/components";
 import { storiesBuilder } from "@utils/stories-builder";
 
-function RemoteSearchInput(props) {
+function createRemoteSearchInput(props = {}) {
     return <StarWarsCharactersSearchInput
         onValueChange={logValueChanged}
         {...props}
@@ -20,29 +20,29 @@ function stories(segment) {
 stories()
     .add("closed",
          () =>
-             <RemoteSearchInput />
+             createRemoteSearchInput()
     )
     .add("opened",
          () =>
-             <RemoteSearchInput
-                 open
-             />
+             createRemoteSearchInput({
+                 open: true
+             })
     )
     .add("disabled",
          () =>
-             <RemoteSearchInput
-                 disabled
-             />
+             createRemoteSearchInput({
+                 disabled: true
+             })
     );
 
 stories("/selected value")
     .add("no selection",
          () =>
-             <RemoteSearchInput />
+             createRemoteSearchInput()
     )
     .add("value selected",
          () =>
-             <RemoteSearchInput
-                 defaultValue={LAURIE_VALUE}
-             />
+             createRemoteSearchInput({
+                 defaultValue: LAURIE_VALUE
+             })
     );

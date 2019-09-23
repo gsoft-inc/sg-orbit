@@ -1,11 +1,11 @@
-import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, DatePickerAnchor as DPA, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-date-picker/src";
+import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, DatePickerAnchor, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-date-picker/src";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 
-function DatePickerAnchor({ open = true, disabled = false, ...otherProps }) {
+function createDatePickerAnchor({ open = true, disabled = false, ...otherProps } = {}) {
     const INPUT_HEIGHT = 30;
 
-    return <DPA
+    return <DatePickerAnchor
         input={<div className="bg-blue" style={{ width: "100%", height: `${INPUT_HEIGHT}px` }}></div>}
         inputHeight={INPUT_HEIGHT}
         calendar={<div className="bg-red" style={{ width: "200px", height: "150px" }}></div>}
@@ -31,43 +31,43 @@ function stories(segment, layout = {}) {
 stories()
     .add("close",
          () =>
-             <DatePickerAnchor
-                 open={false}
-             />
+             createDatePickerAnchor({
+                 open: false
+             })
     )
     .add("open",
          () =>
-             <DatePickerAnchor
-                 open
-             />
+             createDatePickerAnchor({
+                 open: true
+             })
     )
     .add("bottom left",
          () =>
-             <DatePickerAnchor
-                 position={BOTTOM_LEFT}
-                 open
-             />
+             createDatePickerAnchor({
+                 position: BOTTOM_LEFT,
+                 open: true
+             })
     )
     .add("bottom center",
          () =>
-             <DatePickerAnchor
-                 position={BOTTOM_CENTER}
-                 open
-             />
+             createDatePickerAnchor({
+                 position: BOTTOM_CENTER,
+                 open: true
+             })
     )
     .add("bottom right",
          () =>
-             <DatePickerAnchor
-                 position={BOTTOM_RIGHT}
-                 open
-             />
+             createDatePickerAnchor({
+                 position: BOTTOM_RIGHT,
+                 open: true
+             })
     )
     .add("top left",
          () =>
-             <DatePickerAnchor
-                 position={TOP_LEFT}
-                 open
-             />,
+             createDatePickerAnchor({
+                 position: TOP_LEFT,
+                 open: true
+             }),
          {
              options: {
                  layout: {
@@ -78,10 +78,10 @@ stories()
     )
     .add("top center",
          () =>
-             <DatePickerAnchor
-                 position={TOP_CENTER}
-                 open
-             />,
+             createDatePickerAnchor({
+                 position: TOP_CENTER,
+                 open: true
+             }),
          {
              options: {
                  layout: {
@@ -92,10 +92,10 @@ stories()
     )
     .add("top right",
          () =>
-             <DatePickerAnchor
-                 position={TOP_RIGHT}
-                 open
-             />,
+             createDatePickerAnchor({
+                 position: TOP_RIGHT,
+                 open: true
+             }),
          {
              options: {
                  layout: {
@@ -107,41 +107,41 @@ stories()
 
 stories("/offsets/bottom")
     .add("left+positive", () =>
-        <DatePickerAnchor
-            position={BOTTOM_LEFT}
-            offsets={["30px", "30px"]}
-            open
-        />
+        createDatePickerAnchor({
+            position: BOTTOM_LEFT,
+            offsets: ["30px", "30px"],
+            open: true
+        })
     )
     .add("left+negative", () =>
-        <DatePickerAnchor
-            position={BOTTOM_LEFT}
-            offsets={["-30px", "-30px"]}
-            open
-        />
+        createDatePickerAnchor({
+            position: BOTTOM_LEFT,
+            offsets: ["-30px", "-30px"],
+            open: true
+        })
     )
     .add("right+positive", () =>
-        <DatePickerAnchor
-            position={BOTTOM_RIGHT}
-            offsets={["30px", "30px"]}
-            open
-        />
+        createDatePickerAnchor({
+            position: BOTTOM_RIGHT,
+            offsets: ["30px", "30px"],
+            open: true
+        })
     )
     .add("right+negative", () =>
-        <DatePickerAnchor
-            position={BOTTOM_RIGHT}
-            offsets={["-30px", "-30px"]}
-            open
-        />
+        createDatePickerAnchor({
+            position: BOTTOM_RIGHT,
+            offsets: ["-30px", "-30px"],
+            open: true
+        })
     );
 
 stories("/offsets/top")
     .add("left+positive", () =>
-        <DatePickerAnchor
-            position={TOP_LEFT}
-            offsets={["30px", "30px"]}
-            open
-        />,
+        createDatePickerAnchor({
+            position: TOP_LEFT,
+            offsets: ["30px", "30px"],
+            open: true
+        }),
          {
              options: {
                  layout: {
@@ -151,11 +151,11 @@ stories("/offsets/top")
          }
     )
     .add("left+negative", () =>
-        <DatePickerAnchor
-            position={TOP_LEFT}
-            offsets={["-30px", "-30px"]}
-            open
-        />,
+        createDatePickerAnchor({
+            position: TOP_LEFT,
+            offsets: ["-30px", "-30px"],
+            open: true
+        }),
          {
              options: {
                  layout: {
@@ -165,11 +165,11 @@ stories("/offsets/top")
          }
     )
     .add("right+positive", () =>
-        <DatePickerAnchor
-            position={TOP_RIGHT}
-            offsets={["30px", "30px"]}
-            open
-        />,
+        createDatePickerAnchor({
+            position: TOP_RIGHT,
+            offsets: ["30px", "30px"],
+            open: true
+        }),
          {
              options: {
                  layout: {
@@ -179,11 +179,11 @@ stories("/offsets/top")
          }
     )
     .add("right+negative", () =>
-        <DatePickerAnchor
-            position={TOP_RIGHT}
-            offsets={["-30px", "-30px"]}
-            open
-        />,
+        createDatePickerAnchor({
+            position: TOP_RIGHT,
+            offsets: ["-30px", "-30px"],
+            open: true
+        }),
          {
              options: {
                  layout: {
@@ -196,8 +196,8 @@ stories("/offsets/top")
 stories()
     .add("css class",
          () =>
-             <DatePickerAnchor
-                 className="border-red"
-                 open={false}
-             />,
+             createDatePickerAnchor({
+                 className: "border-red",
+                 open: false
+             }),
     );

@@ -1,12 +1,13 @@
 import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
 import { DATE_FORMAT } from "./shared";
-import { DateRangePicker as DRP } from "@orbit-ui/react-date-picker/src";
+import { DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import moment from "moment";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
+        DayPickerSingleDateController: () => <></>,
         DayPickerRangeController: () => <></>
     };
 });
@@ -23,8 +24,8 @@ jest.mock("../src/fade-in.jsx", () => {
     };
 });
 
-function DateRangePicker(props) {
-    return <DRP
+function createDateRangePicker(props = {}) {
+    return <DateRangePicker
         onDatesChange={noop}
         {...props}
     />;
@@ -41,7 +42,7 @@ function openWithClick(getByTestId) {
 }
 
 test("open the calendar on input click", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -49,7 +50,7 @@ test("open the calendar on input click", async () => {
 });
 
 test("open the calendar on space", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
 
@@ -57,7 +58,7 @@ test("open the calendar on space", async () => {
 });
 
 test("open the calendar on enter", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
 
@@ -65,7 +66,7 @@ test("open the calendar on enter", async () => {
 });
 
 test("close the calendar on esc", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -76,7 +77,7 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -87,7 +88,7 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -103,7 +104,11 @@ test("clear the date on input clear button click", async () => {
     const formattedStartDate = startDate.format(DATE_FORMAT);
     const formattedEndDate = endDate.format(DATE_FORMAT);
 
-    const { getByTestId } = render(<DateRangePicker defaultStartDate={startDate} defaultEndDate={endDate} dateFormat={DATE_FORMAT} />);
+    const { getByTestId } = render(createDateRangePicker({
+        defaultStartDate: startDate,
+        defaultEndDate: endDate,
+        dateFormat: DATE_FORMAT
+    }));
 
     const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
 
@@ -118,7 +123,7 @@ test("clear the date on input clear button click", async () => {
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(<DateRangePicker />);
+    const { getByTestId } = render(createDateRangePicker());
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -129,7 +134,7 @@ test("dont close the calendar on calendar clear button click", async () => {
 });
 
 test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(<DateRangePicker defaultDate={moment()} />);
+    const { getByTestId } = render(createDateRangePicker({ defaultDate: moment() }));
 
     const calendarNode = await openWithClick(getByTestId);
 
@@ -145,7 +150,11 @@ test("clear the date on calendar clear button click", async () => {
     const formattedStartDate = startDate.format(DATE_FORMAT);
     const formattedEndDate = endDate.format(DATE_FORMAT);
 
-    const { getByTestId } = render(<DateRangePicker defaultStartDate={startDate} defaultEndDate={endDate} dateFormat={DATE_FORMAT} />);
+    const { getByTestId } = render(createDateRangePicker({
+        defaultStartDate: startDate,
+        defaultEndDate: endDate,
+        dateFormat: DATE_FORMAT
+    }));
 
     const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
 
