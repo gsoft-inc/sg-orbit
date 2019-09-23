@@ -1,14 +1,8 @@
+import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
 import { SingleDatePicker as SDP } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import moment from "moment";
-
-const TEXTBOX_ID = "date-picker-textbox-input";
-const TEXTBOX_VALUE_ID = "date-picker-textbox-input-value";
-const TEXTBOX_CLEAR_BUTTON_ID = "date-picker-textbox-clear-button";
-const CALENDAR_ID = "date-picker-calendar";
-const CALENDAR_CLEAR_BUTTON_ID = "date-picker-calendar-clear-button";
-const CALENDAR_APPLY_BUTTON_ID = "date-picker-calendar-apply-button";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -46,7 +40,7 @@ function openWithClick(getByTestId) {
     return openWith("click", undefined, getByTestId);
 }
 
-test("open the calendar when the input is clicked", async () => {
+test("open the calendar on input click", async () => {
     const { getByTestId } = render(<SingleDatePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
@@ -92,7 +86,7 @@ test("close the calendar on outside click", async () => {
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("close the calendar when the input is clicked", async () => {
+test("close the calendar on input click", async () => {
     const { getByTestId } = render(<SingleDatePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
@@ -103,7 +97,7 @@ test("close the calendar when the input is clicked", async () => {
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("clear the date when the input clear button is clicked", async () => {
+test("clear the date on input clear button click", async () => {
     const date = moment();
     const formattedDate = date.format("MMM Do YYYY");
 
@@ -117,7 +111,7 @@ test("clear the date when the input clear button is clicked", async () => {
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
 });
 
-test("doesn't close the calendar when the calendar clear button is clicked", async () => {
+test("dont close the calendar on calendar clear button click", async () => {
     const { getByTestId } = render(<SingleDatePicker />);
 
     const calendarNode = await openWithClick(getByTestId);
@@ -139,7 +133,7 @@ test("when a date is selected, clicking on the calendar apply button close the c
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("clicking on the calendar clear button clears the current date", async () => {
+test("clear the date on calendar clear button click", async () => {
     const date = moment();
     const formattedDate = date.format("MMM Do YYYY");
 
