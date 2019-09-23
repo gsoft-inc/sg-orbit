@@ -1,4 +1,4 @@
-// The whole purpose of this file is to facilitate the setup of the interaction tests.
+// The whole purpose of this file is to facilitate the setup of the Jest tests.
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";

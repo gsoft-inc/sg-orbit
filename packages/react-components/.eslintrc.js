@@ -3,5 +3,5 @@ module.exports = {
         "@sharegate/eslint-config-react",
         "plugin:jsx-control-statements/recommended"
     ],
-    plugins: ["jsx-control-statements"],
+    plugins: ["jsx-control-statements"]
 };

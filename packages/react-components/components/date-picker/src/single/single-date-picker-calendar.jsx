@@ -20,7 +20,12 @@ export class SingleDatePickerCalendar extends PureComponent {
         navNextIcon: node,
         buttons: node,
         allowClear: bool,
+        reactDatesCalendar: node,
         className: string
+    };
+
+    static defaultProps = {
+        reactDatesCalendar: <DayPickerSingleDateController />
     };
 
     state = {
@@ -68,17 +73,15 @@ export class SingleDatePickerCalendar extends PureComponent {
     }
 
     renderCalendar() {
-        const { date } = this.props;
+        const { date, reactDatesCalendar } = this.props;
         const { focused } = this.state;
 
-        return (
-            <DayPickerSingleDateController
-                date={date}
-                focused={focused}
-                onDateChange={this.handleDateChange}
-                onFocusChange={this.handleFocusChange}
-            />
-        );
+        return cloneElement(reactDatesCalendar, {
+            date: date,
+            focused: focused,
+            onDateChange: this.handleDateChange,
+            onFocusChange: this.handleFocusChange
+        });
     }
 
     render() {
