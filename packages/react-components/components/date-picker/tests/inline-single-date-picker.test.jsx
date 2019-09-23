@@ -1,7 +1,9 @@
-import { CALENDAR_ID, INLINE_SINGLE_DATE_PICKER_INPUT } from "./shared";
+import { CALENDAR_ID } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
+
+export const INLINE_SINGLE_DATE_PICKER_INPUT = "inline-single-date-picker-input";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -95,3 +97,41 @@ test("close the calendar on input click", async () => {
 
     expect(calendarNode).not.toBeInTheDocument();
 });
+
+test("call onVisibilityChange when the calendar is opened with an input click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with enter", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+

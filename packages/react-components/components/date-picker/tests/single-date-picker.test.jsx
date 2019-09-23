@@ -170,7 +170,7 @@ test("clear the date on calendar clear button click", async () => {
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
 });
 
-test("dont call onDateChange before the date change is applied", async () => {
+test("dont call onDateChange when a date is selected", async () => {
     const ref = createRef();
     const handler = jest.fn();
 
@@ -187,7 +187,6 @@ test("dont call onDateChange before the date change is applied", async () => {
 });
 
 test("dont call onDateChange when the calendar is dimissed", async () => {
-    const newDate = moment();
     const ref = createRef();
     const handler = jest.fn();
 
@@ -198,7 +197,7 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
 
     await openWithClick(getByTestId);
 
-    ref.current.triggerDateChange(newDate);
+    ref.current.triggerDateChange(moment());
 
     fireEvent.click(document);
     await wait();

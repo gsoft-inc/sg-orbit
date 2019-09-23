@@ -1,7 +1,7 @@
 import { PRESET_SHAPE } from "./presets";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../utils";
 import cx from "classnames";
@@ -11,7 +11,8 @@ class Preset extends PureComponent {
         preset: shape(PRESET_SHAPE).isRequired,
         onSelectPreset: func,
         isSelected: bool,
-        isBlocked: bool
+        isBlocked: bool,
+        index: number.isRequired
     };
 
     handleClick = event => {
@@ -21,7 +22,7 @@ class Preset extends PureComponent {
     };
 
     render() {
-        const { preset, isSelected, isBlocked } = this.props;
+        const { preset, isSelected, isBlocked, index } = this.props;
 
         return (
             <li className="pa2 mb2 lh1">
@@ -34,6 +35,7 @@ class Preset extends PureComponent {
                             type="button"
                             onClick={this.handleClick}
                             className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
+                            data-testid={`date-range-picker-presets-${index}`}
                         >
                             {preset.text}
                         </button>
@@ -105,11 +107,11 @@ export class DateRangePickerPresets extends PureComponent {
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
-        return presets.map(x => {
+        return presets.map((x, index) => {
             const isSelected = this.isPresetSelected(x);
             const isBlocked = this.isPresetBlocked(x);
 
-            return <Preset key={x.text} preset={x} onSelectPreset={onSelectPreset} isSelected={isSelected} isBlocked={isBlocked} />;
+            return <Preset key={x.text} preset={x} onSelectPreset={onSelectPreset} isSelected={isSelected} isBlocked={isBlocked} index={index} />;
         });
     }
 

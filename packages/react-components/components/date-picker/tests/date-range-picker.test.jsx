@@ -1,9 +1,12 @@
 import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
 import { DATE_FORMAT } from "./shared";
-import { DateRangePicker } from "@orbit-ui/react-date-picker/src";
+import { DEFAULT_DATES_PRESETS, DateRangePicker } from "@orbit-ui/react-date-picker/src";
+import { PureComponent, createRef } from "react";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
-import { noop } from "lodash";
+import { isNil, noop } from "lodash";
 import moment from "moment";
+
+const FIRST_PRESET_ID = "date-range-picker-presets-1";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -24,10 +27,26 @@ jest.mock("../src/fade-in.jsx", () => {
     };
 });
 
-function createDateRangePicker(props = {}) {
+class DayPickerRangeControllerMock extends PureComponent {
+    triggerDatesChange(startDate, endDate) {
+        const { onDatesChange } = this.props;
+
+        onDatesChange(startDate, endDate);
+    }
+
+    render() {
+        return <></>;
+    }
+}
+
+function createDateRangePicker({ reactDatesCalendar, onDatesChange, ...otherProps } = {}) {
+    // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+    const calendar = isNil(reactDatesCalendar) ? <DayPickerRangeControllerMock /> : reactDatesCalendar;
+
     return <DateRangePicker
-        onDatesChange={noop}
-        {...props}
+        calendar={<DateRangePicker.Calendar reactDatesCalendar={calendar} />}
+        onDatesChange={isNil(onDatesChange) ? noop : onDatesChange}
+        {...otherProps}
     />;
 }
 
@@ -169,5 +188,61 @@ test("clear the date on calendar clear button click", async () => {
     expect(textboxNode).not.toHaveTextContent(formattedStartDate);
     expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
+
+test("dont call onDatesChange when dates are selected", async () => {
+    const ref = createRef();
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
+        onDatesChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    ref.current.triggerDatesChange(moment(), moment());
+
+    expect(handler).not.toHaveBeenCalled();
+});
+
+test("dont call onDatesChange when a preset is selected", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        presets: DEFAULT_DATES_PRESETS,
+        onDatesChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    fireEvent.click(getByTestId(FIRST_PRESET_ID));
+    await wait();
+
+    expect(handler).not.toHaveBeenCalled();
+});
+
+test("dont call onDateChange when the calendar is dimissed", async () => {
+    const ref = createRef();
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
+        onDatesChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    ref.current.triggerDatesChange(moment(), moment());
+
+    fireEvent.click(document);
+    await wait();
+
+    expect(handler).not.toHaveBeenCalled();
+});
+
+// onDatesChange (include presets, like dont call onDatesChange when a preset is selected)
+// onVisibilityChange
+
+
 
 
