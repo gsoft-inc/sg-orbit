@@ -31,16 +31,6 @@ function createInlineSingleDatePicker(props) {
     />;
 }
 
-// function openWith(action, params, getByTestId) {
-//     fireEvent[action](getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), params);
-
-//     return waitForElement(() => getByTestId(CALENDAR_ID));
-// }
-
-// function openWithClick(getByTestId) {
-//     return openWith("click", undefined, getByTestId);
-// }
-
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 

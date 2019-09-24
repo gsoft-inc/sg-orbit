@@ -48,28 +48,22 @@ function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...ot
     />;
 }
 
-function openWith(action, params, getByTestId) {
-    fireEvent[action](getByTestId(TEXTBOX_ID), params);
-
-    return waitForElement(() => getByTestId(CALENDAR_ID));
-}
-
-function openWithClick(getByTestId) {
-    return openWith("click", undefined, getByTestId);
-}
-
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    const calendarNode = await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on space bar", async () => {
+test("open the calendar on space", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
@@ -77,15 +71,19 @@ test("open the calendar on space bar", async () => {
 test("open the calendar on enter", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
 test("close the calendar on esc", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
@@ -94,9 +92,11 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(document);
     await wait();
@@ -105,9 +105,11 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
@@ -130,9 +132,11 @@ test("clear the date on input clear button click", async () => {
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
@@ -141,9 +145,12 @@ test("dont close the calendar on calendar clear button click", async () => {
 });
 
 test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(createSingleDatePicker({ defaultDate: moment() }));
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true,
+        defaultDate: moment()
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
@@ -156,13 +163,14 @@ test("clear the date on calendar clear button click", async () => {
     const formattedDate = date.format(DATE_FORMAT);
 
     const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true,
         defaultDate: date,
         dateFormat: DATE_FORMAT
     }));
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
@@ -175,11 +183,12 @@ test("dont call onDateChange when a date is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
         onDateChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerDateChange(moment());
 
@@ -191,11 +200,12 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
         onDateChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerDateChange(moment());
 
@@ -211,11 +221,12 @@ test("call onDateChange when the date is applied", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
         onDateChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerDateChange(newDate);
 
@@ -246,7 +257,9 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
@@ -258,7 +271,9 @@ test("call onVisibilityChange when the calendar is opened with space bar", async
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
@@ -270,7 +285,9 @@ test("call onVisibilityChange when the calendar is opened with enter", async () 
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
