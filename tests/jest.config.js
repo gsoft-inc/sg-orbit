@@ -10,9 +10,9 @@ module.exports = {
     transformIgnorePatterns: [
         "/node_modules/(?!@babel).+\\.js$"
     ],
-    modulePaths: [
-        "<rootDir>"
-    ],
+    // modulePaths: [
+    //     "<rootDir>"
+    // ],
     moduleNameMapper: {
         "\\.svg": "<rootDir>/tests/svgr-mock.js"
     },
