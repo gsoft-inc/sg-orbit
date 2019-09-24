@@ -107,7 +107,7 @@ stories("/default values")
          () =>
              createMultiSelect({
                  items: DEFAULT_ITEMS,
-                 defaultvalues: DEFAULT_ITEMS.map(x => x.value)
+                 defaultValues: DEFAULT_ITEMS.map(x => x.value)
              })
     );
 

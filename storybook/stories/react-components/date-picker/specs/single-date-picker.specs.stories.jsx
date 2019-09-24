@@ -408,7 +408,7 @@ stories("/date restrictions/selected range")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE).subtract(5, "days"),
-                 mindate: moment(DEFAULT_DATE),
+                 minDate: moment(DEFAULT_DATE),
                  defaultOpen: true
              }),
          {
@@ -421,7 +421,7 @@ stories("/date restrictions/selected range")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE).add(2, "days"),
-                 maxdate: moment(DEFAULT_DATE),
+                 maxDate: moment(DEFAULT_DATE),
                  defaultOpen: true
              }),
          {
@@ -548,7 +548,7 @@ stories("/default date/opened")
     .add("date selected",
          () =>
              createSingleDatePicker({
-                 defaultdate: moment(DEFAULT_DATE),
+                 defaultDate: moment(DEFAULT_DATE),
                  defaultOpen: true
              })
     )
@@ -634,7 +634,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input disabled Icon={<InputCalendarIcon className="w6 h6 fill-red" />} />,
+                 input: <SingleDatePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />} />,
                  disabled: true
              })
     )
@@ -756,13 +756,13 @@ stories("/inlined/customization")
     )
     .add("disabled close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabled CloseIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />,
             disabled: true
         })
     )
     .add("disabled open icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabled OpenIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />,
             defaultOpen: true,
             disabled: true
         })

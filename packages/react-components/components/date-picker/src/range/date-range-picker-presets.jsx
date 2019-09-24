@@ -11,8 +11,7 @@ class Preset extends PureComponent {
         preset: shape(PRESET_SHAPE).isRequired,
         onSelectPreset: func,
         isSelected: bool,
-        isBlocked: bool,
-        index: number.isRequired
+        isBlocked: bool
     };
 
     handleClick = event => {
@@ -22,7 +21,7 @@ class Preset extends PureComponent {
     };
 
     render() {
-        const { preset, isSelected, isBlocked, index } = this.props;
+        const { preset, isSelected, isBlocked } = this.props;
 
         return (
             <li className="pa2 mb2 lh1">
@@ -35,7 +34,7 @@ class Preset extends PureComponent {
                             type="button"
                             onClick={this.handleClick}
                             className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
-                            data-testid={`date-range-picker-presets-${index}`}
+                            data-testid={`date-range-picker-presets-${preset.text}`}
                         >
                             {preset.text}
                         </button>
@@ -107,11 +106,11 @@ export class DateRangePickerPresets extends PureComponent {
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
-        return presets.map((x, index) => {
+        return presets.map(x => {
             const isSelected = this.isPresetSelected(x);
             const isBlocked = this.isPresetBlocked(x);
 
-            return <Preset key={x.text} preset={x} onSelectPreset={onSelectPreset} isSelected={isSelected} isBlocked={isBlocked} index={index} />;
+            return <Preset key={x.text} preset={x} onSelectPreset={onSelectPreset} isSelected={isSelected} isBlocked={isBlocked} />;
         });
     }
 

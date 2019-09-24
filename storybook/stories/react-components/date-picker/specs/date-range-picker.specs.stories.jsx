@@ -730,7 +730,7 @@ stories("/default dates/closed")
     .add("start date selected",
          () =>
              createDateRangePicker({
-                 defaultstartDate: moment(DEFAULT_DATE)
+                 defaultStartDate: moment(DEFAULT_DATE)
              })
     )
     .add("end date selected",
@@ -742,7 +742,7 @@ stories("/default dates/closed")
     .add("both selected",
          () =>
              createDateRangePicker({
-                 defaultstartDate: moment(DEFAULT_DATE),
+                 defaultStartDate: moment(DEFAULT_DATE),
                  defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
              })
     )
@@ -759,7 +759,7 @@ stories("/default dates/opened")
     .add("start date selected",
          () =>
              createDateRangePicker({
-                 defaultstartDate: moment(DEFAULT_DATE),
+                 defaultStartDate: moment(DEFAULT_DATE),
                  defaultOpen: true
              })
     )
@@ -773,7 +773,7 @@ stories("/default dates/opened")
     .add("both selected",
          () =>
              createDateRangePicker({
-                 defaultstartDate: moment(DEFAULT_DATE),
+                 defaultStartDate: moment(DEFAULT_DATE),
                  defaultEndDate: moment(DEFAULT_DATE).add(3, "days"),
                  defaultOpen: true
              })

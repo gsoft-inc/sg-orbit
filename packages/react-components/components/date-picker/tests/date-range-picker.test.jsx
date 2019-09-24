@@ -1,12 +1,13 @@
 import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
 import { DATE_FORMAT } from "./shared";
 import { DEFAULT_DATES_PRESETS, DateRangePicker } from "@orbit-ui/react-date-picker/src";
+import { END_DATE } from "react-dates/constants";
 import { PureComponent, createRef } from "react";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
 
-const FIRST_PRESET_ID = "date-range-picker-presets-1";
+const FIRST_PRESET_ID = `date-range-picker-presets-${DEFAULT_DATES_PRESETS[0].text}`;
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -31,7 +32,13 @@ class DayPickerRangeControllerMock extends PureComponent {
     triggerDatesChange(startDate, endDate) {
         const { onDatesChange } = this.props;
 
-        onDatesChange(startDate, endDate);
+        onDatesChange({ startDate, endDate });
+    }
+
+    triggerFocusChange(focusedInput) {
+        const { onFocusChange } = this.props;
+
+        onFocusChange(focusedInput);
     }
 
     render() {
@@ -200,6 +207,7 @@ test("dont call onDatesChange when dates are selected", async () => {
 
     await openWithClick(getByTestId);
 
+    ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(moment(), moment());
 
     expect(handler).not.toHaveBeenCalled();
@@ -232,6 +240,7 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
 
     await openWithClick(getByTestId);
 
+    ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(moment(), moment());
 
     fireEvent.click(document);
@@ -240,8 +249,148 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
     expect(handler).not.toHaveBeenCalled();
 });
 
-// onDatesChange (include presets, like dont call onDatesChange when a preset is selected)
-// onVisibilityChange
+test("call onDatesChange when the dates are applied", async () => {
+    const startDate = moment();
+    const endDate = moment();
+    const ref = createRef();
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
+        onDatesChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    ref.current.triggerFocusChange(END_DATE);
+    ref.current.triggerDatesChange(startDate, endDate);
+
+    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), startDate, endDate, null, expect.anything());
+});
+
+test("call onDatesChange when a preset is applied", async () => {
+    const firstPreset = DEFAULT_DATES_PRESETS[0];
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        presets: DEFAULT_DATES_PRESETS,
+        onDatesChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    fireEvent.click(getByTestId(FIRST_PRESET_ID));
+    await wait();
+
+    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), firstPreset.startDate, firstPreset.endDate, firstPreset.text, expect.anything());
+});
+
+test("call onDatesChange when the dates are cleared from the input", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        defaultStartDate: moment(),
+        defaultEndDate: moment(),
+        onDatesChange: handler
+    }));
+
+    fireEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, null, null, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with an input click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWithClick(getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is opened with enter", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is dismissed", async () => {
+    const handler = jest.fn();
+
+    render(createDateRangePicker({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await wait();
+    fireEvent.click(document);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar is closed with esc", async () => {
+    const handler = jest.fn();
+
+    render(createDateRangePicker({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await wait();
+    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the dates are applied", async () => {
+    const ref = createRef();
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
+        reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
+        onVisibilityChange: handler
+    }));
+
+    await wait();
+    ref.current.triggerFocusChange(END_DATE);
+    ref.current.triggerDatesChange(moment(), moment());
+
+    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
 
 
 

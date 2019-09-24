@@ -205,7 +205,7 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("call onDateChange when the date change is applied", async () => {
+test("call onDateChange when the date is applied", async () => {
     const newDate = moment();
     const ref = createRef();
     const handler = jest.fn();
@@ -306,7 +306,6 @@ test("call onVisibilityChange when the calendar is closed with esc", async () =>
 });
 
 test("call onVisibilityChange when the date is applied", async () => {
-    const newDate = moment();
     const ref = createRef();
     const handler = jest.fn();
 
@@ -317,7 +316,7 @@ test("call onVisibilityChange when the date is applied", async () => {
     }));
 
     await wait();
-    ref.current.triggerDateChange(newDate);
+    ref.current.triggerDateChange(moment());
 
     fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
