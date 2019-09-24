@@ -34,7 +34,7 @@ export class MultiSelectClearButton extends PureComponent {
 
         return (
             <Ref innerRef={this._buttonRef}>
-                <Button onClick={this.handleClick} className={this.getClasses()}>
+                <Button onClick={this.handleClick} className={this.getClasses()} data-testid="multi-select-clear-button">
                     {text}
                 </Button>
             </Ref>
