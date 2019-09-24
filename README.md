@@ -48,13 +48,15 @@ To install the package with npm:
 npm install @orbit-ui/react react-spring moment
 ```
 
-Then import the files:
+Then import the components:
 
 ```javascript
 import { Button, ... } from "semantic-ui-react";
 import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 import { ClearIcon, ... } from "@orbit-ui/icons";
 ```
+
+and the styles:
 
 ```css
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
@@ -74,11 +76,7 @@ To install all the [core packages](#core) with npm:
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons 
 ```
 
-Then, import the files:
-
-```javascript
-import { ClearIcon, ... } from "@orbit-ui/icons";
-```
+Then, import the styles:
 
 ```css
 @import "~@orbit-ui/fonts";

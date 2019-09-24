@@ -1,4 +1,4 @@
-import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
+import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
 import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
@@ -936,7 +936,7 @@ stories("/customization")
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
                  endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />} />
+                 input: <DateRangePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
              })
     )
     .add("disabled clear icon",
@@ -1017,7 +1017,7 @@ stories("/customization")
          () =>
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 calendar: <DateRangePicker.Calendar navPrevIcon={<ArrowIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="w4 h4 fill-red" />} />,
+                 calendar: <DateRangePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />} />,
                  defaultOpen: true
              })
     )

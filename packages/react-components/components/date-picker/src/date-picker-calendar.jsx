@@ -1,5 +1,5 @@
 import { ArgumentError } from "@orbit-ui/react-components-shared";
-import { ArrowIcon } from "@orbit-ui/icons";
+import { ChevronIcon } from "@orbit-ui/icons";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -28,8 +28,8 @@ export class DatePickerCalendar extends PureComponent {
     };
 
     static defaultProps = {
-        navPrevIcon: <ArrowIcon className="w4 h4 rotate-180 fill-marine-500" />,
-        navNextIcon: <ArrowIcon className="w4 h4 fill-marine-500" />,
+        navPrevIcon: <ChevronIcon className="w4 h4 rotate-180 fill-marine-500" />,
+        navNextIcon: <ChevronIcon className="w4 h4 fill-marine-500" />,
         temporarySingleDatePickerFlag: false
     };
 

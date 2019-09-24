@@ -1,8 +1,10 @@
 import {
     AddIcon,
     ArrowFullIcon,
-    ArrowIcon,
-    ClearIcon,
+    ArrowOutlineIcon,
+    CancelIcon,
+    CheckmarkIcon,
+    ChevronIcon,
     InfoIcon,
     MagnifierIcon
 } from "@orbit-ui/icons";
@@ -19,13 +21,16 @@ stories()
          () =>
              <div className="flex flex-column items-center">
                  <div className="mb4 flex">
-                     <ArrowIcon className="h3 w3" />
+                     <ChevronIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
                      <ArrowFullIcon className="w2 h2" />
                  </div>
                  <div className="mb4 flex">
-                     <ClearIcon className="h3 w3" />
+                     <ArrowOutlineIcon className="w4 h4" />
+                 </div>
+                 <div className="mb4 flex">
+                     <CancelIcon className="h3 w3" />
                  </div>
                  <div className="mb4 flex">
                      <AddIcon className="w4 h4" />
@@ -35,6 +40,9 @@ stories()
                  </div>
                  <div className="mb4 flex">
                      <InfoIcon className="w4 h4" />
+                 </div>
+                 <div className="mb4 flex">
+                     <CheckmarkIcon className="w4 h4" />
                  </div>
              </div>
     );

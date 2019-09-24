@@ -1,4 +1,4 @@
-import { ArrowIcon, ClearIcon } from "@orbit-ui/icons";
+import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./shared";
 import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import {
@@ -627,7 +627,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input clearIcon={<ClearIcon className="h3 w3 fill-red" />} />
+                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
              })
     )
     .add("disabled clear icon",
@@ -680,7 +680,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 calendar: <SingleDatePicker.Calendar navPrevIcon={<ArrowIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="w4 h4 fill-red" />} />,
+                 calendar: <SingleDatePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />} />,
                  defaultOpen: true
              })
     )
@@ -744,25 +744,25 @@ stories("/inlined/selected date/opened")
 stories("/inlined/customization")
     .add("close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input closeIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />
+            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />
         })
     )
     .add("open icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input openIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
             initialVisibleMonth: moment(DEFAULT_DATE),
             defaultOpen: true
         })
     )
     .add("disabled close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ArrowIcon className="w4 h4 rotate-90 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />,
             disabled: true
         })
     )
     .add("disabled open icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ArrowIcon className="w4 h4 rotate-270 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
             defaultOpen: true,
             disabled: true
         })
