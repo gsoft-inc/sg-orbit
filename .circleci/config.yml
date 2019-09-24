@@ -19,7 +19,7 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:pkg --frozen-lockfileà
+                  command: yarn install:pkg --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: Lint
