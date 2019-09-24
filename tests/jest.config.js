@@ -8,7 +8,10 @@ module.exports = {
     },
     // https://github.com/facebook/jest/issues/6229#issuecomment-403539460
     transformIgnorePatterns: [
-        "/node_modules/(?!(@babel|@orbit-ui)).+\\.(js|jsx)$"
+        "/node_modules/(?!@babel).+\\.js$"
+    ],
+    modulePaths: [
+        "<rootDir>"
     ],
     moduleNameMapper: {
         "\\.svg": "<rootDir>/tests/svgr-mock.js"
