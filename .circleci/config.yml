@@ -62,7 +62,7 @@ workflows:
                       branches:
                           only:
                               - master
-                              - /.*(ci).*/
+                              - /.*--ci.*/
     nightly:
         triggers:
             - schedule:
