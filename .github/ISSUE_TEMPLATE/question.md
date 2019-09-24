@@ -1,10 +1,10 @@
 ---
 name: Question
-about: Get help with Sharegate Orbit UI
+about: Get help with ShareGate Orbit UI
 labels: 'needs triage'
 ---
 
-If you have a general question about Sharegate Orbit UI we encourage you to message us on Slack.
+If you have a general question about ShareGate Orbit UI we encourage you to message us on Slack.
 
 If you're looking for general information on Orbit UI, please read our [README](https://github.com/gsoft-inc/sg-orbit/blob/master/README.md) and [contributing guide](https://github.com/gsoft-inc/sg-orbit/blob/master/CONTRIBUTING.md) first.
 
