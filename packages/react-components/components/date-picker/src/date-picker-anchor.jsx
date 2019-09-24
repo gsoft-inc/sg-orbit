@@ -65,23 +65,31 @@ export class DatePickerAnchor extends PureComponent {
         return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
     }
 
+    renderPopup() {
+        const { calendar, open } = this.props;
+
+        return (
+            <Popup
+                visible={open}
+                onOutsideClick={this.handleOutsideClick}
+                onEscapeKeyDown={this.handleEscapeKeyDown}
+                {...this.getHorizontalPosition()}
+                {...this.getVerticalPosition()}
+            >
+                {calendar}
+            </Popup>
+        );
+    }
+
     render() {
-        const { input, inputHeight, calendar, open, disabled } = this.props;
+        const { input, inputHeight, open, disabled } = this.props;
 
         return (
             <div className={this.getCssClasses()}>
                 {input}
                 <If condition={!isNil(inputHeight) && !disabled}>
                     <FadeIn active={open}>
-                        <Popup
-                            visible={open}
-                            onOutsideClick={this.handleOutsideClick}
-                            onEscapeKeyDown={this.handleEscapeKeyDown}
-                            {...this.getHorizontalPosition()}
-                            {...this.getVerticalPosition()}
-                        >
-                            {calendar}
-                        </Popup>
+                        {this.renderPopup()}
                     </FadeIn>
                 </If>
             </div>

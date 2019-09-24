@@ -1,7 +1,7 @@
 import { PRESET_SHAPE } from "./presets";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../utils";
 import cx from "classnames";
@@ -34,6 +34,7 @@ class Preset extends PureComponent {
                             type="button"
                             onClick={this.handleClick}
                             className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
+                            data-testid={`date-range-picker-presets-${preset.text}`}
                         >
                             {preset.text}
                         </button>

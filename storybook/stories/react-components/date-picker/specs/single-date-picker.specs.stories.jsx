@@ -6,11 +6,24 @@ import {
     getMonthLastDay,
     getNextMonthLastDay,
     getPreviousMonthFirstDay,
-    logDateChanged,
-    toStoryParametersPresets
+    logDateChanged
 } from "@stories/react-components/date-picker/shared";
 import { storiesBuilder } from "@utils/stories-builder";
 import moment from "moment";
+
+function createSingleDatePicker(props = {}) {
+    return <SingleDatePicker
+        onDateChange={logDateChanged}
+        {...props}
+    />;
+}
+
+function createInlineSingleDatePicker(props = {}) {
+    return <InlineSingleDatePicker
+        onDateChange={logDateChanged}
+        {...props}
+    />;
+}
 
 function stories(segment, layout = {}) {
     return storiesBuilder(module, "Single-Date-Picker|specs")
@@ -26,11 +39,10 @@ function stories(segment, layout = {}) {
 stories("/number of visible months")
     .add("default",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
@@ -39,12 +51,11 @@ stories("/number of visible months")
     )
     .add("1 month",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
@@ -53,12 +64,11 @@ stories("/number of visible months")
     )
     .add("2 months",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 numberOfMonths={2}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 numberOfMonths: 2,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
@@ -69,12 +79,11 @@ stories("/number of visible months")
 stories("/date restrictions/2 months visible")
     .add("min date is not blocking previous or next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -84,12 +93,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("min date is blocking previous month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -99,12 +107,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("min date is blocking next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -114,12 +121,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("min date is blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -129,12 +135,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("min date is partially blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -144,12 +149,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("max date is not blocking previous or next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -159,12 +163,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("max date is blocking previous month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -174,12 +177,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("max date is blocking next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -189,12 +191,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("max date is blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -204,12 +205,11 @@ stories("/date restrictions/2 months visible")
     )
     .add("max date is partially blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days"),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -219,13 +219,12 @@ stories("/date restrictions/2 months visible")
     )
     .add("min+max dates are blocking previous & next months",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
-                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -238,13 +237,12 @@ stories("/date restrictions/2 months visible")
 stories("/date restrictions/1 month visible")
     .add("min date is not blocking previous or next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={moment(DEFAULT_DATE).subtract(2, "months")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: moment(DEFAULT_DATE).subtract(2, "months"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -254,13 +252,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("min date is blocking previous month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -270,13 +267,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("min date is blocking next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -286,13 +282,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("min date is blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -302,13 +297,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("min date is partially blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -318,13 +312,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("max date is not blocking previous or next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={moment(DEFAULT_DATE).add(2, "months")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: moment(DEFAULT_DATE).add(2, "months"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -334,13 +327,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("max date is blocking previous month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -350,13 +342,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("max date is blocking next month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -366,13 +357,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("max date is blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -382,13 +372,12 @@ stories("/date restrictions/1 month visible")
     )
     .add("max date is partially blocking current month",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 maxDate={getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days")}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days"),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -398,14 +387,13 @@ stories("/date restrictions/1 month visible")
     )
     .add("min+max dates are blocking previous & next months",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 minDate={getMonthFirstDay(moment(DEFAULT_DATE))}
-                 maxDate={getMonthLastDay(moment(DEFAULT_DATE))}
-                 numberOfMonths={1}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)),
+                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)),
+                 numberOfMonths: 1,
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
@@ -418,12 +406,11 @@ stories("/date restrictions/1 month visible")
 stories("/date restrictions/selected range")
     .add("is before min date",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE).subtract(5, "days")}
-                 minDate={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE).subtract(5, "days"),
+                 minDate: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
@@ -432,12 +419,11 @@ stories("/date restrictions/selected range")
     )
     .add("is after max date",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE).add(2, "days")}
-                 maxDate={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE).add(2, "days"),
+                 maxDate: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  date: moment(DEFAULT_DATE).format("MMMM Do YYYY")
@@ -448,178 +434,157 @@ stories("/date restrictions/selected range")
 stories("/selected date/closed")
     .add("no selection",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE)
+             })
     )
     .add("date selected",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE)
+             })
     )
     .add("null value",
          () =>
-             <SingleDatePicker
-                 date={null}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: null
+             })
     );
 
 stories("/selected date/closed/input clear button")
     .add("cannot clear when no selection",
          () =>
-             <SingleDatePicker
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({ })
     )
     .add("can clear when selected",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE)
+             })
     );
 
 stories("/selected date/opened")
     .add("no selection",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     )
     .add("date selected",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     )
     .add("null value",
          () =>
-             <SingleDatePicker
-                 date={null}
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: null,
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/selected date/opened")
     .add("input clear button is not available",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/selected date/opened/calendar clear button")
     .add("cannot clear without selection",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     )
     .add("can clear with selection",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/selected date/opened/calendar apply button")
     .add("can apply without selection",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     )
     .add("can apply with selection",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/default date/closed")
     .add("date selected",
          () =>
-             <SingleDatePicker
-                 defaultDate={moment(DEFAULT_DATE).add(3, "days")}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 defaultDate: moment(DEFAULT_DATE).add(3, "days")
+             })
     )
     .add("null value",
          () =>
-             <SingleDatePicker
-                 defaultDate={null}
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 defaultDate: null,
+                 initialVisibleMonth: moment(DEFAULT_DATE)
+             })
     );
 
 stories("/default date/opened")
     .add("date selected",
          () =>
-             <SingleDatePicker
-                 defaultDate={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 defaultDate: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     )
     .add("null value",
          () =>
-             <SingleDatePicker
-                 defaultDate={null}
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 defaultDate: null,
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/disallow clear")
     .add("closed",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 allowClear={false}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 allowClear: false
+             })
     )
     .add("opened",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 allowClear={false}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 allowClear: false,
+                 defaultOpen: true
+             })
     );
 
 stories("/initial visible month")
     .add("default",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />,
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             }),
          {
              storyParameters: {
                  initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
@@ -630,221 +595,191 @@ stories("/initial visible month")
 stories("/disabled")
     .add("no selection",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 disabled
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 disabled: true
+             })
     )
     .add("selected dates",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 disabled
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 disabled: true
+             })
     );
 
 stories("/customization")
     .add("input",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input className="bg-red"></SingleDatePicker.Input>}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 input: <SingleDatePicker.Input className="bg-red" />
+             })
     )
     .add("input icon",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />}></SingleDatePicker.Input>}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 input: <SingleDatePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />} />
+             })
     )
     .add("clear icon",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />}></SingleDatePicker.Input>}
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
+             })
     )
     .add("disabled clear icon",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 input={<SingleDatePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />}></SingleDatePicker.Input>}
-                 onDateChange={logDateChanged}
-                 disabled
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 input: <SingleDatePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />} />,
+                 disabled: true
+             })
     )
     .add("placeholder",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 placeholder="Custom placeholder"
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 placeholder: "Custom placeholder"
+             })
     )
     .add("date format",
          () =>
-             <SingleDatePicker
-                 date={moment(DEFAULT_DATE)}
-                 dateFormat="YYYY MMM Do"
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 date: moment(DEFAULT_DATE),
+                 dateFormat: "YYYY MMM Do"
+             })
     )
     .add("buttons component",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 buttons={<SingleDatePicker.Buttons className="border-red"></SingleDatePicker.Buttons>}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 buttons: <SingleDatePicker.Buttons className="border-red" />,
+                 defaultOpen: true
+             })
     )
     .add("buttons text",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 buttons={<SingleDatePicker.Buttons clearText="Custom clear" applyText="Custom apply"></SingleDatePicker.Buttons>}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 buttons: <SingleDatePicker.Buttons clearText="Custom clear" applyText="Custom apply" />,
+                 defaultOpen: true
+             })
     )
     .add("calendar component",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<SingleDatePicker.Calendar className="border-red"></SingleDatePicker.Calendar>}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 calendar: <SingleDatePicker.Calendar className="border-red" />,
+                 defaultOpen: true
+             })
     )
     .add("navigation icons",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 calendar={<SingleDatePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />}></SingleDatePicker.Calendar>}
-                 defaultOpen
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 calendar: <SingleDatePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />} />,
+                 defaultOpen: true
+             })
     )
     .add("css class",
          () =>
-             <SingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 className="border-red"
-                 onDateChange={logDateChanged}
-             />
+             createSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 className: "border-red"
+             })
     );
 
 stories("/inlined")
     .add("closed",
          () =>
-             <InlineSingleDatePicker
-                 onDateChange={logDateChanged}
-             />
+             createInlineSingleDatePicker()
     )
     .add("opened",
          () =>
-             <InlineSingleDatePicker
-                 initialVisibleMonth={moment(DEFAULT_DATE)}
-                 onDateChange={logDateChanged}
-                 defaultOpen
-             />
+             createInlineSingleDatePicker({
+                 initialVisibleMonth: moment(DEFAULT_DATE),
+                 defaultOpen: true
+             })
     );
 
 stories("/inlined/selected date/closed")
     .add("no selection", () =>
-        <InlineSingleDatePicker
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker()
     )
     .add("date selected", () =>
-        <InlineSingleDatePicker
-            date={moment(DEFAULT_DATE)}
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            date: moment(DEFAULT_DATE)
+        })
     )
     .add("null value", () =>
-        <InlineSingleDatePicker
-            date={null}
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            date: null
+        })
     );
 
 stories("/inlined/selected date/opened")
     .add("no selection", () =>
-        <InlineSingleDatePicker
-            initialVisibleMonth={moment(DEFAULT_DATE)}
-            onDateChange={logDateChanged}
-            defaultOpen
-        />
+        createInlineSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
     )
     .add("date selected", () =>
-        <InlineSingleDatePicker
-            date={moment(DEFAULT_DATE)}
-            onDateChange={logDateChanged}
-            defaultOpen
-        />
+        createInlineSingleDatePicker({
+            date: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
     )
     .add("null value", () =>
-        <InlineSingleDatePicker
-            date={null}
-            initialVisibleMonth={moment(DEFAULT_DATE)}
-            onDateChange={logDateChanged}
-            defaultOpen
-        />
+        createInlineSingleDatePicker({
+            date: null,
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
     );
 
 stories("/inlined/customization")
     .add("close icon", () =>
-        <InlineSingleDatePicker
-            input={<InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />}
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />
+        })
     )
     .add("open icon", () =>
-        <InlineSingleDatePicker
-            input={<InlineSingleDatePicker.Input openIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />}
-            initialVisibleMonth={moment(DEFAULT_DATE)}
-            onDateChange={logDateChanged}
-            defaultOpen
-        />
+        createInlineSingleDatePicker({
+            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
     )
     .add("disabled close icon", () =>
-        <InlineSingleDatePicker
-            input={<InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />}
-            onDateChange={logDateChanged}
-            disabled
-        />
+        createInlineSingleDatePicker({
+            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />,
+            disabled: true
+        })
     )
     .add("disabled open icon", () =>
-        <InlineSingleDatePicker
-            input={<InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />}
-            onDateChange={logDateChanged}
-            defaultOpen
-            disabled
-        />
+        createInlineSingleDatePicker({
+            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
+            defaultOpen: true,
+            disabled: true
+        })
     )
     .add("placeholder", () =>
-        <InlineSingleDatePicker
-            placeholder="Custom placeholder"
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            placeholder: "Custom placeholder"
+        })
     )
     .add("date format", () =>
-        <InlineSingleDatePicker
-            date={moment(DEFAULT_DATE)}
-            dateFormat="YYYY MMM Do"
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            date: moment(DEFAULT_DATE),
+            dateFormat: "YYYY MMM Do"
+        })
     )
     .add("css class", () =>
-        <InlineSingleDatePicker
-            className="bg-red"
-            onDateChange={logDateChanged}
-        />
+        createInlineSingleDatePicker({
+            className: "bg-red"
+        })
     );

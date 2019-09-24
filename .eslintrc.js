@@ -1,9 +1,11 @@
 module.exports = {
     root: true,
+    plugins: ["jest"],
     extends: [
         "@sharegate/eslint-config-recommended",
         "@sharegate/eslint-config-sort-imports",
-        "@sharegate/eslint-config-lodash"
+        "@sharegate/eslint-config-lodash",
+        "plugin:jest/recommended"
     ],
     parserOptions: {
         ecmaVersion: 2018
@@ -12,6 +14,7 @@ module.exports = {
         browser: true,
         commonjs: true,
         es6: true,
-        node: true
+        node: true,
+        "jest/globals": true
     }
 };

@@ -131,7 +131,7 @@ export class DatePickerTextboxInput extends PureComponent {
         return (
             <div className={cx({ dn: this.isPlaceholder() || disabled || open })}>
                 <Ref innerRef={this._clearButtonRef}>
-                    <Button circular size="mini" primary icon className="transparent" onClick={this.handleClear}>
+                    <Button circular size="mini" primary icon className="transparent" onClick={this.handleClear} data-testid="date-picker-textbox-clear-button">
                         {clearIcon}
                     </Button>
                 </Ref>
@@ -152,9 +152,10 @@ export class DatePickerTextboxInput extends PureComponent {
             autoComplete="off"
             disabled={disabled}
             ref={this.setContainerRef}
+            data-testid="date-picker-textbox-input"
         >
             {this.renderIcon()}
-            <span className="flex-grow-1 ml4">{this.isPlaceholder() ? placeholder : value}</span>
+            <span className="flex-grow-1 ml4" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
             {this.renderClearButton()}
 
             <style jsx>{`

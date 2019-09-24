@@ -1,6 +1,3 @@
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ChevronIcon } from "@orbit-ui/icons";
 import { PureComponent, cloneElement } from "react";
@@ -167,7 +164,7 @@ export class DatePickerCalendar extends PureComponent {
         const { buttons, leftContent } = this.props;
 
         return (
-            <div className={this.getCssClasses()}>
+            <div className={this.getCssClasses()} data-testid="date-picker-calendar">
                 {leftContent}
                 <div className="flex flex-column">
                     {this.renderCalendar()}

@@ -4,6 +4,15 @@ import { SearchInputController } from "@orbit-ui/react-search-input/src";
 import { noop } from "lodash";
 import { storiesBuilder } from "@utils/stories-builder";
 
+function createSearchInputController({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
+    return <SearchInputController
+        results={results}
+        onValueChange={logValueChanged}
+        onSearch={noop}
+        {...otherProps}
+    />;
+}
+
 function stories(segment) {
     return storiesBuilder(module, "Search-Input-Ctrl|specs")
         .segment(segment)
@@ -15,288 +24,204 @@ function stories(segment) {
 stories()
     .add("closed",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController()
     )
     .add("opened",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true
+             })
     )
     .add("autofocus",
          () =>
-             <SearchInputController
-                 autofocus
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 autofocus: true
+             })
     );
 
 stories("/loading/closed")
     .add("value selected",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 loading
-             />
+             createSearchInputController({
+                 value: LAURIE_VALUE,
+                 loading: true
+             })
     )
     .add("no selection",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 loading
-             />
+             createSearchInputController({
+                 loading: true
+             })
     );
 
 stories("/loading/opened")
     .add("value selected",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 loading
-             />
+             createSearchInputController({
+                 open: true,
+                 value: LAURIE_VALUE,
+                 loading: true
+             })
     )
     .add("no selection",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 loading
-             />
+             createSearchInputController({
+                 open: true,
+                 loading: true
+             })
     );
 
 stories("/disabled")
     .add("value selected",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 disabled
-             />
+             createSearchInputController({
+                 value: LAURIE_VALUE,
+                 disabled: true
+             })
     )
     .add("no selection",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 disabled
-             />
+             createSearchInputController({
+                 disabled: true
+             })
     )
     .add("cannot be opened",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 disabled
-             />
+             createSearchInputController({
+                 open: true,
+                 disabled: true
+             })
     )
     .add("cannot show loading spinner",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 loading
-                 disabled
-             />
+             createSearchInputController({
+                 loading: true,
+                 disabled: true
+             })
     );
 
 stories("/results")
     .add("with results",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true
+             })
     )
     .add("no results",
          () =>
-             <SearchInputController
-                 open
-                 results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true,
+                 results: []
+             })
     );
 
 stories("/selected value/closed")
     .add("no selection",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController()
     )
     .add("value selected",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 value: LAURIE_VALUE
+             })
     );
 
 stories("/selected value/closed/clear button")
     .add("cannot clear when no selection",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController()
     )
     .add("can clear when value selected",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 value: LAURIE_VALUE
+             })
     );
 
 stories("/selected value/opened")
     .add("no selection",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true
+             })
     )
     .add("value selected",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true,
+                 value: LAURIE_VALUE
+             })
     );
 
 stories("/selected value/opened/clear button")
     .add("cannot clear when no selection",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true
+             })
     )
     .add("can clear when value selected",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 value={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true,
+                 value: LAURIE_VALUE
+             })
     );
 
 stories("/default value/closed")
     .add("value selected",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 defaultValue: LAURIE_VALUE
+             })
     );
 
 stories("/default value/opened")
     .add("value selected",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-             />
+             createSearchInputController({
+                 open: true,
+                 defaultValue: LAURIE_VALUE
+             })
     );
 
 stories("/customization")
     .add("no results message",
          () =>
-             <SearchInputController
-                 open
-                 results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 noResultsMessage="Custom no results message"
-             />
+             createSearchInputController({
+                 open: true,
+                 results: [],
+                 noResultsMessage: "Custom no results message"
+             })
     )
     .add("placeholder",
          () =>
-             <SearchInputController
-                 results={[]}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 placeholder="Custom placeholder"
-             />
+             createSearchInputController({
+                 results: [],
+                 placeholder: "Custom placeholder"
+             })
     )
     .add("clear icon",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 clearIcon={<CancelIcon className="h3 w3 fill-red" />}
-             />
+             createSearchInputController({
+                 defaultValue: LAURIE_VALUE,
+                 clearIcon: <CancelIcon className="h3 w3 fill-red" />
+             })
     )
     .add("result renderer",
          () =>
-             <SearchInputController
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 resultRenderer={({ text }) => {
+             createSearchInputController({
+                 open: true,
+                 resultRenderer: ({ text }) => {
                      return <div className="bg-red">{text}</div>;
-                 }}
-             />
+                 }
+             })
     )
     .add("class name",
          () =>
-             <SearchInputController
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 onSearch={noop}
-                 className="bg-red-inner"
-             />
+             createSearchInputController({
+                 className: "bg-red-inner"
+             })
     );
 

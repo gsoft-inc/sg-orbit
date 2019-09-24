@@ -1,5 +1,5 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
-import { DayPickerRangeController } from "react-dates";
+import { DayPickerRangeController } from "../react-dates-wrapper";
 import { POSITIONS } from "../positions";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
@@ -27,7 +27,12 @@ export class DateRangePickerCalendar extends PureComponent {
         presets: arrayOf(shape(PRESET_SHAPE)),
         buttons: node,
         allowClear: bool,
+        reactDatesCalendar: node,
         className: string
+    };
+
+    static defaultProps = {
+        reactDatesCalendar: <DayPickerRangeController />
     };
 
     state = {
@@ -121,19 +126,17 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     renderCalendar() {
-        const { startDate, endDate, allowSingleDateSelection } = this.props;
+        const { startDate, endDate, allowSingleDateSelection, reactDatesCalendar } = this.props;
         const { focusedInput } = this.state;
 
-        return (
-            <DayPickerRangeController
-                startDate={startDate}
-                endDate={endDate}
-                onDatesChange={this.handleDatesChange}
-                onFocusChange={this.handleFocusChange}
-                focusedInput={focusedInput}
-                minimumNights={allowSingleDateSelection ? 0 : 1}
-            />
-        );
+        return cloneElement(reactDatesCalendar, {
+            startDate: startDate,
+            endDate: endDate,
+            onDatesChange: this.handleDatesChange,
+            onFocusChange: this.handleFocusChange,
+            focusedInput: focusedInput,
+            minimumNights: allowSingleDateSelection ? 0 : 1
+        });
     }
 
     render() {

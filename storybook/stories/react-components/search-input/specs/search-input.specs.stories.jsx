@@ -2,6 +2,14 @@ import { DEFAULT_RESULTS, LAURIE_VALUE, logValueChanged } from "@stories/react-c
 import { SearchInput } from "@orbit-ui/react-search-input/src";
 import { storiesBuilder } from "@utils/stories-builder";
 
+function createSearchInput({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
+    return <SearchInput
+        results={results}
+        onValueChange={logValueChanged}
+        {...otherProps}
+    />;
+}
+
 function stories(segment) {
     return storiesBuilder(module, "Search-Input|specs")
         .segment(segment)
@@ -13,41 +21,29 @@ function stories(segment) {
 stories()
     .add("closed",
          () =>
-             <SearchInput
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-             />
+             createSearchInput()
     )
     .add("opened",
          () =>
-             <SearchInput
-                 open
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-             />
+             createSearchInput({
+                 open: true
+             })
     )
     .add("disabled",
          () =>
-             <SearchInput
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-                 disabled
-             />
+             createSearchInput({
+                 disabled: true
+             })
     );
 
 stories("/selected value")
     .add("no selection",
          () =>
-             <SearchInput
-                 results={DEFAULT_RESULTS}
-                 onValueChange={logValueChanged}
-             />
+             createSearchInput()
     )
     .add("value selected",
          () =>
-             <SearchInput
-                 results={DEFAULT_RESULTS}
-                 defaultValue={LAURIE_VALUE}
-                 onValueChange={logValueChanged}
-             />
+             createSearchInput({
+                 defaultValue: LAURIE_VALUE
+             })
     );

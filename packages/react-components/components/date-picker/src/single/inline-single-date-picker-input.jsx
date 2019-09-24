@@ -133,6 +133,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 tabIndex={disabled ? null : "0"}
                 disabled={disabled}
                 ref={this.setButtonRef}
+                data-testid="inline-single-date-picker-input"
             >
                 <span className="mr2 fw5">{this.getValue()}</span>
                 <span className="flex">{this.renderIcon()}</span>

@@ -24,6 +24,9 @@ jobs:
             - run:
                   name: Lint
                   command: yarn lint
+            - run:
+                  name: Tests
+                  command: yarn test-ci
     chromatic:
         docker:
             - image: circleci/node:12
@@ -44,6 +47,9 @@ jobs:
             - run:
                   name: Build Packages
                   command: yarn build:pkg
+            - run:
+                  name: Tests
+                  command: yarn test-ci
             - run:
                   name: Run chromatic
                   command: yarn chromatic-ci
