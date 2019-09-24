@@ -60,7 +60,9 @@ workflows:
             - build:
                   filters:
                       branches:
-                          only: master
+                          only:
+                              - master
+                              - /.*[ci].*/
     nightly:
         triggers:
             - schedule:
