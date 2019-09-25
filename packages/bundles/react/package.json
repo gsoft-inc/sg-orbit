@@ -1,9 +1,9 @@
 {
     "name": "@orbit-ui/react",
     "version": "1.0.2",
-    "description": "Sharegate Orbit UI for React",
+    "description": "ShareGate orbit UI for React",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
-    "author": "Groupe Sharegate inc.",
+    "author": "Groupe ShareGate inc.",
     "license": "Apache-2.0",
     "main": "index.css",
     "publishConfig": {

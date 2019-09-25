@@ -6,8 +6,8 @@ export default {
     src: "./src",
     public: "./public",
     dest: "/dist",
-    title: "Sharegate Orbit",
-    description: "Sharegate Orbit components documentation",
+    title: "ShareGate orbit",
+    description: "ShareGate orbit components documentation",
     menu: [
         { name: "Introduction", menu: [] },
         { name: "Materials", menu: ["Colours", "Typography", "Spacing", "Border Radius", "Shadows"] },
