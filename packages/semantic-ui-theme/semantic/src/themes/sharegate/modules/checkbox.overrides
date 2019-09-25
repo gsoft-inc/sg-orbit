@@ -26,19 +26,19 @@
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before {
     background: @primary500 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
-    background-size: 12px 12px;
+    background-size: 10px 7px;
 }
 
 .ui.checkbox input:checked:disabled ~ .box:before,
 .ui.checkbox input:checked:disabled ~ label:before {
     background: @primary100 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
     border-color: @primary100;
-    background-size: 12px 12px;
+    background-size: 10px 7px;
 }
 
 .ui.checkbox input:indeterminate:focus ~ .box:before, .ui.checkbox input:indeterminate:focus ~ label:before {
     background: @white url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
-    background-size: 12px 12px;
+    background-size: 10px 7px;
 }
 
 .ui.checkbox input:checked:focus ~ .box:before, .ui.checkbox input:checked:focus ~ label:before {
@@ -94,7 +94,7 @@
 .ui.ui.toggle.checked.disabled label:active::before,
 .ui.ui.toggle.checked.disabled label:checked::before,
 .ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before {
-    background: @primary50!important;
+    background: @primary100!important;
 }
 
 .ui.checkbox .box:hover::before,
@@ -151,4 +151,37 @@
 .ui.disabled.radio.checkbox label::before {
     background-color: var(--cloud-50);
     border: 2px solid var(--cloud-100);
+}
+
+/* ui fitted toggle checkbox for browsers that supports masks */
+
+@supports (mask: url("/icon-checkmark-short.svg") center center no-repeat) {
+    .ui.fitted.toggle.checkbox::before {
+        background-color: @white;
+        content: "";
+        display: block;
+        position: absolute;
+        transform: translate3d(0.25rem, 0, 0);
+        top: 0.185rem;
+        width: 14px;
+        height: 14px;
+        z-index: 10;
+        transition: background 0.3s ease, transform 0.3s ease;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask-size: 10px 7px;
+    }
+
+    .ui.fitted.toggle.checkbox.checked::before {
+        transform: translate3d(1.625rem, 0, 0);
+        background-color:  @primary500;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask-size: 10px 7px;
+    }
+
+    .ui.fitted.toggle.checkbox.checked.disabled::before {
+        transform: translate3d(1.625rem, 0, 0);
+        background-color: @primary100;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask-size: 10px 7px;
+    }
 }

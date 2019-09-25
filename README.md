@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Sharegate Orbit" src="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/assets/orbit.svg?sanitize=true" width="546">
+    <img alt="ShareGate Orbit" src="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/assets/orbit.svg?sanitize=true" width="546">
 </p>
 
 <p align="center">
