@@ -153,39 +153,41 @@
     border: 2px solid var(--cloud-100);
 }
 
-/* ui fitted toggle checkbox */
+/* ui fitted toggle checkbox for browsers that supports masks */
 
-.ui.fitted.toggle.checkbox::before {
-    background-color: @white;
-    -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    content: "";
-    display: block;
-    position: absolute;
-    transform: translate3d(0.25rem, 0, 0);
-    top: 0.185rem;
-    width: 14px;
-    height: 14px;
-    z-index: 10;
-    transition: background 0.3s ease, transform 0.3s ease;
-    -webkit-mask-size: 10px 7px;
-    mask-size: 10px 7px;
-}
+@supports (mask: url("/icon-checkmark-short.svg") center center no-repeat) or (-webkit-mask: url("icon-checkmark-short.svg") center center no-repeat) {
+    .ui.fitted.toggle.checkbox::before {
+        background-color: @white;
+        -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        content: "";
+        display: block;
+        position: absolute;
+        transform: translate3d(0.25rem, 0, 0);
+        top: 0.185rem;
+        width: 14px;
+        height: 14px;
+        z-index: 10;
+        transition: background 0.3s ease, transform 0.3s ease;
+        -webkit-mask-size: 10px 7px;
+        mask-size: 10px 7px;
+    }
 
-.ui.fitted.toggle.checkbox.checked::before {
-    transform: translate3d(1.625rem, 0, 0);
-    background-color:  @primary500;
-    -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    -webkit-mask-size: 10px 7px;
-    mask-size: 10px 7px;
-}
+    .ui.fitted.toggle.checkbox.checked::before {
+        transform: translate3d(1.625rem, 0, 0);
+        background-color:  @primary500;
+        -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        -webkit-mask-size: 10px 7px;
+        mask-size: 10px 7px;
+    }
 
-.ui.fitted.toggle.checkbox.checked.disabled::before {
-    transform: translate3d(1.625rem, 0, 0);
-    background-color: @primary100;
-    -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-    -webkit-mask-size: 10px 7px;
-    mask-size: 10px 7px;
+    .ui.fitted.toggle.checkbox.checked.disabled::before {
+        transform: translate3d(1.625rem, 0, 0);
+        background-color: @primary100;
+        -webkit-mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
+        -webkit-mask-size: 10px 7px;
+        mask-size: 10px 7px;
+    }
 }
