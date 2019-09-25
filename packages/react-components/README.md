@@ -26,6 +26,7 @@ Adding a new component package involve a few extra steps. Before you go forward 
 
 - [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
+- [Write interaction tests](../../CONTRIBUTING.md#testing)
 - [Update the documentation](#update-the-documentation)
 - [Include the component in the bundle](#include-the-component-in-the-bundle)
 
