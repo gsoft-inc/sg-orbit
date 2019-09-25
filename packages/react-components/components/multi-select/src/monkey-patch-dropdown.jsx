@@ -25,6 +25,8 @@ export class MonkeyPatchDropdown extends Dropdown {
         this.closeOnChange(e);
         this.clearSearchQuery();
 
+        console.log("********** search: ", search);
+
         if (search) {
             invoke(this.searchRef.current, "focus");
         }

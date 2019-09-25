@@ -122,7 +122,7 @@ test("when disabled, dont open the calendar on space", async () => {
     expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
 });
 
-test("when disabled, dont open the calendar on esc", async () => {
+test("when disabled, dont open the calendar on enter", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker({
         disabled: true
     }));

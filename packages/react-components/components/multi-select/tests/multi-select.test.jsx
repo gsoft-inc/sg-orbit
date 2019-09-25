@@ -1,9 +1,10 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
-import { fireEvent, render, wait, waitForElement, waitForElementToBeRemoved } from "@testing-library/react";
+import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const MENU_ID = "multi-select-dropdown-menu";
+const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";
 
 const GROUP_CREATED_VALUE = "Group Created";
 const GROUP_RESTORED_VALUE = "Group Restored";
@@ -96,7 +97,49 @@ test("close the dropdown menu on trigger click", async () => {
     expect(menuNode).not.toBeInTheDocument();
 });
 
-// Focus the search box when open
+test("when disabled, dont open the dropdown menu on trigger click", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        disabled: true
+    }));
+
+    fireEvent.click(getByTestId(TRIGGER_ID));
+    await wait();
+
+    expect(queryByTestId(document, MENU_ID)).toBeNull();
+});
+
+test("when disabled, dont open the dropdown menu on space", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(queryByTestId(document, MENU_ID)).toBeNull();
+});
+
+test("when disabled, dont open the dropdown menu on enter", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(queryByTestId(document, MENU_ID)).toBeNull();
+});
+
+test("search input is focused on open", async () => {
+    const { getByTestId } = render(createMultiSelect());
+
+    fireEvent.click(getByTestId(TRIGGER_ID));
+
+    const searchInputNode = await waitForElement(() => getByTestId(SEARCH_INPUT_ID));
+
+    expect(searchInputNode).toHaveFocus();
+});
+
 // closeOnSelect
 // Trigger focused on close
 // Arrow up / Down
