@@ -12,7 +12,7 @@ import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
 function defaultItemRenderer(item, isSelected) {
-    return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} />;
+    return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} data-testid="multi-select-dropdown-item" />;
 }
 
 function defaultHeaderRenderer(group) {

@@ -58,7 +58,7 @@ test("open the calendar on input click", async () => {
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on space", async () => {
+test("open the calendar on space keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
     fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
@@ -68,7 +68,7 @@ test("open the calendar on space", async () => {
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on enter", async () => {
+test("open the calendar on enter keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
     fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
@@ -78,7 +78,7 @@ test("open the calendar on enter", async () => {
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("close the calendar on esc", async () => {
+test("close the calendar on esc keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker({
         defaultOpen: true
     }));
@@ -128,7 +128,7 @@ test("when disabled, dont open the calendar on input click", async () => {
     expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
 });
 
-test("when disabled, dont open the calendar on space", async () => {
+test("when disabled, dont open the calendar on space keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker({
         disabled: true
     }));
@@ -139,7 +139,7 @@ test("when disabled, dont open the calendar on space", async () => {
     expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
 });
 
-test("when disabled, dont open the calendar on enter", async () => {
+test("when disabled, dont open the calendar on enter keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker({
         disabled: true
     }));
@@ -297,7 +297,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+test("call onVisibilityChange when the calendar is opened with space keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
@@ -311,7 +311,7 @@ test("call onVisibilityChange when the calendar is opened with space bar", async
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with enter", async () => {
+test("call onVisibilityChange when the calendar is opened with enter keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({
@@ -340,7 +340,7 @@ test("call onVisibilityChange when the calendar is dismissed", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is closed with esc", async () => {
+test("call onVisibilityChange when the calendar is closed with esc keydown", async () => {
     const handler = jest.fn();
 
     render(createSingleDatePicker({

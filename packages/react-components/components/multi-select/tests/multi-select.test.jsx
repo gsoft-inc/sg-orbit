@@ -1,9 +1,10 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
-import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, getAllByTestId, queryAllByTestId, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const MENU_ID = "multi-select-dropdown-menu";
+const MENU_ITEM_ID = "multi-select-dropdown-item";
 const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";
 
 const GROUP_CREATED_VALUE = "Group Created";
@@ -38,7 +39,7 @@ test("open the dropdown menu on trigger click", async () => {
     expect(menuNode).toBeInTheDocument();
 });
 
-test("open the dropdown menu on space", async () => {
+test("open the dropdown menu on space keydown", async () => {
     const { getByTestId } = render(createMultiSelect());
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
@@ -48,7 +49,7 @@ test("open the dropdown menu on space", async () => {
     expect(menuNode).toBeInTheDocument();
 });
 
-test("open the dropdown menu on enter", async () => {
+test("open the dropdown menu on enter keydown", async () => {
     const { getByTestId } = render(createMultiSelect());
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
@@ -58,7 +59,7 @@ test("open the dropdown menu on enter", async () => {
     expect(menuNode).toBeInTheDocument();
 });
 
-test("close the dropdown menu on esc", async () => {
+test("close the dropdown menu on esc keydown", async () => {
     const { getByTestId } = render(createMultiSelect({
         defaultOpen: true
     }));
@@ -108,7 +109,7 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
     expect(queryByTestId(document, MENU_ID)).toBeNull();
 });
 
-test("when disabled, dont open the dropdown menu on space", async () => {
+test("when disabled, dont open the dropdown menu on space keydown", async () => {
     const { getByTestId } = render(createMultiSelect({
         disabled: true
     }));
@@ -119,7 +120,7 @@ test("when disabled, dont open the dropdown menu on space", async () => {
     expect(queryByTestId(document, MENU_ID)).toBeNull();
 });
 
-test("when disabled, dont open the dropdown menu on enter", async () => {
+test("when disabled, dont open the dropdown menu on enter keydown", async () => {
     const { getByTestId } = render(createMultiSelect({
         disabled: true
     }));
@@ -140,11 +141,99 @@ test("search input is focused on open", async () => {
     expect(searchInputNode).toHaveFocus();
 });
 
-// closeOnSelect
+test("can select a dropdown menu item with arrows keydown", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true
+    }));
+
+    await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowUp", keyCode: 38 });
+    await wait();
+
+    expect(getAllByTestId(document, MENU_ITEM_ID)[1]).toHaveClass("selected");
+});
+
+test("dont close the dropdown menu on search input click", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.click(getByTestId(SEARCH_INPUT_ID));
+    await wait();
+
+    expect(menuNode).toBeInTheDocument();
+});
+
+test("when closeOnSelect is false, dont close the dropdown menu on item click", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.click(getAllByTestId(document, MENU_ITEM_ID)[0]);
+    await wait();
+
+    expect(menuNode).toBeInTheDocument();
+});
+
+test("when closeOnSelect is false, dont close the dropdown menu on item enter keydown", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(menuNode).toBeInTheDocument();
+});
+
+test("when closeOnSelect is true, close the dropdown menu on item click", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        closeOnSelect: true
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.click(getAllByTestId(document, MENU_ITEM_ID)[0]);
+    await wait();
+
+    expect(menuNode).not.toBeInTheDocument();
+});
+
+test("when closeOnSelect is true, close the dropdown menu on item enter keydown", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        closeOnSelect: true
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(menuNode).not.toBeInTheDocument();
+});
+
+// Filter results when typing
+// Selecting an item, add a value
+
+
 // Trigger focused on close
 // Arrow up / Down
-// Select Item on enter
 // Remove item when click the (x)
 // Clear all remove all items
 // Filter results when typing
 // Disabled
+
