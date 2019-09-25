@@ -64,8 +64,24 @@ export class MultiSelectDropdown extends PureComponent {
     _triggerRef = createRef();
     _dropdownRef = createRef();
 
+    componentDidMount() {
+        const { open } = this.props;
+
+        if (open) {
+            this.bindEvents();
+        }
+    }
+
     componentDidUpdate(prevProps) {
-        const { items } = this.props;
+        const { items, open } = this.props;
+
+        if (open !== prevProps.open) {
+            if (open) {
+                this.bindEvents();
+            } else {
+                this.unbindEvents();
+            }
+        }
 
         if (prevProps.items !== items) {
             this.setKeyboardItem(null, null);
@@ -80,7 +96,7 @@ export class MultiSelectDropdown extends PureComponent {
     handleDocumentClick = event => {
         if (this._dropdownRef.current) {
             if (!this._dropdownRef.current.contains(event.target)) {
-                this.toggleVisibility(event);
+                this.close(event);
             }
         }
     };
@@ -103,7 +119,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     handleEscape = event => {
-        this.toggleVisibility(event);
+        this.close(event);
     };
 
     handleEnter = event => {
@@ -150,7 +166,7 @@ export class MultiSelectDropdown extends PureComponent {
         const { open } = this.props;
 
         if (!open) {
-            this.toggleVisibility(event);
+            this.open(event);
         }
     }
 
@@ -158,7 +174,7 @@ export class MultiSelectDropdown extends PureComponent {
         const { open } = this.props;
 
         if (open) {
-            this.toggleVisibility(event);
+            this.close(event);
         }
     }
 
@@ -178,20 +194,9 @@ export class MultiSelectDropdown extends PureComponent {
         }
     }
 
-    toggleVisibility(event) {
-        const { open } = this.props;
-
-        if (open) {
-            this.close(event);
-        } else {
-            this.open(event);
-        }
-    }
-
     open(event) {
         const { onOpen } = this.props;
 
-        this.bindEvents();
         this.setKeyboardItem(null, null);
 
         onOpen(event, this.props);
@@ -199,8 +204,6 @@ export class MultiSelectDropdown extends PureComponent {
 
     close(event) {
         const { onClose } = this.props;
-
-        this.unbindEvents();
 
         setTimeout(() => {
             if (!isNil(this._triggerRef.current)) {
@@ -229,7 +232,7 @@ export class MultiSelectDropdown extends PureComponent {
         const { items, onItemSelect, closeOnSelect } = this.props;
 
         if (closeOnSelect || items.length === 1) {
-            this.toggleVisibility(event);
+            this.close(event);
         }
 
         // Defering onItemSelect ensure that document click has already been handled and the dropdown is not closed because the item is not part of the menu anymore.

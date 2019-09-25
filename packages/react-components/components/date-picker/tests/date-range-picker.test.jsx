@@ -3,7 +3,7 @@ import { DATE_FORMAT } from "./shared";
 import { DEFAULT_DATES_PRESETS, DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { END_DATE } from "react-dates/constants";
 import { PureComponent, createRef } from "react";
-import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
 
@@ -56,16 +56,6 @@ function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...ot
         {...otherProps}
     />;
 }
-
-// function openWith(action, params, getByTestId) {
-//     fireEvent[action](getByTestId(TEXTBOX_ID), params);
-
-//     return waitForElement(() => getByTestId(CALENDAR_ID));
-// }
-
-// function openWithClick(getByTestId) {
-//     return openWith("click", undefined, getByTestId);
-// }
 
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createDateRangePicker());
@@ -134,6 +124,39 @@ test("close the calendar on input click", async () => {
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
+});
+
+test("when disabled, dont open the calendar on input click", async () => {
+    const { getByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on space", async () => {
+    const { getByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on esc", async () => {
+    const { getByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
 });
 
 test("clear the date on input clear button click", async () => {

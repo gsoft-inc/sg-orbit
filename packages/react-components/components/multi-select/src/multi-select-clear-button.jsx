@@ -3,7 +3,6 @@ import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
 import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
-// import EventStack from "@semantic-ui-react/event-stack";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {

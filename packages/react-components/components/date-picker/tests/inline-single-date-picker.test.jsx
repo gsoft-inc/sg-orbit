@@ -1,9 +1,9 @@
 import { CALENDAR_ID } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
-export const INLINE_SINGLE_DATE_PICKER_INPUT = "inline-single-date-picker-input";
+export const INPUT_ID = "inline-single-date-picker-input";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -34,7 +34,7 @@ function createInlineSingleDatePicker(props) {
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.click(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT));
+    fireEvent.click(getByTestId(INPUT_ID));
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -44,7 +44,7 @@ test("open the calendar on input click", async () => {
 test("open the calendar on space", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), { key: " ", keyCode: 32 });
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -54,7 +54,7 @@ test("open the calendar on space", async () => {
 test("open the calendar on enter", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -94,10 +94,43 @@ test("close the calendar on input click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT));
+    fireEvent.click(getByTestId(INPUT_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
+});
+
+test("when disabled, dont open the calendar on input click", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.click(getByTestId(INPUT_ID));
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on space", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on esc", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
 });
 
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {
@@ -107,7 +140,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    fireEvent.click(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT));
+    fireEvent.click(getByTestId(INPUT_ID));
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -121,7 +154,7 @@ test("call onVisibilityChange when the calendar is opened with space bar", async
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), { key: " ", keyCode: 32 });
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -135,7 +168,7 @@ test("call onVisibilityChange when the calendar is opened with enter", async () 
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
