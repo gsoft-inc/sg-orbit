@@ -49,7 +49,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
                     autoComplete="off"
                 >
                     <i className="icon">{icon}</i>
-                    <input data-testid="multi-select-dropdown-search-input" autoFocus />
+                    <input type="text" autoFocus data-testid="multi-select-dropdown-search-input" />
                 </Input>
             </Ref>
         );

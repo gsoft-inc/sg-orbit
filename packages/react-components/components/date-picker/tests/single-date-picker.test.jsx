@@ -2,7 +2,7 @@ import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBO
 import { DATE_FORMAT } from "./shared";
 import { PureComponent, createRef } from "react";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
 
@@ -118,36 +118,36 @@ test("close the calendar on input click", async () => {
 });
 
 test("when disabled, dont open the calendar on input click", async () => {
-    const { getByTestId } = render(createSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on space keydown", async () => {
-    const { getByTestId } = render(createSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on enter keydown", async () => {
-    const { getByTestId } = render(createSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("clear the date on input clear button click", async () => {
@@ -374,4 +374,4 @@ test("call onVisibilityChange when the date is applied", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
 
-
+// Unmount -> event handlers are cleared

@@ -1,6 +1,6 @@
 import { CALENDAR_ID } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { fireEvent, queryByTestId, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
 export const INPUT_ID = "inline-single-date-picker-input";
@@ -101,36 +101,36 @@ test("close the calendar on input click", async () => {
 });
 
 test("when disabled, dont open the calendar on input click", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.click(getByTestId(INPUT_ID));
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on space keydown", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on enter keydown", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
         disabled: true
     }));
 
     fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(queryByTestId(document, CALENDAR_ID)).toBeNull();
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {
@@ -176,3 +176,4 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
 });
 
 
+// Unmount -> event handlers are cleared
