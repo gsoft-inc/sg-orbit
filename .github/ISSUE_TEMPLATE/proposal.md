@@ -1,6 +1,6 @@
 ---
 name: Proposal
-about: Suggest an idea for improving Sharegate Orbit UI
+about: Suggest an idea for improving ShareGate Orbit UI
 labels: 'issue: proposal, needs triage'
 ---
 

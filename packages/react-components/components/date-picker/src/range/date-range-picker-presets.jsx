@@ -1,7 +1,7 @@
 import { PRESET_SHAPE } from "./presets";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, number, object, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../utils";
 import cx from "classnames";

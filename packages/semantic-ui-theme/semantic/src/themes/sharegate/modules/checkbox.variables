@@ -18,7 +18,8 @@
     border @defaultDuration @defaultEasing,
     opacity @defaultDuration @defaultEasing,
     transform @defaultDuration @defaultEasing,
-    box-shadow @defaultDuration @defaultEasing;
+    box-shadow @defaultDuration @defaultEasing,
+    background-color 0.15s @defaultEasing;
 
 @checkboxFocusBorderColor: @focusedFormMutedBorderColor;
 @disabledCheckboxOpacity: 1;

@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/foundation",
     "version": "1.0.4",
-    "description": "Sharegate Orbit UI foundation",
+    "description": "ShareGate orbit UI foundation",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
