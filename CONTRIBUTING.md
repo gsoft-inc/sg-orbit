@@ -494,11 +494,15 @@ yarn chromatic-materials
 
 ## Testing
 
-For testing the components we currently rely only on automated visual testing.
+For testing the components we currently rely only on automated visual testing and interaction testing.
 
-*Visual testing* has been preferred to *structural* or *interactions* testings since this approach assert on what visually appears on the screen instead of asserting on specifics CSS selectors or DOM elements. 
+### Visual testing
+
+Visual testing assert on what visually appears on the screen instead of asserting on specifics CSS selectors or DOM elements.
 
 This is a more *black box* and *robust* testing approach since it shouldn't requires to modify the tests if the code refactor haven't change anything visually.
+
+Therefore, this is preferred way to test the components.
 
 Visual testing can also easily perform cross-browsers testing.
 
@@ -510,6 +514,23 @@ For more information about automated visual testing:
 
 - https://storybook.js.org/docs/testing/automated-visual-testing
 - https://www.youtube.com/watch?v=QE-xQxN9Sps
+
+### Interaction testing
+
+Interaction testing is all about interacting with the user. We need to test if they are working properly.
+
+This approach is used to cover the interaction behaviors of a component.
+
+Examples:
+
+- Ensure that a given element X is visible when the user click on the element Y.
+- Ensure that an handler of the component interface is called when the user on the element Y.
+
+To facilite those tests, we use a combination of [Jest](https://jestjs.io/) and [React testing library](https://testing-library.com).
+
+For more information about interaction testing:
+
+- https://storybook.js.org/docs/testing/react-ui-testing/#2-interaction-testing
 
 ## CI
 

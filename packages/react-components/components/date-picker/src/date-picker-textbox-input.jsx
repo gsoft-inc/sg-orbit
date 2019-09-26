@@ -131,7 +131,16 @@ export class DatePickerTextboxInput extends PureComponent {
         return (
             <div className={cx({ dn: this.isPlaceholder() || disabled || open })}>
                 <Ref innerRef={this._clearButtonRef}>
-                    <Button circular size="mini" primary icon className="transparent" onClick={this.handleClear} data-testid="date-picker-textbox-clear-button">
+                    <Button
+                        circular
+                        size="mini"
+                        primary
+                        icon
+                        className="transparent"
+                        onClick={this.handleClear}
+                        type="button"
+                        data-testid="date-picker-textbox-clear-button"
+                    >
                         {clearIcon}
                     </Button>
                 </Ref>

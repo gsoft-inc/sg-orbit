@@ -17,6 +17,8 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         onOpen: func,
+        onClose: func,
+        open: bool,
         disabled: bool,
         className: string
     };
@@ -27,14 +29,18 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     handleBlur = useHandlerProxy(this, "onBlur");
 
     handleClick = event => {
-        const { onClick, onOpen, disabled } = this.props;
+        const { onClick, onOpen, onClose, open, disabled } = this.props;
 
         if (!isNil(onClick)) {
             onClick(event, this.props);
         }
 
         if (!disabled) {
-            onOpen(event, this.props);
+            if (!open) {
+                onOpen(event, this.props);
+            } else {
+                onClose(event, this.props);
+            }
         }
     }
 
@@ -47,7 +53,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
         const key = event.keyCode;
 
-        if (key === KEYS.space) {
+        if (key === KEYS.space || key === KEYS.enter) {
             if (!disabled) {
                 onOpen(event, this.props);
             }
@@ -81,6 +87,8 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     secondary
                     className={this.getClasses()}
                     ref={this._buttonRef}
+                    type="button"
+                    data-testid="multi-select-dropdown-trigger"
                 >
                     {text} {this.renderIcon()}
                 </Button>

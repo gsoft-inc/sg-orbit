@@ -40,9 +40,16 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
 
         return (
             <Ref innerRef={this._inputRef}>
-                <Input onChange={this.handleChange} placeholder={placeholder} icon iconPosition="left" className={this.getClasses()} autoComplete="off">
+                <Input
+                    onChange={this.handleChange}
+                    placeholder={placeholder}
+                    icon
+                    iconPosition="left"
+                    className={this.getClasses()}
+                    autoComplete="off"
+                >
                     <i className="icon">{icon}</i>
-                    <input />
+                    <input type="text" autoFocus data-testid="multi-select-dropdown-search-input" />
                 </Input>
             </Ref>
         );

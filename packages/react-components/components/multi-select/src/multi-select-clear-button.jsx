@@ -3,7 +3,6 @@ import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
 import { isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
-// import EventStack from "@semantic-ui-react/event-stack";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
@@ -34,7 +33,12 @@ export class MultiSelectClearButton extends PureComponent {
 
         return (
             <Ref innerRef={this._buttonRef}>
-                <Button onClick={this.handleClick} className={this.getClasses()}>
+                <Button
+                    onClick={this.handleClick}
+                    className={this.getClasses()}
+                    type="button"
+                    data-testid="multi-select-clear-button"
+                >
                     {text}
                 </Button>
             </Ref>

@@ -46,39 +46,33 @@ class DayPickerRangeControllerMock extends PureComponent {
     }
 }
 
-function createDateRangePicker({ reactDatesCalendar, onDatesChange, ...otherProps } = {}) {
+function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...otherProps } = {}) {
     // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-    const calendar = isNil(reactDatesCalendar) ? <DayPickerRangeControllerMock /> : reactDatesCalendar;
+    const rdc = isNil(reactDatesCalendar) ? <DayPickerRangeControllerMock /> : reactDatesCalendar;
 
     return <DateRangePicker
-        calendar={<DateRangePicker.Calendar reactDatesCalendar={calendar} />}
-        onDatesChange={isNil(onDatesChange) ? noop : onDatesChange}
+        calendar={<DateRangePicker.Calendar reactDatesCalendar={rdc} />}
+        onDatesChange={onDatesChange}
         {...otherProps}
     />;
-}
-
-function openWith(action, params, getByTestId) {
-    fireEvent[action](getByTestId(TEXTBOX_ID), params);
-
-    return waitForElement(() => getByTestId(CALENDAR_ID));
-}
-
-function openWithClick(getByTestId) {
-    return openWith("click", undefined, getByTestId);
 }
 
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
-    const calendarNode = await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on space", async () => {
+test("open the calendar on space keydown", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
-    const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
@@ -86,15 +80,19 @@ test("open the calendar on space", async () => {
 test("open the calendar on enter", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
-    const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("close the calendar on esc", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+test("close the calendar on esc keydown", async () => {
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
@@ -103,9 +101,11 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(document);
     await wait();
@@ -114,14 +114,49 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
+});
+
+test("when disabled, dont open the calendar on input click", async () => {
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on space keydown", async () => {
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on enter keydown", async () => {
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("clear the date on input clear button click", async () => {
@@ -149,9 +184,11 @@ test("clear the date on input clear button click", async () => {
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
@@ -159,10 +196,14 @@ test("dont close the calendar on calendar clear button click", async () => {
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(createDateRangePicker({ defaultDate: moment() }));
+test("when dates are selected, clicking on the calendar apply button close the calendar", async () => {
+    const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
+        defaultStartDate: moment(),
+        defaultEndDate: moment()
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
@@ -177,6 +218,7 @@ test("clear the date on calendar clear button click", async () => {
     const formattedEndDate = endDate.format(DATE_FORMAT);
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         defaultStartDate: startDate,
         defaultEndDate: endDate,
         dateFormat: DATE_FORMAT
@@ -187,7 +229,7 @@ test("clear the date on calendar clear button click", async () => {
     expect(textboxNode).toHaveTextContent(formattedStartDate);
     expect(textboxNode).toHaveTextContent(formattedEndDate);
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
@@ -201,11 +243,12 @@ test("dont call onDatesChange when dates are selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
         onDatesChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(moment(), moment());
@@ -217,11 +260,12 @@ test("dont call onDatesChange when a preset is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         presets: DEFAULT_DATES_PRESETS,
         onDatesChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(FIRST_PRESET_ID));
     await wait();
@@ -234,11 +278,12 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
         onDatesChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(moment(), moment());
@@ -256,11 +301,12 @@ test("call onDatesChange when the dates are applied", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
         onDatesChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(startDate, endDate);
@@ -276,11 +322,12 @@ test("call onDatesChange when a preset is applied", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
+        defaultOpen: true,
         presets: DEFAULT_DATES_PRESETS,
         onDatesChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(getByTestId(FIRST_PRESET_ID));
     await wait();
@@ -313,31 +360,37 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(TEXTBOX_ID));
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+test("call onVisibilityChange when the calendar is opened with space keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with enter", async () => {
+test("call onVisibilityChange when the calendar is opened with enter keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
@@ -357,7 +410,7 @@ test("call onVisibilityChange when the calendar is dismissed", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is closed with esc", async () => {
+test("call onVisibilityChange when the calendar is closed with esc keydown", async () => {
     const handler = jest.fn();
 
     render(createDateRangePicker({
@@ -391,7 +444,3 @@ test("call onVisibilityChange when the dates are applied", async () => {
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
-
-
-
-

@@ -69,7 +69,7 @@
         "test": "yarn jest-watch",
         "test-ci": "yarn jest",
         "jest": "jest --config=tests/jest.config.js",
-        "jest-watch": "yarn jest --watchAll",
+        "jest-watch": "yarn jest --watch",
         "update": "run-s install:pkg install:sb bootstrap:website",
         "diff": "lerna diff"
     },

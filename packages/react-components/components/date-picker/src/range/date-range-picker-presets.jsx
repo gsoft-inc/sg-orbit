@@ -31,9 +31,9 @@ class Preset extends PureComponent {
                     </When>
                     <Otherwise>
                         <button
-                            type="button"
                             onClick={this.handleClick}
                             className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
+                            type="button"
                             data-testid={`date-range-picker-presets-${preset.text}`}
                         >
                             {preset.text}

@@ -99,16 +99,21 @@ export class MultiSelectDropdownMenu extends PureComponent {
             return results;
         }
 
-        return <div className="pl6 mb4">{noResultsMessage}</div>;
+        return <div className="pl6 mb4" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
     }
 
     render() {
         const { searchInput, className } = this.props;
 
         return (
-            <Dropdown.Menu className={className}>
+            <Dropdown.Menu className={className} data-testid="multi-select-dropdown-menu">
                 {searchInput}
-                <Dropdown.Menu scrolling>{this.renderResults()}</Dropdown.Menu>
+                <Dropdown.Menu
+                    scrolling
+                    data-testid="multi-select-dropdown-menu-items"
+                >
+                    {this.renderResults()}
+                </Dropdown.Menu>
             </Dropdown.Menu>
         );
     }

@@ -3,7 +3,7 @@ import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
-export const INLINE_SINGLE_DATE_PICKER_INPUT = "inline-single-date-picker-input";
+export const INPUT_ID = "inline-single-date-picker-input";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -31,44 +31,42 @@ function createInlineSingleDatePicker(props) {
     />;
 }
 
-function openWith(action, params, getByTestId) {
-    fireEvent[action](getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT), params);
-
-    return waitForElement(() => getByTestId(CALENDAR_ID));
-}
-
-function openWithClick(getByTestId) {
-    return openWith("click", undefined, getByTestId);
-}
-
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(INPUT_ID));
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on space", async () => {
+test("open the calendar on space keydown", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("open the calendar on enter", async () => {
+test("open the calendar on enter keydown", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(calendarNode).toBeInTheDocument();
 });
 
-test("close the calendar on esc", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker());
+test("close the calendar on esc keydown", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
@@ -77,9 +75,11 @@ test("close the calendar on esc", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker());
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
     fireEvent.click(document);
     await wait();
@@ -88,14 +88,49 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker());
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        defaultOpen: true
+    }));
 
-    const calendarNode = await openWithClick(getByTestId);
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(INLINE_SINGLE_DATE_PICKER_INPUT));
+    fireEvent.click(getByTestId(INPUT_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
+});
+
+test("when disabled, dont open the calendar on input click", async () => {
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.click(getByTestId(INPUT_ID));
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on space keydown", async () => {
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
+});
+
+test("when disabled, dont open the calendar on enter keydown", async () => {
+    const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
+        disabled: true
+    }));
+
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {
@@ -105,33 +140,40 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    await openWithClick(getByTestId);
+    fireEvent.click(getByTestId(INPUT_ID));
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with space bar", async () => {
+test("call onVisibilityChange when the calendar is opened with space keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createInlineSingleDatePicker({
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: " ", keyCode: 32 }, getByTestId);
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is opened with enter", async () => {
+test("call onVisibilityChange when the calendar is opened with enter keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createInlineSingleDatePicker({
         onVisibilityChange: handler
     }));
 
-    await openWith("keyDown", { key: "Enter", keyCode: 13 }, getByTestId);
+    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+
+    await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
 
+// Unmount -> event handlers are cleared

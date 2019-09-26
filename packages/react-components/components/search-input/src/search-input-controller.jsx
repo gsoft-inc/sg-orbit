@@ -282,7 +282,15 @@ export class SearchInputController extends AutoControlledPureComponent {
         return (
             <div className={cx("cancel-btn-container absolute", { dn: !this.canClear() })}>
                 <Ref innerRef={this._clearButtonRef}>
-                    <Button circular size="mini" primary icon className="transparent" onClick={this.handleClear}>
+                    <Button
+                        circular
+                        size="mini"
+                        primary
+                        icon
+                        className="transparent"
+                        onClick={this.handleClear}
+                        type="button"
+                    >
                         {clearIcon}
                     </Button>
                 </Ref>
