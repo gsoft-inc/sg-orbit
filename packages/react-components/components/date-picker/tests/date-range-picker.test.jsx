@@ -444,5 +444,3 @@ test("call onVisibilityChange when the dates are applied", async () => {
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
-
-// Unmount -> event handlers are cleared

@@ -88,7 +88,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     className={this.getClasses()}
                     ref={this._buttonRef}
                     type="button"
-                    role="button"
                     data-testid="multi-select-dropdown-trigger"
                 >
                     {text} {this.renderIcon()}

@@ -342,20 +342,3 @@ test("remove all the selected items on clear all button click", async () => {
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 });
-
-test("remove all the selected items on clear all button enter", async () => {
-    const { getByTestId, queryAllByTestId } = render(createMultiSelect({
-        defaultValues: DEFAULT_ITEMS.map(x => x.value)
-    }));
-
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(DEFAULT_ITEMS.length);
-
-    fireEvent.keyDown(getByTestId(CLEAR_BUTTON_ID), { key: "Enter", keyCode: 13 });
-    await wait();
-
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
-});
-
-// Disabled
-
-// Unmount -> event handlers are cleared

@@ -11,7 +11,14 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
         <Label basic className={cx("large", { icon: !disabled })} disabled={disabled} data-testid={`multi-select-selected-item-${item.value}`}>
             {item.text}
             <If condition={!disabled}>
-                <Button circular size="mini" icon className="transparent" onClick={onRemove} role="button">
+                <Button
+                    circular
+                    size="mini"
+                    icon
+                    className="transparent"
+                    onClick={onRemove}
+                    type="button"
+                >
                     <CancelIcon className="h3 w3" />
                 </Button>
             </If>
