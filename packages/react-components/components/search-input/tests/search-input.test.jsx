@@ -24,6 +24,8 @@ const DEFAULT_RESULTS = [
     searchInputResult("7", ALYSON_VALUE)
 ];
 
+const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
+
 async function getTextbox(getByTestId) {
     const textboxNode = await getByTestId(TEXTBOX_ID);
 
@@ -43,28 +45,28 @@ function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ..
 }
 
 test("typing a search input show the matching results", async () => {
-    const { getByTestId, getAllByTestId } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
 
     fireEvent.change(await getTextbox(getByTestId), { target: { value: "A" } });
-    await wait();
+    await waitForElement(() => getResultsMenu(container));
 
-    expect(getAllByTestId(RESULT_ID).length).toBe(3);
+    expect(getAllByTestId(RESULT_ID).length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
 });
 
 test("search input is case insensitive", async () => {
-    const { getByTestId, getAllByTestId } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
 
     fireEvent.change(await getTextbox(getByTestId), { target: { value: "a" } });
-    await wait();
+    await waitForElement(() => getResultsMenu(container));
 
-    expect(getAllByTestId(RESULT_ID).length).toBe(3);
+    expect(getAllByTestId(RESULT_ID).length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
 });
 
 test("typing a search input that match no results, show no results message", async () => {
     const { getByTestId, queryAllByTestId, container } = render(createSearchInput());
 
     fireEvent.change(await getTextbox(getByTestId), { target: { value: "xyz" } });
-    await wait();
+    await waitForElement(() => getResultsMenu(container));
 
     expect(queryAllByTestId(RESULT_ID).length).toBe(0);
 
@@ -77,9 +79,9 @@ test("can navigate through the results with arrows keydown", async () => {
     const { getByTestId, getAllByTestId, container } = render(createSearchInput());
 
     fireEvent.change(await getTextbox(getByTestId), { target: { value: "a" } });
-    await wait();
+    await waitForElement(() => getResultsMenu(container));
 
-    expect(getAllByTestId(RESULT_ID).length).toBe(3);
+    expect(getAllByTestId(RESULT_ID).length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
 
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
@@ -90,8 +92,28 @@ test("can navigate through the results with arrows keydown", async () => {
     expect(getAllByTestId(RESULT_ID)[1].parentNode).toHaveClass("active");
 });
 
+// test("can select a result on click", async () => {
+//     const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+
+//     fireEvent.change(await getTextbox(getByTestId), { target: { value: "a" } });
+//     await waitForElement(() => getResultsMenu(container));
+
+//     const resultNodes = getAllByTestId(RESULT_ID);
+
+//     expect(resultNodes.length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
+
+//     fireEvent.click(resultNodes[1]);
+//     await wait();
+
+//     expect(getTextbox(getByTestId)).toHaveValue("yo");
+// });
+
+// Hooks
+
 // Select a value on click
 // Select a value on enter
+
+// Close when selecting a result
 
 // clicking outside close the dropdown menu
 // Results menu close on esc
@@ -104,3 +126,5 @@ test("can navigate through the results with arrows keydown", async () => {
 // Clear the value with esc
 // Disabled
 // autofocus
+
+// Clear search input when click outside and no results has been selected

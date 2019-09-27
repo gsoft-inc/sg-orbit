@@ -341,3 +341,63 @@ test("remove all the selected items on clear all button click", async () => {
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 });
+
+test("call onValuesChange with the new selected item when an item is selected", async () => {
+    const handler = jest.fn();
+    const defaultValues = [DEFAULT_ITEMS[4].value];
+
+    const { getByTestId, getAllByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        defaultValues: defaultValues,
+        onValuesChange: handler
+    }));
+
+    await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value], expect.anything());
+});
+
+test("call onValuesChange without the removed item when a selected item is removed", async () => {
+    const handler = jest.fn();
+    const defaultValues = [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[1].value, DEFAULT_ITEMS[2].value];
+
+    const { getByTestId } = render(createMultiSelect({
+        defaultValues: defaultValues,
+        onValuesChange: handler
+    }));
+
+    fireEvent.click(getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`).querySelector("button"));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value], expect.anything());
+});
+
+test("call onValuesChange without values when all the selected items are cleared", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createMultiSelect({
+        defaultValues: DEFAULT_ITEMS.map(x => x.value),
+        onValuesChange: handler
+    }));
+
+    fireEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [], expect.anything());
+});
+
+// call onVisibilityChange when the dropdown menu is opened with a trigger click
+// call onVisibilityChange when the dropdown menu is opened with space keydown
+// call onVisibilityChange when the dropdown menu is opened with enter keydown
+// call onVisibilityChange when the dropdown menu is closed with a trigger click
+// call onVisibilityChange when the dropdown menu is closed with esc keydown
+// call onVisibilityChange when the dropdown menu is closed with an outside click
+// call onVisibilityChange when the dropdown menu is closed by selecting a value (closeOnSelect)
+
+// call onSearch when the search input change
+// results returned by onSearch are visible
+
+// A selected item is not available in the dropdown menu

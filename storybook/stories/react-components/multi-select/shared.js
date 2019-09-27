@@ -1,10 +1,10 @@
 import { multiSelectItem } from "@orbit-ui/react-multi-select/src";
 
-export const GROUP_CREATED_VALUE = "Group Created";
-export const GROUP_RESTORED_VALUE = "Group Restored";
-export const GROUP_DELETED_VALUE = "Group Deleted";
-export const GROUP_NAME_CHANGED_VALUE = "Group Name Changed";
-export const GROUP_PRIVACY_CHANGED_VALUE = "Group Privacy Changed";
+export const GROUP_CREATED_VALUE = "group-created";
+export const GROUP_RESTORED_VALUE = "group-restored";
+export const GROUP_DELETED_VALUE = "group-deleted";
+export const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
+export const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
 
 export const DEFAULT_ITEMS = [
     multiSelectItem("Created", GROUP_CREATED_VALUE),
