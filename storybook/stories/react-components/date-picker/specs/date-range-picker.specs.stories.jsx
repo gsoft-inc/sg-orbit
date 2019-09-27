@@ -511,6 +511,38 @@ stories("/date restrictions/selected range")
                  maxDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
              }
          }
+    )
+    .add("min date is between the selected range",
+         () =>
+             createDateRangePicker({
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(7, "days"),
+                 minDate: moment(DEFAULT_DATE).add(3, "days"),
+                 defaultOpen: true
+             }),
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(7, "days").format("MMMM Do YYYY"),
+                 minDate: moment(DEFAULT_DATE).add(3, "days").format("MMMM Do YYYY")
+             }
+         }
+    )
+    .add("max date is between the selected range",
+         () =>
+             createDateRangePicker({
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(7, "days"),
+                 maxDate: moment(DEFAULT_DATE).add(3, "days"),
+                 defaultOpen: true
+             }),
+         {
+             storyParameters: {
+                 startDate: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                 endDate: moment(DEFAULT_DATE).add(7, "days").format("MMMM Do YYYY"),
+                 maxDate: moment(DEFAULT_DATE).add(3, "days").format("MMMM Do YYYY")
+             }
+         }
     );
 
 stories("/date restrictions/selected presets")
@@ -547,14 +579,15 @@ stories("/date restrictions/selected presets")
          }
     )
     .add("min date is between the selected presets range",
-         () =>
-             createDateRangePicker({
+         () => {
+             return createDateRangePicker({
                  presets: DEFAULT_PRESETS,
                  startDate: LAST_WEEK_PRESET.startDate,
                  endDate: LAST_WEEK_PRESET.endDate,
                  minDate: moment(LAST_WEEK_PRESET.startDate).add(3, "days"),
                  defaultOpen: true
-             }),
+             });
+         },
          {
              storyParameters: {
                  minDate: moment(LAST_WEEK_PRESET.startDate).add(3, "days").format("MMMM Do YYYY"),

@@ -10,6 +10,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } fr
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import moment from "moment";
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
@@ -167,8 +168,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
-            startDate: selectedStartDate,
-            endDate: selectedEndDate,
+            // Since 21.1.0 react-dates mutate the startDate / endDate moment objects. Not sure where and why.
+            // To prevent side effects, we provide a clone.
+            startDate: isNil(selectedStartDate) ? selectedStartDate : moment(selectedStartDate),
+            endDate: isNil(selectedEndDate) ? selectedEndDate : moment(selectedEndDate),
             onDatesChange: this.handleCalendarDatesChange,
             onApply: this.handleCalendarApply,
             allowSingleDateSelection,

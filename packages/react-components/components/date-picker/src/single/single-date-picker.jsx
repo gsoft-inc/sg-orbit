@@ -8,6 +8,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "pro
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import moment from "moment";
 
 export const SINGLE_DATE_PICKER_PROP_TYPES = {
     date: momentType,
@@ -150,7 +151,9 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         const { selectedDate } = this.state;
 
         return cloneElement(calendar, {
-            date: selectedDate,
+            // Since 21.1.0 react-dates mutate the date moment objects. Not sure where and why.
+            // To prevent side effects, we provide a clone. https://momentjs.com/docs/#/parsing/moment-clone/
+            date: isNil(selectedDate) ? selectedDate : moment(selectedDate),
             onDateChange: this.handleCalendarDateChange,
             onApply: this.handleCalendarApply,
             allowClear,
