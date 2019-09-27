@@ -40,7 +40,7 @@
         "delete-yarn-lock:storybook": "cd storybook && rimraf yarn.lock",
         "deploy-sb": "cd storybook && yarn deploy",
         "deploy-website": "cd website && yarn deploy-staging",
-        "deploy-website-prod": "cd website && yarn deploy-prod",
+        "deploy-website-prod": "cd website && yarn copy-redirect && yarn deploy-prod",
         "eslint": "run-s eslint:*",
         "eslint:pkg": "eslint --ext .js,.jsx packages",
         "eslint:sb": "eslint --ext .js,.jsx storybook",
