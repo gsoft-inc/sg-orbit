@@ -389,9 +389,61 @@ test("call onValuesChange without values when all the selected items are cleared
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [], expect.anything());
 });
 
-// call onVisibilityChange when the dropdown menu is opened with a trigger click
-// call onVisibilityChange when the dropdown menu is opened with space keydown
-// call onVisibilityChange when the dropdown menu is opened with enter keydown
+test("call onVisibilityChange when the dropdown menu is opened with a trigger click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createMultiSelect({
+        onVisibilityChange: handler
+    }));
+
+    fireEvent.click(getByTestId(TRIGGER_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is opened with space keydown", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createMultiSelect({
+        onVisibilityChange: handler
+    }));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is opened with enter keydown", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createMultiSelect({
+        onVisibilityChange: handler
+    }));
+
+    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is closed with a trigger click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.click(getByTestId(TRIGGER_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
 // call onVisibilityChange when the dropdown menu is closed with a trigger click
 // call onVisibilityChange when the dropdown menu is closed with esc keydown
 // call onVisibilityChange when the dropdown menu is closed with an outside click
