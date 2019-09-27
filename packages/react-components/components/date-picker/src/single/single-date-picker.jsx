@@ -8,6 +8,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "pro
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import moment from "moment";
 
 export const SINGLE_DATE_PICKER_PROP_TYPES = {
     date: momentType,
@@ -61,7 +62,9 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
-            selectedDate: date
+            // It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
+            // https://momentjs.com/docs/#/parsing/moment-clone/
+            selectedDate: isNil(date) ? date : moment(date)
         }));
     }
 

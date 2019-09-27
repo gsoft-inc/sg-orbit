@@ -10,6 +10,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } fr
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import moment from "moment";
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
@@ -74,8 +75,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, DateRangePicker.autoControlledProps, ({ startDate, endDate }) => ({
-            selectedStartDate: startDate,
-            selectedEndDate: endDate
+            // It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
+            // https://momentjs.com/docs/#/parsing/moment-clone/
+            selectedStartDate: isNil(startDate) ? startDate : moment(startDate),
+            selectedEndDate: isNil(endDate) ? endDate : moment(endDate)
         }));
     }
 
