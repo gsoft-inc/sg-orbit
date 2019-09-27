@@ -94,6 +94,7 @@
         "babel-plugin-jsx-control-statements": "4.0.0",
         "babel-plugin-named-asset-import": "0.3.3",
         "babel-plugin-react-require": "3.1.1",
+        "babel-plugin-jsx-remove-data-test-id": "2.0.0",
         "browserslist": "4.6.6",
         "chalk": "2.4.2",
         "copy-files": "0.1.0",

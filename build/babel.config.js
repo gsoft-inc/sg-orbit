@@ -49,6 +49,7 @@ module.exports = {
         "babel-plugin-jsx-control-statements",
         "babel-plugin-react-require",
         "styled-jsx/babel",
+        IS_PRODUCTION && "babel-plugin-jsx-remove-data-test-id",
         !IS_TEST && [
             "babel-plugin-named-asset-import",
             {

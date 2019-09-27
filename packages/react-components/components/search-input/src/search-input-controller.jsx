@@ -9,7 +9,7 @@ import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
-    return <div>{text}</div>;
+    return <div data-testid="search-input-result">{text}</div>;
 }
 
 export class SearchInputController extends AutoControlledPureComponent {
@@ -290,6 +290,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                         className="transparent"
                         onClick={this.handleClear}
                         type="button"
+                        data-testid="search-input-clear-button"
                     >
                         {clearIcon}
                     </Button>

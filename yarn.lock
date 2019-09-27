@@ -3444,6 +3444,11 @@ babel-plugin-jsx-control-statements@4.0.0:
   dependencies:
     "@babel/core" "^7.1.2"
 
+babel-plugin-jsx-remove-data-test-id@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-remove-data-test-id/-/babel-plugin-jsx-remove-data-test-id-2.0.0.tgz#18d324954f0d4b63292fd9ed870d7a09b80c9ecc"
+  integrity sha512-Hjwd5KnKtUlv9WgS9wMYIfd8G16hBLfi3Nq2axLkRt754sj5mRYlZ5WJzbXE3967NDjjDIx0PrHhwQHukBs0Dw==
+
 babel-plugin-macros@^2.0.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.6.1.tgz#41f7ead616fc36f6a93180e89697f69f51671181"
