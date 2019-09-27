@@ -75,10 +75,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, DateRangePicker.autoControlledProps, ({ startDate, endDate }) => ({
-            // It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
-            // https://momentjs.com/docs/#/parsing/moment-clone/
-            selectedStartDate: isNil(startDate) ? startDate : moment(startDate),
-            selectedEndDate: isNil(endDate) ? endDate : moment(endDate)
+            selectedStartDate: startDate,
+            selectedEndDate: endDate
         }));
     }
 
@@ -170,8 +168,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(calendar, {
-            startDate: selectedStartDate,
-            endDate: selectedEndDate,
+            // Since 21.1.0 react-dates mutate the startDate / endDate moment objects. Not sure where and why.
+            // To prevent side effects, we provide a clone.
+            startDate: isNil(selectedStartDate) ? selectedStartDate : moment(selectedStartDate),
+            endDate: isNil(selectedEndDate) ? selectedEndDate : moment(selectedEndDate),
             onDatesChange: this.handleCalendarDatesChange,
             onApply: this.handleCalendarApply,
             allowSingleDateSelection,
