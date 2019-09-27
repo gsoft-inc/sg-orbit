@@ -1,5 +1,5 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
-import { fireEvent, getByRole as getByRoleUnscoped, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
@@ -145,17 +145,16 @@ test("search input is focused on open", async () => {
     expect(searchInputNode).toHaveFocus();
 });
 
-test("can select a dropdown menu item with arrows keydown", async () => {
-    const { getByTestId, getAllByTestId } = render(createMultiSelect({
-        defaultOpen: true
-    }));
+test("can navigate through the dropdown menu item with arrows keydown", async () => {
+    const { getByTestId, getAllByTestId, container } = render(createMultiSelect());
 
-    await waitForElement(() => getByTestId(MENU_ID));
+    fireEvent.click(getByTestId(TRIGGER_ID));
+    await waitForElement(() => getByTestId(SEARCH_INPUT_ID));
 
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowUp", keyCode: 38 });
+    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(container, { key: "ArrowUp", keyCode: 38 });
     await wait();
 
     expect(getAllByTestId(MENU_ITEM_ID)[1]).toHaveClass("selected");
@@ -255,7 +254,7 @@ test("typing a search input filter out the available dropdown menu items", async
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
 });
 
-test("search input filter is case insensitive", async () => {
+test("search input is case insensitive", async () => {
     const { getByTestId, getAllByTestId } = render(createMultiSelect({
         defaultOpen: true
     }));
@@ -270,7 +269,7 @@ test("search input filter is case insensitive", async () => {
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
 });
 
-test("when no items match the search input filter, empty results is shown", async () => {
+test("when no items match the search input, empty results is shown", async () => {
     const { getByTestId, getAllByTestId } = render(createMultiSelect({
         defaultOpen: true
     }));
@@ -324,7 +323,7 @@ test("selected item is removed on remove button click", async () => {
 
     expect(selectedItem).toBeInTheDocument();
 
-    fireEvent.click(getByRoleUnscoped(selectedItem, "button"));
+    fireEvent.click(selectedItem.querySelector("button"));
     await wait();
 
     expect(selectedItem).not.toBeInTheDocument();

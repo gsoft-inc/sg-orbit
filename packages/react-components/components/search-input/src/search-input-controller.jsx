@@ -8,6 +8,8 @@ import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
+const AUTOFOCUS_DELAY_IN_MS = 50;
+
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
 }
@@ -63,8 +65,17 @@ export class SearchInputController extends AutoControlledPureComponent {
     _autofocusTimeout = null;
 
     componentDidMount() {
+        const { open, autofocus } = this.props;
+
         this.transformResults();
-        this.autofocus();
+
+        if (open) {
+            this.focus();
+        } else if (autofocus) {
+            // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
+            // component is rendered in a popup, modal, etc..
+            this.focus(AUTOFOCUS_DELAY_IN_MS);
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -89,18 +100,12 @@ export class SearchInputController extends AutoControlledPureComponent {
         }));
     }
 
-    autofocus() {
-        const { autofocus } = this.props;
-
-        // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
-        // component is rendered in a popup, modal, etc..
-        if (autofocus) {
-            this._autofocusTimeout = setTimeout(() => {
-                if (!isNil(this._inputRef.current)) {
-                    this._inputRef.current.focus();
-                }
-            }, 50);
-        }
+    focus(delay = 0) {
+        this._autofocusTimeout = setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                this._inputRef.current.focus();
+            }
+        }, delay);
     }
 
     clearAutofocusTimeout() {
@@ -324,7 +329,14 @@ export class SearchInputController extends AutoControlledPureComponent {
                     resultRenderer={this.renderResult}
                     results={transformedResults}
                     value={query}
-                    input={{ icon: loading && !disabled ? "" : "search", iconPosition: "left", className: this.getInputCssClasses(), onKeyDown: this.handleInputKeyDown, ref: this._inputRef }}
+                    input={{
+                        icon: loading && !disabled ? "" : "search",
+                        iconPosition: "left",
+                        className: this.getInputCssClasses(),
+                        onKeyDown: this.handleInputKeyDown,
+                        ref: this._inputRef,
+                        "data-testid": "search-input-textbox"
+                    }}
                     placeholder={placeholder}
                     disabled={disabled}
                     loading={loading && !disabled}
