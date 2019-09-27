@@ -62,9 +62,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
-            // It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
-            // https://momentjs.com/docs/#/parsing/moment-clone/
-            selectedDate: isNil(date) ? date : moment(date)
+            selectedDate: date
         }));
     }
 
@@ -153,7 +151,9 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         const { selectedDate } = this.state;
 
         return cloneElement(calendar, {
-            date: selectedDate,
+            // Since 21.1.0 react-dates mutate the date moment objects. Not sure where and why.
+            // To prevent side effects, we provide a clone. https://momentjs.com/docs/#/parsing/moment-clone/
+            date: isNil(selectedDate) ? selectedDate : moment(selectedDate),
             onDateChange: this.handleCalendarDateChange,
             onApply: this.handleCalendarApply,
             allowClear,
