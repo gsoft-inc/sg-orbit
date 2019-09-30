@@ -33,6 +33,8 @@ function createMultiSelect({ items = DEFAULT_ITEMS, onValuesChange = noop, ...ot
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the dropdown menu on trigger click", async () => {
     const { getByTestId } = render(createMultiSelect());
 
@@ -229,7 +231,7 @@ test("when closeOnSelect is true, close the dropdown menu on item enter keydown"
     expect(menuNode).not.toBeInTheDocument();
 });
 
-test("without any search input, all the dropdown menu items are displayed", async () => {
+test("without a search input, all the dropdown menu items are displayed", async () => {
     const { getByTestId, getAllByTestId } = render(createMultiSelect({
         defaultOpen: true
     }));
@@ -373,6 +375,8 @@ test("remove all the selected items on clear all button click", async () => {
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 });
+
+// ***** Handlers *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
     const handler = jest.fn();

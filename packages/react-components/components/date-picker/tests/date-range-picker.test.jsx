@@ -57,6 +57,8 @@ function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...ot
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
@@ -237,6 +239,8 @@ test("clear the date on calendar clear button click", async () => {
     expect(textboxNode).not.toHaveTextContent(formattedStartDate);
     expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
+
+// ***** Handlers *****
 
 test("dont call onDatesChange when dates are selected", async () => {
     const ref = createRef();

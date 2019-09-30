@@ -8,8 +8,6 @@ import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
-const AUTOFOCUS_DELAY_IN_MS = 50;
-
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
 }
@@ -36,6 +34,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         clearIcon: node,
         disabled: bool,
         autofocus: bool,
+        autofocusDelay: number,
         className: string
     };
 
@@ -48,7 +47,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         loading: false,
         clearIcon: <CancelIcon className="h3 w3" />,
         disabled: false,
-        autofocus: false
+        autofocus: false,
+        autofocusDelay: 50
     };
 
     static autoControlledProps = ["value"];
@@ -65,7 +65,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     _autofocusTimeout = null;
 
     componentDidMount() {
-        const { open, autofocus } = this.props;
+        const { open, autofocus, autofocusDelay } = this.props;
 
         this.transformResults();
 
@@ -74,7 +74,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         } else if (autofocus) {
             // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
             // component is rendered in a popup, modal, etc..
-            this.focus(AUTOFOCUS_DELAY_IN_MS);
+            this.focus(autofocusDelay);
         }
     }
 

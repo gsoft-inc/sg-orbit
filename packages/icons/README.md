@@ -59,3 +59,7 @@ If you add an icon as a CSS background to a package of the monorepo, you must ad
     background: url("~@orbit-ui/icons/dist/icon-cancel.svg");
 }
 ```
+
+## License
+
+Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.

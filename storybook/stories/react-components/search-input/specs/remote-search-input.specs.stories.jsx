@@ -25,7 +25,7 @@ stories()
     .add("opened",
          () =>
              createRemoteSearchInput({
-                 open: true
+                 defaultOpen: true
              })
     )
     .add("disabled",

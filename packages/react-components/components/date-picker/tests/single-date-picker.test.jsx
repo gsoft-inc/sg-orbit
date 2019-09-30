@@ -48,6 +48,8 @@ function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...ot
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
@@ -210,6 +212,8 @@ test("clear the date on calendar clear button click", async () => {
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
 });
+
+// ***** Handlers *****
 
 test("dont call onDateChange when a date is selected", async () => {
     const ref = createRef();

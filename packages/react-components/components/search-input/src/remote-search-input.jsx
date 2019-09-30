@@ -81,14 +81,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         open: bool,
         disabled: bool,
         autofocus: bool,
+        autofocusDelay: number,
         className: string
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200,
-        autofocus: false
+        debounceDelay: 200
     };
 
     static autoControlledProps = ["open"];
@@ -134,6 +134,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.hideLoading();
     };
 
+    // Closing the search input on blur will:
+    // - close on outside click
+    // - close on blur
+    // - close on value select
     handleBlur = event => {
         const { onBlur } = this.props;
 
@@ -149,6 +153,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     handleKeyDown = event => {
         const { onKeyDown } = this.props;
 
+        // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" event if SUI React already handle it.
         if (event.keyCode === KEYS.esc) {
             this.close(event);
         }
@@ -255,7 +260,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -277,6 +282,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 disabled={disabled}
                 loading={isLoading}
                 autofocus={autofocus}
+                autofocusDelay={autofocusDelay}
                 className={className}
             />
         );

@@ -27,14 +27,13 @@ export class SearchInput extends AutoControlledPureComponent {
         open: bool,
         disabled: bool,
         autofocus: bool,
+        autofocusDelay: number,
         className: string
     };
 
     static defaultProps = {
         onSearch: startsWithSearch,
-        minCharacters: 1,
-        debounceDelay: 200,
-        autofocus: false
+        minCharacters: 1
     };
 
     static autoControlledProps = ["open"];
@@ -82,6 +81,10 @@ export class SearchInput extends AutoControlledPureComponent {
         this.setState({ visibleResults: results });
     };
 
+    // Closing the search input on blur will:
+    // - close on outside click
+    // - close on blur
+    // - close on value select
     handleBlur = event => {
         const { onBlur } = this.props;
 
@@ -95,6 +98,7 @@ export class SearchInput extends AutoControlledPureComponent {
     handleKeyDown = event => {
         const { onKeyDown } = this.props;
 
+        // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" event if SUI React already handle it.
         if (event.keyCode === KEYS.esc) {
             this.close(event);
         }
@@ -106,26 +110,32 @@ export class SearchInput extends AutoControlledPureComponent {
 
     open(event) {
         const { onVisibilityChange } = this.props;
+        const { open } = this.state;
 
-        this.trySetAutoControlledStateValue({ open: true });
+        if (!open) {
+            this.trySetAutoControlledStateValue({ open: true });
 
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
+            if (!isNil(onVisibilityChange)) {
+                onVisibilityChange(event, true, this.props);
+            }
         }
     }
 
     close() {
         const { onVisibilityChange } = this.props;
+        const { open } = this.state;
 
-        this.trySetAutoControlledStateValue({ open: false });
+        if (open) {
+            this.trySetAutoControlledStateValue({ open: false });
 
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
+            if (!isNil(onVisibilityChange)) {
+                onVisibilityChange(event, false, this.props);
+            }
         }
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -146,6 +156,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 disabled={disabled}
                 autofocus={autofocus}
+                autofocusDelay={autofocusDelay}
                 className={className}
             />
         );

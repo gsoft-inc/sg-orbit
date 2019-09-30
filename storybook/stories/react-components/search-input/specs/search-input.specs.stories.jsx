@@ -26,7 +26,7 @@ stories()
     .add("opened",
          () =>
              createSearchInput({
-                 open: true
+                 defaultOpen: true
              })
     )
     .add("disabled",
