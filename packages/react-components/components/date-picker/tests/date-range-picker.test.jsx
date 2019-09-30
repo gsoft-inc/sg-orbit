@@ -139,28 +139,6 @@ test("when disabled, dont open the calendar on input click", async () => {
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
-test("when disabled, dont open the calendar on space keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createDateRangePicker({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
-    await wait();
-
-    expect(queryByTestId(CALENDAR_ID)).toBeNull();
-});
-
-test("when disabled, dont open the calendar on enter keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createDateRangePicker({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
-    await wait();
-
-    expect(queryByTestId(CALENDAR_ID)).toBeNull();
-});
-
 test("clear the date on input clear button click", async () => {
     const startDate = moment();
     const endDate = moment().add(3, "days");

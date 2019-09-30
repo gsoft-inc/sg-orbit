@@ -1,5 +1,5 @@
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
-import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@testing-library/user-event";
 
@@ -271,7 +271,76 @@ test("when autofocus is true, the input is focused on render", async () => {
     expect(await getTextbox(getByTestId)).toHaveFocus();
 });
 
-// Disabled
-// autofocus
+test("when disabled, dont open the dropdown menu on textbox click", async () => {
+    const { getByTestId, container } = render(createSearchInput({
+        disabled: true
+    }));
 
-// Handlers
+    userEvent.click(await getTextbox(getByTestId));
+    await wait();
+
+    expect(getResultsMenu(container)).toBeNull();
+});
+
+// ***** Handlers *****
+
+test("call onValueChange when a result is selected on click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        onValueChange: handler
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(getAllByTestId(RESULT_ID)[0]);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), searchInputResult("5", AUDREY_VALUE), expect.anything());
+});
+
+test("call onValueChange when a result is selected on enter keydown", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        onValueChange: handler
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(getAllByTestId(RESULT_ID)[0], { key: "Enter", keyCode: 13 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), searchInputResult("5", AUDREY_VALUE), expect.anything());
+});
+
+test("call onValueChange when the selected result is cleared", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        defaultValue: AUDREY_VALUE,
+        onValueChange: handler
+    }));
+
+    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
+});
+
+// call onVisibilityChange when typing a search input
+// call onVisibilityChange on outside click
+// call onVisibilityChange on esc
+// call onVisibilityChange on blur
+// call onVisibilityChange when an item is selected
+
+// onSearch
+
+// onBlur

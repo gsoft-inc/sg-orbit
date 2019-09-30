@@ -115,28 +115,6 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
     expect(queryByTestId(MENU_ID)).toBeNull();
 });
 
-test("when disabled, dont open the dropdown menu on space keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createMultiSelect({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
-    await wait();
-
-    expect(queryByTestId(MENU_ID)).toBeNull();
-});
-
-test("when disabled, dont open the dropdown menu on enter keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createMultiSelect({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
-    await wait();
-
-    expect(queryByTestId(MENU_ID)).toBeNull();
-});
-
 test("search input is focused on open", async () => {
     const { getByTestId } = render(createMultiSelect());
 
