@@ -719,3 +719,15 @@ For other variables that need to be pass accross tasks, please read the followin
 Never use npm-run-all (run-s, run-p) in a lifecycle scripts of a leaf projects. Instead of running in the leaf project scope, it will run at the root project scope.
 
 For more information, read this issue: https://github.com/lerna/lerna/issues/2145#issuecomment-506801262
+
+### react-testing-library and user actions side effects
+
+Some side effects happens in the browsers following a user actions.
+
+For example, if a user click on a textbox, the textbox will then have focus and be the "active element".
+
+The focus side effect doesn't happen with react-testing-library. For more information view issues [https://github.com/testing-library/jest-dom/issues/53](#53) and [https://github.com/testing-library/jest-dom/issues/59](#59).
+
+The solution to this problem have been to create an higher level abstraction library called [https://github.com/testing-library/user-event](user-event) that will take care of triggering the event AND the side effects.
+
+For more information on the topic view the issue [https://github.com/testing-library/dom-testing-library/issues/107](#107).

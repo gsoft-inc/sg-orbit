@@ -169,7 +169,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
         return cloneElement(calendar, {
             // Since 21.1.0 react-dates mutate the startDate / endDate moment objects. Not sure where and why.
-            // To prevent side effects, we provide a clone.
+            // To prevent side effects, we provide a clone. https://momentjs.com/docs/#/parsing/moment-clone/
             startDate: isNil(selectedStartDate) ? selectedStartDate : moment(selectedStartDate),
             endDate: isNil(selectedEndDate) ? selectedEndDate : moment(selectedEndDate),
             onDatesChange: this.handleCalendarDatesChange,

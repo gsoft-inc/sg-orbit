@@ -31,6 +31,8 @@ function createInlineSingleDatePicker(props) {
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
@@ -133,6 +135,8 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
+// ***** Handlers *****
+
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {
     const handler = jest.fn();
 
@@ -174,6 +178,3 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
-
-
-// Unmount -> event handlers are cleared

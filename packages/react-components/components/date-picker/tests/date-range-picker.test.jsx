@@ -57,6 +57,8 @@ function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...ot
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
@@ -132,28 +134,6 @@ test("when disabled, dont open the calendar on input click", async () => {
     }));
 
     fireEvent.click(getByTestId(TEXTBOX_ID));
-    await wait();
-
-    expect(queryByTestId(CALENDAR_ID)).toBeNull();
-});
-
-test("when disabled, dont open the calendar on space keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createDateRangePicker({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
-    await wait();
-
-    expect(queryByTestId(CALENDAR_ID)).toBeNull();
-});
-
-test("when disabled, dont open the calendar on enter keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createDateRangePicker({
-        disabled: true
-    }));
-
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -237,6 +217,8 @@ test("clear the date on calendar clear button click", async () => {
     expect(textboxNode).not.toHaveTextContent(formattedStartDate);
     expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
+
+// ***** Handlers *****
 
 test("dont call onDatesChange when dates are selected", async () => {
     const ref = createRef();

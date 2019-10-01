@@ -125,12 +125,12 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     handleOpen = event => {
-        const { onVisiblityChange } = this.props;
+        const { onVisibilityChange } = this.props;
 
         this.trySetAutoControlledStateValue({ open: true });
 
-        if (!isNil(onVisiblityChange)) {
-            onVisiblityChange(event, true);
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, true, this.props);
         }
     };
 

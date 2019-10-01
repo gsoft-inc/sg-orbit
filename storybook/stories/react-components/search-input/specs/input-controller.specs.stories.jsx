@@ -58,7 +58,7 @@ stories("/loading/opened")
     .add("value selected",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  value: LAURIE_VALUE,
                  loading: true
              })
@@ -66,7 +66,7 @@ stories("/loading/opened")
     .add("no selection",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  loading: true
              })
     );
@@ -88,7 +88,7 @@ stories("/disabled")
     .add("cannot be opened",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  disabled: true
              })
     )
@@ -104,13 +104,13 @@ stories("/results")
     .add("with results",
          () =>
              createSearchInputController({
-                 open: true
+                 defaultOpen: true
              })
     )
     .add("no results",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  results: []
              })
     );
@@ -143,13 +143,13 @@ stories("/selected value/opened")
     .add("no selection",
          () =>
              createSearchInputController({
-                 open: true
+                 defaultOpen: true
              })
     )
     .add("value selected",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  value: LAURIE_VALUE
              })
     );
@@ -158,13 +158,13 @@ stories("/selected value/opened/clear button")
     .add("cannot clear when no selection",
          () =>
              createSearchInputController({
-                 open: true
+                 defaultOpen: true
              })
     )
     .add("can clear when value selected",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  value: LAURIE_VALUE
              })
     );
@@ -181,7 +181,7 @@ stories("/default value/opened")
     .add("value selected",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  defaultValue: LAURIE_VALUE
              })
     );
@@ -190,7 +190,7 @@ stories("/customization")
     .add("no results message",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  results: [],
                  noResultsMessage: "Custom no results message"
              })
@@ -212,7 +212,7 @@ stories("/customization")
     .add("result renderer",
          () =>
              createSearchInputController({
-                 open: true,
+                 defaultOpen: true,
                  resultRenderer: ({ text }) => {
                      return <div className="bg-red">{text}</div>;
                  }
