@@ -23,7 +23,7 @@
 }
 
 .shadow-4 {
-    box-shadow: @shadow4;
+    box-shadow: var(--shadow-4);
 }
 
 .shadow-5 {

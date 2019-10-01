@@ -1,0 +1,9 @@
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+    grid-gap: 1.5rem;
+}
+
+.icon-label {
+    margin-top: auto;
+}

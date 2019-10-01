@@ -7,62 +7,37 @@ route: /materials/icons
 import "../../styles/main.css";
 
 import { AddIcon, ArrowFullIcon, ArrowOutlineIcon, CancelIcon, CheckmarkIcon, ChevronIcon, InfoIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { Playground } from "docz";
+import IconPlayground from "../../components/icons";
 
 # Icons
 
-    import { AddIcon } from "@orbit-ui/icons/";
+<div className="icons-grid mv10">
+    <IconPlayground name="Add">
+        <AddIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Arrow Full">
+        <ArrowFullIcon className="w2 h2" />
+    </IconPlayground>
+    <IconPlayground name="Arrow Outline">
+        <ArrowOutlineIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Cancel">
+        <CancelIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Checkmark">
+        <CheckmarkIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Chevron">
+        <ChevronIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Info">
+        <InfoIcon className="w4 h4" />
+    </IconPlayground>
+    <IconPlayground name="Magnifier">
+        <MagnifierIcon className="w4 h4" />
+    </IconPlayground>
+</div>
 
-<Playground>
-    <AddIcon className="w4 h4" />
-</Playground>
+## Usage
 
-    import { ArrowFullIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <ArrowFullIcon className="w2 h2" />
-</Playground>
-
-<Playground>
-    <ArrowFullIcon className="w2 h2 rotate-270" />
-</Playground>
-
-    import { ChevronIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <ChevronIcon className="w4 h4" />
-</Playground>
-
-<Playground>
-    <ChevronIcon className="w4 h4 rotate-180" />
-</Playground>
-
-    import { ArrowOutlineIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <ArrowOutlineIcon className="w4 h4" />
-</Playground>
-
-    import { CancelIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <CancelIcon className="w3 h3" />
-</Playground>
-
-    import { MagnifierIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <MagnifierIcon className="w4 h4" />
-</Playground>
-
-    import { CheckmarkIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <CheckmarkIcon className="w4 h4" />
-</Playground>
-
-    import { InfoIcon } from "@orbit-ui/icons/";
-
-<Playground>
-    <InfoIcon className="w4 h4" />
-</Playground>
+    import { IconName } from "@orbit-ui/icons";
