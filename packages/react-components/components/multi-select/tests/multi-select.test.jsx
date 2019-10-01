@@ -525,7 +525,7 @@ test("call onSearch when the search input change", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N", expect.anything());
 });
 
-test("results returned by onSearch are visible", async () => {
+test("results returned by onSearch are shown", async () => {
     const results = [DEFAULT_ITEMS[0], DEFAULT_ITEMS[1]];
 
     const handler = jest.fn(() => {

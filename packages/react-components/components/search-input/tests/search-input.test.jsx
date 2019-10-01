@@ -324,7 +324,7 @@ test("call onValueChange when a result is selected on enter keydown", async () =
 test("call onValueChange when the selected result is cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId } = render(createSearchInput({
         defaultValue: AUDREY_VALUE,
         onValueChange: handler
     }));
@@ -335,12 +335,130 @@ test("call onValueChange when the selected result is cleared", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
 });
 
-// call onVisibilityChange when typing a search input
-// call onVisibilityChange on outside click
-// call onVisibilityChange on esc
-// call onVisibilityChange on blur
-// call onVisibilityChange when an item is selected
+test("call onVisibilityChange when the dropdown menu is opened by typing a search input", async () => {
+    const handler = jest.fn();
 
-// onSearch
+    const { getByTestId, container } = render(createSearchInput({
+        onVisibilityChange: handler
+    }));
 
-// onBlur
+    userEvent.type(await getTextbox(getByTestId), "xyz");
+    await waitForElement(() => getResultsMenu(container));
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is closed on outside click", async () => {
+    const handler = jest.fn();
+
+    const { container } = render(createSearchInput({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is closed on esc keydown", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, container } = render(createSearchInput({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await waitForElement(() => getResultsMenu(container));
+
+    fireEvent.keyDown(await getTextbox(getByTestId), { key: "Escape", keyCode: 27 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is closed on blur", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, container } = render(createSearchInput({
+        defaultOpen: true,
+        onVisibilityChange: handler
+    }));
+
+    await waitForElement(() => getResultsMenu(container));
+
+    fireEvent.blur(await getTextbox(getByTestId));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the dropdown menu is closed on item selection", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        onVisibilityChange: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(getAllByTestId(RESULT_ID)[0]);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onSearch when the search input change", async () => {
+    const handler = jest.fn(() => {
+        return [];
+    });
+
+    const { getByTestId } = render(createSearchInput({
+        onSearch: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_RESULTS, "a", expect.anything());
+});
+
+test("results returned by onSearch are shown", async () => {
+    const results = [DEFAULT_RESULTS[0], DEFAULT_RESULTS[1]];
+
+    const handler = jest.fn(() => {
+        return results;
+    });
+
+    const { getByTestId, getAllByTestId } = render(createSearchInput({
+        onSearch: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    const resultsNodes = getAllByTestId(RESULT_ID);
+
+    expect(resultsNodes.length).toBe(2);
+    expect(resultsNodes[0]).toHaveTextContent(DEFAULT_RESULTS[0].text);
+    expect(resultsNodes[1]).toHaveTextContent(DEFAULT_RESULTS[1].text);
+});
+
+test("call onBlur on blur", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSearchInput({
+        onBlur: handler,
+        autofocus: true,
+        autofocusDelay: 0
+    }));
+
+    fireEvent.blur(await getTextbox(getByTestId));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});

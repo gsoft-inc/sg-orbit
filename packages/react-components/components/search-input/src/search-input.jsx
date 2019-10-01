@@ -4,7 +4,7 @@ import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
-export function startsWithSearch(items, query) {
+export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
 }
 
@@ -53,7 +53,7 @@ export class SearchInput extends AutoControlledPureComponent {
         const { results, onSearch, minCharacters } = this.props;
 
         if (query.length >= minCharacters) {
-            const newResults = onSearch(results, query, this.props);
+            const newResults = onSearch(event, results, query, this.props);
 
             this.setState({ visibleResults: newResults });
             this.open(event);
@@ -121,7 +121,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
     }
 
-    close() {
+    close(event) {
         const { onVisibilityChange } = this.props;
         const { open } = this.state;
 
