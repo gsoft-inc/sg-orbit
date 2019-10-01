@@ -538,6 +538,34 @@ test("call onResults when the remote calls responds without results", async () =
     expect(handler).toHaveBeenLastCalledWith([], "a", expect.anything());
 });
 
-// onResults
-// onBlur
-// onKeyDown
+test("call onBlur when the input blur", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        onBlur: handler,
+        autofocus: true,
+        autofocusDelay: 0
+    }));
+
+    fireEvent.blur(await getTextbox(getByTestId));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});
+
+test("call onKeyDown when any keys down on the input", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        onKeyDown: handler
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    fireEvent.keyDown(textboxNode, { key: "Escape", keyCode: 27 });
+    fireEvent.keyDown(textboxNode, { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(textboxNode, { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(3);
+});

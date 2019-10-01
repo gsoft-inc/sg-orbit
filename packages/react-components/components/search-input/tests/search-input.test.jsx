@@ -480,7 +480,7 @@ test("results returned by onSearch are shown", async () => {
     expect(resultsNodes[1]).toHaveTextContent(results[1].text);
 });
 
-test("call onBlur on blur", async () => {
+test("call onBlur when the input blur", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSearchInput({
