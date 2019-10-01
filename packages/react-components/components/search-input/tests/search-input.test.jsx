@@ -1,28 +1,18 @@
-import { CLEAR_BUTTON_ID, RESULT_ID, getResultsMenu, getTextbox } from "./shared";
+import {
+    ALEXANDRE_RESULT,
+    ALEXANDRE_VALUE,
+    CLEAR_BUTTON_ID,
+    DEFAULT_RESULTS,
+    NUMBER_OF_RESULTS_BEGINNING_WITH_A,
+    RESULT_ID,
+    getNoResults,
+    getResultsMenu,
+    getTextbox
+} from "./shared";
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@testing-library/user-event";
-
-const GEORGE_VALUE = "George";
-const LAURIE_VALUE = "Laurie";
-const CLARA_VALUE = "Clara";
-const FELIX_VALUE = "Felix";
-const AUDREY_VALUE = "Audrey";
-const ALEXANDRE_VALUE = "Alexandre";
-const ALYSON_VALUE = "Alyson";
-
-const DEFAULT_RESULTS = [
-    searchInputResult("1", GEORGE_VALUE),
-    searchInputResult("2", LAURIE_VALUE),
-    searchInputResult("3", CLARA_VALUE),
-    searchInputResult("4", FELIX_VALUE),
-    searchInputResult("5", AUDREY_VALUE),
-    searchInputResult("6", ALEXANDRE_VALUE),
-    searchInputResult("7", ALYSON_VALUE)
-];
-
-const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
 
 function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ...otherProps } = {}) {
     return <SearchInput
@@ -59,10 +49,7 @@ test("typing a search input that match no results, show no results message", asy
     await waitForElement(() => getResultsMenu(container));
 
     expect(queryAllByTestId(RESULT_ID).length).toBe(0);
-
-    const noResultsNode = container.querySelector("div.message.empty");
-
-    expect(noResultsNode).toBeInTheDocument();
+    expect(getNoResults(container)).toBeInTheDocument();
 });
 
 test("can navigate through the results with arrows keydown", async () => {
@@ -224,7 +211,7 @@ test("selected result is cleared on 2x esc keydown", async () => {
 
 test("selected result is cleared on clear button click", async () => {
     const { getByTestId } = render(createSearchInput({
-        defaultValue: LAURIE_VALUE
+        defaultValue: ALEXANDRE_VALUE
     }));
 
     userEvent.click(getByTestId(CLEAR_BUTTON_ID));
@@ -235,7 +222,7 @@ test("selected result is cleared on clear button click", async () => {
 
 test("dropdown menu is closed on clear button click", async () => {
     const { getByTestId, container } = render(createSearchInput({
-        defaultValue: LAURIE_VALUE
+        defaultValue: ALEXANDRE_VALUE
     }));
 
     userEvent.type(await getTextbox(getByTestId), "a");
@@ -294,18 +281,18 @@ test("wait until specified minCharacters count typed before filtering and showin
 
     const textboxNode = await getTextbox(getByTestId);
 
-    userEvent.type(textboxNode, AUDREY_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
     await wait();
 
     expect(getResultsMenu(container)).not.toBeInTheDocument();
 
-    userEvent.type(textboxNode, AUDREY_VALUE.substring(0, MINIMUM_CHARACTERS));
+    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS));
     await waitForElement(() => getResultsMenu(container));
 
     const resultsNodes = getAllByTestId(RESULT_ID);
 
     expect(resultsNodes.length).toBe(1);
-    expect(resultsNodes[0]).toHaveTextContent(AUDREY_VALUE);
+    expect(resultsNodes[0]).toHaveTextContent(ALEXANDRE_VALUE);
 });
 
 // ***** Handlers *****
@@ -322,16 +309,16 @@ test("call onValueChange when a result is selected on click", async () => {
     userEvent.type(textboxNode, "a");
     await waitForElement(() => getResultsMenu(container));
 
-    userEvent.click(getAllByTestId(RESULT_ID)[0]);
+    userEvent.click(getAllByTestId(RESULT_ID)[1]);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), searchInputResult("5", AUDREY_VALUE), expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT, expect.anything());
 });
 
 test("call onValueChange when a result is selected on enter keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createSearchInput({
         onValueChange: handler
     }));
 
@@ -341,17 +328,18 @@ test("call onValueChange when a result is selected on enter keydown", async () =
     await waitForElement(() => getResultsMenu(container));
 
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(getAllByTestId(RESULT_ID)[0], { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    fireEvent.keyDown(container, { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), searchInputResult("5", AUDREY_VALUE), expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT, expect.anything());
 });
 
 test("call onValueChange when the selected result is cleared", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSearchInput({
-        defaultValue: AUDREY_VALUE,
+        defaultValue: ALEXANDRE_VALUE,
         onValueChange: handler
     }));
 
@@ -458,7 +446,7 @@ test("call onSearch with custom object when specified", async () => {
         return [];
     });
 
-    const RESULT = searchInputResult("1", GEORGE_VALUE, { foo: "bar" });
+    const RESULT = searchInputResult("1", ALEXANDRE_VALUE, { foo: "bar" });
 
     const { getByTestId } = render(createSearchInput({
         results: [RESULT],

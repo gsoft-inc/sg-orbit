@@ -62,6 +62,13 @@ stories()
                  disabled
                  onValueChange={logValueChanged}
              />
+    )
+    .add("failing fetch",
+         () =>
+             <RemoteSearchInput
+                 onFetchResults={() => Promise.reject()}
+                 onValueChange={logValueChanged}
+             />
     );
 
 stories("/controlled")
