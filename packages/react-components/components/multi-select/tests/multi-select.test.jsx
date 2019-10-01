@@ -1,6 +1,7 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
+import userEvent from "@testing-library/user-event";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";
@@ -38,7 +39,7 @@ function createMultiSelect({ items = DEFAULT_ITEMS, onValuesChange = noop, ...ot
 test("open the dropdown menu on trigger click", async () => {
     const { getByTestId } = render(createMultiSelect());
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
@@ -85,7 +86,7 @@ test("close the dropdown menu on outside click", async () => {
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(menuNode).not.toBeInTheDocument();
@@ -98,7 +99,7 @@ test("close the dropdown menu on trigger click", async () => {
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
     expect(menuNode).not.toBeInTheDocument();
@@ -109,7 +110,7 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
         disabled: true
     }));
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
     expect(queryByTestId(MENU_ID)).toBeNull();
@@ -118,7 +119,7 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
 test("search input is focused on open", async () => {
     const { getByTestId } = render(createMultiSelect());
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
 
     const searchInputNode = await waitForElement(() => getByTestId(SEARCH_INPUT_ID));
 
@@ -128,7 +129,7 @@ test("search input is focused on open", async () => {
 test("can navigate through the dropdown menu item with arrows keydown", async () => {
     const { getByTestId, getAllByTestId, container } = render(createMultiSelect());
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await waitForElement(() => getByTestId(SEARCH_INPUT_ID));
 
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
@@ -147,7 +148,7 @@ test("dont close the dropdown menu on search input click", async () => {
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getByTestId(SEARCH_INPUT_ID));
+    userEvent.click(getByTestId(SEARCH_INPUT_ID));
     await wait();
 
     expect(menuNode).toBeInTheDocument();
@@ -160,7 +161,7 @@ test("when closeOnSelect is false, dont close the dropdown menu on item click", 
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
     expect(menuNode).toBeInTheDocument();
@@ -188,7 +189,7 @@ test("when closeOnSelect is true, close the dropdown menu on item click", async 
 
     const menuNode = await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
     expect(menuNode).not.toBeInTheDocument();
@@ -228,7 +229,7 @@ test("typing a search input filter out the available dropdown menu items", async
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "N" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
@@ -243,7 +244,7 @@ test("search input is case insensitive", async () => {
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "n" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "n");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
@@ -258,7 +259,7 @@ test("when no items match the search input, empty results is shown", async () =>
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "abc" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "abc");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getByTestId(NO_RESULTS_ID)).toBeInTheDocument();
@@ -273,7 +274,7 @@ test("selecting a dropdown menu item add a new selected item", async () => {
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
     const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${DEFAULT_ITEMS[0].value}`);
@@ -290,7 +291,7 @@ test("selecting a dropdown menu item remove the item from the dropdown menu item
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
     expect(getAllByTestId(MENU_ITEM_ID)[0].querySelector("span")).not.toHaveTextContent(DEFAULT_ITEMS[0].text);
@@ -316,7 +317,7 @@ test("selected item is removed on remove button click", async () => {
 
     const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`);
 
-    fireEvent.click(selectedItem.querySelector("button"));
+    userEvent.click(selectedItem.querySelector("button"));
     await wait();
 
     expect(selectedItem).not.toBeInTheDocument();
@@ -329,10 +330,10 @@ test("when removed, the item is available again in the dropdown menu items", asy
 
     const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`);
 
-    fireEvent.click(selectedItem.querySelector("button"));
+    userEvent.click(selectedItem.querySelector("button"));
     await wait();
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await waitForElement(() => getByTestId(MENU_ID));
 
     const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
@@ -348,7 +349,7 @@ test("remove all the selected items on clear all button click", async () => {
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(DEFAULT_ITEMS.length);
 
-    fireEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
     await wait();
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
@@ -368,7 +369,7 @@ test("call onValuesChange with the new selected item when an item is selected", 
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value], expect.anything());
@@ -383,7 +384,7 @@ test("call onValuesChange without the removed item when a selected item is remov
         onValuesChange: handler
     }));
 
-    fireEvent.click(getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`).querySelector("button"));
+    userEvent.click(getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`).querySelector("button"));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value], expect.anything());
@@ -397,7 +398,7 @@ test("call onValuesChange without values when all the selected items are cleared
         onValuesChange: handler
     }));
 
-    fireEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [], expect.anything());
@@ -410,7 +411,7 @@ test("call onVisibilityChange when the dropdown menu is opened with a trigger cl
         onVisibilityChange: handler
     }));
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
@@ -452,7 +453,7 @@ test("call onVisibilityChange when the dropdown menu is closed with a trigger cl
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getByTestId(TRIGGER_ID));
+    userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
@@ -484,7 +485,7 @@ test("call onVisibilityChange when the dropdown menu is closed with an outside c
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
@@ -501,7 +502,7 @@ test("call onVisibilityChange when the dropdown menu is closed by selecting a va
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
+    userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
@@ -519,7 +520,7 @@ test("call onSearch when the search input change", async () => {
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "N" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N", expect.anything());
@@ -539,7 +540,7 @@ test("results returned by onSearch are shown", async () => {
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "N" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
@@ -562,7 +563,7 @@ test("onSearch is not call with the already selected items", async () => {
 
     await waitForElement(() => getByTestId(MENU_ID));
 
-    fireEvent.change(getByTestId(SEARCH_INPUT_ID), { target: { value: "N" } });
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N", expect.anything());

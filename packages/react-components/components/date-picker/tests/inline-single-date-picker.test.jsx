@@ -2,6 +2,7 @@ import { CALENDAR_ID } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
+import userEvent from "@testing-library/user-event";
 
 export const INPUT_ID = "inline-single-date-picker-input";
 
@@ -36,7 +37,7 @@ function createInlineSingleDatePicker(props) {
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.click(getByTestId(INPUT_ID));
+    userEvent.click(getByTestId(INPUT_ID));
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -83,7 +84,7 @@ test("close the calendar on outside click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -96,7 +97,7 @@ test("close the calendar on input click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(INPUT_ID));
+    userEvent.click(getByTestId(INPUT_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -107,7 +108,7 @@ test("when disabled, dont open the calendar on input click", async () => {
         disabled: true
     }));
 
-    fireEvent.click(getByTestId(INPUT_ID));
+    userEvent.click(getByTestId(INPUT_ID));
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -144,7 +145,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    fireEvent.click(getByTestId(INPUT_ID));
+    userEvent.click(getByTestId(INPUT_ID));
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 

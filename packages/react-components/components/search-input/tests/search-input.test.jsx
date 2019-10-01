@@ -1,5 +1,5 @@
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
-import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@testing-library/user-event";
 

@@ -98,7 +98,7 @@ export class SearchInput extends AutoControlledPureComponent {
     handleKeyDown = event => {
         const { onKeyDown } = this.props;
 
-        // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" event if SUI React already handle it.
+        // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" ourself.
         if (event.keyCode === KEYS.esc) {
             this.close(event);
         }
