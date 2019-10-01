@@ -526,6 +526,48 @@ test("call onSearch when the search input change", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N", expect.anything());
 });
 
+test("call onSearch with groups when specified", async () => {
+    const handler = jest.fn(() => {
+        return [];
+    });
+
+    const ITEM = multiSelectItem("Created", GROUP_CREATED_VALUE, "group 1");
+
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        items: [ITEM],
+        onSearch: handler
+    }));
+
+    await waitForElement(() => getByTestId(MENU_ID));
+
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
+    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [ITEM], "N", expect.anything());
+});
+
+test("call onSearch with custom object when specified", async () => {
+    const handler = jest.fn(() => {
+        return [];
+    });
+
+    const ITEM = multiSelectItem("Created", GROUP_CREATED_VALUE, null, { foo: "bar" });
+
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        items: [ITEM],
+        onSearch: handler
+    }));
+
+    await waitForElement(() => getByTestId(MENU_ID));
+
+    userEvent.type(getByTestId(SEARCH_INPUT_ID), "N");
+    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [ITEM], "N", expect.anything());
+});
+
 test("results returned by onSearch are shown", async () => {
     const results = [DEFAULT_ITEMS[0], DEFAULT_ITEMS[1]];
 

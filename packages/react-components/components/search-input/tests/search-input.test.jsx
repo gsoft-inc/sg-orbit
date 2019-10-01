@@ -1,11 +1,8 @@
+import { CLEAR_BUTTON_ID, RESULT_ID, getResultsMenu, getTextbox } from "./shared";
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@testing-library/user-event";
-
-const RESULT_ID = "search-input-result";
-const TEXTBOX_ID = "search-input-textbox";
-const CLEAR_BUTTON_ID = "search-input-clear-button";
 
 const GEORGE_VALUE = "George";
 const LAURIE_VALUE = "Laurie";
@@ -26,16 +23,6 @@ const DEFAULT_RESULTS = [
 ];
 
 const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
-
-async function getTextbox(getByTestId) {
-    const textboxNode = await getByTestId(TEXTBOX_ID);
-
-    return textboxNode.querySelector("input");
-}
-
-function getResultsMenu(container) {
-    return container.querySelector("div.results.visible");
-}
 
 function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ...otherProps } = {}) {
     return <SearchInput
@@ -464,6 +451,24 @@ test("call onSearch when the search input change", async () => {
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_RESULTS, "a", expect.anything());
+});
+
+test("call onSearch with custom object when specified", async () => {
+    const handler = jest.fn(() => {
+        return [];
+    });
+
+    const RESULT = searchInputResult("1", GEORGE_VALUE, { foo: "bar" });
+
+    const { getByTestId } = render(createSearchInput({
+        results: [RESULT],
+        onSearch: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [RESULT], "a", expect.anything());
 });
 
 test("results returned by onSearch are shown", async () => {
