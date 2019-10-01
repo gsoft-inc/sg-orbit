@@ -546,8 +546,8 @@ test("results returned by onSearch are shown", async () => {
     const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
 
     expect(menuItemsNodes.length).toBe(2);
-    expect(menuItemsNodes[0].querySelector("span")).toHaveTextContent(DEFAULT_ITEMS[0].text);
-    expect(menuItemsNodes[1].querySelector("span")).toHaveTextContent(DEFAULT_ITEMS[1].text);
+    expect(menuItemsNodes[0].querySelector("span")).toHaveTextContent(results[0].text);
+    expect(menuItemsNodes[1].querySelector("span")).toHaveTextContent(results[1].text);
 });
 
 test("onSearch is not call with the already selected items", async () => {

@@ -282,6 +282,45 @@ test("when disabled, dont open the dropdown menu on textbox click", async () => 
     expect(getResultsMenu(container)).toBeNull();
 });
 
+test("when closeOnSelect is true, clear the search input on item select", async () => {
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        clearOnSelect: true
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(getAllByTestId(RESULT_ID)[0]);
+    await wait();
+
+    expect(textboxNode).toHaveTextContent("");
+});
+
+test("wait until specified minCharacters count typed before filtering and showing results", async () => {
+    const MINIMUM_CHARACTERS = 4;
+
+    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+        minCharacters: MINIMUM_CHARACTERS
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, AUDREY_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    await wait();
+
+    expect(getResultsMenu(container)).not.toBeInTheDocument();
+
+    userEvent.type(textboxNode, AUDREY_VALUE.substring(0, MINIMUM_CHARACTERS));
+    await waitForElement(() => getResultsMenu(container));
+
+    const resultsNodes = getAllByTestId(RESULT_ID);
+
+    expect(resultsNodes.length).toBe(1);
+    expect(resultsNodes[0]).toHaveTextContent(AUDREY_VALUE);
+});
+
 // ***** Handlers *****
 
 test("call onValueChange when a result is selected on click", async () => {
@@ -444,8 +483,8 @@ test("results returned by onSearch are shown", async () => {
     const resultsNodes = getAllByTestId(RESULT_ID);
 
     expect(resultsNodes.length).toBe(2);
-    expect(resultsNodes[0]).toHaveTextContent(DEFAULT_RESULTS[0].text);
-    expect(resultsNodes[1]).toHaveTextContent(DEFAULT_RESULTS[1].text);
+    expect(resultsNodes[0]).toHaveTextContent(results[0].text);
+    expect(resultsNodes[1]).toHaveTextContent(results[1].text);
 });
 
 test("call onBlur on blur", async () => {
