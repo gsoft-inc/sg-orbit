@@ -9,14 +9,28 @@ import {
     getResultsMenu,
     getTextbox
 } from "./shared";
-import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
-import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
+import { RemoteSearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
+import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@testing-library/user-event";
 
-function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ...otherProps } = {}) {
-    return <SearchInput
-        results={results}
+function withResults({ items = DEFAULT_RESULTS, startsWith = true } = {}) {
+    return (event, query) => {
+        if (startsWith) {
+            return Promise.resolve(items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase())));
+        }
+
+        return Promise.resolve(items);
+    };
+}
+
+function failingResultsFetcher() {
+    return Promise.reject();
+}
+
+function createRemoteSearchInput({ onFetchResults = withResults(), onValueChange = noop, ...otherProps } = {}) {
+    return <RemoteSearchInput
+        onFetchResults={onFetchResults}
         onValueChange={onValueChange}
         {...otherProps}
     />;
@@ -25,7 +39,7 @@ function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ..
 // ***** Behaviors *****
 
 test("typing a search input show the matching results", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     userEvent.type(await getTextbox(getByTestId), "A");
     await waitForElement(() => getResultsMenu(container));
@@ -33,17 +47,8 @@ test("typing a search input show the matching results", async () => {
     expect(getAllByTestId(RESULT_ID).length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
 });
 
-test("search input is case insensitive", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
-
-    userEvent.type(await getTextbox(getByTestId), "a");
-    await waitForElement(() => getResultsMenu(container));
-
-    expect(getAllByTestId(RESULT_ID).length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A);
-});
-
 test("typing a search input that match no results, show no results message", async () => {
-    const { getByTestId, queryAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, queryAllByTestId, container } = render(createRemoteSearchInput());
 
     userEvent.type(await getTextbox(getByTestId), "xyz");
     await waitForElement(() => getResultsMenu(container));
@@ -53,7 +58,7 @@ test("typing a search input that match no results, show no results message", asy
 });
 
 test("can navigate through the results with arrows keydown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     userEvent.type(await getTextbox(getByTestId), "a");
     await waitForElement(() => getResultsMenu(container));
@@ -70,7 +75,7 @@ test("can navigate through the results with arrows keydown", async () => {
 });
 
 test("can select a result on click", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     const textboxNode = await getTextbox(getByTestId);
 
@@ -88,7 +93,7 @@ test("can select a result on click", async () => {
 });
 
 test("can select a result on enter keydown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     const textboxNode = await getTextbox(getByTestId);
 
@@ -108,7 +113,7 @@ test("can select a result on enter keydown", async () => {
 });
 
 test("when a result is selected, the dropdown menu close", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     userEvent.type(await getTextbox(getByTestId), "a");
     await waitForElement(() => getResultsMenu(container));
@@ -124,7 +129,7 @@ test("when a result is selected, the dropdown menu close", async () => {
 });
 
 test("close the dropdown menu on outside click", async () => {
-    const { container } = render(createSearchInput({
+    const { container } = render(createRemoteSearchInput({
         defaultOpen: true
     }));
 
@@ -137,7 +142,7 @@ test("close the dropdown menu on outside click", async () => {
 });
 
 test("close the dropdown menu on blur", async () => {
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultOpen: true
     }));
 
@@ -150,7 +155,7 @@ test("close the dropdown menu on blur", async () => {
 });
 
 test("close the dropdown menu on esc keydown", async () => {
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultOpen: true
     }));
 
@@ -163,7 +168,7 @@ test("close the dropdown menu on esc keydown", async () => {
 });
 
 test("when no result is selected, on blur should clear the search input", async () => {
-    const { getByTestId, container } = render(createSearchInput());
+    const { getByTestId, container } = render(createRemoteSearchInput());
 
     const textboxNode = await getTextbox(getByTestId);
 
@@ -177,7 +182,7 @@ test("when no result is selected, on blur should clear the search input", async 
 });
 
 test("when a result is selected, on blur shouldn't clear the search input", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput());
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput());
 
     const textboxNode = await getTextbox(getByTestId);
 
@@ -195,7 +200,7 @@ test("when a result is selected, on blur shouldn't clear the search input", asyn
 });
 
 test("selected result is cleared on 2x esc keydown", async () => {
-    const { getByTestId, container } = render(createSearchInput());
+    const { getByTestId, container } = render(createRemoteSearchInput());
 
     const textboxNode = await getTextbox(getByTestId);
 
@@ -210,7 +215,7 @@ test("selected result is cleared on 2x esc keydown", async () => {
 });
 
 test("selected result is cleared on clear button click", async () => {
-    const { getByTestId } = render(createSearchInput({
+    const { getByTestId } = render(createRemoteSearchInput({
         defaultValue: ALEXANDRE_VALUE
     }));
 
@@ -221,7 +226,7 @@ test("selected result is cleared on clear button click", async () => {
 });
 
 test("dropdown menu is closed on clear button click", async () => {
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultValue: ALEXANDRE_VALUE
     }));
 
@@ -235,7 +240,7 @@ test("dropdown menu is closed on clear button click", async () => {
 });
 
 test("when autofocus is true, the input is focused on render", async () => {
-    const { getByTestId } = render(createSearchInput({
+    const { getByTestId } = render(createRemoteSearchInput({
         autofocus: true,
         autofocusDelay: 0
     }));
@@ -246,7 +251,7 @@ test("when autofocus is true, the input is focused on render", async () => {
 });
 
 test("when disabled, dont open the dropdown menu on textbox click", async () => {
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         disabled: true
     }));
 
@@ -257,7 +262,7 @@ test("when disabled, dont open the dropdown menu on textbox click", async () => 
 });
 
 test("when closeOnSelect is true, clear the search input on item select", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput({
         clearOnSelect: true
     }));
 
@@ -275,7 +280,7 @@ test("when closeOnSelect is true, clear the search input on item select", async 
 test("wait until specified minCharacters count typed before filtering and showing results", async () => {
     const MINIMUM_CHARACTERS = 4;
 
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput({
         minCharacters: MINIMUM_CHARACTERS
     }));
 
@@ -286,7 +291,7 @@ test("wait until specified minCharacters count typed before filtering and showin
 
     expect(getResultsMenu(container)).not.toBeInTheDocument();
 
-    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS));
+    userEvent.type(textboxNode, ALEXANDRE_VALUE);
     await waitForElement(() => getResultsMenu(container));
 
     const resultsNodes = getAllByTestId(RESULT_ID);
@@ -295,12 +300,74 @@ test("wait until specified minCharacters count typed before filtering and showin
     expect(resultsNodes[0]).toHaveTextContent(ALEXANDRE_VALUE);
 });
 
+test("dont make any remote calls until the minCharacters count has been reached", async () => {
+    const MINIMUM_CHARACTERS = 4;
+
+    const handler = jest.fn(withResults());
+
+    const { getByTestId, container } = render(createRemoteSearchInput({
+        minCharacters: MINIMUM_CHARACTERS,
+        onFetchResults: handler
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -3));
+    await wait();
+
+    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -2));
+    await wait();
+
+    userEvent.type(textboxNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    await wait();
+
+    userEvent.type(textboxNode, ALEXANDRE_VALUE);
+    await waitForElement(() => getResultsMenu(container));
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
+
+test("when the remote call fail, show the no results message", async () => {
+    const { getByTestId, container } = render(createRemoteSearchInput({
+        onFetchResults: failingResultsFetcher
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    expect(getNoResults(container)).toBeInTheDocument();
+});
+
+test("show the loading state until the remote call end", async () => {
+    let resolvePromise;
+
+    const promise = new Promise(resolve => {
+        resolvePromise = resolve;
+    });
+
+    const { getByTestId, container } = render(createRemoteSearchInput({
+        onFetchResults: () => promise
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    userEvent.type(textboxNode, "a");
+    await waitForDomChange(container);
+
+    expect(textboxNode.parentNode.parentNode).toHaveClass("loading");
+
+    resolvePromise([]);
+    await waitForDomChange(container);
+
+    expect(textboxNode.parentNode.parentNode).not.toHaveClass("loading");
+});
+
 // ***** Handlers *****
 
 test("call onValueChange when a result is selected on click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput({
         onValueChange: handler
     }));
 
@@ -318,7 +385,7 @@ test("call onValueChange when a result is selected on click", async () => {
 test("call onValueChange when a result is selected on enter keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         onValueChange: handler
     }));
 
@@ -338,7 +405,7 @@ test("call onValueChange when a result is selected on enter keydown", async () =
 test("call onValueChange when the selected result is cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createSearchInput({
+    const { getByTestId } = render(createRemoteSearchInput({
         defaultValue: ALEXANDRE_VALUE,
         onValueChange: handler
     }));
@@ -352,7 +419,7 @@ test("call onValueChange when the selected result is cleared", async () => {
 test("call onVisibilityChange when the dropdown menu is opened by typing a search input", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         onVisibilityChange: handler
     }));
 
@@ -365,7 +432,7 @@ test("call onVisibilityChange when the dropdown menu is opened by typing a searc
 test("call onVisibilityChange when the dropdown menu is closed on outside click", async () => {
     const handler = jest.fn();
 
-    const { container } = render(createSearchInput({
+    const { container } = render(createRemoteSearchInput({
         defaultOpen: true,
         onVisibilityChange: handler
     }));
@@ -381,7 +448,7 @@ test("call onVisibilityChange when the dropdown menu is closed on outside click"
 test("call onVisibilityChange when the dropdown menu is closed on esc keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultOpen: true,
         onVisibilityChange: handler
     }));
@@ -397,7 +464,7 @@ test("call onVisibilityChange when the dropdown menu is closed on esc keydown", 
 test("call onVisibilityChange when the dropdown menu is closed on blur", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultOpen: true,
         onVisibilityChange: handler
     }));
@@ -413,7 +480,7 @@ test("call onVisibilityChange when the dropdown menu is closed on blur", async (
 test("call onVisibilityChange when the dropdown menu is closed on item selection", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createSearchInput({
+    const { getByTestId, getAllByTestId, container } = render(createRemoteSearchInput({
         onVisibilityChange: handler
     }));
 
@@ -426,64 +493,55 @@ test("call onVisibilityChange when the dropdown menu is closed on item selection
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });
 
-test("call onSearch when the search input change", async () => {
+test("call onFetchResults when the search input change", async () => {
+    const handler = jest.fn(withResults());
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        onFetchResults: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a", expect.anything());
+});
+
+test("call onResults when the remote calls responds with results", async () => {
     const handler = jest.fn(() => {
         return [];
     });
 
-    const { getByTestId } = render(createSearchInput({
-        onSearch: handler
+    const { getByTestId } = render(createRemoteSearchInput({
+        onResults: handler,
+        onFetchResults: withResults({ startsWith: false })
     }));
 
     userEvent.type(await getTextbox(getByTestId), "a");
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_RESULTS, "a", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(DEFAULT_RESULTS, "a", expect.anything());
 });
 
-test("call onSearch with custom object when specified", async () => {
+test("call onResults when the remote calls responds without results", async () => {
     const handler = jest.fn(() => {
         return [];
     });
 
-    const RESULT = searchInputResult("1", ALEXANDRE_VALUE, { foo: "bar" });
-
-    const { getByTestId } = render(createSearchInput({
-        results: [RESULT],
-        onSearch: handler
+    const { getByTestId } = render(createRemoteSearchInput({
+        onResults: handler,
+        onFetchResults: withResults({ items: [] })
     }));
 
     userEvent.type(await getTextbox(getByTestId), "a");
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [RESULT], "a", expect.anything());
-});
-
-test("results returned by onSearch are shown", async () => {
-    const results = [DEFAULT_RESULTS[0], DEFAULT_RESULTS[1]];
-
-    const handler = jest.fn(() => {
-        return results;
-    });
-
-    const { getByTestId, getAllByTestId } = render(createSearchInput({
-        onSearch: handler
-    }));
-
-    userEvent.type(await getTextbox(getByTestId), "a");
-    await wait();
-
-    const resultsNodes = getAllByTestId(RESULT_ID);
-
-    expect(resultsNodes.length).toBe(2);
-    expect(resultsNodes[0]).toHaveTextContent(results[0].text);
-    expect(resultsNodes[1]).toHaveTextContent(results[1].text);
+    expect(handler).toHaveBeenLastCalledWith([], "a", expect.anything());
 });
 
 test("call onBlur when the input blur", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createSearchInput({
+    const { getByTestId } = render(createRemoteSearchInput({
         onBlur: handler,
         autofocus: true,
         autofocusDelay: 0
@@ -493,4 +551,21 @@ test("call onBlur when the input blur", async () => {
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});
+
+test("call onKeyDown when any keys down on the input", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        onKeyDown: handler
+    }));
+
+    const textboxNode = await getTextbox(getByTestId);
+
+    fireEvent.keyDown(textboxNode, { key: "Escape", keyCode: 27 });
+    fireEvent.keyDown(textboxNode, { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(textboxNode, { key: " ", keyCode: 32 });
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(3);
 });

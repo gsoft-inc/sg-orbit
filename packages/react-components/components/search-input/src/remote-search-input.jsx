@@ -170,6 +170,13 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         async (event, query) => {
             const { onResults, minCharacters } = this.props;
 
+            const showResults = results => {
+                this.hideLoading();
+                this.open(event);
+
+                this.setState({ results: results });
+            };
+
             if (query.length >= minCharacters) {
                 this.showLoading();
 
@@ -184,14 +191,15 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                         }
                     }
 
-                    this.hideLoading();
-                    this.open(event);
-
-                    this.setState({ results: results });
+                    showResults(results);
                 } catch (error) {
-                    // To cancel a promise it must be rejected, ignore it. If it's something else, bubble up.
-                    if (error.isCancelled !== true) {
-                        throw error;
+                    if (!isNil(error)) {
+                        // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
+                        if (error.isCancelled !== true) {
+                            showResults([]);
+                        }
+                    } else {
+                        showResults([]);
                     }
                 }
             } else {
@@ -229,7 +237,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true);
+            onVisibilityChange(event, true, this.props);
         }
     }
 
@@ -239,7 +247,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false);
+            onVisibilityChange(event, false, this.props);
         }
     }
 
