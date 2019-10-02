@@ -32,6 +32,7 @@
 /* Variations */
 
 .ui.warning.message {
+    background-color: @sunray50;
     border-color: @sunray500;
 }
 
@@ -70,4 +71,16 @@
 
 .ui.message > .close.icon:hover {
     background-color: @cloud100;
+}
+
+.ui.negative.message > .close.icon:hover {
+    background-color: @alert100;
+}
+
+.ui.warning.message > .close.icon:hover {
+    background-color: @sunray100;
+}
+
+.ui.positive.message > .close.icon:hover {
+    background-color: @success100;
 }

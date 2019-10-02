@@ -251,16 +251,16 @@
 @alert900: var(--alert-900);
 
 /*--- Warning --*/
-@warning50: var(--warning-50);
-@warning100: var(--warning-100);
-@warning200: var(--warning-200);
-@warning300: var(--warning-300);
-@warning400: var(--warning-400);
-@warning500: var(--warning-500);
-@warning600: var(--warning-600);
-@warning700: var(--warning-700);
-@warning800: var(--warning-800);
-@warning900: var(--warning-900);
+@warning50: var(--sunray-50);
+@warning100: var(--sunray-100);
+@warning200: var(--sunray-200);
+@warning300: var(--sunray-300);
+@warning400: var(--sunray-400);
+@warning500: var(--sunray-500);
+@warning600: var(--sunray-600);
+@warning700: var(--sunray-700);
+@warning800: var(--sunray-800);
+@warning900: var(--sunray-900);
 
 /*--- Cloud --*/
 @cloud50: var(--cloud-50);

@@ -71,6 +71,15 @@ _Dismissible blocks do not automatically close. Use the onDismiss callback to re
     </Message>
 </Playground>
 
+### Dismissible
+
+<Playground>
+    <Message positive onDismiss={noop}>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
 ## Warning
 
 ### Default
@@ -82,12 +91,30 @@ _Dismissible blocks do not automatically close. Use the onDismiss callback to re
     </Message>
 </Playground>
 
+### Dismissible
+
+<Playground>
+    <Message warning onDismiss={noop}>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
 ## Negative/Error
 
 ### Default
 
 <Playground>
     <Message negative>
+        <Message.Header>Setup a security policy for external sharing</Message.Header>
+        <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+    </Message>
+</Playground>
+
+### Dismissible
+
+<Playground>
+    <Message negative onDismiss={noop}>
         <Message.Header>Setup a security policy for external sharing</Message.Header>
         <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
     </Message>
