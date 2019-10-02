@@ -31,8 +31,8 @@ jobs:
                   name: Build Packages
                   command: yarn build:pkg
             - run:
-                  name: Tests
-                  command: yarn test-ci
+                  name: Run Jest
+                  command: yarn jest-ci
     chromatic:
         docker:
             - image: circleci/node:12

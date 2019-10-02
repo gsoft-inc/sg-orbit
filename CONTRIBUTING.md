@@ -494,7 +494,7 @@ yarn chromatic-materials
 
 ## Testing
 
-For testing the components we currently rely only on automated visual testing and interaction testing.
+For testing the components we currently rely only on multiple testing strategies.
 
 ### Visual testing
 
@@ -502,9 +502,9 @@ Visual testing assert on what visually appears on the screen instead of assertin
 
 This is a more *black box* and *robust* testing approach since it shouldn't requires to modify the tests if the code refactor haven't change anything visually.
 
-Therefore, this is preferred way to test the components.
+This approach is usually strictly use to assert that the visual of a component do not regress. Since it's easy and very efficient to write a robust test with this approach, we also use it to test the specifications of a component that are related to the behaviors and states. 
 
-Visual testing can also easily perform cross-browsers testing.
+Therefore, prefer this approach to [interactions](#interaction-testing) and [api testing](#api-testing) when possible.
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
 
@@ -517,7 +517,7 @@ For more information about automated visual testing:
 
 ### Interaction testing
 
-Interaction testing is all about interacting with the user. We need to test if they are working properly.
+UI is all about interacting with the user. We need to test if a component work properly when those interactions occurs.
 
 This approach is used to cover the interaction behaviors of a component.
 
@@ -531,6 +531,16 @@ To facilite those tests, we use a combination of [Jest](https://jestjs.io/) and 
 For more information about interaction testing:
 
 - https://storybook.js.org/docs/testing/react-ui-testing/#2-interaction-testing
+
+### API testing
+
+API testing is usefull to tests the properties of a component that can hardly be tested with visual testing.
+
+Visual testing can easily assert that the `disabled` property of a component visually work as expected. Asserting that the `onChange` handler has been only called once when the user type a value in a textbox is harder.
+
+This is where API testing shine.
+
+To facilite those tests, we use a combination of [Jest](https://jestjs.io/) and [React testing library](https://testing-library.com).
 
 ## CI
 
