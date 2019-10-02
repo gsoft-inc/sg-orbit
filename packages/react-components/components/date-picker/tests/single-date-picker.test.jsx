@@ -5,6 +5,7 @@ import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {
@@ -48,10 +49,12 @@ function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...ot
     />;
 }
 
+// ***** Behaviors *****
+
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    fireEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getByTestId(TEXTBOX_ID));
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -98,7 +101,7 @@ test("close the calendar on outside click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -111,7 +114,7 @@ test("close the calendar on input click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -122,7 +125,7 @@ test("when disabled, dont open the calendar on input click", async () => {
         disabled: true
     }));
 
-    fireEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getByTestId(TEXTBOX_ID));
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -158,7 +161,7 @@ test("clear the date on input clear button click", async () => {
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
 
-    fireEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
     await wait();
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
@@ -171,7 +174,7 @@ test("dont close the calendar on calendar clear button click", async () => {
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
 
     expect(calendarNode).toBeInTheDocument();
@@ -185,7 +188,7 @@ test("when a date is selected, clicking on the calendar apply button close the c
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -205,11 +208,13 @@ test("clear the date on calendar clear button click", async () => {
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    fireEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
 });
+
+// ***** Handlers *****
 
 test("dont call onDateChange when a date is selected", async () => {
     const ref = createRef();
@@ -242,7 +247,7 @@ test("dont call onDateChange when the calendar is dimissed", async () => {
 
     ref.current.triggerDateChange(moment());
 
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(handler).not.toHaveBeenCalled();
@@ -263,7 +268,7 @@ test("call onDateChange when the date is applied", async () => {
 
     ref.current.triggerDateChange(newDate);
 
-    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), newDate, expect.anything());
@@ -277,7 +282,7 @@ test("call onDateChange when the date is cleared from the input", async () => {
         onDateChange: handler
     }));
 
-    fireEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
@@ -290,7 +295,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    fireEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getByTestId(TEXTBOX_ID));
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -334,7 +339,7 @@ test("call onVisibilityChange when the calendar is dismissed", async () => {
     }));
 
     await wait();
-    fireEvent.click(document);
+    userEvent.click(document.body);
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
@@ -368,7 +373,7 @@ test("call onVisibilityChange when the date is applied", async () => {
     await wait();
     ref.current.triggerDateChange(moment());
 
-    fireEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());

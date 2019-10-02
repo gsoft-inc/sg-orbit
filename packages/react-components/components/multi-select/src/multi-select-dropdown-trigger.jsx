@@ -75,7 +75,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text } = this.props;
+        const { text, disabled } = this.props;
 
         return (
             <div className="mr2 mb2">
@@ -86,8 +86,9 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     onBlur={this.handleBlur}
                     secondary
                     className={this.getClasses()}
-                    ref={this._buttonRef}
+                    disabled={disabled}
                     type="button"
+                    ref={this._buttonRef}
                     data-testid="multi-select-dropdown-trigger"
                 >
                     {text} {this.renderIcon()}

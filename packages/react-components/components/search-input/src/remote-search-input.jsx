@@ -81,14 +81,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         open: bool,
         disabled: bool,
         autofocus: bool,
+        autofocusDelay: number,
         className: string
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200,
-        autofocus: false
+        debounceDelay: 200
     };
 
     static autoControlledProps = ["open"];
@@ -134,6 +134,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.hideLoading();
     };
 
+    // Closing the search input on blur will:
+    // - close on outside click
+    // - close on blur
+    // - close on value select
     handleBlur = event => {
         const { onBlur } = this.props;
 
@@ -149,6 +153,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     handleKeyDown = event => {
         const { onKeyDown } = this.props;
 
+        // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" ourself.
         if (event.keyCode === KEYS.esc) {
             this.close(event);
         }
@@ -165,6 +170,13 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         async (event, query) => {
             const { onResults, minCharacters } = this.props;
 
+            const showResults = results => {
+                this.hideLoading();
+                this.open(event);
+
+                this.setState({ results: results });
+            };
+
             if (query.length >= minCharacters) {
                 this.showLoading();
 
@@ -179,14 +191,15 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                         }
                     }
 
-                    this.hideLoading();
-                    this.open(event);
-
-                    this.setState({ results: results });
+                    showResults(results);
                 } catch (error) {
-                    // To cancel a promise it must be rejected, ignore it. If it's something else, bubble up.
-                    if (error.isCancelled !== true) {
-                        throw error;
+                    if (!isNil(error)) {
+                        // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
+                        if (error.isCancelled !== true) {
+                            showResults([]);
+                        }
+                    } else {
+                        showResults([]);
                     }
                 }
             } else {
@@ -224,7 +237,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true);
+            onVisibilityChange(event, true, this.props);
         }
     }
 
@@ -234,7 +247,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false);
+            onVisibilityChange(event, false, this.props);
         }
     }
 
@@ -255,7 +268,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -277,6 +290,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 disabled={disabled}
                 loading={isLoading}
                 autofocus={autofocus}
+                autofocusDelay={autofocusDelay}
                 className={className}
             />
         );
