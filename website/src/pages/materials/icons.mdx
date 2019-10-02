@@ -12,28 +12,28 @@ import IconPlayground from "../../components/icons";
 # Icons
 
 <div className="icons-grid mv10">
-    <IconPlayground name="Add">
+    <IconPlayground name="AddIcon">
         <AddIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Arrow Full">
+    <IconPlayground name="ArrowFullIcon">
         <ArrowFullIcon className="w2 h2" />
     </IconPlayground>
-    <IconPlayground name="Arrow Outline">
+    <IconPlayground name="ArrowOutlineIcon">
         <ArrowOutlineIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Cancel">
+    <IconPlayground name="CancelIcon">
         <CancelIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Checkmark">
+    <IconPlayground name="CheckmarkIcon">
         <CheckmarkIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Chevron">
+    <IconPlayground name="ChevronIcon">
         <ChevronIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Info">
+    <IconPlayground name="InfoIcon">
         <InfoIcon className="w4 h4" />
     </IconPlayground>
-    <IconPlayground name="Magnifier">
+    <IconPlayground name="MagnifierIcon">
         <MagnifierIcon className="w4 h4" />
     </IconPlayground>
 </div>
@@ -41,3 +41,19 @@ import IconPlayground from "../../components/icons";
 ## Usage
 
     import { IconName } from "@orbit-ui/icons";
+
+## Rotation
+
+To have an icon, e.g. a down arrow, use Tachyons rotate className
+
+    <IconName className="rotate-90" />
+    <IconName className="rotate-180" />
+    <IconName className="rotate-270" />
+
+<ArrowOutlineIcon className="w4 h4 mr5" />
+
+<ArrowOutlineIcon className="w4 h4 mr5 rotate-180" />
+
+<ArrowOutlineIcon className="w4 h4 mr5 rotate-90" />
+
+<ArrowOutlineIcon className="w4 h4 rotate-270" />
