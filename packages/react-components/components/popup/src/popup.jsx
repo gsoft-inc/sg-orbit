@@ -105,6 +105,8 @@ export class Popup extends PureComponent {
                 translates.push(`translateY(${offsetY})`);
             }
 
+            let i = 0;
+
             style.transform = translates.join(" ");
         }
 
