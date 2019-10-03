@@ -1,8 +1,7 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
-// import userEvent from "@testing-library/user-event";
-import userEvent from "./user-event";
+import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";

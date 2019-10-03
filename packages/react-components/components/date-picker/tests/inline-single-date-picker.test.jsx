@@ -2,7 +2,7 @@ import { CALENDAR_ID } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
-import userEvent from "@testing-library/user-event";
+import userEvent from "@utils/user-event";
 
 export const INPUT_ID = "inline-single-date-picker-input";
 

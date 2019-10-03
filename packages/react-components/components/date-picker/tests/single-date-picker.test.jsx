@@ -5,7 +5,7 @@ import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
-import userEvent from "@testing-library/user-event";
+import userEvent from "@utils/user-event";
 
 jest.mock("../src/react-dates-wrapper.jsx", () => {
     return {

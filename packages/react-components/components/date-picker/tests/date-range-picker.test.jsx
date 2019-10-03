@@ -6,7 +6,7 @@ import { PureComponent, createRef } from "react";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
-import userEvent from "@testing-library/user-event";
+import userEvent from "@utils/user-event";
 
 const FIRST_PRESET_ID = `date-range-picker-presets-${DEFAULT_DATES_PRESETS[0].text}`;
 
