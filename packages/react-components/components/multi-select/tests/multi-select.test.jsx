@@ -371,6 +371,15 @@ test("remove all the selected items on clear all button click", async () => {
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 });
 
+test("clicking on the document body will not focus the trigger button", async () => {
+    const { getByTestId } = render(createMultiSelect());
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(getByTestId(TRIGGER_ID)).not.toHaveFocus();
+});
+
 // ***** Handlers *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
