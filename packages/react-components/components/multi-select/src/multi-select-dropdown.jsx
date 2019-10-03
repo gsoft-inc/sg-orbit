@@ -64,6 +64,20 @@ export class MultiSelectDropdown extends PureComponent {
     _triggerRef = createRef();
     _dropdownRef = createRef();
 
+    // Using a focus / unfocus flag was not the preferred way to prevent the dropdown from closing on blur when the new focused item was inside the dropdown.
+    // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
+    // with document.activeElement. This was working well in the browser.
+    //
+    // However, our interaction tests rely on jsdom and jsdom support for document.activementElementis reliable (in fact, it doesn't have the same behavior
+    // as browsers).
+    //
+    // The fallback is to use this _hasFocus flag. The idea is that when the focusout event pop, we way for a tick (with a setTimeout) and if _hasFocus is false
+    // after that tick, it means that the new focused element is not inside the dropdown and we can safely close the dropdown.
+    //
+    // Did I mention focusout instead of blur? We add to use a combination of focusin / focusout instead of focus / blur because focus and blur doesn't bubbles.
+    // This means that when a child of the dropdown is focus / blur the parent is not notified.
+    _hasFocus = false;
+
     componentDidMount() {
         const { open } = this.props;
 
@@ -93,36 +107,28 @@ export class MultiSelectDropdown extends PureComponent {
         this.cancelOnSearchDebounce();
     }
 
-    handleDocumentClick = event => {
-        if (this._dropdownRef.current) {
-            if (!this._dropdownRef.current.contains(event.target)) {
-                this.close(event);
-            }
-        }
-    };
-
-    handleKeyDown = event => {
+    handleDocumentKeyDown = event => {
         switch (event.keyCode) {
             case KEYS.esc:
-                this.handleEscape(event);
+                this.handleDocumentEscape(event);
                 break;
             case KEYS.enter:
-                this.handleEnter(event);
+                this.handleDocumentEnter(event);
                 break;
             case KEYS.up:
-                this.handleUp(event);
+                this.handleDocumentUp(event);
                 break;
             case KEYS.down:
-                this.handleDown(event);
+                this.handleDocumentDown(event);
                 break;
         }
     };
 
-    handleEscape = event => {
+    handleDocumentEscape = event => {
         this.close(event);
     };
 
-    handleEnter = event => {
+    handleDocumentEnter = event => {
         const { keyboardItem } = this.state;
 
         if (!isNil(keyboardItem)) {
@@ -130,7 +136,7 @@ export class MultiSelectDropdown extends PureComponent {
         }
     };
 
-    handleUp = () => {
+    handleDocumentUp = () => {
         const { items } = this.props;
         const { keyboardIndex } = this.state;
 
@@ -145,7 +151,7 @@ export class MultiSelectDropdown extends PureComponent {
         }
     };
 
-    handleDown = () => {
+    handleDocumentDown = () => {
         const { items } = this.props;
         const { keyboardIndex } = this.state;
 
@@ -159,6 +165,25 @@ export class MultiSelectDropdown extends PureComponent {
                     this.setKeyboardItem(items[newKeyboardIndex], newKeyboardIndex);
                 }
             }
+        }
+    };
+
+    handleDropdownFocusIn = () => {
+        this._hasFocus = true;
+    };
+
+    // Closing the dropdown on blur will:
+    // - close on outside click
+    // - close on blur
+    handleDropdownFocusOut = event => {
+        this._hasFocus = false;
+        if (!this._triggerRef.current.isElement(event.target)) {
+            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+            setTimeout(() => {
+                if (!this._hasFocus) {
+                    this.close(event);
+                }
+            }, 0);
         }
     };
 
@@ -215,13 +240,17 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     bindEvents() {
-        document.addEventListener("click", this.handleDocumentClick, false);
-        document.addEventListener("keydown", this.handleKeyDown, false);
+        document.addEventListener("keydown", this.handleDocumentKeyDown, false);
+
+        this._dropdownRef.current.addEventListener("focusin", this.handleDropdownFocusIn);
+        this._dropdownRef.current.addEventListener("focusout", this.handleDropdownFocusOut);
     }
 
     unbindEvents() {
-        document.removeEventListener("click", this.handleDocumentClick, false);
-        document.removeEventListener("keydown", this.handleKeyDown, false);
+        document.removeEventListener("keydown", this.handleDocumentKeyDown, false);
+
+        this._dropdownRef.current.removeEventListener("focusin", this.handleDropdownFocusIn);
+        this._dropdownRef.current.removeEventListener("focusout", this.handleDropdownFocusOut);
     }
 
     setKeyboardItem(item, index) {
@@ -300,10 +329,12 @@ export class MultiSelectDropdown extends PureComponent {
                 <MonkeyPatchDropdown
                     open={open}
                     trigger={this.renderTrigger()}
-                    className={this.getClasses()}
                     disabled={disabled}
+                    // Otherwise the "listbox" div will be focus first instead of the trigger button.
+                    tabIndex={-1}
                     upward={false}
                     floating
+                    className={this.getClasses()}
                 >
                     <If condition={open}>{this.renderMenu()}</If>
                 </MonkeyPatchDropdown>

@@ -14,11 +14,11 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     _inputRef = createRef();
 
     componentDidMount() {
-        const inputElement = this._inputRef.current.querySelector("input");
-
-        if (!isNil(inputElement)) {
-            inputElement.select();
-        }
+        setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                this._inputRef.current.querySelector("input").focus();
+            }
+        }, 0);
     }
 
     handleChange = (event, { value }) => {
@@ -49,7 +49,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
                     autoComplete="off"
                 >
                     <i className="icon">{icon}</i>
-                    <input type="text" autoFocus data-testid="multi-select-dropdown-search-input" />
+                    <input type="text" data-testid="multi-select-dropdown-search-input" />
                 </Input>
             </Ref>
         );

@@ -12,7 +12,7 @@ import {
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
-import userEvent from "@testing-library/user-event";
+import userEvent from "@utils/user-event";
 
 function createSearchInput({ results = DEFAULT_RESULTS, onValueChange = noop, ...otherProps } = {}) {
     return <SearchInput

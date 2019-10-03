@@ -11,7 +11,8 @@ module.exports = {
         "/node_modules/(?!@babel).+\\.js$"
     ],
     moduleNameMapper: {
-        "\\.svg": "<rootDir>/jest/svgr-mock.js"
+        "\\.svg": "<rootDir>/jest/svgr-mock.js",
+        "@utils/(.*)$": "<rootDir>/jest/utils/$1"
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect"

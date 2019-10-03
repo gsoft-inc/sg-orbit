@@ -1,7 +1,7 @@
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
-import userEvent from "@testing-library/user-event";
+import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";
@@ -92,6 +92,20 @@ test("close the dropdown menu on outside click", async () => {
     expect(menuNode).not.toBeInTheDocument();
 });
 
+test("close the dropdown menu on focusout", async () => {
+    const { getByTestId } = render(createMultiSelect({
+        defaultOpen: true,
+        defaultValues: [GROUP_CREATED_VALUE]
+    }));
+
+    const menuNode = await waitForElement(() => getByTestId(MENU_ID));
+
+    fireEvent.focusOut(getByTestId(SEARCH_INPUT_ID));
+    await wait();
+
+    expect(menuNode).not.toBeInTheDocument();
+});
+
 test("close the dropdown menu on trigger click", async () => {
     const { getByTestId } = render(createMultiSelect({
         defaultOpen: true
@@ -143,6 +157,7 @@ test("can navigate through the dropdown menu item with arrows keydown", async ()
 
 test("dont close the dropdown menu on search input click", async () => {
     const { getByTestId } = render(createMultiSelect({
+        orbitId: "I AM 1",
         defaultOpen: true
     }));
 
@@ -156,6 +171,7 @@ test("dont close the dropdown menu on search input click", async () => {
 
 test("when closeOnSelect is false, dont close the dropdown menu on item click", async () => {
     const { getByTestId, getAllByTestId } = render(createMultiSelect({
+        orbitId: "I AM 2",
         defaultOpen: true
     }));
 
@@ -353,6 +369,15 @@ test("remove all the selected items on clear all button click", async () => {
     await wait();
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
+});
+
+test("clicking on the document body will not focus the trigger button", async () => {
+    const { getByTestId } = render(createMultiSelect());
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(getByTestId(TRIGGER_ID)).not.toHaveFocus();
 });
 
 // ***** Handlers *****
