@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { DatePickerAnchor } from "../date-picker-anchor";
-import { POSITIONS } from "../positions";
+import { POSITIONS } from "@orbit-ui/react-popup";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -56,8 +56,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     state = {
         date: null,
         selectedDate: null,
-        open: false,
-        inputHeight: null
+        open: false
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -66,23 +65,35 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         }));
     }
 
-    handleInputBoundingClientRectChange = ({ height }) => {
-        this.setState({ inputHeight: height });
-    }
+    // handleInputOpen = event => {
+    //     const { open } = this.state;
 
-    handleInputOpen = event => {
-        const { open } = this.state;
+    //     if (!open) {
+    //         this.toggleCalendarVisibility(event);
+    //     }
+    // };
 
-        if (!open) {
-            this.toggleCalendarVisibility(event);
-        }
-    };
+    // handleInputClose = event => {
+    //     const { open } = this.state;
 
-    handleInputClose = event => {
-        const { open } = this.state;
+    //     if (open) {
+    //         this.toggleCalendarVisibility(event);
+    //     }
+    // }
 
-        if (open) {
-            this.toggleCalendarVisibility(event);
+    handleAnchorVisibilityChange = (event, shouldOpen) => {
+        const { date, open } = this.state;
+
+        if (shouldOpen) {
+            if (!open) {
+                this.openCalendar(event);
+            }
+
+        } else {
+            if (open) {
+                this.setState({ selectedDate: date });
+                this.closeCalendar(event);
+            }
         }
     }
 
@@ -95,12 +106,12 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         onDateChange(event, null, this.props);
     };
 
-    handlePopupClose = event => {
-        const { date } = this.state;
+    // handlePopupClose = event => {
+    //     const { date } = this.state;
 
-        this.setState({ selectedDate: date });
-        this.toggleCalendarVisibility(event);
-    };
+    //     this.setState({ selectedDate: date });
+    //     this.toggleCalendarVisibility(event);
+    // };
 
     handleCalendarDateChange = date => {
         this.setState({ selectedDate: date });
@@ -108,22 +119,45 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     handleCalendarApply = event => {
         const { onDateChange } = this.props;
-        const { selectedDate } = this.state;
+        const { selectedDate, open } = this.state;
 
-        this.toggleCalendarVisibility(event);
+        if (open) {
+            this.closeCalendar(event);
+        }
+
         this.trySetAutoControlledStateValue({ date: selectedDate });
 
         onDateChange(event, selectedDate, this.props);
     };
 
-    toggleCalendarVisibility(event) {
-        const { onVisibilityChange } = this.props;
-        const { open } = this.state;
+    // toggleCalendarVisibility(event) {
+    //     const { onVisibilityChange } = this.props;
+    //     const { open } = this.state;
 
-        this.trySetAutoControlledStateValue({ open: !open });
+    //     this.trySetAutoControlledStateValue({ open: !open });
+
+    //     if (!isNil(onVisibilityChange)) {
+    //         onVisibilityChange(event, !open, this.props);
+    //     }
+    // }
+
+    openCalendar(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, !open, this.props);
+            onVisibilityChange(event, true, this.props);
+        }
+    }
+
+    closeCalendar(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false, this.props);
         }
     }
 
@@ -136,7 +170,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             onOpen: this.handleInputOpen,
             onClose: this.handleInputClose,
             onClear: this.handleInputClear,
-            onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
             allowClear,
             numberOfMonths,
             placeholder,
@@ -167,21 +200,208 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     render() {
         const { position, offsets, disabled, className } = this.props;
-        const { open, inputHeight } = this.state;
+        const { open } = this.state;
 
         return (
             <DatePickerAnchor
-                input={this.renderInput()}
-                inputHeight={inputHeight}
-                calendar={this.renderCalendar()}
                 open={open}
+                input={this.renderInput()}
+                calendar={this.renderCalendar()}
                 position={position}
                 offsets={offsets}
-                onOutsideClick={this.handlePopupClose}
-                onEscapeKeyDown={this.handlePopupClose}
+                onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
                 className={className}
             />
         );
     }
 }
+
+
+// import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+// import { DatePickerAnchor } from "../date-picker-anchor";
+// import { POSITIONS } from "../positions";
+// import { SingleDatePickerButtons } from "./single-date-picker-buttons";
+// import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
+// import { SingleDatePickerInput } from "./single-date-picker-input";
+// import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
+// import { cloneElement } from "react";
+// import { isNil } from "lodash";
+// import { momentObj as momentType } from "react-moment-proptypes";
+// import moment from "moment";
+
+// export const SINGLE_DATE_PICKER_PROP_TYPES = {
+//     date: momentType,
+//     defaultDate: momentType,
+//     onDateChange: func.isRequired,
+//     onVisibilityChange: func,
+//     allowClear: bool,
+//     minDate: momentType,
+//     maxDate: momentType,
+//     initialVisibleMonth: oneOfType([momentType, func]),
+//     numberOfMonths: number,
+//     input: node,
+//     placeholder: string,
+//     dateFormat: string,
+//     position: oneOf(POSITIONS),
+//     offsets: arrayOf(string),
+//     calendar: node,
+//     buttons: node,
+//     defaultOpen: bool,
+//     open: bool,
+//     disabled: bool,
+//     className: string
+// };
+
+// export class SingleDatePicker extends AutoControlledPureComponent {
+//     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
+
+//     static defaultProps = {
+//         allowClear: true,
+//         dateFormat: "MMM Do YYYY",
+//         numberOfMonths: 1,
+//         input: <SingleDatePickerInput />,
+//         calendar: <SingleDatePickerCalendar />,
+//         buttons: <SingleDatePickerButtons />,
+//         disabled: false
+//     };
+
+//     static autoControlledProps = ["date", "open"];
+
+//     // Expose sub-components.
+//     static Input = SingleDatePickerInput;
+//     static Calendar = SingleDatePickerCalendar;
+//     static Buttons = SingleDatePickerButtons;
+
+//     state = {
+//         date: null,
+//         selectedDate: null,
+//         open: false,
+//         inputHeight: null
+//     };
+
+//     static getDerivedStateFromProps(props, state) {
+//         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
+//             selectedDate: date
+//         }));
+//     }
+
+//     handleInputBoundingClientRectChange = ({ height }) => {
+//         this.setState({ inputHeight: height });
+//     }
+
+//     handleInputOpen = event => {
+//         const { open } = this.state;
+
+//         if (!open) {
+//             this.toggleCalendarVisibility(event);
+//         }
+//     };
+
+//     handleInputClose = event => {
+//         const { open } = this.state;
+
+//         if (open) {
+//             this.toggleCalendarVisibility(event);
+//         }
+//     }
+
+//     handleInputClear = event => {
+//         const { onDateChange } = this.props;
+
+//         this.trySetAutoControlledStateValue({ date: null });
+//         this.setState({ selectedDate: null });
+
+//         onDateChange(event, null, this.props);
+//     };
+
+//     handlePopupClose = event => {
+//         const { date } = this.state;
+
+//         this.setState({ selectedDate: date });
+//         this.toggleCalendarVisibility(event);
+//     };
+
+//     handleCalendarDateChange = date => {
+//         this.setState({ selectedDate: date });
+//     };
+
+//     handleCalendarApply = event => {
+//         const { onDateChange } = this.props;
+//         const { selectedDate } = this.state;
+
+//         this.toggleCalendarVisibility(event);
+//         this.trySetAutoControlledStateValue({ date: selectedDate });
+
+//         onDateChange(event, selectedDate, this.props);
+//     };
+
+//     toggleCalendarVisibility(event) {
+//         const { onVisibilityChange } = this.props;
+//         const { open } = this.state;
+
+//         this.trySetAutoControlledStateValue({ open: !open });
+
+//         if (!isNil(onVisibilityChange)) {
+//             onVisibilityChange(event, !open, this.props);
+//         }
+//     }
+
+//     renderInput() {
+//         const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled } = this.props;
+//         const { selectedDate, open } = this.state;
+
+//         return cloneElement(input, {
+//             date: selectedDate,
+//             onOpen: this.handleInputOpen,
+//             onClose: this.handleInputClose,
+//             onClear: this.handleInputClear,
+//             onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
+//             allowClear,
+//             numberOfMonths,
+//             placeholder,
+//             dateFormat,
+//             disabled: disabled,
+//             open: open
+//         });
+//     }
+
+//     renderCalendar() {
+//         const { allowClear, minDate, maxDate, initialVisibleMonth, numberOfMonths, calendar, buttons } = this.props;
+//         const { selectedDate } = this.state;
+
+//         return cloneElement(calendar, {
+//             // Since 21.1.0 react-dates mutate the date moment objects. Not sure where and why.
+//             // To prevent side effects, we provide a clone. https://momentjs.com/docs/#/parsing/moment-clone/
+//             date: isNil(selectedDate) ? selectedDate : moment(selectedDate),
+//             onDateChange: this.handleCalendarDateChange,
+//             onApply: this.handleCalendarApply,
+//             allowClear,
+//             minDate,
+//             maxDate,
+//             initialVisibleMonth,
+//             numberOfMonths,
+//             buttons
+//         });
+//     }
+
+//     render() {
+//         const { position, offsets, disabled, className } = this.props;
+//         const { open, inputHeight } = this.state;
+
+//         return (
+//             <DatePickerAnchor
+//                 input={this.renderInput()}
+//                 inputHeight={inputHeight}
+//                 calendar={this.renderCalendar()}
+//                 open={open}
+//                 position={position}
+//                 offsets={offsets}
+//                 onOutsideClick={this.handlePopupClose}
+//                 onEscapeKeyDown={this.handlePopupClose}
+//                 disabled={disabled}
+//                 className={className}
+//             />
+//         );
+//     }
+// }

@@ -177,6 +177,8 @@ export class MultiSelectDropdown extends PureComponent {
     // - close on blur
     handleDropdownFocusOut = event => {
         this._hasFocus = false;
+
+        // TODO: I dont think I need this check, If I need it, it should be replaced be a check if it's open or not
         if (!this._triggerRef.current.isElement(event.target)) {
             // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {
@@ -242,6 +244,8 @@ export class MultiSelectDropdown extends PureComponent {
     bindEvents() {
         document.addEventListener("keydown", this.handleDocumentKeyDown, false);
 
+        // TODO: is it right to bind those events when it's open? There might be a kind of race condition to make sure they are bind before the search
+        // input is focused? Maybe that's why the autofocus was not working with the search-input ?
         this._dropdownRef.current.addEventListener("focusin", this.handleDropdownFocusIn);
         this._dropdownRef.current.addEventListener("focusout", this.handleDropdownFocusOut);
     }

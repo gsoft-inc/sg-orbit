@@ -11,7 +11,8 @@
     },
     "peerDependencies": {
         "lodash": "*",
-        "react": "*"
+        "react": "*",
+        "react-dom": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*"

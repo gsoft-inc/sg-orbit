@@ -4,6 +4,11 @@ import { any, bool, func, string } from "prop-types";
 import { createPortal } from "react-dom";
 import { isNil } from "lodash";
 
+// Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
+// For more info: https://github.com/facebook/react/issues/6410
+// onFocus={this.handleFocusIn}
+// onBlur={this.handleFocusOut}
+
 export class Popup extends PureComponent {
     static propTypes = {
         visible: bool.isRequired,
@@ -129,7 +134,10 @@ export class Popup extends PureComponent {
         }
 
         const component = (
-            <div style={{ position: "absolute", zIndex: 10, display: visible ? "block" : "none", ...this.getPositioningStyle() }} ref={this._containerRef}>
+            <div
+                style={{ position: "absolute", zIndex: 10, display: visible ? "block" : "none", ...this.getPositioningStyle() }}
+                ref={this._containerRef}
+            >
                 {children}
             </div>
         );

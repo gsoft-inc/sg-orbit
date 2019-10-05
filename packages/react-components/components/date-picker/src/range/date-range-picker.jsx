@@ -4,7 +4,7 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
-import { POSITIONS } from "../positions";
+import { POSITIONS } from "@orbit-ui/react-popup";
 import { PRESET_SHAPE } from "./presets";
 import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
