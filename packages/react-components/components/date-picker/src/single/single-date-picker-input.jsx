@@ -1,13 +1,16 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
-import { PureComponent, forwardRef } from "react";
-import { bool, func, node, object, string } from "prop-types";
+import { PureComponent } from "react";
+import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
-class SingleDatePickerInputInner extends PureComponent {
+export class SingleDatePickerInput extends PureComponent {
     static propTypes = {
         date: momentType,
+        onOpen: func,
+        onClose: func,
+        onBoundingClientRectChange: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -25,8 +28,7 @@ class SingleDatePickerInputInner extends PureComponent {
         disabledIcon: node,
         disabled: bool,
         open: bool,
-        className: string,
-        triggerRef: object
+        className: string
     };
 
     handleClick = useHandlerProxy(this, "onClick");
@@ -45,11 +47,14 @@ class SingleDatePickerInputInner extends PureComponent {
     }
 
     render() {
-        const { onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className, triggerRef } = this.props;
+        const { onOpen, onClose, onBoundingClientRectChange, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
 
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
+                onOpen={onOpen}
+                onClose={onClose}
+                onBoundingClientRectChange={onBoundingClientRectChange}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
@@ -63,12 +68,7 @@ class SingleDatePickerInputInner extends PureComponent {
                 disabled={disabled}
                 open={open}
                 className={className}
-                ref={triggerRef}
             />
         );
     }
 }
-
-export const SingleDatePickerInput = forwardRef((props, ref) => {
-    return <SingleDatePickerInputInner { ...props } triggerRef={ref} />;
-});

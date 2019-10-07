@@ -4,6 +4,9 @@ import { css, withStyles } from "react-with-styles";
 import CalendarWeek from "react-dates/lib/components/CalendarWeek";
 import getCalendarDaySettings from "react-dates/lib/utils/getCalendarDaySettings";
 
+// Try to do a more specific fix with the learnings here: https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba
+// There should be a way to get the TD?
+
 // Monkey patch fixes:
 //
 // The original react date CalendarDay component force a blur on mouseUp which break the standard focus / blur event flow and prevent us from properly implementing

@@ -1,16 +1,10 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { DOMEventListener, KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { FadeIn } from "./fade-in";
 import { POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
-import { PopupTrigger } from "./popup-trigger";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
-import { createRef } from "react";
+import { cloneElement } from "react";
 import { isNil } from "lodash";
-
-// // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
-// // For more info: https://github.com/facebook/react/issues/6410
-// onFocus={this.handleFocusIn}
-// onBlur={this.handleFocusOut}
 
 // TODO: Extract animation, or add property to control speed.
 // TODO: Set focus to the trigger when the popup close.
@@ -27,10 +21,6 @@ export class Popup extends AutoControlledPureComponent {
         onDocumentKeyDown: func,
         onFocus: func,
         onBlur: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onMouseOver: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onMouseOut: func,
         className: string
     };
 
@@ -45,20 +35,10 @@ export class Popup extends AutoControlledPureComponent {
         triggerHeight: null
     };
 
-    // TODO: Move to PopupTrigger and also move the triggerHeight thing.
-    _triggerRef = createRef();
-    _containerRef = createRef();
     _hasFocus = false;
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
-    }
-
-    componentDidMount() {
-        // TODO: Can I remove the setTimeout?
-        setTimeout(() => {
-            this.setState({ triggerHeight: this._triggerRef.current.getBoundingClientRect().height });
-        }, 0);
     }
 
     handleDocumentKeyDown = event => {
@@ -73,39 +53,27 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    handleTriggerKeyDown = event => {
-        console.log("******* handleTriggerKeyDown");
-
-        const { open } = this.state;
-
-        const key = event.keyCode;
-
-        if (key === KEYS.space || key === KEYS.enter) {
-            if (key === KEYS.space) {
-                event.preventDefault();
-            }
-
-            console.log("**** open ", open);
-
-            if (!open) {
-                this.open(event);
-            }
-        }
+    handleTriggerBoundingClientRectChange = ({ height }) => {
+        this.setState({ triggerHeight: height });
     };
 
-    handleTriggerClick = event => {
+    handleTriggerOpen = event => {
         const { open } = this.state;
 
         if (!open) {
             this.open(event);
-        } else {
+        }
+    };
+
+    handleTriggerClose = event => {
+        const { open } = this.state;
+
+        if (open) {
             this.close(event);
         }
     };
 
     handleFocus = event => {
-        console.log("********* handleFocus ", event.target);
-
         const { onFocus } = this.props;
 
         this._hasFocus = true;
@@ -115,14 +83,6 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    // handleFocusIn = event => {
-    //     console.log("********* handleFocusIn ", event.target);
-    // }
-
-    // handleFocusOut = event => {
-    //     console.log("********* handleFocusOut ", event.target);
-    // }
-
     // Closing the dropdown on blur will:
     // - close on outside click
     // - close on blur
@@ -130,24 +90,15 @@ export class Popup extends AutoControlledPureComponent {
         const { onBlur } = this.props;
         const { open } = this.state;
 
-        event.persist();
-
         if (open) {
-            console.log("********* handleBlur ", event.target);
+            event.persist();
 
             this._hasFocus = false;
-
-            // setTimeout(() => {
-            //     if (!this._containerRef.current.contains(document.activeElement)) {
-            //         console.log("********* handleBlur for real");
-            //     }
-            // }, 0);
-
 
             // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {
                 if (!this._hasFocus) {
-                    console.log("********* handleBlur for real");
+                    console.log("handleBlur");
                     this.close(event);
                 }
             }, 0);
@@ -158,49 +109,63 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    handleMouseOver = useHandlerProxy(this, "onMouseOver");
-    handleMouseOut = useHandlerProxy(this, "onMouseOut");
-
-    getHorizontalPosition() {
-        const { position, offsets } = this.props;
-
-        if (isLeft(position)) {
-            return { left: "0px", offsetX: offsets[0] };
-        }
-        else if (isRight(position)) {
-            return { right: "0px", offsetX: offsets[0] };
-
-        }
-        else if (isCenter(position)) {
-            return { left: "50%", offsetX: `calc(-50% + ${offsets[0]})` };
-        }
-
-        return {};
-    }
-
-    getVerticalPosition() {
+    getPositioningStyle() {
         const { position, offsets } = this.props;
         const { triggerHeight } = this.state;
 
+        const style = {};
+        const translates = [];
+
+        if (isLeft(position)) {
+            style.left = "0px";
+            translates.push(`translateX(${offsets[0]})`);
+        }
+        else if (isRight(position)) {
+            style.right = "0px";
+            translates.push(`translateX(${offsets[0]})`);
+
+        }
+        else if (isCenter(position)) {
+            style.left = "50%";
+            translates.push(`translateX(calc(-50% + ${offsets[0]}))`);
+        }
+
         if (isBottom(position)) {
-            return { top: `${triggerHeight}px`, offsetY: offsets[1] };
+            style.top = `${triggerHeight}px`;
+            translates.push(`translateY(${offsets[1]})`);
         }
         else if (isTop(position)) {
-            return { bottom: `${triggerHeight}px`, offsetY: `-${offsets[1].startsWith("-") ? offsets[1].substring(1) : offsets[1]}` };
+            style.bottom = `${triggerHeight}px`;
+            translates.push(`translateY(-${offsets[1].startsWith("-") ? offsets[1].substring(1) : offsets[1]})`);
         }
 
-        return {};
+        if (translates.length !== 0) {
+            style.transform = translates.join(" ");
+        }
+
+        return style;
     }
 
-    getPositioningStyle() {
-        const horizontalPositions = this.getHorizontalPosition();
-        const verticalPositions = this.getVerticalPosition();
+    // getVerticalPosition() {
+    //     const { position, offsets } = this.props;
+    //     const { triggerHeight } = this.state;
 
-        return {
-            ...horizontalPositions,
-            ...verticalPositions
-        };
-    }
+    //     console.log(offsets);
+
+
+
+    //     return {};
+    // }
+
+    // getPositioningStyle() {
+    //     const horizontalPositions = this.getHorizontalPosition();
+    //     const verticalPositions = this.getVerticalPosition();
+
+    //     return {
+    //         ...horizontalPositions,
+    //         ...verticalPositions
+    //     };
+    // }
 
     getCssClasses() {
         const { className } = this.props;
@@ -211,8 +176,6 @@ export class Popup extends AutoControlledPureComponent {
     }
 
     open(event) {
-        console.log("***** Popup open");
-
         const { onVisibilityChange } = this.props;
 
         this.trySetAutoControlledStateValue({ open: true });
@@ -235,12 +198,11 @@ export class Popup extends AutoControlledPureComponent {
     renderTrigger() {
         const { trigger } = this.props;
 
-        return <PopupTrigger
-            trigger={trigger}
-            onClick={this.handleTriggerClick}
-            onKeyDown={this.handleTriggerKeyDown}
-            ref={this._triggerRef}
-        />;
+        return cloneElement(trigger, {
+            onBoundingClientRectChange: this.handleTriggerBoundingClientRectChange,
+            onOpen: this.handleTriggerOpen,
+            onClose: this.handleTriggerClose
+        });
     }
 
     renderPopup() {
@@ -264,14 +226,11 @@ export class Popup extends AutoControlledPureComponent {
         return (
             <>
                 <div
-                    className={this.getCssClasses()}
                     // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
                     // For more info: https://github.com/facebook/react/issues/6410
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
-                    onMouseOver={this.handleMouseOver}
-                    onMouseOut={this.handleMouseOut}
-                    ref={this._containerRef}
+                    className={this.getCssClasses()}
                     tabIndex="-1"
                 >
                     {this.renderTrigger()}
@@ -282,9 +241,6 @@ export class Popup extends AutoControlledPureComponent {
                         </FadeIn>
                     </If>
                 </div>
-
-                {/* <DOMEventListener name="focusin" on={this.handleFocusIn} />
-                <DOMEventListener name="focusout" on={this.handleFocusOut} /> */}
 
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
