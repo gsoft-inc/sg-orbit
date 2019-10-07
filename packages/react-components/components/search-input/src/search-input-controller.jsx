@@ -278,7 +278,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         const data = JSON.parse(result.description);
 
-        return resultRenderer(data);
+        return resultRenderer(data, this.props);
     };
 
     renderClearButton = () => {

@@ -38,6 +38,7 @@ export class DatePickerTextboxInput extends PureComponent {
         placeholder: "Pick a date"
     };
 
+    _containerRef = null;
     _clearButtonRef = createRef();
 
     isPlaceholder() {
@@ -48,6 +49,8 @@ export class DatePickerTextboxInput extends PureComponent {
 
     setContainerRef = ref => {
         const { onBoundingClientRectChange } = this.props;
+
+        this._containerRef = ref;
 
         if (!isNil(ref)) {
             if (!isNil(onBoundingClientRectChange)) {
@@ -190,5 +193,12 @@ export class DatePickerTextboxInput extends PureComponent {
                 }
             `}</style>
         </div>;
+    }
+
+    // This method is part of the component external API.
+    focus() {
+        if (!isNil(this._containerRef)) {
+            this._containerRef.focus();
+        }
     }
 }

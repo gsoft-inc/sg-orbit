@@ -68,10 +68,10 @@ export class MultiSelectDropdown extends PureComponent {
     // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
     // with document.activeElement. This was working well in the browser.
     //
-    // However, our interaction tests rely on jsdom and jsdom support for document.activementElementis reliable (in fact, it doesn't have the same behavior
+    // However, our interaction tests rely on jsdom and jsdom support for document.activementElement is not reliable (in fact, it doesn't have the same behavior
     // as browsers).
     //
-    // The fallback is to use this _hasFocus flag. The idea is that when the focusout event pop, we way for a tick (with a setTimeout) and if _hasFocus is false
+    // The fallback is to use this _hasFocus flag. The idea is that when the focusout event pop, we wait for a tick (with a setTimeout) and if _hasFocus is false
     // after that tick, it means that the new focused element is not inside the dropdown and we can safely close the dropdown.
     //
     // Did I mention focusout instead of blur? We add to use a combination of focusin / focusout instead of focus / blur because focus and blur doesn't bubbles.
@@ -178,7 +178,7 @@ export class MultiSelectDropdown extends PureComponent {
     handleDropdownFocusOut = event => {
         this._hasFocus = false;
 
-        // TODO: I dont think I need this check, If I need it, it should be replaced be a check if it's open or not
+        // TODO: I dont think I need this check, If I need it, it should be replaced by a check if it's open or not
         if (!this._triggerRef.current.isElement(event.target)) {
             // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {

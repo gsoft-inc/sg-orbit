@@ -1,11 +1,11 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
-import { PureComponent } from "react";
-import { bool, func, node, string } from "prop-types";
+import { PureComponent, forwardRef } from "react";
+import { bool, func, node, object, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
-export class SingleDatePickerInput extends PureComponent {
+class SingleDatePickerInputInner extends PureComponent {
     static propTypes = {
         date: momentType,
         onOpen: func,
@@ -28,7 +28,8 @@ export class SingleDatePickerInput extends PureComponent {
         disabledIcon: node,
         disabled: bool,
         open: bool,
-        className: string
+        className: string,
+        inputRef: object
     };
 
     handleClick = useHandlerProxy(this, "onClick");
@@ -47,7 +48,7 @@ export class SingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { onOpen, onClose, onBoundingClientRectChange, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
+        const { onOpen, onClose, onBoundingClientRectChange, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -68,7 +69,12 @@ export class SingleDatePickerInput extends PureComponent {
                 disabled={disabled}
                 open={open}
                 className={className}
+                ref={inputRef}
             />
         );
     }
 }
+
+export const SingleDatePickerInput = forwardRef((props, ref) => (
+    <SingleDatePickerInputInner { ...props } inputRef={ref} />
+));

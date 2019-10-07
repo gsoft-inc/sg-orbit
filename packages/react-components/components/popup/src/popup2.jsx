@@ -3,11 +3,16 @@ import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { FadeIn } from "./fade-in";
 import { POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
-import { cloneElement } from "react";
+import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
 
-// TODO: Extract animation, or add property to control speed.
-// TODO: Set focus to the trigger when the popup close.
+function fadeInAnimationRenderer(open, renderContent) {
+    return (
+        <FadeIn active={open}>
+            {renderContent()}
+        </FadeIn>
+    );
+}
 
 export class Popup extends AutoControlledPureComponent {
     static propTypes = {
@@ -21,11 +26,13 @@ export class Popup extends AutoControlledPureComponent {
         onDocumentKeyDown: func,
         onFocus: func,
         onBlur: func,
+        renderAnimation: func,
         className: string
     };
 
     static defaultProps = {
-        offsets: ["0px", "0px"]
+        offsets: ["0px", "0px"],
+        animationRenderer: fadeInAnimationRenderer
     };
 
     static autoControlledProps = ["open"];
@@ -35,7 +42,17 @@ export class Popup extends AutoControlledPureComponent {
         triggerHeight: null
     };
 
+    // Using a focus / unfocus flag was not the preferred way to prevent the dropdown from closing on blur when the new focused item was inside the dropdown.
+    // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
+    // with document.activeElement. This was working well in the browser.
+    //
+    // However, our interaction tests rely on jsdom and jsdom support for document.activementElement is not reliable (in fact, it doesn't have the same behavior
+    // as browsers).
+    //
+    // The fallback is to use this _hasFocus flag. The idea is that when the blur event pop, we wait for a tick (with a setTimeout) and if _hasFocus is false
+    // after that tick, it means that the new focused element is not inside the dropdown and we can safely close the dropdown.
     _hasFocus = false;
+    _triggerRef = createRef();
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
@@ -98,7 +115,6 @@ export class Popup extends AutoControlledPureComponent {
             // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {
                 if (!this._hasFocus) {
-                    console.log("handleBlur");
                     this.close(event);
                 }
             }, 0);
@@ -146,27 +162,6 @@ export class Popup extends AutoControlledPureComponent {
         return style;
     }
 
-    // getVerticalPosition() {
-    //     const { position, offsets } = this.props;
-    //     const { triggerHeight } = this.state;
-
-    //     console.log(offsets);
-
-
-
-    //     return {};
-    // }
-
-    // getPositioningStyle() {
-    //     const horizontalPositions = this.getHorizontalPosition();
-    //     const verticalPositions = this.getVerticalPosition();
-
-    //     return {
-    //         ...horizontalPositions,
-    //         ...verticalPositions
-    //     };
-    // }
-
     getCssClasses() {
         const { className } = this.props;
 
@@ -193,6 +188,12 @@ export class Popup extends AutoControlledPureComponent {
         if (!isNil(onVisibilityChange)) {
             onVisibilityChange(event, false, this.props);
         }
+
+        setTimeout(() => {
+            if (!isNil(this._triggerRef.current)) {
+                this._triggerRef.current.focus();
+            }
+        }, 0);
     }
 
     renderTrigger() {
@@ -201,11 +202,12 @@ export class Popup extends AutoControlledPureComponent {
         return cloneElement(trigger, {
             onBoundingClientRectChange: this.handleTriggerBoundingClientRectChange,
             onOpen: this.handleTriggerOpen,
-            onClose: this.handleTriggerClose
+            onClose: this.handleTriggerClose,
+            ref: this._triggerRef
         });
     }
 
-    renderPopup() {
+    renderPopup = () => {
         const { children } = this.props;
         const { open } = this.state;
 
@@ -218,9 +220,10 @@ export class Popup extends AutoControlledPureComponent {
                 {children}
             </div>
         );
-    }
+    };
 
     render() {
+        const { animationRenderer } = this.props;
         const { open, triggerHeight } = this.state;
 
         return (
@@ -236,9 +239,7 @@ export class Popup extends AutoControlledPureComponent {
                     {this.renderTrigger()}
                     {/* TODO: use https://www.npmjs.com/package/resize-observer-polyfill */}
                     <If condition={!isNil(triggerHeight)}>
-                        <FadeIn active={open}>
-                            {this.renderPopup()}
-                        </FadeIn>
+                        {animationRenderer(open, this.renderPopup, this.props)}
                     </If>
                 </div>
 
