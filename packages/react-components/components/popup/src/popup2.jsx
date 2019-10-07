@@ -58,6 +58,16 @@ export class Popup extends AutoControlledPureComponent {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
     }
 
+    componentDidUpdate(prevProps) {
+        const { open } = this.props;
+
+        if (open !== prevProps.open) {
+            if (!open) {
+                this.focusTrigger();
+            }
+        }
+    }
+
     handleDocumentKeyDown = event => {
         const { onDocumentKeyDown } = this.props;
 
@@ -189,6 +199,10 @@ export class Popup extends AutoControlledPureComponent {
             onVisibilityChange(event, false, this.props);
         }
 
+        this.focusTrigger();
+    }
+
+    focusTrigger() {
         setTimeout(() => {
             if (!isNil(this._triggerRef.current)) {
                 this._triggerRef.current.focus();
