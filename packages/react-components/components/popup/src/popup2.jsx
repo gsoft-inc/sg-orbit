@@ -115,13 +115,13 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    handleFocusIn = event => {
-        console.log("********* handleFocusIn ", event.target);
-    }
+    // handleFocusIn = event => {
+    //     console.log("********* handleFocusIn ", event.target);
+    // }
 
-    handleFocusOut = event => {
-        console.log("********* handleFocusOut ", event.target);
-    }
+    // handleFocusOut = event => {
+    //     console.log("********* handleFocusOut ", event.target);
+    // }
 
     // Closing the dropdown on blur will:
     // - close on outside click
@@ -137,22 +137,20 @@ export class Popup extends AutoControlledPureComponent {
 
             this._hasFocus = false;
 
-            setTimeout(() => {
-                console.log("************ document.activeElement ", document.activeElement);
-
-                if (!this._containerRef.current.contains(document.activeElement)) {
-                    console.log("********* handleBlur for real");
-                }
-            }, 300);
+            // setTimeout(() => {
+            //     if (!this._containerRef.current.contains(document.activeElement)) {
+            //         console.log("********* handleBlur for real");
+            //     }
+            // }, 0);
 
 
             // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-            // setTimeout(() => {
-            //     if (!this._hasFocus) {
-            //         console.log("********* handleBlur for real");
-            //         // this.close(event);
-            //     }
-            // }, 0);
+            setTimeout(() => {
+                if (!this._hasFocus) {
+                    console.log("********* handleBlur for real");
+                    this.close(event);
+                }
+            }, 0);
 
             if (!isNil(onBlur)) {
                 onBlur(event, this.props);
