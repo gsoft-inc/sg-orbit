@@ -274,9 +274,45 @@ Ex:
 
 ### UX
 
+#### States
+
+A component should have a default state
+
+A component should have a focus state
+
+A component should have an hover state
+
+A component should have a disabled state
+
+A component should have an error state
+
+#### Behaviors
+
+If the component is an input, the value should be clearable with a clear button.
+
+When a component can be open:
+
+- it should close on blur
+- the trigger should be focused when the component close
+
 #### Accessibility
 
-A component should fully support keyboard.
+A component should always be accessible with tabs, even when disabled.
+
+When a component offer multiple values, those values should be navigable with arrows and / or tabs.
+
+The following keys should be standard for a component that can open:
+
+- space, enter: open the component
+- esc: close the component
+
+The following keys should be standard for a button:
+
+- enter: same as click
+
+The following keys should be standard for an input:
+
+- esc: clear the value
 
 ## Babel
 

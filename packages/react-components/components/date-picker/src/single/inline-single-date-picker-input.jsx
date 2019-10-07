@@ -8,14 +8,16 @@ import { momentObj as momentType } from "react-moment-proptypes";
 export class InlineSingleDatePickerInput extends PureComponent {
     static propTypes = {
         date: momentType,
+        onOpen: func,
+        onClose: func,
+        onBoundingClientRectChange: func,
         onClick: func,
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onOpen: func,
-        onBoundingClientRectChange: func,
+        onClear: func,
         placeholder: string,
         dateFormat: string,
         openIcon: node,
@@ -34,16 +36,12 @@ export class InlineSingleDatePickerInput extends PureComponent {
         disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
-    componentDidMount() {
-        document.addEventListener("keydown", this.handleDocumentKeyDown);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener("keydown", this.handleDocumentKeyDown);
-    }
+    _containerRef = null;
 
     setButtonRef = ref => {
         const { onBoundingClientRectChange } = this.props;
+
+        this._containerRef = ref;
 
         if (!isNil(ref)) {
             if (!isNil(onBoundingClientRectChange)) {
@@ -55,19 +53,23 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     handleClick = event => {
-        const { onClick, onOpen, disabled } = this.props;
+        const { onClick, onOpen, onClose, disabled, open } = this.props;
 
         if (!isNil(onClick)) {
             onClick(event, this.props);
         }
 
         if (!disabled) {
-            onOpen(event, this.props);
+            if (!open) {
+                onOpen(event, this.props);
+            } else {
+                onClose(event, this.props);
+            }
         }
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onOpen, disabled } = this.props;
+        const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
 
         if (!isNil(onKeyDown)) {
             onKeyDown(event, this.props);
@@ -81,7 +83,13 @@ export class InlineSingleDatePickerInput extends PureComponent {
             }
 
             if (!disabled) {
-                onOpen(event, this.props);
+                if (!open) {
+                    onOpen(event, this.props);
+                }
+            }
+        } else if (key === KEYS.esc) {
+            if (!open) {
+                onClear(event, this.props);
             }
         }
     }
@@ -130,7 +138,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
                 className={this.getCssClasses()}
-                tabIndex={disabled ? null : "0"}
+                tabIndex="0"
                 disabled={disabled}
                 ref={this.setButtonRef}
                 data-testid="inline-single-date-picker-input"
@@ -139,5 +147,12 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 <span className="flex">{this.renderIcon()}</span>
             </div>
         );
+    }
+
+    // This method is part of the component external API.
+    focus() {
+        if (!isNil(this._containerRef)) {
+            this._containerRef.focus();
+        }
     }
 }

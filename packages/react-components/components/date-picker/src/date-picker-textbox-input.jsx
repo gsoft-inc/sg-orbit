@@ -99,7 +99,9 @@ export class DatePickerTextboxInput extends PureComponent {
                     event.preventDefault();
                 }
 
-                onOpen(event, this.props);
+                if (!open) {
+                    onOpen(event, this.props);
+                }
             } else if (key === KEYS.esc) {
                 if (!open) {
                     onClear(event, this.props);
@@ -171,8 +173,7 @@ export class DatePickerTextboxInput extends PureComponent {
             onFocus={this.handleFocus}
             onBlur={this.handlerBlur}
             className={this.getCssClasses()}
-            // tabIndex={disabled ? null : "0"}
-            tabIndex={disabled ? "-1" : "0"}
+            tabIndex="0"
             autoComplete="off"
             disabled={disabled}
             ref={this.setContainerRef}

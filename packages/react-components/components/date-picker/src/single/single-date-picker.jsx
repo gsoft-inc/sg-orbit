@@ -66,17 +66,13 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     handleAnchorVisibilityChange = (event, shouldOpen) => {
-        const { date, open } = this.state;
+        const { date } = this.state;
 
         if (shouldOpen) {
-            if (!open) {
-                this.openCalendar(event);
-            }
+            this.openCalendar(event);
         } else {
-            if (open) {
-                this.setState({ selectedDate: date });
-                this.closeCalendar(event);
-            }
+            this.setState({ selectedDate: date });
+            this.closeCalendar(event);
         }
     }
 
@@ -95,12 +91,9 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     handleCalendarApply = event => {
         const { onDateChange } = this.props;
-        const { selectedDate, open } = this.state;
+        const { selectedDate } = this.state;
 
-        if (open) {
-            this.closeCalendar(event);
-        }
-
+        this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ date: selectedDate });
 
         onDateChange(event, selectedDate, this.props);
