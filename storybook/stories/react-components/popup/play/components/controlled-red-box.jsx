@@ -1,44 +1,38 @@
 import { Popup } from "@orbit-ui/react-popup/src";
 import { PureComponent } from "react";
 import { RedBox } from "@stories/react-components/popup/components/red-box";
+import { RedBoxTrigger } from "./red-box-trigger";
 
 export class ControlledRedBox extends PureComponent {
     state = {
-        visible: false
+        open: false
     };
 
-    handleButtonClick = () => {
-        this.setState({ visible: true });
-    };
+    handleVisibilityChange = (event, open) => {
+        this.setState({ open: open });
+    }
 
-    handleOutsideClick = () => {
-        this.setState({ visible: false });
-    };
+    renderTrigger() {
+        const { open } = this.state;
 
-    handleEscape = () => {
-        this.setState({ visible: false });
-    };
+        return <RedBoxTrigger open={open} />;
+    }
 
     render() {
-        const { top, bottom, left, right, portal } = this.props;
-        const { visible } = this.state;
+        const { position, offsets, className } = this.props;
+        const { open } = this.state;
 
         return (
-            <>
-                <button onClick={this.handleButtonClick} type="button">Open</button>
-                <Popup
-                    visible={visible}
-                    onOutsideClick={this.handleOutsideClick}
-                    onEscapeKeyDown={this.handleEscape}
-                    top={top}
-                    bottom={bottom}
-                    left={left}
-                    right={right}
-                    portal={portal}
-                >
-                    <RedBox />
-                </Popup>
-            </>
+            <Popup
+                open={open}
+                trigger={this.renderTrigger()}
+                position={position}
+                offsets={offsets}
+                onVisibilityChange={this.handleVisibilityChange}
+                className={className}
+            >
+                <RedBox />
+            </Popup>
         );
     }
 }

@@ -1,17 +1,14 @@
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-popup/src";
 import { ControlledRedBox } from "./components/controlled-red-box";
-import { isNil } from "lodash";
+import { array, select, withKnobs } from "@storybook/addon-knobs";
 import { storiesBuilder } from "@utils/stories-builder";
-import { text, withKnobs } from "@storybook/addon-knobs";
-
-function pixelKnob(name) {
-    let value = text(name);
-
-    if (!isNil(value) && !value.endsWith("px")) {
-        value += "px";
-    }
-
-    return value;
-}
 
 function stories(segment) {
     return storiesBuilder(module, "Popup|play")
@@ -28,14 +25,15 @@ stories()
     .add("knobs",
          () =>
              <ControlledRedBox
-                 top={pixelKnob("top")}
-                 bottom={pixelKnob("bottom")}
-                 left={pixelKnob("left")}
-                 right={pixelKnob("right")}
+                 position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+                 offsets={array("offsets", ["0px", "0px"])}
              />,
-         { decorators: [withKnobs] }
-    )
-    .add("with portal",
-         () =>
-             <ControlledRedBox portal />,
+         {
+             decorators: [withKnobs],
+             options: {
+                 layout: {
+                     marginTop: "150px"
+                 }
+             }
+         }
     );

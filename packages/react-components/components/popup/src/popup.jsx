@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
-import { POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
@@ -30,6 +30,7 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     static defaultProps = {
+        position: BOTTOM_LEFT,
         offsets: ["0px", "0px"],
         animationRenderer: fadeInAnimationRenderer
     };
