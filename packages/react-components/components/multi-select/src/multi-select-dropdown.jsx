@@ -190,19 +190,11 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     handleTriggerOpen = event => {
-        const { open } = this.props;
-
-        if (!open) {
-            this.open(event);
-        }
+        this.open(event);
     }
 
     handleTriggerClose = event => {
-        const { open } = this.props;
-
-        if (open) {
-            this.close(event);
-        }
+        this.close(event);
     }
 
     handleSearchChange = (event, query) => {

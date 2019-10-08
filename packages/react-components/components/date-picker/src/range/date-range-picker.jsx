@@ -69,8 +69,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         selectedStartDate: null,
         selectedEndDate: null,
         selectedPresetName: null,
-        open: false,
-        inputHeight: null
+        open: false
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -80,23 +79,14 @@ export class DateRangePicker extends AutoControlledPureComponent {
         }));
     }
 
-    handleInputBoundingClientRectChange = ({ height }) => {
-        this.setState({ inputHeight: height });
-    }
+    handleAnchorVisibilityChange = (event, shouldOpen) => {
+        const { date } = this.state;
 
-    handleInputOpen = event => {
-        const { open } = this.state;
-
-        if (!open) {
-            this.toggleCalendarVisibility(event);
-        }
-    };
-
-    handleInputClose = event => {
-        const { open } = this.state;
-
-        if (open) {
-            this.toggleCalendarVisibility(event);
+        if (shouldOpen) {
+            this.openCalendar(event);
+        } else {
+            this.setState({ selectedDate: date });
+            this.closeCalendar(event);
         }
     }
 
@@ -110,13 +100,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         onDatesChange(event, null, null, null, this.props);
     };
 
-    handlePopupClose = event => {
-        const { startDate, endDate } = this.state;
-
-        this.setState({ selectedStartDate: startDate, selectedEndDate: endDate, selectedPresetName: null });
-        this.toggleCalendarVisibility(event);
-    };
-
     handleCalendarDatesChange = (startDate, endDate, presetName) => {
         this.setState({ selectedStartDate: startDate, selectedEndDate: endDate, selectedPresetName: presetName });
     };
@@ -125,21 +108,30 @@ export class DateRangePicker extends AutoControlledPureComponent {
         const { onDatesChange } = this.props;
         const { selectedStartDate, selectedEndDate, selectedPresetName } = this.state;
 
-        this.toggleCalendarVisibility(event);
+        this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ startDate: selectedStartDate });
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
 
         onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName, this.props);
     };
 
-    toggleCalendarVisibility(event) {
+    openCalendar(event) {
         const { onVisibilityChange } = this.props;
-        const { open } = this.state;
 
-        this.trySetAutoControlledStateValue({ open: !open });
+        this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, !open, this.props);
+            onVisibilityChange(event, true, this.props);
+        }
+    }
+
+    closeCalendar(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false, this.props);
         }
     }
 
@@ -150,10 +142,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         return cloneElement(input, {
             startDate: selectedStartDate,
             endDate: selectedEndDate,
-            onOpen: this.handleInputOpen,
-            onClose: this.handleInputClose,
             onClear: this.handleInputClear,
-            onBoundingClientRectChange: this.handleInputBoundingClientRectChange,
             allowClear,
             placeholder,
             rangeFormat,
@@ -188,18 +177,16 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     render() {
         const { position, offsets, disabled, className } = this.props;
-        const { open, inputHeight } = this.state;
+        const { open } = this.state;
 
         return (
             <DatePickerAnchor
-                input={this.renderInput()}
-                inputHeight={inputHeight}
-                calendar={this.renderCalendar()}
                 open={open}
+                input={this.renderInput()}
+                calendar={this.renderCalendar()}
                 position={position}
                 offsets={offsets}
-                onOutsideClick={this.handlePopupClose}
-                onEscapeKeyDown={this.handlePopupClose}
+                onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
                 className={className}
             />

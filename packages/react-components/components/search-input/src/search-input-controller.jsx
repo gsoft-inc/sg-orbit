@@ -230,7 +230,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     handleInputEscape = event => {
         const { open } = this.props;
 
-        if (open === false) {
+        if (!open) {
             this.clear(event);
         }
     };

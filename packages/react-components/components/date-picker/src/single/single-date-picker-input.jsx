@@ -8,9 +8,14 @@ import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 class SingleDatePickerInputInner extends PureComponent {
     static propTypes = {
         date: momentType,
+        // eslint-disable-next-line react/no-unused-prop-types
         onOpen: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onClose: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onBoundingClientRectChange: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onClear: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -19,7 +24,6 @@ class SingleDatePickerInputInner extends PureComponent {
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onClear: func,
         allowClear: bool,
         placeholder: string,
         dateFormat: string,
@@ -32,6 +36,10 @@ class SingleDatePickerInputInner extends PureComponent {
         inputRef: object
     };
 
+    handleOpen = useHandlerProxy(this, "onOpen", false);
+    handleClose = useHandlerProxy(this, "onClose");
+    handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange", false);
+    handleClear = useHandlerProxy(this, "onClear", false);
     handleClick = useHandlerProxy(this, "onClick");
     handleKeyDown = useHandlerProxy(this, "onKeyDown");
     handleFocus = useHandlerProxy(this, "onFocus");
@@ -48,19 +56,19 @@ class SingleDatePickerInputInner extends PureComponent {
     }
 
     render() {
-        const { onOpen, onClose, onBoundingClientRectChange, onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className, inputRef } = this.props;
+        const { allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
-                onOpen={onOpen}
-                onClose={onClose}
-                onBoundingClientRectChange={onBoundingClientRectChange}
+                onOpen={this.handleOpen}
+                onClose={this.handleClose}
+                onBoundingClientRectChange={this.handleBoundingClientRectChange}
+                onClear={this.handleClear}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
-                onClear={onClear}
                 allowClear={allowClear}
                 placeholder={placeholder}
                 icon={icon}

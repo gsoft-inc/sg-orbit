@@ -125,21 +125,14 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     handleDropdownOpen = event => {
-        const { open } = this.state;
-
-        if (!open) {
-            this.open(event);
-        }
+        this.open(event);
     };
 
     handleDropdownClose = event => {
-        const { open, availableItems } = this.state;
+        const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
-
-        if (open) {
-            this.close(event);
-        }
+        this.close(event);
     };
 
     handleClear = event => {
