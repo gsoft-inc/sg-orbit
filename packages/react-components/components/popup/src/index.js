@@ -1,2 +1,2 @@
-export * from "./popup2";
+export * from "./popup";
 export * from "./positions";

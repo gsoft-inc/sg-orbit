@@ -13,7 +13,7 @@ jest.mock("../src/react-dates-wrapper.jsx", () => {
     };
 });
 
-jest.mock("../src/fade-in.jsx", () => {
+jest.mock("../../popup/src/fade-in.jsx", () => {
     return {
         FadeIn: ({ active, children, className }) => {
             return (
@@ -24,6 +24,14 @@ jest.mock("../src/fade-in.jsx", () => {
         }
     };
 });
+
+export async function openCalendar(getByTestId) {
+    userEvent.click(getByTestId(INPUT_ID));
+
+    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
+
+    return calendarNode;
+}
 
 function createInlineSingleDatePicker(props) {
     return <InlineSingleDatePicker
@@ -65,11 +73,9 @@ test("open the calendar on enter keydown", async () => {
 });
 
 test("close the calendar on esc keydown", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
-        defaultOpen: true
-    }));
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
+    const calendarNode = await openCalendar(getByTestId);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
@@ -78,11 +84,9 @@ test("close the calendar on esc keydown", async () => {
 });
 
 test("close the calendar on outside click", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
-        defaultOpen: true
-    }));
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
+    const calendarNode = await openCalendar(getByTestId);
 
     userEvent.click(document.body);
     await wait();
@@ -91,11 +95,9 @@ test("close the calendar on outside click", async () => {
 });
 
 test("close the calendar on input click", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker({
-        defaultOpen: true
-    }));
+    const { getByTestId } = render(createInlineSingleDatePicker());
 
-    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
+    const calendarNode = await openCalendar(getByTestId);
 
     userEvent.click(getByTestId(INPUT_ID));
     await wait();
