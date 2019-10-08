@@ -114,6 +114,17 @@ test("close the calendar on input click", async () => {
     expect(calendarNode).not.toBeInTheDocument();
 });
 
+test("close the calendar on blur", async () => {
+    const { getByTestId } = render(createSingleDatePicker());
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    getByTestId(TEXTBOX_ID).blur();
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
+});
+
 test("when disabled, dont open the calendar on input click", async () => {
     const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         disabled: true
@@ -153,12 +164,30 @@ test("clear the date on input clear button click", async () => {
 
     const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+
+    expect(textboxNode).toHaveTextContent(formattedDate);
 
     userEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
     await wait();
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+    expect(textboxNode).not.toHaveTextContent(formattedDate);
+});
+
+test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
+
+    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+
+    expect(textboxNode).toHaveTextContent(formattedDate);
+
+    fireEvent.keyDown(textboxNode, { key: "Escape", keyCode: 27 });
+    await wait();
+
+    expect(textboxNode).not.toHaveTextContent(formattedDate);
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
@@ -202,6 +231,23 @@ test("clear the date on calendar clear button click", async () => {
     await wait();
 
     expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+});
+
+test("when the calendar close, the input should be focused", async () => {
+    const { getByTestId } = render(createSingleDatePicker());
+
+    await openCalendar(getByTestId);
+
+    getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
+
+    const textboxNode = getByTestId(TEXTBOX_ID);
+
+    expect(textboxNode).not.toHaveFocus();
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(textboxNode).toHaveFocus();
 });
 
 // ***** Handlers *****
@@ -342,6 +388,21 @@ test("call onVisibilityChange when the calendar is closed with esc keydown", asy
     await openCalendar(getByTestId);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar close on blur", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openCalendar(getByTestId);
+
+    getByTestId(TEXTBOX_ID).blur();
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());

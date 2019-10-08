@@ -1,7 +1,8 @@
-import { CALENDAR_ID } from "./shared";
+import { CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, DATE_FORMAT } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
+import moment from "moment";
 import userEvent from "@utils/user-event";
 
 export const INPUT_ID = "inline-single-date-picker-input";
@@ -105,6 +106,17 @@ test("close the calendar on input click", async () => {
     expect(calendarNode).not.toBeInTheDocument();
 });
 
+test("close the calendar on blur", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker());
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    getByTestId(INPUT_ID).blur();
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
+});
+
 test("when disabled, dont open the calendar on input click", async () => {
     const { getByTestId, queryByTestId } = render(createInlineSingleDatePicker({
         disabled: true
@@ -136,6 +148,39 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
+});
+
+test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createInlineSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
+
+    const inputNode = getByTestId(INPUT_ID);
+
+    expect(inputNode).toHaveTextContent(formattedDate);
+
+    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    await wait();
+
+    expect(inputNode).not.toHaveTextContent(formattedDate);
+});
+
+test("when the calendar close, the input should be focused", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker());
+
+    await openCalendar(getByTestId);
+
+    getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
+
+    const inputNode = getByTestId(INPUT_ID);
+
+    expect(inputNode).not.toHaveFocus();
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(inputNode).toHaveFocus();
 });
 
 // ***** Handlers *****
@@ -180,4 +225,19 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+});
+
+test("call onVisibilityChange when the calendar close on blur", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        onVisibilityChange: handler
+    }));
+
+    await openCalendar(getByTestId);
+
+    getByTestId(INPUT_ID).blur();
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
 });

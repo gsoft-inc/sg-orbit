@@ -3,7 +3,7 @@ import { DATE_FORMAT } from "./shared";
 import { DEFAULT_DATES_PRESETS, DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { END_DATE } from "react-dates/constants";
 import { PureComponent, createRef } from "react";
-import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import moment from "moment";
 import userEvent from "@utils/user-event";
@@ -169,7 +169,7 @@ test("clear the date on input clear button click", async () => {
     expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
 
-test("when the calendar is close and a value is selected, clear the value on esc keydown", async () => {
+test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
     const startDate = moment();
     const endDate = moment().add(3, "days");
     const formattedStartDate = startDate.format(DATE_FORMAT);
