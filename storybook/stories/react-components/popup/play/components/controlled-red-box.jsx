@@ -15,13 +15,17 @@ export class ControlledRedBox extends PureComponent {
         const { open } = this.state;
 
         return (
-            <RedBoxPopup
-                open={open}
-                position={position}
-                offsets={offsets}
-                onVisibilityChange={this.handleVisibilityChange}
-                className={className}
-            />
+            <>
+                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
+                <br /><br />
+                <RedBoxPopup
+                    open={open}
+                    position={position}
+                    offsets={offsets}
+                    onVisibilityChange={this.handleVisibilityChange}
+                    className={className}
+                />
+            </>
         );
     }
 }
