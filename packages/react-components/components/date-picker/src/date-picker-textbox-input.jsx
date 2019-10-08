@@ -10,16 +10,17 @@ import cx from "classnames";
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
+        onOpen: func,
+        onClose: func,
+        onBoundingClientRectChange: func,
         onClick: func,
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        onOpen: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
-        onBoundingClientRectChange: func,
         allowClear: bool,
         placeholder: string,
         icon: node,
@@ -37,6 +38,7 @@ export class DatePickerTextboxInput extends PureComponent {
         placeholder: "Pick a date"
     };
 
+    _containerRef = null;
     _clearButtonRef = createRef();
 
     isPlaceholder() {
@@ -47,6 +49,8 @@ export class DatePickerTextboxInput extends PureComponent {
 
     setContainerRef = ref => {
         const { onBoundingClientRectChange } = this.props;
+
+        this._containerRef = ref;
 
         if (!isNil(ref)) {
             if (!isNil(onBoundingClientRectChange)) {
@@ -60,7 +64,7 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     handleClick = event => {
-        const { onClick, onOpen, allowClear, disabled } = this.props;
+        const { onClick, onOpen, onClose, allowClear, disabled, open } = this.props;
 
         let canPropagate = true;
 
@@ -74,13 +78,18 @@ export class DatePickerTextboxInput extends PureComponent {
             }
 
             if (!disabled) {
-                onOpen(event, this.props);
+                if (!open) {
+                    onOpen(event, this.props);
+                } else {
+                    onClose(event, this.props);
+                }
+
             }
         }
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onOpen, disabled } = this.props;
+        const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
 
         if (!disabled) {
             const key = event.keyCode;
@@ -90,7 +99,13 @@ export class DatePickerTextboxInput extends PureComponent {
                     event.preventDefault();
                 }
 
-                onOpen(event, this.props);
+                if (!open) {
+                    onOpen(event, this.props);
+                }
+            } else if (key === KEYS.esc) {
+                if (!open) {
+                    onClear(event, this.props);
+                }
             }
         }
 
@@ -101,7 +116,7 @@ export class DatePickerTextboxInput extends PureComponent {
 
     handleFocus = useHandlerProxy(this, "onFocus");
     handleBlur = useHandlerProxy(this, "onBlur");
-    handleClear = useHandlerProxy(this, "onClear");
+    handleClearButtonClick = useHandlerProxy(this, "onClear");
 
     getCssClasses() {
         const { disabled, open, className } = this.props;
@@ -138,7 +153,7 @@ export class DatePickerTextboxInput extends PureComponent {
                         primary
                         icon
                         className="transparent"
-                        onClick={this.handleClear}
+                        onClick={this.handleClearButtonClick}
                         type="button"
                         data-testid="date-picker-textbox-clear-button"
                     >
@@ -158,7 +173,7 @@ export class DatePickerTextboxInput extends PureComponent {
             onFocus={this.handleFocus}
             onBlur={this.handlerBlur}
             className={this.getCssClasses()}
-            tabIndex={disabled ? null : "0"}
+            tabIndex="0"
             autoComplete="off"
             disabled={disabled}
             ref={this.setContainerRef}
@@ -179,5 +194,12 @@ export class DatePickerTextboxInput extends PureComponent {
                 }
             `}</style>
         </div>;
+    }
+
+    // This method is part of the component external API.
+    focus() {
+        if (!isNil(this._containerRef)) {
+            this._containerRef.focus();
+        }
     }
 }

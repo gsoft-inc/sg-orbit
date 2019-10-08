@@ -1,7 +1,7 @@
 import { animated, useSpring } from "react-spring";
 import { any, bool } from "prop-types";
 
-// Since the date pickers are currently not based on hooks, the animation must be in an external component.
+// Since the popup is not currently based on hooks, the animation must be in an external component.
 export const FadeIn = ({ active, children, className }) => {
     const AnimatedComponent = animated["div"];
 

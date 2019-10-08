@@ -230,7 +230,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     handleInputEscape = event => {
         const { open } = this.props;
 
-        if (open === false) {
+        if (!open) {
             this.clear(event);
         }
     };
@@ -278,7 +278,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         const data = JSON.parse(result.description);
 
-        return resultRenderer(data);
+        return resultRenderer(data, this.props);
     };
 
     renderClearButton = () => {

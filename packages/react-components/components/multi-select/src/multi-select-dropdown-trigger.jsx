@@ -54,6 +54,10 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         const key = event.keyCode;
 
         if (key === KEYS.space || key === KEYS.enter) {
+            if (key === KEYS.space) {
+                event.preventDefault();
+            }
+
             if (!disabled) {
                 onOpen(event, this.props);
             }

@@ -1,6 +1,6 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
-import { POSITIONS } from "../positions";
+import { POSITIONS } from "@orbit-ui/react-popup";
 import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
