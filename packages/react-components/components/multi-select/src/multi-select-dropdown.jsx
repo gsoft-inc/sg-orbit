@@ -327,7 +327,7 @@ export class MultiSelectDropdown extends PureComponent {
                     trigger={this.renderTrigger()}
                     disabled={disabled}
                     // Otherwise the "listbox" div will be focus first instead of the trigger button.
-                    tabIndex={-1}
+                    tabIndex="-1"
                     upward={false}
                     floating
                     className={this.getClasses()}
