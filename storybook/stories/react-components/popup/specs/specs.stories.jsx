@@ -1,5 +1,12 @@
-import { Popup } from "@orbit-ui/react-popup/src";
-import { RedBox } from "@stories/react-components/popup/components/red-box";
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-popup/src";
+import { RedBoxPopup } from "@stories/react-components/popup/components/red-box-popup";
 import { storiesBuilder } from "@utils/stories-builder";
 
 function stories(segment) {
@@ -10,39 +17,118 @@ function stories(segment) {
 }
 
 stories()
-    .add("default",
+    .add("close",
          () =>
-             <Popup visible>
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup />
     )
-    .add("top",
+    .add("open",
          () =>
-             <Popup visible top="20px">
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup defaultOpen />
     )
-    .add("bottom",
+    .add("bottom left",
          () =>
-             <Popup visible bottom="20px">
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup position={BOTTOM_LEFT} defaultOpen />
     )
-    .add("left",
+    .add("bottom center",
          () =>
-             <Popup visible left="20px">
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup position={BOTTOM_CENTER} defaultOpen />
     )
-    .add("right",
+    .add("bottom right",
          () =>
-             <Popup visible right="20px">
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup position={BOTTOM_RIGHT} defaultOpen />
     )
-    .add("with portal",
+    .add("top left",
          () =>
-             <Popup visible portal right="20px">
-                 <RedBox />
-             </Popup>
+             <RedBoxPopup position={TOP_LEFT} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    )
+    .add("top center",
+         () =>
+             <RedBoxPopup position={TOP_CENTER} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    )
+    .add("top right",
+         () =>
+             <RedBoxPopup position={TOP_RIGHT} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    );
+
+stories("/offsets/bottom")
+    .add("left+positive", () =>
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["30px", "30px"]} defaultOpen />,
+    )
+    .add("left+negative", () =>
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["-30px", "-30px"]} defaultOpen />,
+    )
+    .add("right+positive", () =>
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["30px", "30px"]} defaultOpen />,
+    )
+    .add("right+negative", () =>
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["-30px", "-30px"]} defaultOpen />,
+    );
+
+stories("/offsets/top")
+    .add("left+positive", () =>
+        <RedBoxPopup position={TOP_LEFT} offsets={["30px", "30px"]} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    )
+    .add("left+negative", () =>
+        <RedBoxPopup position={TOP_LEFT} offsets={["-30px", "-30px"]} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    )
+    .add("right+positive", () =>
+        <RedBoxPopup position={TOP_RIGHT} offsets={["30px", "30px"]} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    )
+    .add("right+negative", () =>
+        <RedBoxPopup position={TOP_RIGHT} offsets={["-30px", "-30px"]} defaultOpen />,
+         {
+             options: {
+                 layout: {
+                     marginTop: "350px"
+                 }
+             }
+         }
+    );
+
+stories()
+    .add("css class",
+         () =>
+             <RedBoxPopup className="border-red" />
     );

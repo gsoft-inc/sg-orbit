@@ -25,7 +25,7 @@ export class Popup extends AutoControlledPureComponent {
         onDocumentKeyDown: func,
         onFocus: func,
         onBlur: func,
-        renderAnimation: func,
+        animationRenderer: func,
         className: string
     };
 
@@ -56,6 +56,14 @@ export class Popup extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
+    }
+
+    componentDidMount() {
+        const { open } = this.state;
+
+        if (open) {
+            this.focusTrigger();
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -212,8 +220,10 @@ export class Popup extends AutoControlledPureComponent {
 
     renderTrigger() {
         const { trigger } = this.props;
+        const { open } = this.state;
 
         return cloneElement(trigger, {
+            open: open,
             onBoundingClientRectChange: this.handleTriggerBoundingClientRectChange,
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,

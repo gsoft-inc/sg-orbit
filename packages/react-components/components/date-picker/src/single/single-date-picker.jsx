@@ -121,7 +121,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled } = this.props;
-        const { selectedDate, open } = this.state;
+        const { selectedDate } = this.state;
 
         return cloneElement(input, {
             date: selectedDate,
@@ -130,8 +130,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             numberOfMonths,
             placeholder,
             dateFormat,
-            disabled: disabled,
-            open: open
+            disabled: disabled
         });
     }
 

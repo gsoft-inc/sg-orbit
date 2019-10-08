@@ -1,38 +1,27 @@
-import { Popup } from "@orbit-ui/react-popup/src";
 import { PureComponent } from "react";
-import { RedBox } from "@stories/react-components/popup/components/red-box";
-import { RedBoxTrigger } from "./red-box-trigger";
+import { RedBoxPopup } from "@stories/react-components/popup/components/red-box-popup";
 
 export class ControlledRedBox extends PureComponent {
     state = {
         open: false
     };
 
-    handleVisibilityChange = (event, open) => {
-        this.setState({ open: open });
-    }
-
-    renderTrigger() {
-        const { open } = this.state;
-
-        return <RedBoxTrigger open={open} />;
-    }
+    handleVisibilityChange = (event, visible) => {
+        this.setState({ open: visible });
+    };
 
     render() {
         const { position, offsets, className } = this.props;
         const { open } = this.state;
 
         return (
-            <Popup
+            <RedBoxPopup
                 open={open}
-                trigger={this.renderTrigger()}
                 position={position}
                 offsets={offsets}
                 onVisibilityChange={this.handleVisibilityChange}
                 className={className}
-            >
-                <RedBox />
-            </Popup>
+            />
         );
     }
 }
