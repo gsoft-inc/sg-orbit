@@ -129,11 +129,6 @@ const userEvent = {
             default:
                 clickElement(element, wasAnotherElementFocused ? focusedElement : null);
         }
-
-        // if (wasAnotherElementFocused) {
-        //     focusedElement.blur();
-        //     fireEvent.focusOut(focusedElement);
-        // }
     },
 
     dblClick(element) {
@@ -238,6 +233,14 @@ const userEvent = {
         element.addEventListener("blur", fireChangeEvent);
     },
 
+    keyDown(element, options) {
+        fireEvent.keyDown(element, options);
+
+        if (element.tagName === "BUTTON") {
+            fireEvent.click(element);
+        }
+    },
+
     tab({ shift = false } = {}) {
         const focusableElements = document.querySelectorAll(
             "input, button, select, textarea, a[href], [tabindex]"
@@ -268,5 +271,7 @@ const userEvent = {
         }
     }
 };
+
+// link: https://codesandbox.io/embed/jovial-glitter-jy883
 
 export default userEvent;

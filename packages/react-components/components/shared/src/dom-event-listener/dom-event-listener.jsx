@@ -1,12 +1,18 @@
-import { Exception } from "handlebars";
 import { PureComponent } from "react";
-import { bool, func, oneOf, string } from "prop-types";
+import { bool, func, instanceOf, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { isNil } from "lodash";
 
 export class DOMEventListener extends PureComponent {
     static propTypes = {
         name: string.isRequired,
         on: func.isRequired,
-        target: oneOf(["document", "window"]),
+        target: oneOfType([
+            oneOf(["document", "window"]),
+            instanceOf(HTMLElement),
+            shape({
+                current: object
+            })
+        ]),
         capture: bool
     };
 
@@ -33,13 +39,16 @@ export class DOMEventListener extends PureComponent {
     subscribe() {
         const { name, on, capture } = this.props;
 
-        this.getTarget().addEventListener(name, on, capture);
+        this._target = this.getTarget();
+        this._target.addEventListener(name, on, capture);
     }
 
     unsubscribe() {
         const { name, on, capture } = this.props;
 
-        this.getTarget().removeEventListener(name, on, capture);
+        if (!isNil(this._target)) {
+            this._target.removeEventListener(name, on, capture);
+        }
     }
 
     getTarget() {
@@ -49,9 +58,11 @@ export class DOMEventListener extends PureComponent {
             return document;
         } else if (target === "window") {
             return window;
+        } else if (target instanceof HTMLElement) {
+            return target;
         }
 
-        throw new Exception("DOMEventListener - Unknown DOM target.");
+        return target.current;
     }
 
     render() {

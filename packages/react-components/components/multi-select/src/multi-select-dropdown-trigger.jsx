@@ -44,8 +44,10 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         }
     }
 
+    // Since the trigger is a button, when the user press enter on the button, a click event is generated.
+    // Therefore, we dont need to support enter here.
     handleKeyDown = event => {
-        const { onKeyDown, onOpen, disabled } = this.props;
+        const { onKeyDown, onOpen, open, disabled } = this.props;
 
         if (!isNil(onKeyDown)) {
             onKeyDown(event, this.props);
@@ -53,13 +55,13 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
         const key = event.keyCode;
 
-        if (key === KEYS.space || key === KEYS.enter) {
-            if (key === KEYS.space) {
-                event.preventDefault();
-            }
+        if (key === KEYS.space) {
+            event.preventDefault();
 
             if (!disabled) {
-                onOpen(event, this.props);
+                if (!open) {
+                    onOpen(event, this.props);
+                }
             }
         }
     }
