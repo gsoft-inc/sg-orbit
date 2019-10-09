@@ -18,7 +18,7 @@ export class MultiSelectClearButton extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleClick = useHandlerProxy(this, "onClick");
+    handleClick = useHandlerProxy(this, "onClick", false);
 
     getClasses() {
         const { className } = this.props;

@@ -1,4 +1,4 @@
-import { Button } from "semantic-ui-react";
+import { Button, Ref } from "semantic-ui-react";
 import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
@@ -54,6 +54,10 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         const key = event.keyCode;
 
         if (key === KEYS.space || key === KEYS.enter) {
+            if (key === KEYS.space) {
+                event.preventDefault();
+            }
+
             if (!disabled) {
                 onOpen(event, this.props);
             }
@@ -79,20 +83,21 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
         return (
             <div className="mr2 mb2">
-                <Button
-                    onClick={this.handleClick}
-                    onKeyDown={this.handleKeyDown}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
-                    secondary
-                    className={this.getClasses()}
-                    disabled={disabled}
-                    type="button"
-                    ref={this._buttonRef}
-                    data-testid="multi-select-dropdown-trigger"
-                >
-                    {text} {this.renderIcon()}
-                </Button>
+                <Ref innerRef={this._buttonRef}>
+                    <Button
+                        onClick={this.handleClick}
+                        onKeyDown={this.handleKeyDown}
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleBlur}
+                        secondary
+                        className={this.getClasses()}
+                        disabled={disabled}
+                        type="button"
+                        data-testid="multi-select-dropdown-trigger"
+                    >
+                        {text} {this.renderIcon()}
+                    </Button>
+                </Ref>
             </div>
         );
     }
@@ -100,5 +105,10 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     // This function is part of the component external API.
     focus() {
         this._buttonRef.current.focus();
+    }
+
+    // This function is part of the component external API.
+    isElement(element) {
+        return this._buttonRef.current === element;
     }
 }

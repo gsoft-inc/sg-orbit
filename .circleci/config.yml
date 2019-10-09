@@ -23,7 +23,7 @@ jobs:
             - save_cache: *save-yarn-deps
             - run:
                   name: Lint
-                  command: yarn lint
+                  command: yarn lint-ci
             - run:
                   name: Setup Packages
                   command: yarn setup:pkg

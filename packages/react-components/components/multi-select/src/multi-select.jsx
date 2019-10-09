@@ -124,26 +124,15 @@ export class MultiSelect extends AutoControlledPureComponent {
         this.setValues(event, values.filter(x => x !== item.value));
     };
 
-    handleOpen = event => {
-        const { onVisibilityChange } = this.props;
-
-        this.trySetAutoControlledStateValue({ open: true });
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
-        }
+    handleDropdownOpen = event => {
+        this.open(event);
     };
 
-    handleClose = event => {
-        const { onVisibilityChange } = this.props;
+    handleDropdownClose = event => {
         const { availableItems } = this.state;
 
         this.setState({ dropdownItems: availableItems });
-        this.trySetAutoControlledStateValue({ open: false });
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
-        }
+        this.close(event);
     };
 
     handleClear = event => {
@@ -151,6 +140,26 @@ export class MultiSelect extends AutoControlledPureComponent {
 
         this.setValues(event, [], [], items, items);
     };
+
+    open(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: true });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, true, this.props);
+        }
+    }
+
+    close(event) {
+        const { onVisibilityChange } = this.props;
+
+        this.trySetAutoControlledStateValue({ open: false });
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false, this.props);
+        }
+    }
 
     setValues(event, newValues) {
         const { items, onValuesChange } = this.props;
@@ -189,11 +198,12 @@ export class MultiSelect extends AutoControlledPureComponent {
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
+            orbitId: this.props.orbitId,
             items: dropdownItems,
             onSearch: this.handleSearch,
             onItemSelect: this.handleItemSelect,
-            onOpen: this.handleOpen,
-            onClose: this.handleClose,
+            onOpen: this.handleDropdownOpen,
+            onClose: this.handleDropdownClose,
             closeOnSelect,
             placeholder,
             noResultsMessage,

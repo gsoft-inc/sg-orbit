@@ -41,7 +41,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
         Object.keys(groups).forEach(key => {
             const group = groups[key];
 
-            const renderedHeader = cloneElement(headerRenderer(key, group), {
+            const renderedHeader = cloneElement(headerRenderer(key, group, this.props), {
                 key: key
             });
 
@@ -69,7 +69,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
 
         const isSelected = !isNil(keyboardItem) && item.value === keyboardItem.value;
 
-        return cloneElement(itemRenderer(item, isSelected), {
+        return cloneElement(itemRenderer(item, isSelected, this.props), {
             key: key,
             style: { minWidth: `${itemWidth}px` },
             onClick: this.handleItemClick

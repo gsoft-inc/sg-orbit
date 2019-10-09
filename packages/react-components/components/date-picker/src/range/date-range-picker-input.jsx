@@ -1,14 +1,22 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
-import { PureComponent } from "react";
-import { bool, func, node, string } from "prop-types";
+import { PureComponent, forwardRef } from "react";
+import { bool, func, node, object, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
-export class DateRangePickerInput extends PureComponent {
+class DateRangePickerInputInner extends PureComponent {
     static propTypes = {
         startDate: momentType,
         endDate: momentType,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onOpen: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onClose: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onBoundingClientRectChange: func,
+        // eslint-disable-next-line react/no-unused-prop-types
+        onClear: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -17,13 +25,6 @@ export class DateRangePickerInput extends PureComponent {
         onFocus: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onOpen: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onClose: func,
-        onClear: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onBoundingClientRectChange: func,
         allowClear: bool,
         placeholder: string,
         rangeFormat: string,
@@ -33,20 +34,22 @@ export class DateRangePickerInput extends PureComponent {
         disabledIcon: node,
         disabled: bool,
         open: bool,
-        className: string
+        className: string,
+        inputRef: object
     };
 
     static defaultProps = {
         rangeFormat: "{startDate} - {endDate}"
     };
 
-    handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange");
+    handleOpen = useHandlerProxy(this, "onOpen", false);
+    handleClose = useHandlerProxy(this, "onClose", false);
+    handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange", false);
+    handleClear = useHandlerProxy(this, "onClear", false);
     handleClick = useHandlerProxy(this, "onClick");
     handleKeyDown = useHandlerProxy(this, "onKeyDown");
     handleFocus = useHandlerProxy(this, "onFocus");
     handleBlur = useHandlerProxy(this, "onBlur");
-    handleOpen = useHandlerProxy(this, "onOpen");
-    handleClose = useHandlerProxy(this, "onClose");
 
     getValue() {
         const { startDate, endDate, rangeFormat, dateFormat } = this.props;
@@ -63,19 +66,19 @@ export class DateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { onClear, allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className } = this.props;
+        const { allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
+                onOpen={this.handleOpen}
+                onClose={this.handleClose}
+                onBoundingClientRectChange={this.handleBoundingClientRectChange}
+                onClear={this.handleClear}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
-                onOpen={this.handleOpen}
-                onClose={this.handleClose}
-                onClear={onClear}
-                onBoundingClientRectChange={this.handleBoundingClientRectChange}
                 allowClear={allowClear}
                 placeholder={placeholder}
                 icon={icon}
@@ -84,7 +87,12 @@ export class DateRangePickerInput extends PureComponent {
                 disabled={disabled}
                 open={open}
                 className={className}
+                ref={inputRef}
             />
         );
     }
 }
+
+export const DateRangePickerInput = forwardRef((props, ref) => (
+    <DateRangePickerInputInner { ...props } inputRef={ref} />
+));

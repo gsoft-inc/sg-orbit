@@ -1,5 +1,6 @@
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ChevronIcon } from "@orbit-ui/icons";
+import { MonkeyPatchCalendarDay } from "./monkey-patch-calendar-day";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -10,6 +11,10 @@ const PHRASES = {
     chooseAvailableStartDate: ({ date }) => `Choose ${date}.`,
     chooseAvailableEndDate: ({ date }) => `Choose ${date}.`
 };
+
+function renderCalendarDay(props) {
+    return <MonkeyPatchCalendarDay {...props} />;
+}
 
 export class DatePickerCalendar extends PureComponent {
     static propTypes = {
@@ -153,6 +158,7 @@ export class DatePickerCalendar extends PureComponent {
             initialVisibleMonth: this.getInitialVisibleMonth,
             numberOfMonths: numberOfMonths,
             phrases: PHRASES,
+            renderCalendarDay: renderCalendarDay,
             transitionDuration: 0,
             noBorder: true,
             keepOpenOnDateSelect: true,
