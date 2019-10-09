@@ -173,7 +173,7 @@ export class DatePickerTextboxInput extends PureComponent {
             onFocus={this.handleFocus}
             onBlur={this.handlerBlur}
             className={this.getCssClasses()}
-            tabIndex="0"
+            tabIndex={disabled ? "-1" : "0"}
             autoComplete="off"
             disabled={disabled}
             ref={this.setContainerRef}

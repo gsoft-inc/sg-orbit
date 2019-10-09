@@ -250,6 +250,29 @@ test("when the calendar close, the input should be focused", async () => {
     expect(textboxNode).toHaveFocus();
 });
 
+test("when a date is selected and the calendar is closed without applying the selection, clear the date", async () => {
+    const ref = createRef();
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createSingleDatePicker({
+        reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
+        dateFormat: DATE_FORMAT
+    }));
+
+    await openCalendar(getByTestId);
+
+    ref.current.triggerDateChange(date);
+
+    const textboxNode = getByTestId(TEXTBOX_ID);
+    expect(textboxNode).toHaveTextContent(formattedDate);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(textboxNode).not.toHaveTextContent(formattedDate);
+});
+
 // ***** Handlers *****
 
 test("dont call onDateChange when a date is selected", async () => {

@@ -138,7 +138,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
                 className={this.getCssClasses()}
-                tabIndex="0"
+                tabIndex={disabled ? "-1" : "0"}
                 disabled={disabled}
                 ref={this.setButtonRef}
                 data-testid="inline-single-date-picker-input"

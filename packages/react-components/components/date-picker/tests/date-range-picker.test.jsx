@@ -1,7 +1,7 @@
 import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID, openCalendar } from "./shared";
 import { DATE_FORMAT } from "./shared";
 import { DEFAULT_DATES_PRESETS, DateRangePicker } from "@orbit-ui/react-date-picker/src";
-import { END_DATE } from "react-dates/constants";
+import { END_DATE, START_DATE } from "react-dates/constants";
 import { PureComponent, createRef } from "react";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
@@ -259,6 +259,37 @@ test("when the calendar close, the input should be focused", async () => {
     await wait();
 
     expect(textboxNode).toHaveFocus();
+});
+
+test("when dates are selected and the calendar is closed without applying the selection, clear the dates", async () => {
+    const ref = createRef();
+    const startDate = moment();
+    const endDate = moment().add(3, "days");
+    const formattedStartDate = startDate.format(DATE_FORMAT);
+    const formattedEndDate = endDate.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createDateRangePicker({
+        reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
+        dateFormat: DATE_FORMAT
+    }));
+
+    await openCalendar(getByTestId);
+
+    ref.current.triggerFocusChange(START_DATE);
+    ref.current.triggerDatesChange(startDate);
+    ref.current.triggerFocusChange(END_DATE);
+    ref.current.triggerDatesChange(startDate, endDate);
+
+    const textboxNode = getByTestId(TEXTBOX_ID);
+
+    expect(textboxNode).toHaveTextContent(formattedStartDate);
+    expect(textboxNode).toHaveTextContent(formattedEndDate);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(textboxNode).not.toHaveTextContent(formattedStartDate);
+    expect(textboxNode).not.toHaveTextContent(formattedEndDate);
 });
 
 // ***** Handlers *****

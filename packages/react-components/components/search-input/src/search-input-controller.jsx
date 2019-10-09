@@ -339,6 +339,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     }}
                     placeholder={placeholder}
                     disabled={disabled}
+                    tabIndex={disabled ? "-1" : "0"}
                     loading={loading && !disabled}
                 />
                 {this.renderClearButton()}

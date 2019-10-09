@@ -80,12 +80,12 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     handleAnchorVisibilityChange = (event, shouldOpen) => {
-        const { date } = this.state;
+        const { startDate, endDate } = this.state;
 
         if (shouldOpen) {
             this.openCalendar(event);
         } else {
-            this.setState({ selectedDate: date });
+            this.setState({ selectedStartDate: startDate, selectedEndDate: endDate, selectedPresetName: null });
             this.closeCalendar(event);
         }
     }
