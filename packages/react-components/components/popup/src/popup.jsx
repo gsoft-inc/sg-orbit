@@ -39,7 +39,7 @@ export class Popup extends AutoControlledPureComponent {
 
     state = {
         open: false,
-        triggerHeight: null
+        triggerHeight: 0
     };
 
     // Using a focus / unfocus flag was not the preferred way to prevent the dropdown from closing on blur when the new focused item was inside the dropdown.
@@ -88,7 +88,7 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    handleTriggerBoundingClientRectChange = ({ height }) => {
+    handleTriggerSizeChange = ({ height }) => {
         this.setState({ triggerHeight: height });
     };
 
@@ -224,7 +224,7 @@ export class Popup extends AutoControlledPureComponent {
 
         return cloneElement(trigger, {
             open: open,
-            onBoundingClientRectChange: this.handleTriggerBoundingClientRectChange,
+            onSizeChange: this.handleTriggerSizeChange,
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,
             ref: this._triggerRef
@@ -248,7 +248,7 @@ export class Popup extends AutoControlledPureComponent {
 
     render() {
         const { animationRenderer } = this.props;
-        const { open, triggerHeight } = this.state;
+        const { open } = this.state;
 
         return (
             <>
@@ -261,10 +261,7 @@ export class Popup extends AutoControlledPureComponent {
                     tabIndex="-1"
                 >
                     {this.renderTrigger()}
-                    {/* TODO: use https://www.npmjs.com/package/resize-observer-polyfill */}
-                    <If condition={!isNil(triggerHeight)}>
-                        {animationRenderer(open, this.renderPopup, this.props)}
-                    </If>
+                    {animationRenderer(open, this.renderPopup, this.props)}
                 </div>
 
                 <If condition={open}>

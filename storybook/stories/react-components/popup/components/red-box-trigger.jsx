@@ -1,20 +1,27 @@
-import { PureComponent } from "react";
+import { PureComponent, createRef } from "react";
+import { ResizeObserver } from "@juggle/resize-observer";
 import { isNil } from "lodash";
 
 export class RedBoxTrigger extends PureComponent {
-    _containerRef = null;
+    _containerRef = createRef();
+    _containerResizeObserver = null;
 
-    setContainerRef = ref => {
-        const { onBoundingClientRectChange } = this.props;
+    componentDidMount() {
+        this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
+        this._containerResizeObserver.observe(this._containerRef.current);
+    }
 
-        this._containerRef = ref;
+    componentWillUnmount() {
+        this._containerResizeObserver.disconnect();
+    }
 
-        if (!isNil(ref)) {
-            setTimeout(() => {
-                if (!isNil(ref)) {
-                    onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
-                }
-            }, 0);
+    handleContainerSizeChange = entries => {
+        const { onSizeChange } = this.props;
+
+        if (!isNil(onSizeChange)) {
+            const dimensions = entries[0].target.getBoundingClientRect();
+
+            onSizeChange({ width: dimensions.width, height: dimensions.height });
         }
     };
 
@@ -29,12 +36,18 @@ export class RedBoxTrigger extends PureComponent {
     };
 
     render() {
-        return <button onClick={this.handleButtonClick} type="button" ref={this.setContainerRef}>Open</button>;
+        return <button
+            onClick={this.handleButtonClick}
+            type="button"
+            ref={this._containerRef}
+        >
+            Open
+        </button>;
     }
 
     focus() {
-        if (!isNil(this._containerRef)) {
-            this._containerRef.focus();
+        if (!isNil(this._containerRef.current)) {
+            this._containerRef.current.focus();
         }
     }
 }

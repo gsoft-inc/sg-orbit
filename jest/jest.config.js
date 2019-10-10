@@ -8,7 +8,7 @@ module.exports = {
     },
     // https://github.com/facebook/jest/issues/6229#issuecomment-403539460
     transformIgnorePatterns: [
-        "/node_modules/(?!@babel).+\\.js$"
+        "/node_modules/(?!(@babel|@juggle)).+\\.js$"
     ],
     moduleNameMapper: {
         "\\.svg": "<rootDir>/jest/svgr-mock.js",

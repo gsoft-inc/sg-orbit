@@ -28,8 +28,9 @@
         "@orbit-ui/react-popup": "1.1.1",
         "classnames": "*",
         "prop-types": "*",
-        "react-dates": "21.1.0",
-        "react-moment-proptypes": "1.7.0"
+        "react-dates": "21.2.0",
+        "react-moment-proptypes": "1.7.0",
+        "@juggle/resize-observer": "2.3.0"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

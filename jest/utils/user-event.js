@@ -1,4 +1,6 @@
-import { fireEvent } from "@testing-library/dom";
+/* eslint-disable */
+
+const { fireEvent } = require("@testing-library/dom");
 
 function wait(time) {
     return new Promise(function (resolve) {
@@ -272,6 +274,4 @@ const userEvent = {
     }
 };
 
-// link: https://codesandbox.io/embed/jovial-glitter-jy883
-
-export default userEvent;
+module.exports = userEvent;

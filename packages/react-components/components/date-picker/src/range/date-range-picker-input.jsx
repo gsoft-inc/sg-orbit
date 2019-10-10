@@ -14,7 +14,7 @@ class DateRangePickerInputInner extends PureComponent {
         // eslint-disable-next-line react/no-unused-prop-types
         onClose: func,
         // eslint-disable-next-line react/no-unused-prop-types
-        onBoundingClientRectChange: func,
+        onSizeChange: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -44,7 +44,7 @@ class DateRangePickerInputInner extends PureComponent {
 
     handleOpen = useHandlerProxy(this, "onOpen", false);
     handleClose = useHandlerProxy(this, "onClose", false);
-    handleBoundingClientRectChange = useHandlerProxy(this, "onBoundingClientRectChange", false);
+    handleSizeChange = useHandlerProxy(this, "onSizeChange", false);
     handleClear = useHandlerProxy(this, "onClear", false);
     handleClick = useHandlerProxy(this, "onClick");
     handleKeyDown = useHandlerProxy(this, "onKeyDown");
@@ -73,7 +73,7 @@ class DateRangePickerInputInner extends PureComponent {
                 value={this.getValue()}
                 onOpen={this.handleOpen}
                 onClose={this.handleClose}
-                onBoundingClientRectChange={this.handleBoundingClientRectChange}
+                onSizeChange={this.handleSizeChange}
                 onClear={this.handleClear}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}

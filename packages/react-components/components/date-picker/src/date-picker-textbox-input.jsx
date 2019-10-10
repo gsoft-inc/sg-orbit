@@ -3,6 +3,7 @@ import { CancelIcon } from "@orbit-ui/icons";
 import { InputCalendarIcon } from "./assets";
 import { KEYS, isNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
+import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import cx from "classnames";
@@ -12,7 +13,7 @@ export class DatePickerTextboxInput extends PureComponent {
         value: string.isRequired,
         onOpen: func,
         onClose: func,
-        onBoundingClientRectChange: func,
+        onSizeChange: func,
         onClick: func,
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -38,8 +39,18 @@ export class DatePickerTextboxInput extends PureComponent {
         placeholder: "Pick a date"
     };
 
-    _containerRef = null;
+    _containerRef = createRef();
     _clearButtonRef = createRef();
+    _containerResizeObserver = null;
+
+    componentDidMount() {
+        this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
+        this._containerResizeObserver.observe(this._containerRef.current);
+    }
+
+    componentWillUnmount() {
+        this._containerResizeObserver.disconnect();
+    }
 
     isPlaceholder() {
         const { value } = this.props;
@@ -47,19 +58,16 @@ export class DatePickerTextboxInput extends PureComponent {
         return isNullOrEmpty(value);
     }
 
-    setContainerRef = ref => {
-        const { onBoundingClientRectChange } = this.props;
+    handleContainerSizeChange = entries => {
+        const { onSizeChange } = this.props;
 
-        this._containerRef = ref;
+        if (!isNil(onSizeChange)) {
+            // The native chrome implementation doesn't currently support the "border-box" specs. Therefore, we rely on "getBoundingClientRect"
+            // for the value when a size changed is detected.
+            // Specs available here: https://drafts.csswg.org/resize-observer-1/
+            const dimensions = entries[0].target.getBoundingClientRect();
 
-        if (!isNil(ref)) {
-            if (!isNil(onBoundingClientRectChange)) {
-                setTimeout(() => {
-                    if (!isNil(ref)) {
-                        onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
-                    }
-                }, 0);
-            }
+            onSizeChange({ width: dimensions.width, height: dimensions.height });
         }
     };
 
@@ -176,7 +184,8 @@ export class DatePickerTextboxInput extends PureComponent {
             tabIndex={disabled ? "-1" : "0"}
             autoComplete="off"
             disabled={disabled}
-            ref={this.setContainerRef}
+            // ref={this.setContainerRef}
+            ref={this._containerRef}
             data-testid="date-picker-textbox-input"
         >
             {this.renderIcon()}
@@ -198,8 +207,8 @@ export class DatePickerTextboxInput extends PureComponent {
 
     // This method is part of the component external API.
     focus() {
-        if (!isNil(this._containerRef)) {
-            this._containerRef.focus();
+        if (!isNil(this._containerRef.current)) {
+            this._containerRef.current.focus();
         }
     }
 }
