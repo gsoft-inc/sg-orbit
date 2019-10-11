@@ -149,6 +149,14 @@ stories()
                  disabled
                  onDatesChange={logDatesChanged}
              />
+    )
+    .add("dont close on blur",
+         () =>
+             <DateRangePicker
+                 closeOnBlur={false}
+                 closeOnOutsideClick
+                 onDatesChange={logDatesChanged}
+             />
     );
 
 stories("/controlled")

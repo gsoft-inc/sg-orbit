@@ -29,6 +29,8 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     buttons: node,
     defaultOpen: bool,
     open: bool,
+    closeOnBlur: bool,
+    closeOnOutsideClick: bool,
     disabled: bool,
     className: string
 };
@@ -154,7 +156,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, disabled, className } = this.props;
+        const { position, offsets, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -166,6 +168,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 offsets={offsets}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
+                closeOnBlur={closeOnBlur}
+                closeOnOutsideClick={closeOnOutsideClick}
                 className={className}
             />
         );

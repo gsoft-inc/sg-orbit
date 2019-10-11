@@ -5,7 +5,7 @@
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-search-input
+npm install lodash styled-jsx @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-search-input
 ```
 
 ## Usage

@@ -273,6 +273,33 @@ test("when a date is selected and the calendar is closed without applying the se
     expect(textboxNode).not.toHaveTextContent(formattedDate);
 });
 
+test("when closeOnBlur is false, dont close the calendar on blur", async () => {
+    const { getByTestId } = render(createSingleDatePicker({
+        closeOnBlur: false
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the calendar on outside click", async () => {
+    const { getByTestId } = render(createSingleDatePicker({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("dont call onDateChange when a date is selected", async () => {

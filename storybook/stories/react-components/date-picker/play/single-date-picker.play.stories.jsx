@@ -109,6 +109,14 @@ stories()
                  disabled
                  onDateChange={logDateChanged}
              />
+    )
+    .add("dont close on blur",
+         () =>
+             <SingleDatePicker
+                 closeOnBlur={false}
+                 closeOnOutsideClick
+                 onDateChange={logDateChanged}
+             />
     );
 
 stories("/inlined")
@@ -145,6 +153,14 @@ stories("/inlined")
          () =>
              <InlineSingleDatePicker
                  disabled
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("dont close on blur",
+         () =>
+             <InlineSingleDatePicker
+                 closeOnBlur={false}
+                 closeOnOutsideClick
                  onDateChange={logDateChanged}
              />
     );

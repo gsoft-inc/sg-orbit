@@ -5,13 +5,13 @@
 With npm:
 
 ```bash
-npm install react-spring moment @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-picker
+npm install react-spring moment lodash moment styled-jsx @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-picker
 ```
 
 ## Usage
 
 ```javascript
-import { 
+import {
     DateRangePicker,
     SingleDatePicker,
     InlineSingleDatePicker,
