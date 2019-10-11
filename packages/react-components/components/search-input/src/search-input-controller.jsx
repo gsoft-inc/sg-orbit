@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
@@ -20,10 +20,12 @@ export class SearchInputController extends AutoControlledPureComponent {
         defaultValue: string,
         onValueChange: func.isRequired,
         onSearch: func.isRequired,
+        onClear: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         onBlur: func,
         onKeyDown: func,
+        onOutsideClick: func,
         resultRenderer: func,
         clearOnSelect: bool,
         noResultsMessage: string,
@@ -60,6 +62,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         renderPropagationFix: !this.props.disabled
     };
 
+    _containerRef = createRef();
     _inputRef = createRef();
     _clearButtonRef = createRef();
     _autofocusTimeout = null;
@@ -196,7 +199,13 @@ export class SearchInputController extends AutoControlledPureComponent {
     handleFocus = useHandlerProxy(this, "onFocus");
 
     handleClear = event => {
+        const { onClear } = this.props;
+
         this.clear(event);
+
+        if (!isNil(onClear)) {
+            onClear(event, this.props);
+        }
     };
 
     handleInputKeyDown = event => {
@@ -236,6 +245,18 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay, { leading: true }) : this.props.onSearch;
+
+    handleDocumentClick = event => {
+        const { onOutsideClick } = this.props;
+
+        if (!isNil(onOutsideClick)) {
+            if (this._containerRef.current) {
+                if (!this._containerRef.current.contains(event.target)) {
+                    onOutsideClick(event, this.props);
+                }
+            }
+        }
+    };
 
     cancelOnSearchDebounce() {
         if (isFunction(this.onSearch.cancel)) {
@@ -318,38 +339,44 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { transformedResults, query } = this.state;
 
         return (
-            <div className="search-input relative w-100">
-                <Search
-                    open={open && !disabled}
-                    minCharacters={minCharacters}
-                    noResultsMessage={noResultsMessage}
-                    onResultSelect={this.handleResultSelect}
-                    onSearchChange={this.handleSearchChange}
-                    onBlur={this.handleBlur}
-                    resultRenderer={this.renderResult}
-                    results={transformedResults}
-                    value={query}
-                    input={{
-                        icon: loading && !disabled ? "" : "search",
-                        iconPosition: "left",
-                        className: this.getInputCssClasses(),
-                        onKeyDown: this.handleInputKeyDown,
-                        ref: this._inputRef,
-                        "data-testid": "search-input-textbox"
-                    }}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    tabIndex={disabled ? "-1" : "0"}
-                    loading={loading && !disabled}
-                />
-                {this.renderClearButton()}
+            <>
+                <div className="search-input relative w-100" ref={this._containerRef}>
+                    <Search
+                        open={open && !disabled}
+                        minCharacters={minCharacters}
+                        noResultsMessage={noResultsMessage}
+                        onResultSelect={this.handleResultSelect}
+                        onSearchChange={this.handleSearchChange}
+                        onBlur={this.handleBlur}
+                        resultRenderer={this.renderResult}
+                        results={transformedResults}
+                        value={query}
+                        input={{
+                            icon: loading && !disabled ? "" : "search",
+                            iconPosition: "left",
+                            className: this.getInputCssClasses(),
+                            onKeyDown: this.handleInputKeyDown,
+                            ref: this._inputRef,
+                            "data-testid": "search-input-textbox"
+                        }}
+                        placeholder={placeholder}
+                        disabled={disabled}
+                        tabIndex={disabled ? "-1" : "0"}
+                        loading={loading && !disabled}
+                    />
+                    {this.renderClearButton()}
 
-                <style jsx>{`
-                    .search-input :global(.prompt) {
-                        padding-right: var(--scale-juliett) !important;
-                    }
-                `}</style>
-            </div>
+                    <style jsx>{`
+                        .search-input :global(.prompt) {
+                            padding-right: var(--scale-juliett) !important;
+                        }
+                    `}</style>
+                </div>
+
+                <If condition={open}>
+                    <DOMEventListener name="click" on={this.handleDocumentClick} />
+                </If>
+            </>
         );
     }
 }

@@ -132,32 +132,37 @@ export class Popup extends AutoControlledPureComponent {
     // - close on outside click
     // - close on blur
     handleBlur = event => {
-        const { onBlur } = this.props;
+        const { onBlur, closeOnBlur } = this.props;
         const { open } = this.state;
 
+        this._hasFocus = false;
+
         if (open) {
-            event.persist();
+            if (closeOnBlur) {
+                event.persist();
 
-            this._hasFocus = false;
-
-            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-            setTimeout(() => {
-                if (!this._hasFocus) {
-                    this.close(event);
-                }
-            }, 0);
-
-            if (!isNil(onBlur)) {
-                onBlur(event, this.props);
+                // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+                setTimeout(() => {
+                    if (!this._hasFocus) {
+                        this.close(event);
+                    }
+                }, 0);
             }
+        }
+
+
+        if (!isNil(onBlur)) {
+            onBlur(event, this.props);
         }
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick } = this.props;
+        const { onOutsideClick, closeOnOutsideClick } = this.props;
 
         if (!this._containerRef.current.contains(event.target)) {
-            this.close(event);
+            if (closeOnOutsideClick) {
+                this.close(event);
+            }
 
             if (!isNil(onOutsideClick)) {
                 onOutsideClick(event, this.props);
@@ -269,7 +274,7 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     render() {
-        const { animationRenderer, closeOnBlur, closeOnOutsideClick } = this.props;
+        const { animationRenderer } = this.props;
         const { open } = this.state;
 
         return (
@@ -278,7 +283,7 @@ export class Popup extends AutoControlledPureComponent {
                     // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
                     // For more info: https://github.com/facebook/react/issues/6410
                     onFocus={this.handleFocus}
-                    onBlur={closeOnBlur ? this.handleBlur : undefined}
+                    onBlur={this.handleBlur}
                     className={this.getCssClasses()}
                     tabIndex="-1"
                     ref={this._containerRef}
@@ -289,10 +294,7 @@ export class Popup extends AutoControlledPureComponent {
 
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
-
-                    <If condition={closeOnOutsideClick}>
-                        <DOMEventListener name="click" on={this.handleOutsideClick} />
-                    </If>
+                    <DOMEventListener name="click" on={this.handleOutsideClick} />
                 </If>
             </>
         );

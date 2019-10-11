@@ -295,6 +295,33 @@ test("wait until specified minCharacters count typed before filtering and showin
     expect(resultsNodes[0]).toHaveTextContent(ALEXANDRE_VALUE);
 });
 
+test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
+    const { getByTestId, container } = render(createSearchInput({
+        closeOnBlur: false
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(document.body);
+
+    expect(getResultsMenu(container)).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
+    const { getByTestId, container } = render(createSearchInput({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(document.body);
+
+    expect(getResultsMenu(container)).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("call onValueChange when a result is selected on click", async () => {
@@ -490,6 +517,36 @@ test("call onBlur when the input blur", async () => {
     }));
 
     fireEvent.blur(await getTextbox(getByTestId));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});
+
+test("call onClear on clear button click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSearchInput({
+        defaultValue: ALEXANDRE_VALUE,
+        onClear: handler
+    }));
+
+    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});
+
+test("call onOutsideClick on outside click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createSearchInput({
+        onOutsideClick: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    userEvent.click(document.body);
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());

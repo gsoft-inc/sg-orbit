@@ -167,20 +167,28 @@ export class MultiSelectDropdown extends PureComponent {
     // - close on outside click
     // - close on blur
     handleDropdownFocusOut = event => {
+        const { closeOnBlur } = this.props;
+
         this._hasFocus = false;
 
+        if (closeOnBlur) {
         // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-        setTimeout(() => {
-            if (!this._hasFocus) {
-                this.close(event);
-            }
-        }, 0);
+            setTimeout(() => {
+                if (!this._hasFocus) {
+                    this.close(event);
+                }
+            }, 0);
+        }
     };
 
     handleDocumentClick = event => {
-        if (this._dropdownRef.current) {
-            if (!this._dropdownRef.current.contains(event.target)) {
-                this.close(event);
+        const { closeOnOutsideClick } = this.props;
+
+        if (closeOnOutsideClick) {
+            if (this._dropdownRef.current) {
+                if (!this._dropdownRef.current.contains(event.target)) {
+                    this.close(event);
+                }
             }
         }
     };
@@ -298,7 +306,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { open, disabled, closeOnBlur, closeOnOutsideClick } = this.props;
+        const { open, disabled } = this.props;
 
         return (
             <>
@@ -321,15 +329,9 @@ export class MultiSelectDropdown extends PureComponent {
 
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
-
-                    <If condition={closeOnBlur}>
-                        <DOMEventListener target={this._dropdownRef} name="focusin" on={this.handleDropdownFocusIn} />
-                        <DOMEventListener target={this._dropdownRef} name="focusout" on={this.handleDropdownFocusOut} />
-                    </If>
-
-                    <If condition={closeOnOutsideClick}>
-                        <DOMEventListener name="click" on={this.handleDocumentClick} />
-                    </If>
+                    <DOMEventListener name="click" on={this.handleDocumentClick} />
+                    <DOMEventListener target={this._dropdownRef} name="focusin" on={this.handleDropdownFocusIn} />
+                    <DOMEventListener target={this._dropdownRef} name="focusout" on={this.handleDropdownFocusOut} />
                 </If>
             </>
         );
