@@ -31,6 +31,8 @@ stories()
                  placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
                  clearText={text("clearText", MultiSelect.defaultProps.clearText)}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  onValuesChange={logValuesChanged}
              />,
          { decorators: [withKnobs] }
@@ -76,6 +78,15 @@ stories()
                  items={DEFAULT_ITEMS}
                  defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
                  disabled
+                 onValuesChange={logValuesChanged}
+             />
+    )
+    .add("dont close on blur",
+         () =>
+             <MultiSelect
+                 items={DEFAULT_ITEMS}
+                 closeOnBlur={false}
+                 closeOnOutsideClick
                  onValuesChange={logValuesChanged}
              />
     );

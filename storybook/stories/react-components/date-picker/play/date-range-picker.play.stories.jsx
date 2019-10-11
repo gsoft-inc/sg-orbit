@@ -65,6 +65,8 @@ stories()
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  className={text("className")}
                  onDatesChange={logDatesChanged}
              />,

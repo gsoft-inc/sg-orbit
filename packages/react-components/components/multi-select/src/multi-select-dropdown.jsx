@@ -1,5 +1,5 @@
 import { AddIcon } from "@orbit-ui/icons";
-import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
+import { ArgumentError, DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { ITEM_SHAPE } from "./items";
 import { MagnifierIcon } from "@orbit-ui/icons";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
@@ -41,6 +41,8 @@ export class MultiSelectDropdown extends PureComponent {
         placeholder: string,
         open: bool,
         disabled: bool,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
@@ -53,7 +55,9 @@ export class MultiSelectDropdown extends PureComponent {
         triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         searchInput: <MultiSelectDropdownSearchInput />,
-        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />
+        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />,
+        closeOnBlur: true,
+        closeOnOutsideClick: false
     };
 
     state = {
@@ -79,7 +83,11 @@ export class MultiSelectDropdown extends PureComponent {
     _hasFocus = false;
 
     componentDidUpdate(prevProps) {
-        const { items } = this.props;
+        const { items, closeOnBlur, closeOnOutsideClick } = this.props;
+
+        if (closeOnBlur && closeOnOutsideClick) {
+            throw new ArgumentError("MultiSelect - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+        }
 
         if (prevProps.items !== items) {
             this.setKeyboardItem(null, null);
@@ -167,6 +175,14 @@ export class MultiSelectDropdown extends PureComponent {
                 this.close(event);
             }
         }, 0);
+    };
+
+    handleDocumentClick = event => {
+        if (this._dropdownRef.current) {
+            if (!this._dropdownRef.current.contains(event.target)) {
+                this.close(event);
+            }
+        }
     };
 
     handleTriggerOpen = event => {
@@ -282,7 +298,7 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { disabled, open } = this.props;
+        const { open, disabled, closeOnBlur, closeOnOutsideClick } = this.props;
 
         return (
             <>
@@ -305,8 +321,15 @@ export class MultiSelectDropdown extends PureComponent {
 
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
-                    <DOMEventListener target={this._dropdownRef} name="focusin" on={this.handleDropdownFocusIn} />
-                    <DOMEventListener target={this._dropdownRef} name="focusout" on={this.handleDropdownFocusOut} />
+
+                    <If condition={closeOnBlur}>
+                        <DOMEventListener target={this._dropdownRef} name="focusin" on={this.handleDropdownFocusIn} />
+                        <DOMEventListener target={this._dropdownRef} name="focusout" on={this.handleDropdownFocusOut} />
+                    </If>
+
+                    <If condition={closeOnOutsideClick}>
+                        <DOMEventListener name="click" on={this.handleDocumentClick} />
+                    </If>
                 </If>
             </>
         );

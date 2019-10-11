@@ -44,6 +44,8 @@ stories()
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  className={text("className")}
                  onDateChange={logDateChanged}
              />,
@@ -138,6 +140,8 @@ stories("/inlined")
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  className={text("className")}
                  onDateChange={logDateChanged}
              />,

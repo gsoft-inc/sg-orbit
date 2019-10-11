@@ -366,6 +366,33 @@ test("clicking on the document body will not focus the trigger button", async ()
     expect(getByTestId(TRIGGER_ID)).not.toHaveFocus();
 });
 
+test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
+    const { getByTestId, container } = render(createMultiSelect({
+        closeOnBlur: false
+    }));
+
+    const menuNode = await openDropdownMenu(getByTestId, container);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(menuNode).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
+    const { getByTestId, container } = render(createMultiSelect({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    const menuNode = await openDropdownMenu(getByTestId, container);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(menuNode).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
