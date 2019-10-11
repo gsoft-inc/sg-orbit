@@ -83,23 +83,23 @@ test("open the dropdown menu on enter keydown", async () => {
 test("close the dropdown menu on esc keydown", async () => {
     const { getByTestId, container } = render(createMultiSelect());
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("close the dropdown menu on outside click", async () => {
     const { getByTestId, container } = render(createMultiSelect());
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(document.body);
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("close the dropdown menu on focusout", async () => {
@@ -107,23 +107,23 @@ test("close the dropdown menu on focusout", async () => {
         defaultValues: [GROUP_CREATED_VALUE]
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     fireEvent.focusOut(getByTestId(SEARCH_INPUT_ID));
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("close the dropdown menu on trigger click", async () => {
     const { getByTestId, container } = render(createMultiSelect());
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("when disabled, dont open the dropdown menu on trigger click", async () => {
@@ -167,12 +167,12 @@ test("dont close the dropdown menu on search input click", async () => {
         orbitId: "I AM 1"
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(getByTestId(SEARCH_INPUT_ID));
     await wait();
 
-    expect(menuNode).toBeInTheDocument();
+    expect(getDropdownMenu(container)).toBeInTheDocument();
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item click", async () => {
@@ -180,24 +180,24 @@ test("when closeOnSelect is false, dont close the dropdown menu on item click", 
         orbitId: "I AM 2"
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
-    expect(menuNode).toBeInTheDocument();
+    expect(getDropdownMenu(container)).toBeInTheDocument();
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item enter keydown", async () => {
     const { getByTestId, container } = render(createMultiSelect());
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(menuNode).toBeInTheDocument();
+    expect(getDropdownMenu(container)).toBeInTheDocument();
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item click", async () => {
@@ -205,12 +205,12 @@ test("when closeOnSelect is true, close the dropdown menu on item click", async 
         closeOnSelect: true
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item enter keydown", async () => {
@@ -218,13 +218,13 @@ test("when closeOnSelect is true, close the dropdown menu on item enter keydown"
         closeOnSelect: true
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 test("without a search input, all the dropdown menu items are displayed", async () => {
@@ -371,12 +371,12 @@ test("when closeOnBlur is false, dont close the dropdown menu on blur", async ()
         closeOnBlur: false
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(document.body);
     await wait();
 
-    expect(menuNode).toBeInTheDocument();
+    expect(getDropdownMenu(container)).toBeInTheDocument();
 });
 
 test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
@@ -385,12 +385,12 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropd
         closeOnOutsideClick: true
     }));
 
-    const menuNode = await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(getByTestId, container);
 
     userEvent.click(document.body);
     await wait();
 
-    expect(menuNode).not.toBeInTheDocument();
+    expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
 // ***** Handlers *****
