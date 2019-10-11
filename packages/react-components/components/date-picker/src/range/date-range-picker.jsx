@@ -170,7 +170,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
             numberOfMonths,
             presetsComponent,
             presets,
-            buttons
+            buttons,
+            onPrevMonthClick: () => console.log("******** onPrevMonthClick"),
+            onNextMonthClick: () => console.log("******** onNextMonthClick")
         });
     }
 
