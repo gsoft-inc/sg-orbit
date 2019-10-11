@@ -1,12 +1,30 @@
+import { NAVIGATION_ROLE } from "./element-roles";
 import { PureCalendarDay } from "react-dates/lib/components/CalendarDay";
 import { css } from "react-with-styles";
 import getCalendarDaySettings from "react-dates/lib/utils/getCalendarDaySettings";
+import raf from "raf";
 
 // Monkey patch fixes:
 //
 // The original react-dates CalendarDay will focus the "focusedDate" after a month transition. This behavior is problematic because if
 // you use the keyboard to navigate between months you always loose the focus on the prev / next navigation buttons.
-PureCalendarDay.prototype.componentDidUpdate = undefined;
+PureCalendarDay.prototype.componentDidUpdate = function(prevProps) {
+    const { isFocused, tabIndex } = this.props;
+    if (tabIndex === 0) {
+        if (isFocused || tabIndex !== prevProps.tabIndex) {
+            // When the last element that has been focus is the navigation button, dont focus the day because the user will need to shift+tab if he want
+            // to navigate multiple months.
+            // The nav role is set by the custom DatePickerCalendar component.
+            if (document.activeElement.dataset.role !== NAVIGATION_ROLE) {
+                raf(() => {
+                    if (this.buttonRef) {
+                        this.buttonRef.focus();
+                    }
+                });
+            }
+        }
+    }
+};
 
 // Monkey patch fixes:
 //

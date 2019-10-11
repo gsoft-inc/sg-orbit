@@ -3,6 +3,7 @@ import "./monkey-patch-day-picker";
 
 import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { ChevronIcon } from "@orbit-ui/icons";
+import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -136,13 +137,13 @@ export class DatePickerCalendar extends PureComponent {
     renderNavPrev() {
         const { navPrevIcon } = this.props;
 
-        return <div tabIndex="0" className="flex">{navPrevIcon}</div>;
+        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{navPrevIcon}</div>;
     }
 
     renderNavNext() {
         const { navNextIcon } = this.props;
 
-        return <div tabIndex="0" className="flex">{navNextIcon}</div>;
+        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{navNextIcon}</div>;
     }
 
     renderCalendar() {
