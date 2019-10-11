@@ -256,7 +256,7 @@ export class Popup extends AutoControlledPureComponent {
                     // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
                     // For more info: https://github.com/facebook/react/issues/6410
                     onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
+                    // onBlur={this.handleBlur}
                     className={this.getCssClasses()}
                     tabIndex="-1"
                 >

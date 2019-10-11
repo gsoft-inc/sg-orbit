@@ -4,10 +4,15 @@ import getCalendarDaySettings from "react-dates/lib/utils/getCalendarDaySettings
 
 // Monkey patch fixes:
 //
-// The original react date CalendarDay component force a blur on a calendar day mouseUp which break the standard focus / blur event flow and prevent
+// The original react-dates CalendarDay will focus the "focusedDate" after a month transition. This behavior is problematic because if
+// you use the keyboard to navigate between months you always loose the focus on the prev / next navigation buttons.
+PureCalendarDay.prototype.componentDidUpdate = undefined;
+
+// Monkey patch fixes:
+//
+// The original react-dates CalendarDay component force a blur on a calendar day mouseUp which break the standard focus / blur event flow and prevent
 // us from properly implement a "closeOnBlur" feature for the date pickers (the "closeOnBlur" code is part of the popup component).
 // Removing the blur on mouseUp from the CalendarDay component doesn't seem to have any bad side effects and fix our problem.
-
 PureCalendarDay.prototype.render = function() {
     const {
         day,
