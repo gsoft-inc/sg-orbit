@@ -1,4 +1,5 @@
 import {
+    ArgumentError,
     AutoControlledPureComponent,
     InvalidOperationError,
     KEYS,
@@ -67,7 +68,9 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onFetchResults: func.isRequired,
         onResults: func,
+        onClear: func,
         onBlur: func,
+        onOutsideClick: func,
         onKeyDown: func,
         onVisibilityChange: func,
         resultRenderer: func,
@@ -82,13 +85,17 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200
+        debounceDelay: 200,
+        closeOnBlur: true,
+        closeOnOutsideClick: false
     };
 
     static autoControlledProps = ["open"];
@@ -103,6 +110,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, RemoteSearchInput.autoControlledProps);
+    }
+
+    componentDidUpdate() {
+        const { closeOnBlur, closeOnOutsideClick } = this.props;
+
+        if (closeOnBlur && closeOnOutsideClick) {
+            throw new ArgumentError("RemoteSearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+        }
     }
 
     componentWillUnmount() {
@@ -122,16 +137,22 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
 
         this.close(event);
 
-        if (isNil(value)) {
-            this.handleClear(event);
-        }
-
         onValueChange(event, value, this.props);
     };
 
-    handleClear = () => {
+    handleClear = event => {
+        const { onClear, closeOnBlur } = this.props;
+
         this.cancelFetch();
         this.hideLoading();
+
+        if (!closeOnBlur) {
+            this.close(event);
+        }
+
+        if (!isNil(onClear)) {
+            onClear(event, this.props);
+        }
     };
 
     // Closing the search input on blur will:
@@ -139,14 +160,30 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     // - close on blur
     // - close on value select
     handleBlur = event => {
-        const { onBlur } = this.props;
+        const { onBlur, closeOnBlur } = this.props;
 
-        this.cancelFetch();
-        this.hideLoading();
-        this.close(event);
+        if (closeOnBlur) {
+            this.cancelFetch();
+            this.hideLoading();
+            this.close(event);
+        }
 
         if (!isNil(onBlur)) {
             onBlur(event, this.props);
+        }
+    };
+
+    handleOutsideClick = event => {
+        const { onOutsideClick, closeOnOutsideClick } = this.props;
+
+        if (closeOnOutsideClick) {
+            this.cancelFetch();
+            this.hideLoading();
+            this.close(event);
+        }
+
+        if (!isNil(onOutsideClick)) {
+            onOutsideClick(event, this.props);
         }
     };
 
@@ -279,8 +316,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 defaultValue={defaultValue}
                 onValueChange={this.handleValueChange}
                 onSearch={this.handleSearch}
+                onClear={this.handleClear}
                 onBlur={this.handleBlur}
                 onKeyDown={this.handleKeyDown}
+                onOutsideClick={this.handleOutsideClick}
                 resultRenderer={resultRenderer}
                 clearOnSelect={clearOnSelect}
                 noResultsMessage={noResultsMessage}

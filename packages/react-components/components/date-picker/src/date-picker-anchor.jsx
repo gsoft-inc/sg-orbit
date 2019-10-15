@@ -11,7 +11,10 @@ export class DatePickerAnchor extends PureComponent {
         position: oneOf(POSITIONS),
         offsets: arrayOf(string),
         // eslint-disable-next-line react/no-unused-prop-types
-        onVisibilityChange: func
+        onVisibilityChange: func,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
+        className: string
     };
 
     static defaultProps = {
@@ -28,7 +31,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offsets, className } = this.props;
+        const { open, input, calendar, position, offsets, closeOnBlur, closeOnOutsideClick, className } = this.props;
 
         return (
             <Popup
@@ -37,6 +40,8 @@ export class DatePickerAnchor extends PureComponent {
                 position={position}
                 offsets={offsets}
                 onVisibilityChange={this.handleVisibilityChange}
+                closeOnBlur={closeOnBlur}
+                closeOnOutsideClick={closeOnOutsideClick}
                 className={className}
             >
                 {calendar}

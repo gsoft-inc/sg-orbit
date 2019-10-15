@@ -362,6 +362,33 @@ test("show the loading state until the remote call end", async () => {
     expect(textboxNode.parentNode.parentNode).not.toHaveClass("loading");
 });
 
+test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
+    const { getByTestId, container } = render(createRemoteSearchInput({
+        closeOnBlur: false
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(document.body);
+
+    expect(getResultsMenu(container)).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
+    const { getByTestId, container } = render(createRemoteSearchInput({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await waitForElement(() => getResultsMenu(container));
+
+    userEvent.click(document.body);
+
+    expect(getResultsMenu(container)).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("call onValueChange when a result is selected on click", async () => {
@@ -568,4 +595,34 @@ test("call onKeyDown when any keys down on the input", async () => {
     await wait();
 
     expect(handler).toHaveBeenCalledTimes(3);
+});
+
+test("call onClear when the clear button is clicked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        defaultValue: ALEXANDRE_VALUE,
+        onClear: handler
+    }));
+
+    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+});
+
+test("call onOutsideClick on outside click", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(createRemoteSearchInput({
+        onOutsideClick: handler
+    }));
+
+    userEvent.type(await getTextbox(getByTestId), "a");
+    await wait();
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
 });

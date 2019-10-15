@@ -278,7 +278,7 @@ Ex:
 
 A component should have a default state
 
-A component should have a focus state
+A component should have a tab / focus state
 
 A component should have an hover state
 
@@ -297,7 +297,9 @@ When a component can be open:
 
 #### Accessibility
 
-A component should always be accessible with tabs, even when disabled.
+A non disabled component should always be accessible with tabs
+
+A disabled component shouldn't be accessible with tabs
 
 When a component offer multiple values, those values should be navigable with arrows and / or tabs.
 

@@ -250,6 +250,56 @@ test("when the calendar close, the input should be focused", async () => {
     expect(textboxNode).toHaveFocus();
 });
 
+test("when a date is selected and the calendar is closed without applying the selection, clear the date", async () => {
+    const ref = createRef();
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createSingleDatePicker({
+        reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
+        dateFormat: DATE_FORMAT
+    }));
+
+    await openCalendar(getByTestId);
+
+    ref.current.triggerDateChange(date);
+
+    const textboxNode = getByTestId(TEXTBOX_ID);
+    expect(textboxNode).toHaveTextContent(formattedDate);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(textboxNode).not.toHaveTextContent(formattedDate);
+});
+
+test("when closeOnBlur is false, dont close the calendar on blur", async () => {
+    const { getByTestId } = render(createSingleDatePicker({
+        closeOnBlur: false
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the calendar on outside click", async () => {
+    const { getByTestId } = render(createSingleDatePicker({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("dont call onDateChange when a date is selected", async () => {

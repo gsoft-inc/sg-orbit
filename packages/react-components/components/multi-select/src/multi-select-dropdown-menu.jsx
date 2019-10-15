@@ -106,7 +106,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
         const { searchInput, className } = this.props;
 
         return (
-            <Dropdown.Menu className={className} data-testid="multi-select-dropdown-menu">
+            <Dropdown.Menu className={className}>
                 {searchInput}
                 <Dropdown.Menu
                     scrolling

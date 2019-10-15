@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
@@ -25,21 +25,26 @@ export class Popup extends AutoControlledPureComponent {
         onDocumentKeyDown: func,
         onFocus: func,
         onBlur: func,
+        onOutsideClick: func,
         animationRenderer: func,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
     static defaultProps = {
         position: BOTTOM_LEFT,
         offsets: ["0px", "0px"],
-        animationRenderer: fadeInAnimationRenderer
+        animationRenderer: fadeInAnimationRenderer,
+        closeOnBlur: true,
+        closeOnOutsideClick: false
     };
 
     static autoControlledProps = ["open"];
 
     state = {
         open: false,
-        triggerHeight: null
+        triggerHeight: 0
     };
 
     // Using a focus / unfocus flag was not the preferred way to prevent the dropdown from closing on blur when the new focused item was inside the dropdown.
@@ -53,6 +58,7 @@ export class Popup extends AutoControlledPureComponent {
     // after that tick, it means that the new focused element is not inside the dropdown and we can safely close the dropdown.
     _hasFocus = false;
     _triggerRef = createRef();
+    _containerRef = createRef();
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
@@ -67,7 +73,11 @@ export class Popup extends AutoControlledPureComponent {
     }
 
     componentDidUpdate(prevProps) {
-        const { open } = this.props;
+        const { open, closeOnBlur, closeOnOutsideClick } = this.props;
+
+        if (closeOnBlur && closeOnOutsideClick) {
+            throw new ArgumentError("Popup - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+        }
 
         if (open !== prevProps.open) {
             if (!open) {
@@ -88,7 +98,7 @@ export class Popup extends AutoControlledPureComponent {
         }
     };
 
-    handleTriggerBoundingClientRectChange = ({ height }) => {
+    handleTriggerSizeChange = ({ height }) => {
         this.setState({ triggerHeight: height });
     };
 
@@ -122,23 +132,40 @@ export class Popup extends AutoControlledPureComponent {
     // - close on outside click
     // - close on blur
     handleBlur = event => {
-        const { onBlur } = this.props;
+        const { onBlur, closeOnBlur } = this.props;
         const { open } = this.state;
 
+        this._hasFocus = false;
+
         if (open) {
-            event.persist();
+            if (closeOnBlur) {
+                event.persist();
 
-            this._hasFocus = false;
+                // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+                setTimeout(() => {
+                    if (!this._hasFocus) {
+                        this.close(event);
+                    }
+                }, 0);
+            }
+        }
 
-            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-            setTimeout(() => {
-                if (!this._hasFocus) {
-                    this.close(event);
-                }
-            }, 0);
 
-            if (!isNil(onBlur)) {
-                onBlur(event, this.props);
+        if (!isNil(onBlur)) {
+            onBlur(event, this.props);
+        }
+    };
+
+    handleOutsideClick = event => {
+        const { onOutsideClick, closeOnOutsideClick } = this.props;
+
+        if (!this._containerRef.current.contains(event.target)) {
+            if (closeOnOutsideClick) {
+                this.close(event);
+            }
+
+            if (!isNil(onOutsideClick)) {
+                onOutsideClick(event, this.props);
             }
         }
     };
@@ -224,7 +251,7 @@ export class Popup extends AutoControlledPureComponent {
 
         return cloneElement(trigger, {
             open: open,
-            onBoundingClientRectChange: this.handleTriggerBoundingClientRectChange,
+            onSizeChange: this.handleTriggerSizeChange,
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,
             ref: this._triggerRef
@@ -248,7 +275,7 @@ export class Popup extends AutoControlledPureComponent {
 
     render() {
         const { animationRenderer } = this.props;
-        const { open, triggerHeight } = this.state;
+        const { open } = this.state;
 
         return (
             <>
@@ -259,16 +286,15 @@ export class Popup extends AutoControlledPureComponent {
                     onBlur={this.handleBlur}
                     className={this.getCssClasses()}
                     tabIndex="-1"
+                    ref={this._containerRef}
                 >
                     {this.renderTrigger()}
-                    {/* TODO: use https://www.npmjs.com/package/resize-observer-polyfill */}
-                    <If condition={!isNil(triggerHeight)}>
-                        {animationRenderer(open, this.renderPopup, this.props)}
-                    </If>
+                    {animationRenderer(open, this.renderPopup, this.props)}
                 </div>
 
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
+                    <DOMEventListener name="click" on={this.handleOutsideClick} />
                 </If>
             </>
         );

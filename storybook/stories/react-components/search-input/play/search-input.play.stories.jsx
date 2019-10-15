@@ -66,6 +66,15 @@ stories()
                  disabled
                  onValueChange={logValueChanged}
              />
+    )
+    .add("dont close on blur",
+         () =>
+             <SearchInput
+                 results={DEFAULT_RESULTS}
+                 closeOnBlur={false}
+                 closeOnOutsideClick
+                 onValueChange={logValueChanged}
+             />
     );
 
 stories("/controlled")

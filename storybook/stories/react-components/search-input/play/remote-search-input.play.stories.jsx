@@ -63,6 +63,14 @@ stories()
                  onValueChange={logValueChanged}
              />
     )
+    .add("dont close on blur",
+         () =>
+             <StarWarsCharactersSearchInput
+                 closeOnBlur={false}
+                 closeOnOutsideClick
+                 onValueChange={logValueChanged}
+             />
+    )
     .add("failing fetch",
          () =>
              <RemoteSearchInput

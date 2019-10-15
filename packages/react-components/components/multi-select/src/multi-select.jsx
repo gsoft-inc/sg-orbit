@@ -52,6 +52,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         defaultOpen: bool,
         open: bool,
         disabled: bool,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
@@ -194,7 +196,7 @@ export class MultiSelect extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -209,7 +211,9 @@ export class MultiSelect extends AutoControlledPureComponent {
             noResultsMessage,
             triggerText: addText,
             open,
-            disabled
+            disabled,
+            closeOnBlur,
+            closeOnOutsideClick
         });
     };
 

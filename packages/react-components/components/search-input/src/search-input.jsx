@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { RESULT_SHAPE } from "./results";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
@@ -16,7 +16,9 @@ export class SearchInput extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onVisibilityChange: func,
         onSearch: func,
+        onClear: func,
         onBlur: func,
+        onOutsideClick: func,
         resultRenderer: func,
         clearOnSelect: bool,
         noResultsMessage: string,
@@ -28,12 +30,16 @@ export class SearchInput extends AutoControlledPureComponent {
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
     static defaultProps = {
         onSearch: startsWithSearch,
-        minCharacters: 1
+        minCharacters: 1,
+        closeOnBlur: true,
+        closeOnOutsideClick: false
     };
 
     static autoControlledProps = ["open"];
@@ -45,6 +51,14 @@ export class SearchInput extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SearchInput.autoControlledProps);
+    }
+
+    componentDidUpdate() {
+        const { closeOnBlur, closeOnOutsideClick } = this.props;
+
+        if (closeOnBlur && closeOnOutsideClick) {
+            throw new ArgumentError("SearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+        }
     }
 
     // TODO: memoizing search result could greatly improved the performance of this component:
@@ -68,17 +82,21 @@ export class SearchInput extends AutoControlledPureComponent {
 
         this.close(event);
 
-        if (isNil(value)) {
-            this.handleClear(event);
-        }
-
         onValueChange(event, value, this.props);
     };
 
-    handleClear = () => {
-        const { results } = this.props;
+    handleClear = event => {
+        const { results, onClear, closeOnBlur } = this.props;
 
         this.setState({ visibleResults: results });
+
+        if (!closeOnBlur) {
+            this.close(event);
+        }
+
+        if (!isNil(onClear)) {
+            onClear(event, this.props);
+        }
     };
 
     // Closing the search input on blur will:
@@ -86,9 +104,11 @@ export class SearchInput extends AutoControlledPureComponent {
     // - close on blur
     // - close on value select
     handleBlur = event => {
-        const { onBlur } = this.props;
+        const { onBlur, closeOnBlur } = this.props;
 
-        this.close(event);
+        if (closeOnBlur) {
+            this.close(event);
+        }
 
         if (!isNil(onBlur)) {
             onBlur(event, this.props);
@@ -105,6 +125,18 @@ export class SearchInput extends AutoControlledPureComponent {
 
         if (!isNil(onKeyDown)) {
             onKeyDown(event, this.props);
+        }
+    };
+
+    handleOutsideClick = event => {
+        const { onOutsideClick, closeOnOutsideClick } = this.props;
+
+        if (closeOnOutsideClick) {
+            this.close(event);
+        }
+
+        if (!isNil(onOutsideClick)) {
+            onOutsideClick(event, this.props);
         }
     };
 
@@ -146,8 +178,10 @@ export class SearchInput extends AutoControlledPureComponent {
                 defaultValue={defaultValue}
                 onValueChange={this.handleValueChange}
                 onSearch={this.handleSearch}
+                onClear={this.handleClear}
                 onBlur={this.handleBlur}
                 onKeyDown={this.handleKeyDown}
+                onOutsideClick={this.handleOutsideClick}
                 resultRenderer={resultRenderer}
                 clearOnSelect={clearOnSelect}
                 noResultsMessage={noResultsMessage}

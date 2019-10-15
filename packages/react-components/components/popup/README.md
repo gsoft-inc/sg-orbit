@@ -5,19 +5,30 @@
 With npm:
 
 ```bash
-npm install @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-popup
+npm install @orbit-ui/react-popup
 ```
 
 ## Usage
 
 ```javascript
-import { Popup } from "@orbit-ui/react-popup";
+import { 
+    Popup,
+    ...
+} from "@orbit-ui/react-popup";
 ```
 
 Or
 
 ```javascript
-import { Popup } from "@orbit-ui/react-components";
+import {
+    Popup,
+    TOP_LEFT, 
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-components";
 ```
 
 Full documentation available at: https://sg-orbit.netlify.com

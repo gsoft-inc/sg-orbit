@@ -1,6 +1,7 @@
 import { ChevronIcon } from "@orbit-ui/icons";
 import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
-import { PureComponent } from "react";
+import { PureComponent, createRef } from "react";
+import { ResizeObserver } from "../resize-observer";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -10,7 +11,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
         date: momentType,
         onOpen: func,
         onClose: func,
-        onBoundingClientRectChange: func,
+        onSizeChange: func,
         onClick: func,
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -36,19 +37,27 @@ export class InlineSingleDatePickerInput extends PureComponent {
         disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
-    _containerRef = null;
+    _containerRef = createRef();
 
-    setButtonRef = ref => {
-        const { onBoundingClientRectChange } = this.props;
+    componentDidMount() {
+        this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
+        this._containerResizeObserver.observe(this._containerRef.current);
+    }
 
-        this._containerRef = ref;
+    componentWillUnmount() {
+        this._containerResizeObserver.disconnect();
+    }
 
-        if (!isNil(ref)) {
-            if (!isNil(onBoundingClientRectChange)) {
-                setTimeout(() => {
-                    onBoundingClientRectChange(ref.getBoundingClientRect(), this.props);
-                }, 0);
-            }
+    handleContainerSizeChange = entries => {
+        const { onSizeChange } = this.props;
+
+        if (!isNil(onSizeChange)) {
+            // The native chrome implementation doesn't currently support the "border-box" specs. Therefore, we rely on "getBoundingClientRect"
+            // for the value when a size changed is detected.
+            // Specs available here: https://drafts.csswg.org/resize-observer-1/
+            const dimensions = entries[0].target.getBoundingClientRect();
+
+            onSizeChange({ width: dimensions.width, height: dimensions.height });
         }
     };
 
@@ -138,9 +147,9 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
                 className={this.getCssClasses()}
-                tabIndex="0"
+                tabIndex={disabled ? "-1" : "0"}
                 disabled={disabled}
-                ref={this.setButtonRef}
+                ref={this._containerRef}
                 data-testid="inline-single-date-picker-input"
             >
                 <span className="mr2 fw5">{this.getValue()}</span>
@@ -151,8 +160,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
 
     // This method is part of the component external API.
     focus() {
-        if (!isNil(this._containerRef)) {
-            this._containerRef.focus();
+        if (!isNil(this._containerRef.current)) {
+            this._containerRef.current.focus();
         }
     }
 }

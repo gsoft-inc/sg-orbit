@@ -39,6 +39,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         defaultOpen: bool,
         open: bool,
         disabled: bool,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
@@ -80,12 +82,12 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     handleAnchorVisibilityChange = (event, shouldOpen) => {
-        const { date } = this.state;
+        const { startDate, endDate } = this.state;
 
         if (shouldOpen) {
             this.openCalendar(event);
         } else {
-            this.setState({ selectedDate: date });
+            this.setState({ selectedStartDate: startDate, selectedEndDate: endDate, selectedPresetName: null });
             this.closeCalendar(event);
         }
     }
@@ -175,7 +177,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, disabled, className } = this.props;
+        const { position, offsets, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -187,6 +189,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 offsets={offsets}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
+                closeOnBlur={closeOnBlur}
+                closeOnOutsideClick={closeOnOutsideClick}
                 className={className}
             />
         );

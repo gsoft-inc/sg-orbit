@@ -1,6 +1,6 @@
 import { AddIcon } from "@orbit-ui/icons";
+import { ArgumentError, DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { ITEM_SHAPE } from "./items";
-import { KEYS } from "@orbit-ui/react-components-shared";
 import { MagnifierIcon } from "@orbit-ui/icons";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -41,6 +41,8 @@ export class MultiSelectDropdown extends PureComponent {
         placeholder: string,
         open: bool,
         disabled: bool,
+        closeOnBlur: bool,
+        closeOnOutsideClick: bool,
         className: string
     };
 
@@ -53,7 +55,9 @@ export class MultiSelectDropdown extends PureComponent {
         triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
         searchInput: <MultiSelectDropdownSearchInput />,
-        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />
+        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />,
+        closeOnBlur: true,
+        closeOnOutsideClick: false
     };
 
     state = {
@@ -78,23 +82,11 @@ export class MultiSelectDropdown extends PureComponent {
     // This means that when a child of the dropdown is focus / blur the parent is not notified.
     _hasFocus = false;
 
-    componentDidMount() {
-        const { open } = this.props;
-
-        if (open) {
-            this.bindEvents();
-        }
-    }
-
     componentDidUpdate(prevProps) {
-        const { items, open } = this.props;
+        const { items, closeOnBlur, closeOnOutsideClick } = this.props;
 
-        if (open !== prevProps.open) {
-            if (open) {
-                this.bindEvents();
-            } else {
-                this.unbindEvents();
-            }
+        if (closeOnBlur && closeOnOutsideClick) {
+            throw new ArgumentError("MultiSelect - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (prevProps.items !== items) {
@@ -103,7 +95,6 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     componentWillUnmount() {
-        this.unbindEvents();
         this.cancelOnSearchDebounce();
     }
 
@@ -176,16 +167,29 @@ export class MultiSelectDropdown extends PureComponent {
     // - close on outside click
     // - close on blur
     handleDropdownFocusOut = event => {
+        const { closeOnBlur } = this.props;
+
         this._hasFocus = false;
 
-        // TODO: I dont think I need this check, If I need it, it should be replaced by a check if it's open or not
-        if (!this._triggerRef.current.isElement(event.target)) {
-            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+        if (closeOnBlur) {
+        // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {
                 if (!this._hasFocus) {
                     this.close(event);
                 }
             }, 0);
+        }
+    };
+
+    handleDocumentClick = event => {
+        const { closeOnOutsideClick } = this.props;
+
+        if (closeOnOutsideClick) {
+            if (this._dropdownRef.current) {
+                if (!this._dropdownRef.current.contains(event.target)) {
+                    this.close(event);
+                }
+            }
         }
     };
 
@@ -231,22 +235,6 @@ export class MultiSelectDropdown extends PureComponent {
         }, 0);
 
         onClose(event, this.props);
-    }
-
-    bindEvents() {
-        document.addEventListener("keydown", this.handleDocumentKeyDown, false);
-
-        // TODO: is it right to bind those events when it's open? There might be a kind of race condition to make sure they are bind before the search
-        // input is focused? Maybe that's why the autofocus was not working with the search-input ?
-        this._dropdownRef.current.addEventListener("focusin", this.handleDropdownFocusIn);
-        this._dropdownRef.current.addEventListener("focusout", this.handleDropdownFocusOut);
-    }
-
-    unbindEvents() {
-        document.removeEventListener("keydown", this.handleDocumentKeyDown, false);
-
-        this._dropdownRef.current.removeEventListener("focusin", this.handleDropdownFocusIn);
-        this._dropdownRef.current.removeEventListener("focusout", this.handleDropdownFocusOut);
     }
 
     setKeyboardItem(item, index) {
@@ -318,23 +306,34 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { disabled, open } = this.props;
+        const { open, disabled } = this.props;
 
         return (
-            <Ref innerRef={this._dropdownRef}>
-                <MonkeyPatchDropdown
-                    open={open}
-                    trigger={this.renderTrigger()}
-                    disabled={disabled}
-                    // Otherwise the "listbox" div will be focus first instead of the trigger button.
-                    tabIndex="-1"
-                    upward={false}
-                    floating
-                    className={this.getClasses()}
-                >
-                    <If condition={open}>{this.renderMenu()}</If>
-                </MonkeyPatchDropdown>
-            </Ref>
+            <>
+                <Ref innerRef={this._dropdownRef}>
+                    <MonkeyPatchDropdown
+                        open={open}
+                        trigger={this.renderTrigger()}
+                        disabled={disabled}
+                        // Otherwise the "listbox" div will be focus first instead of the trigger button.
+                        tabIndex="-1"
+                        upward={false}
+                        floating
+                        className={this.getClasses()}
+                    >
+                        <If condition={open}>
+                            {this.renderMenu()}
+                        </If>
+                    </MonkeyPatchDropdown>
+                </Ref>
+
+                <If condition={open}>
+                    <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
+                    <DOMEventListener name="click" on={this.handleDocumentClick} />
+                    <DOMEventListener target={this._dropdownRef} name="focusin" on={this.handleDropdownFocusIn} />
+                    <DOMEventListener target={this._dropdownRef} name="focusout" on={this.handleDropdownFocusOut} />
+                </If>
+            </>
         );
     }
 }

@@ -8,7 +8,12 @@ import cx from "classnames";
 
 function defaultItemRenderer(item, { disabled, onRemove }) {
     return (
-        <Label basic className={cx("large", { icon: !disabled })} disabled={disabled} data-testid={`multi-select-selected-item-${item.value}`}>
+        <Label
+            basic
+            className={cx("large", { icon: !disabled })}
+            disabled={disabled}
+            data-testid={`multi-select-selected-item-${item.value}`}
+        >
             {item.text}
             <If condition={!disabled}>
                 <Button

@@ -44,6 +44,8 @@ stories()
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  className={text("className")}
                  onDateChange={logDateChanged}
              />,
@@ -109,6 +111,14 @@ stories()
                  disabled
                  onDateChange={logDateChanged}
              />
+    )
+    .add("dont close on blur",
+         () =>
+             <SingleDatePicker
+                 closeOnBlur={false}
+                 closeOnOutsideClick
+                 onDateChange={logDateChanged}
+             />
     );
 
 stories("/inlined")
@@ -130,6 +140,8 @@ stories("/inlined")
                  dateFormat={text("dateFormat")}
                  position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
                  disabled={boolean("disabled", false)}
+                 closeOnBlur={boolean("closeOnBlur", true)}
+                 closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
                  className={text("className")}
                  onDateChange={logDateChanged}
              />,
@@ -145,6 +157,14 @@ stories("/inlined")
          () =>
              <InlineSingleDatePicker
                  disabled
+                 onDateChange={logDateChanged}
+             />
+    )
+    .add("dont close on blur",
+         () =>
+             <InlineSingleDatePicker
+                 closeOnBlur={false}
+                 closeOnOutsideClick
                  onDateChange={logDateChanged}
              />
     );

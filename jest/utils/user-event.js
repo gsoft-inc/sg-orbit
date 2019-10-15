@@ -1,4 +1,6 @@
-import { fireEvent } from "@testing-library/dom";
+/* eslint-disable */
+
+const { fireEvent } = require("@testing-library/dom");
 
 function wait(time) {
     return new Promise(function (resolve) {
@@ -129,11 +131,6 @@ const userEvent = {
             default:
                 clickElement(element, wasAnotherElementFocused ? focusedElement : null);
         }
-
-        // if (wasAnotherElementFocused) {
-        //     focusedElement.blur();
-        //     fireEvent.focusOut(focusedElement);
-        // }
     },
 
     dblClick(element) {
@@ -238,6 +235,14 @@ const userEvent = {
         element.addEventListener("blur", fireChangeEvent);
     },
 
+    keyDown(element, options) {
+        fireEvent.keyDown(element, options);
+
+        if (element.tagName === "BUTTON") {
+            fireEvent.click(element);
+        }
+    },
+
     tab({ shift = false } = {}) {
         const focusableElements = document.querySelectorAll(
             "input, button, select, textarea, a[href], [tabindex]"
@@ -269,4 +274,4 @@ const userEvent = {
     }
 };
 
-export default userEvent;
+module.exports = userEvent;

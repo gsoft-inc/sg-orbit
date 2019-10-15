@@ -183,6 +183,33 @@ test("when the calendar close, the input should be focused", async () => {
     expect(inputNode).toHaveFocus();
 });
 
+test("when closeOnBlur is false, dont close the calendar on blur", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        closeOnBlur: false
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).toBeInTheDocument();
+});
+
+test("when closeOnBlur is false and closeOnOutsideClick is true, close the calendar on outside click", async () => {
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        closeOnBlur: false,
+        closeOnOutsideClick: true
+    }));
+
+    const calendarNode = await openCalendar(getByTestId);
+
+    userEvent.click(document.body);
+    await wait();
+
+    expect(calendarNode).not.toBeInTheDocument();
+});
+
 // ***** Handlers *****
 
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {

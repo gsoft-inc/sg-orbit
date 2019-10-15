@@ -50,6 +50,8 @@ export class DatePickerButtons extends PureComponent {
                 className={!canClear ? "ghost short disabled" : "ghost short"}
                 type="button"
                 data-testid="date-picker-calendar-clear-button"
+                disabled={!canClear}
+                tabIndex={canClear ? "0" : "-1"}
             >
                 {clearText}
             </Button>
@@ -69,6 +71,8 @@ export class DatePickerButtons extends PureComponent {
                     className={!canApply ? "ghost short disabled" : "primary ghost short"}
                     role="button"
                     data-testid="date-picker-calendar-apply-button"
+                    disabled={!canApply}
+                    tabIndex={canApply ? "0" : "-1"}
                 >
                     {applyText}
                 </Button>
