@@ -597,7 +597,7 @@ test("call onKeyDown when any keys down on the input", async () => {
     expect(handler).toHaveBeenCalledTimes(3);
 });
 
-test("call onClear on clear button click", async () => {
+test("call onClear when the clear button is clicked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createRemoteSearchInput({

@@ -184,7 +184,6 @@ export class DatePickerTextboxInput extends PureComponent {
             tabIndex={disabled ? "-1" : "0"}
             autoComplete="off"
             disabled={disabled}
-            // ref={this.setContainerRef}
             ref={this._containerRef}
             data-testid="date-picker-textbox-input"
         >

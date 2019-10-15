@@ -522,7 +522,7 @@ test("call onBlur when the input blur", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
 });
 
-test("call onClear on clear button click", async () => {
+test("call onClear when the clear button is clicked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSearchInput({
