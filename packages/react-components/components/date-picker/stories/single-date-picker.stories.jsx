@@ -13,7 +13,8 @@ import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pic
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { momentKnob } from "./shared";
 import { noop } from "lodash";
-import { storiesBuilder } from "@utils/stories-builder";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 import moment from "moment";
 
 export function logDateChanged(event, date) {
@@ -21,9 +22,13 @@ export function logDateChanged(event, date) {
 }
 
 function stories(segment) {
-    return storiesBuilder(module, "Single-Date-Picker")
+    return storiesOfBuilder(module, "Single-Date-Picker")
         .segment(segment)
-        .layoutWidth("80%")
+        .parameters(
+            paramsBuilder()
+                .width("80%")
+                .build()
+        )
         .build();
 }
 
@@ -67,9 +72,11 @@ stories()
                  onDateChange={logDateChanged}
              />,
          {
-             storyParameters: {
-                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date restriction",
@@ -79,9 +86,11 @@ stories()
                  onDateChange={logDateChanged}
              />,
          {
-             storyParameters: {
-                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min & max dates restriction",
@@ -92,10 +101,12 @@ stories()
                  onDateChange={logDateChanged}
              />,
          {
-             storyParameters: {
-                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
-                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
+                     maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("2 months visible",

@@ -1,4 +1,4 @@
-import { multiSelectItem } from "./items";
+import { ITEM_SHAPE, multiSelectItem } from "./items";
 
 export * from "./multi-select";
-export { multiSelectItem };
+export { multiSelectItem, ITEM_SHAPE };

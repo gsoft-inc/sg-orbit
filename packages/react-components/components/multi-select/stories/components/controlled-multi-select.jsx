@@ -1,9 +1,15 @@
-import { DEFAULT_ITEMS } from "@stories/react-components/multi-select/shared";
-import { MultiSelect } from "@orbit-ui/react-multi-select/src";
+import { ITEM_SHAPE, MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { PureComponent } from "react";
+import { arrayOf, bool, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class ControlledMultiSelect extends PureComponent {
+    static propTypes = {
+        items: arrayOf(shape(ITEM_SHAPE)).isRequired,
+        values: arrayOf(string),
+        open: bool
+    };
+
     static defaultProps = {
         open: false
     };
@@ -25,6 +31,7 @@ export class ControlledMultiSelect extends PureComponent {
     };
 
     render() {
+        const { items } = this.props;
         const { values, open } = this.state;
 
         return (
@@ -33,7 +40,7 @@ export class ControlledMultiSelect extends PureComponent {
                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
                 <br /><br />
                 <MultiSelect
-                    items={DEFAULT_ITEMS}
+                    items={items}
                     values={values}
                     open={open}
                     onVisibilityChange={this.handleVisibilityChange}

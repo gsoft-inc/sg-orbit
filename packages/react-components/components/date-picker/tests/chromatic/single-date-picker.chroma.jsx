@@ -4,35 +4,37 @@ import {
     getMonthFirstDay,
     getMonthLastDay,
     getNextMonthLastDay,
-    getPreviousMonthFirstDay,
-    logDateChanged
+    getPreviousMonthFirstDay
 } from "./shared";
 import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { storiesBuilder } from "@utils/stories-builder";
+import { noop } from "lodash";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 import moment from "moment";
 
 function createSingleDatePicker(props = {}) {
     return <SingleDatePicker
-        onDateChange={logDateChanged}
+        onDateChange={noop}
         {...props}
     />;
 }
 
 function createInlineSingleDatePicker(props = {}) {
     return <InlineSingleDatePicker
-        onDateChange={logDateChanged}
+        onDateChange={noop}
         {...props}
     />;
 }
 
-function stories(segment, layout = {}) {
-    return storiesBuilder(module, "Single-Date-Picker|chromatic")
+function stories(segment) {
+    return storiesOfBuilder(module, "Single-Date-Picker|chromatic")
         .segment(segment)
-        .layout({
-            width: "80%",
-            ...layout
-        })
-        .chromaticDelay(100)
+        .parameters(
+            paramsBuilder()
+                .width("80%")
+                .chromaticDelay(100)
+                .build()
+        )
         .build();
 }
 
@@ -44,9 +46,11 @@ stories("/number of visible months")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+                 })
+                 .build()
          }
     )
     .add("1 month",
@@ -57,9 +61,11 @@ stories("/number of visible months")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+                 })
+                 .build()
          }
     )
     .add("2 months",
@@ -70,9 +76,11 @@ stories("/number of visible months")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+                 })
+                 .build()
          }
     );
 
@@ -85,10 +93,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking previous month",
@@ -99,10 +109,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking next month",
@@ -113,10 +125,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking current month",
@@ -127,10 +141,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is partially blocking current month",
@@ -141,10 +157,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is not blocking previous or next month",
@@ -155,10 +173,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking previous month",
@@ -169,10 +189,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking next month",
@@ -183,10 +205,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking current month",
@@ -197,10 +221,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is partially blocking current month",
@@ -211,10 +237,12 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min+max dates are blocking previous & next months",
@@ -226,11 +254,13 @@ stories("/date restrictions/2 months visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
-                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                     maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     );
 
@@ -244,10 +274,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: moment(DEFAULT_DATE).subtract(2, "months").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking previous month",
@@ -259,10 +291,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking next month",
@@ -274,10 +308,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getNextMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is blocking current month",
@@ -289,10 +325,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthLastDay(moment(DEFAULT_DATE)).add(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min date is partially blocking current month",
@@ -304,10 +342,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is not blocking previous or next month",
@@ -319,10 +359,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: moment(DEFAULT_DATE).add(2, "months").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking previous month",
@@ -334,10 +376,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getPreviousMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking next month",
@@ -349,10 +393,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is blocking current month",
@@ -364,10 +410,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).subtract(1, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date is partially blocking current month",
@@ -379,10 +427,12 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     maxDate: getMonthFirstDay(moment(DEFAULT_DATE)).add(15, "days").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min+max dates are blocking previous & next months",
@@ -395,11 +445,13 @@ stories("/date restrictions/1 month visible")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
-                 minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
-                 maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY"),
+                     minDate: getMonthFirstDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY"),
+                     maxDate: getMonthLastDay(moment(DEFAULT_DATE)).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     );
 
@@ -412,9 +464,11 @@ stories("/date restrictions/selected range")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     minDate: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("is after max date",
@@ -425,9 +479,11 @@ stories("/date restrictions/selected range")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 date: moment(DEFAULT_DATE).format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     date: moment(DEFAULT_DATE).format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     );
 
@@ -586,9 +642,11 @@ stories("/initial visible month")
                  defaultOpen: true
              }),
          {
-             storyParameters: {
-                 initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     initialVisibleMonth: moment(DEFAULT_DATE).format("MMMM")
+                 })
+                 .build()
          }
     );
 

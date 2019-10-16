@@ -16,7 +16,7 @@ if (isNil(modeArg)) {
         throw new Error(`Storybook - ${modeArg} is not a valid mode.`);
     }
 
-    currentMode = currentMode === MODES.docs ? MODES.docs : MODES.stories;
+    currentMode = MODES[modeArg];
 }
 
 export const mode = currentMode;

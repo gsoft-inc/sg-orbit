@@ -1,13 +1,5 @@
 export const DEFAULT_DATE = "2019-07-08";
 
-export function logDatesChanged(event, startDate, endDate, preset) {
-    console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
-}
-
-export function logDateChanged(event, date) {
-    console.log("Date: ", date);
-}
-
 export function getPreviousMonthFirstDay(date) {
     const previousMonth = date.subtract(1, "months");
 

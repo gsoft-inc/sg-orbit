@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import { RedBoxPopup } from "@stories/react-components/popup/components/red-box-popup";
+import { RedBoxPopup } from "./red-box-popup";
 
 export class ControlledRedBox extends PureComponent {
     state = {

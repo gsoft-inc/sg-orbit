@@ -3,9 +3,6 @@ import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@test
 import { noop } from "lodash";
 import userEvent from "@utils/user-event";
 
-// TODO:
-// To ensure that the new tests work, remove the code to close the dropdown menu on esc, the tests should fail.
-
 const TRIGGER_ID = "multi-select-dropdown-trigger";
 const SEARCH_INPUT_ID = "multi-select-dropdown-search-input";
 const MENU_ITEMS_ID = "multi-select-dropdown-menu-items";

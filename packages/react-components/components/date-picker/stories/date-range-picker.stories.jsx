@@ -17,7 +17,8 @@ import { ControlledDateRangePicker } from "./components/controlled-date-range-pi
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { momentKnob, toStoryParametersPresets } from "./shared";
-import { storiesBuilder } from "@utils/stories-builder";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 import moment from "moment";
 
 export const DEFAULT_PRESETS_OPTIONS = {
@@ -39,9 +40,13 @@ function presetsKnob(name, defaultValue) {
 }
 
 function stories(segment) {
-    return storiesBuilder(module, "Date-Range-Picker")
+    return storiesOfBuilder(module, "Date-Range-Picker")
         .segment(segment)
-        .layoutWidth("80%")
+        .parameters(
+            paramsBuilder()
+                .width("80%")
+                .build()
+        )
         .build();
 }
 
@@ -81,9 +86,11 @@ stories()
                  onDatesChange={logDatesChanged}
              />,
          {
-             storyParameters: {
-                 presets: toStoryParametersPresets(DEFAULT_DATES_PRESETS)
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     presets: toStoryParametersPresets(DEFAULT_DATES_PRESETS)
+                 })
+                 .build()
          }
     )
     .add("selected dates",
@@ -102,9 +109,11 @@ stories()
                  onDatesChange={logDatesChanged}
              />,
          {
-             storyParameters: {
-                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("max date restriction",
@@ -114,9 +123,11 @@ stories()
                  onDatesChange={logDatesChanged}
              />,
          {
-             storyParameters: {
-                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("min & max dates restriction",
@@ -127,10 +138,12 @@ stories()
                  onDatesChange={logDatesChanged}
              />,
          {
-             storyParameters: {
-                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
-                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
-             }
+             ...paramsBuilder()
+                 .storyParameters({
+                     minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
+                     maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+                 })
+                 .build()
          }
     )
     .add("allow single date selection",

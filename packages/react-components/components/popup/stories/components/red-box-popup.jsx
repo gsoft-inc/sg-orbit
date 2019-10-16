@@ -1,6 +1,13 @@
+import { Popup } from "@orbit-ui/react-popup/src";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { isNil } from "lodash";
+
+export function RedBox() {
+    return (
+        <div className="w12 h12 bg-red" tabIndex="0"></div>
+    );
+}
 
 export class RedBoxTrigger extends PureComponent {
     _containerRef = createRef();
@@ -49,5 +56,25 @@ export class RedBoxTrigger extends PureComponent {
         if (!isNil(this._containerRef.current)) {
             this._containerRef.current.focus();
         }
+    }
+}
+
+export class RedBoxPopup extends PureComponent {
+    render() {
+        const { open, defaultOpen, position, offsets, onVisibilityChange, className } = this.props;
+
+        return (
+            <Popup
+                open={open}
+                defaultOpen={defaultOpen}
+                trigger={<RedBoxTrigger />}
+                position={position}
+                offsets={offsets}
+                onVisibilityChange={onVisibilityChange}
+                className={className}
+            >
+                <RedBox />
+            </Popup>
+        );
     }
 }
