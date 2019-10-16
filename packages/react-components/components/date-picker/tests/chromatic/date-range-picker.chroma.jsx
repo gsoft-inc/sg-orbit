@@ -1,4 +1,5 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { DATE_RANGE_PICKER_TITLE } from "@react-components/date-picker/stories/metadata";
 import { DEFAULT_DATE } from "./data";
 import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
@@ -35,7 +36,7 @@ function createDateRangePicker(props = {}) {
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Date-Range-Picker|chromatic")
+    return storiesOfBuilder(module, `${DATE_RANGE_PICKER_TITLE}|chromatic`)
         .segment(segment)
         .parameters(
             paramsBuilder()

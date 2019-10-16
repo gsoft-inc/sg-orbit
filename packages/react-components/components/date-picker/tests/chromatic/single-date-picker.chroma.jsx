@@ -1,6 +1,7 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { SINGLE_DATE_PICKER_TITLE } from "@react-components/date-picker/stories/metadata";
 import {
     getMonthFirstDay,
     getMonthLastDay,
@@ -27,7 +28,7 @@ function createInlineSingleDatePicker(props = {}) {
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Single-Date-Picker|chromatic")
+    return storiesOfBuilder(module, `${SINGLE_DATE_PICKER_TITLE}|chromatic`)
         .segment(segment)
         .parameters(
             paramsBuilder()

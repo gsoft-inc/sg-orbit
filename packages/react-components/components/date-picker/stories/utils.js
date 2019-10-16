@@ -1,8 +1,8 @@
-import { date } from "@storybook/addon-knobs";
+import { date as dateKnob } from "@storybook/addon-knobs";
 import moment from "moment";
 
 export function momentKnob(name, defaultValue) {
-    const timestamp = date(name, defaultValue);
+    const timestamp = dateKnob(name, defaultValue);
 
     return moment(timestamp);
 }
@@ -13,4 +13,12 @@ export function toStoryParametersPresets(presets) {
 
         return accumulator;
     }, {});
+}
+
+export function logDatesChanged(event, startDate, endDate, preset) {
+    console.log("Start: ", startDate, " End: ", endDate, "Preset: ", preset);
+}
+
+export function logDateChanged(event, date) {
+    console.log("Date: ", date);
 }

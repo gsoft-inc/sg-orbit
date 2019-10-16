@@ -32,8 +32,6 @@ export class StoryContainer extends Component {
         const { options = {} } = parameters;
         const { layout } = options;
 
-        console.log("***** layout ", layout);
-
         return (
             <div className="fixed top-0 left-0 right-0 mt10 flex items-center">
                 <div className="center" style={layout}>
