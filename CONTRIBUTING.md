@@ -350,12 +350,12 @@ Start Storybook.
 yarn start-sb
 ```
 
-### start-website
+### start-docs
 
-Start the website.
+Start the Storybook docs.
 
 ```bash
-yarn start-website
+yarn start-docs
 ```
 
 ### build
@@ -382,9 +382,9 @@ Same as *build* but only for Storybook.
 yarn build:sb
 ```
 
-### build:website
+### build:docs
 
-Same as *build* but only for the website.
+Same as *build* but only for the Storybook docs.
 
 ```bash
 yarn build:website
@@ -410,7 +410,7 @@ Same as *release-pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/
 
 View the section [Release Storybook](#release-storybook).
 
-### release-website & release-website-prod
+### release-docs
 
 View the section [Release the website](#release-the-website).
 

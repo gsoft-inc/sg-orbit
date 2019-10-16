@@ -1,2 +1,3 @@
-export * from "./get-scope";
-export * from "./is-chromatic";
+export * from "./modes";
+export * from "./scopes";
+export * from "./chromatic";

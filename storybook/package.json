@@ -11,23 +11,19 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c config",
-        "build": "build-storybook -c config -o dist",
+        "start-sb": "cross-env STORYBOOK_MODE=stories start-storybook -c config",
+        "start-docs": "cross-env STORYBOOK_MODE=docs start-storybook -c config --docs",
+        "build-sb": "cross-env STORYBOOK_MODE=stories STORYBOOK_INCLUDE_TESTS=false STORYBOOK_ build-storybook -c config -o dist/sb",
+        "build-docs": "cross-env STORYBOOK_MODE=docs STORYBOOK_INCLUDE_TESTS=false build-storybook -c config -o dist/docs --docs",
         "clean": "rimraf dist",
-        "deploy": "netlify deploy --prod --dir=dist --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-        "sb-chromatic": "yarn start -p 1135 --ci",
-        "chromatic": "cross-env STORYBOOK_ORBIT_IS_CHROMATIC=true chromatic test --script-name=sb-chromatic --debug",
-        "chromatic-components": "cross-env STORYBOOK_STORYBOOK_ORBIT_SCOPE=components yarn chromatic",
-        "chromatic-theme": "cross-env STORYBOOK_ORBIT_SCOPE=theme yarn chromatic",
-        "chromatic-materials": "cross-env STORYBOOK_ORBIT_SCOPE=materials yarn chromatic",
+        "deploy-sb": "netlify deploy --prod --dir=dist/sb --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
+        "deploy-docs": "netlify deploy --prod --dir=dist/docs --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
+        "sb-chromatic": "yarn start-sb -p 1135 --ci",
+        "chromatic": "cross-env STORYBOOK_IS_CHROMATIC=true chromatic test --script-name=sb-chromatic --debug",
+        "chromatic-components": "cross-env STORYBOOK_SCOPE=components yarn chromatic",
+        "chromatic-theme": "cross-env STORYBOOK_SCOPE=theme yarn chromatic",
+        "chromatic-materials": "cross-env STORYBOOK_SCOPE=materials yarn chromatic",
         "chromatic-ci": "yarn chromatic --no-interactive"
     },
-    "devDependencies": {
-        "@storybook/addon-actions": "5.1.11",
-        "@storybook/addon-console": "1.2.1",
-        "@storybook/addon-knobs": "5.1.11",
-        "@storybook/react": "5.1.11",
-        "babel-loader": "8.0.6",
-        "storybook-chromatic": "2.1.1"
-    }
+    "devDependencies": {}
 }

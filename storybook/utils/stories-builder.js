@@ -59,12 +59,6 @@ class StoriesConfigurationBuilder {
         return this;
     }
 
-    chromaticIgnoreStory() {
-        this._chromatic.disable = true;
-
-        return this;
-    }
-
     chromaticDelay(delay) {
         if (!isNil(delay)) {
             this._chromatic.delay = delay;
