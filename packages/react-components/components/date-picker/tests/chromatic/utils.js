@@ -1,5 +1,3 @@
-export const DEFAULT_DATE = "2019-07-08";
-
 export function getPreviousMonthFirstDay(date) {
     const previousMonth = date.subtract(1, "months");
 
@@ -18,12 +16,4 @@ export function getMonthFirstDay(date) {
 
 export function getMonthLastDay(date) {
     return date.endOf("month");
-}
-
-export function toStoryParametersPresets(presets) {
-    return presets.reduce((accumulator, x) => {
-        accumulator[x.text] = `${x.startDate.format("MMMM Do YYYY")} - ${x.endDate.format("MMMM Do YYYY")}`;
-
-        return accumulator;
-    }, {});
 }

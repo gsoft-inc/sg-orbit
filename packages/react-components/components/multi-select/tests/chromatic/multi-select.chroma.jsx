@@ -1,31 +1,10 @@
 import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { Dropdown } from "semantic-ui-react";
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
+import { MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
-
-export const GROUP_CREATED_VALUE = "group-created";
-export const GROUP_RESTORED_VALUE = "group-restored";
-export const GROUP_DELETED_VALUE = "group-deleted";
-export const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
-export const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
-
-export const DEFAULT_ITEMS = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
-];
-
-export const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
-];
 
 function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
     return <MultiSelect

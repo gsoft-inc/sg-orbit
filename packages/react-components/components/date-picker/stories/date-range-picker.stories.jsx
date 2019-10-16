@@ -16,7 +16,7 @@ import {
 import { ControlledDateRangePicker } from "./components/controlled-date-range-picker";
 import { MirroredDateRangePickers } from "./components/mirrored-date-range-pickers";
 import { array, boolean, select, text, withKnobs } from "@storybook/addon-knobs";
-import { momentKnob, toStoryParametersPresets } from "./shared";
+import { momentKnob, toStoryParametersPresets } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 import moment from "moment";

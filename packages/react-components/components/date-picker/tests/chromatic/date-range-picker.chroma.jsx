@@ -1,16 +1,16 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { DEFAULT_DATE } from "./data";
+import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import {
-    DEFAULT_DATE,
     getMonthFirstDay,
     getMonthLastDay,
     getNextMonthLastDay,
-    getPreviousMonthFirstDay,
-    toStoryParametersPresets
-} from "./shared";
-import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
+    getPreviousMonthFirstDay
+} from "./utils";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
+import { toStoryParametersPresets } from "@react-components/date-picker/stories/utils";
 import moment from "moment";
 
 export const LAST_WEEK_PRESET = toPreset("Last week", moment(DEFAULT_DATE).subtract(1, "week"), moment(DEFAULT_DATE).startOf("day"));

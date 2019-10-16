@@ -1,12 +1,12 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { DEFAULT_DATE } from "./data";
+import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import {
-    DEFAULT_DATE,
     getMonthFirstDay,
     getMonthLastDay,
     getNextMonthLastDay,
     getPreviousMonthFirstDay
-} from "./shared";
-import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+} from "./utils";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";

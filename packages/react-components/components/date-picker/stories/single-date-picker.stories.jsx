@@ -11,7 +11,7 @@ import {
 import { ControlledSingleDatePicker } from "./components/controlled-single-date-picker";
 import { MirroredSingleDatePickers } from "./components/mirrored-single-date-pickers";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
-import { momentKnob } from "./shared";
+import { momentKnob } from "./utils";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
