@@ -1,0 +1,101 @@
+import { ControlledSearchInput } from "./components";
+import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
+import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { logValueChanged } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Search Input"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<Props of={SearchInput} />
+
+<Preview>
+    <Story name="default">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="knobs" decorators={[withKnobs]}>
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            defaultValue={text("defaultValue")}
+            debounceDelay={number("debounceDelay", SearchInput.defaultProps.debounceDelay)}
+            minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
+            noResultsMessage={text("noResultsMessage")}
+            placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
+            disabled={boolean("disabled", false)}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="selected value">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="clear on select">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            clearOnSelect
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="autofocus">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            autofocus
+            clearOnSelect
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            disabled
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="dont close on blur">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            closeOnBlur={false}
+            closeOnOutsideClick
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Story name="controlled">
+    <ControlledSearchInput
+        results={DEFAULT_RESULTS}
+        value={LAURIE_VALUE}
+        onValueChange={logValueChanged}
+    />
+</Story>
+
