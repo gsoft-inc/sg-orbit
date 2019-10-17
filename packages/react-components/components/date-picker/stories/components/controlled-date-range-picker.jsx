@@ -1,9 +1,17 @@
 import { DateRangePicker } from "@orbit-ui/react-date-picker/src";
 import { PureComponent } from "react";
+import { bool } from "prop-types";
 import { isNil } from "lodash";
+import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
 export class ControlledDateRangePicker extends PureComponent {
+    static propTypes = {
+        startDate: momentType,
+        endDate: momentType,
+        open: bool
+    };
+
     static defaultProps = {
         open: false
     };

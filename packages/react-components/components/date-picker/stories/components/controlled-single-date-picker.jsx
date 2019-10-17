@@ -1,9 +1,16 @@
 import { PureComponent } from "react";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { bool } from "prop-types";
 import { isNil } from "lodash";
+import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
 export class ControlledSingleDatePicker extends PureComponent {
+    static propTypes = {
+        date: momentType,
+        open: bool
+    };
+
     static defaultProps = {
         open: false
     };
