@@ -1,0 +1,119 @@
+import { ControlledMultiSelect } from "./components";
+import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
+import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { logValuesChanged } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta title="Multi Select" />
+
+<Props of={MultiSelect} />
+
+<Preview>
+    <Story name="default">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="knobs"
+        decorators={[withKnobs]}
+        parameters={paramsBuilder()
+            .excludeFromDocs()
+            .build()}
+    >
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
+            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            closeOnSelect={boolean("closeOnSelect", false)}
+            noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
+            triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
+            placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
+            clearText={text("clearText", MultiSelect.defaultProps.clearText)}
+            disabled={boolean("disabled", false)}
+            closeOnBlur={boolean("closeOnBlur", true)}
+            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="categories">
+        <MultiSelect
+            items={DEFAULT_ITEMS_WITH_CATEGORIES}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="default values">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="close on select">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            closeOnSelect
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="custom search">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            onSearch={(event, items, query) => {
+                const surpriseItem = multiSelectItem("Surprise! (added from custom search)", "surprise");
+                // eslint-disable-next-line
+                return [surpriseItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
+            }}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            disabled
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="dont close on blur">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            closeOnBlur={false}
+            closeOnOutsideClick
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Story name="controlled">
+    <ControlledMultiSelect
+        items={DEFAULT_ITEMS}
+        values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        onValuesChange={logValuesChanged}
+    />
+</Story>
+

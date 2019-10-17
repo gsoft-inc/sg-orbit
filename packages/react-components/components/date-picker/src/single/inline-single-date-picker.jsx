@@ -6,7 +6,7 @@ import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { isNil } from "lodash";
 
 export class InlineSingleDatePicker extends PureComponent {
-    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES
+    static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
 
     static defaultProps = {
         input: <InlineSingleDatePickerInput />,

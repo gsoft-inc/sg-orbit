@@ -1,0 +1,84 @@
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    InlineSingleDatePicker,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-date-picker/src";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
+import { logDateChanged, momentKnob } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+import moment from "moment";
+
+<Meta
+    title="Inline Single Date Picker"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<Props of={InlineSingleDatePicker} />
+
+<Preview>
+    <Story name="default">
+        <InlineSingleDatePicker
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="knobs"
+        decorators={[withKnobs]}
+        parameters={paramsBuilder()
+            .excludeFromDocs()
+            .build()}
+    >
+        <InlineSingleDatePicker
+            defaultDate={momentKnob("defaultDate", moment().toDate())}
+            allowClear={boolean("allowClear", true)}
+            minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+            maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+            numberOfMonths={number("numberOfMonths")}
+            placeholder={text("placeholder")}
+            dateFormat={text("dateFormat")}
+            position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+            disabled={boolean("disabled", false)}
+            closeOnBlur={boolean("closeOnBlur", true)}
+            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+            className={text("className")}
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="in a block">
+        <div>
+            <div className="mw7 lh2 f5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et <input type="text" value="90" onChange={logDateChanged}></input> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <InlineSingleDatePicker
+            disabled
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="dont close on blur">
+        <InlineSingleDatePicker
+            closeOnBlur={false}
+            closeOnOutsideClick
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
