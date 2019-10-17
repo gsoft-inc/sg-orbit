@@ -44,6 +44,7 @@ addParameters({
 });
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+// TODO: potentiellement plus besoin d'avoir le StoryContainer qui agit en tant qu'error boundaries
 addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
 
 let stories = [];

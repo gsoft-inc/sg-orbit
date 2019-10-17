@@ -26,7 +26,6 @@ export class ControlledDateRangePicker extends PureComponent {
     };
 
     render() {
-        const { allowSingleDateSelection } = this.props;
         const { startDate, endDate, open } = this.state;
 
         return (
@@ -37,7 +36,6 @@ export class ControlledDateRangePicker extends PureComponent {
                 <br /><br />
                 <DateRangePicker
                     { ...this.state }
-                    allowSingleDateSelection={allowSingleDateSelection}
                     onDatesChange={this.handleDatesChange}
                     onVisibilityChange={this.handleVisibilityChange}
                 />
