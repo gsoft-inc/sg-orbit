@@ -1,12 +1,13 @@
 const path = require("path");
 const createMdxCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
 
+// NOTE: the source-loader config has not been added to this webpack config, we dont seem to need it.
+// For more info about the docs addon config: https://github.com/storybookjs/storybook/blob/next/addons/docs/README.md#manual-configuration
 module.exports = async ({ config }) => {
     const storybookAlias = config.resolve.alias || {};
 
-    // Added for docs addons: https://github.com/storybookjs/storybook/blob/next/addons/docs/README.md#manual-configuration
     config.module.rules.push({
-        test: /\.(docs)\.mdx$/,
+        test: /\.(stories)\.mdx$/,
         use: [
             {
                 loader: "babel-loader",
@@ -22,16 +23,6 @@ module.exports = async ({ config }) => {
             }
         ]
     });
-
-    // Added for docs addons: https://github.com/storybookjs/storybook/blob/next/addons/docs/README.md#manual-configuration
-    // TODO: Do we need to include @orbit-ui components from node_modules?
-    // TODO: Docs stories could be more like ".docs.js"
-    // config.module.rules.push({
-    //     test: /\.(docs)\.mdx?$/,
-    //     loader: require.resolve("@storybook/source-loader"),
-    //     exclude: [/node_modules/],
-    //     enforce: "pre"
-    // });
 
     config.resolve.alias = {
         ...storybookAlias,

@@ -3,6 +3,7 @@ import { isNil, isPlainObject } from "lodash";
 class StoryParametersBuilder {
     _layout = {}
     _chromatic = {}
+    _excludeFromDocs = false;
     _storyParameters = null
 
     layout(config) {
@@ -51,6 +52,13 @@ class StoryParametersBuilder {
         return this;
     }
 
+    excludeFromDocs() {
+        this._excludeFromDocs = true;
+
+        return this;
+    }
+
+    // TODO: Rename the addons to StoryValues and then also rename this.
     storyParameters(parameters) {
         if (isPlainObject(parameters)) {
             this._storyParameters = parameters;
@@ -61,11 +69,15 @@ class StoryParametersBuilder {
 
     build() {
         const params = {
-            options: {
-                layout: this._layout
-            },
+            layout: this._layout,
             chromatic: this._chromatic
         };
+
+        if (this._excludeFromDocs) {
+            params.docs = {
+                disabled: true
+            };
+        }
 
         if (!isNil(this._storyParameters)) {
             params.storyParameters = this._storyParameters;

@@ -7,7 +7,7 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { SINGLE_DATE_PICKER_TITLE } from "./metadata";
+import { INLINE_SINGLE_DATE_PICKER_SECTION } from "./metadata";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { noop } from "lodash";
@@ -15,7 +15,7 @@ import { paramsBuilder } from "@utils/params-builder";
 import moment from "moment";
 
 export default {
-    title: `${SINGLE_DATE_PICKER_TITLE}|inlined`,
+    title: INLINE_SINGLE_DATE_PICKER_SECTION,
     component: InlineSingleDatePicker,
     parameters: {
         ...paramsBuilder()

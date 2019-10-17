@@ -7,11 +7,12 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-popup/src";
 import { RedBoxPopup } from "@react-components/popup/stories/components";
+import { SECTION } from "@react-components/popup/stories/metadata";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Popup|chromatic")
+    return storiesOfBuilder(module, `${SECTION}/chromatic`)
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -123,86 +124,5 @@ stories()
          () =>
              <RedBoxPopup className="border-red" />
     );
-
-// export default {
-//     title: "Popup|chromatic",
-//     component: Popup,
-//     parameters: {
-//         chromatic: {
-//             delay: 100
-//         }
-//     }
-// };
-
-// export const close = () => <RedBoxPopup />;
-// close.story = {
-//     name: "close"
-// };
-
-// export const open = () => <RedBoxPopup defaultOpen />;
-// open.story = {
-//     name: "open"
-// };
-
-// export const bottomLeft = () => <RedBoxPopup position={BOTTOM_LEFT} defaultOpen />;
-// bottomLeft.story = {
-//     name: "bottom left"
-// };
-
-// export const bottomCenter = () => <RedBoxPopup position={BOTTOM_CENTER} defaultOpen />;
-// bottomCenter.story = {
-//     name: "bottom center"
-// };
-
-// export const bottomRight = () => <RedBoxPopup position={BOTTOM_RIGHT} defaultOpen />;
-// bottomRight.story = {
-//     name: "bottom right"
-// };
-
-// export const topLeft = () => <RedBoxPopup position={TOP_LEFT} defaultOpen />;
-// topLeft.story = {
-//     name: "top left",
-//     parameters: {
-//         options: {
-//             layout: {
-//                 marginTop: "150px"
-//             }
-//         }
-//     }
-// };
-
-// export const topLeft = () => <RedBoxPopup position={TOP_LEFT} defaultOpen />;
-// topLeft.story = {
-//     name: "top left",
-//     parameters: paramsBuilder()
-//         .layout({
-//             marginTop: "150px"
-//         })
-//         .build()
-// };
-
-// export const topCenter = () => <RedBoxPopup position={TOP_CENTER} defaultOpen />;
-// topCenter.story = {
-//     name: "top center",
-//     parameters: {
-//         options: {
-//             layout: {
-//                 marginTop: "150px"
-//             }
-//         }
-//     }
-// };
-
-// export const topRight = () => <RedBoxPopup position={TOP_RIGHT} defaultOpen />;
-// topRight.story = {
-//     name: "top right",
-//     parameters: {
-//         options: {
-//             layout: {
-//                 marginTop: "150px"
-//             }
-//         }
-//     }
-// };
 
 

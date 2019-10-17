@@ -1,0 +1,42 @@
+import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
+import { ControlledRedBox, RedBoxPopup } from "./components";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { array, select, withKnobs } from "@storybook/addon-knobs";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta title="Popup" />
+
+# Get started
+
+Storybook Design System is a reusable component library that helps Storybook contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.
+
+<Props of={Popup} />
+
+## Stories
+
+This is the default state of a popup
+
+<Preview>
+    <Story name="default">
+        <RedBoxPopup />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .marginTop("150px")
+        .excludeFromDocs()
+        .build()}
+>
+    <RedBoxPopup position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })} offsets={array("offsets", ["0px", "0px"])} />
+</Story>
+
+You can also use it as a controlled component
+
+<Preview>
+    <Story name="controlled">
+        <ControlledRedBox />
+    </Story>
+</Preview>

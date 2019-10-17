@@ -1,0 +1,181 @@
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    DEFAULT_DATES_PRESETS,
+    DateRangePicker,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-date-picker/src";
+import { ControlledDateRangePicker } from "./components";
+import { DEFAULT_PRESETS_OPTIONS } from "./data";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { logDatesChanged, momentKnob, presetsKnob, toStoryParametersPresets } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+import moment from "moment";
+
+<Meta
+    title="Date Range Picker"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<Props of={DateRangePicker} />
+
+<Preview>
+    <Story name="default">
+        <DateRangePicker
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="knobs" decorators={[withKnobs]}>
+        <DateRangePicker
+            defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
+            defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
+            allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
+            allowClear={boolean("allowClear", true)}
+            minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+            maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+            placeholder={text("placeholder")}
+            rangeFormat={text("rangeFormat")}
+            dateFormat={text("dateFormat")}
+            position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+            presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
+            disabled={boolean("disabled", false)}
+            closeOnBlur={boolean("closeOnBlur", true)}
+            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+            className={text("className")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="presets"
+        parameters={paramsBuilder()
+            .storyParameters({
+                presets: toStoryParametersPresets(DEFAULT_DATES_PRESETS)
+            })
+            .build()}
+    >
+        <DateRangePicker
+            presets={DEFAULT_DATES_PRESETS}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="selected dates">
+        <DateRangePicker
+            presets={DEFAULT_DATES_PRESETS}
+            startDate={moment()}
+            endDate={moment().add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="min date restriction"
+        parameters={paramsBuilder()
+            .storyParameters({
+                minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            minDate={moment().subtract(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="max date restriction"
+        parameters={paramsBuilder()
+            .storyParameters({
+                maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            maxDate={moment().add(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="min & max dates restriction"
+        parameters={paramsBuilder()
+            .storyParameters({
+                minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
+                maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            minDate={moment().subtract(2, "weeks")}
+            maxDate={moment().add(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="allow single date selection">
+        <DateRangePicker
+            allowSingleDateSelection
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="one month visible">
+        <DateRangePicker
+            numberOfMonths={1}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <DateRangePicker
+            disabled
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="dont close on blur">
+        <DateRangePicker
+            closeOnBlur={false}
+            closeOnOutsideClick
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="controlled">
+        <ControlledDateRangePicker
+            startDate={moment()}
+            endDate={moment().add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>

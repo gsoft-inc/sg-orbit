@@ -1,10 +1,17 @@
-import { date as dateKnob } from "@storybook/addon-knobs";
+import { DEFAULT_PRESETS_OPTIONS } from "./data";
+import { array, date as dateKnob } from "@storybook/addon-knobs";
 import moment from "moment";
 
 export function momentKnob(name, defaultValue) {
     const timestamp = dateKnob(name, defaultValue);
 
     return moment(timestamp);
+}
+
+export function presetsKnob(name, defaultValue) {
+    const presets = array(name, defaultValue);
+
+    return presets.map(x => DEFAULT_PRESETS_OPTIONS[x]);
 }
 
 export function toStoryParametersPresets(presets) {

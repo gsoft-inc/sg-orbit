@@ -7,14 +7,15 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { SINGLE_DATE_PICKER_TITLE } from "./metadata";
+import { ControlledSingleDatePicker } from "./components";
+import { SINGLE_DATE_PICKER_SECTION } from "./metadata";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 import moment from "moment";
 
 export default {
-    title: SINGLE_DATE_PICKER_TITLE,
+    title: SINGLE_DATE_PICKER_SECTION,
     component: SingleDatePicker,
     parameters: {
         ...paramsBuilder()
@@ -133,4 +134,13 @@ export const dontCloseOnBlur = () =>
     />;
 dontCloseOnBlur.story = {
     name: "dont close on blur"
+};
+
+export const controlled = () =>
+    <ControlledSingleDatePicker
+        date={moment()}
+        onDateChange={logDateChanged}
+    />;
+controlled.story = {
+    name: "controlled"
 };

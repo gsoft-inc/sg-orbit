@@ -29,8 +29,14 @@ export class StoryContainer extends Component {
     renderStory() {
         const { story, context } = this.props;
         const { parameters } = context;
-        const { options = {} } = parameters;
-        const { layout } = options;
+        const { layout } = parameters;
+
+        const params = (new URL(document.location)).searchParams;
+        const isDocs = params.get("viewMode") === "docs";
+
+        if (isDocs) {
+            return story;
+        }
 
         return (
             <div className="fixed top-0 left-0 right-0 mt10 flex items-center">

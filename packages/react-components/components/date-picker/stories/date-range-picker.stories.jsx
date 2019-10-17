@@ -13,7 +13,8 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { DATE_RANGE_PICKER_TITLE } from "./metadata";
+import { ControlledDateRangePicker } from "./components";
+import { DATE_RANGE_PICKER_SECTION } from "./metadata";
 import { array, boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, toStoryParametersPresets } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
@@ -34,7 +35,7 @@ function presetsKnob(name, defaultValue) {
 }
 
 export default {
-    title: DATE_RANGE_PICKER_TITLE,
+    title: DATE_RANGE_PICKER_SECTION,
     component: DateRangePicker,
     parameters: {
         ...paramsBuilder()
@@ -179,4 +180,14 @@ export const dontCloseOnBlur = () =>
     />;
 dontCloseOnBlur.story = {
     name: "dont close on blur"
+};
+
+export const controlled = () =>
+    <ControlledDateRangePicker
+        startDate={moment()}
+        endDate={moment().add(3, "days")}
+        onDatesChange={logDatesChanged}
+    />;
+controlled.story = {
+    name: "controlled"
 };

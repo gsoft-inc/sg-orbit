@@ -13,7 +13,7 @@
     "scripts": {
         "start-sb": "cross-env STORYBOOK_MODE=stories start-storybook -c config",
         "start-docs": "cross-env STORYBOOK_MODE=docs start-storybook -c config --docs",
-        "build-sb": "cross-env STORYBOOK_MODE=stories STORYBOOK_INCLUDE_TESTS=false STORYBOOK_ build-storybook -c config -o dist/sb",
+        "build-sb": "cross-env STORYBOOK_MODE=stories STORYBOOK_INCLUDE_TESTS=false build-storybook -c config -o dist/sb",
         "build-docs": "cross-env STORYBOOK_MODE=docs STORYBOOK_INCLUDE_TESTS=false build-storybook -c config -o dist/docs --docs",
         "clean": "rimraf dist",
         "deploy-sb": "netlify deploy --prod --dir=dist/sb --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
