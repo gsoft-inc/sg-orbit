@@ -7,14 +7,14 @@ import userEvent from "@utils/user-event";
 
 export const INPUT_ID = "inline-single-date-picker-input";
 
-jest.mock("../src/react-dates-wrapper.jsx", () => {
+jest.mock("@react-components/date-picker/src/react-dates-wrapper.jsx", () => {
     return {
         DayPickerSingleDateController: () => <></>,
         DayPickerRangeController: () => <></>
     };
 });
 
-jest.mock("../../popup/src/fade-in.jsx", () => {
+jest.mock("@react-components/popup/src/fade-in.jsx", () => {
     return {
         FadeIn: ({ active, children, className }) => {
             return (
