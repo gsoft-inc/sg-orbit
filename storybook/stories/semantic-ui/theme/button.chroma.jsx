@@ -1,12 +1,18 @@
 /* eslint max-len: 0 */
 
 import { Button } from "semantic-ui-react";
-import { storiesBuilder } from "@utils/stories-builder";
+import { createSemanticThemeSection } from "@utils/create-section";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesBuilder(module, "Semantic-UI-Theme|button")
+    return storiesOfBuilder(module, createSemanticThemeSection("Button"))
         .segment(segment)
-        .chromaticDelay(100)
+        .parameters(
+            paramsBuilder()
+                .chromaticDelay(100)
+                .build()
+        )
         .build();
 }
 

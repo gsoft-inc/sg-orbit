@@ -8,11 +8,17 @@ import {
     InfoIcon,
     MagnifierIcon
 } from "@orbit-ui/icons";
-import { storiesBuilder } from "@utils/stories-builder";
+import { SECTION } from "@stories/materials/icons/config";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories() {
-    return storiesBuilder(module, "Materials|icons")
-        .chromaticDelay(100)
+    return storiesOfBuilder(module, `${SECTION}/chromatic`)
+        .parameters(
+            paramsBuilder()
+                .chromaticDelay(100)
+                .build()
+        )
         .build();
 }
 

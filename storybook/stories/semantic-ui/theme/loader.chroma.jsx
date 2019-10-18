@@ -1,11 +1,17 @@
 import { Dimmer, Image, Loader, Segment } from "semantic-ui-react";
-import { storiesBuilder } from "@utils/stories-builder";
+import { createSemanticThemeSection } from "@utils/create-section";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesBuilder(module, "Semantic-UI-Theme|loader")
+    return storiesOfBuilder(module, createSemanticThemeSection("Loader"))
         .segment(segment)
-        .layoutWidth("80%")
-        .chromaticDelay(100)
+        .parameters(
+            paramsBuilder()
+                .chromaticDelay(100)
+                .width("80%")
+                .build()
+        )
         .build();
 }
 

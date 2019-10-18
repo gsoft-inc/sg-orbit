@@ -1,6 +1,5 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { DocsContainer, DocsPage } from "@storybook/addon-docs/blocks";
 import { MODES, includeComponents, includeMaterials, includeTests, includeTheme, isChromatic, isDebug, mode, scope } from "./utils";
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
@@ -11,13 +10,6 @@ import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
-
-if (isDebug) {
-    console.log("IS CHROMATIC: ", isChromatic);
-    console.log("INCLUDE TESTS: ", includeTests);
-    console.log("MODE: ", mode);
-    console.log("SCOPE: ", scope);
-}
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".
@@ -38,9 +30,11 @@ import "./styles/stories.css";
 addParameters({
     options: {
         theme: customStorybookTheme,
+        // Sorting order:
+        // - "default" story should be first
+        // - "knobs" story should be second
+        // - "chromatic" folder should be last
         storySort: (a, b) => {
-            // console.log(a[1]);
-
             if (a[1].kind === b[1].kind) {
                 if (a[1].parameters.displayName === "default") {
                     return -1;
@@ -71,8 +65,13 @@ addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={co
 let stories = [];
 
 stories = [...stories, require.context("../../packages/react-components/components", true, /.stories.mdx$/)];
-
 stories = [...stories, require.context("../../packages/react-components/components", true, /.chroma.jsx$/)];
+
+stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
+stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+
+stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
+stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
 
 configure(stories, module);
 

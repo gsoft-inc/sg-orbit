@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
 
-export class GeoCitiesSearchInput extends PureComponent {
+export class CountriesSearchInput extends PureComponent {
     handleResults = response => {
         return response.data.map(x => searchInputResult(x.code, x.name));
     }

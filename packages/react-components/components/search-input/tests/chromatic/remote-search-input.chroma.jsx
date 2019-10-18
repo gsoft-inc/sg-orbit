@@ -1,4 +1,4 @@
-import { GeoCitiesSearchInput } from "./components";
+import { CountriesSearchInput } from "./components";
 import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { REMOTE_SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/config";
 import { noop } from "lodash";
@@ -6,7 +6,7 @@ import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function createRemoteSearchInput(props = {}) {
-    return <GeoCitiesSearchInput
+    return <CountriesSearchInput
         onValueChange={noop}
         {...props}
     />;
