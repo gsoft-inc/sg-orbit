@@ -1,12 +1,12 @@
+import { GeoCitiesSearchInput } from "./components";
 import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
-import { REMOTE_SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/metadata";
-import { StarWarsCharactersSearchInput } from "./components";
+import { REMOTE_SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/config";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function createRemoteSearchInput(props = {}) {
-    return <StarWarsCharactersSearchInput
+    return <GeoCitiesSearchInput
         onValueChange={noop}
         {...props}
     />;

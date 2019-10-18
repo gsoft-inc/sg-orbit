@@ -1,1 +1,1 @@
-export * from "./star-wars-characters-search-input";
+export * from "./geo-cities-search-input";

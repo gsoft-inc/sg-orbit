@@ -1,43 +1,56 @@
-// import { StarWarsCharactersSearchInput } from "@stories/react-components/search-input/components";
-// import { isNil } from "lodash";
-// import React, { PureComponent } from "react";
+import { RemoteSearchInput } from "@orbit-ui/react-search-input/src";
+import { bool, func, string } from "prop-types";
+import { isNil } from "lodash";
+import React, { PureComponent } from "react";
 
-// export class ControlledStarWarsCharactersSearchInput extends PureComponent {
-//     static defaultProps = {
-//         open: false
-//     };
+export class ControlledRemoteSearchInput extends PureComponent {
+    static propTypes = {
+        value: string,
+        onFetchResults: func,
+        onResults: func,
+        open: bool,
+        placeholder: string
+    };
 
-//     state = {
-//         value: this.props.value,
-//         open: this.props.open
-//     };
+    static defaultProps = {
+        open: false
+    };
 
-//     handleValueChange = (event, value) => {
-//         const { onValueChange } = this.props;
+    state = {
+        value: this.props.value,
+        open: this.props.open
+    };
 
-//         this.setState({ value: isNil(value) ? null : value.text });
-//         onValueChange(event, value);
-//     };
+    handleValueChange = (event, value) => {
+        const { onValueChange } = this.props;
 
-//     handleVisiblityChange = (event, open) => {
-//         this.setState({ open });
-//     };
+        this.setState({ value: isNil(value) ? null : value.text });
+        onValueChange(event, value);
+    };
 
-//     render() {
-//         const { value, open } = this.state;
+    handleVisiblityChange = (event, open) => {
+        this.setState({ open });
+    };
 
-//         return (
-//             <>
-//                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>value:</span> {isNil(value) ? "N/A" : value}</div>
-//                 <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
-//                 <br /><br />
-//                 <StarWarsCharactersSearchInput
-//                     open={open}
-//                     value={value}
-//                     onValueChange={this.handleValueChange}
-//                     onVisibilityChange={this.handleVisiblityChange}
-//                 />
-//             </>
-//         );
-//     }
-// }
+    render() {
+        const { onFetchResults, onResults, placeholder } = this.props;
+        const { value, open } = this.state;
+
+        return (
+            <>
+                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>value:</span> {isNil(value) ? "N/A" : value}</div>
+                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
+                <br /><br />
+                <RemoteSearchInput
+                    open={open}
+                    value={value}
+                    onFetchResults={onFetchResults}
+                    onResults={onResults}
+                    placeholder={placeholder}
+                    onValueChange={this.handleValueChange}
+                    onVisibilityChange={this.handleVisiblityChange}
+                />
+            </>
+        );
+    }
+}

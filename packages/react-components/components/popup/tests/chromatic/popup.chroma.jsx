@@ -7,7 +7,7 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-popup/src";
 import { RedBoxPopup } from "@react-components/popup/stories/components";
-import { SECTION } from "@react-components/popup/stories/metadata";
+import { SECTION } from "@react-components/popup/stories/config";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 

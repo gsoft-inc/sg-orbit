@@ -7,7 +7,7 @@ import { logValueChanged } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
-    title="Search Input"
+    title="Components|Search Input"
     parameters={paramsBuilder()
         .width("80%")
         .build()}
@@ -25,7 +25,13 @@ import { paramsBuilder } from "@utils/params-builder";
 </Preview>
 
 <Preview>
-    <Story name="knobs" decorators={[withKnobs]}>
+    <Story
+        name="knobs"
+        decorators={[withKnobs]}
+        parameters={paramsBuilder()
+            .excludeFromDocs()
+            .build()}
+    >
         <SearchInput
             results={DEFAULT_RESULTS}
             defaultValue={text("defaultValue")}

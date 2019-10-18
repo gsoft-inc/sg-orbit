@@ -26,7 +26,8 @@ module.exports = async ({ config }) => {
 
     config.resolve.alias = {
         ...storybookAlias,
-        "@utils": path.resolve(__dirname, "../utils/"),
+        "@stories": path.resolve(__dirname, "../stories/"),
+        "@utils": path.resolve(__dirname, "../stories/utils/"),
         "@react-components": path.resolve(__dirname, "../../packages/react-components/components/")
     };
 

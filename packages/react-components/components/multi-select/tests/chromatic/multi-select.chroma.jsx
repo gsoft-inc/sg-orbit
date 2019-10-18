@@ -2,7 +2,7 @@ import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { Dropdown } from "semantic-ui-react";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
-import { SECTION } from "@react-components/multi-select/stories/metadata";
+import { SECTION } from "@react-components/multi-select/stories/config";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";

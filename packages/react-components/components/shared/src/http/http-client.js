@@ -19,7 +19,9 @@ export function httpGet({ url, data, options = {} }) {
         const urlParameters = toSearch(pickBy(data, x => !isNil(x)));
 
         if (isNotNullOrEmpty(urlParameters)) {
-            requestUrl = `${requestUrl}?${urlParameters}`;
+            const separator = requestUrl.includes("?") ? "&" : "?";
+
+            requestUrl = `${requestUrl}${separator}${urlParameters}`;
         }
     }
 

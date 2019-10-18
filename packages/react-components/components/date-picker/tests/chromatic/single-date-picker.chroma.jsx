@@ -1,7 +1,7 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { SINGLE_DATE_PICKER_SECTION } from "@react-components/date-picker/stories/metadata";
+import { SINGLE_DATE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
 import {
     getMonthFirstDay,
     getMonthLastDay,

@@ -1,6 +1,6 @@
 import { ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { INLINE_SINGLE_DATE_PICKER_SECTION } from "@react-components/date-picker/stories/metadata";
+import { INLINE_SINGLE_DATE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";

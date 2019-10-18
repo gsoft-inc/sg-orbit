@@ -1,18 +1,12 @@
 import { PureComponent } from "react";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
-import { func } from "prop-types";
 
-export class StarWarsCharactersSearchInput extends PureComponent {
-    static propTypes = {
-        onFetchResults: func,
-        onResults: func
-    };
-
+export class GeoCitiesSearchInput extends PureComponent {
     handleResults = response => {
-        return response.results.map(x => searchInputResult(x.url, x.name, x));
+        return response.data.map(x => searchInputResult(x.code, x.name));
     }
 
-    handleFetchResults = useDefaultResultsFetcher("https://swapi.co/api/people", "search");
+    handleFetchResults = useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix");
 
     render() {
         return (

@@ -1,5 +1,5 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
-import { SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/metadata";
+import { SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/config";
 import { SearchInput } from "@orbit-ui/react-search-input/src";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";

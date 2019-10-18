@@ -1,0 +1,154 @@
+import { ControlledRemoteSearchInput } from "./components";
+import { LAURIE_VALUE } from "./data";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
+import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { logValueChanged } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Components|Remote Search Input"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<Props of={RemoteSearchInput} />
+
+## Remote API throttling
+
+For demo purpose, we use GeoDB cities free API which is trotthled at 2 request / sec. Be patient! For more info, view: http://geodb-cities-api.wirefreethought.com/pricing.
+
+<Preview>
+    <Story name="default">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story
+        name="knobs"
+        decorators={[withKnobs]}
+        parameters={paramsBuilder()
+            .excludeFromDocs()
+            .build()}
+    >
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            defaultValue={text("defaultValue")}
+            debounceDelay={number("debounceDelay", RemoteSearchInput.defaultProps.debounceDelay)}
+            loadingDelay={number("loadingDelay", RemoteSearchInput.defaultProps.loadingDelay)}
+            minCharacters={number("minCharacters", RemoteSearchInput.defaultProps.minCharacters)}
+            noResultsMessage={text("noResultsMessage")}
+            placeholder={text("placeholder", "Type a country name")}
+            disabled={boolean("disabled", false)}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="selected value">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="clear on select">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            clearOnSelect
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="autofocus">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            autofocus
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            disabled
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="dont close on blur">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            closeOnBlur={false}
+            closeOnOutsideClick
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="failing fetch">
+        <RemoteSearchInput
+            onFetchResults={() => Promise.reject()}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Story name="controlled">
+    <ControlledRemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+
+
+
