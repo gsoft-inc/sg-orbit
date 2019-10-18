@@ -1,6 +1,5 @@
 import { isNil } from "lodash";
 
-const CHROMATIC_SCOPE = "chromatic";
 const COMPONENTS_SCOPE = "components";
 const SUI_THEME_SCOPE = "sui-theme";
 const MATERIALS_SCOPE = "materials";
