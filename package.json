@@ -55,6 +55,7 @@
         "start": "yarn start-pkg",
         "start-pkg": "lerna run start --parallel",
         "start-sb": "cd storybook && yarn start-sb",
+        "start-sb-no-chroma": "cd storybook && yarn start-sb-no-chroma",
         "start-docs": "cd storybook && yarn start-docs",
         "stylelint": "run-s stylelint:*",
         "stylelint:pkg": "stylelint \"packages/**/*.css\"",

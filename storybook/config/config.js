@@ -1,9 +1,12 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { MODES, includeComponents, includeMaterials, includeTests, includeTheme, isChromatic, isDebug, mode, scope } from "./utils";
 import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
+import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
+import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, isChromatic, isDocs, scopes } from "./scopes";
+import { isDebug } from "./env";
+import { isNil } from "lodash";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -23,35 +26,22 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
-import "./styles/components-presets.css";
 import "./styles/fix-docs-addon.css";
-import "./styles/stories.css";
+import "./styles/preview-area.css";
+
+if (isDebug) {
+    console.log("**************************");
+    console.log("Is runned by chromatic: ", isChromatic);
+    console.log("Is in docs mode: ", isDocs);
+    console.log("Include chromatic stories: ", includeChromatic);
+    console.log("Scopes: ", isNil(scopes) ? "None" : scopes);
+    console.log("**************************");
+}
 
 addParameters({
     options: {
         theme: customStorybookTheme,
-        // Sorting order:
-        // - "default" story should be first
-        // - "knobs" story should be second
-        // - "chromatic" folder should be last
-        storySort: (a, b) => {
-            if (a[1].kind === b[1].kind) {
-                if (a[1].parameters.displayName === "default") {
-                    return -1;
-                }
-                else if (b[1].parameters.displayName === "default") {
-                    return 1;
-                }
-                else if (a[1].parameters.displayName === "knobs") {
-                    return -1;
-                }
-                else if (b[1].parameters.displayName === "knobs") {
-                    return 1;
-                }
-            }
-
-            return a[1].id.localeCompare(b[1].id);
-        }
+        storySort: customStorySort
     },
     docs: {
         inlineStories: true
@@ -59,19 +49,37 @@ addParameters({
 });
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-// TODO: potentiellement plus besoin d'avoir le StoryContainer qui agit en tant qu'error boundaries (il semble en avoir un nouveau natif qui fait la job, anyway celui la n'est pas appelé)
-addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
+
+if (!isDocs) {
+    // TODO: potentiellement plus besoin d'avoir le StoryContainer qui agit en tant qu'error boundaries (il semble en avoir un nouveau natif qui fait la job, anyway celui la n'est pas appelé)
+    addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
+}
 
 let stories = [];
 
-stories = [...stories, require.context("../../packages/react-components/components", true, /.stories.mdx$/)];
-stories = [...stories, require.context("../../packages/react-components/components", true, /.chroma.jsx$/)];
+if (includeComponents) {
+    stories = [...stories, require.context("../../packages/react-components/components", true, /.stories.mdx$/)];
 
-stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
-stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+    if (includeChromatic) {
+        stories = [...stories, require.context("../../packages/react-components/components", true, /.chroma.jsx$/)];
+    }
+}
 
-stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
-stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
+if (includeSemanticTheme) {
+    stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
+
+    if (includeChromatic) {
+        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+    }
+}
+
+if (includeMaterials) {
+    stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
+
+    if (includeChromatic) {
+        stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
+    }
+}
 
 configure(stories, module);
 
