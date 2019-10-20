@@ -1,5 +1,5 @@
 import { ADDON_ID } from "./config";
-import { isChromatic } from "../../scopes";
+import { isChromatic } from "../../env";
 import { renderTool } from "./brand-picker-tool";
 import addons, { types } from "@storybook/addons";
 

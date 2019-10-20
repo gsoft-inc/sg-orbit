@@ -4,9 +4,7 @@ import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, isChromatic, isDocs, scopes } from "./scopes";
-import { isDebug } from "./env";
-import { isNil } from "lodash";
+import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, isChromatic, isDocs } from "./env";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -28,15 +26,6 @@ if (!isChromatic) {
 
 import "./styles/fix-docs-addon.css";
 import "./styles/preview-area.css";
-
-if (isDebug) {
-    console.log("**************************");
-    console.log("Is runned by chromatic: ", isChromatic);
-    console.log("Is in docs mode: ", isDocs);
-    console.log("Include chromatic stories: ", includeChromatic);
-    console.log("Scopes: ", isNil(scopes) ? "None" : scopes);
-    console.log("**************************");
-}
 
 addParameters({
     options: {
