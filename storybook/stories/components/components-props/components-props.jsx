@@ -1,30 +1,45 @@
-import { Checkbox, Label, Menu, Tab } from "semantic-ui-react";
+import { Checkbox, Tab } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
-import { arrayOf, node, shapeOf, string } from "prop-types";
+import { any, arrayOf, shape, string } from "prop-types";
 import { useState } from "react";
 
+import styles from "./components-props.module.css";
+
 const propTypes = {
-    componentsDefinition: arrayOf(shapeOf({
+    componentsDefinitions: arrayOf(shape({
         displayName: string.isRequired,
-        component: node.isRequired
+        component: any.isRequired
     })).isRequired
 };
 
-export function ComponentsProps({ componentsDefinition }) {
+export function ComponentsProps({ componentsDefinitions }) {
     const [isVisible, setIsVisible] = useState(false);
 
     const createPanes = () => {
-        return componentsDefinition.map(x => {
+        return componentsDefinitions.map(x => {
             return {
                 menuItem: x.displayName,
-                render: () => <Tab.Pane attached={false}><Props of={x.component} /></Tab.Pane>
+                render: () => {
+                    return (
+                        <If condition={isVisible}>
+                            <Tab.Pane attached={false}>
+                                <Props of={x.component} />
+                            </Tab.Pane>
+                        </If>
+                    );
+                }
             };
         });
     };
 
 
     return (
-        <Tab panes={createPanes()} />
+        <div className="relative">
+            <Tab panes={createPanes()} menu={{ text: true, compact: true }} onTabChange={() => setIsVisible(true)} className="flex-auto" />
+            <div className={`absolute right-0 ${styles.test}`}>
+                <Checkbox label="Props" checked={isVisible} toggle onChange={() => setIsVisible(!isVisible)} />
+            </div>
+        </div>
     );
 }
 

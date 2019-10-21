@@ -1,6 +1,7 @@
+import { ComponentsProps } from "@components/components-props";
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { logValuesChanged } from "./utils";
@@ -8,10 +9,17 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Meta title="Components|Multi Select" />
 
-<Props of={MultiSelect} />
-<Props of={MultiSelect.Dropdown} />
-<Props of={MultiSelect.Trigger} />
-<Props of={MultiSelect.Menu} />
+<ComponentsProps
+    componentsDefinitions={[
+        { displayName: "MultiSelect", component: MultiSelect },
+        { displayName: "MultiSelect.Dropdown", component: MultiSelect.Dropdown },
+        { displayName: "MultiSelect.Trigger", component: MultiSelect.Trigger },
+        { displayName: "MultiSelect.Menu", component: MultiSelect.Menu },
+        { displayName: "MultiSelect.SearchInput", component: MultiSelect.SearchInput },
+        { displayName: "MultiSelect.SelectedItems", component: MultiSelect.SelectedItems },
+        { displayName: "MultiSelect.ClearButton", component: MultiSelect.ClearButton }
+    ]}
+/>
 
 <Preview>
     <Story name="default">
