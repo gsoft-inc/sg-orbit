@@ -1,6 +1,7 @@
 import { ControlledRemoteSearchInput } from "./components";
 import { LAURIE_VALUE } from "./data";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PropsTabs } from "@components/props-tabs";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
@@ -13,7 +14,11 @@ import { paramsBuilder } from "@utils/params-builder";
         .build()}
 />
 
-<Props of={RemoteSearchInput} />
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "RemoteSearchInput", component: RemoteSearchInput }
+    ]}
+/>
 
 ## Remote API throttling
 

@@ -8,7 +8,8 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PropsTabs } from "@components/props-tabs";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
@@ -21,7 +22,14 @@ import moment from "moment";
         .build()}
 />
 
-<Props of={SingleDatePicker} />
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "SingleDatePicker", component: SingleDatePicker },
+        { displayName: "SingleDatePicker.Input", component: SingleDatePicker.Input },
+        { displayName: "SingleDatePicker.Calendar", component: SingleDatePicker.Calendar },
+        { displayName: "SingleDatePicker.Buttons", component: SingleDatePicker.Buttons }
+    ]}
+/>
 
 <Preview>
     <Story name="default">

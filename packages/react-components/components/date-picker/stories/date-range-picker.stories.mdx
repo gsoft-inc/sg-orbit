@@ -10,7 +10,8 @@ import {
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PropsTabs } from "@components/props-tabs";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryParametersPresets } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
@@ -23,7 +24,15 @@ import moment from "moment";
         .build()}
 />
 
-<Props of={DateRangePicker} />
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "DateRangePicker", component: DateRangePicker },
+        { displayName: "DateRangePicker.Input", component: DateRangePicker.Input },
+        { displayName: "DateRangePicker.Calendar", component: DateRangePicker.Calendar },
+        { displayName: "DateRangePicker.Presets", component: DateRangePicker.Presets },
+        { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
+    ]}
+/>
 
 <Preview>
     <Story name="default">
