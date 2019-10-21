@@ -57,15 +57,16 @@ if (includeSemanticTheme) {
     stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+        stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
     }
 }
 
 if (includeMaterials) {
-    stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
+    stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
+        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+
     }
 }
 
