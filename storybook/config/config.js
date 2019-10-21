@@ -4,7 +4,7 @@ import { StoryContainer } from "./story-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, isChromatic, isDocs } from "./env";
+import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "./env";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -46,23 +46,37 @@ if (!isDocs) {
 let stories = [];
 
 if (includeComponents) {
-    stories = [...stories, require.context("../../packages/react-components/components", true, /.stories.mdx$/)];
+    if (includeStories) {
+        stories = [
+            ...stories,
+            require.context("../../packages/react-components/components", true, /.stories.mdx$/),
+            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/)
+        ];
+    }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../../packages/react-components/components", true, /.chroma.jsx$/)];
+        stories = [
+            ...stories,
+            require.context("../../packages/react-components/components", true, /.chroma.jsx$/),
+            require.context("../stories/semantic-ui/react", true, /.chroma.jsx$/)
+        ];
     }
 }
 
 if (includeSemanticTheme) {
-    stories = [...stories, require.context("../stories/semantic-ui", true, /.stories.mdx$/)];
+    if (includeStories) {
+        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)];
+    }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/semantic-ui", true, /.chroma.jsx$/)];
+        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)];
     }
 }
 
 if (includeMaterials) {
-    stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
+    if (includeStories) {
+        stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
+    }
 
     if (includeChromatic) {
         stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
