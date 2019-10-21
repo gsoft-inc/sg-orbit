@@ -74,7 +74,5 @@ module.exports = async ({ config }) => {
     supportDocsAddon(config);
     bundleCustomReactComponents(config);
 
-    console.log(JSON.stringify(config, null, 2));
-
     return config;
 };

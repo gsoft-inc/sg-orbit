@@ -3,7 +3,7 @@ import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
 import { useState } from "react";
 
-import styles from "./components-props.module.css";
+import styles from "./props-tabs.module.css";
 
 const propTypes = {
     componentsDefinitions: arrayOf(shape({
@@ -12,8 +12,14 @@ const propTypes = {
     })).isRequired
 };
 
-export function ComponentsProps({ componentsDefinitions }) {
+export function PropsTabs({ componentsDefinitions }) {
     const [isVisible, setIsVisible] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const handleTabChange = (event, data) => {
+        setActiveIndex(data.activeIndex);
+        setIsVisible(true);
+    };
 
     const createPanes = () => {
         return componentsDefinitions.map(x => {
@@ -32,15 +38,14 @@ export function ComponentsProps({ componentsDefinitions }) {
         });
     };
 
-
     return (
         <div className="relative">
-            <Tab panes={createPanes()} menu={{ text: true, compact: true }} onTabChange={() => setIsVisible(true)} className="flex-auto" />
-            <div className={`absolute right-0 ${styles.test}`}>
+            <Tab activeIndex={activeIndex} panes={createPanes()} menu={{ text: true, compact: true }} onTabChange={handleTabChange} className="flex-auto" />
+            <div className={`absolute right-0 ${styles.checkboxTopPosition}`}>
                 <Checkbox label="Props" checked={isVisible} toggle onChange={() => setIsVisible(!isVisible)} />
             </div>
         </div>
     );
 }
 
-ComponentsProps.propTypes = propTypes;
+PropsTabs.propTypes = propTypes;
