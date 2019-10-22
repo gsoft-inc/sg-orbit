@@ -58,10 +58,9 @@ class StoryParametersBuilder {
         return this;
     }
 
-    // TODO: Rename the addons to StoryValues and then also rename this.
-    storyParameters(parameters) {
-        if (isPlainObject(parameters)) {
-            this._storyParameters = parameters;
+    storyValues(values) {
+        if (isPlainObject(values)) {
+            this._storyValues = values;
         }
 
         return this;
@@ -79,8 +78,8 @@ class StoryParametersBuilder {
             };
         }
 
-        if (!isNil(this._storyParameters)) {
-            params.storyParameters = this._storyParameters;
+        if (!isNil(this._storyValues)) {
+            params.storyValues = this._storyValues;
         }
 
         return params;

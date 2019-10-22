@@ -14,7 +14,7 @@ export function presetsKnob(name, defaultValue) {
     return presets.map(x => DEFAULT_PRESETS_OPTIONS[x]);
 }
 
-export function toStoryParametersPresets(presets) {
+export function toStoryValuesPresets(presets) {
     return presets.reduce((accumulator, x) => {
         accumulator[x.text] = `${x.startDate.format("MMMM Do YYYY")} - ${x.endDate.format("MMMM Do YYYY")}`;
 

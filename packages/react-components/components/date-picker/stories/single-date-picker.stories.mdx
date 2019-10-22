@@ -78,7 +78,7 @@ import moment from "moment";
     <Story
         name="min date restriction"
         parameters={paramsBuilder()
-            .storyParameters({
+            .storyValues({
                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
             })
             .build()}
@@ -94,7 +94,7 @@ import moment from "moment";
     <Story
         name="max date restriction"
         parameters={paramsBuilder()
-            .storyParameters({
+            .storyValues({
                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
             })
             .build()}
@@ -110,7 +110,7 @@ import moment from "moment";
     <Story
         name="min & max dates restriction"
         parameters={paramsBuilder()
-            .storyParameters({
+            .storyValues({
                 minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
                 maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
             })
