@@ -1,6 +1,7 @@
 import { Checkbox, Tab } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
+import { isNil } from "lodash";
 import { useState } from "react";
 
 import styles from "./props-tabs.module.css";
@@ -23,6 +24,11 @@ export function PropsTabs({ componentsDefinitions }) {
     const handleTabChange = (event, data) => {
         setActiveIndex(data.activeIndex);
         setIsVisible(true);
+    };
+
+    const handleToggleChange = () => {
+        setActiveIndex(isNil(activeIndex) ? 0 : activeIndex);
+        setIsVisible(!isVisible);
     };
 
     const createPanes = () => {
@@ -52,7 +58,7 @@ export function PropsTabs({ componentsDefinitions }) {
                     label="Props"
                     checked={isVisible}
                     toggle
-                    onChange={() => setIsVisible(!isVisible)}
+                    onChange={handleToggleChange}
                 />
             </div>
 
@@ -72,8 +78,6 @@ export function PropsTabs({ componentsDefinitions }) {
                     </If>
                 </Otherwise>
             </Choose>
-
-            {/* <div className={`absolute right-0 ${styles.checkboxTopPosition}`}> */}
         </div>
     );
 }
