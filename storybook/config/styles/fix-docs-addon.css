@@ -2,9 +2,5 @@
     overflow: visible;
 }
 .sbdocs.sbdocs-content {
-    max-width: none !important;
-}
-.sbdocs.sbdocs-wrapper {
-    padding-left: 80px;
-    padding-right: 80px;
+    max-width: 1200px !important;
 }

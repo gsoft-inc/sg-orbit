@@ -1,20 +1,39 @@
 import {
-    AddIcon,
-    CancelIcon
+    AddIcon, ArrowFullIcon, ArrowOutlineIcon, CancelIcon, CheckmarkIcon, ChevronIcon, InfoIcon, MagnifierIcon
 } from "@orbit-ui/icons";
+import { IconGallery } from "./components/iconGallery";
+import { IconItem } from "./components/iconItem";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Materials|Icons" />
 
 <Preview>
-    <Story name="add">
-        <AddIcon className="w4 h4" />
+    <Story name="icons">
+        <IconGallery>
+            <IconItem name="add">
+                <AddIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="arrow full">
+                <ArrowFullIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="arrow outline">
+                <ArrowOutlineIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="cancel">
+                <CancelIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="checkmark">
+                <CheckmarkIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="chevron">
+                <ChevronIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="info">
+                <InfoIcon className="w4 h4" />
+            </IconItem>
+            <IconItem name="magnifier">
+                <MagnifierIcon className="w4 h4" />
+            </IconItem>
+        </IconGallery>
     </Story>
 </Preview>
-
-<Preview>
-    <Story name="cancel">
-        <CancelIcon className="h3 w3" />
-    </Story>
-</Preview>
-
