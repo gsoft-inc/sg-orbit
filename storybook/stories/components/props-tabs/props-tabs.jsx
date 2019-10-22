@@ -1,10 +1,10 @@
+import styles from "./props-tabs.module.css";
+
 import { Checkbox, Tab } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { useState } from "react";
-
-import styles from "./props-tabs.module.css";
 
 const propTypes = {
     componentsDefinitions: arrayOf(shape({
@@ -18,7 +18,7 @@ export function PropsTabs({ componentsDefinitions }) {
     const [activeIndex, setActiveIndex] = useState(null);
 
     if (componentsDefinitions.length === 0) {
-        throw new Error("PropsTabs - At least one component definition must be provided.");
+        throw new Error(`${PropsTabs.name} - At least one component definition must be provided.`);
     }
 
     const handleTabChange = (event, data) => {

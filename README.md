@@ -14,6 +14,7 @@
 <p align=center>
     <a href="https://lerna.js.org"><img alt="lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" /></a>
     <a href="https://yarnpkg.com"><img alt="yarn" src="https://img.shields.io/badge/dependencies%20managed%20by-yarn-blue" /></a>
+    
 </p>
 
 Orbit UI is a design system develop by Sharegate to help create the best experience for our customers and drive consistency between all our web apps.

@@ -66,6 +66,6 @@ function BrandPickerTool() {
     );
 }
 
-export function renderTool() {
-    return <BrandPickerTool />;
+export function createBrandPickerRenderer() {
+    return () => <BrandPickerTool />;
 }

@@ -1,42 +1,22 @@
 import "./story-parameters-panel.css";
 
-import { PANEL_ID, PARAM_KEY } from "./config";
-import { PureComponent } from "react";
-import { STORY_CHANGED } from "@storybook/core-events";
+import { PARAM_KEY } from "./config";
+import { STORY_RENDERED } from "@storybook/core-events";
 import { isNil, isPlainObject, isString } from "lodash";
+import { useChannel, useParameter } from "@storybook/api";
+import { useState } from "react";
 
-class StoryParametersPanel extends PureComponent {
-    state = {
-        values: null
-    };
+function StoryParametersPanel({ active }) {
+    const [values, setValues] = useState(null);
+    const storyValues = useParameter(PARAM_KEY, null);
 
-    componentDidMount() {
-        const { api } = this.props;
+    useChannel({
+        [STORY_RENDERED]: () => {
+            setValues(storyValues);
+        }
+    });
 
-        api.on(STORY_CHANGED, this.handleStoryChange);
-    }
-
-    componentWillUnmount() {
-        const { api } = this.props;
-
-        api.off(STORY_CHANGED, this.onStoryChange);
-    }
-
-    handleStoryChange = id => {
-        this.refreshParameters(id);
-    };
-
-    refreshParameters(storyId) {
-        const { api } = this.props;
-
-        const storyParameters = api.getParameters(storyId, PARAM_KEY);
-
-        this.setState({ values: storyParameters });
-    }
-
-    returnValues() {
-        const { values } = this.state;
-
+    const renderValues = () => {
         return Object.keys(values).map(key => {
             const value = values[key];
 
@@ -59,24 +39,19 @@ class StoryParametersPanel extends PureComponent {
                 throw new Error(`${StoryParametersPanel.name} - Story parameters addons only support string or plain object values.`);
             }
         });
+    };
+
+    if (!active || isNil(values)) {
+        return null;
     }
 
-    render() {
-        const { values } = this.state;
-        const { active } = this.props;
-
-        if (!active || isNil(values)) {
-            return null;
-        }
-
-        return (
-            <div className="story-parameters">
-                {this.returnValues()}
-            </div>
-        );
-    }
+    return (
+        <div className="story-parameters">
+            {renderValues()}
+        </div>
+    );
 }
 
-export function createPanelRenderer(api) {
-    return ({ active }) => <StoryParametersPanel key={`storybook/${PANEL_ID}`} api={api} active={active} />;
+export function createPanelRenderer() {
+    return ({ active, key }) => <StoryParametersPanel key={key} active={active} />;
 }
