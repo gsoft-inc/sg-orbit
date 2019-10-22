@@ -23,8 +23,8 @@ import { isNil } from "lodash";
 //     return a[1].id.localeCompare(b[1].id);
 // }
 
-// Custom sort that support a sorting priority. This is mostly done to ensure that the "chromatic" folder
-// is last.
+// Custom sort that support a sorting priority.
+// This is mostly done to ensure that the "chromatic" folder
 export function customStorySort(a, b) {
     const aPriority = isNil(a[1].parameters.sortPriority) ? 0 : a[1].parameters.sortPriority;
     const bPriority = isNil(b[1].parameters.sortPriority) ? 0 : b[1].parameters.sortPriority;
@@ -32,9 +32,6 @@ export function customStorySort(a, b) {
     if (aPriority === bPriority) {
         return 0;
     }
-    // else {
-    //     console.log(a[1]);
-    // }
 
     return aPriority > bPriority ? 1 : -1;
 }
