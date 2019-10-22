@@ -10,6 +10,7 @@ function stories(segment) {
             paramsBuilder()
                 .chromaticDelay(100)
                 .width("80%")
+                .sortLast()
                 .build()
         )
         .build();
