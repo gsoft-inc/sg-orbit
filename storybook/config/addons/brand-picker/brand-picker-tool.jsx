@@ -1,5 +1,5 @@
-import { IconButton, Icons, TooltipLinkList, WithTooltip } from "@storybook/components";
-import { PureComponent } from "react";
+import { IconButton, Icons, TooltipLinkList, WithTooltipPure } from "@storybook/components";
+import { useState } from "react";
 
 function createBrand(id, displayName) {
     return {
@@ -18,62 +18,10 @@ const COLORS_WEIGHT = ["50", "100", "200", "300", "400", "500", "600", "700", "8
 
 const STORYBOOK_PREVIEW_IFRAME_ID = "storybook-preview-iframe";
 
-class BrandLinkClickEventHandler {
-    _brand = null;
-    _onClick = null;
+function BrandPickerTool() {
+    const [expanded, setExpanded] = useState(false);
 
-    constructor(brand, onClick) {
-        this._brand = brand;
-        this._onClick = onClick;
-    }
-
-    handleClick = event => {
-        this._onClick(event, this._brand);
-    }
-}
-
-function createBrandLink(brand, onClick) {
-    return {
-        id: brand.id,
-        title: brand.displayName,
-        onClick: new BrandLinkClickEventHandler(brand, onClick).handleClick
-    };
-}
-
-class BrandPickerTool extends PureComponent {
-    state = {
-        expanded: false
-    };
-
-    _tooltipLinks = null;
-    _previewIframeElement = null;
-
-    componentDidMount() {
-        setTimeout(() => {
-            this.applyBrand(BRANDS.apricot);
-        }, 3000);
-
-        this.createTooltipLinks();
-    }
-
-    createTooltipLinks() {
-        this._tooltipLinks = [
-            createBrandLink(BRANDS.apricot, this.handleSelectBrand),
-            createBrandLink(BRANDS.overcast, this.handleSelectBrand),
-            createBrandLink(BRANDS.desktop, this.handleSelectBrand)
-        ];
-    }
-
-    handleSelectBrand = (event, brand) => {
-        this.applyBrand(brand);
-        this.setState({ expanded: false });
-    }
-
-    handleTooltipVisibilityChange = expanded => {
-        this.setState({ expanded });
-    }
-
-    applyBrand(brand) {
+    const applyBrand = brand => {
         const previewIframe = document.getElementById(STORYBOOK_PREVIEW_IFRAME_ID);
         const iframeWindow = previewIframe.contentWindow;
         const iframeDocument = previewIframe.contentDocument;
@@ -83,30 +31,39 @@ class BrandPickerTool extends PureComponent {
         COLORS_WEIGHT.forEach(x => {
             iframeDocument.documentElement.style.setProperty(`--primary-${x}`, computedStyle.getPropertyValue(`--${brand.id}-${x}`));
         });
-    }
+    };
 
-    render() {
-        const { expanded } = this.state;
+    const handleSelectBrand = brand => {
+        applyBrand(brand);
+        setExpanded(false);
+    };
 
-        return (
-            // Update for a link list with every brand
-            <WithTooltip
-                placement="top"
-                trigger="click"
-                tooltipShown={expanded}
-                onVisibilityChange={this.handleTooltipVisibilityChange}
-                closeOnClick
-                tooltip={<TooltipLinkList links={this._tooltipLinks} />}
+    const handleTooltipVisibilityChange = isVisible => {
+        setExpanded(isVisible);
+    };
+
+    const tooltipLinks = Object.values(BRANDS).map(x => ({
+        id: x.id,
+        title: x.displayName,
+        onClick: () => handleSelectBrand(x)
+    }));
+
+    return (
+        <WithTooltipPure
+            placement="top"
+            trigger="click"
+            tooltipShown={expanded}
+            onVisibilityChange={handleTooltipVisibilityChange}
+            tooltip={<TooltipLinkList links={tooltipLinks} />}
+        >
+            <IconButton
+                key="brands"
+                title="Pick a brand"
             >
-                <IconButton
-                    key="brands"
-                    title="Pick a brand"
-                >
-                    <Icons icon="photo" />
-                </IconButton>
-            </WithTooltip>
-        );
-    }
+                <Icons icon="photo" />
+            </IconButton>
+        </WithTooltipPure>
+    );
 }
 
 export function renderTool() {
