@@ -16,6 +16,10 @@ export function PropsTabs({ componentsDefinitions }) {
     const [isVisible, setIsVisible] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
 
+    if (componentsDefinitions.length === 0) {
+        throw new Error("PropsTabs - at least one component definition must be provided.");
+    }
+
     const handleTabChange = (event, data) => {
         setActiveIndex(data.activeIndex);
         setIsVisible(true);
@@ -38,12 +42,38 @@ export function PropsTabs({ componentsDefinitions }) {
         });
     };
 
+    const hasMultipleComponents = componentsDefinitions.length > 1;
+    const checkboxContainerClasses = hasMultipleComponents ? `absolute right-0 ${styles.checkboxTopPosition}` : "flex flex-row justify-end mb2";
+
     return (
         <div className="relative">
-            <Tab activeIndex={activeIndex} panes={createPanes()} menu={{ text: true, compact: true }} onTabChange={handleTabChange} className="flex-auto" />
-            <div className={`absolute right-0 ${styles.checkboxTopPosition}`}>
-                <Checkbox label="Props" checked={isVisible} toggle onChange={() => setIsVisible(!isVisible)} />
+            <div className={checkboxContainerClasses}>
+                <Checkbox
+                    label="Props"
+                    checked={isVisible}
+                    toggle
+                    onChange={() => setIsVisible(!isVisible)}
+                />
             </div>
+
+            <Choose>
+                <When condition={hasMultipleComponents}>
+                    <Tab
+                        activeIndex={activeIndex}
+                        panes={createPanes()}
+                        menu={{ text: true, compact: true }}
+                        onTabChange={handleTabChange}
+                        className="flex-auto"
+                    />
+                </When>
+                <Otherwise>
+                    <If condition={isVisible}>
+                        <Props of={componentsDefinitions[0].component} />
+                    </If>
+                </Otherwise>
+            </Choose>
+
+            {/* <div className={`absolute right-0 ${styles.checkboxTopPosition}`}> */}
         </div>
     );
 }
