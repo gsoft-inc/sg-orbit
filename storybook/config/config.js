@@ -1,6 +1,6 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { StoryContainer } from "./story-container";
+import { CanvasContainer } from "./canvas-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
@@ -41,8 +41,7 @@ addParameters({
 
 if (!isDocs) {
     addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-    // TODO: potentiellement plus besoin d'avoir le StoryContainer qui agit en tant qu'error boundaries (il semble en avoir un nouveau natif qui fait la job, anyway celui la n'est pas appelé)
-    addDecorator((storyFn, context) => <StoryContainer story={storyFn()} context={context} />);
+    addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
 }
 
 let stories = [];
