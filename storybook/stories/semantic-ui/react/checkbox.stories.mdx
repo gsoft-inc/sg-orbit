@@ -3,14 +3,36 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Components|Checkbox" />
 
+# Checkbox
+
+## Standard
+
 <Preview>
-    <Story name="default">
+    <Story name="standard default">
         <Checkbox label="Milky Way" />
     </Story>
 </Preview>
 
 <Preview>
-    <Story name="checked">
+    <Story name="standard checked">
         <Checkbox checked label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="standard disabled">
+        <Checkbox disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="standard checked disabled">
+        <Checkbox checked disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="indeterminate">
+        <Checkbox indeterminate checked label="Milky Way" />
     </Story>
 </Preview>
