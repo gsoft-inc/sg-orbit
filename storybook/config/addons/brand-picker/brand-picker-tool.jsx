@@ -1,4 +1,4 @@
-import { IconButton, Icons, TooltipLinkList, WithTooltip } from "@storybook/components";
+import { IconButton, Icons, TooltipLinkList, WithTooltipPure } from "@storybook/components";
 import { useState } from "react";
 
 function createBrand(id, displayName) {
@@ -42,21 +42,19 @@ function BrandPickerTool() {
         setExpanded(isVisible);
     };
 
-    const createLinks = () => {
-        return Object.values(BRANDS).map(x => ({
-            id: x.id,
-            title: x.displayName,
-            onClick: () => handleSelectBrand(x)
-        }));
-    };
+    const tooltipLinks = Object.values(BRANDS).map(x => ({
+        id: x.id,
+        title: x.displayName,
+        onClick: () => handleSelectBrand(x)
+    }));
 
     return (
-        <WithTooltip
+        <WithTooltipPure
             placement="top"
             trigger="click"
             tooltipShown={expanded}
             onVisibilityChange={handleTooltipVisibilityChange}
-            tooltip={<TooltipLinkList links={createLinks()} />}
+            tooltip={<TooltipLinkList links={tooltipLinks} />}
         >
             <IconButton
                 key="brands"
@@ -64,7 +62,7 @@ function BrandPickerTool() {
             >
                 <Icons icon="photo" />
             </IconButton>
-        </WithTooltip>
+        </WithTooltipPure>
     );
 }
 
