@@ -5,4 +5,3 @@ export function IconGallery({ children }) {
         </div>
     );
 }
-

@@ -11,6 +11,7 @@
 .ui.button.circular {
     font-size: 1rem;
     padding: 0.5em 0.5em 0.5em;
+    justify-content: center;
 }
 
 .ui.button.mini.circular {
