@@ -1,6 +1,12 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
 
-<Meta title="Materials|Colours" />
+<Meta
+    title="Materials|Colours"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
 
 # Colours
 

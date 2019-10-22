@@ -18,7 +18,7 @@ export function PropsTabs({ componentsDefinitions }) {
     const [activeIndex, setActiveIndex] = useState(null);
 
     if (componentsDefinitions.length === 0) {
-        throw new Error("PropsTabs - at least one component definition must be provided.");
+        throw new Error("PropsTabs - At least one component definition must be provided.");
     }
 
     const handleTabChange = (event, data) => {
