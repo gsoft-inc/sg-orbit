@@ -21,8 +21,8 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/overcast.css");
     import("@orbit-ui/foundation/dist/apricot.css");
 } else {
-    // The custom brand picker cause a rendering delay that we don't want to handle in the stories for
-    // performance reasons. To circonvent this problem, we statically load the apricot brand.
+    // The custom brand picker cause a rendering delay that we don't want to handle in the stories since
+    // chromatic execution will take too long. To circonvent this problem, we only load the apricot brand.
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 

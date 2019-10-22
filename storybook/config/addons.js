@@ -4,6 +4,6 @@
 import "@storybook/addon-docs/register";
 import "@storybook/addon-actions/register";
 import "@storybook/addon-knobs/register";
-import "./addons/story-parameters/register";
+import "./addons/story-values/register";
 import "./addons/brand-picker/register";
 
