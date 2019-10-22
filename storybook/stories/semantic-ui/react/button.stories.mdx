@@ -1,7 +1,14 @@
+import {
+    AddIcon, MagnifierIcon
+} from "@orbit-ui/icons";
 import { Button } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Components|Button" />
+
+# Button
+
+## Standard
 
 <Preview>
     <Story name="default">
@@ -18,5 +25,398 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 <Preview>
     <Story name="disabled">
         <Button disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Standard Primary
+
+<Preview>
+    <Story name="primary default">
+        <Button primary>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="primary active / focus">
+        <Button primary active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="primary disabled">
+        <Button primary disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Basic
+
+<Preview>
+    <Story name="basic default">
+        <Button basic>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="basic active / focus">
+        <Button basic active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="basic disabled">
+        <Button basic disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Basic Primary
+
+<Preview>
+    <Story name="basic primary default">
+        <Button basic primary>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="basic primary active / focus">
+        <Button basic primary active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="basic primary disabled">
+        <Button basic primary disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Standard Secondary
+
+<Preview>
+    <Story name="secondary default">
+        <Button secondary>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="secondary active / focus">
+        <Button secondary active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="secondary disabled">
+        <Button secondary disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Inverted Primary
+
+<Preview>
+    <Story name="inverted primary default">
+        <div className="bg-marine-700 pa3">
+            <Button inverted primary>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="inverted primary active / focus">
+        <div className="bg-marine-700 pa3">
+            <Button inverted primary active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="inverted primary disabled">
+        <div className="bg-marine-700 pa3">
+            <Button inverted primary disabled>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+## Ghost
+
+Ghost buttons take the same space as a standard button Careful heights are not a property but a className
+
+<Preview>
+    <Story name="ghost default">
+        <Button className="ghost">Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="ghost active / focus">
+        <Button className="ghost" active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="ghost disabled">
+        <Button className="ghost" disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Ghost Primary
+
+<Preview>
+    <Story name="ghost primary default">
+        <Button primary className="ghost">Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="ghost primary active / focus">
+        <Button primary className="ghost" active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="ghost primary disabled">
+        <Button primary className="ghost" disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Icon Standard
+
+<Preview>
+    <Story name="icon standard default">
+        <Button><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon standard active / focus">
+        <Button active><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon standard disabled">
+        <Button disabled><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+## Icon Basic
+
+<Preview>
+    <Story name="icon basic default">
+        <Button basic><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon basic active / focus">
+        <Button basic active><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon basic disabled">
+        <Button basic disabled><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+## Icon Standard Primary
+
+<Preview>
+    <Story name="icon standard primary default">
+        <Button primary><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon standard primary active / focus">
+        <Button primary active><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon standard primary disabled">
+        <Button primary disabled><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+## Icon Basic Primary
+
+<Preview>
+    <Story name="icon basic primary default">
+        <Button basic primary><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon basic primary active / focus">
+        <Button basic primary active><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="icon basic primary disabled">
+        <Button basic primary disabled><MagnifierIcon className="w4 h4 mr2" />Click me</Button>
+    </Story>
+</Preview>
+
+
+## Icon Circular
+
+<Preview>
+    <Story name="icon circular default">
+        <Button icon circular><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+## Icon Circular Primary
+
+<Preview>
+    <Story name="icon circular primary">
+        <Button icon primary circular><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+## Icon Circular Basic
+
+<Preview>
+    <Story name="icon circular basic">
+        <Button icon basic circular><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+## Icon Circular Basic Primary
+
+<Preview>
+    <Story name="icon circular basic primary">
+        <Button icon basic primary circular><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+## Icon Mini Circular
+
+<Preview>
+    <Story name="icon mini circular default">
+        <Button icon circular size="mini"><AddIcon className="flex w3 h3"/></Button>
+    </Story>
+</Preview>
+
+## Icon Mini Circular Primary
+
+<Preview>
+    <Story name="icon mini circular primary">
+        <Button icon primary circular size="mini"><AddIcon className="flex w3 h3"/></Button>
+    </Story>
+</Preview>
+
+## Icon Mini Circular Basic
+
+<Preview>
+    <Story name="icon mini circular basic">
+        <Button icon basic circular size="mini"><AddIcon className="flex w3 h3"/></Button>
+    </Story>
+</Preview>
+
+## Icon Mini Circular Basic Primary
+
+<Preview>
+    <Story name="icon mini circular basic primary">
+        <Button icon basic primary circular size="mini"><AddIcon className="flex w3 h3"/></Button>
+    </Story>
+</Preview>
+
+## Loading Standard
+
+<Preview>
+    <Story name="icon loading default">
+        <Button loading>Loading</Button>
+    </Story>
+</Preview>
+
+## Loading Primary
+
+<Preview>
+    <Story name="icon loading primary default">
+        <Button loading primary>Loading</Button>
+    </Story>
+</Preview>
+
+## Loading Basic
+
+<Preview>
+    <Story name="icon loading basic default">
+        <Button loading basic>Loading</Button>
+    </Story>
+</Preview>
+
+## Loading Basic Primary
+
+<Preview>
+    <Story name="icon loading basic primary default">
+        <Button loading basic primary>Loading</Button>
+    </Story>
+</Preview>
+
+## Success
+
+<Preview>
+    <Story name="success default">
+        <Button positive>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="success active / focus">
+        <Button positive active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="success disabled">
+        <Button positive disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Negative
+
+<Preview>
+    <Story name="negative default">
+        <Button negative>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="negative active / focus">
+        <Button negative active>Cutoff</Button>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="negative disabled">
+        <Button negative disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Fluid
+
+<Preview>
+    <Story name="fluid default">
+        <Button fluid>To infinity and beyond</Button>
+    </Story>
+</Preview>
+
+## Heights
+
+Apart from the default 40px heights buttons can be shorter or taller Careful heights are not a property but a className
+
+## Short
+
+<Preview>
+    <Story name="height short default">
+        <Button className="short">Short - 32px</Button>
+    </Story>
+</Preview>
+
+## Tall
+
+<Preview>
+    <Story name="height tall default">
+        <Button className="tall">Tall - 48px</Button>
     </Story>
 </Preview>
