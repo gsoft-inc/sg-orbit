@@ -1,10 +1,11 @@
-import { isNil, isPlainObject } from "lodash";
+import { isNil, isNumber, isPlainObject } from "lodash";
 
 class StoryParametersBuilder {
     _layout = {}
     _chromatic = {}
     _excludeFromDocs = false;
-    _storyParameters = null
+    _storyValues = null;
+    _sortPriority = null;
 
     layout(config) {
         if (!isNil(config)) {
@@ -66,11 +67,30 @@ class StoryParametersBuilder {
         return this;
     }
 
+    sortPriority(priority) {
+        if (isNumber(priority)) {
+            this._sortPriority = priority;
+        }
+
+        return this;
+    }
+
+    sortLast() {
+        this._sortPriority = Number.MAX_SAFE_INTEGER;
+
+        return this;
+    }
+
     build() {
-        const params = {
-            layout: this._layout,
-            chromatic: this._chromatic
-        };
+        const params = {};
+
+        if (!isNil(this._layout)) {
+            params.layout = this._layout;
+        }
+
+        if (!isNil(this._chromatic)) {
+            params.chromatic = this._chromatic;
+        }
 
         if (this._excludeFromDocs) {
             params.docs = {
@@ -80,6 +100,10 @@ class StoryParametersBuilder {
 
         if (!isNil(this._storyValues)) {
             params.storyValues = this._storyValues;
+        }
+
+        if (!isNil(this._sortPriority)) {
+            params.sortPriority = this._sortPriority;
         }
 
         return params;
