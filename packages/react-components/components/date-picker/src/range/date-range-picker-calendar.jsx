@@ -20,11 +20,11 @@ export class DateRangePickerCalendar extends PureComponent {
          */
         endDate: momentType,
         /**
-         * Called when date(s) are applied.
+         * Called when the date(s) are / is applied.
          */
         onDatesChange: func,
         /**
-         * Called when the apply button is clicked.
+         * Called on apply button click.
          */
         onApply: func,
         /**

@@ -31,7 +31,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         defaultEndDate: momentType,
         /**
-         * Called when date(s) are applied.
+         * Called when the date(s) are / is applied.
          */
         onDatesChange: func.isRequired,
         /**
@@ -120,7 +120,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the calendar should close when a click is made outside the date picker.
+         * Whether or not the calendar should close when a click happens outside the date picker.
          * Requires `closeOnBlur` to be false.
          */
         closeOnOutsideClick: bool,

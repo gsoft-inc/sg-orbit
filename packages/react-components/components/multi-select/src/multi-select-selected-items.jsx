@@ -63,10 +63,25 @@ class MultiSelectSelectedItem extends PureComponent {
 
 export class MultiSelectSelectedItems extends PureComponent {
     static propTypes = {
+        /**
+         * Items to display.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Render an item.
+         */
         itemRenderer: func,
+        /**
+         * Called when an item is removed.
+         */
         onRemoveSelectedItem: func,
+        /**
+         * A disabled selected items does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

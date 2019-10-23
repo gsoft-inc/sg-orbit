@@ -6,9 +6,18 @@ import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
+        /**
+         * The button text.
+         */
         text: string,
+        /**
+         * Called on click.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

@@ -6,20 +6,56 @@ import { isNil } from "lodash";
 
 export class MultiSelectDropdownTrigger extends PureComponent {
     static propTypes = {
+        /**
+         * The trigger text.
+         */
         text: string,
+        /**
+         * A custom React SVG component displayed before the trigger text.
+         */
         icon: node,
+        /**
+         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
+         */
         disabledIcon: node,
+        /**
+         * Called on click.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
+        /**
+         * Called on keydown
+         */
         onKeyDown: func,
+        /**
+         * Called on focus.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
+        /**
+         * Called on blur.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
+        /**
+         * Called when an open event happens.
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         */
         onClose: func,
+        /**
+         * Indicates whether or not the dropdown is opened.
+         */
         open: bool,
+        /**
+         * A disabled trigger does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

@@ -76,7 +76,7 @@ class SingleDatePickerInputInner extends PureComponent {
          */
         disabledIcon: node,
         /**
-         * A disabled date picker does not allow user interaction.
+         * A disabled input does not allow user interaction.
          */
         disabled: bool,
         /**

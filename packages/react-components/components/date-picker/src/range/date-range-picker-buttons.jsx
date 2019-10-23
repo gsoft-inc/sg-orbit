@@ -15,11 +15,11 @@ export class DateRangePickerButtons extends PureComponent {
          */
         endDate: momentPropTypes.momentObj,
         /**
-         * Called when the clear button is clicked.
+         * Called on clear button click.
          */
         onClear: func,
         /**
-         * Called when the apply button is clicked.
+         * Called on apply button click.
          */
         onApply: func,
         /**

@@ -5,9 +5,21 @@ import { isNil } from "lodash";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
     static propTypes = {
+        /**
+         * Called on text change.
+         */
         onChange: func,
+        /**
+         * A custom React SVG component displayed before the text.
+         */
         icon: node,
+        /**
+         * The placeholder text.
+         */
         placeholder: string,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

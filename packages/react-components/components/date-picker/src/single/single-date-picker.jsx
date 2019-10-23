@@ -89,7 +89,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     closeOnBlur: bool,
     /**
-     * Whether or not the calendar should close when a click is made outside the date picker.
+     * Whether or not the calendar should close when a click happens outside the date picker.
      * Requires `closeOnBlur` to be false.
      */
     closeOnOutsideClick: bool,
