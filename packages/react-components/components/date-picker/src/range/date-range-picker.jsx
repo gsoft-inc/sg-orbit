@@ -14,33 +14,119 @@ import moment from "moment";
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: momentType,
+        /**
+         * A controlled end date value.
+         */
         endDate: momentType,
+        /**
+         * The initial value of start date.
+         */
         defaultStartDate: momentType,
+        /**
+         * The initial value of end date.
+         */
         defaultEndDate: momentType,
+        /**
+         * Called when date(s) are applied.
+         */
         onDatesChange: func.isRequired,
+        /**
+         * Called when the calendar open / close.
+         */
         onVisibilityChange: func,
+        /**
+         * Whether or not the calendar enforce the selection of of a range of dates.
+         */
         allowSingleDateSelection: bool,
+        /**
+         * Whether or not the calendar selected date(s) can be cleared.
+         */
         allowClear: bool,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: momentType,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: momentType,
+        /**
+         * An initial visible month displayed when the calendar open.
+         */
         initialVisibleMonth: oneOfType([momentType, func]),
+        /**
+         * The number of months displayed simultaneously in the calendar.
+         */
         numberOfMonths: number,
+        /**
+         * A custom React component that display the currently applied date(s) and open the calendar.
+         */
         input: node,
+        /**
+         * The placeholder text.
+         */
         placeholder: string,
+        /**
+         * A format to display the currently applied date(s).
+         */
         rangeFormat: string,
+        /**
+         * A format to display a date.
+         */
         dateFormat: string,
+        /**
+         * A position for the calendar.
+         */
         position: oneOf(POSITIONS),
+        /**
+         * An array containing an horizontal and vertical offsets for the calendar position.
+         * Ex: ["10px", "-10px"]
+         */
         offsets: arrayOf(string),
+        /**
+         * A custom React component to select a date.
+         */
         calendar: node,
+        /**
+         * A custom React component to list and select a preset.
+         */
         presetsComponent: node,
+        /**
+         * Array of pre-determined dates range displayed to the left of the calendar.
+         */
         presets: arrayOf(shape(PRESET_SHAPE)),
+        /**
+         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         */
         buttons: node,
+        /**
+         * The initial value of open.
+         */
         defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the calendar is displayed.
+         */
         open: bool,
+        /**
+         * A disabled date picker does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the calendar should close when the date picker is blurred.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the calendar should close when a click is made outside the date picker.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

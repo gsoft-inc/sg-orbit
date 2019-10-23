@@ -55,13 +55,37 @@ class Preset extends PureComponent {
 
 export class DateRangePickerPresets extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: object,
+        /**
+         * A controlled end date value.
+         */
         endDate: object,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: object,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: object,
+        /**
+         * Called when a preset is selected.
+         */
         onSelectPreset: func,
+        /**
+         * Array of pre-determined dates range.
+         */
         presets: arrayOf(shape(PRESET_SHAPE)),
+        /**
+         * A custom React SVG component displayed on top of the presets list.
+         */
         icon: node,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

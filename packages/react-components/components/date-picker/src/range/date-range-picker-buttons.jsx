@@ -6,14 +6,41 @@ import momentPropTypes from "react-moment-proptypes";
 
 export class DateRangePickerButtons extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: momentPropTypes.momentObj,
+        /**
+         * A controlled end date value.
+         */
         endDate: momentPropTypes.momentObj,
+        /**
+         * Called when the clear button is clicked.
+         */
         onClear: func,
+        /**
+         * Called when the apply button is clicked.
+         */
         onApply: func,
+        /**
+         * Whether or not the calendar enforce the selection of of a range of dates.
+         */
         allowSingleDateSelection: bool,
+        /**
+         * Whether or not the calendar selected date(s) can be cleared.
+         */
         allowClear: bool,
+        /**
+         * The clear button text.
+         */
         clearText: string,
+        /**
+         * The apply button text.
+         */
         applyText: string,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
