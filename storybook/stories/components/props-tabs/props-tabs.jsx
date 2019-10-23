@@ -1,5 +1,3 @@
-import styles from "./props-tabs.module.css";
-
 import { Checkbox, Tab } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
