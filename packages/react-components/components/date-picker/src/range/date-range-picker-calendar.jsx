@@ -11,23 +11,74 @@ import moment from "moment";
 
 export class DateRangePickerCalendar extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: momentType,
+        /**
+         * A controlled end date value.
+         */
         endDate: momentType,
+        /**
+         * Called when date(s) are applied.
+         */
         onDatesChange: func,
+        /**
+         * Called when the apply button is clicked.
+         */
         onApply: func,
+        /**
+         * Whether or not the calendar enforce the selection of of a range of dates.
+         */
         allowSingleDateSelection: bool,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: momentType,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: momentType,
+        /**
+         * An initial visible month displayed when the calendar open.
+         */
         initialVisibleMonth: oneOfType([momentType, func]),
+        /**
+         * The number of months displayed simultaneously in the calendar.
+         */
         numberOfMonths: number,
+        /**
+         * A position for the calendar.
+         */
         position: oneOf(POSITIONS),
+        /**
+         * A custom React SVG component for the previous month navigation button.
+         */
         navPrevIcon: node,
+        /**
+         * A custom React SVG component for the next month navigation button.
+         */
         navNextIcon: node,
+        /**
+         * A custom React component to list and select a preset.
+         */
         presetsComponent: node,
+        /**
+         * Array of pre-determined dates range displayed to the left of the calendar.
+         */
         presets: arrayOf(shape(PRESET_SHAPE)),
+        /**
+         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         */
         buttons: node,
+        /**
+         * Whether or not the calendar selected date(s) can be cleared.
+         */
         allowClear: bool,
         reactDatesCalendar: node,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
