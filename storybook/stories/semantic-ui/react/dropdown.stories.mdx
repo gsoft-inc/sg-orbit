@@ -1,0 +1,156 @@
+import { Dropdown } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components|Dropdown" />
+
+# Dropdown
+
+## Standard
+
+<Preview>
+    <Story name="standard">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="Gender"
+            disabled
+            fluid
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## Complex
+
+<Preview>
+    <Story name="complex">
+        <Dropdown
+            placeholder="Select Friend"
+            fluid
+            selection
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/4.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/12.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Stevie Feliciano",
+                    text: "Stevie Feliciano",
+                    value: "Stevie Feliciano",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/14.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Christian",
+                    text: "Christian",
+                    value: "Christian",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/12.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Matt",
+                    text: "Matt",
+                    value: "Matt",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/44.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Justen Kitsune",
+                    text: "Justen Kitsune",
+                    value: "Justen Kitsune",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/14.jpg",
+                        size: "mini"
+                    }
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## Height Variation
+
+A dropdown can be smaller using the class *small*
+
+<Preview>
+    <Story name="height">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            className="small"
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
