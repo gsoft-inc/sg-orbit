@@ -1,0 +1,243 @@
+import { Button, Message } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { noop } from "lodash";
+
+<Meta title="Components|Message" />
+
+# Message
+
+## Standard
+
+<Preview>
+    <Story name="standard">
+        <Message>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## List
+
+<Preview>
+    <Story name="list">
+        <Message>
+            <Message.Header>New Site Features</Message.Header>
+            <Message.List>
+                <Message.Item>You can now have cover images on blog pages</Message.Item>
+                <Message.Item>Drafts will now auto-save while writing</Message.Item>
+            </Message.List>
+        </Message>
+    </Story>
+</Preview>
+
+## Dismissible
+
+Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message.
+
+<Preview>
+    <Story name="dismissible">
+        <Message onDismiss={noop}>
+            <Message.Header>New Site Features</Message.Header>
+            <Message.List>
+                <Message.Item>You can now have cover images on blog pages</Message.Item>
+                <Message.Item>Drafts will now auto-save while writing</Message.Item>
+            </Message.List>
+        </Message>
+    </Story>
+</Preview>
+
+## Info
+
+<Preview>
+    <Story name="info">
+        <Message info>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Info Dismissible
+
+<Preview>
+    <Story name="info dismissible">
+        <Message info onDismiss={noop}>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Positive/Success
+
+<Preview>
+    <Story name="positive success">
+        <Message positive>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Positive/Success Dismissible
+
+<Preview>
+    <Story name="positive success dismissible">
+        <Message positive onDismiss={noop}>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Warning
+
+<Preview>
+    <Story name="warning">
+        <Message warning>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Warning Dismissible
+
+<Preview>
+    <Story name="warning dismissible">
+        <Message warning onDismiss={noop}>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Negative/Error
+
+<Preview>
+    <Story name="negative error">
+        <Message negative>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Negative/Error Dismissible
+
+<Preview>
+    <Story name="negative error dismissible">
+        <Message negative onDismiss={noop}>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Floating
+
+<Preview>
+    <Story name="floating">
+        <Message floating>
+            <Message.Header>
+            Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+            Easily manage external sharing links and set-up automatic access reviews
+            for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+## Two Up Layout
+
+### Left Aligned
+
+<Preview>
+    <Story name="two up left aligned">
+        <Message icon>
+            <Button>Click Here</Button>
+            <Message.Content>
+                <Message.Header>Just one second</Message.Header>
+                <p>We are fetching that content for you.</p>
+            </Message.Content>
+        </Message>
+    </Story>
+</Preview>
+
+### Right Aligned
+
+<Preview>
+    <Story name="two up right aligned">
+        <Message icon>
+            <Message.Content>
+                <Message.Header>Just one second</Message.Header>
+                <p>We are fetching that content for you.</p>
+            </Message.Content>
+            <Button>Click Here</Button>
+        </Message>
+    </Story>
+</Preview>
+
+## Sizes
+
+### Small
+
+Useful for one liners
+
+<Preview>
+    <Story name="size small">
+        <Message size="small">
+            <p className="fw6">
+    Easily manage external sharing links and set-up automatic access reviews.
+            </p>
+        </Message>
+    </Story>
+</Preview>
