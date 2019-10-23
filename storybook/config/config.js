@@ -1,6 +1,6 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { CanvasContainer } from "./canvas-container";
+import { CanvasContainer } from "./containers";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";

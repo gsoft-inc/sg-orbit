@@ -1,3 +1,6 @@
+.sbdocs.sbdocs-wrapper {
+    padding-top: 30px;
+}
 .sbdocs.sbdocs-content > div > div {
     overflow: visible;
 }

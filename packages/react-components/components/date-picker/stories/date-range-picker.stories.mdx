@@ -8,6 +8,7 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
+import { BrandPickerWidget } from "@components/brand-picker";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -23,6 +24,8 @@ import moment from "moment";
         .width("80%")
         .build()}
 />
+
+<BrandPickerWidget />
 
 <PropsTabs
     componentsDefinitions={[
