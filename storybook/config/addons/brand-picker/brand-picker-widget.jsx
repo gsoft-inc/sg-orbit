@@ -14,13 +14,6 @@ export function BrandPickerWidget() {
         applyBrand(brand);
     };
 
-    const params = (new URL(document.location)).searchParams;
-    const isDocs = params.get("viewMode") === "docs";
-
-    if (isDocs) {
-        return null;
-    }
-
     const values = Object.values(BRANDS);
 
     return (
