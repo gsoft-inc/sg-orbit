@@ -28,7 +28,7 @@
 @checkboxCheckFontSize: 1em;
 
 /* Label */
-
+@disabledCheckboxLabelColor: @cloud200;
 
 /*-------------------
     States
@@ -123,7 +123,7 @@
 @toggleOffOffset: 0.25rem;
 @toggleOnOffset: (@toggleLaneWidth - @toggleHandleSize) - 0.25rem;
 
-@toggleLabelDistance: @toggleLaneWidth;
+@toggleLabelDistance: calc(@toggleLaneWidth + 8px);
 @toggleLabelLineHeight: 1.5rem;
 @toggleLabelOffset: 0;
 

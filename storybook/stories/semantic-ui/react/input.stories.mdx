@@ -1,0 +1,122 @@
+import { Input } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components|Input" />
+
+# Input
+
+## Standard
+
+<Preview>
+    <Story name="standard">
+        <Input placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Focus
+
+<Preview>
+    <Story name="focus">
+        <Input focus placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+    <Story name="disabled">
+        <Input disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Icon
+
+<Preview>
+    <Story name="icon">
+        <Input icon="search" placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Icon Disabled
+
+<Preview>
+    <Story name="icon disabled">
+        <Input icon="search" disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Icon Align Left
+
+<Preview>
+    <Story name="icon left align">
+        <Input iconPosition="left" icon="search" placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Icon Align Left Disabled
+
+<Preview>
+    <Story name="icon left align disabled">
+        <Input
+            disabled
+            icon="search"
+            iconPosition="left"
+            placeholder="Search..."
+            value="Canada"
+        />
+    </Story>
+</Preview>
+
+## Loading
+
+<Preview>
+    <Story name="loading">
+        <Input loading icon="search" placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Loading Left
+
+<Preview>
+    <Story name="loading left">
+        <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Error
+
+<Preview>
+    <Story name="error">
+        <Input error placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Success
+
+An input can indicate a success state using the class *success*
+
+<Preview>
+    <Story name="success">
+        <Input className="success" placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Fluid
+
+An input can take all the width it can
+
+<Preview>
+    <Story name="fluid">
+        <Input fluid placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Transparent
+
+An input can be transparent using the class *transparent*
+
+<Preview>
+    <Story name="transparent">
+        <Input className="transparent" placeholder="Search..." />
+    </Story>
+</Preview>

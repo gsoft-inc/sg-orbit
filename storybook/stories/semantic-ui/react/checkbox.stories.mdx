@@ -1,16 +1,144 @@
-import { Checkbox } from "semantic-ui-react";
+import { Checkbox, Form } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Components|Checkbox" />
 
+# Checkbox
+
+## Standard
+
 <Preview>
-    <Story name="default">
+    <Story name="standard">
         <Checkbox label="Milky Way" />
     </Story>
 </Preview>
 
 <Preview>
-    <Story name="checked">
+    <Story name="standard checked">
         <Checkbox checked label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="standard disabled">
+        <Checkbox disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="standard checked disabled">
+        <Checkbox checked disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="indeterminate">
+        <Checkbox indeterminate checked label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="indeterminate disabled">
+        <Checkbox indeterminate disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="indeterminate checked disabled">
+        <Checkbox indeterminate disabled checked label="Milky Way" />
+    </Story>
+</Preview>
+
+## Toggle
+
+<Preview>
+    <Story name="toggle">
+        <Checkbox toggle/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle disabled">
+        <Checkbox toggle disabled/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle checked">
+        <Checkbox toggle checked/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle checked disabled">
+        <Checkbox toggle checked disabled/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle label">
+        <Checkbox toggle label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle label disabled">
+        <Checkbox toggle disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle label checked">
+        <Checkbox toggle checked label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="toggle label checked disabled">
+        <Checkbox toggle checked disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+## Radio
+
+<Preview>
+    <Story name="radio label">
+        <Checkbox radio label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="radio disabled label">
+        <Checkbox radio disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="radio checked label">
+        <Checkbox radio checked label="Milky Way"/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="radio checked disabled label">
+        <Checkbox radio checked disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+## Radio Group
+
+Radios in a group must be controlled components.
+
+<Preview>
+    <Story name="radio group">
+        <Form>
+            <Form.Field>Where are you heading?</Form.Field>
+            <Form.Field>
+                <Checkbox radio label="Mars" name="checkboxRadioGroup" value="this" />
+            </Form.Field>
+            <Form.Field>
+                <Checkbox radio label="Moon" name="checkboxRadioGroup" value="that" />
+            </Form.Field>
+        </Form>
     </Story>
 </Preview>

@@ -30,3 +30,11 @@
 .ui.secondary.pointing.menu .item.with-label {
     padding: 0 0 1.125rem 0;
 }
+
+.ui.text.menu .item {
+    font-size: 1rem;
+}
+
+.ui.secondary.menu.compact .item {
+    font-size: 1rem;
+}

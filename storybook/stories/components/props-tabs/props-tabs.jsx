@@ -49,13 +49,14 @@ export function PropsTabs({ componentsDefinitions }) {
     };
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
-    const checkboxContainerClasses = hasMultipleComponents ? `absolute right-0 ${styles.checkboxTopPosition}` : "flex flex-row justify-end mb2";
+
 
     return (
         <div className="relative">
-            <div className={checkboxContainerClasses}>
+            <div>
                 <Checkbox
                     label="Props"
+                    className="mb3"
                     checked={isVisible}
                     toggle
                     onChange={handleToggleChange}
@@ -67,9 +68,9 @@ export function PropsTabs({ componentsDefinitions }) {
                     <Tab
                         activeIndex={activeIndex}
                         panes={createPanes()}
-                        menu={{ text: true, compact: true }}
+                        menu={{ secondary: true, pointing: true, compact: true }}
                         onTabChange={handleTabChange}
-                        className="flex-auto"
+                        className="flex-auto mb6"
                     />
                 </When>
                 <Otherwise>
