@@ -145,6 +145,11 @@
 .ui.checkbox input[disabled] ~ label::before {
     background-color: var(--cloud-50);
     border: 1px solid var(--cloud-100);
+    color: @cloud200;
+}
+
+.ui.toggle.disabled.checkbox input:checked ~ label {
+    color: @cloud200!important;
 }
 
 .ui.disabled.radio.checkbox .box:after,
@@ -156,7 +161,7 @@
 /* ui fitted toggle checkbox for browsers that supports masks */
 
 @supports (mask: url("/icon-checkmark-short.svg") center center no-repeat) {
-    .ui.fitted.toggle.checkbox::before {
+    .ui.toggle.checkbox::before {
         background-color: @white;
         content: "";
         display: block;
@@ -171,14 +176,14 @@
         mask-size: 10px 7px;
     }
 
-    .ui.fitted.toggle.checkbox.checked::before {
+    .ui.toggle.checkbox.checked::before {
         transform: translate3d(1.625rem, 0, 0);
         background-color:  @primary500;
         mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
         mask-size: 10px 7px;
     }
 
-    .ui.fitted.toggle.checkbox.checked.disabled::before {
+    .ui.toggle.checkbox.checked.disabled::before {
         transform: translate3d(1.625rem, 0, 0);
         background-color: @primary100;
         mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
