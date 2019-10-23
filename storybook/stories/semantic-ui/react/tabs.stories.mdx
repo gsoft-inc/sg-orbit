@@ -1,0 +1,101 @@
+import { Label, Menu, Tab } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components|Tabs" />
+
+# Tabs
+
+## Standard
+
+<Preview>
+    <Story name="standard">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: "Star",
+                    render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+                },
+                {
+                    menuItem: "Rocket",
+                    render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+                },
+                {
+                    menuItem: "Galaxy",
+                    render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane>
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## With label
+
+<Preview>
+    <Story name="label">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: { key: "users", content: "Users" },
+                    render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+                },
+                {
+                    menuItem: (
+                        <Menu.Item key="messages" className="with-label">
+          Messages
+                            <Label className="primary" size="tiny">
+            NEW
+                            </Label>
+                        </Menu.Item>
+                    ),
+                    render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## Custom Spacing
+
+You can space the tab content to your heart's content
+
+<Preview>
+    <Story name="spacing">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: "Star",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 1 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                },
+                {
+                    menuItem: "Rocket",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 2 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                },
+                {
+                    menuItem: "Galaxy",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 3 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                }
+            ]}
+        />
+    </Story>
+</Preview>
