@@ -1,0 +1,122 @@
+import { Icon, Label } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components|Label" />
+
+# Label
+
+## Standard
+
+<Preview>
+    <Story name="standard">
+        <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+## Icon
+
+<Preview>
+    <Story name="icon">
+        <Label>
+        Notification Sent <Icon name="search" />
+        </Label>
+    </Story>
+</Preview>
+
+## Icons
+
+<Preview>
+    <Story name="icons">
+        <Label>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="fill-marine-dark w5 h4 mr2"
+                viewBox="0 0 25.5 19.5"
+            >
+                <g data-name="Layer 2">
+                    <g data-name="Layer 1">
+                        <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
+                        <path d="M12.75 11.5a.72.72 0 0 1-.46-.16l-9-7a.75.75 0 0 1 .92-1.18l8.54 6.64 8.54-6.64a.75.75 0 0 1 .92 1.18l-9 7a.72.72 0 0 1-.46.16zM3.75 16.5a.74.74 0 0 1-.53-.22.75.75 0 0 1 0-1.06l4-4a.75.75 0 1 1 1.06 1.06l-4 4a.74.74 0 0 1-.53.22zM21.75 16.5a.74.74 0 0 1-.53-.22l-4-4a.75.75 0 0 1 1.06-1.06l4 4a.75.75 0 0 1 0 1.06.74.74 0 0 1-.53.22z" />
+                    </g>
+                </g>
+            </svg>
+    Notification Sent <Icon name="search" />
+        </Label>
+    </Story>
+</Preview>
+
+## Circular
+
+<Preview>
+    <Story name="circular">
+        <Label circular>R</Label>
+    </Story>
+</Preview>
+
+## Sizes
+
+<Preview>
+    <Story name="circular sizes">
+        <div>
+            <Label circular size="mini">
+            R
+            </Label>
+            <Label circular size="tiny">
+            R
+            </Label>
+            <Label circular size="small">
+            R
+            </Label>
+            <Label circular size="medium">
+            R
+            </Label>
+            <Label circular size="large">
+            R
+            </Label>
+            <Label circular size="big">
+            R
+            </Label>
+            <Label circular size="huge">
+            R
+            </Label>
+            <Label circular size="massive">
+            R
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+## Basic
+
+<Preview>
+    <Story name="basic">
+        <Label basic>Basic</Label>
+    </Story>
+</Preview>
+
+## Empty
+
+<Preview>
+    <Story name="empty">
+        <Label circular size="mini" empty color="red" />
+    </Story>
+</Preview>
+
+## Sizes
+
+### Small
+
+<Preview>
+    <Story name="small">
+        <Label size="small">Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Large
+
+<Preview>
+    <Story name="large">
+        <Label size="large">Notification Sent</Label>
+    </Story>
+</Preview>
+
