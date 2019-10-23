@@ -6,7 +6,6 @@ function stories() {
     return storiesOfBuilder(module, `${SECTION}/chromatic`)
         .parameters(
             paramsBuilder()
-                .sortLast()
                 .chromaticDelay(100)
                 .sortLast()
                 .build()
