@@ -54,7 +54,7 @@ export class MultiSelectDropdown extends PureComponent {
          */
         closeOnSelect: bool,
         /**
-         * Delay to wait when the search input changed before initiating a search.
+         * Delay to wait before initiating a search when the search input change.
          */
         debounceDelay: number,
         /**
@@ -102,7 +102,7 @@ export class MultiSelectDropdown extends PureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close when the multi-select is blurred.
+         * Whether or not the dropdown should close on blur.
          */
         closeOnBlur: bool,
         /**

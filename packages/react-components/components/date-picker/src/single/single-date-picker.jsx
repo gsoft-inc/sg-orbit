@@ -77,15 +77,15 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     buttons: node,
     /**
-     * The initial value of open.
-     */
-    defaultOpen: bool,
-    /**
      * A controlled open value that determined whether or not the calendar is displayed.
      */
     open: bool,
     /**
-     * Whether or not the calendar should close when the date picker is blurred.
+     * The initial value of open.
+     */
+    defaultOpen: bool,
+    /**
+     * Whether or not the calendar should close on blur.
      */
     closeOnBlur: bool,
     /**

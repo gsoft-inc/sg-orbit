@@ -104,19 +104,19 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         buttons: node,
         /**
-         * The initial value of open.
-         */
-        defaultOpen: bool,
-        /**
          * A controlled open value that determined whether or not the calendar is displayed.
          */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
         /**
          * A disabled date picker does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Whether or not the calendar should close when the date picker is blurred.
+         * Whether or not the calendar should close on blur.
          */
         closeOnBlur: bool,
         /**
