@@ -48,7 +48,6 @@ export function PropsTabs({ componentsDefinitions }) {
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
 
-
     return (
         <>
             <Checkbox
