@@ -52,16 +52,14 @@ export function PropsTabs({ componentsDefinitions }) {
 
 
     return (
-        <div className="relative">
-            <div>
-                <Checkbox
-                    label="Props"
-                    className="mb3"
-                    checked={isVisible}
-                    toggle
-                    onChange={handleToggleChange}
-                />
-            </div>
+        <>
+            <Checkbox
+                label="Props"
+                className="mb3"
+                checked={isVisible}
+                toggle
+                onChange={handleToggleChange}
+            />
 
             <Choose>
                 <When condition={hasMultipleComponents}>
@@ -79,7 +77,7 @@ export function PropsTabs({ componentsDefinitions }) {
                     </If>
                 </Otherwise>
             </Choose>
-        </div>
+        </>
     );
 }
 

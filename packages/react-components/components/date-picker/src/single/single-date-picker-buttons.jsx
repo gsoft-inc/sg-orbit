@@ -6,12 +6,33 @@ import momentPropTypes from "react-moment-proptypes";
 
 export class SingleDatePickerButtons extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled date value.
+         */
         date: momentPropTypes.momentObj,
+        /**
+         * Called when the clear button is clicked.
+         */
         onClear: func,
+        /**
+         * Called when the apply button is clicked.
+         */
         onApply: func,
+        /**
+         * Whether or not the calendar selected date can be cleared.
+         */
         allowClear: bool,
+        /**
+         * The clear button text.
+         */
         clearText: string,
+        /**
+         * The apply button text.
+         */
         applyText: string,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
