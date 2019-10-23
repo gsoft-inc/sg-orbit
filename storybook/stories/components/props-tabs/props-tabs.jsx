@@ -53,7 +53,7 @@ export function PropsTabs({ componentsDefinitions }) {
 
     return (
         <div className="relative">
-            <div>
+            <div className="flex justify-end">
                 <Checkbox
                     label="Props"
                     className="mb3"
