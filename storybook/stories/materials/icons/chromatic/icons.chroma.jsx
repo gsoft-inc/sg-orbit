@@ -17,6 +17,7 @@ function stories() {
         .parameters(
             paramsBuilder()
                 .chromaticDelay(100)
+                .sortLast()
                 .build()
         )
         .build();
