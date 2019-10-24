@@ -8,33 +8,82 @@ import { momentObj as momentType } from "react-moment-proptypes";
 
 export class InlineSingleDatePickerInput extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled date value.
+         */
         date: momentType,
+        /**
+         * Called when an open event happens.
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         */
         onClose: func,
+        /**
+         * Called when the size of the input changed.
+         */
         onSizeChange: func,
+        /**
+         * Called on click.
+         */
         onClick: func,
+        /**
+         * Called on keydown.
+         */
         onKeyDown: func,
+        /**
+         * Called on focus.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
+        /**
+         * Called on blur.
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
+        /**
+         * Called when a clear event happens.
+         */
         onClear: func,
+        /**
+         * The placeholder text.
+         */
         placeholder: string,
+        /**
+         * A format to display a date.
+         */
         dateFormat: string,
+        /**
+         * A custom React SVG component indicating that the date picker is opened.
+         */
         openIcon: node,
+        /**
+         * A custom React SVG component indicating that the date picker is closed.
+         */
         closeIcon: node,
+        /**
+         * A custom React SVG component indicating that the date picker is opened when the date picker is disabled.
+         */
         disabledOpenIcon: node,
-        disabledCloseIcon: node,
+        /**
+         * A disabled date picker does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Indicates whether or not the date picker is opened.
+         */
         open: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
     static defaultProps = {
         openIcon: <ChevronIcon className="w4 h4 rotate-270 fill-primary-500" />,
         closeIcon: <ChevronIcon className="w4 h4 rotate-90 fill-primary-500" />,
-        disabledOpenIcon: <ChevronIcon className="w4 h4 rotate-270 fill-cloud-200" />,
-        disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
+        disabledOpenIcon: <ChevronIcon className="w4 h4 rotate-270 fill-cloud-200" />
     };
 
     _containerRef = createRef();
@@ -128,13 +177,13 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { openIcon, closeIcon, disabledOpenIcon, disabledCloseIcon, open, disabled } = this.props;
+        const { openIcon, closeIcon, disabledOpenIcon, open, disabled } = this.props;
 
         if (open) {
             return disabled ? disabledOpenIcon : openIcon;
         }
 
-        return disabled ? disabledCloseIcon : closeIcon;
+        return closeIcon;
     }
 
     render() {

@@ -80,7 +80,7 @@ class DateRangePickerInputInner extends PureComponent {
          */
         clearIcon: node,
         /**
-         * A custom React SVG component displayed before the applied date(s) text when the date picked is disabled.
+         * A custom React SVG component displayed before the applied date(s) text when the date picker is disabled.
          */
         disabledIcon: node,
         /**
@@ -88,7 +88,7 @@ class DateRangePickerInputInner extends PureComponent {
          */
         disabled: bool,
         /**
-         * Indicates whether or not the calendar is displayed.
+         * Indicates whether or not the date picker is opened.
          */
         open: bool,
         /**

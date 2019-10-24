@@ -8,19 +8,58 @@ import moment from "moment";
 
 export class SingleDatePickerCalendar extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled date value.
+         */
         date: momentType,
+        /**
+         * Called when the date is applied.
+         */
         onDateChange: func,
+        /**
+         * Called when the apply button is clicked.
+         */
         onApply: func,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: momentType,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: momentType,
+        /**
+         * An initial visible month displayed when the calendar open.
+         */
         initialVisibleMonth: oneOfType([momentType, func]),
+        /**
+         * The number of months displayed simultaneously in the calendar.
+         */
         numberOfMonths: number,
+        /**
+         * A position for the calendar.
+         */
         position: oneOf(POSITIONS),
+        /**
+         * A custom React SVG component for the previous month navigation button.
+         */
         navPrevIcon: node,
+        /**
+         * A custom React SVG component for the next month navigation button.
+         */
         navNextIcon: node,
+        /**
+         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         */
         buttons: node,
+        /**
+         * Whether or not the calendar selected date can be cleared.
+         */
         allowClear: bool,
         reactDatesCalendar: node,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
