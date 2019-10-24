@@ -1,5 +1,4 @@
 import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
-import { Link } from "@storybook/components";
 
 export function BrandPickerWidget() {
     const applyBrand = brand => {
@@ -17,18 +16,17 @@ export function BrandPickerWidget() {
     const values = Object.values(BRANDS);
 
     return (
-        <ul className="flex flex-row justify-end list pl0 mb6">
-            {Object.values(BRANDS).map((x, index) => {
+        <ul className="flex flex-row justify-end list pl0 mb4 mt8">
+            {Object.values(BRANDS).map((x, item) => {
+                const spacing = item === 0 ? "ml0" : "ml2";
+
                 return (
                     [
-                        <li key={x.id} className="ml2">
-                            <Link cancel onClick={() => handleSelectBrand(x)}>
+                        <li key={x.id} className={spacing}>
+                            <span cancel onClick={() => handleSelectBrand(x)} className={`bg-${x.id}-500 hover-bg-${x.id}-700 pv1 ph2 white br-pill pointer`}>
                                 {x.displayName}
-                            </Link>
-                        </li>,
-                        <If condition={index !== values.length - 1}>
-                            <li key={`${x.id}-separator`} className="ml2">/</li>
-                        </If>
+                            </span>
+                        </li>
                     ]
                 );
             })}

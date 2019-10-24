@@ -26,6 +26,7 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
+import "./styles/doc.css";
 import "./styles/fix-docs-addon.css";
 import "./styles/preview-area.css";
 

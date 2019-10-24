@@ -1,0 +1,22 @@
+.sbdocs {
+    font-family: Calibre, Arial, Helvetica, sans-serif !important;
+    color: var(--marine-900) !important;
+}
+
+.sbdocs-p {
+    font-size: 1.25rem !important;
+}
+
+.sbdocs-h1 {
+    font-weight: 700 !important;
+}
+
+.sbdocs-h2 {
+    margin: 24px 0 12px !important;
+}
+
+.sbdocs.sbdocs-content > div:not(.props-table) > div {
+    box-shadow: none;
+    padding: 30px 20px 40px 20px;
+    border: 1px solid var(--cloud-100);
+}

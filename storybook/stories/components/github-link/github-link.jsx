@@ -11,11 +11,10 @@ const propTypes = {
 
 export function GithubLink({ filePath }) {
     return (
-        <div className="flex flex-row items-center">
-            <GithubIcon className={styles.icon} />
-            <a href={`${GITHUB_REPOSITORY_URL}/${filePath}`} target="_blank" className="ml2">Open in Github</a>
+        <div className={styles.iconWrapper}>
+            <a href={`${GITHUB_REPOSITORY_URL}/${filePath}`} target="_blank" rel="noopener noreferrer" className="ml2"><GithubIcon className={styles.icon} /></a>
         </div>
-        
+
     );
 }
 

@@ -49,23 +49,22 @@ export function PropsTabs({ componentsDefinitions }) {
     const hasMultipleComponents = componentsDefinitions.length > 1;
 
     return (
-        <div className="relative">
-            <div className="flex justify-end">
+        <div className="relative flex flex-column props-table">
+            <div className="flex justify-end mb2">
                 <Checkbox
-                    label="Props"
+                    label="Props Table"
                     className="mb3"
                     checked={isVisible}
                     toggle
                     onChange={handleToggleChange}
                 />
             </div>
-
             <Choose>
-                <When condition={hasMultipleComponents}>
+                <When condition={hasMultipleComponents && isVisible}>
                     <Tab
                         activeIndex={activeIndex}
                         panes={createPanes()}
-                        menu={{ secondary: true, pointing: true, compact: true }}
+                        menu={{ secondary: true, pointing: true, compact: true, fluid: true }}
                         onTabChange={handleTabChange}
                         className="flex-auto mb6"
                     />
