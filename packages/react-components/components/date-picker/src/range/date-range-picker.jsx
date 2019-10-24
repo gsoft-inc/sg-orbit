@@ -79,7 +79,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         dateFormat: string,
         /**
-         * A position for the calendar.
+         * The position of the calendar relative to the input.
          */
         position: oneOf(POSITIONS),
         /**
