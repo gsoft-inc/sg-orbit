@@ -6,13 +6,37 @@ import { groupBy, isNil } from "lodash";
 
 export class MultiSelectDropdownMenu extends PureComponent {
     static propTypes = {
+        /**
+         * Items to display.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Called on item click.
+         */
         onItemClick: func,
+        /**
+         * Render an item.
+         */
         itemRenderer: func,
+        /**
+         * Render an header (also called a category).
+         */
         headerRenderer: func,
+        /**
+         * A custom React component to enter a search input.
+         */
         searchInput: node,
+        /**
+         * Message to display when there are no items matching the search input.
+         */
         noResultsMessage: string,
+        /**
+         * A controlled item selected from the keyboard.
+         */
         keyboardItem: shape(ITEM_SHAPE),
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

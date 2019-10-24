@@ -21,28 +21,98 @@ function defaultHeaderRenderer(group) {
 
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
+        /**
+         * Items to display.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Called when an item is selected.
+         */
         onItemSelect: func,
+        /**
+         * Called when the search input change.
+         */
         onSearch: func,
+        /**
+         * Called when an open event happens.
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         */
         onClose: func,
+        /**
+         * Render an item.
+         */
         itemRenderer: func,
+        /**
+         * Render an header (also called a category).
+         */
         headerRenderer: func,
+        /**
+         * Whether or not the dropdown should close when an item is selected.
+         */
         closeOnSelect: bool,
+        /**
+         * Delay to wait before initiating a search when the search input change.
+         */
         debounceDelay: number,
+        /**
+         * Message to display when there are no items matching the search input.
+         */
         noResultsMessage: string,
+        /**
+         * A custom React component that open the dropdown.
+         */
         trigger: node,
+        /**
+         * The trigger text.
+         */
         triggerText: string,
+        /**
+         * A custom React SVG component displayed before the trigger text.
+         */
         triggerIcon: node,
+        /**
+         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
+         */
         triggerDisabledIcon: node,
+        /**
+         * A custom React component to display the items.
+         */
         menu: node,
+        /**
+         * A custom React component to enter a search input.
+         */
         searchInput: node,
+        /**
+         * A custom React SVG component displayed before the search input text.
+         */
         searchIcon: node,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
+        /**
+         * A controlled open value that determined whether or not the dropdown is displayed.
+         */
         open: bool,
+        /**
+         * A disabled dropdown does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the dropdown should close on blur.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

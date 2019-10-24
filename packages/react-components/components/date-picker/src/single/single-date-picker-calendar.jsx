@@ -17,7 +17,7 @@ export class SingleDatePickerCalendar extends PureComponent {
          */
         onDateChange: func,
         /**
-         * Called when the apply button is clicked.
+         * Called on apply button click.
          */
         onApply: func,
         /**

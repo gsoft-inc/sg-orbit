@@ -36,24 +36,82 @@ function computeDerivedState(items, values) {
 
 export class MultiSelect extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * All available items.
+         */
         items: arrayOf(shape(ITEM_SHAPE)).isRequired,
+        /**
+         * A controlled array of selected values.
+         */
         values: arrayOf(string),
+        /**
+         * The initial selected values.
+         */
         defaultValues: arrayOf(string),
+        /**
+         *  Called a value is selected / removed.
+         */
         onValuesChange: func.isRequired,
+        /**
+         * Called when a search for an item happens.
+         */
         onSearch: func,
+        /**
+         * Called when the dropdown open / close.
+         */
         onVisibilityChange: func,
+        /**
+         * A custom React component to select an item.
+         */
         dropdown: node,
+        /**
+         * Whether or not the dropdown should close when an item is selected.
+         */
         closeOnSelect: bool,
+        /**
+         * The text of the trigger button to open the dropdown.
+         */
         addText: string,
+        /**
+         * Message to display when there are no items matching the search input.
+         */
         noResultsMessage: string,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
+        /**
+         * A custom React component to display the selected values.
+         */
         selectedItemsComponent: node,
+        /**
+         * A custom React component to clear the selected values.
+         */
         clearButton: node,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the dropdown is displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled multi-select does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the dropdown should close on blur.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

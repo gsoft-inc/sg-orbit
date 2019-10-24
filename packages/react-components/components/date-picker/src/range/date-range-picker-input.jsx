@@ -84,11 +84,11 @@ class DateRangePickerInputInner extends PureComponent {
          */
         disabledIcon: node,
         /**
-         * A disabled date picker does not allow user interaction.
+         * A disabled input does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Indicates whether or not the date picker is opened.
+         * Whether or not the date picker is opened.
          */
         open: bool,
         /**

@@ -31,7 +31,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         defaultEndDate: momentType,
         /**
-         * Called when date(s) are applied.
+         * Called when the date(s) are / is applied.
          */
         onDatesChange: func.isRequired,
         /**
@@ -79,7 +79,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         dateFormat: string,
         /**
-         * A position for the calendar.
+         * The position of the calendar relative to the input.
          */
         position: oneOf(POSITIONS),
         /**
@@ -104,23 +104,23 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         buttons: node,
         /**
-         * The initial value of open.
-         */
-        defaultOpen: bool,
-        /**
          * A controlled open value that determined whether or not the calendar is displayed.
          */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
         /**
          * A disabled date picker does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Whether or not the calendar should close when the date picker is blurred.
+         * Whether or not the calendar should close on blur.
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the calendar should close when a click is made outside the date picker.
+         * Whether or not the calendar should close when a click happens outside the date picker.
          * Requires `closeOnBlur` to be false.
          */
         closeOnOutsideClick: bool,

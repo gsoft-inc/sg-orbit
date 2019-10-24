@@ -15,20 +15,67 @@ function fadeInAnimationRenderer(open, renderContent) {
 
 export class Popup extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * A controlled open value that determined whether or not the popup is displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
         defaultOpen: bool,
+        /**
+         * A custom React component to open the popup.
+         */
         trigger: node.isRequired,
+        /**
+         * The content of the popup.
+         */
         children: node.isRequired,
+        /**
+         * The position of the popup relative to the trigger.
+         */
         position: oneOf(POSITIONS).isRequired,
+        /**
+         * An array containing an horizontal and vertical offsets for the popup position.
+         * Ex: ["10px", "-10px"]
+         */
         offsets: arrayOf(string),
+        /**
+         * Called when the popup open / close.
+         */
         onVisibilityChange: func,
+        /**
+         * Called on window.document keydown when the popup is opened.
+         */
         onDocumentKeyDown: func,
+        /**
+         * Called on focus.
+         */
         onFocus: func,
+        /**
+         * Called on blur.
+         */
         onBlur: func,
+        /**
+         * Called on click outside of the popup.
+         */
         onOutsideClick: func,
+        /**
+         * Render the open / close animation.
+         */
         animationRenderer: func,
+        /**
+         * Whether or not the popup should close on blur.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the popup should close when a click happens outside the date picker.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

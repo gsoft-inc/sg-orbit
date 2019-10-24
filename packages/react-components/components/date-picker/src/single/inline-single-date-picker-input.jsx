@@ -55,11 +55,11 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A custom React SVG component indicating that the date picker is opened.
+         * A custom React SVG component displayed after the date text when the date picker is opened.
          */
         openIcon: node,
         /**
-         * A custom React SVG component indicating that the date picker is closed.
+         * A custom React SVG component displayed after the date text when the date picker is closed.
          */
         closeIcon: node,
         /**
@@ -67,11 +67,11 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         disabledOpenIcon: node,
         /**
-         * A disabled date picker does not allow user interaction.
+         * A disabled input does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Indicates whether or not the date picker is opened.
+         * Whether or not the date picker is opened.
          */
         open: bool,
         /**
