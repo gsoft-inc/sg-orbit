@@ -111,6 +111,7 @@ export class Popup extends AutoControlledPureComponent {
     _hasFocus = false;
     _triggerRef = createRef();
     _containerRef = createRef();
+    _animateInitialOpening = !this.props.defaultOpen;
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
@@ -121,6 +122,7 @@ export class Popup extends AutoControlledPureComponent {
 
         if (open) {
             this.focusTrigger();
+            this._animateInitialOpening = false;
         }
     }
 
@@ -259,7 +261,7 @@ export class Popup extends AutoControlledPureComponent {
         return style;
     }
 
-    getOpeningAnimationStyle() {
+    getOpeningStyle() {
         const { zIndex } = this.props;
 
         return {
@@ -335,6 +337,24 @@ export class Popup extends AutoControlledPureComponent {
         );
     };
 
+    renderContent() {
+        const { animationRenderer } = this.props;
+        const { open } = this.state;
+
+        if (this._animateInitialOpening) {
+            return animationRenderer(open, this.renderPopup, this.getOpeningStyle(), this.props);
+        } else {
+            // Subsequent opening should be animated.
+            this._animateInitialOpening = true;
+        }
+
+        return (
+            <div style={{ ...this.getOpeningStyle() }}>
+                {this.renderPopup()}
+            </div>
+        )
+    }
+
     render() {
         const { animationRenderer } = this.props;
         const { open } = this.state;
@@ -351,7 +371,7 @@ export class Popup extends AutoControlledPureComponent {
                     ref={this._containerRef}
                 >
                     {this.renderTrigger()}
-                    {animationRenderer(open, this.renderPopup, this.getOpeningAnimationStyle(), this.props)}
+                    {this.renderContent()}
                 </div>
 
                 <If condition={open}>
