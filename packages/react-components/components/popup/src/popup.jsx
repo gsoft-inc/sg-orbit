@@ -41,6 +41,10 @@ export class Popup extends AutoControlledPureComponent {
          */
         offsets: arrayOf(string),
         /**
+         * z-index of the content.
+         */
+        zIndex: string,
+        /**
          * Called when the popup open / close.
          */
         onVisibilityChange: func,
@@ -82,6 +86,7 @@ export class Popup extends AutoControlledPureComponent {
     static defaultProps = {
         position: BOTTOM_LEFT,
         offsets: ["0px", "0px"],
+        zIndex: "998",
         animationRenderer: fadeInAnimationRenderer,
         closeOnBlur: true,
         closeOnOutsideClick: false
@@ -255,9 +260,11 @@ export class Popup extends AutoControlledPureComponent {
     }
 
     getOpeningAnimationStyle() {
+        const { zIndex } = this.props;
+
         return {
             position: "absolute",
-            zIndex: "10",
+            zIndex,
             ...this.getPositioningStyle()
         }
     }

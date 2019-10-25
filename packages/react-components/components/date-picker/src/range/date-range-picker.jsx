@@ -88,6 +88,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         offsets: arrayOf(string),
         /**
+         * z-index of the calendar.
+         */
+        zIndex: string,
+        /**
          * A custom React component to select a date.
          */
         calendar: node,
@@ -263,7 +267,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -273,6 +277,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 calendar={this.renderCalendar()}
                 position={position}
                 offsets={offsets}
+                zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
                 closeOnBlur={closeOnBlur}
