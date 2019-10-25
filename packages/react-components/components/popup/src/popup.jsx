@@ -4,6 +4,7 @@ import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
+import { styles } from "./popup.module.css";
 
 function fadeInAnimationRenderer(open, renderContent) {
     return (

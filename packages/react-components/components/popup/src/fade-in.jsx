@@ -7,7 +7,10 @@ export const FadeIn = ({ active, children, className }) => {
 
     const transition = useSpring({
         opacity: active ? 1 : 0,
-        display: active ? "block" : "none"
+        display: active ? "block" : "none",
+        position: "absolute",
+        zIndex: "10",
+        top: 0
     });
 
     return (
