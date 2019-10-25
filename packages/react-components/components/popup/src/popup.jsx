@@ -65,11 +65,11 @@ export class Popup extends AutoControlledPureComponent {
          */
         animationRenderer: func,
         /**
-         * Whether or not the popup should close on blur.
+         * Whether or not the popup should close when the popup loose focus.
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the popup should close when a click happens outside the date picker.
+         * Whether or not the popup should close when a click happens outside.
          * Requires `closeOnBlur` to be false.
          */
         closeOnOutsideClick: bool,

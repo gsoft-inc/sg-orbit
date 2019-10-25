@@ -54,11 +54,11 @@ export class MultiSelectDropdown extends PureComponent {
          */
         closeOnSelect: bool,
         /**
-         * Delay to wait before initiating a search when the search input change.
+         * Delay before initiating a search when the query change.
          */
         debounceDelay: number,
         /**
-         * Message to display when there are no items matching the search input.
+         * Message to display when there are no items matching the query.
          */
         noResultsMessage: string,
         /**
@@ -82,11 +82,11 @@ export class MultiSelectDropdown extends PureComponent {
          */
         menu: node,
         /**
-         * A custom React component to enter a search input.
+         * A custom React component to enter a query.
          */
         searchInput: node,
         /**
-         * A custom React SVG component displayed before the search input text.
+         * A custom React SVG component displayed before the search input query.
          */
         searchIcon: node,
         /**
@@ -102,7 +102,7 @@ export class MultiSelectDropdown extends PureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close on blur.
+         * Whether or not the dropdown should close when multi-select loose focus.
          */
         closeOnBlur: bool,
         /**

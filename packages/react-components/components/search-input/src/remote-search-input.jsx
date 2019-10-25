@@ -63,30 +63,106 @@ function isPromise(value) {
 
 export class RemoteSearchInput extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * A controlled value property.
+         */
         value: string,
+        /**
+         * Initial value.
+         */
         defaultValue: string,
+        /**
+         *  Called when the value change.
+         */
         onValueChange: func.isRequired,
+        /**
+         * Called when a fetch event happens.
+         */
         onFetchResults: func.isRequired,
+        /**
+         * Called after a fetch.
+         */
         onResults: func,
+        /**
+         * Called when a clear event happens.
+         */
         onClear: func,
+        /**
+         * Called on blur.
+         */
         onBlur: func,
+        /**
+         * Called when a click happens outside the search input.
+         */
         onOutsideClick: func,
+        /**
+         * Called on keydown.
+         */
         onKeyDown: func,
+        /**
+         * Called when the search results open / close.
+         */
         onVisibilityChange: func,
+        /**
+         * Render a result.
+         */
         resultRenderer: func,
+        /**
+         * Whether or not the query should be cleared when a result is selected.
+         */
         clearOnSelect: bool,
+        /**
+         * Message to display when there are no results matching the query.
+         */
         noResultsMessage: string,
+        /**
+         * Delay before initiating a search when the query change.
+         */
         debounceDelay: number,
+        /**
+         * Delay before displaying the loading indicator.
+         */
         loadingDelay: number,
+        /**
+         * Minimum characters to query for results.
+         */
         minCharacters: number,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the search results are displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled search input does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the search input should 
+         */
         autofocus: bool,
+        /**
+         * Delay before trying to autofocus.
+         */
         autofocusDelay: number,
+        /**
+         * Whether or not the search results should close when the search input loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the search results should close when a click happens outside the search input.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

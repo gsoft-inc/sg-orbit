@@ -116,7 +116,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the calendar should close on blur.
+         * Whether or not the calendar should close when the date picker loose focus.
          */
         closeOnBlur: bool,
         /**

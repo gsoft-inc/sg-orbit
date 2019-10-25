@@ -49,7 +49,7 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         defaultValues: arrayOf(string),
         /**
-         *  Called a value is selected / removed.
+         *  Called when a value is selected / removed.
          */
         onValuesChange: func.isRequired,
         /**
@@ -101,7 +101,7 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close on blur.
+         * Whether or not the dropdown should close when the multi-select loose focus.
          */
         closeOnBlur: bool,
         /**
