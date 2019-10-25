@@ -1,6 +1,9 @@
 import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
+import { useState } from "react";
 
 export function BrandPickerWidget() {
+    const [currentBrand, setcurrentBrand] = useState("apricot");
+
     const applyBrand = brand => {
         const computedStyle = window.getComputedStyle(document.documentElement);
 
@@ -11,6 +14,7 @@ export function BrandPickerWidget() {
 
     const handleSelectBrand = brand => {
         applyBrand(brand);
+        setcurrentBrand(brand.id);
     };
 
     const values = Object.values(BRANDS);
@@ -19,11 +23,12 @@ export function BrandPickerWidget() {
         <ul className="flex flex-row justify-end list pl0 mb4 mt8">
             {Object.values(BRANDS).map((x, item) => {
                 const spacing = item === 0 ? "ml0" : "ml2";
+                const currentBrandClasses = currentBrand === x.id ? `bg-${x.id}-500 white` : "bg-white marine-500";
 
                 return (
                     [
                         <li key={x.id} className={spacing}>
-                            <span cancel onClick={() => handleSelectBrand(x)} className={`bg-${x.id}-500 hover-bg-${x.id}-700 pv1 ph2 white br-pill pointer`}>
+                            <span cancel onClick={() => handleSelectBrand(x)} className={`ba bw1 b--${x.id}-500 ${currentBrandClasses} hover-bg-${x.id}-700 hover-white pv1 ph2 fw5 br-pill pointer`}>
                                 {x.displayName}
                             </span>
                         </li>
