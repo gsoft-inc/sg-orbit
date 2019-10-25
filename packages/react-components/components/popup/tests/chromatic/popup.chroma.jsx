@@ -26,27 +26,27 @@ function stories(segment) {
 stories()
     .add("close",
          () =>
-             <RedBoxPopup />
+             <RedBoxPopup closeOnBlur={false} />
     )
     .add("open",
          () =>
-             <RedBoxPopup defaultOpen />
+             <RedBoxPopup defaultOpen closeOnBlur={false} />
     )
     .add("bottom left",
          () =>
-             <RedBoxPopup position={BOTTOM_LEFT} defaultOpen />
+             <RedBoxPopup position={BOTTOM_LEFT} defaultOpen closeOnBlur={false} />
     )
     .add("bottom center",
          () =>
-             <RedBoxPopup position={BOTTOM_CENTER} defaultOpen />
+             <RedBoxPopup position={BOTTOM_CENTER} defaultOpen closeOnBlur={false} />
     )
     .add("bottom right",
          () =>
-             <RedBoxPopup position={BOTTOM_RIGHT} defaultOpen />
+             <RedBoxPopup position={BOTTOM_RIGHT} defaultOpen closeOnBlur={false} />
     )
     .add("top left",
          () =>
-             <RedBoxPopup position={TOP_LEFT} defaultOpen />,
+             <RedBoxPopup position={TOP_LEFT} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -55,7 +55,7 @@ stories()
     )
     .add("top center",
          () =>
-             <RedBoxPopup position={TOP_CENTER} defaultOpen />,
+             <RedBoxPopup position={TOP_CENTER} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -64,7 +64,7 @@ stories()
     )
     .add("top right",
          () =>
-             <RedBoxPopup position={TOP_RIGHT} defaultOpen />,
+             <RedBoxPopup position={TOP_RIGHT} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -74,21 +74,21 @@ stories()
 
 stories("/offsets/bottom")
     .add("left+positive", () =>
-        <RedBoxPopup position={BOTTOM_LEFT} offsets={["30px", "30px"]} defaultOpen />,
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
     )
     .add("left+negative", () =>
-        <RedBoxPopup position={BOTTOM_LEFT} offsets={["-30px", "-30px"]} defaultOpen />,
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
     )
     .add("right+positive", () =>
-        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["30px", "30px"]} defaultOpen />,
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
     )
     .add("right+negative", () =>
-        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["-30px", "-30px"]} defaultOpen />,
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
     );
 
 stories("/offsets/top")
     .add("left+positive", () =>
-        <RedBoxPopup position={TOP_LEFT} offsets={["30px", "30px"]} defaultOpen />,
+        <RedBoxPopup position={TOP_LEFT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -96,7 +96,7 @@ stories("/offsets/top")
          }
     )
     .add("left+negative", () =>
-        <RedBoxPopup position={TOP_LEFT} offsets={["-30px", "-30px"]} defaultOpen />,
+        <RedBoxPopup position={TOP_LEFT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -104,7 +104,7 @@ stories("/offsets/top")
          }
     )
     .add("right+positive", () =>
-        <RedBoxPopup position={TOP_RIGHT} offsets={["30px", "30px"]} defaultOpen />,
+        <RedBoxPopup position={TOP_RIGHT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -112,7 +112,7 @@ stories("/offsets/top")
          }
     )
     .add("right+negative", () =>
-        <RedBoxPopup position={TOP_RIGHT} offsets={["-30px", "-30px"]} defaultOpen />,
+        <RedBoxPopup position={TOP_RIGHT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
          {
              ...paramsBuilder()
                  .marginTop("150px")
@@ -123,7 +123,7 @@ stories("/offsets/top")
 stories()
     .add("css class",
          () =>
-             <RedBoxPopup className="border-red" />
+             <RedBoxPopup className="border-red" closeOnBlur={false} />
     );
 
 

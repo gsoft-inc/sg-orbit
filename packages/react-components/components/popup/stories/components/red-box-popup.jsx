@@ -61,7 +61,7 @@ export class RedBoxTrigger extends PureComponent {
 
 export class RedBoxPopup extends PureComponent {
     render() {
-        const { open, defaultOpen, position, offsets, onVisibilityChange, className } = this.props;
+        const { open, defaultOpen, position, offsets, onVisibilityChange, closeOnBlur, className } = this.props;
 
         return (
             <Popup
@@ -71,6 +71,7 @@ export class RedBoxPopup extends PureComponent {
                 position={position}
                 offsets={offsets}
                 onVisibilityChange={onVisibilityChange}
+                closeOnBlur={closeOnBlur}
                 className={className}
             >
                 <RedBox />
