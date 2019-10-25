@@ -22,7 +22,7 @@ function defaultHeaderRenderer(group) {
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
         /**
-         * Items to display.
+         * Array of items.
          */
         items: arrayOf(shape(ITEM_SHAPE)),
         /**

@@ -11,7 +11,7 @@ export function startsWithSearch(event, items, query) {
 export class SearchInput extends AutoControlledPureComponent {
     static propTypes = {
         /**
-         * Possible results.
+         * Array of results.
          */
         results: arrayOf(shape(RESULT_SHAPE)).isRequired,
         /**
