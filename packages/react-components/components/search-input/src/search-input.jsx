@@ -10,28 +10,98 @@ export function startsWithSearch(event, items, query) {
 
 export class SearchInput extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * Possible results.
+         */
         results: arrayOf(shape(RESULT_SHAPE)).isRequired,
+        /**
+         * A controlled value property.
+         */
         value: string,
+        /**
+         * Initial value.
+         */
         defaultValue: string,
+        /**
+         *  Called when the value change.
+         */
         onValueChange: func.isRequired,
+        /**
+         * Called when the search results open / close.
+         */
         onVisibilityChange: func,
+        /**
+         * Called a search event happens.
+         */
         onSearch: func,
+        /**
+         * Called when a clear event happens.
+         */
         onClear: func,
+        /**
+         * Called on blur.
+         */
         onBlur: func,
+        /**
+         * Called when a click happens outside the search input.
+         */
         onOutsideClick: func,
+        /**
+         * Render a result.
+         */
         resultRenderer: func,
+        /**
+         * Whether or not the query should be cleared when a result is selected.
+         */
         clearOnSelect: bool,
+        /**
+         * Message to display when there are no results matching the query.
+         */
         noResultsMessage: string,
+        /**
+         * Delay before initiating a search when the query change.
+         */
         debounceDelay: number,
+        /**
+         * Minimum characters to query for results.
+         */
         minCharacters: number,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the search results are displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled search input does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the search input should focus on render.
+         */
         autofocus: bool,
+        /**
+         * Delay before trying to autofocus.
+         */
         autofocusDelay: number,
+        /**
+         * Whether or not the search results should close when the search input loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the search results should close when a click happens outside the search input.
+         * Requires `closeOnBlur` to be false.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

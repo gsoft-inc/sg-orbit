@@ -144,7 +144,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the search input should 
+         * Whether or not the search input should focus on render.
          */
         autofocus: bool,
         /**
