@@ -1,0 +1,3 @@
+.noTabs :global(.docblock-propstable) {
+    margin-top: 0 !important;
+}

@@ -1,8 +1,11 @@
+import styles from "./props-tabs.module.css";
+
 import { Checkbox, Tab } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { useState } from "react";
+import cx from "classnames";
 
 const propTypes = {
     componentsDefinitions: arrayOf(shape({
@@ -49,7 +52,7 @@ export function PropsTabs({ componentsDefinitions }) {
     const hasMultipleComponents = componentsDefinitions.length > 1;
 
     return (
-        <div className="relative flex flex-column props-table">
+        <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
             <div className="flex justify-end mb2">
                 <Checkbox
                     label="Props Table"
@@ -71,7 +74,7 @@ export function PropsTabs({ componentsDefinitions }) {
                 </When>
                 <Otherwise>
                     <If condition={isVisible}>
-                        <Props of={componentsDefinitions[0].component} />
+                        <Props of={componentsDefinitions[0].component} className={styles.noTabs} />
                     </If>
                 </Otherwise>
             </Choose>

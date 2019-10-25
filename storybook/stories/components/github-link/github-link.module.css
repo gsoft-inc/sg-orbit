@@ -3,14 +3,14 @@
     height: 80px;
 }
 
+.icon:hover :global(.octo-arm) {
+    animation: tail 0.8s infinite linear;
+}
+
 .iconWrapper {
     position: absolute;
     right: 0;
     top: 0;
-}
-
-.icon:hover :global(.octo-arm) {
-    animation: tail 0.8s infinite linear;
 }
 
 @keyframes tail {
