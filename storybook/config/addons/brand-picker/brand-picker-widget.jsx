@@ -2,7 +2,7 @@ import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariab
 import { useState } from "react";
 
 export function BrandPickerWidget() {
-    const [currentBrand, setcurrentBrand] = useState("apricot");
+    const [currentBrand, setCurrentBrand] = useState(BRANDS.apricot.id);
 
     const applyBrand = brand => {
         const computedStyle = window.getComputedStyle(document.documentElement);
@@ -14,7 +14,7 @@ export function BrandPickerWidget() {
 
     const handleSelectBrand = brand => {
         applyBrand(brand);
-        setcurrentBrand(brand.id);
+        setCurrentBrand(brand.id);
     };
 
     const values = Object.values(BRANDS);
