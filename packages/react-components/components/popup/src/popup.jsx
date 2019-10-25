@@ -5,9 +5,9 @@ import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
 
-function fadeInAnimationRenderer(open, renderContent) {
+function fadeInAnimationRenderer(open, renderContent, styles, props) {
     return (
-        <FadeIn active={open}>
+        <FadeIn active={open} styles={styles}>
             {renderContent()}
         </FadeIn>
     );
@@ -254,6 +254,14 @@ export class Popup extends AutoControlledPureComponent {
         return style;
     }
 
+    getOpeningAnimationStyle() {
+        return {
+            position: "absolute",
+            zIndex: "10",
+            ...this.getPositioningStyle()
+        }
+    }
+
     getCssClasses() {
         const { className } = this.props;
 
@@ -314,9 +322,9 @@ export class Popup extends AutoControlledPureComponent {
         }
 
         return (
-            <div style={{ position: "absolute", zIndex: 10, ...this.getPositioningStyle() }}>
+            <>
                 {children}
-            </div>
+            </>
         );
     };
 
@@ -336,7 +344,7 @@ export class Popup extends AutoControlledPureComponent {
                     ref={this._containerRef}
                 >
                     {this.renderTrigger()}
-                    {animationRenderer(open, this.renderPopup, this.props)}
+                    {animationRenderer(open, this.renderPopup, this.getOpeningAnimationStyle(), this.props)}
                 </div>
 
                 <If condition={open}>
