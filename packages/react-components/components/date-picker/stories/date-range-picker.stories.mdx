@@ -49,34 +49,32 @@ import moment from "moment";
     </Story>
 </Preview>
 
-<Preview>
-    <Story
-        name="knobs"
-        decorators={[withKnobs]}
-        parameters={paramsBuilder()
-            .excludeFromDocs()
-            .build()}
-    >
-        <DateRangePicker
-            defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
-            defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
-            allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
-            allowClear={boolean("allowClear", true)}
-            minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
-            maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-            placeholder={text("placeholder")}
-            rangeFormat={text("rangeFormat")}
-            dateFormat={text("dateFormat")}
-            position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
-            presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
-            disabled={boolean("disabled", false)}
-            closeOnBlur={boolean("closeOnBlur", true)}
-            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-            className={text("className")}
-            onDatesChange={logDatesChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <DateRangePicker
+        defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
+        defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
+        allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
+        allowClear={boolean("allowClear", true)}
+        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+        placeholder={text("placeholder")}
+        rangeFormat={text("rangeFormat")}
+        dateFormat={text("dateFormat")}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        className={text("className")}
+        onDatesChange={logDatesChanged}
+    />
+</Story>
 
 ### With presets
 

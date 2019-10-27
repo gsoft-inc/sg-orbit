@@ -32,30 +32,28 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-<Preview>
-    <Story
-        name="knobs"
-        decorators={[withKnobs]}
-        parameters={paramsBuilder()
-            .excludeFromDocs()
-            .build()}
-    >
-        <MultiSelect
-            items={DEFAULT_ITEMS}
-            // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
-            defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-            closeOnSelect={boolean("closeOnSelect", false)}
-            noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
-            triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
-            placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
-            clearText={text("clearText", MultiSelect.defaultProps.clearText)}
-            disabled={boolean("disabled", false)}
-            closeOnBlur={boolean("closeOnBlur", true)}
-            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-            onValuesChange={logValuesChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <MultiSelect
+        items={DEFAULT_ITEMS}
+        // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
+        defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        closeOnSelect={boolean("closeOnSelect", false)}
+        noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
+        triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
+        placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
+        clearText={text("clearText", MultiSelect.defaultProps.clearText)}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        onValuesChange={logValuesChanged}
+    />
+</Story>
 
 ## Support categories
 

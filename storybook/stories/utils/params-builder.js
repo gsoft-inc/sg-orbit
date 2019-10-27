@@ -94,7 +94,7 @@ class StoryParametersBuilder {
 
         if (this._excludeFromDocs) {
             params.docs = {
-                disabled: true
+                disable: true
             };
         }
 

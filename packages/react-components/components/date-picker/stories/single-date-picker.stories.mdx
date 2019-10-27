@@ -41,31 +41,29 @@ import moment from "moment";
     </Story>
 </Preview>
 
-<Preview>
-    <Story
-        name="knobs"
-        decorators={[withKnobs]}
-        parameters={paramsBuilder()
-            .excludeFromDocs()
-            .build()}
-    >
-        <SingleDatePicker
-            defaultDate={momentKnob("defaultDate", moment().toDate())}
-            allowClear={boolean("allowClear", true)}
-            minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
-            maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-            numberOfMonths={number("numberOfMonths")}
-            placeholder={text("placeholder")}
-            dateFormat={text("dateFormat")}
-            position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
-            disabled={boolean("disabled", false)}
-            closeOnBlur={boolean("closeOnBlur", true)}
-            closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-            className={text("className")}
-            onDateChange={logDateChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SingleDatePicker
+        defaultDate={momentKnob("defaultDate", moment().toDate())}
+        allowClear={boolean("allowClear", true)}
+        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+        numberOfMonths={number("numberOfMonths")}
+        placeholder={text("placeholder")}
+        dateFormat={text("dateFormat")}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        className={text("className")}
+        onDateChange={logDateChanged}
+    />
+</Story>
 
 ### With a selected date
 
