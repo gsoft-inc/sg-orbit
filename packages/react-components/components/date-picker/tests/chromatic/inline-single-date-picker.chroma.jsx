@@ -89,10 +89,9 @@ stories("/customization")
             defaultOpen: true
         })
     )
-    .add("disabled open icon", () =>
+    .add("disabled close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
-            defaultOpen: true,
+            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />,
             disabled: true
         })
     )

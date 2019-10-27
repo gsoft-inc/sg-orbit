@@ -63,9 +63,9 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         closeIcon: node,
         /**
-         * A custom React SVG component indicating that the date picker is opened when the date picker is disabled.
+         * A custom React SVG component indicating that the date picker is closed when the date picker is disabled.
          */
-        disabledOpenIcon: node,
+        disabledCloseIcon: node,
         /**
          * A disabled input does not allow user interaction.
          */
@@ -83,7 +83,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
     static defaultProps = {
         openIcon: <ChevronIcon className="w4 h4 rotate-270 fill-primary-500" />,
         closeIcon: <ChevronIcon className="w4 h4 rotate-90 fill-primary-500" />,
-        disabledOpenIcon: <ChevronIcon className="w4 h4 rotate-270 fill-cloud-200" />
+        disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
     _containerRef = createRef();
@@ -177,13 +177,13 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { openIcon, closeIcon, disabledOpenIcon, open, disabled } = this.props;
+        const { openIcon, closeIcon, disabledCloseIcon, open, disabled } = this.props;
 
         if (open) {
-            return disabled ? disabledOpenIcon : openIcon;
+            return openIcon;
         }
 
-        return closeIcon;
+        return disabled ? disabledCloseIcon : closeIcon;
     }
 
     render() {
