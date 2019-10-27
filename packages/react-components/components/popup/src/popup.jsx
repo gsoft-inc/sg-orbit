@@ -1,11 +1,11 @@
-import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
 
-function fadeInAnimationRenderer(open, renderContent, styles, props) {
+function fadeInAnimationRenderer(open, renderContent, styles) {
     return (
         <FadeIn active={open} styles={styles}>
             {renderContent()}
@@ -268,15 +268,16 @@ export class Popup extends AutoControlledPureComponent {
             position: "absolute",
             zIndex,
             ...this.getPositioningStyle()
-        }
+        };
     }
 
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "relative";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "relative",
+            className
+        );
     }
 
     open(event) {
@@ -352,11 +353,10 @@ export class Popup extends AutoControlledPureComponent {
             <div style={{ ...this.getOpeningStyle() }}>
                 {this.renderPopup()}
             </div>
-        )
+        );
     }
 
     render() {
-        const { animationRenderer } = this.props;
         const { open } = this.state;
 
         return (

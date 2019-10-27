@@ -133,7 +133,7 @@ export class DateRangePickerPresets extends PureComponent {
 
         return mergeClasses(
             "presets flex flex-column pt8 ph8 br b--cloud-100",
-            !isNil(className) && className
+            className
         );
     }
 

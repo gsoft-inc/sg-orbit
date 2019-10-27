@@ -134,7 +134,7 @@ export class DatePickerTextboxInput extends PureComponent {
             open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
             !this.isPlaceholder() && "marine-600",
             !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
-            !isNil(className) && className
+            className
         );
     }
 

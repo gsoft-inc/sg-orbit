@@ -4,6 +4,7 @@ import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
 import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultItemRenderer(item, { disabled, onRemove }) {
@@ -49,9 +50,10 @@ class MultiSelectSelectedItem extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "mr2 mb2";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "mr2 mb2",
+            className
+        );
     }
 
     render() {

@@ -117,7 +117,7 @@ export class DatePickerCalendar extends PureComponent {
 
         return mergeClasses(
             "calendar flex z-2",
-            !isNil(className) && className
+            className
         );
     }
 

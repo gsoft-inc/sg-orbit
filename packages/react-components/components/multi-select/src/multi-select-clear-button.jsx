@@ -1,8 +1,7 @@
 import { Button, Ref } from "semantic-ui-react";
 import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
-import { isNil } from "lodash";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
@@ -32,9 +31,10 @@ export class MultiSelectClearButton extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "ghost tall";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "ghost tall",
+            className
+        );
     }
 
     render() {

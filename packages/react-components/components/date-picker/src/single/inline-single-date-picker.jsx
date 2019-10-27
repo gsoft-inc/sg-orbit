@@ -24,7 +24,7 @@ export class InlineSingleDatePicker extends PureComponent {
 
         return mergeClasses(
             "dib pointer",
-            !isNil(className) && className
+            className
         );
     }
 

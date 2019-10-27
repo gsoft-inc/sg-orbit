@@ -3,6 +3,7 @@ import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownTrigger extends PureComponent {
     static propTypes = {
@@ -103,11 +104,13 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     getClasses() {
-        const { className } = this.props;
+        const { disabled, className } = this.props;
 
-        const defaultClasses = "tall";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "tall",
+            disabled && "crsr-not-allowed",
+            className
+        );
     }
 
     renderIcon() {

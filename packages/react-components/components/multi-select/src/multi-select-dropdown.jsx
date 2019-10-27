@@ -1,5 +1,5 @@
 import { AddIcon } from "@orbit-ui/icons";
-import { ArgumentError, DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
+import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
 import { ITEM_SHAPE } from "./items";
 import { MagnifierIcon } from "@orbit-ui/icons";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
@@ -329,9 +329,10 @@ export class MultiSelectDropdown extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "no-icon";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "no-icons",
+            className
+        );
     }
 
     renderTrigger = () => {

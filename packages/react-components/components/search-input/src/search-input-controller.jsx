@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
@@ -289,9 +289,10 @@ export class SearchInputController extends AutoControlledPureComponent {
     getInputCssClasses() {
         const { className } = this.props;
 
-        const inputDefaultClasses = "fluid";
-
-        return isNil(className) ? inputDefaultClasses : `${inputDefaultClasses} ${className}`;
+        return mergeClasses(
+            "fluid",
+            className
+        );
     }
 
     renderResult = result => {
