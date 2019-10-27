@@ -1,7 +1,7 @@
 import { Button, Ref } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { InputCalendarIcon } from "./assets";
-import { KEYS, isNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, isNullOrEmpty, mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -129,14 +129,13 @@ export class DatePickerTextboxInput extends PureComponent {
     getCssClasses() {
         const { disabled, open, className } = this.props;
 
-        const mainClasses = cx({ " hover-b--marine-600 hover-marine-600 pointer" : !disabled });
-        const openedClasses = open && !disabled ? " b--marine-600 marine-600" : " b--cloud-200 marine-200";
-        const disabledClasses = cx({ " bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
-        const placeholderClasses = cx({ " marine-700": !this.isPlaceholder() && !disabled });
-
-        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center${mainClasses}${openedClasses}${placeholderClasses}${disabledClasses}`;
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center",
+            open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
+            !this.isPlaceholder() && "marine-600",
+            !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
+            !isNil(className) && className
+        );
     }
 
     renderIcon() {

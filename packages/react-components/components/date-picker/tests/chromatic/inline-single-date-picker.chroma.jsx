@@ -76,6 +76,19 @@ stories("/selected date/opened")
         })
     );
 
+stories("/disabled")
+    .add("default", () =>
+        createInlineSingleDatePicker({
+            disabled: true
+        })
+    )
+    .add("selected date", () =>
+        createInlineSingleDatePicker({
+            defaultDate: moment(DEFAULT_DATE),
+            disabled: true
+        })
+    );
+
 stories("/customization")
     .add("close icon", () =>
         createInlineSingleDatePicker({

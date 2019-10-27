@@ -4,6 +4,7 @@ import { SINGLE_DATE_PICKER_PROP_TYPES, SingleDatePicker } from "./single-date-p
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class InlineSingleDatePicker extends PureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
@@ -21,9 +22,10 @@ export class InlineSingleDatePicker extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "dib pointer";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "dib pointer",
+            !isNil(className) && className
+        );
     }
 
     render() {

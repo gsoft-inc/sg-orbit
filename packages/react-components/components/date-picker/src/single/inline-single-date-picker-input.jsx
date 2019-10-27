@@ -1,5 +1,5 @@
 import { ChevronIcon } from "@orbit-ui/icons";
-import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -168,12 +168,12 @@ export class InlineSingleDatePickerInput extends PureComponent {
     getCssClasses() {
         const { disabled, open, className } = this.props;
 
-        const openedClasses = open && !disabled ? " bb bw1 b--primary-500" : " bw0 b--transparent";
-        const disabledClasses = disabled ? " cloud-200 hover-b--transparent crsr-not-allowed": " primary-500 bb bw1 b--transparent hover-b--primary-500";
-
-        const defaultClasses = `flex items-center outline-0${openedClasses}${disabledClasses}`;
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "flex items-center outline-0",
+            open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
+            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500" : "cloud-200 hover-b--transparent crsr-not-allowed",
+            !isNil(className) && className
+        );
     }
 
     renderIcon() {

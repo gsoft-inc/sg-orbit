@@ -4,6 +4,7 @@ import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../utils";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 class Preset extends PureComponent {
@@ -127,6 +128,15 @@ export class DateRangePickerPresets extends PureComponent {
         return isSameDay(preset.startDate, startDate) && isSameDay(preset.endDate, endDate);
     }
 
+    getCssClasses() {
+        const { className } = this.props;
+
+        return mergeClasses(
+            "presets flex flex-column pt8 ph8 br b--cloud-100",
+            !isNil(className) && className
+        );
+    }
+
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
@@ -139,14 +149,11 @@ export class DateRangePickerPresets extends PureComponent {
     }
 
     render() {
-        const { presets, icon, className } = this.props;
-
-        const defaultClasses = "presets flex flex-column pt8 ph8 br b--cloud-100";
-        const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        const { presets, icon } = this.props;
 
         if (presets.length > 0) {
             return (
-                <div className={classes}>
+                <div className={this.getCssClasses()}>
                     <div className="self-center mb7">{icon}</div>
                     <ul>{this.renderPresets()}</ul>
 

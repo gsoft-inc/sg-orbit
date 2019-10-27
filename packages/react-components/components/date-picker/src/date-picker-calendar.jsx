@@ -1,7 +1,7 @@
 import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
-import { ArgumentError } from "@orbit-ui/react-components-shared";
+import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
 import { ChevronIcon } from "@orbit-ui/icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
@@ -115,9 +115,10 @@ export class DatePickerCalendar extends PureComponent {
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "calendar flex z-2";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "calendar flex z-2",
+            !isNil(className) && className
+        );
     }
 
     // Temporary fix until the following PR is merged: https://github.com/airbnb/react-dates/pull/1672
