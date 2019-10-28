@@ -36,8 +36,8 @@ export class ControlledSingleDatePicker extends PureComponent {
 
         return (
             <>
-                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>date:</span> {isNil(date) ? "null" : moment(date).format("YYYY-MM-DD")}</div>
-                <div className="mb1"><span className="b" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
+                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>date:</span> {isNil(date) ? "null" : moment(date).format("YYYY-MM-DD")}</div>
+                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
                 <br /><br />
                 <SingleDatePicker
                     { ...this.state }

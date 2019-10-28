@@ -1,18 +1,36 @@
+.sbdocs.sbdocs-wrapper {
+    padding-top: 30px;
+}
+
+.sbdocs.sbdocs-content > div > div {
+    overflow: visible;
+}
+
+.sbdocs.sbdocs-content {
+    max-width: 1200px !important;
+}
+
 .sbdocs {
     font-family: Calibre, Arial, Helvetica, sans-serif !important;
-    color: var(--marine-900) !important;
 }
 
 .sbdocs-p {
     font-size: 1.125rem !important;
+    color: var(--marine-900) !important;
 }
 
 .sbdocs-h1 {
     font-weight: 700 !important;
+    color: var(--marine-900) !important;
 }
 
 .sbdocs-h2 {
     margin: 24px 0 18px !important;
+    color: var(--marine-900) !important;
+}
+
+.sbdocs-h3 {
+    color: var(--marine-900) !important;
 }
 
 .docblock-propstable {
@@ -32,22 +50,18 @@
     color: var(--cloud-500) !important;
 }
 
-.sbdocs tbody {
+.sbdocs .docblock-propstable tbody {
     border: 1px var(--cloud-50) solid;
     box-shadow: var(--shadow-4) !important;
 }
 
-.sbdocs thead th {
+.sbdocs .docblock-propstable thead th {
     font-size: 1rem;
     padding-bottom: 16px !important;
 }
 
-.sbdocs tbody tr:not(:first-child) {
+.sbdocs .docblock-propstable tbody tr:not(:first-child) {
     border-top: 1px solid var(--cloud-50) !important;
-}
-
-.sbdocs .b {
-    font-weight: 700;
 }
 
 .sbdocs .docblock-emptyblock {
