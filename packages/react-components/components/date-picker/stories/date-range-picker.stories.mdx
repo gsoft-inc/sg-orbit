@@ -29,6 +29,54 @@ import moment from "moment";
 <GithubLink filePath="/packages/react-components/components/date-picker/src/range" />
 <BrandPickerWidget />
 
+## Installation
+
+With the React bundle:
+
+```bash
+npm install @orbit-ui/react
+```
+
+Or as a single package:
+
+```bash
+npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash moment styled-jsx
+```
+
+Then import the parts you need:
+
+```javascript
+import {
+    DateRangePicker,
+    SingleDatePicker,
+    InlineSingleDatePicker,
+    toPreset,
+    LAST_WEEK_PRESET,
+    LAST_MONTH_PRESET,
+    LAST_3_MONTHS_PRESET,
+    LAST_6_MONTHS_PRESET,
+    LAST_12_MONTHS_PRESET,
+    DEFAULT_DATES_PRESETS,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-date-picker";
+```
+
+Or
+
+```javascript
+import {
+    DateRangePicker,
+    ...
+} from "@orbit-ui/react-components";
+```
+
+## Props
+
 <PropsTabs
     componentsDefinitions={[
         { displayName: "DateRangePicker", component: DateRangePicker },
@@ -38,6 +86,8 @@ import moment from "moment";
         { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
     ]}
 />
+
+## Usage
 
 ### Default
 
