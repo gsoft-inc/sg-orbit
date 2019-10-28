@@ -152,7 +152,19 @@ const yesterday = moment(now).substract(1, "days");
     />
 </Story>
 
-### With presets
+### Dates presets
+
+A date range picker can offer a predefined set of frequently used ranges by specifying a `presets` prop.
+
+A default set of ranges is available through the `DEFAULT_DATES_PRESETS` object.
+
+If you need to create your own presets, please use the `toPreset(text, startDate, endDate)` function:
+
+```js
+const LAST_WEEK_PRESET = toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
+```
+
+Here's an example with `DEFAULT_DATES_PRESETS`:
 
 <Preview>
     <Story
@@ -182,7 +194,7 @@ const yesterday = moment(now).substract(1, "days");
     </Story>
 </Preview>
 
-### With a minimum date restriction
+### Minimum date restriction
 
 <Preview>
     <Story
@@ -200,7 +212,7 @@ const yesterday = moment(now).substract(1, "days");
     </Story>
 </Preview>
 
-### With a maximum date restriction
+### Maximum date restriction
 
 <Preview>
     <Story
@@ -218,7 +230,7 @@ const yesterday = moment(now).substract(1, "days");
     </Story>
 </Preview>
 
-### With a minimum & maximum dates restriction
+### Minimum & maximum dates restriction
 
 <Preview>
     <Story
@@ -238,7 +250,7 @@ const yesterday = moment(now).substract(1, "days");
     </Story>
 </Preview>
 
-### Allow to select a single date
+### Allow single date selection
 
 <Preview>
     <Story name="allow single date selection">
