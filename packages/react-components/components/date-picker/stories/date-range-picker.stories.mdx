@@ -49,8 +49,6 @@ Then import what you need:
 ```javascript
 import {
     DateRangePicker,
-    SingleDatePicker,
-    InlineSingleDatePicker,
     toPreset,
     LAST_WEEK_PRESET,
     LAST_MONTH_PRESET,
@@ -292,6 +290,34 @@ A date range picker can be disabled.
     <Story name="disabled">
         <DateRangePicker
             disabled
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Position
+
+A date range picker calendar can be anchored at different positions.
+
+The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+
+<Preview>
+    <Story name="position">
+        <DateRangePicker
+            position={TOP_LEFT}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Not clearable
+
+A date range picker could ommit clear call to actions.
+
+<Preview>
+    <Story name="not-cleareable">
+        <DateRangePicker
+            allowClear={false}
             onDatesChange={logDatesChanged}
         />
     </Story>
