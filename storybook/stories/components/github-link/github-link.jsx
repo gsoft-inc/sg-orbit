@@ -10,9 +10,11 @@ const propTypes = {
 };
 
 export function GithubLink({ filePath }) {
+    const processedFilePath = filePath.startsWith("/") ? filePath : `/${filePath}`;
+
     return (
         <div className={styles.iconWrapper}>
-            <a href={`${GITHUB_REPOSITORY_URL}/${filePath}`} target="_blank" rel="noopener noreferrer" className="ml2"><GithubIcon className={styles.icon} /></a>
+            <a href={`${GITHUB_REPOSITORY_URL}${processedFilePath}`} target="_blank" rel="noopener noreferrer" className="ml2"><GithubIcon className={styles.icon} /></a>
         </div>
 
     );
