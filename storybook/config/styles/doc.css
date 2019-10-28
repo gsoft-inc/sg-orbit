@@ -37,3 +37,31 @@
 .docblock-emptyblock {
     color: var(--cloud-500) !important;
 }
+
+.sbdocs tbody {
+    border: 1px var(--cloud-50) solid;
+    box-shadow: var(--shadow-4) !important;
+}
+
+.sbdocs thead th {
+    font-size: 1rem;
+    padding-bottom: 16px !important;
+}
+
+.sbdocs tbody tr:not(:first-child) {
+    border-top: 1px solid var(--cloud-50) !important;
+}
+
+.sbdocs .b {
+    font-weight: 700;
+}
+
+.sbdocs .docblock-emptyblock {
+    background-color: var(--cloud-50);
+    border: 1px dashed var(--cloud-100);
+}
+
+.sbdocs .sbdocs-table tr td,
+.sbdocs .sbdocs-table tr th {
+    font-size: 1.125rem;
+}
