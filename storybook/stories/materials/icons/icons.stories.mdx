@@ -6,11 +6,20 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Materials|Icons" />
 
+# Icons
+
+Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px.
+
 <Preview>
     <Story name="icons">
         <IconGallery>
             <IconItem name="add">
-                <AddIcon className="w4 h4" />
+                <div className="h6 w6">
+                    <AddIcon/>
+                </div>
+                <div className="h7 w7">
+                    <AddIcon />
+                </div>
             </IconItem>
             <IconItem name="arrow full">
                 <ArrowFullIcon className="w4 h4" />
