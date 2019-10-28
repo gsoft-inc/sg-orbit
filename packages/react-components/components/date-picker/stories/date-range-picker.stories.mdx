@@ -4,6 +4,7 @@ import {
     BOTTOM_RIGHT,
     DEFAULT_DATES_PRESETS,
     DateRangePicker,
+    PureDateRangePickerInput,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -63,16 +64,7 @@ import {
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
     BOTTOM_CENTER
-} from "@orbit-ui/react-date-picker";
-```
-
-Or
-
-```javascript
-import {
-    DateRangePicker,
-    ...
-} from "@orbit-ui/react-components";
+} from "@orbit-ui/react-date-picker" | "@orbit-ui/react-components";
 ```
 
 ## Props
@@ -80,7 +72,7 @@ import {
 <PropsTabs
     componentsDefinitions={[
         { displayName: "DateRangePicker", component: DateRangePicker },
-        { displayName: "DateRangePicker.Input", component: DateRangePicker.Input },
+        { displayName: "DateRangePicker.Input", component: PureDateRangePickerInput },
         { displayName: "DateRangePicker.Calendar", component: DateRangePicker.Calendar },
         { displayName: "DateRangePicker.Presets", component: DateRangePicker.Presets },
         { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
