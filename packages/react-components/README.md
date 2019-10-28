@@ -1,23 +1,5 @@
 # @orbit-ui/react-components
 
-This package is a bundle of all the Orbit UI React components.
-
-Individual packages are available in the [components](/components) directory.
-
-## Installation
-
-With npm:
-
-```bash
-npm install @orbit-ui/react-components
-```
-
-## Usage
-
-```javascript
-import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
-```
-
 Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers
