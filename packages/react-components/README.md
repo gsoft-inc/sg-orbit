@@ -4,6 +4,14 @@ This package is a bundle of all the Orbit UI React components.
 
 Individual packages are available in the [components](/components) directory.
 
+## Installation
+
+With npm:
+
+```bash
+npm install @orbit-ui/react-components
+```
+
 ## Usage
 
 ```javascript
@@ -158,7 +166,6 @@ Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
 
 ```javascript
 // definition
-
 export class DateRangePicker extends AutoControlledPureComponent {
     static Input = DateRangePickerInput;
 }

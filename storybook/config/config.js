@@ -44,7 +44,9 @@ if (!isDocs) {
     addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
 }
 
-let stories = [];
+let stories = [
+    require.context("../stories/introduction", true, /.stories.mdx$/)
+];
 
 if (includeMaterials) {
     if (includeStories) {
