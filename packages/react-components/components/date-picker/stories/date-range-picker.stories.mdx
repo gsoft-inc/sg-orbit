@@ -182,19 +182,23 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
     </Story>
 </Preview>
 
-### With selected dates
+### Selected dates
+
+A date range picker can have an initial start and end date.
 
 <Preview>
     <Story name="selected dates">
         <DateRangePicker
-            startDate={moment()}
-            endDate={moment().add(3, "days")}
+            defaultStartDate={moment()}
+            defaultEndDate={moment().add(3, "days")}
             onDatesChange={logDatesChanged}
         />
     </Story>
 </Preview>
 
 ### Minimum date restriction
+
+A date range picker can enforce a minimum selectable date.
 
 <Preview>
     <Story
@@ -214,6 +218,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 
 ### Maximum date restriction
 
+A date range picker can enforce a maximum selectable date.
+
 <Preview>
     <Story
         name="max date restriction"
@@ -231,6 +237,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 </Preview>
 
 ### Minimum & maximum dates restriction
+
+A date range picker can enforce a minimum & maximum selectable date.
 
 <Preview>
     <Story
@@ -252,6 +260,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 
 ### Allow single date selection
 
+A date range picker can allow the selection of a single date instead of a range.
+
 <Preview>
     <Story name="allow single date selection">
         <DateRangePicker
@@ -262,6 +272,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 </Preview>
 
 ### Display a single month
+
+A date range picker can display a single calendar.
 
 <Preview>
     <Story name="one month visible">
@@ -274,6 +286,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 
 ### Disabled
 
+A date range picker can be disabled.
+
 <Preview>
     <Story name="disabled">
         <DateRangePicker
@@ -285,6 +299,8 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
 
 ### Dont close the calendar when it's losing focus
 
+A date range picker can stay open when the focus goes to another element.
+
 <Preview>
     <Story name="dont close on blur">
         <DateRangePicker
@@ -295,7 +311,9 @@ Here's an example with `DEFAULT_DATES_PRESETS`:
     </Story>
 </Preview>
 
-### Controlled usage example
+### Controlled
+
+A date range picker can handle open state in controlled mode.
 
 <Story name="controlled">
     <ControlledDateRangePicker
