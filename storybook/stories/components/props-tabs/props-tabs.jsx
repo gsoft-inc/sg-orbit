@@ -53,9 +53,9 @@ export function PropsTabs({ componentsDefinitions }) {
 
     return (
         <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
-            <div className="flex justify-end mb2">
+            <div className="mb2">
                 <Checkbox
-                    label="Props Table"
+                    label="Show the component props"
                     className="mb3"
                     checked={isVisible}
                     toggle

@@ -5,7 +5,7 @@ import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
-class DateRangePickerInputInner extends PureComponent {
+export class PureDateRangePickerInput extends PureComponent {
     static propTypes = {
         /**
          * A controlled start date value.
@@ -154,5 +154,5 @@ class DateRangePickerInputInner extends PureComponent {
 }
 
 export const DateRangePickerInput = forwardRef((props, ref) => (
-    <DateRangePickerInputInner { ...props } inputRef={ref} />
+    <PureDateRangePickerInput { ...props } inputRef={ref} />
 ));
