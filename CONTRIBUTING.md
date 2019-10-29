@@ -474,7 +474,7 @@ Before running make sure you built the packages with the `build:pkg` command.
 yarn chromatic
 ```
 
-## chromatic-theme
+### chromatic-theme
 
 Same as *chromatic* but only for the SUI theme.
 
@@ -484,7 +484,7 @@ Before running make sure you built the theme with the `build-theme` command.
 yarn chromatic-theme
 ```
 
-## chromatic-materials
+### chromatic-materials
 
 Same as *chromatic* but only for the materials parts.
 
@@ -494,7 +494,7 @@ yarn chromatic-materials
 
 ## Testing
 
-For testing the components we currently rely only on multiple testing strategies.
+For testing the components we currently rely only on visual testing & interaction testing.
 
 ### Visual testing
 
@@ -508,7 +508,7 @@ Therefore, prefer this approach to [interactions](#interaction-testing) and [api
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
 
-For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
+For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) organization on Github.
 
 For more information about automated visual testing:
 
