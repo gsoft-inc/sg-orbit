@@ -8,11 +8,11 @@ The following documentation is only for the maintainers of this repository.
 
 ## Add a new component
 
-Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/).
+Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com) and [Semantic UI React](https://react.semantic-ui.com).
 
-When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com/). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
+When available, you should use a component from [Semantic UI React](https://react.semantic-ui.com). If a UI requirement cannot be achieved with the existing components, a custom one can be added to this repository.
 
-Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../CONTRIBUTING.md#add-a-new-packages-to-the-monorepo) section. 
+Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../CONTRIBUTING.md#add-a-new-package-to-the-monorepo) section. 
 
 - [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
@@ -26,75 +26,91 @@ Make sure you read and understand the following [guidelines](#component-guidelin
 
 ### Write storybook stories
 
-The storybook is configured to look for stories in the [storybook/stories/react-components][../../storybook/stories/react-components].
+As mentionned in the [contributing guide](../../CONTRIBUTING.md), Storybook is use to *develop*, *document* and *test* a component.
 
-```
-/storybook
-    /stories
-        /react-components
-            /component-foo
-                play.stories.js
-                specs.stories.js
-```
+To develop and document, we leverage the [CSF](https://storybook.js.org/docs/formats/component-story-format/) and [MDX](https://storybook.js.org/docs/formats/mdx-syntax/) features of Storybook.
 
-A component should provide 2 stories sections. A **play** section and a **specs** section.
+To test, we rely on a third party called [Chromatic](https://www.chromaticqa.com/) that fully integrate with Storybook to provide visual testing capabilities.
 
-#### play
+#### Develop and document
 
-Play stories are written for 2 purposes:
+Development stories are written for 2 purposes:
 
 - For the developper to test a component use case in a isolated story during the development lifecycle.
 - For the design team to try the component behaviors.
 
-The play stories must be in a single file named after the following naming convention: `play.[stories|COMPONENT_NAME].stories.jsx`.
+Documentation stories are written... well for documentation purpose!
 
-The section must provide:
+To define a story once for development and documentation a story must be written with [CSF](https://storybook.js.org/docs/formats/component-story-format/) in an `*.stories.mdx` file.
+
+A story must:
+
+- Be located in the `Components` top level section of the Storybook navigation menu.
+- The second level segment must be the capitalized name of the component.
+
+Here's an exemple for the date range picker component:
+
+```jsx
+<Meta title="Components|Date Picker/range" />
+```
+
+The component stories must provide:
 
 - A story named *default* that render the component default state.
 - A story named *knobs* with pre-configured [knobs](https://github.com/storybookjs/storybook/tree/next/addons/knobs). 
 
-It's very important to configure the play stories to be ignored by chromatic QA in order to save on snapshots usage.
+The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/components/*/stories/*.stories.mdx`.
 
-To easily follow all the requirements, use the following template:
-
-```javascript
-import { storiesBuilder } from "@utils/stories-builder";
-
-function stories(segment) {
-    return storiesBuilder("[COMPONENT_NAME]|play")
-        .segment(segment)
-        .layoutWidth("80%")
-        .chromaticIgnoreStory()
-        .build();
-}
-
-stories()
-    .add("default",
-         () =>
-            ...
-    )
-    .add("knobs",
-         () =>
-            ...
-         { decorators: [withKnobs] }
-    );
+```
+/packages
+    /react-components
+        /components
+            /date-pickers
+                /src
+                /stories
+                    date-range-picker.stories.mdx
 ```
 
-#### specs
+#### Tests
 
-Specifications stories are for automated visual tests. Every specifications of the component must match at least one story. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic QA](https://www.chromaticqa.com/) for visual regression issues.
+Tests stories are written to validate the specifications of a component with automated visual tests. Every specifications of the component must match at least one story. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
 
-Storybook is a fantastic tool for visual testing because every story is essentially a test specification.
+Storybook is a fantastic tool for visual testing because a story is essentially a test specification.
 
-To easily add specifications stories, use the following template:
+Specifications stories must be written with the [storiesOf API](https://storybook.js.org/docs/formats/storiesof-api/) in a `*.chroma.jsx` file.
+
+A story must:
+
+- Be located in the `Components` top level section of the Storybook navigation menu (same as the development stories).
+- The second level segment must be the capitalized name of the component (same as the development stories).
+- The third level segment must be `chromatic` and be located last in the component hierarchy.
+
+Here's an example:
 
 ```javascript
-import { storiesBuilder } from "@utils/stories-builder";
+// config.js
+
+import { createComponentSection } from "@utils/create-section";
+
+export const DATE_RANGE_PICKER_SECTION = createComponentSection("Date Picker/range");
+```
+
+```javascript
+// date-range-picker.chroma.jsx
+
+import { DATE_RANGE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
+import { paramsBuilder } from "@utils/params-builder";
+import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesBuilder("[COMPONENT_NAME]|specs")
+    return storiesOfBuilder(module, `${DATE_RANGE_PICKER_SECTION}/chromatic`)
         .segment(segment)
-        .layoutWidth("80%")
+        .parameters(
+            paramsBuilder()
+                .chromaticDelay(100)
+                .sortLast()
+                .build()
+        )
         .build();
 }
 
@@ -104,6 +120,8 @@ stories("/segment")
             ...
     )
 ```
+
+The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/components/*/tests/chromatic/*.chroma.jsx`.
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
 

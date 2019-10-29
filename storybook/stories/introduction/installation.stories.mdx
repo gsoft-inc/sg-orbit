@@ -23,7 +23,7 @@ Install the packages:
 npm install @orbit-ui/react react-spring moment
 ```
 
-then import the components:
+Then import the components:
 
 ```javascript
 import { Button, ... } from "semantic-ui-react";
@@ -31,7 +31,7 @@ import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 import { ClearIcon, ... } from "@orbit-ui/icons";
 ```
 
-and the styles:
+And the styles:
 
 ```css
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
@@ -51,7 +51,7 @@ Install all the *core packages*:
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
-then, import the styles:
+Then, import the styles:
 
 ```css
 @import "~@orbit-ui/fonts";
@@ -64,42 +64,35 @@ Once the *core packages* are installed, you can optionally add *React component 
 
 A few options are available...
 
-**Only install the components from Semantic UI React**
-
-Install the packages:
+Only install the components from Semantic UI React:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 ```
 
-**Install all the Orbit UI React components**
-
-Install the packages:
+Or install all the Orbit UI React components:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-components semantic-ui-react react-spring styled-jsx moment lodash
 ```
 
-**Hand-pick a few Orbit UI React components to install**
-
-Install the packages:
+Or hand-pick a few Orbit UI React components to install:
 
 ```bash
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
 ```
 
-then, [import the Semantic UI theme](#import-semantic-ui-theme) and the components:
+When it's done, import the components:
 
 ```javascript
 import { Button, ... } from "semantic-ui-react";
 import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { SingleDatePicker } from "@orbit-ui/react-date-pickers";
 ```
 
-## Import Semantic UI theme
+And import the Semantic UI theme. You can either pick & choose the specific modules you need or import the whole theme.
 
-To import the theme, you can either pick & choose the specific modules that your app use or import the whole theme.
-
-For specific Semantic UI modules:
+For specific modules:
 
 ```css
 @import "~@orbit-ui/semantic-ui-theme/button.css";
