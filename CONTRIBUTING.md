@@ -101,7 +101,7 @@ The following documentation is a brief overview of the tools and processes invol
 
 ### Storybook
 
-Every components must be developed in [Storybook](https://storybook.js.org).
+Every components must be developed and documented in [Storybook](https://storybook.js.org).
 
 Storybook is a convenient sandbox that help the developpers write organized and isolated stories that match the specifications of the component. Storybook also facilitate functionnal testing and integrate very well with automated visual testing technologies.
 
