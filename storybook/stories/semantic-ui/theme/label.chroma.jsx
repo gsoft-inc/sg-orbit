@@ -124,7 +124,7 @@ stories()
                     <Label>
                         <Label circular empty size="mini" color="red" />
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -147,7 +147,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -170,7 +170,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button disabled icon circular size="mini" className="transparent">
+                        <Button disabled icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -188,7 +188,7 @@ stories()
                     <Label size="small">
                         <Label circular empty size="mini" color="red" />
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -211,7 +211,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -234,7 +234,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button disabled icon circular size="mini" className="transparent">
+                        <Button disabled icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -252,7 +252,7 @@ stories()
                     <Label size="large">
                         <Label circular empty size="mini" color="red" />
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -275,7 +275,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button icon circular size="mini" className="transparent">
+                        <Button icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -298,7 +298,7 @@ stories()
                             </g>
                         </svg>
                         Group added
-                        <Button disabled icon circular size="mini" className="transparent">
+                        <Button disabled icon circular size="tiny" className="transparent">
                             <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="rotate(45 7.207 4.793)">
                                     <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -374,7 +374,7 @@ stories()
                 <Label basic>
                     <Label circular empty size="mini" color="red" />
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -397,7 +397,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -420,7 +420,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button disabled icon circular size="mini" className="transparent">
+                    <Button disabled icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -438,7 +438,7 @@ stories()
                 <Label basic size="small">
                     <Label circular empty size="mini" color="red" />
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -461,7 +461,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -484,7 +484,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button disabled icon circular size="mini" className="transparent">
+                    <Button disabled icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -502,7 +502,7 @@ stories()
                 <Label basic size="large">
                     <Label circular empty size="mini" color="red" />
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -525,7 +525,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button icon circular size="mini" className="transparent">
+                    <Button icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />
@@ -548,7 +548,7 @@ stories()
                         </g>
                     </svg>
                         Group added
-                    <Button disabled icon circular size="mini" className="transparent">
+                    <Button disabled icon circular size="tiny" className="transparent">
                         <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                             <g transform="rotate(45 7.207 4.793)">
                                 <rect x=".121" y="5.707" width="12" height="2" rx="1" />

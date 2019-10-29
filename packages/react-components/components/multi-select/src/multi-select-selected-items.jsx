@@ -18,7 +18,7 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
             <If condition={!disabled}>
                 <Button
                     circular
-                    size="mini"
+                    size="tiny"
                     icon
                     className="transparent"
                     onClick={onRemove}

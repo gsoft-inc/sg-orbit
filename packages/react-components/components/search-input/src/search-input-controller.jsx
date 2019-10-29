@@ -311,7 +311,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                 <Ref innerRef={this._clearButtonRef}>
                     <Button
                         circular
-                        size="mini"
+                        size="tiny"
                         primary
                         icon
                         className="transparent"

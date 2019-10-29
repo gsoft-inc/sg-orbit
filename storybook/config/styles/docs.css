@@ -77,4 +77,9 @@
 
 .sbdocs .sbdocs-a {
     font-size: 1.125rem;
+    color: var(--primary-700);
+}
+
+.sbdocs .sbdocs-a:hover {
+    text-decoration: underline;
 }

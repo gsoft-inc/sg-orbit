@@ -156,7 +156,7 @@ export class DatePickerTextboxInput extends PureComponent {
                 <Ref innerRef={this._clearButtonRef}>
                     <Button
                         circular
-                        size="mini"
+                        size="tiny"
                         primary
                         icon
                         className="transparent"
