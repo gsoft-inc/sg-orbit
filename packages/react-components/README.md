@@ -30,7 +30,7 @@ As mentionned in the [contributing guide](../../CONTRIBUTING.md), Storybook is u
 
 To develop and document, we leverage the [CSF](https://storybook.js.org/docs/formats/component-story-format/) and [MDX](https://storybook.js.org/docs/formats/mdx-syntax/) features of Storybook.
 
-To test, we rely on a third party called [chromatic](https://www.chromaticqa.com/) that fully integrate with Storybook to provide visual testing capabilities.
+To test, we rely on a third party called [Chromatic](https://www.chromaticqa.com/) that fully integrate with Storybook to provide visual testing capabilities.
 
 #### Develop and document
 
@@ -39,7 +39,9 @@ Development stories are written for 2 purposes:
 - For the developper to test a component use case in a isolated story during the development lifecycle.
 - For the design team to try the component behaviors.
 
-To define a story once for development and documentation a story must be written with the [CSF](https://storybook.js.org/docs/formats/component-story-format/) in an `*.stories.mdx` file.
+Documentation stories are written... well for documentation purpose!
+
+To define a story once for development and documentation a story must be written with [CSF](https://storybook.js.org/docs/formats/component-story-format/) in an `*.stories.mdx` file.
 
 A story must:
 
@@ -71,7 +73,7 @@ The stories must be located in a `stories` folder next to the `src` folder of yo
 
 #### Tests
 
-Tests stories are for written to validate the specifications of a component with automated visual tests. Every specifications of the component must match at least one story. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic QA](https://www.chromaticqa.com/) for visual regression issues.
+Tests stories are written to validate the specifications of a component with automated visual tests. Every specifications of the component must match at least one story. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
 
 Storybook is a fantastic tool for visual testing because a story is essentially a test specification.
 
@@ -81,7 +83,7 @@ A story must:
 
 - Be located in the `Components` top level section of the Storybook navigation menu (same as the development stories).
 - The second level segment must be the capitalized name of the component (same as the development stories).
-- The third level segment must be `chromatic` and be last.
+- The third level segment must be `chromatic` and be located last in the component hierarchy.
 
 Here's an example:
 
@@ -97,11 +99,18 @@ export const DATE_RANGE_PICKER_SECTION = createComponentSection("Date Picker/ran
 // date-range-picker.chroma.jsx
 
 import { DATE_RANGE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
+import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
     return storiesOfBuilder(module, `${DATE_RANGE_PICKER_SECTION}/chromatic`)
         .segment(segment)
+        .parameters(
+            paramsBuilder()
+                .chromaticDelay(100)
+                .sortLast()
+                .build()
+        )
         .build();
 }
 
