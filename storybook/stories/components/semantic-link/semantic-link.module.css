@@ -1,11 +1,11 @@
 .icon {
-    width: 60px;
-    height: 60px;
+    width: 4rem;
+    height: 4rem;
 }
 
 .iconWrapper {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 8px;
+    padding: 0.5rem;
 }

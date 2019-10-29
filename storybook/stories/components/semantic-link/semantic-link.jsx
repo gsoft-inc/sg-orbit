@@ -6,15 +6,15 @@ import SemanticIcon from "./assets/icon-semantic.png";
 const SEMANTIC_DOCUMENTATION_URL = "https://react.semantic-ui.com/";
 
 const propTypes = {
-    filePath: string.isRequired
+    docPath: string.isRequired
 };
 
-export function SemanticLink({ filePath }) {
-    const processedFilePath = filePath.startsWith("/") ? filePath : `/${filePath}`;
+export function SemanticLink({ docPath }) {
+    const processedDocPath = docPath.startsWith("/") ? docPath : `/${docPath}`;
 
     return (
         <div className={styles.iconWrapper}>
-            <a href={`${SEMANTIC_DOCUMENTATION_URL}${processedFilePath}`} target="_blank" rel="noopener noreferrer" className="ml2"><img alt="React Semantic Icon" className={styles.icon} src={SemanticIcon} /></a>
+            <a href={`${SEMANTIC_DOCUMENTATION_URL}${processedDocPath}`} target="_blank" rel="noopener noreferrer" className="ml2"><img alt="React Semantic Icon" className={styles.icon} src={SemanticIcon} /></a>
         </div>
 
     );
