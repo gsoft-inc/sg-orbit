@@ -764,6 +764,7 @@ stories("/inlined/customization")
         createInlineSingleDatePicker({
             input: <InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
             defaultOpen: true,
+            initialVisibleMonth: moment(DEFAULT_DATE),
             disabled: true
         })
     )
