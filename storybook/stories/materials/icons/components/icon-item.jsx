@@ -4,38 +4,26 @@ import { isNil } from "lodash";
 import { useRef, useState } from "react";
 import styles from "./icon-item.module.css";
 
-function getNames(component) {
-    if (isNil(component) || isNil(component.type)) {
-        return null;
-    }
-
-    const componentName = component.type.name;
-    const iconName = componentName
-        .split(/(?=[A-Z])/)
+export function IconItem({ stdSize, iconName }) {
+    const name = iconName.split(/(?=[A-Z])/)
         .filter(x => x !== "Icon")
         .join(" ")
         .toLowerCase();
-
-    return { name: iconName, iconName: componentName };
-}
-
-export function IconItem({ stdSize }) {
-    const { name, iconName } = getNames();
+    const Icon = stdSize;
     const iconElement = iconName;
     const textAreaRef = useRef(null);
-    const [copySuccess, setCopySuccess] = useState("");
+    const [copySuccess, setCopySuccess] = useState(false);
 
-    const animation = useSpring({
-        opacity: copySuccess ? 0 : 1
+    const animCopy = useSpring({
+        opacity: copySuccess ? 0 : 1,
+        transform: copySuccess ? "translate3d(0,20px,0)" : "translate3d(0,0,0)"
     });
 
     function copyCodeToClipboard () {
         textAreaRef.current.select();
         document.execCommand("copy");
-        setCopySuccess("Copied!");
+        setCopySuccess(true);
     }
-
-    const Icon = stdSize;
 
     return (
         <div className={styles.iconItem}>
@@ -48,8 +36,7 @@ export function IconItem({ stdSize }) {
                 <div className="ba b--dotted justify-center items-center flex relative hide-child">
                     <If condition={!isNil(stdSize)} >
                         <div className="absolute h7 w7"><Icon className="h7 w7" /></div>
-                        <a.span styles={animation}>tsra</a.span>
-                        <div className="bg-cloud-300 h7 w7 justify-center items-center pointer flex relative child pa1" onClick={copyCodeToClipboard}><span className="white f7">copy</span></div>
+                        <div className="bg-cloud-300 h7 w7 justify-center items-center pointer flex relative child pa1" onClick={copyCodeToClipboard}><a.span style={animCopy} className="white f7">copy</a.span></div>
                         <form className={styles.textarea}>
                             <textarea ref={textAreaRef}
                                 value={iconElement}
