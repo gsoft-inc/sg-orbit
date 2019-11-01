@@ -13,3 +13,10 @@
     align-items: center;
     justify-items: center;
 }
+
+.textarea {
+    opacity: .01;
+    height:0;
+    position:absolute;
+    z-index: -1;
+}
