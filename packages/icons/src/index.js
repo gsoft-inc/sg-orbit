@@ -27,3 +27,6 @@ export { ReactComponent as PdfIcon } from "./icon-pdf-32.svg";
 export { ReactComponent as ReminderIcon } from "./icon-reminder-32.svg";
 export { ReactComponent as NotificationIcon } from "./icon-notification-32.svg";
 export { ReactComponent as VerticalDotsIcon } from "./icon-vertical-dots-32.svg";
+export { ReactComponent as HelpIcon24 } from "./icon-help-24.svg";
+export { ReactComponent as SignoutIcon24 } from "./icon-sign-out-24.svg";
+export { ReactComponent as LightbulbIcon24 } from "./icon-lightbulb-24.svg";

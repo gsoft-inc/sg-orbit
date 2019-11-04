@@ -1,48 +1,42 @@
-import { IconHeader } from "./";
-import { a, useSpring } from "react-spring";
+import { Icon, IconHeader } from "./";
 import { isNil } from "lodash";
-import { useRef, useState } from "react";
 import styles from "./icon-item.module.css";
 
-export function IconItem({ stdSize, iconName }) {
+export function IconItem({ stdSize, smllSize, iconName }) {
     const name = iconName.split(/(?=[A-Z])/)
         .filter(x => x !== "Icon")
         .join(" ")
         .toLowerCase();
-    const Icon = stdSize;
-    const iconElement = iconName;
-    const textAreaRef = useRef(null);
-    const [copySuccess, setCopySuccess] = useState(false);
-
-    const animCopy = useSpring({
-        opacity: copySuccess ? 0 : 1,
-        transform: copySuccess ? "translate3d(0,20px,0)" : "translate3d(0,0,0)"
-    });
-
-    function copyCodeToClipboard () {
-        textAreaRef.current.select();
-        document.execCommand("copy");
-        setCopySuccess(true);
-    }
+    const iconNameSmall = `${iconName}24`;
 
     return (
         <div className={styles.iconItem}>
             <div className="pb3">{name}</div>
             <div className={styles.iconGrid}>
                 <IconHeader />
-                <div className="h7 w7 ba b--dotted justify-center items-center flex relative">
-                    <div className="h6 w6 bg-cloud-100"></div>
+                <div className="h7 w7 ba b--dotted justify-center items-center flex relative hide-child">
+                    <Choose>
+                        <When condition={!isNil(smllSize)}>
+                            <Icon name={iconNameSmall} icon={smllSize} size="small" />
+                        </When>
+                        <Otherwise>
+                            <div className="h7 w7 flex items-center justify-center">
+                                <div className="h6 w6 bg-cloud-100"></div>
+                            </div>
+                        </Otherwise>
+                    </Choose>
                 </div>
-                <div className="ba b--dotted justify-center items-center flex relative hide-child">
-                    <If condition={!isNil(stdSize)} >
-                        <div className="absolute h7 w7"><Icon className="h7 w7" /></div>
-                        <div className="bg-cloud-300 h7 w7 justify-center items-center pointer flex relative child pa1" onClick={copyCodeToClipboard}><a.span style={animCopy} className="white f7">copy</a.span></div>
-                        <form className={styles.textarea}>
-                            <textarea ref={textAreaRef}
-                                value={iconElement}
-                            />
-                        </form>
-                    </If>
+                <div className="h7 w7 ba b--dotted justify-center items-center flex relative hide-child">
+                    <Choose>
+                        <When condition={!isNil(stdSize)}>
+                            <Icon name={iconName} icon={stdSize} size="std" />
+                        </When>
+                        <Otherwise>
+                            <div className="h7 w7 flex items-center justify-center">
+                                <div className="h7 w7 bg-cloud-100"></div>
+                            </div>
+                        </Otherwise>
+                    </Choose>
                 </div>
             </div>
         </div>
