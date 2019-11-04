@@ -25,7 +25,9 @@
 }
 
 .ui.button.circular,
-.ui.button.medium.circular {
+.ui.button.medium.circular ,
+.ui.button.icon.circular,
+.ui.button.icon.medium.circular {
     font-size: 1rem;
     padding: 0.5em 0.5em 0.5em;
     justify-content: center;
@@ -50,6 +52,12 @@
     font-size: 1rem;
     padding: 0.5rem 1rem;
 }
+
+.ui.icon.buttons .button,
+.ui.icon.button {
+  padding: 0.25rem 1.5rem 0.25rem 1rem;
+}
+
 
 /* transparent button */
 .ui.transparent.button {

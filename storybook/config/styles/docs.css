@@ -34,6 +34,10 @@
     color: var(--marine-900) !important;
 }
 
+.sbdocs-table {
+    min-width: 220px;
+}
+
 .docblock-propstable {
     color: var(--cloud-500) !important;
 }

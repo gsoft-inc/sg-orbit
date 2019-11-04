@@ -181,7 +181,7 @@ stories("/customization")
     .add("search icon",
          () =>
              createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown searchIcon={<MagnifierIcon className="w4 h4 fill-red" />} />,
+                 dropdown: <MultiSelect.Dropdown searchIcon={<MagnifierIcon className="w7 h7 fill-red" />} />,
                  defaultOpen: true
              })
     )
