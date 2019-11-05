@@ -4,9 +4,3 @@
     position: absolute;
     z-index: -1;
 }
-
-.overlay {
-    background-color: rgba(256, 256, 256, 0.95);
-    width: 30px;
-    height: 30px;
-}

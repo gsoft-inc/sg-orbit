@@ -1,7 +1,6 @@
-import { AddIcon } from "@orbit-ui/icons";
+import { AddIcon24, MagnifierIcon } from "@orbit-ui/icons";
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
 import { ITEM_SHAPE } from "./items";
-import { MagnifierIcon } from "@orbit-ui/icons";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
@@ -122,8 +121,8 @@ export class MultiSelectDropdown extends PureComponent {
         headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
-        triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
-        triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
+        triggerIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
+        triggerDisabledIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
         searchInput: <MultiSelectDropdownSearchInput />,
         searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,

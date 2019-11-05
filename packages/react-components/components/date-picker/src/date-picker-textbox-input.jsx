@@ -1,6 +1,5 @@
 import { Button, Ref } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
-import { InputCalendarIcon } from "./assets";
+import { CalendarIcon, CancelIcon } from "@orbit-ui/icons";
 import { KEYS, isNullOrEmpty, mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
@@ -33,9 +32,9 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     static defaultProps = {
-        icon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
+        icon: <CalendarIcon className="w7 h7 fill-marine-700" />,
         clearIcon: <CancelIcon className="h3 w3" />,
-        disabledIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
+        disabledIcon: <CalendarIcon className="w7 h7 fill-cloud-500" />,
         placeholder: "Pick a date"
     };
 
@@ -187,7 +186,7 @@ export class DatePickerTextboxInput extends PureComponent {
             data-testid="date-picker-textbox-input"
         >
             {this.renderIcon()}
-            <span className="flex-grow-1 ml4" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
+            <span className="flex-grow-1 ml2" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
             {this.renderClearButton()}
 
             <style jsx>{`

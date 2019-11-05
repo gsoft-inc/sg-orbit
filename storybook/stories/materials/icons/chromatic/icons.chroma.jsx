@@ -1,5 +1,6 @@
 import {
     AddIcon,
+    AddIcon24,
     AddUserIcon,
     ArrowFullIcon,
     ArrowOutlineIcon,
@@ -66,7 +67,10 @@ stories()
                          <CancelIcon className="h3 w3" />
                      </div>
                      <div className="mb4 flex">
-                         <AddIcon className="w4 h4" />
+                         <AddIcon className="w7 h7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <AddIcon24 className="w6 h6" />
                      </div>
                      <div className="mb4 flex">
                          <MagnifierIcon className="w7 h7" />

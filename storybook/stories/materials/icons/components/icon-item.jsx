@@ -14,7 +14,7 @@ export function IconItem({ stdSize, smllSize, iconName }) {
             <div className="pb3">{name}</div>
             <div className={styles.iconGrid}>
                 <IconHeader />
-                <div className="h7 w7 ba b--dotted justify-center items-center flex relative hide-child">
+                <div className="h7 w7 justify-center items-center flex relative hide-child">
                     <Choose>
                         <When condition={!isNil(smllSize)}>
                             <Icon name={iconNameSmall} icon={smllSize} size="small" />
@@ -26,7 +26,7 @@ export function IconItem({ stdSize, smllSize, iconName }) {
                         </Otherwise>
                     </Choose>
                 </div>
-                <div className="h7 w7 ba b--dotted justify-center items-center flex relative hide-child">
+                <div className="h7 w7 justify-center items-center flex relative hide-child">
                     <Choose>
                         <When condition={!isNil(stdSize)}>
                             <Icon name={iconName} icon={stdSize} size="std" />
