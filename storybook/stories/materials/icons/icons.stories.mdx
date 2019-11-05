@@ -10,34 +10,40 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 
 Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px, when available adding 24 at the end of an icon will bring the 24x24 version of this icon.
 
+## Import an icon
+
+    import { IconName } from "@orbit-ui/icons";
+
+## Avalaible icons
+
 <Preview>
     <Story name="icons">
         <IconGallery>
             <IconItem iconName="CommunicationIcon" stdSize={CommunicationIcon}/>
             <IconItem iconName="CsvIcon" stdSize={CsvIcon}/>
-            <IconItem iconName="fileIcon" stdSize={FileIcon}/>
-            <IconItem iconName="folderIcon" stdSize={FolderIcon}/>
-            <IconItem iconName="garbageIcon" stdSize={GarbageIcon}/>
-            <IconItem iconName="horizontal dotsIcon" stdSize={HorizontalDotsIcon}/>
-            <IconItem iconName="musicIcon" stdSize={MusicIcon}/>
-            <IconItem iconName="imageIcon" stdSize={ImageIcon}/>
-            <IconItem iconName="videoIcon" stdSize={VideoIcon}/>
-            <IconItem iconName="zipIcon" stdSize={ZipIcon}/>
-            <IconItem iconName="magnifierIcon" stdSize={MagnifierIcon}/>
-            <IconItem iconName="pdfIcon" stdSize={PdfIcon}/>
-            <IconItem iconName="editIcon" stdSize={EditIcon}/>
-            <IconItem iconName="reminderIcon" stdSize={ReminderIcon}/>
-            <IconItem iconName="notificationIcon" stdSize={NotificationIcon}/>
-            <IconItem iconName="vertical dotsIcon" stdSize={VerticalDotsIcon}/>
-            <IconItem iconName="gearIcon" stdSize={GearIcon}/>
-            <IconItem iconName="add userIcon" stdSize={AddUserIcon}/>
-            <IconItem iconName="remove userIcon" stdSize={RemoveUserIcon}/>
-            <IconItem iconName="do not disturbIcon" stdSize={DoNotDisturbIcon}/>
-            <IconItem iconName="groupIcon" stdSize={GroupIcon}/>
-            <IconItem iconName="downloadIcon" stdSize={DownloadIcon}/>
-            <IconItem iconName="help" smllSize={HelpIcon24}/>
-            <IconItem iconName="signout" smllSize={SignoutIcon24}/>
-            <IconItem iconName="lightbulb" smllSize={LightbulbIcon24}/>
+            <IconItem iconName="FileIcon" stdSize={FileIcon}/>
+            <IconItem iconName="FolderIcon" stdSize={FolderIcon}/>
+            <IconItem iconName="GarbageIcon" stdSize={GarbageIcon}/>
+            <IconItem iconName="HorizontalDotsIcon" stdSize={HorizontalDotsIcon}/>
+            <IconItem iconName="MusicIcon" stdSize={MusicIcon}/>
+            <IconItem iconName="ImageIcon" stdSize={ImageIcon}/>
+            <IconItem iconName="VideoIcon" stdSize={VideoIcon}/>
+            <IconItem iconName="zZipIcon" stdSize={ZipIcon}/>
+            <IconItem iconName="MagnifierIcon" stdSize={MagnifierIcon}/>
+            <IconItem iconName="PdfIcon" stdSize={PdfIcon}/>
+            <IconItem iconName="EditIcon" stdSize={EditIcon}/>
+            <IconItem iconName="ReminderIcon" stdSize={ReminderIcon}/>
+            <IconItem iconName="NotificationIcon" stdSize={NotificationIcon}/>
+            <IconItem iconName="VerticalDotsIcon" stdSize={VerticalDotsIcon}/>
+            <IconItem iconName="GearIcon" stdSize={GearIcon}/>
+            <IconItem iconName="AddUserIcon" stdSize={AddUserIcon}/>
+            <IconItem iconName="RemoveUserIcon" stdSize={RemoveUserIcon}/>
+            <IconItem iconName="DoNotDisturbIcon" stdSize={DoNotDisturbIcon}/>
+            <IconItem iconName="GroupIcon" stdSize={GroupIcon}/>
+            <IconItem iconName="DownloadIcon" stdSize={DownloadIcon}/>
+            <IconItem iconName="HelpIcon" smllSize={HelpIcon24}/>
+            <IconItem iconName="SignoutIcon" smllSize={SignoutIcon24}/>
+            <IconItem iconName="LightbulbIcon" smllSize={LightbulbIcon24}/>
         </IconGallery>
     </Story>
 </Preview>

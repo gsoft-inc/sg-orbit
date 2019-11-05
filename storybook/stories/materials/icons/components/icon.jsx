@@ -1,6 +1,6 @@
 import { CheckmarkIcon } from "@orbit-ui/icons";
 import { a, useTransition } from "react-spring";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./icon.module.css";
 
 export function Icon({ icon, name, size }) {
@@ -24,20 +24,26 @@ export function Icon({ icon, name, size }) {
         }
     });
 
+    useEffect(() => {
+        let timer = null;
+
+        if (copySuccess) {
+            timer = setTimeout(() => {
+                setCopySuccess(false);
+            }, 2000);
+        }
+
+        return () => clearTimeout(timer);
+    }, [copySuccess]);
+
     function copyCodeToClipboard () {
         textAreaRef.current.select();
         document.execCommand("copy");
         setCopySuccess(true);
     }
 
-    function resetCopy () {
-        setTimeout(() => {
-            setCopySuccess(false);
-        }, 2000);
-    }
-
     return (
-        <div onMouseLeave={resetCopy}>
+        <>
             <div className="absolute flex items-center justify-center h7 w7">
                 <IconSvg className={sizeClasses} />
             </div>
@@ -53,10 +59,11 @@ export function Icon({ icon, name, size }) {
             )}
             </div>
             <form className={styles.textarea}>
-                <textarea ref={textAreaRef}
+                <textarea readOnly
+                    ref={textAreaRef}
                     value={name}
                 />
             </form>
-        </div>
+        </>
     );
 }
