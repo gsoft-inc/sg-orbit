@@ -41,6 +41,7 @@ export { ReactComponent as RemoveUserIcon } from "./icon-remove-user-32.svg";
 export { ReactComponent as CompareIcon } from "./icon-compare-32.svg";
 export { ReactComponent as CompareIcon24 } from "./icon-compare-24.svg";
 export { ReactComponent as CloseIcon } from "./icon-close-32.svg";
+export { ReactComponent as CloseIcon24 } from "./icon-close-24.svg";
 export { ReactComponent as GroupIcon } from "./icon-group-32.svg";
 export { ReactComponent as ZipIcon } from "./icon-zip-32.svg";
 export { ReactComponent as MagnifierIcon } from "./icon-magnifier-32.svg";

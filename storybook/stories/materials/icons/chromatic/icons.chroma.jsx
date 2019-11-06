@@ -11,13 +11,13 @@ import {
     CancelIcon,
     CheckIcon,
     CheckIcon24,
-    CheckmarkIcon,
     ChevronIcon,
     CircleIcon,
     CircleIcon24,
     ClearFilterIcon,
     ClearFilterIcon24,
     CloseIcon,
+    CloseIcon24,
     CommunicationIcon,
     CompareIcon,
     CompareIcon24,
@@ -109,9 +109,6 @@ stories()
                      </div>
                      <div className="mb4 flex">
                          <CheckIcon className="h7 w7" />
-                     </div>
-                     <div className="mb4 flex">
-                         <CheckmarkIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
                          <CircleIcon className="h7 w7" />
@@ -233,6 +230,9 @@ stories()
                      </div>
                      <div className="mb4 flex">
                          <ClearFilterIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <CloseIcon24 className="h6 w6" />
                      </div>
                      <div className="mb4 flex">
                          <CompareIcon24 className="h6 w6" />
