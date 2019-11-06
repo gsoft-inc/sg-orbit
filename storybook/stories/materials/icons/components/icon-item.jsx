@@ -21,7 +21,7 @@ export function IconItem({ stdSize, smllSize, iconName }) {
                         </When>
                         <Otherwise>
                             <div className="h7 w7 flex items-center justify-center">
-                                <div className="h6 w6 bg-cloud-100"></div>
+                                <div className="h6 w6 bg-white"></div>
                             </div>
                         </Otherwise>
                     </Choose>
@@ -33,7 +33,7 @@ export function IconItem({ stdSize, smllSize, iconName }) {
                         </When>
                         <Otherwise>
                             <div className="h7 w7 flex items-center justify-center">
-                                <div className="h7 w7 bg-cloud-100"></div>
+                                <div className="h7 w7 bg-white"></div>
                             </div>
                         </Otherwise>
                     </Choose>

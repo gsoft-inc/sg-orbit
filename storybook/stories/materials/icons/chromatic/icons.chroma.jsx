@@ -3,11 +3,24 @@ import {
     AddIcon24,
     AddUserIcon,
     ArrowFullIcon,
+    ArrowIcon,
+    ArrowIcon24,
     ArrowOutlineIcon,
+    CalendarIcon,
+    CalendarIcon24,
     CancelIcon,
+    CheckIcon,
+    CheckIcon24,
     CheckmarkIcon,
     ChevronIcon,
+    CircleIcon,
+    CircleIcon24,
+    ClearFilterIcon,
+    ClearFilterIcon24,
+    CloseIcon,
     CommunicationIcon,
+    CompareIcon,
+    CompareIcon24,
     CsvIcon,
     DoNotDisturbIcon,
     DownloadIcon,
@@ -17,20 +30,34 @@ import {
     GarbageIcon,
     GearIcon,
     GroupIcon,
+    HelpIcon,
     HelpIcon24,
     HorizontalDotsIcon,
     ImageIcon,
     InfoIcon,
+    InfoIcon24,
+    LightbulbIcon,
     LightbulbIcon24,
     MagnifierIcon,
     MusicIcon,
     NotificationIcon,
+    NotificationIcon24,
     PdfIcon,
+    PrinterIcon,
+    PrinterIcon24,
+    PrivacyIcon24,
     ReminderIcon,
     RemoveUserIcon,
+    SignoutIcon,
     SignoutIcon24,
+    SortingIcon,
+    SortingIcon24,
+    VariationIcon,
+    VariationIcon24,
     VerticalDotsIcon,
     VideoIcon,
+    WarningIcon,
+    WarningIcon24,
     ZipIcon
 } from "@orbit-ui/icons";
 import { SECTION } from "@stories/materials/icons/config";
@@ -52,8 +79,8 @@ function stories() {
 stories()
     .add("default",
          () =>
-             <div className="flex flex-row">
-                 <div className="flex flex-column items-center">
+             <div className="flex flex-column">
+                 <div className="flex flex-row items-center">
                      <div className="mb4 flex">
                          <ChevronIcon className="h3 w3" />
                      </div>
@@ -66,97 +93,179 @@ stories()
                      <div className="mb4 flex">
                          <CancelIcon className="h3 w3" />
                      </div>
+                 </div>
+                 <div className="flex flex-row items-center">
                      <div className="mb4 flex">
-                         <AddIcon className="w7 h7" />
+                         <AddIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <AddIcon24 className="w6 h6" />
+                         <AddUserIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <MagnifierIcon className="w7 h7" />
+                         <ArrowIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <InfoIcon className="w4 h4" />
+                         <CalendarIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <CheckmarkIcon className="w4 h4" />
+                         <CheckIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <AddUserIcon className="w7 h7" />
+                         <CheckmarkIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <CommunicationIcon className="w7 h7" />
+                         <CircleIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <CsvIcon className="w7 h7" />
+                         <ClearFilterIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <DoNotDisturbIcon className="w7 h7" />
+                         <CloseIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <DownloadIcon className="w7 h7" />
+                         <CommunicationIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <EditIcon className="w7 h7" />
+                         <CompareIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <FileIcon className="w7 h7" />
+                         <CsvIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <FolderIcon className="w7 h7" />
+                         <DoNotDisturbIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <GarbageIcon className="w7 h7" />
+                         <DownloadIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <EditIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <FileIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <FolderIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <GarbageIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <GearIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <GroupIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <HelpIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <HorizontalDotsIcon className="h7 w7" />
+                     </div>
+                     <div className="mb4 flex">
+                         <ImageIcon className="h7 w7" />
                      </div>
                  </div>
-                 <div className="flex flex-column items-center">
+                 <div className="flex flex-row items-center">
                      <div className="mb4 flex">
-                         <GearIcon className="w7 h7" />
+                         <InfoIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <GroupIcon className="w7 h7" />
+                         <LightbulbIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <HelpIcon24 className="w6 h6" />
+                         <MagnifierIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <HorizontalDotsIcon className="w7 h7" />
+                         <MusicIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <ImageIcon className="w7 h7" />
+                         <NotificationIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <LightbulbIcon24 className="w6 h6" />
+                         <PdfIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <MagnifierIcon className="w7 h7" />
+                         <PrinterIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <MusicIcon className="w7 h7" />
+                         <ReminderIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <NotificationIcon className="w7 h7" />
+                         <RemoveUserIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <PdfIcon className="w7 h7" />
+                         <SignoutIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <ReminderIcon className="w7 h7" />
+                         <SortingIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <RemoveUserIcon className="w7 h7" />
+                         <VariationIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <SignoutIcon24 className="w6 h6" />
+                         <VerticalDotsIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <VerticalDotsIcon className="w7 h7" />
+                         <VideoIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <VideoIcon className="w7 h7" />
+                         <WarningIcon className="h7 w7" />
                      </div>
                      <div className="mb4 flex">
-                         <ZipIcon className="w7 h7" />
+                         <ZipIcon className="h7 w7" />
+                     </div>
+                 </div>
+                 <div className="flex flex-row items-center">
+                     <div className="mb4 flex">
+                         <AddIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <ArrowIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <CalendarIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <CheckIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <CircleIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <ClearFilterIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <CompareIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <HelpIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <InfoIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <LightbulbIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <NotificationIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <PrinterIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <PrivacyIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <SignoutIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <SortingIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <VariationIcon24 className="h6 w6" />
+                     </div>
+                     <div className="mb4 flex">
+                         <WarningIcon24 className="h6 w6" />
                      </div>
                  </div>
              </div>

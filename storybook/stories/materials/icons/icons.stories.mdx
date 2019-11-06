@@ -1,5 +1,5 @@
 import {
-    AddIcon, AddIcon24, AddUserIcon, ArrowIcon, ArrowIcon24, CalendarIcon, CalendarIcon24, CheckIcon, CheckIcon24, ClearFilterIcon, ClearFilterIcon24, CloseIcon, CommunicationIcon, CompareIcon, CompareIcon24, CsvIcon, DoNotDisturbIcon, DownloadIcon, EditIcon, FileIcon, FolderIcon, GarbageIcon, GearIcon, GroupIcon, HelpIcon24, HorizontalDotsIcon, ImageIcon, LightbulbIcon, LightbulbIcon24, MagnifierIcon, MoreInfoIcon, MoreInfoIcon24, MusicIcon, NotificationIcon, NotificationIcon24, PdfIcon, PrinterIcon, PrinterIcon24, PrivacyIcon24, ReminderIcon, RemoveUserIcon, SignoutIcon, SignoutIcon24, VerticalDotsIcon, VideoIcon, ZipIcon
+    AddIcon, AddIcon24, AddUserIcon, ArrowIcon, ArrowIcon24, CalendarIcon, CalendarIcon24, CheckIcon, CheckIcon24, CircleIcon, CircleIcon24, ClearFilterIcon, ClearFilterIcon24, CloseIcon, CommunicationIcon, CompareIcon, CompareIcon24, CsvIcon, DoNotDisturbIcon, DownloadIcon, EditIcon, FileIcon, FolderIcon, GarbageIcon, GearIcon, GroupIcon, HelpIcon, HelpIcon24, HorizontalDotsIcon, ImageIcon, InfoIcon, InfoIcon24, LightbulbIcon, LightbulbIcon24, MagnifierIcon, MusicIcon, NotificationIcon, NotificationIcon24, PdfIcon, PrinterIcon, PrinterIcon24, PrivacyIcon24, ReminderIcon, RemoveUserIcon, SignoutIcon, SignoutIcon24, SortingIcon, SortingIcon24, VariationIcon, VariationIcon24, VerticalDotsIcon, VideoIcon, WarningIcon, WarningIcon24, ZipIcon
 } from "@orbit-ui/icons";
 import { IconGallery, IconItem } from "./components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -20,40 +20,44 @@ Icons includes their padding, they generally are available in two sizes, 24px an
     <Story name="icons">
         <IconGallery>
             <IconItem iconName="AddIcon" stdSize={AddIcon} smllSize={AddIcon24}/>
-            <IconItem iconName="AddUserIcon" stdSize={AddUserIcon}/>
-            <IconItem iconName="ArrowIcon" stdSize={ArrowIcon} smllSize={ArrowIcon24}/>
-            <IconItem iconName="ClearFilterIcon" stdSize={ClearFilterIcon} smllSize={ClearFilterIcon24}/>
-            <IconItem iconName="CalendarIcon" smllSize={CalendarIcon24} stdSize={CalendarIcon}/>
-            <IconItem iconName="CompareIcon" smllSize={CompareIcon24} stdSize={CompareIcon}/>
-            <IconItem iconName="CsvIcon" stdSize={CsvIcon}/>
-            <IconItem iconName="CommunicationIcon" stdSize={CommunicationIcon}/>
-            <IconItem iconName="FileIcon" stdSize={FileIcon}/>
-            <IconItem iconName="FolderIcon" stdSize={FolderIcon}/>
-            <IconItem iconName="GarbageIcon" stdSize={GarbageIcon}/>
-            <IconItem iconName="HorizontalDotsIcon" stdSize={HorizontalDotsIcon}/>
-            <IconItem iconName="MusicIcon" stdSize={MusicIcon}/>
-            <IconItem iconName="PrinterIcon" stdSize={PrinterIcon} smllSize={PrinterIcon24}/>
             <IconItem iconName="CloseIcon" stdSize={CloseIcon}/>
-            <IconItem iconName="CheckIcon" stdSize={CheckIcon} smllSize={CheckIcon24}/>
-            <IconItem iconName="ImageIcon" stdSize={ImageIcon}/>
-            <IconItem iconName="VideoIcon" stdSize={VideoIcon}/>
-            <IconItem iconName="ZipIcon" stdSize={ZipIcon}/>
-            <IconItem iconName="MagnifierIcon" stdSize={MagnifierIcon}/>
-            <IconItem iconName="PdfIcon" stdSize={PdfIcon}/>
-            <IconItem iconName="EditIcon" stdSize={EditIcon}/>
-            <IconItem iconName="ReminderIcon" stdSize={ReminderIcon}/>
-            <IconItem iconName="PrivacyIcon" smllSize={PrivacyIcon24}/>
-            <IconItem iconName="NotificationIcon" smllSize={NotificationIcon24} stdSize={NotificationIcon}/>
-            <IconItem iconName="VerticalDotsIcon" stdSize={VerticalDotsIcon}/>
-            <IconItem iconName="GearIcon" stdSize={GearIcon}/>
-            <IconItem iconName="MoreInfoIcon" stdSize={MoreInfoIcon} smllSize={MoreInfoIcon24}/>
-            <IconItem iconName="RemoveUserIcon" stdSize={RemoveUserIcon}/>
-            <IconItem iconName="DoNotDisturbIcon" stdSize={DoNotDisturbIcon}/>
-            <IconItem iconName="GroupIcon" stdSize={GroupIcon}/>
-            <IconItem iconName="DownloadIcon" stdSize={DownloadIcon}/>
-            <IconItem iconName="HelpIcon" smllSize={HelpIcon24}/>
             <IconItem iconName="SignoutIcon" smllSize={SignoutIcon24} stdSize={SignoutIcon}/>
+            <IconItem iconName="CheckIcon" stdSize={CheckIcon} smllSize={CheckIcon24}/>
+            <IconItem iconName="ClearFilterIcon" stdSize={ClearFilterIcon} smllSize={ClearFilterIcon24}/>
+            <IconItem iconName="PrinterIcon" stdSize={PrinterIcon} smllSize={PrinterIcon24}/>
+            <IconItem iconName="WarningIcon" stdSize={WarningIcon} smllSize={WarningIcon24}/>
+            <IconItem iconName="InfoIcon" stdSize={InfoIcon} smllSize={InfoIcon24}/>
+            <IconItem iconName="HelpIcon" stdSize={HelpIcon} smllSize={HelpIcon24}/>
+            <IconItem iconName="SortingIcon" stdSize={SortingIcon} smllSize={SortingIcon24}/>
+            <IconItem iconName="CompareIcon" smllSize={CompareIcon24} stdSize={CompareIcon}/>
+            <IconItem iconName="CalendarIcon" smllSize={CalendarIcon24} stdSize={CalendarIcon}/>
+            <IconItem iconName="VariationIcon" smllSize={VariationIcon24} stdSize={VariationIcon}/>
+            <IconItem iconName="PrivacyIcon" smllSize={PrivacyIcon24}/>
             <IconItem iconName="LightbulbIcon" stdSize={LightbulbIcon} smllSize={LightbulbIcon24}/>
+            <IconItem iconName="VerticalDotsIcon" stdSize={VerticalDotsIcon}/>
+            <IconItem iconName="HorizontalDotsIcon" stdSize={HorizontalDotsIcon}/>
+            <IconItem iconName="GarbageIcon" stdSize={GarbageIcon}/>
+            <IconItem iconName="GearIcon" stdSize={GearIcon}/>
+            <IconItem iconName="MagnifierIcon" stdSize={MagnifierIcon}/>
+            <IconItem iconName="FileIcon" stdSize={FileIcon}/>
+            <IconItem iconName="PdfIcon" stdSize={PdfIcon}/>
+            <IconItem iconName="VideoIcon" stdSize={VideoIcon}/>
+            <IconItem iconName="CsvIcon" stdSize={CsvIcon}/>
+            <IconItem iconName="ZipIcon" stdSize={ZipIcon}/>
+            <IconItem iconName="MusicIcon" stdSize={MusicIcon}/>
+            <IconItem iconName="ImageIcon" stdSize={ImageIcon}/>
+            <IconItem iconName="EditIcon" stdSize={EditIcon}/>
+            <IconItem iconName="CommunicationIcon" stdSize={CommunicationIcon}/>
+            <IconItem iconName="ReminderIcon" stdSize={ReminderIcon}/>
+            <IconItem iconName="AddUserIcon" stdSize={AddUserIcon}/>
+            <IconItem iconName="RemoveUserIcon" stdSize={RemoveUserIcon}/>
+            <IconItem iconName="FolderIcon" stdSize={FolderIcon}/>
+            <IconItem iconName="NotificationIcon" smllSize={NotificationIcon24} stdSize={NotificationIcon}/>
+            <IconItem iconName="DoNotDisturbIcon" stdSize={DoNotDisturbIcon}/>
+            <IconItem iconName="DownloadIcon" stdSize={DownloadIcon}/>
+            <IconItem iconName="CircleIcon" smllSize={CircleIcon24} stdSize={CircleIcon}/>
+            <IconItem iconName="GroupIcon" stdSize={GroupIcon}/>
+            <IconItem iconName="ArrowIcon" stdSize={ArrowIcon} smllSize={ArrowIcon24}/>
         </IconGallery>
     </Story>
 </Preview>
