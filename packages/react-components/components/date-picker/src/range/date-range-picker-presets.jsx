@@ -74,6 +74,9 @@ export class DateRangePickerPresets extends PureComponent {
         maxDate: object,
         /**
          * Called when a preset is selected.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} preset - The selected preset.
+         * @param {object} props - All the props.
          */
         onSelectPreset: func,
         /**
