@@ -1,13 +1,19 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
 import { POSITIONS } from "@orbit-ui/react-popup";
-import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const PRESET_SHAPE = {
+    text: string.isRequired,
+    startDate: object.isRequired,
+    endDate: object.isRequired
+};
 
 export class DateRangePickerCalendar extends PureComponent {
     static propTypes = {
@@ -21,10 +27,18 @@ export class DateRangePickerCalendar extends PureComponent {
         endDate: momentType,
         /**
          * Called when the date(s) are / is applied.
+         * @param {Moment} startDate - Selected start date.
+         * @param {Moment} endDate - Selected end date.
+         * @param {string} presetName - Selected preset name.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onDatesChange: func,
         /**
          * Called on apply button click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onApply: func,
         /**
@@ -75,6 +89,9 @@ export class DateRangePickerCalendar extends PureComponent {
          * Whether or not the calendar selected date(s) can be cleared.
          */
         allowClear: bool,
+        /**
+         * @ignore
+         */
         reactDatesCalendar: node,
         /**
          * Additional classes.

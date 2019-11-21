@@ -38,10 +38,20 @@ export class DateRangePicker extends AutoControlledPureComponent {
         defaultEndDate: momentType,
         /**
          * Called when the date(s) are / is applied.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Moment} startDate - Selected start date.
+         * @param {Moment} endDate - Selected end date.
+         * @param {string} presetName - Selected preset name.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onDatesChange: func.isRequired,
         /**
          * Called when the calendar open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the calendar is visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onVisibilityChange: func,
         /**
@@ -90,7 +100,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         position: oneOf(POSITIONS),
         /**
          * An array containing an horizontal and vertical offsets for the calendar position.
-         * Ex: ["10px", "-10px"]
+         * Ex: `["10px", "-10px"]`
          */
         offsets: arrayOf(string),
         /**
