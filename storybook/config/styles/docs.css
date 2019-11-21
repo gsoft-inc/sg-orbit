@@ -49,31 +49,8 @@
     font-weight: 600 !important;
 }
 
-.docblock-propstable {
-    color: var(--cloud-500) !important;
-}
-
-.docblock-propstable tbody td,
-.docblock-propstable thead th {
-    color: var(--marine-500) !important;
-}
-
 .docblock-emptyblock {
     color: var(--cloud-500) !important;
-}
-
-.sbdocs .docblock-propstable tbody {
-    border: 1px var(--cloud-50) solid;
-    box-shadow: var(--shadow-4) !important;
-}
-
-.sbdocs .docblock-propstable thead th {
-    font-size: 1rem;
-    padding-bottom: 16px !important;
-}
-
-.sbdocs .docblock-propstable tbody tr:not(:first-child) {
-    border-top: 1px solid var(--cloud-50) !important;
 }
 
 .sbdocs .docblock-emptyblock {
