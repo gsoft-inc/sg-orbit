@@ -5,12 +5,18 @@ import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "@orbit-ui/react-popup";
-import { PRESET_SHAPE } from "./presets";
-import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const PRESET_SHAPE = {
+    text: string.isRequired,
+    startDate: object.isRequired,
+    endDate: object.isRequired
+};
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
