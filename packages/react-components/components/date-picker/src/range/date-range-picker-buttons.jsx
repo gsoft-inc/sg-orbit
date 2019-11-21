@@ -16,10 +16,16 @@ export class DateRangePickerButtons extends PureComponent {
         endDate: momentPropTypes.momentObj,
         /**
          * Called on clear button click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClear: func,
         /**
          * Called on apply button click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onApply: func,
         /**
