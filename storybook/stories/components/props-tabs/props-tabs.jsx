@@ -1,6 +1,6 @@
 import styles from "./props-tabs.module.css";
 
-import { Checkbox, Tab } from "semantic-ui-react";
+import { Checkbox } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
 import { any, arrayOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
@@ -22,31 +22,18 @@ export function PropsTabs({ componentsDefinitions }) {
         throw new Error(`${PropsTabs.name} - At least one component definition must be provided.`);
     }
 
-    const handleTabChange = (event, data) => {
-        setActiveIndex(data.activeIndex);
-        setIsVisible(true);
-    };
-
     const handleToggleChange = () => {
         setActiveIndex(isNil(activeIndex) ? 0 : activeIndex);
         setIsVisible(!isVisible);
     };
 
     const createPanes = () => {
-        return componentsDefinitions.map(x => {
-            return {
-                menuItem: x.displayName,
-                render: () => {
-                    return (
-                        <If condition={isVisible}>
-                            <Tab.Pane attached={false}>
-                                <Props of={x.component} />
-                            </Tab.Pane>
-                        </If>
-                    );
-                }
-            };
+        const result = {};
+        componentsDefinitions.forEach(x => {
+            result[x.displayName] = x.component;
         });
+
+        return result;
     };
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
@@ -63,13 +50,7 @@ export function PropsTabs({ componentsDefinitions }) {
             </div>
             <Choose>
                 <When condition={hasMultipleComponents && isVisible}>
-                    <Tab
-                        activeIndex={activeIndex}
-                        panes={createPanes()}
-                        menu={{ secondary: true, pointing: true, compact: true, fluid: true }}
-                        onTabChange={handleTabChange}
-                        className="flex-auto mb6"
-                    />
+                    <Props components={createPanes()}/>
                 </When>
                 <Otherwise>
                     <If condition={isVisible}>

@@ -12,7 +12,20 @@ Icons includes their padding, they generally are available in two sizes, 24px an
 
 ## Import an icon
 
+### As a component
+
     import { IconName } from "@orbit-ui/icons";
+
+### As a React file
+
+    import IconName from "@orbit-ui/icons/icon-name.svg";
+    <img src={IconName} />;
+
+### As a CSS background file
+
+    .name-icon: {
+        background: url("~@orbit-ui/icons/icon-name.svg");
+    }
 
 ## Avalaible icons
 

@@ -6,8 +6,10 @@
 }
 
 .ui.dropdown > .dropdown.icon {
-    background: url("@{iconsPath}/icon-down-arrow-marine-100.svg") center center no-repeat!important;
-    background-size: 12px 12px!important;
+    background-color: var(--marine-100);
+    mask: url(~@orbit-ui/icons/dist/icon-arrow-24.svg) center center no-repeat!important;
+    mask-size: 24px 24px;
+    transform: rotate(90deg);
 }
 
 .ui.selection.dropdown > .dropdown.icon {

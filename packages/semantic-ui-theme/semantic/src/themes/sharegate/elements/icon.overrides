@@ -13,7 +13,6 @@
     margin-left: 8px!important;
 }
 
-
 .ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
     margin: 0 .35em 0 0;
 }
@@ -30,71 +29,35 @@
 }
 
 /* Search icon */
-i.icon.search:before {
-    content: "";
-    display: block;
-    height: 18px;
-    width: 18px;
-    top: 0;
-    margin-top: 0;
-    background: url("@{iconsPath}/icon-magnifier-marine-500.svg") center center no-repeat !important;
-    background-size: 16px 16px !important;
+i.icon.search {
+    background-color: var(--marine-500);
+    mask: url(~@orbit-ui/icons/dist/icon-magnifier-32.svg) center center no-repeat!important;
+    mask-size: contain;
 }
 
-.ui.loading i.icon.search:before {
-    background: none!important;
-}
-
-.ui.disabled i.icon.search:before {
-    background: url("@{iconsPath}/icon-magnifier-marine-100.svg") center center no-repeat !important;
-    background-size: 16px 16px !important;
-}
-
-i.icon.handshake {
-    height: 16px;
-    width: 24px;
-}
-
-i.icon.handshake:before {
-    content: "";
-    display: block;
-    height: 16px;
-    width: 24px;
-    top: 0;
-    margin-top: 0;
-    background: url("@{iconsPath}/icon-handshake-white.svg") center center no-repeat !important;
-    background-size: 16px 16px !important;
-}
-
+/* Delete icon */
 i.icon.delete {
-    height: 10px;
-    width: 10px;
-}
-
-i.icon.delete:before {
-    content: "";
-    display: block;
-    height: 10px;
-    width: 10px;
-    top: 0;
-    margin-top: 0;
-    background: url("@{iconsPath}/icon-cancel-color.svg") center center no-repeat !important;
-    background-size: 10px 10px !important;
+    background-color: var(--marine-500);
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: contain;
 }
 
 /* Close icon */
 i.icon.close {
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;;
+    background-color: var(--marine-500);
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: contain;
 }
 
-i.icon.close:before {
-    content: "";
-    display: block;
-    height: 10px;
-    width: 10px;
-    top: 0;
-    margin-top: 0;
-    background: url("@{iconsPath}/icon-cancel-color.svg") center center no-repeat !important;
-    background-size: 10px 10px !important;
+/* States */
+
+.ui.loading i.icon {
+    background: none!important;
+    mask: none!important;
+}
+
+.ui.disabled i.icon {
+    background-color: var(--marine-100);
 }

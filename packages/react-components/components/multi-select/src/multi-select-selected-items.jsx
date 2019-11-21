@@ -1,5 +1,5 @@
 import { Button, Label } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
+import { CloseIcon24 } from "@orbit-ui/icons";
 import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
@@ -24,7 +24,7 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
                     onClick={onRemove}
                     type="button"
                 >
-                    <CancelIcon className="h3 w3" />
+                    <CloseIcon24 className="h4 w4" />
                 </Button>
             </If>
         </Label>

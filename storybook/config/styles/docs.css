@@ -18,24 +18,35 @@
 .sbdocs-p {
     font-size: 1.125rem !important;
     color: var(--marine-900) !important;
+    margin: 0 !important;
 }
 
 .sbdocs-h1 {
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     color: var(--marine-900) !important;
 }
 
 .sbdocs-h2 {
     margin: 24px 0 18px !important;
     color: var(--marine-900) !important;
+    border-bottom: none !important;
 }
 
 .sbdocs-h3 {
     color: var(--marine-900) !important;
 }
 
+.docblock-source {
+    box-shadow: var(--shadow-5);
+    border: 1px solid var(--cloud-100);
+}
+
 .sbdocs-table {
     min-width: 220px;
+}
+
+.sbdocs-table thead th {
+    font-weight: 600 !important;
 }
 
 .docblock-propstable {
@@ -86,4 +97,9 @@
 
 .sbdocs .sbdocs-a:hover {
     text-decoration: underline;
+}
+
+.sbdocs button[role="tab"] {
+    font-size: 16px;
+    font-weight: 600;
 }
