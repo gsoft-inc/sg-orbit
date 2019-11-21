@@ -13,7 +13,7 @@ import { BrandPickerWidget } from "@components/brand-picker";
 import { GithubLink } from "@components/github-link";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
 import { PropsTabs } from "@components/props-tabs";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
@@ -29,6 +29,8 @@ import moment from "moment";
 
 <GithubLink filePath="/packages/react-components/components/date-picker/src/range" />
 <BrandPickerWidget />
+
+<Anchor storyId="components-date-picker-range--default-story" />
 
 ## Installation
 
