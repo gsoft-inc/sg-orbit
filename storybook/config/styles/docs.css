@@ -53,10 +53,6 @@
     color: var(--cloud-500) !important;
 }
 
-.docblock-propstable tbody td div + div span {
-    color: var(--cloud-500) !important;
-}
-
 .docblock-propstable tbody td,
 .docblock-propstable thead th {
     color: var(--marine-500) !important;
