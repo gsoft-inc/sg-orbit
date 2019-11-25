@@ -3,9 +3,9 @@
     padding-bottom: 140px;
 }
 
-.sbdocs.sbdocs-content > div > div {
+/* .sbdocs.sbdocs-content > div > div {
     overflow: visible;
-}
+} */
 
 .sbdocs.sbdocs-content {
     max-width: 1200px !important;

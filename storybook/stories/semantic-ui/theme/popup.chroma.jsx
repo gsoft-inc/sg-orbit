@@ -46,7 +46,7 @@ stories()
                              trigger={<Button>Add</Button>}
                          />
                      </div>
-                     <div className="mb13 pb13">
+                     <div className="mb13">
                          <Popup
                              wide="very"
                              open
@@ -70,6 +70,21 @@ stories()
                                  <div>Hello is it tea you are looking for?</div>
                              </Popup.Content>
                          </Popup>
+                     </div>
+                     <div className="mb13 pt13">
+                         <Popup
+                             open
+                             content="Adds users to your feed"
+                             trigger={<Button>Add</Button>}
+                             position="right center"
+                         />
+                     </div><div className="mb13">
+                         <Popup
+                             open
+                             content="Adds users to your feed"
+                             trigger={<Button>Add</Button>}
+                             position="left center"
+                         />
                      </div>
                  </div>
              </div>

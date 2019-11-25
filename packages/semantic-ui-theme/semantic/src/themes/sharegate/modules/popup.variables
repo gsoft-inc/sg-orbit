@@ -6,8 +6,8 @@
        Element
 --------------------*/
 
-@verticalPadding: 1.5em;
-@horizontalPadding: 1.5em;
+@verticalPadding: 1em;
+@horizontalPadding: 1em;
 
 /*-------------------
        Parts
@@ -29,7 +29,7 @@
 @headerLineHeight: 1.2;
 
 /* Content Border */
-@border: @borderWidth solid @borderColor;
+@border: none;
 
 /* Arrow */
 @arrowBackground: @background;
@@ -37,7 +37,7 @@
 @arrowJitter: 0.05em;
 @arrowOffset: -(@arrowSize / 2) + @arrowJitter;
 
-@arrowStroke: @borderWidth;
+@arrowStroke: 0;
 @arrowColor: darken(@borderColor, 10);
 
 /* Arrow color by position */
@@ -45,10 +45,10 @@
 @arrowCenterBackground: @arrowBackground;
 @arrowBottomBackground: @arrowBackground;
 
-@arrowBoxShadow: @arrowStroke @arrowStroke 0px 0px @arrowColor;
-@leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @arrowColor;
-@rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @arrowColor;
-@bottomArrowBoxShadow: -@arrowStroke -@arrowStroke 0px 0px @arrowColor;
+@arrowBoxShadow: 2px 2px 4px 0px rgba(34, 36, 38, 0.12);
+@leftArrowBoxShadow: 2px -2px 6px 0px rgba(34, 36, 38, 0.12);
+@rightArrowBoxShadow: 2px -2px 2px 0px rgba(34, 36, 38, 0.12);
+@bottomArrowBoxShadow: -2px -2px 6px 0px rgba(34, 36, 38, 0.12);
 
 /*-------------------
        Types
