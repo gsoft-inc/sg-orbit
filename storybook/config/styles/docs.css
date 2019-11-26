@@ -79,16 +79,12 @@
     color: var(--marine-500) !important;
 }
 
-.sbdocs.sbdocs-table thead th {
-    font-weight: 600 !important;
-}
-
 .docblock-source {
     box-shadow: none !important;
     border: none !important;
 }
 
-.sbdocs .docblock-emptyblock {
+.docblock-emptyblock {
     font-weight: 600;
     color: var(--cloud-500);
     background-color: var(--cloud-50);
