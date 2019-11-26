@@ -1,5 +1,4 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { ITEM_SHAPE } from "./items";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -9,6 +8,12 @@ import { MultiSelectSelectedItems } from "./multi-select-selected-items";
 import { arrayOf, bool, func, node, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
@@ -49,15 +54,28 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         defaultValues: arrayOf(string),
         /**
-         *  Called when a value is selected / removed.
+         * Called when a value is selected / removed.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string[]} values - Selected values.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onValuesChange: func.isRequired,
         /**
          * Called when a search for an item happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item[]} items - Available items.
+         * @param {string} query - Search query.
+         * @param {Object} props - All the props.
+         * @returns {Item[]} - Items to display.
          */
         onSearch: func,
         /**
          * Called when the dropdown open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the calendar is visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onVisibilityChange: func,
         /**

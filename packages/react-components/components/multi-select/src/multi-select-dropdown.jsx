@@ -1,6 +1,5 @@
 import { AddIcon24, MagnifierIcon } from "@orbit-ui/icons";
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
-import { ITEM_SHAPE } from "./items";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
@@ -9,6 +8,12 @@ import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 function defaultItemRenderer(item, isSelected) {
     return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} data-testid="multi-select-dropdown-item" />;
@@ -26,26 +31,48 @@ export class MultiSelectDropdown extends PureComponent {
         items: arrayOf(shape(ITEM_SHAPE)),
         /**
          * Called when an item is selected.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item} item - Selected item.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onItemSelect: func,
         /**
          * Called when the search input change.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} query - Search query.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onSearch: func,
         /**
          * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onOpen: func,
         /**
          * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClose: func,
         /**
          * Render an item.
+         * @param {Item} item - Item to render.
+         * @param {boolean} isSelected - Whether or not the item is selected.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - A React element.
          */
         itemRenderer: func,
         /**
          * Render an header (also called a category).
+         * @param {string} text - Header text.
+         * @param {Item[]} items - Items under the header.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - A React element.
          */
         headerRenderer: func,
         /**
@@ -106,7 +133,7 @@ export class MultiSelectDropdown extends PureComponent {
         closeOnBlur: bool,
         /**
          * Whether or not the dropdown should close when a click happens outside the multi-select.
-         * Requires `closeOnBlur` to be false.
+         * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
         /**

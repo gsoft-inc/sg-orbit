@@ -29,7 +29,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     onDateChange: func.isRequired,
     /**
      * Called when the calendar open / close.
-     * Called when the calendar open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isVisible - Indicate if the calendar is visible.
      * @param {Object} props - All the props.

@@ -11,6 +11,9 @@ export class MultiSelectClearButton extends PureComponent {
         text: string,
         /**
          * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,

@@ -1,10 +1,15 @@
 import { Button, Label } from "semantic-ui-react";
 import { CloseIcon24 } from "@orbit-ui/icons";
-import { ITEM_SHAPE } from "./items";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 function defaultItemRenderer(item, { disabled, onRemove }) {
     return (
@@ -70,10 +75,17 @@ export class MultiSelectSelectedItems extends PureComponent {
         items: arrayOf(shape(ITEM_SHAPE)),
         /**
          * Render an item.
+         * @param {Item} item - Item to render.
+         * @param {{ disabled: boolean, onRemove: function }} options - Rendering options.
+         * @returns {ReactElement} - A React element.
          */
         itemRenderer: func,
         /**
          * Called when an item is removed.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item} item - Removed item.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onRemoveSelectedItem: func,
         /**
@@ -93,7 +105,7 @@ export class MultiSelectSelectedItems extends PureComponent {
     handleRemoveSelectedItem = (event, item) => {
         const { onRemoveSelectedItem } = this.props;
 
-        onRemoveSelectedItem(event, item);
+        onRemoveSelectedItem(event, item, this.props);
     };
 
     renderItems() {

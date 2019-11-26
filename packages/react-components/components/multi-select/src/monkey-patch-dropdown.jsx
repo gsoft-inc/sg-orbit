@@ -2,8 +2,6 @@ import { Dropdown } from "semantic-ui-react";
 import { invoke, size } from "lodash";
 import keyboardKey from "keyboard-key";
 
-// TODO: override the prototype instead of extends.
-
 // Monkey patch fixes:
 //
 // https://github.com/Semantic-Org/Semantic-UI-React/issues/3768

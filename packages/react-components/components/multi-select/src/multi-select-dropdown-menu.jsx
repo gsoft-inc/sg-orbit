@@ -1,8 +1,13 @@
 import { Dropdown } from "semantic-ui-react";
-import { ITEM_SHAPE } from "./items";
 import { PureComponent, cloneElement } from "react";
 import { arrayOf, func, node, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 export class MultiSelectDropdownMenu extends PureComponent {
     static propTypes = {
@@ -12,14 +17,26 @@ export class MultiSelectDropdownMenu extends PureComponent {
         items: arrayOf(shape(ITEM_SHAPE)),
         /**
          * Called on item click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {{ text: string, value: string }} data - Menu item data.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onItemClick: func,
         /**
          * Render an item.
+         * @param {Item} item - An item definition.
+         * @param {boolean} isSelected - Whether or not the item is selected.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - A React element.
          */
         itemRenderer: func,
         /**
          * Render an header (also called a category).
+         * @param {string} text - Display text.
+         * @param {Item[]} items - Items under the header.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - A React element.
          */
         headerRenderer: func,
         /**
@@ -47,7 +64,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     handleItemClick = (event, data) => {
         const { onItemClick } = this.props;
 
-        onItemClick(event, data, this.props);
+        onItemClick(event, { text: data.text, value: data.value }, this.props);
     }
 
     setItemWidth = element => {
