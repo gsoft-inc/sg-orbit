@@ -3,9 +3,23 @@
     padding-bottom: 140px;
 }
 
-/* .sbdocs.sbdocs-content > div > div {
+.sbdocs .sbdocs-preview > div > div {
     overflow: visible;
-} */
+}
+
+.sbdocs .sbdocs-preview,
+.sbdocs .sbdocs-pre {
+    border: none;
+    box-shadow: var(--shadow-4);
+}
+
+.sbdocs .sbdocs-preview {
+    overflow: visible;
+}
+
+.sbdocs .sbdocs-preview:hover {
+    z-index: 26;
+}
 
 .sbdocs.sbdocs-content {
     max-width: 1200px !important;
@@ -36,21 +50,29 @@
     color: var(--marine-900) !important;
 }
 
-.docblock-source {
-    box-shadow: var(--shadow-5);
-    border: 1px solid var(--cloud-100);
+.sbdocs-h1,
+.sbdocs-h2,
+.sbdocs-h3 {
+    /* fixing the default position relative on all titles in shared.tsx */
+    position: initial !important;
 }
 
 .sbdocs-table {
     min-width: 220px;
 }
 
-.sbdocs-table thead th {
+.docblock-propstable-head th {
     font-weight: 600 !important;
+    color: var(--marine-500) !important;
 }
 
 .docblock-emptyblock {
     color: var(--cloud-500) !important;
+}
+
+.docblock-source {
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .sbdocs .docblock-emptyblock {

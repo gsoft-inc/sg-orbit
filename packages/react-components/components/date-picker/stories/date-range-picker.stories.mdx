@@ -19,6 +19,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 import moment from "moment";
+import { PreviewWrapper } from "./preview";
 
 <Meta
     title="Components|Date Picker/range"
@@ -69,7 +70,7 @@ import {
         { displayName: "DateRangePicker.Input", component: PureDateRangePickerInput },
         { displayName: "DateRangePicker.Calendar", component: DateRangePicker.Calendar },
         { displayName: "DateRangePicker.Presets", component: DateRangePicker.Presets },
-        { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Button }
+        { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
     ]}
 />
 
@@ -297,7 +298,7 @@ A date range picker calendar can be anchored at different positions.
 
 The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
 
-<Preview>
+<Preview onClick={() => {}}>
     <Story name="position">
         <DateRangePicker
             position={TOP_LEFT}

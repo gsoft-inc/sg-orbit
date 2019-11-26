@@ -47,7 +47,7 @@
 
 @arrowBoxShadow: 2px 2px 4px 0px rgba(34, 36, 38, 0.12);
 @leftArrowBoxShadow: 2px -2px 6px 0px rgba(34, 36, 38, 0.12);
-@rightArrowBoxShadow: 2px -2px 2px 0px rgba(34, 36, 38, 0.12);
+@rightArrowBoxShadow: -2px 2px 4px 0px rgba(34, 36, 38, 0.12);
 @bottomArrowBoxShadow: -2px -2px 6px 0px rgba(34, 36, 38, 0.12);
 
 /*-------------------
