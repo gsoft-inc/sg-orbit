@@ -2,18 +2,18 @@ import { DatePickerButtons } from "../date-picker-buttons";
 import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
-import momentPropTypes from "react-moment-proptypes";
+import { momentObj as momentType } from "react-moment-proptypes";
 
 export class DateRangePickerButtons extends PureComponent {
     static propTypes = {
         /**
          * A controlled start date value.
          */
-        startDate: momentPropTypes.momentObj,
+        startDate: momentType,
         /**
          * A controlled end date value.
          */
-        endDate: momentPropTypes.momentObj,
+        endDate: momentType,
         /**
          * Called on clear button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.

@@ -1,7 +1,7 @@
 import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
 import { useState } from "react";
 
-export function BrandPickerWidget() {
+export function BrandPickerDocsWidget() {
     const [currentBrand, setCurrentBrand] = useState(BRANDS.apricot.id);
 
     const applyBrand = brand => {

@@ -1,1 +1,3 @@
-export * from "../../../config/addons/brand-picker/brand-picker-widget";
+import { BrandPickerDocsWidget as BrandPicker } from "../../../addons/brand-picker/brand-picker-docs-widget";
+
+export { BrandPicker };

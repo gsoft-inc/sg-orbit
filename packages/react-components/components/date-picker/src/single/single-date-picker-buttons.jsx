@@ -2,14 +2,14 @@ import { DatePickerButtons } from "../date-picker-buttons";
 import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
-import momentPropTypes from "react-moment-proptypes";
+import { momentObj as momentType } from "react-moment-proptypes";
 
 export class SingleDatePickerButtons extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
          */
-        date: momentPropTypes.momentObj,
+        date: momentType,
         /**
          * Called on clear button click.
          */
