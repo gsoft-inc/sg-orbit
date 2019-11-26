@@ -1,97 +1,96 @@
 .sbdocs {
-  font-family: Calibre, Arial, Helvetica, sans-serif !important;
+    font-family: Calibre, Arial, Helvetica, sans-serif !important;
 }
 
 .sbdocs.sbdocs-wrapper {
-  padding-top: 30px;
-  padding-bottom: 140px;
+    padding-top: 30px;
+    padding-bottom: 140px;
 }
 
-.sbdocs .sbdocs-preview,
-.sbdocs .sbdocs-pre {
-  border: none;
-  box-shadow: var(--shadow-4);
+.sbdocs.sbdocs-preview,
+.sbdocs.sbdocs-pre {
+    border: none;
+    box-shadow: var(--shadow-4);
 }
 
-.sbdocs .sbdocs-preview {
-  overflow: visible;
+.sbdocs-preview {
+    overflow: visible !important;
 }
 
-.sbdocs .sbdocs-preview:hover {
-  z-index: 3;
+.sbdocs-preview > div > div {
+    overflow: visible !important;
+}
+
+.sbdocs-preview:hover {
+    z-index: 3;
 }
 
 .sbdocs.sbdocs-content {
-  max-width: 1200px;
+    max-width: 1200px;
 }
 
 .sbdocs.sbdocs-p {
-  font-size: 1.125rem;
-  color: var(--marine-900);
+    font-size: 1.125rem;
+    color: var(--marine-900);
 }
 
 .sbdocs.sbdocs-h1 {
-  font-weight: 600;
-  color: var(--marine-900);
+    font-weight: 600;
+    color: var(--marine-900);
 }
 
 .sbdocs.sbdocs-h2 {
-  margin: 24px 0 18px;
-  color: var(--marine-900);
-  border-bottom: none;
+    margin: 24px 0 18px;
+    color: var(--marine-900);
+    border-bottom: none;
 }
 
 .sbdocs.sbdocs-h3 {
-  color: var(--marine-900);
+    color: var(--marine-900);
 }
 
 .sbdocs.sbdocs-a {
-  font-size: 1.125rem;
-  color: var(--primary-700);
+    font-size: 1.125rem;
+    color: var(--primary-700);
 }
 
 .sbdocs.sbdocs-a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .sbdocs button[role="tab"] {
-  font-size: 16px;
-  font-weight: 600;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.sbdocs-h1,
-.sbdocs-h2,
-.sbdocs-h3 {
-  /* fixing the default position relative on all titles in shared.tsx */
-  position: initial !important;
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3 {
+    /* fixing the default position relative on all titles in shared.tsx */
+    position: initial !important;
 }
 
 .docblock-propstable {
-  min-width: 220px;
+    min-width: 220px;
 }
 
 .docblock-propstable-head th {
-  <<<<<<<headfont-weight: 600 !important;
-  color: var(--marine-500) !important;
+    font-weight: 600 !important;
+    color: var(--marine-500) !important;
 }
 
-.docblock-emptyblock {
-  color: var(--cloud-500) !important;
+.sbdocs.sbdocs-table thead th {
+    font-weight: 600 !important;
 }
 
 .docblock-source {
-  box-shadow: none !important;
-  border: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .sbdocs .docblock-emptyblock {
-  =======font-weight: 600;
-}
-
-.docblock-emptyblock {
-  color: var(--cloud-500);
-  >>>>>>>d92b7a7680d1ac75cbf64c511f7be20371fcfa56background-color: var(
-    --cloud-50
-  );
-  border: 1px dashed var(--cloud-100);
+    font-weight: 600;
+    color: var(--cloud-500);
+    background-color: var(--cloud-50);
+    border: 1px dashed var(--cloud-100);
 }
