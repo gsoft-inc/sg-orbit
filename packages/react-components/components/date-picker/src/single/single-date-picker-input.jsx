@@ -13,41 +13,64 @@ export class PureSingleDatePickerInput extends PureComponent {
         date: momentType,
         /**
          * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onOpen: func,
         /**
          * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onClose: func,
         /**
          * Called when the size of the input changed.
+         * @param {{ width: number, height: number }} dimensions - The input dimensions.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onSizeChange: func,
         /**
          * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * Called on keydown.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onKeyDown: func,
         /**
          * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         /**
          * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
@@ -87,6 +110,9 @@ export class PureSingleDatePickerInput extends PureComponent {
          * Additional classes.
          */
         className: string,
+        /**
+         * @ignore
+         */
         inputRef: object
     };
 

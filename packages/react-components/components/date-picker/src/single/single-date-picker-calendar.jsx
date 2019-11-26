@@ -14,10 +14,16 @@ export class SingleDatePickerCalendar extends PureComponent {
         date: momentType,
         /**
          * Called when the date is applied.
+         * @param {Moment} date - Selected date.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onDateChange: func,
         /**
          * Called on apply button click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onApply: func,
         /**
@@ -56,11 +62,14 @@ export class SingleDatePickerCalendar extends PureComponent {
          * Whether or not the calendar selected date can be cleared.
          */
         allowClear: bool,
-        reactDatesCalendar: node,
         /**
          * Additional classes.
          */
-        className: string
+        className: string,
+        /**
+         * @ignore
+         */
+        reactDatesCalendar: node
     };
 
     static defaultProps = {

@@ -14,36 +14,59 @@ export class InlineSingleDatePickerInput extends PureComponent {
         date: momentType,
         /**
          * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onOpen: func,
         /**
          * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClose: func,
         /**
          * Called when the size of the input changed.
+         * @param {{ width: number, height: number }} dimensions - The input dimensions.
+         * @returns {void}
          */
         onSizeChange: func,
         /**
          * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClick: func,
         /**
          * Called on keydown.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onKeyDown: func,
         /**
          * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         /**
          * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         /**
          * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClear: func,
         /**

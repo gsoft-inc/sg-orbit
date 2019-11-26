@@ -3,6 +3,7 @@ import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
+import { useHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class DateRangePickerButtons extends PureComponent {
     static propTypes = {
@@ -20,6 +21,7 @@ export class DateRangePickerButtons extends PureComponent {
          * @param {Object} props - All the props.
          * @returns {void}
          */
+        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on apply button click.
@@ -27,6 +29,7 @@ export class DateRangePickerButtons extends PureComponent {
          * @param {Object} props - All the props.
          * @returns {void}
          */
+        // eslint-disable-next-line react/no-unused-prop-types
         onApply: func,
         /**
          * Whether or not the calendar enforce the selection of of a range of dates.
@@ -49,6 +52,9 @@ export class DateRangePickerButtons extends PureComponent {
          */
         className: string
     };
+
+    handleClear = useHandlerProxy(this, "onClear");
+    handleApply = useHandlerProxy(this, "onApply");
 
     canClear() {
         const { startDate, endDate } = this.props;
@@ -75,14 +81,14 @@ export class DateRangePickerButtons extends PureComponent {
     }
 
     render() {
-        const { onClear, onApply, allowClear, clearText, applyText, className } = this.props;
+        const { allowClear, clearText, applyText, className } = this.props;
 
         return (
             <DatePickerButtons
                 canClear={this.canClear()}
                 canApply={this.canApply()}
-                onClear={onClear}
-                onApply={onApply}
+                onClear={this.handleClear}
+                onApply={this.handleApply}
                 allowClear={allowClear}
                 clearText={clearText}
                 applyText={applyText}
