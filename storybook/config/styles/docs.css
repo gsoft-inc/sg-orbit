@@ -1,28 +1,19 @@
-.sbdocs {
-    font-family: Calibre, Arial, Helvetica, sans-serif !important;
-}
-
 .sbdocs.sbdocs-wrapper {
-    padding-top: 30px;
-    padding-bottom: 140px;
+    font-family: Calibre, Arial, Helvetica, sans-serif;
+    padding-top: 32px;
+    padding-bottom: 148px;
 }
 
-.sbdocs.sbdocs-preview,
+.sbdocs-preview,
 .sbdocs.sbdocs-pre {
-    border: none;
-    box-shadow: var(--shadow-4);
+    /* until PR is merged to add .sbdocs to the sbdocs preview compenent escape hatch */
+    border: none !important;
+    box-shadow: var(--shadow-4) !important;
 }
 
-.sbdocs-preview {
-    overflow: visible !important;
-}
-
+.sbdocs-preview,
 .sbdocs-preview > div > div {
     overflow: visible !important;
-}
-
-.sbdocs-preview:hover {
-    z-index: 3;
 }
 
 .sbdocs.sbdocs-content {
@@ -36,17 +27,31 @@
 
 .sbdocs.sbdocs-h1 {
     font-weight: 600;
-    color: var(--marine-900);
 }
 
 .sbdocs.sbdocs-h2 {
     margin: 24px 0 18px;
-    color: var(--marine-900);
     border-bottom: none;
 }
 
-.sbdocs.sbdocs-h3 {
+.sbdocs.sbdocs-p,
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3,
+.sbdocs.sbdocs-h4,
+.sbdocs.sbdocs-h5,
+.sbdocs.sbdocs-h6 {
     color: var(--marine-900);
+}
+
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3,
+.sbdocs.sbdocs-h4,
+.sbdocs.sbdocs-h5,
+.sbdocs.sbdocs-h6 {
+    /* fixing the default position relative on all titles in shared.tsx */
+    position: initial;
 }
 
 .sbdocs.sbdocs-a {
@@ -54,20 +59,9 @@
     color: var(--primary-700);
 }
 
-.sbdocs.sbdocs-a:hover {
+.sbdocs.sbdocs-a:hover,
+.sbdocs.sbdocs-a:focus {
     text-decoration: underline;
-}
-
-.sbdocs button[role="tab"] {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.sbdocs.sbdocs-h1,
-.sbdocs.sbdocs-h2,
-.sbdocs.sbdocs-h3 {
-    /* fixing the default position relative on all titles in shared.tsx */
-    position: initial !important;
 }
 
 .docblock-propstable {
@@ -77,6 +71,12 @@
 .docblock-propstable-head th {
     font-weight: 600 !important;
     color: var(--marine-500) !important;
+}
+
+/* PR to be made for an escape hatch */
+.sbdocs button[role="tab"] {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .docblock-source {
