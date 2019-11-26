@@ -1,5 +1,10 @@
+/* TODO: when the sbdocs preview has been merged, remove sbdocs-preview from here */
+.sbdocs,
+.sbdocs-preview {
+    font-family: Calibre, Arial, Helvetica, sans-serif !important;
+}
+
 .sbdocs.sbdocs-wrapper {
-    font-family: Calibre, Arial, Helvetica, sans-serif;
     padding-top: 32px;
     padding-bottom: 148px;
 }
