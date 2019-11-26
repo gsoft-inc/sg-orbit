@@ -1,19 +1,35 @@
 import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
-import { useState } from "react";
+import { isNil } from "lodash";
+import { loadSelectedBrand, saveSelectedBrand } from "./brand-storage";
+import { useEffect, useState } from "react";
 
 export function BrandPickerDocsWidget() {
     const [currentBrand, setCurrentBrand] = useState(BRANDS.apricot.id);
 
-    const applyBrand = brand => {
+    useEffect(() => {
+        const selectedBrandId = loadSelectedBrand();
+
+        if (!isNil(selectedBrandId)) {
+            if (selectedBrandId !== currentBrand) {
+                applyBrand(selectedBrandId);
+                setCurrentBrand(selectedBrandId);
+            }
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const applyBrand = brandId => {
         const computedStyle = window.getComputedStyle(document.documentElement);
 
         COLORS_WEIGHT.forEach(x => {
-            document.documentElement.style.setProperty(getPrimaryColorVariableName(x), computedStyle.getPropertyValue(getBrandColorVariableName(brand.id, x)));
+            document.documentElement.style.setProperty(getPrimaryColorVariableName(x), computedStyle.getPropertyValue(getBrandColorVariableName(brandId, x)));
         });
+
+        saveSelectedBrand(brandId);
     };
 
     const handleSelectBrand = brand => {
-        applyBrand(brand);
+        applyBrand(brand.id);
         setCurrentBrand(brand.id);
     };
 
