@@ -32,9 +32,11 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     static defaultProps = {
+        allowClear: true,
         icon: <CalendarIcon className="w7 h7 fill-marine-700" />,
         clearIcon: <CancelIcon className="h3 w3" />,
         disabledIcon: <CalendarIcon className="w7 h7 fill-cloud-500" />,
+        disabled: false,
         placeholder: "Pick a date"
     };
 

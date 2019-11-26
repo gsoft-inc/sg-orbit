@@ -107,17 +107,22 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     className: string
 };
 
+// Must export to include the values in the inlined single date picker docs.
+export const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
+    allowClear: true,
+    dateFormat: "MMM Do YYYY",
+    numberOfMonths: 1,
+    calendar: <SingleDatePickerCalendar />,
+    buttons: <SingleDatePickerButtons />,
+    disabled: false
+};
+
 export class SingleDatePicker extends AutoControlledPureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
 
     static defaultProps = {
-        allowClear: true,
-        dateFormat: "MMM Do YYYY",
-        numberOfMonths: 1,
         input: <SingleDatePickerInput />,
-        calendar: <SingleDatePickerCalendar />,
-        buttons: <SingleDatePickerButtons />,
-        disabled: false
+        ...SINGLE_DATE_PICKER_DEFAULT_PROPS
     };
 
     static autoControlledProps = ["date", "open"];

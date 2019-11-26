@@ -1,6 +1,7 @@
 /* eslint react/jsx-filename-extension: "off" */
 
 import { CanvasContainer } from "./containers";
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
@@ -35,7 +36,14 @@ addParameters({
         storySort: customStorySort
     },
     docs: {
-        inlineStories: true
+        inlineStories: true,
+        container: ({ children, context }) => (
+            <DocsContainer context={context}>
+                <div style={{ border: "5px solid red" }}>
+                    {children}
+                </div>
+            </DocsContainer>
+        )
     }
 });
 
