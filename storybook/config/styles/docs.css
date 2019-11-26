@@ -1,39 +1,48 @@
+.sbdocs {
+    font-family: Calibre, Arial, Helvetica, sans-serif !important;
+}
+
 .sbdocs.sbdocs-wrapper {
     padding-top: 30px;
     padding-bottom: 140px;
 }
 
-/* .sbdocs.sbdocs-content > div > div {
-    overflow: visible;
-} */
-
 .sbdocs.sbdocs-content {
-    max-width: 1200px !important;
+    max-width: 1200px;
 }
 
-.sbdocs {
-    font-family: Calibre, Arial, Helvetica, sans-serif !important;
+.sbdocs.sbdocs-p {
+    font-size: 1.125rem;
+    color: var(--marine-900);
 }
 
-.sbdocs-p {
-    font-size: 1.125rem !important;
-    color: var(--marine-900) !important;
-    margin: 0 !important;
+.sbdocs.sbdocs-h1 {
+    font-weight: 600;
+    color: var(--marine-900);
 }
 
-.sbdocs-h1 {
-    font-weight: 600 !important;
-    color: var(--marine-900) !important;
+.sbdocs.sbdocs-h2 {
+    margin: 24px 0 18px;
+    color: var(--marine-900);
+    border-bottom: none;
 }
 
-.sbdocs-h2 {
-    margin: 24px 0 18px !important;
-    color: var(--marine-900) !important;
-    border-bottom: none !important;
+.sbdocs.sbdocs-h3 {
+    color: var(--marine-900);
 }
 
-.sbdocs-h3 {
-    color: var(--marine-900) !important;
+.sbdocs.sbdocs-a {
+    font-size: 1.125rem;
+    color: var(--primary-700);
+}
+
+.sbdocs.sbdocs-a:hover {
+    text-decoration: underline;
+}
+
+.sbdocs button[role="tab"] {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .docblock-source {
@@ -41,38 +50,16 @@
     border: 1px solid var(--cloud-100);
 }
 
-.sbdocs-table {
+.docblock-propstable {
     min-width: 220px;
 }
 
-.sbdocs-table thead th {
-    font-weight: 600 !important;
+.docblock-propstable-head th {
+    font-weight: 600;
 }
 
 .docblock-emptyblock {
-    color: var(--cloud-500) !important;
-}
-
-.sbdocs .docblock-emptyblock {
+    color: var(--cloud-500);
     background-color: var(--cloud-50);
     border: 1px dashed var(--cloud-100);
-}
-
-.sbdocs .sbdocs-table tr td,
-.sbdocs .sbdocs-table tr th {
-    font-size: 1.125rem;
-}
-
-.sbdocs .sbdocs-a {
-    font-size: 1.125rem;
-    color: var(--primary-700);
-}
-
-.sbdocs .sbdocs-a:hover {
-    text-decoration: underline;
-}
-
-.sbdocs button[role="tab"] {
-    font-size: 16px;
-    font-weight: 600;
 }
