@@ -30,20 +30,36 @@ function supportCssModules(config) {
 }
 
 function supportDocsAddon(config) {
+    const babelOptions = {
+        plugins: ["@babel/plugin-transform-react-jsx"]
+    };
+
     config.module.rules.push({
         test: /\.(stories)\.mdx$/,
         use: [
             {
                 loader: "babel-loader",
-                options: {
-                    plugins: ["@babel/plugin-transform-react-jsx"]
-                }
+                options: babelOptions
             },
             {
                 loader: "@mdx-js/loader",
                 options: {
                     compilers: [createMdxCompiler({})]
                 }
+            }
+        ]
+    });
+
+    config.module.rules.push( {
+        test: /\.mdx$/,
+        exclude: /\.(stories).mdx$/,
+        use: [
+            {
+                loader: "babel-loader",
+                options: babelOptions
+            },
+            {
+                loader: "@mdx-js/loader"
             }
         ]
     });
