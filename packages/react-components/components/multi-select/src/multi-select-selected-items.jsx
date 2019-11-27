@@ -77,7 +77,7 @@ export class MultiSelectSelectedItems extends PureComponent {
          * Render an item.
          * @param {Item} item - Item to render.
          * @param {{ disabled: boolean, onRemove: function }} options - Rendering options.
-         * @returns {ReactElement} - A React element.
+         * @returns {ReactElement} - React element to render.
          */
         itemRenderer: func,
         /**

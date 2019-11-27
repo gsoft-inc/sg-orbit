@@ -46,6 +46,10 @@ export class Popup extends AutoControlledPureComponent {
         zIndex: string,
         /**
          * Called when the popup open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the popup is visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onVisibilityChange: func,
         /**
@@ -54,18 +58,32 @@ export class Popup extends AutoControlledPureComponent {
         onDocumentKeyDown: func,
         /**
          * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onFocus: func,
         /**
          * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onBlur: func,
         /**
          * Called on click outside of the popup.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onOutsideClick: func,
         /**
          * Render the open / close animation.
+         * @param {boolean} open - Whether or not the popup is open.
+         * @param {function} renderContent - Render the content of the popup.
+         * @param {Object} styles - Positioning styles.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
          */
         animationRenderer: func,
         /**
