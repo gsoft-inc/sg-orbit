@@ -92,7 +92,7 @@ export class Popup extends AutoControlledPureComponent {
         closeOnBlur: bool,
         /**
          * Whether or not the popup should close when a click happens outside.
-         * Requires `closeOnBlur` to be false.
+         * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
         /**
