@@ -1,7 +1,7 @@
 /* eslint react/jsx-filename-extension: "off" */
 
 import { BRANDS, getCurrentBrand } from "../brands";
-import { CanvasContainer } from "../containers";
+import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "../containers";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
@@ -56,7 +56,9 @@ addParameters({
         inlineStories: true,
         container: ({ children, context }) => (
             <DocsContainer context={context}>
-                {children}
+                <OrbitDocsContainer context={context}>
+                    {children}
+                </OrbitDocsContainer>
             </DocsContainer>
         )
     }

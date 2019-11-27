@@ -1,9 +1,10 @@
-export function DocsContainer(props) {
-    console.log("********* ", props);
+import { BrandPickerDocsWidget } from "../addons/brand-picker";
 
+export function DocsContainer({ children }) {
     return (
-        <div>
-            Hello!
-        </div>
+        <>
+            <BrandPickerDocsWidget />
+            {children}
+        </>
     );
 }
