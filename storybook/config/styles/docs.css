@@ -1,5 +1,6 @@
 /* TODO: when the sbdocs preview has been merged, remove sbdocs-preview from here */
 .sbdocs,
+.sbdocs.sbdocs-content,
 .sbdocs-preview {
     font-family: Calibre, Arial, Helvetica, sans-serif !important;
 }
@@ -7,6 +8,10 @@
 .sbdocs.sbdocs-wrapper {
     padding-top: 32px;
     padding-bottom: 148px;
+}
+
+.sbdocs.sbdocs-content {
+    max-width: 1200px;
 }
 
 .sbdocs-preview,
@@ -19,10 +24,6 @@
 .sbdocs-preview,
 .sbdocs-preview > div > div {
     overflow: visible !important;
-}
-
-.sbdocs.sbdocs-content {
-    max-width: 1200px;
 }
 
 .sbdocs.sbdocs-p {
