@@ -92,6 +92,9 @@
     border-top: 1px solid var(--cloud-100);
 }
 
+.sbdocs.sbdocs-table tr th {
+    font-weight: 600;
+}
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
     border: 1px solid var(--cloud-100);
