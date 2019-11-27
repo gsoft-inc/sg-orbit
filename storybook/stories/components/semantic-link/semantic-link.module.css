@@ -1,12 +1,10 @@
 .icon {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
+    width: 80px;
+    height: 80px;
 }
 
 .iconWrapper {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 0.5rem;
 }
