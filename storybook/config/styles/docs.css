@@ -79,6 +79,24 @@
     color: var(--marine-500) !important;
 }
 
+.sbdocs.sbdocs-table {
+    width: 100%;
+    max-width: 800px;
+}
+
+.sbdocs.sbdocs-table tr {
+    border-top: 1px solid var(--cloud-100);
+}
+
+.sbdocs.sbdocs-table thead tr {
+    border-top: 1px solid var(--cloud-100);
+}
+
+.sbdocs.sbdocs-table tr td,
+.sbdocs.sbdocs-table tr th {
+    border: 1px solid var(--cloud-100);
+}
+
 /* PR to be made for an escape hatch */
 .sbdocs button[role="tab"] {
     font-size: 16px;
