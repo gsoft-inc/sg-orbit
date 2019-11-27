@@ -89,10 +89,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         onFetchResults: func.isRequired,
         /**
          * Called after a fetch.
-         * @param {Object[]} results - Results returned by the fetch call.
+         * @param {Result[]} results - Results returned by the fetch call.
          * @param {string} query - Search query that triggered the search.
          * @param {Object} props - All the props.
-         * @returns {Object[]} - Results to display.
+         * @returns {Result[]} - Results to display.
          */
         onResults: func,
         /**
@@ -188,7 +188,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         closeOnBlur: bool,
         /**
          * Whether or not the search results should close when a click happens outside the search input.
-         * Requires `closeOnBlur` to be false.
+         * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
         /**
