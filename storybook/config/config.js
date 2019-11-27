@@ -43,8 +43,9 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
-import "./styles/docs.css";
-import "./styles/preview-area.css";
+import "../styles/docs.css";
+import "../styles/preview-iframe.css";
+import "../styles/stories.css";
 
 addParameters({
     options: {
