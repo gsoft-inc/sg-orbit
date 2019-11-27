@@ -1,5 +1,6 @@
 /* eslint react/jsx-filename-extension: "off" */
 
+import { BRANDS, getCurrentBrand } from "../brands";
 import { CanvasContainer } from "../containers";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { addDecorator, addParameters, configure } from "@storybook/react";
@@ -18,9 +19,24 @@ import "@orbit-ui/tachyons/dist/overcast.css";
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".
     import("@orbit-ui/fonts");
-    import("@orbit-ui/foundation/dist/desktop.css");
-    import("@orbit-ui/foundation/dist/overcast.css");
-    import("@orbit-ui/foundation/dist/apricot.css");
+
+    const currentBrandId = getCurrentBrand().id;
+
+    // This is very ugly but I can't figure out how to do a dynamic import with a dynamic expression.
+    // Ex. import(BRANDS.apricot.stylesheet);
+    if (currentBrandId === BRANDS.apricot.id) {
+        import("@orbit-ui/foundation/dist/overcast.css");
+        import("@orbit-ui/foundation/dist/desktop.css");
+        import("@orbit-ui/foundation/dist/apricot.css");
+    } else if (currentBrandId === BRANDS.overcast.id) {
+        import("@orbit-ui/foundation/dist/apricot.css");
+        import("@orbit-ui/foundation/dist/desktop.css");
+        import("@orbit-ui/foundation/dist/overcast.css");
+    } else if (currentBrandId === BRANDS.desktop.id) {
+        import("@orbit-ui/foundation/dist/apricot.css");
+        import("@orbit-ui/foundation/dist/overcast.css");
+        import("@orbit-ui/foundation/dist/desktop.css");
+    }
 } else {
     // The custom brand picker cause a rendering delay that we don't want to handle in the stories since
     // chromatic execution will take too long. To circonvent this problem, we only load the apricot brand.

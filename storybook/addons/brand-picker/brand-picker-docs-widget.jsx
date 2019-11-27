@@ -1,29 +1,27 @@
-import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
-import { useLocalStorage } from "react-use-storage";
-
-const STORAGE_KEY = "SB_BRAND_PICKER_SELECTED_BRAND";
+import { BRANDS, useStorage } from "../../brands";
+import { COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
 
 export function BrandPickerDocsWidget() {
-    const [currentBrand, setCurrentBrand] = useLocalStorage(STORAGE_KEY, BRANDS.apricot.id);
+    const [currentBrand, setCurrentBrand] = useStorage();
 
-    const applyBrand = brandId => {
+    const applyBrand = brand => {
         const computedStyle = window.getComputedStyle(document.documentElement);
 
         COLORS_WEIGHT.forEach(x => {
-            document.documentElement.style.setProperty(getPrimaryColorVariableName(x), computedStyle.getPropertyValue(getBrandColorVariableName(brandId, x)));
+            document.documentElement.style.setProperty(getPrimaryColorVariableName(x), computedStyle.getPropertyValue(getBrandColorVariableName(brand.id, x)));
         });
     };
 
     const handleSelectBrand = brand => {
-        applyBrand(brand.id);
-        setCurrentBrand(brand.id);
+        applyBrand(brand);
+        setCurrentBrand(brand);
     };
 
     return (
         <ul className="flex flex-row justify-end list pl0 mb7 mt8">
             {Object.values(BRANDS).map((x, item) => {
                 const spacing = item === 0 ? "ml0" : "ml2";
-                const currentBrandClasses = currentBrand === x.id ? `bg-${x.id}-500 white b--${x.id}-500 hover-b--${x.id}-700` : `bg-white marine-500 b--cloud-200 hover-b--${x.id}-700`;
+                const currentBrandClasses = currentBrand.id === x.id ? `bg-${x.id}-500 white b--${x.id}-500 hover-b--${x.id}-700` : `bg-white marine-500 b--cloud-200 hover-b--${x.id}-700`;
 
                 return (
                     <li key={x.id} className={spacing}>

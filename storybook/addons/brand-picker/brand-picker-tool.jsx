@@ -1,10 +1,12 @@
-import { BRANDS, COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
+import { BRANDS, useStorage } from "../../brands";
+import { COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
 import { IconButton, Icons, TooltipLinkList, WithTooltipPure } from "@storybook/components";
 import { useState } from "react";
 
 const STORYBOOK_PREVIEW_IFRAME_ID = "storybook-preview-iframe";
 
 function BrandPickerTool() {
+    const [, setCurrentBrand] = useStorage();
     const [expanded, setExpanded] = useState(false);
 
     const applyBrand = brand => {
@@ -21,6 +23,7 @@ function BrandPickerTool() {
 
     const handleSelectBrand = brand => {
         applyBrand(brand);
+        setCurrentBrand(brand);
         setExpanded(false);
     };
 

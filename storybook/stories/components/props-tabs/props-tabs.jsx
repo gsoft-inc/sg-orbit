@@ -35,7 +35,7 @@ export function PropsTabs({ componentsDefinitions }) {
 
             return <div key={id} id={id} title={x.displayName}>
                 {/* eslint-disable-next-line jsx-control-statements/jsx-use-if-tag */}
-                { ({ active }) => active ? <Props of={x.component} /> : null }
+                { ({ active }) => active ? <Props key={id} of={x.component} /> : null }
             </div>;
         });
     };
