@@ -25,7 +25,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
         onItemClick: func,
         /**
          * Render an item.
-         * @param {Item} item - An item definition.
+         * @param {Item} item - Item to render.
          * @param {boolean} isSelected - Whether or not the item is selected.
          * @param {Object} props - All the props.
          * @returns {ReactElement} - A React element.
@@ -33,7 +33,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
         itemRenderer: func,
         /**
          * Render an header (also called a category).
-         * @param {string} text - Display text.
+         * @param {string} text - Header text.
          * @param {Item[]} items - Items under the header.
          * @param {Object} props - All the props.
          * @returns {ReactElement} - A React element.

@@ -124,7 +124,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         closeOnBlur: bool,
         /**
          * Whether or not the dropdown should close when a click happens outside the multi-select.
-         * Requires `closeOnBlur` to be false.
+         * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
         /**

@@ -1,4 +1,3 @@
-import { PRESET_SHAPE } from "./presets";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
@@ -6,6 +5,13 @@ import { isNil } from "lodash";
 import { isSameDay } from "../utils";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const PRESET_SHAPE = {
+    text: string.isRequired,
+    startDate: object.isRequired,
+    endDate: object.isRequired
+};
 
 class Preset extends PureComponent {
     static propTypes = {

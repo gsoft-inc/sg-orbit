@@ -39,9 +39,7 @@ addParameters({
         inlineStories: true,
         container: ({ children, context }) => (
             <DocsContainer context={context}>
-                <div className="heyho" style={{ border: "5px solid red" }}>
-                    {children}
-                </div>
+                {children}
             </DocsContainer>
         )
     }

@@ -2,9 +2,9 @@ import styles from "./props-tabs.module.css";
 
 import { Checkbox } from "semantic-ui-react";
 import { Props } from "@storybook/addon-docs/blocks";
+import { Tabs } from "@storybook/components";
 import { any, arrayOf, shape, string } from "prop-types";
-import { isNil } from "lodash";
-import { useState } from "react";
+import { useStorage } from "./use-storage";
 import cx from "classnames";
 
 const propTypes = {
@@ -15,45 +15,58 @@ const propTypes = {
 };
 
 export function PropsTabs({ componentsDefinitions }) {
-    const [isVisible, setIsVisible] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [state, setState] = useStorage({ isVisible: false, activeTab: 0 });
 
     if (componentsDefinitions.length === 0) {
         throw new Error(`${PropsTabs.name} - At least one component definition must be provided.`);
     }
 
     const handleToggleChange = () => {
-        setActiveIndex(isNil(activeIndex) ? 0 : activeIndex);
-        setIsVisible(!isVisible);
+        setState({ isVisible: !state.isVisible, activeTab: state.activeTab });
     };
 
-    const createPanes = () => {
-        const result = {};
-        componentsDefinitions.forEach(x => {
-            result[x.displayName] = x.component;
-        });
+    const handleTabSelected = tabId => {
+        console.log(tabId);
 
-        return result;
+        setState({ isVisible: state.isVisible, activeTab: tabId });
+    };
+
+    const renderTabs = () => {
+        return componentsDefinitions.map(x => {
+            const id = `prop-tabs-${x.displayName}`;
+
+            return <div key={id} id={id} title={x.displayName}>
+                {/* eslint-disable-next-line jsx-control-statements/jsx-use-if-tag */}
+                { ({ active }) => active ? <Props of={x.component} /> : null }
+            </div>;
+        });
     };
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
 
+    console.log(state);
+
     return (
         <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
-            <div className={isVisible ? "mb7" : "mb3"}>
+            <div className={state.isVisible ? "mb7" : "mb3"}>
                 <Checkbox
                     label={`View component${hasMultipleComponents ? "s" : ""} props`}
-                    checked={isVisible}
+                    checked={state.isVisible}
                     toggle
                     onChange={handleToggleChange}
                 />
             </div>
             <Choose>
-                <When condition={hasMultipleComponents && isVisible}>
-                    <Props components={createPanes()}/>
+                <When condition={hasMultipleComponents && state.isVisible}>
+                    <Tabs
+                        selected={state.activeTab}
+                        actions={{ onSelect: handleTabSelected }}
+                    >
+                        {renderTabs()}
+                    </Tabs>
                 </When>
                 <Otherwise>
-                    <If condition={isVisible}>
+                    <If condition={state.isVisible}>
                         <Props of={componentsDefinitions[0].component} className={styles.noTabs} />
                     </If>
                 </Otherwise>
