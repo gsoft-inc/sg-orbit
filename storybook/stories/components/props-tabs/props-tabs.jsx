@@ -26,8 +26,6 @@ export function PropsTabs({ componentsDefinitions }) {
     };
 
     const handleTabSelected = tabId => {
-        console.log(tabId);
-
         setState({ isVisible: state.isVisible, activeTab: tabId });
     };
 
@@ -43,8 +41,6 @@ export function PropsTabs({ componentsDefinitions }) {
     };
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
-
-    console.log(state);
 
     return (
         <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
