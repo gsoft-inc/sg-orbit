@@ -70,15 +70,6 @@
     text-decoration: underline;
 }
 
-.docblock-propstable {
-    min-width: 220px;
-}
-
-.docblock-propstable-head th {
-    font-weight: 600 !important;
-    color: var(--marine-500) !important;
-}
-
 .sbdocs.sbdocs-table {
     width: 100%;
     max-width: 800px;
@@ -94,6 +85,7 @@
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 600;
+    font-size: 1.25em;
 }
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
@@ -104,6 +96,16 @@
 .sbdocs button[role="tab"] {
     font-size: 16px;
     font-weight: 600;
+}
+
+.docblock-propstable {
+    min-width: 220px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity*/
+.docblock-propstable-head th {
+    font-weight: 600 !important;
+    color: var(--marine-500) !important;
 }
 
 .docblock-source {
