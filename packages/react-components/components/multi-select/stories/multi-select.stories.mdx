@@ -1,6 +1,6 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { PropsTabs } from "@components/props-tabs";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
@@ -8,6 +8,8 @@ import { logValuesChanged } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 
 <Meta title="Components|Multi Select" />
+
+<Anchor storyId="components-multi-select--default-story" />
 
 <PropsTabs
     componentsDefinitions={[

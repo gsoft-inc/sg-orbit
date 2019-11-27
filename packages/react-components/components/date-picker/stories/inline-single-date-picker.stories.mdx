@@ -7,7 +7,7 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PropsTabs } from "@components/props-tabs";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
@@ -20,6 +20,8 @@ import moment from "moment";
         .width("80%")
         .build()}
 />
+
+<Anchor storyId="components-date-picker-single-inlined--default-story" />
 
 <PropsTabs
     componentsDefinitions={[

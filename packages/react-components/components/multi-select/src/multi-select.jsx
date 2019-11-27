@@ -73,7 +73,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         /**
          * Called when the dropdown open / close.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {boolean} isVisible - Indicate if the calendar is visible.
+         * @param {boolean} isVisible - Indicate if the multi-select dropdown is visible.
          * @param {Object} props - All the props.
          * @returns {void}
          */

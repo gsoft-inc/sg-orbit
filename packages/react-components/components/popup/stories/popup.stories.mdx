@@ -1,16 +1,19 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
 import { ControlledRedBox, RedBoxPopup } from "./components";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { PropsTabs } from "@components/props-tabs";
 import { array, select, withKnobs } from "@storybook/addon-knobs";
 import { paramsBuilder } from "@utils/params-builder";
 
 <Meta title="Components|Popup" />
 
-# Get started
+<Anchor storyId="components-popup--default-story" />
 
-Storybook Design System is a reusable component library that helps Storybook contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.
-
-<Props of={Popup} />
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "Popup", component: Popup }
+    ]}
+/>
 
 ## Stories
 

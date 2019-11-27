@@ -72,39 +72,70 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultValue: string,
         /**
-         *  Called when the value change.
+         * Called when the value change.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} value - Selected value.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onValueChange: func.isRequired,
         /**
          * Called when a fetch event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} query - Search query that triggered the search.
+         * @param {Object} props - All the props.
+         * @returns {Promise} - Promise resolved with the results to display or reject if the HTTP call fail.
          */
         onFetchResults: func.isRequired,
         /**
          * Called after a fetch.
+         * @param {Object[]} results - Results returned by the fetch call.
+         * @param {string} query - Search query that triggered the search.
+         * @param {Object} props - All the props.
+         * @returns {Object[]} - Results to display.
          */
         onResults: func,
         /**
          * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onClear: func,
         /**
          * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onBlur: func,
         /**
          * Called when a click happens outside the search input.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onOutsideClick: func,
         /**
          * Called on keydown.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onKeyDown: func,
         /**
          * Called when the search results open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the search input results are visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
          */
         onVisibilityChange: func,
         /**
          * Render a result.
+         * @param {Object} result - Result to render.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
          */
         resultRenderer: func,
         /**
