@@ -13,7 +13,6 @@
 
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
-    /* until PR is merged to add .sbdocs to the sbdocs preview compenent escape hatch */
     border: none;
     box-shadow: var(--shadow-4);
 }
