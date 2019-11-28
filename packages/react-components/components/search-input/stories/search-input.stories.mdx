@@ -1,6 +1,6 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PropsTabs } from "@components/props-tabs";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
@@ -13,6 +13,8 @@ import { paramsBuilder } from "@utils/params-builder";
         .width("80%")
         .build()}
 />
+
+<Anchor storyId="components-search-input-results-set--default-story" />
 
 <PropsTabs
     componentsDefinitions={[
