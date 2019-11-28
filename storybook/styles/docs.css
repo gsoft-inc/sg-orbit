@@ -1,7 +1,5 @@
 .sbdocs,
-.sbdocs.sbdocs-content,
-/* TODO: when the sbdocs preview has been merged, remove sbdocs-preview from here */
-.sbdocs-preview {
+.sbdocs.sbdocs-content {
     font-family: Calibre, Arial, Helvetica, sans-serif !important;
 }
 
@@ -14,16 +12,20 @@
     max-width: 1200px;
 }
 
-.sbdocs-preview,
+.sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     /* until PR is merged to add .sbdocs to the sbdocs preview compenent escape hatch */
-    border: none !important;
-    box-shadow: var(--shadow-4) !important;
+    border: none;
+    box-shadow: var(--shadow-4);
 }
 
-.sbdocs-preview,
-.sbdocs-preview > div > div {
-    overflow: visible !important;
+.sbdocs.sbdocs-preview,
+.sbdocs.sbdocs-preview > div > div {
+    overflow: visible;
+}
+
+.sbdocs.sbdocs-preview div[scale] {
+    transform: none !important;
 }
 
 .sbdocs.sbdocs-p {

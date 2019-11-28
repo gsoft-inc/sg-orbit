@@ -3,6 +3,7 @@
 import { BRANDS, getCurrentBrand } from "../brands";
 import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "../containers";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
+import { MDX_HEADERS } from "../mdx";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
@@ -47,6 +48,10 @@ import "../styles/docs.css";
 import "../styles/preview-iframe.css";
 import "../styles/stories.css";
 
+// function MyComponent({ children }) {
+//     return <div style={{ border: "5px solid red" }}>{children}</div>;
+// }
+
 addParameters({
     options: {
         theme: customStorybookTheme,
@@ -60,7 +65,11 @@ addParameters({
                     {children}
                 </OrbitDocsContainer>
             </DocsContainer>
-        )
+        ),
+        components: {
+            ...MDX_HEADERS
+            // Preview: MyComponent
+        }
     }
 });
 
