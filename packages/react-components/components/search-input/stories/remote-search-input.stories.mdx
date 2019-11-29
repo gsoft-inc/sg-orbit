@@ -1,5 +1,7 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledRemoteSearchInput } from "./components";
+import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 import { LAURIE_VALUE } from "./data";
 import { PropsTabs } from "@components/props-tabs";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
@@ -14,7 +16,32 @@ import { paramsBuilder } from "@utils/params-builder";
         .build()}
 />
 
+<GithubLink filePath="/packages/react-components/components/search-input/src" />
+
 <Anchor storyId="components-search-input-remote--default-story" />
+
+## Installation
+
+<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react lodash styled-jsx
+```
+</details>
+
+<details><summary>then import what you need</summary>
+
+```javascript
+import {
+    RemoteSearchInput,
+    searchInputResult
+} from "@orbit-ui/react-search-input" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
 
 <PropsTabs
     componentsDefinitions={[
@@ -25,6 +52,10 @@ import { paramsBuilder } from "@utils/params-builder";
 ## Remote API throttling
 
 For demo purpose, we use GeoDB cities free API which is trotthled at 2 request / sec. Be patient! For more info, view: http://geodb-cities-api.wirefreethought.com/pricing.
+
+## Usage
+
+### Default
 
 <Preview>
     <Story name="default">
@@ -62,6 +93,8 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     />
 </Story>
 
+### Selected value
+
 <Preview>
     <Story name="selected value">
         <RemoteSearchInput
@@ -75,6 +108,8 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
         />
     </Story>
 </Preview>
+
+### Clear on select
 
 <Preview>
     <Story name="clear on select">
@@ -107,6 +142,8 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     />
 </Story>
 
+### Disabled
+
 <Preview>
     <Story name="disabled">
         <RemoteSearchInput
@@ -126,7 +163,7 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
->
+    >
     <RemoteSearchInput
         onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
         onResults={response => {
@@ -139,15 +176,20 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     />
 </Story>
 
-<Preview>
-    <Story name="failing fetch">
-        <RemoteSearchInput
-            onFetchResults={() => Promise.reject()}
-            onValueChange={logValueChanged}
-            placeholder="Type a country name"
-        />
-    </Story>
-</Preview>
+<Story
+    name="failing fetch"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <RemoteSearchInput
+        onFetchResults={() => Promise.reject()}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+### Controlled
 
 <Preview>
     <Story name="controlled">
