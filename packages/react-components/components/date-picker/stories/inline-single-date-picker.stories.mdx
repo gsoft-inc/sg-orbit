@@ -9,6 +9,7 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { PropsTabs } from "@components/props-tabs";
+import { Message } from "semantic-ui-react";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
@@ -27,7 +28,7 @@ import MomentUsage from "./moment-usage.mdx";
 <GithubLink filePath="/packages/react-components/components/date-picker/src/single" />
 <Anchor storyId="components-date-picker-single-inlined--default-story" />
 
-<div style={{ padding: "10px", border: "1px solid gray", background: "#f8f8f9", marginBottom: "20px" }}>This component have the same features as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.</div>
+<Message info size="small">This component have the same features as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.</Message>
 
 ## Installation
 
