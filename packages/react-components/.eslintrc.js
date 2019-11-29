@@ -14,7 +14,8 @@ module.exports = {
             rules: {
                 "semi": "off",
                 "react/jsx-tag-spacing": "off",
-                "max-len": "off"
+                "max-len": "off",
+                "react-hooks/rules-of-hooks": "off"
             }
         }
     ],
