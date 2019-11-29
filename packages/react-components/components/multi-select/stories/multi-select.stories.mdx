@@ -21,7 +21,7 @@ import { INSTALLATION_PAGE } from "@stories/pages";
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
 ```bash
-npm install @orbit-ui/react-multi-select @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring lodash styled-jsx
+npm install @orbit-ui/react-multi-select @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react lodash styled-jsx
 ```
 </details>
 
@@ -201,11 +201,13 @@ A multi select can stay open when the focus goes to another element.
 
 A multi select can handle `values` and `open` state in controlled mode.
 
-<Story name="controlled">
-    <ControlledMultiSelect
-        items={DEFAULT_ITEMS}
-        values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-        onValuesChange={logValuesChanged}
-    />
-</Story>
+<Preview>
+    <Story name="controlled">
+        <ControlledMultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
 

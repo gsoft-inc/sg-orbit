@@ -295,10 +295,12 @@ A date range picker can stay open when the focus goes to another element.
 
 A date range picker can handle `startDate`, `endDate` and `open` state in controlled mode.
 
-<Story name="controlled">
-    <ControlledDateRangePicker
-        startDate={moment()}
-        endDate={moment().add(3, "days")}
-        onDatesChange={logDatesChanged}
-    />
-</Story>
+<Preview>
+    <Story name="controlled">
+        <ControlledDateRangePicker
+            startDate={moment()}
+            endDate={moment().add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
