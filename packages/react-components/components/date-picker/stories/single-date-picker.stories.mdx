@@ -14,7 +14,10 @@ import { PropsTabs } from "@components/props-tabs";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { GithubLink } from "@components/github-link";
 import moment from "moment";
+import MomentUsage from "./moment-usage.mdx";
 
 <Meta
     title="Components|Date Picker/single"
@@ -23,7 +26,32 @@ import moment from "moment";
         .build()}
 />
 
-<Anchor storyId="components-date-picker-single-inlined--default-story" />
+<GithubLink filePath="/packages/react-components/components/date-picker/src/single" />
+<Anchor storyId="components-date-picker-single--default-story" />
+
+## Installation
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash moment styled-jsx
+```
+
+Then import what you need:
+
+```javascript
+import {
+    SingleDatePicker,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-date-picker" | "@orbit-ui/react-components";
+```
+
+## Props
 
 <PropsTabs
     componentsDefinitions={[
@@ -33,6 +61,10 @@ import moment from "moment";
         { displayName: "SingleDatePicker.Buttons", component: SingleDatePicker.Buttons }
     ]}
 />
+
+## Usage
+
+<MomentUsage />
 
 ### Default
 
@@ -68,7 +100,9 @@ import moment from "moment";
     />
 </Story>
 
-### With a selected date
+### Selected date
+
+A single date picker can have an initial date.
 
 <Preview>
     <Story name="selected-date">
@@ -79,7 +113,9 @@ import moment from "moment";
     </Story>
 </Preview>
 
-### With a minimum date restriction
+### Minimum date restriction
+
+A single date picker can enforce a minimum selectable date.
 
 <Preview>
     <Story
@@ -97,7 +133,9 @@ import moment from "moment";
     </Story>
 </Preview>
 
-### With a maximum date restriction
+### Maximum date restriction
+
+A single date picker can enforce a maximum selectable date.
 
 <Preview>
     <Story
@@ -115,7 +153,9 @@ import moment from "moment";
     </Story>
 </Preview>
 
-### With a minimum & maximum dates restriction
+### Minimum & maximum dates restriction
+
+A single date picker can enforce a minimum & maximum selectable date.
 
 <Preview>
     <Story
@@ -137,6 +177,8 @@ import moment from "moment";
 
 ### Display 2 months
 
+A single date picker can display 2 calendars.
+
 <Preview>
     <Story name="two months visible">
         <SingleDatePicker
@@ -150,6 +192,8 @@ import moment from "moment";
 
 ### Disabled
 
+A single date picker can be disabled.
+
 <Preview>
     <Story name="disabled">
         <SingleDatePicker
@@ -159,7 +203,24 @@ import moment from "moment";
     </Story>
 </Preview>
 
+### Position
+
+A single date picker calendar can be anchored at different positions.
+
+The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+
+<Preview onClick={() => {}}>
+    <Story name="position">
+        <SingleDatePicker
+            position={TOP_LEFT}
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
 ### Dont close the calendar when it's losing focus
+
+A single date picker can stay open when the focus goes to another element.
 
 <Preview>
     <Story name="dont close on blur">
@@ -171,7 +232,9 @@ import moment from "moment";
     </Story>
 </Preview>
 
-### Controlled usage example
+### Controlled
+
+A single date picker can handle `date` and `open` state in controlled mode.
 
 <Story name="controlled">
     <ControlledSingleDatePicker

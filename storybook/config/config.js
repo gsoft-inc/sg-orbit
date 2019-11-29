@@ -3,11 +3,12 @@
 import { BRANDS, getCurrentBrand } from "../brands";
 import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "../containers";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
-import { MDX_HEADERS } from "../mdx";
 import { addDecorator, addParameters, configure } from "@storybook/react";
+import { components } from "@storybook/components/html";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
 import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "../env";
+import { isNil } from "lodash";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -48,9 +49,36 @@ import "../styles/docs.css";
 import "../styles/preview-iframe.css";
 import "../styles/stories.css";
 
-// function MyComponent({ children }) {
-//     return <div style={{ border: "5px solid red" }}>{children}</div>;
-// }
+function Link({ href, target, children, ...rest }) {
+    if (!isNil(href)) {
+        if (href.startsWith("#")) {
+            return <components.a href={href}
+                onClick={
+                    event => {
+                        event.preventDefault();
+
+                        const element = document.getElementById(href.substring(1));
+                        if (element) {
+                            element.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                                inline: "nearest"
+                            });
+                        }
+                    }}
+            >
+                { children }
+            </components.a>;
+        } else if (target !== "_blank") {
+            const parentUrl = new URL(window.parent.location.href);
+            const newHref = `${parentUrl.origin}${href}`;
+
+            return <components.a href={newHref} target={target} {...rest}>{ children }</components.a>;
+        }
+    }
+
+    return <components.a href={href} target={target} {...rest}>{ children }</components.a>;
+}
 
 addParameters({
     options: {
@@ -67,8 +95,7 @@ addParameters({
             </DocsContainer>
         ),
         components: {
-            ...MDX_HEADERS
-            // Preview: MyComponent
+            a: Link
         }
     }
 });

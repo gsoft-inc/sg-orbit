@@ -12,7 +12,10 @@ import { PropsTabs } from "@components/props-tabs";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { GithubLink } from "@components/github-link";
 import moment from "moment";
+import MomentUsage from "./moment-usage.mdx";
 
 <Meta
     title="Components|Date Picker/single inlined"
@@ -21,7 +24,34 @@ import moment from "moment";
         .build()}
 />
 
+<GithubLink filePath="/packages/react-components/components/date-picker/src/single" />
 <Anchor storyId="components-date-picker-single-inlined--default-story" />
+
+<div style={{ padding: "10px", border: "1px solid gray", background: "#f8f8f9", marginBottom: "20px" }}>This component have the same features as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.</div>
+
+## Installation
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash moment styled-jsx
+```
+
+Then import what you need:
+
+```javascript
+import {
+    InlineSingleDatePicker,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-date-picker" | "@orbit-ui/react-components";
+```
+
+## Props
 
 <PropsTabs
     componentsDefinitions={[
@@ -31,6 +61,10 @@ import moment from "moment";
         { displayName: "InlineSingleDatePicker.Buttons", component: InlineSingleDatePicker.Buttons }
     ]}
 />
+
+## Usage
+
+<MomentUsage />
 
 ### Default
 
@@ -66,17 +100,21 @@ import moment from "moment";
     />
 </Story>
 
-### In a paragraph
+### In a block
+
+An inlined single date picker can be embedded in a block.
 
 <Preview>
     <Story name="in a block">
         <div>
-            <div className="mw7 lh2 f5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et <input type="text" value="90" onChange={logDateChanged}></input> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> <input type="text" value="90" onChange={logDateChanged}></input> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
         </div>
     </Story>
 </Preview>
 
 ### Disabled
+
+An inlined single date picker can be disabled.
 
 <Preview>
     <Story name="disabled">
@@ -88,6 +126,8 @@ import moment from "moment";
 </Preview>
 
 ### Dont close the calendar when it's losing focus
+
+An inlined single date picker can stay open when the focus goes to another element.
 
 <Preview>
     <Story name="dont close on blur">

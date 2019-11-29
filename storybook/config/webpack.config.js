@@ -1,5 +1,7 @@
 const path = require("path");
 const createMdxCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
+const remarkSlug = require("remark-slug");
+const remarkExternalLinks = require("remark-external-links");
 
 function supportCssModules(config) {
     const cssRules = config.module.rules.find(rule => rule.test.toString() === "/\\.css$/");
@@ -34,6 +36,13 @@ function supportDocsAddon(config) {
         plugins: ["@babel/plugin-transform-react-jsx"]
     };
 
+    const mdxPlugins = {
+        remarkPlugins: [
+            remarkSlug,
+            remarkExternalLinks
+        ]
+    };
+
     config.module.rules.push({
         test: /\.(stories)\.mdx$/,
         use: [
@@ -44,7 +53,8 @@ function supportDocsAddon(config) {
             {
                 loader: "@mdx-js/loader",
                 options: {
-                    compilers: [createMdxCompiler({})]
+                    compilers: [createMdxCompiler({})],
+                    ...mdxPlugins
                 }
             }
         ]
@@ -59,7 +69,10 @@ function supportDocsAddon(config) {
                 options: babelOptions
             },
             {
-                loader: "@mdx-js/loader"
+                loader: "@mdx-js/loader",
+                options: {
+                    ...mdxPlugins
+                }
             }
         ]
     });
