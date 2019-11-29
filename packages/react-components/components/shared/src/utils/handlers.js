@@ -1,6 +1,6 @@
 import { isFunction, isNil } from "lodash";
 
-export function useHandlerProxy(component, handlerName, optional = true) {
+export function withHandlerProxy(component, handlerName, optional = true) {
     return event => {
         const handler = component.props[handlerName];
 
@@ -8,7 +8,7 @@ export function useHandlerProxy(component, handlerName, optional = true) {
             if (isFunction(handler)) {
                 handler(event, component.props);
             } else {
-                throw new Error(`useHandlerProxy - ${handlerName} must be a function.`);
+                throw new Error(`withHandlerProxy - ${handlerName} must be a function.`);
             }
         }
     };

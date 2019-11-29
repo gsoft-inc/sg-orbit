@@ -278,19 +278,18 @@ The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT
     </Story>
 </Preview>
 
-### Dont close the calendar when it's losing focus
-
-A date range picker can stay open when the focus goes to another element.
-
-<Preview>
-    <Story name="dont close on blur">
-        <DateRangePicker
-            closeOnBlur={false}
-            closeOnOutsideClick
-            onDatesChange={logDatesChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <DateRangePicker
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onDatesChange={logDatesChanged}
+    />
+</Story>
 
 ### Controlled
 

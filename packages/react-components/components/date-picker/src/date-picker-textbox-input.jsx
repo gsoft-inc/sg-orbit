@@ -1,6 +1,6 @@
 import { Button, Ref } from "semantic-ui-react";
 import { CalendarIcon, CancelIcon } from "@orbit-ui/icons";
-import { KEYS, isNullOrEmpty, mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -123,9 +123,9 @@ export class DatePickerTextboxInput extends PureComponent {
         }
     }
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
-    handleClearButtonClick = useHandlerProxy(this, "onClear");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
+    handleClearButtonClick = withHandlerProxy(this, "onClear");
 
     getCssClasses() {
         const { disabled, open, className } = this.props;

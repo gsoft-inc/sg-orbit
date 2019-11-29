@@ -183,20 +183,18 @@ A multi select can be disabled.
     </Story>
 </Preview>
 
-### Dont close the dropdown when it's losing focus
-
-A multi select can stay open when the focus goes to another element.
-
-<Preview>
-    <Story name="dont close on blur">
-        <MultiSelect
-            items={DEFAULT_ITEMS_WITH_CATEGORIES}
-            closeOnBlur={false}
-            closeOnOutsideClick
-            onValuesChange={logValuesChanged}
-        />
-    </Story>
-</Preview>
+<Story name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <MultiSelect
+        items={DEFAULT_ITEMS_WITH_CATEGORIES}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValuesChange={logValuesChanged}
+    />
+</Story>
 
 ### Controlled
 

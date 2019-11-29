@@ -1,5 +1,5 @@
 import { ChevronIcon } from "@orbit-ui/icons";
-import { KEYS, mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -175,8 +175,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
         }
     }
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
 
     getValue() {
         const { date, placeholder, dateFormat } = this.props;

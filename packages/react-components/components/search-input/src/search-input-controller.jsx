@@ -5,7 +5,7 @@ import { RESULT_SHAPE } from "./results";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
@@ -196,7 +196,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    handleFocus = useHandlerProxy(this, "onFocus");
+    handleFocus = withHandlerProxy(this, "onFocus");
 
     handleClear = event => {
         const { onClear } = this.props;

@@ -1,5 +1,5 @@
 import { Button, Ref } from "semantic-ui-react";
-import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
@@ -80,8 +80,8 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
 
     handleClick = event => {
         const { onClick, onOpen, onClose, open, disabled } = this.props;

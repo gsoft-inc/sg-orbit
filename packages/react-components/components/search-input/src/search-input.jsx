@@ -122,7 +122,7 @@ export class SearchInput extends AutoControlledPureComponent {
         closeOnBlur: bool,
         /**
          * Whether or not the search results should close when a click happens outside the search input.
-         * Requires `closeOnBlur` to be false.
+         * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
         /**

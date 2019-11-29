@@ -223,19 +223,18 @@ The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT
     </Story>
 </Preview>
 
-### Dont close the calendar when it's losing focus
-
-A single date picker can stay open when the focus goes to another element.
-
-<Preview>
-    <Story name="dont close on blur">
-        <SingleDatePicker
-            closeOnBlur={false}
-            closeOnOutsideClick
-            onDateChange={logDateChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <SingleDatePicker
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onDateChange={logDateChanged}
+    />
+</Story>
 
 ### Controlled
 

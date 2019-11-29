@@ -33,6 +33,10 @@
     color: var(--marine-900);
 }
 
+.sbdocs summary {
+    cursor: pointer;
+}
+
 .sbdocs.sbdocs-h1 {
     font-weight: 600;
 }

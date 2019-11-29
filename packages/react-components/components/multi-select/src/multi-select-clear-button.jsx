@@ -1,7 +1,7 @@
 import { Button, Ref } from "semantic-ui-react";
 import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
-import { mergeClasses, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
@@ -29,7 +29,7 @@ export class MultiSelectClearButton extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleClick = useHandlerProxy(this, "onClick", false);
+    handleClick = withHandlerProxy(this, "onClick", false);
 
     getClasses() {
         const { className } = this.props;

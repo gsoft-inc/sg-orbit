@@ -90,19 +90,22 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     </Story>
 </Preview>
 
-<Preview>
-    <Story name="autofocus">
-        <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
-            autofocus
-            onValueChange={logValueChanged}
-            placeholder="Type a country name"
-        />
-    </Story>
-</Preview>
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        autofocus
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
 
 <Preview>
     <Story name="disabled">
@@ -118,20 +121,23 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     </Story>
 </Preview>
 
-<Preview>
-    <Story name="dont close on blur">
-        <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
-            closeOnBlur={false}
-            closeOnOutsideClick
-            onValueChange={logValueChanged}
-            placeholder="Type a country name"
-        />
-    </Story>
-</Preview>
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
 
 <Preview>
     <Story name="failing fetch">
@@ -143,16 +149,18 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
     </Story>
 </Preview>
 
-<Story name="controlled">
-    <ControlledRemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
-        onValueChange={logValueChanged}
-        placeholder="Type a country name"
-    />
-</Story>
+<Preview>
+    <Story name="controlled">
+        <ControlledRemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
 
 
 

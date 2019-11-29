@@ -131,16 +131,15 @@ An inlined single date picker can be disabled.
     </Story>
 </Preview>
 
-### Dont close the calendar when it's losing focus
-
-An inlined single date picker can stay open when the focus goes to another element.
-
-<Preview>
-    <Story name="dont close on blur">
-        <InlineSingleDatePicker
-            closeOnBlur={false}
-            closeOnOutsideClick
-            onDateChange={logDateChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <InlineSingleDatePicker
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onDateChange={logDateChanged}
+    />
+</Story>

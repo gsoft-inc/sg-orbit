@@ -90,6 +90,15 @@ A popup can be offset from it's anchored position.
     </Story>
 </Preview>
 
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <RedBoxPopup closeOnBlur={false} />
+</Story>
+
 ### Controlled
 
 A popup can handle `open` state in controlled mode.

@@ -20,11 +20,38 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Anchor storyId="components-search-input-results-set--default-story" />
 
+## Installation
+
+<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react lodash styled-jsx
+```
+</details>
+
+<details><summary>then import what you need</summary>
+
+```javascript
+import {
+    SearchInput,
+    searchInputResult
+} from "@orbit-ui/react-search-input" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
+
 <PropsTabs
     componentsDefinitions={[
         { displayName: "SearchInput", component: SearchInput }
     ]}
 />
+
+## Usage
+
+### Default
 
 <Preview>
     <Story name="default">
@@ -56,6 +83,8 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
+### Selected value
+
 <Preview>
     <Story name="selected value">
         <SearchInput
@@ -65,6 +94,8 @@ import { paramsBuilder } from "@utils/params-builder";
         />
     </Story>
 </Preview>
+
+### Clear on select
 
 <Preview>
     <Story name="clear on select">
@@ -76,16 +107,21 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-<Preview>
-    <Story name="autofocus">
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            autofocus
-            clearOnSelect
-            onValueChange={logValueChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        clearOnSelect
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Disabled
 
 <Preview>
     <Story name="disabled">
@@ -97,22 +133,29 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Controlled
+
 <Preview>
-    <Story name="dont close on blur">
-        <SearchInput
+    <Story name="controlled">
+        <ControlledSearchInput
             results={DEFAULT_RESULTS}
-            closeOnBlur={false}
-            closeOnOutsideClick
+            value={LAURIE_VALUE}
             onValueChange={logValueChanged}
         />
     </Story>
 </Preview>
-
-<Story name="controlled">
-    <ControlledSearchInput
-        results={DEFAULT_RESULTS}
-        value={LAURIE_VALUE}
-        onValueChange={logValueChanged}
-    />
-</Story>
 

@@ -3,7 +3,7 @@ import { PureComponent, forwardRef } from "react";
 import { bool, func, node, object, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class PureDateRangePickerInput extends PureComponent {
     static propTypes = {
@@ -128,14 +128,14 @@ export class PureDateRangePickerInput extends PureComponent {
         rangeFormat: "{startDate} - {endDate}"
     };
 
-    handleOpen = useHandlerProxy(this, "onOpen", false);
-    handleClose = useHandlerProxy(this, "onClose", false);
-    handleSizeChange = useHandlerProxy(this, "onSizeChange", false);
-    handleClear = useHandlerProxy(this, "onClear", false);
-    handleClick = useHandlerProxy(this, "onClick");
-    handleKeyDown = useHandlerProxy(this, "onKeyDown");
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
+    handleOpen = withHandlerProxy(this, "onOpen", false);
+    handleClose = withHandlerProxy(this, "onClose", false);
+    handleSizeChange = withHandlerProxy(this, "onSizeChange", false);
+    handleClear = withHandlerProxy(this, "onClear", false);
+    handleClick = withHandlerProxy(this, "onClick");
+    handleKeyDown = withHandlerProxy(this, "onKeyDown");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
 
     getValue() {
         const { startDate, endDate, rangeFormat, dateFormat } = this.props;

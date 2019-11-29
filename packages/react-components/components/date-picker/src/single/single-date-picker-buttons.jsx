@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class SingleDatePickerButtons extends PureComponent {
     static propTypes = {
@@ -45,8 +45,8 @@ export class SingleDatePickerButtons extends PureComponent {
         className: string
     };
 
-    handleClear = useHandlerProxy(this, "onClear");
-    handleApply = useHandlerProxy(this, "onApply");
+    handleClear = withHandlerProxy(this, "onClear");
+    handleApply = withHandlerProxy(this, "onApply");
 
     canClear() {
         const { date } = this.props;
