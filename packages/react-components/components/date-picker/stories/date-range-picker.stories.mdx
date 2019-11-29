@@ -10,6 +10,7 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
 import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
@@ -32,7 +33,7 @@ import MomentUsage from "./moment-usage.mdx";
 
 ## Installation
 
-Install from <a href="/?path=/docs/introduction-installation--page">the React bundle</a> or as a single package:
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
 ```bash
 npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash moment styled-jsx
