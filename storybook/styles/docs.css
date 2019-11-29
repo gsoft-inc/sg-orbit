@@ -26,7 +26,9 @@
     transform: none !important;
 }
 
-.sbdocs.sbdocs-p {
+.sbdocs.sbdocs-p,
+/* TODO: Use sbdocs-summary escape hatch when it's available */
+.sbdocs summary {
     font-size: 1.125rem;
     color: var(--marine-900);
 }
@@ -40,7 +42,6 @@
     border-bottom: none;
 }
 
-.sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h1,
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h3,
@@ -48,14 +49,6 @@
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6 {
     color: var(--marine-900);
-}
-
-.sbdocs.sbdocs-h1,
-.sbdocs.sbdocs-h2,
-.sbdocs.sbdocs-h3,
-.sbdocs.sbdocs-h4,
-.sbdocs.sbdocs-h5,
-.sbdocs.sbdocs-h6 {
     /* fixing the default position relative on all titles in shared.tsx */
     position: initial;
 }
