@@ -6,10 +6,32 @@ import { PropsTabs } from "@components/props-tabs";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { logValuesChanged } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
+import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Multi Select" />
 
+<GithubLink filePath="/packages/react-components/components/multi-select/src" />
 <Anchor storyId="components-multi-select--default-story" />
+
+## Installation
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-multi-select @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring lodash styled-jsx
+```
+
+Then import what you need:
+
+```javascript
+import {
+    MultiSelect,
+    multiSelectItem
+} from "@orbit-ui/react-multi-select" | "@orbit-ui/react-components";
+```
+
+## Props
 
 <PropsTabs
     componentsDefinitions={[
@@ -57,7 +79,7 @@ import { paramsBuilder } from "@utils/params-builder";
     />
 </Story>
 
-## Support categories
+## Categories
 
 <Preview>
     <Story name="categories">
@@ -68,7 +90,7 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-## With default values
+## Default values
 
 <Preview>
     <Story name="default values">
@@ -80,7 +102,7 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-## Can close on select
+## Close on select
 
 <Preview>
     <Story name="close on select">
@@ -92,7 +114,7 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-## Support custom search
+## Custom search
 
 <Preview>
     <Story name="custom search">
@@ -108,7 +130,7 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-## Can be disabled
+## Disabled
 
 <Preview>
     <Story name="disabled">
@@ -121,7 +143,7 @@ import { paramsBuilder } from "@utils/params-builder";
     </Story>
 </Preview>
 
-## Dont close on blur
+## Dont close the dropdown when it's losing focus
 
 <Preview>
     <Story name="dont close on blur">
