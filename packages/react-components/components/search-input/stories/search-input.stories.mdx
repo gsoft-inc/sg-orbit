@@ -51,6 +51,22 @@ import {
 
 ## Usage
 
+### searchInputResult
+
+A search input component requires a set of results to display. Those results can be specified with the `results` property.
+
+To create a result, use the `searchInputResult(id, text, obj?)` function:
+
+```javascript
+const georgeResult = multiSelectItem("1", "George");
+```
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
+
+```javascript
+const georgeResult = multiSelectItem("1", "George", { backendId: 123 });
+```
+
 ### Default
 
 <Preview>
@@ -62,28 +78,28 @@ import {
     </Story>
 </Preview>
 
-<Preview>
-    <Story
-        name="knobs"
-        decorators={[withKnobs]}
-        parameters={paramsBuilder()
-            .excludeFromDocs()
-            .build()}
-    >
-        <SearchInput
-            results={DEFAULT_RESULTS}
-            defaultValue={text("defaultValue")}
-            debounceDelay={number("debounceDelay", SearchInput.defaultProps.debounceDelay)}
-            minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
-            noResultsMessage={text("noResultsMessage")}
-            placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
-            disabled={boolean("disabled", false)}
-            onValueChange={logValueChanged}
-        />
-    </Story>
-</Preview>
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        defaultValue={text("defaultValue")}
+        debounceDelay={number("debounceDelay", SearchInput.defaultProps.debounceDelay)}
+        minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
+        noResultsMessage={text("noResultsMessage")}
+        placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
+        disabled={boolean("disabled", false)}
+        onValueChange={logValueChanged}
+    />
+</Story>
 
 ### Selected value
+
+A search input can have a default result.
 
 <Preview>
     <Story name="selected value">
@@ -96,6 +112,8 @@ import {
 </Preview>
 
 ### Clear on select
+
+A search input results box can close when an result is selected.
 
 <Preview>
     <Story name="clear on select">
@@ -123,6 +141,8 @@ import {
 
 ### Disabled
 
+A search input can be disabled.
+
 <Preview>
     <Story name="disabled">
         <SearchInput
@@ -148,6 +168,8 @@ import {
 </Story>
 
 ### Controlled
+
+A search input can handle `value` and `open` state in controlled mode.
 
 <Preview>
     <Story name="controlled">
