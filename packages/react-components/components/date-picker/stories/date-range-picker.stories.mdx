@@ -119,7 +119,7 @@ A date range picker can offer a predefined set of frequently used ranges by spec
 
 A default set of ranges is available through the `DEFAULT_DATES_PRESETS` object.
 
-If you need to create your own presets, please use the `toPreset(text, startDate, endDate)` function:
+If you need to create your own presets, use the `toPreset(text, startDate, endDate)` function:
 
 ```js
 const LAST_WEEK_PRESET = toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
