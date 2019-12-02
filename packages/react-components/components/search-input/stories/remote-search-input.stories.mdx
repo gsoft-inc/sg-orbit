@@ -36,7 +36,8 @@ npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachy
 ```javascript
 import {
     RemoteSearchInput,
-    searchInputResult
+    searchInputResult,
+    useDefaultResultsFetcher
 } from "@orbit-ui/react-search-input" | "@orbit-ui/react-components";
 ```
 </details>
@@ -51,9 +52,71 @@ import {
 
 ## Remote API throttling
 
-For demo purpose, we use GeoDB cities free API which is trotthled at 2 request / sec. Be patient! For more info, view: http://geodb-cities-api.wirefreethought.com/pricing.
+For demo purpose, we use [GeoDB cities free API](http://geodb-cities-api.wirefreethought.com/) which is trotthled at 2 request / sec. *Pease, be patient!*
 
 ## Usage
+
+### Fetching results
+
+A remote search input component requires a results fetcher. It can be specified with the `onFetchResults` property.
+
+The easiest way to fetch data is by using the `useDefaultResultsFetcher(url, queryParameter?, options?)` function:
+
+```jsx
+<RemoteSearchInput
+    onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+/>
+```
+
+<details><summary>or you can write a custom one</summary>
+
+A custom results fetcher must returned a `Promise` that resolved to an array of data.
+
+```jsx
+function fetchResults(event, query) {
+    return new Promise((resolve, reject) => {
+        fetch(`http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&namePrefix=${query}`)
+            .then(response => {
+                resolve(response.json());
+            })
+            .catch(error => {
+                reject(error);
+            })
+    });
+}
+
+<RemoteSearchInput
+    onFetchResults={fetchResults}
+/>
+```
+</details>
+
+### searchInputResult
+
+A remote search input component requires a set of results to display. Those results are obtained by transforming the remote data to `SearchInputResult` by the `onResults` handler.
+
+To create a result, use the `searchInputResult(id, text, obj?)` function:
+
+```jsx
+<RemoteSearchInput
+    onResults={response => {
+        return response.data.map(x => searchInputResult(x.code, x.name));
+    }}
+/>
+```
+
+<details><summary>specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
+
+```jsx
+<RemoteSearchInput
+    onResults={response => {
+        return response.data.map(x => searchInputResult(x.code, x.name, { backendId: x.backendId }));
+    }}
+/>
+```
+</details>
 
 ### Default
 
@@ -102,7 +165,7 @@ For demo purpose, we use GeoDB cities free API which is trotthled at 2 request /
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
-            defaultValue={LAURIE_VALUE}
+            defaultValue="Canada"
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />

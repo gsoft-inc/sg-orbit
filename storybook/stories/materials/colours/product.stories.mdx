@@ -3,10 +3,13 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Materials|Colours/product"
-    parameters={paramsBuilder()
-        .width("700px")
-        .sortLast()
-        .build()}
+    parameters={
+        paramsBuilder()
+            .width("700px")
+            .sortLast()
+            .hideBrandPicker()
+            .build()
+    }
 />
 
 <Anchor storyId="materials-colours-product--overcast" />

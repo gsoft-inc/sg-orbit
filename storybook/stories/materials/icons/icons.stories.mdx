@@ -1,10 +1,73 @@
 import {
-    AddIcon, AddIcon24, AddUserIcon, ArrowIcon, ArrowIcon24, CalendarIcon, CalendarIcon24, CheckIcon, CheckIcon24, CircleIcon, CircleIcon24, ClearFilterIcon, ClearFilterIcon24, CloseIcon, CloseIcon24, CommunicationIcon, CompareIcon, CompareIcon24, CsvIcon, DoNotDisturbIcon, DownloadIcon, EditIcon, FileIcon, FolderIcon, GarbageIcon, GearIcon, GroupIcon, HelpIcon, HelpIcon24, HorizontalDotsIcon, ImageIcon, InfoIcon, InfoIcon24, LightbulbIcon, LightbulbIcon24, MagnifierIcon, MusicIcon, NotificationIcon, NotificationIcon24, PdfIcon, PrinterIcon, PrinterIcon24, PrivacyIcon24, ReminderIcon, RemoveUserIcon, SignoutIcon, SignoutIcon24, SortingIcon, SortingIcon24, VariationIcon, VariationIcon24, VerticalDotsIcon, VideoIcon, WarningIcon, WarningIcon24, ZipIcon
+    AddIcon,
+    AddIcon24,
+    AddUserIcon,
+    ArrowIcon,
+    ArrowIcon24,
+    CalendarIcon,
+    CalendarIcon24,
+    CheckIcon,
+    CheckIcon24,
+    CircleIcon,
+    CircleIcon24,
+    ClearFilterIcon,
+    ClearFilterIcon24,
+    CloseIcon,
+    CloseIcon24,
+    CommunicationIcon,
+    CompareIcon,
+    CompareIcon24,
+    CsvIcon,
+    DoNotDisturbIcon,
+    DownloadIcon,
+    EditIcon,
+    FileIcon,
+    FolderIcon,
+    GarbageIcon,
+    GearIcon,
+    GroupIcon,
+    HelpIcon,
+    HelpIcon24,
+    HorizontalDotsIcon,
+    ImageIcon,
+    InfoIcon,
+    InfoIcon24,
+    LightbulbIcon,
+    LightbulbIcon24,
+    MagnifierIcon,
+    MusicIcon,
+    NotificationIcon,
+    NotificationIcon24,
+    PdfIcon,
+    PrinterIcon,
+    PrinterIcon24,
+    PrivacyIcon24,
+    ReminderIcon,
+    RemoveUserIcon,
+    SignoutIcon,
+    SignoutIcon24,
+    SortingIcon,
+    SortingIcon24,
+    VariationIcon,
+    VariationIcon24,
+    VerticalDotsIcon,
+    VideoIcon,
+    WarningIcon,
+    WarningIcon24,
+    ZipIcon
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { IconGallery, IconItem } from "./components";
+import { paramsBuilder } from "@utils/params-builder";
 
-<Meta title="Materials|Icons" />
+<Meta
+    title="Materials|Icons"
+    parameters={
+        paramsBuilder()
+            .hideBrandPicker()
+            .build()
+    }
+/>
 
 <Anchor storyId="materials-icons--icons" />
 
