@@ -51,6 +51,7 @@ import "../styles/stories.css";
 
 function Link({ href, target, children, ...rest }) {
     if (!isNil(href)) {
+        // Enable scrolling for in-page anchors.
         if (href.startsWith("#")) {
             return <components.a href={href}
                 onClick={
@@ -69,6 +70,7 @@ function Link({ href, target, children, ...rest }) {
             >
                 { children }
             </components.a>;
+        // Make sure URL to other pages of SB use the base URL of the top level iframe instead of the preview iframe.
         } else if (target !== "_blank") {
             const parentUrl = new URL(window.parent.location.href);
             const newHref = `${parentUrl.origin}${href}`;
@@ -77,6 +79,7 @@ function Link({ href, target, children, ...rest }) {
         }
     }
 
+    // Remote URL dont need any modification.
     return <components.a href={href} target={target} {...rest}>{ children }</components.a>;
 }
 
