@@ -41,7 +41,7 @@ function defaultResultsFetcher(event, url, data, options) {
  * @param {Object} [options.queryData] - Additional query data.
  * @param {Object} [options.requestOptions]
  * @param {number} [options.requestOptions.timeout] - Query timeout value in milliseconds.
- * @param {Object} [options.requestOptions.*] - Any fetch API options.
+ * @param {Object} [options.requestOptions.*] - Any fetch API options: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  * @returns {Function} - The fetcher instance
  */
 export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
