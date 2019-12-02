@@ -1,5 +1,15 @@
 import { isNil, isNumber, isPlainObject } from "lodash";
 
+// CanvasParametersBuilder
+// DocsParametersBuilder
+
+//    canvas
+//       layout
+//          width
+//          marginTop
+//    docs
+//       showBrandPickers - default to true
+
 class StoryParametersBuilder {
     _layout = {}
     _chromatic = {}
@@ -112,4 +122,28 @@ class StoryParametersBuilder {
 
 export function paramsBuilder() {
     return new StoryParametersBuilder();
+}
+
+class DocsParametersBuilder {
+    _showBrandPickers = true;
+
+    hideBrandPickers() {
+        this._showBrandPickers = false;
+
+        return this;
+    }
+
+    build() {
+        const params = {
+            showBrandPickers: this._showBrandPickers
+        };
+
+        return {
+            docs: params
+        };
+    }
+}
+
+export function docsParamsBuilder() {
+    return new DocsParametersBuilder();
 }

@@ -1,6 +1,16 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
+import { docsParamsBuilder } from "@utils/params-builder";
 
-<Meta title="Materials|Spacing" />
+<Meta
+    title="Materials|Spacing"
+    parameters={{
+        orbit: {
+            ...docsParamsBuilder()
+                .hideBrandPickers()
+                .build()
+        }
+    }}
+/>
 
 <Anchor storyId="materials-spacing--playground" />
 

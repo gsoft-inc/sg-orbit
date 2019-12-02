@@ -1,12 +1,19 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
-import { paramsBuilder } from "@utils/params-builder";
+import { docsParamsBuilder, paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Materials|Colours/product"
-    parameters={paramsBuilder()
-        .width("700px")
-        .sortLast()
-        .build()}
+    parameters={{
+        ...paramsBuilder()
+            .width("700px")
+            .sortLast()
+            .build(),
+        orbit: {
+            ...docsParamsBuilder()
+                .hideBrandPickers()
+                .build()
+        }
+    }}
 />
 
 <Anchor storyId="materials-colours-product--overcast" />

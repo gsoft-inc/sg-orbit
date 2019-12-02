@@ -1,6 +1,16 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { docsParamsBuilder } from "@utils/params-builder";
 
-<Meta title="Materials|Shape " />
+<Meta
+    title="Materials|Shape"
+    parameters={{
+        orbit: {
+            ...docsParamsBuilder()
+                .hideBrandPickers()
+                .build()
+        }
+    }}
+/>
 
 # Radiuses
 

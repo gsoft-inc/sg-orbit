@@ -1,6 +1,16 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
+import { docsParamsBuilder } from "@utils/params-builder";
 
-<Meta title="Materials|Typography" />
+<Meta
+    title="Materials|Typography"
+    parameters={{
+        orbit: {
+            ...docsParamsBuilder()
+                .hideBrandPickers()
+                .build()
+        }
+    }}
+/>
 
 <Anchor storyId="materials-typography--font-sizes" />
 
