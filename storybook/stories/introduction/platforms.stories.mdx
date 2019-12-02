@@ -1,19 +1,15 @@
 import { GithubLink } from "@components/github-link";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { docsParamsBuilder, paramsBuilder } from "@utils/params-builder";
+import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Introduction|Supported Platforms"
-    parameters={{
-        ...paramsBuilder()
+    parameters={
+        paramsBuilder()
             .sortPriority(-1)
-            .build(),
-        orbit: {
-            ...docsParamsBuilder()
-                .hideBrandPickers()
-                .build()
-        }
-    }}
+            .hideBrandPicker()
+            .build()
+    }
 />
 
 <GithubLink filePath="/" />

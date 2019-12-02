@@ -1,19 +1,14 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
-import { docsParamsBuilder, paramsBuilder } from "@utils/params-builder";
+import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Materials|Colours/brand"
-    parameters={{
-        ...paramsBuilder()
+    parameters={
+        paramsBuilder()
             .width("700px")
             .sortLast()
-            .build(),
-        orbit: {
-            ...docsParamsBuilder()
-                .hideBrandPickers()
-                .build()
-        }
-    }}
+            .build()
+    }
 />
 
 <Anchor storyId="materials-colours-brand--sunray" />

@@ -58,17 +58,15 @@ import {
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { IconGallery, IconItem } from "./components";
-import { docsParamsBuilder } from "@utils/params-builder";
+import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Materials|Icons"
-    parameters={{
-        orbit: {
-            ...docsParamsBuilder()
-                .hideBrandPickers()
-                .build()
-        }
-    }}
+    parameters={
+        paramsBuilder()
+            .hideBrandPicker()
+            .build()
+    }
 />
 
 <Anchor storyId="materials-icons--icons" />

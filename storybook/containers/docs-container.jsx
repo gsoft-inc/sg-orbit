@@ -1,29 +1,12 @@
 import { BrandPickerDocsWidget } from "../addons/brand-picker";
-
-function getOrbitParameters({ parameters }) {
-    const { orbit = {} } = parameters;
-
-    return orbit;
-}
-
-const DEFAULT_ORBIT_PARAMS = {
-    showBrandPickers: true
-};
-
-function getDocsParameters(context) {
-    const { docs = DEFAULT_ORBIT_PARAMS } = getOrbitParameters(context);
-
-    return docs;
-}
+import { getParameters } from "../parameters";
 
 export function DocsContainer({ context, children }) {
-    const params = getDocsParameters(context);
-
-    console.log(params);
+    const params = getParameters(context);
 
     return (
         <>
-            <If condition={params.showBrandPickers}>
+            <If condition={params.showBrandPicker}>
                 <BrandPickerDocsWidget />
             </If>
             {children}
