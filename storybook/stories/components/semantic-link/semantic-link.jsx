@@ -3,7 +3,7 @@ import styles from "./semantic-link.module.css";
 import { SemanticIcon } from "./assets";
 import { string } from "prop-types";
 
-const SEMANTIC_DOCUMENTATION_URL = "https://react.semantic-ui.com/";
+const SEMANTIC_DOCUMENTATION_URL = "https://react.semantic-ui.com";
 
 const propTypes = {
     docPath: string.isRequired
