@@ -16,7 +16,8 @@ module.exports = {
         "@react-components/(.*)$": "<rootDir>/packages/react-components/components/$1"
     },
     setupFilesAfterEnv: [
-        "@testing-library/jest-dom/extend-expect"
+        "@testing-library/jest-dom/extend-expect",
+        "<rootDir>/jest/setup-jest.js"
     ],
     verbose: true
 };
