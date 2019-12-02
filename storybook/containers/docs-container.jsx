@@ -1,12 +1,12 @@
 import { BrandPickerDocsWidget } from "../addons/brand-picker";
-import { getParameters } from "../parameters";
+import { getParametersFromContext } from "../parameters";
 
 export function DocsContainer({ context, children }) {
-    const params = getParameters(context);
+    const { showBrandPicker } = getParametersFromContext(context);
 
     return (
         <>
-            <If condition={params.showBrandPicker}>
+            <If condition={showBrandPicker}>
                 <BrandPickerDocsWidget />
             </If>
             {children}

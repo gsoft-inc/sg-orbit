@@ -1,6 +1,7 @@
+import { getParametersFromContext } from "../parameters";
+
 export function CanvasContainer({ story, context }) {
-    const { parameters } = context;
-    const { layout } = parameters;
+    const { layout } = getParametersFromContext(context);
 
     const params = (new URL(document.location)).searchParams;
     const isDocs = params.get("viewMode") === "docs";
