@@ -4,9 +4,12 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Meta
     title="Introduction|Installation"
-    parameters={paramsBuilder()
-        .sortPriority(-1)
-        .build()}
+    parameters={
+        paramsBuilder()
+            .sortPriority(-1)
+            .hideBrandPicker()
+            .build()
+    }
 />
 
 <GithubLink filePath="/" />

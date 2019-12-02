@@ -11,7 +11,11 @@ import { SemanticLink } from "@components/semantic-link";
 
 # Label
 
+A label.
+
 ## Standard
+
+A basic label.
 
 <Preview>
     <Story name="standard">
@@ -20,6 +24,8 @@ import { SemanticLink } from "@components/semantic-link";
 </Preview>
 
 ## Icon
+
+A label can include an icon.
 
 <Preview>
     <Story name="icon">
@@ -31,6 +37,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Icons
 
+A label can include an icon on each sides.
+
 <Preview>
     <Story name="icons">
         <Label>
@@ -40,7 +48,31 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
+### Sizes
+
+#### Small
+
+A label can be small.
+
+<Preview>
+    <Story name="small">
+        <Label size="small">Notification Sent</Label>
+    </Story>
+</Preview>
+
+#### Large
+
+A label can be large.
+
+<Preview>
+    <Story name="large">
+        <Label size="large">Notification Sent</Label>
+    </Story>
+</Preview>
+
 ## Circular
+
+A label can be circular.
 
 <Preview>
     <Story name="circular">
@@ -48,40 +80,27 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-## Sizes
+### Sizes
+
+A circular label can vary in size.
 
 <Preview>
     <Story name="circular sizes">
         <div>
-            <Label circular size="tiny">
-            R
-            </Label>
-            <Label circular size="tiny">
-            R
-            </Label>
-            <Label circular size="small">
-            R
-            </Label>
-            <Label circular size="medium">
-            R
-            </Label>
-            <Label circular size="large">
-            R
-            </Label>
-            <Label circular size="big">
-            R
-            </Label>
-            <Label circular size="huge">
-            R
-            </Label>
-            <Label circular size="massive">
-            R
-            </Label>
+            <Label circular size="tiny">R</Label>
+            <Label circular size="small">R</Label>
+            <Label circular size="medium">R</Label>
+            <Label circular size="large">R</Label>
+            <Label circular size="big">R</Label>
+            <Label circular size="huge">R</Label>
+            <Label circular size="massive">R</Label>
         </div>
     </Story>
 </Preview>
 
 ## Basic
+
+A label can reduce its complexity.
 
 <Preview>
     <Story name="basic">
@@ -91,36 +110,21 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Empty
 
+A label can be empty.
+
 <Preview>
     <Story name="empty">
         <Label circular size="tiny" empty color="red" />
     </Story>
 </Preview>
 
-## Sizes
-
-### Small
-
-<Preview>
-    <Story name="small">
-        <Label size="small">Notification Sent</Label>
-    </Story>
-</Preview>
-
-### Large
-
-<Preview>
-    <Story name="large">
-        <Label size="large">Notification Sent</Label>
-    </Story>
-</Preview>
-
-
 ## Tags
 
-A label can be used as a tag
+A label can be used as a tag.
 
 ### Default
+
+A tag consist of an icon/label in a label.
 
 <Preview>
     <Story name="tag standard">
@@ -132,6 +136,8 @@ A label can be used as a tag
 </Preview>
 
 ### With icon
+
+A tag can contain an icon.
 
 <Preview>
     <Story name="tag icon">
@@ -152,6 +158,8 @@ A label can be used as a tag
 
 ### With icons
 
+A tag can contain two icons.
+
 <Preview>
     <Story name="tag icons">
         <Label>
@@ -171,7 +179,7 @@ A label can be used as a tag
 
 ## Basic
 
-### Default
+A tag can reduce its complexity.
 
 <Preview>
     <Story name="tag basic">
@@ -182,47 +190,11 @@ A label can be used as a tag
     </Story>
 </Preview>
 
-### With icon
+### Sizes
 
-<Preview>
-    <Story name="tag basic icon">
-        <Label basic>
-            <Label circular empty size="mini" color="red" />
-        Group added
-            <Button icon circular size="tiny" className="transparent">
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
-            </Button>
-        </Label>
-    </Story>
-</Preview>
+A tag can vary in size.
 
-### With icons
-
-<Preview>
-    <Story name="tag basic icons">
-        <Label basic>
-            <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-        Group added
-            <Button icon circular size="tiny" className="transparent">
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
-            </Button>
-        </Label>
-    </Story>
-</Preview>
-
-## Sizes
-
-### Small
+#### Small
 
 <Preview>
     <Story name="tag size small">
@@ -233,7 +205,7 @@ A label can be used as a tag
     </Story>
 </Preview>
 
-### Large
+#### Large
 
 <Preview>
     <Story name="tag size large">

@@ -60,8 +60,6 @@ For demo purpose, we use [GeoDB cities free API](http://geodb-cities-api.wirefre
 
 A remote search input component requires a results fetcher. It can be specified with the `onFetchResults` property.
 
-<details style={{ marginBottom: "10px" }}><summary>a default results fetcher is available</summary>
-
 The easiest way to fetch data is by using the `useDefaultResultsFetcher(url, queryParameter?, options?)` function:
 
 ```jsx
@@ -69,7 +67,6 @@ The easiest way to fetch data is by using the `useDefaultResultsFetcher(url, que
     onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
 />
 ```
-</details>
 
 <details><summary>or you can write a custom one</summary>
 

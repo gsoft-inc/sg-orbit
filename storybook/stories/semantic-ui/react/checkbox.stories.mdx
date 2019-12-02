@@ -1,5 +1,5 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Checkbox, Form } from "semantic-ui-react";
+import { Checkbox, Form, Segment } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
 
 <Meta title="Components|Checkbox" />
@@ -10,7 +10,13 @@ import { SemanticLink } from "@components/semantic-link";
 
 # Checkbox
 
-## Standard
+A checkbox allows a user to select a value from a small set of options, often binary.
+
+## Default
+
+### Standard
+
+A box for checking.
 
 <Preview>
     <Story name="standard">
@@ -20,6 +26,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Checked
 
+A checkbox can be checked.
+
 <Preview>
     <Story name="standard checked">
         <Checkbox checked label="Milky Way" />
@@ -28,21 +36,17 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Disabled
 
+A checkbox can be disabled.
+
 <Preview>
     <Story name="standard disabled">
         <Checkbox disabled label="Milky Way" />
     </Story>
 </Preview>
 
-### Checked Disabled
-
-<Preview>
-    <Story name="standard checked disabled">
-        <Checkbox checked disabled label="Milky Way" />
-    </Story>
-</Preview>
-
 ### Indeterminate
+
+A checkbox can be indeterminate.
 
 <Preview>
     <Story name="indeterminate">
@@ -50,115 +54,43 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-### Indeterminate Disabled
-
-<Preview>
-    <Story name="indeterminate disabled">
-        <Checkbox indeterminate disabled label="Milky Way" />
-    </Story>
-</Preview>
-
-### Indeterminate Checked Disabled
-
-<Preview>
-    <Story name="indeterminate checked disabled">
-        <Checkbox indeterminate disabled checked label="Milky Way" />
-    </Story>
-</Preview>
-
 ## Toggle
+
+A checkbox can toggle.
+
+### Standard
 
 <Preview>
     <Story name="toggle">
-        <Checkbox toggle/>
-    </Story>
-</Preview>
-
-### Toggle Disabled
-
-<Preview>
-    <Story name="toggle disabled">
-        <Checkbox toggle disabled/>
-    </Story>
-</Preview>
-
-### Toggle Checked
-
-<Preview>
-    <Story name="toggle checked">
-        <Checkbox toggle checked/>
-    </Story>
-</Preview>
-
-### Toggle Checked Disabled
-
-<Preview>
-    <Story name="toggle checked disabled">
-        <Checkbox toggle checked disabled/>
-    </Story>
-</Preview>
-
-### Toggle Label
-
-<Preview>
-    <Story name="toggle label">
         <Checkbox toggle label="Milky Way"/>
     </Story>
 </Preview>
 
-### Toggle Label Disabled
+### Disabled
 
 <Preview>
-    <Story name="toggle label disabled">
+    <Story name="toggle disabled">
         <Checkbox toggle disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-### Toggle Checked
-
-<Preview>
-    <Story name="toggle label checked">
-        <Checkbox toggle checked label="Milky Way"/>
-    </Story>
-</Preview>
-
-### Toggle Checked Disabled
-
-<Preview>
-    <Story name="toggle label checked disabled">
-        <Checkbox toggle checked disabled label="Milky Way"/>
     </Story>
 </Preview>
 
 ## Radio
 
+A checkbox can be formatted as a radio element. This means it is an exclusive option.
+
+### Standard
+
 <Preview>
-    <Story name="radio label">
+    <Story name="radio">
         <Checkbox radio label="Milky Way"/>
     </Story>
 </Preview>
 
-### Radio Checked
+### Disabled
 
 <Preview>
-    <Story name="radio disabled label">
+    <Story name="radio disabled">
         <Checkbox radio disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-### Radio Checked Label
-
-<Preview>
-    <Story name="radio checked label">
-        <Checkbox radio checked label="Milky Way"/>
-    </Story>
-</Preview>
-
-### Radio Checked Disabled Label
-
-<Preview>
-    <Story name="radio checked disabled label">
-        <Checkbox radio checked disabled label="Milky Way"/>
     </Story>
 </Preview>
 
@@ -177,5 +109,27 @@ Radios in a group must be controlled components.
                 <Checkbox radio label="Moon" name="checkboxRadioGroup" value="that" />
             </Form.Field>
         </Form>
+    </Story>
+</Preview>
+
+## Variations
+
+### Fitted
+
+A fitted checkbox does not leave padding for a label.
+
+<Preview>
+    <Story name="fitted">
+        <div>
+            <div>
+                <Checkbox />
+            </div>
+            <div>
+                <Checkbox toggle />
+            </div>
+            <div>
+                <Checkbox radio />
+            </div>
+        </div>
     </Story>
 </Preview>

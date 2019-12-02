@@ -11,7 +11,13 @@ import { SemanticLink } from "@components/semantic-link";
 
 # Button
 
+A Button indicates a possible user action.
+
 ## Standard
+
+### Default
+
+A standard button.
 
 <Preview>
     <Story name="standard">
@@ -21,6 +27,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Active / focus
 
+A button can be focused.
+
 <Preview>
     <Story name="active / focus">
         <Button active>Cutoff</Button>
@@ -29,13 +37,19 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Disabled
 
+A button can show it is currently unable to be interacted with.
+
 <Preview>
     <Story name="disabled">
         <Button disabled>Cutoff</Button>
     </Story>
 </Preview>
 
-## Standard Primary
+## Emphasis
+
+A button can be formatted to show different levels of emphasis.
+
+### Primary
 
 <Preview>
     <Story name="primary">
@@ -43,71 +57,7 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-### Active / focus
-
-<Preview>
-    <Story name="primary active / focus">
-        <Button primary active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="primary disabled">
-        <Button primary disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Basic
-
-<Preview>
-    <Story name="basic">
-        <Button basic>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="basic active / focus">
-        <Button basic active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="basic disabled">
-        <Button basic disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Basic Primary
-
-<Preview>
-    <Story name="basic primary">
-        <Button basic primary>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="basic primary active / focus">
-        <Button basic primary active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="basic primary disabled">
-        <Button basic primary disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Standard Secondary
+### Secondary
 
 <Preview>
     <Story name="secondary">
@@ -115,55 +65,31 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-### Active / focus
+## Basic
+
+The basic button has a subtle appearance.
 
 <Preview>
-    <Story name="secondary active / focus">
-        <Button secondary active>Cutoff</Button>
+    <Story name="basic">
+        <Button basic>Cutoff</Button>
     </Story>
 </Preview>
 
-### Disabled
+## Inverted
+
+A button can be formatted to appear on a dark background.
 
 <Preview>
-    <Story name="secondary disabled">
-        <Button secondary disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Inverted Primary
-
-<Preview>
-    <Story name="inverted primary">
+    <Story name="inverted">
         <div className="bg-marine-700 pa3">
             <Button inverted primary>Cutoff</Button>
         </div>
     </Story>
 </Preview>
 
-### Active / focus
-
-<Preview>
-    <Story name="inverted primary active / focus">
-        <div className="bg-marine-700 pa3">
-            <Button inverted primary active>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="inverted primary disabled">
-        <div className="bg-marine-700 pa3">
-            <Button inverted primary disabled>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
 ## Ghost
 
-Ghost buttons take the same space as a standard button Careful heights are not a property but a className
+Ghost buttons takes the same space as a standard button, but have no basic colour until hovered.
 
 <Preview>
     <Story name="ghost">
@@ -171,47 +97,11 @@ Ghost buttons take the same space as a standard button Careful heights are not a
     </Story>
 </Preview>
 
-### Active / focus
+## Icon
 
-<Preview>
-    <Story name="ghost active / focus">
-        <Button className="ghost" active>Cutoff</Button>
-    </Story>
-</Preview>
+### Standard
 
-### Disabled
-
-<Preview>
-    <Story name="ghost disabled">
-        <Button className="ghost" disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Ghost Primary
-
-<Preview>
-    <Story name="ghost primary">
-        <Button primary className="ghost">Cutoff</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="ghost primary active / focus">
-        <Button primary className="ghost" active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="ghost primary disabled">
-        <Button primary className="ghost" disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Icon Standard
+A button can contain an icon.
 
 <Preview>
     <Story name="icon standard">
@@ -219,92 +109,19 @@ Ghost buttons take the same space as a standard button Careful heights are not a
     </Story>
 </Preview>
 
+### Icon Only
+
+A button can only contain an icon.
+
 <Preview>
-    <Story name="icon standard active / focus">
-        <Button icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+    <Story name="icon only">
+        <Button icon><AddIcon className="flex w6 h6"/></Button>
     </Story>
 </Preview>
 
-<Preview>
-    <Story name="icon standard disabled">
-        <Button icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
+## Circular
 
-## Icon Basic
-
-<Preview>
-    <Story name="icon basic">
-        <Button icon basic><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="icon basic active / focus">
-        <Button icon basic active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="icon basic disabled">
-        <Button icon basic disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-## Icon Standard Primary
-
-<Preview>
-    <Story name="icon standard primary">
-        <Button icon primary><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="icon standard primary active / focus">
-        <Button icon primary active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="icon standard primary disabled">
-        <Button icon primary disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-## Icon Basic Primary
-
-<Preview>
-    <Story name="icon basic primary">
-        <Button icon basic primary><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Active / focus
-
-<Preview>
-    <Story name="icon basic primary active / focus">
-        <Button icon basic primary active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="icon basic primary disabled">
-        <Button icon basic primary disabled><SignoutIcon24 className="w6 h6 mr2" />Click me</Button>
-    </Story>
-</Preview>
-
-
-## Icon Circular
+A button can be circular.
 
 <Preview>
     <Story name="icon circular">
@@ -312,159 +129,38 @@ Ghost buttons take the same space as a standard button Careful heights are not a
     </Story>
 </Preview>
 
-## Icon Circular Primary
+### Sizes
 
-<Preview>
-    <Story name="icon circular primary">
-        <Button icon primary circular><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Circular Basic
-
-<Preview>
-    <Story name="icon circular basic">
-        <Button icon basic circular><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Circular Basic Primary
-
-<Preview>
-    <Story name="icon circular basic primary">
-        <Button icon basic primary circular><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Tiny Circular
+A circular button can vary in size.
 
 <Preview>
     <Story name="icon tiny circular">
-        <Button icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
+        <div className="flex flex-row">
+            <Button icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
+            <Button icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
+            <Button icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
+        </div>
     </Story>
 </Preview>
 
-## Icon Tiny Circular Primary
+## Loading
 
-<Preview>
-    <Story name="icon tiny circular primary">
-        <Button icon primary circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Tiny Circular Basic
-
-<Preview>
-    <Story name="icon tiny circular basic">
-        <Button icon basic circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Tiny Circular Basic Primary
-
-<Preview>
-    <Story name="icon tiny circular basic primary">
-        <Button icon basic primary circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Small Circular
-
-<Preview>
-    <Story name="icon small circular">
-        <Button icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Small Circular Primary
-
-<Preview>
-    <Story name="icon small circular primary">
-        <Button icon primary circular size="small"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Small Circular Basic
-
-<Preview>
-    <Story name="icon small circular basic">
-        <Button icon basic circular size="small"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Small Circular Basic Primary
-
-<Preview>
-    <Story name="icon small circular basic primary">
-        <Button icon basic primary circular size="small"><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-## Icon Large Circular
-
-<Preview>
-    <Story name="icon large circular">
-        <Button icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
-    </Story>
-</Preview>
-
-## Icon Large Circular Primary
-
-<Preview>
-    <Story name="icon large circular primary">
-        <Button icon primary circular size="large"><AddIcon className="flex w7 h7"/></Button>
-    </Story>
-</Preview>
-
-## Icon Large Circular Basic
-
-<Preview>
-    <Story name="icon large circular basic">
-        <Button icon basic circular size="large"><AddIcon className="flex w7 h7"/></Button>
-    </Story>
-</Preview>
-
-## Icon Large Circular Basic Primary
-
-<Preview>
-    <Story name="icon large circular basic primary">
-        <Button icon basic primary circular size="large"><AddIcon className="flex w7 h7"/></Button>
-    </Story>
-</Preview>
-
-## Loading Standard
+A button can show a loading indicator.
 
 <Preview>
     <Story name="icon loading">
-        <Button loading>Loading</Button>
-    </Story>
-</Preview>
-
-## Loading Primary
-
-<Preview>
-    <Story name="icon loading primary">
-        <Button loading primary>Loading</Button>
-    </Story>
-</Preview>
-
-## Loading Basic
-
-<Preview>
-    <Story name="icon loading basic">
-        <Button loading basic>Loading</Button>
-    </Story>
-</Preview>
-
-## Loading Basic Primary
-
-<Preview>
-    <Story name="icon loading basic primary">
-        <Button loading basic primary>Loading</Button>
+        <div className="flex">
+            <Button loading>Loading</Button>
+            <Button loading primary>Loading</Button>
+            <Button loading basic>Loading</Button>
+            <Button loading basic primary>Loading</Button>
+        </div>
     </Story>
 </Preview>
 
 ## Success
+
+A button can hint towards a positive consequence.
 
 <Preview>
     <Story name="success">
@@ -472,23 +168,9 @@ Ghost buttons take the same space as a standard button Careful heights are not a
     </Story>
 </Preview>
 
-### Active / focus
-
-<Preview>
-    <Story name="success active / focus">
-        <Button positive active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="success disabled">
-        <Button positive disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
 ## Negative
+
+A button can hint towards a negative consequence.
 
 <Preview>
     <Story name="negative">
@@ -496,23 +178,9 @@ Ghost buttons take the same space as a standard button Careful heights are not a
     </Story>
 </Preview>
 
-### Active / focus
-
-<Preview>
-    <Story name="negative active / focus">
-        <Button negative active>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Disabled
-
-<Preview>
-    <Story name="negative disabled">
-        <Button negative disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
 ## Fluid
+
+A button can take the width of its container.
 
 <Preview>
     <Story name="fluid">
@@ -522,20 +190,24 @@ Ghost buttons take the same space as a standard button Careful heights are not a
 
 ## Heights
 
-Apart from the 40px heights buttons can be shorter or taller Careful heights are not a property but a className
+Apart from the 40px default height, buttons can be shorter or taller.
 
-## Short
+### Short
+
+Short buttons are 32px high.
 
 <Preview>
     <Story name="height short">
-        <Button className="short">Short - 32px</Button>
+        <Button className="short">Short</Button>
     </Story>
 </Preview>
 
-## Tall
+### Tall
+
+Tall buttons are 48px high.
 
 <Preview>
     <Story name="height tall">
-        <Button className="tall">Tall - 48px</Button>
+        <Button className="tall">Tall button</Button>
     </Story>
 </Preview>

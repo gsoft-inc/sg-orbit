@@ -14,6 +14,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Default
 
+An element can specify popup content to appear.
+
 <Preview>
     <Story name="standard">
         <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
@@ -21,6 +23,8 @@ import { SemanticLink } from "@components/semantic-link";
 </Preview>
 
 ### Basic
+
+A popup can provide more basic formatting.
 
 <Preview>
     <Story name="basic">
@@ -30,6 +34,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Wide
 
+A popup can be wide to allow for longer content.
+
 <Preview>
     <Story name="wide">
         <Popup wide content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
@@ -38,13 +44,27 @@ import { SemanticLink } from "@components/semantic-link";
 
 ### Very Wide
 
+A popup can be very wide to allow for longer content.
+
 <Preview>
     <Story name="very wide">
         <Popup wide="very" content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
 
-### Inverted
+### Disabled
+
+A disabled popup only renders its trigger.
+
+<Preview>
+    <Story name="disabled">
+        <Popup disabled content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+    </Story>
+</Preview>
+
+## Inverted
+
+A popup can have its colours inverted.
 
 <Preview>
     <Story name="inverted">
@@ -52,9 +72,9 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-### Flush
+## Flush
 
-If you need to control your own padding use the className flush then proceed to add the right Tachyon class, make sure to validate with the UI designers that you work with that you still follow standards. _The following example is not approved by designers._
+A popup can be offload padding to its child.
 
 <Preview>
     <Story name="flush">
