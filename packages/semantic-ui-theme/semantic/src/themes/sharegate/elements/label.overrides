@@ -24,7 +24,6 @@
 }
 
 /* tiny */
-.ui.label.tiny,
 .ui.menu .item > .label.tiny {
     padding: 3px @horizontalPadding;
     margin-left: var(--scale-bravo);

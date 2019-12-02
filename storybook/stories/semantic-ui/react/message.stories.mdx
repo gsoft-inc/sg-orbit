@@ -11,7 +11,13 @@ import { noop } from "lodash";
 
 # Message
 
+A message displays information that explains nearby content.
+
 ## Standard
+
+### Default
+
+A basic message.
 
 <Preview>
     <Story name="standard">
@@ -27,7 +33,9 @@ import { noop } from "lodash";
     </Story>
 </Preview>
 
-## List
+### List
+
+A message with a list.
 
 <Preview>
     <Story name="list">
@@ -41,7 +49,7 @@ import { noop } from "lodash";
     </Story>
 </Preview>
 
-## Dismissible
+### Dismissible
 
 Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message.
 
@@ -59,6 +67,8 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
 
 ## Info
 
+A message may be formatted to display information.
+
 <Preview>
     <Story name="info">
         <Message info>
@@ -73,23 +83,9 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
     </Story>
 </Preview>
 
-## Info Dismissible
-
-<Preview>
-    <Story name="info dismissible">
-        <Message info onDismiss={noop}>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
-            <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
 ## Positive/Success
+
+A message may be formatted to display a positive message.
 
 <Preview>
     <Story name="positive success">
@@ -105,45 +101,15 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
     </Story>
 </Preview>
 
-## Positive/Success Dismissible
-
-<Preview>
-    <Story name="positive success dismissible">
-        <Message positive onDismiss={noop}>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
-            <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
 ## Warning
+
+A message may be formatted to display warning message.
 
 <Preview>
     <Story name="warning">
         <Message warning>
             <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
-            <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
-## Warning Dismissible
-
-<Preview>
-    <Story name="warning dismissible">
-        <Message warning onDismiss={noop}>
-            <Message.Header>
-    Setup a security policy for external sharing
+    Review your settings before setting up a security policy
             </Message.Header>
             <p>
     Easily manage external sharing links and set-up automatic access reviews
@@ -155,37 +121,24 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
 
 ## Negative/Error
 
+A message may be formatted to display a negative message.
+
 <Preview>
     <Story name="negative error">
         <Message negative>
             <Message.Header>
-    Setup a security policy for external sharing
+    Cannot setup a security policy for external sharing
             </Message.Header>
             <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
-## Negative/Error Dismissible
-
-<Preview>
-    <Story name="negative error dismissible">
-        <Message negative onDismiss={noop}>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
-            <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
+    Your trial has expired.
             </p>
         </Message>
     </Story>
 </Preview>
 
 ## Floating
+
+A message can float above content that it is related to.
 
 <Preview>
     <Story name="floating">
@@ -201,12 +154,16 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
     </Story>
 </Preview>
 
-## Two Up Layout
+## Two Columns Layout
+
+A message can have two columns
 
 ### Left Aligned
 
+A message can have a button or an icon positionned to the left.
+
 <Preview>
-    <Story name="two up left aligned">
+    <Story name="two columns left aligned">
         <Message icon>
             <Button>Click Here</Button>
             <Message.Content>
@@ -219,8 +176,10 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
 
 ### Right Aligned
 
+A message can have a button or an icon positionned to the right.
+
 <Preview>
-    <Story name="two up right aligned">
+    <Story name="two columns right aligned">
         <Message icon>
             <Message.Content>
                 <Message.Header>Just one second</Message.Header>
@@ -233,12 +192,14 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
 
 ## Sizes
 
+A message can have different sizes.
+
 ### Small
 
-Useful for one liners
+Useful for one liners.
 
 <Preview>
-    <Story name="size small">
+    <Story name="sizes small">
         <Message size="small">
             <p className="fw6">
     Easily manage external sharing links and set-up automatic access reviews.

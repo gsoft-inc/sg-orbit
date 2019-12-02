@@ -12,13 +12,19 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Standard
 
+### Default
+
+A standard input field.
+
 <Preview>
     <Story name="standard">
         <Input placeholder="Search..." />
     </Story>
 </Preview>
 
-## Focus
+### Focus
+
+An input field can show a user is currently interacting with it.
 
 <Preview>
     <Story name="focus">
@@ -26,7 +32,9 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-## Disabled
+### Disabled
+
+An input field can show that it is disabled.
 
 <Preview>
     <Story name="disabled">
@@ -36,21 +44,17 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Icon
 
+An input can be formatted with an icon.
+
 <Preview>
     <Story name="icon">
         <Input icon="search" placeholder="Search..." />
     </Story>
 </Preview>
 
-## Icon Disabled
+### Left Aligned
 
-<Preview>
-    <Story name="icon disabled">
-        <Input icon="search" disabled placeholder="Search..." />
-    </Story>
-</Preview>
-
-## Icon Align Left
+An icon can be positionned to the left.
 
 <Preview>
     <Story name="icon left align">
@@ -58,21 +62,9 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-## Icon Align Left Disabled
-
-<Preview>
-    <Story name="icon left align disabled">
-        <Input
-            disabled
-            icon="search"
-            iconPosition="left"
-            placeholder="Search..."
-            value="Canada"
-        />
-    </Story>
-</Preview>
-
 ## Loading
+
+An icon input field can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
@@ -80,7 +72,7 @@ import { SemanticLink } from "@components/semantic-link";
     </Story>
 </Preview>
 
-## Loading Left
+### Left Aligned
 
 <Preview>
     <Story name="loading left">
@@ -90,6 +82,8 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Error
 
+An input field can show that the data contains errors.
+
 <Preview>
     <Story name="error">
         <Input error placeholder="Search..." />
@@ -98,7 +92,7 @@ import { SemanticLink } from "@components/semantic-link";
 
 ## Success
 
-An input can indicate a success state using the class *success*
+An input field can show that the data has been validated.
 
 <Preview>
     <Story name="success">
@@ -108,7 +102,7 @@ An input can indicate a success state using the class *success*
 
 ## Fluid
 
-An input can take all the width it can
+An input can take all the width it can.
 
 <Preview>
     <Story name="fluid">
@@ -118,7 +112,7 @@ An input can take all the width it can
 
 ## Transparent
 
-An input can be transparent using the class *transparent*
+An input can be transparent.
 
 <Preview>
     <Story name="transparent">

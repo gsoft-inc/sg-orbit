@@ -4,7 +4,7 @@
 }
 
 .sbdocs.sbdocs-wrapper {
-    padding: 32px 32px 16px 32px;
+    padding: 2rem 2rem 1rem 2rem;
 }
 
 .sbdocs.sbdocs-content {
@@ -42,8 +42,13 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    margin: 24px 0 18px;
+    margin: 1.5rem 0 0.5rem;
     border-bottom: none;
+}
+
+.sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
+.sbdocs.sbdocs-h3 + .sbdocs.sbdocs-p {
+    margin: 0 0 1rem 0;
 }
 
 .sbdocs.sbdocs-h1,
