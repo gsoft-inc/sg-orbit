@@ -2,6 +2,7 @@ import { AddIcon, SignoutIcon24 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Button" />
 
@@ -12,6 +13,24 @@ import { SemanticLink } from "@components/semantic-link";
 # Button
 
 A Button indicates a possible user action.
+
+## Installation
+
+<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary>then import what you need</summary>
+
+```javascript
+    import { Button } from "semantic-ui-react";
+```
+</details>
 
 ## Standard
 
@@ -79,10 +98,22 @@ The basic button has a subtle appearance.
 
 A button can be formatted to appear on a dark background.
 
+### Default
+
 <Preview>
     <Story name="inverted">
         <div className="bg-marine-700 pa3">
-            <Button inverted primary>Cutoff</Button>
+            <Button inverted>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Primary
+
+<Preview>
+    <Story name="inverted primary">
+        <div className="bg-marine-700 pa3">
+            <Button primary inverted>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -115,7 +146,7 @@ A button can only contain an icon.
 
 <Preview>
     <Story name="icon only">
-        <Button icon><AddIcon className="flex w6 h6"/></Button>
+        <Button><AddIcon className="flex w6 h6"/></Button>
     </Story>
 </Preview>
 
@@ -135,7 +166,7 @@ A circular button can vary in size.
 
 <Preview>
     <Story name="icon tiny circular">
-        <div className="flex flex-row">
+        <div className="flex flex-row items-start">
             <Button icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
@@ -190,24 +221,13 @@ A button can take the width of its container.
 
 ## Heights
 
-Apart from the 40px default height, buttons can be shorter or taller.
-
-### Short
-
-Short buttons are 32px high.
+Apart from their default height, buttons can be shorter or taller.
 
 <Preview>
     <Story name="height short">
-        <Button className="short">Short</Button>
-    </Story>
-</Preview>
-
-### Tall
-
-Tall buttons are 48px high.
-
-<Preview>
-    <Story name="height tall">
-        <Button className="tall">Tall button</Button>
+        <div className="flex flex-row items-start">
+            <Button className="short">Short</Button>
+            <Button className="tall">Tall button</Button>
+        </div>
     </Story>
 </Preview>

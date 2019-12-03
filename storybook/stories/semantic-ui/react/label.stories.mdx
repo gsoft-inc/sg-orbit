@@ -2,6 +2,7 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Label" />
 
@@ -12,6 +13,24 @@ import { SemanticLink } from "@components/semantic-link";
 # Label
 
 A label.
+
+## Installation
+
+<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary>then import what you need</summary>
+
+```javascript
+    import { Button, Icon, Label } from "semantic-ui-react";
+```
+</details>
 
 ## Standard
 
