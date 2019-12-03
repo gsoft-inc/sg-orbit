@@ -31,9 +31,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 ```
 </details>
 
-## Default
-
-### Standard
+## Standard
 
 A box for checking.
 
@@ -45,7 +43,7 @@ A box for checking.
 
 ### Checked
 
-A checkbox can be checked.
+A Checkbox can be checked.
 
 <Preview>
     <Story name="standard checked">
@@ -55,7 +53,7 @@ A checkbox can be checked.
 
 ### Disabled
 
-A checkbox can be disabled.
+A Checkbox can be disabled.
 
 <Preview>
     <Story name="standard disabled">
@@ -63,9 +61,11 @@ A checkbox can be disabled.
     </Story>
 </Preview>
 
+## Variations
+
 ### Indeterminate
 
-A checkbox can be indeterminate.
+A Checkbox can be indeterminate.
 
 <Preview>
     <Story name="indeterminate">
@@ -73,11 +73,9 @@ A checkbox can be indeterminate.
     </Story>
 </Preview>
 
-## Toggle
+### Toggle
 
-A checkbox can toggle.
-
-### Standard
+A Checkbox can toggle.
 
 <Preview>
     <Story name="toggle">
@@ -85,19 +83,9 @@ A checkbox can toggle.
     </Story>
 </Preview>
 
-### Disabled
-
-<Preview>
-    <Story name="toggle disabled">
-        <Checkbox toggle disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-## Radio
+### Radio
 
 A checkbox can be formatted as a radio element. This means it is an exclusive option.
-
-### Standard
 
 <Preview>
     <Story name="radio">
@@ -105,15 +93,7 @@ A checkbox can be formatted as a radio element. This means it is an exclusive op
     </Story>
 </Preview>
 
-### Disabled
-
-<Preview>
-    <Story name="radio disabled">
-        <Checkbox radio disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-## Radio Group
+### Radio Group
 
 Radios in a group must be controlled components.
 
@@ -131,11 +111,9 @@ Radios in a group must be controlled components.
     </Story>
 </Preview>
 
-## Variations
-
 ### Fitted
 
-A fitted checkbox does not leave padding for a label.
+A fitted Checkbox does not leave padding for a label.
 
 <Preview>
     <Story name="fitted">
@@ -149,6 +127,36 @@ A fitted checkbox does not leave padding for a label.
             <div>
                 <Checkbox radio />
             </div>
+        </div>
+    </Story>
+</Preview>
+
+## States
+
+### Checked
+
+A Checkbox can be selected.
+
+<Preview>
+    <Story name="variations states checked">
+        <div className="flex">
+            <Checkbox indeterminate checked label="Milky Way" />
+            <Checkbox toggle checked label="Milky Way"/>
+            <Checkbox radio checked label="Milky Way"/>
+        </div>
+    </Story>
+</Preview>
+
+### Disabled
+
+A Checkbox can be non interactive.
+
+<Preview>
+    <Story name="variations states disabled">
+        <div className="flex">
+            <Checkbox disabled indeterminate label="Milky Way" />
+            <Checkbox disabled toggle label="Milky Way"/>
+            <Checkbox disabled radio label="Milky Way"/>
         </div>
     </Story>
 </Preview>

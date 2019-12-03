@@ -68,19 +68,25 @@ A button can show it is currently unable to be interacted with.
 
 A button can be formatted to show different levels of emphasis.
 
-### Primary
-
 <Preview>
-    <Story name="primary">
-        <Button primary>Cutoff</Button>
+    <Story name="emphasis">
+        <div className="flex">
+            <Button primary>Primary</Button>
+            <Button secondary>Secondary</Button>
+        </div>
     </Story>
 </Preview>
 
-### Secondary
+### States
 
 <Preview>
-    <Story name="secondary">
-        <Button secondary>Cutoff</Button>
+    <Story name="emphasis states">
+        <div className="flex">
+            <Button primary disabled>Primary</Button>
+            <Button secondary disabled>Secondary</Button>
+            <Button primary active>Primary</Button>
+            <Button secondary active>Secondary</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -90,7 +96,23 @@ The basic button has a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <Button basic>Cutoff</Button>
+        <div className="flex">
+            <Button basic>Cutoff</Button>
+            <Button basic primary>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### States
+
+<Preview>
+    <Story name="basic states">
+        <div className="flex">
+            <Button basic disabled>Cutoff</Button>
+            <Button basic active>Cutoff</Button>
+            <Button basic primary disabled>Cutoff</Button>
+            <Button basic primary active>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -98,22 +120,21 @@ The basic button has a subtle appearance.
 
 A button can be formatted to appear on a dark background.
 
-### Default
-
-<Preview>
-    <Story name="inverted">
-        <div className="bg-marine-700 pa3">
-            <Button inverted>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-### Primary
-
 <Preview>
     <Story name="inverted primary">
         <div className="bg-marine-700 pa3">
             <Button primary inverted>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### States
+
+<Preview>
+    <Story name="inverted states">
+        <div className="bg-marine-700 pa3 flex">
+            <Button primary inverted disabled>Cutoff</Button>
+            <Button primary inverted active>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -124,13 +145,27 @@ Ghost buttons takes the same space as a standard button, but have no basic colou
 
 <Preview>
     <Story name="ghost">
-        <Button className="ghost">Cutoff</Button>
+        <div className="flex">
+            <Button className="ghost">Cutoff</Button>
+            <Button className="ghost" primary>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### States
+
+<Preview>
+    <Story name="ghost states">
+        <div className="flex">
+            <Button className="ghost" disabled>Cutoff</Button>
+            <Button className="ghost" active>Cutoff</Button>
+            <Button className="ghost" disabled primary>Cutoff</Button>
+            <Button className="ghost" active primary>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
 ## Icon
-
-### Standard
 
 A button can contain an icon.
 
@@ -140,7 +175,20 @@ A button can contain an icon.
     </Story>
 </Preview>
 
-### Icon Only
+### States
+
+<Preview>
+    <Story name="icon states">
+        <div className="flex">
+            <Button icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            <Button icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Variations
+
+#### Icon Only
 
 A button can only contain an icon.
 
@@ -189,6 +237,27 @@ A button can show a loading indicator.
     </Story>
 </Preview>
 
+### States
+
+<Preview>
+    <Story name="icon loading states">
+        <div className="flex flex-column">
+            <div className="flex">
+                <Button disabled loading>Loading</Button>
+                <Button disabled loading primary>Loading</Button>
+                <Button disabled loading basic>Loading</Button>
+                <Button disabled loading basic primary>Loading</Button>
+            </div>
+            <div className="flex">
+                <Button active loading>Loading</Button>
+                <Button active loading primary>Loading</Button>
+                <Button active loading basic>Loading</Button>
+                <Button active loading basic primary>Loading</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ## Success
 
 A button can hint towards a positive consequence.
@@ -199,6 +268,17 @@ A button can hint towards a positive consequence.
     </Story>
 </Preview>
 
+### States
+
+<Preview>
+    <Story name="success states">
+        <div className="flex">
+            <Button positive disabled>Cutoff</Button>
+            <Button positive active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
 ## Negative
 
 A button can hint towards a negative consequence.
@@ -206,6 +286,17 @@ A button can hint towards a negative consequence.
 <Preview>
     <Story name="negative">
         <Button negative>Cutoff</Button>
+    </Story>
+</Preview>
+
+### States
+
+<Preview>
+    <Story name="negative states">
+        <div className="flex">
+            <Button negative disabled>Cutoff</Button>
+            <Button negative active>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 

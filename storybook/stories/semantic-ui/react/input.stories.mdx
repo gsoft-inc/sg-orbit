@@ -67,17 +67,10 @@ An input can be formatted with an icon.
 
 <Preview>
     <Story name="icon">
-        <Input icon="search" placeholder="Search..." />
-    </Story>
-</Preview>
-
-### Left Aligned
-
-An icon can be positionned to the left.
-
-<Preview>
-    <Story name="icon left align">
-        <Input iconPosition="left" icon="search" placeholder="Search..." />
+        <div className="flex flex-column mw5">
+            <Input icon="search" placeholder="Search..." />
+            <Input iconPosition="left" icon="search" placeholder="Search..." />
+        </div>
     </Story>
 </Preview>
 
@@ -87,15 +80,10 @@ An icon input field can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
-        <Input loading icon="search" placeholder="Search..." />
-    </Story>
-</Preview>
-
-### Left Aligned
-
-<Preview>
-    <Story name="loading left">
-        <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+        <div className="flex flex-column mw5">
+            <Input loading icon="search" placeholder="Search..." />
+            <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+        </div>
     </Story>
 </Preview>
 
