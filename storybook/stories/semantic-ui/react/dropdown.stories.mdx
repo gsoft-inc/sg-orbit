@@ -15,7 +15,7 @@ A dropdown.
 
 ## Installation
 
-<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+<details><summary className="outline-0">install the packages</summary>
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
@@ -24,14 +24,14 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 ```
 </details>
 
-<details><summary>then import what you need</summary>
+<details><summary className="outline-0">then import what you need</summary>
 
 ```javascript
     import { Dropdown } from "semantic-ui-react";
 ```
 </details>
 
-## Standard
+## Usage
 
 ### Default
 
@@ -59,7 +59,7 @@ A dropdown can be used to select between choices in a form.
     </Story>
 </Preview>
 
-### Disabled
+#### Disabled
 
 A disabled dropdown menu does not allow user interaction.
 
@@ -86,7 +86,34 @@ A disabled dropdown menu does not allow user interaction.
     </Story>
 </Preview>
 
-## Complex
+### Size
+
+A dropdown can be small.
+
+<Preview>
+    <Story name="height">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            className="small"
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Complex
 
 <Preview>
     <Story name="complex">
@@ -154,33 +181,6 @@ A disabled dropdown menu does not allow user interaction.
                         src: "https://randomuser.me/api/portraits/women/14.jpg",
                         size: "mini"
                     }
-                }
-            ]}
-        />
-    </Story>
-</Preview>
-
-## Size
-
-A dropdown can be small.
-
-<Preview>
-    <Story name="height">
-        <Dropdown
-            placeholder="Gender"
-            fluid
-            selection
-            className="small"
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
                 }
             ]}
         />

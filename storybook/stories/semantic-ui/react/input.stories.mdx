@@ -13,7 +13,7 @@ import { INSTALLATION_PAGE } from "@stories/pages";
 
 ## Installation
 
-<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+<details><summary className="outline-0">install the packages</summary>
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
@@ -22,14 +22,14 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 ```
 </details>
 
-<details><summary>then import what you need</summary>
+<details><summary className="outline-0">then import what you need</summary>
 
 ```javascript
     import { Input } from "semantic-ui-react";
 ```
 </details>
 
-## Standard
+## Usage
 
 ### Default
 
@@ -41,7 +41,7 @@ A standard input field.
     </Story>
 </Preview>
 
-### Focus
+#### Focus
 
 An input field can show a user is currently interacting with it.
 
@@ -51,7 +51,7 @@ An input field can show a user is currently interacting with it.
     </Story>
 </Preview>
 
-### Disabled
+#### Disabled
 
 An input field can show that it is disabled.
 
@@ -61,33 +61,41 @@ An input field can show that it is disabled.
     </Story>
 </Preview>
 
-## Icon
+### Icon
 
 An input can be formatted with an icon.
 
 <Preview>
     <Story name="icon">
         <div className="flex flex-column mw5">
-            <Input icon="search" placeholder="Search..." />
-            <Input iconPosition="left" icon="search" placeholder="Search..." />
+            <div className="mb4">
+                <Input icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
         </div>
     </Story>
 </Preview>
 
-## Loading
+### Loading
 
 An icon input field can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
         <div className="flex flex-column mw5">
-            <Input loading icon="search" placeholder="Search..." />
-            <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+            <div className="mb4">
+                <Input loading icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
         </div>
     </Story>
 </Preview>
 
-## Error
+### Error
 
 An input field can show that the data contains errors.
 
@@ -97,7 +105,7 @@ An input field can show that the data contains errors.
     </Story>
 </Preview>
 
-## Success
+### Success
 
 An input field can show that the data has been validated.
 
@@ -107,7 +115,7 @@ An input field can show that the data has been validated.
     </Story>
 </Preview>
 
-## Fluid
+### Fluid
 
 An input can take all the width it can.
 
@@ -117,7 +125,7 @@ An input can take all the width it can.
     </Story>
 </Preview>
 
-## Transparent
+### Transparent
 
 An input can be transparent.
 

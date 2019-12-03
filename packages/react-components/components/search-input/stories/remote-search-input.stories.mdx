@@ -22,7 +22,7 @@ import { paramsBuilder } from "@utils/params-builder";
 
 ## Installation
 
-<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+<details><summary className="outline-0">install the packages</summary>
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
@@ -31,7 +31,7 @@ npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachy
 ```
 </details>
 
-<details><summary>then import what you need</summary>
+<details><summary className="outline-0">then import what you need</summary>
 
 ```javascript
 import {
@@ -68,7 +68,7 @@ The easiest way to fetch data is by using the `useDefaultResultsFetcher(url, que
 />
 ```
 
-<details><summary>or you can write a custom one</summary>
+<details><summary className="outline-0">or you can write a custom one</summary>
 
 A custom results fetcher must returned a `Promise` that resolved to an array of data.
 
@@ -105,7 +105,7 @@ To create a result, use the `searchInputResult(id, text, obj?)` function:
 />
 ```
 
-<details><summary>specify optional data</summary>
+<details classNam="outline-0"><summary className="outline-0">specify optional data</summary>
 
 An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
 
