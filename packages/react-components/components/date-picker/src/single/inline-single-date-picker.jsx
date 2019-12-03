@@ -120,7 +120,15 @@ export class InlineSingleDatePicker extends PureComponent {
 
     static defaultProps = {
         input: <InlineSingleDatePickerInput />,
-        placeholder: "pick a date"
+        placeholder: "pick a date",
+        // ** All the following default props belong to the single date picker but there is no way to share them currently. **
+        allowClear: true,
+        dateFormat: "MMM Do YYYY",
+        numberOfMonths: 1,
+        calendar: <SingleDatePickerCalendar />,
+        buttons: <SingleDatePickerButtons />,
+        disabled: false
+        // ** End **
     };
 
     // Expose sub-components.
