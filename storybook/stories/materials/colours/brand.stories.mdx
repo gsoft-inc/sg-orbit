@@ -1,5 +1,6 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta
     title="Materials|Colours/brand"
@@ -13,11 +14,23 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Anchor storyId="materials-colours-brand--sunray" />
 
-# Colours
-
-## Brand
+# Brand
 
 These are used to accentuate a product colour.
+
+## Installation
+
+<details><summary className="outline-0">Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
+## Usage
 
 <Story name="sunray">
     <div className="mw7">

@@ -1,5 +1,6 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta
     title="Materials|Environment"
@@ -15,6 +16,20 @@ import { paramsBuilder } from "@utils/params-builder";
 # Shadows
 
 Shadows denote a certain elevation on an element.
+
+## Installation
+
+<details><summary className="outline-0">Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
+## Usage
 
 <Story name="shadows">
     <div>
