@@ -42,50 +42,34 @@ A basic label.
     </Story>
 </Preview>
 
-## Icon
-
-A label can include an icon.
-
-<Preview>
-    <Story name="icon">
-        <Label>
-        Notification Sent <Icon name="search" />
-        </Label>
-    </Story>
-</Preview>
-
 ## Icons
 
-A label can include an icon on each sides.
+A label can include icons.
 
 <Preview>
     <Story name="icons">
-        <Label>
-            <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-    Notification Sent <Icon name="search" />
-        </Label>
+        <div className="flex">
+            <Label>
+            Notification Sent <Icon name="search" />
+            </Label>
+            <Label>
+                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+        Notification Sent <Icon name="search" />
+            </Label>
+        </div>
     </Story>
 </Preview>
 
 ### Sizes
 
-#### Small
-
-A label can be small.
+A label can vary in size.
 
 <Preview>
-    <Story name="small">
-        <Label size="small">Notification Sent</Label>
-    </Story>
-</Preview>
-
-#### Large
-
-A label can be large.
-
-<Preview>
-    <Story name="large">
-        <Label size="large">Notification Sent</Label>
+    <Story name="sizes">
+        <div className="flex items-start">
+            <Label size="small">Notification Sent</Label>
+            <Label size="large">Notification Sent</Label>
+        </div>
     </Story>
 </Preview>
 
@@ -154,45 +138,38 @@ A tag consist of an icon/label in a label.
     </Story>
 </Preview>
 
-### With icon
+### Icons
 
-A tag can contain an icon.
-
-<Preview>
-    <Story name="tag icon">
-        <Label>
-            <Label circular empty size="mini" color="red" />
-            Group added
-            <Button icon circular size="tiny" className="transparent">
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
-            </Button>
-        </Label>
-    </Story>
-</Preview>
-
-### With icons
-
-A tag can contain two icons.
+A tag can contain icons.
 
 <Preview>
     <Story name="tag icons">
-        <Label>
-            <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-        Group added
-            <Button icon circular size="tiny" className="transparent">
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
-            </Button>
-        </Label>
+        <div className="flex items-start">
+            <Label>
+                <Label circular empty size="mini" color="red" />
+                Group added
+                <Button icon circular size="tiny" className="transparent">
+                    <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(45 7.207 4.793)">
+                            <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                            <rect x="5" y=".828" width="2" height="12" rx="1" />
+                        </g>
+                    </svg>
+                </Button>
+            </Label>
+            <Label>
+                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+            Group added
+                <Button icon circular size="tiny" className="transparent">
+                    <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(45 7.207 4.793)">
+                            <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                            <rect x="5" y=".828" width="2" height="12" rx="1" />
+                        </g>
+                    </svg>
+                </Button>
+            </Label>
+        </div>
     </Story>
 </Preview>
 
@@ -209,28 +186,21 @@ A tag can reduce its complexity.
     </Story>
 </Preview>
 
-### Sizes
+### Height
 
-A tag can vary in size.
-
-#### Small
+A tag can vary in height.
 
 <Preview>
-    <Story name="tag size small">
-        <Label size="small">
-            <Label circular empty size="mini" color="red" />
-        Group added
-        </Label>
-    </Story>
-</Preview>
-
-#### Large
-
-<Preview>
-    <Story name="tag size large">
-        <Label size="large">
-            <Label circular empty size="mini" color="red" />
-        Group added
-        </Label>
+    <Story name="tag heights">
+        <div className="flex items-start">
+            <Label size="small">
+                <Label circular empty size="mini" color="red" />
+            Group added
+            </Label>
+            <Label size="large">
+                <Label circular empty size="mini" color="red" />
+            Group added
+            </Label>
+        </div>
     </Story>
 </Preview>
