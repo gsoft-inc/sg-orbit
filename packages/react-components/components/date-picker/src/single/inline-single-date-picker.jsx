@@ -9,7 +9,7 @@ import { mergeClasses } from "@orbit-ui/react-components-shared";
 import { momentObj as momentType } from "react-moment-proptypes";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
-export const SINGLE_DATE_PICKER_PROP_TYPES = {
+const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * A controlled date value.
      */
