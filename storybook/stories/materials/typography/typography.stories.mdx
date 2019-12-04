@@ -1,4 +1,4 @@
-import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@utils/params-builder";
 import { INSTALLATION_PAGE } from "@stories/pages";
 
@@ -31,7 +31,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons
 
 ### Font Size
 
-Font sizes are based on a scale of 9
+Font sizes are based on a scale principle.
 
 | Scale | Value           | Class |
 | :---- | :-------------- | :---- |
@@ -45,29 +45,25 @@ Font sizes are based on a scale of 9
 | 8     | 0.875rem (14px) | f8    |
 | 9     | 0.75rem (12px)  | f9    |
 
-## Font Sizes - Playground
+<Preview>
+    <Story name="font size">
+        <div>
+            <h1 className="f1 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f2 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f3 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f4 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f5 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f6 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f7 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f8 pa0 ma0">Space Flight Programs</h1>
+            <h1 className="f9 pa0 ma0">Space Flight Programs</h1>
+        </div>
+    </Story>
+</Preview>
 
-<Story name="font sizes">
-    <div>
-        <h1 className="f1 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f2 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f3 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f4 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f5 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f6 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f7 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f8 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f9 pa0 ma0">Space Flight Programs</h1>
-    </div>
-</Story>
+### Line Height
 
-## Line Heights
-
-There is 6 line heights available to you, these are based on a scale principle.
-
-## Line Height Scale
-
-Line heights are based on a scale of 6
+Line heights are based on a scale principle.
 
 | Scale | Value        | Class |
 | :---- | :----------- | :---- |
@@ -78,30 +74,43 @@ Line heights are based on a scale of 6
 | 5     | 1.4285714286 | lh5   |
 | 6     | 1.5          | lh6   |
 
-## Line Heights - Playground
+<Preview>
+    <Story name="line height">
+        <div>
+            <h1 className="lh1 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh2 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh3 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh4 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh5 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh6 bb b--marine-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+        </div>
+    </Story>
+</Preview>
 
-Refer to table of usage in order to determinate which line height to use
+### Font Weight
 
-<Story name="line heights">
-    <div>
-        <h1 className="lh1">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh2">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh3">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh4">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh5">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh6">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-    </div>
-</Story>
+Prefer using numeral font weights.
 
-## Font Weights
+| Value | Class |
+|-:-----|-:-----|
+| 100   | fw1   |
+| 300   | fw3   |
+| 400   | fw4   |
+| 500   | fw5   |
+| 600   | fw6   |
+| 700   | fw7   |
+| 900   | fw9   |
 
-Refrain from using font-weight bold, prefer using numeral font weights
-
-<Story name="font weights">
-    <div>
-        <h1 className="f3 fw3">300 - Space Flight Program</h1>
-        <h1 className="f3 fw4">400 - Space Flight Program</h1>
-        <h1 className="f3 fw5">500 - Space Flight Program</h1>
-        <h1 className="f3 fw6">600 - Space Flight Program</h1>
-    </div>
-</Story>
+<Preview>
+    <Story name="font weight">
+        <div>
+            <h1 className="f3 fw1">100 - Space Flight Program</h1>
+            <h1 className="f3 fw3">300 - Space Flight Program</h1>
+            <h1 className="f3 fw4">400 - Space Flight Program</h1>
+            <h1 className="f3 fw5">500 - Space Flight Program</h1>
+            <h1 className="f3 fw6">600 - Space Flight Program</h1>
+            <h1 className="f3 fw7">700 - Space Flight Program</h1>
+            <h1 className="f3 fw9">900 - Space Flight Program</h1>
+        </div>
+    </Story>
+</Preview>
