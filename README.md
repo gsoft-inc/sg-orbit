@@ -33,8 +33,6 @@ https://sg-orbit.netlify.com
 
 The storybook website contains stories for Orbit UI custom React components.
 
-Every components will contains a **play** and a **specs** directory. You should only use the **play** directory. The **specs** directory is for automated visual testing.
-
 https://sg-storybook.netlify.com
 
 ## npm packages
