@@ -179,7 +179,7 @@ export class DatePickerCalendar extends PureComponent {
                 <style jsx>{`
                     .calendar {
                         border-radius: var(--scale-alpha);
-                        box-shadow: var(--shadow-5);
+                        box-shadow: var(--shadow-200);
                         background-color: var(--white);
                     }
 

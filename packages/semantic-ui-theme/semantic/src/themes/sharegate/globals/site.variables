@@ -470,8 +470,8 @@
 /*-------------------
         Shadows
 --------------------*/
-@shadow4                : var(--shadow-4);
-@shadow5                : var(--shadow-5);
+@shadow100                : var(--shadow-100);
+@shadow200                : var(--shadow-200);
 
 /*-------------------
         Paths
