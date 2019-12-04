@@ -98,15 +98,29 @@ details + details {
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 600;
-    font-size: 1.25em;
+    font-size: 1.125rem;
 }
+
+.sbdocs.sbdocs-table td {
+    font-size: 1rem;
+}
+
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
     border: 1px solid var(--cloud-100);
 }
 
+.sbdocs.sbdocs-table b,
+.sbdocs.sbdocs-table strong {
+    font-weight: 600;
+}
+
+.sbdocs.sbdocs-li {
+    font-size: 1rem;
+}
+
 .sbdocs .tabbutton[role="tab"] {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--cloud-500);
 }

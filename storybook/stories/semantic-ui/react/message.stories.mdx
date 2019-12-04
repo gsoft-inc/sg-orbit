@@ -1,8 +1,8 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Message } from "semantic-ui-react";
+import { INSTALLATION_PAGE } from "@stories/pages";
 import { SemanticLink } from "@components/semantic-link";
 import { noop } from "lodash";
-import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Message" />
 
@@ -16,20 +16,19 @@ A message displays information that explains nearby content.
 
 ## Installation
 
-<details><summary >install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
-```
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
 </details>
 
-<details><summary >then import what you need</summary>
-
-```javascript
-    import { Message } from "semantic-ui-react";
-```
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Message } from &quot;semantic-ui-react&quot;;
+    ```
 </details>
 
 ## Usage
