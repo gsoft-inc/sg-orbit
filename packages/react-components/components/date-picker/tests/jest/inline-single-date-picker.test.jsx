@@ -1,3 +1,5 @@
+/* eslint-disable jest/no-export */
+
 import { CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, DATE_FORMAT } from "./shared";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
