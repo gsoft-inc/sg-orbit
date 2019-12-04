@@ -253,7 +253,8 @@ export class Popup extends AutoControlledPureComponent {
             //
             // The "handleOutsideClick" is called when we click outside the popup, but the final "handleBlur" was never called.
             // When trying to write a unit test to repro the issue we had, the test was always successful, since the test was firing the "handleBlur" properly.
-            if(this._hasFocus) {
+            // Currently we do not have any tests for this use case.
+            if (this._hasFocus) {
                 this._hasFocus = false;
 
                 if (open && closeOnBlur) {
