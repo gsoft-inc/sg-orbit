@@ -2,6 +2,7 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox, Form } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
 import { INSTALLATION_PAGE } from "@stories/pages";
+import { ControlledRadioGroup } from "./components/controlled-radio-group";
 
 <Meta title="Components|Checkbox" />
 
@@ -131,15 +132,7 @@ Radios in a group must be controlled components.
 
 <Preview>
     <Story name="radio group">
-        <Form>
-            <Form.Field>Where are you heading?</Form.Field>
-            <Form.Field>
-                <Checkbox radio label="Mars" name="checkboxRadioGroup" value="mars" />
-            </Form.Field>
-            <Form.Field>
-                <Checkbox radio label="Moon" name="checkboxRadioGroup" value="moon" />
-            </Form.Field>
-        </Form>
+        <ControlledRadioGroup />
     </Story>
 </Preview>
 
