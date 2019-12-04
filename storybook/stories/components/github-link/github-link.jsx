@@ -9,12 +9,16 @@ const propTypes = {
     filePath: string.isRequired
 };
 
-export function GithubLink({ filePath }) {
+export function getGithubUrl(filePath) {
     const processedFilePath = filePath.startsWith("/") ? filePath : `/${filePath}`;
 
+    return `${GITHUB_REPOSITORY_URL}${processedFilePath}`;
+}
+
+export function GithubLink({ filePath }) {
     return (
         <div className={styles.iconWrapper}>
-            <a href={`${GITHUB_REPOSITORY_URL}${processedFilePath}`} target="_blank" rel="noopener noreferrer" className="ml2"><GithubIcon className={styles.icon} /></a>
+            <a href={getGithubUrl(filePath)} target="_blank" rel="noopener noreferrer" className="ml2"><GithubIcon className={styles.icon} /></a>
         </div>
 
     );
