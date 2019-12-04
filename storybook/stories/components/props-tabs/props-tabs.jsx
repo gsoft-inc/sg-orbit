@@ -44,7 +44,7 @@ export function PropsTabs({ componentsDefinitions }) {
 
     return (
         <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
-            <div className={state.isVisible ? "mb7" : "mb3"}>
+            <div className={state.isVisible ? "mb5" : "mb3"}>
                 <Checkbox
                     label={`View component${hasMultipleComponents ? "s" : ""} props`}
                     checked={state.isVisible}
