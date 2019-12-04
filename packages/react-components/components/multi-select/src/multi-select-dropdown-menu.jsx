@@ -1,18 +1,59 @@
 import { Dropdown } from "semantic-ui-react";
-import { ITEM_SHAPE } from "./items";
 import { PureComponent, cloneElement } from "react";
 import { arrayOf, func, node, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
 
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
+
 export class MultiSelectDropdownMenu extends PureComponent {
     static propTypes = {
+        /**
+         * Items to display.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Called on item click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {{ text: string, value: string }} data - Menu item data.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onItemClick: func,
+        /**
+         * Render an item.
+         * @param {Item} item - Item to render.
+         * @param {boolean} isSelected - Whether or not the item is selected.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         itemRenderer: func,
+        /**
+         * Render an header (also called a category).
+         * @param {string} text - Header text.
+         * @param {Item[]} items - Items under the header.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         headerRenderer: func,
+        /**
+         * A custom React component to enter a search input.
+         */
         searchInput: node,
+        /**
+         * Message to display when there are no items matching the search input.
+         */
         noResultsMessage: string,
+        /**
+         * A controlled item selected from the keyboard.
+         */
         keyboardItem: shape(ITEM_SHAPE),
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -23,7 +64,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     handleItemClick = (event, data) => {
         const { onItemClick } = this.props;
 
-        onItemClick(event, data, this.props);
+        onItemClick(event, { text: data.text, value: data.value }, this.props);
     }
 
     setItemWidth = element => {

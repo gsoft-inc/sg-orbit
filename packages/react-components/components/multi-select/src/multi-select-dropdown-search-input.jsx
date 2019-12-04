@@ -1,13 +1,29 @@
 import { Input, Ref } from "semantic-ui-react";
 import { PureComponent, createRef } from "react";
 import { func, node, string } from "prop-types";
-import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
     static propTypes = {
+        /**
+         * Called on text change.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} value - New value.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onChange: func,
+        /**
+         * A custom React SVG component displayed before the text.
+         */
         icon: node,
+        /**
+         * The placeholder text.
+         */
         placeholder: string,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -22,9 +38,10 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "colored";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "colored",
+            className
+        );
     }
 
     render() {

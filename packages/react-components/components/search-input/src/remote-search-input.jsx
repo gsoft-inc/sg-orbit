@@ -41,7 +41,7 @@ function defaultResultsFetcher(event, url, data, options) {
  * @param {Object} [options.queryData] - Additional query data.
  * @param {Object} [options.requestOptions]
  * @param {number} [options.requestOptions.timeout] - Query timeout value in milliseconds.
- * @param {Object} [options.requestOptions.*] - Any fetch API options.
+ * @param {Object} [options.requestOptions.*] - Any fetch API options: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  * @returns {Function} - The fetcher instance
  */
 export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
@@ -63,30 +63,137 @@ function isPromise(value) {
 
 export class RemoteSearchInput extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * A controlled value property.
+         */
         value: string,
+        /**
+         * Initial value.
+         */
         defaultValue: string,
+        /**
+         * Called when the value change.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} value - Selected value.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onValueChange: func.isRequired,
+        /**
+         * Called when a fetch event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} query - Search query that triggered the search.
+         * @param {Object} props - All the props.
+         * @returns {Promise} - Promise resolved with the results to display or reject if the HTTP call fail.
+         */
         onFetchResults: func.isRequired,
+        /**
+         * Called after a fetch.
+         * @param {Result[]} results - Results returned by the fetch call.
+         * @param {string} query - Search query that triggered the search.
+         * @param {Object} props - All the props.
+         * @returns {Result[]} - Results to display.
+         */
         onResults: func,
+        /**
+         * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClear: func,
+        /**
+         * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onBlur: func,
+        /**
+         * Called when a click happens outside the search input.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOutsideClick: func,
+        /**
+         * Called on keydown.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onKeyDown: func,
+        /**
+         * Called when the search results open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the search input results are visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onVisibilityChange: func,
+        /**
+         * Render a result.
+         * @param {Object} result - Result to render.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         resultRenderer: func,
+        /**
+         * Whether or not the query should be cleared when a result is selected.
+         */
         clearOnSelect: bool,
+        /**
+         * Message to display when there are no results matching the query.
+         */
         noResultsMessage: string,
+        /**
+         * Delay before initiating a search when the query change.
+         */
         debounceDelay: number,
+        /**
+         * Delay before displaying the loading indicator.
+         */
         loadingDelay: number,
+        /**
+         * Minimum characters to query for results.
+         */
         minCharacters: number,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the search results are displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled search input does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the search input should focus on render.
+         */
         autofocus: bool,
+        /**
+         * Delay before trying to autofocus.
+         */
         autofocusDelay: number,
+        /**
+         * Whether or not the search results should close when the search input loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the search results should close when a click happens outside the search input.
+         * Requires `closeOnBlur` to be `false`.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

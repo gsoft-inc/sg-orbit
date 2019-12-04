@@ -1,14 +1,25 @@
 import { Button, Ref } from "semantic-ui-react";
 import { PureComponent, createRef } from "react";
 import { func, string } from "prop-types";
-import { isNil } from "lodash";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
+        /**
+         * The button text.
+         */
         text: string,
+        /**
+         * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -18,14 +29,15 @@ export class MultiSelectClearButton extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleClick = useHandlerProxy(this, "onClick", false);
+    handleClick = withHandlerProxy(this, "onClick", false);
 
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "ghost tall";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "ghost tall",
+            className
+        );
     }
 
     render() {

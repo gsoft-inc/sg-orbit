@@ -1,7 +1,6 @@
 import { Button, Ref } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
-import { InputCalendarIcon } from "./assets";
-import { KEYS, isNullOrEmpty, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { CalendarIcon, CancelIcon } from "@orbit-ui/icons";
+import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -33,9 +32,11 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     static defaultProps = {
-        icon: <InputCalendarIcon className="w6 h6 fill-marine-700" />,
+        allowClear: true,
+        icon: <CalendarIcon className="w7 h7 fill-marine-700" />,
         clearIcon: <CancelIcon className="h3 w3" />,
-        disabledIcon: <InputCalendarIcon className="w6 h6 fill-cloud-500" />,
+        disabledIcon: <CalendarIcon className="w7 h7 fill-cloud-500" />,
+        disabled: false,
         placeholder: "Pick a date"
     };
 
@@ -122,21 +123,20 @@ export class DatePickerTextboxInput extends PureComponent {
         }
     }
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
-    handleClearButtonClick = useHandlerProxy(this, "onClear");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
+    handleClearButtonClick = withHandlerProxy(this, "onClear");
 
     getCssClasses() {
         const { disabled, open, className } = this.props;
 
-        const mainClasses = cx({ " hover-b--marine-600 hover-marine-600 pointer" : !disabled });
-        const openedClasses = open && !disabled ? " b--marine-600 marine-600" : " b--cloud-200 marine-200";
-        const disabledClasses = cx({ " bg-cloud-100 cloud-400 crsr-not-allowed": disabled });
-        const placeholderClasses = cx({ " marine-700": !this.isPlaceholder() && !disabled });
-
-        const defaultClasses = `input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center${mainClasses}${openedClasses}${placeholderClasses}${disabledClasses}`;
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center",
+            open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
+            !this.isPlaceholder() && "marine-600",
+            !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
+            className
+        );
     }
 
     renderIcon() {
@@ -157,7 +157,7 @@ export class DatePickerTextboxInput extends PureComponent {
                 <Ref innerRef={this._clearButtonRef}>
                     <Button
                         circular
-                        size="mini"
+                        size="tiny"
                         primary
                         icon
                         className="transparent"
@@ -188,7 +188,7 @@ export class DatePickerTextboxInput extends PureComponent {
             data-testid="date-picker-textbox-input"
         >
             {this.renderIcon()}
-            <span className="flex-grow-1 ml4" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
+            <span className="flex-grow-1 ml2" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
             {this.renderClearButton()}
 
             <style jsx>{`

@@ -1,0 +1,222 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { ControlledMultiSelect } from "./components";
+import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
+import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
+import { PropsTabs } from "@components/props-tabs";
+import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { logValuesChanged } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta title="Components|Multi Select" />
+
+<GithubLink filePath="/packages/react-components/components/multi-select/src" />
+
+<Anchor storyId="components-multi-select--default-story" />
+
+# MultiSelect
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-multi-select @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react lodash styled-jsx
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+import {
+    MultiSelect,
+    multiSelectItem
+} from "@orbit-ui/react-multi-select" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
+
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "MultiSelect", component: MultiSelect },
+        { displayName: "MultiSelect.Dropdown", component: MultiSelect.Dropdown },
+        { displayName: "MultiSelect.Trigger", component: MultiSelect.Trigger },
+        { displayName: "MultiSelect.Menu", component: MultiSelect.Menu },
+        { displayName: "MultiSelect.SearchInput", component: MultiSelect.SearchInput },
+        { displayName: "MultiSelect.SelectedItems", component: MultiSelect.SelectedItems },
+        { displayName: "MultiSelect.ClearButton", component: MultiSelect.ClearButton }
+    ]}
+/>
+
+## Usage
+
+### multiSelectItem
+
+A multi select component requires a set of items to display. Those items can be specified with the `items` property.
+
+To create an item, use the `multiSelectItem(text, value, category?, obj?)` function:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created");
+```
+
+<details><summary >optional category</summary>
+
+An optional `category` can be specified to group a set of items under a labelled category:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created", "Group Lifecycle");
+const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecycle");
+```
+</details>
+
+<details><summary >specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValuesChange`:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created", undefined, { backendId: 123 });
+```
+</details>
+
+### Default
+
+A basic multi select.
+
+<Preview>
+    <Story name="default">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <MultiSelect
+        items={DEFAULT_ITEMS}
+        // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
+        defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        closeOnSelect={boolean("closeOnSelect", false)}
+        noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
+        triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
+        placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
+        clearText={text("clearText", MultiSelect.defaultProps.clearText)}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        onValuesChange={logValuesChanged}
+    />
+</Story>
+
+### Categories
+
+A multi select can group items under categories.
+
+<Preview>
+    <Story name="categories">
+        <MultiSelect
+            items={DEFAULT_ITEMS_WITH_CATEGORIES}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+### Default values
+
+A multi select can have an initial set of selected items.
+
+<Preview>
+    <Story name="default values">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+### Close on select
+
+A multi select dropdown can close when an item is selected.
+
+<Preview>
+    <Story name="close on select">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            closeOnSelect
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+### Custom search
+
+A multi select can use a custom search handler.
+
+<Preview>
+    <Story name="custom search">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            onSearch={(event, items, query) => {
+                const extraItem = multiSelectItem("(added from custom search)", "custom-search");
+                // eslint-disable-next-line
+                return [extraItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
+            }}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A multi select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <MultiSelect
+            items={DEFAULT_ITEMS}
+            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            disabled
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+
+<Story name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <MultiSelect
+        items={DEFAULT_ITEMS_WITH_CATEGORIES}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValuesChange={logValuesChanged}
+    />
+</Story>
+
+### Controlled
+
+A multi select can handle `values` and `open` state in controlled mode.
+
+<Preview>
+    <Story name="controlled">
+        <ControlledMultiSelect
+            items={DEFAULT_ITEMS}
+            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+            onValuesChange={logValuesChanged}
+        />
+    </Story>
+</Preview>
+

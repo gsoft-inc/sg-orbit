@@ -1,0 +1,156 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Checkbox } from "semantic-ui-react";
+import { ControlledRadioGroup } from "./components/controlled-radio-group";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Checkbox" />
+
+<Anchor storyId="components-checkbox--default-story" />
+
+<SemanticLink docPath="/modules/checkbox/" />
+
+# Checkbox
+
+A checkbox allows a user to select a value from a small set of options, often binary.
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Checkbox } from &quot;semantic-ui-react&quot;;
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A basic checkbox.
+
+<Preview>
+    <Story name="default">
+        <Checkbox label="Milky Way" />
+    </Story>
+</Preview>
+
+### Checked
+
+A checkbox can be checked by default.
+
+<Preview>
+    <Story name="checked">
+        <Checkbox defaultChecked label="Milky Way" />
+    </Story>
+</Preview>
+
+### Indeterminate
+
+A checkbox can be indeterminate.
+
+<Preview>
+    <Story name="indeterminate">
+        <Checkbox defaultIndeterminate label="Milky Way" />
+    </Story>
+</Preview>
+
+### Disabled
+
+A checkbox can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Checkbox disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+## Variations
+
+### Toggle
+
+A checkbox can toggle.
+
+<Preview>
+    <Story name="toggle">
+        <Checkbox toggle label="Milky Way"/>
+    </Story>
+</Preview>
+
+#### Checked
+
+A toggle can be check by default.
+
+<Preview>
+    <Story name="toggle checked">
+        <Checkbox toggle defaultChecked label="Milky Way"/>
+    </Story>
+</Preview>
+
+#### Disabled
+
+A toggle can be disabled.
+
+<Preview>
+    <Story name="toggle disabled">
+        <Checkbox toggle disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+### Radio
+
+A checkbox can be formatted as a radio element. This means it is an exclusive option.
+
+<Preview>
+    <Story name="radio">
+        <Checkbox radio label="Milky Way"/>
+    </Story>
+</Preview>
+
+#### Disabled
+
+A radio element can be disabled.
+
+<Preview>
+    <Story name="radio disabled">
+        <Checkbox radio disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+### Radio Group
+
+Radios in a group must be controlled components.
+
+<Preview>
+    <Story name="radio group">
+        <ControlledRadioGroup />
+    </Story>
+</Preview>
+
+### Fitted
+
+A fitted Checkbox does not leave padding for a label.
+
+<Preview>
+    <Story name="fitted">
+        <div>
+            <div>
+                <Checkbox />
+            </div>
+            <div>
+                <Checkbox toggle />
+            </div>
+            <div>
+                <Checkbox radio />
+            </div>
+        </div>
+    </Story>
+</Preview>

@@ -1,0 +1,114 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
+import { ControlledRedBox, RedBoxPopup } from "./components";
+import { PropsTabs } from "@components/props-tabs";
+import { array, select, withKnobs } from "@storybook/addon-knobs";
+import { paramsBuilder } from "@utils/params-builder";
+import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta title="Components|Popup" />
+
+<GithubLink filePath="/packages/react-components/components/popup/src" />
+
+<Anchor storyId="components-popup--default-story" />
+
+# Popup
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-popup @orbit-ui/tachyons lodash
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+import {
+    Popup,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-popup" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
+
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "Popup", component: Popup }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A basic popup.
+
+<Preview>
+    <Story name="default">
+        <RedBoxPopup />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .marginTop("150px")
+        .excludeFromDocs()
+        .build()}
+>
+    <RedBoxPopup position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })} offsets={array("offsets", ["0px", "0px"])} />
+</Story>
+
+### Position
+
+A popup can be anchored at different positions.
+
+The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+
+<Preview>
+    <Story name="position">
+        <RedBoxPopup position={TOP_LEFT} />
+    </Story>
+</Preview>
+
+### Offsets
+
+A popup can be offset from it's anchored position.
+
+<Preview>
+    <Story name="offsets">
+        <RedBoxPopup offsets={["30px", "30px"]} />
+    </Story>
+</Preview>
+
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <RedBoxPopup closeOnBlur={false} />
+</Story>
+
+### Controlled
+
+A popup can handle `open` state in controlled mode.
+
+<Preview>
+    <Story name="controlled">
+        <ControlledRedBox />
+    </Story>
+</Preview>

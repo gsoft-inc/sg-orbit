@@ -1,10 +1,17 @@
-import { PRESET_SHAPE } from "./presets";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../utils";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const PRESET_SHAPE = {
+    text: string.isRequired,
+    startDate: object.isRequired,
+    endDate: object.isRequired
+};
 
 class Preset extends PureComponent {
     static propTypes = {
@@ -55,13 +62,40 @@ class Preset extends PureComponent {
 
 export class DateRangePickerPresets extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: object,
+        /**
+         * A controlled end date value.
+         */
         endDate: object,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: object,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: object,
+        /**
+         * Called when a preset is selected.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} preset - The selected preset.
+         * @param {object} props - All the props.
+         */
         onSelectPreset: func,
+        /**
+         * Array of pre-determined dates range.
+         */
         presets: arrayOf(shape(PRESET_SHAPE)),
+        /**
+         * A custom React SVG component displayed on top of the presets list.
+         */
         icon: node,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -103,6 +137,15 @@ export class DateRangePickerPresets extends PureComponent {
         return isSameDay(preset.startDate, startDate) && isSameDay(preset.endDate, endDate);
     }
 
+    getCssClasses() {
+        const { className } = this.props;
+
+        return mergeClasses(
+            "presets flex flex-column pt8 ph8 br b--cloud-100",
+            className
+        );
+    }
+
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
@@ -115,14 +158,11 @@ export class DateRangePickerPresets extends PureComponent {
     }
 
     render() {
-        const { presets, icon, className } = this.props;
-
-        const defaultClasses = "presets flex flex-column pt8 ph8 br b--cloud-100";
-        const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        const { presets, icon } = this.props;
 
         if (presets.length > 0) {
             return (
-                <div className={classes}>
+                <div className={this.getCssClasses()}>
                     <div className="self-center mb7">{icon}</div>
                     <ul>{this.renderPresets()}</ul>
 

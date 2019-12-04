@@ -1,0 +1,77 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta
+    title="Materials|Shape"
+    parameters={
+        paramsBuilder()
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<Anchor storyId="materials-shape--radiuses" />
+
+# Shape
+
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
+## Radiuses
+
+An element can have a border radius modifying its shape.
+
+| Scale | Value |
+| :---- | :---- |
+| 1     | 2px   |
+| 2     | 4px   |
+| 3     | 8px  |
+| 4     | 16px  |
+| pill  | 999px |
+| 100   | 100%  |
+| 0     | 0     |
+
+<Preview>
+    <Story name="radiuses">
+        <div className="flex items-end mt8">
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br1 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br1</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br2 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br2</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br3 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br3</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br4 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br4</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h8 br-pill overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br-pill</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br-100 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br-100</span>
+            </div>
+            <div className="mr5 flex flex-column">
+                <div className="w13 h13 br0 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
+                <span className="dib mt1">br0</span>
+            </div>
+        </div>
+    </Story>
+</Preview>

@@ -1,22 +1,5 @@
 # @orbit-ui/semantic-ui-theme
 
-## Usage
-
-In your `main.css`:
-
-Import specific Semantic UI modules:
-
-```css
-@import "~@orbit-ui/semantic-ui-theme/button.css";
-@import "~@orbit-ui/semantic-ui-theme/checkbox.css";
-```
-
-Or import the whole theme:
-
-```css
-@import "~@orbit-ui/semantic-ui-theme";
-```
-
 Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers

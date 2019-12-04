@@ -1,13 +1,13 @@
-import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
 
-function fadeInAnimationRenderer(open, renderContent) {
+function fadeInAnimationRenderer(open, renderContent, styles) {
     return (
-        <FadeIn active={open}>
+        <FadeIn active={open} styles={styles}>
             {renderContent()}
         </FadeIn>
     );
@@ -15,26 +15,96 @@ function fadeInAnimationRenderer(open, renderContent) {
 
 export class Popup extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * A controlled open value that determined whether or not the popup is displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
         defaultOpen: bool,
+        /**
+         * A custom React component to open the popup.
+         */
         trigger: node.isRequired,
+        /**
+         * The content of the popup.
+         */
         children: node.isRequired,
+        /**
+         * The position of the popup relative to the trigger.
+         */
         position: oneOf(POSITIONS).isRequired,
+        /**
+         * An array containing an horizontal and vertical offsets for the popup position.
+         * Ex: ["10px", "-10px"]
+         */
         offsets: arrayOf(string),
+        /**
+         * z-index of the content.
+         */
+        zIndex: string,
+        /**
+         * Called when the popup open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the popup is visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onVisibilityChange: func,
+        /**
+         * Called on window.document keydown when the popup is opened.
+         */
         onDocumentKeyDown: func,
+        /**
+         * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onFocus: func,
+        /**
+         * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onBlur: func,
+        /**
+         * Called on click outside of the popup.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOutsideClick: func,
+        /**
+         * Render the open / close animation.
+         * @param {boolean} open - Whether or not the popup is open.
+         * @param {function} renderContent - Render the content of the popup.
+         * @param {Object} styles - Positioning styles.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         animationRenderer: func,
+        /**
+         * Whether or not the popup should close when the popup loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the popup should close when a click happens outside.
+         * Requires `closeOnBlur` to be `false`.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
     static defaultProps = {
         position: BOTTOM_LEFT,
         offsets: ["0px", "0px"],
+        zIndex: "998",
         animationRenderer: fadeInAnimationRenderer,
         closeOnBlur: true,
         closeOnOutsideClick: false
@@ -59,6 +129,7 @@ export class Popup extends AutoControlledPureComponent {
     _hasFocus = false;
     _triggerRef = createRef();
     _containerRef = createRef();
+    _animateInitialOpening = !this.props.defaultOpen;
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
@@ -69,6 +140,7 @@ export class Popup extends AutoControlledPureComponent {
 
         if (open) {
             this.focusTrigger();
+            this._animateInitialOpening = false;
         }
     }
 
@@ -157,7 +229,7 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick } = this.props;
+        const { onOutsideClick, closeOnOutsideClick, closeOnBlur } = this.props;
 
         if (!this._containerRef.current.contains(event.target)) {
             if (closeOnOutsideClick) {
@@ -166,6 +238,32 @@ export class Popup extends AutoControlledPureComponent {
 
             if (!isNil(onOutsideClick)) {
                 onOutsideClick(event, this.props);
+            }
+
+            // The following lines of code fixes a bug we had, but could be re-thinked because it doesn't address the real issue.
+            //
+            // The fix : if we detect an outside click while the popup is still "focused" in our internal state, we want to make sure that the
+            // popup closes if the closeOnBlur was set to true.
+            //
+            // To repro the issue we had :
+            // 1- In any DatePicker (range, single, inline), open the calendar
+            // 2- select a date or a date range
+            // 3- click the Clear button
+            // 4- click outside the popup
+            //
+            // The "handleOutsideClick" is called when we click outside the popup, but the final "handleBlur" was never called.
+            // When trying to write a unit test to repro the issue we had, the test was always successful, since the test was firing the "handleBlur" properly.
+            // Currently we do not have any tests for this use case.
+            if (this._hasFocus) {
+                this._hasFocus = false;
+
+                if (open && closeOnBlur) {
+                    setTimeout(() => {
+                        if (!this._hasFocus) {
+                            this.close(event);
+                        }
+                    }, 0);
+                }
             }
         }
     };
@@ -207,12 +305,23 @@ export class Popup extends AutoControlledPureComponent {
         return style;
     }
 
+    getOpeningStyle() {
+        const { zIndex } = this.props;
+
+        return {
+            position: "absolute",
+            zIndex,
+            ...this.getPositioningStyle()
+        };
+    }
+
     getCssClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "relative";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "relative",
+            className
+        );
     }
 
     open(event) {
@@ -267,14 +376,31 @@ export class Popup extends AutoControlledPureComponent {
         }
 
         return (
-            <div style={{ position: "absolute", zIndex: 10, ...this.getPositioningStyle() }}>
+            <>
                 {children}
-            </div>
+            </>
         );
     };
 
-    render() {
+    renderContent() {
         const { animationRenderer } = this.props;
+        const { open } = this.state;
+
+        if (this._animateInitialOpening) {
+            return animationRenderer(open, this.renderPopup, this.getOpeningStyle(), this.props);
+        } else {
+            // Subsequent opening should be animated.
+            this._animateInitialOpening = true;
+        }
+
+        return (
+            <div style={{ ...this.getOpeningStyle() }}>
+                {this.renderPopup()}
+            </div>
+        );
+    }
+
+    render() {
         const { open } = this.state;
 
         return (
@@ -289,7 +415,7 @@ export class Popup extends AutoControlledPureComponent {
                     ref={this._containerRef}
                 >
                     {this.renderTrigger()}
-                    {animationRenderer(open, this.renderPopup, this.props)}
+                    {this.renderContent()}
                 </div>
 
                 <If condition={open}>

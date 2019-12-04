@@ -1,0 +1,23 @@
+.story-values {
+    padding: 10px 15px;
+}
+
+.story-values .value {
+    margin-bottom: 5px;
+}
+
+.story-values .string-key {
+    font-weight: 700;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.story-values .object-key {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.story-values pre {
+    margin: 0;
+    padding: 0;
+}

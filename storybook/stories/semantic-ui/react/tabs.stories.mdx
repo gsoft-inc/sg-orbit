@@ -1,0 +1,132 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { Label, Menu, Tab } from "semantic-ui-react";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Tab" />
+
+<Anchor storyId="components-tab--default-story" />
+
+<SemanticLink docPath="/modules/tab/" />
+
+# Tab
+
+A tab is a hidden section of content activated by a Menu.
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Label, Menu, Tab } from &quot;semantic-ui-react&quot;;
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A simple tab.
+
+<Preview>
+    <Story name="default">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: "Star",
+                    render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+                },
+                {
+                    menuItem: "Rocket",
+                    render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+                },
+                {
+                    menuItem: "Galaxy",
+                    render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane>
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Labelled
+
+A tab can include a label to draw attention.
+
+<Preview>
+    <Story name="labelled">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: { key: "users", content: "Users" },
+                    render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
+                },
+                {
+                    menuItem: (
+                        <Menu.Item key="messages" className="with-label">
+          Messages
+                            <Label className="primary" size="tiny">
+            NEW
+                            </Label>
+                        </Menu.Item>
+                    ),
+                    render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Spacing
+
+The tab content spacing can be customized.
+
+<Preview>
+    <Story name="spacing">
+        <Tab
+            menu={{ secondary: true, pointing: true }}
+            panes={[
+                {
+                    menuItem: "Star",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 1 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                },
+                {
+                    menuItem: "Rocket",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 2 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                },
+                {
+                    menuItem: "Galaxy",
+                    render: () => (
+                        <Tab.Pane attached={false}>
+                            <div className="pa8">
+                                <p>Tab 3 Content</p>
+                            </div>
+                        </Tab.Pane>
+                    )
+                }
+            ]}
+        />
+    </Story>
+</Preview>

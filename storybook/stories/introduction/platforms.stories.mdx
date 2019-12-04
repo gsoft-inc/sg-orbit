@@ -1,0 +1,23 @@
+import { GithubLink } from "@components/github-link";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Introduction|Supported Platforms"
+    parameters={
+        paramsBuilder()
+            .sortPriority(-1)
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<GithubLink filePath="/" />
+
+# Supported Platforms
+
+These are the platforms that are supported by Orbit.
+
+| Edge | Chrome | Firefox | Safari | IE |
+|------|--------|---------|--------|----|
+| 17 + | > 76   | 69      | > 12.2 | -  |

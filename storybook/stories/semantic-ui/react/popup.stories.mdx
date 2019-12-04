@@ -1,0 +1,105 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Button, Popup } from "semantic-ui-react";
+import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta title="Components|Popup (SUI)" />
+
+<Anchor storyId="components-popup-sui--default-story" />
+
+<SemanticLink docPath="/modules/popup/" />
+
+# Popup
+
+## Installation
+
+<details>
+    <summary>install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Popup } from &quot;semantic-ui-react&quot;;
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A basic popup.
+
+<Preview>
+    <Story name="default">
+        <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
+    </Story>
+</Preview>
+
+### Basic
+
+A popup can provide more basic formatting.
+
+<Preview>
+    <Story name="basic">
+        <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
+    </Story>
+</Preview>
+
+### Wide
+
+A popup can be wide to allow for longer content.
+
+<Preview>
+    <Story name="wide">
+        <Popup wide content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
+    </Story>
+</Preview>
+
+### Very Wide
+
+A popup can be very wide to allow for longer content.
+
+<Preview>
+    <Story name="very wide">
+        <Popup wide="very" content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." trigger={<Button>Add</Button>} />
+    </Story>
+</Preview>
+
+### Disabled
+
+A disabled popup only renders its trigger.
+
+<Preview>
+    <Story name="disabled">
+        <Popup disabled content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+    </Story>
+</Preview>
+
+### Inverted
+
+A popup can have its colours inverted.
+
+<Preview>
+    <Story name="inverted">
+        <Popup inverted content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+    </Story>
+</Preview>
+
+### Flush
+
+A popup can be offload padding to its child.
+
+<Preview>
+    <Story name="flush">
+        <Popup trigger={<Button>Read</Button>} className="flush">
+            <Popup.Content className="pa10">
+                <div>Hello is it tea you are looking for?</div>
+            </Popup.Content>
+        </Popup>
+    </Story>
+</Preview>

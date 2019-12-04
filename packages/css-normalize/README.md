@@ -1,11 +1,7 @@
 
 # @orbit-ui/css-normalize
 
-## Usage
-
-```css
-@import "~@orbit-ui/css-normalize";
-```
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## License
 

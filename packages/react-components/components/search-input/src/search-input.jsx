@@ -1,8 +1,13 @@
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { RESULT_SHAPE } from "./results";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, shape, string } from "prop-types";
 import { isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const RESULT_SHAPE = {
+    id: string.isRequired,
+    text: string.isRequired
+};
 
 export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
@@ -10,28 +15,119 @@ export function startsWithSearch(event, items, query) {
 
 export class SearchInput extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * Array of results.
+         */
         results: arrayOf(shape(RESULT_SHAPE)).isRequired,
+        /**
+         * A controlled value property.
+         */
         value: string,
+        /**
+         * Initial value.
+         */
         defaultValue: string,
+        /**
+         *  Called when the value change.
+         */
         onValueChange: func.isRequired,
+        /**
+         * Called when the search results open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the search input results are visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onVisibilityChange: func,
+        /**
+         * Called when a search event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Result[]} results - Available results.
+         * @param {string} query - Search query that triggered the search.
+         * @param {Object} props - All the props.
+         * @returns {Result[]} - Results to display.
+         */
         onSearch: func,
+        /**
+         * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClear: func,
+        /**
+         * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onBlur: func,
+        /**
+         * Called when a click happens outside the search input.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOutsideClick: func,
+        /**
+         * Render a result.
+         * @param {Object} result - Result to render.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         resultRenderer: func,
+        /**
+         * Whether or not the query should be cleared when a result is selected.
+         */
         clearOnSelect: bool,
+        /**
+         * Message to display when there are no results matching the query.
+         */
         noResultsMessage: string,
+        /**
+         * Delay before initiating a search when the query change.
+         */
         debounceDelay: number,
+        /**
+         * Minimum characters to query for results.
+         */
         minCharacters: number,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the search results are displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled search input does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the search input should focus on render.
+         */
         autofocus: bool,
+        /**
+         * Delay before trying to autofocus.
+         */
         autofocusDelay: number,
+        /**
+         * Whether or not the search results should close when the search input loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the search results should close when a click happens outside the search input.
+         * Requires `closeOnBlur` to be `false`.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
