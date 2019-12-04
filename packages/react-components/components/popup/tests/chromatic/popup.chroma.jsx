@@ -74,16 +74,16 @@ stories()
 
 stories("/offsets/bottom")
     .add("left+positive", () =>
-        <RedBoxPopup position={BOTTOM_LEFT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />
     )
     .add("left+negative", () =>
-        <RedBoxPopup position={BOTTOM_LEFT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
+        <RedBoxPopup position={BOTTOM_LEFT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />
     )
     .add("right+positive", () =>
-        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />,
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["30px", "30px"]} defaultOpen closeOnBlur={false} />
     )
     .add("right+negative", () =>
-        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />,
+        <RedBoxPopup position={BOTTOM_RIGHT} offsets={["-30px", "-30px"]} defaultOpen closeOnBlur={false} />
     );
 
 stories("/offsets/top")

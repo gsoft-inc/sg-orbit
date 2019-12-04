@@ -77,7 +77,7 @@ PureCalendarDay.prototype.render = function() {
                 modifiers.has("selected-end") && styles.CalendarDay__selected_end,
                 selected && !modifiers.has("selected-span") && styles.CalendarDay__selected,
                 isOutsideRange && styles.CalendarDay__blocked_out_of_range,
-                daySizeStyles,
+                daySizeStyles
             )}
             role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
             ref={this.setButtonRef}
