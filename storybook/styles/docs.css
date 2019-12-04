@@ -127,9 +127,10 @@ details + details {
     color: var(--marine-500) !important;
 }
 
-.docblock-source {
+details .docblock-source {
     box-shadow: none !important;
     border: none !important;
+    margin: 1rem 0;
 }
 
 .docblock-emptyblock {
