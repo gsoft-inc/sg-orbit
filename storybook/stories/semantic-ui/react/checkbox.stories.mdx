@@ -1,10 +1,12 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Checkbox, Form, Segment } from "semantic-ui-react";
+import { Checkbox, Form } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { ControlledRadioGroup } from "./components/controlled-radio-group";
 
 <Meta title="Components|Checkbox" />
 
-<Anchor storyId="components-checkbox--standard" />
+<Anchor storyId="components-checkbox--default-story" />
 
 <SemanticLink docPath="/modules/checkbox/" />
 
@@ -12,35 +14,43 @@ import { SemanticLink } from "@components/semantic-link";
 
 A checkbox allows a user to select a value from a small set of options, often binary.
 
-## Default
+## Installation
 
-### Standard
+<details><summary >install the packages</summary>
 
-A box for checking.
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Checkbox } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+### Default
+
+A basic checkbox.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Checkbox label="Milky Way" />
     </Story>
 </Preview>
 
 ### Checked
 
-A checkbox can be checked.
+A checkbox can be checked by default.
 
 <Preview>
-    <Story name="standard checked">
-        <Checkbox checked label="Milky Way" />
-    </Story>
-</Preview>
-
-### Disabled
-
-A checkbox can be disabled.
-
-<Preview>
-    <Story name="standard disabled">
-        <Checkbox disabled label="Milky Way" />
+    <Story name="checked">
+        <Checkbox defaultChecked label="Milky Way" />
     </Story>
 </Preview>
 
@@ -50,15 +60,25 @@ A checkbox can be indeterminate.
 
 <Preview>
     <Story name="indeterminate">
-        <Checkbox indeterminate checked label="Milky Way" />
+        <Checkbox defaultIndeterminate label="Milky Way" />
     </Story>
 </Preview>
 
-## Toggle
+### Disabled
+
+A checkbox can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Checkbox disabled label="Milky Way" />
+    </Story>
+</Preview>
+
+## Variations
+
+### Toggle
 
 A checkbox can toggle.
-
-### Standard
 
 <Preview>
     <Story name="toggle">
@@ -66,7 +86,19 @@ A checkbox can toggle.
     </Story>
 </Preview>
 
-### Disabled
+#### Checked
+
+A toggle can be check by default.
+
+<Preview>
+    <Story name="toggle checked">
+        <Checkbox toggle defaultChecked label="Milky Way"/>
+    </Story>
+</Preview>
+
+#### Disabled
+
+A toggle can be disabled.
 
 <Preview>
     <Story name="toggle disabled">
@@ -74,11 +106,9 @@ A checkbox can toggle.
     </Story>
 </Preview>
 
-## Radio
+### Radio
 
 A checkbox can be formatted as a radio element. This means it is an exclusive option.
-
-### Standard
 
 <Preview>
     <Story name="radio">
@@ -86,7 +116,9 @@ A checkbox can be formatted as a radio element. This means it is an exclusive op
     </Story>
 </Preview>
 
-### Disabled
+#### Disabled
+
+A radio element can be disabled.
 
 <Preview>
     <Story name="radio disabled">
@@ -94,29 +126,19 @@ A checkbox can be formatted as a radio element. This means it is an exclusive op
     </Story>
 </Preview>
 
-## Radio Group
+### Radio Group
 
 Radios in a group must be controlled components.
 
 <Preview>
     <Story name="radio group">
-        <Form>
-            <Form.Field>Where are you heading?</Form.Field>
-            <Form.Field>
-                <Checkbox radio label="Mars" name="checkboxRadioGroup" value="this" />
-            </Form.Field>
-            <Form.Field>
-                <Checkbox radio label="Moon" name="checkboxRadioGroup" value="that" />
-            </Form.Field>
-        </Form>
+        <ControlledRadioGroup />
     </Story>
 </Preview>
 
-## Variations
-
 ### Fitted
 
-A fitted checkbox does not leave padding for a label.
+A fitted Checkbox does not leave padding for a label.
 
 <Preview>
     <Story name="fitted">

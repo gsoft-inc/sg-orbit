@@ -15,9 +15,11 @@ import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Anchor storyId="components-multi-select--default-story" />
 
+# MultiSelect
+
 ## Installation
 
-<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+<details><summary >install the packages</summary>
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
@@ -26,7 +28,7 @@ npm install @orbit-ui/react-multi-select @orbit-ui/css-normalize @orbit-ui/tachy
 ```
 </details>
 
-<details><summary>then import what you need</summary>
+<details><summary >then import what you need</summary>
 
 ```javascript
 import {
@@ -62,7 +64,7 @@ To create an item, use the `multiSelectItem(text, value, category?, obj?)` funct
 const groupCreated = multiSelectItem("Created", "group-created");
 ```
 
-<details style={{ marginBottom: "10px" }}><summary>optional category</summary>
+<details><summary >optional category</summary>
 
 An optional `category` can be specified to group a set of items under a labelled category:
 
@@ -72,7 +74,7 @@ const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecy
 ```
 </details>
 
-<details><summary>specify optional data</summary>
+<details><summary >specify optional data</summary>
 
 An optional data `obj` can be specified to provide additional information to callbacks like `onValuesChange`:
 
@@ -82,6 +84,8 @@ const groupCreated = multiSelectItem("Created", "group-created", undefined, { ba
 </details>
 
 ### Default
+
+A basic multi select.
 
 <Preview>
     <Story name="default">

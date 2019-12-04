@@ -59,6 +59,7 @@ import {
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { IconGallery, IconItem } from "./components";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta
     title="Materials|Icons"
@@ -73,35 +74,45 @@ import { paramsBuilder } from "@utils/params-builder";
 
 # Icons
 
-Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px, when available adding 24 at the end of an icon will bring the 24x24 version of this icon.
+Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px, when available, adding 24 at the end of an icon will bring the 24x24 version of this icon.
+
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/icons
+```
+</details>
 
 ## Usage
 
-React component:
+<details><summary >as React component</summary>
 
 ```jsx
 import { IconName } from "@orbit-ui/icons";
-
-<IconName />
 ```
+</details>
 
-SVG file:
+<details><summary >as image</summary>
 
 ```jsx
 import IconName from "@orbit-ui/icons/icon-name.svg";
 
 <img src={IconName} />
 ```
+</details>
 
-CSS background:
+<details><summary >as background image</summary>
 
 ```css
 .name-icon: {
     background: url("~@orbit-ui/icons/icon-name.svg");
 }
 ```
-
-## Avalaible icons
+</details>
 
 <Preview>
     <Story name="icons">

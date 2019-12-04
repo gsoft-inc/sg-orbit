@@ -17,7 +17,7 @@ stories()
     .add("default",
          () =>
              <div className="flex flex-column items-center">
-                 <div className="w13 h13 shadow-4 mb8" />
-                 <div className="w13 h13 shadow-5" />
+                 <div className="w13 h13 shadow-100 mb8" />
+                 <div className="w13 h13 shadow-200" />
              </div>
     );

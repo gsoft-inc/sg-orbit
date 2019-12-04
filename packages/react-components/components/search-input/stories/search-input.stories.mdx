@@ -20,9 +20,11 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <Anchor storyId="components-search-input-results-set--default-story" />
 
+# Search Input
+
 ## Installation
 
-<details style={{ marginBottom: "10px" }}><summary>install the packages</summary>
+<details><summary >install the packages</summary>
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
 
@@ -31,7 +33,7 @@ npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachy
 ```
 </details>
 
-<details><summary>then import what you need</summary>
+<details><summary >then import what you need</summary>
 
 ```javascript
 import {
@@ -61,7 +63,7 @@ To create a result, use the `searchInputResult(id, text, obj?)` function:
 const georgeResult = multiSelectItem("1", "George");
 ```
 
-<details><summary>specify optional data</summary>
+<details><summary >specify optional data</summary>
 
 An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
 
@@ -71,6 +73,8 @@ const georgeResult = multiSelectItem("1", "George", { backendId: 123 });
 </details>
 
 ### Default
+
+A basic search input with a set of results.
 
 <Preview>
     <Story name="default">
@@ -102,7 +106,7 @@ const georgeResult = multiSelectItem("1", "George", { backendId: 123 });
 
 ### Selected value
 
-A search input can have a default result.
+A search input can have a default value.
 
 <Preview>
     <Story name="selected value">
@@ -116,7 +120,7 @@ A search input can have a default result.
 
 ### Clear on select
 
-A search input results box can close when an result is selected.
+A search input results box can close when a result is selected.
 
 <Preview>
     <Story name="clear on select">

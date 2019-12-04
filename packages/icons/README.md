@@ -1,28 +1,6 @@
 # @orbit-ui/icons
 
-## Usage
-
-As a React component:
-
-```javascript
-import { CancelIcon } from "@orbit-ui/icons";
-<CancelIcon />;
-```
-
-As a React file:
-
-```javascript
-import cancelIcon from "@orbit-ui/icons/icon-cancel.svg";
-<img src={cancelIcon} />;
-```
-
-As a CSS background file:
-
-```css
-.cancel-icon: {
-    background: url("~@orbit-ui/icons/icon-cancel.svg");
-}
-```
+Full documentation available at: https://sg-orbit.netlify.com
 
 ## Maintainers
 

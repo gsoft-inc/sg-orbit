@@ -1,0 +1,34 @@
+import { GithubLink } from "@components/github-link";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Introduction|Tachyons"
+    parameters={
+        paramsBuilder()
+            .sortPriority(-3)
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<GithubLink filePath="/packages/tachyons/src" />
+
+# Tachyons
+
+Orbit provide a custom version of the [Tachyons library](https://github.com/tachyons-css/tachyons). This version is based on the variables of our [foundation](?path=/docs/introduction-foundation--page) and the spacing scale has been increased to 10.
+
+Please refer to [Tachyons](http://tachyons.io/docs) website for documentation.
+
+## Override default variables
+
+You can override the default variables used by Tachyons, by overriding the [foundation](?path=/docs/introduction-foundation--page#override-default-variables) variables.
+
+## Legacy version
+
+If you support an old browser that doesn't support CSS variable and you dont have a build process to transpile the CSS variables, import the legacy version of Tachyons:
+
+```css
+@import "~@orbit-ui/tachyons/legacy.css";
+@import "~@orbit-ui/tachyons/legacy.min.css";
+```

@@ -1,23 +1,42 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Popup } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Popup (SUI)" />
 
-<Anchor storyId="components-popup-sui--standard" />
+<Anchor storyId="components-popup-sui--default-story" />
 
 <SemanticLink docPath="/modules/popup/" />
 
 # Popup
 
-## Standard
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Popup } from "semantic-ui-react";
+```
+</details>
+
+## Usage
 
 ### Default
 
-An element can specify popup content to appear.
+A basic popup.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
@@ -62,7 +81,7 @@ A disabled popup only renders its trigger.
     </Story>
 </Preview>
 
-## Inverted
+### Inverted
 
 A popup can have its colours inverted.
 
@@ -72,7 +91,7 @@ A popup can have its colours inverted.
     </Story>
 </Preview>
 
-## Flush
+### Flush
 
 A popup can be offload padding to its child.
 

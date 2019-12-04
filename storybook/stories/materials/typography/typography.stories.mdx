@@ -1,5 +1,6 @@
-import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta
     title="Materials|Typography"
@@ -10,13 +11,25 @@ import { paramsBuilder } from "@utils/params-builder";
     }
 />
 
-<Anchor storyId="materials-typography--font-sizes" />
+<Anchor storyId="materials-typography--font-size" />
 
 # Typography
 
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
 ## Font Size
 
-Font sizes are based on a scale of 9
+A simple ratio-based scale with 9 options.
 
 | Scale | Value           | Class |
 | :---- | :-------------- | :---- |
@@ -30,29 +43,25 @@ Font sizes are based on a scale of 9
 | 8     | 0.875rem (14px) | f8    |
 | 9     | 0.75rem (12px)  | f9    |
 
-## Font Sizes - Playground
+<Preview>
+    <Story name="font size">
+        <div>
+            <h1 className="f1 pa0 ma0">A modular scale</h1>
+            <h1 className="f2 pa0 ma0">A modular scale</h1>
+            <h1 className="f3 pa0 ma0">A modular scale</h1>
+            <h1 className="f4 pa0 ma0">A modular scale</h1>
+            <h1 className="f5 pa0 ma0">A modular scale</h1>
+            <h1 className="f6 pa0 ma0">A modular scale</h1>
+            <h1 className="f7 pa0 ma0">A modular scale</h1>
+            <h1 className="f8 pa0 ma0">A modular scale</h1>
+            <h1 className="f9 pa0 ma0">A modular scale</h1>
+        </div>
+    </Story>
+</Preview>
 
-<Story name="font sizes">
-    <div>
-        <h1 className="f1 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f2 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f3 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f4 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f5 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f6 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f7 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f8 pa0 ma0">Space Flight Programs</h1>
-        <h1 className="f9 pa0 ma0">Space Flight Programs</h1>
-    </div>
-</Story>
+## Line Height
 
-## Line Heights
-
-There is 6 line heights available to you, these are based on a scale principle.
-
-## Line Height Scale
-
-Line heights are based on a scale of 6
+Line-height affects how easy it is to read a piece of text.
 
 | Scale | Value        | Class |
 | :---- | :----------- | :---- |
@@ -63,30 +72,43 @@ Line heights are based on a scale of 6
 | 5     | 1.4285714286 | lh5   |
 | 6     | 1.5          | lh6   |
 
-## Line Heights - Playground
-
-Refer to table of usage in order to determinate which line height to use
-
-<Story name="line heights">
-    <div>
-        <h1 className="lh1">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh2">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh3">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh4">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh5">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        <h1 className="lh6">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-    </div>
-</Story>
+<Preview>
+    <Story name="line heights">
+        <div>
+            <h1 className="lh1 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh2 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh3 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh4 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh5 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+            <h1 className="lh6 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
+        </div>
+    </Story>
+</Preview>
 
 ## Font Weights
 
-Refrain from using font-weight bold, prefer using numeral font weights
+Varying the font-weight of different pieces of text can help create contrast between pieces of information.
 
-<Story name="font weights">
-    <div>
-        <h1 className="f3 fw3">300 - Space Flight Program</h1>
-        <h1 className="f3 fw4">400 - Space Flight Program</h1>
-        <h1 className="f3 fw5">500 - Space Flight Program</h1>
-        <h1 className="f3 fw6">600 - Space Flight Program</h1>
-    </div>
-</Story>
+| Value | Class |
+|-:-----|-:-----|
+| 100   | fw1   |
+| 300   | fw3   |
+| 400   | fw4   |
+| 500   | fw5   |
+| 600   | fw6   |
+| 700   | fw7   |
+| 900   | fw9   |
+
+<Preview>
+    <Story name="font weights">
+        <div>
+            <h1 className="f3 pa0 ma0 fw1">100 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw3">300 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw4">400 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw5">500 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw6">600 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw7">700 - Space Flight Program</h1>
+            <h1 className="f3 pa0 ma0 fw9">900 - Space Flight Program</h1>
+        </div>
+    </Story>
+</Preview>

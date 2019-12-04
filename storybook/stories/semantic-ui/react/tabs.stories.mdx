@@ -1,21 +1,44 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Label, Menu, Tab } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Tab" />
 
-<Anchor storyId="components-tab--standard" />
+<Anchor storyId="components-tab--default-story" />
 
 <SemanticLink docPath="/modules/tab/" />
 
 # Tab
 
-## Standard
+A tab is a hidden section of content activated by a Menu.
 
-A Tab is a hidden section of content activated by a Menu.
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Label, Menu, Tab } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+### Default
+
+A simple tab.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Tab
             menu={{ secondary: true, pointing: true }}
             panes={[
@@ -36,12 +59,12 @@ A Tab is a hidden section of content activated by a Menu.
     </Story>
 </Preview>
 
-## With label
+### Labelled
 
-Use a label to draw attention to a certain tab.
+A tab can include a label to draw attention.
 
 <Preview>
-    <Story name="label">
+    <Story name="labelled">
         <Tab
             menu={{ secondary: true, pointing: true }}
             panes={[
@@ -65,9 +88,9 @@ Use a label to draw attention to a certain tab.
     </Story>
 </Preview>
 
-## Custom Spacing
+### Spacing
 
-You can space the tab content as much as needed.
+The tab content spacing can be customized.
 
 <Preview>
     <Story name="spacing">

@@ -1,23 +1,42 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Input } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Input" />
 
-<Anchor storyId="components-input--standard" />
+<Anchor storyId="components-input--default-story" />
 
 <SemanticLink docPath="/elements/input/" />
 
 # Input
 
-## Standard
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Input } from "semantic-ui-react";
+```
+</details>
+
+## Usage
 
 ### Default
 
-A standard input field.
+A basic input.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Input placeholder="Search..." />
     </Story>
 </Preview>
@@ -42,45 +61,41 @@ An input field can show that it is disabled.
     </Story>
 </Preview>
 
-## Icon
+### Icon
 
 An input can be formatted with an icon.
 
 <Preview>
     <Story name="icon">
-        <Input icon="search" placeholder="Search..." />
+        <div className="flex flex-column mw5">
+            <div className="mb4">
+                <Input icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
+        </div>
     </Story>
 </Preview>
 
-### Left Aligned
-
-An icon can be positionned to the left.
-
-<Preview>
-    <Story name="icon left align">
-        <Input iconPosition="left" icon="search" placeholder="Search..." />
-    </Story>
-</Preview>
-
-## Loading
+### Loading
 
 An icon input field can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
-        <Input loading icon="search" placeholder="Search..." />
+        <div className="flex flex-column mw5">
+            <div className="mb4">
+                <Input loading icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
+        </div>
     </Story>
 </Preview>
 
-### Left Aligned
-
-<Preview>
-    <Story name="loading left">
-        <Input loading iconPosition="left" icon="search" placeholder="Search..." />
-    </Story>
-</Preview>
-
-## Error
+### Error
 
 An input field can show that the data contains errors.
 
@@ -90,7 +105,7 @@ An input field can show that the data contains errors.
     </Story>
 </Preview>
 
-## Success
+### Success
 
 An input field can show that the data has been validated.
 
@@ -100,7 +115,7 @@ An input field can show that the data has been validated.
     </Story>
 </Preview>
 
-## Fluid
+### Fluid
 
 An input can take all the width it can.
 
@@ -110,7 +125,7 @@ An input can take all the width it can.
     </Story>
 </Preview>
 
-## Transparent
+### Transparent
 
 An input can be transparent.
 

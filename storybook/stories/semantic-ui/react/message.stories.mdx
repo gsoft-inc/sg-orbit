@@ -2,10 +2,11 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Message } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
 import { noop } from "lodash";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Message" />
 
-<Anchor storyId="components-message--standard" />
+<Anchor storyId="components-message--default-story" />
 
 <SemanticLink docPath="/collections/message/" />
 
@@ -13,14 +14,32 @@ import { noop } from "lodash";
 
 A message displays information that explains nearby content.
 
-## Standard
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Message } from "semantic-ui-react";
+```
+</details>
+
+## Usage
 
 ### Default
 
-A basic message.
+A simple message.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Message>
             <Message.Header>
     Setup a security policy for external sharing
@@ -65,7 +84,7 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
     </Story>
 </Preview>
 
-## Info
+### Info
 
 A message may be formatted to display information.
 
@@ -83,7 +102,7 @@ A message may be formatted to display information.
     </Story>
 </Preview>
 
-## Positive/Success
+### Positive/Success
 
 A message may be formatted to display a positive message.
 
@@ -101,7 +120,7 @@ A message may be formatted to display a positive message.
     </Story>
 </Preview>
 
-## Warning
+### Warning
 
 A message may be formatted to display warning message.
 
@@ -119,7 +138,7 @@ A message may be formatted to display warning message.
     </Story>
 </Preview>
 
-## Negative/Error
+### Negative/Error
 
 A message may be formatted to display a negative message.
 
@@ -136,7 +155,7 @@ A message may be formatted to display a negative message.
     </Story>
 </Preview>
 
-## Floating
+### Floating
 
 A message can float above content that it is related to.
 
@@ -154,11 +173,11 @@ A message can float above content that it is related to.
     </Story>
 </Preview>
 
-## Two Columns Layout
+### Two Columns Layout
 
-A message can have two columns
+A message can have two columns.
 
-### Left Aligned
+#### Left Aligned
 
 A message can have a button or an icon positionned to the left.
 
@@ -174,7 +193,7 @@ A message can have a button or an icon positionned to the left.
     </Story>
 </Preview>
 
-### Right Aligned
+#### Right Aligned
 
 A message can have a button or an icon positionned to the right.
 
@@ -190,11 +209,11 @@ A message can have a button or an icon positionned to the right.
     </Story>
 </Preview>
 
-## Sizes
+### Sizes
 
 A message can have different sizes.
 
-### Small
+#### Small
 
 Useful for one liners.
 

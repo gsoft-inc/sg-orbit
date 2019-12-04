@@ -2,30 +2,47 @@ import { AddIcon, SignoutIcon24 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Button" />
 
-<Anchor storyId="components-button--standard" />
+<Anchor storyId="components-button--default-story" />
 
 <SemanticLink docPath="/elements/button/" />
 
 # Button
 
-A Button indicates a possible user action.
+## Installation
 
-## Standard
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Button } from "semantic-ui-react";
+```
+</details>
+
+## Usage
 
 ### Default
 
 A standard button.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Button>Cutoff</Button>
     </Story>
 </Preview>
 
-### Active / focus
+#### Active / focus
 
 A button can be focused.
 
@@ -35,7 +52,7 @@ A button can be focused.
     </Story>
 </Preview>
 
-### Disabled
+#### Disabled
 
 A button can show it is currently unable to be interacted with.
 
@@ -45,61 +62,116 @@ A button can show it is currently unable to be interacted with.
     </Story>
 </Preview>
 
-## Emphasis
+### Emphasis
 
 A button can be formatted to show different levels of emphasis.
 
-### Primary
-
 <Preview>
-    <Story name="primary">
-        <Button primary>Cutoff</Button>
+    <Story name="emphasis">
+        <div className="flex">
+            <Button primary>Primary</Button>
+            <Button secondary>Secondary</Button>
+        </div>
     </Story>
 </Preview>
 
-### Secondary
+#### States
+
+A button showing emphasis can have a disabled and an active state.
 
 <Preview>
-    <Story name="secondary">
-        <Button secondary>Cutoff</Button>
+    <Story name="emphasis states">
+        <div className="flex">
+            <Button primary disabled>Primary</Button>
+            <Button secondary disabled>Secondary</Button>
+            <Button primary active>Primary</Button>
+            <Button secondary active>Secondary</Button>
+        </div>
     </Story>
 </Preview>
 
-## Basic
+### Basic
 
 The basic button has a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <Button basic>Cutoff</Button>
-    </Story>
-</Preview>
-
-## Inverted
-
-A button can be formatted to appear on a dark background.
-
-<Preview>
-    <Story name="inverted">
-        <div className="bg-marine-700 pa3">
-            <Button inverted primary>Cutoff</Button>
+        <div className="flex">
+            <Button basic>Cutoff</Button>
+            <Button basic primary>Cutoff</Button>
         </div>
     </Story>
 </Preview>
 
-## Ghost
+#### States
+
+A basic button can have a disabled and an active state.
+
+<Preview>
+    <Story name="basic states">
+        <div className="flex">
+            <Button basic disabled>Cutoff</Button>
+            <Button basic active>Cutoff</Button>
+            <Button basic primary disabled>Cutoff</Button>
+            <Button basic primary active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Inverted
+
+A button can be formatted to appear on a dark background.
+
+<Preview>
+    <Story name="inverted primary">
+        <div className="bg-marine-700 pa3">
+            <Button primary inverted>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+#### States
+
+Inverted buttons can have disabled and active states.
+
+<Preview>
+    <Story name="inverted states">
+        <div className="bg-marine-700 pa3 flex">
+            <Button primary inverted disabled>Cutoff</Button>
+            <Button primary inverted active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Ghost
 
 Ghost buttons takes the same space as a standard button, but have no basic colour until hovered.
 
 <Preview>
     <Story name="ghost">
-        <Button className="ghost">Cutoff</Button>
+        <div className="flex">
+            <Button className="ghost">Cutoff</Button>
+            <Button className="ghost" primary>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
-## Icon
+#### States
 
-### Standard
+Ghost buttons can have disabled and active states.
+
+<Preview>
+    <Story name="ghost states">
+        <div className="flex">
+            <Button className="ghost" disabled>Cutoff</Button>
+            <Button className="ghost" active>Cutoff</Button>
+            <Button className="ghost" disabled primary>Cutoff</Button>
+            <Button className="ghost" active primary>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Icon
 
 A button can contain an icon.
 
@@ -109,17 +181,30 @@ A button can contain an icon.
     </Story>
 </Preview>
 
+#### States
+
+Icon buttons can have disabled and active states.
+
+<Preview>
+    <Story name="icon states">
+        <div className="flex">
+            <Button icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            <Button icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+        </div>
+    </Story>
+</Preview>
+
 ### Icon Only
 
 A button can only contain an icon.
 
 <Preview>
     <Story name="icon only">
-        <Button icon><AddIcon className="flex w6 h6"/></Button>
+        <Button><AddIcon className="flex w6 h6"/></Button>
     </Story>
 </Preview>
 
-## Circular
+### Circular
 
 A button can be circular.
 
@@ -129,13 +214,13 @@ A button can be circular.
     </Story>
 </Preview>
 
-### Sizes
+#### Sizes
 
 A circular button can vary in size.
 
 <Preview>
     <Story name="icon tiny circular">
-        <div className="flex flex-row">
+        <div className="flex flex-row items-start">
             <Button icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
@@ -143,7 +228,7 @@ A circular button can vary in size.
     </Story>
 </Preview>
 
-## Loading
+### Loading
 
 A button can show a loading indicator.
 
@@ -158,7 +243,30 @@ A button can show a loading indicator.
     </Story>
 </Preview>
 
-## Success
+#### States
+
+A button showing a loading animation can have a disabled and an active state.
+
+<Preview>
+    <Story name="icon loading states">
+        <div className="flex flex-column">
+            <div className="flex">
+                <Button disabled loading>Loading</Button>
+                <Button disabled loading primary>Loading</Button>
+                <Button disabled loading basic>Loading</Button>
+                <Button disabled loading basic primary>Loading</Button>
+            </div>
+            <div className="flex">
+                <Button active loading>Loading</Button>
+                <Button active loading primary>Loading</Button>
+                <Button active loading basic>Loading</Button>
+                <Button active loading basic primary>Loading</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Success
 
 A button can hint towards a positive consequence.
 
@@ -168,7 +276,20 @@ A button can hint towards a positive consequence.
     </Story>
 </Preview>
 
-## Negative
+#### States
+
+A success button can have a disabled and an active state.
+
+<Preview>
+    <Story name="success states">
+        <div className="flex">
+            <Button positive disabled>Cutoff</Button>
+            <Button positive active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Negative
 
 A button can hint towards a negative consequence.
 
@@ -178,7 +299,20 @@ A button can hint towards a negative consequence.
     </Story>
 </Preview>
 
-## Fluid
+#### States
+
+A negative button can have a disabled and an active state.
+
+<Preview>
+    <Story name="negative states">
+        <div className="flex">
+            <Button negative disabled>Cutoff</Button>
+            <Button negative active>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Fluid
 
 A button can take the width of its container.
 
@@ -188,26 +322,15 @@ A button can take the width of its container.
     </Story>
 </Preview>
 
-## Heights
+### Heights
 
-Apart from the 40px default height, buttons can be shorter or taller.
-
-### Short
-
-Short buttons are 32px high.
+Apart from their default height, buttons can be shorter or taller.
 
 <Preview>
     <Story name="height short">
-        <Button className="short">Short</Button>
-    </Story>
-</Preview>
-
-### Tall
-
-Tall buttons are 48px high.
-
-<Preview>
-    <Story name="height tall">
-        <Button className="tall">Tall button</Button>
+        <div className="flex flex-row items-start">
+            <Button className="short">Short</Button>
+            <Button className="tall">Tall button</Button>
+        </div>
     </Story>
 </Preview>

@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta
     title="Materials|Shape"
@@ -10,7 +11,25 @@ import { paramsBuilder } from "@utils/params-builder";
     }
 />
 
-# Radiuses
+<Anchor storyId="materials-shape--radiuses" />
+
+# Shape
+
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
+## Radiuses
+
+An element can have a border radius modifying its shape.
 
 | Scale | Value |
 | :---- | :---- |

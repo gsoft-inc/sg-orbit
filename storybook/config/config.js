@@ -49,37 +49,6 @@ import "../styles/docs.css";
 import "../styles/preview-iframe.css";
 import "../styles/stories.css";
 
-function Link({ href, target, children, ...rest }) {
-    if (!isNil(href)) {
-        if (href.startsWith("#")) {
-            return <components.a href={href}
-                onClick={
-                    event => {
-                        event.preventDefault();
-
-                        const element = document.getElementById(href.substring(1));
-                        if (element) {
-                            element.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start",
-                                inline: "nearest"
-                            });
-                        }
-                    }}
-            >
-                { children }
-            </components.a>;
-        } else if (target !== "_blank") {
-            const parentUrl = new URL(window.parent.location.href);
-            const newHref = `${parentUrl.origin}${href}`;
-
-            return <components.a href={newHref} target={target} {...rest}>{ children }</components.a>;
-        }
-    }
-
-    return <components.a href={href} target={target} {...rest}>{ children }</components.a>;
-}
-
 addParameters({
     options: {
         theme: customStorybookTheme,
@@ -93,10 +62,7 @@ addParameters({
                     {children}
                 </OrbitDocsContainer>
             </DocsContainer>
-        ),
-        components: {
-            a: Link
-        }
+        )
     }
 });
 

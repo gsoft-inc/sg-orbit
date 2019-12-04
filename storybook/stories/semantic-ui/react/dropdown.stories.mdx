@@ -1,25 +1,44 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Dropdown } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Dropdown" />
 
-<Anchor storyId="components-dropdown--standard" />
+<Anchor storyId="components-dropdown--default-story" />
 
 <SemanticLink docPath="/modules/dropdown/" />
 
 # Dropdown
 
-A dropdown.
+A dropdown can be used to select between choices in a form.
 
-## Standard
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Dropdown } from "semantic-ui-react";
+```
+</details>
+
+## Usage
 
 ### Default
 
-A dropdown can be used to select between choices in a form.
+A basic dropdown.
 
 <Preview>
-    <Story name="standard">
+    <Story name="default">
         <Dropdown
             placeholder="Gender"
             fluid
@@ -67,7 +86,9 @@ A disabled dropdown menu does not allow user interaction.
     </Story>
 </Preview>
 
-## Complex
+### Complex
+
+A dropdown can render complex items.
 
 <Preview>
     <Story name="complex">
@@ -141,12 +162,16 @@ A disabled dropdown menu does not allow user interaction.
     </Story>
 </Preview>
 
-## Sizes
+### Size
+
+A dropdown can vary in sizes.
+
+#### Small
 
 A dropdown can be small.
 
 <Preview>
-    <Story name="height">
+    <Story name="sizes small">
         <Dropdown
             placeholder="Gender"
             fluid
