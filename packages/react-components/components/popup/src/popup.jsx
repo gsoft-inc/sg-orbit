@@ -229,7 +229,7 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick } = this.props;
+        const { onOutsideClick, closeOnOutsideClick, closeOnBlur } = this.props;
 
         if (!this._containerRef.current.contains(event.target)) {
             if (closeOnOutsideClick) {
@@ -238,6 +238,31 @@ export class Popup extends AutoControlledPureComponent {
 
             if (!isNil(onOutsideClick)) {
                 onOutsideClick(event, this.props);
+            }
+
+            // The following lines of code fixes a bug we had, but could be re-thinked because it doesn't address the real issue.
+            //
+            // The fix : if we detect an outside click while the popup is still "focused" in our internal state, we want to make sure that the
+            // popup closes if the closeOnBlur was set to true.
+            //
+            // To repro the issue we had :
+            // 1- In any DatePicker (range, single, inline), open the calendar
+            // 2- select a date or a date range
+            // 3- click the Clear button
+            // 4- click outside the popup
+            //
+            // The "handleOutsideClick" is called when we click outside the popup, but the final "handleBlur" was never called.
+            // When trying to write a unit test to repro the issue we had, the test was always successful, since the test was firing the "handleBlur" properly.
+            if(this._hasFocus) {
+                this._hasFocus = false;
+
+                if (open && closeOnBlur) {
+                    setTimeout(() => {
+                        if (!this._hasFocus) {
+                            this.close(event);
+                        }
+                    }, 0);
+                }
             }
         }
     };
