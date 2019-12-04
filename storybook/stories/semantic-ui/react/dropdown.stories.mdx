@@ -84,33 +84,6 @@ A disabled dropdown menu does not allow user interaction.
     </Story>
 </Preview>
 
-### Size
-
-A dropdown can be small.
-
-<Preview>
-    <Story name="height">
-        <Dropdown
-            placeholder="Gender"
-            fluid
-            selection
-            className="small"
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
-        />
-    </Story>
-</Preview>
-
 ### Complex
 
 A dropdown can render complex items.
@@ -181,6 +154,35 @@ A dropdown can render complex items.
                         src: "https://randomuser.me/api/portraits/women/14.jpg",
                         size: "mini"
                     }
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Sizes
+
+A dropdown can have different sizes.
+
+#### Small
+
+<Preview>
+    <Story name="sizes small">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            className="small"
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
                 }
             ]}
         />
