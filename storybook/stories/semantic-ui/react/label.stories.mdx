@@ -1,0 +1,203 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Button, Icon, Label } from "semantic-ui-react";
+import { CommunicationIcon } from "@orbit-ui/icons";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Label" />
+
+<Anchor storyId="components-label--default-story" />
+
+<SemanticLink docPath="/elements/label/" />
+
+# Label
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Button, Icon, Label } from "semantic-ui-react";
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A basic label.
+
+<Preview>
+    <Story name="default">
+        <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Icons
+
+A label can include icons.
+
+<Preview>
+    <Story name="icons">
+        <div className="flex">
+            <Label>
+            Notification Sent <Icon name="search" />
+            </Label>
+            <Label>
+                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+        Notification Sent <Icon name="search" />
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Sizes
+
+A label can vary in size.
+
+<Preview>
+    <Story name="sizes">
+        <div className="flex items-start">
+            <Label size="small">Notification Sent</Label>
+            <Label size="large">Notification Sent</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Circular
+
+A label can be circular.
+
+<Preview>
+    <Story name="circular">
+        <Label circular>R</Label>
+    </Story>
+</Preview>
+
+#### Sizes
+
+A circular label can vary in size.
+
+<Preview>
+    <Story name="circular sizes">
+        <div>
+            <Label circular size="tiny">R</Label>
+            <Label circular size="small">R</Label>
+            <Label circular size="medium">R</Label>
+            <Label circular size="large">R</Label>
+            <Label circular size="big">R</Label>
+            <Label circular size="huge">R</Label>
+            <Label circular size="massive">R</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Basic
+
+A label can reduce its complexity.
+
+<Preview>
+    <Story name="basic">
+        <Label basic>Basic</Label>
+    </Story>
+</Preview>
+
+### Empty
+
+A label can be empty.
+
+<Preview>
+    <Story name="empty">
+        <Label circular size="tiny" empty color="red" />
+    </Story>
+</Preview>
+
+## Variations
+
+### Tags
+
+A tag consist of an icon/label in a label.
+
+<Preview>
+    <Story name="tag default">
+        <Label>
+            <Label circular empty size="mini" color="red" />
+            Group added
+        </Label>
+    </Story>
+</Preview>
+
+#### Icons
+
+A tag can contain icons.
+
+<Preview>
+    <Story name="tag icons">
+        <div className="flex items-start">
+            <Label>
+                <Label circular empty size="mini" color="red" />
+                Group added
+                <Button icon circular size="tiny" className="transparent">
+                    <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(45 7.207 4.793)">
+                            <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                            <rect x="5" y=".828" width="2" height="12" rx="1" />
+                        </g>
+                    </svg>
+                </Button>
+            </Label>
+            <Label>
+                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+            Group added
+                <Button icon circular size="tiny" className="transparent">
+                    <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(45 7.207 4.793)">
+                            <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                            <rect x="5" y=".828" width="2" height="12" rx="1" />
+                        </g>
+                    </svg>
+                </Button>
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+#### Basic
+
+A tag can reduce its complexity.
+
+<Preview>
+    <Story name="tag basic">
+        <Label basic>
+            <Label circular empty size="mini" color="red" />
+        Group added
+        </Label>
+    </Story>
+</Preview>
+
+#### Height
+
+A tag can vary in height.
+
+<Preview>
+    <Story name="tag heights">
+        <div className="flex items-start">
+            <Label size="small">
+                <Label circular empty size="mini" color="red" />
+            Group added
+            </Label>
+            <Label size="large">
+                <Label circular empty size="mini" color="red" />
+            Group added
+            </Label>
+        </div>
+    </Story>
+</Preview>

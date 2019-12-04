@@ -1,0 +1,161 @@
+import {
+    AddIcon,
+    AddIcon24,
+    AddUserIcon,
+    ArrowIcon,
+    ArrowIcon24,
+    CalendarIcon,
+    CalendarIcon24,
+    CheckIcon,
+    CheckIcon24,
+    CircleIcon,
+    CircleIcon24,
+    ClearFilterIcon,
+    ClearFilterIcon24,
+    CloseIcon,
+    CloseIcon24,
+    CommunicationIcon,
+    CompareIcon,
+    CompareIcon24,
+    CsvIcon,
+    DoNotDisturbIcon,
+    DownloadIcon,
+    EditIcon,
+    FileIcon,
+    FolderIcon,
+    GarbageIcon,
+    GearIcon,
+    GroupIcon,
+    HelpIcon,
+    HelpIcon24,
+    HorizontalDotsIcon,
+    ImageIcon,
+    InfoIcon,
+    InfoIcon24,
+    LightbulbIcon,
+    LightbulbIcon24,
+    MagnifierIcon,
+    MusicIcon,
+    NotificationIcon,
+    NotificationIcon24,
+    PdfIcon,
+    PrinterIcon,
+    PrinterIcon24,
+    PrivacyIcon24,
+    ReminderIcon,
+    RemoveUserIcon,
+    SignoutIcon,
+    SignoutIcon24,
+    SortingIcon,
+    SortingIcon24,
+    VariationIcon,
+    VariationIcon24,
+    VerticalDotsIcon,
+    VideoIcon,
+    WarningIcon,
+    WarningIcon24,
+    ZipIcon
+} from "@orbit-ui/icons";
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { IconGallery, IconItem } from "./components";
+import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta
+    title="Materials|Icons"
+    parameters={
+        paramsBuilder()
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<Anchor storyId="materials-icons--icons" />
+
+# Icons
+
+Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px, when available, adding 24 at the end of an icon will bring the 24x24 version of this icon.
+
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/icons
+```
+</details>
+
+## Usage
+
+<details><summary >as React component</summary>
+
+```jsx
+import { IconName } from "@orbit-ui/icons";
+```
+</details>
+
+<details><summary >as image</summary>
+
+```jsx
+import IconName from "@orbit-ui/icons/icon-name.svg";
+
+<img src={IconName} />
+```
+</details>
+
+<details><summary >as background image</summary>
+
+```css
+.name-icon: {
+    background: url("~@orbit-ui/icons/icon-name.svg");
+}
+```
+</details>
+
+<Preview>
+    <Story name="icons">
+        <IconGallery>
+            <IconItem iconName="AddIcon" stdSize={AddIcon} smllSize={AddIcon24}/>
+            <IconItem iconName="CloseIcon" smllSize={CloseIcon24} stdSize={CloseIcon}/>
+            <IconItem iconName="SignoutIcon" smllSize={SignoutIcon24} stdSize={SignoutIcon}/>
+            <IconItem iconName="CheckIcon" stdSize={CheckIcon} smllSize={CheckIcon24}/>
+            <IconItem iconName="ClearFilterIcon" stdSize={ClearFilterIcon} smllSize={ClearFilterIcon24}/>
+            <IconItem iconName="PrinterIcon" stdSize={PrinterIcon} smllSize={PrinterIcon24}/>
+            <IconItem iconName="WarningIcon" stdSize={WarningIcon} smllSize={WarningIcon24}/>
+            <IconItem iconName="InfoIcon" stdSize={InfoIcon} smllSize={InfoIcon24}/>
+            <IconItem iconName="HelpIcon" stdSize={HelpIcon} smllSize={HelpIcon24}/>
+            <IconItem iconName="SortingIcon" stdSize={SortingIcon} smllSize={SortingIcon24}/>
+            <IconItem iconName="CompareIcon" smllSize={CompareIcon24} stdSize={CompareIcon}/>
+            <IconItem iconName="CalendarIcon" smllSize={CalendarIcon24} stdSize={CalendarIcon}/>
+            <IconItem iconName="VariationIcon" smllSize={VariationIcon24} stdSize={VariationIcon}/>
+            <IconItem iconName="PrivacyIcon" smllSize={PrivacyIcon24}/>
+            <IconItem iconName="LightbulbIcon" stdSize={LightbulbIcon} smllSize={LightbulbIcon24}/>
+            <IconItem iconName="VerticalDotsIcon" stdSize={VerticalDotsIcon}/>
+            <IconItem iconName="HorizontalDotsIcon" stdSize={HorizontalDotsIcon}/>
+            <IconItem iconName="GarbageIcon" stdSize={GarbageIcon}/>
+            <IconItem iconName="GearIcon" stdSize={GearIcon}/>
+            <IconItem iconName="MagnifierIcon" stdSize={MagnifierIcon}/>
+            <IconItem iconName="FileIcon" stdSize={FileIcon}/>
+            <IconItem iconName="PdfIcon" stdSize={PdfIcon}/>
+            <IconItem iconName="VideoIcon" stdSize={VideoIcon}/>
+            <IconItem iconName="CsvIcon" stdSize={CsvIcon}/>
+            <IconItem iconName="ZipIcon" stdSize={ZipIcon}/>
+            <IconItem iconName="MusicIcon" stdSize={MusicIcon}/>
+            <IconItem iconName="ImageIcon" stdSize={ImageIcon}/>
+            <IconItem iconName="EditIcon" stdSize={EditIcon}/>
+            <IconItem iconName="CommunicationIcon" stdSize={CommunicationIcon}/>
+            <IconItem iconName="ReminderIcon" stdSize={ReminderIcon}/>
+            <IconItem iconName="AddUserIcon" stdSize={AddUserIcon}/>
+            <IconItem iconName="RemoveUserIcon" stdSize={RemoveUserIcon}/>
+            <IconItem iconName="FolderIcon" stdSize={FolderIcon}/>
+            <IconItem iconName="NotificationIcon" smllSize={NotificationIcon24} stdSize={NotificationIcon}/>
+            <IconItem iconName="DoNotDisturbIcon" stdSize={DoNotDisturbIcon}/>
+            <IconItem iconName="DownloadIcon" stdSize={DownloadIcon}/>
+            <IconItem iconName="CircleIcon" smllSize={CircleIcon24} stdSize={CircleIcon}/>
+            <IconItem iconName="GroupIcon" stdSize={GroupIcon}/>
+            <IconItem iconName="ArrowIcon" stdSize={ArrowIcon} smllSize={ArrowIcon24}/>
+        </IconGallery>
+    </Story>
+</Preview>

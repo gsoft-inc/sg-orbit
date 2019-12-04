@@ -1,32 +1,87 @@
 import { Button, Ref } from "semantic-ui-react";
-import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownTrigger extends PureComponent {
     static propTypes = {
+        /**
+         * The trigger text.
+         */
         text: string,
+        /**
+         * A custom React SVG component displayed before the trigger text.
+         */
         icon: node,
+        /**
+         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
+         */
         disabledIcon: node,
+        /**
+         * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
+        /**
+         * Called on keydown
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onKeyDown: func,
+        /**
+         * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
+        /**
+         * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
+        /**
+         * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClose: func,
+        /**
+         * Indicates whether or not the dropdown is opened.
+         */
         open: bool,
+        /**
+         * A disabled trigger does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
     _buttonRef = createRef();
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
 
     handleClick = event => {
         const { onClick, onOpen, onClose, open, disabled } = this.props;
@@ -67,11 +122,13 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     getClasses() {
-        const { className } = this.props;
+        const { disabled, className } = this.props;
 
-        const defaultClasses = "tall";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "tall",
+            disabled && "crsr-not-allowed",
+            className
+        );
     }
 
     renderIcon() {

@@ -9,6 +9,11 @@
     border: 2px solid var(--cloud-100);
 }
 
+.ui.radio.checkbox input:checked ~ .box:after,
+.ui.radio.checkbox input:checked ~ label:after {
+    mask: none;
+}
+
 .ui.radio.checkbox input:checked:disabled ~ .box:before,
 .ui.radio.checkbox input:checked:disabled ~ label:before {
     background-image: none;
@@ -25,27 +30,41 @@
 .ui.checkbox input:checked ~ label:before,
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before {
-    background: @primary500 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
-    background-size: 10px 7px;
+    background: @primary500;
+}
+
+.ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox:not(.radio):not(.toggle) input:checked ~ label:after,
+.ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
+.ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    content: '';
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    background-color: @white;
 }
 
 .ui.checkbox input:checked:disabled ~ .box:before,
 .ui.checkbox input:checked:disabled ~ label:before {
-    background: @primary100 url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
+    background: @primary100;
     border-color: @primary100;
-    background-size: 10px 7px;
+    background-size: 24px 24px;
 }
 
 .ui.checkbox input:indeterminate:focus ~ .box:before, .ui.checkbox input:indeterminate:focus ~ label:before {
-    background: @white url("@{iconsPath}/icon-checkmark-white.svg") center center no-repeat;
-    background-size: 10px 7px;
+    background: @white url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    background-size: 24px 24px;
 }
 
 .ui.checkbox input:checked:focus ~ .box:before, .ui.checkbox input:checked:focus ~ label:before {
     background-color: @primary500;
 }
 
-.ui.checkbox.indeterminate.checked input:not([type=radio]) ~ .box:before, .ui.checkbox.indeterminate.checked input:not([type=radio]) ~ label:before {
+.ui.checkbox.indeterminate input:not([type=radio]) ~ .box:before,
+.ui.checkbox.indeterminate input:not([type=radio]) ~ label:before {
     background: @primary500 url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
     background-size: 8px 8px;
 }
@@ -145,6 +164,11 @@
 .ui.checkbox input[disabled] ~ label::before {
     background-color: var(--cloud-50);
     border: 1px solid var(--cloud-100);
+    color: @cloud200;
+}
+
+.ui.toggle.disabled.checkbox input:checked ~ label {
+    color: @cloud200!important;
 }
 
 .ui.disabled.radio.checkbox .box:after,
@@ -153,35 +177,32 @@
     border: 2px solid var(--cloud-100);
 }
 
-/* ui fitted toggle checkbox for browsers that supports masks */
+.ui.toggle.checkbox::before {
+    background-color: @white;
+    content: "";
+    display: block;
+    position: absolute;
+    transform: translate3d(0.25rem, 0, 0);
+    top: 0.185rem;
+    width: 14px;
+    height: 14px;
+    z-index: 10;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: 16px 16px;
+}
 
-@supports (mask: url("/icon-checkmark-short.svg") center center no-repeat) {
-    .ui.fitted.toggle.checkbox::before {
-        background-color: @white;
-        content: "";
-        display: block;
-        position: absolute;
-        transform: translate3d(0.25rem, 0, 0);
-        top: 0.185rem;
-        width: 14px;
-        height: 14px;
-        z-index: 10;
-        transition: background 0.3s ease, transform 0.3s ease;
-        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-        mask-size: 10px 7px;
-    }
+.ui.toggle.checkbox.checked::before {
+    transform: translate3d(1.625rem, 0, 0);
+    background-color:  @primary500;
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: 16px 16px;
+}
 
-    .ui.fitted.toggle.checkbox.checked::before {
-        transform: translate3d(1.625rem, 0, 0);
-        background-color:  @primary500;
-        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-        mask-size: 10px 7px;
-    }
-
-    .ui.fitted.toggle.checkbox.checked.disabled::before {
-        transform: translate3d(1.625rem, 0, 0);
-        background-color: @primary100;
-        mask: url("@{iconsPath}/icon-checkmark-short.svg") center center no-repeat;
-        mask-size: 10px 7px;
-    }
+.ui.toggle.checkbox.checked.disabled::before {
+    transform: translate3d(1.625rem, 0, 0);
+    background-color: @primary100;
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: 16px 16px;
 }

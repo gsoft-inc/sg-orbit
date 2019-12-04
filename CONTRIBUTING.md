@@ -101,7 +101,7 @@ The following documentation is a brief overview of the tools and processes invol
 
 ### Storybook
 
-Every components must be developed in [Storybook](https://storybook.js.org).
+Every components must be developed and documented in [Storybook](https://storybook.js.org).
 
 Storybook is a convenient sandbox that help the developpers write organized and isolated stories that match the specifications of the component. Storybook also facilitate functionnal testing and integrate very well with automated visual testing technologies.
 
@@ -350,12 +350,12 @@ Start Storybook.
 yarn start-sb
 ```
 
-### start-website
+### start-docs
 
-Start the website.
+Start the Storybook docs.
 
 ```bash
-yarn start-website
+yarn start-docs
 ```
 
 ### build
@@ -382,9 +382,9 @@ Same as *build* but only for Storybook.
 yarn build:sb
 ```
 
-### build:website
+### build:docs
 
-Same as *build* but only for the website.
+Same as *build* but only for the Storybook docs.
 
 ```bash
 yarn build:website
@@ -410,7 +410,7 @@ Same as *release-pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/
 
 View the section [Release Storybook](#release-storybook).
 
-### release-website & release-website-prod
+### release-docs
 
 View the section [Release the website](#release-the-website).
 
@@ -474,7 +474,7 @@ Before running make sure you built the packages with the `build:pkg` command.
 yarn chromatic
 ```
 
-## chromatic-theme
+### chromatic-theme
 
 Same as *chromatic* but only for the SUI theme.
 
@@ -484,7 +484,7 @@ Before running make sure you built the theme with the `build-theme` command.
 yarn chromatic-theme
 ```
 
-## chromatic-materials
+### chromatic-materials
 
 Same as *chromatic* but only for the materials parts.
 
@@ -494,7 +494,7 @@ yarn chromatic-materials
 
 ## Testing
 
-For testing the components we currently rely only on multiple testing strategies.
+For testing the components we currently rely only on visual testing & interaction testing.
 
 ### Visual testing
 
@@ -508,7 +508,7 @@ Therefore, prefer this approach to [interactions](#interaction-testing) and [api
 
 Setting all the tools to perform automated visual tests involve a lot of time and knowledge. Therefore, we bought a license of [Chromatic QA](https://www.chromaticqa.com). This is the perfect tool for us since it perfectly integrate with Storybook. 
 
-For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) on Github.
+For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://github.com/gsoft-inc) organization on Github.
 
 For more information about automated visual testing:
 

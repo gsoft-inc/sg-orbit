@@ -1,33 +1,101 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
 import { POSITIONS } from "@orbit-ui/react-popup";
-import { PRESET_SHAPE } from "./presets";
 import { PureComponent, cloneElement } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const PRESET_SHAPE = {
+    text: string.isRequired,
+    startDate: object.isRequired,
+    endDate: object.isRequired
+};
+
 export class DateRangePickerCalendar extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled start date value.
+         */
         startDate: momentType,
+        /**
+         * A controlled end date value.
+         */
         endDate: momentType,
+        /**
+         * Called when the date(s) are / is applied.
+         * @param {Moment} startDate - Selected start date.
+         * @param {Moment} endDate - Selected end date.
+         * @param {string} presetName - Selected preset name.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onDatesChange: func,
+        /**
+         * Called on apply button click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onApply: func,
+        /**
+         * Whether or not the calendar enforce the selection of of a range of dates.
+         */
         allowSingleDateSelection: bool,
+        /**
+         * The minimum (inclusive) date available for selection.
+         */
         minDate: momentType,
+        /**
+         * The maximum (inclusive) date available for selection.
+         */
         maxDate: momentType,
+        /**
+         * An initial visible month displayed when the calendar open.
+         */
         initialVisibleMonth: oneOfType([momentType, func]),
+        /**
+         * The number of months displayed simultaneously in the calendar.
+         */
         numberOfMonths: number,
+        /**
+         * A position for the calendar.
+         */
         position: oneOf(POSITIONS),
+        /**
+         * A custom React SVG component for the previous month navigation button.
+         */
         navPrevIcon: node,
+        /**
+         * A custom React SVG component for the next month navigation button.
+         */
         navNextIcon: node,
+        /**
+         * A custom React component to list and select a preset.
+         */
         presetsComponent: node,
+        /**
+         * Array of pre-determined dates range displayed to the left of the calendar.
+         */
         presets: arrayOf(shape(PRESET_SHAPE)),
+        /**
+         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         */
         buttons: node,
+        /**
+         * Whether or not the calendar selected date(s) can be cleared.
+         */
         allowClear: bool,
+        /**
+         * @ignore
+         */
         reactDatesCalendar: node,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

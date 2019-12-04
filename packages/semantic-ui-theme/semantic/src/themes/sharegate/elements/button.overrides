@@ -8,22 +8,37 @@
     align-items: center;
 }
 
-.ui.button.circular {
-    font-size: 1rem;
-    padding: 0.5em 0.5em 0.5em;
-}
-
-.ui.button.mini.circular {
+.ui.button.icon.tiny.circular {
     min-height: 24px;
     min-width: 24px;
-    padding: 0.25em 0.25em 0.25em;
+    padding: 0;
     justify-content: center;
     font-size: 1rem;
 }
 
-.ui.button.tall.circular {
+.ui.button.icon.small.circular {
+    min-height: 32px;
+    min-width: 32px;
+    padding: 0;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.ui.button.circular,
+.ui.button.medium.circular ,
+.ui.button.icon.circular,
+.ui.button.icon.medium.circular {
+    font-size: 1rem;
+    padding: 0;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.ui.button.icon.large.circular {
     min-width: 48px;
-    padding: 0.5em 0.5em 0.5em;
+    min-height: 48px;
+    padding: 0;
     justify-content: center;
     font-size: 1rem;
 }
@@ -37,6 +52,12 @@
     font-size: 1rem;
     padding: 0.5rem 1rem;
 }
+
+.ui.icon.buttons .button,
+.ui.icon.button {
+  padding: 0.25rem 1.5rem 0.25rem 1rem;
+}
+
 
 /* transparent button */
 .ui.transparent.button {
@@ -256,10 +277,31 @@
     }
 }
 
-// Inverted
-.ui.button.inverted {
+/* Inverted */
+.ui.inverted.buttons .button,
+.ui.inverted.button {
     background-color: @white;
+    color: @marine500;
 }
+
+.ui.inverted.buttons .active.button,
+.ui.inverted.active.button {
+    color: @white;
+    background-color: @marine200;
+}
+
+.ui.inverted.buttons .button:hover,
+.ui.inverted.button:hover,
+.ui.inverted.buttons .button:focus,
+.ui.inverted.button:focus,
+.ui.inverted.buttons .button.active,
+.ui.inverted.button.active,
+.ui.inverted.buttons .button:active,
+.ui.inverted.button:active {
+    color: @white;
+    background-color: @marine200;
+}
+
 
 .ui.inverted.primary.buttons .button,
 .ui.inverted.primary.button {
@@ -285,7 +327,6 @@
     background-color: @primary500;
 }
 
-//
 .ui.basic.buttons .button.icon:active,
 .ui.basic.button.icon:active {
     background-color: @marine600!important;

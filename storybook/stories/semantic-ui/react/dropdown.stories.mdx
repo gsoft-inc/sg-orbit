@@ -1,0 +1,193 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Dropdown } from "semantic-ui-react";
+import { SemanticLink } from "@components/semantic-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta title="Components|Dropdown" />
+
+<Anchor storyId="components-dropdown--default-story" />
+
+<SemanticLink docPath="/modules/dropdown/" />
+
+# Dropdown
+
+A dropdown can be used to select between choices in a form.
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+        ```javascript
+            import { Dropdown } from &quot;semantic-ui-react&quot;;
+        ```
+</details>
+
+## Usage
+
+### Default
+
+A basic dropdown.
+
+<Preview>
+    <Story name="default">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A disabled dropdown menu does not allow user interaction.
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="Gender"
+            disabled
+            fluid
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Complex
+
+A dropdown can render complex items.
+
+<Preview>
+    <Story name="complex">
+        <Dropdown
+            placeholder="Select Friend"
+            fluid
+            selection
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/4.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/12.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Stevie Feliciano",
+                    text: "Stevie Feliciano",
+                    value: "Stevie Feliciano",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/14.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Christian",
+                    text: "Christian",
+                    value: "Christian",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/12.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Matt",
+                    text: "Matt",
+                    value: "Matt",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/men/44.jpg",
+                        size: "mini"
+                    }
+                },
+                {
+                    key: "Justen Kitsune",
+                    text: "Justen Kitsune",
+                    value: "Justen Kitsune",
+                    image: {
+                        avatar: true,
+                        src: "https://randomuser.me/api/portraits/women/14.jpg",
+                        size: "mini"
+                    }
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Size
+
+A dropdown can vary in sizes.
+
+#### Small
+
+A dropdown can be small.
+
+<Preview>
+    <Story name="sizes small">
+        <Dropdown
+            placeholder="Gender"
+            fluid
+            selection
+            className="small"
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>

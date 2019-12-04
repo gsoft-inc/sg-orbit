@@ -1,0 +1,310 @@
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    DEFAULT_DATES_PRESETS,
+    DateRangePicker,
+    PureDateRangePickerInput,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-date-picker/src";
+import { GithubLink } from "@components/github-link";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { ControlledDateRangePicker } from "./components";
+import { DEFAULT_PRESETS_OPTIONS } from "./data";
+import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
+import { PropsTabs } from "@components/props-tabs";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+import moment from "moment";
+import MomentUsage from "./moment-usage.mdx";
+
+<Meta
+    title="Components|Date Picker/range"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<GithubLink filePath="/packages/react-components/components/date-picker/src/range" />
+
+<Anchor storyId="components-date-picker-range--default-story" />
+
+# Date Range Picker
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash styled-jsx
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+import {
+    DateRangePicker,
+    toPreset,
+    LAST_WEEK_PRESET,
+    LAST_MONTH_PRESET,
+    LAST_3_MONTHS_PRESET,
+    LAST_6_MONTHS_PRESET,
+    LAST_12_MONTHS_PRESET,
+    DEFAULT_DATES_PRESETS,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-date-picker" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
+
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "DateRangePicker", component: DateRangePicker },
+        { displayName: "DateRangePicker.Input", component: PureDateRangePickerInput },
+        { displayName: "DateRangePicker.Calendar", component: DateRangePicker.Calendar },
+        { displayName: "DateRangePicker.Presets", component: DateRangePicker.Presets },
+        { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
+    ]}
+/>
+
+## Usage
+
+<MomentUsage />
+
+### Default
+
+A basic date range picker.
+
+<Preview>
+    <Story name="default">
+        <DateRangePicker
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <DateRangePicker
+        defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
+        defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
+        allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
+        allowClear={boolean("allowClear", true)}
+        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+        placeholder={text("placeholder")}
+        rangeFormat={text("rangeFormat")}
+        dateFormat={text("dateFormat")}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        className={text("className")}
+        onDatesChange={logDatesChanged}
+    />
+</Story>
+
+### Dates presets
+
+A date range picker can offer a predefined set of frequently used ranges by specifying a `presets` prop.
+
+A default set of ranges is available through the `DEFAULT_DATES_PRESETS` object.
+
+If you need to create your own presets, use the `toPreset(text, startDate, endDate)` function:
+
+```js
+const LAST_WEEK_PRESET = toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
+```
+
+Here's an example with `DEFAULT_DATES_PRESETS`:
+
+<Preview>
+    <Story
+        name="presets"
+        parameters={paramsBuilder()
+            .storyValues({
+                presets: toStoryValuesPresets(DEFAULT_DATES_PRESETS)
+            })
+            .build()}
+    >
+        <DateRangePicker
+            presets={DEFAULT_DATES_PRESETS}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Selected dates
+
+A date range picker can have an initial start and end date.
+
+<Preview>
+    <Story name="selected dates">
+        <DateRangePicker
+            defaultStartDate={moment()}
+            defaultEndDate={moment().add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Minimum date restriction
+
+A date range picker can enforce a minimum selectable date.
+
+<Preview>
+    <Story
+        name="min date restriction"
+        parameters={paramsBuilder()
+            .storyValues({
+                minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            minDate={moment().subtract(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Maximum date restriction
+
+A date range picker can enforce a maximum selectable date.
+
+<Preview>
+    <Story
+        name="max date restriction"
+        parameters={paramsBuilder()
+            .storyValues({
+                maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            maxDate={moment().add(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Minimum & maximum dates restriction
+
+A date range picker can enforce a minimum & maximum selectable date.
+
+<Preview>
+    <Story
+        name="min & max dates restriction"
+        parameters={paramsBuilder()
+            .storyValues({
+                minDate: moment().subtract(2, "weeks").format("MMMM Do YYYY"),
+                maxDate: moment().add(2, "weeks").format("MMMM Do YYYY")
+            })
+            .build()}
+    >
+        <DateRangePicker
+            minDate={moment().subtract(2, "weeks")}
+            maxDate={moment().add(2, "weeks")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Allow single date selection
+
+A date range picker can allow the selection of a single date instead of a range.
+
+<Preview>
+    <Story name="allow single date selection">
+        <DateRangePicker
+            allowSingleDateSelection
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Display a single month
+
+A date range picker can display a single calendar.
+
+<Preview>
+    <Story name="one month visible">
+        <DateRangePicker
+            numberOfMonths={1}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A date range picker can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <DateRangePicker
+            disabled
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Position
+
+A date range picker calendar can be anchored at different positions.
+
+The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+
+<Preview onClick={() => {}}>
+    <Story name="position">
+        <DateRangePicker
+            position={TOP_LEFT}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <DateRangePicker
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onDatesChange={logDatesChanged}
+    />
+</Story>
+
+### Controlled
+
+A date range picker can handle `startDate`, `endDate` and `open` state in controlled mode.
+
+<Preview>
+    <Story name="controlled">
+        <ControlledDateRangePicker
+            startDate={moment()}
+            endDate={moment().add(3, "days")}
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>

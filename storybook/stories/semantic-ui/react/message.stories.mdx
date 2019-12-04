@@ -1,0 +1,227 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Button, Message } from "semantic-ui-react";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components/semantic-link";
+import { noop } from "lodash";
+
+<Meta title="Components|Message" />
+
+<Anchor storyId="components-message--default-story" />
+
+<SemanticLink docPath="/collections/message/" />
+
+# Message
+
+A message displays information that explains nearby content.
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Message } from &quot;semantic-ui-react&quot;;
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A simple message.
+
+<Preview>
+    <Story name="default">
+        <Message>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### List
+
+A message with a list.
+
+<Preview>
+    <Story name="list">
+        <Message>
+            <Message.Header>New Site Features</Message.Header>
+            <Message.List>
+                <Message.Item>You can now have cover images on blog pages</Message.Item>
+                <Message.Item>Drafts will now auto-save while writing</Message.Item>
+            </Message.List>
+        </Message>
+    </Story>
+</Preview>
+
+### Dismissible
+
+Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message.
+
+<Preview>
+    <Story name="dismissible">
+        <Message onDismiss={noop}>
+            <Message.Header>New Site Features</Message.Header>
+            <Message.List>
+                <Message.Item>You can now have cover images on blog pages</Message.Item>
+                <Message.Item>Drafts will now auto-save while writing</Message.Item>
+            </Message.List>
+        </Message>
+    </Story>
+</Preview>
+
+### Info
+
+A message may be formatted to display information.
+
+<Preview>
+    <Story name="info">
+        <Message info>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### Positive/Success
+
+A message may be formatted to display a positive message.
+
+<Preview>
+    <Story name="positive success">
+        <Message positive>
+            <Message.Header>
+    Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### Warning
+
+A message may be formatted to display warning message.
+
+<Preview>
+    <Story name="warning">
+        <Message warning>
+            <Message.Header>
+    Review your settings before setting up a security policy
+            </Message.Header>
+            <p>
+    Easily manage external sharing links and set-up automatic access reviews
+    for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### Negative/Error
+
+A message may be formatted to display a negative message.
+
+<Preview>
+    <Story name="negative error">
+        <Message negative>
+            <Message.Header>
+    Cannot setup a security policy for external sharing
+            </Message.Header>
+            <p>
+    Your trial has expired.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### Floating
+
+A message can float above content that it is related to.
+
+<Preview>
+    <Story name="floating">
+        <Message floating>
+            <Message.Header>
+            Setup a security policy for external sharing
+            </Message.Header>
+            <p>
+            Easily manage external sharing links and set-up automatic access reviews
+            for entrusted group owners.
+            </p>
+        </Message>
+    </Story>
+</Preview>
+
+### Two Columns Layout
+
+A message can have two columns.
+
+#### Left Aligned
+
+A message can have a button or an icon positionned to the left.
+
+<Preview>
+    <Story name="two columns left aligned">
+        <Message icon>
+            <Button>Click Here</Button>
+            <Message.Content>
+                <Message.Header>Just one second</Message.Header>
+                <p>We are fetching that content for you.</p>
+            </Message.Content>
+        </Message>
+    </Story>
+</Preview>
+
+#### Right Aligned
+
+A message can have a button or an icon positionned to the right.
+
+<Preview>
+    <Story name="two columns right aligned">
+        <Message icon>
+            <Message.Content>
+                <Message.Header>Just one second</Message.Header>
+                <p>We are fetching that content for you.</p>
+            </Message.Content>
+            <Button>Click Here</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Sizes
+
+A message can have different sizes.
+
+#### Small
+
+Useful for one liners.
+
+<Preview>
+    <Story name="sizes small">
+        <Message size="small">
+            <p className="fw6">
+    Easily manage external sharing links and set-up automatic access reviews.
+            </p>
+        </Message>
+    </Story>
+</Preview>

@@ -1,11 +1,11 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import { useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
@@ -196,7 +196,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    handleFocus = useHandlerProxy(this, "onFocus");
+    handleFocus = withHandlerProxy(this, "onFocus");
 
     handleClear = event => {
         const { onClear } = this.props;
@@ -289,9 +289,10 @@ export class SearchInputController extends AutoControlledPureComponent {
     getInputCssClasses() {
         const { className } = this.props;
 
-        const inputDefaultClasses = "fluid";
-
-        return isNil(className) ? inputDefaultClasses : `${inputDefaultClasses} ${className}`;
+        return mergeClasses(
+            "fluid",
+            className
+        );
     }
 
     renderResult = result => {
@@ -310,7 +311,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                 <Ref innerRef={this._clearButtonRef}>
                     <Button
                         circular
-                        size="mini"
+                        size="tiny"
                         primary
                         icon
                         className="transparent"

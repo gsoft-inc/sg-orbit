@@ -1,5 +1,5 @@
 import { ChevronIcon } from "@orbit-ui/icons";
-import { KEYS, useHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
 import { bool, func, node, string } from "prop-types";
@@ -8,32 +8,104 @@ import { momentObj as momentType } from "react-moment-proptypes";
 
 export class InlineSingleDatePickerInput extends PureComponent {
     static propTypes = {
+        /**
+         * A controlled date value.
+         */
         date: momentType,
+        /**
+         * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClose: func,
+        /**
+         * Called when the size of the input changed.
+         * @param {{ width: number, height: number }} dimensions - The input dimensions.
+         * @returns {void}
+         */
         onSizeChange: func,
+        /**
+         * Called on click.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClick: func,
+        /**
+         * Called on keydown.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onKeyDown: func,
+        /**
+         * Called on focus.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
+        /**
+         * Called on blur.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
+        /**
+         * Called when a clear event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClear: func,
+        /**
+         * The placeholder text.
+         */
         placeholder: string,
+        /**
+         * A format to display a date.
+         */
         dateFormat: string,
+        /**
+         * A custom React SVG component displayed after the date text when the date picker is opened.
+         */
         openIcon: node,
+        /**
+         * A custom React SVG component displayed after the date text when the date picker is closed.
+         */
         closeIcon: node,
-        disabledOpenIcon: node,
+        /**
+         * A custom React SVG component indicating that the date picker is closed when the date picker is disabled.
+         */
         disabledCloseIcon: node,
+        /**
+         * A disabled input does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the date picker is opened.
+         */
         open: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
     static defaultProps = {
         openIcon: <ChevronIcon className="w4 h4 rotate-270 fill-primary-500" />,
         closeIcon: <ChevronIcon className="w4 h4 rotate-90 fill-primary-500" />,
-        disabledOpenIcon: <ChevronIcon className="w4 h4 rotate-270 fill-cloud-200" />,
         disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
     };
 
@@ -103,8 +175,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
         }
     }
 
-    handleFocus = useHandlerProxy(this, "onFocus");
-    handleBlur = useHandlerProxy(this, "onBlur");
+    handleFocus = withHandlerProxy(this, "onFocus");
+    handleBlur = withHandlerProxy(this, "onBlur");
 
     getValue() {
         const { date, placeholder, dateFormat } = this.props;
@@ -119,19 +191,19 @@ export class InlineSingleDatePickerInput extends PureComponent {
     getCssClasses() {
         const { disabled, open, className } = this.props;
 
-        const openedClasses = open && !disabled ? " bb bw1 b--primary-500" : " bw0 b--transparent";
-        const disabledClasses = disabled ? " cloud-200 hover-b--transparent crsr-not-allowed": " primary-500 bb bw1 b--transparent hover-b--primary-500";
-
-        const defaultClasses = `flex items-center outline-0${openedClasses}${disabledClasses}`;
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "flex items-center outline-0",
+            open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
+            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500" : "cloud-200 hover-b--transparent crsr-not-allowed",
+            className
+        );
     }
 
     renderIcon() {
-        const { openIcon, closeIcon, disabledOpenIcon, disabledCloseIcon, open, disabled } = this.props;
+        const { openIcon, closeIcon, disabledCloseIcon, open, disabled } = this.props;
 
         if (open) {
-            return disabled ? disabledOpenIcon : openIcon;
+            return openIcon;
         }
 
         return disabled ? disabledCloseIcon : closeIcon;

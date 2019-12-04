@@ -26,7 +26,6 @@
         "@orbit-ui/react-components": "2.0.1",
         "@orbit-ui/semantic-ui-theme": "1.2.2",
         "@orbit-ui/tachyons": "2.0.8",
-        "lodash": "*",
         "semantic-ui-react": "0.88.1",
         "styled-jsx": "3.2.1"
     }

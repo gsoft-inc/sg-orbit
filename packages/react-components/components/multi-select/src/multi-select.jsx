@@ -1,5 +1,4 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { ITEM_SHAPE } from "./items";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -9,6 +8,12 @@ import { MultiSelectSelectedItems } from "./multi-select-selected-items";
 import { arrayOf, bool, func, node, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
@@ -36,24 +41,95 @@ function computeDerivedState(items, values) {
 
 export class MultiSelect extends AutoControlledPureComponent {
     static propTypes = {
+        /**
+         * All available items.
+         */
         items: arrayOf(shape(ITEM_SHAPE)).isRequired,
+        /**
+         * A controlled array of selected values.
+         */
         values: arrayOf(string),
+        /**
+         * The initial selected values.
+         */
         defaultValues: arrayOf(string),
+        /**
+         * Called when a value is selected / removed.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string[]} values - Selected values.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onValuesChange: func.isRequired,
+        /**
+         * Called when a search for an item happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item[]} items - Available items.
+         * @param {string} query - Search query.
+         * @param {Object} props - All the props.
+         * @returns {Item[]} - Items to display.
+         */
         onSearch: func,
+        /**
+         * Called when the dropdown open / close.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {boolean} isVisible - Indicate if the multi-select dropdown is visible.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onVisibilityChange: func,
+        /**
+         * A custom React component to select an item.
+         */
         dropdown: node,
+        /**
+         * Whether or not the dropdown should close when an item is selected.
+         */
         closeOnSelect: bool,
+        /**
+         * The text of the trigger button to open the dropdown.
+         */
         addText: string,
+        /**
+         * Message to display when there are no items matching the search input.
+         */
         noResultsMessage: string,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
+        /**
+         * A custom React component to display the selected values.
+         */
         selectedItemsComponent: node,
+        /**
+         * A custom React component to clear the selected values.
+         */
         clearButton: node,
-        defaultOpen: bool,
+        /**
+         * A controlled open value that determined whether or not the dropdown is displayed.
+         */
         open: bool,
+        /**
+         * The initial value of open.
+         */
+        defaultOpen: bool,
+        /**
+         * A disabled multi-select does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the dropdown should close when the multi-select loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Requires `closeOnBlur` to be `false`.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 

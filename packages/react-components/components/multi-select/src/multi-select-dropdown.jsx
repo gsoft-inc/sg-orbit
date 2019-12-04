@@ -1,7 +1,5 @@
-import { AddIcon } from "@orbit-ui/icons";
-import { ArgumentError, DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
-import { ITEM_SHAPE } from "./items";
-import { MagnifierIcon } from "@orbit-ui/icons";
+import { AddIcon24, MagnifierIcon } from "@orbit-ui/icons";
+import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
@@ -10,6 +8,12 @@ import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 function defaultItemRenderer(item, isSelected) {
     return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} data-testid="multi-select-dropdown-item" />;
@@ -21,28 +25,120 @@ function defaultHeaderRenderer(group) {
 
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
+        /**
+         * Array of items.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Called when an item is selected.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item} item - Selected item.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onItemSelect: func,
+        /**
+         * Called when the search input change.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {string} query - Search query.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onSearch: func,
+        /**
+         * Called when an open event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onOpen: func,
+        /**
+         * Called when a close event happens.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onClose: func,
+        /**
+         * Render an item.
+         * @param {Item} item - Item to render.
+         * @param {boolean} isSelected - Whether or not the item is selected.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         itemRenderer: func,
+        /**
+         * Render an header (also called a category).
+         * @param {string} text - Header text.
+         * @param {Item[]} items - Items under the header.
+         * @param {Object} props - All the props.
+         * @returns {ReactElement} - React element to render.
+         */
         headerRenderer: func,
+        /**
+         * Whether or not the dropdown should close when an item is selected.
+         */
         closeOnSelect: bool,
+        /**
+         * Delay before initiating a search when the query change.
+         */
         debounceDelay: number,
+        /**
+         * Message to display when there are no items matching the query.
+         */
         noResultsMessage: string,
+        /**
+         * A custom React component that open the dropdown.
+         */
         trigger: node,
+        /**
+         * The trigger text.
+         */
         triggerText: string,
+        /**
+         * A custom React SVG component displayed before the trigger text.
+         */
         triggerIcon: node,
+        /**
+         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
+         */
         triggerDisabledIcon: node,
+        /**
+         * A custom React component to display the items.
+         */
         menu: node,
+        /**
+         * A custom React component to enter a query.
+         */
         searchInput: node,
+        /**
+         * A custom React SVG component displayed before the search input query.
+         */
         searchIcon: node,
+        /**
+         * The search input placeholder text.
+         */
         placeholder: string,
+        /**
+         * A controlled open value that determined whether or not the dropdown is displayed.
+         */
         open: bool,
+        /**
+         * A disabled dropdown does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Whether or not the dropdown should close when multi-select loose focus.
+         */
         closeOnBlur: bool,
+        /**
+         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Requires `closeOnBlur` to be `false`.
+         */
         closeOnOutsideClick: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -52,10 +148,10 @@ export class MultiSelectDropdown extends PureComponent {
         headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
-        triggerIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
-        triggerDisabledIcon: <AddIcon className="w3 h3 fill-marine-700 ml2" />,
+        triggerIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
+        triggerDisabledIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
         searchInput: <MultiSelectDropdownSearchInput />,
-        searchIcon: <MagnifierIcon className="w4 h4 fill-marine-500" />,
+        searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -259,9 +355,10 @@ export class MultiSelectDropdown extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "no-icon";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "no-icons",
+            className
+        );
     }
 
     renderTrigger = () => {

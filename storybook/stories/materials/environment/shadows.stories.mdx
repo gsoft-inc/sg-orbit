@@ -1,0 +1,61 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+
+<Meta
+    title="Materials|Environment/shadows"
+    parameters={
+        paramsBuilder()
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<Anchor storyId="materials-environment-shadows--shadow-100" />
+
+# Shadows
+
+Shadows denote a certain elevation of an element.
+
+## Installation
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons
+```
+
+</details>
+
+## Usage
+
+| Scale   | Value                                      | Class      |
+|-:-------|-:------------------------------------------|-:----------|
+| 100     | rgba(128, 136, 157, 0.32) 0px 4px 12px 0px | shadow-100 |
+| 200     | rgba(128, 136, 157, 0.32) 0px 8px 24px 0px | shadow-200 |
+
+### 100
+
+<Preview>
+    <Story name="shadow-100">
+        <div>
+            <div className="mw6 pa5 shadow-100">
+                <div className="w-100 h13 bg-cloud-200" />
+                <h2 className="f4 lh1 mt2">Salyut 2/Almaz/OPS-1 (1973, failed shortly after launch)</h2>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### 200
+
+<Preview>
+    <Story name="shadow-200">
+        <div className="mw6 pa5 shadow-200 mt8">
+            <div className="w-100 h13 bg-cloud-200" />
+            <h2 className="f4 lh1 mt2">Dyna-Soar (USA, 1957–1963) was a United States Air Force program</h2>
+        </div>
+    </Story>
+</Preview>

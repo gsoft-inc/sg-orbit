@@ -56,13 +56,12 @@
 /* Icons */
 
 .ui.message > .close.icon {
-    background-color: @transparent;
     opacity: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 24px;
-    width: 24px;
+    height: 1.25rem;
+    width: 1.25rem;
     border-radius: 100%;
     transition: background-color 0.3s ease;
     top: 0.5em;
@@ -70,17 +69,5 @@
 }
 
 .ui.message > .close.icon:hover {
-    background-color: @cloud100;
-}
-
-.ui.negative.message > .close.icon:hover {
-    background-color: @alert100;
-}
-
-.ui.warning.message > .close.icon:hover {
-    background-color: @sunray100;
-}
-
-.ui.positive.message > .close.icon:hover {
-    background-color: @success100;
+    background-color: @marine900;
 }

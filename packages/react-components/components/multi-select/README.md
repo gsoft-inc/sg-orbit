@@ -1,25 +1,5 @@
 # @orbit-ui/react-multi-select
 
-## Installation
-
-With npm:
-
-```bash
-npm install lodash styled-jsx @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-multi-select
-```
-
-## Usage
-
-```javascript
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select";
-```
-
-Or
-
-```javascript
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-components";
-```
-
 Full documentation available at: https://sg-orbit.netlify.com
 
 ## License

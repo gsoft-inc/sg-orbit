@@ -1,45 +1,5 @@
 # @orbit-ui/react-date-picker
 
-## Installation
-
-With npm:
-
-```bash
-npm install react-spring moment lodash moment styled-jsx @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react @orbit-ui/react-date-picker
-```
-
-## Usage
-
-```javascript
-import {
-    DateRangePicker,
-    SingleDatePicker,
-    InlineSingleDatePicker,
-    toPreset, 
-    LAST_WEEK_PRESET, 
-    LAST_MONTH_PRESET, 
-    LAST_3_MONTHS_PRESET, 
-    LAST_6_MONTHS_PRESET, 
-    LAST_12_MONTHS_PRESET, 
-    DEFAULT_DATES_PRESETS, 
-    TOP_LEFT, 
-    TOP_RIGHT,
-    TOP_CENTER,
-    BOTTOM_LEFT,
-    BOTTOM_RIGHT,
-    BOTTOM_CENTER
-} from "@orbit-ui/react-date-picker";
-```
-
-Or
-
-```javascript
-import { 
-    DateRangePicker, 
-    ...
-} from "@orbit-ui/react-components";
-```
-
 Full documentation available at: https://sg-orbit.netlify.com
 
 ## License

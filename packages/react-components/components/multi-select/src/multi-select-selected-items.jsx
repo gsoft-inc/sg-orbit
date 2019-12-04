@@ -1,10 +1,15 @@
 import { Button, Label } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
-import { ITEM_SHAPE } from "./items";
+import { CloseIcon24 } from "@orbit-ui/icons";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
-import { isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
+
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const ITEM_SHAPE = {
+    text: string.isRequired,
+    value: string.isRequired
+};
 
 function defaultItemRenderer(item, { disabled, onRemove }) {
     return (
@@ -18,13 +23,13 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
             <If condition={!disabled}>
                 <Button
                     circular
-                    size="mini"
+                    size="tiny"
                     icon
                     className="transparent"
                     onClick={onRemove}
                     type="button"
                 >
-                    <CancelIcon className="h3 w3" />
+                    <CloseIcon24 className="h4 w4" />
                 </Button>
             </If>
         </Label>
@@ -49,9 +54,10 @@ class MultiSelectSelectedItem extends PureComponent {
     getClasses() {
         const { className } = this.props;
 
-        const defaultClasses = "mr2 mb2";
-
-        return isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        return mergeClasses(
+            "mr2 mb2",
+            className
+        );
     }
 
     render() {
@@ -63,10 +69,32 @@ class MultiSelectSelectedItem extends PureComponent {
 
 export class MultiSelectSelectedItems extends PureComponent {
     static propTypes = {
+        /**
+         * Items to display.
+         */
         items: arrayOf(shape(ITEM_SHAPE)),
+        /**
+         * Render an item.
+         * @param {Item} item - Item to render.
+         * @param {{ disabled: boolean, onRemove: function }} options - Rendering options.
+         * @returns {ReactElement} - React element to render.
+         */
         itemRenderer: func,
+        /**
+         * Called when an item is removed.
+         * @param {SyntheticEvent} event - React's original SyntheticEvent.
+         * @param {Item} item - Removed item.
+         * @param {Object} props - All the props.
+         * @returns {void}
+         */
         onRemoveSelectedItem: func,
+        /**
+         * A disabled selected items does not allow user interaction.
+         */
         disabled: bool,
+        /**
+         * Additional classes.
+         */
         className: string
     };
 
@@ -77,7 +105,7 @@ export class MultiSelectSelectedItems extends PureComponent {
     handleRemoveSelectedItem = (event, item) => {
         const { onRemoveSelectedItem } = this.props;
 
-        onRemoveSelectedItem(event, item);
+        onRemoveSelectedItem(event, item, this.props);
     };
 
     renderItems() {

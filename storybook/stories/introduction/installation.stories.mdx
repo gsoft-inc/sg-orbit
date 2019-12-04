@@ -1,0 +1,112 @@
+import { GithubLink } from "@components/github-link";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Introduction|Installation"
+    parameters={
+        paramsBuilder()
+            .sortPriority(-5)
+            .hideBrandPicker()
+            .build()
+    }
+/>
+
+<GithubLink filePath="/" />
+
+# Installation
+
+Multiple [packages](?path=/docs/introduction-packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
+
+## React bundle
+
+For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle.
+
+Install the packages:
+
+```bash
+npm install @orbit-ui/react react-spring moment lodash
+```
+
+Then import the components:
+
+```javascript
+import { Button, ... } from "semantic-ui-react";
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { ClearIcon, ... } from "@orbit-ui/icons";
+```
+
+And the styles:
+
+```css
+@import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
+@import "~@orbit-ui/semantic-ui-theme";
+```
+
+## Custom installation
+
+If your app doesn't use React or you prefer to hand-pick a few [packages](?path=/docs/introduction-packages--page), this is also possible.
+
+Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
+
+Before installing any [React components packages](?path=/docs/introduction-packages--page#react-components), the [core packages](?path=/docs/introduction-packages--page#core) must be installed.
+
+You can pick and choose the *core packages* to install but it is recommended to install all of them.
+
+To install all the *core packages*:
+
+```bash
+npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
+```
+
+Then, import the styles:
+
+```css
+@import "~@orbit-ui/fonts";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
+@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
+```
+
+Once the *core packages* are installed, you can optionally add *React component packages*.
+
+A few options are available...
+
+1- only install the components from Semantic UI React:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+
+2- install all the Orbit UI React components:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-components semantic-ui-react react-spring styled-jsx moment lodash
+```
+
+3- hand-pick a few Orbit UI React components to install:
+
+```bash
+npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
+```
+
+When it's done, you can import React components and the Semantic UI theme:
+
+```javascript
+import { Button, ... } from "semantic-ui-react";
+import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { SingleDatePicker } from "@orbit-ui/react-date-pickers";
+```
+
+You can either pick & choose the specific Semantic UI theme modules that you need:
+
+```css
+@import "~@orbit-ui/semantic-ui-theme/button.css";
+@import "~@orbit-ui/semantic-ui-theme/checkbox.css";
+```
+
+Or you can import the whole theme:
+
+```css
+@import "~@orbit-ui/semantic-ui-theme";
+```

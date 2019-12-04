@@ -1,0 +1,149 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import {
+    BOTTOM_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    InlineSingleDatePicker,
+    TOP_CENTER,
+    TOP_LEFT,
+    TOP_RIGHT
+} from "@orbit-ui/react-date-picker/src";
+import { PropsTabs } from "@components/props-tabs";
+import { Message } from "semantic-ui-react";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
+import { logDateChanged, momentKnob } from "./utils";
+import { paramsBuilder } from "@utils/params-builder";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { GithubLink } from "@components/github-link";
+import moment from "moment";
+import MomentUsage from "./moment-usage.mdx";
+
+<Meta
+    title="Components|Date Picker/single inlined"
+    parameters={paramsBuilder()
+        .width("80%")
+        .build()}
+/>
+
+<GithubLink filePath="/packages/react-components/components/date-picker/src/single" />
+
+<Anchor storyId="components-date-picker-single-inlined--default-story" />
+
+# Inline Single Date Picker
+
+<Message info size="small">This component have the same feature set as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.</Message>
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/react-date-picker @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react react-spring moment lodash styled-jsx
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+import {
+    InlineSingleDatePicker,
+    TOP_LEFT,
+    TOP_RIGHT,
+    TOP_CENTER,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    BOTTOM_CENTER
+} from "@orbit-ui/react-date-picker" | "@orbit-ui/react-components";
+```
+</details>
+
+## Props
+
+<PropsTabs
+    componentsDefinitions={[
+        { displayName: "InlineSingleDatePicker", component: InlineSingleDatePicker },
+        { displayName: "InlineSingleDatePicker.Input", component: InlineSingleDatePicker.Input },
+        { displayName: "InlineSingleDatePicker.Calendar", component: InlineSingleDatePicker.Calendar },
+        { displayName: "InlineSingleDatePicker.Buttons", component: InlineSingleDatePicker.Buttons }
+    ]}
+/>
+
+## Usage
+
+<MomentUsage />
+
+### Default
+
+A basic inlined single date picker.
+
+<Preview>
+    <Story name="default">
+        <InlineSingleDatePicker
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <InlineSingleDatePicker
+        defaultDate={momentKnob("defaultDate", moment().toDate())}
+        allowClear={boolean("allowClear", true)}
+        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
+        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
+        numberOfMonths={number("numberOfMonths")}
+        placeholder={text("placeholder")}
+        dateFormat={text("dateFormat")}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        disabled={boolean("disabled", false)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        className={text("className")}
+        onDateChange={logDateChanged}
+    />
+</Story>
+
+### In a block
+
+An inlined single date picker can be embedded in a block.
+
+<Preview>
+    <Story name="in a block">
+        <div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> <input type="text" value="90" onChange={logDateChanged}></input> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
+        </div>
+    </Story>
+</Preview>
+
+### Disabled
+
+An inlined single date picker can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <InlineSingleDatePicker
+            disabled
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+    <InlineSingleDatePicker
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onDateChange={logDateChanged}
+    />
+</Story>

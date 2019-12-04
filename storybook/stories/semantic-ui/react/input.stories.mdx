@@ -1,0 +1,135 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { Input } from "semantic-ui-react";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Input" />
+
+<Anchor storyId="components-input--default-story" />
+
+<SemanticLink docPath="/elements/input/" />
+
+# Input
+
+## Installation
+
+<details>
+    <summary >install the packages</summary>
+    Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+    ```bash
+    npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+    ```
+</details>
+
+<details>
+    <summary >then import what you need</summary>
+    ```javascript
+        import { Input } from &quot;semantic-ui-react&quot;;
+    ```
+</details>
+
+## Usage
+
+### Default
+
+A basic input.
+
+<Preview>
+    <Story name="default">
+        <Input placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Focus
+
+An input field can show a user is currently interacting with it.
+
+<Preview>
+    <Story name="focus">
+        <Input focus placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Disabled
+
+An input field can show that it is disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Input disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Icon
+
+An input can be formatted with an icon.
+
+<Preview>
+    <Story name="icon">
+        <div className="flex flex-column mw5">
+            <div className="mb4">
+                <Input icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Loading
+
+An icon input field can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <div className="flex flex-column mw5">
+            <div className="mb4">
+                <Input loading icon="search" placeholder="Search..." />
+            </div>
+            <div>
+                <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Error
+
+An input field can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <Input error placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Success
+
+An input field can show that the data has been validated.
+
+<Preview>
+    <Story name="success">
+        <Input className="success" placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Fluid
+
+An input can take all the width it can.
+
+<Preview>
+    <Story name="fluid">
+        <Input fluid placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Transparent
+
+An input can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <Input className="transparent" placeholder="Search..." />
+    </Story>
+</Preview>

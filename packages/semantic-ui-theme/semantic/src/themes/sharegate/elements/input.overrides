@@ -42,3 +42,22 @@ form input {
 .ui.loading.loading.input > i.icon:after {
     margin: 0;
 }
+
+.ui.icon.input > i.icon {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+}
+
+.ui.icon.input > input {
+    padding-right: 2.125rem;
+}
+
+.ui[class*="left icon"].input > i.icon {
+    left: 0.5rem;
+}
+
+.ui.icon.input > i.icon {
+    right: 0.5rem;
+}
