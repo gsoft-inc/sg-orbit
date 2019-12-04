@@ -14,7 +14,7 @@
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--shadow-4);
+    box-shadow: var(--shadow-100);
 }
 
 .sbdocs.sbdocs-preview,
