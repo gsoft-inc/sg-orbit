@@ -24,7 +24,7 @@ import { isNil } from "lodash";
 // }
 
 // Custom sort that support a sorting priority.
-// This is mostly done to ensure that the "chromatic" folder
+// This is mostly done to ensure that the "chromatic" folder stay at the bottom
 export function customStorySort(a, b) {
     const aPriority = isNil(a[1].parameters.sortPriority) ? 0 : a[1].parameters.sortPriority;
     const bPriority = isNil(b[1].parameters.sortPriority) ? 0 : b[1].parameters.sortPriority;
