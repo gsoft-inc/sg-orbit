@@ -85,6 +85,7 @@ details + details {
 
 .sbdocs.sbdocs-table {
     width: 100%;
+    max-width: 1000px;
 }
 
 .sbdocs.sbdocs-table tr {
@@ -109,10 +110,6 @@ details + details {
     border: 1px solid var(--cloud-100);
 }
 
-.sbdocs.sbdocs-table td:first-child {
-    max-width: 80%;
-}
-
 .sbdocs.sbdocs-table b,
 .sbdocs.sbdocs-table strong {
     font-weight: 600;
@@ -126,6 +123,10 @@ details + details {
     font-size: 1rem;
     font-weight: 600;
     color: var(--cloud-500);
+}
+
+.sbdocs.sbdocs-table .sbdocs.sbdocs-img {
+    max-width: none;
 }
 
 .sbdocs .tabbutton.tabbutton-active[role="tab"],
