@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components-shared",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "description": "Sharegate Orbit UI React components shared code",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
