@@ -6,7 +6,7 @@ import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "../env";
+import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "../env";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -69,9 +69,13 @@ if (!isDocs) {
     addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
 }
 
-let stories = [
-    require.context("../stories/introduction", true, /.stories.mdx$/)
-];
+let stories = [];
+
+if (includeIntroduction) {
+    if (includeStories) {
+        stories = [...stories, require.context("../stories/introduction", true, /.stories.mdx$/)];
+    }
+}
 
 if (includeMaterials) {
     if (includeStories) {
