@@ -97,11 +97,11 @@ details + details {
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
 }
 
 .sbdocs.sbdocs-table td {
-    font-size: 1rem;
+    font-size: 1.125rem;
 }
 
 .sbdocs.sbdocs-table tr td,
@@ -116,10 +116,6 @@ details + details {
 .sbdocs.sbdocs-table b,
 .sbdocs.sbdocs-table strong {
     font-weight: 600;
-}
-
-.sbdocs.sbdocs-table .sbdocs.sbdocs-img[alt="Dependency Status"] {
-    width: auto;
 }
 
 .sbdocs.sbdocs-li {
