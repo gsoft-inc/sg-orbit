@@ -4,5 +4,5 @@ export const customStorybookTheme = create({
     base: "light",
     brandTitle: "ShareGate Orbit",
     brandUrl: "https://sharegate.com",
-    brandImage: "https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/assets/orbit.svg?sanitize=true"
+    brandImage: "https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/assets/orbit-full.svg?sanitize=true"
 });
