@@ -44,6 +44,7 @@
         "lint": "run-s eslint stylelint",
         "lint-ci": "yarn eslint -- -- 0 && yarn stylelint",
         "new-version": "lerna version --exact --no-push --loglevel verbose",
+        "now-build": "yarn build && cd storybook && build-storybook -c config -o ../public",
         "force-new-version": "yarn new-version --force-publish",
         "push-release": "node scripts/push-release",
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
