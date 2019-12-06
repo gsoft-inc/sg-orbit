@@ -1,4 +1,4 @@
-import { SECTION } from "@stories/materials/spacing/config";
+import { SECTION } from "@stories/materials/layout/config";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
