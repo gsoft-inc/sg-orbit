@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useSessionStorage } from "react-use-storage";
+import { useSessionStorage } from "../../../utils/use-storage";
 
 const STORAGE_KEY = "SB_PROPS_TAB_VISIBILITY";
 
@@ -29,10 +29,10 @@ function getStorageKey() {
 }
 
 export function useStorage(defaultValue) {
-    const [value, setValue] = useSessionStorage(getStorageKey(), defaultValue);
+    const [value, setValue] = useSessionStorage(getStorageKey(), JSON.stringify(defaultValue));
 
     return [
-        value,
-        setValue
+        JSON.parse(value),
+        x => setValue(JSON.stringify(x))
     ];
 }
