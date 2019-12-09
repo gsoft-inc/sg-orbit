@@ -29,10 +29,10 @@ function getStorageKey() {
 }
 
 export function useStorage(defaultValue) {
-    const [value, setValue] = useSessionStorage(getStorageKey(), defaultValue);
+    const [value, setValue] = useSessionStorage(getStorageKey(), JSON.stringify(defaultValue));
 
     return [
-        value,
-        setValue
+        JSON.parse(value),
+        x => setValue(JSON.stringify(x))
     ];
 }

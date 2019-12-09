@@ -25,7 +25,12 @@ export function getCurrentBrand() {
 }
 
 export function useStorage() {
-    return useLocalStorage(BRAND_STORAGE_KEY, DEFAULT_BRAND);
+    const [value, setValue] = useLocalStorage(BRAND_STORAGE_KEY, JSON.stringify(DEFAULT_BRAND));
+
+    return [
+        JSON.parse(value),
+        x => setValue(JSON.stringify(x))
+    ];
 }
 
 
