@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useSessionStorage } from "react-use-storage";
+import { useSessionStorage } from "../../../utils/use-storage";
 
 const STORAGE_KEY = "SB_PROPS_TAB_VISIBILITY";
 
