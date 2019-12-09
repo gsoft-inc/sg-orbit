@@ -35,6 +35,5 @@ const useStorage = (storage, key, initialValue = "") => {
     return [value, setItem];
 };
 
-
 export const useLocalStorage = (key, value) => useStorage(window.localStorage, key, value);
 export const useSessionStorage = (key, value) => useStorage(window.sessionStorage, key, value);
