@@ -560,7 +560,7 @@
 @internalBorderColor       : rgba(34, 36, 38, 0.1);
 @selectedBorderColor       : var(--marine-300);
 @strongSelectedBorderColor : rgba(34, 36, 38, 0.5);
-@disabledBorderColor       : rgba(34, 36, 38, 0.5);
+@disabledBorderColor       : @cloud100;
 
 @solidInternalBorderColor  : #FAFAFA;
 @solidBorderColor          : #D4D4D5;

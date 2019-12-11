@@ -109,6 +109,7 @@
     color: @cloud400!important;
 }
 
+.ui.buttons.basic .disabled.button,
 .ui.buttons .disabled.button.basic,
 .ui.disabled.button.basic,
 .ui.button.basic:disabled,
@@ -117,6 +118,10 @@
     background-color: @transparent!important;
     color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
+}
+
+.ui.buttons.basic .disabled.button {
+    box-shadow: none !important;
 }
 
 .ui.buttons .disabled.button.primary,
@@ -200,7 +205,8 @@
     background: @cloud100 !important;
 }
 
-.ui.button svg {
+.ui.button svg,
+.ui.buttons.basic .button.active svg, {
     fill: @white;
 }
 
@@ -208,7 +214,8 @@
     fill: @marine600;
 }
 
-.ui.button.basic svg {
+.ui.button.basic svg,
+.ui.buttons.basic .button svg {
     fill: @marine600;
 }
 
@@ -229,6 +236,13 @@
     fill: @cloud400;
 }
 
+.ui.button.basic.disabled svg,
+.ui.button.basic:disabled svg,
+.ui.buttons.basic .button:disabled svg,
+.ui.buttons.basic .button.disabled svg {
+    fill: @cloud400;
+}
+
 .ui.button.primary.disabled svg,
 .ui.button.primary:disabled svg {
     fill: @white;
@@ -244,6 +258,7 @@
     fill: @white;
 }
 
+.ui.buttons.basic .button:hover svg,
 .ui.button.basic:hover svg,
 .ui.button.basic.active svg,
 .ui.button.basic:focus svg {
@@ -335,4 +350,43 @@
 .ui.basic.buttons .button.icon:active svg,
 .ui.basic.button.icon:active svg{
     fill: @white!important;
+}
+
+/* Toggle (Modifies active state to give affordances) */
+
+.ui.toggle.buttons .active.button,
+.ui.buttons .button.toggle.active,
+.ui.button.toggle.active {
+    background-color: @marine500 !important;
+    text-shadow: none;
+    color: @white !important;
+}
+
+.ui.toggle.buttons .active.button.disabled {
+    background-color: @marine200 !important;
+}
+
+.ui.button.toggle.active:hover {
+    background-color: @marine900 !important;
+    text-shadow: none;
+    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
+    color: @white !important;
+}
+
+.ui.buttons > .ui.button:not(.basic):not(.inverted):hover {
+    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
+}
+
+.ui.buttons > .ui.button.active:not(.basic):not(.inverted) {
+    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
+}
+
+.ui.buttons > .ui.button.active.disabled:not(.basic):not(.inverted) {
+    box-shadow: none !important;
+}
+
+/* Labels in buttons should be consistent */
+
+.ui.button .label.mini {
+    margin-right: var(--scale-bravo);
 }
