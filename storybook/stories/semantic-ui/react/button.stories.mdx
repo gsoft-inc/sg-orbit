@@ -1,6 +1,6 @@
-import { AddIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Button } from "semantic-ui-react";
+import { Button, Label } from "semantic-ui-react";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { SemanticLink } from "@components/semantic-link";
 
@@ -201,6 +201,38 @@ A button can only contain an icon.
 <Preview>
     <Story name="icon only">
         <Button><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+### Group
+
+Buttons can exist together as a group.
+
+<Preview>
+    <Story name="group">
+        <div className="flex">
+            <Button.Group basic toggle>
+                <Button type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+                <Button type="button">Three</Button>
+            </Button.Group>
+        </div>
+    </Story>
+</Preview>
+
+#### Variations
+
+A group button can have an active or disabled element.
+
+<Preview>
+    <Story name="group variations">
+        <div className="flex">
+            <Button.Group basic toggle>
+                <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+                <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
+            </Button.Group>
+        </div>
     </Story>
 </Preview>
 

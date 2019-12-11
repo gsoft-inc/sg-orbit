@@ -1,6 +1,7 @@
 /* eslint max-len: 0 */
 
-import { Button } from "semantic-ui-react";
+import { Button, Label } from "semantic-ui-react";
+import { CalendarIcon24 } from "@orbit-ui/icons";
 import { createSemanticThemeSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
@@ -245,6 +246,28 @@ stories()
                      <Button className="paused"negative active>Spaceship Earth</Button>
                      <Button className="paused"negative disabled>Spaceship Earth</Button>
                      <Button className="paused"fluid>Fluid</Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button.Group basic toggle>
+                         <Button type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button active type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button active disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button active disabled icon type="button" ><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
                  </div>
              </div>
     ).add("tall",
