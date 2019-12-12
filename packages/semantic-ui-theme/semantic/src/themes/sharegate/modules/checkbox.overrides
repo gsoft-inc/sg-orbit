@@ -38,13 +38,20 @@
 .ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
 .ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ label:after {
     position: absolute;
-    top: 0px;
+    top: 50%;
     left: 0px;
     width: 20px;
     height: 20px;
     content: '';
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     background-color: @white;
+    transform: translateY(-50%);
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .ui.checkbox input:checked:disabled ~ .box:before,
@@ -114,6 +121,14 @@
 .ui.ui.toggle.checked.disabled label:checked::before,
 .ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before {
     background: @primary100!important;
+}
+
+/* labels should be flex by default, makes it easy to center their content */
+
+.ui.checkbox .box,
+.ui.checkbox label {
+  display: flex;
+  align-items: center;
 }
 
 .ui.checkbox .box:hover::before,

@@ -373,6 +373,11 @@
     color: @white !important;
 }
 
+
+.ui.basic.buttons .button {
+    background-color: @white !important;
+}
+
 .ui.buttons > .ui.button:not(.basic):not(.inverted):hover {
     box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
 }
