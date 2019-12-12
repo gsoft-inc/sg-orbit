@@ -51,7 +51,6 @@
         "release-pkg": "cross-env NODE_ENV=production run-s build:pkg publish-pkg",
         "release-sb": "cross-env NODE_ENV=production run-s build:sb deploy-sb",
         "release-docs": "cross-env NODE_ENV=production run-s build:docs deploy-docs",
-        "release-docs-nt": "cross-env NODE_ENV=production run-s build:docs",
         "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
         "setup:pkg": "lerna run setup --parallel",
         "start": "yarn start-pkg",
