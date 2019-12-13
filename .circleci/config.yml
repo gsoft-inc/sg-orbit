@@ -60,7 +60,7 @@ workflows:
     version: 2
     github-checks:
         jobs:
-            -
+            - build
     commit:
         jobs:
             - build:
