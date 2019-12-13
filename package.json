@@ -44,7 +44,7 @@
         "install:sb": "cd storybook && yarn install",
         "lint": "run-s eslint stylelint",
         "lint-ci": "yarn eslint -- -- 0 && yarn stylelint",
-        "new-version": "lerna version --exact --include-merged-tags --no-push --loglevel verbose",
+        "new-version": "lerna version --exact --no-push --loglevel verbose",
         "force-new-version": "yarn new-version --force-publish",
         "push-release": "node scripts/push-release",
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
