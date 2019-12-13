@@ -58,6 +58,9 @@ jobs:
                   command: yarn chromatic-ci
 workflows:
     version: 2
+    github-checks:
+        jobs:
+            -
     commit:
         jobs:
             - build:
@@ -65,7 +68,6 @@ workflows:
                       branches:
                           only:
                               - master
-                              - /.*--ci.*/
     nightly:
         triggers:
             - schedule:
