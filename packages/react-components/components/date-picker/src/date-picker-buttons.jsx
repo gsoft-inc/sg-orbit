@@ -69,7 +69,7 @@ export class DatePickerButtons extends PureComponent {
                 <Button
                     onClick={this.handleApply}
                     className={!canApply ? "ghost short disabled" : "primary ghost short"}
-                    role="button"
+                    type="button"
                     data-testid="date-picker-calendar-apply-button"
                     disabled={!canApply}
                     tabIndex={canApply ? "0" : "-1"}
