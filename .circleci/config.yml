@@ -61,6 +61,7 @@ workflows:
     github-checks:
         jobs:
             - build
+            - chromatic
     commit:
         jobs:
             - build:
