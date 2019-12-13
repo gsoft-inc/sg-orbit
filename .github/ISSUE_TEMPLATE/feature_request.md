@@ -1,10 +1,10 @@
 ---
-name: Proposal
+name: Feature request
 about: Suggest an idea for improving ShareGate Orbit UI
-labels: 'issue: proposal, needs triage'
+labels: 'feature request, needs triage'
 ---
 
-### Is your proposal related to a problem?
+### Is your feature request related to a problem?
 
 <!--
   Provide a clear and concise description of what the problem is.
@@ -32,7 +32,7 @@ labels: 'issue: proposal, needs triage'
 ### Additional context
 
 <!--
-  Is there anything else you can add about the proposal?
+  Is there anything else you can add about the feature request?
   You might want to link to related issues here, if you haven't already.
 -->
 
