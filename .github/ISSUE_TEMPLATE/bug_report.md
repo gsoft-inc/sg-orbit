@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve ShareGate orbit UI
-labels: 'issue: bug report, needs triage'
+labels: bug report, needs triage'
 ---
 
 <!--
