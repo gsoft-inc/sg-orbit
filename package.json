@@ -19,7 +19,6 @@
         "build:pkg": "lerna run build --parallel",
         "build:sb": "cd storybook && yarn build-sb",
         "build:docs": "cd storybook && yarn build-docs",
-        "build:docs:nt": "cd storybook && yarn build-docs-nt",
         "build-theme": "cd packages/semantic-ui-theme && yarn build",
         "chromatic": "cd storybook && yarn chromatic",
         "chromatic-theme": "cd storybook && yarn chromatic-theme",
