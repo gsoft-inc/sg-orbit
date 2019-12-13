@@ -58,10 +58,20 @@ jobs:
                   command: yarn chromatic-ci
 workflows:
     version: 2
-    github-checks:
+    github-build:
         jobs:
-            - build
-            - chromatic
+            - build:
+                  filters:
+                      branches:
+                          ignore:
+                              - master
+    github-chromatic:
+        jobs:
+            - chromatic:
+                  filters:
+                      branches:
+                          ignore:
+                              - master
     commit:
         jobs:
             - build:
