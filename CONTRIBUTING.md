@@ -5,10 +5,10 @@ The following documentation is only for the maintainers of this repository.
 - [Monorepo setup](#monorepo-setup)
 - [Installation](#installation)
 - [Develop a component](#develop-a-component)
-- [Update the website](#update-the-website)
+- [Update docs](#update-docs)
 - [Release the packages](#release-the-packages)
 - [Release Storybook](#release-storybook)
-- [Release the website](#release-the-website)
+- [Release docs](#release-docs)
 - [Available commands](#commands)
 - [Testing](#testing)
 - [CI](#ci)
@@ -132,12 +132,12 @@ yarn start-sb
 
 Any updates to the packages (components, SUI theme, tachyons, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
-## Update the website
+## Update docs
 
 The tooling to update the website involve 2 processes:
 
 - A process that watch & re-compile the packages
-- A process that run the website
+- A process that run the Storybook app in `--docs` mode
 
 Therefore, [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
 
@@ -150,10 +150,10 @@ yarn start
 The second terminal will start the website. Execute the following command at the root of the workspace:
 
 ```bash
-yarn start-website
+yarn start-docs
 ```
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the website accordingly.
+Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the docs accordingly.
 
 ## Release the packages
 
@@ -168,7 +168,7 @@ Releasing the packages includes several steps:
 7. Create a new Github release associated to the tag created previously
 8. Optionally deploy Storybook and the document Website 
 
-Fortunatelly, this is all automated with a few commands!
+Fortunately, this is all automated with a few commands!
 
 Before you release, make sure you have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
 
@@ -212,7 +212,7 @@ By default, packages compilation output will be in their respective *dist* direc
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
 
-Releasing Storybook includes a few steps:
+Releasing Storybook website includes a few steps:
 
 1. Build the packages
 2. Build storybook into a static web app
@@ -235,7 +235,7 @@ Open a web browser and navigate to https://sg-storybook.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and the **sg-storybook** site.
 
-Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy` in the [storybook/package.json](/storybook/package.json) file.
+Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb` in the [storybook/package.json](/storybook/package.json) file.
 
 To deploy Storybook without building the static web app everytime, execute the following command:
 
@@ -243,38 +243,23 @@ To deploy Storybook without building the static web app everytime, execute the f
 yarn deploy-sb
 ```
 
-## Release the website
+## Release docs
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
-Releasing the website includes a few steps:
+Releasing the docs website includes a few steps:
 
 1. Build the packages
-2. Build docz into a static web app
+2. Build storybook with `--docs` mode into a static web app
 3. Deploy the static web app to Netlify
 
 Before you release, make sure you have access to the GSoft Netlify team and the **sg-orbit** site.
 
-You can release the website on a staging or production environment.
-
-### Staging
-
-To release on the staging environment, open a terminal at the root of the workspace and execute the following command:
+To release, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
 yarn build:pkg
-yarn release-website
-```
-
-Open a web browser and navigate to https://5d1663eba8dbff36f23ecdf0--sg-orbit.netlify.com.
-
-### Production
-
-To release on the production environment, open a terminal at the root of the workspace and execute the following command:
-
-```bash
-yarn build:pkg
-yarn release-website-prod
+yarn release-docs
 ```
 
 Open a web browser and navigate to https://sg-orbit.netlify.com.
@@ -285,13 +270,12 @@ Open a web browser and navigate to https://sg-orbit.netlify.com.
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to **sg-orbit** site.
 
-Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the scripts `deploy-staging` and `deploy-prod` in the [website/package.json](/website/package.json) file.
+Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the script `deploy-docs` in the [storybook/package.json](/storybook/package.json) file.
 
 To deploy the website without building the static web app everytime, execute any of the following command:
 
 ```bash
-yarn deploy-website
-yarn deploy-website-prod
+yarn deploy-docs
 ```
 
 ## Commands
