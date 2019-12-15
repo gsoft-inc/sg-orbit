@@ -1,9 +1,15 @@
 <!--
 Before making a PR, please read our contributing documentation
 https://github.com/gsoft-inc/sg-orbit/blob/master/CONTRIBUTING.md
-
-Please make sure the following is done:
-
-- If you've fixed a visual component and that fix that should be tested, add chromatic tests and Jest tests if appropriate.
-- Dont forget to update Storybook, the website or the contributing documentation if appropriate.
 -->
+
+Issue:
+
+## What I did
+
+## How to test
+
+- Is this testable with Jest or Chromatic screenshots?
+- Does this need an update to the documentation?
+
+If your answer is yes to any of these, please make sure to include it in your PR.
