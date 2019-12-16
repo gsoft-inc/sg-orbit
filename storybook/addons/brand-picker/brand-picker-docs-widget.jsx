@@ -1,8 +1,10 @@
 import { BRANDS, useStorage } from "../../brands";
 import { COLORS_WEIGHT, getBrandColorVariableName, getPrimaryColorVariableName } from "./brands";
+import { useEffect, useRef } from "react";
 
 export function BrandPickerDocsWidget() {
     const [currentBrand, setCurrentBrand] = useStorage();
+    const previousBrand = useRef(currentBrand);
 
     const applyBrand = brand => {
         const computedStyle = window.getComputedStyle(document.documentElement);
@@ -13,9 +15,15 @@ export function BrandPickerDocsWidget() {
     };
 
     const handleSelectBrand = brand => {
-        applyBrand(brand);
         setCurrentBrand(brand);
     };
+
+    useEffect(() => {
+        if( previousBrand.current && previousBrand.current.id !== currentBrand.id ) {
+            applyBrand(currentBrand);
+            previousBrand.current = currentBrand;
+        }
+    }, [currentBrand]);
 
     return (
         <ul className="flex flex-row justify-end list pl0 mb7 mt8">
