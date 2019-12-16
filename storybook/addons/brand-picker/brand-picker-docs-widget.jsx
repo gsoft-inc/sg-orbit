@@ -19,11 +19,11 @@ export function BrandPickerDocsWidget() {
     };
 
     useEffect(() => {
-        if(previousBrand.current && previousBrand.current.id !== currentBrand.id) {
+        if( previousBrand.current && previousBrand.current.id !== currentBrand.id ) {
             applyBrand(currentBrand);
             previousBrand.current = currentBrand;
         }
-    }, [currentBrand])
+    }, [currentBrand]);
 
     return (
         <ul className="flex flex-row justify-end list pl0 mb7 mt8">
