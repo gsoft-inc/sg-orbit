@@ -1,7 +1,7 @@
 import { ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { INLINE_SINGLE_DATE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { createChromaticSection } from "@utils/create-section";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
@@ -15,7 +15,7 @@ function createInlineSingleDatePicker(props = {}) {
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, `${INLINE_SINGLE_DATE_PICKER_SECTION}/chromatic`)
+    return storiesOfBuilder(module, createChromaticSection("Date Picker/single inlined"))
         .segment(segment)
         .parameters(
             paramsBuilder()

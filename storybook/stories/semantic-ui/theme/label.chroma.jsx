@@ -1,12 +1,12 @@
 /* eslint max-len: 0 */
 
 import { Button, Icon, Label } from "semantic-ui-react";
-import { createSemanticThemeSection } from "@utils/create-section";
+import { createChromaticSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createSemanticThemeSection("Label"))
+    return storiesOfBuilder(module, createChromaticSection("Label"))
         .segment(segment)
         .parameters(
             paramsBuilder()

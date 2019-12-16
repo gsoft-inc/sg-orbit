@@ -1,9 +1,9 @@
-import { SECTION } from "@stories/materials/layout/config";
+import { createChromaticSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories() {
-    return storiesOfBuilder(module, `${SECTION}/chromatic`)
+    return storiesOfBuilder(module, createChromaticSection("Spacing"))
         .parameters(
             paramsBuilder()
                 .sortLast()

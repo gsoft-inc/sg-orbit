@@ -1,10 +1,10 @@
 import { Placeholder, Segment } from "semantic-ui-react";
-import { createSemanticThemeSection } from "@utils/create-section";
+import { createChromaticSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createSemanticThemeSection("Placeholder"))
+    return storiesOfBuilder(module, createChromaticSection("Placeholder"))
         .segment(segment)
         .parameters(
             paramsBuilder()
