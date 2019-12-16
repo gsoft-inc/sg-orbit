@@ -2,12 +2,12 @@
 
 import { Button, Label } from "semantic-ui-react";
 import { CalendarIcon24 } from "@orbit-ui/icons";
-import { createSemanticThemeSection } from "@utils/create-section";
+import { createChromaticSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createSemanticThemeSection("Button"))
+    return storiesOfBuilder(module, createChromaticSection("Button"))
         .segment(segment)
         .parameters(
             paramsBuilder()
