@@ -1,6 +1,6 @@
 import { CountriesSearchInput } from "./components";
 import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
-import { REMOTE_SEARCH_INPUT_SECTION } from "@react-components/search-input/stories/config";
+import { createChromaticSection } from "@utils/create-section";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
@@ -13,7 +13,7 @@ function createRemoteSearchInput(props = {}) {
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, `${REMOTE_SEARCH_INPUT_SECTION}/chromatic`)
+    return storiesOfBuilder(module, createChromaticSection("Search Input/remote"))
         .segment(segment)
         .parameters(
             paramsBuilder()

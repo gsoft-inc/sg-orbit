@@ -2,7 +2,7 @@ import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { Dropdown } from "semantic-ui-react";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
-import { SECTION } from "@react-components/multi-select/stories/config";
+import { createChromaticSection } from "@utils/create-section";
 import { noop } from "lodash";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
@@ -16,7 +16,7 @@ function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, `${SECTION}/chromatic`)
+    return storiesOfBuilder(module, createChromaticSection("Multi Select"))
         .segment(segment)
         .parameters(
             paramsBuilder()

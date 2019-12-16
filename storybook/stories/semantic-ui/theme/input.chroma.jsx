@@ -1,12 +1,12 @@
 /* eslint max-len: 0 */
 
 import { Input } from "semantic-ui-react";
-import { createSemanticThemeSection } from "@utils/create-section";
+import { createChromaticSection } from "@utils/create-section";
 import { paramsBuilder } from "@utils/params-builder";
 import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createSemanticThemeSection("Input"))
+    return storiesOfBuilder(module, createChromaticSection("Input"))
         .segment(segment)
         .parameters(
             paramsBuilder()
