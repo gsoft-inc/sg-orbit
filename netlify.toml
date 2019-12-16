@@ -1,6 +1,6 @@
 [build]
   publish = "storybook/dist/docs"
-  command = "yarn build:docs"
+  command = "yarn netlify-ci-docs"
 [build.environment]
   NODE_VERSION = "12.5.0"
   YARN_VERSION = "1.17.3"
