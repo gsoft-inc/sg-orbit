@@ -725,3 +725,7 @@ The focus side effect doesn't happen with react-testing-library. For more inform
 The solution to this problem have been to create an higher level abstraction library called [https://github.com/testing-library/user-event](user-event) that will take care of triggering the event AND the side effects.
 
 For more information on the topic view the issue [https://github.com/testing-library/dom-testing-library/issues/107](#107).
+
+### Netlify CI setup
+
+To enable deploy previews on PR, Netlify sg-orbit and sg-storybook sites have been linked to the sg-orbit Github repository. Netlify will deploy a preview on every commits for any branches, even for master (which is Netlify production). This beging said, since the sites have been configured with "Auto Publish" disabled, even if a deploy is compiled for production IT IS NOT DEPLOY, it's only available for preview and must be deployed manually.
