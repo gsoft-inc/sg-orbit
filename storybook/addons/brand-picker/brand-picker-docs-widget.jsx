@@ -15,7 +15,6 @@ export function BrandPickerDocsWidget() {
     };
 
     const handleSelectBrand = brand => {
-        applyBrand(brand);
         setCurrentBrand(brand);
     };
 
