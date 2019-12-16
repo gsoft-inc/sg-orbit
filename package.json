@@ -66,7 +66,7 @@
         "jest": "jest --config=jest/jest.config.js",
         "update": "run-s install:pkg install:sb",
         "diff": "lerna diff",
-        "netlify-ci-docs": "yarn bootstrap && yarn build:docs"
+        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs"
     },
     "devDependencies": {
         "@babel/cli": "7.7.4",
