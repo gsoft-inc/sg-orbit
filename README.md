@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  Orbit UI, the design system for Sharegate web apps.
+  Orbit UI, the design system for ShareGate web apps.
 </p>
 
 <p align=center>
@@ -17,7 +17,7 @@
     
 </p>
 
-Orbit UI is a design system develop by Sharegate to help create the best experience for our customers and drive consistency between all our web apps.
+Orbit UI is a design system develop by ShareGate to help create the best experience for our customers and drive consistency between all our web apps.
 
 ## Documentation website
 
