@@ -12,7 +12,6 @@ function stories(segment) {
         .parameters(
             paramsBuilder()
                 .chromaticDelay(100)
-                .sortLast()
                 .build()
         )
         .build();

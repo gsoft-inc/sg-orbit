@@ -68,9 +68,7 @@ function stories() {
     return storiesOfBuilder(module, createChromaticSection("Icons"))
         .parameters(
             paramsBuilder()
-                .sortLast()
                 .chromaticDelay(100)
-                .sortLast()
                 .build()
         )
         .build();

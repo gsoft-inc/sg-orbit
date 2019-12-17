@@ -6,9 +6,7 @@ function stories() {
     return storiesOfBuilder(module, createChromaticSection("Spacing"))
         .parameters(
             paramsBuilder()
-                .sortLast()
                 .chromaticDelay(100)
-                .sortLast()
                 .build()
         )
         .build();

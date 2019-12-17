@@ -76,12 +76,6 @@ class StoryParametersBuilder {
         return this;
     }
 
-    sortLast() {
-        this._sortPriority = Number.MAX_SAFE_INTEGER;
-
-        return this;
-    }
-
     hideBrandPicker() {
         this._hideBrandPicker = true;
 

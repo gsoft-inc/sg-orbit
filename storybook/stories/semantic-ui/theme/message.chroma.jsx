@@ -12,7 +12,6 @@ function stories(segment) {
             paramsBuilder()
                 .chromaticDelay(100)
                 .width("1800px")
-                .sortLast()
                 .build()
         )
         .build();
