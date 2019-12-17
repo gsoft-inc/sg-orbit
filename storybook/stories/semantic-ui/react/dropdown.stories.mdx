@@ -209,6 +209,60 @@ A dropdown can have a custom trigger.
     </Story>
 </Preview>
 
+### Fluid
+
+A dropdown can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Dropdown
+            placeholder="Select a gender"
+            selection
+            fluid
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Sizes
+
+A dropdown can vary in size.
+
+#### Small
+
+<Preview>
+    <Story name="sizes small">
+        <Dropdown
+            placeholder="Select a gender"
+            selection
+            className="small"
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
 ### Disabled
 
 A dropdown can be disabled.
@@ -236,32 +290,6 @@ A dropdown can be disabled.
 </Preview>
 
 ## Variations
-
-### Fluid
-
-A dropdown can take the width of its container.
-
-<Preview>
-    <Story name="fluid">
-        <Dropdown
-            placeholder="Select a gender"
-            selection
-            fluid
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
-        />
-    </Story>
-</Preview>
 
 ### Search selection
 
@@ -313,33 +341,5 @@ A dropdown can be used inline with text.
             defaultValue="Jenny Hess"
         />
         </span>
-    </Story>
-</Preview>
-
-### Sizes
-
-A dropdown can vary in size.
-
-#### Small
-
-<Preview>
-    <Story name="sizes small">
-        <Dropdown
-            placeholder="Select a gender"
-            selection
-            className="small"
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
-        />
     </Story>
 </Preview>

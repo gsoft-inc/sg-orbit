@@ -33,21 +33,11 @@ import { Popup } from "semantic-ui-react";
 
 ### Default
 
-A basic popup.
+A default popup.
 
 <Preview>
     <Story name="default">
         <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
-    </Story>
-</Preview>
-
-### Basic
-
-A popup can provide more basic formatting.
-
-<Preview>
-    <Story name="basic">
-        <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
 
@@ -71,6 +61,20 @@ A popup can be very wide to allow for longer content.
     </Story>
 </Preview>
 
+### Flush
+
+A popup can offload padding to its child.
+
+<Preview>
+    <Story name="flush">
+        <Popup trigger={<Button>Read</Button>} className="flush">
+            <Popup.Content className="pa10">
+                <div>Hello is it tea you are looking for?</div>
+            </Popup.Content>
+        </Popup>
+    </Story>
+</Preview>
+
 ### Disabled
 
 A disabled popup only renders its trigger.
@@ -81,6 +85,18 @@ A disabled popup only renders its trigger.
     </Story>
 </Preview>
 
+## Variations
+
+### Basic
+
+A popup can provide more basic formatting.
+
+<Preview>
+    <Story name="basic">
+        <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
+    </Story>
+</Preview>
+
 ### Inverted
 
 A popup can have its colours inverted.
@@ -88,19 +104,5 @@ A popup can have its colours inverted.
 <Preview>
     <Story name="inverted">
         <Popup inverted content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
-    </Story>
-</Preview>
-
-### Flush
-
-A popup can be offload padding to its child.
-
-<Preview>
-    <Story name="flush">
-        <Popup trigger={<Button>Read</Button>} className="flush">
-            <Popup.Content className="pa10">
-                <div>Hello is it tea you are looking for?</div>
-            </Popup.Content>
-        </Popup>
     </Story>
 </Preview>

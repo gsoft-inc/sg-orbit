@@ -50,11 +50,11 @@ A label can include icons.
     <Story name="icons">
         <div className="flex">
             <Label>
-            Notification Sent <Icon name="search" />
+                Notification Sent <Icon name="search" />
             </Label>
             <Label>
                 <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-        Notification Sent <Icon name="search" />
+                Notification Sent <Icon name="search" />
             </Label>
         </div>
     </Story>
@@ -72,6 +72,18 @@ A label can vary in size.
         </div>
     </Story>
 </Preview>
+
+### Empty
+
+A label can be empty.
+
+<Preview>
+    <Story name="empty">
+        <Label circular size="tiny" empty color="red" />
+    </Story>
+</Preview>
+
+## Variations
 
 ### Circular
 
@@ -110,18 +122,6 @@ A label can reduce its complexity.
         <Label basic>Basic</Label>
     </Story>
 </Preview>
-
-### Empty
-
-A label can be empty.
-
-<Preview>
-    <Story name="empty">
-        <Label circular size="tiny" empty color="red" />
-    </Story>
-</Preview>
-
-## Variations
 
 ### Tags
 
@@ -184,20 +184,20 @@ A tag can reduce its complexity.
     </Story>
 </Preview>
 
-#### Height
+#### Sizes
 
-A tag can vary in height.
+A tag can vary in size.
 
 <Preview>
-    <Story name="tag heights">
+    <Story name="tag sizes">
         <div className="flex items-start">
             <Label size="small">
                 <Label circular empty size="mini" color="red" />
-            Group added
+                Group added
             </Label>
             <Label size="large">
                 <Label circular empty size="mini" color="red" />
-            Group added
+                Group added
             </Label>
         </div>
     </Story>
