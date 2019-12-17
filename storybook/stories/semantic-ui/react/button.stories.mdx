@@ -34,7 +34,7 @@ Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone
 
 ### Default
 
-A standard button.
+A default button.
 
 <Preview>
     <Story name="default">
@@ -42,7 +42,7 @@ A standard button.
     </Story>
 </Preview>
 
-#### Active / focus
+### Active / focus
 
 A button can be focused.
 
@@ -52,13 +52,43 @@ A button can be focused.
     </Story>
 </Preview>
 
-#### Disabled
+### Disabled
 
-A button can show it is currently unable to be interacted with.
+A button can be disabled.
 
 <Preview>
     <Story name="disabled">
         <Button disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+## Variations
+
+### Basic
+
+The basic button has a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <div className="flex">
+            <Button basic>Cutoff</Button>
+            <Button basic primary>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+#### States
+
+A basic button can have a disabled and an active state.
+
+<Preview>
+    <Story name="basic states">
+        <div className="flex">
+            <Button basic disabled>Cutoff</Button>
+            <Button basic active>Cutoff</Button>
+            <Button basic primary disabled>Cutoff</Button>
+            <Button basic primary active>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -86,34 +116,6 @@ A button showing emphasis can have a disabled and an active state.
             <Button secondary disabled>Secondary</Button>
             <Button primary active>Primary</Button>
             <Button secondary active>Secondary</Button>
-        </div>
-    </Story>
-</Preview>
-
-### Basic
-
-The basic button has a subtle appearance.
-
-<Preview>
-    <Story name="basic">
-        <div className="flex">
-            <Button basic>Cutoff</Button>
-            <Button basic primary>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-A basic button can have a disabled and an active state.
-
-<Preview>
-    <Story name="basic states">
-        <div className="flex">
-            <Button basic disabled>Cutoff</Button>
-            <Button basic active>Cutoff</Button>
-            <Button basic primary disabled>Cutoff</Button>
-            <Button basic primary active>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -201,38 +203,6 @@ A button can only contain an icon.
 <Preview>
     <Story name="icon only">
         <Button><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-### Group
-
-Buttons can exist together as a group.
-
-<Preview>
-    <Story name="group">
-        <div className="flex">
-            <Button.Group basic toggle>
-                <Button type="button"><Label circular size="mini" empty color="red"/>One</Button>
-                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
-                <Button type="button">Three</Button>
-            </Button.Group>
-        </div>
-    </Story>
-</Preview>
-
-#### Variations
-
-A group button can have an active or disabled element.
-
-<Preview>
-    <Story name="group variations">
-        <div className="flex">
-            <Button.Group basic toggle>
-                <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>
-                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
-                <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
-            </Button.Group>
-        </div>
     </Story>
 </Preview>
 
@@ -363,6 +333,38 @@ Apart from their default height, buttons can be shorter or taller.
         <div className="flex flex-row items-start">
             <Button className="short">Short</Button>
             <Button className="tall">Tall button</Button>
+        </div>
+    </Story>
+</Preview>
+
+## Groups
+
+Buttons can exist together as a group.
+
+<Preview>
+    <Story name="group">
+        <div className="flex">
+            <Button.Group basic toggle>
+                <Button type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+                <Button type="button">Three</Button>
+            </Button.Group>
+        </div>
+    </Story>
+</Preview>
+
+### States
+
+A group can contain buttons with diffent states.
+
+<Preview>
+    <Story name="group variations">
+        <div className="flex">
+            <Button.Group basic toggle>
+                <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+                <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
+            </Button.Group>
         </div>
     </Story>
 </Preview>
