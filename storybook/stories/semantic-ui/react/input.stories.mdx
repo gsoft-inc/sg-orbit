@@ -37,13 +37,23 @@ A default input.
 
 <Preview>
     <Story name="default">
-        <Input placeholder="Search..." />
+        <Input />
+    </Story>
+</Preview>
+
+### Value
+
+An input can have an value.
+
+<Preview>
+    <Story name="value">
+        <Input value="Orbit" />
     </Story>
 </Preview>
 
 ### Focus
 
-An input field can show a user is currently interacting with it.
+An input can show a user is currently interacting with it.
 
 <Preview>
     <Story name="focus">
@@ -53,11 +63,23 @@ An input field can show a user is currently interacting with it.
 
 ### Disabled
 
-An input field can show that it is disabled.
+An input can be disabled.
 
 <Preview>
     <Story name="disabled">
         <Input disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+## Variations
+
+### Fluid
+
+An input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Input fluid placeholder="Search..." />
     </Story>
 </Preview>
 
@@ -78,9 +100,9 @@ An input can be formatted with an icon.
     </Story>
 </Preview>
 
-### Loading
+#### Loading
 
-An icon input field can show that it is currently loading data.
+An icon input can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
@@ -115,16 +137,6 @@ An input field can show that the data has been validated.
     </Story>
 </Preview>
 
-### Fluid
-
-An input can take all the width it can.
-
-<Preview>
-    <Story name="fluid">
-        <Input fluid placeholder="Search..." />
-    </Story>
-</Preview>
-
 ### Transparent
 
 An input can be transparent.
@@ -134,3 +146,4 @@ An input can be transparent.
         <Input className="transparent" placeholder="Search..." />
     </Story>
 </Preview>
+

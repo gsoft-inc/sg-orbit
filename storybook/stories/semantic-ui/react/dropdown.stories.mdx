@@ -58,31 +58,6 @@ A default dropdown.
     </Story>
 </Preview>
 
-### Placeholder
-
-A dropdown can have a placeholder.
-
-<Preview>
-    <Story name="placeholder">
-        <Dropdown
-            placeholder="Gender"
-            selection
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
-        />
-    </Story>
-</Preview>
-
 ### Selected value
 
 A dropdown can have an initial value.
@@ -116,6 +91,7 @@ A dropdown can render complex items.
 <Preview>
     <Story name="complex">
         <Dropdown
+            placeholder="Select a friend"
             selection
             options={[
                 {
@@ -190,6 +166,7 @@ A clearable dropdown let a user remove is selection.
 <Preview>
     <Story name="clearable">
         <Dropdown
+            placeholder="Select a gender"
             selection
             clearable
             options={[
@@ -239,7 +216,7 @@ A dropdown can be disabled.
 <Preview>
     <Story name="disabled">
         <Dropdown
-            placeholder="Gender"
+            placeholder="Select a gender"
             disabled
             selection
             options={[
@@ -262,11 +239,12 @@ A dropdown can be disabled.
 
 ### Fluid
 
-A dropdown can be fluid.
+A dropdown can take the width of its container.
 
 <Preview>
     <Story name="fluid">
         <Dropdown
+            placeholder="Select a gender"
             selection
             fluid
             options={[
@@ -292,6 +270,7 @@ A dropdown can be searchable.
 <Preview>
     <Story name="searchable">
         <Dropdown
+            placeholder="Select a gender"
             selection
             search
             options={[
@@ -346,6 +325,7 @@ A dropdown can vary in size.
 <Preview>
     <Story name="sizes small">
         <Dropdown
+            placeholder="Select a gender"
             selection
             className="small"
             options={[
