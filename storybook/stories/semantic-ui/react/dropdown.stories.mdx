@@ -2,6 +2,7 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Dropdown } from "semantic-ui-react";
 import { SemanticLink } from "@components/semantic-link";
 import { INSTALLATION_PAGE } from "@stories/pages";
+import { AddIcon } from "@orbit-ui/icons";
 
 <Meta title="Components|Dropdown" />
 
@@ -40,8 +41,6 @@ A default dropdown.
 <Preview>
     <Story name="default">
         <Dropdown
-            placeholder="Gender"
-            fluid
             selection
             options={[
                 {
@@ -59,16 +58,14 @@ A default dropdown.
     </Story>
 </Preview>
 
-### Disabled
+### Placeholder
 
-A disabled dropdown menu does not allow user interaction.
+A dropdown can have a placeholder.
 
 <Preview>
-    <Story name="disabled">
+    <Story name="placeholder">
         <Dropdown
             placeholder="Gender"
-            disabled
-            fluid
             selection
             options={[
                 {
@@ -86,15 +83,39 @@ A disabled dropdown menu does not allow user interaction.
     </Story>
 </Preview>
 
-### Complex
+### Selected value
+
+A dropdown can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+            defaultValue="Female"
+        />
+    </Story>
+</Preview>
+
+### Complex items
 
 A dropdown can render complex items.
 
 <Preview>
     <Story name="complex">
         <Dropdown
-            placeholder="Select Friend"
-            fluid
             selection
             options={[
                 {
@@ -162,19 +183,169 @@ A dropdown can render complex items.
     </Story>
 </Preview>
 
-### Size
+### Clearable
 
-A dropdown can vary in sizes.
+A clearable dropdown let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Dropdown
+            selection
+            clearable
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Custom trigger
+
+A dropdown can have a custom trigger.
+
+<Preview>
+    <Story name="custom trigger">
+        <Dropdown
+            trigger={<AddIcon style={{ width: "30px" }} />}
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A dropdown can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="Gender"
+            disabled
+            selection
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+## Variations
+
+### Fluid
+
+A dropdown can be fluid.
+
+<Preview>
+    <Story name="fluid">
+        <Dropdown
+            selection
+            fluid
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Search selection
+
+A dropdown can be searchable.
+
+<Preview>
+    <Story name="searchable">
+        <Dropdown
+            selection
+            search
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Inlined
+
+A dropdown can be used inline with text.
+
+<Preview>
+    <Story name="inlined">
+        <span>
+        Show me posts by <Dropdown
+            inline
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess"
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu"
+                }
+            ]}
+            defaultValue="Jenny Hess"
+        />
+        </span>
+    </Story>
+</Preview>
+
+### Sizes
+
+A dropdown can vary in size.
 
 #### Small
-
-A dropdown can be small.
 
 <Preview>
     <Story name="sizes small">
         <Dropdown
-            placeholder="Gender"
-            fluid
             selection
             className="small"
             options={[
