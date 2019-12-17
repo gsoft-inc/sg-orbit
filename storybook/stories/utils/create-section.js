@@ -1,6 +1,4 @@
-const COMPONENTS_ROOT = "Components";
-const MATERIALS_ROOT = "Materials";
-const CHROMATIC_ROOT = "Chromatic";
+import { CHROMATIC_ROOT, COMPONENTS_ROOT, MATERIALS_ROOT } from "../../roots";
 
 export function createComponentSection(section) {
     return `${COMPONENTS_ROOT}|${section}`;
