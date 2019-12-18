@@ -3,12 +3,20 @@ import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { SemanticLink } from "@components/semantic-link";
+import { paramsBuilder } from "@utils/params-builder";
 
-<Meta title="Components|Checkbox" />
+<Meta
+    title="Components|Checkbox/standard"
+    parameters={
+        paramsBuilder()
+            .sortPriority(-1)
+            .build()
+    }
+/>
 
-<Anchor storyId="components-checkbox--labelled" />
+<Anchor storyId="components-checkbox-standard--labelled" />
 
-<SemanticLink docPath="/modules/checkbox/" />
+<SemanticLink docPath="/modules/checkbox" />
 
 # Checkbox
 
@@ -28,7 +36,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 <details><summary >then import what you need</summary>
 
 ```javascript
-    import { Checkbox } from &quot;semantic-ui-react&quot;;
+    import { Checkbox } from "semantic-ui-react";
 ```
 </details>
 
@@ -117,97 +125,5 @@ A checkbox doesn't require a label.
 <Preview>
     <Story name="no label">
         <Checkbox />
-    </Story>
-</Preview>
-
-## Variations
-
-### Toggle
-
-A checkbox can be formatted to show an on or off choice.
-
-<Preview>
-    <Story name="toggle">
-        <Checkbox toggle label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### On
-
-A toggle can be on.
-
-<Preview>
-    <Story name="toggle on">
-        <Checkbox toggle defaultChecked label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### Disabled
-
-A toggle can be disabled.
-
-<Preview>
-    <Story name="toggle disabled">
-        <Checkbox toggle disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### No label
-
-A toggle doesn't require a label.
-
-<Preview>
-    <Story name="toggle no label">
-        <Checkbox toggle />
-    </Story>
-</Preview>
-
-### Radio
-
-A checkbox can be formatted as a radio element. This means it is an exclusive option.
-
-<Preview>
-    <Story name="radio">
-        <Checkbox radio label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### Selected
-
-A radio can be selected.
-
-<Preview>
-    <Story name="radio selected">
-        <Checkbox radio defaultChecked label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### Disabled
-
-A radio element can be disabled.
-
-<Preview>
-    <Story name="radio disabled">
-        <Checkbox radio disabled label="Milky Way"/>
-    </Story>
-</Preview>
-
-#### No label
-
-A radio doesn't require a label.
-
-<Preview>
-    <Story name="radio no label">
-        <Checkbox radio />
-    </Story>
-</Preview>
-
-### Radio Group
-
-Radios in a group must be controlled components.
-
-<Preview>
-    <Story name="radio group">
-        <ControlledRadioGroup />
     </Story>
 </Preview>

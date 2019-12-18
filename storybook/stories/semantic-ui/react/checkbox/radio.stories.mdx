@@ -1,0 +1,85 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Checkbox } from "semantic-ui-react";
+import { ControlledRadioGroup } from "./components/controlled-radio-group";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Checkbox/radio" />
+
+<Anchor storyId="components-checkbox-radio--labelled" />
+
+<SemanticLink docPath="/modules/checkbox" />
+
+# Radio
+
+A checkbox can be formatted as a radio element. This means it is an exclusive option.
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Checkbox } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+### Labelled
+
+A radio can have a label.
+
+<Preview>
+    <Story name="labelled">
+        <Checkbox radio label="Milky Way"/>
+    </Story>
+</Preview>
+
+### Selected
+
+A radio can be selected.
+
+<Preview>
+    <Story name="selected">
+        <Checkbox radio defaultChecked label="Milky Way"/>
+    </Story>
+</Preview>
+
+### Disabled
+
+A radio element can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Checkbox radio disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+### No label
+
+A radio doesn't require a label.
+
+<Preview>
+    <Story name="no label">
+        <Checkbox radio />
+    </Story>
+</Preview>
+
+### Radio Group
+
+Radios in a group must be controlled components.
+
+<Preview>
+    <Story name="group">
+        <ControlledRadioGroup />
+    </Story>
+</Preview>

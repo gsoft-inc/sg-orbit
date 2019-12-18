@@ -1,6 +1,8 @@
 import { CHROMATIC_ROOT, COMPONENTS_ROOT, INTRODUCTION_ROOT, MATERIALS_ROOT } from "../roots";
 import { isNil } from "lodash";
 
+const PARSING_RESULTS_CACHE = {};
+
 const ROOTS = {
     [INTRODUCTION_ROOT.toLocaleLowerCase()]: {
         priority: 0,
@@ -20,7 +22,13 @@ const ROOTS = {
     }
 };
 
-function getRoot(story) {
+function parseStory(story) {
+    const cacheResult = PARSING_RESULTS_CACHE[story.id];
+
+    if (!isNil(cacheResult)) {
+        return cacheResult;
+    }
+
     const rootIndex = story.kind.indexOf("|");
 
     if (rootIndex === -1) {
@@ -34,34 +42,55 @@ function getRoot(story) {
         throw new Error(`Unknown Storybook story root "${root}". Supported roots are ${INTRODUCTION_ROOT}, ${MATERIALS_ROOT}, ${COMPONENTS_ROOT} and ${CHROMATIC_ROOT}.`);
     }
 
-    return root;
+    const result = {
+        root,
+        separators: story.kind.substring(rootIndex + 1).split("/")
+    };
+
+    PARSING_RESULTS_CACHE[story.id] = result;
+
+    return result;
 }
 
-// Custom sort that try to:
-// - Sort by the root
-// - Then sort by kind when specified
-//
-// When the "root" is not configured to be sorted by kind, try to use the story "sortPriority".
-export function customStorySort(a, b) {
-    const aRoot = getRoot(a[1]);
-    const bRoot = getRoot(b[1]);
+function sortByStoryPriority(a, b) {
+    const aPriority = isNil(a.parameters.sortPriority) ? 0 : a.parameters.sortPriority;
+    const bPriority = isNil(b.parameters.sortPriority) ? 0 : b.parameters.sortPriority;
 
-    // Sort by root.
+    if (aPriority === bPriority) {
+        return 0;
+    }
+
+    return aPriority > bPriority ? 1 : -1;
+}
+
+// Sort by:
+//   Root
+//     Kind
+//       Story Priority
+//     Story Priority
+export function customStorySort(a, b) {
+    const { root: aRoot, separators: aSeparators } = parseStory(a[1]);
+    const { root: bRoot, separators: bSeparators } = parseStory(b[1]);
+
     if (aRoot.priority === bRoot.priority) {
-        // Then by kind when specified.
+        const sortByStoryValue = sortByStoryPriority(a[1], b[1]);
+
         if (aRoot.sortByKind) {
+            if (aSeparators.length > 0 && bSeparators.length > 0) {
+                // Currently only support 3 levels of depth.
+                if (aSeparators[0] === bSeparators[0]) {
+                    // When it's !== 0 we have a story priority configured.
+                    if (sortByStoryValue !== 0) {
+                        return sortByStoryValue;
+                    }
+
+                }
+            }
+
             return a[1].kind.localeCompare(b[1].kind);
         }
 
-        // Fallback to "sortPriority" when available.
-        const aPriority = isNil(a[1].parameters.sortPriority) ? 0 : a[1].parameters.sortPriority;
-        const bPriority = isNil(b[1].parameters.sortPriority) ? 0 : b[1].parameters.sortPriority;
-
-        if (aPriority === bPriority) {
-            return 0;
-        }
-
-        return aPriority > bPriority ? 1 : -1;
+        return sortByStoryValue;
     }
 
     return aRoot.priority > bRoot.priority ? 1 : -1;

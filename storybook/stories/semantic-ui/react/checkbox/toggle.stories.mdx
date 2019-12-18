@@ -1,0 +1,75 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Checkbox } from "semantic-ui-react";
+import { ControlledRadioGroup } from "./components/controlled-radio-group";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components/semantic-link";
+
+<Meta title="Components|Checkbox/toggle" />
+
+<Anchor storyId="components-checkbox-toggle--labelled" />
+
+<SemanticLink docPath="/modules/checkbox/" />
+
+# Toggle
+
+A checkbox can be formatted as a toggle to show an on or off choice.
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Checkbox } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+### Labelled
+
+A toggle can have a label.
+
+<Preview>
+    <Story name="labelled">
+        <Checkbox toggle label="Milky Way"/>
+    </Story>
+</Preview>
+
+### On
+
+A toggle can be on.
+
+<Preview>
+    <Story name="on">
+        <Checkbox toggle defaultChecked label="Milky Way"/>
+    </Story>
+</Preview>
+
+### Disabled
+
+A toggle can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Checkbox toggle disabled label="Milky Way"/>
+    </Story>
+</Preview>
+
+### No label
+
+A toggle doesn't require a label.
+
+<Preview>
+    <Story name="no label">
+        <Checkbox toggle />
+    </Story>
+</Preview>
