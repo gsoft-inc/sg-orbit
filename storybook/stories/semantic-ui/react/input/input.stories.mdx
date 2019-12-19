@@ -1,13 +1,13 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { Input } from "semantic-ui-react";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 
 <Meta title="Components|Input" />
 
 <Anchor storyId="components-input--default-story" />
 
-<SemanticLink docPath="/elements/input/" />
+<SemanticLink docPath="/elements/input" />
 
 # Input
 
@@ -25,7 +25,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 <details><summary >then import what you need</summary>
 
 ```javascript
-    import { Input } from &quot;semantic-ui-react&quot;;
+    import { Input } from "semantic-ui-react";
 ```
 </details>
 
@@ -88,9 +88,9 @@ An input can be formatted with an icon.
     </Story>
 </Preview>
 
-#### Loading
+### Loading
 
-An icon input can show that it is currently loading data.
+An input can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
@@ -134,8 +134,6 @@ An input field can show that the data has been validated.
         <Input className="success" placeholder="Search..." />
     </Story>
 </Preview>
-
-## Variations
 
 ### Transparent
 

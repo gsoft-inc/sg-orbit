@@ -1,7 +1,7 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Message } from "semantic-ui-react";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 import { noop } from "lodash";
 
 <Meta title="Components|Message" />
@@ -79,7 +79,9 @@ A message can contains a formatted list.
 
 ### Dismissible
 
-A message can be dismissed. _Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message._
+A message can be dismissed.
+
+_Dismissible blocks do not automatically close._ Use the `onDismiss` callback to remove the message.
 
 <Preview>
     <Story name="dismissible">
