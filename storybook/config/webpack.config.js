@@ -2,9 +2,10 @@ const path = require("path");
 const createMdxCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
 const remarkSlug = require("remark-slug");
 const remarkExternalLinks = require("remark-external-links");
+const { isNil } = require("lodash");
 
 function supportCssModules(config) {
-    const cssRules = config.module.rules.find(rule => rule.test.toString() === "/\\.css$/");
+    const cssRules = config.module.rules.find(x => x.test.toString() === "/\\.css$/");
     const cssLoader = cssRules.use[1];
     const postCssLoader = cssRules.use[2];
 
@@ -31,10 +32,32 @@ function supportCssModules(config) {
     });
 }
 
-function supportDocsAddon(config) {
-    const babelOptions = {
-        plugins: ["@babel/plugin-transform-react-jsx"]
+function getExistingBabelOptions(config) {
+    const jsxRule = config.module.rules.find(x => x.test.toString().includes("jsx"));
+    if (isNil(jsxRule)) {
+        throw new Error("Custom Storybook config expected to find a Webpack rules for JSX.");
+    }
+
+    const babelLoader = jsxRule.use[0];
+    if (isNil(babelLoader) || babelLoader.loader !== "babel-loader") {
+        throw new Error("Custom Storybook config expected to find a babel-loader.");
+    }
+
+    return babelLoader.options;
+}
+
+function createBabelOptions(existingOptions) {
+    const existingPlugins = existingOptions.plugins || [];
+
+    return {
+        ...existingOptions,
+        plugins: [...existingPlugins, "@babel/plugin-transform-react-jsx"]
     };
+}
+
+function supportDocsAddon(config) {
+    const existingBabelOptions = getExistingBabelOptions(config);
+    const babelOptions = createBabelOptions(existingBabelOptions);
 
     const mdxPlugins = {
         remarkPlugins: [
