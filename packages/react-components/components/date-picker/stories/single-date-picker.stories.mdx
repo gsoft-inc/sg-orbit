@@ -10,12 +10,11 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components";
-import { PropsTabs } from "@components/props-tabs";
+import { PropsTabs, GithubLink } from "@components";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { GithubLink } from "@components/github-link";
 import moment from "moment";
 import MomentUsage from "./moment-usage.mdx";
 
@@ -31,6 +30,8 @@ import MomentUsage from "./moment-usage.mdx";
 <Anchor storyId="components-date-picker-single--default-story" />
 
 # Single Date Picker
+
+A single date picker allow a user to select a date.
 
 ## Installation
 

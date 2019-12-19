@@ -2,17 +2,17 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 
-<Meta title="Components|Checkbox/radio" />
+<Meta title="Components|Radio" />
 
-<Anchor storyId="components-checkbox-radio--labelled" />
+<Anchor storyId="components-radio--labelled" />
 
 <SemanticLink docPath="/modules/checkbox" />
 
 # Radio
 
-A checkbox can be formatted as a radio element. This means it is an exclusive option.
+Radio buttons allow a user to select one option from a set.
 
 ## Installation
 
@@ -74,9 +74,9 @@ A radio doesn't require a label.
     </Story>
 </Preview>
 
-### Radio Group
+### Group
 
-Radios in a group must be controlled components.
+Radios buttons in a group must be controlled components.
 
 <Preview>
     <Story name="group">

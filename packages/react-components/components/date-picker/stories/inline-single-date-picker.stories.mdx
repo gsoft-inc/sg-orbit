@@ -8,18 +8,16 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { PropsTabs } from "@components/props-tabs";
-import { Message } from "semantic-ui-react";
+import { PropsTabs, GithubLink, Warning } from "@components";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDateChanged, momentKnob } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { GithubLink } from "@components/github-link";
 import moment from "moment";
 import MomentUsage from "./moment-usage.mdx";
 
 <Meta
-    title="Components|Date Picker/single inlined"
+    title="Components|Date Picker/single inline"
     parameters={paramsBuilder()
         .width("80%")
         .build()}
@@ -27,11 +25,11 @@ import MomentUsage from "./moment-usage.mdx";
 
 <GithubLink filePath="/packages/react-components/components/date-picker/src/single" />
 
-<Anchor storyId="components-date-picker-single-inlined--default-story" />
+<Anchor storyId="components-date-picker-single-inline--default-story" />
 
 # Inline Single Date Picker
 
-<Message info size="small">This component have the same feature set as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.</Message>
+An inlined single date picker can appear inline with other content.
 
 ## Installation
 
@@ -72,7 +70,9 @@ import {
 
 ## Usage
 
-<MomentUsage />
+<Warning>
+    This component have the same feature set as the <a href="/?path=/docs/components-date-picker-single--default-story">SingleDatePicker</a> component. Only the input differs.
+</Warning>
 
 ### Default
 
@@ -116,9 +116,7 @@ An inlined single date picker can be embedded in a block.
 
 <Preview>
     <Story name="in a block">
-        <div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> <input type="text" value="90" onChange={logDateChanged}></input> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
-        </div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <InlineSingleDatePicker onDateChange={logDateChanged} /> elementum viverra maximus.</div>
     </Story>
 </Preview>
 

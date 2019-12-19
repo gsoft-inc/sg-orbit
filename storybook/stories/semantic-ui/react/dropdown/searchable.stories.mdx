@@ -1,0 +1,526 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Dropdown } from "semantic-ui-react";
+import { SemanticLink, Warning } from "@components";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { AddIcon } from "@orbit-ui/icons";
+
+<Meta title="Components|Dropdown/searchable" />
+
+<Anchor storyId="components-dropdown-searchable--default-story" />
+
+<SemanticLink docPath="/modules/dropdown" />
+
+# Searchable Dropdown
+
+A dropdown can allow a user to search through a large list of choices.
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Dropdown } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+<Warning>
+    This component have the same feature set as the <a href="/?path=/docs/components-dropdown-standard--default-story">Dropdown</a> component.
+</Warning>
+
+### Default
+
+A default searchable dropdown.
+
+<Preview>
+    <Story name="default">
+        <Dropdown
+            placeholder="Select language"
+            selection
+            search
+            options={[
+                {
+                    "key": "Arabic",
+                    "text": "Arabic",
+                    "value": "Arabic"
+                },
+                {
+                    "key": "Chinese",
+                    "text": "Chinese",
+                    "value": "Chinese"
+                },
+                {
+                    "key": "Danish",
+                    "text": "Danish",
+                    "value": "Danish"
+                },
+                {
+                    "key": "Dutch",
+                    "text": "Dutch",
+                    "value": "Dutch"
+                },
+                {
+                    "key": "English",
+                    "text": "English",
+                    "value": "English"
+                },
+                {
+                    "key": "French",
+                    "text": "French",
+                    "value": "French"
+                },
+                {
+                    "key": "German",
+                    "text": "German",
+                    "value": "German"
+                },
+                {
+                    "key": "Greek",
+                    "text": "Greek",
+                    "value": "Greek"
+                },
+                {
+                    "key": "Hungarian",
+                    "text": "Hungarian",
+                    "value": "Hungarian"
+                },
+                {
+                    "key": "Italian",
+                    "text": "Italian",
+                    "value": "Italian"
+                },
+                {
+                    "key": "Japanese",
+                    "text": "Japanese",
+                    "value": "Japanese"
+                },
+                {
+                    "key": "Korean",
+                    "text": "Korean",
+                    "value": "Korean"
+                },
+                {
+                    "key": "Lithuanian",
+                    "text": "Lithuanian",
+                    "value": "Lithuanian"
+                },
+                {
+                    "key": "Persian",
+                    "text": "Persian",
+                    "value": "Persian"
+                },
+                {
+                    "key": "Polish",
+                    "text": "Polish",
+                    "value": "Polish"
+                },
+                {
+                    "key": "Portuguese",
+                    "text": "Portuguese",
+                    "value": "Portuguese"
+                },
+                {
+                    "key": "Russian",
+                    "text": "Russian",
+                    "value": "Russian"
+                },
+                {
+                    "key": "Spanish",
+                    "text": "Spanish",
+                    "value": "Spanish"
+                },
+                {
+                    "key": "Swedish",
+                    "text": "Swedish",
+                    "value": "Swedish"
+                },
+                {
+                    "key": "Turkish",
+                    "text": "Turkish",
+                    "value": "Turkish"
+                },
+                {
+                    "key": "Vietnamese",
+                    "text": "Vietnamese",
+                    "value": "Vietnamese"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A searchable dropdown can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Dropdown
+            placeholder="Select language"
+            selection
+            search
+            defaultValue="Dutch"
+            options={[
+                {
+                    "key": "Arabic",
+                    "text": "Arabic",
+                    "value": "Arabic"
+                },
+                {
+                    "key": "Chinese",
+                    "text": "Chinese",
+                    "value": "Chinese"
+                },
+                {
+                    "key": "Danish",
+                    "text": "Danish",
+                    "value": "Danish"
+                },
+                {
+                    "key": "Dutch",
+                    "text": "Dutch",
+                    "value": "Dutch"
+                },
+                {
+                    "key": "English",
+                    "text": "English",
+                    "value": "English"
+                },
+                {
+                    "key": "French",
+                    "text": "French",
+                    "value": "French"
+                },
+                {
+                    "key": "German",
+                    "text": "German",
+                    "value": "German"
+                },
+                {
+                    "key": "Greek",
+                    "text": "Greek",
+                    "value": "Greek"
+                },
+                {
+                    "key": "Hungarian",
+                    "text": "Hungarian",
+                    "value": "Hungarian"
+                },
+                {
+                    "key": "Italian",
+                    "text": "Italian",
+                    "value": "Italian"
+                },
+                {
+                    "key": "Japanese",
+                    "text": "Japanese",
+                    "value": "Japanese"
+                },
+                {
+                    "key": "Korean",
+                    "text": "Korean",
+                    "value": "Korean"
+                },
+                {
+                    "key": "Lithuanian",
+                    "text": "Lithuanian",
+                    "value": "Lithuanian"
+                },
+                {
+                    "key": "Persian",
+                    "text": "Persian",
+                    "value": "Persian"
+                },
+                {
+                    "key": "Polish",
+                    "text": "Polish",
+                    "value": "Polish"
+                },
+                {
+                    "key": "Portuguese",
+                    "text": "Portuguese",
+                    "value": "Portuguese"
+                },
+                {
+                    "key": "Russian",
+                    "text": "Russian",
+                    "value": "Russian"
+                },
+                {
+                    "key": "Spanish",
+                    "text": "Spanish",
+                    "value": "Spanish"
+                },
+                {
+                    "key": "Swedish",
+                    "text": "Swedish",
+                    "value": "Swedish"
+                },
+                {
+                    "key": "Turkish",
+                    "text": "Turkish",
+                    "value": "Turkish"
+                },
+                {
+                    "key": "Vietnamese",
+                    "text": "Vietnamese",
+                    "value": "Vietnamese"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable & searchable dropdown let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Dropdown
+            placeholder="Select language"
+            selection
+            search
+            clearable
+            options={[
+                {
+                    "key": "Arabic",
+                    "text": "Arabic",
+                    "value": "Arabic"
+                },
+                {
+                    "key": "Chinese",
+                    "text": "Chinese",
+                    "value": "Chinese"
+                },
+                {
+                    "key": "Danish",
+                    "text": "Danish",
+                    "value": "Danish"
+                },
+                {
+                    "key": "Dutch",
+                    "text": "Dutch",
+                    "value": "Dutch"
+                },
+                {
+                    "key": "English",
+                    "text": "English",
+                    "value": "English"
+                },
+                {
+                    "key": "French",
+                    "text": "French",
+                    "value": "French"
+                },
+                {
+                    "key": "German",
+                    "text": "German",
+                    "value": "German"
+                },
+                {
+                    "key": "Greek",
+                    "text": "Greek",
+                    "value": "Greek"
+                },
+                {
+                    "key": "Hungarian",
+                    "text": "Hungarian",
+                    "value": "Hungarian"
+                },
+                {
+                    "key": "Italian",
+                    "text": "Italian",
+                    "value": "Italian"
+                },
+                {
+                    "key": "Japanese",
+                    "text": "Japanese",
+                    "value": "Japanese"
+                },
+                {
+                    "key": "Korean",
+                    "text": "Korean",
+                    "value": "Korean"
+                },
+                {
+                    "key": "Lithuanian",
+                    "text": "Lithuanian",
+                    "value": "Lithuanian"
+                },
+                {
+                    "key": "Persian",
+                    "text": "Persian",
+                    "value": "Persian"
+                },
+                {
+                    "key": "Polish",
+                    "text": "Polish",
+                    "value": "Polish"
+                },
+                {
+                    "key": "Portuguese",
+                    "text": "Portuguese",
+                    "value": "Portuguese"
+                },
+                {
+                    "key": "Russian",
+                    "text": "Russian",
+                    "value": "Russian"
+                },
+                {
+                    "key": "Spanish",
+                    "text": "Spanish",
+                    "value": "Spanish"
+                },
+                {
+                    "key": "Swedish",
+                    "text": "Swedish",
+                    "value": "Swedish"
+                },
+                {
+                    "key": "Turkish",
+                    "text": "Turkish",
+                    "value": "Turkish"
+                },
+                {
+                    "key": "Vietnamese",
+                    "text": "Vietnamese",
+                    "value": "Vietnamese"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A default searchable dropdown can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="Select language"
+            selection
+            search
+            disabled
+            options={[
+                {
+                    "key": "Arabic",
+                    "text": "Arabic",
+                    "value": "Arabic"
+                },
+                {
+                    "key": "Chinese",
+                    "text": "Chinese",
+                    "value": "Chinese"
+                },
+                {
+                    "key": "Danish",
+                    "text": "Danish",
+                    "value": "Danish"
+                },
+                {
+                    "key": "Dutch",
+                    "text": "Dutch",
+                    "value": "Dutch"
+                },
+                {
+                    "key": "English",
+                    "text": "English",
+                    "value": "English"
+                },
+                {
+                    "key": "French",
+                    "text": "French",
+                    "value": "French"
+                },
+                {
+                    "key": "German",
+                    "text": "German",
+                    "value": "German"
+                },
+                {
+                    "key": "Greek",
+                    "text": "Greek",
+                    "value": "Greek"
+                },
+                {
+                    "key": "Hungarian",
+                    "text": "Hungarian",
+                    "value": "Hungarian"
+                },
+                {
+                    "key": "Italian",
+                    "text": "Italian",
+                    "value": "Italian"
+                },
+                {
+                    "key": "Japanese",
+                    "text": "Japanese",
+                    "value": "Japanese"
+                },
+                {
+                    "key": "Korean",
+                    "text": "Korean",
+                    "value": "Korean"
+                },
+                {
+                    "key": "Lithuanian",
+                    "text": "Lithuanian",
+                    "value": "Lithuanian"
+                },
+                {
+                    "key": "Persian",
+                    "text": "Persian",
+                    "value": "Persian"
+                },
+                {
+                    "key": "Polish",
+                    "text": "Polish",
+                    "value": "Polish"
+                },
+                {
+                    "key": "Portuguese",
+                    "text": "Portuguese",
+                    "value": "Portuguese"
+                },
+                {
+                    "key": "Russian",
+                    "text": "Russian",
+                    "value": "Russian"
+                },
+                {
+                    "key": "Spanish",
+                    "text": "Spanish",
+                    "value": "Spanish"
+                },
+                {
+                    "key": "Swedish",
+                    "text": "Swedish",
+                    "value": "Swedish"
+                },
+                {
+                    "key": "Turkish",
+                    "text": "Turkish",
+                    "value": "Turkish"
+                },
+                {
+                    "key": "Vietnamese",
+                    "text": "Vietnamese",
+                    "value": "Vietnamese"
+                }
+            ]}
+        />
+    </Story>
+</Preview>

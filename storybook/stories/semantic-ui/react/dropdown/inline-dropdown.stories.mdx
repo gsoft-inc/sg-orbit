@@ -1,0 +1,115 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Dropdown } from "semantic-ui-react";
+import { SemanticLink, Warning } from "@components";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { AddIcon } from "@orbit-ui/icons";
+
+<Meta title="Components|Dropdown/inline" />
+
+<Anchor storyId="components-dropdown-inline--default-story" />
+
+<SemanticLink docPath="/modules/dropdown" />
+
+# Inline Dropdown
+
+An inlined dropdown can appear inline with other content.
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Dropdown } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+<Warning>
+    This component have the same feature set as the <a href="/?path=/docs/components-dropdown-standard--default-story">Dropdown</a> component.
+</Warning>
+
+### Default
+
+A default inlined dropdown.
+
+<Preview>
+    <Story name="default">
+        <Dropdown
+            placeholder="select friend"
+            inline
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess"
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu"
+                }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### In a block
+
+An inlined dropdown can be embedded in a block.
+
+<Preview>
+    <Story name="in a block">
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <Dropdown
+            placeholder="select friend"
+            inline
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess"
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu"
+                }
+            ]}
+        /> elementum viverra maximus.</div>
+    </Story>
+</Preview>
+
+### Disabled
+
+An inlined dropdown can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="select friend"
+            inline
+            disabled
+            options={[
+                {
+                    key: "Jenny Hess",
+                    text: "Jenny Hess",
+                    value: "Jenny Hess"
+                },
+                {
+                    key: "Elliot Fu",
+                    text: "Elliot Fu",
+                    value: "Elliot Fu"
+                }
+            ]}
+        />
+    </Story>
+</Preview>

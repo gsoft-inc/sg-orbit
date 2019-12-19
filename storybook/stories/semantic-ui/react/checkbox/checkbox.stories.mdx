@@ -2,19 +2,12 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 import { paramsBuilder } from "@utils/params-builder";
 
-<Meta
-    title="Components|Checkbox/standard"
-    parameters={
-        paramsBuilder()
-            .sortPriority(-1)
-            .build()
-    }
-/>
+<Meta title="Components|Checkbox" />
 
-<Anchor storyId="components-checkbox-standard--labelled" />
+<Anchor storyId="components-checkbox--labelled" />
 
 <SemanticLink docPath="/modules/checkbox" />
 
