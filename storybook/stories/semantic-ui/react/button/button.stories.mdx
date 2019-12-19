@@ -62,9 +62,9 @@ A button can take the width of its container.
     </Story>
 </Preview>
 
-### Heights
+### Sizes
 
-A button can be short or tall.
+A button can vary in size.
 
 <Preview>
     <Story name="height short">
@@ -85,113 +85,83 @@ A button can be disabled.
     </Story>
 </Preview>
 
-## Variations
-
 ### Basic
 
-The basic button has a subtle appearance.
+A basic button have a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <div className="flex">
-            <Button basic>Cutoff</Button>
-            <Button basic primary>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-A basic button can have a disabled and an active state.
-
-<Preview>
-    <Story name="basic states">
-        <div className="flex">
-            <Button basic disabled>Cutoff</Button>
-            <Button basic active>Cutoff</Button>
-            <Button basic primary disabled>Cutoff</Button>
-            <Button basic primary active>Cutoff</Button>
+        <div>
+            <div className="flex">
+                <Button basic>Cutoff</Button>
+                <Button basic primary>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button basic disabled>Cutoff</Button>
+                <Button basic active>Cutoff</Button>
+                <Button basic primary disabled>Cutoff</Button>
+                <Button basic primary active>Cutoff</Button>
+            </div>
         </div>
     </Story>
 </Preview>
 
 ### Emphasis
 
-A button can be formatted to show different levels of emphasis.
+A button can show different levels of emphasis.
 
 <Preview>
     <Story name="emphasis">
-        <div className="flex">
-            <Button primary>Primary</Button>
-            <Button secondary>Secondary</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-A button showing emphasis can have a disabled and an active state.
-
-<Preview>
-    <Story name="emphasis states">
-        <div className="flex">
-            <Button primary disabled>Primary</Button>
-            <Button secondary disabled>Secondary</Button>
-            <Button primary active>Primary</Button>
-            <Button secondary active>Secondary</Button>
+        <div>
+            <div className="flex">
+                <Button primary>Primary</Button>
+                <Button secondary>Secondary</Button>
+            </div>
+            <div className="flex">
+                <Button primary disabled>Primary</Button>
+                <Button secondary disabled>Secondary</Button>
+                <Button primary active>Primary</Button>
+                <Button secondary active>Secondary</Button>
+            </div>
         </div>
     </Story>
 </Preview>
 
 ### Inverted
 
-A button can be formatted to appear on a dark background.
+A button can appear on a dark background.
 
 <Preview>
     <Story name="inverted primary">
         <div className="bg-marine-700 pa3">
-            <Button primary inverted>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-Inverted buttons can have disabled and active states.
-
-<Preview>
-    <Story name="inverted states">
-        <div className="bg-marine-700 pa3 flex">
-            <Button primary inverted disabled>Cutoff</Button>
-            <Button primary inverted active>Cutoff</Button>
+            <div className="flex">
+                <Button primary inverted>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button primary inverted disabled>Cutoff</Button>
+                <Button primary inverted active>Cutoff</Button>
+            </div>
         </div>
     </Story>
 </Preview>
 
 ### Ghost
 
-Ghost buttons takes the same space as a standard button, but have no basic colour until hovered.
+A ghost button is similar to a standard button, but have no basic colour until hovered.
 
 <Preview>
     <Story name="ghost">
-        <div className="flex">
-            <Button className="ghost">Cutoff</Button>
-            <Button className="ghost" primary>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-Ghost buttons can have disabled and active states.
-
-<Preview>
-    <Story name="ghost states">
-        <div className="flex">
-            <Button className="ghost" disabled>Cutoff</Button>
-            <Button className="ghost" active>Cutoff</Button>
-            <Button className="ghost" disabled primary>Cutoff</Button>
-            <Button className="ghost" active primary>Cutoff</Button>
+        <div>
+            <div className="flex">
+                <Button className="ghost">Cutoff</Button>
+                <Button className="ghost" primary>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button className="ghost" disabled>Cutoff</Button>
+                <Button className="ghost" active>Cutoff</Button>
+                <Button className="ghost" disabled primary>Cutoff</Button>
+                <Button className="ghost" active primary>Cutoff</Button>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -202,19 +172,14 @@ A button can contain an icon.
 
 <Preview>
     <Story name="icon standard">
-        <Button icon><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-    </Story>
-</Preview>
-
-#### States
-
-Icon buttons can have disabled and active states.
-
-<Preview>
-    <Story name="icon states">
-        <div className="flex">
-            <Button icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-            <Button icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+        <div>
+            <div>
+                <Button icon><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            </div>
+            <div className="flex">
+                <Button icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+                <Button icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -234,20 +199,11 @@ A button can only contain an icon.
 A button can be circular.
 
 <Preview>
-    <Story name="icon circular">
-        <Button icon circular><AddIcon className="flex w6 h6"/></Button>
-    </Story>
-</Preview>
-
-#### Sizes
-
-A circular button can vary in size.
-
-<Preview>
-    <Story name="icon tiny circular">
+    <Story name="circular">
         <div className="flex flex-row items-start">
             <Button icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
+            <Button icon circular><AddIcon className="flex w6 h6"/></Button>
             <Button icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
         </div>
     </Story>
@@ -258,23 +214,14 @@ A circular button can vary in size.
 A button can show a loading indicator.
 
 <Preview>
-    <Story name="icon loading">
-        <div className="flex">
-            <Button loading>Loading</Button>
-            <Button loading primary>Loading</Button>
-            <Button loading basic>Loading</Button>
-            <Button loading basic primary>Loading</Button>
-        </div>
-    </Story>
-</Preview>
-
-#### States
-
-A button showing a loading animation can have a disabled and an active state.
-
-<Preview>
-    <Story name="icon loading states">
-        <div className="flex flex-column">
+    <Story name="loading">
+        <div>
+            <div className="flex">
+                <Button loading>Loading</Button>
+                <Button loading primary>Loading</Button>
+                <Button loading basic>Loading</Button>
+                <Button loading basic primary>Loading</Button>
+            </div>
             <div className="flex">
                 <Button disabled loading>Loading</Button>
                 <Button disabled loading primary>Loading</Button>
@@ -297,19 +244,14 @@ A button can hint towards a positive consequence.
 
 <Preview>
     <Story name="success">
-        <Button positive>Cutoff</Button>
-    </Story>
-</Preview>
-
-#### States
-
-A success button can have a disabled and an active state.
-
-<Preview>
-    <Story name="success states">
-        <div className="flex">
-            <Button positive disabled>Cutoff</Button>
-            <Button positive active>Cutoff</Button>
+        <div>
+            <div>
+                <Button positive>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button positive disabled>Cutoff</Button>
+                <Button positive active>Cutoff</Button>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -320,45 +262,24 @@ A button can hint towards a negative consequence.
 
 <Preview>
     <Story name="negative">
-        <Button negative>Cutoff</Button>
-    </Story>
-</Preview>
-
-#### States
-
-A negative button can have a disabled and an active state.
-
-<Preview>
-    <Story name="negative states">
-        <div className="flex">
-            <Button negative disabled>Cutoff</Button>
-            <Button negative active>Cutoff</Button>
+        <div>
+            <div>
+                <Button negative>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button negative disabled>Cutoff</Button>
+                <Button negative active>Cutoff</Button>
+            </div>
         </div>
     </Story>
 </Preview>
 
-## Groups
+### Groups
 
 Buttons can exist together as a group.
 
 <Preview>
     <Story name="groups">
-        <div className="flex">
-            <Button.Group basic toggle>
-                <Button type="button"><Label circular size="mini" empty color="red"/>One</Button>
-                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
-                <Button type="button">Three</Button>
-            </Button.Group>
-        </div>
-    </Story>
-</Preview>
-
-### States
-
-A group can contain buttons with diffent states.
-
-<Preview>
-    <Story name="groups states">
         <div className="flex">
             <Button.Group basic toggle>
                 <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>

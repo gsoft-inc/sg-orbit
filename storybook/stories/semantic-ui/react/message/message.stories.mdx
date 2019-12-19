@@ -3,12 +3,13 @@ import { Button, Message } from "semantic-ui-react";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { SemanticLink } from "@components";
 import { noop } from "lodash";
+import { InfoIcon } from "@orbit-ui/icons";
 
 <Meta title="Components|Message" />
 
 <Anchor storyId="components-message--default-story" />
 
-<SemanticLink docPath="/collections/message/" />
+<SemanticLink docPath="/collections/message" />
 
 # Message
 
@@ -81,7 +82,9 @@ A message can contains a formatted list.
 
 A message can be dismissed.
 
-_Dismissible blocks do not automatically close._ Use the `onDismiss` callback to remove the message.
+<p>
+    <span style={{ display: "inline-block", lineHeight: 1, verticalAlign: "middle" }}><InfoIcon className="w6 h6" /></span> <span style={{ fontStyle: "italic" }}>Dismissible blocks do not automatically close. Use the <code>onDismiss</code> callback to remove the message.</span>
+</p>
 
 <Preview>
     <Story name="dismissible">
@@ -163,11 +166,11 @@ A message can float above content that it is related to.
     <Story name="floating">
         <Message floating>
             <Message.Header>
-            Setup a security policy for external sharing
+                Setup a security policy for external sharing
             </Message.Header>
             <p>
-            Easily manage external sharing links and set-up automatic access reviews
-            for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews
+                for entrusted group owners.
             </p>
         </Message>
     </Story>
@@ -182,7 +185,7 @@ A message can have two columns.
 A message can have a button or an icon positionned to the left.
 
 <Preview>
-    <Story name="two columns left aligned">
+    <Story name="left aligned">
         <Message icon>
             <Button>Click Here</Button>
             <Message.Content>
@@ -198,28 +201,29 @@ A message can have a button or an icon positionned to the left.
 A message can have a button or an icon positionned to the right.
 
 <Preview>
-    <Story name="two columns right aligned">
+    <Story name="right aligned">
         <Message icon>
             <Message.Content>
                 <Message.Header>Just one second</Message.Header>
                 <p>We are fetching that content for you.</p>
             </Message.Content>
-            <Button>Click Here</Button>
+            <InfoIcon className="w10 h10" />
         </Message>
     </Story>
 </Preview>
 
+
 ### Sizes
 
-A message can have different sizes.
+A message can vary in size.
 
 #### Small
 
 <Preview>
-    <Story name="sizes small">
+    <Story name="small">
         <Message size="small">
             <p className="fw6">
-    Easily manage external sharing links and set-up automatic access reviews.
+                Easily manage external sharing links and set-up automatic access reviews.
             </p>
         </Message>
     </Story>
