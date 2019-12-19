@@ -7,9 +7,7 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-popup/src";
 import { RedBoxPopup } from "@react-components/popup/stories/components";
-import { createChromaticSection } from "@utils/create-section";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("popup"))

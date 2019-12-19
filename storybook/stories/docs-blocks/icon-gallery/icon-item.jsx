@@ -1,12 +1,15 @@
-import { Icon, IconHeader } from "./";
+import { Icon } from "./icon";
+import { IconHeader } from "./icon-header";
 import { isNil } from "lodash";
+
 import styles from "./icon-item.module.css";
 
-export function IconItem({ stdSize, smllSize, iconName }) {
+export function IconItem({ std, small, iconName }) {
     const name = iconName.split(/(?=[A-Z])/)
         .filter(x => x !== "Icon")
         .join(" ")
         .toLowerCase();
+
     const iconNameSmall = `${iconName}24`;
 
     return (
@@ -16,8 +19,8 @@ export function IconItem({ stdSize, smllSize, iconName }) {
                 <IconHeader />
                 <div className="h7 w7 justify-center items-center flex relative hide-child">
                     <Choose>
-                        <When condition={!isNil(smllSize)}>
-                            <Icon name={iconNameSmall} icon={smllSize} size="small" />
+                        <When condition={!isNil(small)}>
+                            <Icon name={iconNameSmall} icon={small} size="small" />
                         </When>
                         <Otherwise>
                             <div className="h7 w7 flex items-center justify-center">
@@ -28,8 +31,8 @@ export function IconItem({ stdSize, smllSize, iconName }) {
                 </div>
                 <div className="h7 w7 justify-center items-center flex relative hide-child">
                     <Choose>
-                        <When condition={!isNil(stdSize)}>
-                            <Icon name={iconName} icon={stdSize} size="std" />
+                        <When condition={!isNil(std)}>
+                            <Icon name={iconName} icon={std} size="std" />
                         </When>
                         <Otherwise>
                             <div className="h7 w7 flex items-center justify-center">

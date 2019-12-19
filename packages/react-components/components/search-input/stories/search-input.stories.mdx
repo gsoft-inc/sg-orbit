@@ -1,12 +1,11 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
-import { GithubLink, PropsTabs } from "@components";
-import { INSTALLATION_PAGE } from "@stories/pages";
+import { GithubLink, PropsTabs } from "@docs-blocks";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
-import { paramsBuilder } from "@utils/params-builder";
+import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
 
 <Meta
     title="Components|Search Input/results set"

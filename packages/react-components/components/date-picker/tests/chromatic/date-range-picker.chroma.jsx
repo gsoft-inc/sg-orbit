@@ -1,7 +1,7 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
-import { createChromaticSection } from "@utils/create-section";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import {
     getMonthFirstDay,
     getMonthLastDay,
@@ -9,8 +9,6 @@ import {
     getPreviousMonthFirstDay
 } from "./utils";
 import { noop } from "lodash";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
 import { toStoryValuesPresets } from "@react-components/date-picker/stories/utils";
 import moment from "moment";
 

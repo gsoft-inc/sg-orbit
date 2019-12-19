@@ -85,7 +85,7 @@ function addAliases(config) {
         ...storybookAlias,
         "@stories": path.resolve(__dirname, "../stories/"),
         "@utils": path.resolve(__dirname, "../stories/utils/"),
-        "@components": path.resolve(__dirname, "../stories/components/"),
+        "@docs-blocks": path.resolve(__dirname, "../stories/docs-blocks/"),
         "@react-components": path.resolve(__dirname, "../../packages/react-components/components/")
     };
 }

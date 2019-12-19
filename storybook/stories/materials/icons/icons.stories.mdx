@@ -57,9 +57,8 @@ import {
     ZipIcon
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { IconGallery, IconItem } from "./components";
-import { paramsBuilder } from "@utils/params-builder";
-import { INSTALLATION_PAGE } from "@stories/pages";
+import { IconGallery } from "@docs-blocks";
+import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
 
 <Meta
     title="Materials|Icons"
@@ -116,44 +115,44 @@ import IconName from "@orbit-ui/icons/icon-name.svg";
 
 <Preview>
     <IconGallery>
-        <IconItem iconName="AddIcon" stdSize={AddIcon} smllSize={AddIcon24}/>
-        <IconItem iconName="CloseIcon" smllSize={CloseIcon24} stdSize={CloseIcon}/>
-        <IconItem iconName="SignoutIcon" smllSize={SignoutIcon24} stdSize={SignoutIcon}/>
-        <IconItem iconName="CheckIcon" stdSize={CheckIcon} smllSize={CheckIcon24}/>
-        <IconItem iconName="ClearFilterIcon" stdSize={ClearFilterIcon} smllSize={ClearFilterIcon24}/>
-        <IconItem iconName="PrinterIcon" stdSize={PrinterIcon} smllSize={PrinterIcon24}/>
-        <IconItem iconName="WarningIcon" stdSize={WarningIcon} smllSize={WarningIcon24}/>
-        <IconItem iconName="InfoIcon" stdSize={InfoIcon} smllSize={InfoIcon24}/>
-        <IconItem iconName="HelpIcon" stdSize={HelpIcon} smllSize={HelpIcon24}/>
-        <IconItem iconName="SortingIcon" stdSize={SortingIcon} smllSize={SortingIcon24}/>
-        <IconItem iconName="CompareIcon" smllSize={CompareIcon24} stdSize={CompareIcon}/>
-        <IconItem iconName="CalendarIcon" smllSize={CalendarIcon24} stdSize={CalendarIcon}/>
-        <IconItem iconName="VariationIcon" smllSize={VariationIcon24} stdSize={VariationIcon}/>
-        <IconItem iconName="PrivacyIcon" smllSize={PrivacyIcon24}/>
-        <IconItem iconName="LightbulbIcon" stdSize={LightbulbIcon} smllSize={LightbulbIcon24}/>
-        <IconItem iconName="VerticalDotsIcon" stdSize={VerticalDotsIcon}/>
-        <IconItem iconName="HorizontalDotsIcon" stdSize={HorizontalDotsIcon}/>
-        <IconItem iconName="GarbageIcon" stdSize={GarbageIcon}/>
-        <IconItem iconName="GearIcon" stdSize={GearIcon}/>
-        <IconItem iconName="MagnifierIcon" stdSize={MagnifierIcon}/>
-        <IconItem iconName="FileIcon" stdSize={FileIcon}/>
-        <IconItem iconName="PdfIcon" stdSize={PdfIcon}/>
-        <IconItem iconName="VideoIcon" stdSize={VideoIcon}/>
-        <IconItem iconName="CsvIcon" stdSize={CsvIcon}/>
-        <IconItem iconName="ZipIcon" stdSize={ZipIcon}/>
-        <IconItem iconName="MusicIcon" stdSize={MusicIcon}/>
-        <IconItem iconName="ImageIcon" stdSize={ImageIcon}/>
-        <IconItem iconName="EditIcon" stdSize={EditIcon}/>
-        <IconItem iconName="CommunicationIcon" stdSize={CommunicationIcon}/>
-        <IconItem iconName="ReminderIcon" stdSize={ReminderIcon}/>
-        <IconItem iconName="AddUserIcon" stdSize={AddUserIcon}/>
-        <IconItem iconName="RemoveUserIcon" stdSize={RemoveUserIcon}/>
-        <IconItem iconName="FolderIcon" stdSize={FolderIcon}/>
-        <IconItem iconName="NotificationIcon" smllSize={NotificationIcon24} stdSize={NotificationIcon}/>
-        <IconItem iconName="DoNotDisturbIcon" stdSize={DoNotDisturbIcon}/>
-        <IconItem iconName="DownloadIcon" stdSize={DownloadIcon}/>
-        <IconItem iconName="CircleIcon" smllSize={CircleIcon24} stdSize={CircleIcon}/>
-        <IconItem iconName="GroupIcon" stdSize={GroupIcon}/>
-        <IconItem iconName="ArrowIcon" stdSize={ArrowIcon} smllSize={ArrowIcon24}/>
+        <IconGallery.Item iconName="AddIcon" small={AddIcon24} std={AddIcon} />
+        <IconGallery.Item iconName="CloseIcon" small={CloseIcon24} std={CloseIcon} />
+        <IconGallery.Item iconName="SignoutIcon" small={SignoutIcon24} std={SignoutIcon} />
+        <IconGallery.Item iconName="CheckIcon" std={CheckIcon} small={CheckIcon24} />
+        <IconGallery.Item iconName="ClearFilterIcon" std={ClearFilterIcon} small={ClearFilterIcon24} />
+        <IconGallery.Item iconName="PrinterIcon" std={PrinterIcon} small={PrinterIcon24} />
+        <IconGallery.Item iconName="WarningIcon" std={WarningIcon} small={WarningIcon24} />
+        <IconGallery.Item iconName="InfoIcon" std={InfoIcon} small={InfoIcon24} />
+        <IconGallery.Item iconName="HelpIcon" std={HelpIcon} small={HelpIcon24} />
+        <IconGallery.Item iconName="SortingIcon" std={SortingIcon} small={SortingIcon24} />
+        <IconGallery.Item iconName="CompareIcon" small={CompareIcon24} std={CompareIcon} />
+        <IconGallery.Item iconName="CalendarIcon" small={CalendarIcon24} std={CalendarIcon} />
+        <IconGallery.Item iconName="VariationIcon" small={VariationIcon24} std={VariationIcon} />
+        <IconGallery.Item iconName="PrivacyIcon" small={PrivacyIcon24} />
+        <IconGallery.Item iconName="LightbulbIcon" std={LightbulbIcon} small={LightbulbIcon24} />
+        <IconGallery.Item iconName="VerticalDotsIcon" std={VerticalDotsIcon} />
+        <IconGallery.Item iconName="HorizontalDotsIcon" std={HorizontalDotsIcon} />
+        <IconGallery.Item iconName="GarbageIcon" std={GarbageIcon} />
+        <IconGallery.Item iconName="GearIcon" std={GearIcon} />
+        <IconGallery.Item iconName="MagnifierIcon" std={MagnifierIcon} />
+        <IconGallery.Item iconName="FileIcon" std={FileIcon} />
+        <IconGallery.Item iconName="PdfIcon" std={PdfIcon} />
+        <IconGallery.Item iconName="VideoIcon" std={VideoIcon} />
+        <IconGallery.Item iconName="CsvIcon" std={CsvIcon} />
+        <IconGallery.Item iconName="ZipIcon" std={ZipIcon} />
+        <IconGallery.Item iconName="MusicIcon" std={MusicIcon} />
+        <IconGallery.Item iconName="ImageIcon" std={ImageIcon} />
+        <IconGallery.Item iconName="EditIcon" std={EditIcon} />
+        <IconGallery.Item iconName="CommunicationIcon" std={CommunicationIcon} />
+        <IconGallery.Item iconName="ReminderIcon" std={ReminderIcon} />
+        <IconGallery.Item iconName="AddUserIcon" std={AddUserIcon} />
+        <IconGallery.Item iconName="RemoveUserIcon" std={RemoveUserIcon} />
+        <IconGallery.Item iconName="FolderIcon" std={FolderIcon}/>
+        <IconGallery.Item iconName="NotificationIcon" std={NotificationIcon} small={NotificationIcon24}  />
+        <IconGallery.Item iconName="DoNotDisturbIcon" std={DoNotDisturbIcon} />
+        <IconGallery.Item iconName="DownloadIcon" std={DownloadIcon} />
+        <IconGallery.Item iconName="CircleIcon" small={CircleIcon24} std={CircleIcon} />
+        <IconGallery.Item iconName="GroupIcon" std={GroupIcon} />
+        <IconGallery.Item iconName="ArrowIcon" std={ArrowIcon} small={ArrowIcon24} />
     </IconGallery>
 </Preview>

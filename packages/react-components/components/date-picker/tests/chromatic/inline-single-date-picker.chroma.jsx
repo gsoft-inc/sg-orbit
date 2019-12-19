@@ -1,10 +1,8 @@
 import { ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
-import { createChromaticSection } from "@utils/create-section";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
 import moment from "moment";
 
 function createInlineSingleDatePicker(props = {}) {
