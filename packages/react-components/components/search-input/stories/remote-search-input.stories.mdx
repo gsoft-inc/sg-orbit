@@ -1,9 +1,8 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledRemoteSearchInput } from "./components";
-import { GithubLink } from "@components/github-link";
+import { GithubLink, PropsTabs } from "@components";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { LAURIE_VALUE } from "./data";
-import { PropsTabs } from "@components/props-tabs";
 import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
@@ -18,9 +17,11 @@ import { paramsBuilder } from "@utils/params-builder";
 
 <GithubLink filePath="/packages/react-components/components/search-input/src" />
 
-<Anchor storyId="components-search-input-remote--default-story" />
+<Anchor storyId="components-search-input-remote--basic" />
 
 # Remote Search Input
+
+A remote search input allows a user to query for results from a remote data source.
 
 ## Installation
 
@@ -122,7 +123,7 @@ An optional data `obj` can be specified to provide additional information to cal
 
 ### Default
 
-A basic remote search input.
+A default remote search input.
 
 <Preview>
     <Story name="default">

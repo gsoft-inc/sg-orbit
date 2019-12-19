@@ -1,14 +1,15 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Message } from "semantic-ui-react";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 import { noop } from "lodash";
+import { InfoIcon } from "@orbit-ui/icons";
 
 <Meta title="Components|Message" />
 
 <Anchor storyId="components-message--default-story" />
 
-<SemanticLink docPath="/collections/message/" />
+<SemanticLink docPath="/collections/message" />
 
 # Message
 
@@ -28,7 +29,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 <details><summary >then import what you need</summary>
 
 ```javascript
-    import { Message } from &quot;semantic-ui-react&quot;;
+    import { Message } from "semantic-ui-react";
 ```
 </details>
 
@@ -36,17 +37,26 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 
 ### Default
 
-A simple message.
+A default message.
 
 <Preview>
     <Story name="default">
         <Message>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
+            Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
+        </Message>
+    </Story>
+</Preview>
+
+### Header
+
+A message can have an header.
+
+<Preview>
+    <Story name="header">
+        <Message>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
             <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
             </p>
         </Message>
     </Story>
@@ -54,7 +64,7 @@ A simple message.
 
 ### List
 
-A message with a list.
+A message can contains a formatted list.
 
 <Preview>
     <Story name="list">
@@ -70,7 +80,11 @@ A message with a list.
 
 ### Dismissible
 
-Dismissible blocks do not automatically close. Use the onDismiss callback to remove the message.
+A message can be dismissed.
+
+<p>
+    <span style={{ display: "inline-block", lineHeight: 1, verticalAlign: "middle" }}><InfoIcon className="w6 h6" /></span> <span style={{ fontStyle: "italic" }}>Dismissible blocks do not automatically close. Use the <code>onDismiss</code> callback to remove the message.</span>
+</p>
 
 <Preview>
     <Story name="dismissible">
@@ -86,35 +100,29 @@ Dismissible blocks do not automatically close. Use the onDismiss callback to rem
 
 ### Info
 
-A message may be formatted to display information.
+A message can display information.
 
 <Preview>
     <Story name="info">
         <Message info>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
             <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
             </p>
         </Message>
     </Story>
 </Preview>
 
-### Positive/Success
+### Positive / Success
 
-A message may be formatted to display a positive message.
+A message can display a positive message.
 
 <Preview>
     <Story name="positive success">
         <Message positive>
-            <Message.Header>
-    Setup a security policy for external sharing
-            </Message.Header>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
             <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
             </p>
         </Message>
     </Story>
@@ -122,34 +130,29 @@ A message may be formatted to display a positive message.
 
 ### Warning
 
-A message may be formatted to display warning message.
+A message can display a warning message.
 
 <Preview>
     <Story name="warning">
         <Message warning>
-            <Message.Header>
-    Review your settings before setting up a security policy
-            </Message.Header>
+            <Message.Header>Review your settings before setting up a security policy</Message.Header>
             <p>
-    Easily manage external sharing links and set-up automatic access reviews
-    for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
             </p>
         </Message>
     </Story>
 </Preview>
 
-### Negative/Error
+### Negative / Error
 
-A message may be formatted to display a negative message.
+A message can display a negative message.
 
 <Preview>
     <Story name="negative error">
         <Message negative>
-            <Message.Header>
-    Cannot setup a security policy for external sharing
-            </Message.Header>
+            <Message.Header>Cannot setup a security policy for external sharing</Message.Header>
             <p>
-    Your trial has expired.
+                Your trial has expired.
             </p>
         </Message>
     </Story>
@@ -163,11 +166,11 @@ A message can float above content that it is related to.
     <Story name="floating">
         <Message floating>
             <Message.Header>
-            Setup a security policy for external sharing
+                Setup a security policy for external sharing
             </Message.Header>
             <p>
-            Easily manage external sharing links and set-up automatic access reviews
-            for entrusted group owners.
+                Easily manage external sharing links and set-up automatic access reviews
+                for entrusted group owners.
             </p>
         </Message>
     </Story>
@@ -182,7 +185,7 @@ A message can have two columns.
 A message can have a button or an icon positionned to the left.
 
 <Preview>
-    <Story name="two columns left aligned">
+    <Story name="left aligned">
         <Message icon>
             <Button>Click Here</Button>
             <Message.Content>
@@ -198,30 +201,29 @@ A message can have a button or an icon positionned to the left.
 A message can have a button or an icon positionned to the right.
 
 <Preview>
-    <Story name="two columns right aligned">
+    <Story name="right aligned">
         <Message icon>
             <Message.Content>
                 <Message.Header>Just one second</Message.Header>
                 <p>We are fetching that content for you.</p>
             </Message.Content>
-            <Button>Click Here</Button>
+            <InfoIcon className="w10 h10" />
         </Message>
     </Story>
 </Preview>
 
+
 ### Sizes
 
-A message can have different sizes.
+A message can vary in size.
 
 #### Small
 
-Useful for one liners.
-
 <Preview>
-    <Story name="sizes small">
+    <Story name="small">
         <Message size="small">
             <p className="fw6">
-    Easily manage external sharing links and set-up automatic access reviews.
+                Easily manage external sharing links and set-up automatic access reviews.
             </p>
         </Message>
     </Story>

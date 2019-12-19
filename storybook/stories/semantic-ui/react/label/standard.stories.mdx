@@ -1,0 +1,122 @@
+import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Button, Icon, Label } from "semantic-ui-react";
+import { CommunicationIcon } from "@orbit-ui/icons";
+import { INSTALLATION_PAGE } from "@stories/pages";
+import { SemanticLink } from "@components";
+import { paramsBuilder } from "@utils/params-builder";
+
+<Meta
+    title="Components|Label/standard"
+    parameters={
+        paramsBuilder()
+            .sortPriority(-1)
+            .build()
+    }
+/>
+
+<Anchor storyId="components-label-standard--default-story" />
+
+<SemanticLink docPath="/elements/label" />
+
+# Label
+
+A label displays content classification.
+
+## Installation
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+```bash
+npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+```javascript
+    import { Button, Icon, Label } from "semantic-ui-react";
+```
+</details>
+
+## Usage
+
+### Default
+
+A default label.
+
+<Preview>
+    <Story name="default">
+        <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Icon
+
+A label can include an icon.
+
+<Preview>
+    <Story name="icon">
+        <div className="flex">
+            <Label>
+                Notification Sent <Icon name="search" />
+            </Label>
+            <Label>
+                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+                Notification Sent <Icon name="search" />
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Basic
+
+A label can have a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <Label basic>Basic</Label>
+    </Story>
+</Preview>
+
+### Sizes
+
+A label can vary in size.
+
+<Preview>
+    <Story name="sizes">
+        <div className="flex items-start">
+            <Label size="small">Notification Sent</Label>
+            <Label size="large">Notification Sent</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Empty
+
+A label can be empty.
+
+<Preview>
+    <Story name="empty">
+        <Label circular size="tiny" empty color="red" />
+    </Story>
+</Preview>
+
+### Circular
+
+A label can have a circular form.
+
+<Preview>
+    <Story name="circular">
+        <div>
+            <Label circular size="tiny">R</Label>
+            <Label circular size="small">R</Label>
+            <Label circular>D</Label>
+            <Label circular size="large">R</Label>
+            <Label circular size="big">R</Label>
+            <Label circular size="huge">R</Label>
+            <Label circular size="massive">R</Label>
+        </div>
+    </Story>
+</Preview>

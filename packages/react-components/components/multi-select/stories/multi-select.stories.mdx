@@ -2,11 +2,10 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
-import { PropsTabs } from "@components/props-tabs";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { logValuesChanged } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
-import { GithubLink } from "@components/github-link";
+import { GithubLink, PropsTabs } from "@components";
 import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Multi Select" />
@@ -16,6 +15,8 @@ import { INSTALLATION_PAGE } from "@stories/pages";
 <Anchor storyId="components-multi-select--default-story" />
 
 # MultiSelect
+
+A multi-select allow a user to select multiple values from a fixed set of data.
 
 ## Installation
 
@@ -85,7 +86,7 @@ const groupCreated = multiSelectItem("Created", "group-created", undefined, { ba
 
 ### Default
 
-A basic multi select.
+A default multi select.
 
 <Preview>
     <Story name="default">

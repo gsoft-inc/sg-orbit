@@ -1,9 +1,8 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
-import { GithubLink } from "@components/github-link";
+import { GithubLink, PropsTabs } from "@components";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { PropsTabs } from "@components/props-tabs";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
@@ -21,6 +20,8 @@ import { paramsBuilder } from "@utils/params-builder";
 <Anchor storyId="components-search-input-results-set--default-story" />
 
 # Search Input
+
+A search input allows a user to query for results from a fixed set of data.
 
 ## Installation
 
@@ -74,7 +75,7 @@ const georgeResult = multiSelectItem("1", "George", { backendId: 123 });
 
 ### Default
 
-A basic search input with a set of results.
+A default search input with a set of results.
 
 <Preview>
     <Story name="default">
@@ -106,7 +107,7 @@ A basic search input with a set of results.
 
 ### Selected value
 
-A search input can have a default value.
+A search input can have an initial value.
 
 <Preview>
     <Story name="selected value">

@@ -1,13 +1,13 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { Input } from "semantic-ui-react";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 
 <Meta title="Components|Input" />
 
 <Anchor storyId="components-input--default-story" />
 
-<SemanticLink docPath="/elements/input/" />
+<SemanticLink docPath="/elements/input" />
 
 # Input
 
@@ -25,7 +25,7 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 <details><summary >then import what you need</summary>
 
 ```javascript
-    import { Input } from &quot;semantic-ui-react&quot;;
+    import { Input } from "semantic-ui-react";
 ```
 </details>
 
@@ -33,35 +33,45 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 
 ### Default
 
-A basic input.
+A default input.
 
 <Preview>
     <Story name="default">
-        <Input placeholder="Search..." />
+        <Input />
     </Story>
 </Preview>
 
-### Focus
+### Value
 
-An input field can show a user is currently interacting with it.
+An input can have an value.
 
 <Preview>
-    <Story name="focus">
+    <Story name="value">
+        <Input value="Orbit" />
+    </Story>
+</Preview>
+
+### Focused
+
+An input can show a user is currently interacting with it.
+
+<Preview>
+    <Story name="focused">
         <Input focus placeholder="Search..." />
     </Story>
 </Preview>
 
-### Disabled
+### Fluid
 
-An input field can show that it is disabled.
+An input can take the width of its container.
 
 <Preview>
-    <Story name="disabled">
-        <Input disabled placeholder="Search..." />
+    <Story name="fluid">
+        <Input fluid placeholder="Search..." />
     </Story>
 </Preview>
 
-### Icon
+### Icons
 
 An input can be formatted with an icon.
 
@@ -80,7 +90,7 @@ An input can be formatted with an icon.
 
 ### Loading
 
-An icon input field can show that it is currently loading data.
+An input can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
@@ -92,6 +102,16 @@ An icon input field can show that it is currently loading data.
                 <Input loading iconPosition="left" icon="search" placeholder="Search..." />
             </div>
         </div>
+    </Story>
+</Preview>
+
+### Disabled
+
+An input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Input disabled placeholder="Search..." />
     </Story>
 </Preview>
 
@@ -115,16 +135,6 @@ An input field can show that the data has been validated.
     </Story>
 </Preview>
 
-### Fluid
-
-An input can take all the width it can.
-
-<Preview>
-    <Story name="fluid">
-        <Input fluid placeholder="Search..." />
-    </Story>
-</Preview>
-
 ### Transparent
 
 An input can be transparent.
@@ -134,3 +144,4 @@ An input can be transparent.
         <Input className="transparent" placeholder="Search..." />
     </Story>
 </Preview>
+

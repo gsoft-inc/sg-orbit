@@ -9,12 +9,11 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { GithubLink } from "@components/github-link";
 import { INSTALLATION_PAGE } from "@stories/pages";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
 import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
-import { PropsTabs } from "@components/props-tabs";
+import { PropsTabs, GithubLink } from "@components";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
 import { paramsBuilder } from "@utils/params-builder";
@@ -33,6 +32,8 @@ import MomentUsage from "./moment-usage.mdx";
 <Anchor storyId="components-date-picker-range--default-story" />
 
 # Date Range Picker
+
+A date range picker allow a user to select a date range.
 
 ## Installation
 
@@ -85,7 +86,7 @@ import {
 
 ### Default
 
-A basic date range picker.
+A default date range picker.
 
 <Preview>
     <Story name="default">

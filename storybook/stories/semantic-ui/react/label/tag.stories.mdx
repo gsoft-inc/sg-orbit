@@ -2,15 +2,17 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
 import { INSTALLATION_PAGE } from "@stories/pages";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 
-<Meta title="Components|Label" />
+<Meta title="Components|Label/tag" />
 
-<Anchor storyId="components-label--default-story" />
+<Anchor storyId="components-label-tag--default-story" />
 
-<SemanticLink docPath="/elements/label/" />
+<SemanticLink docPath="/elements/label" />
 
-# Label
+# Tag
+
+A tag consist of an icon / label in a label.
 
 ## Installation
 
@@ -34,101 +36,10 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-the
 
 ### Default
 
-A basic label.
+A default tag.
 
 <Preview>
     <Story name="default">
-        <Label>Notification Sent</Label>
-    </Story>
-</Preview>
-
-### Icons
-
-A label can include icons.
-
-<Preview>
-    <Story name="icons">
-        <div className="flex">
-            <Label>
-            Notification Sent <Icon name="search" />
-            </Label>
-            <Label>
-                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-        Notification Sent <Icon name="search" />
-            </Label>
-        </div>
-    </Story>
-</Preview>
-
-### Sizes
-
-A label can vary in size.
-
-<Preview>
-    <Story name="sizes">
-        <div className="flex items-start">
-            <Label size="small">Notification Sent</Label>
-            <Label size="large">Notification Sent</Label>
-        </div>
-    </Story>
-</Preview>
-
-### Circular
-
-A label can be circular.
-
-<Preview>
-    <Story name="circular">
-        <Label circular>R</Label>
-    </Story>
-</Preview>
-
-#### Sizes
-
-A circular label can vary in size.
-
-<Preview>
-    <Story name="circular sizes">
-        <div>
-            <Label circular size="tiny">R</Label>
-            <Label circular size="small">R</Label>
-            <Label circular size="medium">R</Label>
-            <Label circular size="large">R</Label>
-            <Label circular size="big">R</Label>
-            <Label circular size="huge">R</Label>
-            <Label circular size="massive">R</Label>
-        </div>
-    </Story>
-</Preview>
-
-### Basic
-
-A label can reduce its complexity.
-
-<Preview>
-    <Story name="basic">
-        <Label basic>Basic</Label>
-    </Story>
-</Preview>
-
-### Empty
-
-A label can be empty.
-
-<Preview>
-    <Story name="empty">
-        <Label circular size="tiny" empty color="red" />
-    </Story>
-</Preview>
-
-## Variations
-
-### Tags
-
-A tag consist of an icon/label in a label.
-
-<Preview>
-    <Story name="tag default">
         <Label>
             <Label circular empty size="mini" color="red" />
             Group added
@@ -136,12 +47,12 @@ A tag consist of an icon/label in a label.
     </Story>
 </Preview>
 
-#### Icons
+### Icons
 
 A tag can contain icons.
 
 <Preview>
-    <Story name="tag icons">
+    <Story name="icons">
         <div className="flex items-start">
             <Label>
                 <Label circular empty size="mini" color="red" />
@@ -157,7 +68,7 @@ A tag can contain icons.
             </Label>
             <Label>
                 <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-            Group added
+                Group added
                 <Button icon circular size="tiny" className="transparent">
                     <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                         <g transform="rotate(45 7.207 4.793)">
@@ -171,12 +82,12 @@ A tag can contain icons.
     </Story>
 </Preview>
 
-#### Basic
+### Basic
 
-A tag can reduce its complexity.
+A tag can have a subtle appearance.
 
 <Preview>
-    <Story name="tag basic">
+    <Story name="basic">
         <Label basic>
             <Label circular empty size="mini" color="red" />
         Group added
@@ -184,20 +95,20 @@ A tag can reduce its complexity.
     </Story>
 </Preview>
 
-#### Height
+### Sizes
 
-A tag can vary in height.
+A tag can vary in size.
 
 <Preview>
-    <Story name="tag heights">
+    <Story name="sizes">
         <div className="flex items-start">
             <Label size="small">
                 <Label circular empty size="mini" color="red" />
-            Group added
+                Group added
             </Label>
             <Label size="large">
                 <Label circular empty size="mini" color="red" />
-            Group added
+                Group added
             </Label>
         </div>
     </Story>

@@ -1,6 +1,6 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Popup } from "semantic-ui-react";
-import { SemanticLink } from "@components/semantic-link";
+import { SemanticLink } from "@components";
 import { INSTALLATION_PAGE } from "@stories/pages";
 
 <Meta title="Components|Popup (SUI)" />
@@ -33,21 +33,11 @@ import { Popup } from "semantic-ui-react";
 
 ### Default
 
-A basic popup.
+A default popup.
 
 <Preview>
     <Story name="default">
         <Popup content="Adds users to your feed" trigger={<Button>Add</Button>} />
-    </Story>
-</Preview>
-
-### Basic
-
-A popup can provide more basic formatting.
-
-<Preview>
-    <Story name="basic">
-        <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
 
@@ -71,13 +61,27 @@ A popup can be very wide to allow for longer content.
     </Story>
 </Preview>
 
-### Disabled
+### Flush
 
-A disabled popup only renders its trigger.
+A popup can offload padding to its child.
 
 <Preview>
-    <Story name="disabled">
-        <Popup disabled content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
+    <Story name="flush">
+        <Popup trigger={<Button>Read</Button>} className="flush">
+            <Popup.Content className="pa10">
+                <div>Hello is it tea you are looking for?</div>
+            </Popup.Content>
+        </Popup>
+    </Story>
+</Preview>
+
+### Basic
+
+A popup can provide more basic formatting.
+
+<Preview>
+    <Story name="basic">
+        <Popup basic content="Adds users to your feed" trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
 
@@ -91,16 +95,12 @@ A popup can have its colours inverted.
     </Story>
 </Preview>
 
-### Flush
+### Disabled
 
-A popup can be offload padding to its child.
+A disabled popup only renders its trigger.
 
 <Preview>
-    <Story name="flush">
-        <Popup trigger={<Button>Read</Button>} className="flush">
-            <Popup.Content className="pa10">
-                <div>Hello is it tea you are looking for?</div>
-            </Popup.Content>
-        </Popup>
+    <Story name="disabled">
+        <Popup disabled content="Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore—" trigger={<Button>Read</Button>} />
     </Story>
 </Preview>
