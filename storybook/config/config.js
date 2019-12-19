@@ -1,12 +1,12 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { BRANDS, getCurrentBrand } from "../brands";
-import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "../containers";
+import { BRANDS, getCurrentBrand } from "./brands";
+import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "./containers";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "../env";
+import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "./env";
 import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
@@ -43,9 +43,9 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
-import "../styles/docs.css";
-import "../styles/preview-iframe.css";
-import "../styles/stories.css";
+import "./styles/docs.css";
+import "./styles/preview-iframe.css";
+import "./styles/stories.css";
 
 addParameters({
     options: {

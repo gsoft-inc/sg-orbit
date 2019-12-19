@@ -1,6 +1,4 @@
-import { createChromaticSection } from "@utils/create-section";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Typography"))

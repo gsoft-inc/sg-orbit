@@ -9,14 +9,13 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { INSTALLATION_PAGE } from "@stories/pages";
+import { INSTALLATION_PAGE, paramsBuilder } from "@utils";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
 import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
-import { PropsTabs, GithubLink } from "@components";
+import { PropsTabs, GithubLink } from "@docs-blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
-import { paramsBuilder } from "@utils/params-builder";
 import moment from "moment";
 import MomentUsage from "./moment-usage.mdx";
 

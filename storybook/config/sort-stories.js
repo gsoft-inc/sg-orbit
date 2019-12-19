@@ -1,4 +1,4 @@
-import { CHROMATIC_ROOT, COMPONENTS_ROOT, INTRODUCTION_ROOT, MATERIALS_ROOT } from "../roots";
+import { CHROMATIC_ROOT, COMPONENTS_ROOT, INTRODUCTION_ROOT, MATERIALS_ROOT } from "../utils/roots";
 import { isNil } from "lodash";
 
 const PARSING_RESULTS_CACHE = {};

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-const useStorage = (storage, key, initialValue = "") => {
+function useStorage(storage, key, initialValue = "") {
     const [value, setValue] = useState(
         () => storage.getItem(key) || initialValue
     );
@@ -33,7 +33,7 @@ const useStorage = (storage, key, initialValue = "") => {
     }, [handleStorage]);
 
     return [value, setItem];
-};
+}
 
 export const useLocalStorage = (key, value) => useStorage(window.localStorage, key, value);
 export const useSessionStorage = (key, value) => useStorage(window.sessionStorage, key, value);

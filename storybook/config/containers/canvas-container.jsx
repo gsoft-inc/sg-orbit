@@ -1,4 +1,4 @@
-import { getParametersFromContext } from "../parameters";
+import { getParametersFromContext } from "../../utils/parameters";
 
 export function CanvasContainer({ story, context }) {
     const { layout } = getParametersFromContext(context);

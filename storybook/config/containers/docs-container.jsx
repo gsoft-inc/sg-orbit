@@ -1,5 +1,5 @@
 import { BrandPickerDocsWidget } from "../addons/brand-picker";
-import { getParametersFromContext } from "../parameters";
+import { getParametersFromContext } from "../../utils/parameters";
 
 export function DocsContainer({ context, children }) {
     const { showBrandPicker } = getParametersFromContext(context);

@@ -1,15 +1,16 @@
 import { CheckmarkIcon } from "@orbit-ui/icons";
 import { a, useTransition } from "react-spring";
 import { useEffect, useRef, useState } from "react";
+
 import styles from "./icon.module.css";
 
-export function Icon({ icon, name, size }) {
-    const IconSvg = icon;
+export function Icon({ icon: IconSvg, name, size }) {
     const textAreaRef = useRef(null);
     const [copySuccess, setCopySuccess] = useState(false);
+
     const sizeClasses = size === "std" ? "h7 w7" : "h6 w6";
 
-    const animCopy = useTransition(copySuccess, null, {
+    const copyAnimation = useTransition(copySuccess, null, {
         from: {
             opacity: 0,
             transform: "translate3d(0,-20px,0)"
@@ -47,7 +48,7 @@ export function Icon({ icon, name, size }) {
             <div className="absolute flex items-center justify-center h7 w7">
                 <IconSvg className={sizeClasses} />
             </div>
-            <div className="h7 w7 justify-center items-center pointer bg-marine-500 flex relative child pa1" onClick={copyCodeToClipboard}>{animCopy.map(({ item, key, props }) =>
+            <div className="h7 w7 justify-center items-center pointer bg-marine-500 flex relative child pa1" onClick={copyCodeToClipboard}>{copyAnimation.map(({ item, key, props }) =>
                 <Choose>
                     <When condition={item}>
                         <a.div style={props} className="absolute h7 w7 flex items-center justify-center" key={key}><CheckmarkIcon className="h4 w4 fill-white" /></a.div>

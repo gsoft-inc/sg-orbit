@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useLocalStorage } from "./utils/use-storage";
+import { useLocalStorage } from "../utils/use-storage";
 
 export const BRAND_STORAGE_KEY = "@orbit/storybook/selected-brand";
 

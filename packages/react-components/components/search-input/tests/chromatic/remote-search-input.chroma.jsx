@@ -1,9 +1,7 @@
 import { CountriesSearchInput } from "./components";
 import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
-import { createChromaticSection } from "@utils/create-section";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function createRemoteSearchInput(props = {}) {
     return <CountriesSearchInput

@@ -1,10 +1,8 @@
 import { CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { SearchInputController } from "@orbit-ui/react-search-input/src";
-import { createChromaticSection } from "@utils/create-section";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
 
 function createSearchInputController({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
     return <SearchInputController
