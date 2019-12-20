@@ -2,7 +2,8 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { SemanticLink } from "@docs-blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder } from "@utils";
+import PackageInstallation from "../package-installation.mdx";
 
 <Meta title="Components|Checkbox" />
 
@@ -16,14 +17,7 @@ A checkbox allows a user to select a value from a small set of options, often bi
 
 ## Installation
 
-<details><summary >install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
-```
-</details>
+<PackageInstallation />
 
 <details><summary >then import what you need</summary>
 

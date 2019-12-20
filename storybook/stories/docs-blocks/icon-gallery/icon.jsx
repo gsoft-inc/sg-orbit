@@ -1,8 +1,8 @@
+import styles from "./icon.module.css";
+
 import { CheckmarkIcon } from "@orbit-ui/icons";
 import { a, useTransition } from "react-spring";
 import { useEffect, useRef, useState } from "react";
-
-import styles from "./icon.module.css";
 
 export function Icon({ icon: IconSvg, name, size }) {
     const textAreaRef = useRef(null);
@@ -26,15 +26,15 @@ export function Icon({ icon: IconSvg, name, size }) {
     });
 
     useEffect(() => {
-        let timer = null;
+        let timeoutId = null;
 
         if (copySuccess) {
-            timer = setTimeout(() => {
+            timeoutId = setTimeout(() => {
                 setCopySuccess(false);
             }, 2000);
         }
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timeoutId);
     }, [copySuccess]);
 
     function copyCodeToClipboard () {

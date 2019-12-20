@@ -1,8 +1,9 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
-import { INSTALLATION_PAGE, paramsBuilder } from "@utils";
+import { paramsBuilder } from "@utils";
 import { SemanticLink } from "@docs-blocks";
+import PackageInstallation from "../package-installation.mdx";
 
 <Meta
     title="Components|Label/standard"
@@ -23,14 +24,7 @@ A label displays content classification.
 
 ## Installation
 
-<details><summary >install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
-```
-</details>
+<PackageInstallation />
 
 <details><summary >then import what you need</summary>
 

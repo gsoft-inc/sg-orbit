@@ -1,7 +1,7 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
-import { GithubLink, PropsTabs } from "@docs-blocks";
+import { GithubLink, PropsTabs, InstallPackages } from "@docs-blocks";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
@@ -28,9 +28,8 @@ A search input allows a user to query for results from a fixed set of data.
 
 Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
 
-```bash
-npm install @orbit-ui/react-search-input @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react lodash styled-jsx
-```
+<InstallPackages packageName="search-input" />
+
 </details>
 
 <details><summary >then import what you need</summary>
