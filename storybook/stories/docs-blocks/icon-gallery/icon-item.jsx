@@ -1,8 +1,8 @@
+import styles from "./icon-item.module.css";
+
 import { Icon } from "./icon";
 import { IconHeader } from "./icon-header";
 import { isNil } from "lodash";
-
-import styles from "./icon-item.module.css";
 
 export function IconItem({ std, small, iconName }) {
     const name = iconName.split(/(?=[A-Z])/)

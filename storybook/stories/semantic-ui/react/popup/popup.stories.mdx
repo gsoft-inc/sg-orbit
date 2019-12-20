@@ -1,7 +1,7 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Popup } from "semantic-ui-react";
 import { SemanticLink } from "@docs-blocks";
-import { INSTALLATION_PAGE } from "@utils";
+import PackageInstallation from "../package-installation.mdx";
 
 <Meta title="Components|Popup (SUI)" />
 
@@ -13,14 +13,7 @@ import { INSTALLATION_PAGE } from "@utils";
 
 ## Installation
 
-<details><summary>install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/semantic-ui-theme semantic-ui-react
-```
-</details>
+<PackageInstallation />
 
 <details><summary >then import what you need</summary>
 
