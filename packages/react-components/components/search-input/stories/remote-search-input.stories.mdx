@@ -53,7 +53,9 @@ import {
 
 ## Remote API throttling
 
-For demo purpose, we use [GeoDB cities free API](http://geodb-cities-api.wirefreethought.com/) which is trotthled at 2 request / sec. *Pease, be patient!*
+For demo purpose, we use [GeoDB cities free API](https://rapidapi.com/wirefreethought/api/geodb-cities) through [Rapid API](https://rapidapi.com/) which is throttled at 1 request / sec and have a daily quota of 1000 requests.
+
+*Please, dont abuse and be patient!*
 
 ## Usage
 
@@ -65,7 +67,7 @@ The easiest way to fetch data is by using the `useDefaultResultsFetcher(url, que
 
 ```jsx
 <RemoteSearchInput
-    onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix")}
 />
 ```
 
@@ -76,7 +78,7 @@ A custom results fetcher must returned a `Promise` that resolved to an array of 
 ```jsx
 function fetchResults(event, query) {
     return new Promise((resolve, reject) => {
-        fetch(`http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&namePrefix=${query}`)
+        fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5&namePrefix=${query}`)
             .then(response => {
                 resolve(response.json());
             })
@@ -119,6 +121,13 @@ An optional data `obj` can be specified to provide additional information to cal
 ```
 </details>
 
+export const API_REQUEST_OPTIONS = {
+    headers: {
+        "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
+		"x-rapidapi-key": "d699c01b23mshb9832bb0fd12929p128485jsn5a749c0b2741"
+    }
+};
+
 ### Default
 
 A default remote search input.
@@ -126,7 +135,7 @@ A default remote search input.
 <Preview>
     <Story name="default">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
@@ -144,7 +153,7 @@ A default remote search input.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
         onResults={response => {
             return response.data.map(x => searchInputResult(x.code, x.name));
         }}
@@ -166,7 +175,7 @@ A remote search input can have a default value.
 <Preview>
     <Story name="selected value">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
@@ -184,7 +193,7 @@ A remote search input results box can close when a result is selected.
 <Preview>
     <Story name="clear on select">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
@@ -202,7 +211,7 @@ A remote search input results box can close when a result is selected.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
         onResults={response => {
             return response.data.map(x => searchInputResult(x.code, x.name));
         }}
@@ -219,7 +228,7 @@ A remote search input can be disabled.
 <Preview>
     <Story name="disabled">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
@@ -237,7 +246,7 @@ A remote search input can be disabled.
         .build()}
     >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
         onResults={response => {
             return response.data.map(x => searchInputResult(x.code, x.name));
         }}
@@ -268,7 +277,7 @@ A remote search input can handle `value` and `open` state in controlled mode.
 <Preview>
     <Story name="controlled">
         <ControlledRemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5", "namePrefix")}
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
             onResults={response => {
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
