@@ -2,7 +2,7 @@ import { Source } from "@storybook/components";
 import { isNil } from "lodash";
 import { useState } from "react";
 
-export function InstallPackages({ packageName }) {
+export function PackagesInstallation({ packageName }) {
     const [dependencies, setDependencies] = useState(null);
 
     import(/* webpackMode: "eager" */ `../../../../packages/react-components/components/${packageName}/package.json`)

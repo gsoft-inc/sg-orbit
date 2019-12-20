@@ -3,4 +3,4 @@ export * from "./github-link";
 export * from "./semantic-link";
 export * from "./warning";
 export * from "./icon-gallery";
-export * from "./install-packages";
+export * from "./packages-installation";
