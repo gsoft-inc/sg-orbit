@@ -39,6 +39,7 @@ function clickBooleanElement(element) {
     fireEvent.mouseOver(element);
     fireEvent.mouseMove(element);
     fireEvent.mouseDown(element);
+    fireEvent.focus(element);
     fireEvent.mouseUp(element);
     fireEvent.click(element);
 }
@@ -82,6 +83,7 @@ function dblClickCheckbox(checkbox) {
     fireEvent.mouseOver(checkbox);
     fireEvent.mouseMove(checkbox);
     fireEvent.mouseDown(checkbox);
+    fireEvent.focus(checkbox);
     fireEvent.mouseUp(checkbox);
     fireEvent.click(checkbox);
     fireEvent.mouseDown(checkbox);
@@ -136,7 +138,7 @@ const userEvent = {
     dblClick(element) {
         const focusedElement = document.activeElement;
         const wasAnotherElementFocused =
-      focusedElement !== document.body && focusedElement !== element;
+            focusedElement !== document.body && focusedElement !== element;
         if (wasAnotherElementFocused) {
             fireEvent.mouseMove(focusedElement);
             fireEvent.mouseLeave(focusedElement);
@@ -158,7 +160,7 @@ const userEvent = {
     selectOptions(element, values) {
         const focusedElement = document.activeElement;
         const wasAnotherElementFocused =
-      focusedElement !== document.body && focusedElement !== element;
+            focusedElement !== document.body && focusedElement !== element;
         if (wasAnotherElementFocused) {
             fireEvent.mouseMove(focusedElement);
             fireEvent.mouseLeave(focusedElement);
