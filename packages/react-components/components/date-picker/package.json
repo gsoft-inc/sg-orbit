@@ -29,7 +29,7 @@
         "@orbit-ui/react-popup": "3.0.0",
         "classnames": "*",
         "prop-types": "*",
-        "react-dates": "21.3.1",
+        "react-dates": "21.5.1",
         "react-moment-proptypes": "1.7.0"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
