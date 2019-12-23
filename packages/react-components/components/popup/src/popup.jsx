@@ -216,12 +216,13 @@ export class Popup extends AutoControlledPureComponent {
                 // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
                 setTimeout(() => {
                     if (!this._hasFocus) {
+                        // console.log("***** popup - handleBlur - WILL CLOSE *****");
+
                         this.close(event);
                     }
                 }, 0);
             }
         }
-
 
         if (!isNil(onBlur)) {
             onBlur(event, this.props);
@@ -229,7 +230,7 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick, closeOnBlur } = this.props;
+        const { onOutsideClick, closeOnOutsideClick } = this.props;
 
         if (!this._containerRef.current.contains(event.target)) {
             if (closeOnOutsideClick) {
@@ -238,32 +239,6 @@ export class Popup extends AutoControlledPureComponent {
 
             if (!isNil(onOutsideClick)) {
                 onOutsideClick(event, this.props);
-            }
-
-            // The following lines of code fixes a bug we had, but could be re-thinked because it doesn't address the real issue.
-            //
-            // The fix : if we detect an outside click while the popup is still "focused" in our internal state, we want to make sure that the
-            // popup closes if the closeOnBlur was set to true.
-            //
-            // To repro the issue we had :
-            // 1- In any DatePicker (range, single, inline), open the calendar
-            // 2- select a date or a date range
-            // 3- click the Clear button
-            // 4- click outside the popup
-            //
-            // The "handleOutsideClick" is called when we click outside the popup, but the final "handleBlur" was never called.
-            // When trying to write a unit test to repro the issue we had, the test was always successful, since the test was firing the "handleBlur" properly.
-            // Currently we do not have any tests for this use case.
-            if (this._hasFocus) {
-                this._hasFocus = false;
-
-                if (open && closeOnBlur) {
-                    setTimeout(() => {
-                        if (!this._hasFocus) {
-                            this.close(event);
-                        }
-                    }, 0);
-                }
             }
         }
     };
@@ -400,6 +375,25 @@ export class Popup extends AutoControlledPureComponent {
         );
     }
 
+    // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
+    // More info at: https://allyjs.io/tutorials/mutating-active-element.html
+    handleDocumentBlur = () => {
+        setTimeout(() => {
+            if (document.activeElement.nodeName === "BODY") {
+                // Chrome, Edge
+                this._containerRef.current.focus();
+            } else {
+                // Firefox dont switch focus to body, it keep it on the disabled element.
+                // That's an ugly hack to fix it but stil dont trigger a proper blur event.
+                setTimeout(() => {
+                    if (document.activeElement.disabled) {
+                        this._containerRef.current.focus();
+                    }
+                }, 100);
+            }
+        }, 0);
+    }
+
     render() {
         const { open } = this.state;
 
@@ -421,6 +415,7 @@ export class Popup extends AutoControlledPureComponent {
                 <If condition={open}>
                     <DOMEventListener name="keydown" on={this.handleDocumentKeyDown} />
                     <DOMEventListener name="click" on={this.handleOutsideClick} />
+                    <DOMEventListener name="blur" on={this.handleDocumentBlur} capture />
                 </If>
             </>
         );
