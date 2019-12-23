@@ -239,6 +239,27 @@ The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT
     />
 </Story>
 
+<Story
+    name="z-index"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+        <div>
+            <SingleDatePicker
+                onDateChange={logDateChanged}
+            />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        </div>
+</Story>
+
 ### Controlled
 
 A single date picker can handle `date` and `open` state in controlled mode.

@@ -272,7 +272,7 @@ A date range picker calendar can be anchored at different positions.
 
 The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
 
-<Preview onClick={() => {}}>
+<Preview>
     <Story name="position">
         <DateRangePicker
             position={TOP_LEFT}
@@ -292,6 +292,27 @@ The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT
         closeOnOutsideClick
         onDatesChange={logDatesChanged}
     />
+</Story>
+
+<Story
+    name="z-index"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+    >
+        <div>
+            <DateRangePicker
+                onDatesChange={logDatesChanged}
+            />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        </div>
 </Story>
 
 ### Controlled
