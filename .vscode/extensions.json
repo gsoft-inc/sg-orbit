@@ -3,7 +3,7 @@
         "editorconfig.editorconfig",
         "dbaeumer.vscode-eslint",
         "blanu.vscode-styled-jsx",
-        "thibaudcolas.stylelint",
+        "hex-ci.stylelint-plus",
         "esbenp.prettier-vscode",
         "silvenon.mdx"
     ]
