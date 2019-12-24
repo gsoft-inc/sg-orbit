@@ -16,16 +16,19 @@
         "start-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true yarn start-sb",
         "start-docs": "cross-env STORYBOOK_IS_DOCS=true start-storybook -c config --docs",
         "build-sb": "cross-env STORYBOOK_INCLUDE_CHROMATIC=false build-storybook -c config -o dist/sb",
+        "build-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true build-storybook -c config -o dist/chromatic",
         "build-docs": "cross-env STORYBOOK_IS_DOCS=true build-storybook -c config -o dist/docs --docs",
+        "serve-sb": "serve dist/sb",
+        "serve-sb-for-chroma": "serve dist/chromatic",
+        "serve-docs": "serve dist/docs",
         "clean": "rimraf dist",
         "deploy-sb": "netlify deploy --prod --dir=dist/sb --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
         "deploy-docs": "netlify deploy --prod --dir=dist/docs --site=65b52a34-8224-4783-bed2-64ffd05d36af --open",
-        "sb-chromatic": "yarn start-sb -p 1135 --ci",
-        "chromatic": "cross-env STORYBOOK_IS_CHROMATIC=true chromatic test --script-name=sb-chromatic --debug",
+        "chromatic": "chromatic test -b=build-sb-for-chroma --debug",
         "chromatic-components": "cross-env STORYBOOK_SCOPE=components yarn chromatic",
         "chromatic-theme": "cross-env STORYBOOK_SCOPE=theme yarn chromatic",
         "chromatic-materials": "cross-env STORYBOOK_SCOPE=materials yarn chromatic",
-        "chromatic-ci": "yarn chromatic --no-interactive"
+        "chromatic-ci": "yarn chromatic --no-interactive --exit-once-uploaded"
     },
     "devDependencies": {}
 }

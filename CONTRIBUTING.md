@@ -73,24 +73,18 @@ yarn bootstrap
 
 The installation should take up to 5 minutes.
 
-By default, the packages, Storybook and the website are installed.
+By default, this will install the packages and Storybook.
 
-To only install the packages, instead, use the following command:
+To only install the packages, use the following command:
 
 ```bash
 yarn bootstrap:pkg
 ```
 
-If you want to install Storybook later, use the default installation command or:
+If you want to install Storybook later, use the following command:
 
 ```bash
 yarn bootstrap:sb
-```
-
-If you want to install the website later, use the default installation command or:
-
-```bash
-yarn bootstrap:website
 ```
 
 During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
