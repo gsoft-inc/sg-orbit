@@ -73,24 +73,18 @@ yarn bootstrap
 
 The installation should take up to 5 minutes.
 
-By default, the packages, Storybook and the website are installed.
+By default, this will install the packages and Storybook.
 
-To only install the packages, instead, use the following command:
+To only install the packages, use the following command:
 
 ```bash
 yarn bootstrap:pkg
 ```
 
-If you want to install Storybook later, use the default installation command or:
+If you want to install Storybook later, use the following command:
 
 ```bash
 yarn bootstrap:sb
-```
-
-If you want to install the website later, use the default installation command or:
-
-```bash
-yarn bootstrap:website
 ```
 
 During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
@@ -284,9 +278,9 @@ Here's an exhaustive list of all the commands you might need to use. The followi
 
 ### bootstrap
 
-Install the npm dependencies for every packages of the monorepo and the website. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and the website.
+Install the npm dependencies for every packages of the monorepo and Storybook. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and Storybook.
 
-Depending of the packages / website, the setup step will perform a number of required additional installation tasks.
+Depending of the packages / Storybook, the setup step will perform a number of required additional installation tasks.
 
 As an example, the *semantic-ui-theme* package must be **build once** before it can be **watch**.
 
@@ -308,14 +302,6 @@ Same as *bootstrap* but only for Storybook.
 
 ```bash
 yarn bootstrap:sb
-```
-
-### bootstrap:website
-
-Same as *bootstrap* but only for the website.
-
-```bash
-yarn bootstrap:website
 ```
 
 ### start
@@ -344,7 +330,7 @@ yarn start-docs
 
 ### build
 
-Build all the packages, Storybook and the website for production.
+Build all the packages and Storybook for production.
 
 ```bash
 yarn build
@@ -380,6 +366,22 @@ Same as *build* but only for the SUI theme.
 
 ```bash
 yarn build-theme
+```
+
+### serve-sb
+
+Serve Storybook optimized for production.
+
+```bash
+yarn serve-sb
+```
+
+### serve-docs
+
+Serve docs optimized for production.
+
+```bash
+yarn serve-docs
 ```
 
 ### release-pkg
