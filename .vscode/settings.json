@@ -5,22 +5,18 @@
         "source.fixAll": true,
         "source.organizeImports": false
     },
-    // Turns on auto format on save for all files types.
-    // This is also required to allow Prettier to auto format files on save.
     "editor.formatOnSave": true,
     "[html]": {
         "editor.formatOnSave": false
     },
-    // Turns it off for JavaScript since we use Prettier to auto format on save.
     "javascript.format.enable": false,
     "javascript.validate.enable": true,
     "json.format.enable": false,
     "css.validate": false,
-    // Required to allow auto format on save with ESLint.
     "eslint.alwaysShowStatus": true,
     "eslint.packageManager": "yarn",
     "eslint.validate": [ "javascript", "javascriptreact", "mdx" ],
-    "prettier.stylelintIntegration": true,
+    "stylelint.autoFixOnSave": true,
     "files.associations": {
         ".overrides": "less",
         ".variables": "less"

@@ -94,6 +94,7 @@ abbr[title] {
 
 b,
 strong {
+    /* stylelint-disable-next-line */
     font-weight: bolder;
 }
 
