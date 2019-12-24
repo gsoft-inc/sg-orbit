@@ -1,1 +1,1 @@
-import 'mutationobserver-shim';
+require("mutationobserver-shim");

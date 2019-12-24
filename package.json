@@ -39,6 +39,7 @@
         "eslint": "run-s \"eslint:* --max-warnings={1:--1}\"",
         "eslint:pkg": "eslint --ext .js,.jsx packages",
         "eslint:sb": "eslint --ext .js,.jsx storybook",
+        "eslint-fix": "eslint --ext .js,.jsx . --fix",
         "install:pkg": "yarn install --ignore-scripts",
         "install:sb": "cd storybook && yarn install",
         "lint": "run-s eslint stylelint",
