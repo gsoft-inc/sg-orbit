@@ -211,6 +211,7 @@ Releasing Storybook website includes a few steps:
 1. Build the packages
 2. Build storybook into a static web app
 3. Deploy the static web app to Netlify
+4. Go to https://app.netlify.com/sites/sg-storybook/deploys, select the new build and "Publish deploy"
 
 Before you release, make sure you have access to the GSoft Netlify team.
 
@@ -246,6 +247,7 @@ Releasing the docs website includes a few steps:
 1. Build the packages
 2. Build storybook with `--docs` mode into a static web app
 3. Deploy the static web app to Netlify
+4. Go to https://app.netlify.com/sites/sg-orbit/deploys, select the new build and "Publish deploy"
 
 Before you release, make sure you have access to the GSoft Netlify team and the **sg-orbit** site.
 
@@ -731,3 +733,5 @@ For more information on the topic view the issue [https://github.com/testing-lib
 ### Netlify CI setup
 
 To enable deploy previews on PR, Netlify sg-orbit and sg-storybook sites have been linked to the sg-orbit Github repository. Netlify will deploy a preview on every commits for any branches, even for master (which is Netlify production). This beging said, since the sites have been configured with "Auto Publish" disabled, even if a deploy is compiled for production IT IS NOT DEPLOY, it's only available for preview and must be deployed manually.
+
+Having disabled "Auto Publish" is also the reason why our script that publish our sites to production "doesn't work anymore". It still works, the reason why the site doesn't update is because the script will create a new production build but WILL NOT PUBLISH IT, since it's auto publishing is disabled. It must be published manually throught Netlify web interface.
