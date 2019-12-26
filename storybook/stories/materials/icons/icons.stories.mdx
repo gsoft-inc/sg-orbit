@@ -58,10 +58,10 @@ import {
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { IconGallery } from "@docs-blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
-    title="Materials|Icons"
+    title={createMaterialSection("Icons")}
     parameters={
         paramsBuilder()
             .hideBrandPicker()

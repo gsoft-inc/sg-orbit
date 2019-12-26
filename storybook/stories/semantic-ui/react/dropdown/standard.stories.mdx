@@ -1,12 +1,12 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Dropdown } from "semantic-ui-react";
 import { SemanticLink } from "@docs-blocks";
-import { paramsBuilder } from "@utils";
+import { paramsBuilder, createComponentSection } from "@utils";
 import { AddIcon } from "@orbit-ui/icons";
 import PackageInstallation from "../package-installation.mdx";
 
 <Meta
-    title="Components|Dropdown/standard"
+    title={createComponentSection("Dropdown/standard")}
     parameters={
         paramsBuilder()
             .sortPriority(-1)

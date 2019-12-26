@@ -2,9 +2,10 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Dropdown } from "semantic-ui-react";
 import { SemanticLink, Warning } from "@docs-blocks";
 import { AddIcon } from "@orbit-ui/icons";
+import { createComponentSection } from "@utils";
 import PackageInstallation from "../package-installation.mdx";
 
-<Meta title="Components|Dropdown/inline" />
+<Meta title={createComponentSection("Dropdown/inline")} />
 
 <Anchor storyId="components-dropdown-inline--default-story" />
 

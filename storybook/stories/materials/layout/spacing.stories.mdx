@@ -1,8 +1,8 @@
 import { Anchor, Meta, Story, Preview } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
-    title="Materials|Layout/spacing"
+    title={createMaterialSection("Layout/spacing")}
     parameters={
         paramsBuilder()
             .hideBrandPicker()

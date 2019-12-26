@@ -4,10 +4,10 @@ import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE,
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import { logValuesChanged } from "./utils";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createComponentSection } from "@utils";
 import { GithubLink, PropsTabs, PackagesInstallation } from "@docs-blocks";
 
-<Meta title="Components|Multi Select" />
+<Meta title={createComponentSection("Multi Select")} />
 
 <GithubLink filePath="/packages/react-components/components/multi-select/src" />
 

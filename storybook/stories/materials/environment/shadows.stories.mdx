@@ -1,8 +1,8 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
-    title="Materials|Environment/shadows"
+    title={createMaterialSection("Environment/shadows")}
     parameters={
         paramsBuilder()
             .hideBrandPicker()

@@ -5,10 +5,10 @@ import { GithubLink, PropsTabs, PackagesInstallation } from "@docs-blocks";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
 import { logValueChanged } from "./utils";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createComponentSection } from "@utils";
 
 <Meta
-    title="Components|Search Input/results set"
+    title={createComponentSection("Search Input/results set")}
     parameters={paramsBuilder()
         .width("80%")
         .build()}
