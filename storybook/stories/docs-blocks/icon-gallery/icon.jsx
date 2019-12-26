@@ -1,14 +1,32 @@
 import styles from "./icon.module.css";
 
-import { CheckmarkIcon } from "@orbit-ui/icons";
+import { CheckmarkIcon } from "./assets";
 import { a, useTransition } from "react-spring";
+import { isNil } from "lodash";
 import { useEffect, useRef, useState } from "react";
 
-export function Icon({ icon: IconSvg, name, size }) {
-    const textAreaRef = useRef(null);
-    const [copySuccess, setCopySuccess] = useState(false);
+function renderIconComponent(Component, cssClasses) {
+    const classes = isNil(cssClasses) ? "sbdocs sbdocs-ig-icon" : `${cssClasses} sbdocs sbdocs-ig-icon`;
 
-    const sizeClasses = size === "std" ? "h7 w7" : "h6 w6";
+    return <Component className={classes} />;
+}
+
+export function Icon({ name, icon, cssClasses, getCopyValue }) {
+    const [copySuccess, setCopySuccess] = useState(false);
+    const textAreaRef = useRef(null);
+    const copyValue = getCopyValue(name, icon);
+
+    useEffect(() => {
+        let timeoutId = null;
+
+        if (copySuccess) {
+            timeoutId = setTimeout(() => {
+                setCopySuccess(false);
+            }, 2000);
+        }
+
+        return () => clearTimeout(timeoutId);
+    }, [copySuccess]);
 
     const copyAnimation = useTransition(copySuccess, null, {
         from: {
@@ -25,46 +43,46 @@ export function Icon({ icon: IconSvg, name, size }) {
         }
     });
 
-    useEffect(() => {
-        let timeoutId = null;
-
-        if (copySuccess) {
-            timeoutId = setTimeout(() => {
-                setCopySuccess(false);
-            }, 2000);
-        }
-
-        return () => clearTimeout(timeoutId);
-    }, [copySuccess]);
-
-    function copyCodeToClipboard () {
+    const copyToClipboard = () => {
         textAreaRef.current.select();
         document.execCommand("copy");
+
         setCopySuccess(true);
-    }
+    };
 
     return (
-        <>
-            <div className="absolute flex items-center justify-center h7 w7">
-                <IconSvg className={sizeClasses} />
+        <div className={`${styles.iconPlaceholder} sbdocs sbdocs-ig-icon-placeholder`}>
+            <div className={`${styles.iconContainer} sbdocs sbdocs-ig-icon-container`}>
+                {renderIconComponent(icon, cssClasses)}
             </div>
-            <div className="h7 w7 justify-center items-center pointer bg-marine-500 flex relative child pa1" onClick={copyCodeToClipboard}>{copyAnimation.map(({ item, key, props }) =>
-                <Choose>
-                    <When condition={item}>
-                        <a.div style={props} className="absolute h7 w7 flex items-center justify-center" key={key}><CheckmarkIcon className="h4 w4 fill-white" /></a.div>
-                    </When>
-                    <Otherwise>
-                        <a.div style={props} className="absolute h7 w7 flex items-center justify-center white f9 fw5" key={key}>Copy</a.div>
-                    </Otherwise>
-                </Choose>
-            )}
+            <div className={`${styles.copyContainer} sbdocs sbdocs-ig-copy-container`} onClick={copyToClipboard}>
+                {copyAnimation.map(({ item, props, key }) => {
+                    if (item) {
+                        return (
+                            <a.div style={props} className={`${styles.copySucceeded} sbdocs sbdocs-ig-copy-succeeded`} key={key}>
+                                <CheckmarkIcon className={`${styles.copyCheckmark} sbdocs sbdocs-ig-copy-checkmark`} />
+                            </a.div>
+                        );
+                    }
+
+                    return <a.div style={props} className={`${styles.copyAction} sbdocs sbdocs-ig-copy-action`} key={key}>Copy</a.div>;
+                })}
             </div>
             <form className={styles.textarea}>
-                <textarea readOnly
+                <textarea
+                    readOnly
                     ref={textAreaRef}
-                    value={name}
+                    value={copyValue}
                 />
             </form>
-        </>
+        </div>
     );
 }
+
+Icon.defaultProps = {
+    getCopyValue: (name, icon) => {
+        console.log(icon);
+
+        return icon.displayName || icon.name || name;
+    }
+};

@@ -2,14 +2,10 @@
     "private": true,
     "name": "@orbit-ui/storybook",
     "version": "0.0.0",
-    "description": "Sharegate Orbit UI React components",
+    "description": "Sharegate Orbit UI Storybook",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
-    "main": "dist/index.js",
-    "publishConfig": {
-        "access": "public"
-    },
     "scripts": {
         "start-sb": "start-storybook -c config",
         "start-sb-no-chroma": "cross-env STORYBOOK_INCLUDE_CHROMATIC=false yarn start-sb",

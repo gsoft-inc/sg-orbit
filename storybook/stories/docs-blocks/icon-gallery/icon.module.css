@@ -1,3 +1,69 @@
+.iconPlaceholder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.iconContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.copyContainer {
+    opacity: 0;
+    transition: opacity .15s ease-in;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem;
+    background-color: #0E1C3D;
+    width: 2rem;
+    height: 2rem;
+}
+
+.iconPlaceholder:hover .copyContainer,
+.iconPlaceholder:focus .copyContainer,
+.iconPlaceholder:active .copyContainer {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
+
+.copySucceeded {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.copyCheckmark {
+    width: 1rem;
+    height: 1rem;
+    fill: #FFF;
+}
+
+.copyAction {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    color: #FFF;
+    font-weight: 500;
+    font-size: .75rem;
+    cursor: pointer;
+}
+
 .textarea {
     opacity: 0.01;
     height: 0;

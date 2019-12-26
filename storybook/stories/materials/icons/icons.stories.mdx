@@ -114,9 +114,9 @@ import IconName from "@orbit-ui/icons/icon-name.svg";
 </details>
 
 <Preview>
-    <IconGallery>
-        <IconGallery.Item iconName="AddIcon" small={AddIcon24} std={AddIcon} />
-        <IconGallery.Item iconName="CloseIcon" small={CloseIcon24} std={CloseIcon} />
+    <IconGallery variants={[{ size: "24", cssClasses: "h6 w6" }, { size: "32", cssClasses: "h7 w7" }]}>
+        <IconGallery.Item name="add" icons={[AddIcon24, AddIcon]} />
+        {/* <IconGallery.Item iconName="CloseIcon" small={CloseIcon24} std={CloseIcon} />
         <IconGallery.Item iconName="SignoutIcon" small={SignoutIcon24} std={SignoutIcon} />
         <IconGallery.Item iconName="CheckIcon" std={CheckIcon} small={CheckIcon24} />
         <IconGallery.Item iconName="ClearFilterIcon" std={ClearFilterIcon} small={ClearFilterIcon24} />
@@ -153,6 +153,6 @@ import IconName from "@orbit-ui/icons/icon-name.svg";
         <IconGallery.Item iconName="DownloadIcon" std={DownloadIcon} />
         <IconGallery.Item iconName="CircleIcon" small={CircleIcon24} std={CircleIcon} />
         <IconGallery.Item iconName="GroupIcon" std={GroupIcon} />
-        <IconGallery.Item iconName="ArrowIcon" std={ArrowIcon} small={ArrowIcon24} />
+        <IconGallery.Item iconName="ArrowIcon" std={ArrowIcon} small={ArrowIcon24} /> */}
     </IconGallery>
 </Preview>
