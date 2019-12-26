@@ -2,26 +2,41 @@ import styles from "./icon-gallery.module.css";
 
 import { Children, cloneElement } from "react";
 import { IconItem } from "./icon-item";
-import { VARIANT_SHAPE } from "./variants";
-import { any, arrayOf, shape } from "prop-types";
+import { IconVariant } from "./icon-variant";
+import { any, bool, func } from "prop-types";
 
-function renderItem(item, variants) {
+function renderItem(item, context) {
     return cloneElement(item, {
-        variants: variants
+        context: context
     });
 }
 
-export function IconGallery({ variants, children }) {
+export function IconGallery({ getCopyValue, getDisplayName, inferIconSize, children }) {
+    const context = {
+        getCopyValue,
+        getDisplayName,
+        inferIconSize
+    };
+
     return (
         <div className={`${styles.container} sbdocs sbdocs-ig`}>
-            {Children.map(children, x => renderItem(x, variants))}
+            {Children.map(children, x => renderItem(x, context))}
         </div>
     );
 }
 
 IconGallery.propTypes = {
-    variants: arrayOf(shape(VARIANT_SHAPE)).isRequired,
+    getCopyValue: func,
+    getDisplayName: func,
+    inferIconSize: bool,
     children: any.isRequired
 };
 
+IconGallery.defaultProps = {
+    getCopyValue: ({ itemName, variantSize }) => `${itemName}${variantSize}`,
+    getDisplayName: ({ itemName }) => itemName,
+    inferIconSize: true
+};
+
 IconGallery.Item = IconItem;
+IconGallery.Variant = IconVariant;

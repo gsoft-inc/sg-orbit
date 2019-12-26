@@ -1,37 +1,43 @@
-.iconPlaceholder {
+.variant:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.header {
+    color: #A8ADBB;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.content {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
 }
 
 .iconContainer {
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
 }
 
 .copyContainer {
+    position: absolute;
     opacity: 0;
     transition: opacity .15s ease-in;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .25rem;
     background-color: #0E1C3D;
-    width: 2rem;
-    height: 2rem;
+    width: 100%;
+    height: 100%;
 }
 
-.iconPlaceholder:hover .copyContainer,
-.iconPlaceholder:focus .copyContainer,
-.iconPlaceholder:active .copyContainer {
+.content:hover .copyContainer,
+.content:focus .copyContainer,
+.content:active .copyContainer {
     opacity: 1;
     transition: opacity .15s ease-in;
 }
@@ -41,8 +47,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
+    width: 100%;
+    height: 100%;
 }
 
 .copyCheckmark {
@@ -52,19 +58,18 @@
 }
 
 .copyAction {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
     color: #FFF;
     font-weight: 500;
     font-size: .75rem;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 
-.textarea {
+.copyForm {
     opacity: 0.01;
     height: 0;
     position: absolute;
