@@ -1,9 +1,16 @@
-import styles from "./icon-gallery.module.css";
-
 import { Children, cloneElement } from "react";
 import { IconItem } from "./icon-item";
 import { IconVariant } from "./icon-variant";
 import { any, bool, func } from "prop-types";
+import css from "styled-jsx/css";
+
+const styles = css` /* stylelint-disable-line */
+    .icon-gallery {
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+    }
+`;
 
 function renderItem(item, context) {
     return cloneElement(item, {
@@ -19,8 +26,9 @@ export function IconGallery({ getCopyValue, getDisplayName, inferIconSize, child
     };
 
     return (
-        <div className={`${styles.container} sbdocs sbdocs-ig`}>
+        <div className="icon-gallery sbdocs sbdocs-ig">
             {Children.map(children, x => renderItem(x, context))}
+            <style jsx>{styles}</style>
         </div>
     );
 }
