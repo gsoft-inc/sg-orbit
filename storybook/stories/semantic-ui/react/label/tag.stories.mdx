@@ -2,9 +2,10 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
 import { SemanticLink } from "@docs-blocks";
+import { createComponentSection } from "@utils";
 import PackageInstallation from "../package-installation.mdx";
 
-<Meta title="Components|Label/tag" />
+<Meta title={createComponentSection("Label/tag")} />
 
 <Anchor storyId="components-label-tag--default-story" />
 

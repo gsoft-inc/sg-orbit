@@ -2,10 +2,10 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
 import { ControlledRedBox, RedBoxPopup } from "./components";
 import { array, select, withKnobs } from "@storybook/addon-knobs";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createComponentSection } from "@utils";
 import { GithubLink, PropsTabs, PackagesInstallation } from "@docs-blocks";
 
-<Meta title="Components|Popup" />
+<Meta title={createComponentSection("Popup")} />
 
 <GithubLink filePath="/packages/react-components/components/popup/src" />
 

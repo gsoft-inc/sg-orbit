@@ -9,7 +9,7 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { INSTALLATION_PAGE, paramsBuilder } from "@utils";
+import { INSTALLATION_PAGE, paramsBuilder, createComponentSection } from "@utils";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
 import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
@@ -20,7 +20,7 @@ import moment from "moment";
 import MomentUsage from "./moment-usage.mdx";
 
 <Meta
-    title="Components|Date Picker/range"
+    title={createComponentSection("Date Picker/range")}
     parameters={paramsBuilder()
         .width("80%")
         .build()}

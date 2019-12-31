@@ -1,12 +1,12 @@
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
-import { paramsBuilder } from "@utils";
+import { paramsBuilder, createComponentSection } from "@utils";
 import { SemanticLink } from "@docs-blocks";
 import PackageInstallation from "../package-installation.mdx";
 
 <Meta
-    title="Components|Label/standard"
+    title={createComponentSection("Label/standard")}
     parameters={
         paramsBuilder()
             .sortPriority(-1)

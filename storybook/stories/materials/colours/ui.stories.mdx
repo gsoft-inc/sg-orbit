@@ -1,8 +1,8 @@
 import { Anchor, Meta, Story } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
-    title="Materials|Colours/ui"
+    title={createMaterialSection("Colours/ui")}
     parameters={
         paramsBuilder()
             .width("700px")

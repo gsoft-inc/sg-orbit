@@ -2,10 +2,10 @@ import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { SemanticLink } from "@docs-blocks";
-import { paramsBuilder } from "@utils";
+import { createComponentSection } from "@utils";
 import PackageInstallation from "../package-installation.mdx";
 
-<Meta title="Components|Checkbox" />
+<Meta title={createComponentSection("Checkbox")} />
 
 <Anchor storyId="components-checkbox--labelled" />
 

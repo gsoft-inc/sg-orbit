@@ -57,12 +57,12 @@ import {
     ZipIcon
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 import { IconGallery } from "storybook-icon-gallery";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
 import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js";
 
 <Meta
-    title="Materials|Icons"
+    title={createMaterialSection("Icons")}
     parameters={
         paramsBuilder()
             .hideBrandPicker()

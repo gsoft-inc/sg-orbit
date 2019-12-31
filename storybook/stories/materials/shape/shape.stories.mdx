@@ -1,8 +1,8 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE } from "@utils";
+import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
-    title="Materials|Shape"
+    title={createMaterialSection("Shape")}
     parameters={
         paramsBuilder()
             .hideBrandPicker()
