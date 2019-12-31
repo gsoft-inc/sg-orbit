@@ -6,3 +6,4 @@ lerna-debug.log*
 *.tgz
 __MACOSX
 .DS_Store
+.netlify
