@@ -2484,12 +2484,12 @@
   dependencies:
     eslint-plugin-sort-imports-es6-autofix "*"
 
-"@sharegate/stylelint-config-recommended@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-1.0.0.tgz#a9fb1e02d9e0e6a6a05657bcfe76abdf45424dad"
-  integrity sha512-yMmzys2LqTKVOI1Z7H1KDuTHr/U+TqDHpih4GuA65KrCw+HfadMTqoXLgal6AeP1pWys3fB7ICjd8+Sb1ueB5A==
+"@sharegate/stylelint-config-recommended@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-2.0.0.tgz#b3da9b9745c67c2c3ef818ae8ebd13b674f417fa"
+  integrity sha512-xXZzJ7jBm4joOGy+g90fRzX+2u7ShCFEUrEZjOHDZrcAfD86k7ThGXrM21RLBWzpJZDKnPwO3DdZyH1uSm5LUQ==
   dependencies:
-    stylelint-config-recommended "2.2.0"
+    stylelint-config-recommended "*"
 
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
@@ -19848,10 +19848,10 @@ styled-system@^5.0.0, styled-system@^5.1.4:
     "@styled-system/variant" "^5.1.4"
     object-assign "^4.1.1"
 
-stylelint-config-recommended@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.2.0.tgz#46ab139db4a0e7151fd5f94af155512886c96d3f"
-  integrity sha512-bZ+d4RiNEfmoR74KZtCKmsABdBJr4iXRiCso+6LtMJPw5rd/KnxUWTxht7TbafrTJK1YRjNgnN0iVZaJfc3xJA==
+stylelint-config-recommended@*:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
+  integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
 stylelint@12.0.0:
   version "12.0.0"

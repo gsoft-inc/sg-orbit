@@ -86,7 +86,7 @@
         "@sharegate/eslint-config-react": "1.1.0",
         "@sharegate/eslint-config-recommended": "1.1.0",
         "@sharegate/eslint-config-sort-imports": "1.0.2",
-        "@sharegate/stylelint-config-recommended": "1.0.0",
+        "@sharegate/stylelint-config-recommended": "2.0.0",
         "@storybook/addon-actions": "5.3.0-rc.6",
         "@storybook/addon-console": "1.2.1",
         "@storybook/addon-docs": "5.3.0-rc.6",
