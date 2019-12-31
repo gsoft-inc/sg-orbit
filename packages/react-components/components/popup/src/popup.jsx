@@ -380,14 +380,18 @@ export class Popup extends AutoControlledPureComponent {
     handleDocumentBlur = () => {
         setTimeout(() => {
             if (document.activeElement.nodeName === "BODY") {
+                if (!isNil(this._containerRef.current)) {
                 // Chrome, Edge
-                this._containerRef.current.focus();
+                    this._containerRef.current.focus();
+                }
             } else {
                 // Firefox dont switch focus to body, it keeps it on the disabled element and ont trigger a proper blur event when another element is focused.
                 // That's an ugly hack to fix this.
                 setTimeout(() => {
                     if (document.activeElement.disabled) {
-                        this._containerRef.current.focus();
+                        if (!isNil(this._containerRef.current)) {
+                            this._containerRef.current.focus();
+                        }
                     }
                 }, 100);
             }
