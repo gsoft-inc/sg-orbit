@@ -19454,10 +19454,10 @@ storybook-chromatic@^2.2.2:
     tree-kill "^1.1.0"
     uuid "^3.3.2"
 
-storybook-icon-gallery@0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/storybook-icon-gallery/-/storybook-icon-gallery-0.2.5.tgz#caa3eb235ca0c977a828db47185db1c4d98be91b"
-  integrity sha512-tj6KvaknFZsisIC5gjZSTiYDEUv6Qv7SbyBvS3zVwSyc/Iha2s0THVkyKemMOmgwXjqSKgjtubDI4EoRtoZFbw==
+storybook-icon-gallery@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/storybook-icon-gallery/-/storybook-icon-gallery-1.0.0.tgz#57bede80163a51a8208472d0037cc0e0512e2b09"
+  integrity sha512-zHxJcqbW6n5lRb4znZtLba5xFEcQuwxDyWxy77LWlN4jeB2LadZ+73BURzcCOIlLKStTe/aJ8JU0Be8L2/M4NQ==
   dependencies:
     prop-types "15.7.2"
     styled-jsx "^3.2.0"
