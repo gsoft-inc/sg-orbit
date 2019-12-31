@@ -57,8 +57,9 @@ import {
     ZipIcon
 } from "@orbit-ui/icons";
 import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { IconGallery } from "@docs-blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
+import { IconGallery } from "storybook-icon-gallery";
+import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js";
 
 <Meta
     title={createMaterialSection("Icons")}
@@ -114,45 +115,45 @@ import IconName from "@orbit-ui/icons/icon-name.svg";
 </details>
 
 <Preview>
-    <IconGallery>
-        <IconGallery.Item iconName="AddIcon" small={AddIcon24} std={AddIcon} />
-        <IconGallery.Item iconName="CloseIcon" small={CloseIcon24} std={CloseIcon} />
-        <IconGallery.Item iconName="SignoutIcon" small={SignoutIcon24} std={SignoutIcon} />
-        <IconGallery.Item iconName="CheckIcon" std={CheckIcon} small={CheckIcon24} />
-        <IconGallery.Item iconName="ClearFilterIcon" std={ClearFilterIcon} small={ClearFilterIcon24} />
-        <IconGallery.Item iconName="PrinterIcon" std={PrinterIcon} small={PrinterIcon24} />
-        <IconGallery.Item iconName="WarningIcon" std={WarningIcon} small={WarningIcon24} />
-        <IconGallery.Item iconName="InfoIcon" std={InfoIcon} small={InfoIcon24} />
-        <IconGallery.Item iconName="HelpIcon" std={HelpIcon} small={HelpIcon24} />
-        <IconGallery.Item iconName="SortingIcon" std={SortingIcon} small={SortingIcon24} />
-        <IconGallery.Item iconName="CompareIcon" small={CompareIcon24} std={CompareIcon} />
-        <IconGallery.Item iconName="CalendarIcon" small={CalendarIcon24} std={CalendarIcon} />
-        <IconGallery.Item iconName="VariationIcon" small={VariationIcon24} std={VariationIcon} />
-        <IconGallery.Item iconName="PrivacyIcon" small={PrivacyIcon24} />
-        <IconGallery.Item iconName="LightbulbIcon" std={LightbulbIcon} small={LightbulbIcon24} />
-        <IconGallery.Item iconName="VerticalDotsIcon" std={VerticalDotsIcon} />
-        <IconGallery.Item iconName="HorizontalDotsIcon" std={HorizontalDotsIcon} />
-        <IconGallery.Item iconName="GarbageIcon" std={GarbageIcon} />
-        <IconGallery.Item iconName="GearIcon" std={GearIcon} />
-        <IconGallery.Item iconName="MagnifierIcon" std={MagnifierIcon} />
-        <IconGallery.Item iconName="FileIcon" std={FileIcon} />
-        <IconGallery.Item iconName="PdfIcon" std={PdfIcon} />
-        <IconGallery.Item iconName="VideoIcon" std={VideoIcon} />
-        <IconGallery.Item iconName="CsvIcon" std={CsvIcon} />
-        <IconGallery.Item iconName="ZipIcon" std={ZipIcon} />
-        <IconGallery.Item iconName="MusicIcon" std={MusicIcon} />
-        <IconGallery.Item iconName="ImageIcon" std={ImageIcon} />
-        <IconGallery.Item iconName="EditIcon" std={EditIcon} />
-        <IconGallery.Item iconName="CommunicationIcon" std={CommunicationIcon} />
-        <IconGallery.Item iconName="ReminderIcon" std={ReminderIcon} />
-        <IconGallery.Item iconName="AddUserIcon" std={AddUserIcon} />
-        <IconGallery.Item iconName="RemoveUserIcon" std={RemoveUserIcon} />
-        <IconGallery.Item iconName="FolderIcon" std={FolderIcon}/>
-        <IconGallery.Item iconName="NotificationIcon" std={NotificationIcon} small={NotificationIcon24}  />
-        <IconGallery.Item iconName="DoNotDisturbIcon" std={DoNotDisturbIcon} />
-        <IconGallery.Item iconName="DownloadIcon" std={DownloadIcon} />
-        <IconGallery.Item iconName="CircleIcon" small={CircleIcon24} std={CircleIcon} />
-        <IconGallery.Item iconName="GroupIcon" std={GroupIcon} />
-        <IconGallery.Item iconName="ArrowIcon" std={ArrowIcon} small={ArrowIcon24} />
+    <IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue}>
+        {renderItem("AddIcon", AddIcon24, AddIcon)}
+        {renderItem("AddUserIcon", null, AddUserIcon)}
+        {renderItem("ArrowIcon", ArrowIcon24, ArrowIcon)}
+        {renderItem("CalendarIcon", CalendarIcon24, CalendarIcon)}
+        {renderItem("CheckIcon", CheckIcon24, CheckIcon)}
+        {renderItem("CircleIcon", CircleIcon24, CircleIcon)}
+        {renderItem("ClearFilterIcon", ClearFilterIcon24, ClearFilterIcon)}
+        {renderItem("CloseIcon", CloseIcon24, CloseIcon)}
+        {renderItem("CommunicationIcon", null, CommunicationIcon)}
+        {renderItem("CompareIcon", CompareIcon24, CompareIcon)}
+        {renderItem("CsvIcon", null, CsvIcon)}
+        {renderItem("DoNotDisturbIcon", null, DoNotDisturbIcon)}
+        {renderItem("DownloadIcon", null, DownloadIcon)}
+        {renderItem("EditIcon", null, EditIcon)}
+        {renderItem("FileIcon", null, FileIcon)}
+        {renderItem("FolderIcon", null, FolderIcon)}
+        {renderItem("GarbageIcon", null, GarbageIcon)}
+        {renderItem("GearIcon", null, GearIcon)}
+        {renderItem("GroupIcon", null, GroupIcon)}
+        {renderItem("HelpIcon", HelpIcon24, HelpIcon)}
+        {renderItem("HorizontalDotsIcon", null, HorizontalDotsIcon)}
+        {renderItem("ImageIcon", null, ImageIcon)}
+        {renderItem("InfoIcon", InfoIcon24, InfoIcon)}
+        {renderItem("LightbulbIcon", LightbulbIcon24, LightbulbIcon)}
+        {renderItem("MagnifierIcon", null, MagnifierIcon)}
+        {renderItem("MusicIcon", null, MusicIcon)}
+        {renderItem("NotificationIcon", NotificationIcon24, NotificationIcon)}
+        {renderItem("PdfIcon", null, PdfIcon)}
+        {renderItem("PrinterIcon", PrinterIcon24, PrinterIcon)}
+        {renderItem("PrivacyIcon", PrivacyIcon24, null)}
+        {renderItem("ReminderIcon", null, ReminderIcon)}
+        {renderItem("RemoveUserIcon", null, RemoveUserIcon)}
+        {renderItem("SignoutIcon", SignoutIcon24, SignoutIcon)}
+        {renderItem("SortingIcon", SortingIcon24, SortingIcon)}
+        {renderItem("VariationIcon", VariationIcon24, VariationIcon)}
+        {renderItem("VerticalDotsIcon", null, VerticalDotsIcon)}
+        {renderItem("VideoIcon", null, VideoIcon)}
+        {renderItem("WarningIcon", WarningIcon24, WarningIcon)}
+        {renderItem("ZipIcon", null, ZipIcon)}
     </IconGallery>
 </Preview>

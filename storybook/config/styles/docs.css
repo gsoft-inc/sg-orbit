@@ -37,15 +37,6 @@
     cursor: pointer;
 }
 
-.sbdocs.sbdocs-h1 {
-    font-weight: 600;
-}
-
-.sbdocs.sbdocs-h2 {
-    margin: 1.5rem 0;
-    border-bottom: 1px solid var(--marine-50);
-}
-
 details {
     padding: 8px;
     border-radius: 4px;
@@ -54,6 +45,15 @@ details {
 
 details + details {
     margin-top: var(--scale-delta);
+}
+
+.sbdocs.sbdocs-h1 {
+    font-weight: 600;
+}
+
+.sbdocs.sbdocs-h2 {
+    margin: 1.5rem 0;
+    border-bottom: 1px solid var(--marine-50);
 }
 
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
