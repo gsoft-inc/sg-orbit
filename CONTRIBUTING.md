@@ -51,9 +51,9 @@ This monorepo is configured to release the packages independently. The decision 
 
 As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the npm dependencies and manage the packages inter-dependencies.
 
-It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there isn't any *node_modules* directory nested inside the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
+It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there might not be a *node_modules* directory nested in the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
-Since the website and Storybook are not handled by the monorepo tooling, the [website](/website) and [storybook](/storybook) directories will also contain a *node_modules* directory and a *yarn.lock* file.
+Since Storybook is not handled by the monorepo tooling, the [storybook](/storybook) directory will contain a *node_modules* directory and a *yarn.lock* file.
 
 ## Installation
 
