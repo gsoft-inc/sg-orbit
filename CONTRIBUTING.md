@@ -400,7 +400,7 @@ View the section [Release Storybook](#release-storybook).
 
 ### release-docs
 
-View the section [Release the website](#release-the-website).
+View the section [Release docs](#release-docs).
 
 ### reset
 
