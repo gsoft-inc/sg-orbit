@@ -56,6 +56,10 @@ details + details {
     border-bottom: 1px solid var(--marine-50);
 }
 
+.sbdocs.sbdocs.sbdocs-h3 {
+    margin: 2rem 0 1rem;
+}
+
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h3 + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h4 + .sbdocs.sbdocs-p {
@@ -85,7 +89,6 @@ details + details {
 
 .sbdocs.sbdocs-table {
     width: 100%;
-    max-width: 1000px;
 }
 
 .sbdocs.sbdocs-table tr {
@@ -156,4 +159,8 @@ details .docblock-source {
     color: var(--cloud-500);
     background-color: var(--cloud-50);
     border: 1px dashed var(--cloud-100);
+}
+
+.sbdocs.sbdocs-ig-item {
+    flex-basis: calc(12% + 17px) !important;
 }

@@ -15,6 +15,9 @@ import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";
+import "@orbit-ui/tachyons/storybook/apricot.css";
+import "@orbit-ui/tachyons/storybook/desktop.css";
+import "@orbit-ui/tachyons/storybook/overcast.css";
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".

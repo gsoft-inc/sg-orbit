@@ -56,7 +56,7 @@ import {
     WarningIcon24,
     ZipIcon
 } from "@orbit-ui/icons";
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 import { IconGallery } from "storybook-icon-gallery";
 import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js";
@@ -69,8 +69,6 @@ import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js"
             .build()
     }
 />
-
-<Anchor storyId="materials-icons--icons" />
 
 # Icons
 
@@ -87,73 +85,72 @@ npm install @orbit-ui/icons
 ```
 </details>
 
-## Usage
+<details><summary >then import what you need</summary>
 
-<details><summary >as a React component</summary>
+As a react component:
 
 ```jsx
 import { IconName } from "@orbit-ui/icons";
 ```
-</details>
 
-<details><summary >as an image</summary>
+As an image:
 
 ```jsx
 import IconName from "@orbit-ui/icons/icon-name.svg";
 
 <img src={IconName} />
 ```
-</details>
 
-<details><summary >as a background image</summary>
+As a background image:
 
 ```css
 .name-icon: {
     background: url("~@orbit-ui/icons/icon-name.svg");
 }
 ```
+
 </details>
 
-<Preview>
-    <IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue}>
-        {renderItem("AddIcon", AddIcon24, AddIcon)}
-        {renderItem("AddUserIcon", null, AddUserIcon)}
-        {renderItem("ArrowIcon", ArrowIcon24, ArrowIcon)}
-        {renderItem("CalendarIcon", CalendarIcon24, CalendarIcon)}
-        {renderItem("CheckIcon", CheckIcon24, CheckIcon)}
-        {renderItem("CircleIcon", CircleIcon24, CircleIcon)}
-        {renderItem("ClearFilterIcon", ClearFilterIcon24, ClearFilterIcon)}
-        {renderItem("CloseIcon", CloseIcon24, CloseIcon)}
-        {renderItem("CommunicationIcon", null, CommunicationIcon)}
-        {renderItem("CompareIcon", CompareIcon24, CompareIcon)}
-        {renderItem("CsvIcon", null, CsvIcon)}
-        {renderItem("DoNotDisturbIcon", null, DoNotDisturbIcon)}
-        {renderItem("DownloadIcon", null, DownloadIcon)}
-        {renderItem("EditIcon", null, EditIcon)}
-        {renderItem("FileIcon", null, FileIcon)}
-        {renderItem("FolderIcon", null, FolderIcon)}
-        {renderItem("GarbageIcon", null, GarbageIcon)}
-        {renderItem("GearIcon", null, GearIcon)}
-        {renderItem("GroupIcon", null, GroupIcon)}
-        {renderItem("HelpIcon", HelpIcon24, HelpIcon)}
-        {renderItem("HorizontalDotsIcon", null, HorizontalDotsIcon)}
-        {renderItem("ImageIcon", null, ImageIcon)}
-        {renderItem("InfoIcon", InfoIcon24, InfoIcon)}
-        {renderItem("LightbulbIcon", LightbulbIcon24, LightbulbIcon)}
-        {renderItem("MagnifierIcon", null, MagnifierIcon)}
-        {renderItem("MusicIcon", null, MusicIcon)}
-        {renderItem("NotificationIcon", NotificationIcon24, NotificationIcon)}
-        {renderItem("PdfIcon", null, PdfIcon)}
-        {renderItem("PrinterIcon", PrinterIcon24, PrinterIcon)}
-        {renderItem("PrivacyIcon", PrivacyIcon24, null)}
-        {renderItem("ReminderIcon", null, ReminderIcon)}
-        {renderItem("RemoveUserIcon", null, RemoveUserIcon)}
-        {renderItem("SignoutIcon", SignoutIcon24, SignoutIcon)}
-        {renderItem("SortingIcon", SortingIcon24, SortingIcon)}
-        {renderItem("VariationIcon", VariationIcon24, VariationIcon)}
-        {renderItem("VerticalDotsIcon", null, VerticalDotsIcon)}
-        {renderItem("VideoIcon", null, VideoIcon)}
-        {renderItem("WarningIcon", WarningIcon24, WarningIcon)}
-        {renderItem("ZipIcon", null, ZipIcon)}
-    </IconGallery>
-</Preview>
+## Values
+
+<IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue}>
+    {renderItem("AddIcon", AddIcon24, AddIcon)}
+    {renderItem("AddUserIcon", null, AddUserIcon)}
+    {renderItem("ArrowIcon", ArrowIcon24, ArrowIcon)}
+    {renderItem("CalendarIcon", CalendarIcon24, CalendarIcon)}
+    {renderItem("CheckIcon", CheckIcon24, CheckIcon)}
+    {renderItem("CircleIcon", CircleIcon24, CircleIcon)}
+    {renderItem("ClearFilterIcon", ClearFilterIcon24, ClearFilterIcon)}
+    {renderItem("CloseIcon", CloseIcon24, CloseIcon)}
+    {renderItem("CommunicationIcon", null, CommunicationIcon)}
+    {renderItem("CompareIcon", CompareIcon24, CompareIcon)}
+    {renderItem("CsvIcon", null, CsvIcon)}
+    {renderItem("DoNotDisturbIcon", null, DoNotDisturbIcon)}
+    {renderItem("DownloadIcon", null, DownloadIcon)}
+    {renderItem("EditIcon", null, EditIcon)}
+    {renderItem("FileIcon", null, FileIcon)}
+    {renderItem("FolderIcon", null, FolderIcon)}
+    {renderItem("GarbageIcon", null, GarbageIcon)}
+    {renderItem("GearIcon", null, GearIcon)}
+    {renderItem("GroupIcon", null, GroupIcon)}
+    {renderItem("HelpIcon", HelpIcon24, HelpIcon)}
+    {renderItem("HorizontalDotsIcon", null, HorizontalDotsIcon)}
+    {renderItem("ImageIcon", null, ImageIcon)}
+    {renderItem("InfoIcon", InfoIcon24, InfoIcon)}
+    {renderItem("LightbulbIcon", LightbulbIcon24, LightbulbIcon)}
+    {renderItem("MagnifierIcon", null, MagnifierIcon)}
+    {renderItem("MusicIcon", null, MusicIcon)}
+    {renderItem("NotificationIcon", NotificationIcon24, NotificationIcon)}
+    {renderItem("PdfIcon", null, PdfIcon)}
+    {renderItem("PrinterIcon", PrinterIcon24, PrinterIcon)}
+    {renderItem("PrivacyIcon", PrivacyIcon24, null)}
+    {renderItem("ReminderIcon", null, ReminderIcon)}
+    {renderItem("RemoveUserIcon", null, RemoveUserIcon)}
+    {renderItem("SignoutIcon", SignoutIcon24, SignoutIcon)}
+    {renderItem("SortingIcon", SortingIcon24, SortingIcon)}
+    {renderItem("VariationIcon", VariationIcon24, VariationIcon)}
+    {renderItem("VerticalDotsIcon", null, VerticalDotsIcon)}
+    {renderItem("VideoIcon", null, VideoIcon)}
+    {renderItem("WarningIcon", WarningIcon24, WarningIcon)}
+    {renderItem("ZipIcon", null, ZipIcon)}
+</IconGallery>
