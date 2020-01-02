@@ -1,4 +1,4 @@
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
@@ -9,8 +9,6 @@ import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils"
             .build()
     }
 />
-
-<Anchor storyId="materials-environment-shadows--shadow-100" />
 
 # Shadows
 
@@ -30,28 +28,24 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/foundation
 
 ## Values
 
-| Scale   | Value                                      | Class      |
-|-:-------|-:------------------------------------------|-:----------|
-| 100     | rgba(128, 136, 157, 0.32) 0px 4px 12px 0px | shadow-100 |
-| 200     | rgba(128, 136, 157, 0.32) 0px 8px 24px 0px | shadow-200 |
+| Scale   | Class      |
+|-:-------|-:----------|
+| 100     | shadow-100 |
+| 200     | shadow-200 |
 
 ### Showcase
 
-<Preview>
-    <Story name="values">
-        <div className="flex pa7 pb8 bg-cloud-50">
-            <div className="mr10 tc">
-                <span className="marine-400">100</span>
-                <div className="mw6 shadow-100 mt3">
-                    <div className="w13 h13 bg-white" />
-                </div>
-            </div>
-            <div className="tc">
-                <span className="marine-400">200</span>
-                <div className="mw6 mt3 shadow-200">
-                    <div className="w13 h13 bg-white" />
-                </div>
-            </div>
+<div className="flex mt6">
+    <div className="mr10 tc">
+        <div className="mw6 shadow-100">
+            <div className="w13 h13 bg-white" />
         </div>
-    </Story>
-</Preview>
+        <span className="dib tc mt3">100</span>
+    </div>
+    <div className="tc">
+        <div className="mw6 shadow-200">
+            <div className="w13 h13 bg-white" />
+        </div>
+        <span className="dib tc mt3">200</span>
+    </div>
+</div>

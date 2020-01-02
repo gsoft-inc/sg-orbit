@@ -1,4 +1,4 @@
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 
 <Meta
@@ -10,9 +10,9 @@ import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils"
     }
 />
 
-<Anchor storyId="materials-typography--font-size" />
-
 # Typography
+
+Use typography to present your design and content as clearly and efficiently as possible.
 
 ## Installation
 
@@ -30,6 +30,8 @@ npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/foundation
 
 A simple ratio-based scale with 9 options.
 
+Web browsers calculate the REM (the root em size) based on the root element size. The default for modern web browsers is 16px.
+
 | Scale | Value           | Class |
 | :---- | :-------------- | :---- |
 | 1     | 3rem (48px)     | f1    |
@@ -44,25 +46,21 @@ A simple ratio-based scale with 9 options.
 
 ### Showcase
 
-<Preview>
-    <Story name="font size">
-        <div>
-            <h1 className="f1 pa0 ma0">A modular scale</h1>
-            <h1 className="f2 pa0 ma0">A modular scale</h1>
-            <h1 className="f3 pa0 ma0">A modular scale</h1>
-            <h1 className="f4 pa0 ma0">A modular scale</h1>
-            <h1 className="f5 pa0 ma0">A modular scale</h1>
-            <h1 className="f6 pa0 ma0">A modular scale</h1>
-            <h1 className="f7 pa0 ma0">A modular scale</h1>
-            <h1 className="f8 pa0 ma0">A modular scale</h1>
-            <h1 className="f9 pa0 ma0">A modular scale</h1>
-        </div>
-    </Story>
-</Preview>
+<div>
+    <h1 className="f1 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f2 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f3 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f4 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f5 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f6 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f7 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f8 fw3 pa0 ma0">A modular scale</h1>
+    <h1 className="f9 fw3 pa0 ma0">A modular scale</h1>
+</div>
 
 ## Line Height
 
-Line-height affects how easy it is to read a piece of text.
+Line height, also known as leading, controls the amount of space between baselines in a block of text. A text's line height is proportional to its type size.
 
 | Scale | Value        | Class |
 | :---- | :----------- | :---- |
@@ -75,20 +73,18 @@ Line-height affects how easy it is to read a piece of text.
 
 ### Showcase
 
-<Preview>
-    <Story name="line heights">
-        <div>
-            <h1 className="lh1 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-            <h1 className="lh2 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-            <h1 className="lh3 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-            <h1 className="lh4 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-            <h1 className="lh5 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-            <h1 className="lh6 pa0 ma0 bb b--moonstone-100">If two pieces of the same type of metal touch in space they will permanently bond.</h1>
-        </div>
-    </Story>
-</Preview>
+<div>
+    <h1 className="lh1 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+    <h1 className="lh2 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+    <h1 className="lh3 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+    <h1 className="lh4 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+    <h1 className="lh5 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+    <h1 className="lh6 f4 fw3 pa0 ma0 mb2 bb b--sunray-900">If two pieces of the same type of metal touch in space they will permanently bond</h1>
+</div>
 
-## Font Weights
+## Font Weight
+
+Weight refers to the relative thickness of a font's stroke. A typeface can come in many weights; and four to six weights is a typical number available for a typeface.
 
 Varying the font-weight of different pieces of text can help create contrast between pieces of information.
 
@@ -104,16 +100,12 @@ Varying the font-weight of different pieces of text can help create contrast bet
 
 ### Showcase
 
-<Preview>
-    <Story name="font weights">
-        <div>
-            <h1 className="f3 pa0 ma0 fw1">100 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw3">300 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw4">400 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw5">500 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw6">600 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw7">700 - Space Flight Program</h1>
-            <h1 className="f3 pa0 ma0 fw9">900 - Space Flight Program</h1>
-        </div>
-    </Story>
-</Preview>
+<div>
+    <h1 className="pa0 ma0 fw1">Space Flight Program</h1>
+    <h1 className="pa0 ma0 fw3">Space Flight Program</h1>
+    <h1 className="pa0 ma0 fw4">Space Flight Program</h1>
+    <h1 className="pa0 ma0 fw5">Space Flight Program </h1>
+    <h1 className="pa0 ma0 fw6">Space Flight Program</h1>
+    <h1 className="pa0 ma0 fw7">Space Flight Program</h1>
+    <h1 className="pa0 ma0 fw9">Space Flight Program</h1>
+</div>
