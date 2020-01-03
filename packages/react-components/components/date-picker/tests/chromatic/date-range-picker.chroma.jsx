@@ -1139,7 +1139,10 @@ stories("/z-index")
     .add("over regular text",
          () =>
              <div>
-                 {createDateRangePicker({ defaultOpen: true })}
+                 {createDateRangePicker({
+                     initialVisibleMonth: moment(DEFAULT_DATE),
+                     defaultOpen: true
+                 })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
@@ -1154,7 +1157,10 @@ stories("/z-index")
     .add("over an element with a z-index greater than 1 but smaller than the date picker",
          () =>
              <div>
-                 {createDateRangePicker({ defaultOpen: true })}
+                 {createDateRangePicker({
+                     initialVisibleMonth: moment(DEFAULT_DATE),
+                     defaultOpen: true
+                 })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
@@ -1168,7 +1174,11 @@ stories("/z-index")
     .add("over an element with a z-index greater than the date picker",
          () =>
              <div>
-                 {createDateRangePicker({ defaultOpen: true, zIndex: "1" })}
+                 {createDateRangePicker({
+                     initialVisibleMonth: moment(DEFAULT_DATE),
+                     defaultOpen: true,
+                     zIndex: "1"
+                 })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
