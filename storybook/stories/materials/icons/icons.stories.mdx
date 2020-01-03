@@ -56,10 +56,11 @@ import {
     WarningIcon24,
     ZipIcon
 } from "@orbit-ui/icons";
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Anchor } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
 import { IconGallery } from "storybook-icon-gallery";
 import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js";
+import { GithubLink } from "@docs-blocks";
 
 <Meta
     title={createMaterialSection("Icons")}
@@ -69,6 +70,10 @@ import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js"
             .build()
     }
 />
+
+<Anchor storyId="materials-icons--page" />
+
+<GithubLink filePath="/packages/icons/src" />
 
 # Icons
 

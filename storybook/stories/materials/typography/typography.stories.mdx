@@ -1,5 +1,6 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Anchor } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
+import { GithubLink } from "@docs-blocks";
 
 <Meta
     title={createMaterialSection("Typography")}
@@ -9,6 +10,10 @@ import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils"
             .build()
     }
 />
+
+<Anchor storyId="materials-typography--page" />
+
+<GithubLink filePath="/packages/tachyons/src" />
 
 # Typography
 

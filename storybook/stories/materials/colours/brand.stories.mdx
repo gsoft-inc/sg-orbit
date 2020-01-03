@@ -1,5 +1,6 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Anchor } from "@storybook/addon-docs/blocks";
 import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
+import { GithubLink } from "@docs-blocks";
 
 <Meta
     title={`${createMaterialSection("Colours/brand")}`}
@@ -10,6 +11,10 @@ import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils"
             .build()
     }
 />
+
+<Anchor storyId="materials-colours-brand--page" />
+
+<GithubLink filePath="/packages/foundation/src" />
 
 # Brand Colours
 
