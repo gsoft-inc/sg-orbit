@@ -109,10 +109,11 @@ function addAliases(config) {
 
     config.resolve.alias = {
         ...storybookAlias,
-        "@stories": path.resolve(__dirname, "../stories/"),
-        "@utils": path.resolve(__dirname, "../stories/utils/"),
-        "@docs-blocks": path.resolve(__dirname, "../stories/docs-blocks/"),
-        "@react-components": path.resolve(__dirname, "../../packages/react-components/components/")
+        "@config": path.resolve(__dirname, "./"),
+        "@canvas": path.resolve(__dirname, "../canvas/"),
+        "@docs": path.resolve(__dirname, "../docs/"),
+        "@shared": path.resolve(__dirname, "../shared/"),
+        "@utils": path.resolve(__dirname, "../stories/utils/")
     };
 }
 

@@ -1,13 +1,20 @@
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Button, Icon, Label } from "semantic-ui-react";
+import { Button, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
-import { SemanticLink } from "@docs-blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { SemanticContainer } from "../semantic-container";
 import { createComponentSection } from "@utils";
-import PackageInstallation from "../package-installation.mdx";
+import { docsParams } from "@docs";
+import Imports from "./imports.mdx";
+import Installation from "../installation.mdx";
 
-<Meta title={createComponentSection("Label/tag")} />
-
-<SemanticLink docPath="/elements/label" />
+<Meta
+    title={createComponentSection("Label/tag")}
+    parameters={
+        docsParams()
+            .container(<SemanticContainer semanticPath="/elements/label" />)
+            .build()
+    }
+/>
 
 # Tag
 
@@ -15,14 +22,7 @@ A tag consist of an icon / label in a label.
 
 ## Installation
 
-<PackageInstallation />
-
-<details><summary >then import what you need</summary>
-
-```javascript
-    import { Button, Icon, Label } from "semantic-ui-react";
-```
-</details>
+<Installation imports={<Imports />} />
 
 ## Usage
 

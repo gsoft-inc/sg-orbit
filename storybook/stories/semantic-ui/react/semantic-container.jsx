@@ -2,13 +2,13 @@ import { SemanticLink } from "@docs-blocks";
 import { string } from "prop-types";
 
 const propTypes = {
-    semanticPath: string.isRequired
+    documentationPath: string.isRequired
 };
 
-export function SemanticContainer({ semanticPath }) {
+export function SemanticContainer({ documentationPath }) {
     return (
         <>
-            <SemanticLink docPath={semanticPath} />
+            <SemanticLink path={documentationPath} />
         </>
     );
 }

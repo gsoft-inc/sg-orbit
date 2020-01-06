@@ -1,20 +1,24 @@
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Button, Icon, Label } from "semantic-ui-react";
 import { CommunicationIcon } from "@orbit-ui/icons";
-import { paramsBuilder, createComponentSection } from "@utils";
-import { SemanticLink } from "@docs-blocks";
-import PackageInstallation from "../package-installation.mdx";
+import { Icon, Label } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { SemanticContainer } from "../semantic-container";
+import { canvasParams } from "@canvas"
+import { createComponentSection } from "@utils";
+import { docsParams } from "@docs";
+import Imports from "./imports.mdx";
+import Installation from "../installation.mdx";
 
 <Meta
     title={createComponentSection("Label/standard")}
-    parameters={
-        paramsBuilder()
+    parameters={{
+        ...canvasParams()
             .sortPriority(-1)
+            .build(),
+        ...docsParams()
+            .container(<SemanticContainer semanticPath="/elements/label" />)
             .build()
-    }
+    }}
 />
-
-<SemanticLink docPath="/elements/label" />
 
 # Label
 
@@ -22,14 +26,7 @@ A label displays content classification.
 
 ## Installation
 
-<PackageInstallation />
-
-<details><summary >then import what you need</summary>
-
-```javascript
-    import { Button, Icon, Label } from "semantic-ui-react";
-```
-</details>
+<Installation imports={<Imports />} />
 
 ## Usage
 

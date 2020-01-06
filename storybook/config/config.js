@@ -1,13 +1,11 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { BRANDS, getCurrentBrand } from "./brands";
-import { CanvasContainer } from "./canvas-container";
-import { DocsContainer } from "@storybook/addon-docs/blocks";
-import { DocsContainer as OrbitDocsContainer } from "./containers";
+import { BRANDS, getCurrentBrand } from "@shared/brands";
+import { CanvasContainer } from "@canvas/containers";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "./env";
+import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "./env";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
@@ -19,6 +17,8 @@ import "@orbit-ui/tachyons/dist/overcast.css";
 import "@orbit-ui/tachyons/storybook/apricot.css";
 import "@orbit-ui/tachyons/storybook/desktop.css";
 import "@orbit-ui/tachyons/storybook/overcast.css";
+
+printEnvironment();
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".
@@ -57,15 +57,15 @@ addParameters({
         storySort: customStorySort
     },
     docs: {
-        inlineStories: true,
-        container: ({ children, context }) => {
-            return (
-                <DocsContainer context={context}>
-                    <OrbitDocsContainer context={context}>
-                        {children}
-                    </OrbitDocsContainer>
-                </DocsContainer>);
-        }
+        inlineStories: true
+        // container: ({ children, context }) => {
+        //     return (
+        //         <DocsContainer context={context}>
+        //             <OrbitDocsContainer context={context}>
+        //                 {children}
+        //             </OrbitDocsContainer>
+        //         </DocsContainer>);
+        // }
     }
 });
 

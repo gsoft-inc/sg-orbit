@@ -38,11 +38,15 @@ export const includeIntroduction = isDebug || isDocs;
 
 ///////////////////
 
-if (isDebug) {
-    console.log("**************************");
-    console.log("Is runned by chromatic: ", isChromatic);
-    console.log("Is in docs mode: ", isDocs);
-    console.log("Include chromatic stories: ", includeChromatic);
-    console.log("Scopes: ", isNil(scopes) ? "None" : scopes);
-    console.log("**************************");
+export function printEnvironment() {
+    if (isDebug) {
+        console.log("**************************");
+        console.log("Is runned by chromatic: ", isChromatic);
+        console.log("Is in docs mode: ", isDocs);
+        console.log("Include chromatic stories: ", includeChromatic);
+        console.log("Scopes: ", isNil(scopes) ? "None" : scopes);
+        console.log("**************************");
+    }
 }
+
+
