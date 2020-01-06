@@ -1,4 +1,4 @@
-import { SemanticLink, TopAnchor } from "@docs-blocks";
+import { SemanticLink } from "@docs-blocks";
 import { string } from "prop-types";
 
 const propTypes = {
@@ -8,7 +8,6 @@ const propTypes = {
 export function SemanticContainer({ semanticPath }) {
     return (
         <>
-            <TopAnchor />
             <SemanticLink docPath={semanticPath} />
         </>
     );

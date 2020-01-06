@@ -12,7 +12,7 @@ import {
 import { INSTALLATION_PAGE, paramsBuilder, createComponentSection } from "@utils";
 import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "./data";
-import { Meta, Preview, Story, Anchor } from "@storybook/addon-docs/blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PropsTabs, GithubLink, PackagesInstallation } from "@docs-blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "./utils";
@@ -27,8 +27,6 @@ import MomentUsage from "./moment-usage.mdx";
 />
 
 <GithubLink filePath="/packages/react-components/components/date-picker/src/range" />
-
-<Anchor storyId="components-date-picker-range--default-story" />
 
 # Date Range Picker
 

@@ -8,7 +8,6 @@ import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
 import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "./env";
-import { withConsole } from "@storybook/addon-console";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
@@ -71,7 +70,6 @@ addParameters({
 });
 
 if (!isDocs) {
-    addDecorator((storyFn, context) => withConsole()(storyFn)(context));
     addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
 }
 
