@@ -3,3 +3,4 @@ export * from "./github-link";
 export * from "./semantic-link";
 export * from "./warning";
 export * from "./packages-installation";
+export * from "./top-anchor";

@@ -5,14 +5,16 @@ import { string } from "prop-types";
 
 const GITHUB_REPOSITORY_URL = "https://github.com/gsoft-inc/sg-orbit/tree/master";
 
+// TODO: rename "filePath" for "path"
+
 const propTypes = {
     filePath: string.isRequired
 };
 
-export function getGithubUrl(filePath) {
-    const processedFilePath = filePath.startsWith("/") ? filePath : `/${filePath}`;
+export function getGithubUrl(path) {
+    const relativePath = path.startsWith("/") ? path : `/${path}`;
 
-    return `${GITHUB_REPOSITORY_URL}${processedFilePath}`;
+    return `${GITHUB_REPOSITORY_URL}${relativePath}`;
 }
 
 export function GithubLink({ filePath }) {

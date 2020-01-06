@@ -51,7 +51,10 @@ function createBabelOptions(existingOptions) {
 
     return {
         ...existingOptions,
-        plugins: [...existingPlugins, "@babel/plugin-transform-react-jsx"]
+        plugins: [
+            ...existingPlugins,
+            "@babel/plugin-transform-react-jsx"
+        ]
     };
 }
 

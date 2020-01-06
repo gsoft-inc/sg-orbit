@@ -2,6 +2,9 @@ import { Source } from "@storybook/components";
 import { isNil } from "lodash";
 import { useState } from "react";
 
+// TODO: Move into ReactComponentsContainer folder since it's super specific
+// TODO: Rename to Packages
+
 export function PackagesInstallation({ packageName }) {
     const [dependencies, setDependencies] = useState(null);
 

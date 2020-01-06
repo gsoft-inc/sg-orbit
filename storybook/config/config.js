@@ -1,8 +1,9 @@
 /* eslint react/jsx-filename-extension: "off" */
 
 import { BRANDS, getCurrentBrand } from "./brands";
-import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "./containers";
+import { CanvasContainer } from "./canvas-container";
 import { DocsContainer } from "@storybook/addon-docs/blocks";
+import { DocsContainer as OrbitDocsContainer } from "./containers";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
@@ -15,6 +16,7 @@ import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";
+// These imports ensure that Tachyons selectors have precedence over default Storybook MDX styles.
 import "@orbit-ui/tachyons/storybook/apricot.css";
 import "@orbit-ui/tachyons/storybook/desktop.css";
 import "@orbit-ui/tachyons/storybook/overcast.css";
@@ -57,13 +59,14 @@ addParameters({
     },
     docs: {
         inlineStories: true,
-        container: ({ children, context }) => (
-            <DocsContainer context={context}>
-                <OrbitDocsContainer context={context}>
-                    {children}
-                </OrbitDocsContainer>
-            </DocsContainer>
-        )
+        container: ({ children, context }) => {
+            return (
+                <DocsContainer context={context}>
+                    <OrbitDocsContainer context={context}>
+                        {children}
+                    </OrbitDocsContainer>
+                </DocsContainer>);
+        }
     }
 });
 
