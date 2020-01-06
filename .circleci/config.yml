@@ -92,5 +92,5 @@ workflows:
                           only:
                               - master
         jobs:
-            - chromatic
+            - chromatic:
                 exitOnceUploaded: false
