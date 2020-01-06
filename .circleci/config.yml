@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 aliases:
     - &save-yarn-deps
       name: Save Yarn Package Cache
@@ -59,7 +59,7 @@ jobs:
                   command: yarn build:pkg
             - run:
                   name: Run chromatic
-                  command: yarn chromatic-ci <<# parameters.exitOnceUploaded >> --exit-once-uploaded<</ parameters.exitOnceUploaded >>
+                  command: yarn chromatic-ci<<# parameters.exitOnceUploaded >> --exit-once-uploaded<</ parameters.exitOnceUploaded >>
 workflows:
     version: 2
     github-build:
