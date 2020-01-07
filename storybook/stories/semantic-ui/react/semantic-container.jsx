@@ -1,14 +1,16 @@
-import { SemanticLink } from "@docs-blocks";
+import { BrandPicker, SemanticLink } from "@blocks";
 import { string } from "prop-types";
 
 const propTypes = {
     documentationPath: string.isRequired
 };
 
-export function SemanticContainer({ documentationPath }) {
+export function SemanticContainer({ documentationPath, children }) {
     return (
         <>
+            <BrandPicker />
             <SemanticLink path={documentationPath} />
+            {children}
         </>
     );
 }

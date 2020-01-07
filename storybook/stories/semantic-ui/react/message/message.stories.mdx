@@ -2,8 +2,7 @@ import { Button, Message } from "semantic-ui-react";
 import { InfoIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { SemanticContainer } from "../semantic-container";
-import { createComponentSection } from "@utils";
-import { docsParams } from "@docs";
+import { createComponentSection, paramsBuilder } from "@utils";
 import { noop } from "lodash";
 import Imports from "./imports.mdx";
 import Installation from "../installation.mdx";
@@ -11,8 +10,8 @@ import Installation from "../installation.mdx";
 <Meta
     title={createComponentSection("Message")}
     parameters={
-        docsParams()
-            .container(<SemanticContainer semanticPath="/collections/message" />)
+        paramsBuilder()
+            .docsContainer(<SemanticContainer documentationPath="/collections/message" />)
             .build()
     }
 />

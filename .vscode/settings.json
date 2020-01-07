@@ -15,7 +15,7 @@
     "css.validate": false,
     "eslint.alwaysShowStatus": true,
     "eslint.packageManager": "yarn",
-    "eslint.validate": [ "javascript", "javascriptreact", "mdx" ],
+    "eslint.validate": ["javascript", "javascriptreact", "mdx"],
     "stylelint.autoFixOnSave": true,
     "files.associations": {
         ".overrides": "less",

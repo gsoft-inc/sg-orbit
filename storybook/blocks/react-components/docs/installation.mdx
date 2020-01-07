@@ -1,0 +1,16 @@
+import { INSTALLATION_PAGE } from "@utils";
+import { NpmPackages } from "@blocks/react-components";
+
+<details><summary >install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
+
+<NpmPackages componentName={props.componentName} />
+
+</details>
+
+<details><summary >then import what you need</summary>
+
+<Fragment>{props.imports}</Fragment>
+
+</details>

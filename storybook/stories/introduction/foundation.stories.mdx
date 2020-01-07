@@ -1,19 +1,18 @@
-import { GithubLink, getGithubUrl } from "@docs-blocks";
+import { IntroductionContainer } from "./introduction-container";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { components } from "@storybook/components/html";
-import { paramsBuilder } from "@utils";
+import { createIntroductionSection, paramsBuilder } from "@utils";
+import { getGithubUrl } from "@blocks";
 
 <Meta
-    title="Introduction|Foundation"
+    title={`${createIntroductionSection("Foundation")}`}
     parameters={
         paramsBuilder()
             .sortPriority(-4)
-            .hideBrandPicker()
+            .docsContainer(<IntroductionContainer sourcePath="/packages/foundation/src" />)
             .build()
     }
 />
-
-<GithubLink filePath="/packages/foundation/src" />
 
 <!-- Otherwise the MDX parser will complain that "components" is undefined -->
 export const A = components.a;

@@ -2,16 +2,15 @@ import { Checkbox } from "semantic-ui-react";
 import { ControlledRadioGroup } from "./components/controlled-radio-group";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { SemanticContainer } from "../semantic-container";
-import { createComponentSection } from "@utils";
-import { docsParams } from "@docs";
+import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 import Installation from "../installation.mdx";
 
 <Meta
     title={createComponentSection("Radio")}
     parameters={
-        docsParams()
-            .container(<SemanticContainer documentationPath="/modules/checkbox" />)
+        paramsBuilder()
+            .docsContainer(<SemanticContainer documentationPath="/modules/checkbox" />)
             .build()
     }
 />

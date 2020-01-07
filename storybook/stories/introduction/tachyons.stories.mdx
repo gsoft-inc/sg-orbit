@@ -1,18 +1,16 @@
-import { GithubLink } from "@docs-blocks";
+import { IntroductionContainer } from "./introduction-container";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { paramsBuilder } from "@utils";
+import { createIntroductionSection, paramsBuilder } from "@utils";
 
 <Meta
-    title="Introduction|Tachyons"
+    title={`${createIntroductionSection("Tachyons")}`}
     parameters={
         paramsBuilder()
             .sortPriority(-3)
-            .hideBrandPicker()
+            .docsContainer(<IntroductionContainer sourcePath="/packages/tachyons/src" />)
             .build()
     }
 />
-
-<GithubLink filePath="/packages/tachyons/src" />
 
 # Tachyons
 

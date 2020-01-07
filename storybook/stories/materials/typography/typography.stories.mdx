@@ -1,17 +1,16 @@
+import { MaterialsContainer } from "../materials-container";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
-import { GithubLink } from "@docs-blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../installation.mdx";
 
 <Meta
-    title={createMaterialSection("Typography")}
+    title={`${createMaterialSection("Typography")}`}
     parameters={
         paramsBuilder()
-            .hideBrandPicker()
+            .docsContainer(<MaterialsContainer sourcePath="/packages/tachyons/src" />)
             .build()
     }
 />
-
-<GithubLink filePath="/packages/tachyons/src" />
 
 # Typography
 
@@ -19,15 +18,7 @@ Use typography to present your design and content as clearly and efficiently as 
 
 ## Installation
 
-<details><summary >Install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/foundation
-```
-
-</details>
+<Installation />
 
 ## Font Size
 

@@ -1,18 +1,16 @@
-import { GithubLink } from "@docs-blocks";
+import { IntroductionContainer } from "./introduction-container";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { paramsBuilder } from "@utils";
+import { createIntroductionSection, paramsBuilder } from "@utils";
 
 <Meta
-    title="Introduction|Packages"
+    title={`${createIntroductionSection("Packages")}`}
     parameters={
         paramsBuilder()
             .sortPriority(-6)
-            .hideBrandPicker()
+            .docsContainer(<IntroductionContainer sourcePath="/" />)
             .build()
     }
 />
-
-<GithubLink filePath="/" />
 
 # Packages
 

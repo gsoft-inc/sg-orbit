@@ -1,11 +1,11 @@
 /* eslint react/jsx-filename-extension: "off" */
 
 import { BRANDS, getCurrentBrand } from "@shared/brands";
-import { CanvasContainer } from "@canvas/containers";
+import { CanvasContainer } from "@decorators/canvas-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "./env";
+import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
@@ -58,14 +58,6 @@ addParameters({
     },
     docs: {
         inlineStories: true
-        // container: ({ children, context }) => {
-        //     return (
-        //         <DocsContainer context={context}>
-        //             <OrbitDocsContainer context={context}>
-        //                 {children}
-        //             </OrbitDocsContainer>
-        //         </DocsContainer>);
-        // }
     }
 });
 

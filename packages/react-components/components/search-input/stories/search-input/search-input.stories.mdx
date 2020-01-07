@@ -1,0 +1,160 @@
+import { ControlledSearchInput } from "./components";
+import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
+import { Installation, ReactComponentsContainer } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
+import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { createComponentSection, paramsBuilder } from "@utils";
+import { logValueChanged } from "../utils";
+import Imports from "./imports.mdx";
+import SearchInputResultUsage from "./search-input-result-usage.mdx";
+
+<Meta
+    title={createComponentSection("Search Input/results set")}
+    parameters={
+        paramsBuilder()
+            .width("80%")
+            .docsContainer(<ReactComponentsContainer sourcePath="/packages/react-components/components/search-input/src" />)
+            .build()
+    }
+/>
+
+# Search Input
+
+A search input allows a user to query for results from a fixed set of data.
+
+## Installation
+
+<Installation componentName="search-input" imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "SearchInput", component: SearchInput }
+    ]}
+/>
+
+## Usage
+
+### searchInputResult
+
+<SearchInputResultUsage />
+
+### Default
+
+A default search input with a set of results.
+
+<Preview>
+    <Story name="default">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        defaultValue={text("defaultValue")}
+        debounceDelay={number("debounceDelay", SearchInput.defaultProps.debounceDelay)}
+        minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
+        noResultsMessage={text("noResultsMessage")}
+        placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
+        disabled={boolean("disabled", false)}
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Selected value
+
+A search input can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            defaultValue={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+### Clear on select
+
+A search input results box can close when a result is selected.
+
+<Preview>
+    <Story name="clear on select">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            clearOnSelect
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        clearOnSelect
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Disabled
+
+A search input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <SearchInput
+            results={DEFAULT_RESULTS}
+            disabled
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Controlled
+
+A search input can handle `value` and `open` state in controlled mode.
+
+<Preview>
+    <Story name="controlled">
+        <ControlledSearchInput
+            results={DEFAULT_RESULTS}
+            value={LAURIE_VALUE}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+

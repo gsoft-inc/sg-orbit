@@ -1,0 +1,36 @@
+import { INSTALLATION_PAGE } from "@utils";
+
+<details><summary >Install the packages</summary>
+
+Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
+
+```bash
+npm install @orbit-ui/icons
+```
+</details>
+
+<details><summary >then import what you need</summary>
+
+As a react component:
+
+```jsx
+import { IconName } from "@orbit-ui/icons";
+```
+
+As an image:
+
+```jsx
+import IconName from "@orbit-ui/icons/icon-name.svg";
+
+<img src={IconName} />
+```
+
+As a background image:
+
+```css
+.name-icon: {
+    background: url("~@orbit-ui/icons/icon-name.svg");
+}
+```
+
+</details>

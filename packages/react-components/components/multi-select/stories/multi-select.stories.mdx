@@ -1,15 +1,23 @@
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
+import { Installation, ReactComponentsContainer } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
+import { Props } from "@blocks";
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { createComponentSection, paramsBuilder } from "@utils";
 import { logValuesChanged } from "./utils";
-import { paramsBuilder, INSTALLATION_PAGE, createComponentSection } from "@utils";
-import { GithubLink, PropsTabs, PackagesInstallation } from "@docs-blocks";
+import Imports from "./imports.mdx";
+import MultiSelectItemUsage from "./multi-select-item-usage.mdx";
 
-<Meta title={createComponentSection("Multi Select")} />
-
-<GithubLink filePath="/packages/react-components/components/multi-select/src" />
+<Meta
+    title={createComponentSection("Multi Select")}
+    parameters={
+        paramsBuilder()
+            .docsContainer(<ReactComponentsContainer sourcePath="/packages/react-components/components/multi-select/src" />)
+            .build()
+    }
+/>
 
 # MultiSelect
 
@@ -17,27 +25,11 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 
 ## Installation
 
-<details><summary >install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
-
-<PackagesInstallation packageName="multi-select" />
-
-</details>
-
-<details><summary >then import what you need</summary>
-
-```javascript
-import {
-    MultiSelect,
-    multiSelectItem
-} from "@orbit-ui/react-multi-select" | "@orbit-ui/react-components";
-```
-</details>
+<Installation componentName="multi-select" imports={<Imports />} />
 
 ## Props
 
-<PropsTabs
+<Props
     componentsDefinitions={[
         { displayName: "MultiSelect", component: MultiSelect },
         { displayName: "MultiSelect.Dropdown", component: MultiSelect.Dropdown },
@@ -53,32 +45,7 @@ import {
 
 ### multiSelectItem
 
-A multi select component requires a set of items to display. Those items can be specified with the `items` property.
-
-To create an item, use the `multiSelectItem(text, value, category?, obj?)` function:
-
-```javascript
-const groupCreated = multiSelectItem("Created", "group-created");
-```
-
-<details><summary >optional category</summary>
-
-An optional `category` can be specified to group a set of items under a labelled category:
-
-```javascript
-const groupCreated = multiSelectItem("Created", "group-created", "Group Lifecycle");
-const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecycle");
-```
-</details>
-
-<details><summary >specify optional data</summary>
-
-An optional data `obj` can be specified to provide additional information to callbacks like `onValuesChange`:
-
-```javascript
-const groupCreated = multiSelectItem("Created", "group-created", undefined, { backendId: 123 });
-```
-</details>
+<MultiSelectItemUsage />
 
 ### Default
 
@@ -194,7 +161,7 @@ A multi select can be disabled.
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
-    >
+>
     <MultiSelect
         items={DEFAULT_ITEMS_WITH_CATEGORIES}
         closeOnBlur={false}
