@@ -107,3 +107,7 @@
 .ui.floating.dropdown .menu > .menu {
     box-shadow: none!important;
 }
+
+.ui.search.dropdown > input.search {
+    min-height: 40px;
+}

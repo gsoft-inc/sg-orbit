@@ -115,7 +115,7 @@
 --------------*/
 
 /* Search Selection */
-@searchSelectionLineHeight: 2.5em;
+@searchSelectionLineHeight: 1;
 
 /* Inline */
 
