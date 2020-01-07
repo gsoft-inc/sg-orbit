@@ -61,7 +61,6 @@ import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils"
 import { IconGallery } from "storybook-icon-gallery";
 import { renderItem, getItemCopyValue, getDisplayName } from "./gallery-item.js";
 import { GithubLink } from "@docs-blocks";
-import { Message } from "semantic-ui-react";
 
 <Meta
     title={createMaterialSection("Icons")}
@@ -119,13 +118,9 @@ As a background image:
 
 ## Usage
 
-Icons provided inherently do not provide a width and height property nor a colour, to favour reusability. This means that you need to provide dimensions, either using the width and height property or using CSS. If you are using [Tachyons](/?path=/docs/introduction-tachyons--page) this means using these classes: _w6 h6_, for a 24x24 icon.
+Icons does not have a default dimensions to favour reusability. This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon) or straight CSS.
 
-<Message size="small" info>
-    <p className="fw6">
-        Don't forget to Specify a size.
-    </p>
-</Message>
+#### Don't forget to Specify a size.
 
 ```html
 <AddIcon24 className="w6 h6"/>
