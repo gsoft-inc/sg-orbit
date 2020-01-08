@@ -12,6 +12,10 @@
     transform: rotate(90deg);
 }
 
+.ui.selection.dropdown:hover  .dropdown.icon {
+    background-color: var(--marine-500);
+}
+
 .ui.dropdown > .clear.icon {
     background-color: var(--marine-100);
     mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
@@ -20,7 +24,7 @@
 
 .ui.dropdown > .clear.icon:hover,
 .ui.dropdown > .clear.icon:focus {
-    background-color: var(--marine-400);
+    background-color: var(--marine-500);
 }
 
 .ui.selection.dropdown > .dropdown.icon {

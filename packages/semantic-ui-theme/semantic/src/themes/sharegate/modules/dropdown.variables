@@ -69,7 +69,7 @@
 @selectionMenuBoxShadow: @shadow100;
 @selectionMinHeight: 2.5rem;
 @selectionBorder: 1px solid @cloud200;
-@selectionHoverBorderColor: @marine900;
+@selectionHoverBorderColor: @marine500;
 @selectionVisibleBorderColor: @white;
 @selectionActiveHoverBorderColor: @white;
 @selectionActiveHoverBoxShadow: @shadow100;
