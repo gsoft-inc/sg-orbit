@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 aliases:
     - &save-yarn-deps
       name: Save Yarn Package Cache
@@ -34,6 +34,10 @@ jobs:
                   name: Run Jest
                   command: yarn jest-ci
     chromatic:
+        parameters:
+            exitOnceUploaded:
+                type: boolean
+                default: true
         docker:
             - image: circleci/node:12
         working_directory: ~/chromatic
@@ -55,7 +59,7 @@ jobs:
                   command: yarn build:pkg
             - run:
                   name: Run chromatic
-                  command: yarn chromatic-ci
+                  command: yarn chromatic-ci<<# parameters.exitOnceUploaded >> --exit-once-uploaded<</ parameters.exitOnceUploaded >>
 workflows:
     version: 2
     github-build:
@@ -88,4 +92,5 @@ workflows:
                           only:
                               - master
         jobs:
-            - chromatic
+            - chromatic:
+                exitOnceUploaded: false

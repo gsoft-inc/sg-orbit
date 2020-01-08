@@ -24,7 +24,7 @@
         "chromatic-components": "cross-env STORYBOOK_SCOPE=components yarn chromatic",
         "chromatic-theme": "cross-env STORYBOOK_SCOPE=theme yarn chromatic",
         "chromatic-materials": "cross-env STORYBOOK_SCOPE=materials yarn chromatic",
-        "chromatic-ci": "yarn chromatic --no-interactive --exit-once-uploaded"
+        "chromatic-ci": "yarn chromatic --no-interactive"
     },
     "devDependencies": {}
 }
