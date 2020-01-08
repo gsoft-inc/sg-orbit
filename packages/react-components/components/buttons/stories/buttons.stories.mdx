@@ -16,7 +16,21 @@ A button can be strip of all colors.
 
 <Preview>
     <Story name="naked">
-        <Button naked>External project</Button>
+        <Button naked>Naked</Button>
+    </Story>
+</Preview>
+
+### Custom colors
+
+A button colors can be customized.
+
+<Preview>
+    <Story name="custom colors">
+        <div className="flex">
+            <Button naked style={{ backgroundColor: "#FFF6E7", color: "var(--marine-500)", border: "1px solid #FEE9C3" }}>Department</Button>
+            <Button naked style={{ backgroundColor: "#E4F2FF", color: "var(--marine-500)", border: "1px solid #BCE0FF" }}>External project</Button>
+            <Button naked style={{ backgroundColor: "#EFF6F6", color: "var(--marine-500)", border: "1px solid #D6E9E9" }}>Important</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -26,9 +40,21 @@ A label can be nested in a button.
 
 <Preview>
     <Story name="nested label">
-        <Button fluid naked>
-            External project
-            <Label size="small" color="red">6</Label>
-        </Button>
+        <div>
+            <div>
+                <Button basic>
+                    <span className="mr2">External project</span>
+                    <Label size="tiny" color="black">6</Label>
+                </Button>
+            </div>
+            <div>
+                <Button basic fluid>
+                    <div className="flex items-center tl">
+                        <span className="flex-grow-1">External project</span>
+                        <Label size="tiny" color="black">6</Label>
+                    </div>
+                </Button>
+            </div>
+        </div>
     </Story>
 </Preview>
