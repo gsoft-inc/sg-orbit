@@ -12,10 +12,25 @@
     transform: rotate(90deg);
 }
 
+.ui.dropdown > .clear.icon {
+    background-color: var(--marine-100);
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: 20px 20px;
+}
+
+.ui.dropdown > .clear.icon:hover,
+.ui.dropdown > .clear.icon:focus {
+    background-color: var(--marine-400);
+}
+
 .ui.selection.dropdown > .dropdown.icon {
     height: 100%;
     width: 24px;
     padding: 0;
+}
+
+.ui.selection.dropdown > .dropdown.clear.icon {
+    width: 20px;
 }
 
 .ui.dropdown.no-icons .dropdown.icon,
@@ -109,5 +124,6 @@
 }
 
 .ui.search.dropdown > input.search {
-    min-height: 40px;
+    min-height: 38px;
+    font-size: 1.125rem;
 }
