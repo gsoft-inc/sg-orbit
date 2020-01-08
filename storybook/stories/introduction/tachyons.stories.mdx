@@ -1,15 +1,13 @@
-import { IntroductionContainer } from "./introduction-container";
+import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createIntroductionSection, paramsBuilder } from "@utils";
 
 <Meta
     title={`${createIntroductionSection("Tachyons")}`}
-    parameters={
-        paramsBuilder()
-            .sortPriority(-3)
-            .docsContainer(<IntroductionContainer sourcePath="/packages/tachyons/src" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .sortPriority(-3)
+        .docsLayout(<IntroductionLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
 />
 
 # Tachyons

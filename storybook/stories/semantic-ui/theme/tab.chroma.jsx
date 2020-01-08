@@ -6,11 +6,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tab"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 

@@ -1,6 +1,6 @@
 import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
 import { ControlledRedBox, RedBoxPopup } from "./components";
-import { Installation, ReactComponentsContainer } from "@blocks/react-components";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { array, select, withKnobs } from "@storybook/addon-knobs";
@@ -9,11 +9,9 @@ import Imports from "./imports.mdx";
 
 <Meta
     title={createComponentSection("Popup")}
-    parameters={
-        paramsBuilder()
-            .docsContainer(<ReactComponentsContainer sourcePath="/packages/react-components/components/popup/src" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/popup/src" />)
+        .build()}
 />
 
 # Popup
@@ -46,7 +44,7 @@ A default popup.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
-        .marginTop("150px")
+        .canvasLayout({ marginTop: "150px" })
         .excludeFromDocs()
         .build()}
 >

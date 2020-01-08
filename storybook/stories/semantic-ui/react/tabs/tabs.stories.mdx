@@ -1,17 +1,15 @@
 import { Label, Menu, Tab } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { SemanticContainer } from "../semantic-container";
+import { SemanticLayout } from "../semantic-layout";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 import Installation from "../installation.mdx";
 
 <Meta
     title={createComponentSection("Tab")}
-    parameters={
-        paramsBuilder()
-            .docsContainer(<SemanticContainer documentationPath="/modules/tab" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .docsLayout(<SemanticLayout documentationPath="/modules/tab" />)
+        .build()}
 />
 
 # Tab

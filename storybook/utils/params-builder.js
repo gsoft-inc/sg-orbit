@@ -2,39 +2,20 @@ import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { cloneElement } from "react";
 import { isNil, isNumber, isPlainObject } from "lodash";
 
-class ParamsConfigurationBuilder {
-    _layout = {}
+class ParamsBuilder {
+    _canvasLayout = {}
     _chromatic = {}
     _storyValues = null;
     _sortPriority = null;
     _excludeFromDocs = false;
-    _docsContainer = null;
+    _docsLayout = null;
 
-    // TODO: rename to canvasLayout
-    layout(config) {
+    canvasLayout(config) {
         if (!isNil(config)) {
-            this._layout = {
-                ...this._layout,
+            this._canvasLayout = {
+                ...this._canvasLayout,
                 ...config
             };
-        }
-
-        return this;
-    }
-
-    // TODO: rename to canvasMarginTop
-    marginTop(value) {
-        if (!isNil(value)) {
-            this._layout.marginTop = value;
-        }
-
-        return this;
-    }
-
-    // TODO: rename to canvasWidth
-    width(value) {
-        if (!isNil(value)) {
-            this._layout.width = value;
         }
 
         return this;
@@ -81,9 +62,9 @@ class ParamsConfigurationBuilder {
         return this;
     }
 
-    docsContainer(container) {
-        if (!isNil(container)) {
-            this._docsContainer = container;
+    docsLayout(layout) {
+        if (!isNil(layout)) {
+            this._docsLayout = layout;
         }
 
         return this;
@@ -92,8 +73,8 @@ class ParamsConfigurationBuilder {
     build() {
         const params = {};
 
-        if (!isNil(this._layout)) {
-            params.layout = this._layout;
+        if (!isNil(this._canvasLayout)) {
+            params.layout = this._canvasLayout;
         }
 
         if (!isNil(this._chromatic)) {
@@ -114,11 +95,11 @@ class ParamsConfigurationBuilder {
             docs.disable = true;
         }
 
-        if (!isNil(this._docsContainer)) {
+        if (!isNil(this._docsLayout)) {
             docs.container = ({ children, context }) => {
                 return (
                     <DocsContainer context={context}>
-                        {cloneElement(this._docsContainer, { context: context, children: children })}
+                        {cloneElement(this._docsLayout, { context: context, children: children })}
                     </DocsContainer>
                 );
             };
@@ -133,5 +114,5 @@ class ParamsConfigurationBuilder {
 }
 
 export function paramsBuilder() {
-    return new ParamsConfigurationBuilder();
+    return new ParamsBuilder();
 }

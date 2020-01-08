@@ -1,15 +1,13 @@
-import { IntroductionContainer } from "./introduction-container";
+import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createIntroductionSection, paramsBuilder } from "@utils";
 
 <Meta
     title={`${createIntroductionSection("Packages")}`}
-    parameters={
-        paramsBuilder()
-            .sortPriority(-6)
-            .docsContainer(<IntroductionContainer sourcePath="/" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .sortPriority(-6)
+        .docsLayout(<IntroductionLayout sourcePath="/" />)
+        .build()}
 />
 
 # Packages

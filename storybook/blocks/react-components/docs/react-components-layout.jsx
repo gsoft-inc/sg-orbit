@@ -5,7 +5,7 @@ const propTypes = {
     sourcePath: string.isRequired
 };
 
-export function ReactComponentsContainer({ sourcePath, children }) {
+export function ReactComponentsLayout({ sourcePath, children }) {
     return (
         <>
             <BrandPicker />
@@ -15,4 +15,4 @@ export function ReactComponentsContainer({ sourcePath, children }) {
     );
 }
 
-ReactComponentsContainer.propTypes = propTypes;
+ReactComponentsLayout.propTypes = propTypes;

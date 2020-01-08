@@ -1,4 +1,4 @@
-import { IntroductionContainer } from "./introduction-container";
+import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { components } from "@storybook/components/html";
 import { createIntroductionSection, paramsBuilder } from "@utils";
@@ -6,12 +6,10 @@ import { getGithubUrl } from "@blocks";
 
 <Meta
     title={`${createIntroductionSection("Foundation")}`}
-    parameters={
-        paramsBuilder()
-            .sortPriority(-4)
-            .docsContainer(<IntroductionContainer sourcePath="/packages/foundation/src" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .sortPriority(-4)
+        .docsLayout(<IntroductionLayout sourcePath="/packages/foundation/src" />)
+        .build()}
 />
 
 <!-- Otherwise the MDX parser will complain that "components" is undefined -->

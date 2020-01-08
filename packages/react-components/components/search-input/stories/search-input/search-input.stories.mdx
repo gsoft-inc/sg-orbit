@@ -1,6 +1,6 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
-import { Installation, ReactComponentsContainer } from "@blocks/react-components";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
@@ -12,12 +12,10 @@ import SearchInputResultUsage from "./search-input-result-usage.mdx";
 
 <Meta
     title={createComponentSection("Search Input/results set")}
-    parameters={
-        paramsBuilder()
-            .width("80%")
-            .docsContainer(<ReactComponentsContainer sourcePath="/packages/react-components/components/search-input/src" />)
-            .build()
-    }
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/search-input/src" />)
+        .build()}
 />
 
 # Search Input

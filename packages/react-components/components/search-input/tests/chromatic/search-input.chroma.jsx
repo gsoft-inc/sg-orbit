@@ -14,12 +14,10 @@ function createSearchInput({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Search Input/results set"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .width("80%")
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .canvasLayout({ width: "80%" })
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 

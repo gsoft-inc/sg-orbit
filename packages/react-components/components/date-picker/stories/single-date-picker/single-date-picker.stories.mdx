@@ -9,7 +9,7 @@ import {
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components";
-import { Installation, ReactComponentsContainer } from "@blocks/react-components";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -22,8 +22,8 @@ import moment from "moment";
 <Meta
     title={createComponentSection("Date Picker/single")}
     parameters={paramsBuilder()
-        .width("80%")
-        .docsContainer(<ReactComponentsContainer sourcePath="/packages/react-components/components/date-picker/src/single" />)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/date-picker/src/single" />)
         .build()}
 />
 

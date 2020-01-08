@@ -5,7 +5,7 @@ const propTypes = {
     documentationPath: string.isRequired
 };
 
-export function SemanticContainer({ documentationPath, children }) {
+export function SemanticLayout({ documentationPath, children }) {
     return (
         <>
             <BrandPicker />
@@ -15,4 +15,4 @@ export function SemanticContainer({ documentationPath, children }) {
     );
 }
 
-SemanticContainer.propTypes = propTypes;
+SemanticLayout.propTypes = propTypes;

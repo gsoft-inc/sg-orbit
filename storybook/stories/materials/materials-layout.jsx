@@ -5,7 +5,7 @@ const propTypes = {
     sourcePath: string.isRequired
 };
 
-export function MaterialsContainer({ sourcePath, children }) {
+export function MaterialsLayout({ sourcePath, children }) {
     return (
         <>
             <GithubLink path={sourcePath} />
@@ -14,4 +14,4 @@ export function MaterialsContainer({ sourcePath, children }) {
     );
 }
 
-MaterialsContainer.propTypes = propTypes;
+MaterialsLayout.propTypes = propTypes;

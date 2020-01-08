@@ -36,12 +36,10 @@ function createDateRangePicker(props = {}) {
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Date Picker/range"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .width("80%")
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .canvasLayout({ width: "80%" })
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
