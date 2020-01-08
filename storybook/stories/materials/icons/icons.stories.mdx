@@ -72,7 +72,9 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Icons includes their padding, they generally are available in two sizes, 24px and 32px. When only one size is provided they are considered universal. Default size is 32px, when available, adding 24 at the end of an icon will bring the 24x24 version of this icon.
+Icons includes their padding and are generally are available in two sizes, _24px_ and _32px_.
+
+If an icon is only available in _32px_, he is considered universal.
 
 ## Installation
 
@@ -80,12 +82,12 @@ Icons includes their padding, they generally are available in two sizes, 24px an
 
 ## Usage
 
-Icons does not have a default dimensions to favour reusability. This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon) or straight CSS.
+Icons doesn't have a default dimensions to favour reusability.
 
-#### Don't forget to Specify a size.
+This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
 
-```html
-<AddIcon24 className="w6 h6"/>
+```jsx
+<AddIcon24 className="w6 h6" />
 ```
 
 ## Values
