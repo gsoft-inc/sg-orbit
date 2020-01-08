@@ -1,19 +1,14 @@
-import { Meta, Anchor } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
-import { GithubLink } from "@docs-blocks";
+import { MaterialsLayout } from "../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../installation.mdx";
 
 <Meta
-    title={createMaterialSection("Environment/shadows")}
-    parameters={
-        paramsBuilder()
-            .hideBrandPicker()
-            .build()
-    }
+    title={`${createMaterialSection("Environment/shadows")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
 />
-
-<Anchor storyId="materials-environment-shadows--page" />
-
-<GithubLink filePath="/packages/tachyons/src" />
 
 # Shadows
 
@@ -21,15 +16,7 @@ Shadows denote a certain elevation of an element.
 
 ## Installation
 
-<details><summary >Install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/foundation
-```
-
-</details>
+<Installation />
 
 ## Values
 

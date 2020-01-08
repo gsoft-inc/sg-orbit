@@ -1,13 +1,11 @@
 /* eslint react/jsx-filename-extension: "off" */
 
-import { BRANDS, getCurrentBrand } from "./brands";
-import { CanvasContainer, DocsContainer as OrbitDocsContainer } from "./containers";
-import { DocsContainer } from "@storybook/addon-docs/blocks";
+import { BRANDS, getCurrentBrand } from "@shared/brands";
+import { CanvasContainer } from "@decorators/canvas-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs } from "./env";
-import { withConsole } from "@storybook/addon-console";
+import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
@@ -15,9 +13,12 @@ import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";
+// These imports ensure that Tachyons selectors have precedence over default Storybook MDX styles.
 import "@orbit-ui/tachyons/storybook/apricot.css";
 import "@orbit-ui/tachyons/storybook/desktop.css";
 import "@orbit-ui/tachyons/storybook/overcast.css";
+
+printEnvironment();
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive".
@@ -56,19 +57,11 @@ addParameters({
         storySort: customStorySort
     },
     docs: {
-        inlineStories: true,
-        container: ({ children, context }) => (
-            <DocsContainer context={context}>
-                <OrbitDocsContainer context={context}>
-                    {children}
-                </OrbitDocsContainer>
-            </DocsContainer>
-        )
+        inlineStories: true
     }
 });
 
 if (!isDocs) {
-    addDecorator((storyFn, context) => withConsole()(storyFn)(context));
     addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
 }
 

@@ -51,7 +51,10 @@ function createBabelOptions(existingOptions) {
 
     return {
         ...existingOptions,
-        plugins: [...existingPlugins, "@babel/plugin-transform-react-jsx"]
+        plugins: [
+            ...existingPlugins,
+            "@babel/plugin-transform-react-jsx"
+        ]
     };
 }
 
@@ -106,10 +109,11 @@ function addAliases(config) {
 
     config.resolve.alias = {
         ...storybookAlias,
-        "@stories": path.resolve(__dirname, "../stories/"),
-        "@utils": path.resolve(__dirname, "../stories/utils/"),
-        "@docs-blocks": path.resolve(__dirname, "../stories/docs-blocks/"),
-        "@react-components": path.resolve(__dirname, "../../packages/react-components/components/")
+        "@decorators": path.resolve(__dirname, "../decorators/"),
+        "@blocks": path.resolve(__dirname, "../blocks/"),
+        "@shared": path.resolve(__dirname, "../shared/"),
+        "@utils": path.resolve(__dirname, "../utils/"),
+        "@react-components": path.resolve(__dirname, "../../packages/react-components/components")
     };
 }
 

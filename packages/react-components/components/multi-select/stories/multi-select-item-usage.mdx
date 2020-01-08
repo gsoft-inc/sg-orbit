@@ -1,0 +1,26 @@
+A multi select component requires a set of items to display. Those items can be specified with the `items` property.
+
+To create an item, use the `multiSelectItem(text, value, category?, obj?)` function:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created");
+```
+
+<details><summary >optional category</summary>
+
+An optional `category` can be specified to group a set of items under a labelled category:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created", "Group Lifecycle");
+const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecycle");
+```
+</details>
+
+<details><summary >specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValuesChange`:
+
+```javascript
+const groupCreated = multiSelectItem("Created", "group-created", undefined, { backendId: 123 });
+```
+</details>

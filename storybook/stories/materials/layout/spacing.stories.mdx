@@ -1,19 +1,14 @@
-import { Meta, Anchor } from "@storybook/addon-docs/blocks";
-import { paramsBuilder, INSTALLATION_PAGE, createMaterialSection } from "@utils";
-import { GithubLink } from "@docs-blocks";
+import { MaterialsLayout } from "../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../installation.mdx";
 
 <Meta
-    title={createMaterialSection("Layout/spacing")}
-    parameters={
-        paramsBuilder()
-            .hideBrandPicker()
-            .build()
-    }
+    title={`${createMaterialSection("Layout/spacing")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
 />
-
-<Anchor storyId="materials-layout-spacing--page" />
-
-<GithubLink filePath="/packages/tachyons/src" />
 
 # Spacing
 
@@ -21,15 +16,7 @@ Spacing is based on a 8px grid.
 
 ## Installation
 
-<details><summary >Install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a single package:
-
-```bash
-npm install @orbit-ui/css-normalize @orbit-ui/tachyons @orbit-ui/foundation
-```
-
-</details>
+<Installation />
 
 ## Values
 

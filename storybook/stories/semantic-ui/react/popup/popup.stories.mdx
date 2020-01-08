@@ -1,27 +1,22 @@
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Button, Popup } from "semantic-ui-react";
-import { SemanticLink } from "@docs-blocks";
-import { createComponentSection } from "@utils";
-import PackageInstallation from "../package-installation.mdx";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { SemanticLayout } from "../semantic-layout";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+import Installation from "../installation.mdx";
 
-<Meta title={createComponentSection("Popup (SUI)")} />
-
-<Anchor storyId="components-popup-sui--default-story" />
-
-<SemanticLink docPath="/modules/popup/" />
+<Meta
+    title={createComponentSection("Popup (SUI)")}
+    parameters={paramsBuilder()
+        .docsLayout(<SemanticLayout documentationPath="/modules/popup" />)
+        .build()}
+/>
 
 # Popup
 
 ## Installation
 
-<PackageInstallation />
-
-<details><summary >then import what you need</summary>
-
-```javascript
-import { Popup } from "semantic-ui-react";
-```
-</details>
+<Installation imports={<Imports />} />
 
 ## Usage
 
