@@ -1,0 +1,34 @@
+import { Button } from "../src";
+import { Label } from "semantic-ui-react"
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={createComponentSection("Buttons (CUSTOM)")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .build()}
+/>
+
+### Naked
+
+A button can be strip of all colors.
+
+<Preview>
+    <Story name="naked">
+        <Button naked>External project</Button>
+    </Story>
+</Preview>
+
+### Nested label
+
+A label can be nested in a button.
+
+<Preview>
+    <Story name="nested label">
+        <Button fluid naked>
+            External project
+            <Label size="small" color="red">6</Label>
+        </Button>
+    </Story>
+</Preview>

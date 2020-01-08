@@ -353,7 +353,6 @@
 }
 
 /* Toggle (Modifies active state to give affordances) */
-
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
@@ -391,7 +390,12 @@
 }
 
 /* Labels in buttons should be consistent */
-
 .ui.button .label.mini {
     margin-right: var(--scale-bravo);
+}
+
+/* Naked */
+.ui.button.naked {
+    background-color: transparent;
+    color: initial;
 }

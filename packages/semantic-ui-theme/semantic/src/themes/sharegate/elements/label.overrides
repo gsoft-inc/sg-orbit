@@ -11,16 +11,17 @@
     font-size: .375rem;
 }
 
-.ui.label .ui.empty.circular.label {
-    margin-right: 8px!important;
-}
-
 .ui.circular.label {
     justify-content: center;
 }
 
 .ui.label.icon {
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
+}
+
+.ui.label > .button.icon {
+    margin: 0!important;
+    margin-left: 8px!important;
 }
 
 /* tiny */
@@ -140,8 +141,31 @@
 }
 
 /*  Primary */
+
 .ui.label.primary,
 .ui.menu .item > .label.primary {
     background-color: @primary500;
     color: @white;
+}
+
+/* Tags (tags are supported by nesting 2 labels) */
+
+.ui.tag.label {
+  margin: @verticalMargin @horizontalMargin;
+  position: static;
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @borderRadius;
+  transition: @transition;
+}
+
+.ui.tag.label > .ui.label {
+    margin-right: 8px;
+}
+
+.ui.tag.label:before {
+    display: none !important;
+}
+
+.ui.tag.label:after {
+    display: none !important;
 }
