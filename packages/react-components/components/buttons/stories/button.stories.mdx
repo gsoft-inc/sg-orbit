@@ -1,0 +1,18 @@
+import { Button } from "../src";
+import { Label } from "semantic-ui-react"
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={createComponentSection("Buttons (CUSTOM)")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .build()}
+/>
+
+<Story name="default">
+    <Button fluid naked>
+        External project
+        <Label size="small" color="red">6</Label>
+    </Button>
+</Story>

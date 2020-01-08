@@ -57,3 +57,14 @@ export class InvalidOperationError extends ExtendableError {
         super(message);
     }
 }
+
+export class UnsupportedSemanticPropError extends ExtendableError {
+    /**
+     * @param {string} propName
+     */
+    constructor(propName) {
+        const message = isNullOrEmpty(propName) ? "UnsupportedSemanticPropError" : `UnsupportedSemanticPropError: The Semantic UI prop "${propName}" is not supported by Orbit.`;
+
+        super(message);
+    }
+}
