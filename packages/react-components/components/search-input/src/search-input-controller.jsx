@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
+import { CloseIcon24 } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
 import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
 import { createRef } from "react";
@@ -47,7 +47,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
-        clearIcon: <CancelIcon className="h3 w3" />,
+        clearIcon: <CloseIcon24 className="h5 w5" />,
         disabled: false,
         autofocus: false,
         autofocusDelay: 50
