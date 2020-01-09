@@ -2,7 +2,7 @@ import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, string } from "prop-types";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["color", "label", "labelPosition"];
+const UNSUPPORTED_PROPS = ["animated", "attached", "color", "label", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
     naked: bool,

@@ -159,7 +159,7 @@
 }
 
 .ui.tag.label > .ui.label {
-    margin-right: 8px;
+    margin-right: var(--scale-bravo);
 }
 
 .ui.tag.label:before {

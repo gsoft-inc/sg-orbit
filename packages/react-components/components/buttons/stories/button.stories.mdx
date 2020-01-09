@@ -7,7 +7,7 @@ import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Buttons")}
+    title={createComponentSection("Button")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/elements/button" />)
@@ -18,7 +18,7 @@ import Imports from "./imports.mdx";
 
 ## Installation
 
-<Installation imports={<Imports />} />
+<Installation componentName="buttons" imports={<Imports />} />
 
 ## Usage
 
@@ -58,9 +58,17 @@ A button can vary in size.
 
 <Preview>
     <Story name="sizes">
-        <div className="flex flex-row items-start">
-            <Button type="button" className="short">Short</Button>
-            <Button type="button" className="tall">Tall</Button>
+        <div>
+            <div className="flex">
+                <Button type="button" size="tiny">Tiny</Button>
+                <Button type="button" size="small">Small</Button>
+                <Button type="button" size="medium">Medium</Button>
+                <Button type="button" size="large">Large</Button>
+            </div>
+            <div className="flex flex-row items-start">
+                <Button type="button" className="short">Short</Button>
+                <Button type="button" className="tall">Tall</Button>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -71,7 +79,7 @@ A button can reduce its padding to fit into tighter spaces.
 
 <Preview>
     <Story name="compact">
-        <Button type="button" compact>Compact</Button>
+        <Button type="button" compact>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -82,27 +90,6 @@ A button can be disabled.
 <Preview>
     <Story name="disabled">
         <Button type="button" disabled>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Basic
-
-A basic button have a subtle appearance.
-
-<Preview>
-    <Story name="basic">
-        <div>
-            <div className="flex">
-                <Button type="button" basic>Cutoff</Button>
-                <Button type="button" basic primary>Cutoff</Button>
-            </div>
-            <div className="flex">
-                <Button type="button" basic disabled>Cutoff</Button>
-                <Button type="button" basic active>Cutoff</Button>
-                <Button type="button" basic primary disabled>Cutoff</Button>
-                <Button type="button" basic primary active>Cutoff</Button>
-            </div>
-        </div>
     </Story>
 </Preview>
 
@@ -122,45 +109,6 @@ A button can show different levels of emphasis.
                 <Button type="button" secondary disabled>Secondary</Button>
                 <Button type="button" primary active>Primary</Button>
                 <Button type="button" secondary active>Secondary</Button>
-            </div>
-        </div>
-    </Story>
-</Preview>
-
-### Inverted
-
-A button can appear on a dark background.
-
-<Preview>
-    <Story name="inverted primary">
-        <div className="bg-marine-700 pa3">
-            <div className="flex">
-                <Button type="button" primary inverted>Cutoff</Button>
-            </div>
-            <div className="flex">
-                <Button type="button" primary inverted disabled>Cutoff</Button>
-                <Button type="button" primary inverted active>Cutoff</Button>
-            </div>
-        </div>
-    </Story>
-</Preview>
-
-### Ghost
-
-A ghost button is similar to a standard button, but have no basic colour until hovered.
-
-<Preview>
-    <Story name="ghost">
-        <div>
-            <div className="flex">
-                <Button type="button" ghost>Cutoff</Button>
-                <Button type="button" ghost primary>Cutoff</Button>
-            </div>
-            <div className="flex">
-                <Button type="button" ghost disabled>Cutoff</Button>
-                <Button type="button" ghost active>Cutoff</Button>
-                <Button type="button" ghost disabled primary>Cutoff</Button>
-                <Button type="button" ghost active primary>Cutoff</Button>
             </div>
         </div>
     </Story>
@@ -200,39 +148,63 @@ A button can be circular.
 
 <Preview>
     <Story name="circular">
-        <div className="flex flex-row items-start">
-            <Button type="button" icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
-            <Button type="button" icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
-            <Button type="button" icon circular>D</Button>
-            <Button type="button" icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
+        <div>
+            <div className="flex flex-row items-start">
+                <Button type="button" icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
+            </div>
+            <div className="flex flex-row items-start">
+                <Button type="button" circular size="tiny">Aa</Button>
+                <Button type="button" circular size="small">Aa</Button>
+                <Button type="button" circular>Aa</Button>
+                <Button type="button" circular size="large">Aa</Button>
+            </div>
         </div>
     </Story>
 </Preview>
 
-### Loading
+### Basic
 
-A button can show a loading indicator.
+A basic button have a subtle appearance.
 
 <Preview>
-    <Story name="loading">
+    <Story name="basic">
         <div>
             <div className="flex">
-                <Button type="button" loading>Loading</Button>
-                <Button type="button" loading primary>Loading</Button>
-                <Button type="button" loading basic>Loading</Button>
-                <Button type="button" loading basic primary>Loading</Button>
+                <Button type="button" basic>Cutoff</Button>
+                <Button type="button" basic primary>Cutoff</Button>
+                <Button type="button" basic secondary>Cutoff</Button>
             </div>
             <div className="flex">
-                <Button type="button" disabled loading>Loading</Button>
-                <Button type="button" disabled loading primary>Loading</Button>
-                <Button type="button" disabled loading basic>Loading</Button>
-                <Button type="button" disabled loading basic primary>Loading</Button>
+                <Button type="button" basic disabled>Cutoff</Button>
+                <Button type="button" basic primary disabled>Cutoff</Button>
+                <Button type="button" basic secondary disabled>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Ghost
+
+A ghost button is similar to a standard button, but have no basic colour until hovered.
+
+<Preview>
+    <Story name="ghost">
+        <div>
+            <div className="flex">
+                <Button type="button" ghost>Cutoff</Button>
+                <Button type="button" ghost primary>Cutoff</Button>
+                <Button type="button" ghost secondary>Cutoff</Button>
             </div>
             <div className="flex">
-                <Button type="button" active loading>Loading</Button>
-                <Button type="button" active loading primary>Loading</Button>
-                <Button type="button" active loading basic>Loading</Button>
-                <Button type="button" active loading basic primary>Loading</Button>
+                <Button type="button" ghost disabled>Cutoff</Button>
+                <Button type="button" ghost active>Cutoff</Button>
+                <Button type="button" ghost disabled primary>Cutoff</Button>
+                <Button type="button" ghost active primary>Cutoff</Button>
+                <Button type="button" ghost disabled secondary>Cutoff</Button>
+                <Button type="button" ghost active secondary>Cutoff</Button>
             </div>
         </div>
     </Story>
@@ -276,7 +248,7 @@ A button can hint towards a negative consequence.
 
 ### Naked
 
-A button can be stripped of all colors.
+A button can be stripped of all colors. Use this variant if you need to customize a button.
 
 <Preview>
     <Story name="naked">
@@ -286,7 +258,7 @@ A button can be stripped of all colors.
 
 ### Custom colors
 
-A button can have a custom color.
+A naked button can have a custom color.
 
 <Preview>
     <Story name="custom colors">
@@ -294,6 +266,33 @@ A button can have a custom color.
             <Button type="button" naked style={{ backgroundColor: "#FFF6E7", color: "var(--marine-500)", border: "1px solid #FEE9C3" }}>Department</Button>
             <Button type="button" naked style={{ backgroundColor: "#E4F2FF", color: "var(--marine-500)", border: "1px solid #BCE0FF" }}>External project</Button>
             <Button type="button" naked style={{ backgroundColor: "#EFF6F6", color: "var(--marine-500)", border: "1px solid #D6E9E9" }}>Important</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <div>
+            <div className="flex">
+                <Button type="button" loading>Loading</Button>
+                <Button type="button" loading primary>Loading</Button>
+                <Button type="button" loading secondary>Loading</Button>
+                <Button type="button" loading basic>Loading</Button>
+                <Button type="button" loading basic primary>Loading</Button>
+                <Button type="button" loading basic secondary>Loading</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" disabled loading>Loading</Button>
+                <Button type="button" disabled loading primary>Loading</Button>
+                <Button type="button" disabled loading secondary>Loading</Button>
+                <Button type="button" disabled loading basic>Loading</Button>
+                <Button type="button" disabled loading basic primary>Loading</Button>
+                <Button type="button" disabled loading basic secondary>Loading</Button>
+            </div>
         </div>
     </Story>
 </Preview>

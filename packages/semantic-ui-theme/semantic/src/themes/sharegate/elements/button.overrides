@@ -60,13 +60,13 @@
 }
 
 
-/* transparent button */
+/* Transparent button */
 .ui.transparent.button {
     background-color: @transparent;
     border: none;
 }
 
-/* ghost button - takes the same size of common buttons but doesnt have a background when not hovered */
+/* Ghost button (Takes the same size of common buttons but doesnt have a background when not hovered) */
 .ui.ghost.button {
     background-color: @transparent;
     border: none;
@@ -397,6 +397,23 @@
 
 /* Naked */
 .ui.button.naked {
-    background-color: transparent;
+    background-color: @transparent;
     color: initial;
+}
+
+.ui.buttons.naked .button:hover,
+.ui.button.naked:hover,
+.ui.button.naked:focus,
+.ui.naked.active.button {
+    background-color: @transparent;
+    color: initial;
+}
+
+.ui.buttons .disabled.button.naked,
+.ui.disabled.button.naked,
+.ui.button.naked:disabled,
+.ui.disabled.button.naked:hover,
+.ui.disabled.naked.active.button {
+    background-color: @transparent!important;
+    color: initial !important;
 }
