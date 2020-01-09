@@ -1,32 +1,35 @@
 import { Button as SemanticButton } from "semantic-ui-react";
-import { UnsupportedSemanticPropError, mergeClasses } from "@orbit-ui/react-components-shared";
-import { bool } from "prop-types";
-import { isNil } from "lodash";
+import { bool, string } from "prop-types";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+
+const UNSUPPORTED_PROPS = ["color", "label", "labelPosition"];
 
 const propTypes = {
-    naked: bool
+    naked: bool,
+    ghost: bool,
+    className: string
 };
 
 const defaultProps = {
-    naked: false
+    naked: false,
+    ghost: false
 };
 
-function throwWhenUnsupportedPropIsProvided({ color }) {
-    if (!isNil(color)) {
-        throw new UnsupportedSemanticPropError("color");
-    }
-}
-
-export function Button({ naked, className, children, ...props }) {
-    throwWhenUnsupportedPropIsProvided(props);
+export function Button({ naked, ghost, className, children, ...props }) {
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const classes = mergeClasses(
         naked && "naked",
+        ghost && "ghost",
         className
     );
 
     return <SemanticButton className={classes} {...props}>{children}</SemanticButton>;
 }
+
+Button.Content = SemanticButton.Content;
+Button.Group = SemanticButton.Group;
+Button.Or = SemanticButton.Or;
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;

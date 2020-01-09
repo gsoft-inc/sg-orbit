@@ -1,6 +1,6 @@
 import { isNullOrEmpty } from "./types";
 
-class ExtendableError extends Error {
+export class ExtendableError extends Error {
     message = "";
     name = "";
     stack = null;
@@ -53,17 +53,6 @@ export class InvalidOperationError extends ExtendableError {
      */
     constructor(errorMessage) {
         const message = isNullOrEmpty(errorMessage) ? "InvalidOperationError" : `InvalidOperationError: "${errorMessage}"`;
-
-        super(message);
-    }
-}
-
-export class UnsupportedSemanticPropError extends ExtendableError {
-    /**
-     * @param {string} propName
-     */
-    constructor(propName) {
-        const message = isNullOrEmpty(propName) ? "UnsupportedSemanticPropError" : `UnsupportedSemanticPropError: The Semantic UI prop "${propName}" is not supported by Orbit.`;
 
         super(message);
     }
