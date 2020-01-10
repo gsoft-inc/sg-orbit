@@ -70,7 +70,7 @@
         "jest-ci": "yarn jest",
         "jest": "jest --config=jest/jest.config.js",
         "update": "run-s install:pkg install:sb",
-        "diff": "lerna diff",
+        "diff": "lerna changed && lerna diff",
         "netlify-ci-sb": "yarn bootstrap && yarn build:pkg && yarn build:sb",
         "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs"
     },
