@@ -63,26 +63,48 @@ stories("/theme")
                      <Button className="paused"fluid>Fluid</Button>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Button.Group basic toggle>
-                         <Button type="button"><Label circular size="mini" empty color="red" />One</Button>
-                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
-                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
-                     </Button.Group>
-                     <Button.Group basic toggle>
-                         <Button active type="button"><Label circular size="mini" empty color="red" />One</Button>
-                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
-                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
-                     </Button.Group>
-                     <Button.Group basic toggle>
-                         <Button disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
-                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
-                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
-                     </Button.Group>
-                     <Button.Group basic toggle>
-                         <Button active disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
-                         <Button active disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
-                         <Button active disabled icon type="button" ><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
-                     </Button.Group>
+                     <Button ghost>Cutoff</Button>
+                     <Button ghost primary>Cutoff</Button>
+                     <Button ghost secondary>Cutoff</Button>
+                     <Button ghost active>Cutoff</Button>
+                     <Button ghost active primary>Cutoff</Button>
+                     <Button ghost active secondary>Cutoff</Button>
+                     <Button ghost disabled>Cutoff</Button>
+                     <Button ghost disabled primary>Cutoff</Button>
+                     <Button ghost disabled secondary>Cutoff</Button>
+                     <Button ghost compact>Cutoff</Button>
+                     <Button ghost fluid>Cutoff</Button>
+                     <Button ghost circular>Cutoff</Button>
+                     <Button ghost circular primary>Cutoff</Button>
+                     <Button ghost circular secondary>Cutoff</Button>
+                     <Button ghost circular active>Cutoff</Button>
+                     <Button ghost circular disabled>Cutoff</Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button ghost icon><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button ghost icon active><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button ghost icon disabled><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button ghost icon><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button ghost icon active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button ghost icon disabled><CalendarIcon24 className="w6 h6" /></Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button naked>Cutoff</Button>
+                     <Button naked active>Cutoff</Button>
+                     <Button naked disabled>Cutoff</Button>
+                     <Button naked compact>Cutoff</Button>
+                     <Button naked fluid>Cutoff</Button>
+                     <Button naked circular>Cutoff</Button>
+                     <Button naked circular active>Cutoff</Button>
+                     <Button naked circular disabled>Cutoff</Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button naked icon><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button naked icon active><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button naked icon disabled><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
+                     <Button naked icon><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button naked icon active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button naked icon disabled><CalendarIcon24 className="w6 h6" /></Button>
                  </div>
              </div>
     )
@@ -105,12 +127,6 @@ stories("/theme")
                      <Button className="tall" secondary>Apollo</Button>
                      <Button className="tall" secondary active>Appollo</Button>
                      <Button className="tall" secondary disabled>Appollo</Button>
-                     <Button className="tall ghost">Danger</Button>
-                     <Button className="tall ghost" active>Danger</Button>
-                     <Button className="tall ghost" disabled>Danger</Button>
-                     <Button className="tall ghost" primary>Fuel</Button>
-                     <Button className="tall ghost" primary active>Fuel</Button>
-                     <Button className="tall ghost" primary disabled>Fuel</Button>
                  </div>
                  <div className="flex flex-column items-start">
                      <Button className="tall"><CalendarIcon24 className="w6 h6 mr1" />Astro Orbiter</Button>
@@ -140,6 +156,19 @@ stories("/theme")
                      <Button className="tall paused" negative disabled>Spaceship Earth</Button>
                      <Button className="tall paused" fluid>Fluid</Button>
                  </div>
+                 <div className="flex flex-column items-start">
+                     <Button ghost className="tall">Danger</Button>
+                     <Button ghost className="tall" active>Danger</Button>
+                     <Button ghost className="tall" disabled>Danger</Button>
+                     <Button ghost className="tall" primary>Fuel</Button>
+                     <Button ghost className="tall" primary active>Fuel</Button>
+                     <Button ghost className="tall" primary disabled>Fuel</Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button naked className="tall">Danger</Button>
+                     <Button naked className="tall" active>Danger</Button>
+                     <Button naked className="tall" disabled>Danger</Button>
+                 </div>
              </div>
     )
     .add("short",
@@ -161,12 +190,6 @@ stories("/theme")
                      <Button className="short" secondary>Apollo</Button>
                      <Button className="short" secondary active>Appollo</Button>
                      <Button className="short" secondary disabled>Appollo</Button>
-                     <Button className="short ghost">Danger</Button>
-                     <Button className="short ghost" active>Danger</Button>
-                     <Button className="short ghost" disabled>Danger</Button>
-                     <Button className="short ghost" primary>Fuel</Button>
-                     <Button className="short ghost" primary active>Fuel</Button>
-                     <Button className="short ghost" primary disabled>Fuel</Button>
                  </div>
                  <div className="flex flex-column items-start">
                      <Button className="short"><CalendarIcon24 className="w6 h6 mr1" />Astro Orbiter</Button>
@@ -196,117 +219,101 @@ stories("/theme")
                      <Button className="short paused" negative disabled>Spaceship Earth</Button>
                      <Button className="short paused" fluid>Fluid</Button>
                  </div>
-             </div>
-    )
-    .add("icons",
-         () =>
-             <div className="flex flex-row">
-                 <div className="flex flex-row">
-                     <div className="flex flex-column items-start">
-                         <Button icon circular><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular primary><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular primary active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular primary disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular basic primary><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular basic primary active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular basic primary disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                     </div>
+                 <div className="flex flex-column items-start">
+                     <Button ghost className="short">Danger</Button>
+                     <Button ghost className="short" active>Danger</Button>
+                     <Button ghost className="short" disabled>Danger</Button>
+                     <Button ghost className="short" primary>Fuel</Button>
+                     <Button ghost className="short" primary active>Fuel</Button>
+                     <Button ghost className="short" primary disabled>Fuel</Button>
                  </div>
-                 <div className="flex flex-row">
-                     <div className="flex flex-column items-start">
-                         <Button icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button primary icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
-                         <Button basic primary icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
-                     </div>
+                 <div className="flex flex-column items-start">
+                     <Button naked className="short">Danger</Button>
+                     <Button naked className="short" active>Danger</Button>
+                     <Button naked className="short" disabled>Danger</Button>
                  </div>
              </div>
     )
-    .add("ghost",
+    .add("circular",
          () =>
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
-                     <Button ghost>Cutoff</Button>
-                     <Button ghost primary>Cutoff</Button>
-                     <Button ghost secondary>Cutoff</Button>
-                     <Button ghost active>Cutoff</Button>
-                     <Button ghost active primary>Cutoff</Button>
-                     <Button ghost active secondary>Cutoff</Button>
-                     <Button ghost disabled>Cutoff</Button>
-                     <Button ghost disabled primary>Cutoff</Button>
-                     <Button ghost disabled secondary>Cutoff</Button>
-                     <Button ghost compact>Cutoff</Button>
-                     <Button ghost fluid>Cutoff</Button>
-                     <Button ghost circular>Cutoff</Button>
-                     <Button ghost circular primary>Cutoff</Button>
-                     <Button ghost circular secondary>Cutoff</Button>
-                     <Button ghost circular active>Cutoff</Button>
-                     <Button ghost circular disabled>Cutoff</Button>
+                     <Button icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Button ghost icon><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button ghost icon active><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button ghost icon disabled><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button ghost icon><CalendarIcon24 className="w6 h6" /></Button>
-                     <Button ghost icon active><CalendarIcon24 className="w6 h6" /></Button>
-                     <Button ghost icon disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular primary><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular primary active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular primary disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button primary icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button basic icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="tiny"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="tiny" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="tiny" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="small"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="small" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="small" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular basic primary><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular basic primary active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button icon circular basic primary disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="large"><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="large" active><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button basic primary icon circular size="large" disabled><CalendarIcon24 className="w6 h6" /></Button>
                  </div>
              </div>
     )
-    .add("naked",
+    .add("groups",
          () =>
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
-                     <Button naked>Cutoff</Button>
-                     <Button naked active>Cutoff</Button>
-                     <Button naked disabled>Cutoff</Button>
-                     <Button naked compact>Cutoff</Button>
-                     <Button naked fluid>Cutoff</Button>
-                     <Button naked circular>Cutoff</Button>
-                     <Button naked circular active>Cutoff</Button>
-                     <Button naked circular disabled>Cutoff</Button>
-                 </div>
-                 <div className="flex flex-column items-start">
-                     <Button naked icon><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button naked icon active><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button naked icon disabled><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
-                     <Button naked icon><CalendarIcon24 className="w6 h6" /></Button>
-                     <Button naked icon active><CalendarIcon24 className="w6 h6" /></Button>
-                     <Button naked icon disabled><CalendarIcon24 className="w6 h6" /></Button>
+                     <Button.Group basic toggle>
+                         <Button type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button active type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
+                     <Button.Group basic toggle>
+                         <Button active disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
+                         <Button active disabled icon type="button" ><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
+                     </Button.Group>
                  </div>
              </div>
     );
