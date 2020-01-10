@@ -12,10 +12,33 @@
     transform: rotate(90deg);
 }
 
+.ui.selection.dropdown:hover  .dropdown.icon {
+    background-color: var(--marine-500);
+}
+
+.ui.selection.dropdown:hover  .dropdown.clear.icon {
+    background-color: var(--marine-100);
+}
+
+.ui.dropdown > .clear.icon {
+    background-color: var(--marine-100);
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: 20px 20px;
+}
+
+.ui.selection.dropdown:hover  > .clear.icon:hover,
+.ui.selection.dropdown:hover  > .clear.icon:focus {
+    background-color: var(--marine-500);
+}
+
 .ui.selection.dropdown > .dropdown.icon {
     height: 100%;
     width: 24px;
     padding: 0;
+}
+
+.ui.selection.dropdown > .dropdown.clear.icon {
+    width: 20px;
 }
 
 .ui.dropdown.no-icons .dropdown.icon,
@@ -106,4 +129,9 @@
 
 .ui.floating.dropdown .menu > .menu {
     box-shadow: none!important;
+}
+
+.ui.search.dropdown > input.search {
+    min-height: 38px;
+    font-size: 1.125rem;
 }
