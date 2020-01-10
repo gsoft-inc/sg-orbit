@@ -1,15 +1,17 @@
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Dropdown } from "semantic-ui-react";
-import { SemanticLink, Warning } from "@docs-blocks";
-import { AddIcon } from "@orbit-ui/icons";
-import { createComponentSection } from "@utils";
-import PackageInstallation from "../package-installation.mdx";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { SemanticLayout } from "../semantic-layout";
+import { WarningMessage } from "@blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+import Installation from "../installation.mdx";
 
-<Meta title={createComponentSection("Dropdown/inline")} />
-
-<Anchor storyId="components-dropdown-inline--default-story" />
-
-<SemanticLink docPath="/modules/dropdown" />
+<Meta
+    title={createComponentSection("Dropdown/inline")}
+    parameters={paramsBuilder()
+        .docsLayout(<SemanticLayout documentationPath="/modules/dropdown" />)
+        .build()}
+/>
 
 # Inline Dropdown
 
@@ -17,20 +19,13 @@ An inlined dropdown can appear inline with other content.
 
 ## Installation
 
-<PackageInstallation />
-
-<details><summary >then import what you need</summary>
-
-```javascript
-    import { Dropdown } from "semantic-ui-react";
-```
-</details>
+<Installation imports={<Imports />} />
 
 ## Usage
 
-<Warning>
+<WarningMessage>
     This component have the same feature set as the <a href="/?path=/docs/components-dropdown-standard--default-story">standard Dropdown</a> component.
-</Warning>
+</WarningMessage>
 
 ### Default
 

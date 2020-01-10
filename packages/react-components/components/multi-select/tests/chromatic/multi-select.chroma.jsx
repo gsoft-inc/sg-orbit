@@ -16,11 +16,9 @@ function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Multi Select"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 

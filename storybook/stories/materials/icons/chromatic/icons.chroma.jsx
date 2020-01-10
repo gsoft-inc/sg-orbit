@@ -64,11 +64,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Icons"))
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 

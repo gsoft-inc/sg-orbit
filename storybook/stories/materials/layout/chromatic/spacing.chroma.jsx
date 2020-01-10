@@ -2,11 +2,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Spacing"))
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 

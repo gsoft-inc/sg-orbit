@@ -1,0 +1,16 @@
+A search input component requires a set of results to display. Those results can be specified with the `results` property.
+
+To create a result, use the `searchInputResult(id, text, obj?)` function:
+
+```javascript
+const georgeResult = multiSelectItem("1", "George");
+```
+
+<details><summary >specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
+
+```javascript
+const georgeResult = multiSelectItem("1", "George", { backendId: 123 });
+```
+</details>

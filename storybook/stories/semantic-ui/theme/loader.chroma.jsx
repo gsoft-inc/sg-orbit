@@ -4,12 +4,10 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Loader"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .width("80%")
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .canvasLayout({ width: "80%" })
+            .build())
         .build();
 }
 

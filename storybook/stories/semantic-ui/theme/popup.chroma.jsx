@@ -6,12 +6,10 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popup"))
         .segment(segment)
-        .parameters(
-            paramsBuilder()
-                .chromaticDelay(100)
-                .width("1800px")
-                .build()
-        )
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .canvasLayout({ width: "1800px" })
+            .build())
         .build();
 }
 

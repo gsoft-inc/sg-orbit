@@ -1,46 +1,28 @@
-import { Anchor, Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, Popup, TOP_CENTER, TOP_LEFT, TOP_RIGHT } from "@orbit-ui/react-popup/src";
 import { ControlledRedBox, RedBoxPopup } from "./components";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
 import { array, select, withKnobs } from "@storybook/addon-knobs";
-import { paramsBuilder, INSTALLATION_PAGE, createComponentSection } from "@utils";
-import { GithubLink, PropsTabs, PackagesInstallation } from "@docs-blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
 
-<Meta title={createComponentSection("Popup")} />
-
-<GithubLink filePath="/packages/react-components/components/popup/src" />
-
-<Anchor storyId="components-popup--default-story" />
+<Meta
+    title={createComponentSection("Popup")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/popup/src" />)
+        .build()}
+/>
 
 # Popup
 
 ## Installation
 
-<details><summary >install the packages</summary>
-
-Install from <a href={INSTALLATION_PAGE}>the React bundle</a> or as a standalone component:
-
-<PackagesInstallation packageName="popup" />
-
-</details>
-
-<details><summary >then import what you need</summary>
-
-```javascript
-import {
-    Popup,
-    TOP_LEFT,
-    TOP_RIGHT,
-    TOP_CENTER,
-    BOTTOM_LEFT,
-    BOTTOM_RIGHT,
-    BOTTOM_CENTER
-} from "@orbit-ui/react-popup" | "@orbit-ui/react-components";
-```
-</details>
+<Installation componentName="popup" imports={<Imports />} />
 
 ## Props
 
-<PropsTabs
+<Props
     componentsDefinitions={[
         { displayName: "Popup", component: Popup }
     ]}
@@ -62,7 +44,7 @@ A default popup.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
-        .marginTop("150px")
+        .canvasLayout({ marginTop: "150px" })
         .excludeFromDocs()
         .build()}
 >
@@ -96,7 +78,7 @@ A popup can be offset from it's anchored position.
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
-    >
+>
     <RedBoxPopup closeOnBlur={false} />
 </Story>
 

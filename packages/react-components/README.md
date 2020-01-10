@@ -90,7 +90,7 @@ Here's an example:
 ```javascript
 // config.js
 
-import { createComponentSection } from "@utils/create-section";
+import { createComponentSection } from "@utils";
 
 export const DATE_RANGE_PICKER_SECTION = createComponentSection("Date Picker/range");
 ```

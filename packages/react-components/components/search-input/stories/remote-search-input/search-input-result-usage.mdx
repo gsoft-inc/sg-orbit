@@ -1,0 +1,24 @@
+A remote search input component requires a set of results to display. Those results are obtained by transforming the remote data to `SearchInputResult` by the `onResults` handler.
+
+To create a result, use the `searchInputResult(id, text, obj?)` function:
+
+```jsx
+<RemoteSearchInput
+    onResults={response => {
+        return response.data.map(x => searchInputResult(x.code, x.name));
+    }}
+/>
+```
+
+<details><summary >specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
+
+```jsx
+<RemoteSearchInput
+    onResults={response => {
+        return response.data.map(x => searchInputResult(x.code, x.name, { backendId: x.backendId }));
+    }}
+/>
+```
+</details>
