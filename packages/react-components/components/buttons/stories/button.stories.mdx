@@ -3,8 +3,10 @@ import { Button } from "@orbit-ui/react-buttons/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props, WarningMessage } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
+import Warning from "./warning.mdx";
 
 <Meta
     title={createComponentSection("Button")}
@@ -19,6 +21,20 @@ import Imports from "./imports.mdx";
 ## Installation
 
 <Installation componentName="buttons" imports={<Imports />} />
+
+## Props
+
+This component is an HOC on top of the original Semantic UI React `<Button />` component. We built it to add additional props to the original component. The documentation for most of the props is available on [Semantic UI React website](https://react.semantic-ui.com/elements/button/).
+
+The additional props are available below.
+
+<div className="mt1">
+    <Props
+        componentsDefinitions={[
+            { displayName: "Button", component: Button }
+        ]}
+    />
+</div>
 
 ## Usage
 
@@ -188,7 +204,7 @@ A basic button have a subtle appearance.
 
 ### Ghost
 
-A ghost button is similar to a standard button, but have no basic colour until hovered.
+A ghost button is similar to a standard button, but have no basic color until hovered.
 
 <Preview>
     <Story name="ghost">
@@ -248,7 +264,7 @@ A button can hint towards a negative consequence.
 
 ### Naked
 
-A button can be stripped of all colors. Use this variant if you need to customize a button.
+A button can be colorless. Use this variant if you need to customize the button.
 
 <Preview>
     <Story name="naked">
