@@ -206,6 +206,8 @@
     background: @cloud100 !important;
 }
 
+/* svg colors */
+
 .ui.button svg,
 .ui.buttons.basic .button.active svg, {
     fill: @white;
@@ -230,6 +232,10 @@
 
 .ui.button.basic.primary svg {
     fill: @primary500;
+}
+
+.ui.button.naked svg {
+    fill: initial;
 }
 
 .ui.button.disabled svg,
@@ -282,6 +288,18 @@
 .ui.loading.button:after {
     margin: 0;
     transform: translate(-50%, -50%);
+}
+
+.ui.button.naked:hover svg,
+.ui.button.naked:focus svg,
+.ui.button.naked.active svg {
+    fill: initial;
+}
+
+.ui.button.naked.disabled svg,
+.ui.button.naked.disabled svg,
+.ui.button.naked.disabled svg {
+    fill: initial;
 }
 
 @keyframes button-spin {

@@ -94,9 +94,9 @@ stories("/theme")
                      <Button naked disabled>Cutoff</Button>
                      <Button naked compact>Cutoff</Button>
                      <Button naked fluid>Cutoff</Button>
-                     <Button naked circular>Cutoff</Button>
-                     <Button naked circular active>Cutoff</Button>
-                     <Button naked circular disabled>Cutoff</Button>
+                     <Button naked circular>Cu</Button>
+                     <Button naked circular active>Cu</Button>
+                     <Button naked circular disabled>Cu</Button>
                  </div>
                  <div className="flex flex-column items-start">
                      <Button naked icon><CalendarIcon24 className="w6 h6 mr1" />Cutoff</Button>
