@@ -7,7 +7,7 @@
 @fontWeight: 400;
 @borderRadius: 999px;
 @basicBorderWidth: 2px;
-@verticalPadding: 11px;
+@verticalPadding: 8px;
 @horizontalPadding: 1em;
 @verticalMargin: 0;
 @horizontalMargin: 0;

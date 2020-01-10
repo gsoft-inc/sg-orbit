@@ -24,14 +24,14 @@
     margin-left: 8px!important;
 }
 
-/* tiny */
-.ui.menu .item > .label.tiny {
-    padding: 3px @horizontalPadding;
+/* mini */
+.ui.menu .item > .label.mini {
+    padding: 2px @horizontalPadding;
     margin-left: var(--scale-bravo);
 }
 
-.ui.label.tiny.icon.item,
-.ui.menu .item > .label.tiny.icon.item {
+.ui.label.mini.icon.item,
+.ui.menu .item > .label.mini.icon.item {
     padding: 3px calc(@horizontalPadding/2) 3px @horizontalPadding;
     margin-left: 0;
 }
@@ -97,12 +97,21 @@
     min-height: 32px
 }
 
+/* check if can be overriden via variables first */
+
 .ui.label.tiny:not(.circular) {
+    min-height: 24px;
+    font-size: 0.75rem;
+    padding: 4px 1rem;
+}
+
+/* manage font weight and letter spacing? for labels in tab */
+
+.ui.label.mini:not(.circular) {
     min-height: 16px;
     font-size: 0.75rem;
+    padding: 0.15em 0.8125em;
     font-weight: 600;
-    letter-spacing: .5px;
-    text-transform: uppercase;
 }
 
 /* Circular Labels */
