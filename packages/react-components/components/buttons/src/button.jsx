@@ -5,8 +5,17 @@ import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/reac
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "label", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
+    /**
+     * A button can be colorless. Use this variant if you need to customize the button.
+     */
     naked: bool,
+    /**
+     * A button can be formatted without basic color until it's hovered.
+     */
     ghost: bool,
+    /**
+     * @ignore
+     */
     className: string
 };
 
