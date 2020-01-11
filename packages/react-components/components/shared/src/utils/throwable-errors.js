@@ -1,6 +1,6 @@
 import { isNullOrEmpty } from "./types";
 
-class ExtendableError extends Error {
+export class ExtendableError extends Error {
     message = "";
     name = "";
     stack = null;

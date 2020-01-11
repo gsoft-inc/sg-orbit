@@ -1,0 +1,353 @@
+import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
+import { Button } from "@orbit-ui/react-buttons/src";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Label } from "semantic-ui-react";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props, WarningMessage } from "@blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+import Warning from "./warning.mdx";
+
+<Meta
+    title={createComponentSection("Button")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/button" />)
+        .build()}
+/>
+
+# Button
+
+## Installation
+
+<Installation componentName="buttons" imports={<Imports />} />
+
+## Props
+
+This component is an HOC on top of the original Semantic UI React `<Button />` component. We built it to add additional props to the original component. The documentation for most of the props is available on [Semantic UI React website](https://react.semantic-ui.com/elements/button/).
+
+The additional props are available below.
+
+<div className="mt1">
+    <Props
+        componentsDefinitions={[
+            { displayName: "Button", component: Button }
+        ]}
+    />
+</div>
+
+## Usage
+
+### Default
+
+A default button.
+
+<Preview>
+    <Story name="default">
+        <Button type="button">Cutoff</Button>
+    </Story>
+</Preview>
+
+### Active
+
+A button can be active.
+
+<Preview>
+    <Story name="active">
+        <Button type="button" active>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Fluid
+
+A button can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Button type="button" fluid>To infinity and beyond</Button>
+    </Story>
+</Preview>
+
+### Sizes
+
+A button can vary in size.
+
+<Preview>
+    <Story name="sizes">
+        <div>
+            <div className="flex">
+                <Button type="button" size="tiny">Tiny</Button>
+                <Button type="button" size="small">Small</Button>
+                <Button type="button" size="medium">Medium</Button>
+                <Button type="button" size="large">Large</Button>
+            </div>
+            <div className="flex flex-row items-start">
+                <Button type="button" className="short">Short</Button>
+                <Button type="button" className="tall">Tall</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Compact
+
+A button can reduce its padding to fit into tighter spaces.
+
+<Preview>
+    <Story name="compact">
+        <Button type="button" compact>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Disabled
+
+A button can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Button type="button" disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Emphasis
+
+A button can show different levels of emphasis.
+
+<Preview>
+    <Story name="emphasis">
+        <div>
+            <div className="flex">
+                <Button type="button" primary>Primary</Button>
+                <Button type="button" secondary>Secondary</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" primary disabled>Primary</Button>
+                <Button type="button" secondary disabled>Secondary</Button>
+                <Button type="button" primary active>Primary</Button>
+                <Button type="button" secondary active>Secondary</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Icon
+
+A button can contain an icon.
+
+<Preview>
+    <Story name="icon">
+        <div>
+            <div>
+                <Button type="button" icon><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" icon disabled><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+                <Button type="button" icon active><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Icon only
+
+A button can only contain an icon.
+
+<Preview>
+    <Story name="icon only">
+        <Button type="button"><AddIcon className="flex w6 h6"/></Button>
+    </Story>
+</Preview>
+
+### Circular
+
+A button can be circular.
+
+<Preview>
+    <Story name="circular">
+        <div>
+            <div className="flex flex-row items-start">
+                <Button type="button" icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
+            </div>
+            <div className="flex flex-row items-start">
+                <Button type="button" circular size="tiny">Aa</Button>
+                <Button type="button" circular size="small">Aa</Button>
+                <Button type="button" circular>Aa</Button>
+                <Button type="button" circular size="large">Aa</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Basic
+
+A basic button have a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <div>
+            <div className="flex">
+                <Button type="button" basic>Cutoff</Button>
+                <Button type="button" basic primary>Cutoff</Button>
+                <Button type="button" basic secondary>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" basic disabled>Cutoff</Button>
+                <Button type="button" basic primary disabled>Cutoff</Button>
+                <Button type="button" basic secondary disabled>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Ghost
+
+A ghost button is similar to a standard button, but have no basic color until hovered.
+
+<Preview>
+    <Story name="ghost">
+        <div>
+            <div className="flex">
+                <Button type="button" ghost>Cutoff</Button>
+                <Button type="button" ghost primary>Cutoff</Button>
+                <Button type="button" ghost secondary>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" ghost disabled>Cutoff</Button>
+                <Button type="button" ghost active>Cutoff</Button>
+                <Button type="button" ghost disabled primary>Cutoff</Button>
+                <Button type="button" ghost active primary>Cutoff</Button>
+                <Button type="button" ghost disabled secondary>Cutoff</Button>
+                <Button type="button" ghost active secondary>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Success
+
+A button can hint towards a positive consequence.
+
+<Preview>
+    <Story name="success">
+        <div>
+            <div>
+                <Button type="button" positive>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" positive disabled>Cutoff</Button>
+                <Button type="button" positive active>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Negative
+
+A button can hint towards a negative consequence.
+
+<Preview>
+    <Story name="negative">
+        <div>
+            <div>
+                <Button type="button" negative>Cutoff</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" negative disabled>Cutoff</Button>
+                <Button type="button" negative active>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Naked
+
+A button can be colorless. Use this variant if you need to customize the button.
+
+<Preview>
+    <Story name="naked">
+        <Button type="button" naked>Naked</Button>
+    </Story>
+</Preview>
+
+### Custom colors
+
+A naked button can have a custom color.
+
+<Preview>
+    <Story name="custom colors">
+        <div className="flex">
+            <Button type="button" naked style={{ backgroundColor: "#FFF6E7", color: "var(--marine-500)", border: "1px solid #FEE9C3" }}>Department</Button>
+            <Button type="button" naked style={{ backgroundColor: "#E4F2FF", color: "var(--marine-500)", border: "1px solid #BCE0FF" }}>External project</Button>
+            <Button type="button" naked style={{ backgroundColor: "#EFF6F6", color: "var(--marine-500)", border: "1px solid #D6E9E9" }}>Important</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <div>
+            <div className="flex">
+                <Button type="button" loading>Loading</Button>
+                <Button type="button" loading primary>Loading</Button>
+                <Button type="button" loading secondary>Loading</Button>
+                <Button type="button" loading basic>Loading</Button>
+                <Button type="button" loading basic primary>Loading</Button>
+                <Button type="button" loading basic secondary>Loading</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" disabled loading>Loading</Button>
+                <Button type="button" disabled loading primary>Loading</Button>
+                <Button type="button" disabled loading secondary>Loading</Button>
+                <Button type="button" disabled loading basic>Loading</Button>
+                <Button type="button" disabled loading basic primary>Loading</Button>
+                <Button type="button" disabled loading basic secondary>Loading</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Nested label
+
+A label can be nested in a button.
+
+<Preview>
+    <Story name="nested label">
+        <div>
+            <div>
+                <Button type="button" basic>
+                    <span className="mr2">External project</span>
+                    <Label as="span" size="tiny" color="black">6</Label>
+                </Button>
+            </div>
+            <div>
+                <Button type="button" basic fluid className="tl">
+                    <span className="flex-grow-1 tl">External project</span>
+                    <Label as="span" size="tiny" color="black">6</Label>
+                </Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Groups
+
+Buttons can exist together as a group.
+
+<Preview>
+    <Story name="groups">
+        <div className="flex">
+            <Button.Group basic toggle>
+                <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+                <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
+            </Button.Group>
+        </div>
+    </Story>
+</Preview>

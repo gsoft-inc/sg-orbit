@@ -1,0 +1,24 @@
+{
+    "name": "@orbit-ui/react-buttons",
+    "version": "0.1.0",
+    "description": "ShareGate orbit UI React button components",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "@orbit-ui/css-normalize": "*",
+        "@orbit-ui/semantic-ui-theme": "*",
+        "react": "*",
+        "react-dom": "*",
+        "semantic-ui-react": "*"
+    },
+    "dependencies": {
+        "@babel/runtime-corejs3": "*",
+        "@orbit-ui/react-components-shared": "2.0.0",
+        "prop-types": "*"
+    }
+}

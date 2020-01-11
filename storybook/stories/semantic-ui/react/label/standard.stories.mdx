@@ -1,5 +1,5 @@
-import { CommunicationIcon } from "@orbit-ui/icons";
-import { Icon, Label } from "semantic-ui-react";
+import { CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { Label } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { SemanticLayout } from "../semantic-layout";
 import { createComponentSection, paramsBuilder } from "@utils";
@@ -42,11 +42,12 @@ A label can include an icon.
     <Story name="icon">
         <div className="flex">
             <Label>
-                Notification Sent <Icon name="search" />
+                Notification Sent <MagnifierIcon className="h6 w6 fill-marine-500 ml1" />
             </Label>
             <Label>
                 <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-                Notification Sent <Icon name="search" />
+                Notification Sent
+                <MagnifierIcon className="h6 w6 fill-marine-500 ml1" />
             </Label>
         </div>
     </Story>
@@ -69,6 +70,8 @@ A label can vary in size.
 <Preview>
     <Story name="sizes">
         <div className="flex items-start">
+            <Label size="mini">Notification Sent</Label>
+            <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
             <Label size="large">Notification Sent</Label>
         </div>

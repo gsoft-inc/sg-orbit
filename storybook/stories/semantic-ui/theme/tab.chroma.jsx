@@ -62,7 +62,7 @@ stories()
                              menuItem: (
                                  <Menu.Item key="messages" className="with-label">
                                     Messages
-                                     <Label className="primary" size="tiny">
+                                     <Label className="primary" size="mini">
                                     NEW
                                      </Label>
                                  </Menu.Item>
@@ -83,7 +83,7 @@ stories()
                              menuItem: (
                                  <Menu.Item key="messages" className="with-label">
                                     Messages
-                                     <Label className="primary" size="tiny">
+                                     <Label className="primary" size="mini">
                                     NEW
                                      </Label>
                                  </Menu.Item>

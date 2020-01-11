@@ -1,15 +1,18 @@
-import { BrandPicker, GithubLink } from "@blocks";
+import { BrandPicker, GithubLink, SemanticLink } from "@blocks";
+import { isNil } from "lodash";
 import { string } from "prop-types";
 
 const propTypes = {
-    sourcePath: string.isRequired
+    sourcePath: string,
+    semanticPath: string
 };
 
-export function ReactComponentsLayout({ sourcePath, children }) {
+export function ReactComponentsLayout({ sourcePath, semanticPath, children }) {
     return (
         <>
             <BrandPicker />
-            <GithubLink path={sourcePath} />
+            {!isNil(sourcePath) && <GithubLink path={sourcePath} />}
+            {!isNil(semanticPath) && <SemanticLink path={semanticPath} />}
             {children}
         </>
     );
