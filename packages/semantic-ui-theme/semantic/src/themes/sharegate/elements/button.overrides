@@ -9,26 +9,26 @@
     justify-content: center;
 }
 
+.ui.button.tiny.circular,
 .ui.button.icon.tiny.circular {
     min-height: 24px;
     min-width: 24px;
     padding: 0;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 0.75rem;
 }
 
+.ui.button.small.circular,
 .ui.button.icon.small.circular {
     min-height: 32px;
     min-width: 32px;
     padding: 0;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 .ui.button.circular,
-.ui.button.medium.circular ,
-.ui.button.icon.circular,
-.ui.button.icon.medium.circular {
+.ui.button.icon.circular, {
     font-size: 1rem;
     padding: 0;
     justify-content: center;
@@ -36,15 +36,18 @@
     min-width: 40px;
 }
 
+.ui.button.large.circular,
 .ui.button.icon.large.circular {
     min-width: 48px;
     min-height: 48px;
     padding: 0;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
-.ui.button.tall {
+/* Button Sizes */
+
+/* .ui.button.tall {
     min-height: 48px;
 }
 
@@ -52,7 +55,24 @@
     min-height: 32px;
     font-size: 1rem;
     padding: 0.5rem 1rem;
+} */
+
+.ui.button.tiny,
+.ui.button.icon.tiny {
+    min-height: 24px;
 }
+
+.ui.button.small,
+.ui.button.icon.small {
+    min-height: 32px;
+}
+
+.ui.button.large,
+.ui.button.icon.large {
+    min-height: 48px;
+}
+
+/*  */
 
 .ui.icon.buttons .button,
 .ui.icon.button {
