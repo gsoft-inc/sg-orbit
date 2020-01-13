@@ -10,7 +10,7 @@ const propTypes = {
      */
     naked: bool,
     /**
-     * A button can be formatted without basic color until it's hovered.
+     * A button can be formatted without a background color until it's hovered.
      */
     ghost: bool,
     /**
