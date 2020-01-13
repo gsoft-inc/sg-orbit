@@ -3,8 +3,9 @@ import { Button } from "@orbit-ui/react-buttons/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
+import { Props, WarningMessage } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
+import HocWarning from "./hoc-warning.mdx";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -23,9 +24,7 @@ import Imports from "./imports.mdx";
 
 ## Props
 
-This component is an HOC on top of the original Semantic UI React `<Button />` component. We built it to add additional props to the original component. The documentation for most of the props is available on [Semantic UI React website](https://react.semantic-ui.com/elements/button/).
-
-The additional props are available below.
+<WarningMessage><HocWarning /></WarningMessage>
 
 <div className="mt6">
     <Props
