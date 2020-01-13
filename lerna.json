@@ -4,7 +4,7 @@
     "version": "independent",
     "command": {
         "version": {
-            "ignoreChanges": ["**/*.md", "**/*.json", "**/*.config.js", "**/*rc*", "**/tachyons/storybook/**", "**/stories/**", "**/tests/**", "**/dist/**"],
+            "ignoreChanges": ["**/*.md*", "**/*.json", "**/*.config.js", "**/*rc*", "**/tachyons/storybook/**", "**/stories/**", "**/tests/**", "**/dist/**"],
             "allowBranch": ["master"]
         }
     }

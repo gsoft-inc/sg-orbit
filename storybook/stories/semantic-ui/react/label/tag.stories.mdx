@@ -29,7 +29,7 @@ A default tag.
 
 <Preview>
     <Story name="default">
-        <Label>
+        <Label tag>
             <Label circular empty size="mini" color="red" />
             Group added
         </Label>
@@ -43,7 +43,7 @@ A tag can contain icons.
 <Preview>
     <Story name="icons">
         <div className="flex items-start">
-            <Label>
+            <Label tag>
                 <Label circular empty size="mini" color="red" />
                 Group added
                 <Button icon circular size="tiny" className="transparent">
@@ -77,7 +77,7 @@ A tag can have a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <Label basic>
+        <Label basic tag>
             <Label circular empty size="mini" color="red" />
         Group added
         </Label>
@@ -91,11 +91,11 @@ A tag can vary in size.
 <Preview>
     <Story name="sizes">
         <div className="flex items-start">
-            <Label size="small">
+            <Label size="small" tag>
                 <Label circular empty size="mini" color="red" />
                 Group added
             </Label>
-            <Label size="large">
+            <Label size="large" tag>
                 <Label circular empty size="mini" color="red" />
                 Group added
             </Label>

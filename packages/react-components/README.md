@@ -45,13 +45,15 @@ To define a story once for development and documentation a story must be written
 
 A story must:
 
-- Be located in the `Components` top level section of the Storybook navigation menu.
+- Be located in the `Components` top level section of the Storybook navigation menu (use `createComponentSection` utility function).
 - The second level segment must be the capitalized name of the component.
 
 Here's an exemple for the date range picker component:
 
 ```jsx
-<Meta title="Components|Date Picker/range" />
+import { createComponentSection } from "@utils";
+
+<Meta title={createComponentSection("Date Picker/range")} />
 ```
 
 The component stories must provide:
@@ -59,7 +61,7 @@ The component stories must provide:
 - A story named *default* that render the component default state.
 - A story named *knobs* with pre-configured [knobs](https://github.com/storybookjs/storybook/tree/next/addons/knobs). 
 
-The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/components/*/stories/*.stories.mdx`.
+The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/components/*/stories/**.stories.mdx`.
 
 ```
 /packages
@@ -81,35 +83,24 @@ Specifications stories must be written with the [storiesOf API](https://storyboo
 
 A story must:
 
-- Be located in the `Components` top level section of the Storybook navigation menu (same as the development stories).
+- Be located in the `Chromatic` top level section of the Storybook navigation menu (use `createChromaticSection` utility function).
 - The second level segment must be the capitalized name of the component (same as the development stories).
-- The third level segment must be `chromatic` and be located last in the component hierarchy.
 
 Here's an example:
 
 ```javascript
-// config.js
-
-import { createComponentSection } from "@utils";
-
-export const DATE_RANGE_PICKER_SECTION = createComponentSection("Date Picker/range");
-```
-
-```javascript
 // date-range-picker.chroma.jsx
 
-import { DATE_RANGE_PICKER_SECTION } from "@react-components/date-picker/stories/config";
-import { paramsBuilder } from "@utils/params-builder";
-import { storiesOfBuilder } from "@utils/stories-of-builder";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, `${DATE_RANGE_PICKER_SECTION}/chromatic`)
+    return storiesOfBuilder(module, createChromaticSection("Date Picker/range))
         .segment(segment)
         .parameters(
             paramsBuilder()
                 .chromaticDelay(100)
                 .build()
-        )
+            )
         .build();
 }
 
@@ -120,7 +111,7 @@ stories("/segment")
     )
 ```
 
-The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/components/*/tests/chromatic/*.chroma.jsx`.
+The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/components/*/tests/chromatic/**.chroma.jsx`.
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
 

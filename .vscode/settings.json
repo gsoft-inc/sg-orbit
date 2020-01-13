@@ -18,8 +18,8 @@
     "eslint.validate": ["javascript", "javascriptreact", "mdx"],
     "stylelint.autoFixOnSave": true,
     "files.associations": {
-        ".overrides": "less",
-        ".variables": "less"
+        ".overrides": "css",
+        ".variables": "css"
     },
     "search.exclude": {
         "**/node_modules*": true,

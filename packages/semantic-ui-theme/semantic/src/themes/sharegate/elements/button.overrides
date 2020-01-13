@@ -6,6 +6,7 @@
     min-height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .ui.button.icon.tiny.circular {
@@ -59,13 +60,13 @@
 }
 
 
-/* transparent button */
+/* Transparent button */
 .ui.transparent.button {
     background-color: @transparent;
     border: none;
 }
 
-/* ghost button - takes the same size of common buttons but doesnt have a background when not hovered */
+/* Ghost button (Takes the same size of common buttons but doesnt have a background when not hovered) */
 .ui.ghost.button {
     background-color: @transparent;
     border: none;
@@ -205,6 +206,8 @@
     background: @cloud100 !important;
 }
 
+/* svg colors */
+
 .ui.button svg,
 .ui.buttons.basic .button.active svg, {
     fill: @white;
@@ -229,6 +232,10 @@
 
 .ui.button.basic.primary svg {
     fill: @primary500;
+}
+
+.ui.button.naked svg {
+    fill: initial;
 }
 
 .ui.button.disabled svg,
@@ -281,6 +288,18 @@
 .ui.loading.button:after {
     margin: 0;
     transform: translate(-50%, -50%);
+}
+
+.ui.button.naked:hover svg,
+.ui.button.naked:focus svg,
+.ui.button.naked.active svg {
+    fill: initial;
+}
+
+.ui.button.naked.disabled svg,
+.ui.button.naked.disabled svg,
+.ui.button.naked.disabled svg {
+    fill: initial;
 }
 
 @keyframes button-spin {
@@ -353,7 +372,6 @@
 }
 
 /* Toggle (Modifies active state to give affordances) */
-
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
@@ -391,7 +409,29 @@
 }
 
 /* Labels in buttons should be consistent */
-
 .ui.button .label.mini {
     margin-right: var(--scale-bravo);
+}
+
+/* Naked */
+.ui.button.naked {
+    background-color: @transparent;
+    color: initial;
+}
+
+.ui.buttons.naked .button:hover,
+.ui.button.naked:hover,
+.ui.button.naked:focus,
+.ui.naked.active.button {
+    background-color: @transparent;
+    color: initial;
+}
+
+.ui.buttons .disabled.button.naked,
+.ui.disabled.button.naked,
+.ui.button.naked:disabled,
+.ui.disabled.button.naked:hover,
+.ui.disabled.naked.active.button {
+    background-color: @transparent!important;
+    color: initial !important;
 }

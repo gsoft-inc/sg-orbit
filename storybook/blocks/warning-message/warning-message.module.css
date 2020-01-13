@@ -1,5 +1,12 @@
 .icon {
-    display: inline-block;
     line-height: 1;
-    vertical-align: middle;
+    margin-right: var(--scale-bravo);
+}
+
+.content {
+    line-height: 1;
+}
+
+.content > p:first-child {
+    margin-top: 0;
 }

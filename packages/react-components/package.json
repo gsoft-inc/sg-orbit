@@ -26,7 +26,8 @@
         "@orbit-ui/react-date-picker": "3.0.2",
         "@orbit-ui/react-multi-select": "2.0.1",
         "@orbit-ui/react-popup": "3.0.1",
-        "@orbit-ui/react-search-input": "2.0.1"
+        "@orbit-ui/react-search-input": "2.0.1",
+        "@orbit-ui/react-buttons": "0.1.0"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }
