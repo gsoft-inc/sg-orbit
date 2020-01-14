@@ -409,7 +409,7 @@
 }
 
 /* Labels in buttons should be consistent */
-.ui.button .label.mini {
+.ui.button .label.tag.mini {
     margin-right: var(--scale-bravo);
 }
 
@@ -417,6 +417,7 @@
 .ui.button.naked {
     background-color: @transparent;
     color: initial;
+    font-weight: initial;
 }
 
 .ui.buttons.naked .button:hover,
