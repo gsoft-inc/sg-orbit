@@ -1,10 +1,8 @@
-import { Children } from "react";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, string } from "prop-types";
-import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["animated", "attached", "color", "label", "labelPosition", "floated", "inverted"];
+const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
     /**
@@ -12,9 +10,17 @@ const propTypes = {
      */
     naked: bool,
     /**
-     * A button can be formatted without a background color until it's hovered.
+     * A ghost button doesn't have a background color until it's hovered.
      */
     ghost: bool,
+    /**
+     * A button can be formatted to include a label _(overseed the original prop)_.
+     */
+    icon: bool,
+    /**
+     * A button can be formatted to include an icon _(overseed the original prop)_.
+     */
+    label: bool,
     /**
      * @ignore
      */
@@ -23,29 +29,19 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    ghost: false
+    ghost: false,
+    icon: false,
+    label: false
 };
 
-export function Button({ naked, ghost, className, children, ...props }) {
+export function Button({ naked, ghost, icon, label, className, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
-
-    const childrenArray = Children.toArray(children);
-
-    if (childrenArray.length > 0) {
-        childrenArray.forEach(x => {
-            console.log(x);
-
-            if (!isNil(x.type)) {
-                if (!isNil(x.type.name)) {
-                    console.log("*** ", x.type.name);
-                }
-            }
-        });
-    }
 
     const classes = mergeClasses(
         naked && "naked",
         ghost && "ghost",
+        icon && "icon",
+        label && "label",
         className
     );
 
