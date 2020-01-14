@@ -14,11 +14,11 @@ const propTypes = {
      */
     ghost: bool,
     /**
-     * A button can be formatted to include a label _(overseed the original prop)_.
+     * A button can be formatted to include an icon _(overseed the original prop)_.
      */
     icon: bool,
     /**
-     * A button can be formatted to include an icon _(overseed the original prop)_.
+     * A button can be formatted to include a label _(overseed the original prop)_.
      */
     label: bool,
     /**
