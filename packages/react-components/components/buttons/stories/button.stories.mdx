@@ -135,7 +135,7 @@ A button can contain an icon.
 <Preview>
     <Story name="icon">
         <div>
-            <div>
+            <div className="flex">
                 <Button type="button" icon><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
             </div>
             <div className="flex">
@@ -152,7 +152,15 @@ A button can only contain an icon.
 
 <Preview>
     <Story name="icon only">
-        <Button type="button"><AddIcon className="flex w6 h6"/></Button>
+        <div>
+            <div className="flex">
+                <Button type="button"><AddIcon className="flex w6 h6"/></Button>
+            </div>
+            <div className="flex">
+                <Button type="button" disabled><AddIcon className="flex w6 h6"/></Button>
+                <Button type="button" active><AddIcon className="flex w6 h6"/></Button>
+            </div>
+        </div>
     </Story>
 </Preview>
 
@@ -174,6 +182,24 @@ A button can be circular.
                 <Button type="button" circular size="small">Aa</Button>
                 <Button type="button" circular>Aa</Button>
                 <Button type="button" circular size="large">Aa</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <div>
+            <div className="flex">
+                <Button type="button" loading>Loading</Button>
+            </div>
+            <div className="flex">
+                <Button type="button" disabled loading>Loading</Button>
+                <Button type="button" active loading>Loading</Button>
             </div>
         </div>
     </Story>
@@ -270,43 +296,14 @@ A button can be colorless. Use this variant if you need to customize the button.
     </Story>
 </Preview>
 
-### Custom colors
+### Custom color
 
 A naked button can have a custom color.
 
 <Preview>
     <Story name="custom colors">
         <div className="flex">
-            <Button type="button" naked style={{ backgroundColor: "#FFF6E7", color: "var(--marine-500)", border: "1px solid #FEE9C3" }}>Department</Button>
-            <Button type="button" naked style={{ backgroundColor: "#E4F2FF", color: "var(--marine-500)", border: "1px solid #BCE0FF" }}>External project</Button>
-            <Button type="button" naked style={{ backgroundColor: "#EFF6F6", color: "var(--marine-500)", border: "1px solid #D6E9E9" }}>Important</Button>
-        </div>
-    </Story>
-</Preview>
-
-### Loading
-
-A button can show a loading indicator.
-
-<Preview>
-    <Story name="loading">
-        <div>
-            <div className="flex">
-                <Button type="button" loading>Loading</Button>
-                <Button type="button" loading primary>Loading</Button>
-                <Button type="button" loading secondary>Loading</Button>
-                <Button type="button" loading basic>Loading</Button>
-                <Button type="button" loading basic primary>Loading</Button>
-                <Button type="button" loading basic secondary>Loading</Button>
-            </div>
-            <div className="flex">
-                <Button type="button" disabled loading>Loading</Button>
-                <Button type="button" disabled loading primary>Loading</Button>
-                <Button type="button" disabled loading secondary>Loading</Button>
-                <Button type="button" disabled loading basic>Loading</Button>
-                <Button type="button" disabled loading basic primary>Loading</Button>
-                <Button type="button" disabled loading basic secondary>Loading</Button>
-            </div>
+            <Button type="button" naked style={{ backgroundColor: "#FFF6E7", color: "var(--marine-500)", border: "1px solid #FEE9C3" }}>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -319,13 +316,13 @@ A label can be nested in a button.
     <Story name="nested label">
         <div>
             <div>
-                <Button type="button" basic>
+                <Button type="button" basic compact>
                     <span className="mr2">External project</span>
                     <Label as="span" size="tiny" color="black">6</Label>
                 </Button>
             </div>
             <div>
-                <Button type="button" basic fluid className="tl">
+                <Button type="button" basic compact fluid>
                     <span className="flex-grow-1 tl">External project</span>
                     <Label as="span" size="tiny" color="black">6</Label>
                 </Button>
@@ -342,7 +339,7 @@ Buttons can exist together as a group.
     <Story name="groups">
         <div className="flex">
             <Button.Group basic toggle>
-                <Button disabled type="button"><Label circular size="mini" empty color="red"/>One</Button>
+                <Button disabled type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
                 <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
                 <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
             </Button.Group>
