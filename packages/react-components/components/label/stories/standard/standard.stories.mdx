@@ -1,16 +1,16 @@
+import { Button } from "@orbit-ui/react-button/src";
 import { CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { Label } from "semantic-ui-react";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { SemanticLayout } from "../semantic-layout";
 import { createComponentSection, paramsBuilder } from "@utils";
-import Imports from "./imports.mdx";
-import Installation from "../installation.mdx";
+import Imports from "../imports.mdx";
 
 <Meta
     title={createComponentSection("Label/standard")}
     parameters={paramsBuilder()
-        .sortPriority(-1)
-        .docsLayout(<SemanticLayout documentationPath="/elements/label" />)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
         .build()}
 />
 
@@ -20,7 +20,7 @@ A label displays content classification.
 
 ## Installation
 
-<Installation imports={<Imports />} />
+<Installation componentName="label" imports={<Imports />} />
 
 ## Usage
 
@@ -31,6 +31,26 @@ A default label.
 <Preview>
     <Story name="default">
         <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Button
+
+A label can include a button.
+
+<Preview>
+    <Story name="button">
+        <Label>
+            Group added
+            <Button type="button" icon circular size="tiny" className="transparent">
+                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="rotate(45 7.207 4.793)">
+                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                        <rect x="5" y=".828" width="2" height="12" rx="1" />
+                    </g>
+                </svg>
+            </Button>
+        </Label>
     </Story>
 </Preview>
 
@@ -73,6 +93,7 @@ A label can vary in size.
             <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
+            <Label>Notification Sent</Label>
             <Label size="large">Notification Sent</Label>
         </div>
     </Story>
@@ -105,3 +126,6 @@ A label can have a circular form.
         </div>
     </Story>
 </Preview>
+
+
+

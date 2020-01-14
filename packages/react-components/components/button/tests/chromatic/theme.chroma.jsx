@@ -1,4 +1,4 @@
-import { Button } from "@orbit-ui/react-buttons/src";
+import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon24 } from "@orbit-ui/icons";
 import { Label } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";

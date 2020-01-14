@@ -1,4 +1,4 @@
-# @orbit-ui/react-buttons
+# @orbit-ui/react-label
 
 Full documentation available at: https://sg-orbit.netlify.com
 

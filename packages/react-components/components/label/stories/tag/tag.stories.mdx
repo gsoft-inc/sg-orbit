@@ -1,0 +1,117 @@
+import { Button } from "@orbit-ui/react-button/src";
+import { CommunicationIcon } from "@orbit-ui/icons";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Label } from "@orbit-ui/react-label/src";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "../imports.mdx";
+
+<Meta
+    title={createComponentSection("Label/tag")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
+        .build()}
+/>
+
+# Tag
+
+A tag display a colored dot before the text.
+
+## Installation
+
+<Installation componentName="label" imports={<Imports />} />
+
+## Usage
+
+### Default
+
+A default tag.
+
+<Preview>
+    <Story name="default">
+        <Label tag>
+            <Label circular empty size="mini" color="red" />
+            Group added
+        </Label>
+    </Story>
+</Preview>
+
+### Button
+
+A tag can contain a button.
+
+<Preview>
+    <Story name="button">
+        <Label tag>
+            <Label circular empty size="mini" color="red" />
+            Group added
+            <Button type="button" icon circular size="tiny" className="transparent">
+                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="rotate(45 7.207 4.793)">
+                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
+                        <rect x="5" y=".828" width="2" height="12" rx="1" />
+                    </g>
+                </svg>
+            </Button>
+        </Label>
+    </Story>
+</Preview>
+
+### Icon
+
+A tag can contain an icon.
+
+<Preview>
+    <Story name="icon">
+        <Label tag>
+            <Label circular empty size="mini" color="red" />
+            Group added
+            <CommunicationIcon className="h6 w6 fill-marine-500 ml2" />
+        </Label>
+    </Story>
+</Preview>
+
+### Basic
+
+A tag can have a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <Label basic tag>
+            <Label circular empty size="mini" color="red" />
+        Group added
+        </Label>
+    </Story>
+</Preview>
+
+### Sizes
+
+A tag can vary in size.
+
+<Preview>
+    <Story name="sizes">
+        <div className="flex items-start">
+            <Label size="mini" tag>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+            <Label size="tiny" tag>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+            <Label size="small" tag>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+            <Label tag>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+            <Label size="large" tag>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+        </div>
+    </Story>
+</Preview>

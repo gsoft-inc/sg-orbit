@@ -1,5 +1,7 @@
+import { Children } from "react";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, string } from "prop-types";
+import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "label", "labelPosition", "floated", "inverted"];
@@ -26,6 +28,20 @@ const defaultProps = {
 
 export function Button({ naked, ghost, className, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
+
+    const childrenArray = Children.toArray(children);
+
+    if (childrenArray.length > 0) {
+        childrenArray.forEach(x => {
+            console.log(x);
+
+            if (!isNil(x.type)) {
+                if (!isNil(x.type.name)) {
+                    console.log("*** ", x.type.name);
+                }
+            }
+        });
+    }
 
     const classes = mergeClasses(
         naked && "naked",
