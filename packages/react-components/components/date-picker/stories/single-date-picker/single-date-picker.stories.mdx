@@ -2,8 +2,12 @@ import {
     BOTTOM_CENTER,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
+    LARGE,
+    MEDIUM,
     PureSingleDatePickerInput,
+    SMALL,
     SingleDatePicker,
+    TINY,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -79,6 +83,7 @@ A default single date picker.
         numberOfMonths={number("numberOfMonths")}
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -191,15 +196,18 @@ A single date picker can be disabled.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
-A single date picker can have different sizes.
+A single date picker can vary in size.
 
-The available sizes are: `"small"`, `"medium"` and `"large"`.
+The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 
 <Preview>
-    <Story name="sizes">
+    <Story name="size">
         <div className="flex flex-row items-start">
+            <div className="flex-auto">
+                <SingleDatePicker size="tiny" onDateChange={logDateChanged} />
+            </div>
             <div className="flex-auto">
                 <SingleDatePicker size="small" onDateChange={logDateChanged} />
             </div>

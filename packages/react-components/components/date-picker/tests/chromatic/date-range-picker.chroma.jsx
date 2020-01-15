@@ -1,6 +1,7 @@
+import { CalendarIcon } from "@orbit-ui/icons";
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { DateRangePicker, InputCalendarIcon, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
+import { DateRangePicker, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import {
     getMonthFirstDay,
@@ -1032,7 +1033,7 @@ stories("/customization")
          () =>
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <DateRangePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />} />
+                 input: <DateRangePicker.Input icon={<CalendarIcon className="w6 h6 fill-red" />} />
              })
     )
     .add("clear icon",
@@ -1048,7 +1049,7 @@ stories("/customization")
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
                  endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />} />,
+                 input: <DateRangePicker.Input disabledIcon={<CalendarIcon className="w6 h6 fill-red" />} />,
                  disabled: true
              })
     )
@@ -1188,22 +1189,66 @@ stories("/z-index")
              </div>
     );
 
-stories("/sizes")
-    .add("small",
+stories("/size/tiny")
+    .add("default",
+         () =>
+             createDateRangePicker({
+                 size: "tiny"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createDateRangePicker({
+                 size: "tiny",
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(3, "days")
+             })
+    );
+
+stories("/size/small")
+    .add("default",
          () =>
              createDateRangePicker({
                  size: "small"
              })
     )
-    .add("medium",
+    .add("selected dates",
+         () =>
+             createDateRangePicker({
+                 size: "small",
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(3, "days")
+             })
+    );
+
+stories("/size/medium")
+    .add("default",
          () =>
              createDateRangePicker({
                  size: "medium"
              })
     )
-    .add("large",
+    .add("medium",
+         () =>
+             createDateRangePicker({
+                 size: "medium",
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(3, "days")
+             })
+    );
+
+stories("/size/large")
+    .add("default",
          () =>
              createDateRangePicker({
                  size: "large"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createDateRangePicker({
+                 size: "large",
+                 startDate: moment(DEFAULT_DATE),
+                 endDate: moment(DEFAULT_DATE).add(3, "days")
              })
     );

@@ -1,6 +1,6 @@
-import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { CalendarIcon, CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import {
     getMonthFirstDay,
@@ -668,7 +668,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input icon={<InputCalendarIcon className="w6 h6 fill-red" />} />
+                 input: <SingleDatePicker.Input icon={<CalendarIcon className="w6 h6 fill-red" />} />
              })
     )
     .add("clear icon",
@@ -682,7 +682,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input disabledIcon={<InputCalendarIcon className="w6 h6 fill-red" />} />,
+                 input: <SingleDatePicker.Input disabledIcon={<CalendarIcon className="w6 h6 fill-red" />} />,
                  disabled: true
              })
     )
@@ -795,22 +795,62 @@ stories("/z-index")
              </div>
     );
 
-stories("/sizes")
-    .add("small",
+stories("/size/tiny")
+    .add("default",
+         () =>
+             createSingleDatePicker({
+                 size: "tiny"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSingleDatePicker({
+                 size: "tiny",
+                 date: moment(DEFAULT_DATE)
+             })
+    );
+
+stories("/size/small")
+    .add("default",
          () =>
              createSingleDatePicker({
                  size: "small"
              })
     )
-    .add("medium",
+    .add("selected dates",
+         () =>
+             createSingleDatePicker({
+                 size: "small",
+                 date: moment(DEFAULT_DATE)
+             })
+    );
+
+stories("/size/medium")
+    .add("default",
          () =>
              createSingleDatePicker({
                  size: "medium"
              })
     )
-    .add("large",
+    .add("medium",
+         () =>
+             createSingleDatePicker({
+                 size: "medium",
+                 date: moment(DEFAULT_DATE)
+             })
+    );
+
+stories("/size/large")
+    .add("default",
          () =>
              createSingleDatePicker({
                  size: "large"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSingleDatePicker({
+                 size: "large",
+                 date: moment(DEFAULT_DATE)
              })
     );

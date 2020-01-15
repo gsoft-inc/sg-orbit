@@ -4,7 +4,11 @@ import {
     BOTTOM_RIGHT,
     DEFAULT_DATES_PRESETS,
     DateRangePicker,
+    LARGE,
+    MEDIUM,
     PureDateRangePickerInput,
+    SMALL,
+    TINY,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -84,7 +88,8 @@ A default date range picker.
         placeholder={text("placeholder")}
         rangeFormat={text("rangeFormat")}
         dateFormat={text("dateFormat")}
-        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -239,15 +244,18 @@ A date range picker can be disabled.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
-A date range picker can have different sizes.
+A date range picker input can vary in size.
 
-The available sizes are: `"small"`, `"medium"` and `"large"`.
+The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 
 <Preview>
-    <Story name="sizes">
+    <Story name="size">
         <div className="flex flex-row items-start">
+            <div className="flex-auto">
+                <DateRangePicker size="tiny" onDatesChange={logDatesChanged} />
+            </div>
             <div className="flex-auto">
                 <DateRangePicker size="small" onDatesChange={logDatesChanged} />
             </div>
