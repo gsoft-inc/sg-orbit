@@ -41,7 +41,7 @@ export function Button({ naked, ghost, icon, label, className, children, ...prop
         naked && "naked",
         ghost && "ghost",
         icon && "icon",
-        label && "label",
+        label && "with-label",
         className
     );
 

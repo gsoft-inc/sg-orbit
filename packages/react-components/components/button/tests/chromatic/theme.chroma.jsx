@@ -107,7 +107,8 @@ stories("/theme")
                      <Button naked icon disabled><CalendarIcon24 className="w6 h6" /></Button>
                  </div>
                  <div className="flex flex-column items-start mw5 w-100">
-                     <Button naked fluid compact style={{ backgroundColor: "#FFF6E7", justifyContent: "space-between" }} className="flex"><span>Important</span> <Label size="mini" style={{ backgroundColor: "var(--marine-500)", color: "white" }}>6</Label></Button>
+                     <Button naked fluid compact label style={{ backgroundColor: "#FFF6E7", justifyContent: "space-between" }} className="flex"><span>Important</span> <Label size="mini" style={{ backgroundColor: "var(--marine-500)", color: "white" }}>6</Label></Button>
+                     <Button naked fluid label style={{ backgroundColor: "#FFF6E7", justifyContent: "space-between" }} className="flex"><span>Important</span> <Label size="mini" style={{ backgroundColor: "var(--marine-500)", color: "white" }}>6</Label></Button>
                  </div>
              </div>
     )

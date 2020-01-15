@@ -413,6 +413,14 @@
     margin-right: var(--scale-bravo);
 }
 
+.ui.button.with-label {
+    padding-right: 1rem;
+}
+
+.ui.compact.button.with-label {
+    padding-right: 0.5rem;
+}
+
 /* Naked */
 .ui.button.naked {
     background-color: @transparent;
