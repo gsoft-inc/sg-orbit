@@ -20,10 +20,13 @@
 
 /* Button defaults to using same height as input globally */
 @horizontalPadding: 1.5rem;
+@compactHorizontalPadding: 1rem;
 
 /* Text */
 @borderRadius: 2em;
 @textColor: @white;
+@small: 1rem;
+@large: 1.125rem;
 
 /* Internal Shadow */
 
@@ -96,8 +99,10 @@
 
 /* Basic */
 @basicBackground: transparent none;
+@basicColoredBorderSize: 1px;
 @basicFontWeight: @bold;
 @basicTextColor: @marine500;
+@basicBorderSize: 1px;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud200 inset;
 
 /* Basic Hover */

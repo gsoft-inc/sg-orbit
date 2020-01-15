@@ -23,7 +23,7 @@ stories()
                         Notification Sent <Icon name="search" />
                          </Label>
                          <Label>
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -34,7 +34,7 @@ stories()
                         Notification Sent <Icon name="search" />
                          </Label>
                          <Label>
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -60,7 +60,7 @@ stories()
                      <div className="flex flex-column items-start">
                          <Label size="small">Notification Sent</Label>
                          <Label size="small">
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -71,7 +71,7 @@ stories()
                         Notification Sent <Icon name="search" />
                          </Label>
                          <Label size="small">
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -86,7 +86,7 @@ stories()
                          </Label>
                          <Label size="large">Notification Sent</Label>
                          <Label size="large">
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -97,7 +97,7 @@ stories()
                         Notification Sent <Icon name="search" />
                          </Label>
                          <Label size="large">
-                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                             <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                                  <g data-name="Layer 2">
                                      <g data-name="Layer 1">
                                          <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -131,7 +131,7 @@ stories()
                          <Label>
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -154,7 +154,7 @@ stories()
                          <Label>
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -195,7 +195,7 @@ stories()
                          <Label size="small">
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -218,7 +218,7 @@ stories()
                          <Label size="small">
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -259,7 +259,7 @@ stories()
                          <Label size="large">
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -282,7 +282,7 @@ stories()
                          <Label size="large">
                              <svg
                                  xmlns="http://www.w3.org/2000/svg"
-                                 className="fill-marine-dark w5 h4 mr2"
+                                 className="fill-marine-dark w5 h4"
                                  viewBox="0 0 25.5 19.5"
                              >
                                  <g data-name="Layer 2">
@@ -310,7 +310,7 @@ stories()
             <div className="flex flex-column items-start">
                 <Label basic size="small">Notification Sent</Label>
                 <Label basic size="small">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                         <g data-name="Layer 2">
                             <g data-name="Layer 1">
                                 <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -321,7 +321,7 @@ stories()
                         Notification Sent <Icon name="search" />
                 </Label>
                 <Label basic size="small">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                         <g data-name="Layer 2">
                             <g data-name="Layer 1">
                                 <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -336,7 +336,7 @@ stories()
                 </Label>
                 <Label basic size="large">Notification Sent</Label>
                 <Label basic size="large">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                         <g data-name="Layer 2">
                             <g data-name="Layer 1">
                                 <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -347,7 +347,7 @@ stories()
                         Notification Sent <Icon name="search" />
                 </Label>
                 <Label basic size="large">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4 mr2" viewBox="0 0 25.5 19.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="fill-marine-dark w5 h4" viewBox="0 0 25.5 19.5">
                         <g data-name="Layer 2">
                             <g data-name="Layer 1">
                                 <path d="M22.75 19.5h-20A2.75 2.75 0 0 1 0 16.75v-14A2.75 2.75 0 0 1 2.75 0h20a2.75 2.75 0 0 1 2.75 2.75v14a2.75 2.75 0 0 1-2.75 2.75zm-20-18A1.25 1.25 0 0 0 1.5 2.75v14A1.25 1.25 0 0 0 2.75 18h20A1.25 1.25 0 0 0 24 16.75v-14a1.25 1.25 0 0 0-1.25-1.25z" />
@@ -381,7 +381,7 @@ stories()
                 <Label basic>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">
@@ -404,7 +404,7 @@ stories()
                 <Label basic>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">
@@ -445,7 +445,7 @@ stories()
                 <Label basic size="small">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">
@@ -468,7 +468,7 @@ stories()
                 <Label basic size="small">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">
@@ -509,7 +509,7 @@ stories()
                 <Label basic size="large">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">
@@ -532,7 +532,7 @@ stories()
                 <Label basic size="large">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="fill-marine-dark w5 h4 mr2"
+                        className="fill-marine-dark w5 h4"
                         viewBox="0 0 25.5 19.5"
                     >
                         <g data-name="Layer 2">

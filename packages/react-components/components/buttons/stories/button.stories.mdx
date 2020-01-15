@@ -74,17 +74,11 @@ A button can vary in size.
 
 <Preview>
     <Story name="sizes">
-        <div>
-            <div className="flex">
-                <Button type="button" size="tiny">Tiny</Button>
-                <Button type="button" size="small">Small</Button>
-                <Button type="button" size="medium">Medium</Button>
-                <Button type="button" size="large">Large</Button>
-            </div>
-            <div className="flex flex-row items-start">
-                <Button type="button" className="short">Short</Button>
-                <Button type="button" className="tall">Tall</Button>
-            </div>
+        <div className="flex items-start">
+            <Button type="button" size="tiny">Tiny</Button>
+            <Button type="button" size="small">Small</Button>
+            <Button type="button" size="medium">Medium</Button>
+            <Button type="button" size="large">Large</Button>
         </div>
     </Story>
 </Preview>
@@ -204,7 +198,7 @@ A basic button have a subtle appearance.
 
 ### Ghost
 
-A ghost button is similar to a standard button, but have no basic color until hovered.
+A ghost button is similar to a standard button, but have no background color until hovered.
 
 <Preview>
     <Story name="ghost">
