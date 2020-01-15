@@ -38,7 +38,7 @@ const SIZES_TO_DEFAULT_ICON = {
 
 const SIZES_TO_DISABLED_ICON = {
     [TINY]: <CalendarIcon24 className="w4 h4 fill-cloud-500" />,
-    [SMALL]: <CalendarIcon24 className="w5 h5 ffill-cloud-500" />,
+    [SMALL]: <CalendarIcon24 className="w5 h5 fill-cloud-500" />,
     [MEDIUM]: <CalendarIcon24 className="w6 h6 fill-cloud-500" />,
     [LARGE]: <CalendarIcon className="w7 h7 fill-cloud-500" />
 };
