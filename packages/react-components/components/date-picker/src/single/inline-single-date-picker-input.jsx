@@ -200,7 +200,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { openIcon, closeIcon, disabledCloseIcon, open, disabled, size } = this.props;
+        const { openIcon, closeIcon, disabledCloseIcon, open, disabled } = this.props;
 
         if (open) {
             return openIcon;

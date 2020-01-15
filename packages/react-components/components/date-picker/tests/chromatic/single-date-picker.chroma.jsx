@@ -1,6 +1,6 @@
 import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { InlineSingleDatePicker, InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
+import { InputCalendarIcon, SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import {
     getMonthFirstDay,
@@ -13,13 +13,6 @@ import moment from "moment";
 
 function createSingleDatePicker(props = {}) {
     return <SingleDatePicker
-        onDateChange={noop}
-        {...props}
-    />;
-}
-
-function createInlineSingleDatePicker(props = {}) {
-    return <InlineSingleDatePicker
         onDateChange={noop}
         {...props}
     />;
