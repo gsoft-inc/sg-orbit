@@ -191,6 +191,28 @@ A single date picker can be disabled.
     </Story>
 </Preview>
 
+### Sizes
+
+A single date picker can have different sizes.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="sizes">
+        <div className="flex flex-row items-start">
+            <div className="flex-auto">
+                <SingleDatePicker size="small" onDateChange={logDateChanged} />
+            </div>
+            <div className="flex-auto">
+                <SingleDatePicker onDateChange={logDateChanged} />
+            </div>
+            <div className="flex-auto">
+                <SingleDatePicker size="large" onDateChange={logDateChanged} />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Position
 
 A single date picker calendar can be anchored at different positions.

@@ -747,104 +747,11 @@ stories("/customization")
              })
     );
 
-stories("/inlined")
-    .add("closed",
-         () =>
-             createInlineSingleDatePicker()
-    )
-    .add("opened",
-         () =>
-             createInlineSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 defaultOpen: true
-             })
-    );
-
-stories("/inlined/selected date/closed")
-    .add("no selection", () =>
-        createInlineSingleDatePicker()
-    )
-    .add("date selected", () =>
-        createInlineSingleDatePicker({
-            date: moment(DEFAULT_DATE)
-        })
-    )
-    .add("null value", () =>
-        createInlineSingleDatePicker({
-            date: null
-        })
-    );
-
-stories("/inlined/selected date/opened")
-    .add("no selection", () =>
-        createInlineSingleDatePicker({
-            initialVisibleMonth: moment(DEFAULT_DATE),
-            defaultOpen: true
-        })
-    )
-    .add("date selected", () =>
-        createInlineSingleDatePicker({
-            date: moment(DEFAULT_DATE),
-            defaultOpen: true
-        })
-    )
-    .add("null value", () =>
-        createInlineSingleDatePicker({
-            date: null,
-            initialVisibleMonth: moment(DEFAULT_DATE),
-            defaultOpen: true
-        })
-    );
-
-stories("/inlined/customization")
-    .add("close icon", () =>
-        createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />
-        })
-    )
-    .add("open icon", () =>
-        createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
-            initialVisibleMonth: moment(DEFAULT_DATE),
-            defaultOpen: true
-        })
-    )
-    .add("disabled close icon", () =>
-        createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />,
-            disabled: true
-        })
-    )
-    .add("disabled open icon", () =>
-        createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledOpenIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
-            defaultOpen: true,
-            initialVisibleMonth: moment(DEFAULT_DATE),
-            disabled: true
-        })
-    )
-    .add("placeholder", () =>
-        createInlineSingleDatePicker({
-            placeholder: "Custom placeholder"
-        })
-    )
-    .add("date format", () =>
-        createInlineSingleDatePicker({
-            date: moment(DEFAULT_DATE),
-            dateFormat: "YYYY MMM Do"
-        })
-    )
-    .add("css class", () =>
-        createInlineSingleDatePicker({
-            className: "bg-red"
-        })
-    );
-
 stories("/z-index")
     .add("over regular text",
          () =>
              <div>
-                 {createInlineSingleDatePicker({
+                 {createSingleDatePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
                      defaultOpen: true
                  })}
@@ -862,7 +769,7 @@ stories("/z-index")
     .add("over an element with a z-index greater than 1 but smaller than the date picker",
          () =>
              <div>
-                 {createInlineSingleDatePicker({
+                 {createSingleDatePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
                      defaultOpen: true
                  })}
@@ -879,7 +786,7 @@ stories("/z-index")
     .add("over an element with a z-index greater than the date picker",
          () =>
              <div>
-                 {createInlineSingleDatePicker({
+                 {createSingleDatePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
                      defaultOpen: true,
                      zIndex: "1"
@@ -893,4 +800,24 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
+    );
+
+stories("/sizes")
+    .add("small",
+         () =>
+             createSingleDatePicker({
+                 size: "small"
+             })
+    )
+    .add("medium",
+         () =>
+             createSingleDatePicker({
+                 size: "medium"
+             })
+    )
+    .add("large",
+         () =>
+             createSingleDatePicker({
+                 size: "large"
+             })
     );

@@ -1187,3 +1187,23 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
     );
+
+stories("/sizes")
+    .add("small",
+         () =>
+             createDateRangePicker({
+                 size: "small"
+             })
+    )
+    .add("medium",
+         () =>
+             createDateRangePicker({
+                 size: "medium"
+             })
+    )
+    .add("large",
+         () =>
+             createDateRangePicker({
+                 size: "large"
+             })
+    );

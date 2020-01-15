@@ -173,3 +173,16 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
     );
+
+stories("/font-size")
+    .add("default",
+         () =>
+             createInlineSingleDatePicker()
+    )
+    .add("adjust to block font-size",
+         () =>
+             <div className="f9">
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et {createInlineSingleDatePicker()}</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+             </div>
+    );

@@ -241,6 +241,10 @@ A date range picker can be disabled.
 
 ### Sizes
 
+A date range picker can have different sizes.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
 <Preview>
     <Story name="sizes">
         <div className="flex flex-row items-start">
@@ -248,7 +252,7 @@ A date range picker can be disabled.
                 <DateRangePicker size="small" onDatesChange={logDatesChanged} />
             </div>
             <div className="flex-auto">
-                <DateRangePicker size="medium" onDatesChange={logDatesChanged} />
+                <DateRangePicker onDatesChange={logDatesChanged} />
             </div>
             <div className="flex-auto">
                 <DateRangePicker size="large" onDatesChange={logDatesChanged} />
@@ -261,12 +265,12 @@ A date range picker can be disabled.
 
 A date range picker calendar can be anchored at different positions.
 
-The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
 
 <Preview>
     <Story name="position">
         <DateRangePicker
-            position={TOP_LEFT}
+            position="top-left"
             onDatesChange={logDatesChanged}
         />
     </Story>

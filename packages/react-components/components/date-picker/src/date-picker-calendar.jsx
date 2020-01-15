@@ -3,7 +3,7 @@ import "./monkey-patch-day-picker";
 
 import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
 import { ChevronIcon } from "@orbit-ui/icons";
-import { NAVIGATION_ROLE } from "./shared";
+import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
