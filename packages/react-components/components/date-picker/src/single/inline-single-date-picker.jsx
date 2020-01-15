@@ -153,7 +153,7 @@ export class InlineSingleDatePicker extends PureComponent {
         const { size, ...rest } = this.props;
 
         if (!isNil(size)) {
-            throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support "size" prop.`);
+            throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
         }
 
         return (
