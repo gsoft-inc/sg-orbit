@@ -2,7 +2,7 @@ import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
-import { isSameDay } from "../utils";
+import { isSameDay } from "../shared";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 

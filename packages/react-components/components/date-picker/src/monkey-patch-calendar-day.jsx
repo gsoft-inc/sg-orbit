@@ -1,4 +1,4 @@
-import { NAVIGATION_ROLE } from "./element-roles";
+import { NAVIGATION_ROLE } from "./shared";
 import { PureCalendarDay } from "react-dates/lib/components/CalendarDay";
 import { css } from "react-with-styles";
 import getCalendarDaySettings from "react-dates/lib/utils/getCalendarDaySettings";

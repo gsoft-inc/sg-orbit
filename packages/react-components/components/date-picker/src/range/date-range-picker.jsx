@@ -145,6 +145,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
+         * A date picker can have different sizes.
+         */
+        size: oneOf(["small", "medium", "large"]),
+        /**
          * Additional classes.
          */
         className: string
@@ -160,7 +164,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         buttons: <DateRangePickerButtons />,
-        disabled: false
+        disabled: false,
+        size: "medium"
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -244,7 +249,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, size } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -255,7 +260,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
             placeholder,
             rangeFormat,
             dateFormat,
-            disabled: disabled
+            disabled,
+            size
         });
     }
 

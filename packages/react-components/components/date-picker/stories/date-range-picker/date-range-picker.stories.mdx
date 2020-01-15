@@ -239,6 +239,24 @@ A date range picker can be disabled.
     </Story>
 </Preview>
 
+### Sizes
+
+<Preview>
+    <Story name="sizes">
+        <div className="flex flex-row items-start">
+            <div className="flex-auto">
+                <DateRangePicker size="small" onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto">
+                <DateRangePicker size="medium" onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto">
+                <DateRangePicker size="large" onDatesChange={logDatesChanged} />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Position
 
 A date range picker calendar can be anchored at different positions.

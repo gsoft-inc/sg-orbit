@@ -1,11 +1,18 @@
 import { Button, Ref } from "semantic-ui-react";
 import { CalendarIcon, CancelIcon } from "@orbit-ui/icons";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
-import { bool, func, node, string } from "prop-types";
+import { bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import cx from "classnames";
+
+const SIZES_TO_CLASSES = {
+    [SMALL]: "h8",
+    [MEDIUM]: "h9",
+    [LARGE]: "h10"
+};
 
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
@@ -28,6 +35,7 @@ export class DatePickerTextboxInput extends PureComponent {
         disabledIcon: node,
         disabled: bool,
         open: bool,
+        size: oneOf(SIZES),
         className: string
     };
 
@@ -37,7 +45,8 @@ export class DatePickerTextboxInput extends PureComponent {
         clearIcon: <CancelIcon className="h3 w3" />,
         disabledIcon: <CalendarIcon className="w7 h7 fill-cloud-500" />,
         disabled: false,
-        placeholder: "Pick a date"
+        placeholder: "Pick a date",
+        size: DEFAULT_SIZE
     };
 
     _containerRef = createRef();
@@ -128,13 +137,14 @@ export class DatePickerTextboxInput extends PureComponent {
     handleClearButtonClick = withHandlerProxy(this, "onClear");
 
     getCssClasses() {
-        const { disabled, open, className } = this.props;
+        const { disabled, open, size, className } = this.props;
 
         return mergeClasses(
-            "input pv3 ph4 ba outline-0 f6 h9 br2 flex items-center",
+            "input pv3 ph4 ba outline-0 f6 br2 flex items-center",
             open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
             !this.isPlaceholder() && "marine-600",
             !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
+            SIZES_TO_CLASSES[size],
             className
         );
     }
