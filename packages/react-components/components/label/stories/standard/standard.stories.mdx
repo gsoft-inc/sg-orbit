@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -43,12 +43,7 @@ A label can include a button.
         <Label>
             Group added
             <Button type="button" icon circular size="tiny" className="transparent">
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
+                <CloseIcon className="w4 h4" />
             </Button>
         </Label>
     </Story>
@@ -83,13 +78,13 @@ A label can have a subtle appearance.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
 A label can vary in size.
 
 <Preview>
-    <Story name="sizes">
-        <div className="flex items-start">
+    <Story name="size">
+        <div className="flex items-end">
             <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>

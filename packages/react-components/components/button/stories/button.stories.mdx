@@ -66,12 +66,12 @@ A button can take the width of its container.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
 A button can vary in size.
 
 <Preview>
-    <Story name="sizes">
+    <Story name="size">
         <div>
             <div className="flex">
                 <Button type="button" size="tiny">Tiny</Button>
@@ -171,13 +171,13 @@ A button can be circular.
 <Preview>
     <Story name="circular">
         <div>
-            <div className="flex flex-row items-start">
+            <div className="flex flex-row items-end">
                 <Button type="button" icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
                 <Button type="button" icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
                 <Button type="button" icon circular><AddIcon className="flex w6 h6"/></Button>
                 <Button type="button" icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
             </div>
-            <div className="flex flex-row items-start">
+            <div className="flex flex-row items-end">
                 <Button type="button" circular size="tiny">Aa</Button>
                 <Button type="button" circular size="small">Aa</Button>
                 <Button type="button" circular>Aa</Button>
@@ -308,23 +308,23 @@ A naked button can have a custom color.
     </Story>
 </Preview>
 
-### Nested label
+### Label
 
-A label can be nested in a button.
+A button can contain a label.
 
 <Preview>
-    <Story name="nested label">
+    <Story name="label">
         <div>
             <div>
-                <Button type="button" basic compact>
-                    <span className="mr2">External project</span>
-                    <Label as="span" size="tiny" color="black">6</Label>
+                <Button type="button" basic compact label>
+                    <span className="mr2">Cutoff</span>
+                    <Label as="span" size="mini" color="black">6</Label>
                 </Button>
             </div>
             <div>
-                <Button type="button" basic compact fluid>
-                    <span className="flex-grow-1 tl">External project</span>
-                    <Label as="span" size="tiny" color="black">6</Label>
+                <Button type="button" basic compact fluid label>
+                    <span className="flex-grow-1 tl">Cutoff</span>
+                    <Label as="span" size="mini" color="black">6</Label>
                 </Button>
             </div>
         </div>
