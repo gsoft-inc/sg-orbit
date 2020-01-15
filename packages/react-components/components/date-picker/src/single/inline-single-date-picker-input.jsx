@@ -104,9 +104,9 @@ export class InlineSingleDatePickerInput extends PureComponent {
     };
 
     static defaultProps = {
-        openIcon: <ChevronIcon className="w4 h4 rotate-270 fill-primary-500" />,
-        closeIcon: <ChevronIcon className="w4 h4 rotate-90 fill-primary-500" />,
-        disabledCloseIcon: <ChevronIcon className="w4 h4 rotate-90 fill-cloud-200" />
+        openIcon: <ChevronIcon className="rotate-270 fill-primary-500" style={{ width: "1em", height: "1em" }} />,
+        closeIcon: <ChevronIcon className="rotate-90 fill-primary-500" style={{ width: "1em", height: "1em" }} />,
+        disabledCloseIcon: <ChevronIcon className="rotate-90 fill-cloud-200" style={{ width: "1em", height: "1em" }} />
     };
 
     _containerRef = createRef();
@@ -200,7 +200,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderIcon() {
-        const { openIcon, closeIcon, disabledCloseIcon, open, disabled } = this.props;
+        const { openIcon, closeIcon, disabledCloseIcon, open, disabled, size } = this.props;
 
         if (open) {
             return openIcon;

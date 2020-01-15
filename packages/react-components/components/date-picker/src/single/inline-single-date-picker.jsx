@@ -1,3 +1,4 @@
+import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
 import { POSITIONS } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
@@ -5,7 +6,7 @@ import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
@@ -115,20 +116,23 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     className: string
 };
 
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
+    allowClear: true,
+    dateFormat: "MMM Do YYYY",
+    numberOfMonths: 1,
+    calendar: <SingleDatePickerCalendar />,
+    buttons: <SingleDatePickerButtons />,
+    disabled: false
+};
+
 export class InlineSingleDatePicker extends PureComponent {
     static propTypes = SINGLE_DATE_PICKER_PROP_TYPES;
 
     static defaultProps = {
         input: <InlineSingleDatePickerInput />,
         placeholder: "pick a date",
-        // ** All the following default props belong to the single date picker but there is no way to share them currently. **
-        allowClear: true,
-        dateFormat: "MMM Do YYYY",
-        numberOfMonths: 1,
-        calendar: <SingleDatePickerCalendar />,
-        buttons: <SingleDatePickerButtons />,
-        disabled: false
-        // ** End **
+        ...SINGLE_DATE_PICKER_DEFAULT_PROPS
     };
 
     // Expose sub-components.
@@ -146,9 +150,15 @@ export class InlineSingleDatePicker extends PureComponent {
     }
 
     render() {
+        const { size, ...rest } = this.props;
+
+        if (!isNil(size)) {
+            throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support "size" prop.`);
+        }
+
         return (
             <SingleDatePicker
-                {...this.props}
+                {...rest}
                 className={this.getCssClasses()}
             />
         );
