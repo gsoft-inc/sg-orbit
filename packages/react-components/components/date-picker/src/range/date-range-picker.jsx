@@ -1,4 +1,5 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { DEFAULT_SIZE, SIZES } from "../sizes";
 import { DatePickerAnchor } from "../date-picker-anchor";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
@@ -145,6 +146,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
+         * A date picker can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
          * Additional classes.
          */
         className: string
@@ -160,7 +165,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         buttons: <DateRangePickerButtons />,
-        disabled: false
+        disabled: false,
+        size: DEFAULT_SIZE
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -244,7 +250,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, size } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -255,7 +261,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
             placeholder,
             rangeFormat,
             dateFormat,
-            disabled: disabled
+            disabled,
+            size
         });
     }
 
