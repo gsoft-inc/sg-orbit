@@ -207,16 +207,16 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 <Preview>
     <Story name="size">
         <div className="flex flex-row items-end">
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <SingleDatePicker size="tiny" onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <SingleDatePicker size="small" onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <SingleDatePicker onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <SingleDatePicker size="large" onDateChange={logDateChanged} />
             </div>
         </div>
@@ -229,8 +229,13 @@ A single date picker calendar can be anchored at different positions.
 
 The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
 
-<Preview onClick={() => {}}>
-    <Story name="position">
+<Preview>
+    <Story
+        name="position"
+        parameters={paramsBuilder()
+            .canvasLayout({ marginTop: "400px" })
+            .build()}
+    >
         <SingleDatePicker
             position="top-left"
             onDateChange={logDateChanged}
