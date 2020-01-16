@@ -1,7 +1,7 @@
 {
-    "name": "@orbit-ui/react-multi-select",
-    "version": "2.0.1",
-    "description": "ShareGate Orbit UI React multi-select component",
+    "name": "@orbit-ui/react-label",
+    "version": "0.1.0",
+    "description": "ShareGate Orbit UI React label components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -12,19 +12,13 @@
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
         "@orbit-ui/semantic-ui-theme": "*",
-        "@orbit-ui/tachyons": "*",
-        "lodash": "*",
         "react": "*",
         "react-dom": "*",
-        "semantic-ui-react": "*",
-        "styled-jsx": "*"
+        "semantic-ui-react": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/icons": "4.0.1",
         "@orbit-ui/react-components-shared": "2.0.0",
-        "classnames": "*",
         "prop-types": "*"
-    },
-    "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
+    }
 }

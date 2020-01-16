@@ -1,4 +1,4 @@
-import { Button } from "@orbit-ui/react-buttons/src";
+import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon24 } from "@orbit-ui/icons";
 import { Label } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -105,6 +105,10 @@ stories("/theme")
                      <Button naked icon><CalendarIcon24 className="w6 h6" /></Button>
                      <Button naked icon active><CalendarIcon24 className="w6 h6" /></Button>
                      <Button naked icon disabled><CalendarIcon24 className="w6 h6" /></Button>
+                 </div>
+                 <div className="flex flex-column items-start mw5 w-100">
+                     <Button naked fluid compact label style={{ backgroundColor: "#FFF6E7", justifyContent: "space-between" }} className="flex"><span>Important</span> <Label size="mini" style={{ backgroundColor: "var(--marine-500)", color: "white" }}>6</Label></Button>
+                     <Button naked fluid label style={{ backgroundColor: "#FFF6E7", justifyContent: "space-between" }} className="flex"><span>Important</span> <Label size="mini" style={{ backgroundColor: "var(--marine-500)", color: "white" }}>6</Label></Button>
                  </div>
              </div>
     )
@@ -295,22 +299,22 @@ stories("/theme")
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group basic toggle>
-                         <Button type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button type="button"><Label circular size="mini" empty color="red" tag />One</Button>
                          <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
                          <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
                      </Button.Group>
                      <Button.Group basic toggle>
-                         <Button active type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active type="button"><Label circular size="mini" empty color="red" tag />One</Button>
                          <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
                          <Button active icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
                      </Button.Group>
                      <Button.Group basic toggle>
-                         <Button disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button disabled type="button"><Label circular size="mini" empty color="red" tag />One</Button>
                          <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
                          <Button disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
                      </Button.Group>
                      <Button.Group basic toggle>
-                         <Button active disabled type="button"><Label circular size="mini" empty color="red" />One</Button>
+                         <Button active disabled type="button"><Label circular size="mini" empty color="red" tag />One</Button>
                          <Button active disabled icon type="button"><CalendarIcon24 className="w6 h6 mr1" />Two</Button>
                          <Button active disabled icon type="button" ><CalendarIcon24 className="w6 h6 mr1" />Three</Button>
                      </Button.Group>

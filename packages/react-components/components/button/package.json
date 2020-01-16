@@ -1,7 +1,7 @@
 {
-    "name": "@orbit-ui/react-buttons",
+    "name": "@orbit-ui/react-button",
     "version": "0.1.0",
-    "description": "ShareGate orbit UI React button components",
+    "description": "ShareGate Orbit UI React button components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",

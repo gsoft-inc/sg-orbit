@@ -108,8 +108,8 @@
 /* manage font weight and letter spacing? for labels in tab */
 
 .ui.label.mini:not(.circular) {
-    min-height: 16px;
-    font-size: 0.75rem;
+    min-height: 20px;
+    font-size: 0.875rem;
     padding: 0.15em 0.8125em;
     font-weight: 600;
 }
