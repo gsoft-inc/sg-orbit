@@ -6,10 +6,6 @@ const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "fl
 
 const propTypes = {
     /**
-     * A button can be colorless. Use this variant if you need to customize the button.
-     */
-    naked: bool,
-    /**
      * A ghost button doesn't have a background color until it's hovered.
      */
     ghost: bool,
@@ -21,6 +17,10 @@ const propTypes = {
      * A button can be formatted to accept a nested label _(overseed the original prop)_.
      */
     label: bool,
+    /**
+     * A button can be colorless. Use this variant if you need to customize the button.
+     */
+    naked: bool,
     /**
      * @ignore
      */
