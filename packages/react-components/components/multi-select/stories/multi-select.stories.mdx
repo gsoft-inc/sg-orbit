@@ -62,6 +62,8 @@ A default multi select.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
         .excludeFromDocs()
         .build()}
 >

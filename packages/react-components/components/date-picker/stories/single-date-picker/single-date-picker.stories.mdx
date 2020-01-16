@@ -72,6 +72,8 @@ A default single date picker.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
         .excludeFromDocs()
         .build()}
 >

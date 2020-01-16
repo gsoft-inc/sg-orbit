@@ -1,12 +1,14 @@
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { cloneElement } from "react";
-import { isNil, isNumber, isPlainObject } from "lodash";
+import { isNil, isNumber, isPlainObject, isString } from "lodash";
 
 class ParamsBuilder {
     _canvasLayout = {}
     _chromatic = {}
     _storyValues = null;
     _sortPriority = null;
+    _showPanel = null;
+    _selectedPanel = null;
     _excludeFromDocs = false;
     _docsLayout = null;
 
@@ -56,6 +58,20 @@ class ParamsBuilder {
         return this;
     }
 
+    showPanel() {
+        this._showPanel = true;
+
+        return this;
+    }
+
+    selectedPanel(panelId) {
+        if (isString(panelId)) {
+            this._selectedPanel = panelId;
+        }
+
+        return this;
+    }
+
     excludeFromDocs() {
         this._excludeFromDocs = true;
 
@@ -87,6 +103,20 @@ class ParamsBuilder {
 
         if (!isNil(this._sortPriority)) {
             params.sortPriority = this._sortPriority;
+        }
+
+        const options = {};
+
+        if (!isNil(this._showPanel)) {
+            options.showPanel = true;
+        }
+
+        if (!isNil(this._selectedPanel)) {
+            options.selectedPanel = this._selectedPanel;
+        }
+
+        if (Object.keys(options).length > 0) {
+            params.options = options;
         }
 
         const docs = {};
