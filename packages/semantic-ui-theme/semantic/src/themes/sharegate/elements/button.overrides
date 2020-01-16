@@ -122,7 +122,6 @@
     border: none;
     color: @marine600;
 }
-
 /* Ghost */
 
 /* Hover */
@@ -150,6 +149,25 @@
 /*  Primary */
 .ui.ghost.primary.button {
     color: @primary500;
+}
+
+/* Positive */
+.ui.ghost.button.positive {
+    color: @success500;
+}
+
+.ui.ghost.button.positive:hover {
+    color: @success500;
+}
+
+/* Negative */
+
+.ui.ghost.button.negative {
+    color: @alert500;
+}
+
+.ui.ghost.button.negative:hover {
+    color: @alert500;
 }
 
 /* STATES */
@@ -199,6 +217,32 @@
     box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
 }
 
+.ui.disabled.button.secondary.basic,
+.ui.disabled.button.secondary.basic,
+.ui.button.secondary.basic:disabled,
+.ui.disabled.button.secondary.basic:hover,
+.ui.disabled.secondary.basic.active.button {
+    background-color: @transparent!important;
+}
+
+.ui.disabled.button.positive.basic,
+.ui.disabled.button.positive.basic,
+.ui.button.positive.basic:disabled,
+.ui.disabled.button.positive.basic:hover,
+.ui.disabled.positive.basic.active.button {
+    background-color: @transparent!important;
+    color: @success100!important;
+}
+
+.ui.disabled.button.negative.basic,
+.ui.disabled.button.negative.basic,
+.ui.button.negative.basic:disabled,
+.ui.disabled.button.negative.basic:hover,
+.ui.disabled.negative.basic.active.button {
+    background-color: @transparent!important;
+    color: @alert100!important;
+}
+
 .ui.disabled.button.positive,
 .ui.disabled.button.positive,
 .ui.button.positive:disabled,
@@ -206,6 +250,17 @@
 .ui.disabled.positive.active.button {
     background-color: @success100!important;
     color: @white!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @success100 inset !important;
+}
+
+.ui.disabled.button.negative,
+.ui.disabled.button.negative,
+.ui.button.negative:disabled,
+.ui.disabled.button.negative:hover,
+.ui.disabled.negative.active.button {
+    background-color: @alert100!important;
+    color: @white!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @alert100 inset !important;
 }
 
 .ui.disabled.button.negative,
@@ -276,18 +331,18 @@
     fill: @marine600;
 }
 
-/* check the use of transparent, probably a smell */
-.ui.button.transparent svg {
-    fill: @marine600;
+.ui.button.positive svg,
+.ui.buttons.positive .button svg {
+    fill: @white;
 }
 
-.ui.button.transparent.primary svg {
-    fill: @primary500;
+.ui.button.positive.basic svg,
+.ui.buttons.positive.basic .button svg {
+    fill: @success500;
 }
 
-/*  */
-
-.ui.button.ghost svg {
+.ui.button.ghost svg,
+.ui.buttons.ghost .button svg {
     fill: @marine600;
 }
 
@@ -295,11 +350,13 @@
     fill: @primary500;
 }
 
-.ui.button.basic.primary svg {
+.ui.button.basic.primary svg,
+.ui.buttons.basic.primary .button svg {
     fill: @primary500;
 }
 
-.ui.button.naked svg {
+.ui.button.naked svg,
+.ui.buttons.naked .button svg {
     fill: initial;
 }
 
@@ -320,6 +377,49 @@
     fill: @white;
 }
 
+.ui.button.positive.disabled svg,
+.ui.button.positive:disabled svg {
+    fill: @white;
+}
+
+.ui.button.positive.basic.disabled svg,
+.ui.button.positive.basic:disabled svg {
+    fill: @success100;
+}
+
+.ui.button.negative.disabled svg,
+.ui.button.negative:disabled svg {
+    fill: @white;
+}
+
+.ui.button.ghost svg,
+.ui.buttons.ghost .button svg {
+    fill: @marine600;
+}
+
+.ui.button.ghost.positive svg,
+.ui.buttons.ghost.positive .button svg {
+    fill: @success500;
+}
+
+.ui.button.ghost.positive.active svg,
+.ui.buttons.ghost.positive .button.active svg,
+.ui.button.ghost.positive:hover svg,
+.ui.buttons.ghost.positive .button:hover svg,
+.ui.button.ghost.positive:focus svg,
+.ui.buttons.ghost.positive .button:focus svg {
+    fill: @success500;
+}
+
+.ui.button.ghost.negative.active svg,
+.ui.buttons.ghost.negative .button.active svg,
+.ui.button.ghost.negative:hover svg,
+.ui.buttons.ghost.negative .button:hover svg,
+.ui.button.ghost.negative:focus svg,
+.ui.buttons.ghost.negative .button:focus svg {
+    fill: @alert500;
+}
+
 .ui.button.basic.primary.disabled svg,
 .ui.button.basic.primary:disabled svg {
     fill: @primary200;
@@ -328,6 +428,16 @@
 .ui.button.ghost.primary.disabled svg,
 .ui.button.ghost.primary:disabled svg {
     fill: @primary200;
+}
+
+.ui.button.ghost.negative.disabled svg,
+.ui.button.ghost.negative:disabled svg {
+    fill: @alert200;
+}
+
+.ui.button.basic.negative.disabled svg,
+.ui.button.basic.negative:disabled svg {
+    fill: @alert200;
 }
 
 .ui.button.icon:hover svg,
@@ -342,16 +452,18 @@
     fill: @white;
 }
 
-.ui.button.transparent:hover svg,
-.ui.button.transparent.active svg,
-.ui.button.transparent:focus svg {
-    fill: @marine600;
+.ui.buttons.basic.positive .button:hover svg,
+.ui.button.basic.positive:hover svg,
+.ui.button.basic.positive.active svg,
+.ui.button.basic.positive:focus svg {
+    fill: @success900;
 }
 
-.ui.button.transparent.primary:hover svg,
-.ui.button.transparent.primary.active svg,
-.ui.button.transparent.primary:focus svg {
-    fill: @primary500;
+.ui.buttons.secondary .button:hover svg,
+.ui.button.secondary:hover svg,
+.ui.button.secondary.active svg,
+.ui.button.secondary:focus svg {
+    fill: @marine500;
 }
 
 .ui.button.ghost:hover svg,
@@ -364,6 +476,41 @@
 .ui.button.ghost.primary.active svg,
 .ui.button.ghost.primary:focus svg {
     fill: @primary500;
+}
+
+.ui.buttons.ghost.negative .button:hover svg,
+.ui.button.ghost.negative:hover svg,
+.ui.button.ghost.negative.active svg,
+.ui.button.ghost.negative:focus svg {
+    fill: @alert500;
+}
+
+.ui.buttons.basic.negative .button:hover svg,
+.ui.button.basic.negative:hover svg,
+.ui.button.basic.negative.active svg,
+.ui.button.basic.negative:focus svg {
+    fill: @alert500;
+}
+
+.ui.buttons.basic.negative .button svg,
+.ui.button.basic.negative svg,
+.ui.button.basic.negative svg,
+.ui.button.basic.negative svg {
+    fill: @alert500;
+}
+
+.ui.buttons.ghost.negative .button svg,
+.ui.button.ghost.negative svg,
+.ui.button.ghost.negative svg,
+.ui.button.ghost.negative svg {
+    fill: @alert500;
+}
+
+.ui.buttons.basic.negative .button:hover svg,
+.ui.button.basic.negative:hover svg,
+.ui.button.basic.negative.active svg,
+.ui.button.basic.negative:focus svg {
+    fill: @alert900;
 }
 
 .ui.loading.button:before,
@@ -497,16 +644,18 @@
 
 /* Naked */
 .ui.button.naked {
-    background-color: @transparent;
-    color: initial;
+    background-color: @transparent!important;
+    color: initial!important;
+    box-shadow: 0px 0px 0px 1px transparent inset!important;
 }
 
 .ui.buttons.naked .button:hover,
 .ui.button.naked:hover,
 .ui.button.naked:focus,
 .ui.naked.active.button {
-    background-color: @transparent;
-    color: initial;
+    background-color: @transparent!important;
+    color: initial!important;
+    box-shadow: 0px 0px 0px 1px transparent inset!important;
 }
 
 .ui.buttons .disabled.button.naked,
@@ -516,4 +665,5 @@
 .ui.disabled.naked.active.button {
     background-color: @transparent!important;
     color: initial !important;
+    box-shadow: 0px 0px 0px 1px transparent inset!important;
 }

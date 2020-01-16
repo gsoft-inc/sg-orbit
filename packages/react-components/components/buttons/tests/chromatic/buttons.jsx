@@ -1,7 +1,7 @@
 import { Button } from "@orbit-ui/react-buttons/src";
 import { CalendarIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 
-export const SemanticButtons = props => {
+export const ThemeButtons = props => {
 
     return (
         <>

@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-buttons/src";
-import { SemanticButtons } from "./buttons";
+import { ThemeButtons} from "./buttons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -16,37 +16,37 @@ stories("/theme")
     .add("default",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons />
+                 <ThemeButtons />
              </div>
     )
     .add("primary",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons primary />
+                 <ThemeButtons primary />
              </div>
     )
     .add("secondary",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons secondary />
+                 <ThemeButtons secondary />
              </div>
     )
     .add("positive",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons positive />
+                 <ThemeButtons positive />
              </div>
     )
     .add("negative",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons negative />
+                 <ThemeButtons negative />
              </div>
     )
     .add("naked",
          () =>
              <div className="flex flex-row">
-                 <SemanticButtons naked />
+                 <ThemeButtons naked />
              </div>
     )
     .add("groups",
