@@ -4,13 +4,13 @@ import { string } from "prop-types";
 import { useState } from "react";
 
 const propTypes = {
-    componentName: string.isRequired
+    componentFolder: string.isRequired
 };
 
-export function NpmPackages({ componentName }) {
+export function NpmPackages({ componentFolder }) {
     const [dependencies, setDependencies] = useState(null);
 
-    import(/* webpackMode: "eager" */ `../../../../packages/react-components/components/${componentName}/package.json`)
+    import(/* webpackMode: "eager" */ `../../../../packages/react-components/components/${componentFolder}/package.json`)
         .then(module => {
             const json = module.default;
             const peerDependencies = Object.keys(json.peerDependencies).filter(x => x !== "react" && x !== "react-dom");

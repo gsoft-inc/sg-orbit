@@ -1,11 +1,10 @@
 import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 import { Button } from "@orbit-ui/react-button/src";
-import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props, WarningMessage } from "@blocks";
+import { Props } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
-import HocWarning from "./hoc-warning.mdx";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -20,19 +19,17 @@ import Imports from "./imports.mdx";
 
 ## Installation
 
-<Installation componentName="button" imports={<Imports />} />
+<Installation componentFolder="button" imports={<Imports />} />
 
 ## Props
 
-<WarningMessage><HocWarning /></WarningMessage>
+<HocWarning componentName="Button" semanticPath="/elements/button" />
 
-<div className="mt6">
-    <Props
-        componentsDefinitions={[
-            { displayName: "Button", component: Button }
-        ]}
-    />
-</div>
+<Props
+    componentsDefinitions={[
+        { displayName: "Button", component: Button }
+    ]}
+/>
 
 ## Usage
 
@@ -107,7 +104,7 @@ A button can contain a label.
     <Story name="label">
         <Button type="button" compact label>
             <span className="tl w12">Cutoff</span>
-            <Label as="span" size="mini" color="white">6</Label>
+            <Label as="span" size="mini">6</Label>
         </Button>
     </Story>
 </Preview>
@@ -232,7 +229,7 @@ A button can be colorless. Use this variant if you need to customize the button.
 A naked button can have a custom color.
 
 <Preview>
-    <Story name="custom colors">
+    <Story name="custom color">
         <Button
             naked
             style={{

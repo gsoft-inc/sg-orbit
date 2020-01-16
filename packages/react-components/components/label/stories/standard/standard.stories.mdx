@@ -1,8 +1,9 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "../imports.mdx";
 
@@ -20,7 +21,17 @@ A label displays content classification.
 
 ## Installation
 
-<Installation componentName="label" imports={<Imports />} />
+<Installation componentFolder="label" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Label" semanticPath="/elements/label" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Label", component: Label }
+    ]}
+/>
 
 ## Usage
 
@@ -119,6 +130,35 @@ A label can have a circular form.
             <Label circular size="huge">R</Label>
             <Label circular size="massive">R</Label>
         </div>
+    </Story>
+</Preview>
+
+### Naked
+
+A label can be colorless. Use this variant if you need to customize the label.
+
+<Preview>
+    <Story name="naked">
+        <div>
+            <Label naked>Notification Sent</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Custom color
+
+<Preview>
+    <Story name="custom-color">
+        <Label
+            naked
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Notification Sent
+        </Label>
     </Story>
 </Preview>
 

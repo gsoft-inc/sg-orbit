@@ -1,0 +1,9 @@
+import { components } from "@storybook/components/html";
+import { getSemanticUrl } from "@blocks";
+
+<!-- Otherwise the MDX parser will complain that "components" is undefined -->
+export const A = components.a;
+
+This component is a HOC which adds additional props to the original Semantic UI React <code children={`<${props.componentName} />`} /> component. The documentation for the props of the original Semantic UI component is available on <A href={getSemanticUrl(props.semanticPath)} target="_blank" rel="noopener noreferrer">Semantic UI React website</A>.
+
+_The documentation for the additional props is available below._
