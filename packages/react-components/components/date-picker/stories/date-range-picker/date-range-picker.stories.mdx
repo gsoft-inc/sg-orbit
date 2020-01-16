@@ -255,16 +255,16 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 <Preview>
     <Story name="size">
         <div className="flex flex-row items-end">
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <DateRangePicker size="tiny" onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <DateRangePicker size="small" onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <DateRangePicker onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto">
+            <div className="flex-auto mr2">
                 <DateRangePicker size="large" onDatesChange={logDatesChanged} />
             </div>
         </div>
@@ -278,7 +278,12 @@ A date range picker calendar can be anchored at different positions.
 The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
 
 <Preview>
-    <Story name="position">
+    <Story 
+        name="position"
+        parameters={paramsBuilder()
+            .canvasLayout({ marginTop: "400px" })
+            .build()}
+    >
         <DateRangePicker
             position="top-left"
             onDatesChange={logDatesChanged}

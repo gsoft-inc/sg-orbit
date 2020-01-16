@@ -255,26 +255,46 @@ A dropdown can take the width of its container.
 
 A dropdown can vary in size.
 
-#### Small
-
 <Preview>
     <Story name="small">
-        <Dropdown
-            placeholder="Gender"
-            selection
-            className="small"
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
-        />
+        <div className="flex flex-row items-end">
+            <div className="mr2">
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    className="small"
+                    options={[
+                        {
+                            key: "Male",
+                            text: "Male",
+                            value: "Male"
+                        },
+                        {
+                            key: "Female",
+                            text: "Female",
+                            value: "Female"
+                        }
+                    ]}
+                />
+            </div>
+            <div>
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    options={[
+                        {
+                            key: "Male",
+                            text: "Male",
+                            value: "Male"
+                        },
+                        {
+                            key: "Female",
+                            text: "Female",
+                            value: "Female"
+                        }
+                    ]}
+                />
+            </div>
+        </div>
     </Story>
 </Preview>

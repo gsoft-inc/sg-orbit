@@ -60,14 +60,14 @@ An input can take the width of its container.
     </Story>
 </Preview>
 
-### Icons
+### Icon
 
 An input can be formatted with an icon.
 
 <Preview>
     <Story name="icon">
-        <div className="flex flex-column mw5">
-            <div className="mb4">
+        <div className="flex flex-row">
+            <div className="mr2">
                 <Input icon="search" placeholder="Search..." />
             </div>
             <div>
@@ -83,12 +83,12 @@ An input can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
-        <div className="flex flex-column mw5">
-            <div className="mb4">
-                <Input loading icon="search" placeholder="Search..." />
+        <div className="flex flex-row">
+            <div className="mr2">
+                <Input loading placeholder="Search..." />
             </div>
             <div>
-                <Input loading iconPosition="left" icon="search" placeholder="Search..." />
+                <Input loading iconPosition="left" placeholder="Search..." />
             </div>
         </div>
     </Story>
