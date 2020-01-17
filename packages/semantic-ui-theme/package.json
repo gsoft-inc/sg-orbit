@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/semantic-ui-theme",
-    "version": "2.1.2",
+    "version": "3.0.0",
     "description": "Custom Semantic UI theme for Sharegate Orbit UI.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
