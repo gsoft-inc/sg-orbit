@@ -423,7 +423,7 @@
 
 /* Naked */
 .ui.button.naked {
-    background-color: @transparent;
+    background-color: transparent;
     color: initial;
     font-weight: initial;
 }
