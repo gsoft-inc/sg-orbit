@@ -1009,16 +1009,15 @@ a.ui.basic.black.label:hover {
   border-color: @blackHover !important;
 }
 
-
 /*-------------------
         Basic
 --------------------*/
 
 .ui.basic.label {
   background: @basicBackground;
-  border: @basicBorder;
+  border: none;
   color: @basicColor;
-  box-shadow: @basicBoxShadow;
+  box-shadow: 0px 0px 0px @basicBorderWidth @borderColor inset;
 }
 
 /* Link */

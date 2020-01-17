@@ -6,12 +6,13 @@
 @medium: 1.125em;
 @fontWeight: 400;
 @borderRadius: 999px;
-@basicBorderWidth: 2px;
+@basicBorderWidth: 1px;
 @verticalPadding: 8px;
 @horizontalPadding: 1em;
 @verticalMargin: 0;
 @horizontalMargin: 0;
 @borderColor: @cloud200;
+@circularPadding: 0.125rem;
 
 /*-------------------
     Element

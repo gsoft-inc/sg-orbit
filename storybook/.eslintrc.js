@@ -6,6 +6,9 @@ module.exports = {
     plugins: ["jsx-control-statements"],
     overrides: [
         {
+            globals: {
+                "props": true
+            },
             files: ["*.mdx"],
             extends: ["plugin:mdx/recommended"],
             rules: {

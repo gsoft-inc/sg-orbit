@@ -140,6 +140,7 @@ details + details {
 
 .docblock-propstable {
     min-width: 220px;
+    margin-bottom: 0;
 }
 
 /* stylelint-disable-next-line no-descending-specificity*/
