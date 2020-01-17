@@ -1,5 +1,6 @@
 import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, string } from "prop-types";
+import { bool, oneOf, string } from "prop-types";
+import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -54,3 +55,9 @@ Button.Or = SemanticButton.Or;
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
+
+// eslint-disable-next-line react/forbid-foreign-prop-types
+if (!isNil(SemanticButton.propTypes)) {
+    // eslint-disable-next-line react/forbid-foreign-prop-types
+    SemanticButton.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
+}

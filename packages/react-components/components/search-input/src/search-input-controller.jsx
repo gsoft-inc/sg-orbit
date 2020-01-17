@@ -2,7 +2,8 @@ import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledS
 import { Button, Ref, Search } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
-import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
+import { SIZES } from "./sizes";
+import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import { withHandlerProxy } from "@orbit-ui/react-components-shared";
@@ -37,6 +38,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
+        size: oneOf(SIZES),
         className: string
     };
 

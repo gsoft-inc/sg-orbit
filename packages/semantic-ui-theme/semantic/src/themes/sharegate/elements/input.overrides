@@ -6,13 +6,25 @@
     font-size: 1.125rem;
     line-height: 1.5rem;
     /* avoid rem conversion */
-    height: 48px;
+    height: 40px;
     width: 240px;
 }
 
-/* making sure that the inputs all share the same height */
-.input,
-form input {
+.ui.input.tiny > input {
+    /* avoid rem conversion */
+    height: 24px;
+    font-size: var(--type-scale-8);
+    padding-left: var(--scale-bravo);
+}
+
+.ui.input.small > input {
+    /* avoid rem conversion */
+    height: 32px;
+    padding-left: var(--scale-bravo);
+}
+
+.ui.input.large > input {
+    /* avoid rem conversion */
     height: 48px;
 }
 
@@ -29,7 +41,7 @@ form input {
     color: @cloud400;
 }
 
-// Success Variation
+/* Success Variation */
 .ui.input.success input {
     border-color: @positiveColor;
 }

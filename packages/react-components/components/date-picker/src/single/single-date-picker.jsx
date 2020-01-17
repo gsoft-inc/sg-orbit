@@ -1,7 +1,7 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { DEFAULT_SIZE, SIZES } from "../sizes";
 import { DatePickerAnchor } from "../date-picker-anchor";
 import { POSITIONS } from "@orbit-ui/react-popup";
+import { SIZES } from "../sizes";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -130,8 +130,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         numberOfMonths: 1,
         calendar: <SingleDatePickerCalendar />,
         buttons: <SingleDatePickerButtons />,
-        disabled: false,
-        size: DEFAULT_SIZE
+        disabled: false
     };
 
     static autoControlledProps = ["date", "open"];

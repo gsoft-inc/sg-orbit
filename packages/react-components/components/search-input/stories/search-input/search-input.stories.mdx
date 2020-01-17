@@ -144,6 +144,46 @@ A search input can be disabled.
     />
 </Story>
 
+### Size
+
+A search input can vary in size.
+
+The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end">
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    size="tiny"
+                    onValueChange={logValueChanged}
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    size="small"
+                    onValueChange={logValueChanged}
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    onValueChange={logValueChanged}
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    size="large"
+                    onValueChange={logValueChanged}
+                />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Controlled
 
 A search input can handle `value` and `open` state in controlled mode.

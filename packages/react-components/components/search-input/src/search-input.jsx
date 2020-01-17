@@ -1,6 +1,7 @@
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
-import { arrayOf, bool, func, number, shape, string } from "prop-types";
+import { arrayOf, bool, func, number, oneOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
@@ -125,6 +126,10 @@ export class SearchInput extends AutoControlledPureComponent {
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
+        /**
+         * A date picker can have different sizes.
+         */
+        size: oneOf(SIZES),
         /**
          * Additional classes.
          */
@@ -263,7 +268,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -287,6 +292,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 disabled={disabled}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
+                size={size}
                 className={className}
             />
         );
