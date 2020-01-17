@@ -172,8 +172,8 @@ To release, open a terminal at the root of the workspace and execute the followi
 yarn new-version
 yarn release-pkg
 yarn push-release <yyyy-MM-dd>
-yarn release-sb [optional]
-yarn release-docs [optional]
+Release docs
+Release Storybook
 ```
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
