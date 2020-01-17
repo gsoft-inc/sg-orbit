@@ -81,51 +81,51 @@ export const ThemeButtons = props => {
                 </div>
                 {/* text / loading */}
                 <div className="flex flex-column items-start">
-                    <Button loading {...props}>Button</Button>
-                    <Button loading active {...props}>Button</Button>
-                    <Button loading disabled {...props}>Button</Button>
-                    <Button loading {...props} ghost>Button</Button>
-                    <Button loading active ghost {...props}>Button</Button>
-                    <Button loading disabled ghost {...props}>Button</Button>
-                    <Button loading {...props} basic>Button</Button>
-                    <Button loading {...props} active basic>Button</Button>
-                    <Button loading {...props} disabled basic>Button</Button>
+                    <Button loading {...props} className="paused">Button</Button>
+                    <Button loading active {...props} className="paused">Button</Button>
+                    <Button loading disabled {...props} className="paused">Button</Button>
+                    <Button loading {...props} className="paused" ghost>Button</Button>
+                    <Button loading active ghost {...props} className="paused">Button</Button>
+                    <Button loading disabled ghost {...props} className="paused">Button</Button>
+                    <Button loading {...props} className="paused" basic>Button</Button>
+                    <Button loading {...props} className="paused" active basic>Button</Button>
+                    <Button loading {...props} className="paused" disabled basic>Button</Button>
                 </div>
                 {/* loading / Layout */}
                 <div className="flex flex-column items-start">
-                    <Button loading compact {...props}>Button</Button>
-                    <Button loading circular {...props}>Aa</Button>
-                    <Button loading size="tiny" {...props}>Button</Button>
-                    <Button loading size="tiny" compact {...props}>Button</Button>
-                    <Button loading size="tiny" circular {...props}>Aa</Button>
-                    <Button loading size="small" {...props}>Button</Button>
-                    <Button loading size="small" compact {...props}>Button</Button>
-                    <Button loading size="small" circular {...props}>Aa</Button>
-                    <Button loading size="large" {...props}>Button</Button>
-                    <Button loading size="large" compact {...props}>Button</Button>
-                    <Button loading size="large" circular {...props}>Aa</Button>
+                    <Button loading className="paused" compact {...props}>Button</Button>
+                    <Button loading className="paused" circular {...props}>Aa</Button>
+                    <Button loading className="paused" size="tiny" {...props}>Button</Button>
+                    <Button loading className="paused" size="tiny" compact {...props}>Button</Button>
+                    <Button loading className="paused" size="tiny" circular {...props}>Aa</Button>
+                    <Button loading className="paused" size="small" {...props}>Button</Button>
+                    <Button loading className="paused" size="small" compact {...props}>Button</Button>
+                    <Button loading className="paused" size="small" circular {...props}>Aa</Button>
+                    <Button loading className="paused" size="large" {...props}>Button</Button>
+                    <Button loading className="paused" size="large" compact {...props}>Button</Button>
+                    <Button loading className="paused" size="large" circular {...props}>Aa</Button>
                 </div>
                 {/* icon / loading */}
                 <div className="flex flex-column items-start">
-                    <Button loading {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading active {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading disabled {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading {...props} ghost><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading active ghost {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading disabled ghost {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading {...props} basic><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading {...props} active basic><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading {...props} disabled basic><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" active {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" disabled {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" {...props} ghost><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" active ghost {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" disabled ghost {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" {...props} basic><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" {...props} active basic><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" {...props} disabled basic><CalendarIcon className="w6 h6" /></Button>
                 </div>
                 {/* loading / layout */}
                 <div className="flex flex-column items-start">
-                    <Button loading compact {...props}><CalendarIcon className="w6 h6" /></Button>
-                    <Button loading size="tiny" {...props}><CalendarIcon24 className="w4 h4" /></Button>
-                    <Button loading size="tiny" compact {...props}><CalendarIcon24 className="w4 h4" /></Button>
-                    <Button loading size="small" {...props}><CalendarIcon24 className="w5 h5" /></Button>
-                    <Button loading size="small" compact {...props}><CalendarIcon24 className="w5 h5" /></Button>
-                    <Button loading size="large" {...props}><CalendarIcon className="w7 h7" /></Button>
-                    <Button loading size="large" compact {...props}><CalendarIcon className="w7 h7" /></Button>
+                    <Button loading className="paused" compact {...props}><CalendarIcon className="w6 h6" /></Button>
+                    <Button loading className="paused" size="tiny" {...props}><CalendarIcon24 className="w4 h4" /></Button>
+                    <Button loading className="paused" size="tiny" compact {...props}><CalendarIcon24 className="w4 h4" /></Button>
+                    <Button loading className="paused" size="small" {...props}><CalendarIcon24 className="w5 h5" /></Button>
+                    <Button loading className="paused" size="small" compact {...props}><CalendarIcon24 className="w5 h5" /></Button>
+                    <Button loading className="paused" size="large" {...props}><CalendarIcon className="w7 h7" /></Button>
+                    <Button loading className="paused" size="large" compact {...props}><CalendarIcon className="w7 h7" /></Button>
                 </div>
             </div>
         </>

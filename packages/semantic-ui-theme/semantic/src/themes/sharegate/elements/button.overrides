@@ -393,6 +393,11 @@
     fill: @cloud400;
 }
 
+.ui.button.ghost.disabled svg,
+.ui.button.ghost:disabled svg {
+    fill: @cloud400;
+}
+
 .ui.button.basic.disabled svg,
 .ui.button.basic:disabled svg,
 .ui.buttons.basic .button:disabled svg,
@@ -499,6 +504,25 @@
 .ui.button.secondary.active svg,
 .ui.button.secondary:focus svg {
     fill: @marine500;
+}
+
+.ui.basic.secondary.buttons .button,
+.ui.basic.secondary.button {
+  color: @marine500 !important;
+}
+
+.ui.basic.secondary.buttons .button.disabled,
+.ui.basic.secondary.button.disabled {
+  color: @marine100 !important;
+}
+
+.ui.basic.secondary.buttons .button:hover,
+.ui.basic.secondary.button:hover,
+.ui.basic.secondary.buttons .button:focus,
+.ui.basic.secondary.button:focus,
+.ui.basic.secondary.buttons .button.active,
+.ui.basic.secondary.button.active {
+  color: @marine900 !important;
 }
 
 .ui.button.ghost:hover svg,
