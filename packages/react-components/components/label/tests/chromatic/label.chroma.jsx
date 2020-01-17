@@ -208,8 +208,8 @@ stories()
             <div className="flex flex-column items-start">
                 <Label naked>Notification Sent</Label>
                 <Label naked>Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                <Label basic circular naked size="medium">R</Label>
-                <Label basic tag naked>
+                <Label circular naked size="medium">R</Label>
+                <Label tag naked>
                     <Label circular empty size="tiny" color="red" />
                     Group added
                 </Label>
