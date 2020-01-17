@@ -25,7 +25,6 @@ stories()
                      <Label><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Label circular>R</Label>
                      <Label circular size="mini">R</Label>
                      <Label circular size="tiny">R</Label>
                      <Label circular size="small">R</Label>
@@ -54,7 +53,7 @@ stories()
                      <Label tag>
                          <Label circular empty size="mini" color="red" />
                              Group added
-                         <Button icon circular size="tiny" className="transparent">
+                         <Button icon circular size="tiny" ghost>
                              <CloseIcon24 className="w4 h4" />
                          </Button>
                      </Label>
@@ -72,7 +71,7 @@ stories()
                      <Label tag size="small">
                          <Label circular empty size="mini" color="red" />
                              Group added
-                         <Button icon circular size="tiny" className="transparent">
+                         <Button icon circular size="tiny" ghost>
                              <CloseIcon24 className="w4 h4" />
                          </Button>
                      </Label>
@@ -90,7 +89,7 @@ stories()
                      <Label tag size="large">
                          <Label circular empty size="mini" color="red" />
                              Group added
-                         <Button icon circular size="tiny" className="transparent">
+                         <Button icon circular size="tiny" ghost>
                              <CloseIcon24 className="w4 h4" />
                          </Button>
                      </Label>
@@ -114,6 +113,17 @@ stories()
                 <Label basic size="large">Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
             </div>
             <div className="flex flex-column items-start">
+                <Label basic circular size="mini">R</Label>
+                <Label basic circular size="tiny">R</Label>
+                <Label basic circular size="small">R</Label>
+                <Label basic circular size="medium">R</Label>
+                <Label basic circular size="large">R</Label>
+                <Label basic circular size="big">R</Label>
+                <Label basic circular size="huge">R</Label>
+                <Label basic circular size="massive">R</Label>
+                <Label basic circular size="mini" empty color="red" />
+            </div>
+            <div className="flex flex-column items-start">
                 <Label tag basic>
                     <Label circular empty size="mini" color="red" />
                     Group added
@@ -121,7 +131,7 @@ stories()
                 <Label tag basic>
                     <Label circular empty size="mini" color="red" />
                     Group added
-                    <Button icon circular size="tiny" className="transparent">
+                    <Button icon circular size="tiny" ghost>
                         <CloseIcon24 className="w4 h4" />
                     </Button>
                 </Label>
@@ -139,7 +149,7 @@ stories()
                 <Label tag basic size="small">
                     <Label circular empty size="mini" color="red" />
                     Group added
-                    <Button icon circular size="tiny" className="transparent">
+                    <Button icon circular size="tiny" ghost>
                         <CloseIcon24 className="w4 h4" />
                     </Button>
                 </Label>
@@ -157,7 +167,7 @@ stories()
                 <Label tag basic size="large">
                     <Label circular empty size="mini" color="red" />
                     Group added
-                    <Button icon circular size="tiny" className="transparent">
+                    <Button icon circular size="tiny" ghost>
                         <CloseIcon24 className="w4 h4" />
                     </Button>
                 </Label>
@@ -171,16 +181,45 @@ stories()
     )
     .add("naked", () =>
         <div className="flex flex-row">
-            <Label naked>Notification Sent</Label>
-            <Label
-                naked
-                style={{
-                    backgroundColor: "#FFF6E7",
-                    color: "var(--marine-500)",
-                    border: "1px solid #FEE9C3"
-                }}
-            >
-                Notification Sent
-            </Label>
+            <div className="flex flex-column items-start">
+                <Label naked>Notification Sent</Label>
+                <Label naked>Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                <Label basic circular naked size="medium">R</Label>
+                <Label tag naked>
+                    <Label circular empty size="mini" color="red" />
+                    Group added
+                </Label>
+            </div>
+            <div className="flex flex-column items-start">
+                <Label
+                    naked
+                    style={{
+                        backgroundColor: "#FFF6E7",
+                        color: "var(--marine-500)",
+                        border: "1px solid #FEE9C3"
+                    }}
+                >
+                    Notification Sent
+                </Label>
+                <Label
+                    naked
+                    circular
+                    empty
+                    size="mini"
+                    style={{
+                        backgroundColor: "#AAFF32"
+                    }}
+                ></Label>
+                <Label
+                    basic
+                    circular
+                    naked
+                    style={{
+                        backgroundColor: "#FFF6E7",
+                        color: "var(--marine-500)",
+                        border: "1px solid #FEE9C3"
+                    }}
+                >R</Label>
+            </div>
         </div>
     );

@@ -178,3 +178,16 @@
 .ui.tag.label:after {
     display: none !important;
 }
+
+/* Naked */
+.ui.label.naked {
+    background-color: @transparent;
+}
+
+.ui.label.basic.naked {
+    border-color: @transparent;
+}
+
+.ui.label.tag.naked .label {
+    background-color: @transparent!important;
+}
