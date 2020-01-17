@@ -2,7 +2,7 @@ import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, string } from "prop-types";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "icon", "image", "pointing", "prompt", "removeIcon", "ribbon"];
+const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "icon", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
 const propTypes = {
     /**
