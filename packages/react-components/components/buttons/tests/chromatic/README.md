@@ -2,7 +2,7 @@
 
 ## What are we testing?
 
-## Atoms
+### Atoms
 
 Atomic properties cannot be combined to form another variation. A _primary_ button cannot be _secondary_ while being _primary_. These are the categories that form our core Chromatic tests. Atomic properties are what a button is at its core, a *primary* button with a subtle appearance (primary basic), a shorter *secondary* button (secondary compact).
 

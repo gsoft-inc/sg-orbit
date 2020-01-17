@@ -225,6 +225,14 @@
     background-color: @transparent!important;
 }
 
+.ui.disabled.button.secondary.ghost,
+.ui.disabled.button.secondary.ghost,
+.ui.button.secondary.ghost:disabled,
+.ui.disabled.button.secondary.ghost:hover,
+.ui.disabled.secondary.ghost.active.button {
+    background-color: @transparent!important;
+}
+
 .ui.disabled.button.positive.basic,
 .ui.disabled.button.positive.basic,
 .ui.button.positive.basic:disabled,
@@ -234,6 +242,16 @@
     color: @success100!important;
 }
 
+.ui.disabled.button.positive.ghost,
+.ui.disabled.button.positive.ghost,
+.ui.button.positive.ghost:disabled,
+.ui.disabled.button.positive.ghost:hover,
+.ui.disabled.positive.ghost.active.button {
+    background-color: @transparent!important;
+    color: @success100!important;
+    box-shadow: none!important;
+}
+
 .ui.disabled.button.negative.basic,
 .ui.disabled.button.negative.basic,
 .ui.button.negative.basic:disabled,
@@ -241,6 +259,16 @@
 .ui.disabled.negative.basic.active.button {
     background-color: @transparent!important;
     color: @alert100!important;
+}
+
+.ui.disabled.button.negative.ghost,
+.ui.disabled.button.negative.ghost,
+.ui.button.negative.ghost:disabled,
+.ui.disabled.button.negative.ghost:hover,
+.ui.disabled.negative.ghost.active.button {
+    background-color: @transparent!important;
+    color: @alert100!important;
+    box-shadow: none!important;
 }
 
 .ui.disabled.button.positive,
@@ -402,6 +430,13 @@
     fill: @success500;
 }
 
+.ui.button.ghost.positive.disabled svg,
+.ui.buttons.ghost.positive.disabled .button svg,
+.ui.button.ghost.positive:disabled svg,
+.ui.buttons.ghost.positive:disabled .button svg {
+    fill: @success100;
+}
+
 .ui.button.ghost.positive.active svg,
 .ui.buttons.ghost.positive .button.active svg,
 .ui.button.ghost.positive:hover svg,
@@ -432,12 +467,12 @@
 
 .ui.button.ghost.negative.disabled svg,
 .ui.button.ghost.negative:disabled svg {
-    fill: @alert200;
+    fill: @alert100;
 }
 
 .ui.button.basic.negative.disabled svg,
 .ui.button.basic.negative:disabled svg {
-    fill: @alert200;
+    fill: @alert100;
 }
 
 .ui.button.icon:hover svg,
@@ -620,7 +655,6 @@
     color: @white !important;
 }
 
-
 .ui.basic.buttons .button {
     background-color: @white !important;
 }
@@ -666,4 +700,11 @@
     background-color: @transparent!important;
     color: initial !important;
     box-shadow: 0px 0px 0px 1px transparent inset!important;
+}
+
+/* Loading */
+
+/* Specificity hack */
+.ui.loading.loading.loading.loading.loading.loading.button svg{
+    fill: @transparent;
 }
