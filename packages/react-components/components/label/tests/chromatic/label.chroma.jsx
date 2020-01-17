@@ -169,7 +169,7 @@ stories()
             </div>
         </div>
     )
-    .add("default", () =>
+    .add("naked", () =>
         <div className="flex flex-row">
             <Label naked>Notification Sent</Label>
             <Label
