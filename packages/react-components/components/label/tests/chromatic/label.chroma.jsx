@@ -226,7 +226,6 @@ stories()
                     Notification Sent
                 </Label>
                 <Label
-                    basic
                     circular
                     naked
                     style={{
