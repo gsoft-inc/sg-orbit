@@ -170,6 +170,24 @@ A remote search input can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A remote search input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            fluid
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
 <Story
     name="dont close on blur"
     parameters={paramsBuilder()

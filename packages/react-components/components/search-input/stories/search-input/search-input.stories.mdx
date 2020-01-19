@@ -130,6 +130,20 @@ A search input can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A search input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <SearchInput
+            fluid
+            results={DEFAULT_RESULTS}
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
 <Story
     name="dont close on blur"
     parameters={paramsBuilder()
@@ -157,6 +171,7 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     size="tiny"
+                    fluid
                     onValueChange={logValueChanged}
                 />
             </div>
@@ -164,6 +179,7 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     size="small"
+                    fluid
                     onValueChange={logValueChanged}
                 />
             </div>
@@ -171,12 +187,14 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     onValueChange={logValueChanged}
+                    fluid
                 />
             </div>
             <div className="flex-auto mr2">
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     size="large"
+                    fluid
                     onValueChange={logValueChanged}
                 />
             </div>

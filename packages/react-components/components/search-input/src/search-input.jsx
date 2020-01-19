@@ -131,6 +131,10 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         size: oneOf(SIZES),
         /**
+         * Whether or not the search input take up the width of its container.
+         */
+        fluid: bool,
+        /**
          * Additional classes.
          */
         className: string
@@ -268,7 +272,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -293,6 +297,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
                 size={size}
+                fluid={fluid}
                 className={className}
             />
         );

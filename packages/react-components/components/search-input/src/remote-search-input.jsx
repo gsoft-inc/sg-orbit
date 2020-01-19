@@ -192,6 +192,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
+         * Whether or not the search input take up the width of its container.
+         */
+        fluid: bool,
+        /**
          * Additional classes.
          */
         className: string
@@ -412,7 +416,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, fluid, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -437,6 +441,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 loading={isLoading}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
+                fluid={fluid}
                 className={className}
             />
         );

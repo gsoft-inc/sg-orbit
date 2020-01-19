@@ -39,6 +39,12 @@ stories()
              createSearchInputController({
                  autofocus: true
              })
+    )
+    .add("fluid",
+         () =>
+             createSearchInputController({
+                 fluid: true
+             })
     );
 
 stories("/loading/closed")

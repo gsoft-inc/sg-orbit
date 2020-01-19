@@ -51,10 +51,21 @@ import "./styles/app.css";
 import "./styles/docs.css";
 import "./styles/stories.css";
 
+// View issue https://github.com/storybookjs/storybook/issues/9518.
+let optionsMessingWithDocsMode = {};
+
+if (!isDocs) {
+    addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
+
+    optionsMessingWithDocsMode = {
+        showPanel: false,
+        panelPosition: "right"
+    };
+}
+
 addParameters({
     options: {
-        showPanel: false,
-        panelPosition: "right",
+        ...optionsMessingWithDocsMode,
         theme: customStorybookTheme,
         storySort: customStorySort
     },
@@ -62,10 +73,6 @@ addParameters({
         inlineStories: true
     }
 });
-
-if (!isDocs) {
-    addDecorator((storyFn, context) => <CanvasContainer story={storyFn()} context={context} />);
-}
 
 let stories = [];
 

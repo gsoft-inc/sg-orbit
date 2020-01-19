@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { Button, Ref, Search } from "semantic-ui-react";
 import { CancelIcon } from "@orbit-ui/icons";
 import { RESULT_SHAPE } from "./results";
@@ -6,8 +6,28 @@ import { SIZES } from "./sizes";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
+
+// TODO: Input -> Move semantic test to new component and change import of Input in semantic tests to import { Input } from "@orbit-ui/react-input"
+
+// TODO: Padding right for icon, should be 8px for tiny & small, otherwise 16px
+// TODO: Icon size should vary depending on size.
+
+// TODO: Change I pass to the input shorthand a full React component? If I can I could pass something like
+/*
+<div>
+   <Input ... />
+   {this.renderClearButton()}
+</div>
+*/
+// OR: maybe even better by using iconPosition="right"
+/*
+   <Input ... >
+        {this.renderClearButton()}
+   </Input>
+*/
+
+// TODO: Add size & fluid to knobs for SearchInpur and RemoteSearchInput
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -38,6 +58,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
+        fluid: bool,
         size: oneOf(SIZES),
         className: string
     };
@@ -52,7 +73,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         clearIcon: <CancelIcon className="h3 w3" />,
         disabled: false,
         autofocus: false,
-        autofocusDelay: 50
+        autofocusDelay: 50,
+        fluid: false
     };
 
     static autoControlledProps = ["value"];
@@ -288,11 +310,11 @@ export class SearchInputController extends AutoControlledPureComponent {
         return !isEmpty(query) && !disabled;
     }
 
-    getInputCssClasses() {
-        const { className } = this.props;
+    getContainerClasses() {
+        const { fluid, className } = this.props;
 
         return mergeClasses(
-            "fluid",
+            cx("search-input relative", { "inline-flex": !fluid }),
             className
         );
     }
@@ -338,12 +360,12 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, size, fluid } = this.props;
         const { transformedResults, query } = this.state;
 
         return (
             <>
-                <div className="search-input relative w-100" ref={this._containerRef}>
+                <div className={this.getContainerClasses()} ref={this._containerRef}>
                     <Search
                         open={open && !disabled}
                         minCharacters={minCharacters}
@@ -357,8 +379,9 @@ export class SearchInputController extends AutoControlledPureComponent {
                         input={{
                             icon: loading && !disabled ? "" : "search",
                             iconPosition: "left",
-                            className: this.getInputCssClasses(),
                             onKeyDown: this.handleInputKeyDown,
+                            size,
+                            fluid,
                             ref: this._inputRef,
                             "data-testid": "search-input-textbox"
                         }}
@@ -366,6 +389,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                         disabled={disabled}
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
+                        fluid={fluid}
                     />
                     {this.renderClearButton()}
 
