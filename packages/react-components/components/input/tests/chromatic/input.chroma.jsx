@@ -281,5 +281,9 @@ stories()
                  <Input icon={<MagnifierIcon />} iconPosition="left" size="small" placeholder="Search..." />
                  <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
                  <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
+                 <Input size="tiny" loading placeholder="Search..." className="paused" />
+                 <Input size="small" loading placeholder="Search..." className="paused" />
+                 <Input loading placeholder="Search..." className="paused" />
+                 <Input size="large" loading placeholder="Search..." className="paused" />
              </div>
     );
