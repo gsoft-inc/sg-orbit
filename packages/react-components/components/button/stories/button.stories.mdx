@@ -1,10 +1,10 @@
 import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
-import { Button } from "@orbit-ui/react-button/src";
+import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -27,7 +27,7 @@ import Imports from "./imports.mdx";
 
 <Props
     componentsDefinitions={[
-        { displayName: "Button", component: Button }
+        { displayName: "Button", component: PureButton }
     ]}
 />
 
@@ -259,3 +259,12 @@ Buttons can exist together as a group.
         </div>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Button />} />
+</Story>

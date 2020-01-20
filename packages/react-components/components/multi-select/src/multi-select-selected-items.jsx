@@ -1,5 +1,6 @@
-import { Button, Label } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { CloseIcon24 } from "@orbit-ui/icons";
+import { Label } from "@orbit-ui/react-label";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, shape, string } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";

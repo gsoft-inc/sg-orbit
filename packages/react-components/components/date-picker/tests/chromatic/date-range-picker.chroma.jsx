@@ -1200,8 +1200,8 @@ stories("/size/tiny")
          () =>
              createDateRangePicker({
                  size: "tiny",
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days")
+                 defaultStartDate: moment(DEFAULT_DATE),
+                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
              })
     );
 
@@ -1216,8 +1216,8 @@ stories("/size/small")
          () =>
              createDateRangePicker({
                  size: "small",
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days")
+                 defaultStartDate: moment(DEFAULT_DATE),
+                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
              })
     );
 
@@ -1232,8 +1232,8 @@ stories("/size/medium")
          () =>
              createDateRangePicker({
                  size: "medium",
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days")
+                 defaultStartDate: moment(DEFAULT_DATE),
+                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
              })
     );
 
@@ -1248,7 +1248,7 @@ stories("/size/large")
          () =>
              createDateRangePicker({
                  size: "large",
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days")
+                 defaultStartDate: moment(DEFAULT_DATE),
+                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
              })
     );

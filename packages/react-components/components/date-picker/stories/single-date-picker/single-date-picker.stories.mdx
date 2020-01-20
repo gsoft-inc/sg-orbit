@@ -2,6 +2,7 @@ import {
     BOTTOM_CENTER,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
+    DEFAULT_SIZE,
     LARGE,
     MEDIUM,
     PureSingleDatePickerInput,
@@ -85,7 +86,7 @@ A default single date picker.
         numberOfMonths={number("numberOfMonths")}
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}

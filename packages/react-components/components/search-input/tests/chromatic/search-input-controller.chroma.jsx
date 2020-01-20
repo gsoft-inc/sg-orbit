@@ -194,6 +194,66 @@ stories("/default value/opened")
              })
     );
 
+stories("/size/tiny")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "tiny"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSearchInputController({
+                 size: "tiny",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
+stories("/size/small")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "small"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSearchInputController({
+                 size: "small",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
+stories("/size/medium")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "medium"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSearchInputController({
+                 size: "medium",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
+stories("/size/large")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "large"
+             })
+    )
+    .add("selected dates",
+         () =>
+             createSearchInputController({
+                 size: "large",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
 stories("/customization")
     .add("no results message",
          () =>

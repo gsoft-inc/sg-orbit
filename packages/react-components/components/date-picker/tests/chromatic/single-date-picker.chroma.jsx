@@ -806,7 +806,7 @@ stories("/size/tiny")
          () =>
              createSingleDatePicker({
                  size: "tiny",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );
 
@@ -821,7 +821,7 @@ stories("/size/small")
          () =>
              createSingleDatePicker({
                  size: "small",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );
 
@@ -836,7 +836,7 @@ stories("/size/medium")
          () =>
              createSingleDatePicker({
                  size: "medium",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );
 
@@ -851,6 +851,6 @@ stories("/size/large")
          () =>
              createSingleDatePicker({
                  size: "large",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );

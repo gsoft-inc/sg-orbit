@@ -1,10 +1,10 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SMALL, SearchInput, SearchInputController, TINY } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
-import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValueChanged } from "../utils";
 import Imports from "./imports.mdx";
@@ -69,7 +69,9 @@ A default search input with a set of results.
         minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
         noResultsMessage={text("noResultsMessage")}
         placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
+        fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         onValueChange={logValueChanged}
     />
 </Story>

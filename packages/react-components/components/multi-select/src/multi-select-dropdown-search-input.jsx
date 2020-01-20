@@ -1,5 +1,6 @@
-import { Input, Ref } from "semantic-ui-react";
+import { Input } from "@orbit-ui/react-input";
 import { PureComponent, createRef } from "react";
+import { Ref } from "semantic-ui-react";
 import { func, node, string } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 

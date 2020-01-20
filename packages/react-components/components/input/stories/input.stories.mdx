@@ -1,7 +1,7 @@
 import { Input } from "@orbit-ui/react-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -158,4 +158,13 @@ An input can be transparent.
         <Input transparent placeholder="Search..." />
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Input />} />
+</Story>
 

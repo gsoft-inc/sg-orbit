@@ -4,7 +4,7 @@ import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-c
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "../imports.mdx";
 
 <Meta
@@ -162,6 +162,15 @@ A label can be colorless. Use this variant if you need to customize the label.
         </Label>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Label />} />
+</Story>
 
 
 

@@ -1,4 +1,4 @@
-import { Button } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";

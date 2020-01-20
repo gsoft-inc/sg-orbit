@@ -1,8 +1,9 @@
-import { Button, Ref } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { CalendarIcon, CalendarIcon24, CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
+import { Ref } from "semantic-ui-react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";

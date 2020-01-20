@@ -1,18 +1,44 @@
-import { Input as SemanticInput } from "semantic-ui-react";
+/* eslint-disable react/forbid-foreign-prop-types */
+
+import { Ref, Input as SemanticInput } from "semantic-ui-react";
+import { forwardRef } from "react";
+import { func, object, oneOf, oneOfType } from "prop-types";
 import { isNil } from "lodash";
-import { oneOf } from "prop-types";
 import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = [];
+const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
-export function Input({ children, ...props }) {
+const propTypes = {
+    /**
+     * @ignore
+     */
+    innerRef: oneOfType([object, func])
+};
+
+export function PureInput({ children, innerRef, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
-    return <SemanticInput {...props}>{children}</SemanticInput>;
+    const renderWithRef = () => {
+        return (
+            <Ref innerRef={innerRef}>
+                {renderInput()}
+            </Ref>
+        );
+    };
+
+    const renderInput = () => {
+        return <SemanticInput {...props}>{children}</SemanticInput>;
+    };
+
+    return isNil(innerRef) ? renderInput() : renderWithRef();
 }
 
-// eslint-disable-next-line react/forbid-foreign-prop-types
+PureInput.propTypes = propTypes;
+
+export const Input = forwardRef((props, ref) => (
+    <PureInput { ...props } innerRef={ref} />
+));
+
 if (!isNil(SemanticInput.propTypes)) {
-    // eslint-disable-next-line react/forbid-foreign-prop-types
     SemanticInput.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
 }

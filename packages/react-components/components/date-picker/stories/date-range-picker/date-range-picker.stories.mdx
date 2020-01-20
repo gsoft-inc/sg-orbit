@@ -3,6 +3,7 @@ import {
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
     DEFAULT_DATES_PRESETS,
+    DEFAULT_SIZE,
     DateRangePicker,
     LARGE,
     MEDIUM,
@@ -90,7 +91,7 @@ A default date range picker.
         placeholder={text("placeholder")}
         rangeFormat={text("rangeFormat")}
         dateFormat={text("dateFormat")}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
         disabled={boolean("disabled", false)}
@@ -278,7 +279,7 @@ A date range picker calendar can be anchored at different positions.
 The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
 
 <Preview>
-    <Story 
+    <Story
         name="position"
         parameters={paramsBuilder()
             .canvasLayout({ marginTop: "400px" })

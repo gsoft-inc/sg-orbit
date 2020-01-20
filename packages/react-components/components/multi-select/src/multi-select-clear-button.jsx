@@ -1,5 +1,6 @@
-import { Button, Ref } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { PureComponent, createRef } from "react";
+import { Ref } from "semantic-ui-react";
 import { func, string } from "prop-types";
 import { mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 

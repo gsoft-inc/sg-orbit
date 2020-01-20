@@ -1,6 +1,8 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
-import { Button, Ref, Search } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { CancelIcon } from "@orbit-ui/icons";
+// import { Input } from "@orbit-ui/react-input";
+import { Input, Ref, Search } from "semantic-ui-react";
 import { RESULT_SHAPE } from "./results";
 import { SIZES } from "./sizes";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
@@ -8,26 +10,10 @@ import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
 
-// TODO: Input -> Move semantic test to new component and change import of Input in semantic tests to import { Input } from "@orbit-ui/react-input"
-
 // TODO: Padding right for icon, should be 8px for tiny & small, otherwise 16px
 // TODO: Icon size should vary depending on size.
 
-// TODO: Change I pass to the input shorthand a full React component? If I can I could pass something like
-/*
-<div>
-   <Input ... />
-   {this.renderClearButton()}
-</div>
-*/
-// OR: maybe even better by using iconPosition="right"
-/*
-   <Input ... >
-        {this.renderClearButton()}
-   </Input>
-*/
-
-// TODO: Add size & fluid to knobs for SearchInpur and RemoteSearchInput
+// TODO: Add size & fluid to knobs for SearchInput and RemoteSearchInput
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -399,6 +385,52 @@ export class SearchInputController extends AutoControlledPureComponent {
                         }
                     `}</style>
                 </div>
+
+                {/* <div className={this.getContainerClasses()} ref={this._containerRef}>
+                    <Search
+                        open={open && !disabled}
+                        minCharacters={minCharacters}
+                        noResultsMessage={noResultsMessage}
+                        onResultSelect={this.handleResultSelect}
+                        onSearchChange={this.handleSearchChange}
+                        onBlur={this.handleBlur}
+                        resultRenderer={this.renderResult}
+                        results={transformedResults}
+                        value={query}
+                        // input={{
+                        //     icon: loading && !disabled ? "" : "search",
+                        //     iconPosition: "left",
+                        //     onKeyDown: this.handleInputKeyDown,
+                        //     size,
+                        //     fluid,
+                        //     ref: this._inputRef,
+                        //     "data-testid": "search-input-textbox"
+                        // }}
+                        input={
+                            <Input
+                                icon={loading && !disabled ? "" : "search"}
+                                iconPosition="left"
+                                onKeyDown={this.handleInputKeyDown}
+                                size={size}
+                                fluid={fluid}
+                                ref={this._inputRef}
+                                {...{ "data-testid": "search-input-textbox" }}
+                            />
+                        }
+                        placeholder={placeholder}
+                        disabled={disabled}
+                        tabIndex={disabled ? "-1" : "0"}
+                        loading={loading && !disabled}
+                        fluid={fluid}
+                    />
+                    {this.renderClearButton()}
+
+                    <style jsx>{`
+                        .search-input :global(.prompt) {
+                            padding-right: var(--scale-juliett) !important;
+                        }
+                    `}</style>
+                </div> */}
 
                 <If condition={open}>
                     <DOMEventListener name="click" on={this.handleDocumentClick} />

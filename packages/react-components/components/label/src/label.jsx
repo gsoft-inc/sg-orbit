@@ -1,5 +1,7 @@
-import { Label as SemanticLabel } from "semantic-ui-react";
-import { bool, string } from "prop-types";
+import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { bool, func, object, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "icon", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
@@ -12,26 +14,49 @@ const propTypes = {
     /**
      * @ignore
      */
-    className: string
+    className: string,
+    /**
+     * @ignore
+     */
+    innerRef: oneOfType([object, func])
 };
 
 const defaultProps = {
     naked: false
 };
 
-export function Label({ naked, className, children, ...props }) {
+export function PureLabel({ naked, className, innerRef, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
-    const classes = mergeClasses(
-        naked && "naked",
-        className
-    );
+    const renderWithRef = () => {
+        return (
+            <Ref innerRef={innerRef}>
+                {renderLabel()}
+            </Ref>
+        );
+    };
 
-    return <SemanticLabel className={classes} {...props}>{children}</SemanticLabel>;
+    const renderLabel = () => {
+        const classes = mergeClasses(
+            naked && "naked",
+            className
+        );
+
+        return <SemanticLabel className={classes} {...props}>{children}</SemanticLabel>;
+    };
+
+    return isNil(innerRef) ? renderLabel() : renderWithRef();
 }
 
-Label.Detail = SemanticLabel.Detail;
-Label.Group = SemanticLabel.Group;
+PureLabel.propTypes = propTypes;
+PureLabel.defaultProps = defaultProps;
 
-Label.propTypes = propTypes;
-Label.defaultProps = defaultProps;
+export const Label = forwardRef((props, ref) => (
+    <PureLabel { ...props } innerRef={ref} />
+));
+
+[PureLabel, Label].forEach(x => {
+    x.Detail = SemanticLabel.Detail;
+    x.Group = SemanticLabel.Group;
+});
+
