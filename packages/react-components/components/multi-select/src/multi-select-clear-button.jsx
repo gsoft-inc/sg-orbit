@@ -1,6 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
 import { PureComponent, createRef } from "react";
-import { Ref } from "semantic-ui-react";
 import { func, string } from "prop-types";
 import { mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 
@@ -45,16 +44,15 @@ export class MultiSelectClearButton extends PureComponent {
         const { text } = this.props;
 
         return (
-            <Ref innerRef={this._buttonRef}>
-                <Button
-                    onClick={this.handleClick}
-                    className={this.getClasses()}
-                    type="button"
-                    data-testid="multi-select-clear-button"
-                >
-                    {text}
-                </Button>
-            </Ref>
+            <Button
+                onClick={this.handleClick}
+                className={this.getClasses()}
+                type="button"
+                ref={this._buttonRef}
+                data-testid="multi-select-clear-button"
+            >
+                {text}
+            </Button>
         );
     }
 }

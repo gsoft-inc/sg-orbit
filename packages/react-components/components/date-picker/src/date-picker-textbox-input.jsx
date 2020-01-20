@@ -3,7 +3,6 @@ import { CalendarIcon, CalendarIcon24, CancelIcon } from "@orbit-ui/icons";
 import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
-import { Ref } from "semantic-ui-react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
@@ -218,20 +217,19 @@ export class DatePickerTextboxInput extends PureComponent {
 
         return (
             <div className={cx({ dn: this.isPlaceholder() || disabled || open })}>
-                <Ref innerRef={this._clearButtonRef}>
-                    <Button
-                        circular
-                        size="tiny"
-                        primary
-                        icon
-                        className="transparent"
-                        onClick={this.handleClearButtonClick}
-                        type="button"
-                        data-testid="date-picker-textbox-clear-button"
-                    >
-                        {this.renderClearIcon()}
-                    </Button>
-                </Ref>
+                <Button
+                    circular
+                    size="tiny"
+                    primary
+                    icon
+                    className="transparent"
+                    onClick={this.handleClearButtonClick}
+                    type="button"
+                    ref={this._clearButtonRef}
+                    data-testid="date-picker-textbox-clear-button"
+                >
+                    {this.renderClearIcon()}
+                </Button>
             </div>
         );
     }

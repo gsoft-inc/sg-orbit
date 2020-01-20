@@ -143,22 +143,21 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
         return (
             <div className="mr2 mb2">
-                <Ref innerRef={this._buttonRef}>
-                    <Button
-                        onClick={this.handleClick}
-                        onKeyDown={this.handleKeyDown}
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
-                        secondary
-                        className={this.getClasses()}
-                        disabled={disabled}
-                        tabIndex={disabled ? "-1" : "0"}
-                        type="button"
-                        data-testid="multi-select-dropdown-trigger"
-                    >
-                        {text} {this.renderIcon()}
-                    </Button>
-                </Ref>
+                <Button
+                    onClick={this.handleClick}
+                    onKeyDown={this.handleKeyDown}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    secondary
+                    className={this.getClasses()}
+                    disabled={disabled}
+                    tabIndex={disabled ? "-1" : "0"}
+                    type="button"
+                    ref={this._buttonRef}
+                    data-testid="multi-select-dropdown-trigger"
+                >
+                    {text} {this.renderIcon()}
+                </Button>
             </div>
         );
     }

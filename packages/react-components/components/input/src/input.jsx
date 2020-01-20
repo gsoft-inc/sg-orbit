@@ -1,21 +1,36 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
+import { cloneElement } from "react";
+import { element, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
-import { func, object, oneOf, oneOfType } from "prop-types";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
 const propTypes = {
+    icon: element,
     /**
      * @ignore
      */
     innerRef: oneOfType([object, func])
 };
 
-export function PureInput({ children, innerRef, ...props }) {
+function renderIcon(icon) {
+    if (!isNil(icon)) {
+        return cloneElement(icon, {
+            className: mergeClasses(
+                "icon",
+                icon.props && icon.props.className
+            )
+        });
+    }
+
+    return null;
+}
+
+export function PureInput({ children, icon, innerRef, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
@@ -27,7 +42,7 @@ export function PureInput({ children, innerRef, ...props }) {
     };
 
     const renderInput = () => {
-        return <SemanticInput {...props}>{children}</SemanticInput>;
+        return <SemanticInput icon={renderIcon(icon)} {...props}>{children}</SemanticInput>;
     };
 
     return isNil(innerRef) ? renderInput() : renderWithRef();

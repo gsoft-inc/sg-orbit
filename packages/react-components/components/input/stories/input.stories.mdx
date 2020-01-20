@@ -1,5 +1,6 @@
 import { Input } from "@orbit-ui/react-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
@@ -78,10 +79,10 @@ An input can be formatted with an icon.
     <Story name="icon">
         <div className="flex flex-row">
             <div className="mr2">
-                <Input icon="search" placeholder="Search..." />
+                <Input icon={<MagnifierIcon />} placeholder="Search..." />
             </div>
             <div>
-                <Input iconPosition="left" icon="search" placeholder="Search..." />
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
             </div>
         </div>
     </Story>
@@ -114,16 +115,16 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
     <Story name="size">
         <div className="flex flex-row items-end">
             <div className="flex-auto mr2">
-                <Input size="tiny" fluid placeholder="Search..." />
+                <Input size="tiny" icon={<MagnifierIcon />} fluid placeholder="Search..." />
             </div>
             <div className="flex-auto mr2">
-                <Input size="small" fluid placeholder="Search..." />
+                <Input size="small" icon={<MagnifierIcon />} fluid placeholder="Search..." />
             </div>
             <div className="flex-auto mr2">
-                <Input fluid placeholder="Search..." />
+                <Input fluid icon={<MagnifierIcon />} placeholder="Search..." />
             </div>
             <div className="flex-auto mr2">
-                <Input size="large" fluid placeholder="Search..." />
+                <Input size="large" icon={<MagnifierIcon />} fluid placeholder="Search..." />
             </div>
         </div>
     </Story>

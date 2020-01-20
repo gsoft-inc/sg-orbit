@@ -9,8 +9,9 @@ import {
     getAutoControlledStateFromProps,
     httpGet
 } from "@orbit-ui/react-components-shared";
+import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
-import { bool, func, number, string } from "prop-types";
+import { bool, func, number, oneOf, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
 
 function defaultResultsFetcher(event, url, data, options) {
@@ -191,6 +192,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
+        /**
+         * A date picker can have different sizes.
+         */
+        size: oneOf(SIZES),
         /**
          * Whether or not the search input take up the width of its container.
          */
@@ -416,7 +421,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, fluid, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -441,6 +446,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 loading={isLoading}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
+                size={size}
                 fluid={fluid}
                 className={className}
             />
