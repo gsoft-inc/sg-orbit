@@ -42,6 +42,12 @@ class ParamsBuilder {
         return this;
     }
 
+    chromaticPauseAnimationAtEnd() {
+        this._chromatic.pauseAnimationAtEnd = true;
+
+        return this;
+    }
+
     storyValues(values) {
         if (isPlainObject(values)) {
             this._storyValues = values;

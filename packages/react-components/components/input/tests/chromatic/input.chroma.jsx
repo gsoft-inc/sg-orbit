@@ -9,6 +9,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
+            .chromaticPauseAnimationAtEnd()
             .build())
         .build();
 }
@@ -268,22 +269,26 @@ stories()
     )
     .add("sizes",
          () =>
-             <div className="flex flex-column items-start">
-                 <Input size="tiny" placeholder="Search..." />
-                 <Input size="small" placeholder="Search..." />
-                 <Input placeholder="Search..." />
-                 <Input size="large" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} size="tiny" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} size="small" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} size="large" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} iconPosition="left" size="tiny" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} iconPosition="left" size="small" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                 <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
-                 <Input size="tiny" loading placeholder="Search..." className="paused" />
-                 <Input size="small" loading placeholder="Search..." className="paused" />
-                 <Input loading placeholder="Search..." className="paused" />
-                 <Input size="large" loading placeholder="Search..." className="paused" />
+             <div className="flex flex-row">
+                 <div className="flex flex-column">
+                     <Input size="tiny" placeholder="Search..." />
+                     <Input size="small" placeholder="Search..." />
+                     <Input placeholder="Search..." />
+                     <Input size="large" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} size="tiny" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} size="small" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} size="large" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} iconPosition="left" size="tiny" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} iconPosition="left" size="small" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                     <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
+                 </div>
+                 <div className="flex flex-column">
+                     <Input size="tiny" loading placeholder="Search..." className="paused" />
+                     <Input size="small" loading placeholder="Search..." className="paused" />
+                     <Input loading placeholder="Search..." className="paused" />
+                     <Input size="large" loading placeholder="Search..." className="paused" />
+                 </div>
              </div>
     );

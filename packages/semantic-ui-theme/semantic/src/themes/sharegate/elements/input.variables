@@ -15,10 +15,9 @@
 @relativeMedium: var(--type-scale-6);
 @relativeLarge: var(--type-scale-6);
 
-@iconPadding: 8px;
+@iconPadding: 5px;
 @iconMargin: calc(var(--scale-hotel) + @iconPadding);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;
 @placeholderErrorColor: @marine100;
-

@@ -1228,7 +1228,7 @@ stories("/size/medium")
                  size: "medium"
              })
     )
-    .add("medium",
+    .add("selected dates",
          () =>
              createDateRangePicker({
                  size: "medium",

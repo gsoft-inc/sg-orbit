@@ -1,9 +1,9 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { Button } from "@orbit-ui/react-button";
 import { CancelIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
-import { SIZES } from "./sizes";
 import { Search } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
@@ -18,6 +18,20 @@ import cx from "classnames";
 // TODO: prompt padding right should vary based on size
 
 // TODO: Add size & fluid to knobs for SearchInput and RemoteSearchInput
+
+const SIZES_TO_CLEAR_ICON = {
+    [TINY]: <CancelIcon className="h2 w2" />,
+    [SMALL]: <CancelIcon className="h3 w3" />,
+    [MEDIUM]: <CancelIcon className="h3 w3" />,
+    [LARGE]: <CancelIcon className="h3 w3" />
+};
+
+const SIZES_TO_CLEAR_ICON_POSITION = {
+    [TINY]: "var(--scale-echo)",
+    [SMALL]: "var(--scale-echo)",
+    [MEDIUM]: "var(--scale-foxtrot)",
+    [LARGE]: "var(--scale-foxtrot)"
+};
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -60,10 +74,10 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
-        clearIcon: <CancelIcon className="h3 w3" />,
         disabled: false,
         autofocus: false,
         autofocusDelay: 50,
+        size: DEFAULT_SIZE,
         fluid: false
     };
 
@@ -332,11 +346,17 @@ export class SearchInputController extends AutoControlledPureComponent {
         />;
     }
 
+    renderClearIcon() {
+        const { clearIcon, size } = this.props;
+
+        return !isNil(clearIcon) ? clearIcon : SIZES_TO_CLEAR_ICON[size];
+    }
+
     renderClearButton = () => {
-        const { clearIcon } = this.props;
+        const { size } = this.props;
 
         return (
-            <div className={cx("cancel-btn-container absolute", { dn: !this.canClear() })}>
+            <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })} style={{ right: SIZES_TO_CLEAR_ICON_POSITION[size] }}>
                 <Button
                     circular
                     size="tiny"
@@ -348,14 +368,12 @@ export class SearchInputController extends AutoControlledPureComponent {
                     ref={this._clearButtonRef}
                     data-testid="search-input-clear-button"
                 >
-                    {clearIcon}
+                    {this.renderClearIcon()}
                 </Button>
 
                 <style jsx>{`
-                    .cancel-btn-container {
-                        position: absolute;
+                    .clear-btn-container {
                         top: 50%;
-                        right: calc(var(--scale-juliett) / 2);
                         transform: translateX(50%) translateY(-50%);
                     }
                 `}</style>

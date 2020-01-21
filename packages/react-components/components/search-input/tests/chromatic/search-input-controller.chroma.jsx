@@ -201,7 +201,7 @@ stories("/size/tiny")
                  size: "tiny"
              })
     )
-    .add("selected dates",
+    .add("selected value",
          () =>
              createSearchInputController({
                  size: "tiny",
@@ -216,7 +216,7 @@ stories("/size/small")
                  size: "small"
              })
     )
-    .add("selected dates",
+    .add("selected value",
          () =>
              createSearchInputController({
                  size: "small",
@@ -231,7 +231,7 @@ stories("/size/medium")
                  size: "medium"
              })
     )
-    .add("selected dates",
+    .add("selected value",
          () =>
              createSearchInputController({
                  size: "medium",
@@ -246,7 +246,7 @@ stories("/size/large")
                  size: "large"
              })
     )
-    .add("selected dates",
+    .add("selected value",
          () =>
              createSearchInputController({
                  size: "large",

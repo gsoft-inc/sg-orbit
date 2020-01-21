@@ -9,8 +9,8 @@ import { isNil } from "lodash";
 import cx from "classnames";
 
 const SIZES_TO_HORIZONTAL_PADDING = {
-    [TINY]: "pl2 pr4",
-    [SMALL]: "pl2 pr4",
+    [TINY]: "ph2",
+    [SMALL]: "ph2",
     [MEDIUM]: "ph4",
     [LARGE]: "ph4"
 };
@@ -216,7 +216,7 @@ export class DatePickerTextboxInput extends PureComponent {
         }
 
         return (
-            <div className={cx({ dn: this.isPlaceholder() || disabled || open })}>
+            <div className={cx("clear-btn-container", { dn: this.isPlaceholder() || disabled || open })}>
                 <Button
                     circular
                     size="tiny"
