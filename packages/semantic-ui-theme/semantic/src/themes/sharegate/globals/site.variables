@@ -998,7 +998,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : @primary500;
+@primaryColorDown        : @primary900;
 @secondaryColorDown      : @secondaryColor;
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;

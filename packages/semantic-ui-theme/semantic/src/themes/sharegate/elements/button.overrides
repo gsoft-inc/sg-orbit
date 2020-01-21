@@ -64,8 +64,8 @@
 .ui.button.small.circular,
 .ui.button.icon.small.circular {
     font-size: @typeScale7;
-    min-height: @scaleHotel;
-    min-width: @scaleHotel;
+    min-height: @scaleGolf;
+    min-width: @scaleGolf;
 }
 
 /* LAYOUT | Circular/Large */
@@ -129,6 +129,25 @@
 .ui.button.icon.compact,
 .ui.buttons.icon.compact .button {
     padding-left: calc(@compactHorizontalPadding / 2);
+    padding-right: @compactHorizontalPadding;
+}
+
+/* STATE | Active | SKIN | Basic */
+.ui.button.basic:hover,
+.ui.button.basic.active,
+.ui.button.basic:focus {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @marine900 inset!important;
+    color: @marine900!important;
+}
+
+/* STATE | Active | SKIN | Naked/Basic */
+.ui.button.basic.naked:hover,
+.ui.button.basic.naked.active,
+.ui.button.basic.naked:focus {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicBorderSize transparent inset!important;
+    color: initial!important;
 }
 
 /* CONTENT */
@@ -280,7 +299,6 @@
     box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
 }
 
-
 /* SKIN | STATE | Disabled | LAYOUT | Secondary/Basic */
 .ui.button.disabled.secondary.basic,
 .ui.button.secondary.basic:disabled,
@@ -405,7 +423,7 @@
     fill: @marine600;
 }
 
-/* CONTENT | Icon | SKIN | Ghost */
+/* CONTENT | Icon | SKIN | Naked */
 .ui.button.naked.disabled svg,
 .ui.button.naked:disabled svg,
 .ui.buttons.naked.disabled .button svg,
@@ -461,6 +479,14 @@
 .ui.buttons.primary.disabled .button svg,
 .ui.buttons.primary:disabled .button svg {
     fill: @white;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Naked */
+.ui.button.naked.disabled svg,
+.ui.button.naked:disabled svg,
+.ui.buttons.naked.disabled .button svg,
+.ui.buttons.naked:disabled .button svg {
+    fill: initial;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic/Primary */
@@ -556,7 +582,7 @@
 .ui.button.basic:hover svg,
 .ui.button.basic.active svg,
 .ui.button.basic:focus svg {
-    fill: @white;
+    fill: @marine900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Positive/Basic */
@@ -564,6 +590,13 @@
 .ui.button.basic.positive.active svg,
 .ui.button.basic.positive:focus svg {
     fill: @success900;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Primary/Basic */
+.ui.button.basic.primary:hover svg,
+.ui.button.basic.primary.active svg,
+.ui.button.basic.primary:focus svg {
+    fill: @primary900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Secondary */

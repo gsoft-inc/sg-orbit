@@ -21,6 +21,7 @@
 /* Button defaults to using same height as input globally */
 @horizontalPadding: 1.5rem;
 @compactHorizontalPadding: 1rem;
+@verticalPadding: 0.375rem;
 
 /* Text */
 @borderRadius: 2em;
