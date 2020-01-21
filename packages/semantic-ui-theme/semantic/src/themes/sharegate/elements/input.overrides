@@ -110,3 +110,7 @@
 .ui.left.icon.input > svg.icon {
     left: var(--scale-bravo);
 }
+
+.ui.icon.input.disabled > svg.icon  {
+    fill: var(--marine-100);
+}

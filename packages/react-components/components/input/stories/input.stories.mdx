@@ -161,6 +161,15 @@ An input can be transparent.
 </Preview>
 
 <Story
+    name="icon + loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Input icon={<MagnifierIcon />} loading />
+</Story>
+
+<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()

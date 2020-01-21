@@ -284,10 +284,10 @@ stories()
                      <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
                  </div>
                  <div className="flex flex-column">
-                     <Input size="tiny" loading placeholder="Search..." className="paused" />
-                     <Input size="small" loading placeholder="Search..." className="paused" />
-                     <Input loading placeholder="Search..." className="paused" />
-                     <Input size="large" loading placeholder="Search..." className="paused" />
+                     <Input size="tiny" loading placeholder="Search..." />
+                     <Input size="small" loading placeholder="Search..." />
+                     <Input loading placeholder="Search..." />
+                     <Input size="large" loading placeholder="Search..." />
                  </div>
              </div>
     );

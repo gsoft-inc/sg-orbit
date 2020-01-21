@@ -328,10 +328,10 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { loading, icon, disabled, size, fluid } = this.props;
 
         return <Input
-            // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-            icon={loading && !disabled ? null : icon}
+            icon={icon}
             iconPosition="left"
             onKeyDown={this.handleInputKeyDown}
+            loading={loading && !disabled}
             size={size}
             fluid={fluid}
             ref={this._inputRef}

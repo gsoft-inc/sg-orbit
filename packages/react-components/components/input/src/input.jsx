@@ -16,8 +16,8 @@ const propTypes = {
     innerRef: oneOfType([object, func])
 };
 
-function renderIcon(icon) {
-    if (!isNil(icon)) {
+function renderIcon(icon, { loading }) {
+    if (!isNil(icon) && !loading) {
         return cloneElement(icon, {
             className: mergeClasses(
                 "icon",
@@ -26,10 +26,12 @@ function renderIcon(icon) {
         });
     }
 
-    return null;
+    return undefined;
 }
 
-export function PureInput({ children, icon, forwardedRef, ...props }) {
+export function PureInput(props) {
+    const { children, icon, forwardedRef, ...rest } = props;
+
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const inputRef = useRef();
@@ -38,7 +40,7 @@ export function PureInput({ children, icon, forwardedRef, ...props }) {
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon(icon)} {...props}>{children}</SemanticInput>
+            <SemanticInput icon={renderIcon(icon, props)} {...rest}>{children}</SemanticInput>
         </Ref>
     );
 }
