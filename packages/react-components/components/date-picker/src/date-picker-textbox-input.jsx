@@ -8,13 +8,6 @@ import { bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import cx from "classnames";
 
-const SIZES_TO_HORIZONTAL_PADDING = {
-    [TINY]: "ph2",
-    [SMALL]: "ph2",
-    [MEDIUM]: "ph4",
-    [LARGE]: "ph4"
-};
-
 const SIZES_TO_HEIGHT = {
     [TINY]: "h6",
     [SMALL]: "h7",
@@ -178,7 +171,7 @@ export class DatePickerTextboxInput extends PureComponent {
             !this.isPlaceholder() && "marine-600",
             !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
             SIZES_TO_HEIGHT[size],
-            SIZES_TO_HORIZONTAL_PADDING[size],
+            "ph2",
             SIZES_TO_FONT_SIZE[size],
             className
         );
