@@ -1,16 +1,17 @@
-import { CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { Label } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button/src";
+import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { SemanticLayout } from "../semantic-layout";
+import { Props } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
-import Imports from "./imports.mdx";
-import Installation from "../installation.mdx";
+import Imports from "../imports.mdx";
 
 <Meta
     title={createComponentSection("Label/standard")}
     parameters={paramsBuilder()
-        .sortPriority(-1)
-        .docsLayout(<SemanticLayout documentationPath="/elements/label" />)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
         .build()}
 />
 
@@ -20,7 +21,17 @@ A label displays content classification.
 
 ## Installation
 
-<Installation imports={<Imports />} />
+<Installation componentFolder="label" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Label" semanticPath="/elements/label" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Label", component: Label }
+    ]}
+/>
 
 ## Usage
 
@@ -31,6 +42,21 @@ A default label.
 <Preview>
     <Story name="default">
         <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Button
+
+A label can include a button.
+
+<Preview>
+    <Story name="button">
+        <Label>
+            Group added
+            <Button type="button" icon circular size="tiny" ghost>
+                <CloseIcon className="w4 h4" />
+            </Button>
+        </Label>
     </Story>
 </Preview>
 
@@ -63,16 +89,17 @@ A label can have a subtle appearance.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
 A label can vary in size.
 
 <Preview>
-    <Story name="sizes">
-        <div className="flex items-start">
+    <Story name="size">
+        <div className="flex items-end">
             <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
+            <Label>Notification Sent</Label>
             <Label size="large">Notification Sent</Label>
         </div>
     </Story>
@@ -95,6 +122,7 @@ A label can have a circular form.
 <Preview>
     <Story name="circular">
         <div>
+            <Label circular size="mini">R</Label>
             <Label circular size="tiny">R</Label>
             <Label circular size="small">R</Label>
             <Label circular>D</Label>
@@ -105,3 +133,35 @@ A label can have a circular form.
         </div>
     </Story>
 </Preview>
+
+### Naked
+
+A label can be colorless. Use this variant if you need to customize the label.
+
+<Preview>
+    <Story name="naked">
+        <div>
+            <Label naked>Notification Sent</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Custom color
+
+<Preview>
+    <Story name="custom-color">
+        <Label
+            naked
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Notification Sent
+        </Label>
+    </Story>
+</Preview>
+
+
+

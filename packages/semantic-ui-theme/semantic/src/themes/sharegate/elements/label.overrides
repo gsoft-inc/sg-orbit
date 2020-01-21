@@ -2,11 +2,6 @@
     Site Overrides
 *******************************/
 
-.ui.empty.circular.labels .label.mini,
-.ui.empty.circular.label.mini {
-    font-size: 0.5rem;
-}
-
 .ui.mini.labels .label, .ui.mini.label {
     font-size: .375rem;
 }
@@ -49,7 +44,7 @@
 
 /* large */
 .ui.label.large{
-    padding: 15px @horizontalPadding;
+    padding: 12px @horizontalPadding;
 }
 
 .ui.label.basic.large {
@@ -57,15 +52,16 @@
 }
 
 .ui.label.basic {
-    padding: 9px @horizontalPadding;
+    padding: 7px @horizontalPadding;
 }
 
 .ui.label.basic.icon {
     padding: 6px calc(@horizontalPadding/2) 6px @horizontalPadding;
 }
 
-.ui.label.basic.small {
-    padding: 5px @horizontalPadding;
+.ui.label.small,
+.ui.tag.label.small {
+    padding: 3px @horizontalPadding;
 }
 
 .ui.label.small.basic.icon {
@@ -108,8 +104,8 @@
 /* manage font weight and letter spacing? for labels in tab */
 
 .ui.label.mini:not(.circular) {
-    min-height: 16px;
-    font-size: 0.75rem;
+    min-height: 20px;
+    font-size: 0.875rem;
     padding: 0.15em 0.8125em;
     font-weight: 600;
 }
@@ -149,6 +145,54 @@
     font-size: 2.5rem;
 }
 
+/* override mini label padding in order to keep it 4px */
+.ui.circular.empty.labels .label,
+.ui.circular.empty.label {
+    padding: 0!important;
+}
+
+/* circluar empty font size */
+
+.ui.empty.circular.labels .label.mini,
+.ui.empty.circular.label.mini {
+    font-size: 0.75rem;
+}
+
+.ui.empty.circular.labels .label.tiny,
+.ui.empty.circular.label.tiny {
+    font-size: 1rem;
+}
+
+.ui.empty.circular.labels .label.small,
+.ui.empty.circular.label.small {
+    font-size: 1.25rem;
+}
+
+.ui.empty.circular.labels .label,
+.ui.empty.circular.label {
+    font-size: 1.5rem;
+}
+
+.ui.empty.circular.labels.large .label,
+.ui.empty.circular.label.large {
+    font-size: 1.75rem;
+}
+
+.ui.empty.circular.labels.big .label,
+.ui.empty.circular.label.big {
+    font-size: 2rem;
+}
+
+.ui.empty.circular.labels.huge .label,
+.ui.empty.circular.label.huge {
+    font-size: 2.25rem;
+}
+
+.ui.empty.circular.labels.massive .label,
+.ui.empty.circular.label.massive {
+    font-size: 2.5rem;
+}
+
 /*  Primary */
 
 .ui.label.primary,
@@ -177,4 +221,17 @@
 
 .ui.tag.label:after {
     display: none !important;
+}
+
+/* Naked */
+.ui.label.naked {
+    background-color: @transparent;
+}
+
+.ui.label.basic.naked {
+    border-color: @transparent;
+}
+
+.ui.label.tag.naked .label {
+    background-color: @transparent!important;
 }

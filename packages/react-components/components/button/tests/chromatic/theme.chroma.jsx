@@ -1,4 +1,4 @@
-import { Button } from "@orbit-ui/react-buttons/src";
+import { Button } from "@orbit-ui/react-button/src";
 import { ThemeButtons} from "./buttons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

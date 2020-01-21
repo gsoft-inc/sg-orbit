@@ -1,8 +1,7 @@
-import { Button } from "@orbit-ui/react-buttons/src";
+import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 
 export const ThemeButtons = props => {
-
     return (
         <>
             <div className="flex flex-row items-start">

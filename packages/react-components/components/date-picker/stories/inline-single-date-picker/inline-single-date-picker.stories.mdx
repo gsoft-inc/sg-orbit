@@ -30,7 +30,7 @@ An inlined single date picker can appear inline with other content.
 
 ## Installation
 
-<Installation componentName="date-picker" imports={<Imports />} />
+<Installation componentFolder="date-picker" imports={<Imports />} />
 
 ## Props
 
@@ -65,6 +65,8 @@ A default inlined single date picker.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
         .excludeFromDocs()
         .build()}
 >
@@ -76,7 +78,7 @@ A default inlined single date picker.
         numberOfMonths={number("numberOfMonths")}
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
-        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}

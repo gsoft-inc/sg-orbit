@@ -4,7 +4,11 @@ import {
     BOTTOM_RIGHT,
     DEFAULT_DATES_PRESETS,
     DateRangePicker,
+    LARGE,
+    MEDIUM,
     PureDateRangePickerInput,
+    SMALL,
+    TINY,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -35,7 +39,7 @@ A date range picker allow a user to select a date range.
 
 ## Installation
 
-<Installation componentName="date-picker" imports={<Imports />} />
+<Installation componentFolder="date-picker" imports={<Imports />} />
 
 ## Props
 
@@ -71,6 +75,8 @@ A default date range picker.
     name="knobs"
     decorators={[withKnobs]}
     parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
         .excludeFromDocs()
         .build()}
 >
@@ -84,7 +90,8 @@ A default date range picker.
         placeholder={text("placeholder")}
         rangeFormat={text("rangeFormat")}
         dateFormat={text("dateFormat")}
-        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
+        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -239,16 +246,46 @@ A date range picker can be disabled.
     </Story>
 </Preview>
 
+### Size
+
+A date range picker input can vary in size.
+
+The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end">
+            <div className="flex-auto mr2">
+                <DateRangePicker size="tiny" onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto mr2">
+                <DateRangePicker size="small" onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto mr2">
+                <DateRangePicker onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto mr2">
+                <DateRangePicker size="large" onDatesChange={logDatesChanged} />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Position
 
 A date range picker calendar can be anchored at different positions.
 
-The available positions are: `TOP_LEFT`, `TOP_RIGHT`, `TOP_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` and `BOTTOM_CENTER`.
+The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
 
 <Preview>
-    <Story name="position">
+    <Story 
+        name="position"
+        parameters={paramsBuilder()
+            .canvasLayout({ marginTop: "400px" })
+            .build()}
+    >
         <DateRangePicker
-            position={TOP_LEFT}
+            position="top-left"
             onDatesChange={logDatesChanged}
         />
     </Story>

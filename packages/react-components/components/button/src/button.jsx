@@ -2,17 +2,25 @@ import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, string } from "prop-types";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["animated", "attached", "color", "label", "labelPosition", "floated", "inverted"];
+const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
+    /**
+     * A ghost button doesn't have a background color until it's hovered.
+     */
+    ghost: bool,
+    /**
+     * A button can be formatted to accept a nested icon _(overseed the original prop)_.
+     */
+    icon: bool,
+    /**
+     * A button can be formatted to accept a nested label _(overseed the original prop)_.
+     */
+    label: bool,
     /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
     naked: bool,
-    /**
-     * A button can be formatted without basic color until it's hovered.
-     */
-    ghost: bool,
     /**
      * @ignore
      */
@@ -21,15 +29,19 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    ghost: false
+    ghost: false,
+    icon: false,
+    label: false
 };
 
-export function Button({ naked, ghost, className, children, ...props }) {
+export function Button({ naked, ghost, icon, label, className, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const classes = mergeClasses(
         naked && "naked",
         ghost && "ghost",
+        icon && "icon",
+        label && "with-label",
         className
     );
 

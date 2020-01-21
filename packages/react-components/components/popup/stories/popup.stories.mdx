@@ -18,7 +18,7 @@ import Imports from "./imports.mdx";
 
 ## Installation
 
-<Installation componentName="popup" imports={<Imports />} />
+<Installation componentFolder="popup" imports={<Imports />} />
 
 ## Props
 
@@ -45,6 +45,8 @@ A default popup.
     decorators={[withKnobs]}
     parameters={paramsBuilder()
         .canvasLayout({ marginTop: "150px" })
+        .showPanel()
+        .selectedPanel("Knobs")
         .excludeFromDocs()
         .build()}
 >

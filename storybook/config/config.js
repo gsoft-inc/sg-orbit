@@ -53,6 +53,8 @@ import "./styles/stories.css";
 
 addParameters({
     options: {
+        showPanel: false,
+        panelPosition: "right",
         theme: customStorybookTheme,
         storySort: customStorySort
     },

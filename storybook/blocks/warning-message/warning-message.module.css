@@ -1,8 +1,10 @@
 .icon {
-    display: flex;
-    align-items: center;
     line-height: 1;
     margin-right: var(--scale-bravo);
+}
+
+.content {
+    line-height: 1;
 }
 
 .content > p:first-child {

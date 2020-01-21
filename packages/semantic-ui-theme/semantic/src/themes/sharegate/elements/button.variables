@@ -19,6 +19,7 @@
 @backgroundColor: @marine500;
 
 /* Button defaults to using same height as input globally */
+@compactHorizontalPadding: 1rem;
 @horizontalPadding: 1.5rem;
 @compactHorizontalPadding: 1rem;
 @verticalPadding: 0.375rem;
