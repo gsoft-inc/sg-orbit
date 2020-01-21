@@ -1,7 +1,6 @@
 import { Button } from "@orbit-ui/react-button";
 import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
-import { Ref } from "semantic-ui-react";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
