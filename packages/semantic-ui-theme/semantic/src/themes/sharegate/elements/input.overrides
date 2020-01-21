@@ -63,22 +63,17 @@
 }
 
 .ui.icon.input.large > input {
-    padding-right: calc(var(--scale-india) + @iconPadding) !important;
+    padding-right: calc(var(--scale-hotel) + @iconPadding) !important;
 }
 
 .ui.icon.input > svg.icon {
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    right: var(--scale-delta);
+    right: var(--scale-bravo);
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
     pointer-events: none;
-}
-
-.ui.icon.input.tiny > svg.icon,
-.ui.icon.input.small > svg.icon {
-    right: var(--scale-bravo);
 }
 
 .ui.icon.input.tiny > svg.icon {
@@ -109,14 +104,9 @@
 }
 
 .ui.left.icon.input.large > input {
-    padding-left: calc(var(--scale-india) + @iconPadding) !important;
+    padding-left: calc(var(--scale-hotel) + @iconPadding) !important;
 }
 
 .ui.left.icon.input > svg.icon {
-    left: var(--scale-delta);
-}
-
-.ui.left.icon.input.tiny > svg.icon,
-.ui.left.icon.input.small > svg.icon {
     left: var(--scale-bravo);
 }

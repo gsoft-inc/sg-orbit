@@ -9,7 +9,6 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
-            .chromaticPauseAnimationAtEnd()
             .build())
         .build();
 }

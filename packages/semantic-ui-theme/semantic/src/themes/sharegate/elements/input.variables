@@ -15,8 +15,8 @@
 @relativeMedium: var(--type-scale-6);
 @relativeLarge: var(--type-scale-6);
 
-@iconPadding: 5px;
-@iconMargin: calc(var(--scale-hotel) + @iconPadding);
+@iconPadding: var(--scale-bravo);
+@iconMargin: calc(var(--scale-golf) + @iconPadding);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;
