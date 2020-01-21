@@ -40,12 +40,12 @@ const defaultProps = {
     naked: false
 };
 
-export function PureButton({ naked, ghost, icon, label, className, innerRef, children, ...props }) {
+export function PureButton({ naked, ghost, icon, label, className, forwardedRef, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
         return (
-            <Ref innerRef={innerRef}>
+            <Ref innerRef={forwardedRef}>
                 {renderButton()}
             </Ref>
         );
@@ -63,14 +63,14 @@ export function PureButton({ naked, ghost, icon, label, className, innerRef, chi
         return <SemanticButton className={classes} {...props}>{children}</SemanticButton>;
     };
 
-    return isNil(innerRef) ? renderButton() : renderWithRef();
+    return isNil(forwardedRef) ? renderButton() : renderWithRef();
 }
 
 PureButton.propTypes = propTypes;
 PureButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
-    <PureButton { ...props } innerRef={ref} />
+    <PureButton { ...props } forwardedRef={ref} />
 ));
 
 [PureButton, Button].forEach(x => {

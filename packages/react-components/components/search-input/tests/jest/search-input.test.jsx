@@ -10,7 +10,7 @@ import {
     getTextbox
 } from "./shared";
 import { SearchInput, searchInputResult } from "@orbit-ui/react-search-input/src";
-import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
+import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@utils/user-event";
 
@@ -130,11 +130,10 @@ test("close the dropdown menu on outside click", async () => {
 
     await waitForElement(() => getResultsMenu(container));
 
-    await waitForDomChange({ container }).then(() => {
-        expect(getResultsMenu(container)).not.toBeInTheDocument();
-    });
-
     userEvent.click(document.body);
+    await wait();
+
+    expect(getResultsMenu(container)).not.toBeInTheDocument();
 });
 
 test("close the dropdown menu on blur", async () => {
@@ -240,8 +239,6 @@ test("when autofocus is true, the input is focused on render", async () => {
         autofocus: true,
         autofocusDelay: 0
     }));
-
-    // await wait(async () => expect(await getTextbox(getByTestId)).toHaveFocus());
 
     await wait();
 

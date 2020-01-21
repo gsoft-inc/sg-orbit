@@ -1,9 +1,8 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
-import { cloneElement } from "react";
+import { cloneElement, createRef, forwardRef, useImperativeHandle, useRef } from "react";
 import { element, func, object, oneOf, oneOfType } from "prop-types";
-import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
@@ -30,29 +29,27 @@ function renderIcon(icon) {
     return null;
 }
 
-export function PureInput({ children, icon, innerRef, ...props }) {
+export function PureInput({ children, icon, forwardedRef, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={innerRef}>
-                {renderInput()}
-            </Ref>
-        );
-    };
+    const inputRef = useRef();
 
-    const renderInput = () => {
-        return <SemanticInput icon={renderIcon(icon)} {...props}>{children}</SemanticInput>;
-    };
+    useImperativeHandle(forwardedRef, () => inputRef.current.querySelector("input"));
 
-    return isNil(innerRef) ? renderInput() : renderWithRef();
+    return (
+        <Ref innerRef={inputRef}>
+            <SemanticInput icon={renderIcon(icon)} {...props}>{children}</SemanticInput>
+        </Ref>
+    );
 }
 
 PureInput.propTypes = propTypes;
 
-export const Input = forwardRef((props, ref) => (
-    <PureInput { ...props } innerRef={ref} />
-));
+export const Input = forwardRef((props, ref) => {
+    const forwardedRef = !isNil(ref) ? ref : createRef();
+
+    return <PureInput { ...props } forwardedRef={forwardedRef} />;
+});
 
 if (!isNil(SemanticInput.propTypes)) {
     SemanticInput.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);

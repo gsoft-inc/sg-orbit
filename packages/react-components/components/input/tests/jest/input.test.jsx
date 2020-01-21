@@ -18,4 +18,5 @@ test("ref is a DOM element", async () => {
 
     expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
+    expect(refNode.tagName).toBe("INPUT");
 });
