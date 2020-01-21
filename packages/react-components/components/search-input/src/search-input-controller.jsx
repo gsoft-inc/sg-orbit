@@ -10,15 +10,6 @@ import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
 
-// TODO: Search icon size should vary depending on size.
-// TODO: Search icon padding-left should vary depends on size.
-
-// TODO: Clear icon size should vary depends on size.
-// TODO: Clear icon right position should vary depends on size.
-// TODO: prompt padding right should vary based on size
-
-// TODO: Add size & fluid to knobs for SearchInput and RemoteSearchInput
-
 const SIZES_TO_CLEAR_ICON = {
     [TINY]: <CancelIcon className="h2 w2" />,
     [SMALL]: <CancelIcon className="h3 w3" />,
@@ -58,6 +49,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: string,
         debounceDelay: number,
         loading: bool,
+        icon: node,
         clearIcon: node,
         disabled: bool,
         autofocus: bool,
@@ -74,6 +66,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
+        icon: <MagnifierIcon />,
         disabled: false,
         autofocus: false,
         autofocusDelay: 50,
@@ -332,11 +325,11 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     renderInput = () => {
-        const { loading, disabled, size, fluid } = this.props;
+        const { loading, icon, disabled, size, fluid } = this.props;
 
         return <Input
             // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-            icon={loading && !disabled ? null : <MagnifierIcon />}
+            icon={loading && !disabled ? null : icon}
             iconPosition="left"
             onKeyDown={this.handleInputKeyDown}
             size={size}
