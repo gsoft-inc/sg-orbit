@@ -37,11 +37,11 @@ function focus(inputRef) {
     }
 }
 
-function useDelayedAutofocus(autofocus, autofocusDelay, inputRef) {
+function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
     useEffect(() => {
         let timeoutId;
 
-        if (autofocus && ! isNil(autofocusDelay)) {
+        if (autofocus && !disabled && !isNil(autofocusDelay)) {
             timeoutId = setTimeout(() => {
                 focus(inputRef);
             }, autofocusDelay);
@@ -52,18 +52,18 @@ function useDelayedAutofocus(autofocus, autofocusDelay, inputRef) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, inputRef]);
+    }, [autofocus, autofocusDelay, disabled, inputRef]);
 }
 
 export function PureInput(props) {
-    const { icon, autofocus, autofocusDelay, children, forwardedRef, ...rest } = props;
+    const { icon, autofocus, autofocusDelay, disabled, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const inputRef = useRef();
 
     useImperativeHandle(forwardedRef, () => getInputElement(inputRef));
-    useDelayedAutofocus(autofocus, autofocusDelay, inputRef);
+    useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef);
 
     const renderIcon = () => {
         const { loading } = props;
@@ -82,7 +82,7 @@ export function PureInput(props) {
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus}>{children}</SemanticInput>
+            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} disabled={disabled}>{children}</SemanticInput>
         </Ref>
     );
 }

@@ -205,6 +205,19 @@ A search input can handle `value` and `open` state in controlled mode.
 </Preview>
 
 <Story
+    name="open"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        open
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+<Story
     name="autofocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
@@ -213,7 +226,6 @@ A search input can handle `value` and `open` state in controlled mode.
     <SearchInput
         results={DEFAULT_RESULTS}
         autofocus
-        clearOnSelect
         onValueChange={logValueChanged}
     />
 </Story>
@@ -228,7 +240,6 @@ A search input can handle `value` and `open` state in controlled mode.
         results={DEFAULT_RESULTS}
         autofocus
         autofocusDelay={500}
-        clearOnSelect
         onValueChange={logValueChanged}
     />
 </Story>

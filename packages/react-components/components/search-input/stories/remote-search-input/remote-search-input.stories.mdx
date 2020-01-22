@@ -282,6 +282,23 @@ A remote search input can handle `value` and `open` state in controlled mode.
 </Preview>
 
 <Story
+    name="open"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        open
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
     name="autofocus"
     parameters={paramsBuilder()
         .excludeFromDocs()

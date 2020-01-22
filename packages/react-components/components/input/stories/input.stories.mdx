@@ -175,7 +175,14 @@ An input can be transparent.
         .excludeFromDocs()
         .build()}
 >
-    <Input autofocus placeholder="Search..." />
+    <div className="flex flex-row">
+        <div className="mr2">
+            <Input autofocus placeholder="Search..." />
+        </div>
+        <div>
+            <Input autofocus disabled placeholder="Search..." />
+        </div>
+    </div>
 </Story>
 
 <Story
@@ -184,7 +191,14 @@ An input can be transparent.
         .excludeFromDocs()
         .build()}
 >
-    <Input autofocus autofocusDelay={500} placeholder="Search..." />
+    <div className="flex flex-row">
+        <div className="mr2">
+            <Input autofocus autofocusDelay={500} placeholder="Search..." />
+        </div>
+        <div>
+            <Input autofocus disabled autofocusDelay={500} placeholder="Search..." />
+        </div>
+    </div>
 </Story>
 
 <Story

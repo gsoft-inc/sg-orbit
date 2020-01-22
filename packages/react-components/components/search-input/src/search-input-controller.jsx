@@ -80,20 +80,9 @@ export class SearchInputController extends AutoControlledPureComponent {
     _containerRef = createRef();
     _inputRef = createRef();
     _clearButtonRef = createRef();
-    _autofocusTimeout = null;
 
     componentDidMount() {
-        const { open, autofocus, autofocusDelay } = this.props;
-
         this.transformResults();
-
-        if (open) {
-            this.focus();
-        } else if (autofocus) {
-            // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
-            // component is rendered in a popup, modal, etc..
-            this.focus(autofocusDelay);
-        }
     }
 
     componentDidUpdate(prevProps) {
@@ -109,27 +98,12 @@ export class SearchInputController extends AutoControlledPureComponent {
 
     componentWillUnmount() {
         this.cancelOnSearchDebounce();
-        this.clearAutofocusTimeout();
     }
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SearchInputController.autoControlledProps, ({ value }) => ({
             query: isNil(value) ? "" : value
         }));
-    }
-
-    focus(delay = 0) {
-        this._autofocusTimeout = setTimeout(() => {
-            if (!isNil(this._inputRef.current)) {
-                this._inputRef.current.focus();
-            }
-        }, delay);
-    }
-
-    clearAutofocusTimeout() {
-        if (!isNil(this._autofocusTimeout)) {
-            clearTimeout(this._autofocusTimeout);
-        }
     }
 
     transformResults() {
@@ -319,13 +293,16 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     renderInput = () => {
-        const { loading, icon, disabled, size, fluid } = this.props;
+        const { open, loading, icon, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
 
         return <Input
             icon={icon}
             iconPosition="left"
             onKeyDown={this.handleInputKeyDown}
             loading={loading && !disabled}
+            autofocus={open || autofocus}
+            autofocusDelay={autofocusDelay}
+            disabled={disabled}
             size={size}
             fluid={fluid}
             ref={this._inputRef}
@@ -349,8 +326,6 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     renderClearButton = () => {
-        const { size } = this.props;
-
         return (
             <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
                 <Button
