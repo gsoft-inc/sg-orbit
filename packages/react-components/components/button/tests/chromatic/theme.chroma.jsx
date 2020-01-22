@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { ThemeButtons } from "./buttons";
+import { Buttons } from "./buttons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import styles from "./styles.module.css";
 
@@ -17,37 +17,37 @@ stories("/theme")
     .add("default",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons />
+                 <Buttons />
              </div>
     )
     .add("primary",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons primary />
+                 <Buttons primary />
              </div>
     )
     .add("secondary",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons secondary />
+                 <Buttons secondary />
              </div>
     )
     .add("positive",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons positive />
+                 <Buttons positive />
              </div>
     )
     .add("negative",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons negative />
+                 <Buttons negative />
              </div>
     )
     .add("naked",
          () =>
              <div className="flex flex-row">
-                 <ThemeButtons naked />
+                 <Buttons naked />
              </div>
     )
     .add("naked coloured",

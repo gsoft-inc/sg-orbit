@@ -87,18 +87,18 @@
 .ui.button.naked:hover,
 .ui.button.naked:focus,
 .ui.button.naked.active {
-    background-color: @transparent!important;
-    color: initial!important;
-    box-shadow: 0px 0px 0px 1px transparent inset!important;
+    background-color: @transparent;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
 /* LAYOUT | Naked | STATE | Disabled */
 .ui.button.disabled.naked,
 .ui.button.naked:disabled,
 .ui.buttons.disabled.naked .button {
-    background-color: @transparent!important;
-    color: initial !important;
-    box-shadow: 0px 0px 0px 1px transparent inset!important;
+    background-color: @transparent;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
 /* LAYOUT | Naked/Basic | STATE | Disabled */
