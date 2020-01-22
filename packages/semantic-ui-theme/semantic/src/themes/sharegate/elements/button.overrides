@@ -2,286 +2,707 @@
         Site Overrides
 *******************************/
 
-.ui.button {
-    min-height: 40px;
+@successDisabled: @success100;
+@negativeDisabled: @alert100;
+
+.ui.button,
+.ui.buttons .button {
+    min-height: @scaleHotel;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.ui.button.icon.tiny.circular {
-    min-height: 24px;
-    min-width: 24px;
-    padding: 0;
-    justify-content: center;
-    font-size: 1rem;
+/* LAYOUT */
+/* LAYOUT | Sizes */
+/* LAYOUT | Sizes/Tiny */
+.ui.button.tiny,
+.ui.button.icon.tiny,
+.ui.tiny.buttons .button,
+.ui.tiny.icon.buttons .button {
+    min-height: @scaleFoxtrot;
+    padding: 0.25em 1.5rem;
 }
 
-.ui.button.icon.small.circular {
-    min-height: 32px;
-    min-width: 32px;
-    padding: 0;
-    justify-content: center;
-    font-size: 1rem;
+/* LAYOUT | Sizes/Small */
+.ui.button.small,
+.ui.button.icon.small,
+.ui.small.buttons .button,
+.ui.small.icon.buttons .button {
+    min-height: @scaleGolf;
+    padding: 0.375rem 1.5rem;
 }
 
+/* LAYOUT | Sizes/Large */
+.ui.button.large,
+.ui.button.icon.large,
+.ui.large.buttons .button,
+.ui.large.icon.buttons .button {
+    min-height: @scaleIndia;
+    padding: 0.5rem 1.5rem;
+}
+
+/* LAYOUT | Circular */
+/* LAYOUT | Circular/Default */
 .ui.button.circular,
-.ui.button.medium.circular ,
-.ui.button.icon.circular,
-.ui.button.icon.medium.circular {
-    font-size: 1rem;
+.ui.button.icon.circular, {
     padding: 0;
-    justify-content: center;
-    min-height: 40px;
-    min-width: 40px;
+    font-size: @typeScale6;
+    min-height: @scaleHotel;
+    min-width: @scaleHotel;
 }
 
+/* LAYOUT | Circular/Tiny */
+.ui.button.tiny.circular,
+.ui.button.icon.tiny.circular {
+    font-size: @typeScale8;
+    min-height: @scaleFoxtrot;
+    min-width: @scaleFoxtrot;
+}
+
+/* LAYOUT | Circular/Small */
+.ui.button.small.circular,
+.ui.button.icon.small.circular {
+    font-size: @typeScale7;
+    min-height: @scaleGolf;
+    min-width: @scaleGolf;
+}
+
+/* LAYOUT | Circular/Large */
+.ui.button.large.circular,
 .ui.button.icon.large.circular {
-    min-width: 48px;
-    min-height: 48px;
-    padding: 0;
-    justify-content: center;
-    font-size: 1rem;
+    font-size: @typeScale6;
+    min-height: @scaleIndia;
+    min-width: @scaleIndia;
 }
 
-.ui.button.tall {
-    min-height: 48px;
-}
-
-.ui.button.short {
-    min-height: 32px;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-}
-
-.ui.icon.buttons .button,
-.ui.icon.button {
-  padding: 0.25rem 1.5rem 0.25rem 1rem;
-}
-
-
-/* Transparent button */
-.ui.transparent.button {
+/* LAYOUT | Naked */
+.ui.button.naked {
     background-color: @transparent;
-    border: none;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
-/* Ghost button (Takes the same size of common buttons but doesnt have a background when not hovered) */
-.ui.ghost.button {
+/* LAYOUT | Naked | STATE | Pseudo */
+.ui.button.naked:hover,
+.ui.button.naked:focus,
+.ui.button.naked.active {
     background-color: @transparent;
-    border: none;
-    color: @marine600;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
-/* Ghost hover */
-.ui.ghost.buttons .button:hover,
-.ui.ghost.button:hover,
-.ui.ghost.button:focus,
-.ui.ghost.button.active {
-    background-color: @cloud50;
-    border: none;
-    color: @marine600;
+/* LAYOUT | Naked | STATE | Disabled */
+.ui.button.disabled.naked,
+.ui.button.naked:disabled,
+.ui.buttons.disabled.naked .button {
+    background-color: @transparent;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
-/* Ghost disabled */
-.ui.buttons .disabled.button.ghost,
-.ui.disabled.button.ghost,
-.ui.button.ghost:disabled,
-.ui.disabled.button.ghost:hover,
-.ui.disabled.ghost.active.button {
+/* LAYOUT | Naked/Basic | STATE | Disabled */
+.ui.button.disabled.basic.naked,
+.ui.button.naked.basic:disabled,
+.ui.buttons.disabled.naked.basic .button {
     background-color: @transparent!important;
-    border: none;
-    color: @cloud900;
-    cursor: pointer;
+    color: initial !important;
+    box-shadow: 0px 0px 0px 1px transparent inset!important;
 }
 
-/* Ghost Primary */
-.ui.ghost.primary.button {
+/* LAYOUT | Compact */
+@compactHorizontalPadding: @scaleDelta;
+
+.ui.button.compact,
+.ui.button.compact.tiny,
+.ui.button.compact.small,
+.ui.button.compact.large,
+.ui.buttons.compact .button,
+.ui.buttons.compact.tiny .button,
+.ui.buttons.compact.small .button,
+.ui.buttons.compact.large .button {
+    padding-left: @compactHorizontalPadding;
+    padding-right: @compactHorizontalPadding;
+}
+
+/* LAYOUT | Compact | CONTENT | With Icon */
+.ui.button.icon.compact,
+.ui.buttons.icon.compact .button {
+    padding-left: calc(@compactHorizontalPadding / 2);
+    padding-right: @compactHorizontalPadding;
+}
+
+/* STATE | Active | SKIN | Basic */
+.ui.button.basic:hover,
+.ui.button.basic.active,
+.ui.button.basic:focus {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @marine900 inset!important;
+    color: @marine900!important;
+}
+
+/* STATE | Active | SKIN | Naked/Basic */
+.ui.button.basic.naked:hover,
+.ui.button.basic.naked.active,
+.ui.button.basic.naked:focus {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicBorderSize transparent inset!important;
+    color: initial!important;
+}
+
+/* CONTENT */
+/* CONTENT | With Icon */
+/* CONTENT | With Icon | Layout */
+/* CONTENT | With Icon | Layout | Sizes */
+/* CONTENT | With Icon | Layout | Sizes/Tiny */
+.ui.circular.button.tiny > .icon,
+.ui.circular.buttons.tiny .button > .icon {
+    width: @scaleDelta;
+}
+
+/* CONTENT | With Icon | Layout | Sizes/Small */
+.ui.circular.button.small > .icon,
+.ui.circular.buttons.small .button > .icon  {
+    width: @scaleEcho;
+}
+
+/* CONTENT | With Icon | Layout | Sizes/Medium */
+.ui.circular.button > .icon,
+.ui.circular.buttons .button > .icon {
+    width: @scaleFoxtrot;
+}
+
+/* CONTENT | With Icon | Layout | Sizes/Large */
+.ui.circular.button.large > .icon,
+.ui.circular.buttons.large .button > .icon {
+    width: @scaleGolf;
+}
+
+/* CONTENT | With Icon | Layout | Padding */
+.ui.icon.button,
+.ui.icon.buttons .button {
+    padding: 0.25rem 1.5rem 0.25rem 1rem;
+}
+
+/* CONTENT | With Tag | Layout | Margin */
+.ui.button.with-tag .tag,
+.ui.buttons.with-tag .tag {
+    margin-right: @scaleBravo;
+}
+
+/* CONTENT | With Tag | SKIN | Naked */
+.ui.button.with-tag.naked .tag,
+.ui.buttons.with-tag.naked .tag {
+    background-color: @transparent!important;
+}
+
+/* CONTENT | With Tag | Layout | Padding */
+.ui.button.with-tag,
+.ui.buttons.with-tag .button {
+    padding-left: @scaleDelta;
+}
+
+
+/* CONTENT | With Tag | Layout | Compact | Padding */
+.ui.button.with-tag.compact,
+.ui.buttons.with-tag.compact .button {
+    padding-left: calc(@scaleDelta / 2);
+}
+
+/* SKIN | Ghost */
+.ui.ghost.button,
+.ui.buttons.ghost .button {
+    background-color: @transparent;
+    border: none;
+    color: @marine600;
+}
+
+/* SKIN | Ghost | STATE | Disabled */
+.ui.ghost.button.disabled,
+.ui.buttons.ghost.disabled .button,
+.ui.ghost.button:disabled,
+.ui.buttons.ghost:disabled .button {
+    background-color: @transparent;
+}
+
+/* SKIN | Basic | Secondary */
+.ui.basic.secondary.buttons .button,
+.ui.basic.secondary.button {
+    color: @marine500 !important;
+}
+
+/* SKIN | Ghost | Primary */
+.ui.ghost.primary.button,
+.ui.ghost.primary.buttons .button {
     color: @primary500;
 }
 
-/* Disabled */
-.ui.buttons .disabled.button,
-.ui.disabled.button,
+/* SKIN | Ghost | Positive */
+.ui.ghost.button.positive,
+.ui.ghost.buttons.positive .button {
+    color: @success500;
+}
+
+/* SKIN | Ghost | Negative */
+.ui.ghost.button.negative,
+.ui.ghost.buttons.negative .button {
+    color: @alert500;
+}
+
+/* SKIN | Ghost | State */
+.ui.ghost.button:hover,
+.ui.ghost.buttons .button:hover,
+.ui.ghost.button:focus,
+.ui.ghost.buttons .button:focus,
+.ui.ghost.button.active,
+.ui.ghost.buttons.active .button {
+    background-color: @cloud50;
+}
+
+/* SKIN | STATES */
+/* SKIN | STATE | Disabled */
+.ui.button.disabled,
+.ui.buttons.disabled .button,
 .ui.button:disabled,
+.ui.buttons:disabled .button,
 .ui.disabled.button:hover,
-.ui.disabled.active.button {
-    background-color: @cloud50!important;
-    color: @cloud400!important;
+.ui.disabled.buttons:hover .button,
+.ui.disabled.button:focus,
+.ui.disabled.buttons:focus .button,
+.ui.disabled.button.active,
+.ui.disabled.buttons.active .button {
+    background-color: @cloud50;
+    color: @cloud400;
 }
 
-.ui.buttons.basic .disabled.button,
-.ui.buttons .disabled.button.basic,
-.ui.disabled.button.basic,
+/* SKIN | STATE | Disabled | LAYOUT | Basic */
+.ui.button.disabled.basic,
 .ui.button.basic:disabled,
-.ui.disabled.button.basic:hover,
-.ui.disabled.basic.active.button {
+.ui.buttons.basic.disabled .button,
+.ui.buttons.basic:disabled .button {
     background-color: @transparent!important;
-    color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
+    color: @cloud400!important;
 }
 
-.ui.buttons.basic .disabled.button {
-    box-shadow: none !important;
-}
-
-.ui.buttons .disabled.button.primary,
-.ui.disabled.button.primary,
+/* SKIN | STATE | Disabled | LAYOUT | Primary */
+.ui.button.disabled.primary,
 .ui.button.primary:disabled,
-.ui.disabled.button.primary:hover,
-.ui.disabled.primary.active.button {
+.ui.buttons.primary.disabled .button,
+.ui.buttons.primary:disabled .button {
     background-color: @primary200!important;
     color: @white!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset;
 }
 
-.ui.disabled.button.secondary,
-.ui.disabled.button.secondary,
-.ui.button.secondary:disabled,
-.ui.disabled.button.secondary:hover,
-.ui.disabled.secondary.active.button {
-    background-color: @cloud50!important;
-    color: @cloud400!important;
-    box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
+/* SKIN | STATE | Disabled | LAYOUT | Primary | Ghost */
+.ui.button.disabled.primary.ghost,
+.ui.button.primary.ghost:disabled,
+.ui.buttons.primary.ghost.disabled .button,
+.ui.buttons.primary.ghost:disabled .button {
+    background-color: @transparent!important;
+    color: @primary200!important;
 }
 
-.ui.disabled.button.positive,
-.ui.disabled.button.positive,
-.ui.button.positive:disabled,
-.ui.disabled.button.positive:hover,
-.ui.disabled.positive.active.button {
-    background-color: @success100!important;
-    color: @white!important;
-}
-
-.ui.disabled.button.negative,
-.ui.disabled.button.negative,
-.ui.button.negative:disabled,
-.ui.disabled.button.negative:hover,
-.ui.disabled.negative.active.button {
-    background-color: @alert100!important;
-    color: @white!important;
-}
-
-.ui.buttons .disabled.button.basic.primary,
-.ui.disabled.button.basic.primary,
-.ui.button.basic.primary:disabled,
-.ui.disabled.button.basic.primary:hover,
-.ui.disabled.basic.primary.active.button {
+/* SKIN | STATE | Disabled | LAYOUT | Primary | Basic */
+.ui.button.disabled.primary.basic,
+.ui.button.primary.basic:disabled,
+.ui.buttons.primary.basic.disabled .button,
+.ui.buttons.primary.basic:disabled .button {
     background-color: @transparent!important;
     color: @primary200!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset!important;
 }
 
-/* Ghost Primary Disabled */
-.ui.buttons .disabled.button.ghost.primary,
-.ui.disabled.button.ghost.primary,
-.ui.button.ghost.primary:disabled,
-.ui.disabled.button.ghost.primary:hover,
-.ui.disabled.ghost.primary.active.button {
+/* SKIN | STATE | Disabled | LAYOUT | Secondary */
+.ui.button.disabled.secondary,
+.ui.button.secondary:disabled,
+.ui.buttons.secondary.disabled .button,
+.ui.buttons.secondary:disabled .button {
+    background-color: @cloud50!important;
+    color: @cloud400!important;
+    box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
+}
+
+/* SKIN | STATE | Disabled | LAYOUT | Secondary/Basic */
+.ui.button.disabled.secondary.basic,
+.ui.button.secondary.basic:disabled,
+.ui.buttons.secondary.basic.disabled .button,
+.ui.buttons.secondary.basic:disabled .button {
     background-color: @transparent!important;
-    border: none!important;
-    box-shadow: 0;
-    color: @primary200!important;
+    color: @marine100 !important;
 }
 
-.ui.basic.primary.buttons .button:hover,
-.ui.basic.primary.button:hover,
-.ui.basic.primary.button:focus {
-    background: @primary600 !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primary600 inset ;
-    color: @white !important;
+/* SKIN | STATE | Disabled | LAYOUT | Positive */
+.ui.button.disabled.positive,
+.ui.button.positive:disabled,
+.ui.buttons.positive.disabled .button,
+.ui.buttons.positive:disabled .button {
+    background-color: @success100!important;
+    color: @white!important;
 }
 
-.ui.basic.primary.buttons .active.button,
-.ui.basic.primary.active.button {
-    background: @primary600 !important;
-    box-shadow: 0px 0px 0px @basicColoredBorderSize @primary600 inset ;
-    color: @white !important;
+/* SKIN | STATE | Disabled | LAYOUT | Positive/Ghost */
+.ui.button.disabled.positive.ghost,
+.ui.button.positive.ghost:disabled,
+.ui.buttons.positive.ghost.disabled .button,
+.ui.buttons.positive.ghost:disabled .button {
+    background-color: @transparent!important;
+    color: @success100!important;
+    box-shadow: none!important;
 }
 
-.ui.transparent.buttons .button:hover,
-.ui.transparent.button:hover,
-.ui.transparent.button:focus {
-    background: @cloud100 !important;
+/* SKIN | STATE | Disabled | LAYOUT | Positive/Basic */
+.ui.button.disabled.positive.basic,
+.ui.button.positive.basic:disabled,
+.ui.buttons.positive.basic.disabled .button,
+.ui.buttons.positive.basic:disabled .button {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @success100 inset!important;
+    color: @success100!important;
 }
 
-/* svg colors */
+/* SKIN | STATE | Disabled | LAYOUT | Negative */
+.ui.button.disabled.negative,
+.ui.button.negative:disabled,
+.ui.buttons.negative.disabled .button,
+.ui.buttons.negative:disabled .button {
+    background-color: @negativeDisabled!important;
+    color: @white!important;
+}
 
+/* SKIN | STATE | Disabled | LAYOUT | Negative/Ghost */
+.ui.button.disabled.negative.ghost,
+.ui.button.negative.ghost:disabled,
+.ui.buttons.negative.ghost.disabled .button,
+.ui.buttons.negative.ghost:disabled .button {
+    background-color: @transparent!important;
+    color: @negativeDisabled!important;
+    box-shadow: none!important;
+}
+
+/* SKIN | STATE | Disabled | LAYOUT | Negative/Basic */
+.ui.button.disabled.negative.basic,
+.ui.button.negative.basic:disabled,
+.ui.buttons.negative.basic.disabled .button,
+.ui.buttons.negative.basic:disabled .button {
+    background-color: @transparent!important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeDisabled inset!important;
+    color: @negativeDisabled!important;
+}
+
+/* CONTENT | Icon */
+
+/* CONTENT | Icon | LAYOUT | Sizes */
 .ui.button svg,
-.ui.buttons.basic .button.active svg, {
+.ui.buttons .button svg {
+    width: @scaleFoxtrot;
+    height: @scaleFoxtrot;
+}
+
+.ui.button.tiny svg,
+.ui.buttons.tiny .button svg {
+    width: @scaleDelta;
+    height: @scaleDelta;
+}
+
+.ui.button.small svg,
+.ui.buttons.small .button svg {
+    width: @scaleEcho;
+    height: @scaleEcho;
+}
+
+.ui.button.large svg,
+.ui.buttons.large .button svg {
+    width: @scaleFoxtrot;
+    height: @scaleFoxtrot;
+}
+
+/* CONTENT | Icon | SKIN | Default */
+.ui.button svg,
+.ui.buttons .button svg {
     fill: @white;
 }
 
-.ui.button.secondary svg {
+/* CONTENT | Icon | SKIN | Secondary */
+.ui.button.secondary svg,
+.ui.buttons.secondary .button svg {
     fill: @marine600;
 }
 
+/* CONTENT | Icon | SKIN | Basic */
 .ui.button.basic svg,
 .ui.buttons.basic .button svg {
     fill: @marine600;
 }
 
-.ui.button.transparent svg {
+/* CONTENT | Icon | SKIN | Positive */
+.ui.button.positive svg,
+.ui.buttons.positive .button svg {
+    fill: @white;
+}
+
+/* CONTENT | Icon | SKIN | Positive/Basic */
+.ui.button.positive.basic svg,
+.ui.buttons.positive.basic .button svg {
+    fill: @success500;
+}
+
+/* CONTENT | Icon | SKIN | Positive/Ghost */
+.ui.button.ghost.positive svg,
+.ui.buttons.ghost.positive .button svg {
+    fill: @success500;
+}
+
+/* CONTENT | Icon | SKIN | Negative/Ghost */
+.ui.buttons.ghost.negative .button svg,
+.ui.button.ghost.negative svg,
+.ui.button.ghost.negative svg,
+.ui.button.ghost.negative svg {
+    fill: @alert500;
+}
+
+/* CONTENT | Icon | SKIN | Negative/Basic */
+.ui.button.basic.negative svg,
+.ui.buttons.basic.negative .button svg {
+    fill: @alert500;
+}
+
+/* CONTENT | Icon | SKIN | Ghost */
+.ui.button.ghost svg,
+.ui.buttons.ghost .button svg {
     fill: @marine600;
 }
 
-.ui.button.transparent.primary svg {
-    fill: @primary500;
-}
-
-.ui.button.basic.primary svg {
-    fill: @primary500;
-}
-
-.ui.button.naked svg {
+/* CONTENT | Icon | SKIN | Naked */
+.ui.button.naked.disabled svg,
+.ui.button.naked:disabled svg,
+.ui.buttons.naked.disabled .button svg,
+.ui.buttons.naked:disabled .button svg {
     fill: initial;
 }
 
+/* CONTENT | Icon | SKIN | Primary/Ghost */
+.ui.button.primary.ghost svg,
+.ui.buttons.primary.ghost .button svg, {
+    fill: @primary500;
+}
+
+/* CONTENT | Icon | SKIN | Primary/Basic */
+.ui.button.basic.primary svg,
+.ui.buttons.basic.primary .button svg {
+    fill: @primary500;
+}
+
+/* CONTENT | Icon | SKIN | Naked */
+.ui.button.naked svg,
+.ui.buttons.naked .button svg {
+    fill: initial;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Default */
 .ui.button.disabled svg,
-.ui.button:disabled svg {
+.ui.button:disabled svg,
+.ui.buttons.disabled .button svg,
+.ui.buttons:disabled .button svg {
     fill: @cloud400;
 }
 
+/* CONTENT | Icon | STATE | Disabled | SKIN | Ghost */
+.ui.button.ghost.disabled svg,
+.ui.button.ghost:disabled svg,
+.ui.buttons.ghost.disabled .button svg,
+.ui.buttons.ghost:disabled .button svg {
+    fill: @cloud400;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Basic */
 .ui.button.basic.disabled svg,
 .ui.button.basic:disabled svg,
-.ui.buttons.basic .button:disabled svg,
-.ui.buttons.basic .button.disabled svg {
+.ui.buttons.basic:disabled .button svg,
+.ui.buttons.basic.disabled .button svg {
     fill: @cloud400;
 }
 
+/* CONTENT | Icon | STATE | Disabled | SKIN | Primary */
 .ui.button.primary.disabled svg,
-.ui.button.primary:disabled svg {
+.ui.button.primary:disabled svg,
+.ui.buttons.primary.disabled .button svg,
+.ui.buttons.primary:disabled .button svg {
     fill: @white;
 }
 
+/* CONTENT | Icon | STATE | Disabled | SKIN | Naked */
+.ui.button.naked.disabled svg,
+.ui.button.naked:disabled svg,
+.ui.buttons.naked.disabled .button svg,
+.ui.buttons.naked:disabled .button svg {
+    fill: initial;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Basic/Primary */
 .ui.button.basic.primary.disabled svg,
-.ui.button.basic.primary:disabled svg {
+.ui.button.basic.primary:disabled svg,
+.ui.buttons.basic.primary.disabled .button svg,
+.ui.buttons.basic.primary:disabled .button svg {
     fill: @primary200;
 }
 
-.ui.button.icon:hover svg,
-.ui.button.icon:focus svg {
+/* CONTENT | Icon | STATE | Disabled | SKIN | Ghost/Primary */
+.ui.button.ghost.primary.disabled svg,
+.ui.button.ghost.primary:disabled svg,
+.ui.buttons.ghost.primary.disabled .button svg,
+.ui.buttons.ghost.primary:disabled .button svg {
+    fill: @primary200;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Positive */
+.ui.button.positive.disabled svg,
+.ui.button.positive:disabled svg,
+.ui.buttons.positive.disabled .button svg,
+.ui.buttons.positive:disabled .button svg {
     fill: @white;
 }
 
-.ui.buttons.basic .button:hover svg,
+/* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Basic */
+.ui.button.positive.basic.disabled svg,
+.ui.button.positive.basic:disabled svg ,
+.ui.buttons.positive.basic.disabled .button svg,
+.ui.buttons.positive.basic:disabled .button svg {
+    fill: @success100;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Negative */
+.ui.button.negative.disabled svg,
+.ui.button.negative:disabled svg ,
+.ui.buttons.negative.disabled .button svg,
+.ui.buttons.negative:disabled .button svg {
+    fill: @white;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Basic */
+.ui.button.negative.basic.disabled svg,
+.ui.button.negative.basic:disabled svg ,
+.ui.buttons.negative.basic.disabled .button svg,
+.ui.buttons.negative.basic:disabled .button svg {
+    fill: @negativeDisabled;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Ghost */
+.ui.button.ghost.negative.disabled svg,
+.ui.button.ghost.negative:disabled svg {
+    fill: @negativeDisabled;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Ghost */
+.ui.button.ghost.positive.disabled svg,
+.ui.buttons.ghost.positive.disabled .button svg,
+.ui.button.ghost.positive:disabled svg,
+.ui.buttons.ghost.positive:disabled .button svg {
+    fill: @success100;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Default */
+.ui.button.icon:hover svg,
+.ui.button.icon:focus svg,
+.ui.button.icon.active svg {
+    fill: @white;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Positive/Ghost */
+.ui.button.ghost.positive.active svg,
+.ui.buttons.ghost.positive .button.active svg,
+.ui.button.ghost.positive:hover svg,
+.ui.buttons.ghost.positive .button:hover svg,
+.ui.button.ghost.positive:focus svg,
+.ui.buttons.ghost.positive .button:focus svg {
+    fill: @success500;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Negative/Ghost */
+.ui.button.ghost.negative.active svg,
+.ui.buttons.ghost.negative .button.active svg,
+.ui.button.ghost.negative:hover svg,
+.ui.buttons.ghost.negative .button:hover svg,
+.ui.button.ghost.negative:focus svg,
+.ui.buttons.ghost.negative .button:focus svg {
+    fill: @alert500;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Basic */
 .ui.button.basic:hover svg,
 .ui.button.basic.active svg,
 .ui.button.basic:focus svg {
-    fill: @white;
+    fill: @marine900;
 }
 
-.ui.button.transparent:hover svg,
-.ui.button.transparent.active svg,
-.ui.button.transparent:focus svg {
+/* CONTENT | Icon | STATE | Active | SKIN | Positive/Basic */
+.ui.button.basic.positive:hover svg,
+.ui.button.basic.positive.active svg,
+.ui.button.basic.positive:focus svg {
+    fill: @success900;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Primary/Basic */
+.ui.button.basic.primary:hover svg,
+.ui.button.basic.primary.active svg,
+.ui.button.basic.primary:focus svg {
+    fill: @primary900;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Secondary */
+.ui.button.secondary:hover svg,
+.ui.button.secondary.active svg,
+.ui.button.secondary:focus svg {
+    fill: @marine500;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Secondary/Basic */
+.ui.basic.secondary.button:hover,
+.ui.basic.secondary.button:focus,
+.ui.basic.secondary.button.active {
+    color: @marine900 !important;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Ghost */
+.ui.button.ghost:hover svg,
+.ui.button.ghost.active svg,
+.ui.button.ghost:focus svg {
     fill: @marine600;
 }
 
-.ui.button.transparent.primary:hover svg,
-.ui.button.transparent.primary.active svg,
-.ui.button.transparent.primary:focus svg {
+/* CONTENT | Icon | STATE | Active | SKIN | Primary/Ghost */
+.ui.button.ghost.primary:hover svg,
+.ui.button.ghost.primary.active svg,
+.ui.button.ghost.primary:focus svg {
     fill: @primary500;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Negative/Ghost */
+.ui.button.ghost.negative:hover svg,
+.ui.button.ghost.negative.active svg,
+.ui.button.ghost.negative:focus svg {
+    fill: @alert500;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Negative/Basic */
+.ui.button.basic.negative:hover svg,
+.ui.button.basic.negative.active svg,
+.ui.button.basic.negative:focus svg {
+    fill: @alert900;
+}
+
+/* CONTENT | Icon | STATE | Active | SKIN | Naked */
+.ui.button.naked:hover svg,
+.ui.button.naked:focus svg,
+.ui.button.naked.active svg {
+    fill: initial;
+}
+
+/* CONTENT / STATE / Loading */
+/* Specificity hack */
+.ui.loading.loading.loading.loading.loading.loading.button svg{
+    fill: @transparent;
 }
 
 .ui.loading.button:before,
@@ -290,18 +711,7 @@
     transform: translate(-50%, -50%);
 }
 
-.ui.button.naked:hover svg,
-.ui.button.naked:focus svg,
-.ui.button.naked.active svg {
-    fill: initial;
-}
-
-.ui.button.naked.disabled svg,
-.ui.button.naked.disabled svg,
-.ui.button.naked.disabled svg {
-    fill: initial;
-}
-
+/* Animation */
 @keyframes button-spin {
     from {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -309,138 +719,4 @@
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
-}
-
-/* Inverted */
-.ui.inverted.buttons .button,
-.ui.inverted.button {
-    background-color: @white;
-    color: @marine500;
-}
-
-.ui.inverted.buttons .active.button,
-.ui.inverted.active.button {
-    color: @white;
-    background-color: @marine200;
-}
-
-.ui.inverted.buttons .button:hover,
-.ui.inverted.button:hover,
-.ui.inverted.buttons .button:focus,
-.ui.inverted.button:focus,
-.ui.inverted.buttons .button.active,
-.ui.inverted.button.active,
-.ui.inverted.buttons .button:active,
-.ui.inverted.button:active {
-    color: @white;
-    background-color: @marine200;
-}
-
-
-.ui.inverted.primary.buttons .button,
-.ui.inverted.primary.button {
-    background-color: @white;
-    color: @primary500;
-}
-
-.ui.inverted.primary.buttons .active.button,
-.ui.inverted.primary.active.button {
-    color: @white;
-    background-color: @primary500;
-}
-
-.ui.inverted.primary.buttons .button:hover,
-.ui.inverted.primary.button:hover,
-.ui.inverted.primary.buttons .button:focus,
-.ui.inverted.primary.button:focus,
-.ui.inverted.primary.buttons .button.active,
-.ui.inverted.primary.button.active,
-.ui.inverted.primary.buttons .button:active,
-.ui.inverted.primary.button:active {
-    color: @white;
-    background-color: @primary500;
-}
-
-.ui.basic.buttons .button.icon:active,
-.ui.basic.button.icon:active {
-    background-color: @marine600!important;
-}
-
-.ui.basic.buttons .button.icon:active svg,
-.ui.basic.button.icon:active svg{
-    fill: @white!important;
-}
-
-/* Toggle (Modifies active state to give affordances) */
-.ui.toggle.buttons .active.button,
-.ui.buttons .button.toggle.active,
-.ui.button.toggle.active {
-    background-color: @marine500 !important;
-    text-shadow: none;
-    color: @white !important;
-}
-
-.ui.toggle.buttons .active.button.disabled {
-    background-color: @marine200 !important;
-}
-
-.ui.button.toggle.active:hover {
-    background-color: @marine900 !important;
-    text-shadow: none;
-    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
-    color: @white !important;
-}
-
-
-.ui.basic.buttons .button {
-    background-color: @white !important;
-}
-
-.ui.buttons > .ui.button:not(.basic):not(.inverted):hover {
-    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
-}
-
-.ui.buttons > .ui.button.active:not(.basic):not(.inverted) {
-    box-shadow: 0px 0px 0px 1px var(--marine-500) inset !important;
-}
-
-.ui.buttons > .ui.button.active.disabled:not(.basic):not(.inverted) {
-    box-shadow: none !important;
-}
-
-/* Labels in buttons should be consistent */
-.ui.button .label.tag.mini {
-    margin-right: var(--scale-bravo);
-}
-
-.ui.button.with-label {
-    padding-right: 1rem;
-}
-
-.ui.compact.button.with-label {
-    padding-right: 0.5rem;
-}
-
-/* Naked */
-.ui.button.naked {
-    background-color: transparent;
-    color: initial;
-    font-weight: initial;
-}
-
-.ui.buttons.naked .button:hover,
-.ui.button.naked:hover,
-.ui.button.naked:focus,
-.ui.naked.active.button {
-    background-color: @transparent;
-    color: initial;
-}
-
-.ui.buttons .disabled.button.naked,
-.ui.disabled.button.naked,
-.ui.button.naked:disabled,
-.ui.disabled.button.naked:hover,
-.ui.disabled.naked.active.button {
-    background-color: @transparent!important;
-    color: initial !important;
 }

@@ -35,7 +35,7 @@ export class MultiSelectClearButton extends PureComponent {
         const { className } = this.props;
 
         return mergeClasses(
-            "ghost tall",
+            "ghost",
             className
         );
     }
@@ -48,6 +48,7 @@ export class MultiSelectClearButton extends PureComponent {
                 onClick={this.handleClick}
                 className={this.getClasses()}
                 type="button"
+                size="large"
                 ref={this._buttonRef}
                 data-testid="multi-select-clear-button"
             >

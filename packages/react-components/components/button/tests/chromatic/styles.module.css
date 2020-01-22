@@ -1,0 +1,14 @@
+.button {
+    color: white !important;
+}
+
+.button:hover:global(.button.naked),
+.button:global(.button.naked.active) {
+    color: white !important;
+    background-color: #FF0FF1 !important;
+}
+
+.button:global(.button.naked.disabled) {
+    color: var(--cloud-300) !important;
+    background-color: #EEEEEE !important;
+}

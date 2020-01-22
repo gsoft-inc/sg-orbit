@@ -20,6 +20,10 @@ const propTypes = {
      */
     label: bool,
     /**
+     * A button can be formatted to accept a nested tag.
+     */
+    tag: bool,
+    /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
     naked: bool,
@@ -37,10 +41,11 @@ const defaultProps = {
     ghost: false,
     icon: false,
     label: false,
+    tag: false,
     naked: false
 };
 
-export function PureButton({ naked, ghost, icon, label, className, forwardedRef, children, ...props }) {
+export function PureButton({ naked, ghost, icon, label, tag, className, forwardedRef, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
@@ -57,6 +62,7 @@ export function PureButton({ naked, ghost, icon, label, className, forwardedRef,
             ghost && "ghost",
             icon && "icon",
             label && "with-label",
+            tag && "with-tag",
             className
         );
 
