@@ -301,12 +301,12 @@ export class SearchInputController extends AutoControlledPureComponent {
             onKeyDown={this.handleInputKeyDown}
             loading={loading && !disabled}
             autofocus={open || autofocus}
-            autofocusDelay={autofocusDelay}
+            autofocusDelay={open ? undefined : autofocusDelay}
             disabled={disabled}
             size={size}
             fluid={fluid}
             ref={this._inputRef}
-            {...{ "data-testid": "search-input-textbox" }}
+            data-testid="search-input-textbox"
         />;
     }
 

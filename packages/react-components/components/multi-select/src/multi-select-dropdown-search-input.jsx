@@ -44,7 +44,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
                 className={className}
                 autofocus
                 autoComplete="off"
-                {...{ "data-testid": "multi-select-dropdown-search-input" }}
+                data-testid="multi-select-dropdown-search-input"
             />
         );
     }
