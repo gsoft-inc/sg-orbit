@@ -1,0 +1,35 @@
+<details><summary >Handle element states</summary>
+
+The previous code sample show how to specify a custom color for a `naked` button by using a `style` attribute. It works great to provide a basic property like a `background-color`. What about [element states](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) though? You can't specify an hover state with the `style` attribute.
+
+Here's another way to provide a custom color with a few CSS classes and a [CSS variable](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). This sample render a button with a custom `background-color` and apply a darker filter when hovered.
+
+```css
+/* colored-button.module.css */
+
+.coloredButton {
+    background-color: var(--color);
+}
+
+.coloredButton:hover {
+    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), var(--color);
+}
+```
+
+```jsx
+/* colored-button.jsx */
+
+import styles from "./colored-button.module.css";
+
+function ColoredButton({ text, color }) {
+    <Button
+        className={styles.coloredButton}
+        style={{ "--color": color }}
+        naked
+    >
+        {text}
+    </Button>
+}
+```
+
+</details>
