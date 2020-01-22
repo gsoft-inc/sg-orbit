@@ -212,6 +212,9 @@
     Site Colors
 --------------------*/
 
+/* Debug */
+@debug: pink;
+
 /*---  SG Colors  ---*/
 
 /*---  Marine  ---*/
@@ -473,8 +476,60 @@
 @shadow100                : var(--shadow-100);
 @shadow200                : var(--shadow-200);
 
+/* Spacing */
+/* 4px */
+@scaleAlpha: var(--scale-alpha);
+/* 8px */
+@scaleBravo: var(--scale-bravo);
+/* 12px */
+@scaleCharlie: var(--scale-charlie);
+/* 16px */
+@scaleDelta: var(--scale-delta);
+/* 20px */
+@scaleEcho: var(--scale-echo);
+/* 24px */
+@scaleFoxtrot: var(--scale-foxtrot);
+/* 32px */
+@scaleGolf: var(--scale-golf);
+/* 40px */
+@scaleHotel: var(--scale-hotel);
+/* 48px */
+@scaleIndia: var(--scale-india);
+/* 56px */
+@scaleJuliett: var(--scale-juliett);
+/* 64px */
+@scaleKilo: var(--scale-kilo);
+/* 72px */
+@scaleLima: var(--scale-lima);
+/* 80px */
+@scaleMike: var(--scale-mike);
+
+/* Type Scale */
+/* 96px */
+@typeScaleHeadline: var(--type-scale-headline);
+/* 80px */
+@typeScaleSubheadline: var(--type-scale-subheadline);
+/* 48px */
+@typeScale1: var(--type-scale-1);
+/* 40px */
+@typeScale2: var(--type-scale-2);
+/* 32px */
+@typeScale3: var(--type-scale-3);
+/* 24px */
+@typeScale4: var(--type-scale-4);
+/* 20px */
+@typeScale5: var(--type-scale-5);
+/* 18px */
+@typeScale6: var(--type-scale-6);
+/* 16px */
+@typeScale7: var(--type-scale-7);
+/* 14px */
+@typeScale8: var(--type-scale-8);
+/* 12px */
+@typeScale9: var(--type-scale-9);
+
 /*-------------------
-        Paths
+    Paths
 --------------------*/
 
 /* For source only. Modified in gulp for dist */
@@ -943,7 +998,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : @primary500;
+@primaryColorDown        : @primary900;
 @secondaryColorDown      : @secondaryColor;
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;

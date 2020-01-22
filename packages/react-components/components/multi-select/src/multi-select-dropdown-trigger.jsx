@@ -125,7 +125,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         const { disabled, className } = this.props;
 
         return mergeClasses(
-            "tall",
             disabled && "crsr-not-allowed",
             className
         );
@@ -153,6 +152,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                         disabled={disabled}
                         tabIndex={disabled ? "-1" : "0"}
                         type="button"
+                        size="large"
                         data-testid="multi-select-dropdown-trigger"
                     >
                         {text} {this.renderIcon()}

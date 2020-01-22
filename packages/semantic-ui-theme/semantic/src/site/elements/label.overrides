@@ -5,4 +5,5 @@
 .ui.label > .icon {
     width: 1.5rem;
     height: 1.5rem;
+    margin: 0;
 }

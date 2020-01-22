@@ -34,7 +34,7 @@ const defaultProps = {
     label: false
 };
 
-export function Button({ naked, ghost, icon, label, className, children, ...props }) {
+export function Button({ naked, ghost, icon, label, tag, className, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const classes = mergeClasses(
@@ -42,6 +42,7 @@ export function Button({ naked, ghost, icon, label, className, children, ...prop
         ghost && "ghost",
         icon && "icon",
         label && "with-label",
+        tag && "with-tag",
         className
     );
 
