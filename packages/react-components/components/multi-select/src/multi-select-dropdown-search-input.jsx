@@ -1,7 +1,6 @@
 import { Input } from "@orbit-ui/react-input";
 import { PureComponent } from "react";
 import { func, node, string } from "prop-types";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
     static propTypes = {
