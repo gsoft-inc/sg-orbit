@@ -392,6 +392,32 @@
 }
 
 /* CONTENT | Icon */
+
+/* CONTENT | Icon | LAYOUT | Sizes */
+.ui.button svg,
+.ui.buttons .button svg {
+    width: @scaleFoxtrot;
+    height: @scaleFoxtrot;
+}
+
+.ui.button.tiny svg,
+.ui.buttons.tiny .button svg {
+    width: @scaleDelta;
+    height: @scaleDelta;
+}
+
+.ui.button.small svg,
+.ui.buttons.small .button svg {
+    width: @scaleEcho;
+    height: @scaleEcho;
+}
+
+.ui.button.large svg,
+.ui.buttons.large .button svg {
+    width: @scaleFoxtrot;
+    height: @scaleFoxtrot;
+}
+
 /* CONTENT | Icon | SKIN | Default */
 .ui.button svg,
 .ui.buttons .button svg {

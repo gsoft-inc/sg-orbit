@@ -90,8 +90,8 @@ A button can contain an icon.
 <Preview>
     <Story name="icon">
         <div className="flex flex-row">
-            <Button type="button" icon><SignoutIcon24 className="w6 h6 mr1" />Click me</Button>
-            <Button type="button"><AddIcon className="w6 h6"/></Button>
+            <Button type="button" icon><SignoutIcon24 className="mr1" />Click me</Button>
+            <Button type="button"><AddIcon/></Button>
         </div>
     </Story>
 </Preview>
@@ -254,7 +254,7 @@ Buttons can exist together as a group.
             <Button.Group basic>
                 <Button disabled tag type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
                 <Button icon type="button"><CalendarIcon24 className="mr1"/>Two</Button>
-                <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
+                <Button icon type="button" active><CalendarIcon24 className="mr1"/>Three</Button>
             </Button.Group>
         </div>
     </Story>
