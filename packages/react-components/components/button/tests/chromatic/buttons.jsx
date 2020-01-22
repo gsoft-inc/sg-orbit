@@ -81,8 +81,8 @@ export const ThemeButtons = props => {
                 </div>
                 {/* tag + text / tag + text + icon */}
                 <div className="flex flex-column items-start">
-                    <Button tag {...props}><Label tag circular size="mini" empty color="red"/>One</Button>
-                    <Button tag compact {...props}><Label tag circular size="mini" empty color="red"/>One</Button>
+                    <Button tag {...props}><Label tag circular size="mini" empty color="red" />One</Button>
+                    <Button tag compact {...props}><Label tag circular size="mini" empty color="red" />One</Button>
                 </div>
                 {/* text / loading */}
                 <div className="flex flex-column items-start">
