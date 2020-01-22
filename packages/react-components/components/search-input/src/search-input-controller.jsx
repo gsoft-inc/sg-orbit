@@ -6,15 +6,16 @@ import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
 import { Search } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
+import { cloneElement } from "react";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
 
-const SIZES_TO_CLEAR_ICON = {
-    [TINY]: <CancelIcon className="h2 w2" />,
-    [SMALL]: <CancelIcon className="h3 w3" />,
-    [MEDIUM]: <CancelIcon className="h3 w3" />,
-    [LARGE]: <CancelIcon className="h3 w3" />
+const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
+    [TINY]: "h2 w2",
+    [SMALL]: "h3 w3",
+    [MEDIUM]: "h3 w3",
+    [LARGE]: "h3 w3"
 };
 
 const SIZES_TO_CLEAR_ICON_POSITION = {
@@ -342,7 +343,16 @@ export class SearchInputController extends AutoControlledPureComponent {
     renderClearIcon() {
         const { clearIcon, size } = this.props;
 
-        return !isNil(clearIcon) ? clearIcon : SIZES_TO_CLEAR_ICON[size];
+        if (!isNil(clearIcon)) {
+            return cloneElement(clearIcon, {
+                className: mergeClasses(
+                    clearIcon.props && clearIcon.props.className,
+                    SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
+                )
+            });
+        }
+
+        return <CancelIcon className={SIZES_TO_CLEAR_ICON_DIMENSIONS[size]} />;
     }
 
     renderClearButton = () => {

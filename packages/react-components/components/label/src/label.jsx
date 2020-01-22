@@ -25,12 +25,12 @@ const defaultProps = {
     naked: false
 };
 
-export function PureLabel({ naked, className, innerRef, children, ...props }) {
+export function PureLabel({ naked, className, forwardedRef, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
         return (
-            <Ref innerRef={innerRef}>
+            <Ref innerRef={forwardedRef}>
                 {renderLabel()}
             </Ref>
         );
@@ -45,14 +45,14 @@ export function PureLabel({ naked, className, innerRef, children, ...props }) {
         return <SemanticLabel className={classes} {...props}>{children}</SemanticLabel>;
     };
 
-    return isNil(innerRef) ? renderLabel() : renderWithRef();
+    return isNil(forwardedRef) ? renderLabel() : renderWithRef();
 }
 
 PureLabel.propTypes = propTypes;
 PureLabel.defaultProps = defaultProps;
 
 export const Label = forwardRef((props, ref) => (
-    <PureLabel { ...props } innerRef={ref} />
+    <PureLabel { ...props } forwardedRef={ref} />
 ));
 
 [PureLabel, Label].forEach(x => {

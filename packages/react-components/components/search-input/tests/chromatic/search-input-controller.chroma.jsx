@@ -1,4 +1,4 @@
-import { CancelIcon } from "@orbit-ui/icons";
+import { CancelIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { SearchInputController } from "@orbit-ui/react-search-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -270,11 +270,18 @@ stories("/customization")
                  placeholder: "Custom placeholder"
              })
     )
+    .add("icon",
+         () =>
+             createSearchInputController({
+                 defaultValue: LAURIE_VALUE,
+                 icon: <MagnifierIcon className="fill-red" />
+             })
+    )
     .add("clear icon",
          () =>
              createSearchInputController({
                  defaultValue: LAURIE_VALUE,
-                 clearIcon: <CancelIcon className="h3 w3 fill-red" />
+                 clearIcon: <CancelIcon className="fill-red" />
              })
     )
     .add("result renderer",
