@@ -108,6 +108,10 @@ export class PureDateRangePickerInput extends PureComponent {
          */
         disabled: bool,
         /**
+         * Whether or not the date picker take up the width of its container.
+         */
+        fluid: bool,
+        /**
          * Whether or not the date picker is opened.
          */
         open: bool,
@@ -153,7 +157,7 @@ export class PureDateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, icon, clearIcon, disabled, open, size, className, inputRef } = this.props;
+        const { allowClear, placeholder, icon, clearIcon, disabled, fluid, open, size, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -171,6 +175,7 @@ export class PureDateRangePickerInput extends PureComponent {
                 icon={icon}
                 clearIcon={clearIcon}
                 disabled={disabled}
+                fluid={fluid}
                 open={open}
                 size={size}
                 className={className}

@@ -199,6 +199,19 @@ A single date picker can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A single date picker can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <SingleDatePicker
+            fluid
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
 ### Size
 
 A single date picker can vary in size.
@@ -207,17 +220,17 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end">
-            <div className="flex-auto mr2">
+        <div className="flex flex-column">
+            <div className="mb2">
                 <SingleDatePicker size="tiny" onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="mb2">
                 <SingleDatePicker size="small" onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="mb2">
                 <SingleDatePicker onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div>
                 <SingleDatePicker size="large" onDateChange={logDateChanged} />
             </div>
         </div>

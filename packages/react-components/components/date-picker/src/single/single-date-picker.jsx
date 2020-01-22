@@ -111,6 +111,10 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     disabled: bool,
     /**
+     * Whether or not the date picker take up the width of its container.
+     */
+    fluid: bool,
+    /**
      * A date picker can have different sizes.
      */
     size: oneOf(SIZES),
@@ -207,7 +211,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, size } = this.props;
+        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, size } = this.props;
         const { selectedDate } = this.state;
 
         return cloneElement(input, {
@@ -218,6 +222,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             placeholder,
             dateFormat,
             disabled,
+            fluid,
             size
         });
     }

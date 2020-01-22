@@ -247,6 +247,19 @@ A date range picker can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A date range picker can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <DateRangePicker
+            fluid
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
 ### Size
 
 A date range picker input can vary in size.
@@ -255,17 +268,17 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end">
-            <div className="flex-auto mr2">
+        <div className="flex flex-column">
+            <div className="mb2">
                 <DateRangePicker size="tiny" onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="mb2">
                 <DateRangePicker size="small" onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="mb2">
                 <DateRangePicker onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div>
                 <DateRangePicker size="large" onDatesChange={logDatesChanged} />
             </div>
         </div>

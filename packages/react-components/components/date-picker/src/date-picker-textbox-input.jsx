@@ -71,6 +71,7 @@ export class DatePickerTextboxInput extends PureComponent {
         icon: node,
         clearIcon: node,
         disabled: bool,
+        fluid: bool,
         open: bool,
         size: oneOf(SIZES),
         className: string
@@ -78,8 +79,9 @@ export class DatePickerTextboxInput extends PureComponent {
 
     static defaultProps = {
         allowClear: true,
-        disabled: false,
         placeholder: "Pick a date",
+        disabled: false,
+        fluid: false,
         size: DEFAULT_SIZE
     };
 
@@ -171,10 +173,11 @@ export class DatePickerTextboxInput extends PureComponent {
     handleClearButtonClick = withHandlerProxy(this, "onClear");
 
     getCssClasses() {
-        const { disabled, open, size, className } = this.props;
+        const { disabled, fluid, open, size, className } = this.props;
 
         return mergeClasses(
-            "input pv3 ba outline-0 f6 br2 flex items-center",
+            "input pv3 ba outline-0 f6 br2 items-center",
+            fluid ? "flex" : "inline-flex",
             open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
             !this.isPlaceholder() && "marine-600",
             !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
@@ -275,6 +278,10 @@ export class DatePickerTextboxInput extends PureComponent {
             {this.renderClearButton()}
 
             <style jsx>{`
+                .input {
+                    min-width: 400px;
+                }
+
                 .input:not("disabled") {
                     cursor: text;
                 }
