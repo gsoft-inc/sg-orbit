@@ -668,22 +668,14 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input icon={<CalendarIcon className="w6 h6 fill-red" />} />
+                 input: <SingleDatePicker.Input icon={<CalendarIcon className="fill-red" />} />
              })
     )
     .add("clear icon",
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
-             })
-    )
-    .add("disabled clear icon",
-         () =>
-             createSingleDatePicker({
-                 date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input disabledIcon={<CalendarIcon className="w6 h6 fill-red" />} />,
-                 disabled: true
+                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="fill-red" />} />
              })
     )
     .add("placeholder",

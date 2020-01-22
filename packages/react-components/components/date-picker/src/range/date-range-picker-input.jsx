@@ -104,10 +104,6 @@ export class PureDateRangePickerInput extends PureComponent {
          */
         clearIcon: node,
         /**
-         * A custom React SVG component displayed before the applied date(s) text when the date picker is disabled.
-         */
-        disabledIcon: node,
-        /**
          * A disabled input does not allow user interaction.
          */
         disabled: bool,
@@ -157,7 +153,7 @@ export class PureDateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, icon, clearIcon, disabledIcon, disabled, open, size, className, inputRef } = this.props;
+        const { allowClear, placeholder, icon, clearIcon, disabled, open, size, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -174,7 +170,6 @@ export class PureDateRangePickerInput extends PureComponent {
                 placeholder={placeholder}
                 icon={icon}
                 clearIcon={clearIcon}
-                disabledIcon={disabledIcon}
                 disabled={disabled}
                 open={open}
                 size={size}

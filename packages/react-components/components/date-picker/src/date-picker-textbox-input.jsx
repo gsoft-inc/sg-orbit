@@ -5,6 +5,7 @@ import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/r
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, node, oneOf, string } from "prop-types";
+import { cloneElement } from "react";
 import { isNil } from "lodash";
 import cx from "classnames";
 
@@ -23,24 +24,24 @@ const SIZES_TO_FONT_SIZE = {
 };
 
 const SIZES_TO_DEFAULT_ICON = {
-    [TINY]: <CalendarIcon24 className="w4 h4 fill-marine-700" />,
-    [SMALL]: <CalendarIcon24 className="w5 h5 fill-marine-700" />,
-    [MEDIUM]: <CalendarIcon24 className="w6 h6 fill-marine-700" />,
-    [LARGE]: <CalendarIcon className="w7 h7 fill-marine-700" />
+    [TINY]: <CalendarIcon24 />,
+    [SMALL]: <CalendarIcon24 />,
+    [MEDIUM]: <CalendarIcon24 />,
+    [LARGE]: <CalendarIcon />
 };
 
-const SIZES_TO_DISABLED_ICON = {
-    [TINY]: <CalendarIcon24 className="w4 h4 fill-cloud-500" />,
-    [SMALL]: <CalendarIcon24 className="w5 h5 fill-cloud-500" />,
-    [MEDIUM]: <CalendarIcon24 className="w6 h6 fill-cloud-500" />,
-    [LARGE]: <CalendarIcon className="w7 h7 fill-cloud-500" />
+const SIZES_TO_DEFAULT_ICON_DIMENSIONS = {
+    [TINY]: "w4 h4",
+    [SMALL]: "w5 h5",
+    [MEDIUM]: "w6 h6",
+    [LARGE]: "w7 h7"
 };
 
-const SIZES_TO_CLEAR_ICON = {
-    [TINY]: <CancelIcon className="h2 w2" />,
-    [SMALL]: <CancelIcon className="h3 w3" />,
-    [MEDIUM]: <CancelIcon className="h3 w3" />,
-    [LARGE]: <CancelIcon className="h3 w3" />
+const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
+    [TINY]: "h2 w2",
+    [SMALL]: "h3 w3",
+    [MEDIUM]: "h3 w3",
+    [LARGE]: "h3 w3"
 };
 
 export class DatePickerTextboxInput extends PureComponent {
@@ -61,7 +62,6 @@ export class DatePickerTextboxInput extends PureComponent {
         placeholder: string,
         icon: node,
         clearIcon: node,
-        disabledIcon: node,
         disabled: bool,
         open: bool,
         size: oneOf(SIZES),
@@ -177,28 +177,32 @@ export class DatePickerTextboxInput extends PureComponent {
         );
     }
 
-    renderDefaultIcon() {
-        const { icon, size } = this.props;
-
-        return !isNil(icon) ? icon : SIZES_TO_DEFAULT_ICON[size];
-    }
-
-    renderDisabledIcon() {
-        const { disabledIcon, size } = this.props;
-
-        return !isNil(disabledIcon) ? disabledIcon : SIZES_TO_DISABLED_ICON[size];
-    }
-
     renderIcon() {
-        const { disabled } = this.props;
+        const { icon, size, disabled } = this.props;
 
-        return disabled ? this.renderDisabledIcon() : this.renderDefaultIcon();
+        const target = !isNil(icon) ? icon : SIZES_TO_DEFAULT_ICON[size];
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                SIZES_TO_DEFAULT_ICON_DIMENSIONS[size],
+                !disabled ? "fill-marine-700" : "fill-cloud-500"
+            )
+        });
     }
 
     renderClearIcon() {
         const { clearIcon, size } = this.props;
 
-        return !isNil(clearIcon) ? clearIcon : SIZES_TO_CLEAR_ICON[size];
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(clearIcon) ? clearIcon : <CancelIcon />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
+            )
+        });
     }
 
     renderClearButton() {

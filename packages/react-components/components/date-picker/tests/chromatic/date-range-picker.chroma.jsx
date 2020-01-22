@@ -1033,7 +1033,7 @@ stories("/customization")
          () =>
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <DateRangePicker.Input icon={<CalendarIcon className="w6 h6 fill-red" />} />
+                 input: <DateRangePicker.Input icon={<CalendarIcon className="fill-red" />} />
              })
     )
     .add("clear icon",
@@ -1041,16 +1041,7 @@ stories("/customization")
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
                  endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
-             })
-    )
-    .add("disabled clear icon",
-         () =>
-             createDateRangePicker({
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input disabledIcon={<CalendarIcon className="w6 h6 fill-red" />} />,
-                 disabled: true
+                 input: <DateRangePicker.Input clearIcon={<CancelIcon className="fill-red" />} />
              })
     )
     .add("placeholder",
