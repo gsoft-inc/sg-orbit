@@ -78,9 +78,9 @@
 
 /* LAYOUT | Naked */
 .ui.button.naked {
-    background-color: @transparent!important;
-    color: initial!important;
-    box-shadow: 0px 0px 0px 1px transparent inset!important;
+    background-color: @transparent;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
 /* LAYOUT | Naked | STATE | Pseudo */
@@ -182,6 +182,31 @@
 .ui.icon.button,
 .ui.icon.buttons .button {
     padding: 0.25rem 1.5rem 0.25rem 1rem;
+}
+
+/* CONTENT | With Tag | Layout | Margin */
+.ui.button.with-tag .tag,
+.ui.buttons.with-tag .tag {
+    margin-right: @scaleBravo;
+}
+
+/* CONTENT | With Tag | SKIN | Naked */
+.ui.button.with-tag.naked .tag,
+.ui.buttons.with-tag.naked .tag {
+    background-color: @transparent!important;
+}
+
+/* CONTENT | With Tag | Layout | Padding */
+.ui.button.with-tag,
+.ui.buttons.with-tag .button {
+    padding-left: @scaleDelta;
+}
+
+
+/* CONTENT | With Tag | Layout | Compact | Padding */
+.ui.button.with-tag.compact,
+.ui.buttons.with-tag.compact .button {
+    padding-left: calc(@scaleDelta / 2);
 }
 
 /* SKIN | Ghost */

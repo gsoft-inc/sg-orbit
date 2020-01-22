@@ -141,10 +141,10 @@ A button can be circular.
 <Preview>
     <Story name="circular">
         <div className="flex flex-row items-end">
-            <Button type="button" icon circular size="tiny"><AddIcon className="flex w6 h6"/></Button>
-            <Button type="button" icon circular size="small"><AddIcon className="flex w6 h6"/></Button>
-            <Button type="button" icon circular><AddIcon className="flex w6 h6"/></Button>
-            <Button type="button" icon circular size="large"><AddIcon className="flex w7 h7"/></Button>
+            <Button type="button" icon circular size="tiny"><AddIcon className="icon"/></Button>
+            <Button type="button" icon circular size="small"><AddIcon className="icon"/></Button>
+            <Button type="button" icon circular><AddIcon className="icon"/></Button>
+            <Button type="button" icon circular size="large"><AddIcon className="icon"/></Button>
             <Button type="button" circular size="tiny">Aa</Button>
             <Button type="button" circular size="small">Aa</Button>
             <Button type="button" circular>Aa</Button>
@@ -251,9 +251,9 @@ Buttons can exist together as a group.
 <Preview>
     <Story name="groups">
         <div className="flex">
-            <Button.Group basic toggle>
-                <Button disabled type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
-                <Button icon type="button"><CalendarIcon24 className="w6 h6 mr1"/>Two</Button>
+            <Button.Group basic>
+                <Button disabled tag type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
+                <Button icon type="button"><CalendarIcon24 className="mr1"/>Two</Button>
                 <Button icon type="button" active><CalendarIcon24 className="w6 h6 mr1"/>Three</Button>
             </Button.Group>
         </div>

@@ -1,6 +1,7 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { ThemeButtons} from "./buttons";
+import { ThemeButtons } from "./buttons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import styles from "./styles.module.css";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Button"))
@@ -47,6 +48,22 @@ stories("/theme")
          () =>
              <div className="flex flex-row">
                  <ThemeButtons naked />
+             </div>
+    )
+    .add("naked coloured",
+         () =>
+             <div className="flex flex-row">
+                 <div className="flex flex-column items-start">
+                     <Button className={styles.button}
+                         naked
+                         style={{
+                             backgroundColor: "#FCD5BC",
+                             boxShadow: "0px 0px 0px 1px #FCD003 inset"
+                         }}
+                     >Button</Button>
+                     <Button className={styles.button} naked active>Button</Button>
+                     <Button disabled className={styles.button} naked>Button</Button>
+                 </div>
              </div>
     )
     .add("groups",

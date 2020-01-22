@@ -1,5 +1,6 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
+import { Label } from "@orbit-ui/react-label/src";
 
 export const ThemeButtons = props => {
     return (
@@ -77,6 +78,11 @@ export const ThemeButtons = props => {
                     <Button size="small" compact {...props}><CalendarIcon24 className="w5 h5" /></Button>
                     <Button size="large" {...props}><CalendarIcon className="w7 h7" /></Button>
                     <Button size="large" compact {...props}><CalendarIcon className="w7 h7" /></Button>
+                </div>
+                {/* tag + text / tag + text + icon */}
+                <div className="flex flex-column items-start">
+                    <Button tag {...props}><Label tag circular size="mini" empty color="red"/>One</Button>
+                    <Button tag compact {...props}><Label tag circular size="mini" empty color="red"/>One</Button>
                 </div>
                 {/* text / loading */}
                 <div className="flex flex-column items-start">
