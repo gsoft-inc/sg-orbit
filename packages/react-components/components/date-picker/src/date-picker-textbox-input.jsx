@@ -37,12 +37,20 @@ const SIZES_TO_DEFAULT_ICON_DIMENSIONS = {
     [LARGE]: "w7 h7"
 };
 
-const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
-    [TINY]: "h2 w2",
-    [SMALL]: "h3 w3",
-    [MEDIUM]: "h3 w3",
-    [LARGE]: "h3 w3"
+// TODO: Update this once the button are fixed, if it's all "tiny" remove and hardcode.
+const SIZES_TO_CLEAR_BUTTON_SIZE = {
+    [TINY]: "tiny",
+    [SMALL]: "tiny",
+    [MEDIUM]: "tiny",
+    [LARGE]: "tiny"
 };
+
+// const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
+//     [TINY]: "h2 w2",
+//     [SMALL]: "h3 w3",
+//     [MEDIUM]: "h3 w3",
+//     [LARGE]: "h3 w3"
+// };
 
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
@@ -192,21 +200,24 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     renderClearIcon() {
-        const { clearIcon, size } = this.props;
+        const { clearIcon } = this.props;
+
+        // // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        // const target = !isNil(clearIcon) ? clearIcon : <CancelIcon />;
+
+        // return cloneElement(target, {
+        //     className: mergeClasses(
+        //         target.props && target.props.className,
+        //         SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
+        //     )
+        // });
 
         // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(clearIcon) ? clearIcon : <CancelIcon />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
-            )
-        });
+        return isNil(clearIcon) ? <CancelIcon /> : clearIcon;
     }
 
     renderClearButton() {
-        const { allowClear, disabled, open } = this.props;
+        const { allowClear, disabled, open, size } = this.props;
 
         if (!allowClear) {
             return null;
@@ -215,6 +226,19 @@ export class DatePickerTextboxInput extends PureComponent {
         return (
             <div className={cx("clear-btn-container", { dn: this.isPlaceholder() || disabled || open })}>
                 <Button
+                    circular
+                    primary
+                    ghost
+                    icon
+                    size={SIZES_TO_CLEAR_BUTTON_SIZE[size]}
+                    onClick={this.handleClearButtonClick}
+                    type="button"
+                    ref={this._clearButtonRef}
+                    data-testid="date-picker-textbox-clear-button"
+                >
+                    {this.renderClearIcon()}
+                </Button>
+                {/* <Button
                     circular
                     size="tiny"
                     primary
@@ -226,7 +250,7 @@ export class DatePickerTextboxInput extends PureComponent {
                     data-testid="date-picker-textbox-clear-button"
                 >
                     {this.renderClearIcon()}
-                </Button>
+                </Button> */}
             </div>
         );
     }

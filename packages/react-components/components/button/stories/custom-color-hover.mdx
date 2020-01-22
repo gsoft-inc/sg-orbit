@@ -1,4 +1,4 @@
-<details><summary >Handle element states</summary>
+<details><summary >Override element states</summary>
 
 The previous code sample show how to specify a custom color for a `naked` button by using a `style` attribute. It works great to provide a basic property like a `background-color`. What about [element states](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) though? You can't specify an hover state with the `style` attribute.
 
@@ -12,7 +12,7 @@ Here's another way to provide a custom color with a few CSS classes and a [CSS v
 }
 
 .coloredButton:hover {
-    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), var(--color);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--color);
 }
 ```
 
