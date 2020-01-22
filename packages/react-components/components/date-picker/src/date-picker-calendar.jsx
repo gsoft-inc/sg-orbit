@@ -32,8 +32,6 @@ export class DatePickerCalendar extends PureComponent {
     };
 
     static defaultProps = {
-        navPrevIcon: <ChevronIcon className="w4 h4 rotate-180 fill-marine-500" />,
-        navNextIcon: <ChevronIcon className="w4 h4 fill-marine-500" />,
         temporarySingleDatePickerFlag: false
     };
 
@@ -135,16 +133,40 @@ export class DatePickerCalendar extends PureComponent {
         return {};
     }
 
-    renderNavPrev() {
+    renderNavPrevIcon() {
         const { navPrevIcon } = this.props;
 
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{navPrevIcon}</div>;
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(navPrevIcon) ? navPrevIcon : <ChevronIcon className="rotate-180" />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                "w4 h4 fill-marine-500"
+            )
+        });
+    }
+
+    renderNavPrev() {
+        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavPrevIcon()}</div>;
+    }
+
+    renderNavNextIcon() {
+        const { navNextIcon } = this.props;
+
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(navNextIcon) ? navNextIcon : <ChevronIcon />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                "w4 h4 fill-marine-500"
+            )
+        });
     }
 
     renderNavNext() {
-        const { navNextIcon } = this.props;
-
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{navNextIcon}</div>;
+        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavNextIcon()}</div>;
     }
 
     renderCalendar() {
