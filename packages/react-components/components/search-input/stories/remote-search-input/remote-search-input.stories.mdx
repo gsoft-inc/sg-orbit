@@ -137,23 +137,6 @@ A remote search input results box can close when a result is selected.
     </Story>
 </Preview>
 
-<Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
-        autofocus
-        onValueChange={logValueChanged}
-        placeholder="Type a country name"
-    />
-</Story>
-
 ### Disabled
 
 A remote search input can be disabled.
@@ -297,6 +280,41 @@ A remote search input can handle `value` and `open` state in controlled mode.
         />
     </Story>
 </Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        autofocus
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        autofocus
+        autofocusDelay={500}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
 
 
 

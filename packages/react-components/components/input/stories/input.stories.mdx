@@ -88,6 +88,15 @@ An input can be formatted with an icon.
     </Story>
 </Preview>
 
+<Story
+    name="icon & loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Input icon={<MagnifierIcon />} loading />
+</Story>
+
 ### Loading
 
 An input can show that it is currently loading data.
@@ -161,12 +170,21 @@ An input can be transparent.
 </Preview>
 
 <Story
-    name="icon + loading"
+    name="autofocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
-    <Input icon={<MagnifierIcon />} loading />
+    <Input autofocus placeholder="Search..." />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Input autofocus autofocusDelay={500} placeholder="Search..." />
 </Story>
 
 <Story

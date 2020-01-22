@@ -104,20 +104,6 @@ A search input results box can close when a result is selected.
     </Story>
 </Preview>
 
-<Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <SearchInput
-        results={DEFAULT_RESULTS}
-        autofocus
-        clearOnSelect
-        onValueChange={logValueChanged}
-    />
-</Story>
-
 ### Disabled
 
 A search input can be disabled.
@@ -217,4 +203,33 @@ A search input can handle `value` and `open` state in controlled mode.
         />
     </Story>
 </Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        clearOnSelect
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        autofocusDelay={500}
+        clearOnSelect
+        onValueChange={logValueChanged}
+    />
+</Story>
 

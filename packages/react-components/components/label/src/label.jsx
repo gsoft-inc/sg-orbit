@@ -18,7 +18,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    innerRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func])
 };
 
 const defaultProps = {

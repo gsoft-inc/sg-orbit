@@ -1,57 +1,97 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
-import { cloneElement, createRef, forwardRef, useImperativeHandle, useRef } from "react";
-import { element, func, object, oneOf, oneOfType } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
+import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
 const propTypes = {
+    /**
+     * Whether or not the input should autofocus on render.
+     */
+    autofocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autofocusDelay: number,
+    /**
+     * A custom React SVG component displayed before or after the prompt based on "iconPosition".
+     */
     icon: element,
     /**
      * @ignore
      */
-    innerRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func])
 };
 
-function renderIcon(icon, { loading }) {
-    if (!isNil(icon) && !loading) {
-        return cloneElement(icon, {
-            className: mergeClasses(
-                "icon",
-                icon.props && icon.props.className
-            )
-        });
-    }
+function getInputElement(inputRef) {
+    return inputRef.current.querySelector("input");
+}
 
-    return undefined;
+function focus(inputRef) {
+    if (!isNil(inputRef.current)) {
+        getInputElement(inputRef).focus();
+    }
+}
+
+function useDelayedAutofocus(autofocus, autofocusDelay, inputRef) {
+    useEffect(() => {
+        let timeoutId;
+
+        if (autofocus && ! isNil(autofocusDelay)) {
+            timeoutId = setTimeout(() => {
+                focus(inputRef);
+            }, autofocusDelay);
+        }
+
+        return () => {
+            if (!isNil(timeoutId)) {
+                clearTimeout(timeoutId);
+            }
+        };
+    }, [autofocus, autofocusDelay, inputRef]);
 }
 
 export function PureInput(props) {
-    const { children, icon, forwardedRef, ...rest } = props;
+    const { icon, autofocus, autofocusDelay, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const inputRef = useRef();
 
-    useImperativeHandle(forwardedRef, () => inputRef.current.querySelector("input"));
+    useImperativeHandle(forwardedRef, () => getInputElement(inputRef));
+    useDelayedAutofocus(autofocus, autofocusDelay, inputRef);
+
+    const renderIcon = () => {
+        const { loading } = props;
+
+        if (!isNil(icon) && !loading) {
+            return cloneElement(icon, {
+                className: mergeClasses(
+                    "icon",
+                    icon.props && icon.props.className
+                )
+            });
+        }
+    };
+
+    const shouldAutofocus = autofocus && isNil(autofocusDelay);
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon(icon, props)} {...rest}>{children}</SemanticInput>
+            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus}>{children}</SemanticInput>
         </Ref>
     );
 }
 
 PureInput.propTypes = propTypes;
 
-export const Input = forwardRef((props, ref) => {
-    const forwardedRef = !isNil(ref) ? ref : createRef();
-
-    return <PureInput { ...props } forwardedRef={forwardedRef} />;
-});
+export const Input = forwardRef((props, ref) => (
+    <PureInput { ...props } forwardedRef={ref} />
+));
 
 if (!isNil(SemanticInput.propTypes)) {
     SemanticInput.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
