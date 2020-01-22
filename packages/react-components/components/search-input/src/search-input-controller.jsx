@@ -18,13 +18,6 @@ const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
     [LARGE]: "h3 w3"
 };
 
-const SIZES_TO_CLEAR_ICON_POSITION = {
-    [TINY]: "var(--scale-echo)",
-    [SMALL]: "var(--scale-echo)",
-    [MEDIUM]: "var(--scale-foxtrot)",
-    [LARGE]: "var(--scale-foxtrot)"
-};
-
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
 }
@@ -359,7 +352,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { size } = this.props;
 
         return (
-            <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })} style={{ right: SIZES_TO_CLEAR_ICON_POSITION[size] }}>
+            <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
                 <Button
                     circular
                     size="tiny"
@@ -378,6 +371,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     .clear-btn-container {
                         top: 50%;
                         transform: translateX(50%) translateY(-50%);
+                        right: var(--scale-echo)
                     }
                 `}</style>
             </div>
