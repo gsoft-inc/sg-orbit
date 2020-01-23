@@ -94,6 +94,7 @@ A default date range picker.
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
         disabled={boolean("disabled", false)}
+        fluid={boolean("fluid", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         className={text("className")}
@@ -267,10 +268,16 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex">
-            <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
-            <DateRangePicker fluid onDatesChange={logDatesChanged} />
-            <DateRangePicker size="large" fluid onDatesChange={logDatesChanged} />
+        <div className="flex items-end">
+            <div className="flex-auto mr2">
+                <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto mr2">
+                <DateRangePicker fluid onDatesChange={logDatesChanged} />
+            </div>
+            <div className="flex-auto">
+                <DateRangePicker size="large" fluid onDatesChange={logDatesChanged} />
+            </div>
         </div>
     </Story>
 </Preview>

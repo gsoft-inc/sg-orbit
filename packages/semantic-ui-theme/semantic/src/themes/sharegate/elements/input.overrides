@@ -5,7 +5,7 @@
 .ui.input > input {
     height: var(--scale-hotel);
     line-height: var(--scale-hotel);
-    width: 300px;
+    min-width: 300px;
 }
 
 .ui.input.small > input {

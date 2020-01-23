@@ -169,7 +169,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         buttons: <DateRangePickerButtons />,
-        disabled: false
+        disabled: false,
+        fluid: false
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -253,7 +254,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, size } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -265,7 +266,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
             rangeFormat,
             dateFormat,
             disabled,
-            fluid,
             size
         });
     }
@@ -294,7 +294,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -309,6 +309,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 disabled={disabled}
                 closeOnBlur={closeOnBlur}
                 closeOnOutsideClick={closeOnOutsideClick}
+                fluid={fluid}
                 className={className}
             />
         );

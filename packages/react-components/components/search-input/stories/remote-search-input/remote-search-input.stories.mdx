@@ -97,6 +97,8 @@ A default remote search input.
         fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
         size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         onValueChange={logValueChanged}
     />
 </Story>
@@ -212,7 +214,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end">
+        <div className="flex items-end">
             <div className="flex-auto mr2">
                 <RemoteSearchInput
                     onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}

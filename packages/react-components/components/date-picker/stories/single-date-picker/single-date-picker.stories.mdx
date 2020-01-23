@@ -88,6 +88,7 @@ A default single date picker.
         size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
         disabled={boolean("disabled", false)}
+        fluid={boolean("fluid", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         className={text("className")}
@@ -219,10 +220,16 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-column">
-            <SingleDatePicker size="small" onDateChange={logDateChanged} />
-            <SingleDatePicker onDateChange={logDateChanged} />
-            <SingleDatePicker size="large" onDateChange={logDateChanged} />
+        <div className="flex items-end">
+            <div className="flex-auto mr2">
+                <SingleDatePicker size="small" fluid onDateChange={logDateChanged} />
+            </div>
+            <div className="flex-auto mr2">
+                <SingleDatePicker fluid onDateChange={logDateChanged} />
+            </div>
+            <div className="flex-auto">
+                <SingleDatePicker size="large" fluid onDateChange={logDateChanged} />
+            </div>
         </div>
     </Story>
 </Preview>

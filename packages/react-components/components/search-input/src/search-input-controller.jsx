@@ -272,7 +272,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { fluid, className } = this.props;
 
         return mergeClasses(
-            cx("search-input relative", { "inline-flex": !fluid }),
+            "search-input relative",
+            !fluid && "inline-flex",
             className
         );
     }
@@ -356,12 +357,15 @@ export class SearchInputController extends AutoControlledPureComponent {
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
                         fluid={fluid}
+                        className="prout"
                     />
                     {this.renderClearButton()}
 
                     <style jsx>{`
                         .search-input.search-input :global(.prompt) {
                             padding-right: var(--scale-juliett) !important;
+                            min-width: 350px;
+
                         }
                     `}</style>
                 </div>

@@ -134,7 +134,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         numberOfMonths: 1,
         calendar: <SingleDatePickerCalendar />,
         buttons: <SingleDatePickerButtons />,
-        disabled: false
+        disabled: false,
+        fluid: false
     };
 
     static autoControlledProps = ["date", "open"];
@@ -247,7 +248,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -262,6 +263,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 disabled={disabled}
                 closeOnBlur={closeOnBlur}
                 closeOnOutsideClick={closeOnOutsideClick}
+                fluid={fluid}
                 className={className}
             />
         );

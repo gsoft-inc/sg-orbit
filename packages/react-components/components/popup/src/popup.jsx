@@ -96,6 +96,10 @@ export class Popup extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
+         * Whether or not the popup container take up the width of its parent.
+         */
+        fluid: bool,
+        /**
          * Additional classes.
          */
         className: string
@@ -107,7 +111,8 @@ export class Popup extends AutoControlledPureComponent {
         zIndex: "998",
         animationRenderer: fadeInAnimationRenderer,
         closeOnBlur: true,
-        closeOnOutsideClick: false
+        closeOnOutsideClick: false,
+        fluid: false
     };
 
     static autoControlledProps = ["open"];
@@ -216,8 +221,6 @@ export class Popup extends AutoControlledPureComponent {
                 // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
                 setTimeout(() => {
                     if (!this._hasFocus) {
-                        // console.log("***** popup - handleBlur - WILL CLOSE *****");
-
                         this.close(event);
                     }
                 }, 0);
@@ -291,9 +294,10 @@ export class Popup extends AutoControlledPureComponent {
     }
 
     getCssClasses() {
-        const { className } = this.props;
+        const { fluid, className } = this.props;
 
         return mergeClasses(
+            !fluid && "inline-flex",
             "relative",
             className
         );
