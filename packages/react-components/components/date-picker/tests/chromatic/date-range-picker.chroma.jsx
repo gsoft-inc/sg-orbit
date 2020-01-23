@@ -1180,22 +1180,6 @@ stories("/z-index")
              </div>
     );
 
-stories("/size/tiny")
-    .add("default",
-         () =>
-             createDateRangePicker({
-                 size: "tiny"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createDateRangePicker({
-                 size: "tiny",
-                 defaultStartDate: moment(DEFAULT_DATE),
-                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
-             })
-    );
-
 stories("/size/small")
     .add("default",
          () =>

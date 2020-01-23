@@ -1,6 +1,6 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SMALL, SearchInput, SearchInputController, TINY } from "@orbit-ui/react-search-input/src";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SMALL, SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
@@ -71,7 +71,7 @@ A default search input with a set of results.
         placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
         fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         onValueChange={logValueChanged}
     />
 </Story>
@@ -155,14 +155,6 @@ The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
 <Preview>
     <Story name="size">
         <div className="flex flex-row items-end">
-            <div className="flex-auto mr2">
-                <SearchInput
-                    results={DEFAULT_RESULTS}
-                    size="tiny"
-                    fluid
-                    onValueChange={logValueChanged}
-                />
-            </div>
             <div className="flex-auto mr2">
                 <SearchInput
                     results={DEFAULT_RESULTS}

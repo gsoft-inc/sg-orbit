@@ -1,5 +1,5 @@
 import { ControlledRemoteSearchInput } from "./components";
-import { DEFAULT_SIZE, LARGE, MEDIUM, RemoteSearchInput, SMALL, TINY, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
+import { DEFAULT_SIZE, LARGE, MEDIUM, RemoteSearchInput, SMALL, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
@@ -96,7 +96,7 @@ A default remote search input.
         placeholder={text("placeholder", "Type a country name")}
         fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         onValueChange={logValueChanged}
     />
 </Story>
@@ -208,23 +208,11 @@ A remote search input can take the width of its container.
 
 A search input can vary in size.
 
-The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
+The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
         <div className="flex flex-row items-end">
-            <div className="flex-auto mr2">
-                <RemoteSearchInput
-                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-                    onResults={response => {
-                        return response.data.map(x => searchInputResult(x.code, x.name));
-                    }}
-                    onValueChange={logValueChanged}
-                    size="tiny"
-                    fluid
-                    placeholder="Type a country name"
-                />
-            </div>
             <div className="flex-auto mr2">
                 <RemoteSearchInput
                     onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}

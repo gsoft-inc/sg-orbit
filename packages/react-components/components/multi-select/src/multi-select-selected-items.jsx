@@ -27,6 +27,7 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
                 <Button
                     circular
                     ghost
+                    secondary
                     icon
                     size="tiny"
                     onClick={onRemove}

@@ -787,21 +787,6 @@ stories("/z-index")
              </div>
     );
 
-stories("/size/tiny")
-    .add("default",
-         () =>
-             createSingleDatePicker({
-                 size: "tiny"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createSingleDatePicker({
-                 size: "tiny",
-                 defaultDate: moment(DEFAULT_DATE)
-             })
-    );
-
 stories("/size/small")
     .add("default",
          () =>

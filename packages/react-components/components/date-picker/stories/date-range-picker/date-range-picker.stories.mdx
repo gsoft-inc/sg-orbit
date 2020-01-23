@@ -9,7 +9,6 @@ import {
     MEDIUM,
     PureDateRangePickerInput,
     SMALL,
-    TINY,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -91,7 +90,7 @@ A default date range picker.
         placeholder={text("placeholder")}
         rangeFormat={text("rangeFormat")}
         dateFormat={text("dateFormat")}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
         presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
         disabled={boolean("disabled", false)}
@@ -264,23 +263,14 @@ A date range picker can take the width of its container.
 
 A date range picker input can vary in size.
 
-The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
+The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-column">
-            <div className="mb2">
-                <DateRangePicker size="tiny" onDatesChange={logDatesChanged} />
-            </div>
-            <div className="mb2">
-                <DateRangePicker size="small" onDatesChange={logDatesChanged} />
-            </div>
-            <div className="mb2">
-                <DateRangePicker onDatesChange={logDatesChanged} />
-            </div>
-            <div>
-                <DateRangePicker size="large" onDatesChange={logDatesChanged} />
-            </div>
+        <div className="flex">
+            <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
+            <DateRangePicker fluid onDatesChange={logDatesChanged} />
+            <DateRangePicker size="large" fluid onDatesChange={logDatesChanged} />
         </div>
     </Story>
 </Preview>

@@ -194,21 +194,6 @@ stories("/default value/opened")
              })
     );
 
-stories("/size/tiny")
-    .add("default",
-         () =>
-             createSearchInputController({
-                 size: "tiny"
-             })
-    )
-    .add("selected value",
-         () =>
-             createSearchInputController({
-                 size: "tiny",
-                 defaultValue: LAURIE_VALUE
-             })
-    );
-
 stories("/size/small")
     .add("default",
          () =>

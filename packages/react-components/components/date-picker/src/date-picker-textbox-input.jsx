@@ -1,6 +1,6 @@
 import { Button } from "@orbit-ui/react-button";
 import { CalendarIcon, CalendarIcon24, CloseIcon24 } from "@orbit-ui/icons";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
@@ -10,28 +10,24 @@ import { isNil } from "lodash";
 import cx from "classnames";
 
 const SIZES_TO_HEIGHT = {
-    [TINY]: "h6",
     [SMALL]: "h7",
     [MEDIUM]: "h8",
     [LARGE]: "h9"
 };
 
 const SIZES_TO_FONT_SIZE = {
-    [TINY]: "f7",
     [SMALL]: "f6",
     [MEDIUM]: "f6",
     [LARGE]: "f5"
 };
 
 const SIZES_TO_DEFAULT_ICON = {
-    [TINY]: <CalendarIcon24 />,
     [SMALL]: <CalendarIcon24 />,
     [MEDIUM]: <CalendarIcon24 />,
     [LARGE]: <CalendarIcon />
 };
 
 const SIZES_TO_DEFAULT_ICON_DIMENSIONS = {
-    [TINY]: "w4 h4",
     [SMALL]: "w5 h5",
     [MEDIUM]: "w6 h6",
     [LARGE]: "w7 h7"
@@ -65,6 +61,7 @@ export class DatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
+        clearIcon: <CloseIcon24 />,
         disabled: false,
         fluid: false,
         size: DEFAULT_SIZE
@@ -161,13 +158,12 @@ export class DatePickerTextboxInput extends PureComponent {
         const { disabled, fluid, open, size, className } = this.props;
 
         return mergeClasses(
-            "input pv3 ba outline-0 f6 br2 items-center",
+            "input pv3 ph2 ba outline-0 f6 br2 items-center ",
             fluid ? "flex" : "inline-flex",
             open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
             !this.isPlaceholder() && "marine-600",
             !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400 crsr-not-allowed",
             SIZES_TO_HEIGHT[size],
-            "ph2",
             SIZES_TO_FONT_SIZE[size],
             className
         );
@@ -187,15 +183,8 @@ export class DatePickerTextboxInput extends PureComponent {
         });
     }
 
-    renderClearIcon() {
-        const { clearIcon } = this.props;
-
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        return isNil(clearIcon) ? <CloseIcon24 /> : clearIcon;
-    }
-
     renderClearButton() {
-        const { allowClear, disabled, open } = this.props;
+        const { allowClear, clearIcon, disabled, open } = this.props;
 
         if (!allowClear) {
             return null;
@@ -206,6 +195,7 @@ export class DatePickerTextboxInput extends PureComponent {
                 <Button
                     circular
                     ghost
+                    secondary
                     icon
                     size="tiny"
                     onClick={this.handleClearButtonClick}
@@ -213,7 +203,7 @@ export class DatePickerTextboxInput extends PureComponent {
                     ref={this._clearButtonRef}
                     data-testid="date-picker-textbox-clear-button"
                 >
-                    {this.renderClearIcon()}
+                    {clearIcon}
                 </Button>
             </div>
         );

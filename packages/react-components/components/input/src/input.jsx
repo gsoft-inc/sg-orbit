@@ -94,5 +94,5 @@ export const Input = forwardRef((props, ref) => (
 ));
 
 if (!isNil(SemanticInput.propTypes)) {
-    SemanticInput.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
+    SemanticInput.propTypes.size = oneOf(["small", "medium", "large"]);
 }

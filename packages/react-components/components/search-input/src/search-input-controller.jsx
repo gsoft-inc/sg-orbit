@@ -1,22 +1,14 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { Button } from "@orbit-ui/react-button";
-import { CancelIcon, MagnifierIcon } from "@orbit-ui/icons";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
+import { CloseIcon24, MagnifierIcon } from "@orbit-ui/icons";
+import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
 import { Search } from "semantic-ui-react";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
-import { cloneElement } from "react";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
-
-const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
-    [TINY]: "h2 w2",
-    [SMALL]: "h3 w3",
-    [MEDIUM]: "h3 w3",
-    [LARGE]: "h3 w3"
-};
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -61,6 +53,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         debounceDelay: 200,
         loading: false,
         icon: <MagnifierIcon />,
+        clearIcon: <CloseIcon24 />,
         disabled: false,
         autofocus: false,
         autofocusDelay: 50,
@@ -310,36 +303,23 @@ export class SearchInputController extends AutoControlledPureComponent {
         />;
     }
 
-    renderClearIcon() {
-        const { clearIcon, size } = this.props;
-
-        if (!isNil(clearIcon)) {
-            return cloneElement(clearIcon, {
-                className: mergeClasses(
-                    clearIcon.props && clearIcon.props.className,
-                    SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
-                )
-            });
-        }
-
-        return <CancelIcon className={SIZES_TO_CLEAR_ICON_DIMENSIONS[size]} />;
-    }
-
     renderClearButton = () => {
+        const { clearIcon } = this.props;
+
         return (
             <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
                 <Button
-                    circular
-                    size="tiny"
-                    primary
+                    ghost
+                    secondary
                     icon
+                    size="tiny"
                     className="transparent"
                     onClick={this.handleClear}
                     type="button"
                     ref={this._clearButtonRef}
                     data-testid="search-input-clear-button"
                 >
-                    {this.renderClearIcon()}
+                    {clearIcon}
                 </Button>
 
                 <style jsx>{`
