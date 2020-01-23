@@ -1,4 +1,4 @@
-import { CalendarIcon, CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { CalendarIcon, ChevronIcon, CloseIcon24 } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -675,7 +675,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="fill-red" />} />
+                 input: <SingleDatePicker.Input clearIcon={<CloseIcon24 className="fill-red" />} />
              })
     )
     .add("placeholder",

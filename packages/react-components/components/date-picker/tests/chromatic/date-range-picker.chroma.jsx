@@ -1,5 +1,5 @@
 import { CalendarIcon } from "@orbit-ui/icons";
-import { CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { ChevronIcon, CloseIcon24 } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { DateRangePicker, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -1041,7 +1041,7 @@ stories("/customization")
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
                  endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input clearIcon={<CancelIcon className="fill-red" />} />
+                 input: <DateRangePicker.Input clearIcon={<CloseIcon24 className="fill-red" />} />
              })
     )
     .add("placeholder",

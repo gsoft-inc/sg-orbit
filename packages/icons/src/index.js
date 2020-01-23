@@ -5,7 +5,6 @@ export { ReactComponent as ArrowIcon24 } from "./icon-arrow-24.svg";
 export { ReactComponent as CsvIcon } from "./icon-csv-32.svg";
 export { ReactComponent as CommunicationIcon } from "./icon-communication-32.svg";
 export { ReactComponent as FileIcon } from "./icon-file-32.svg";
-export { ReactComponent as CalendarIcon } from "./icon-calendar-32.svg";
 export { ReactComponent as CalendarIcon24 } from "./icon-calendar-24.svg";
 export { ReactComponent as VariationIcon } from "./icon-variation-32.svg";
 export { ReactComponent as VariationIcon24 } from "./icon-variation-24.svg";

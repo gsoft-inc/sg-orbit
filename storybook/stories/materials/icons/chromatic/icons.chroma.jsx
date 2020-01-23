@@ -84,9 +84,6 @@ stories()
                      <div className="mb4 flex">
                          <ArrowOutlineIcon className="w4 h4" />
                      </div>
-                     <div className="mb4 flex">
-                         <CancelIcon className="h3 w3" />
-                     </div>
                  </div>
                  <div className="flex flex-row items-center">
                      <div className="mb4 flex">
