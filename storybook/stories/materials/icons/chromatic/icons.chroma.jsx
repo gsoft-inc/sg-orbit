@@ -8,7 +8,6 @@ import {
     ArrowOutlineIcon,
     CalendarIcon,
     CalendarIcon24,
-    CancelIcon,
     CheckIcon,
     CheckIcon24,
     ChevronIcon,
