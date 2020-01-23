@@ -276,14 +276,15 @@
 }
 
 /* SKIN | STATE | Disabled | LAYOUT | Basic */
-.ui.button.disabled.basic,
+.ui.button.basic.disabled,
 .ui.button.basic:disabled,
-.ui.buttons.basic.disabled .button,
-.ui.buttons.basic:disabled .button {
+.ui.basic.buttons .button.disabled,
+.ui.basic.buttons .button.disabled {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
     color: @cloud400!important;
 }
+
 
 /* SKIN | STATE | Disabled | LAYOUT | Primary */
 .ui.button.disabled.primary,

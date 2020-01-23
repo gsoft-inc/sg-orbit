@@ -71,50 +71,13 @@ stories("/theme")
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
-                         <Button>One</Button>
-                         <Button>Two</Button>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
                      <Button.Group basic>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group primary>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group secondary>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group naked>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                 </div>
-                 <div className="flex flex-column items-start">
-                     <Button.Group compact>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group size="tiny">
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group size="small">
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
-                     </Button.Group>
-                     <Button.Group size="large">
-                         <Button>One</Button>
-                         <Button>Two</Button>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
                  </div>
