@@ -1,10 +1,10 @@
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
+import { DEFAULT_SIZE, LARGE, MEDIUM, MultiSelect, SMALL, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { MultiSelect, multiSelectItem } from "@orbit-ui/react-multi-select/src";
 import { Props } from "@blocks";
-import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValuesChanged } from "./utils";
 import Imports from "./imports.mdx";
@@ -76,6 +76,7 @@ A default multi select.
         triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
         placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
         clearText={text("clearText", MultiSelect.defaultProps.clearText)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
@@ -169,6 +170,42 @@ A multi select can be disabled.
         onValuesChange={logValuesChanged}
     />
 </Story>
+
+### Size
+
+A multi select can vary in size.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end">
+            <div className="flex-auto mr2">
+                <MultiSelect
+                    size="small"
+                    items={DEFAULT_ITEMS_WITH_CATEGORIES}
+                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    onValuesChange={logValuesChanged}
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <MultiSelect
+                    items={DEFAULT_ITEMS_WITH_CATEGORIES}
+                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    onValuesChange={logValuesChanged}
+                />
+            </div>
+            <div className="flex-auto">
+                <MultiSelect
+                    size="large"
+                    items={DEFAULT_ITEMS_WITH_CATEGORIES}
+                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    onValuesChange={logValuesChanged}
+                />
+            </div>
+        </div>
+    </Story>
+</Preview>
 
 ### Controlled
 

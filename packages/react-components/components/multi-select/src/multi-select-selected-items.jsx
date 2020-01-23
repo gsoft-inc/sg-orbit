@@ -2,7 +2,8 @@ import { Button } from "@orbit-ui/react-button";
 import { CloseIcon24 } from "@orbit-ui/icons";
 import { Label } from "@orbit-ui/react-label";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, shape, string } from "prop-types";
+import { SIZES } from "./sizes";
+import { arrayOf, bool, func, oneOf, shape, string } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
@@ -12,11 +13,12 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-function defaultItemRenderer(item, { disabled, onRemove }) {
+function defaultItemRenderer(item, { disabled, size, onRemove }) {
     return (
         <Label
             basic
-            className={cx("large", { icon: !disabled })}
+            size={size}
+            className={cx({ icon: !disabled })}
             disabled={disabled}
             data-testid={`multi-select-selected-item-${item.value}`}
         >
@@ -24,13 +26,13 @@ function defaultItemRenderer(item, { disabled, onRemove }) {
             <If condition={!disabled}>
                 <Button
                     circular
-                    size="tiny"
+                    ghost
                     icon
-                    className="transparent"
+                    size="tiny"
                     onClick={onRemove}
                     type="button"
                 >
-                    <CloseIcon24 className="h4 w4" />
+                    <CloseIcon24 />
                 </Button>
             </If>
         </Label>
@@ -43,6 +45,7 @@ class MultiSelectSelectedItem extends PureComponent {
         itemRenderer: func,
         onRemove: func.isRequired,
         disabled: bool,
+        size: oneOf(SIZES),
         className: string
     };
 
@@ -62,9 +65,9 @@ class MultiSelectSelectedItem extends PureComponent {
     }
 
     render() {
-        const { item, itemRenderer, disabled } = this.props;
+        const { item, itemRenderer, disabled, size } = this.props;
 
-        return <div className={this.getClasses()}>{itemRenderer(item, { disabled: disabled, onRemove: this.handleRemove })}</div>;
+        return <div className={this.getClasses()}>{itemRenderer(item, { disabled, size, onRemove: this.handleRemove })}</div>;
     }
 }
 
@@ -94,6 +97,10 @@ export class MultiSelectSelectedItems extends PureComponent {
          */
         disabled: bool,
         /**
+         * A selected item can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
          * Additional classes.
          */
         className: string
@@ -110,7 +117,7 @@ export class MultiSelectSelectedItems extends PureComponent {
     };
 
     renderItems() {
-        const { items, itemRenderer, disabled, className } = this.props;
+        const { items, itemRenderer, disabled, size, className } = this.props;
 
         return items.map(x => {
             return <MultiSelectSelectedItem
@@ -119,6 +126,7 @@ export class MultiSelectSelectedItems extends PureComponent {
                 onRemove={this.handleRemoveSelectedItem}
                 key={x.value}
                 disabled={disabled}
+                size={size}
                 className={className}
             />;
         });
