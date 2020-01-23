@@ -135,7 +135,7 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
-         * A date picker can have different sizes.
+         * A search input can have different sizes.
          */
         size: oneOf(SIZES),
         /**

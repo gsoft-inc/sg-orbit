@@ -201,7 +201,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
-         * A date picker can have different sizes.
+         * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
         /**

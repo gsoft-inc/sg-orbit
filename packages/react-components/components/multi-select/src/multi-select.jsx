@@ -5,7 +5,8 @@ import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { MultiSelectSelectedItems } from "./multi-select-selected-items";
-import { arrayOf, bool, func, node, shape, string } from "prop-types";
+import { SIZES } from "./sizes";
+import { arrayOf, bool, func, node, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
@@ -128,9 +129,18 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
+         * A remote search input can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
          * Additional classes.
          */
-        className: string
+        className: string,
+        /**
+         * Used by interaction tests.
+         * @ignore
+         */
+        orbitId: string
     };
 
     static defaultProps = {
@@ -272,7 +282,7 @@ export class MultiSelect extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -286,6 +296,7 @@ export class MultiSelect extends AutoControlledPureComponent {
             placeholder,
             noResultsMessage,
             triggerText: addText,
+            triggerSize: size,
             open,
             disabled,
             closeOnBlur,
@@ -294,18 +305,19 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     renderSelectedItems = () => {
-        const { selectedItemsComponent, disabled } = this.props;
+        const { selectedItemsComponent, disabled, size } = this.props;
         const { selectedItems } = this.state;
 
         return cloneElement(selectedItemsComponent, {
             items: selectedItems,
             onRemoveSelectedItem: this.handleRemoveSelectedItem,
-            disabled
+            disabled,
+            size
         });
     };
 
     renderClearButton = () => {
-        const { clearButton, disabled } = this.props;
+        const { clearButton, disabled, size } = this.props;
         const { selectedItems } = this.state;
 
         if (selectedItems.length === 0 || disabled) {
@@ -314,7 +326,8 @@ export class MultiSelect extends AutoControlledPureComponent {
 
         return <div className="mr2 mb2">
             {cloneElement(clearButton, {
-                onClick: this.handleClear
+                onClick: this.handleClear,
+                size
             })}
         </div>;
     };

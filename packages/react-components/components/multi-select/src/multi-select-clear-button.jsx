@@ -1,7 +1,8 @@
 import { Button } from "@orbit-ui/react-button";
 import { PureComponent, createRef } from "react";
-import { func, string } from "prop-types";
-import { mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { SIZES } from "./sizes";
+import { func, oneOf, string } from "prop-types";
+import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectClearButton extends PureComponent {
     static propTypes = {
@@ -18,6 +19,10 @@ export class MultiSelectClearButton extends PureComponent {
         // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
+         * A clear button can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
          * Additional classes.
          */
         className: string
@@ -31,24 +36,17 @@ export class MultiSelectClearButton extends PureComponent {
 
     handleClick = withHandlerProxy(this, "onClick", false);
 
-    getClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "ghost",
-            className
-        );
-    }
-
     render() {
-        const { text } = this.props;
+        const { text, className, size } = this.props;
 
         return (
             <Button
                 onClick={this.handleClick}
-                className={this.getClasses()}
+                ghost
+                compact
+                size={size}
+                className={className}
                 type="button"
-                size="large"
                 ref={this._buttonRef}
                 data-testid="multi-select-clear-button"
             >

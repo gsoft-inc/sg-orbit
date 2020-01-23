@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { CalendarIcon, CalendarIcon24, CancelIcon } from "@orbit-ui/icons";
+import { CalendarIcon, CalendarIcon24, CloseIcon24 } from "@orbit-ui/icons";
 import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
@@ -36,21 +36,6 @@ const SIZES_TO_DEFAULT_ICON_DIMENSIONS = {
     [MEDIUM]: "w6 h6",
     [LARGE]: "w7 h7"
 };
-
-// TODO: Update this once the button are fixed, if it's all "tiny" remove and hardcode.
-const SIZES_TO_CLEAR_BUTTON_SIZE = {
-    [TINY]: "tiny",
-    [SMALL]: "tiny",
-    [MEDIUM]: "tiny",
-    [LARGE]: "tiny"
-};
-
-// const SIZES_TO_CLEAR_ICON_DIMENSIONS = {
-//     [TINY]: "h2 w2",
-//     [SMALL]: "h3 w3",
-//     [MEDIUM]: "h3 w3",
-//     [LARGE]: "h3 w3"
-// };
 
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
@@ -205,22 +190,12 @@ export class DatePickerTextboxInput extends PureComponent {
     renderClearIcon() {
         const { clearIcon } = this.props;
 
-        // // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        // const target = !isNil(clearIcon) ? clearIcon : <CancelIcon />;
-
-        // return cloneElement(target, {
-        //     className: mergeClasses(
-        //         target.props && target.props.className,
-        //         SIZES_TO_CLEAR_ICON_DIMENSIONS[size]
-        //     )
-        // });
-
         // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        return isNil(clearIcon) ? <CancelIcon /> : clearIcon;
+        return isNil(clearIcon) ? <CloseIcon24 /> : clearIcon;
     }
 
     renderClearButton() {
-        const { allowClear, disabled, open, size } = this.props;
+        const { allowClear, disabled, open } = this.props;
 
         if (!allowClear) {
             return null;
@@ -230,10 +205,9 @@ export class DatePickerTextboxInput extends PureComponent {
             <div className={cx("clear-btn-container", { dn: this.isPlaceholder() || disabled || open })}>
                 <Button
                     circular
-                    primary
                     ghost
                     icon
-                    size={SIZES_TO_CLEAR_BUTTON_SIZE[size]}
+                    size="tiny"
                     onClick={this.handleClearButtonClick}
                     type="button"
                     ref={this._clearButtonRef}
@@ -241,19 +215,6 @@ export class DatePickerTextboxInput extends PureComponent {
                 >
                     {this.renderClearIcon()}
                 </Button>
-                {/* <Button
-                    circular
-                    size="tiny"
-                    primary
-                    icon
-                    className="transparent"
-                    onClick={this.handleClearButtonClick}
-                    type="button"
-                    ref={this._clearButtonRef}
-                    data-testid="date-picker-textbox-clear-button"
-                >
-                    {this.renderClearIcon()}
-                </Button> */}
             </div>
         );
     }
@@ -279,7 +240,7 @@ export class DatePickerTextboxInput extends PureComponent {
 
             <style jsx>{`
                 .input {
-                    min-width: 400px;
+                    min-width: 350px;
                 }
 
                 .input:not("disabled") {
