@@ -146,5 +146,5 @@ i.icon.close {
 }
 
 .ui.loading.loading.search .input > i.icon:after {
-    margin: 0 !impoatant;
+    margin: 0;
 }
