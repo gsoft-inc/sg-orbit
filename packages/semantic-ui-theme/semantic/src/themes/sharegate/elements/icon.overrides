@@ -144,3 +144,7 @@ i.icon.close {
 .ui.loading.loading.input > i.icon:after {
     transform: translate(-50%, -50%);
 }
+
+.ui.loading.loading.search .input > i.icon:after {
+    margin: 0;
+}
