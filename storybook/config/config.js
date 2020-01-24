@@ -84,11 +84,11 @@ if (includeIntroduction) {
 
 if (includeMaterials) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/)];
+        stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/), require.context("../../packages/icons", true, /.stories.mdx$/)];
     }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/)];
+        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/), require.context("../../packages/icons", true, /.chroma.mdx$/)];
 
     }
 }
