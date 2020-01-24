@@ -357,15 +357,12 @@ export class SearchInputController extends AutoControlledPureComponent {
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
                         fluid={fluid}
-                        className="prout"
                     />
                     {this.renderClearButton()}
 
                     <style jsx>{`
                         .search-input.search-input :global(.prompt) {
                             padding-right: var(--scale-juliett) !important;
-                            min-width: 350px;
-
                         }
                     `}</style>
                 </div>
