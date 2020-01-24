@@ -57,10 +57,11 @@ import {
     ZipIcon
 } from "@orbit-ui/icons";
 import { IconGallery } from "storybook-icon-gallery";
-import { MaterialsLayout } from "../materials-layout";
+import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
+import { WarningMessage } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
-import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item.js";
+import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
 import Installation from "./installation.mdx";
 
 <Meta
@@ -81,6 +82,8 @@ If an icon is only available in _32px_, he is considered universal.
 <Installation />
 
 ## Usage
+
+### Dimensions
 
 Icons doesn't have a default dimensions to favour reusability.
 
