@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { PureComponent } from "react";
+import { PureComponent, createRef } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 
@@ -20,12 +20,21 @@ export class DatePickerButtons extends PureComponent {
         applyText: "Apply"
     };
 
+    _applyRef = createRef();
+
     handleClear = event => {
         const { canClear, onClear } = this.props;
 
         if (canClear) {
             onClear(event, this.props);
         }
+
+        // Since clearing the date(s) will disabled the "clear" button we move the focus to the "apply" button.
+        setTimeout(() => {
+            if (!isNil(this._applyRef.current)) {
+                this._applyRef.current.focus();
+            }
+        }, 0);
     };
 
     handleApply = event => {
@@ -78,6 +87,7 @@ export class DatePickerButtons extends PureComponent {
                     tabIndex={canApply ? "0" : "-1"}
                     type="button"
                     data-testid="date-picker-calendar-apply-button"
+                    ref={this._applyRef}
                 >
                     {applyText}
                 </Button>
