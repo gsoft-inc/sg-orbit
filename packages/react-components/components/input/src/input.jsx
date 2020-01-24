@@ -27,6 +27,10 @@ const propTypes = {
     forwardedRef: oneOfType([object, func])
 };
 
+const defaultProps = {
+    autofocus: false
+};
+
 function getInputElement(inputRef) {
     return inputRef.current.querySelector("input");
 }
@@ -88,6 +92,7 @@ export function PureInput(props) {
 }
 
 PureInput.propTypes = propTypes;
+PureInput.defaultProps = defaultProps;
 
 export const Input = forwardRef((props, ref) => (
     <PureInput { ...props } forwardedRef={ref} />

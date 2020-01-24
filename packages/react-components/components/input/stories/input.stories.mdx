@@ -1,7 +1,8 @@
-import { Input } from "@orbit-ui/react-input/src";
-import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Input, PureInput } from "@orbit-ui/react-input/src";
 import { MagnifierIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -18,6 +19,16 @@ import Imports from "./imports.mdx";
 ## Installation
 
 <Installation componentFolder="input" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Input" semanticPath="/elements/input" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Input", component: PureInput }
+    ]}
+/>
 
 ## Usage
 
