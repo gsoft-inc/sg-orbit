@@ -1,3 +1,4 @@
+import { ColorTable } from "./components";
 import { MaterialsLayout } from "../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
@@ -20,195 +21,51 @@ Core colors of the ShareGate brand.
 
 ## Sunray
 
-<div className="mw7">
-    <div className="pa4 bg-sunray-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#FFF6E7</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#FEE9C3</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#FEDB9B</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#FDCD72</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-400">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#FCC254</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-500">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#FCB736</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-600">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#FCB030</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-700">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#FBA729</span>
-        </div>
-    </div>
-    <div className="pa4 bg-sunray-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#FB9F22</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-sunray-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#FA9016</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--sunray-50", hexaCode: "#FFF6E7" },
+        { weight: "100", cssVariable: "--sunray-100", hexaCode: "#FEE9C3" },
+        { weight: "200", cssVariable: "--sunray-200", hexaCode: "#FEDB9B" },
+        { weight: "300", cssVariable: "--sunray-300", hexaCode: "#FDCD72" },
+        { weight: "400", cssVariable: "--sunray-400", hexaCode: "#FCC254" },
+        { weight: "500", cssVariable: "--sunray-500", hexaCode: "#FCB736" },
+        { weight: "600", cssVariable: "--sunray-600", hexaCode: "#FCB030" },
+        { weight: "700", cssVariable: "--sunray-700", hexaCode: "#FBA729" },
+        { weight: "800", cssVariable: "--sunray-800", hexaCode: "#FB9F22" },
+        { weight: "900", cssVariable: "--sunray-900", hexaCode: "#FA9016" }
+    ]}
+/>
 
 ## Marine
 
-<div className="mw7">
-    <div className="pa4 bg-marine-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#E2E4E8</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#B7BBC5</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#878E9E</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#566077</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-400 white">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#323E5A</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-500 white">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#0E1C3D</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-600 white">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#0C1937</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-700 white">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#0A142F</span>
-        </div>
-    </div>
-    <div className="pa4 bg-marine-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#081127</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-marine-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#04091A</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--marine-50", hexaCode: "#E2E4E8" },
+        { weight: "100", cssVariable: "--marine-100", hexaCode: "#B7BBC5" },
+        { weight: "200", cssVariable: "--marine-200", hexaCode: "#878E9E" },
+        { weight: "300", cssVariable: "--marine-300", hexaCode: "#566077" },
+        { weight: "400", cssVariable: "--marine-400", hexaCode: "#323E5A" },
+        { weight: "500", cssVariable: "--marine-500", hexaCode: "#0E1C3D" },
+        { weight: "600", cssVariable: "--marine-600", hexaCode: "#0C1937" },
+        { weight: "700", cssVariable: "--marine-700", hexaCode: "#0A142F" },
+        { weight: "800", cssVariable: "--marine-800", hexaCode: "#081127" },
+        { weight: "900", cssVariable: "--marine-900", hexaCode: "#04091A" }
+    ]}
+/>
 
 ## Moonstone
 
-<div className="mw7">
-    <div className="pa4 bg-moonstone-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#EFF6F6</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#D6E9E9</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#BBDBDA</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#9FCCCB</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-400">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#8BC1C0</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-500">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#76B6B5</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-600">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#6EAFAE</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-700">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#63A6A5</span>
-        </div>
-    </div>
-    <div className="pa4 bg-moonstone-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#599E9D</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-moonstone-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#468E8D</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--moonstone-50", hexaCode: "#EFF6F6" },
+        { weight: "100", cssVariable: "--moonstone-100", hexaCode: "#D6E9E9" },
+        { weight: "200", cssVariable: "--moonstone-200", hexaCode: "#BBDBDA" },
+        { weight: "300", cssVariable: "--moonstone-300", hexaCode: "#9FCCCB" },
+        { weight: "400", cssVariable: "--moonstone-400", hexaCode: "#8BC1C0" },
+        { weight: "500", cssVariable: "--moonstone-500", hexaCode: "#76B6B5" },
+        { weight: "600", cssVariable: "--moonstone-600", hexaCode: "#6EAFAE" },
+        { weight: "700", cssVariable: "--moonstone-700", hexaCode: "#63A6A5" },
+        { weight: "800", cssVariable: "--moonstone-800", hexaCode: "#599E9D" },
+        { weight: "900", cssVariable: "--moonstone-900", hexaCode: "#468E8D" }
+    ]}
+/>

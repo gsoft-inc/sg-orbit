@@ -1,3 +1,4 @@
+import { ColorTable } from "./components";
 import { MaterialsLayout } from "../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
@@ -20,195 +21,51 @@ Colors that differentiate our brands.
 
 ## Overcast
 
-<div className="mw7">
-    <div className="pa4 bg-overcast-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#E4F2FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#BCE0FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#90CBFF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#63B6FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-400">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#41A6FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-500">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#2096FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-600">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#1C8EFF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-700">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#1883FF</span>
-        </div>
-    </div>
-    <div className="pa4 bg-overcast-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#1379FF</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-overcast-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#0B68FF</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--overcast-50", hexaCode: "#E4F2FF" },
+        { weight: "100", cssVariable: "--overcast-100", hexaCode: "#BCE0FF" },
+        { weight: "200", cssVariable: "--overcast-200", hexaCode: "#90CBFF" },
+        { weight: "300", cssVariable: "--overcast-300", hexaCode: "#63B6FF" },
+        { weight: "400", cssVariable: "--overcast-400", hexaCode: "#41A6FF" },
+        { weight: "500", cssVariable: "--overcast-500", hexaCode: "#2096FF" },
+        { weight: "600", cssVariable: "--overcast-600", hexaCode: "#1C8EFF" },
+        { weight: "700", cssVariable: "--overcast-700", hexaCode: "#1883FF" },
+        { weight: "800", cssVariable: "--overcast-800", hexaCode: "#1379FF" },
+        { weight: "900", cssVariable: "--overcast-900", hexaCode: "#0B68FF" }
+    ]}
+/>
 
 ## Desktop
 
-<div className="mw7">
-    <div className="pa4 bg-desktop-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#FEEEE4</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#FCD5BC</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#FAB990</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#F79D64</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-400">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#F68842</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-500">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#F47321</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-600">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#F36B1D</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-700">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#F16018</span>
-        </div>
-    </div>
-    <div className="pa4 bg-desktop-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#EF5614</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-desktop-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#EC430B</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--desktop-50", hexaCode: "#FEEEE4" },
+        { weight: "100", cssVariable: "--desktop-100", hexaCode: "#FCD5BC" },
+        { weight: "200", cssVariable: "--desktop-200", hexaCode: "#FAB990" },
+        { weight: "300", cssVariable: "--desktop-300", hexaCode: "#F79D64" },
+        { weight: "400", cssVariable: "--desktop-400", hexaCode: "#F68842" },
+        { weight: "500", cssVariable: "--desktop-500", hexaCode: "#F47321" },
+        { weight: "600", cssVariable: "--desktop-600", hexaCode: "#F36B1D" },
+        { weight: "700", cssVariable: "--desktop-700", hexaCode: "#F16018" },
+        { weight: "800", cssVariable: "--desktop-800", hexaCode: "#EF5614" },
+        { weight: "900", cssVariable: "--desktop-900", hexaCode: "#EC430B" }
+    ]}
+/>
 
 ## Apricot
 
-<div className="mw7">
-    <div className="pa4 bg-apricot-50 br4 br--top">
-        <div className="flex justify-between">
-            <span>50</span>
-            <span>#E6F9F7</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-100">
-        <div className="flex justify-between">
-            <span>100</span>
-            <span>#C1F1EB</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-200">
-        <div className="flex justify-between">
-            <span>200</span>
-            <span>#98E8DE</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-300">
-        <div className="flex justify-between">
-            <span>300</span>
-            <span>#6EDFD1</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-400">
-        <div className="flex justify-between">
-            <span>400</span>
-            <span>#30D1BD</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-500">
-        <div className="flex justify-between">
-            <span>500</span>
-            <span>#2BCCB7</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-600">
-        <div className="flex justify-between">
-            <span>600</span>
-            <span>#29C4B1</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-700">
-        <div className="flex justify-between">
-            <span>700</span>
-            <span>#2BBDAA</span>
-        </div>
-    </div>
-    <div className="pa4 bg-apricot-800 white">
-        <div className="flex justify-between">
-            <span>800</span>
-            <span>#28B5A2</span>
-        </div>
-    </div>
-    <div className="pa4 br4 br--bottom bg-apricot-900 white">
-        <div className="flex justify-between">
-            <span>900</span>
-            <span>#28AB9B</span>
-        </div>
-    </div>
-</div>
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--apricot-50", hexaCode: "#E6F9F7" },
+        { weight: "100", cssVariable: "--apricot-100", hexaCode: "#C1F1EB" },
+        { weight: "200", cssVariable: "--apricot-200", hexaCode: "#98E8DE" },
+        { weight: "300", cssVariable: "--apricot-300", hexaCode: "#6EDFD1" },
+        { weight: "400", cssVariable: "--apricot-400", hexaCode: "#30D1BD" },
+        { weight: "500", cssVariable: "--apricot-500", hexaCode: "#2BCCB7" },
+        { weight: "600", cssVariable: "--apricot-600", hexaCode: "#29C4B1" },
+        { weight: "700", cssVariable: "--apricot-700", hexaCode: "#2BBDAA" },
+        { weight: "800", cssVariable: "--apricot-800", hexaCode: "#28B5A2" },
+        { weight: "900", cssVariable: "--apricot-900", hexaCode: "#28AB9B" }
+    ]}
+/>
