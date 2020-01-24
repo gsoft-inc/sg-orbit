@@ -140,3 +140,7 @@ i.icon.close {
 .ui.disabled i.icon {
     background-color: var(--marine-100);
 }
+
+.ui.loading.loading.input > i.icon:after {
+    transform: translate(-50%, -50%);
+}
