@@ -92,6 +92,15 @@
     box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
+/* LAYOUT | Naked/Ghost | STATE | Pseudo */
+.ui.button.naked.ghost:hover,
+.ui.button.naked.ghost:focus,
+.ui.button.naked.ghost.active {
+    background-color: @transparent;
+    color: initial;
+    box-shadow: 0px 0px 0px 1px transparent inset;
+}
+
 /* LAYOUT | Naked | STATE | Disabled */
 .ui.button.disabled.naked,
 .ui.button.naked:disabled,
@@ -259,6 +268,16 @@
     background-color: @cloud50;
 }
 
+/* SKIN | Ghost/Secondary | State */
+.ui.ghost.secondary.button:hover,
+.ui.ghost.secondary.buttons .button:hover,
+.ui.ghost.secondary.button:focus,
+.ui.ghost.secondary.buttons .button:focus,
+.ui.ghost.secondary.button.active,
+.ui.ghost.secondary.buttons.active .button {
+    color: @marine500;
+}
+
 /* SKIN | STATES */
 /* SKIN | STATE | Disabled */
 .ui.button.disabled,
@@ -331,6 +350,15 @@
 .ui.buttons.secondary.basic:disabled .button {
     background-color: @transparent!important;
     color: @marine100 !important;
+}
+
+/* SKIN | STATE | Disabled | LAYOUT | Secondary/Ghost */
+.ui.button.secondary.ghost,
+.ui.button.secondary.ghost,
+.ui.buttons.secondary.ghost .button,
+.ui.buttons.secondary.ghost .button {
+    background-color: @transparent!important;
+    color: @marine300;
 }
 
 /* SKIN | STATE | Disabled | LAYOUT | Positive */
@@ -454,6 +482,12 @@
     fill: @success500;
 }
 
+/* CONTENT | Icon | SKIN | Secondary/Ghost */
+.ui.button.secondary.ghost svg,
+.ui.buttons.secondary.ghost .button svg {
+    fill: @marine300;
+}
+
 /* CONTENT | Icon | SKIN | Negative/Ghost */
 .ui.buttons.ghost.negative .button svg,
 .ui.button.ghost.negative svg,
@@ -554,6 +588,14 @@
 .ui.buttons.ghost.primary.disabled .button svg,
 .ui.buttons.ghost.primary:disabled .button svg {
     fill: @primary200;
+}
+
+/* CONTENT | Icon | STATE | Disabled | SKIN | Secondary/Ghost */
+.ui.button.ghost.secondary.disabled svg,
+.ui.button.ghost.secondary:disabled svg,
+.ui.buttons.ghost.secondary.disabled .button svg,
+.ui.buttons.ghost.secondary:disabled .button svg {
+    fill: @marine100;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive */

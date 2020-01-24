@@ -1,10 +1,10 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
+import { DEFAULT_SIZE, LARGE, MEDIUM, SMALL, SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
-import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValueChanged } from "../utils";
 import Imports from "./imports.mdx";
@@ -69,7 +69,11 @@ A default search input with a set of results.
         minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
         noResultsMessage={text("noResultsMessage")}
         placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
+        fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         onValueChange={logValueChanged}
     />
 </Story>
@@ -102,20 +106,6 @@ A search input results box can close when a result is selected.
     </Story>
 </Preview>
 
-<Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <SearchInput
-        results={DEFAULT_RESULTS}
-        autofocus
-        clearOnSelect
-        onValueChange={logValueChanged}
-    />
-</Story>
-
 ### Disabled
 
 A search input can be disabled.
@@ -125,6 +115,20 @@ A search input can be disabled.
         <SearchInput
             results={DEFAULT_RESULTS}
             disabled
+            onValueChange={logValueChanged}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A search input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <SearchInput
+            fluid
+            results={DEFAULT_RESULTS}
             onValueChange={logValueChanged}
         />
     </Story>
@@ -144,6 +148,42 @@ A search input can be disabled.
     />
 </Story>
 
+### Size
+
+A search input can vary in size.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end">
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    size="small"
+                    fluid
+                    onValueChange={logValueChanged}
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    onValueChange={logValueChanged}
+                    fluid
+                />
+            </div>
+            <div className="flex-auto">
+                <SearchInput
+                    results={DEFAULT_RESULTS}
+                    size="large"
+                    fluid
+                    onValueChange={logValueChanged}
+                />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Controlled
 
 A search input can handle `value` and `open` state in controlled mode.
@@ -157,4 +197,44 @@ A search input can handle `value` and `open` state in controlled mode.
         />
     </Story>
 </Preview>
+
+<Story
+    name="open"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        open
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <SearchInput
+        results={DEFAULT_RESULTS}
+        autofocus
+        autofocusDelay={500}
+        onValueChange={logValueChanged}
+    />
+</Story>
 

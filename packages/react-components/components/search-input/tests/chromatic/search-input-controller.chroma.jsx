@@ -1,4 +1,4 @@
-import { CancelIcon } from "@orbit-ui/icons";
+import { CloseIcon24, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { SearchInputController } from "@orbit-ui/react-search-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -38,6 +38,12 @@ stories()
          () =>
              createSearchInputController({
                  autofocus: true
+             })
+    )
+    .add("fluid",
+         () =>
+             createSearchInputController({
+                 fluid: true
              })
     );
 
@@ -188,6 +194,51 @@ stories("/default value/opened")
              })
     );
 
+stories("/size/small")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "small"
+             })
+    )
+    .add("selected value",
+         () =>
+             createSearchInputController({
+                 size: "small",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
+stories("/size/medium")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "medium"
+             })
+    )
+    .add("selected value",
+         () =>
+             createSearchInputController({
+                 size: "medium",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
+stories("/size/large")
+    .add("default",
+         () =>
+             createSearchInputController({
+                 size: "large"
+             })
+    )
+    .add("selected value",
+         () =>
+             createSearchInputController({
+                 size: "large",
+                 defaultValue: LAURIE_VALUE
+             })
+    );
+
 stories("/customization")
     .add("no results message",
          () =>
@@ -204,11 +255,18 @@ stories("/customization")
                  placeholder: "Custom placeholder"
              })
     )
+    .add("icon",
+         () =>
+             createSearchInputController({
+                 defaultValue: LAURIE_VALUE,
+                 icon: <MagnifierIcon className="fill-red" />
+             })
+    )
     .add("clear icon",
          () =>
              createSearchInputController({
                  defaultValue: LAURIE_VALUE,
-                 clearIcon: <CancelIcon className="h3 w3 fill-red" />
+                 clearIcon: <CloseIcon24 className="fill-red" />
              })
     )
     .add("result renderer",

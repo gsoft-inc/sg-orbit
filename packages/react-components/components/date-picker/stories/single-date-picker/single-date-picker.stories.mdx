@@ -2,12 +2,12 @@ import {
     BOTTOM_CENTER,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
+    DEFAULT_SIZE,
     LARGE,
     MEDIUM,
     PureSingleDatePickerInput,
     SMALL,
     SingleDatePicker,
-    TINY,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
@@ -85,9 +85,10 @@ A default single date picker.
         numberOfMonths={number("numberOfMonths")}
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
-        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE }, MEDIUM)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
         disabled={boolean("disabled", false)}
+        fluid={boolean("fluid", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         className={text("className")}
@@ -198,26 +199,36 @@ A single date picker can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A single date picker can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <SingleDatePicker
+            fluid
+            onDateChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
 ### Size
 
 A single date picker can vary in size.
 
-The available sizes are: `"tiny"`, `"small"`, `"medium"` and `"large"`.
+The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end">
+        <div className="flex items-end">
             <div className="flex-auto mr2">
-                <SingleDatePicker size="tiny" onDateChange={logDateChanged} />
+                <SingleDatePicker size="small" fluid onDateChange={logDateChanged} />
             </div>
             <div className="flex-auto mr2">
-                <SingleDatePicker size="small" onDateChange={logDateChanged} />
+                <SingleDatePicker fluid onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto mr2">
-                <SingleDatePicker onDateChange={logDateChanged} />
-            </div>
-            <div className="flex-auto mr2">
-                <SingleDatePicker size="large" onDateChange={logDateChanged} />
+            <div className="flex-auto">
+                <SingleDatePicker size="large" fluid onDateChange={logDateChanged} />
             </div>
         </div>
     </Story>

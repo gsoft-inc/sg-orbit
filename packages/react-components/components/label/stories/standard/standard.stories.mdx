@@ -4,7 +4,7 @@ import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-c
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "../imports.mdx";
 
 <Meta
@@ -72,7 +72,7 @@ A label can include an icon.
             </Label>
             <Label>
                 <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
-                Notification Sent
+                    Notification Sent
                 <MagnifierIcon className="h6 w6 fill-marine-500 ml1" />
             </Label>
         </div>
@@ -95,7 +95,7 @@ A label can vary in size.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
+        <div className="flex">
             <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
@@ -121,7 +121,7 @@ A label can have a circular form.
 
 <Preview>
     <Story name="circular">
-        <div>
+        <div className="flex">
             <Label circular size="mini">R</Label>
             <Label circular size="tiny">R</Label>
             <Label circular size="small">R</Label>
@@ -162,6 +162,15 @@ A label can be colorless. Use this variant if you need to customize the label.
         </Label>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Label />} />
+</Story>
 
 
 

@@ -12,6 +12,7 @@
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
         "@orbit-ui/semantic-ui-theme": "*",
+        "lodash": "*",
         "react": "*",
         "react-dom": "*",
         "semantic-ui-react": "*"

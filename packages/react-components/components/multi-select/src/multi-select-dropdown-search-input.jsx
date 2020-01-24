@@ -1,7 +1,6 @@
-import { Input, Ref } from "semantic-ui-react";
-import { PureComponent, createRef } from "react";
+import { Input } from "@orbit-ui/react-input";
+import { PureComponent } from "react";
 import { func, node, string } from "prop-types";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
     static propTypes = {
@@ -27,40 +26,26 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
         className: string
     };
 
-    _inputRef = createRef();
-
     handleChange = (event, { value }) => {
         const { onChange } = this.props;
 
         onChange(event, value, this.props);
     };
 
-    getClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "colored",
-            className
-        );
-    }
-
     render() {
-        const { placeholder, icon } = this.props;
+        const { placeholder, icon, className } = this.props;
 
         return (
-            <Ref innerRef={this._inputRef}>
-                <Input
-                    onChange={this.handleChange}
-                    placeholder={placeholder}
-                    icon
-                    iconPosition="left"
-                    className={this.getClasses()}
-                    autoComplete="off"
-                >
-                    <i className="icon">{icon}</i>
-                    <input type="text" data-testid="multi-select-dropdown-search-input" autoFocus />
-                </Input>
-            </Ref>
+            <Input
+                onChange={this.handleChange}
+                placeholder={placeholder}
+                icon={icon}
+                iconPosition="left"
+                className={className}
+                autofocus
+                autoComplete="off"
+                data-testid="multi-select-dropdown-search-input"
+            />
         );
     }
 }

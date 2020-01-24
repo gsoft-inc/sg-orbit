@@ -68,6 +68,7 @@
 --------------*/
 @selectionMenuBoxShadow: @shadow100;
 @selectionMinHeight: 2.5rem;
+@selectionMinWidth: 300px;
 @selectionBorder: 1px solid @cloud200;
 @selectionHoverBorderColor: @marine500;
 @selectionVisibleBorderColor: @white;

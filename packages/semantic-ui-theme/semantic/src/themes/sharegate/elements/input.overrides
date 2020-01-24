@@ -3,17 +3,20 @@
 *******************************/
 
 .ui.input > input {
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-    /* avoid rem conversion */
-    height: 48px;
-    width: 240px;
+    height: var(--scale-hotel);
+    line-height: var(--scale-hotel);
+    min-width: 300px;
 }
 
-/* making sure that the inputs all share the same height */
-.input,
-form input {
-    height: 48px;
+.ui.input.small > input {
+    height: var(--scale-golf);
+    line-height: var(--scale-golf);
+    padding-left: var(--scale-bravo);
+}
+
+.ui.input.large > input {
+    height: var(--scale-india);
+    line-height: var(--scale-india);
 }
 
 .ui.input:not(.disabled) input[disabled],
@@ -29,7 +32,7 @@ form input {
     color: @cloud400;
 }
 
-// Success Variation
+/* Success Variation */
 .ui.input.success input {
     border-color: @positiveColor;
 }
@@ -38,26 +41,56 @@ form input {
     fill: @success500;
 }
 
-/* center the loading pseudo element on inputs */
+/* Loadings */
 .ui.loading.loading.input > i.icon:after {
     margin: 0;
 }
 
-.ui.icon.input > i.icon {
+/* Icons */
+.ui.icon.input.small > input {
+    padding-right: calc(var(--scale-foxtrot) + @iconPadding) !important;
+}
+
+.ui.icon.input.large > input {
+    padding-right: calc(var(--scale-hotel) + @iconPadding) !important;
+}
+
+.ui.icon.input > svg.icon {
     top: 50%;
     transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
+    position: absolute;
+    right: var(--scale-bravo);
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
+    pointer-events: none;
 }
 
-.ui.icon.input > input {
-    padding-right: 2.125rem;
+.ui.icon.input.small > svg.icon {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
-.ui[class*="left icon"].input > i.icon {
-    left: 0.5rem;
+.ui.icon.input.large > svg.icon {
+    width: var(--scale-golf);
+    height: var(--scale-golf);
 }
 
-.ui.icon.input > i.icon {
-    right: 0.5rem;
+.ui.left.icon.input > input {
+    padding-right: @paddingRight !important;
+}
+
+.ui.left.icon.input.small > input {
+    padding-left: calc(var(--scale-foxtrot) + @iconPadding) !important;
+}
+
+.ui.left.icon.input.large > input {
+    padding-left: calc(var(--scale-hotel) + @iconPadding) !important;
+}
+
+.ui.left.icon.input > svg.icon {
+    left: var(--scale-bravo);
+}
+
+.ui.icon.input.disabled > svg.icon  {
+    fill: var(--marine-100);
 }

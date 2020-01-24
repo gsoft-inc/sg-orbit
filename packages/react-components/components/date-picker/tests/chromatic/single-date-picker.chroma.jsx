@@ -1,4 +1,4 @@
-import { CalendarIcon, CancelIcon, ChevronIcon } from "@orbit-ui/icons";
+import { CalendarIcon, ChevronIcon, CloseIcon24 } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -668,22 +668,14 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input icon={<CalendarIcon className="w6 h6 fill-red" />} />
+                 input: <SingleDatePicker.Input icon={<CalendarIcon className="fill-red" />} />
              })
     )
     .add("clear icon",
          () =>
              createSingleDatePicker({
                  date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input clearIcon={<CancelIcon className="h3 w3 fill-red" />} />
-             })
-    )
-    .add("disabled clear icon",
-         () =>
-             createSingleDatePicker({
-                 date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input disabledIcon={<CalendarIcon className="w6 h6 fill-red" />} />,
-                 disabled: true
+                 input: <SingleDatePicker.Input clearIcon={<CloseIcon24 className="fill-red" />} />
              })
     )
     .add("placeholder",
@@ -795,21 +787,6 @@ stories("/z-index")
              </div>
     );
 
-stories("/size/tiny")
-    .add("default",
-         () =>
-             createSingleDatePicker({
-                 size: "tiny"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createSingleDatePicker({
-                 size: "tiny",
-                 date: moment(DEFAULT_DATE)
-             })
-    );
-
 stories("/size/small")
     .add("default",
          () =>
@@ -821,7 +798,7 @@ stories("/size/small")
          () =>
              createSingleDatePicker({
                  size: "small",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );
 
@@ -836,7 +813,7 @@ stories("/size/medium")
          () =>
              createSingleDatePicker({
                  size: "medium",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );
 
@@ -851,6 +828,6 @@ stories("/size/large")
          () =>
              createSingleDatePicker({
                  size: "large",
-                 date: moment(DEFAULT_DATE)
+                 defaultDate: moment(DEFAULT_DATE)
              })
     );

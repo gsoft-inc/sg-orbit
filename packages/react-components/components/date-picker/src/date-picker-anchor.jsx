@@ -15,6 +15,7 @@ export class DatePickerAnchor extends PureComponent {
         onVisibilityChange: func,
         closeOnBlur: bool,
         closeOnOutsideClick: bool,
+        fluid: bool,
         className: string
     };
 
@@ -32,7 +33,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
 
         return (
             <Popup
@@ -44,6 +45,7 @@ export class DatePickerAnchor extends PureComponent {
                 onVisibilityChange={this.handleVisibilityChange}
                 closeOnBlur={closeOnBlur}
                 closeOnOutsideClick={closeOnOutsideClick}
+                fluid={fluid}
                 className={className}
             >
                 {calendar}

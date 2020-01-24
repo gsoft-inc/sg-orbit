@@ -1,5 +1,7 @@
-import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, string } from "prop-types";
+import { Ref, Button as SemanticButton } from "semantic-ui-react";
+import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -18,40 +20,73 @@ const propTypes = {
      */
     label: bool,
     /**
+     * A button can be formatted to accept a nested tag.
+     */
+    tag: bool,
+    /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
     naked: bool,
     /**
      * @ignore
      */
-    className: string
+    className: string,
+    /**
+     * @ignore
+     */
+    forwardedRef: oneOfType([object, func])
 };
 
 const defaultProps = {
-    naked: false,
     ghost: false,
     icon: false,
-    label: false
+    label: false,
+    tag: false,
+    naked: false
 };
 
-export function Button({ naked, ghost, icon, label, tag, className, children, ...props }) {
+export function PureButton({ naked, ghost, icon, label, tag, className, forwardedRef, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
-    const classes = mergeClasses(
-        naked && "naked",
-        ghost && "ghost",
-        icon && "icon",
-        label && "with-label",
-        tag && "with-tag",
-        className
-    );
+    const renderWithRef = () => {
+        return (
+            <Ref innerRef={forwardedRef}>
+                {renderButton()}
+            </Ref>
+        );
+    };
 
-    return <SemanticButton className={classes} {...props}>{children}</SemanticButton>;
+    const renderButton = () => {
+        const classes = mergeClasses(
+            naked && "naked",
+            ghost && "ghost",
+            icon && "icon",
+            label && "with-label",
+            tag && "with-tag",
+            className
+        );
+
+        return <SemanticButton className={classes} {...props}>{children}</SemanticButton>;
+    };
+
+    return isNil(forwardedRef) ? renderButton() : renderWithRef();
 }
 
-Button.Content = SemanticButton.Content;
-Button.Group = SemanticButton.Group;
-Button.Or = SemanticButton.Or;
+PureButton.propTypes = propTypes;
+PureButton.defaultProps = defaultProps;
 
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
+export const Button = forwardRef((props, ref) => (
+    <PureButton { ...props } forwardedRef={ref} />
+));
+
+[PureButton, Button].forEach(x => {
+    x.Content = SemanticButton.Content;
+    x.Group = SemanticButton.Group;
+    x.Or = SemanticButton.Or;
+});
+
+// eslint-disable-next-line react/forbid-foreign-prop-types
+if (!isNil(SemanticButton.propTypes)) {
+    // eslint-disable-next-line react/forbid-foreign-prop-types
+    SemanticButton.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
+}

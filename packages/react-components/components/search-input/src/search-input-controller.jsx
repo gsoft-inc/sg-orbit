@@ -1,11 +1,13 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "@orbit-ui/react-components-shared";
-import { Button, Ref, Search } from "semantic-ui-react";
-import { CancelIcon } from "@orbit-ui/icons";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { Button } from "@orbit-ui/react-button";
+import { CloseIcon24, MagnifierIcon } from "@orbit-ui/icons";
+import { DEFAULT_SIZE, SIZES } from "./sizes";
+import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
-import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
+import { Search } from "semantic-ui-react";
+import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import { withHandlerProxy } from "@orbit-ui/react-components-shared";
 import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
@@ -33,10 +35,13 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: string,
         debounceDelay: number,
         loading: bool,
+        icon: node,
         clearIcon: node,
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
+        fluid: bool,
+        size: oneOf(SIZES),
         className: string
     };
 
@@ -47,10 +52,13 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
-        clearIcon: <CancelIcon className="h3 w3" />,
+        icon: <MagnifierIcon />,
+        clearIcon: <CloseIcon24 />,
         disabled: false,
         autofocus: false,
-        autofocusDelay: 50
+        autofocusDelay: 50,
+        size: DEFAULT_SIZE,
+        fluid: false
     };
 
     static autoControlledProps = ["value"];
@@ -65,20 +73,9 @@ export class SearchInputController extends AutoControlledPureComponent {
     _containerRef = createRef();
     _inputRef = createRef();
     _clearButtonRef = createRef();
-    _autofocusTimeout = null;
 
     componentDidMount() {
-        const { open, autofocus, autofocusDelay } = this.props;
-
         this.transformResults();
-
-        if (open) {
-            this.focus();
-        } else if (autofocus) {
-            // This is done manually instead of using the "autoFocus" property of the React input component to add a small delay that ensure that it works when the
-            // component is rendered in a popup, modal, etc..
-            this.focus(autofocusDelay);
-        }
     }
 
     componentDidUpdate(prevProps) {
@@ -94,27 +91,12 @@ export class SearchInputController extends AutoControlledPureComponent {
 
     componentWillUnmount() {
         this.cancelOnSearchDebounce();
-        this.clearAutofocusTimeout();
     }
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SearchInputController.autoControlledProps, ({ value }) => ({
             query: isNil(value) ? "" : value
         }));
-    }
-
-    focus(delay = 0) {
-        this._autofocusTimeout = setTimeout(() => {
-            if (!isNil(this._inputRef.current)) {
-                this._inputRef.current.focus();
-            }
-        }, delay);
-    }
-
-    clearAutofocusTimeout() {
-        if (!isNil(this._autofocusTimeout)) {
-            clearTimeout(this._autofocusTimeout);
-        }
     }
 
     transformResults() {
@@ -286,11 +268,12 @@ export class SearchInputController extends AutoControlledPureComponent {
         return !isEmpty(query) && !disabled;
     }
 
-    getInputCssClasses() {
-        const { className } = this.props;
+    getContainerClasses() {
+        const { fluid, className } = this.props;
 
         return mergeClasses(
-            "fluid",
+            "search-input relative",
+            !fluid && "inline-flex",
             className
         );
     }
@@ -303,32 +286,48 @@ export class SearchInputController extends AutoControlledPureComponent {
         return resultRenderer(data, this.props);
     };
 
+    renderInput = () => {
+        const { open, loading, icon, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
+
+        return <Input
+            icon={icon}
+            iconPosition="left"
+            onKeyDown={this.handleInputKeyDown}
+            loading={loading && !disabled}
+            autofocus={open || autofocus}
+            autofocusDelay={open ? undefined : autofocusDelay}
+            disabled={disabled}
+            size={size}
+            fluid={fluid}
+            ref={this._inputRef}
+            data-testid="search-input-textbox"
+        />;
+    }
+
     renderClearButton = () => {
         const { clearIcon } = this.props;
 
         return (
-            <div className={cx("cancel-btn-container absolute", { dn: !this.canClear() })}>
-                <Ref innerRef={this._clearButtonRef}>
-                    <Button
-                        circular
-                        size="tiny"
-                        primary
-                        icon
-                        className="transparent"
-                        onClick={this.handleClear}
-                        type="button"
-                        data-testid="search-input-clear-button"
-                    >
-                        {clearIcon}
-                    </Button>
-                </Ref>
+            <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
+                <Button
+                    ghost
+                    secondary
+                    icon
+                    size="tiny"
+                    className="transparent"
+                    onClick={this.handleClear}
+                    type="button"
+                    ref={this._clearButtonRef}
+                    data-testid="search-input-clear-button"
+                >
+                    {clearIcon}
+                </Button>
 
                 <style jsx>{`
-                    .cancel-btn-container {
-                        position: absolute;
+                    .clear-btn-container {
                         top: 50%;
-                        right: calc(var(--scale-juliett) / 2);
                         transform: translateX(50%) translateY(-50%);
+                        right: var(--scale-echo)
                     }
                 `}</style>
             </div>
@@ -336,12 +335,12 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid } = this.props;
         const { transformedResults, query } = this.state;
 
         return (
             <>
-                <div className="search-input relative w-100" ref={this._containerRef}>
+                <div className={this.getContainerClasses()} ref={this._containerRef}>
                     <Search
                         open={open && !disabled}
                         minCharacters={minCharacters}
@@ -352,23 +351,17 @@ export class SearchInputController extends AutoControlledPureComponent {
                         resultRenderer={this.renderResult}
                         results={transformedResults}
                         value={query}
-                        input={{
-                            icon: loading && !disabled ? "" : "search",
-                            iconPosition: "left",
-                            className: this.getInputCssClasses(),
-                            onKeyDown: this.handleInputKeyDown,
-                            ref: this._inputRef,
-                            "data-testid": "search-input-textbox"
-                        }}
+                        input={this.renderInput()}
                         placeholder={placeholder}
                         disabled={disabled}
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
+                        fluid={fluid}
                     />
                     {this.renderClearButton()}
 
                     <style jsx>{`
-                        .search-input :global(.prompt) {
+                        .search-input.search-input :global(.prompt) {
                             padding-right: var(--scale-juliett) !important;
                         }
                     `}</style>

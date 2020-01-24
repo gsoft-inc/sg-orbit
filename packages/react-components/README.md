@@ -216,6 +216,10 @@ For more information, read the following posts:
 - http://johnnyji.me/react/2016/06/27/why-arrow-functions-murder-react-performance.html
 - https://www.freecodecamp.org/news/the-best-way-to-bind-event-handlers-in-react-282db2cf1530/
 
+#### ref
+
+A component `ref` should always be attached to the top most DOM element. A `ref` should never be attached to a React component.
+
 ### Development experience
 
 #### Props

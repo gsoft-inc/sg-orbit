@@ -223,3 +223,44 @@ stories("/customization")
              })
     );
 
+stories("/size/small")
+    .add("default",
+         () =>
+             createMultiSelect({
+                 size: "small"
+             })
+    )
+    .add("selected value",
+         () =>
+             createMultiSelect({
+                 size: "small",
+                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+             })
+    );
+
+stories("/size/medium")
+    .add("default",
+         () =>
+             createMultiSelect()
+    )
+    .add("selected value",
+         () =>
+             createMultiSelect({
+                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+             })
+    );
+
+stories("/size/large")
+    .add("default",
+         () =>
+             createMultiSelect({
+                 size: "large"
+             })
+    )
+    .add("selected value",
+         () =>
+             createMultiSelect({
+                 size: "large",
+                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+             })
+    );

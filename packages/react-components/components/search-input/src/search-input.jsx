@@ -1,6 +1,7 @@
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
-import { arrayOf, bool, func, number, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
@@ -105,11 +106,19 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
+         * A custom React SVG component displayed before the prompt.
+         */
+        icon: node,
+        /**
+         * A custom React SVG component for the clear button.
+         */
+        clearIcon: node,
+        /**
          * A disabled search input does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Whether or not the search input should focus on render.
+         * Whether or not the search input should autofocus on render.
          */
         autofocus: bool,
         /**
@@ -125,6 +134,14 @@ export class SearchInput extends AutoControlledPureComponent {
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
+        /**
+         * A search input can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
+         * Whether or not the search input take up the width of its container.
+         */
+        fluid: bool,
         /**
          * Additional classes.
          */
@@ -263,7 +280,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, icon, clearIcon, autofocus, autofocusDelay, size, fluid, className } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -285,8 +302,12 @@ export class SearchInput extends AutoControlledPureComponent {
                 debounceDelay={debounceDelay}
                 placeholder={placeholder}
                 disabled={disabled}
+                icon={icon}
+                clearIcon={clearIcon}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
+                size={size}
+                fluid={fluid}
                 className={className}
             />
         );

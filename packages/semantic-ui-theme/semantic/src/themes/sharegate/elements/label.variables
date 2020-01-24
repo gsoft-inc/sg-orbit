@@ -4,6 +4,7 @@
 
 @small: 1em;
 @medium: 1.125em;
+@large: 1.125rem;
 @fontWeight: 400;
 @borderRadius: 999px;
 @basicBorderWidth: 1px;

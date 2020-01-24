@@ -6,7 +6,8 @@ import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-i
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
-import { arrayOf, bool, func, node, number, shape, string } from "prop-types";
+import { SIZES } from "./sizes";
+import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
@@ -100,9 +101,9 @@ export class MultiSelectDropdown extends PureComponent {
          */
         triggerIcon: node,
         /**
-         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
+         * A dropdown trigger can have different sizes.
          */
-        triggerDisabledIcon: node,
+        triggerSize: oneOf(SIZES),
         /**
          * A custom React component to display the items.
          */
@@ -149,7 +150,6 @@ export class MultiSelectDropdown extends PureComponent {
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
         triggerIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
-        triggerDisabledIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
         searchInput: <MultiSelectDropdownSearchInput />,
         searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,
@@ -362,16 +362,16 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, triggerIcon, triggerDisabledIcon, open, disabled } = this.props;
+        const { trigger, triggerText, triggerIcon, open, disabled, triggerSize } = this.props;
 
         return cloneElement(trigger, {
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,
             text: triggerText,
             icon: triggerIcon,
-            disabledIcon: triggerDisabledIcon,
             open,
             disabled,
+            size: triggerSize,
             ref: this._triggerRef
         });
     };

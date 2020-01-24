@@ -1,9 +1,9 @@
 import { ControlledRemoteSearchInput } from "./components";
+import { DEFAULT_SIZE, LARGE, MEDIUM, RemoteSearchInput, SMALL, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@orbit-ui/react-search-input/src";
-import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValueChanged } from "../utils";
 import Imports from "./imports.mdx";
@@ -36,9 +36,9 @@ A remote search input allows a user to query for results from a remote data sour
 
 ## Remote API throttling
 
-For demo purpose, we use [GeoDB cities free API](https://rapidapi.com/wirefreethought/api/geodb-cities) through [Rapid API](https://rapidapi.com/) which is throttled at 1 request / sec and have a daily quota of 1000 requests.
+For demo purpose, we use [GeoDB cities free API](https://rapidapi.com/wirefreethought/api/geodb-cities) through [Rapid API](https://rapidapi.com/) which is throttled at 16 request / sec.
 
-*Please, dont abuse and be patient!*
+*Please, be patient!*
 
 ## Usage
 
@@ -53,7 +53,7 @@ For demo purpose, we use [GeoDB cities free API](https://rapidapi.com/wirefreeth
 export const API_REQUEST_OPTIONS = {
     headers: {
         "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-        "x-rapidapi-key": "d699c01b23mshb9832bb0fd12929p128485jsn5a749c0b2741"
+        "x-rapidapi-key": "8aa06f2e50msh9ff37516b3c0282p1e8624jsn81c867aa0d74"
     }
 };
 
@@ -94,7 +94,11 @@ A default remote search input.
         minCharacters={number("minCharacters", RemoteSearchInput.defaultProps.minCharacters)}
         noResultsMessage={text("noResultsMessage")}
         placeholder={text("placeholder", "Type a country name")}
+        fluid={boolean("fluid", false)}
         disabled={boolean("disabled", false)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
         onValueChange={logValueChanged}
     />
 </Story>
@@ -135,23 +139,6 @@ A remote search input results box can close when a result is selected.
     </Story>
 </Preview>
 
-<Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
-        autofocus
-        onValueChange={logValueChanged}
-        placeholder="Type a country name"
-    />
-</Story>
-
 ### Disabled
 
 A remote search input can be disabled.
@@ -164,6 +151,24 @@ A remote search input can be disabled.
                 return response.data.map(x => searchInputResult(x.code, x.name));
             }}
             disabled
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A remote search input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <RemoteSearchInput
+            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+            onResults={response => {
+                return response.data.map(x => searchInputResult(x.code, x.name));
+            }}
+            fluid
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -201,6 +206,54 @@ A remote search input can be disabled.
     />
 </Story>
 
+### Size
+
+A search input can vary in size.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end">
+            <div className="flex-auto mr2">
+                <RemoteSearchInput
+                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+                    onResults={response => {
+                        return response.data.map(x => searchInputResult(x.code, x.name));
+                    }}
+                    onValueChange={logValueChanged}
+                    size="small"
+                    fluid
+                    placeholder="Type a country name"
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <RemoteSearchInput
+                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+                    onResults={response => {
+                        return response.data.map(x => searchInputResult(x.code, x.name));
+                    }}
+                    onValueChange={logValueChanged}
+                    fluid
+                    placeholder="Type a country name"
+                />
+            </div>
+            <div className="flex-auto mr2">
+                <RemoteSearchInput
+                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+                    onResults={response => {
+                        return response.data.map(x => searchInputResult(x.code, x.name));
+                    }}
+                    onValueChange={logValueChanged}
+                    size="large"
+                    fluid
+                    placeholder="Type a country name"
+                />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 ### Controlled
 
 A remote search input can handle `value` and `open` state in controlled mode.
@@ -217,6 +270,58 @@ A remote search input can handle `value` and `open` state in controlled mode.
         />
     </Story>
 </Preview>
+
+<Story
+    name="open"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        open
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        autofocus
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
+        onResults={response => {
+            return response.data.map(x => searchInputResult(x.code, x.name));
+        }}
+        autofocus
+        autofocusDelay={500}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
 
 
 

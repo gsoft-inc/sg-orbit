@@ -87,20 +87,14 @@ stories("/disabled")
 stories("/customization")
     .add("close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />
+            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="rotate-90 fill-red" />} />
         })
     )
     .add("open icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="w4 h4 rotate-270 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="rotate-270 fill-red" />} />,
             initialVisibleMonth: moment(DEFAULT_DATE),
             defaultOpen: true
-        })
-    )
-    .add("disabled close icon", () =>
-        createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input disabledCloseIcon={<ChevronIcon className="w4 h4 rotate-90 fill-red" />} />,
-            disabled: true
         })
     )
     .add("placeholder", () =>

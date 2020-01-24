@@ -1,7 +1,8 @@
-import { Button, Ref } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button";
 import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
-import { bool, func, node, string } from "prop-types";
+import { SIZES } from "./sizes";
+import { bool, func, node, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 
@@ -15,10 +16,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
          * A custom React SVG component displayed before the trigger text.
          */
         icon: node,
-        /**
-         * A custom React SVG component displayed before the trigger text when the multi-select is disabled.
-         */
-        disabledIcon: node,
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -72,6 +69,10 @@ export class MultiSelectDropdownTrigger extends PureComponent {
          * A disabled trigger does not allow user interaction.
          */
         disabled: bool,
+        /**
+         * A dropdown trigger can have different sizes.
+         */
+        size: oneOf(SIZES),
         /**
          * Additional classes.
          */
@@ -130,34 +131,27 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         );
     }
 
-    renderIcon() {
-        const { icon, disabledIcon, disabled } = this.props;
-
-        return disabled ? disabledIcon : icon;
-    }
-
     render() {
-        const { text, disabled } = this.props;
+        const { text, icon, disabled, size } = this.props;
 
         return (
             <div className="mr2 mb2">
-                <Ref innerRef={this._buttonRef}>
-                    <Button
-                        onClick={this.handleClick}
-                        onKeyDown={this.handleKeyDown}
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
-                        secondary
-                        className={this.getClasses()}
-                        disabled={disabled}
-                        tabIndex={disabled ? "-1" : "0"}
-                        type="button"
-                        size="large"
-                        data-testid="multi-select-dropdown-trigger"
-                    >
-                        {text} {this.renderIcon()}
-                    </Button>
-                </Ref>
+                <Button
+                    onClick={this.handleClick}
+                    onKeyDown={this.handleKeyDown}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    secondary
+                    size={size}
+                    className={this.getClasses()}
+                    disabled={disabled}
+                    tabIndex={disabled ? "-1" : "0"}
+                    type="button"
+                    ref={this._buttonRef}
+                    data-testid="multi-select-dropdown-trigger"
+                >
+                    {text} {icon}
+                </Button>
             </div>
         );
     }
