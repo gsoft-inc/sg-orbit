@@ -1,25 +1,5 @@
 # @orbit-ui/react-shared
 
-## Installation
-
-With npm:
-
-```bash
-npm install @orbit-ui/react/shared
-```
-
-## Usage
-
-```javascript
-import { AutoControlledPureComponent, ... } from "@orbit-ui/react-components-shared";
-```
-
-Or
-
-```javascript
-import { AutoControlledPureComponent, ... } from "@orbit-ui/react-components";
-```
-
 Full documentation available at: https://sg-orbit.netlify.com
 
 ## License

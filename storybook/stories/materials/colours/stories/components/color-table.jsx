@@ -30,9 +30,9 @@ export function ColorTable({ colors }) {
             <thead>
                 <tr>
                     <th align="left">Weight</th>
-                    <th align="left">CSS Variable</th>
+                    <th align="left">Variable</th>
                     <th align="left">Hexa</th>
-                    <th align="left">Showcase</th>
+                    <th align="left"></th>
                 </tr>
             </thead>
             <tbody>

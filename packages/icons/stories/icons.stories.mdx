@@ -59,7 +59,6 @@ import {
 import { IconGallery } from "storybook-icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { WarningMessage } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
 import Installation from "./installation.mdx";
@@ -89,7 +88,7 @@ Icons doesn't have a default dimensions to favour reusability.
 
 This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
 
-```jsx
+```jsx dark
 <AddIcon24 className="w6 h6" />
 ```
 

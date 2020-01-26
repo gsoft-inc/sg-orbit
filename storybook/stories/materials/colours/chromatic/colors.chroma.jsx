@@ -1,7 +1,7 @@
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
-    return storiesOfBuilder(module, createChromaticSection("Colours"))
+    return storiesOfBuilder(module, createChromaticSection("Colors"))
         .parameters(paramsBuilder()
             .chromaticDelay(100)
             .build())

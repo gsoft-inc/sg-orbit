@@ -50,7 +50,7 @@ A story must:
 
 Here's an exemple for the date range picker component:
 
-```jsx
+```jsx dark
 import { createComponentSection } from "@utils";
 
 <Meta title={createComponentSection("Date Picker/range")} />
@@ -88,7 +88,7 @@ A story must:
 
 Here's an example:
 
-```javascript
+```javascript dark
 // date-range-picker.chroma.jsx
 
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -154,7 +154,7 @@ Components should be composable and configurable. Sub-components should be expos
 
 Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
 
-```javascript
+```javascript dark
 // definition
 export class DateRangePicker extends AutoControlledPureComponent {
     static Input = DateRangePickerInput;
@@ -177,7 +177,7 @@ An event handler prop exposed by a component should always:
 - Provide the original Synthetic Event as the first argument.
 - Provide the components props as the last argument.
 
-```javascript
+```javascript dark
 function MyComponent({ onChange }) {
     function handleChange(event) {
         onChange(event, this.props);
@@ -199,7 +199,7 @@ For more information, read the following [blog post](https://css-tricks.com/dang
 
 Components shouldn't render anonymous functions.
 
-```javascript
+```javascript dark
 function MyComponent() {
     function handleChange() {
         ...

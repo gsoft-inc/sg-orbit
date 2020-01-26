@@ -20,13 +20,13 @@ For a React application, the easiest way to use Orbit UI is by installing the [@
 
 Install the packages:
 
-```bash
+```bash dark
 npm install @orbit-ui/react react-spring moment lodash
 ```
 
 Then import the components:
 
-```javascript
+```javascript dark
 import { Button, ... } from "semantic-ui-react";
 import { DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 import { ClearIcon, ... } from "@orbit-ui/icons";
@@ -34,7 +34,7 @@ import { ClearIcon, ... } from "@orbit-ui/icons";
 
 And the styles:
 
-```css
+```css dark
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
 @import "~@orbit-ui/semantic-ui-theme";
 ```
@@ -51,13 +51,13 @@ You can pick and choose the *core packages* to install but it is recommended to 
 
 To install all the *core packages*:
 
-```bash
+```bash dark
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
 Then, import the styles:
 
-```css
+```css dark
 @import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
 @import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
@@ -70,25 +70,25 @@ A few options are available...
 
 1- only install the components from Semantic UI React:
 
-```bash
+```bash dark
 npm install @orbit-ui/semantic-ui-theme semantic-ui-react
 ```
 
 2- install all the Orbit UI React components:
 
-```bash
+```bash dark
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-components semantic-ui-react react-spring styled-jsx moment lodash
 ```
 
 3- hand-pick a few Orbit UI React components to install:
 
-```bash
+```bash dark
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
 ```
 
 When it's done, you can import React components and the Semantic UI theme:
 
-```javascript
+```javascript dark
 import { Dropdown, ... } from "semantic-ui-react";
 import { Button, DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
 import { SingleDatePicker } from "@orbit-ui/react-date-pickers";
@@ -96,13 +96,13 @@ import { SingleDatePicker } from "@orbit-ui/react-date-pickers";
 
 You can either pick & choose the specific Semantic UI theme modules that you need:
 
-```css
+```css dark
 @import "~@orbit-ui/semantic-ui-theme/button.css";
 @import "~@orbit-ui/semantic-ui-theme/checkbox.css";
 ```
 
 Or you can import the whole theme:
 
-```css
+```css dark
 @import "~@orbit-ui/semantic-ui-theme";
 ```

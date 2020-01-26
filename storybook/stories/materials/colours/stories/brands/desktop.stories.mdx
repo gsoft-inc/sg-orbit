@@ -1,0 +1,40 @@
+import { ColorTable } from "../components";
+import { MaterialsLayout } from "../../../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { TachyonsFile } from "@blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../../../installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Colors/brands/desktop")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/foundation/src" />)
+        .build()}
+/>
+
+# Desktop Colors
+
+## Installation
+
+<Installation />
+
+## Values
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--desktop-50", hexaCode: "#FEEEE4" },
+        { weight: "100", cssVariable: "--desktop-100", hexaCode: "#FCD5BC" },
+        { weight: "200", cssVariable: "--desktop-200", hexaCode: "#FAB990" },
+        { weight: "300", cssVariable: "--desktop-300", hexaCode: "#F79D64" },
+        { weight: "400", cssVariable: "--desktop-400", hexaCode: "#F68842" },
+        { weight: "500", cssVariable: "--desktop-500", hexaCode: "#F47321" },
+        { weight: "600", cssVariable: "--desktop-600", hexaCode: "#F36B1D" },
+        { weight: "700", cssVariable: "--desktop-700", hexaCode: "#F16018" },
+        { weight: "800", cssVariable: "--desktop-800", hexaCode: "#EF5614" },
+        { weight: "900", cssVariable: "--desktop-900", hexaCode: "#EC430B" }
+    ]}
+/>
+
+## Classes
+
+<TachyonsFile relativeFilePath="brands/desktop.css" />
