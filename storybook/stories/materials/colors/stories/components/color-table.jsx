@@ -16,9 +16,9 @@ const propTypes = {
 function Color({ weight, cssVariable, hexaCode }) {
     return (
         <tr>
-            <td>{weight}</td>
+            <td className={styles.weight}>{weight}</td>
             <td>{cssVariable}</td>
-            <td>{hexaCode}</td>
+            <td className={styles.hexaCode}>{hexaCode}</td>
             <td className={styles.sample} style={{ backgroundColor: hexaCode }}></td>
         </tr>
     );
