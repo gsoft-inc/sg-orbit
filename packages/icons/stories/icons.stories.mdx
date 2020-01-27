@@ -76,6 +76,16 @@ Icons includes their padding and are generally available in two sizes, _24px_ an
 
 If an icon is only available in _32px_, he is considered universal.
 
+### Admissibility
+
+In order to be included in Orbit an icon must satisfy the following guidelines:
+
+- It should not be specific to a ShareGate brand or an app, e.g. Azure specific icons.
+
+- It must be used as part of an interface, illustrations are not accepted.
+
+- It shouldn't be colored, any icon that has many colors should be in a product codebase.
+
 ## Installation
 
 <Installation />
@@ -91,6 +101,8 @@ This means that you must specify dimensions either with [Tachyons](/?path=/docs/
 ```jsx dark
 <AddIcon24 className="w6 h6" />
 ```
+
+If you're icon is intended to be used as part of an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
 
 ## Gallery
 

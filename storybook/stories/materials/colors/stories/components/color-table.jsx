@@ -19,7 +19,7 @@ function Color({ weight, cssVariable, hexaCode }) {
             <td>{weight}</td>
             <td>{cssVariable}</td>
             <td>{hexaCode}</td>
-            <td className={styles.live} style={{ backgroundColor: hexaCode }}></td>
+            <td className={styles.sample} style={{ backgroundColor: hexaCode }}></td>
         </tr>
     );
 }
