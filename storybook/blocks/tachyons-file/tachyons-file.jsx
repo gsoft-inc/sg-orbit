@@ -1,4 +1,3 @@
-import { Source } from "@storybook/components";
 import { isNil } from "lodash";
 import { string } from "prop-types";
 import { useState } from "react";
@@ -11,14 +10,14 @@ export function TachyonsFile({ relativeFilePath }) {
     const [content, setContent] = useState(null);
 
     if (isNil(content)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!../../../packages/tachyons/src${relativeFilePath}`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!../../../packages/tachyons/docs/dist${relativeFilePath}`)
             .then(module => {
                 setContent(module.default);
             });
     }
 
     if (!isNil(content)) {
-        return <Source language="css" dark format={false} code={content} />;
+        return <pre>{content}</pre>;
     }
 
     return null;
