@@ -1,7 +1,8 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { Buttons } from "./buttons";
+import { Buttons } from "./components";
 import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+
 import styles from "./styles.module.css";
 
 function stories(segment) {
@@ -14,7 +15,7 @@ function stories(segment) {
         .build();
 }
 
-stories("/theme")
+stories()
     .add("default",
          () =>
              <div className="flex flex-row">
@@ -61,7 +62,9 @@ stories("/theme")
                              backgroundColor: "#FCD5BC",
                              boxShadow: "0px 0px 0px 1px #FCD003 inset"
                          }}
-                     >Button</Button>
+                     >
+                         Button
+                     </Button>
                      <Button className={styles.button} naked active>Button</Button>
                      <Button disabled className={styles.button} naked>Button</Button>
                  </div>

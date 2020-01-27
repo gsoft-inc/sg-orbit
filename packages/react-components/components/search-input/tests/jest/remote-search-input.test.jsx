@@ -129,11 +129,14 @@ test("when a result is selected, the dropdown menu close", async () => {
 });
 
 test("close the dropdown menu on outside click", async () => {
-    const { container } = render(createRemoteSearchInput({
+    const { getByTestId, container } = render(createRemoteSearchInput({
         defaultOpen: true
     }));
 
     await waitForElement(() => getResultsMenu(container));
+
+    // await wait();
+    expect(await getTextbox(getByTestId)).toHaveFocus();
 
     userEvent.click(document.body);
     await wait();

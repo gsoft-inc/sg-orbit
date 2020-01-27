@@ -1,5 +1,5 @@
 import { PresetsCalendarIcon } from "../assets";
-import { PureComponent } from "react";
+import { PureComponent, cloneElement } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../shared";
@@ -99,10 +99,6 @@ export class DateRangePickerPresets extends PureComponent {
         className: string
     };
 
-    static defaultProps = {
-        icon: <PresetsCalendarIcon className="w8 h8 fill-marine-500" />
-    }
-
     isDayBlocked = day => {
         const { minDate, maxDate } = this.props;
 
@@ -146,6 +142,20 @@ export class DateRangePickerPresets extends PureComponent {
         );
     }
 
+    renderIcon() {
+        const { icon } = this.props;
+
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(icon) ? icon : <PresetsCalendarIcon />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                "w8 h8 fill-marine-500"
+            )
+        });
+    }
+
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
@@ -158,12 +168,12 @@ export class DateRangePickerPresets extends PureComponent {
     }
 
     render() {
-        const { presets, icon } = this.props;
+        const { presets } = this.props;
 
         if (presets.length > 0) {
             return (
                 <div className={this.getCssClasses()}>
-                    <div className="self-center mb7">{icon}</div>
+                    <div className="self-center mb7">{this.renderIcon()}</div>
                     <ul>{this.renderPresets()}</ul>
 
                     <style jsx>{`

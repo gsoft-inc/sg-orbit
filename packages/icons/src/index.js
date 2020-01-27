@@ -25,7 +25,6 @@ export { ReactComponent as CheckIcon } from "./icon-check-32.svg";
 export { ReactComponent as CheckIcon24 } from "./icon-check-24.svg";
 export { ReactComponent as CircleIcon } from "./icon-circle-32.svg";
 export { ReactComponent as CircleIcon24 } from "./icon-circle-24.svg";
-export { ReactComponent as CancelIcon } from "./icon-cancel.svg";
 export { ReactComponent as CheckmarkIcon } from "./icon-checkmark.svg";
 export { ReactComponent as ClearFilterIcon } from "./icon-clear-filter-32.svg";
 export { ReactComponent as ClearFilterIcon24 } from "./icon-clear-filter-24.svg";

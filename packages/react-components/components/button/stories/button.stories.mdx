@@ -1,10 +1,11 @@
 import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
-import { Button } from "@orbit-ui/react-button/src";
+import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import CustomColorHover from "./custom-color-hover.mdx";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -27,7 +28,7 @@ import Imports from "./imports.mdx";
 
 <Props
     componentsDefinitions={[
-        { displayName: "Button", component: Button }
+        { displayName: "Button", component: PureButton }
     ]}
 />
 
@@ -89,7 +90,7 @@ A button can contain an icon.
 
 <Preview>
     <Story name="icon">
-        <div className="flex flex-row">
+        <div className="flex">
             <Button type="button" icon><SignoutIcon24 className="mr1" />Click me</Button>
             <Button type="button"><AddIcon/></Button>
         </div>
@@ -125,7 +126,7 @@ A button can vary in size.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end">
+        <div className="flex items-end">
             <Button type="button" size="tiny">Tiny</Button>
             <Button type="button" size="small">Small</Button>
             <Button type="button" size="medium">Medium</Button>
@@ -140,7 +141,7 @@ A button can be circular.
 
 <Preview>
     <Story name="circular">
-        <div className="flex flex-row items-end">
+        <div className="flex items-end">
             <Button type="button" icon circular size="tiny"><AddIcon className="icon"/></Button>
             <Button type="button" icon circular size="small"><AddIcon className="icon"/></Button>
             <Button type="button" icon circular><AddIcon className="icon"/></Button>
@@ -244,18 +245,27 @@ A naked button can have a custom color.
     </Story>
 </Preview>
 
+<CustomColorHover />
+
 ### Groups
 
 Buttons can exist together as a group.
 
 <Preview>
     <Story name="groups">
-        <div className="flex">
-            <Button.Group basic>
-                <Button disabled tag type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
-                <Button icon type="button"><CalendarIcon24 className="mr1"/>Two</Button>
-                <Button icon type="button" active><CalendarIcon24 className="mr1"/>Three</Button>
-            </Button.Group>
-        </div>
+        <Button.Group basic>
+            <Button disabled tag type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
+            <Button icon type="button"><CalendarIcon24 className="mr1"/>Two</Button>
+            <Button icon type="button" active><CalendarIcon24 className="mr1"/>Three</Button>
+        </Button.Group>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Button type="button">Cutoff</Button>} />
+</Story>

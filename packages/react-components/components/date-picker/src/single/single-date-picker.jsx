@@ -1,7 +1,7 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { DEFAULT_SIZE, SIZES } from "../sizes";
 import { DatePickerAnchor } from "../date-picker-anchor";
 import { POSITIONS } from "@orbit-ui/react-popup";
+import { SIZES } from "../sizes";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -111,6 +111,10 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     disabled: bool,
     /**
+     * Whether or not the date picker take up the width of its container.
+     */
+    fluid: bool,
+    /**
      * A date picker can have different sizes.
      */
     size: oneOf(SIZES),
@@ -131,7 +135,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         calendar: <SingleDatePickerCalendar />,
         buttons: <SingleDatePickerButtons />,
         disabled: false,
-        size: DEFAULT_SIZE
+        fluid: false
     };
 
     static autoControlledProps = ["date", "open"];
@@ -208,7 +212,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, size } = this.props;
+        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, size } = this.props;
         const { selectedDate } = this.state;
 
         return cloneElement(input, {
@@ -219,6 +223,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             placeholder,
             dateFormat,
             disabled,
+            fluid,
             size
         });
     }
@@ -243,7 +248,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -258,6 +263,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 disabled={disabled}
                 closeOnBlur={closeOnBlur}
                 closeOnOutsideClick={closeOnOutsideClick}
+                fluid={fluid}
                 className={className}
             />
         );

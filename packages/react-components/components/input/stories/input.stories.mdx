@@ -1,0 +1,220 @@
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Input, PureInput } from "@orbit-ui/react-input/src";
+import { MagnifierIcon } from "@orbit-ui/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Input")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/input" />)
+        .build()}
+/>
+
+# Input
+
+## Installation
+
+<Installation componentFolder="input" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Input" semanticPath="/elements/input" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Input", component: PureInput }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default input.
+
+<Preview>
+    <Story name="default">
+        <Input />
+    </Story>
+</Preview>
+
+### Value
+
+An input can have an value.
+
+<Preview>
+    <Story name="value">
+        <Input value="Orbit" />
+    </Story>
+</Preview>
+
+### Focused
+
+An input can show a user is currently interacting with it.
+
+<Preview>
+    <Story name="focused">
+        <Input focus placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Disabled
+
+An input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Input disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Fluid
+
+An input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Input fluid placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Icon
+
+An input can be formatted with an icon.
+
+<Preview>
+    <Story name="icon">
+        <div className="flex flex-row">
+            <div className="mr2">
+                <Input icon={<MagnifierIcon />} placeholder="Search..." />
+            </div>
+            <div>
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="icon & loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Input icon={<MagnifierIcon />} loading />
+</Story>
+
+### Loading
+
+An input can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <div className="flex flex-row">
+            <div className="mr2">
+                <Input loading placeholder="Search..." />
+            </div>
+            <div>
+                <Input loading iconPosition="left" placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Size
+
+An input can vary in size.
+
+The available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end">
+            <div className="flex-auto mr2">
+                <Input size="small" icon={<MagnifierIcon />} fluid placeholder="Search..." />
+            </div>
+            <div className="flex-auto mr2">
+                <Input fluid icon={<MagnifierIcon />} placeholder="Search..." />
+            </div>
+            <div className="flex-auto mr2">
+                <Input size="large" icon={<MagnifierIcon />} fluid placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Error
+
+An input field can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <Input error placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Success
+
+An input field can show that the data has been validated.
+
+<Preview>
+    <Story name="success">
+        <Input className="success" placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Transparent
+
+An input can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <Input transparent placeholder="Search..." />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex">
+        <div className="mr2">
+            <Input autofocus placeholder="Search..." />
+        </div>
+        <div>
+            <Input autofocus disabled placeholder="Search..." />
+        </div>
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex">
+        <div className="mr2">
+            <Input autofocus autofocusDelay={500} placeholder="Search..." />
+        </div>
+        <div>
+            <Input autofocus disabled autofocusDelay={500} placeholder="Search..." />
+        </div>
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Input />} />
+</Story>
+

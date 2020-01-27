@@ -1,5 +1,5 @@
-import { Button } from "semantic-ui-react";
-import { PureComponent } from "react";
+import { Button } from "@orbit-ui/react-button";
+import { PureComponent, createRef } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 
@@ -20,12 +20,21 @@ export class DatePickerButtons extends PureComponent {
         applyText: "Apply"
     };
 
+    _applyRef = createRef();
+
     handleClear = event => {
         const { canClear, onClear } = this.props;
 
         if (canClear) {
             onClear(event, this.props);
         }
+
+        // Since clearing the date(s) will disabled the "clear" button we move the focus to the "apply" button.
+        setTimeout(() => {
+            if (!isNil(this._applyRef.current)) {
+                this._applyRef.current.focus();
+            }
+        }, 0);
     };
 
     handleApply = event => {
@@ -47,11 +56,13 @@ export class DatePickerButtons extends PureComponent {
         return (
             <Button
                 onClick={this.handleClear}
-                className={!canClear ? "ghost short disabled" : "ghost short"}
-                type="button"
-                data-testid="date-picker-calendar-clear-button"
+                ghost
+                compact
+                size="small"
                 disabled={!canClear}
                 tabIndex={canClear ? "0" : "-1"}
+                type="button"
+                data-testid="date-picker-calendar-clear-button"
             >
                 {clearText}
             </Button>
@@ -68,11 +79,15 @@ export class DatePickerButtons extends PureComponent {
                 {/* Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click. */}
                 <Button
                     onClick={this.handleApply}
-                    className={!canApply ? "ghost short disabled" : "primary ghost short"}
+                    ghost
+                    compact
+                    primary={canApply}
+                    disabled={!canApply}
+                    size="small"
+                    tabIndex={canApply ? "0" : "-1"}
                     type="button"
                     data-testid="date-picker-calendar-apply-button"
-                    disabled={!canApply}
-                    tabIndex={canApply ? "0" : "-1"}
+                    ref={this._applyRef}
                 >
                     {applyText}
                 </Button>

@@ -10,6 +10,7 @@ import Installation from "../installation.mdx";
     title={createComponentSection("Dropdown/standard")}
     parameters={paramsBuilder()
         .sortPriority(-1)
+        .canvasLayout({ width: "80%" })
         .docsLayout(<SemanticLayout documentationPath="/modules/dropdown" />)
         .build()}
 />
@@ -182,7 +183,7 @@ A dropdown can have a custom trigger.
 <Preview>
     <Story name="custom trigger">
         <Dropdown
-            trigger={<AddIcon style={{ width: "30px" }} />}
+            trigger={<AddIcon className="w7" />}
             options={[
                 {
                     key: "Male",
@@ -251,13 +252,13 @@ A dropdown can take the width of its container.
     </Story>
 </Preview>
 
-### Sizes
+### Size
 
 A dropdown can vary in size.
 
 <Preview>
-    <Story name="small">
-        <div className="flex flex-row items-end">
+    <Story name="size">
+        <div className="flex items-end">
             <div className="mr2">
                 <Dropdown
                     placeholder="Gender"

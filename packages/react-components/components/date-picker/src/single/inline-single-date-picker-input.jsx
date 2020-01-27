@@ -1,6 +1,6 @@
 import { ChevronIcon } from "@orbit-ui/icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
-import { PureComponent, createRef } from "react";
+import { PureComponent, cloneElement, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
 import { bool, func, node, string } from "prop-types";
 import { isNil } from "lodash";
@@ -86,10 +86,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         closeIcon: node,
         /**
-         * A custom React SVG component indicating that the date picker is closed when the date picker is disabled.
-         */
-        disabledCloseIcon: node,
-        /**
          * A disabled input does not allow user interaction.
          */
         disabled: bool,
@@ -101,12 +97,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
          * Additional classes.
          */
         className: string
-    };
-
-    static defaultProps = {
-        openIcon: <ChevronIcon className="rotate-270 fill-primary-500" style={{ width: "1em", height: "1em" }} />,
-        closeIcon: <ChevronIcon className="rotate-90 fill-primary-500" style={{ width: "1em", height: "1em" }} />,
-        disabledCloseIcon: <ChevronIcon className="rotate-90 fill-cloud-200" style={{ width: "1em", height: "1em" }} />
     };
 
     _containerRef = createRef();
@@ -199,14 +189,46 @@ export class InlineSingleDatePickerInput extends PureComponent {
         );
     }
 
+    renderOpenIcon() {
+        const { openIcon } = this.props;
+
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(openIcon) ? openIcon : <ChevronIcon className="rotate-270" />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                "fill-primary-500"
+            ),
+            style: {
+                width: "1em",
+                height: "1em"
+            }
+        });
+    }
+
+    renderCloseIcon() {
+        const { closeIcon, disabled } = this.props;
+
+        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
+        const target = !isNil(closeIcon) ? closeIcon : <ChevronIcon className="rotate-90" />;
+
+        return cloneElement(target, {
+            className: mergeClasses(
+                target.props && target.props.className,
+                !disabled ? "fill-primary-500" : "fill-cloud-200"
+            ),
+            style: {
+                width: "1em",
+                height: "1em"
+            }
+        });
+    }
+
     renderIcon() {
-        const { openIcon, closeIcon, disabledCloseIcon, open, disabled } = this.props;
+        const { open } = this.props;
 
-        if (open) {
-            return openIcon;
-        }
-
-        return disabled ? disabledCloseIcon : closeIcon;
+        return open ? this.renderOpenIcon() : this.renderCloseIcon();
     }
 
     render() {

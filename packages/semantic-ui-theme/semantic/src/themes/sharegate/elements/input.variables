@@ -1,13 +1,23 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@disabledOpacity: 1;
-@iconOpacity: 1;
-@placeholderErrorColor: @marine100;
-
 @background: @white;
 @borderColor: @cloud200;
 @borderRadius: .25rem;
 
-@padding: 0.75rem 1rem;
-@iconWidth: 2.75rem;
+@lineHeightOffset: 0;
+
+@paddingLeft: var(--scale-delta);
+@paddingRight: var(--scale-delta);
+@padding: var(--scale-charlie) var(--scale-delta);
+
+@relativeSmall: var(--type-scale-7);
+@relativeMedium: var(--type-scale-6);
+@relativeLarge: var(--type-scale-6);
+
+@iconPadding: 5px;
+@iconMargin: calc(var(--scale-golf) + @iconPadding);
+@iconOpacity: 1;
+
+@disabledOpacity: 1;
+@placeholderErrorColor: @marine100;

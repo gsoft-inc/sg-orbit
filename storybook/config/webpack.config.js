@@ -113,13 +113,14 @@ function addAliases(config) {
         "@blocks": path.resolve(__dirname, "../blocks/"),
         "@shared": path.resolve(__dirname, "../shared/"),
         "@utils": path.resolve(__dirname, "../utils/"),
+        "@stories": path.resolve(__dirname, "../stories/"),
         "@react-components": path.resolve(__dirname, "../../packages/react-components/components")
     };
 }
 
 function bundleCustomReactComponents(config) {
     // Otherwise webpack babel-loader will only handle files in /storybook.
-    config.module.rules[0].include.push(path.resolve(__dirname, "../..", "packages/react-components/components"));
+    config.module.rules[0].include.push(path.resolve(__dirname, "../..", "packages"));
 }
 
 // NOTE: the source-loader config has not been added to this webpack config, we dont seem to need it.

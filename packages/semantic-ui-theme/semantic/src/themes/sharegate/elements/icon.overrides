@@ -17,6 +17,90 @@
     height: auto;
 }
 
+.ui[class*="left icon"].input > i.icon.spinner {
+    left: 0.5rem;
+    width: 1.5rem;
+}
+
+.ui.icon.input > i.icon.spinner {
+    width: 1.5rem;
+    right: 0.5rem;
+}
+
+/* 4px for all */
+.ui.loading.loading.input > i.icon:before {
+    border: 0.25rem solid rgba(0, 0, 0, 0.1)!important;
+}
+
+.ui.loading.loading.input > i.icon:after {
+    border-width: 0.25rem !important;
+}
+
+/* LAYOUT | Size | Tiny */
+.ui.icon.input.tiny > i.icon.spinner {
+    width: 1rem;
+}
+
+/* LAYOUT | Size | Small */
+.ui.icon.input.small > i.icon.spinner {
+    width: 1.25rem;
+}
+
+/* LAYOUT | Size | Large */
+.ui.icon.input.large > i.icon.spinner {
+    width: 2rem;
+}
+
+.ui.loading.loading.input > i.icon:before {
+    width: 1.5rem!important;
+    height: 1.5rem!important;
+}
+
+.ui.loading.loading.input > i.icon:after {
+    width: 1.5rem!important;
+    height: 1.5rem!important;
+}
+
+.ui.loading.loading.input > i.icon:before {
+    border-width: 0.25rem;
+}
+
+/* LAYOUT | Size | Tiny */
+.ui.loading.loading.input.tiny > i.icon:before {
+    width: 1rem!important;
+    height: 1rem!important;
+    margin-left: -0.5rem;
+}
+
+.ui.loading.loading.input.tiny > i.icon:after {
+    width: 1rem!important;
+    height: 1rem!important;
+}
+
+/* LAYOUT | Size | Small */
+.ui.loading.loading.input.small > i.icon:before {
+    width: 1.25rem!important;
+    height: 1.25rem!important;
+}
+
+.ui.loading.loading.input.small > i.icon:after {
+    width: 1.25rem!important;
+    height: 1.25rem!important;
+}
+
+/* LAYOUT | Size | Large */
+.ui.loading.loading.input.large > i.icon:before {
+    width: 2rem!important;
+    height: 2rem!important;
+    margin-left: -1rem;
+}
+
+.ui.loading.loading.input.large > i.icon:after {
+    width: 2rem!important;
+    height: 2rem!important;
+    margin-left: 0;
+}
+
 .ui.icon.input > i.icon:before,
 .ui.icon.input > i.icon:after {
     margin-top: 0!important;
@@ -55,4 +139,12 @@ i.icon.close {
 
 .ui.disabled i.icon {
     background-color: var(--marine-100);
+}
+
+.ui.loading.loading.input > i.icon:after {
+    transform: translate(-50%, -50%);
+}
+
+.ui.loading.loading.search .input > i.icon:after {
+    margin: 0;
 }

@@ -9,8 +9,9 @@ import {
     getAutoControlledStateFromProps,
     httpGet
 } from "@orbit-ui/react-components-shared";
+import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
-import { bool, func, number, string } from "prop-types";
+import { bool, func, node, number, oneOf, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
 
 function defaultResultsFetcher(event, url, data, options) {
@@ -171,11 +172,19 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
+         * A custom React SVG component displayed before the prompt.
+         */
+        icon: node,
+        /**
+         * A custom React SVG component for the clear button.
+         */
+        clearIcon: node,
+        /**
          * A disabled search input does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Whether or not the search input should focus on render.
+         * Whether or not the search input should autofocus on render.
          */
         autofocus: bool,
         /**
@@ -191,6 +200,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
+        /**
+         * A remote search input can have different sizes.
+         */
+        size: oneOf(SIZES),
+        /**
+         * Whether or not the search input take up the width of its container.
+         */
+        fluid: bool,
         /**
          * Additional classes.
          */
@@ -412,7 +429,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, icon, clearIcon, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -433,10 +450,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 minCharacters={minCharacters}
                 debounceDelay={0}
                 placeholder={placeholder}
-                disabled={disabled}
                 loading={isLoading}
+                icon={icon}
+                clearIcon={clearIcon}
+                disabled={disabled}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}
+                size={size}
+                fluid={fluid}
                 className={className}
             />
         );

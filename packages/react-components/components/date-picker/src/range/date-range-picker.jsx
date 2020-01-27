@@ -1,11 +1,11 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
-import { DEFAULT_SIZE, SIZES } from "../sizes";
 import { DatePickerAnchor } from "../date-picker-anchor";
 import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "@orbit-ui/react-popup";
+import { SIZES } from "../sizes";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -137,6 +137,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         disabled: bool,
         /**
+         * Whether or not the date picker take up the width of its container.
+         */
+        fluid: bool,
+        /**
          * Whether or not the calendar should close when the date picker loose focus.
          */
         closeOnBlur: bool,
@@ -166,7 +170,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presets: [],
         buttons: <DateRangePickerButtons />,
         disabled: false,
-        size: DEFAULT_SIZE
+        fluid: false
     };
 
     static autoControlledProps = ["startDate", "endDate", "open"];
@@ -290,7 +294,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
         const { open } = this.state;
 
         return (
@@ -305,6 +309,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 disabled={disabled}
                 closeOnBlur={closeOnBlur}
                 closeOnOutsideClick={closeOnOutsideClick}
+                fluid={fluid}
                 className={className}
             />
         );

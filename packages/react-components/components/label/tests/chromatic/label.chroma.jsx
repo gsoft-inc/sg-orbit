@@ -15,7 +15,7 @@ function stories(segment) {
 }
 
 stories()
-    .add("defaul",
+    .add("default",
          () =>
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
