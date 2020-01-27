@@ -17,7 +17,11 @@ export function TachyonsFile({ relativeFilePath }) {
     }
 
     if (!isNil(content)) {
-        return <pre>{content}</pre>;
+        return (
+            <pre className="f9">
+                <code>{content}</code>
+            </pre>
+        );
     }
 
     return null;
