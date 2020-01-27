@@ -1,5 +1,6 @@
+import { CheckIcon24, GearIcon } from "@orbit-ui/icons";
 import { IntroductionLayout } from "./introduction-layout";
-import { Meta, Preview } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 import { createIntroductionSection, paramsBuilder } from "@utils";
 
 <Meta
@@ -27,111 +28,129 @@ _Consistency_ makes designers happy!
 
 ## Customization
 
-Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/introduction-foundation--page) variables. These customizations includes:
+Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/introduction-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, please refer to the list of customization below and the _Materials_ pages.
 
-- a custom [spacing scale](https://tachyons.io/docs/layout/spacing/)
+### Spacing scale
 
-- a custom [type scale](https://tachyons.io/docs/typography/scale/)
+Orbit foundation [spacing scale](?path=/docs/materials-layout-spacing--page) have been implemented as Tachyons CSS classes. Tachyons spacing scale have been increased from _7_ to _13_ values.
 
-- a custom [skin](https://tachyons.io/docs/themes/skins/) (colors)
+This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-layout-spacing--page) for an exhaustive list of all the available classes.
 
-- first class support for Sharegate brand & products
+### Typography
 
-Most of the documentation is available on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, refer to the [usage section](#usage).
+Tachyons have been adapted to Orbit foundation [typography](?path=/docs/materials-typography--page).
+
+- [Type scale](?path=/docs/materials-typography--page#font-size) have been increased from _7_ to _9_ values. Classes are available from `f1` to `f9`.
+
+- [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should not be used.
+
+### Skins
+
+Tachyons original colors have been replaced with Orbit foundation colors.
+
+For any [UI](?path=/docs/materials-colours-ui--page) or [ShareGate](?path=/docs/materials-colours-sharegate--page) colors, the following classes are available:
+
+- [_color-name_]-[_50-900_] (ex. `sunray-50`)
+
+- hover-[_color-name_]-[_50-900_] (ex. `hover-sunray-50`)
+
+- bg-[_color-name_]-[_50-900_] (ex. `bg-sunray-50`)
+
+- hover-bg-[_color-name_]-[_50-900_] (ex. `hover-bg-sunray-50`)
+
+- b--[_color-name_]-[_50-900_] (ex. `b--sunary-50`)
+
+- hover-b--[_color-name_]-[_50-900_] (ex. `hover-b--sunary-50`)
+
+- fill-[_color-name_]-[_50-900_] (ex. `fill-sunray-50`)
+
+- hover-fill-[_color-name_]-[_50-900_] (ex. `hover-fill-sunray-50`)
+
+### Brands
+
+The colors of the Sharegate [brands](?path=/docs/materials-colours-brands--page) have been added to Tachyons.
+
+The brands colors classes support the same naming scheme as the other [colors](#skins) classes but use a [_brand-name_] instead of a [_color-name_]. For any [brands](?path=/docs/materials-colours-brands--page), the following classes are available:
+
+- [_brand-name_]-[_50-900_] (ex. `apricot-50`)
+
+Additional _primary_ classes are also available:
+
+- primary-[_50-900_] (ex. `primary-50`).
 
 ## Installation
 
 Please refer to the [installation page](?path=/docs/introduction-installation--page) for instructions.
 
-## Usage
+## Quick start
 
-### Quick start
+Once installed, start composing your style with Tachyons reusable CSS classes:
 
-Once you installed Tachyons you can start composing your style with Tachyons reusable CSS classes.
+```jsx dark
+<p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
+```
 
-Here's an example to create an horizontal list of styled `div`.
+To align a list of items horizontally:
 
-<Preview>
-    <div className="flex flex-row">
-        <div className="bg-sunray-400 white pa2 mr2">1</div>
-        <div className="bg-sunray-400 white pa2 mr2">2</div>
-        <div className="bg-sunray-400 white pa2">3</div>
-    </div>
-</Preview>
+```jsx dark
+<div className="flex">
+    <div>To</div>
+    <div>the</div>
+    <div>moon!</div>
+</div>
+```
 
-### Custom spacing scale
+To render a 24px / 24px icon filled with _apricot_ brand color:
 
-Orbit foundation [spacing scale](?path=/docs/materials-layout-spacing--page) have been implemented as Tachyons CSS classes.
+```jsx dark
+<GearIcon className="w6 h6 fill-apricot-500" />
+```
 
-All paddings and margins variants are available from `0 to 13` (ex. `pa0` ... `pa13`, `ma0` ... `ma13`, ...).
+To align a text with an icon:
 
-Please refer to [Tachyons official spacing documentation](https://tachyons.io/docs/layout/spacing/) for an exhaustive list of all the variants.
+```jsx dark
+<span className="flex items-center">
+    Check
+    <CheckIcon24 className="w6 h6 ml1 fill-success-500" />
+</span>
+```
 
-<Preview>
-    <div className="flex flex-row items-end">
-        <div className="pa2 mr2 bg-sunray-400 white">1</div>
-        <div className="pr5 pl5 pb5 pt5 mr2 bg-sunray-400 white">2</div>
-        <div className="pr8 pl8 pb8 pt8 bg-sunray-400 white">3</div>
-    </div>
-</Preview>
+To specify paddings for each side of an element:
 
-### Custom type scale
+```jsx dark
+<div className="pa2">Im padded!</div>
+```
 
-Orbit foundation [type scale](?path=/docs/materials-typography--page) is also available through Tachyons CSS classes.
+To specify a margin-right between each elements:
 
-- [Font size](?path=/docs/materials-typography--page#font-size) classes are available from `f1` to `f9`.
+```jsx dark
+<div className="flex">
+    <div className="mr2">To</div>
+    <div className="mr2">the</div>
+    <div>moon!</div>
+</div>
+```
 
-- [Line height](?path=/docs/materials-typography--page#line-height) classes are available from `lh1` to `lh6`.
+To specify the background and text color of an element:
 
-- [Font weight](?path=/docs/materials-typography--page#font-weight) classes are available from `fw1` to `fw9`.
+```jsx dark
+<div className="bg-sunray-400 white">The Sun also emits X-rays</div>
+```
 
-<Preview>
-    <div className="flex flex-row items-end">
-        <div className="f9 fw1 pa2 mr2 bg-sunray-400 white">1</div>
-        <div className="f4 fw4 pa2 mr2 bg-sunray-400 white">2</div>
-        <div className="f1 fw9 pa2 bg-sunray-400 white">3</div>
-    </div>
-</Preview>
+By combining Tachyons with a library like [classnames](https://github.com/JedWatson/classnames) you can easily had dynamic styles to an element based on one or more conditions:
 
-### Colors
+```jsx dark
+import cx from "classnames";
 
-Tachyons original colors have been overrided with Orbit foundation [UI](?path=/docs/materials-colours-ui--page) and [ShareGate](?path=/docs/materials-colours-sharegate--page) colors.
+function Button({ text, disabled }) {
+    return (
+        <div className={cx({ "bg-cloud-100": disabled, "bg-primary-500": !disabled })}>
+            {text}
+        </div>
+    );
+}
 
-The following classes are available:
-
-- [color-name]-[50-900] (ex. `sunray-50`, `sunray-900`)
-
-- bg-[color-name]-[50-900] (ex. `bg-sunray-50`, `bg-sunray-900`)
-
-- b--[color-name]-[50-900] (ex. `b--sunary-50`, `b--sunray-900`)
-
-- fill-[color-name]-[50-900] (ex. `fill-sunray-50`, `fill-sunray-900`)
-
-<Preview>
-    <div className="flex flex-row items-end">
-        <div className="bg-sunray-400 white b--sunray-400 ba pa2 mr2">1</div>
-        <div className="bg-white sunray-400 b--sunray-400 ba pa2 mr2">2</div>
-    </div>
-</Preview>
-
-### Brands
-
-ShareGate [brands colors](?path=/docs/materials-colours-brands--page) have been added to Tachyons.
-
-The brands colors classes support the same naming scheme as [colors](#colors) classes but instead of a "color-name" you must specify a "brand-name". An additional `primary` color is also available:
-
-- [brand-name]-[50-900] (ex. `apricot-50`, `primary-900`)
-
-- primary-[50-900] (ex. `apricot-50`, `primary-900`)
-
-<Preview>
-    <div className="flex flex-row items-end">
-        <div className="bg-apricot-400 white b--apricot-400 ba pa2 mr2">1</div>
-        <div className="bg-overcast-400 white b--overcast-400 ba pa2 mr2">2</div>
-        <div className="bg-desktop-400 white b--desktop-400 ba pa2 mr2">3</div>
-        <div className="bg-white primary-400 b--primary-400 ba pa2">4</div>
-    </div>
-</Preview>
+```
 
 ## Override default variables
 

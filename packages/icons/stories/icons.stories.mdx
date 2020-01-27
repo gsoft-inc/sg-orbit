@@ -72,15 +72,13 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Icons includes their padding and are generally available in two sizes, _24px_ and _32px_.
-
-If an icon is only available in _32px_, he is considered universal.
+Icons includes their padding and are generally available in two sizes, _24px_ and _32px_. If an icon is only available in _32px_, he is considered universal.
 
 ### Admissibility
 
-In order to be included in Orbit an icon must satisfy the following guidelines:
+To be included in Orbit an icon must satisfy the following guidelines:
 
-- It should not be specific to a ShareGate brand or an app, e.g. Azure specific icons.
+- It should not be specific to a ShareGate brand or an any app, e.g. Azure specific icons.
 
 - It must be used as part of an interface, illustrations are not accepted.
 
@@ -94,15 +92,13 @@ In order to be included in Orbit an icon must satisfy the following guidelines:
 
 ### Dimensions
 
-Icons doesn't have a default dimensions to favour reusability.
-
-This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
+Icons doesn't have default dimensions to favour reusability. This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
 
 ```jsx dark
 <AddIcon24 className="w6 h6" />
 ```
 
-If you're icon is intended to be used as part of an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
+If you're icon is intended to be used with an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
 
 ## Gallery
 

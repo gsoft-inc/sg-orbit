@@ -61,7 +61,7 @@ details + details {
 }
 
 .sbdocs.sbdocs.sbdocs-h3 {
-    margin: 2rem 0 1rem;
+    margin: 1.5rem 0 1rem;
 }
 
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
@@ -123,7 +123,7 @@ details + details {
 }
 
 .sbdocs.sbdocs-li {
-    font-size: 1rem;
+    font-size: 1.125rem !important;
 }
 
 .sbdocs .tabbutton[role="tab"] {
@@ -151,6 +151,11 @@ details + details {
 .docblock-propstable-head th {
     font-weight: 600 !important;
     color: var(--marine-500) !important;
+}
+
+.docblock-source {
+    margin-top: 20px !important;
+    margin-bottom: 35px !important;
 }
 
 details .docblock-source {
