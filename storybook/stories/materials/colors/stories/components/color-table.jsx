@@ -32,7 +32,7 @@ export function ColorTable({ colors }) {
                     <th align="left">Weight</th>
                     <th align="left">Variable</th>
                     <th align="left">Hexa</th>
-                    <th align="left"></th>
+                    <th align="left">Example</th>
                 </tr>
             </thead>
             <tbody>

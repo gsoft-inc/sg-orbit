@@ -1,5 +1,6 @@
 import { MaterialsLayout } from "../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
+import { TachyonsFile } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../installation.mdx";
 
@@ -20,10 +21,10 @@ Shadows denote a certain elevation of an element.
 
 ## Values
 
-| Scale   | Class      |
-|-:-------|-:----------|
-| 100     | shadow-100 |
-| 200     | shadow-200 |
+| Scale    | Variable         | Class      |
+| :------- | :--------------- | :----------|
+| 100      | --shadow-100     | shadow-100 |
+| 200      | --shadow-200     | shadow-200 |
 
 ### Showcase
 
@@ -41,3 +42,7 @@ Shadows denote a certain elevation of an element.
         <span className="dib tc mt3">200</span>
     </div>
 </div>
+
+## Tachyons
+
+<TachyonsFile relativeFilePath="/shadows.css" />

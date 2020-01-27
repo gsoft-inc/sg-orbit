@@ -31,6 +31,7 @@
         "build-storybook:desktop": "tachyons src/tachyons.desktop.css --preserve-variables --repeat > storybook/desktop.css",
         "build-docs": "run-p build-docs:*",
         "build-docs:colors": "tachyons docs/src/colors.css --preserve-variables > docs/dist/colors.css",
+        "build-docs:shadows": "tachyons docs/src/shadows.css --preserve-variables > docs/dist/shadows.css",
         "watch": "watch \"yarn build-watch\" ./src/",
         "clean": "yarn clear-dist",
         "prepublishOnly": "yarn copy-license-to-dist",
