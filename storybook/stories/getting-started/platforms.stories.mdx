@@ -1,9 +1,9 @@
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { createIntroductionSection, paramsBuilder } from "@utils";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
-    title={`${createIntroductionSection("Supported Platforms")}`}
+    title={`${createGettingStartedSection("Supported Platforms")}`}
     parameters={paramsBuilder()
         .sortPriority(-1)
         .docsLayout(<IntroductionLayout sourcePath="/" />)

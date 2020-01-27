@@ -1,7 +1,7 @@
-import { CHROMATIC_ROOT, COMPONENTS_ROOT, INTRODUCTION_ROOT, MATERIALS_ROOT } from "@shared/roots";
+import { CHROMATIC_ROOT, COMPONENTS_ROOT, GETTING_STARTED_ROOT, MATERIALS_ROOT } from "@shared/roots";
 
-export function createIntroductionSection(section) {
-    return `${INTRODUCTION_ROOT}|${section}`;
+export function createGettingStartedSection(section) {
+    return `${GETTING_STARTED_ROOT}|${section}`;
 }
 
 export function createComponentSection(section) {

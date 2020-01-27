@@ -34,7 +34,7 @@ if (!isNil(scopes)) {
 export const includeComponents = isNil(parsedScopes) || parsedScopes.includes(COMPONENTS_SCOPE);
 export const includeSemanticTheme = isNil(parsedScopes) || parsedScopes.includes(SUI_THEME_SCOPE);
 export const includeMaterials = (isDebug || isChromatic || isDocs) && (isNil(parsedScopes) || parsedScopes.includes(MATERIALS_SCOPE));
-export const includeIntroduction = isDebug || isDocs;
+export const includeGettingStarted = isDebug || isDocs;
 
 ///////////////////
 

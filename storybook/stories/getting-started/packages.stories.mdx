@@ -1,9 +1,9 @@
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { createIntroductionSection, paramsBuilder } from "@utils";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
-    title={`${createIntroductionSection("Packages")}`}
+    title={`${createGettingStartedSection("Packages")}`}
     parameters={paramsBuilder()
         .sortPriority(-6)
         .docsLayout(<IntroductionLayout sourcePath="/" />)
@@ -12,7 +12,7 @@ import { createIntroductionSection, paramsBuilder } from "@utils";
 
 # Packages
 
-Multiple packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition. For more information view the [installation page](?path=/docs/introduction-installation--page).
+Multiple packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition. For more information view the [installation page](?path=/docs/getting-started-installation--page).
 
 ## Core
 

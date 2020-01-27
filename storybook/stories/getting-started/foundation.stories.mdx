@@ -1,11 +1,11 @@
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { components } from "@storybook/components/html";
-import { createIntroductionSection, paramsBuilder } from "@utils";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
 import { getGithubUrl } from "@blocks";
 
 <Meta
-    title={`${createIntroductionSection("Foundation")}`}
+    title={`${createGettingStartedSection("Foundation")}`}
     parameters={paramsBuilder()
         .sortPriority(-4)
         .docsLayout(<IntroductionLayout sourcePath="/packages/foundation/src" />)
@@ -17,7 +17,7 @@ export const A = components.a;
 
 # Foundation
 
-Once [installed](?path=/docs/introduction-installation--page), Orbit CSS foundation can be customized to your needs. Please be aware that customization would no longuer benefinits from updates and could break.
+Once [installed](?path=/docs/getting-started-installation--page), Orbit CSS foundation can be customized to your needs. Please be aware that customization would no longuer benefinits from updates and could break.
 
 ## Override default variables
 

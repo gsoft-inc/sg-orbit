@@ -1,9 +1,9 @@
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { createIntroductionSection, paramsBuilder } from "@utils";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
-    title={`${createIntroductionSection("Installation")}`}
+    title={`${createGettingStartedSection("Installation")}`}
     parameters={paramsBuilder()
         .sortPriority(-5)
         .docsLayout(<IntroductionLayout sourcePath="/" />)
@@ -12,7 +12,7 @@ import { createIntroductionSection, paramsBuilder } from "@utils";
 
 # Installation
 
-Multiple [packages](?path=/docs/introduction-packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
+Multiple [packages](?path=/docs/getting-started-packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
 
 ## React bundle
 
@@ -41,11 +41,11 @@ And the styles:
 
 ## Custom installation
 
-If your app doesn't use React or you prefer to hand-pick a few [packages](?path=/docs/introduction-packages--page), this is also possible.
+If your app doesn't use React or you prefer to hand-pick a few [packages](?path=/docs/getting-started-packages--page), this is also possible.
 
 Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
 
-Before installing any [React components packages](?path=/docs/introduction-packages--page#react-components), the [core packages](?path=/docs/introduction-packages--page#core) must be installed.
+Before installing any [React components packages](?path=/docs/getting-started-packages--page#react-components), the [core packages](?path=/docs/getting-started-packages--page#core) must be installed.
 
 You can pick and choose the *core packages* to install but it is recommended to install all of them.
 
@@ -86,7 +86,7 @@ npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-components semantic-ui-r
 npm install @orbit-ui/semantic-ui-theme @orbit-ui/react-* semantic-ui-react styled-jsx
 ```
 
-When it's done, you can import React components and the Semantic UI theme:
+When it's done, import the React components that you need and the Semantic UI theme:
 
 ```javascript dark
 import { Dropdown, ... } from "semantic-ui-react";

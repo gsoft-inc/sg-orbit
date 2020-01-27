@@ -1,10 +1,10 @@
 import { CheckIcon24, GearIcon } from "@orbit-ui/icons";
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { createIntroductionSection, paramsBuilder } from "@utils";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
-    title={`${createIntroductionSection("Tachyons")}`}
+    title={`${createGettingStartedSection("Tachyons")}`}
     parameters={paramsBuilder()
         .sortPriority(-3)
         .docsLayout(<IntroductionLayout sourcePath="/packages/tachyons/src" />)
@@ -28,7 +28,7 @@ These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
 ## Customization
 
-Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/introduction-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, please refer to the list of customization below and the _Materials_ pages.
+Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/getting-started-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, please refer to the list of customization below and the _Materials_ pages.
 
 ### Spacing scale
 
@@ -80,7 +80,7 @@ Additional _primary_ classes are also available:
 
 ## Installation
 
-Please refer to the [installation page](?path=/docs/introduction-installation--page) for instructions.
+Please refer to the [installation page](?path=/docs/getting-started-installation--page) for instructions.
 
 ## Quick start
 
@@ -154,7 +154,7 @@ function Button({ text, disabled, tall }) {
 
 ## Override default variables
 
-You can override the default variables used by Tachyons, by overriding the [foundation](?path=/docs/introduction-foundation--page#override-default-variables) variables.
+You can override the default variables used by Tachyons, by overriding the [foundation](?path=/docs/getting-started-foundation--page#override-default-variables) variables.
 
 ## Legacy version
 
