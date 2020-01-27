@@ -11,7 +11,7 @@ export function TachyonsFile({ relativeFilePath }) {
     const [content, setContent] = useState(null);
 
     if (isNil(content)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!../../../packages/tachyons/src/${relativeFilePath}`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!../../../packages/tachyons/src${relativeFilePath}`)
             .then(module => {
                 setContent(module.default);
             });
