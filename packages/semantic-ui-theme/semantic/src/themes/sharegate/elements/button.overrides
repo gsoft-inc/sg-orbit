@@ -9,6 +9,7 @@
 .ui.buttons .button {
     min-height: @scaleHotel;
     display: flex;
+    border-radius: calc(@scaleHotel / 2);
     align-items: center;
     justify-content: center;
 }
@@ -21,6 +22,7 @@
 .ui.tiny.buttons .button,
 .ui.tiny.icon.buttons .button {
     min-height: @scaleFoxtrot;
+    border-radius: calc(@scaleFoxtrot / 2);
     padding: 0.25em 1.5rem;
 }
 
@@ -30,6 +32,7 @@
 .ui.small.buttons .button,
 .ui.small.icon.buttons .button {
     min-height: @scaleGolf;
+    border-radius: calc(@scaleGolf / 2);
     padding: 0.375rem 1.5rem;
 }
 
@@ -39,6 +42,7 @@
 .ui.large.buttons .button,
 .ui.large.icon.buttons .button {
     min-height: @scaleIndia;
+    border-radius: calc(@scaleIndia / 2);
     padding: 0.5rem 1.5rem;
 }
 
@@ -95,7 +99,8 @@
 /* LAYOUT | Naked | STATE | Disabled */
 .ui.button.disabled.naked,
 .ui.button.naked:disabled,
-.ui.buttons.disabled.naked .button {
+.ui.buttons.naked .button.disabled,
+.ui.buttons.naked .button:disabled {
     background-color: @transparent;
     color: initial;
     box-shadow: 0px 0px 0px 1px transparent inset;
@@ -104,7 +109,8 @@
 /* LAYOUT | Naked/Basic | STATE | Disabled */
 .ui.button.disabled.basic.naked,
 .ui.button.naked.basic:disabled,
-.ui.buttons.disabled.naked.basic .button {
+.ui.buttons.naked.basic .button.disabled,
+.ui.buttons.naked.basic .button:disabled {
     background-color: @transparent!important;
     color: initial !important;
     box-shadow: 0px 0px 0px 1px transparent inset!important;
@@ -135,10 +141,7 @@
 /* STATE | Active | SKIN | Basic */
 .ui.button.basic:hover,
 .ui.button.basic.active,
-.ui.button.basic:focus,
-.ui.buttons.basic .button:hover,
-.ui.buttons.basic.active .button:focus,
-.ui.buttons.basic .button:focus, {
+.ui.button.basic:focus {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicBorderSize @marine900 inset!important;
     color: @marine900!important;
@@ -222,9 +225,9 @@
 
 /* SKIN | Ghost | STATE | Disabled */
 .ui.ghost.button.disabled,
-.ui.buttons.ghost.disabled .button,
+.ui.buttons.ghost .button.disabled,
 .ui.ghost.button:disabled,
-.ui.buttons.ghost:disabled .button {
+.ui.buttons.ghost .button:disabled {
     background-color: @transparent;
 }
 
@@ -265,24 +268,17 @@
 /* SKIN | STATES */
 /* SKIN | STATE | Disabled */
 .ui.button.disabled,
-.ui.buttons.disabled .button,
 .ui.button:disabled,
-.ui.buttons:disabled .button,
 .ui.disabled.button:hover,
-.ui.disabled.buttons:hover .button,
 .ui.disabled.button:focus,
-.ui.disabled.buttons:focus .button,
-.ui.disabled.button.active,
-.ui.disabled.buttons.active .button {
+.ui.disabled.button.active {
     background-color: @cloud50;
     color: @cloud400;
 }
 
 /* SKIN | STATE | Disabled | LAYOUT | Basic */
 .ui.button.basic.disabled,
-.ui.button.basic:disabled,
-.ui.basic.buttons .button.disabled,
-.ui.basic.buttons .button.disabled {
+.ui.button.basic:disabled {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
     color: @cloud400!important;
@@ -292,8 +288,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Primary */
 .ui.button.disabled.primary,
 .ui.button.primary:disabled,
-.ui.buttons.primary.disabled .button,
-.ui.buttons.primary:disabled .button {
+.ui.buttons.primary .button.disabled,
+.ui.buttons.primary .button:disabled {
     background-color: @primary200!important;
     color: @white!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset;
@@ -302,8 +298,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Primary | Ghost */
 .ui.button.disabled.primary.ghost,
 .ui.button.primary.ghost:disabled,
-.ui.buttons.primary.ghost.disabled .button,
-.ui.buttons.primary.ghost:disabled .button {
+.ui.buttons.primary.ghost .button.disabled,
+.ui.buttons.primary.ghost .button:disabled {
     background-color: @transparent!important;
     color: @primary200!important;
 }
@@ -311,8 +307,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Primary | Basic */
 .ui.button.disabled.primary.basic,
 .ui.button.primary.basic:disabled,
-.ui.buttons.primary.basic.disabled .button,
-.ui.buttons.primary.basic:disabled .button {
+.ui.buttons.primary.basic .button.disabled,
+.ui.buttons.primary.basic .button:disabled {
     background-color: @transparent!important;
     color: @primary200!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset!important;
@@ -321,8 +317,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Secondary */
 .ui.button.disabled.secondary,
 .ui.button.secondary:disabled,
-.ui.buttons.secondary.disabled .button,
-.ui.buttons.secondary:disabled .button {
+.ui.buttons.secondary .button.disabled,
+.ui.buttons.secondary .button:disabled {
     background-color: @cloud50!important;
     color: @cloud400!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
@@ -331,8 +327,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Secondary/Basic */
 .ui.button.disabled.secondary.basic,
 .ui.button.secondary.basic:disabled,
-.ui.buttons.secondary.basic.disabled .button,
-.ui.buttons.secondary.basic:disabled .button {
+.ui.buttons.secondary.basic .button.disabled,
+.ui.buttons.secondary.basic .button:disabled {
     background-color: @transparent!important;
     color: @marine100 !important;
 }
@@ -340,8 +336,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Positive */
 .ui.button.disabled.positive,
 .ui.button.positive:disabled,
-.ui.buttons.positive.disabled .button,
-.ui.buttons.positive:disabled .button {
+.ui.buttons.positive .button.disabled,
+.ui.buttons.positive .button:disabled {
     background-color: @success100!important;
     color: @white!important;
 }
@@ -349,8 +345,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Positive/Ghost */
 .ui.button.disabled.positive.ghost,
 .ui.button.positive.ghost:disabled,
-.ui.buttons.positive.ghost.disabled .button,
-.ui.buttons.positive.ghost:disabled .button {
+.ui.buttons.positive.ghost .button.disabled,
+.ui.buttons.positive.ghost .button:disabled {
     background-color: @transparent!important;
     color: @success100!important;
     box-shadow: none!important;
@@ -359,8 +355,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Positive/Basic */
 .ui.button.disabled.positive.basic,
 .ui.button.positive.basic:disabled,
-.ui.buttons.positive.basic.disabled .button,
-.ui.buttons.positive.basic:disabled .button {
+.ui.buttons.positive.basic .button.disabled,
+.ui.buttons.positive.basic .button:disabled {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicColoredBorderSize @success100 inset!important;
     color: @success100!important;
@@ -369,8 +365,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Negative */
 .ui.button.disabled.negative,
 .ui.button.negative:disabled,
-.ui.buttons.negative.disabled .button,
-.ui.buttons.negative:disabled .button {
+.ui.buttons.negative .button.disabled,
+.ui.buttons.negative .button:disabled {
     background-color: @negativeDisabled!important;
     color: @white!important;
 }
@@ -388,8 +384,8 @@
 /* SKIN | STATE | Disabled | LAYOUT | Negative/Basic */
 .ui.button.disabled.negative.basic,
 .ui.button.negative.basic:disabled,
-.ui.buttons.negative.basic.disabled .button,
-.ui.buttons.negative.basic:disabled .button {
+.ui.buttons.negative.basic .button.disabled,
+.ui.buttons.negative.basic .button:disabled {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeDisabled inset!important;
     color: @negativeDisabled!important;
@@ -507,101 +503,103 @@
 /* CONTENT | Icon | STATE | Disabled | SKIN | Default */
 .ui.button.disabled svg,
 .ui.button:disabled svg,
-.ui.buttons.disabled .button svg,
-.ui.buttons:disabled .button svg {
+.ui.buttons .button.disabled svg,
+.ui.buttons .button:disabled svg {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost */
 .ui.button.ghost.disabled svg,
 .ui.button.ghost:disabled svg,
-.ui.buttons.ghost.disabled .button svg,
-.ui.buttons.ghost:disabled .button svg {
+.ui.buttons.ghost .button.disabled svg,
+.ui.buttons.ghost .button:disabled svg {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic */
 .ui.button.basic.disabled svg,
 .ui.button.basic:disabled svg,
-.ui.buttons.basic:disabled .button svg,
-.ui.buttons.basic.disabled .button svg {
+.ui.buttons.basic .button:disabled svg,
+.ui.buttons.basic .button.disabled svg {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Primary */
 .ui.button.primary.disabled svg,
 .ui.button.primary:disabled svg,
-.ui.buttons.primary.disabled .button svg,
-.ui.buttons.primary:disabled .button svg {
+.ui.buttons.primary .button.disabled svg,
+.ui.buttons.primary .button:disabled svg {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Naked */
 .ui.button.naked.disabled svg,
 .ui.button.naked:disabled svg,
-.ui.buttons.naked.disabled .button svg,
-.ui.buttons.naked:disabled .button svg {
+.ui.buttons.naked .button.disabled svg,
+.ui.buttons.naked .button:disabled svg {
     fill: initial;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic/Primary */
 .ui.button.basic.primary.disabled svg,
 .ui.button.basic.primary:disabled svg,
-.ui.buttons.basic.primary.disabled .button svg,
-.ui.buttons.basic.primary:disabled .button svg {
+.ui.buttons.basic.primary .button.disabled svg,
+.ui.buttons.basic.primary .button:disabled svg {
     fill: @primary200;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost/Primary */
 .ui.button.ghost.primary.disabled svg,
 .ui.button.ghost.primary:disabled svg,
-.ui.buttons.ghost.primary.disabled .button svg,
-.ui.buttons.ghost.primary:disabled .button svg {
+.ui.buttons.ghost.primary .button.disabled svg,
+.ui.buttons.ghost.primary .button:disabled svg {
     fill: @primary200;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive */
 .ui.button.positive.disabled svg,
 .ui.button.positive:disabled svg,
-.ui.buttons.positive.disabled .button svg,
-.ui.buttons.positive:disabled .button svg {
+.ui.buttons.positive .button.disabled svg,
+.ui.buttons.positive .button:disabled svg {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Basic */
 .ui.button.positive.basic.disabled svg,
 .ui.button.positive.basic:disabled svg ,
-.ui.buttons.positive.basic.disabled .button svg,
-.ui.buttons.positive.basic:disabled .button svg {
+.ui.buttons.positive.basic .button.disabled svg,
+.ui.buttons.positive.basic .button:disabled svg {
     fill: @success100;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative */
 .ui.button.negative.disabled svg,
 .ui.button.negative:disabled svg ,
-.ui.buttons.negative.disabled .button svg,
-.ui.buttons.negative:disabled .button svg {
+.ui.buttons.negative .button.disabled svg,
+.ui.buttons.negative .button:disabled svg {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Basic */
 .ui.button.negative.basic.disabled svg,
 .ui.button.negative.basic:disabled svg ,
-.ui.buttons.negative.basic.disabled .button svg,
-.ui.buttons.negative.basic:disabled .button svg {
+.ui.buttons.negative.basic .button.disabled svg,
+.ui.buttons.negative.basic .button:disabled svg {
     fill: @negativeDisabled;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Ghost */
 .ui.button.ghost.negative.disabled svg,
-.ui.button.ghost.negative:disabled svg {
+.ui.button.ghost.negative:disabled svg,
+.ui.buttons.ghost.negative .button.disabled svg,
+.ui.buttons.ghost.negative .button:disabled svg {
     fill: @negativeDisabled;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Ghost */
 .ui.button.ghost.positive.disabled svg,
-.ui.buttons.ghost.positive.disabled .button svg,
 .ui.button.ghost.positive:disabled svg,
+.ui.buttons.ghost.positive .button .disabled svg,
 .ui.buttons.ghost.positive:disabled .button svg {
     fill: @success100;
 }
@@ -703,18 +701,107 @@
     fill: initial;
 }
 
+/* CONTENT | Group */
+.ui.basic.buttons {
+    border: none;
+}
+
+/* No border on button basic group until I say so */
+.ui.basic.buttons .button {
+    border: 1px solid transparent;
+    box-shadow: none;
+    border-bottom: 1px solid @cloud100;
+    border-top: 1px solid @cloud100;
+}
+
+.ui.basic.buttons .button:hover,
+.ui.basic.buttons .button:focus {
+    box-shadow: none;
+    border: 1px solid @marine500;
+    background-color: @transparent!important;
+    color: @marine900!important;
+}
+
+/* Gives the fist button a border in order to emulate a border on the whole group */
+.ui.buttons.basic .button:first-child {
+    border-left: 1px solid @cloud100;
+}
+
+.ui.buttons.basic .button:last-child {
+    border-right: 1px solid @cloud100;
+}
+
+/* change style on hover/focus */
+.ui.buttons.basic .button:hover:first-child,
+.ui.buttons.basic .button:focus:first-child {
+    border-left: 1px solid @marine500;
+}
+
+.ui.buttons.basic .button:hover:last-child,
+.ui.buttons.basic .button:focus:last-child {
+    border-right: 1px solid @marine500;
+}
+
 /* CONTENT | Group | Icon | Default */
 .ui.buttons.icon .button {
     padding: 0.25rem 0.75rem;
 }
 
-.ui.basic.buttons .button {
-    border-radius: 2rem;
-    border-left: none;
+/* Setting border radius for group of buttons */
+/* LAYOUT | Sizes | Medium */
+.ui.buttons .button:first-child {
+    border-top-left-radius: calc(@scaleHotel / 2);
+    border-bottom-left-radius: calc(@scaleHotel / 2);
 }
 
-.ui.basic.buttons.vertical .button {
-    border-top: none;
+.ui.buttons .button:last-child {
+    border-top-right-radius: calc(@scaleHotel / 2);
+    border-bottom-right-radius: calc(@scaleHotel / 2);
+}
+
+/* LAYOUT | Sizes | Tiny */
+.ui.buttons.tiny .button:first-child {
+    border-top-left-radius: calc(@scaleFoxtrot / 2);
+    border-bottom-left-radius: calc(@scaleFoxtrot / 2);
+}
+
+.ui.buttons.tiny .button:last-child {
+    border-top-right-radius: calc(@scaleFoxtrot / 2);
+    border-bottom-right-radius: calc(@scaleFoxtrot / 2);
+}
+
+/* LAYOUT | Sizes | Small */
+.ui.buttons.small .button:first-child {
+    border-top-left-radius: calc(@scaleGolf / 2);
+    border-bottom-left-radius: calc(@scaleGolf / 2);
+}
+
+.ui.buttons.small .button:last-child {
+    border-top-right-radius: calc(@scaleGolf / 2);
+    border-bottom-right-radius: calc(@scaleGolf / 2);
+}
+
+/* LAYOUT | Sizes | Large */
+.ui.buttons.large .button:first-child {
+    border-top-left-radius: calc(@scaleIndia / 2);
+    border-bottom-left-radius: calc(@scaleIndia / 2);
+}
+
+.ui.buttons.large .button:last-child {
+    border-top-right-radius: calc(@scaleIndia / 2);
+    border-bottom-right-radius: calc(@scaleIndia / 2);
+}
+
+
+/* LAYOUT | Sizes | Large */
+.ui.buttons.large .button:first-child {
+    border-top-left-radius: calc(@scaleIndia / 2);
+    border-bottom-left-radius: calc(@scaleIndia / 2);
+}
+
+.ui.buttons.large .button:last-child {
+    border-top-right-radius: calc(@scaleIndia / 2);
+    border-bottom-right-radius: calc(@scaleIndia / 2);
 }
 
 /* CONTENT / STATE / Loading */

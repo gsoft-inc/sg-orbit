@@ -130,6 +130,11 @@ stories("/theme")
                          <Button><CalendarIcon24 /></Button>
                          <Button><ImageIcon /></Button>
                      </Button.Group>
+                     <Button.Group icon basic>
+                         <Button disabled><SignoutIcon24 /></Button>
+                         <Button disabled><CalendarIcon24 /></Button>
+                         <Button><ImageIcon /></Button>
+                     </Button.Group>
                  </div>
                  <div className="flex flex-column items-start">
                      <Button.Group compact>
@@ -172,19 +177,25 @@ stories("/theme")
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
+                     <Button.Group secondary widths="10">
+                         <Button>1</Button>
+                         <Button>2</Button>
+                         <Button>3</Button>
+                         <Button>4</Button>
+                     </Button.Group>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Button.Group basic widths="3">
+                     <Button.Group basic widths="3" compact>
                          <Button>One</Button>
                          <Button>Two</Button>
-                         <Button>Cheese Pizza</Button>
+                         <Button>Three</Button>
                      </Button.Group>
                      <Button.Group toggle basic>
                          <Button>One</Button>
                          <Button>Two</Button>
-                         <Button>Cheese Pizza</Button>
+                         <Button>Three</Button>
                      </Button.Group>
-                     <Button.Group basic widths="16">
+                     <Button.Group basic widths="7">
                          <Button>1</Button>
                          <Button>2</Button>
                          <Button>3</Button>
@@ -192,20 +203,6 @@ stories("/theme")
                          <Button>5</Button>
                          <Button>6</Button>
                          <Button>7</Button>
-                         <Button>8</Button>
-                         <Button>9</Button>
-                         <Button>10</Button>
-                         <Button>11</Button>
-                         <Button>12</Button>
-                         <Button>13</Button>
-                         <Button>14</Button>
-                         <Button>15</Button>
-                         <Button>16</Button>
-                     </Button.Group>
-                     <Button.Group basic vertical>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Cheese Pizza</Button>
                      </Button.Group>
                  </div>
              </div>
