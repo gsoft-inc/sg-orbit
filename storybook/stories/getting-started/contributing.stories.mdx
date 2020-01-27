@@ -1,0 +1,17 @@
+import { InlineGithubLink } from "@blocks";
+import { IntroductionLayout } from "./introduction-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={`${createGettingStartedSection("Contributing")}`}
+    parameters={paramsBuilder()
+        .sortPriority(1)
+        .docsLayout(<IntroductionLayout sourcePath="/CONTRIBUTING.md" />)
+        .build()}
+/>
+
+# Contributing
+
+To contribute to Orbit please read our <InlineGithubLink path="/CONTRIBUTING.md">contributing guide</InlineGithubLink>.
+

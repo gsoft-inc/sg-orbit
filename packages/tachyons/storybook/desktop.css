@@ -2404,26 +2404,26 @@ code, .sbdocs.sbdocs.code { font-family: Consolas, monaco, monospace; }
 .sbdocs.sbdocs.hover-desktop-700:hover, .sbdocs.sbdocs.hover-desktop-700:focus { color: var( --desktop-700 ); }
 .sbdocs.sbdocs.hover-desktop-800:hover, .sbdocs.sbdocs.hover-desktop-800:focus { color: var( --desktop-800 ); }
 .sbdocs.sbdocs.hover-desktop-900:hover, .sbdocs.sbdocs.hover-desktop-900:focus { color: var( --desktop-900 ); }
-.sbdocs.sbdocs.hover-bg-desktop-50:hover, .sbdocs.sbdocs.bg-hover-desktop-50:focus { background-color: var( --desktop-50 ); }
-.sbdocs.sbdocs.hover-bg-desktop-100:hover, .sbdocs.sbdocs.bg-hover-desktop-100:focus { background-color: var( --desktop-100 ); }
-.sbdocs.sbdocs.hover-bg-desktop-200:hover, .sbdocs.sbdocs.bg-hover-desktop-200:focus { background-color: var( --desktop-200 ); }
-.sbdocs.sbdocs.hover-bg-desktop-300:hover, .sbdocs.sbdocs.bg-hover-desktop-300:focus { background-color: var( --desktop-300 ); }
-.sbdocs.sbdocs.hover-bg-desktop-400:hover, .sbdocs.sbdocs.bg-hover-desktop-400:focus { background-color: var( --desktop-400 ); }
-.sbdocs.sbdocs.hover-bg-desktop-500:hover, .sbdocs.sbdocs.bg-hover-desktop-500:focus { background-color: var( --desktop-500 ); }
-.sbdocs.sbdocs.hover-bg-desktop-600:hover, .sbdocs.sbdocs.bg-hover-desktop-600:focus { background-color: var( --desktop-600 ); }
-.sbdocs.sbdocs.hover-bg-desktop-700:hover, .sbdocs.sbdocs.bg-hover-desktop-700:focus { background-color: var( --desktop-700 ); }
-.sbdocs.sbdocs.hover-bg-desktop-800:hover, .sbdocs.sbdocs.bg-hover-desktop-800:focus { background-color: var( --desktop-800 ); }
-.sbdocs.sbdocs.hover-bg-desktop-900:hover, .sbdocs.sbdocs.bg-hover-desktop-900:focus { background-color: var( --desktop-900 ); }
-.sbdocs.sbdocs.hover-fill-desktop-50:hover, .sbdocs.sbdocs.fill-hover-desktop-50:focus { fill: var( --desktop-50 ); }
-.sbdocs.sbdocs.hover-fill-desktop-100:hover, .sbdocs.sbdocs.fill-hover-desktop-100:focus { fill: var( --desktop-100 ); }
-.sbdocs.sbdocs.hover-fill-desktop-200:hover, .sbdocs.sbdocs.fill-hover-desktop-200:focus { fill: var( --desktop-200 ); }
-.sbdocs.sbdocs.hover-fill-desktop-300:hover, .sbdocs.sbdocs.fill-hover-desktop-300:focus { fill: var( --desktop-300 ); }
-.sbdocs.sbdocs.hover-fill-desktop-400:hover, .sbdocs.sbdocs.fill-hover-desktop-400:focus { fill: var( --desktop-400 ); }
-.sbdocs.sbdocs.hover-fill-desktop-500:hover, .sbdocs.sbdocs.fill-hover-desktop-500:focus { fill: var( --desktop-500 ); }
-.sbdocs.sbdocs.hover-fill-desktop-600:hover, .sbdocs.sbdocs.fill-hover-desktop-600:focus { fill: var( --desktop-600 ); }
-.sbdocs.sbdocs.hover-fill-desktop-700:hover, .sbdocs.sbdocs.fill-hover-desktop-700:focus { fill: var( --desktop-700 ); }
-.sbdocs.sbdocs.hover-fill-desktop-800:hover, .sbdocs.sbdocs.fill-hover-desktop-800:focus { fill: var( --desktop-800 ); }
-.sbdocs.sbdocs.hover-fill-desktop-900:hover, .sbdocs.sbdocs.fill-hover-desktop-900:focus { fill: var( --desktop-900 ); }
+.sbdocs.sbdocs.bg-hover-desktop-50:hover, .sbdocs.sbdocs.bg-hover-desktop-50:focus { background-color: var( --desktop-50 ); }
+.sbdocs.sbdocs.bg-hover-desktop-100:hover, .sbdocs.sbdocs.bg-hover-desktop-100:focus { background-color: var( --desktop-100 ); }
+.sbdocs.sbdocs.bg-hover-desktop-200:hover, .sbdocs.sbdocs.bg-hover-desktop-200:focus { background-color: var( --desktop-200 ); }
+.sbdocs.sbdocs.bg-hover-desktop-300:hover, .sbdocs.sbdocs.bg-hover-desktop-300:focus { background-color: var( --desktop-300 ); }
+.sbdocs.sbdocs.bg-hover-desktop-400:hover, .sbdocs.sbdocs.bg-hover-desktop-400:focus { background-color: var( --desktop-400 ); }
+.sbdocs.sbdocs.bg-hover-desktop-500:hover, .sbdocs.sbdocs.bg-hover-desktop-500:focus { background-color: var( --desktop-500 ); }
+.sbdocs.sbdocs.bg-hover-desktop-600:hover, .sbdocs.sbdocs.bg-hover-desktop-600:focus { background-color: var( --desktop-600 ); }
+.sbdocs.sbdocs.bg-hover-desktop-700:hover, .sbdocs.sbdocs.bg-hover-desktop-700:focus { background-color: var( --desktop-700 ); }
+.sbdocs.sbdocs.bg-hover-desktop-800:hover, .sbdocs.sbdocs.bg-hover-desktop-800:focus { background-color: var( --desktop-800 ); }
+.sbdocs.sbdocs.bg-hover-desktop-900:hover, .sbdocs.sbdocs.bg-hover-desktop-900:focus { background-color: var( --desktop-900 ); }
+.sbdocs.sbdocs.fill-hover-desktop-50:hover, .sbdocs.sbdocs.fill-hover-desktop-50:focus { fill: var( --desktop-50 ); }
+.sbdocs.sbdocs.fill-hover-desktop-100:hover, .sbdocs.sbdocs.fill-hover-desktop-100:focus { fill: var( --desktop-100 ); }
+.sbdocs.sbdocs.fill-hover-desktop-200:hover, .sbdocs.sbdocs.fill-hover-desktop-200:focus { fill: var( --desktop-200 ); }
+.sbdocs.sbdocs.fill-hover-desktop-300:hover, .sbdocs.sbdocs.fill-hover-desktop-300:focus { fill: var( --desktop-300 ); }
+.sbdocs.sbdocs.fill-hover-desktop-400:hover, .sbdocs.sbdocs.fill-hover-desktop-400:focus { fill: var( --desktop-400 ); }
+.sbdocs.sbdocs.fill-hover-desktop-500:hover, .sbdocs.sbdocs.fill-hover-desktop-500:focus { fill: var( --desktop-500 ); }
+.sbdocs.sbdocs.fill-hover-desktop-600:hover, .sbdocs.sbdocs.fill-hover-desktop-600:focus { fill: var( --desktop-600 ); }
+.sbdocs.sbdocs.fill-hover-desktop-700:hover, .sbdocs.sbdocs.fill-hover-desktop-700:focus { fill: var( --desktop-700 ); }
+.sbdocs.sbdocs.fill-hover-desktop-800:hover, .sbdocs.sbdocs.fill-hover-desktop-800:focus { fill: var( --desktop-800 ); }
+.sbdocs.sbdocs.fill-hover-desktop-900:hover, .sbdocs.sbdocs.fill-hover-desktop-900:focus { fill: var( --desktop-900 ); }
 @media screen and (min-width: 30em) {
  .sbdocs.sbdocs.bs-content-box-ns { box-sizing: content-box; }
  .sbdocs.sbdocs.aspect-ratio-ns { height: 0; position: relative; }

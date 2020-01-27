@@ -1,8 +1,7 @@
+import { InlineGithubLink } from "@blocks";
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { components } from "@storybook/components/html";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
-import { getGithubUrl } from "@blocks";
 
 <Meta
     title={`${createGettingStartedSection("Foundation")}`}
@@ -12,9 +11,6 @@ import { getGithubUrl } from "@blocks";
         .build()}
 />
 
-<!-- Otherwise the MDX parser will complain that "components" is undefined -->
-export const A = components.a;
-
 # Foundation
 
 Once [installed](?path=/docs/getting-started-installation--page), Orbit CSS foundation can be customized to your needs. Please be aware that customization would no longuer benefinits from updates and could break.
@@ -23,7 +19,7 @@ Once [installed](?path=/docs/getting-started-installation--page), Orbit CSS foun
 
 The foundation default variables can be overrided by simply redeclaring the variables in a `:root` CSS class:
 
-To override the <A href={getGithubUrl("/packages/foundation/src/core")} target="_blank" rel="noopener noreferrer">core variables</A>:
+To override the <InlineGithubLink path="/packages/foundation/src/core">core variables</InlineGithubLink>:
 
 ```css dark
 :root {
@@ -31,7 +27,7 @@ To override the <A href={getGithubUrl("/packages/foundation/src/core")} target="
 }
 ```
 
-To override brand specific variables for <A href={getGithubUrl("/packages/foundation/src/apricot.css")} target="_blank" rel="noopener noreferrer">Apricot</A>, <A href={getGithubUrl("/packages/foundation/src/overcast.css")} target="_blank" rel="noopener noreferrer">Overcast</A> or <A href={getGithubUrl("/packages/foundation/src/desktop.css")} target="_blank" rel="noopener noreferrer">Desktop</A>:
+To override brand specific variables for <InlineGithubLink path="/packages/foundation/src/apricot.css">Apricot</InlineGithubLink>, <InlineGithubLink path="/packages/foundation/src/overcast.css">Overcast</InlineGithubLink> or <InlineGithubLink path="/packages/foundation/src/desktop.css">Desktop</InlineGithubLink>:
 
 ```css dark
 :root {

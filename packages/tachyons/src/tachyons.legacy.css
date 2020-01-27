@@ -4,6 +4,6 @@
 @import "../../foundation/dist/desktop.css";
 
 @import "./core/index.css";
-@import "./brands/apricot.css";
-@import "./brands/desktop.css";
-@import "./brands/overcast.css";
+@import "./products/apricot.css";
+@import "./products/desktop.css";
+@import "./products/overcast.css";

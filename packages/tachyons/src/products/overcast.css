@@ -81,52 +81,52 @@
     border-color: var(--overcast-900);
 }
 
-.hover-bg-overcast-50:hover,
+.bg-hover-overcast-50:hover,
 .bg-hover-overcast-50:focus {
     background-color: var(--overcast-50);
 }
 
-.hover-bg-overcast-100:hover,
+.bg-hover-overcast-100:hover,
 .bg-hover-overcast-100:focus {
     background-color: var(--overcast-100);
 }
 
-.hover-bg-overcast-200:hover,
+.bg-hover-overcast-200:hover,
 .bg-hover-overcast-200:focus {
     background-color: var(--overcast-200);
 }
 
-.hover-bg-overcast-300:hover,
+.bg-hover-overcast-300:hover,
 .bg-hover-overcast-300:focus {
     background-color: var(--overcast-300);
 }
 
-.hover-bg-overcast-400:hover,
+.bg-hover-overcast-400:hover,
 .bg-hover-overcast-400:focus {
     background-color: var(--overcast-400);
 }
 
-.hover-bg-overcast-500:hover,
+.bg-hover-overcast-500:hover,
 .bg-hover-overcast-500:focus {
     background-color: var(--overcast-500);
 }
 
-.hover-bg-overcast-600:hover,
+.bg-hover-overcast-600:hover,
 .bg-hover-overcast-600:focus {
     background-color: var(--overcast-600);
 }
 
-.hover-bg-overcast-700:hover,
+.bg-hover-overcast-700:hover,
 .bg-hover-overcast-700:focus {
     background-color: var(--overcast-700);
 }
 
-.hover-bg-overcast-800:hover,
+.bg-hover-overcast-800:hover,
 .bg-hover-overcast-800:focus {
     background-color: var(--overcast-800);
 }
 
-.hover-bg-overcast-900:hover,
+.bg-hover-overcast-900:hover,
 .bg-hover-overcast-900:focus {
     background-color: var(--overcast-900);
 }
@@ -305,52 +305,52 @@
     color: var(--overcast-900);
 }
 
-.hover-fill-overcast-50:hover,
+.fill-hover-overcast-50:hover,
 .fill-hover-overcast-50:focus {
     fill: var(--overcast-50);
 }
 
-.hover-fill-overcast-100:hover,
+.fill-hover-overcast-100:hover,
 .fill-hover-overcast-100:focus {
     fill: var(--overcast-100);
 }
 
-.hover-fill-overcast-200:hover,
+.fill-hover-overcast-200:hover,
 .fill-hover-overcast-200:focus {
     fill: var(--overcast-200);
 }
 
-.hover-fill-overcast-300:hover,
+.fill-hover-overcast-300:hover,
 .fill-hover-overcast-300:focus {
     fill: var(--overcast-300);
 }
 
-.hover-fill-overcast-400:hover,
+.fill-hover-overcast-400:hover,
 .fill-hover-overcast-400:focus {
     fill: var(--overcast-400);
 }
 
-.hover-fill-overcast-500:hover,
+.fill-hover-overcast-500:hover,
 .fill-hover-overcast-500:focus {
     fill: var(--overcast-500);
 }
 
-.hover-fill-overcast-600:hover,
+.fill-hover-overcast-600:hover,
 .fill-hover-overcast-600:focus {
     fill: var(--overcast-600);
 }
 
-.hover-fill-overcast-700:hover,
+.fill-hover-overcast-700:hover,
 .fill-hover-overcast-700:focus {
     fill: var(--overcast-700);
 }
 
-.hover-fill-overcast-800:hover,
+.fill-hover-overcast-800:hover,
 .fill-hover-overcast-800:focus {
     fill: var(--overcast-800);
 }
 
-.hover-fill-overcast-900:hover,
+.fill-hover-overcast-900:hover,
 .fill-hover-overcast-900:focus {
     fill: var(--overcast-900);
 }

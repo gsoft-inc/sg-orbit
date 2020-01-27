@@ -2404,26 +2404,26 @@ code, .sbdocs.sbdocs.code { font-family: Consolas, monaco, monospace; }
 .sbdocs.sbdocs.hover-apricot-700:hover, .sbdocs.sbdocs.hover-apricot-700:focus { color: var( --apricot-700 ); }
 .sbdocs.sbdocs.hover-apricot-800:hover, .sbdocs.sbdocs.hover-apricot-800:focus { color: var( --apricot-800 ); }
 .sbdocs.sbdocs.hover-apricot-900:hover, .sbdocs.sbdocs.hover-apricot-900:focus { color: var( --apricot-900 ); }
-.sbdocs.sbdocs.hover-bg-apricot-50:hover, .sbdocs.sbdocs.bg-hover-apricot-50:focus { background-color: var( --apricot-50 ); }
-.sbdocs.sbdocs.hover-bg-apricot-100:hover, .sbdocs.sbdocs.bg-hover-apricot-100:focus { background-color: var( --apricot-100 ); }
-.sbdocs.sbdocs.hover-bg-apricot-200:hover, .sbdocs.sbdocs.bg-hover-apricot-200:focus { background-color: var( --apricot-200 ); }
-.sbdocs.sbdocs.hover-bg-apricot-300:hover, .sbdocs.sbdocs.bg-hover-apricot-300:focus { background-color: var( --apricot-300 ); }
-.sbdocs.sbdocs.hover-bg-apricot-400:hover, .sbdocs.sbdocs.bg-hover-apricot-400:focus { background-color: var( --apricot-400 ); }
-.sbdocs.sbdocs.hover-bg-apricot-500:hover, .sbdocs.sbdocs.bg-hover-apricot-500:focus { background-color: var( --apricot-500 ); }
-.sbdocs.sbdocs.hover-bg-apricot-600:hover, .sbdocs.sbdocs.bg-hover-apricot-600:focus { background-color: var( --apricot-600 ); }
-.sbdocs.sbdocs.hover-bg-apricot-700:hover, .sbdocs.sbdocs.bg-hover-apricot-700:focus { background-color: var( --apricot-700 ); }
-.sbdocs.sbdocs.hover-bg-apricot-800:hover, .sbdocs.sbdocs.bg-hover-apricot-800:focus { background-color: var( --apricot-800 ); }
-.sbdocs.sbdocs.hover-bg-apricot-900:hover, .sbdocs.sbdocs.bg-hover-apricot-900:focus { background-color: var( --apricot-900 ); }
-.sbdocs.sbdocs.hover-fill-apricot-50:hover, .sbdocs.sbdocs.fill-hover-apricot-50:focus { fill: var( --apricot-50 ); }
-.sbdocs.sbdocs.hover-fill-apricot-100:hover, .sbdocs.sbdocs.fill-hover-apricot-100:focus { fill: var( --apricot-100 ); }
-.sbdocs.sbdocs.hover-fill-apricot-200:hover, .sbdocs.sbdocs.fill-hover-apricot-200:focus { fill: var( --apricot-200 ); }
-.sbdocs.sbdocs.hover-fill-apricot-300:hover, .sbdocs.sbdocs.fill-hover-apricot-300:focus { fill: var( --apricot-300 ); }
-.sbdocs.sbdocs.hover-fill-apricot-400:hover, .sbdocs.sbdocs.fill-hover-apricot-400:focus { fill: var( --apricot-400 ); }
-.sbdocs.sbdocs.hover-fill-apricot-500:hover, .sbdocs.sbdocs.fill-hover-apricot-500:focus { fill: var( --apricot-500 ); }
-.sbdocs.sbdocs.hover-fill-apricot-600:hover, .sbdocs.sbdocs.fill-hover-apricot-600:focus { fill: var( --apricot-600 ); }
-.sbdocs.sbdocs.hover-fill-apricot-700:hover, .sbdocs.sbdocs.fill-hover-apricot-700:focus { fill: var( --apricot-700 ); }
-.sbdocs.sbdocs.hover-fill-apricot-800:hover, .sbdocs.sbdocs.fill-hover-apricot-800:focus { fill: var( --apricot-800 ); }
-.sbdocs.sbdocs.hover-fill-apricot-900:hover, .sbdocs.sbdocs.fill-hover-apricot-900:focus { fill: var( --apricot-900 ); }
+.sbdocs.sbdocs.hover-bg-apricot-50:hover, .sbdocs.sbdocs.hover-bg-apricot-50:focus { background-color: var( --apricot-50 ); }
+.sbdocs.sbdocs.hover-bg-apricot-100:hover, .sbdocs.sbdocs.hover-bg-apricot-100:focus { background-color: var( --apricot-100 ); }
+.sbdocs.sbdocs.hover-bg-apricot-200:hover, .sbdocs.sbdocs.hover-bg-apricot-200:focus { background-color: var( --apricot-200 ); }
+.sbdocs.sbdocs.hover-bg-apricot-300:hover, .sbdocs.sbdocs.hover-bg-apricot-300:focus { background-color: var( --apricot-300 ); }
+.sbdocs.sbdocs.hover-bg-apricot-400:hover, .sbdocs.sbdocs.hover-bg-apricot-400:focus { background-color: var( --apricot-400 ); }
+.sbdocs.sbdocs.hover-bg-apricot-500:hover, .sbdocs.sbdocs.hover-bg-apricot-500:focus { background-color: var( --apricot-500 ); }
+.sbdocs.sbdocs.hover-bg-apricot-600:hover, .sbdocs.sbdocs.hover-bg-apricot-600:focus { background-color: var( --apricot-600 ); }
+.sbdocs.sbdocs.hover-bg-apricot-700:hover, .sbdocs.sbdocs.hover-bg-apricot-700:focus { background-color: var( --apricot-700 ); }
+.sbdocs.sbdocs.hover-bg-apricot-800:hover, .sbdocs.sbdocs.hover-bg-apricot-800:focus { background-color: var( --apricot-800 ); }
+.sbdocs.sbdocs.hover-bg-apricot-900:hover, .sbdocs.sbdocs.hover-bg-apricot-900:focus { background-color: var( --apricot-900 ); }
+.sbdocs.sbdocs.hover-fill-apricot-50:hover, .sbdocs.sbdocs.hover-fill-apricot-50:hover { fill: var( --apricot-50 ); }
+.sbdocs.sbdocs.hover-fill-apricot-100:hover, .sbdocs.sbdocs.hover-fill-apricot-100:focus { fill: var( --apricot-100 ); }
+.sbdocs.sbdocs.hover-fill-apricot-200:hover, .sbdocs.sbdocs.hover-fill-apricot-200:focus { fill: var( --apricot-200 ); }
+.sbdocs.sbdocs.hover-fill-apricot-300:hover, .sbdocs.sbdocs.hover-fill-apricot-300:focus { fill: var( --apricot-300 ); }
+.sbdocs.sbdocs.hover-fill-apricot-400:hover, .sbdocs.sbdocs.hover-fill-apricot-400:focus { fill: var( --apricot-400 ); }
+.sbdocs.sbdocs.hover-fill-apricot-500:hover, .sbdocs.sbdocs.hover-fill-apricot-500:focus { fill: var( --apricot-500 ); }
+.sbdocs.sbdocs.hover-fill-apricot-600:hover, .sbdocs.sbdocs.hover-fill-apricot-600:focus { fill: var( --apricot-600 ); }
+.sbdocs.sbdocs.hover-fill-apricot-700:hover, .sbdocs.sbdocs.hover-fill-apricot-700:focus { fill: var( --apricot-700 ); }
+.sbdocs.sbdocs.hover-fill-apricot-800:hover, .sbdocs.sbdocs.hover-fill-apricot-800:focus { fill: var( --apricot-800 ); }
+.sbdocs.sbdocs.hover-fill-apricot-900:hover, .sbdocs.sbdocs.hover-fill-apricot-900:focus { fill: var( --apricot-900 ); }
 @media screen and (min-width: 30em) {
  .sbdocs.sbdocs.bs-content-box-ns { box-sizing: content-box; }
  .sbdocs.sbdocs.aspect-ratio-ns { height: 0; position: relative; }

@@ -1,0 +1,197 @@
+import { ColorTable } from "./components";
+import { MaterialsLayout } from "../../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../../installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Colors")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
+/>
+
+# Colors
+
+ShareGate's colors are meant to put forward our brand and to express our personality in a constantly growing market. We use them to differentiate our products and brand visuals from each other. Our colors are energetic, powerful, and they leverage our human and approachable personality traits. With our palette, we want to create impactful experiences without being too overwhelming.
+
+## Installation
+
+<Installation />
+
+## Brand
+
+Those are the core colors of ShareGate. Except for Moonstone (which is the color differentiator for ShareGate brand), you will always find Marine and Sunray present in every product or brand interfaces. On a design level, it'll be used as the bigger part of product and web interfaces and brand visuals ratio.
+
+### Marine
+
+This color is used in ShareGate ecosystem for its signification of trust and confidence. It is the foundation of our palette. It represent our reliability, our loyalty to our customers, the fact that we're there for them and that they can count on us
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--marine-50", hexaCode: "#E2E4E8" },
+        { weight: "100", cssVariable: "--marine-100", hexaCode: "#B7BBC5" },
+        { weight: "200", cssVariable: "--marine-200", hexaCode: "#878E9E" },
+        { weight: "300", cssVariable: "--marine-300", hexaCode: "#566077" },
+        { weight: "400", cssVariable: "--marine-400", hexaCode: "#323E5A" },
+        { weight: "500", cssVariable: "--marine-500", hexaCode: "#0E1C3D" },
+        { weight: "600", cssVariable: "--marine-600", hexaCode: "#0C1937" },
+        { weight: "700", cssVariable: "--marine-700", hexaCode: "#0A142F" },
+        { weight: "800", cssVariable: "--marine-800", hexaCode: "#081127" },
+        { weight: "900", cssVariable: "--marine-900", hexaCode: "#04091A" }
+    ]}
+/>
+
+### Sunray
+
+Yellow, the color of sunshine, is used to add a warming effect on ShareGate's visuals. Since the majority of our core colors are cold ones, we want to make sure our personality is well reflected by adding a touch of warmth with Sunray. It will be use as a small part of theme ratios, to bring energy in our visuals and to differentiate key elements from backgrounds or visuals (ex. textures, illustrations, informational design, etc).
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--sunray-50", hexaCode: "#FFF6E7" },
+        { weight: "100", cssVariable: "--sunray-100", hexaCode: "#FEE9C3" },
+        { weight: "200", cssVariable: "--sunray-200", hexaCode: "#FEDB9B" },
+        { weight: "300", cssVariable: "--sunray-300", hexaCode: "#FDCD72" },
+        { weight: "400", cssVariable: "--sunray-400", hexaCode: "#FCC254" },
+        { weight: "500", cssVariable: "--sunray-500", hexaCode: "#FCB736" },
+        { weight: "600", cssVariable: "--sunray-600", hexaCode: "#FCB030" },
+        { weight: "700", cssVariable: "--sunray-700", hexaCode: "#FBA729" },
+        { weight: "800", cssVariable: "--sunray-800", hexaCode: "#FB9F22" },
+        { weight: "900", cssVariable: "--sunray-900", hexaCode: "#FA9016" }
+    ]}
+/>
+
+### Moonstone
+
+Between blue and green, Moonstone symbolizes our growth, our energy and the accessibility between humans at ShareGate (you can have a conversation with anybody at ShareGate. Everyone is open and willing to talk with our customers). It's also a wink to our work environment (plants, wood, etc) and to the environment itself. GSoft is a BCorp company and ShareGate has to represent those values too.
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--moonstone-50", hexaCode: "#EFF6F6" },
+        { weight: "100", cssVariable: "--moonstone-100", hexaCode: "#D6E9E9" },
+        { weight: "200", cssVariable: "--moonstone-200", hexaCode: "#BBDBDA" },
+        { weight: "300", cssVariable: "--moonstone-300", hexaCode: "#9FCCCB" },
+        { weight: "400", cssVariable: "--moonstone-400", hexaCode: "#8BC1C0" },
+        { weight: "500", cssVariable: "--moonstone-500", hexaCode: "#76B6B5" },
+        { weight: "600", cssVariable: "--moonstone-600", hexaCode: "#6EAFAE" },
+        { weight: "700", cssVariable: "--moonstone-700", hexaCode: "#63A6A5" },
+        { weight: "800", cssVariable: "--moonstone-800", hexaCode: "#599E9D" },
+        { weight: "900", cssVariable: "--moonstone-900", hexaCode: "#468E8D" }
+    ]}
+/>
+
+## Products
+
+Those are the colors that differentiate our products. They're the primary color, so they're present everywhere we talk about a specific product. For example, they are used in the ShareGate's products logos, they'll be the main color for interactions in the apps and will be use as the main accent on ShareGate's product pages on the website.
+
+### Desktop
+
+This color is the trademark of ShareGate Desktop tool. People learned to recognizes our brand with this orange and there is so much history behind it. This is why we chose to keep the #F47321 as the primary color of ShareGate Desktop. Combined to Marine and Sunray, it brings energy and enthusiasm in a SharePoint (and Office 365) world! Based on those traits, it reflect our past and our vision at the same time.
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--desktop-50", hexaCode: "#FEEEE4" },
+        { weight: "100", cssVariable: "--desktop-100", hexaCode: "#FCD5BC" },
+        { weight: "200", cssVariable: "--desktop-200", hexaCode: "#FAB990" },
+        { weight: "300", cssVariable: "--desktop-300", hexaCode: "#F79D64" },
+        { weight: "400", cssVariable: "--desktop-400", hexaCode: "#F68842" },
+        { weight: "500", cssVariable: "--desktop-500", hexaCode: "#F47321" },
+        { weight: "600", cssVariable: "--desktop-600", hexaCode: "#F36B1D" },
+        { weight: "700", cssVariable: "--desktop-700", hexaCode: "#F16018" },
+        { weight: "800", cssVariable: "--desktop-800", hexaCode: "#EF5614" },
+        { weight: "900", cssVariable: "--desktop-900", hexaCode: "#EC430B" }
+    ]}
+/>
+
+### Apricot
+
+This one is particular, we chose this turquoise to play with people's mind. We could have chose a soft orange/yellow to reflect the word "Apricot" but we thought it would be more fun and more in connection with our personality to go with a completely different color. Also it suggest stability and endurance, qualities that fit perfectly with the mission of ShareGate Apricot.
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--apricot-50", hexaCode: "#E6F9F7" },
+        { weight: "100", cssVariable: "--apricot-100", hexaCode: "#C1F1EB" },
+        { weight: "200", cssVariable: "--apricot-200", hexaCode: "#98E8DE" },
+        { weight: "300", cssVariable: "--apricot-300", hexaCode: "#6EDFD1" },
+        { weight: "400", cssVariable: "--apricot-400", hexaCode: "#30D1BD" },
+        { weight: "500", cssVariable: "--apricot-500", hexaCode: "#2BCCB7" },
+        { weight: "600", cssVariable: "--apricot-600", hexaCode: "#29C4B1" },
+        { weight: "700", cssVariable: "--apricot-700", hexaCode: "#2BBDAA" },
+        { weight: "800", cssVariable: "--apricot-800", hexaCode: "#28B5A2" },
+        { weight: "900", cssVariable: "--apricot-900", hexaCode: "#28AB9B" }
+    ]}
+/>
+
+### Overcast
+
+Being the color of the sky and clouds, we chose this blue to reflect what is ShareGate Overcast. It is a bright and vibrant blue that brings trust and stability in a complex platform such as Azure. It's also associated with a calming effect on the mind and the body.
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--overcast-50", hexaCode: "#E4F2FF" },
+        { weight: "100", cssVariable: "--overcast-100", hexaCode: "#BCE0FF" },
+        { weight: "200", cssVariable: "--overcast-200", hexaCode: "#90CBFF" },
+        { weight: "300", cssVariable: "--overcast-300", hexaCode: "#63B6FF" },
+        { weight: "400", cssVariable: "--overcast-400", hexaCode: "#41A6FF" },
+        { weight: "500", cssVariable: "--overcast-500", hexaCode: "#2096FF" },
+        { weight: "600", cssVariable: "--overcast-600", hexaCode: "#1C8EFF" },
+        { weight: "700", cssVariable: "--overcast-700", hexaCode: "#1883FF" },
+        { weight: "800", cssVariable: "--overcast-800", hexaCode: "#1379FF" },
+        { weight: "900", cssVariable: "--overcast-900", hexaCode: "#0B68FF" }
+    ]}
+/>
+
+## Feedback and UI
+
+Those colors exist for feedback interactions in our interfaces. Cloud will be use in empty states illustrations and as an inactive state.
+
+### Cloud
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--cloud-50", hexaCode: "#F0F1F3" },
+        { weight: "100", cssVariable: "--cloud-100", hexaCode: "#DADCE2" },
+        { weight: "200", cssVariable: "--cloud-200", hexaCode: "#C1C5CF" },
+        { weight: "300", cssVariable: "--cloud-300", hexaCode: "#A8ADBB" },
+        { weight: "400", cssVariable: "--cloud-400", hexaCode: "#959CAD" },
+        { weight: "500", cssVariable: "--cloud-500", hexaCode: "#828A9E" },
+        { weight: "600", cssVariable: "--cloud-600", hexaCode: "#7A8296" },
+        { weight: "700", cssVariable: "--cloud-700", hexaCode: "#6F778C" },
+        { weight: "800", cssVariable: "--cloud-800", hexaCode: "#656D82" },
+        { weight: "900", cssVariable: "--cloud-900", hexaCode: "#525A70" }
+    ]}
+/>
+
+### Alert
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--alert-50", hexaCode: "#FFE3E8" },
+        { weight: "100", cssVariable: "--alert-100", hexaCode: "#FEB8C6" },
+        { weight: "200", cssVariable: "--alert-200", hexaCode: "#FE89A1" },
+        { weight: "300", cssVariable: "--alert-300", hexaCode: "#FD597B" },
+        { weight: "400", cssVariable: "--alert-400", hexaCode: "#FC365E" },
+        { weight: "500", cssVariable: "--alert-500", hexaCode: "#FC1242" },
+        { weight: "600", cssVariable: "--alert-600", hexaCode: "#F2143F" },
+        { weight: "700", cssVariable: "--alert-700", hexaCode: "#E8153E" },
+        { weight: "800", cssVariable: "--alert-800", hexaCode: "#DD173D" },
+        { weight: "900", cssVariable: "--alert-900", hexaCode: "#D3183C" }
+    ]}
+/>
+
+### Success
+
+<ColorTable
+    colors={[
+        { weight: "50", cssVariable: "--success-50", hexaCode: "#E4F9ED" },
+        { weight: "100", cssVariable: "--success-100", hexaCode: "#BBF0D2" },
+        { weight: "200", cssVariable: "--success-200", hexaCode: "#8EE7B5" },
+        { weight: "300", cssVariable: "--success-300", hexaCode: "#61DD97" },
+        { weight: "400", cssVariable: "--success-400", hexaCode: "#3FD580" },
+        { weight: "500", cssVariable: "--success-500", hexaCode: "#1DCE6A" },
+        { weight: "600", cssVariable: "--success-600", hexaCode: "#1AC962" },
+        { weight: "700", cssVariable: "--success-700", hexaCode: "#15C257" },
+        { weight: "800", cssVariable: "--success-800", hexaCode: "#11BC4D" },
+        { weight: "900", cssVariable: "--success-900", hexaCode: "#0AB03C" }
+    ]}
+/>
