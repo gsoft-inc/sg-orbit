@@ -51,10 +51,10 @@ A label can include a button.
 
 <Preview>
     <Story name="button">
-        <Label>
+        <Label button>
             Group added
             <Button type="button" icon circular size="tiny" ghost>
-                <CloseIcon className="w4 h4" />
+                <CloseIcon />
             </Button>
         </Label>
     </Story>
@@ -67,11 +67,10 @@ A label can include an icon.
 <Preview>
     <Story name="icon">
         <div className="flex">
-            <Label>
-                Notification Sent <MagnifierIcon className="h6 w6 fill-marine-500 ml1" />
+            <Label icon={<MagnifierIcon />} iconPosition="right">
+                Notification Sent
             </Label>
-            <Label>
-                <CommunicationIcon className="h6 w6 fill-marine-500 mr1" />
+            <Label icon={<CommunicationIcon />}>
                 Notification Sent
             </Label>
         </div>

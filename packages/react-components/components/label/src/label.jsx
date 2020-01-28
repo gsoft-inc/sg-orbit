@@ -1,5 +1,5 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
-import { bool, func, object, oneOfType, string } from "prop-types";
+import { bool, func, node, object, oneOfType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
@@ -12,6 +12,18 @@ const propTypes = {
      */
     naked: bool,
     /**
+     * A label can contain a button.
+     */
+    button: bool,
+    /**
+     * A label can contain an icon.
+     */
+    icon: node,
+    /**
+     * A icon can be positionned.
+     */
+    iconPosition: oneOf(["right", "left"]),
+    /**
      * @ignore
      */
     className: string,
@@ -22,10 +34,11 @@ const propTypes = {
 };
 
 const defaultProps = {
-    naked: false
+    naked: false,
+    button: false
 };
 
-export function PureLabel({ naked, className, forwardedRef, children, ...props }) {
+export function PureLabel({ naked, button, className, forwardedRef, icon, iconPosition, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
@@ -39,10 +52,13 @@ export function PureLabel({ naked, className, forwardedRef, children, ...props }
     const renderLabel = () => {
         const classes = mergeClasses(
             naked && "naked",
+            button && "with-button",
+            icon && "with-icon",
+            iconPosition === "right" && "with-icon-right",
             className
         );
 
-        return <SemanticLabel className={classes} {...props}>{children}</SemanticLabel>;
+        return <SemanticLabel className={classes} {...props}>{icon && iconPosition !== "right" ? icon : null}{children}{icon && iconPosition === "right" ? icon : null}</SemanticLabel>;
     };
 
     return isNil(forwardedRef) ? renderLabel() : renderWithRef();

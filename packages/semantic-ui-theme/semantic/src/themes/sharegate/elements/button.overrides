@@ -211,11 +211,28 @@
     padding-left: @scaleDelta;
 }
 
+/* CONTENT | With Label | Layout | Margin */
+.ui.button.with-label .label,
+.ui.buttons.with-label .label {
+    margin-left: @scaleBravo;
+}
+
+/* CONTENT | With Label | Layout | Padding */
+.ui.button.with-label,
+.ui.buttons.with-label .button {
+    padding-right: @scaleDelta;
+}
 
 /* CONTENT | With Tag | Layout | Compact | Padding */
 .ui.button.with-tag.compact,
 .ui.buttons.with-tag.compact .button {
-    padding-left: calc(@scaleDelta / 2);
+    padding-right: calc(@scaleDelta / 2);
+}
+
+/* CONTENT | With Label | Layout | Compact | Padding */
+.ui.button.with-label.compact,
+.ui.buttons.with-label.compact .button {
+    padding-right: calc(@scaleDelta / 2);
 }
 
 /* SKIN | Ghost */

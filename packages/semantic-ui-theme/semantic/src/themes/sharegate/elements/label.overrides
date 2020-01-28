@@ -19,6 +19,45 @@
     margin-left: 8px!important;
 }
 
+/* CONTENT | With Icon | LAYOUT | Sizing */
+.ui.label.with-icon svg {
+    width: @scaleFoxtrot;
+    height: @scaleFoxtrot;
+}
+
+/* CONTENT | With Icon | LAYOUT | Colour */
+.ui.label.with-icon svg {
+    fill: @marine500;
+}
+
+/* CONTENT | With Icon | LAYOUT | Colour | Naked*/
+.ui.label.with-icon.naked svg {
+    fill: initial;
+}
+
+/* CONTENT | With Button | LAYOUT */
+.ui.label.with-button,
+.ui.tag.label.with-button {
+    padding-right: 0.5rem;
+}
+
+/* CONTENT | With Icon | LAYOUT | Position */
+.ui.label.with-icon.with-icon-right {
+    padding-right: 0.5rem;
+}
+
+.ui.label.with-icon:not(.with-icon-right) {
+    padding-left: 0.5rem;
+}
+
+.ui.label.with-icon.with-icon-right svg {
+    margin-left: 0.5rem;
+}
+
+.ui.label.with-icon:not(.with-icon-right) svg {
+    margin-right: 0.5rem;
+}
+
 /* mini */
 .ui.menu .item > .label.mini {
     padding: 2px @horizontalPadding;
@@ -44,15 +83,18 @@
 
 /* large */
 .ui.label.large{
-    padding: 12px @horizontalPadding;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .ui.label.basic.large {
-    padding: 7px @horizontalPadding;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 .ui.label.basic {
-    padding: 7px @horizontalPadding;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 .ui.label.basic.icon {
@@ -61,7 +103,8 @@
 
 .ui.label.small,
 .ui.tag.label.small {
-    padding: 3px @horizontalPadding;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .ui.label.small.basic.icon {

@@ -1,5 +1,6 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
+import { Label } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 import styles from "./styles.module.css";
@@ -74,7 +75,7 @@ stories()
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
-                         <Button>One</Button>
+                         <Button>One <Label size="mini">12</Label></Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
