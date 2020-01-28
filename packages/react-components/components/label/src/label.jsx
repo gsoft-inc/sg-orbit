@@ -1,5 +1,5 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
-import { bool, func, node, object, oneOfType, oneOf, string } from "prop-types";
+import { bool, func, node, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
