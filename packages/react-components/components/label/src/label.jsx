@@ -59,7 +59,7 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
                 )
             });
         }
-    }
+    };
 
     const renderLabelContent = () => {
         if (!isNil(icon)) {
