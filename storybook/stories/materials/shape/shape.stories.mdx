@@ -1,5 +1,6 @@
 import { MaterialsLayout } from "../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
+import { Table } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../installation.mdx";
 
@@ -20,45 +21,23 @@ import Installation from "../installation.mdx";
 
 An element can have a border radius modifying its shape.
 
-| Scale | Value | Class   |
-| :---- | :---- | :----   |
-| 1     | 2px   | br1     |
-| 2     | 4px   | br2     |
-| 3     | 8px   | br3     |
-| 4     | 16px  | br4     |
-| pill  | 999px | br-pill |
-| 100   | 100%  | br-100  |
-| 0     | 0     | br0     |
+<Table
+    columns={[
+        { title: "Class" },
+        { title: "Value" },
+        { title: "" }
+    ]}
+    rows={[
+        ["br1", "2px", <div className="w10 h10 br1 ma3 bg-cloud-200" />],
+        ["br2", "4px", <div className="w10 h10 br2 ma3 bg-cloud-200" />],
+        ["br3", "8px", <div className="w10 h10 br3 ma3 bg-cloud-200" />],
+        ["br4", "16px", <div className="w10 h10 br4 ma3 bg-cloud-200" />],
+        ["br-pill", "999px", <div className="w10 h10 br-pill ma3 bg-cloud-200" />],
+        ["br-100", "100%", <div className="w10 h10 br-100 ma3 bg-cloud-200" />],
+        ["br-0", "0", <div className="w10 h10 br-0 ma3 bg-cloud-200" />]
+    ]}
+/>
 
-### Showcase
+## Tachyons
 
-<div className="flex items-end mt6">
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br1 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">1</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br2 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">2</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br3 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">3</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br4 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">4</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h8 br-pill overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">pill</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br-100 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">100</span>
-    </div>
-    <div className="mr5 flex flex-column">
-        <div className="w13 h13 br0 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
-        <span className="dib tc mt1">0</span>
-    </div>
-</div>
+
