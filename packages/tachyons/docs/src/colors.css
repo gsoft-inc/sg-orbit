@@ -1,4 +1,13 @@
-@import "../../src/products/desktop.css";
-@import "../../src/products/apricot.css";
-@import "../../src/products/overcast.css";
-@import "../../src/core/_skins";
+@import "../../src/core/_skins"; */
+@import "./products/apricot/_background.css";
+@import "./products/apricot/_skin.css";
+@import "./products/apricot/_border.css";
+@import "./products/apricot/_fill.css";
+@import "./products/desktop/_background.css";
+@import "./products/desktop/_skin.css";
+@import "./products/desktop/_border.css";
+@import "./products/desktop/_fill.css";
+@import "./products/overcast/_background.css";
+@import "./products/overcast/_skin.css";
+@import "./products/overcast/_border.css";
+@import "./products/overcast/_fill.css";

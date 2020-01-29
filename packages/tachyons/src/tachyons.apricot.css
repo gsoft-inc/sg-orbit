@@ -1,2 +1,5 @@
 @import "./core/index.css";
-@import "./products/apricot.css";
+@import "./products/apricot/_background.css";
+@import "./products/apricot/_skin.css";
+@import "./products/apricot/_border.css";
+@import "./products/apricot/_fill.css";

@@ -21,7 +21,62 @@ Use typography to present your design and content as clearly and efficiently as 
 
 <Installation />
 
-## Font Size
+## Usage
+
+### Type Scale
+
+In order to keep consistency and [vertical-rythmh](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*.
+
+Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
+
+| ![vertical-rythm-in-action.png](https://raw.githubusercontent.com/gsoft-inc/sg-orbit/add-css-vars-to-doc/storybook/stories/materials/typography/stories/vertical-rythm-in-action.png) |
+|:--:|
+| *Vertical rythmh in action* |
+
+### Headlines
+
+Headlines are the largest text on the screen, reserved for short, important text or numerals.
+
+<Table
+    columns={[
+        { title: "Font Size", className: styles.class },
+        { title: "Line Height" },
+        { title: "Font Weight" },
+        { title: "", className: styles.example }
+    ]}
+    rows={[
+        ["f1", "lh1", "500", <h1 className="f1 fw5 lh1 flex items-center">Migrate, adapt, and control the cloud.</h1>],
+        ["f2", "lh1", "500", <h1 className="f2 fw5 lh1 flex items-center">Migrate, adapt, and control the cloud.</h1>],
+        ["f3", "lh3", "500", <h1 className="f3 fw5 lh3 flex items-center">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f4", "lh4", "500", <h1 className="f4 fw5 lh4 flex items-center">Migrate, adapt, and <br/>control the cloud.</h1>],
+        ["f5", "lh2", "500", <h1 className="f5 fw5 lh2 flex items-center">Migrate, adapt, and <br/>control the cloud.</h1>]
+    ]}
+    rowClassName="h13"
+/>
+
+### Body
+
+Body text is typically used for long-form writing as it works well for small text sizes.
+
+<Table
+    columns={[
+        { title: "Font Size", className: styles.class },
+        { title: "Line Height" },
+        { title: "Font Weight" },
+        { title: "", className: styles.example }
+    ]}
+    rows={[
+        ["f4", "lh4", "fw4", <p className="f4 lh4 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
+        ["f5", "lh2", "fw4", <p className="f5 lh2 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
+        ["f6", "lh4", "fw4", <p className="f6 lh4 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
+        ["f7", "lh3", "fw4", <p className="f7 lh3 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
+        ["f8", "lh5", "fw4", <p className="f8 lh5 flex items-center">If two pieces of the same type of metal touch in space<br/> they will permanently bond.</p>],
+        ["f9", "lh1", "fw4", <p className="f9 lh1 flex items-center">If two pieces of the same type of metal touch in space<br/> they will permanently bond.</p>]
+    ]}
+    rowClassName="h13"
+/>
+
+### Font Size
 
 A simple ratio-based scale with 9 options.
 
