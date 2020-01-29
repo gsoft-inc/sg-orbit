@@ -179,8 +179,8 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <MultiSelect
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
@@ -188,7 +188,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
                     onValuesChange={logValuesChanged}
                 />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <MultiSelect
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={[GROUP_RESTORED_VALUE]}

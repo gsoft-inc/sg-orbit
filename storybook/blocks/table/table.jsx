@@ -3,7 +3,8 @@
 import { any, arrayOf, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";
-import { isNil, isString } from "lodash";
+import { isString } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared/src";
 
 const MdxTable = components.table;
 
@@ -31,15 +32,10 @@ export function Table({ columns, rows, rowClassName }) {
             return <td className={rowClassName} key={key}>{value}</td>;
         }
 
-        let classes = null;
-
-        if (!isNil(rowClassName)) {
-            classes = rowClassName;
-        }
-
-        if (!isNil(value.className)) {
-            classes = !isNil(classes) ? ` ${value.className}` : value.className;
-        }
+        const classes = mergeClasses(
+            rowClassName,
+            value.className
+        );
 
         return <td className={classes} style={value.style} key={key}>{value.value}</td>;
     };

@@ -12,7 +12,7 @@
 @padding: var(--scale-charlie) var(--scale-delta);
 
 @relativeSmall: var(--type-scale-7);
-@relativeMedium: var(--type-scale-6);
+@relativeMedium: var(--type-scale-7);
 @relativeLarge: var(--type-scale-6);
 
 @iconPadding: 5px;

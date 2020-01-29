@@ -284,6 +284,9 @@ stories()
                      <Input size="small" loading placeholder="Search..." className="paused" />
                      <Input loading placeholder="Search..." className="paused" />
                      <Input size="large" loading placeholder="Search..." className="paused" />
+                     <Input size="small" iconPosition="left" loading placeholder="Search..." className="paused" />
+                     <Input loading iconPosition="left" placeholder="Search..." className="paused" />
+                     <Input size="large" iconPosition="left" loading placeholder="Search..." className="paused" />
                  </div>
              </div>
     );

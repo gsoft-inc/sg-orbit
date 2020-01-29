@@ -20,9 +20,14 @@ stories()
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Label>Notification Sent</Label>
-                     <Label>Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                     <Label><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                     <Label><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
+                     <Label icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
+                     <Label icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label button>
+                             Group added
+                         <Button icon circular size="tiny" ghost>
+                             <CloseIcon24 className="w4 h4" />
+                         </Button>
+                     </Label>
                  </div>
                  <div className="flex flex-column items-start">
                      <Label circular size="mini">R</Label>
@@ -46,30 +51,27 @@ stories()
                  </div>
                  <div className="flex flex-column items-start">
                      <Label size="small">Notification Sent</Label>
-                     <Label size="small"><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                     <Label size="small"><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
-                     <Label size="small">Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                     <Label size="small" icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label size="small" icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                      <Label size="large">Notification Sent</Label>
-                     <Label size="large"><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                     <Label size="large"><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
-                     <Label size="large">Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                     <Label size="large" icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                  </div>
                  <div className="flex flex-column items-start">
                      <Label tag>
                          <Label circular empty size="tiny" color="red" />
                              Group added
                      </Label>
-                     <Label tag>
+                     <Label tag button>
                          <Label circular empty size="tiny" color="red" />
                              Group added
                          <Button icon circular size="tiny" ghost>
-                             <CloseIcon24 className="w4 h4" />
+                             <CloseIcon24 />
                          </Button>
                      </Label>
-                     <Label tag>
+                     <Label tag button icon={<CommunicationIcon />} iconPosition="right">
                          <Label circular empty size="tiny" color="red" />
                              Group added
-                         <CommunicationIcon className="ml2 w6 h6" />
                      </Label>
                  </div>
                  <div className="flex flex-column items-start">
@@ -77,17 +79,16 @@ stories()
                          <Label circular empty size="tiny" color="red" />
                             Group added
                      </Label>
-                     <Label tag size="small">
+                     <Label tag size="small" button>
                          <Label circular empty size="tiny" color="red" />
                              Group added
                          <Button icon circular size="tiny" ghost>
-                             <CloseIcon24 className="w4 h4" />
+                             <CloseIcon24 />
                          </Button>
                      </Label>
-                     <Label tag size="small">
+                     <Label tag size="small" icon={<CommunicationIcon />} iconPosition="right" >
                          <Label circular empty size="tiny" color="red" />
                              Group added
-                         <CommunicationIcon className="ml2 w6 h6" />
                      </Label>
                  </div>
                  <div className="flex flex-column items-start">
@@ -95,17 +96,16 @@ stories()
                          <Label circular empty size="tiny" color="red" />
                              Group added
                      </Label>
-                     <Label tag size="large">
+                     <Label tag size="large" button>
                          <Label circular empty size="tiny" color="red" />
                              Group added
                          <Button icon circular size="tiny" ghost>
-                             <CloseIcon24 className="w4 h4" />
+                             <CloseIcon24 />
                          </Button>
                      </Label>
-                     <Label tag size="large">
+                     <Label tag size="large" icon={<CommunicationIcon />}>
                          <Label circular empty size="tiny" color="red" />
                              Group added
-                         <CommunicationIcon className="ml2 w6 h6" />
                      </Label>
                  </div>
              </div>
@@ -113,9 +113,14 @@ stories()
         <div className="flex flex-row">
             <div className="flex flex-column items-start">
                 <Label basic>Notification Sent</Label>
-                <Label basic>Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                <Label basic><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                <Label basic><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
+                <Label basic icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
+                <Label basic icon={<CommunicationIcon />}>Notification Sent</Label>
+                <Label basic button>
+                        Group added
+                    <Button icon circular size="tiny" ghost>
+                        <CloseIcon24 />
+                    </Button>
+                </Label>
             </div>
             <div className="flex flex-column items-start">
                 <Label basic circular size="mini">R</Label>
@@ -139,30 +144,27 @@ stories()
             </div>
             <div className="flex flex-column items-start">
                 <Label basic size="small">Notification Sent</Label>
-                <Label basic size="small"><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                <Label basic size="small"><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
-                <Label basic size="small">Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                <Label basic size="small" icon={<CommunicationIcon />}>Notification Sent</Label>
+                <Label basic size="small" icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                 <Label basic size="large">Notification Sent</Label>
-                <Label basic size="large"><CommunicationIcon className="mr2 w6 h6" />Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
-                <Label basic size="large"><CommunicationIcon className="mr2 w6 h6" />Notification Sent</Label>
-                <Label basic size="large">Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                <Label basic size="large" icon={<CommunicationIcon />}>Notification Sent</Label>
+                <Label basic size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
             </div>
             <div className="flex flex-column items-start">
                 <Label basic tag>
                     <Label circular empty size="tiny" color="red" />
                         Group added
                 </Label>
-                <Label basic tag>
+                <Label basic tag button>
                     <Label circular empty size="tiny" color="red" />
                         Group added
                     <Button icon circular size="tiny" ghost>
-                        <CloseIcon24 className="w4 h4" />
+                        <CloseIcon24 />
                     </Button>
                 </Label>
-                <Label basic tag>
+                <Label basic tag button icon={<CommunicationIcon />} iconPosition="right">
                     <Label circular empty size="tiny" color="red" />
                         Group added
-                    <CommunicationIcon className="ml2 w6 h6" />
                 </Label>
             </div>
             <div className="flex flex-column items-start">
@@ -170,17 +172,16 @@ stories()
                     <Label circular empty size="tiny" color="red" />
                     Group added
                 </Label>
-                <Label basic tag size="small">
+                <Label basic tag size="small" button>
                     <Label circular empty size="tiny" color="red" />
                         Group added
                     <Button icon circular size="tiny" ghost>
-                        <CloseIcon24 className="w4 h4" />
+                        <CloseIcon24 />
                     </Button>
                 </Label>
-                <Label basic tag size="small">
+                <Label basic tag size="small" icon={<CommunicationIcon />} iconPosition="right">
                     <Label circular empty size="tiny" color="red" />
                         Group added
-                    <CommunicationIcon className="ml2 w6 h6" />
                 </Label>
             </div>
             <div className="flex flex-column items-start">
@@ -188,17 +189,16 @@ stories()
                     <Label circular empty size="tiny" color="red" />
                         Group added
                 </Label>
-                <Label basic tag size="large">
+                <Label basic tag size="large" button>
                     <Label circular empty size="tiny" color="red" />
                         Group added
                     <Button icon circular size="tiny" ghost>
-                        <CloseIcon24 className="w4 h4" />
+                        <CloseIcon24 />
                     </Button>
                 </Label>
-                <Label basic tag size="large">
+                <Label basic tag size="large" icon={<CommunicationIcon />} iconPosition="right">
                     <Label circular empty size="tiny" color="red" />
                         Group added
-                    <CommunicationIcon className="ml2 w6 h6" />
                 </Label>
             </div>
         </div>
@@ -207,7 +207,7 @@ stories()
         <div className="flex flex-row">
             <div className="flex flex-column items-start">
                 <Label naked>Notification Sent</Label>
-                <Label naked>Notification Sent <MagnifierIcon className="ml2 w6 h6" /></Label>
+                <Label naked icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                 <Label circular naked size="medium">R</Label>
                 <Label tag naked>
                     <Label circular empty size="tiny" color="red" />

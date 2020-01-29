@@ -214,8 +214,8 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <RemoteSearchInput
                     onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
                     onResults={response => {
@@ -227,7 +227,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
                     placeholder="Type a country name"
                 />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <RemoteSearchInput
                     onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
                     onResults={response => {
@@ -238,7 +238,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
                     placeholder="Type a country name"
                 />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <RemoteSearchInput
                     onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
                     onResults={response => {

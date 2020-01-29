@@ -26,7 +26,7 @@ These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
 >_Consistency_ makes designers happy!
 
-In Orbit, Tachyons is the backbone of the utility toolkit. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
+In Orbit, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
 ## Customization
 
@@ -98,10 +98,20 @@ To align a list of items horizontally:
 </div>
 ```
 
-To render a 24px / 24px icon filled with _apricot_ brand color:
+To specify a margin-right between each elements:
 
 ```jsx dark
-<GearIcon className="w6 h6 fill-apricot-500" />
+<div className="flex">
+    <div className="mr2">To</div>
+    <div className="mr2">the</div>
+    <div>moon!</div>
+</div>
+```
+
+To render a 32px / 32px icon filled with _apricot_ color:
+
+```jsx dark
+<GearIcon className="w7 h7 fill-apricot-500" />
 ```
 
 To align a text with an icon:
@@ -116,23 +126,13 @@ To align a text with an icon:
 To specify paddings for each side of an element:
 
 ```jsx dark
-<div className="pa2">Im padded!</div>
-```
-
-To specify a margin-right between each elements:
-
-```jsx dark
-<div className="flex">
-    <div className="mr2">To</div>
-    <div className="mr2">the</div>
-    <div>moon!</div>
-</div>
+<div className="pa4">Im padded!</div>
 ```
 
 To specify the background and text color of an element:
 
 ```jsx dark
-<div className="bg-sunray-400 white">The Sun also emits X-rays</div>
+<div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>
 ```
 
 By combining Tachyons with a library like [classnames](https://github.com/JedWatson/classnames) you can easily had dynamic styles to an element based on one or more conditions:

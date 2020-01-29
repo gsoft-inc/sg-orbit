@@ -82,6 +82,8 @@ export const Buttons = props => {
             <div className="flex flex-column items-start">
                 <Button tag {...props}><Label tag circular size="mini" empty color="red" />One</Button>
                 <Button tag compact {...props}><Label tag circular size="mini" empty color="red" />One</Button>
+                <Button label {...props}>One<Label circular size="mini" empty color="red" /></Button>
+                <Button label compact {...props}>One<Label circular size="mini" empty color="red" /></Button>
             </div>
             {/* text / loading */}
             <div className="flex flex-column items-start">

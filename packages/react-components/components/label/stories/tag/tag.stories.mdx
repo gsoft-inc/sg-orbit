@@ -1,4 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
+import { CloseIcon24 } from "@orbit-ui/icons";
 import { CommunicationIcon } from "@orbit-ui/icons";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
@@ -43,16 +44,11 @@ A tag can contain a button.
 
 <Preview>
     <Story name="button">
-        <Label tag>
+        <Label tag button>
             <Label circular empty size="mini" color="red" />
             Group added
             <Button type="button" icon circular size="tiny" ghost>
-                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="rotate(45 7.207 4.793)">
-                        <rect x=".121" y="5.707" width="12" height="2" rx="1" />
-                        <rect x="5" y=".828" width="2" height="12" rx="1" />
-                    </g>
-                </svg>
+                <CloseIcon24 />
             </Button>
         </Label>
     </Story>
@@ -64,10 +60,9 @@ A tag can contain an icon.
 
 <Preview>
     <Story name="icon">
-        <Label tag>
+        <Label tag icon={<CommunicationIcon />} iconPosition="right">
             <Label circular empty size="mini" color="red" />
             Group added
-            <CommunicationIcon className="h6 w6 fill-marine-500 ml2" />
         </Label>
     </Story>
 </Preview>
@@ -91,7 +86,7 @@ A tag can vary in size.
 
 <Preview>
     <Story name="sizes">
-        <div className="flex items-end">
+        <div className="flex items-end items-space-between">
             <Label size="mini" tag>
                 <Label circular empty size="mini" color="red" />
                 Group added
