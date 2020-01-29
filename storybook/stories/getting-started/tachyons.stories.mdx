@@ -28,27 +28,33 @@ These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
 In Orbit, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
+Over the course of development of our products, we identified a few utilities that we could benifit from and were missing from Tachyons. We added them! Find more about how we customized Tachyons in the [customization section](#customization) of this document.
+
 ## Customization
 
 Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/getting-started-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, please refer to the list of customization below and the _Materials_ pages.
 
 ### Spacing scale
 
-Orbit foundation [spacing scale](?path=/docs/materials-spacing--page) have been implemented as Tachyons CSS classes. Tachyons spacing scale have been increased from _7_ to _13_ values.
+Orbit foundation spacing scale have been implemented as Tachyons CSS classes. Tachyons spacing scale have been increased from _7_ to _13_ values.
 
-This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page) for an exhaustive list of all the available classes.
+This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page#tachyons) for an exhaustive list of all available classes.
 
 ### Typography
 
-Tachyons have been adapted to Orbit foundation [typography](?path=/docs/materials-typography--page).
+Tachyons have been adapted to Orbit foundation typography.
 
 - [Type scale](?path=/docs/materials-typography--page#font-size) have been increased from _7_ to _9_ values. Classes are available from `f1` to `f9`.
 
 - [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should not be used.
 
+- [Font-weight](?path=/docs/materials-typography--page#font-weight) have been decreased from 9 to 7 values. `fw2` and `fw8` have been removed.
+
+Please refer to the [typography page](?path=/docs/materials-typography--page#tachyons) for an exhaustive list of all available classes.
+
 ### Colors
 
-Tachyons original colors have been replaced with Orbit foundation colors.
+Tachyons original colors have been replaced with [Orbit foundation colors](?path=/docs/materials-colors--page).
 
 For any [brand](?path=/docs/materials-colors--page#brand) or [feedback and UI](?path=/docs/materials-colors--page#feedback-and-ui) colors, the following classes are available:
 
@@ -60,10 +66,6 @@ For any [brand](?path=/docs/materials-colors--page#brand) or [feedback and UI](?
 
 - hover-bg-[_color-name_]-[_50-900_] (ex. `hover-bg-sunray-50`)
 
-- b--[_color-name_]-[_50-900_] (ex. `b--sunary-50`)
-
-- hover-b--[_color-name_]-[_50-900_] (ex. `hover-b--sunary-50`)
-
 - fill-[_color-name_]-[_50-900_] (ex. `fill-sunray-50`)
 
 - hover-fill-[_color-name_]-[_50-900_] (ex. `hover-fill-sunray-50`)
@@ -72,9 +74,53 @@ For any [products](?path=/docs/materials-colors--page#products) colors the same 
 
 - [_product-name_]-[_50-900_] (ex. `apricot-50`)
 
-_Primary_ classes are also available:
+Please refer to the [colors page](?path=/docs/materials-colors--page#tachyons) for an exhaustive list of all available classes.
 
-- primary-[_50-900_] (ex. `primary-50`).
+### Borders
+
+Since Tachyons original colors have been replaced with [Orbit foundation colors](?path=/docs/materials-colors--page), Tachyons border classes have also been adapted.
+
+The following classes are available:
+
+- b--[_color-name_]-[_50-900_] (ex. `b--sunary-50`)
+
+- hover-b--[_color-name_]-[_50-900_] (ex. `hover-b--sunary-50`)
+
+For any [products](?path=/docs/materials-colors--page#products) colors the same classes are available but with a [_product-name_] instead of a [_color-name_]:
+
+- b--[_product-name_]-[_50-900_] (ex. `b--apricot-50`)
+
+- hover-b--[_product-name_]-[_50-900_] (ex. `hover-b--apricot-50`)
+
+Please refer to the [borders page](?path=/docs/materials-borders--page#tachyons) for an exhaustive list of all available classes:
+
+### Primary
+
+A set of primary classes have been added to Tachyons. If you choose to [install Tachyons for a specific product](?path=/docs/getting-started-installation--page#react-bundle), the primary classes will be aliases for that product, otherwise they are void until you [set the primary variables of Orbit foundation](?path=/docs/getting-started-foundation--page#override-default-variables).
+
+Primary classes are available for colors and borders:
+
+- primary-[_50-900_] (ex. `primary-50`)
+
+- bg-primary-[_50-900_] (ex. `bg-primary-50`)
+
+- fill-primary-[_50-900_] (ex. `fill-primary-50`)
+
+- b--primary-[_50-900_] (ex. `b--primary-50`)
+
+Please refer to the [colors](?path=/docs/materials-colors--page#tachyons) and [borders](?path=/docs/materials-borders--page#tachyons) pages for an exhaustive list of all available classes:
+
+### Flexbox
+
+A few custom utility classes for flexbox have been added to Tachyons.
+
+Please refer to the [flexbox page](?path=/docs/materials-flexbox--page#tachyons) for an exhaustive list of all available classes.
+
+### Shadows
+
+Tachyons box shadows classes have been rewrited to match Orbit foundation variables.
+
+Please refer to the [shadows page](?path=/docs/materials-shadows--page#tachyons) for an exhaustive list of all available classes.
 
 ## Installation
 

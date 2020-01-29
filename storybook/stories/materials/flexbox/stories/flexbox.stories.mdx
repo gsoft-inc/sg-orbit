@@ -1,0 +1,45 @@
+import { MaterialsLayout } from "../../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Table, TachyonsFile } from "@blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../../installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Flexbox")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
+/>
+
+# Flexbox
+
+Flex can be used to achieve powerful horizontal or vertical layouts without JavaScript. Before using these utilities, you should be familiar with CSS3 Flexible Box spec. If you are not, check out [CSS-Tricks guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
+## Installation
+
+<Installation />
+
+## Values
+
+<Table
+    columns={[
+        { title: "Class" },
+        { title: "" }
+    ]}
+    rows={[
+        ["flex-grow-0", ""],
+        ["flex-grow-1", ""],
+        ["flex-shrink-0", ""],
+        ["flex-shrink-1", ""],
+        ["flex-basis-auto", ""],
+        ["flex-basis-min", ""],
+        ["flex-basis-max", ""],
+        ["flex-basis-fit", ""],
+        ["flex-basis-content", ""]
+    ]}
+    rowClassName="bg-white"
+/>
+
+## Tachyons
+
+<TachyonsFile relativeFilePath="/shadows.css" />
