@@ -1,0 +1,89 @@
+.b--success-50 {
+    border-color: var(--success-50);
+}
+
+.b--success-100 {
+    border-color: var(--success-100);
+}
+
+.b--success-200 {
+    border-color: var(--success-200);
+}
+
+.b--success-300 {
+    border-color: var(--success-300);
+}
+
+.b--success-400 {
+    border-color: var(--success-400);
+}
+
+.b--success-500 {
+    border-color: var(--success-500);
+}
+
+.b--success-600 {
+    border-color: var(--success-600);
+}
+
+.b--success-700 {
+    border-color: var(--success-700);
+}
+
+.b--success-800 {
+    border-color: var(--success-800);
+}
+
+.b--success-900 {
+    border-color: var(--success-900);
+}
+
+.hover-b--success-50:hover,
+.hover-b--success-50:focus {
+    border-color: var(--success-50);
+}
+
+.hover-b--success-100:hover,
+.hover-b--success-100:focus {
+    border-color: var(--success-100);
+}
+
+.hover-b--success-200:hover,
+.hover-b--success-200:focus {
+    border-color: var(--success-200);
+}
+
+.hover-b--success-300:hover,
+.hover-b--success-300:focus {
+    border-color: var(--success-300);
+}
+
+.hover-b--success-400:hover,
+.hover-b--success-400:focus {
+    border-color: var(--success-400);
+}
+
+.hover-b--success-500:hover,
+.hover-b--success-500:focus {
+    border-color: var(--success-500);
+}
+
+.hover-b--success-600:hover,
+.hover-b--success-600:focus {
+    border-color: var(--success-600);
+}
+
+.hover-b--success-700:hover,
+.hover-b--success-700:focus {
+    border-color: var(--success-700);
+}
+
+.hover-b--success-800:hover,
+.hover-b--success-800:focus {
+    border-color: var(--success-800);
+}
+
+.hover-b--success-900:hover,
+.hover-b--success-900:focus {
+    border-color: var(--success-900);
+}

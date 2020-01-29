@@ -1,0 +1,89 @@
+.bg-success-50 {
+    background-color: var(--success-50);
+}
+
+.bg-success-100 {
+    background-color: var(--success-100);
+}
+
+.bg-success-200 {
+    background-color: var(--success-200);
+}
+
+.bg-success-300 {
+    background-color: var(--success-300);
+}
+
+.bg-success-400 {
+    background-color: var(--success-400);
+}
+
+.bg-success-500 {
+    background-color: var(--success-500);
+}
+
+.bg-success-600 {
+    background-color: var(--success-600);
+}
+
+.bg-success-700 {
+    background-color: var(--success-700);
+}
+
+.bg-success-800 {
+    background-color: var(--success-800);
+}
+
+.bg-success-900 {
+    background-color: var(--success-900);
+}
+
+.hover-bg-success-50:hover,
+.hover-bg-success-50:focus {
+    background-color: var(--success-50);
+}
+
+.hover-bg-success-100:hover,
+.hover-bg-success-100:focus {
+    background-color: var(--success-100);
+}
+
+.hover-bg-success-200:hover,
+.hover-bg-success-200:focus {
+    background-color: var(--success-200);
+}
+
+.hover-bg-success-300:hover,
+.hover-bg-success-300:focus {
+    background-color: var(--success-300);
+}
+
+.hover-bg-success-400:hover,
+.hover-bg-success-400:focus {
+    background-color: var(--success-400);
+}
+
+.hover-bg-success-500:hover,
+.hover-bg-success-500:focus {
+    background-color: var(--success-500);
+}
+
+.hover-bg-success-600:hover,
+.hover-bg-success-600:focus {
+    background-color: var(--success-600);
+}
+
+.hover-bg-success-700:hover,
+.hover-bg-success-700:focus {
+    background-color: var(--success-700);
+}
+
+.hover-bg-success-800:hover,
+.hover-bg-success-800:focus {
+    background-color: var(--success-800);
+}
+
+.hover-bg-success-900:hover,
+.hover-bg-success-900:focus {
+    background-color: var(--success-900);
+}

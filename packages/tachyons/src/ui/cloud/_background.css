@@ -1,0 +1,89 @@
+.bg-cloud-50 {
+    background-color: var(--cloud-50);
+}
+
+.bg-cloud-100 {
+    background-color: var(--cloud-100);
+}
+
+.bg-cloud-200 {
+    background-color: var(--cloud-200);
+}
+
+.bg-cloud-300 {
+    background-color: var(--cloud-300);
+}
+
+.bg-cloud-400 {
+    background-color: var(--cloud-400);
+}
+
+.bg-cloud-500 {
+    background-color: var(--cloud-500);
+}
+
+.bg-cloud-600 {
+    background-color: var(--cloud-600);
+}
+
+.bg-cloud-700 {
+    background-color: var(--cloud-700);
+}
+
+.bg-cloud-800 {
+    background-color: var(--cloud-800);
+}
+
+.bg-cloud-900 {
+    background-color: var(--cloud-900);
+}
+
+.hover-bg-cloud-50:hover,
+.hover-bg-cloud-50:focus {
+    background-color: var(--cloud-50);
+}
+
+.hover-bg-cloud-100:hover,
+.hover-bg-cloud-100:focus {
+    background-color: var(--cloud-100);
+}
+
+.hover-bg-cloud-200:hover,
+.hover-bg-cloud-200:focus {
+    background-color: var(--cloud-200);
+}
+
+.hover-bg-cloud-300:hover,
+.hover-bg-cloud-300:focus {
+    background-color: var(--cloud-300);
+}
+
+.hover-bg-cloud-400:hover,
+.hover-bg-cloud-400:focus {
+    background-color: var(--cloud-400);
+}
+
+.hover-bg-cloud-500:hover,
+.hover-bg-cloud-500:focus {
+    background-color: var(--cloud-500);
+}
+
+.hover-bg-cloud-600:hover,
+.hover-bg-cloud-600:focus {
+    background-color: var(--cloud-600);
+}
+
+.hover-bg-cloud-700:hover,
+.hover-bg-cloud-700:focus {
+    background-color: var(--cloud-700);
+}
+
+.hover-bg-cloud-800:hover,
+.hover-bg-cloud-800:focus {
+    background-color: var(--cloud-800);
+}
+
+.hover-bg-cloud-900:hover,
+.hover-bg-cloud-900:focus {
+    background-color: var(--cloud-900);
+}

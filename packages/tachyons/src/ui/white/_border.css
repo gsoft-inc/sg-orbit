@@ -1,0 +1,8 @@
+.b--white {
+    border-color: var(--white);
+}
+
+.hover-b--white:hover,
+.hover-b--white:focus {
+    border-color: var(--white);
+}

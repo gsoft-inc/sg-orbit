@@ -1,0 +1,89 @@
+.fill-apricot-50 {
+    fill: var(--apricot-50);
+}
+
+.fill-apricot-100 {
+    fill: var(--apricot-100);
+}
+
+.fill-apricot-200 {
+    fill: var(--apricot-200);
+}
+
+.fill-apricot-300 {
+    fill: var(--apricot-300);
+}
+
+.fill-apricot-400 {
+    fill: var(--apricot-400);
+}
+
+.fill-apricot-500 {
+    fill: var(--apricot-500);
+}
+
+.fill-apricot-600 {
+    fill: var(--apricot-600);
+}
+
+.fill-apricot-700 {
+    fill: var(--apricot-700);
+}
+
+.fill-apricot-800 {
+    fill: var(--apricot-800);
+}
+
+.fill-apricot-900 {
+    fill: var(--apricot-900);
+}
+
+.hover-fill-apricot-50:hover,
+.hover-fill-apricot-50:focus {
+    fill: var(--apricot-50);
+}
+
+.hover-fill-apricot-100:hover,
+.hover-fill-apricot-100:focus {
+    fill: var(--apricot-100);
+}
+
+.hover-fill-apricot-200:hover,
+.hover-fill-apricot-200:focus {
+    fill: var(--apricot-200);
+}
+
+.hover-fill-apricot-300:hover,
+.hover-fill-apricot-300:focus {
+    fill: var(--apricot-300);
+}
+
+.hover-fill-apricot-400:hover,
+.hover-fill-apricot-400:focus {
+    fill: var(--apricot-400);
+}
+
+.hover-fill-apricot-500:hover,
+.hover-fill-apricot-500:focus {
+    fill: var(--apricot-500);
+}
+
+.hover-fill-apricot-600:hover,
+.hover-fill-apricot-600:focus {
+    fill: var(--apricot-600);
+}
+
+.hover-fill-apricot-700:hover,
+.hover-fill-apricot-700:focus {
+    fill: var(--apricot-700);
+}
+
+.hover-fill-apricot-800:hover,
+.hover-fill-apricot-800:focus {
+    fill: var(--apricot-800);
+}
+
+.hover-fill-apricot-900:hover,
+.hover-fill-apricot-900:focus {
+    fill: var(--apricot-900);
+}

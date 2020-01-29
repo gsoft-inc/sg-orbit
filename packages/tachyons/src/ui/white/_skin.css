@@ -1,0 +1,8 @@
+.white {
+    color: var(--white);
+}
+
+.hover-white:hover,
+.hover-white:focus {
+    color: var(--white);
+}
