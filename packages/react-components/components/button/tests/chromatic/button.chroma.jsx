@@ -1,6 +1,7 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
 import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { Label } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 import styles from "./styles.module.css";
@@ -75,7 +76,7 @@ stories()
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
-                         <Button>One</Button>
+                         <Button>One <Label size="mini">12</Label></Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
@@ -193,10 +194,30 @@ stories()
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
-                     <Button.Group toggle basic>
-                         <Button>One</Button>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
+                         <Button disabled>Two</Button>
+                         <Button disabled>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button active>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button active>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button active>Three</Button>
                      </Button.Group>
                      <Button.Group basic widths="7">
                          <Button>1</Button>

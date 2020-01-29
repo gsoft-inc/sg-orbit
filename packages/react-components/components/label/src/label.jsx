@@ -1,6 +1,6 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
-import { bool, func, object, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { bool, func, node, object, oneOf, oneOfType, string } from "prop-types";
+import { cloneElement, forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
@@ -12,6 +12,18 @@ const propTypes = {
      */
     naked: bool,
     /**
+     * A label can contain a button.
+     */
+    button: bool,
+    /**
+     * A label can contain an icon.
+     */
+    icon: node,
+    /**
+     * An icon can appear on the left or right.
+     */
+    iconPosition: oneOf(["right", "left"]),
+    /**
      * @ignore
      */
     className: string,
@@ -22,10 +34,12 @@ const propTypes = {
 };
 
 const defaultProps = {
-    naked: false
+    naked: false,
+    button: false,
+    iconPosition: "left"
 };
 
-export function PureLabel({ naked, className, forwardedRef, children, ...props }) {
+export function PureLabel({ naked, button, className, forwardedRef, icon, iconPosition, children, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
 
     const renderWithRef = () => {
@@ -36,13 +50,39 @@ export function PureLabel({ naked, className, forwardedRef, children, ...props }
         );
     };
 
+    const renderIcon = () => {
+        if (!isNil(icon)) {
+            return cloneElement(icon, {
+                className: mergeClasses(
+                    "icon",
+                    icon.props && icon.props.className
+                )
+            });
+        }
+    };
+
+    const renderLabelContent = () => {
+        if (!isNil(icon)) {
+            if (iconPosition === "right") {
+                return <>{children}{renderIcon()}</>;
+            }
+
+            return <>{renderIcon()}{children}</>;
+        }
+
+        return children;
+    };
+
     const renderLabel = () => {
         const classes = mergeClasses(
             naked && "naked",
+            button && "with-button",
+            icon && "with-icon",
+            iconPosition === "right" && "with-icon-right",
             className
         );
 
-        return <SemanticLabel className={classes} {...props}>{children}</SemanticLabel>;
+        return <SemanticLabel className={classes} {...props}>{renderLabelContent()}</SemanticLabel>;
     };
 
     return isNil(forwardedRef) ? renderLabel() : renderWithRef();

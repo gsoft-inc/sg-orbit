@@ -3,7 +3,7 @@
 *******************************/
 
 @disabledOpacity: 1;
-@medium: 1.125rem;
+@medium: 1rem;
 @inputVerticalPadding: @relative9px;
 
 /*******************************
