@@ -1,6 +1,6 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, func, node, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { cloneElement, forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
@@ -20,7 +20,7 @@ const propTypes = {
      */
     icon: node,
     /**
-     * A icon can be positionned.
+     * An icon can appear on the left or right.
      */
     iconPosition: oneOf(["right", "left"]),
     /**
@@ -35,7 +35,8 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    button: false
+    button: false,
+    iconPosition: "left"
 };
 
 export function PureLabel({ naked, button, className, forwardedRef, icon, iconPosition, children, ...props }) {
@@ -49,6 +50,29 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
         );
     };
 
+    const renderIcon = () => {
+        if (!isNil(icon)) {
+            return cloneElement(icon, {
+                className: mergeClasses(
+                    "icon",
+                    icon.props && icon.props.className
+                )
+            });
+        }
+    }
+
+    const renderLabelContent = () => {
+        if (!isNil(icon)) {
+            if (iconPosition === "right") {
+                return <>{children}{renderIcon()}</>;
+            }
+
+            return <>{renderIcon()}{children}</>;
+        }
+
+        return children;
+    };
+
     const renderLabel = () => {
         const classes = mergeClasses(
             naked && "naked",
@@ -58,7 +82,7 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
             className
         );
 
-        return <SemanticLabel className={classes} {...props}>{icon && iconPosition !== "right" ? icon : null}{children}{icon && iconPosition === "right" ? icon : null}</SemanticLabel>;
+        return <SemanticLabel className={classes} {...props}>{renderLabelContent()}</SemanticLabel>;
     };
 
     return isNil(forwardedRef) ? renderLabel() : renderWithRef();

@@ -20,18 +20,18 @@
 }
 
 /* CONTENT | With Icon | LAYOUT | Sizing */
-.ui.label.with-icon svg {
+.ui.label.with-icon .icon {
     width: @scaleFoxtrot;
     height: @scaleFoxtrot;
 }
 
 /* CONTENT | With Icon | LAYOUT | Colour */
-.ui.label.with-icon svg {
+.ui.label.with-icon .icon {
     fill: @marine500;
 }
 
 /* CONTENT | With Icon | LAYOUT | Colour | Naked*/
-.ui.label.with-icon.naked svg {
+.ui.label.with-icon.naked .icon {
     fill: initial;
 }
 

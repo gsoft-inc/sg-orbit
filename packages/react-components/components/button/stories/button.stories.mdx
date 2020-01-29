@@ -253,10 +253,10 @@ Buttons can exist together as a group.
 
 <Preview>
     <Story name="groups">
-        <Button.Group basic>
-            <Button disabled tag type="button"><Label tag circular size="mini" empty color="red"/>One</Button>
-            <Button icon type="button"><CalendarIcon24 className="mr1"/>Two</Button>
-            <Button icon type="button" active><CalendarIcon24 className="mr1"/>Three</Button>
+        <Button.Group basic widths="3">
+            <Button type="button">All</Button>
+            <Button tag><Label tag circular size="mini" empty color="red" />Inactive</Button>
+            <Button icon type="button" active><CalendarIcon24 className="mr1" />Active</Button>
         </Button.Group>
     </Story>
 </Preview>

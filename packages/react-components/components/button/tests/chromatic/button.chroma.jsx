@@ -194,10 +194,30 @@ stories()
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
-                     <Button.Group toggle basic>
-                         <Button>One</Button>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
+                         <Button disabled>Two</Button>
+                         <Button disabled>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button active>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button active>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button active>Three</Button>
                      </Button.Group>
                      <Button.Group basic widths="7">
                          <Button>1</Button>
