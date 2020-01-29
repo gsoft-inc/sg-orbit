@@ -47,6 +47,17 @@ details + details {
     margin-top: var(--scale-delta);
 }
 
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3,
+.sbdocs.sbdocs-h4,
+.sbdocs.sbdocs-h5,
+.sbdocs.sbdocs-h6 {
+    color: var(--marine-900);
+    /* fixing the default position relative on all titles in shared.tsx */
+    position: initial;
+}
+
 .sbdocs.sbdocs-h1 {
     font-weight: 600;
 }
@@ -68,17 +79,6 @@ details + details {
 .sbdocs.sbdocs-h3 + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h4 + .sbdocs.sbdocs-p {
     margin: 0 0 1rem 0;
-}
-
-.sbdocs.sbdocs-h1,
-.sbdocs.sbdocs-h2,
-.sbdocs.sbdocs-h3,
-.sbdocs.sbdocs-h4,
-.sbdocs.sbdocs-h5,
-.sbdocs.sbdocs-h6 {
-    color: var(--marine-900);
-    /* fixing the default position relative on all titles in shared.tsx */
-    position: initial;
 }
 
 .sbdocs.sbdocs-a {
@@ -173,4 +173,9 @@ details .docblock-source {
 
 .sbdocs.sbdocs-ig-item {
     flex-basis: calc(12% + 17px) !important;
+}
+
+/* Helpers */
+.items-space-between > * {
+    margin-right: var(--scale-alpha) !important;
 }
