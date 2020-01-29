@@ -3,7 +3,7 @@
 *******************************/
 
 @small: 1em;
-@medium: 1.125em;
+@medium: 1rem;
 @large: 1.125rem;
 @fontWeight: 400;
 @borderRadius: 999px;

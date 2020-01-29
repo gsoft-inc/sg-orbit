@@ -1,5 +1,7 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
+import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { Label } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 import styles from "./styles.module.css";
@@ -74,29 +76,68 @@ stories()
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
+                         <Button>One <Label size="mini">12</Label></Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
+                     </Button.Group>
+                     <Button.Group negative>
                          <Button>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
-                     <Button.Group basic>
+                     <Button.Group negative>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
+                     </Button.Group>
+                     <Button.Group positive>
                          <Button>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group positive>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
                      </Button.Group>
                      <Button.Group primary>
                          <Button>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
+                     <Button.Group primary>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
+                     </Button.Group>
                      <Button.Group secondary>
                          <Button>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
-                     <Button.Group naked>
-                         <Button>One</Button>
-                         <Button>Two</Button>
-                         <Button>Three</Button>
+                     <Button.Group secondary>
+                         <Button disabled>One</Button>
+                         <Button active>Two</Button>
+                     </Button.Group>
+                     <Button.Group icon secondary>
+                         <Button><SignoutIcon24 /></Button>
+                         <Button><CalendarIcon24 /></Button>
+                         <Button><ImageIcon /></Button>
+                     </Button.Group>
+                     <Button.Group icon secondary>
+                         <Button disabled><SignoutIcon24 /></Button>
+                         <Button active><CalendarIcon24 /></Button>
+                     </Button.Group>
+                     <Button.Group icon basic>
+                         <Button><SignoutIcon24 /></Button>
+                         <Button><CalendarIcon24 /></Button>
+                         <Button><ImageIcon /></Button>
+                     </Button.Group>
+                     <Button.Group icon basic>
+                         <Button disabled><SignoutIcon24 /></Button>
+                         <Button disabled><CalendarIcon24 /></Button>
+                         <Button><ImageIcon /></Button>
                      </Button.Group>
                  </div>
                  <div className="flex flex-column items-start">
@@ -119,6 +160,73 @@ stories()
                          <Button>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group size="tiny" compact>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group size="small" compact>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group size="large" compact>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group size="tiny" fluid>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group secondary widths="10">
+                         <Button>1</Button>
+                         <Button>2</Button>
+                         <Button>3</Button>
+                         <Button>4</Button>
+                     </Button.Group>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Button.Group basic widths="3" compact>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
+                         <Button disabled>Two</Button>
+                         <Button disabled>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button disabled>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button active>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button active>One</Button>
+                         <Button>Two</Button>
+                         <Button>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic>
+                         <Button>One</Button>
+                         <Button>Two</Button>
+                         <Button active>Three</Button>
+                     </Button.Group>
+                     <Button.Group basic widths="7">
+                         <Button>1</Button>
+                         <Button>2</Button>
+                         <Button>3</Button>
+                         <Button>4</Button>
+                         <Button>5</Button>
+                         <Button>6</Button>
+                         <Button>7</Button>
                      </Button.Group>
                  </div>
              </div>
