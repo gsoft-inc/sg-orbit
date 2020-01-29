@@ -156,8 +156,8 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     size="small"
@@ -165,7 +165,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
                     onValueChange={logValueChanged}
                 />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <SearchInput
                     results={DEFAULT_RESULTS}
                     onValueChange={logValueChanged}

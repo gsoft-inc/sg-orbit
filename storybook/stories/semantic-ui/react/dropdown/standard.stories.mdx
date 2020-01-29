@@ -258,44 +258,40 @@ A dropdown can vary in size.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="mr2">
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    className="small"
-                    options={[
-                        {
-                            key: "Male",
-                            text: "Male",
-                            value: "Male"
-                        },
-                        {
-                            key: "Female",
-                            text: "Female",
-                            value: "Female"
-                        }
-                    ]}
-                />
-            </div>
-            <div>
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    options={[
-                        {
-                            key: "Male",
-                            text: "Male",
-                            value: "Male"
-                        },
-                        {
-                            key: "Female",
-                            text: "Female",
-                            value: "Female"
-                        }
-                    ]}
-                />
-            </div>
+        <div className="flex items-end items-space-between">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                className="small"
+                options={[
+                    {
+                        key: "Male",
+                        text: "Male",
+                        value: "Male"
+                    },
+                    {
+                        key: "Female",
+                        text: "Female",
+                        value: "Female"
+                    }
+                ]}
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                options={[
+                    {
+                        key: "Male",
+                        text: "Male",
+                        value: "Male"
+                    },
+                    {
+                        key: "Female",
+                        text: "Female",
+                        value: "Female"
+                    }
+                ]}
+            />
         </div>
     </Story>
 </Preview>

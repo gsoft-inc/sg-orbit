@@ -66,7 +66,7 @@ A label can include an icon.
 
 <Preview>
     <Story name="icon">
-        <div className="flex">
+        <div className="flex items-space-between">
             <Label icon={<MagnifierIcon />} iconPosition="right">
                 Notification Sent
             </Label>
@@ -93,7 +93,7 @@ A label can vary in size.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
+        <div className="flex items-end items-space-between">
             <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
@@ -119,7 +119,7 @@ A label can have a circular form.
 
 <Preview>
     <Story name="circular">
-        <div className="flex items-end">
+        <div className="flex items-end items-space-between">
             <Label circular size="mini">R</Label>
             <Label circular size="tiny">R</Label>
             <Label circular size="small">R</Label>
