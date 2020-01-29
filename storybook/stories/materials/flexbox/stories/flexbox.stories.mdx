@@ -1,3 +1,5 @@
+import styles from "./flexbox.module.css";
+
 import { MaterialsLayout } from "../../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { Table, TachyonsFile } from "@blocks";
@@ -24,20 +26,19 @@ Flex can be used to achieve powerful horizontal or vertical layouts without Java
 <Table
     columns={[
         { title: "Class" },
-        { title: "" }
+        { title: "", className: styles.example }
     ]}
     rows={[
-        ["flex-grow-0", ""],
-        ["flex-grow-1", ""],
-        ["flex-shrink-0", ""],
-        ["flex-shrink-1", ""],
+        ["flex-grow-0", <div className="flex bg-sunray-100 ba b--sunray-200"><div className="flex-auto flex-grow-0 pa2 ba b--sunray-200 f6">flex-grow-0 item</div><div className="flex-auto pa2 ba b--sunray-200 f6">flex item</div></div>],
+        ["flex-grow-1", <div className="flex bg-sunray-100 ba b--sunray-200"><div className="flex-grow-1 pa2 ba b--sunray-200 f6">flex-grow-1 item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div></div>],
+        ["flex-shrink-0", <div className="flex bg-sunray-100 ba b--sunray-200"><div className="flex-shrink-0 pa2 ba b--sunray-200 f6">flex-shrink-0 item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div><div className="pa2 ba b--sunray-200 f6"> flex item</div></div>],
+        ["flex-shrink-1", <div className="flex bg-sunray-100 ba b--sunray-200"><div className="flex-shrink-1 pa2 ba b--sunray-200 f6">flex-shrink-1 item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div><div className="flex-shrink-0 pa2 ba b--sunray-200 f6"> flex item</div></div>],
         ["flex-basis-auto", ""],
         ["flex-basis-min", ""],
         ["flex-basis-max", ""],
         ["flex-basis-fit", ""],
         ["flex-basis-content", ""]
     ]}
-    rowClassName="bg-white"
 />
 
 ## Tachyons
