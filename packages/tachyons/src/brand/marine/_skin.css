@@ -1,0 +1,89 @@
+.marine-50 {
+    color: var(--marine-50);
+}
+
+.marine-100 {
+    color: var(--marine-100);
+}
+
+.marine-200 {
+    color: var(--marine-200);
+}
+
+.marine-300 {
+    color: var(--marine-300);
+}
+
+.marine-400 {
+    color: var(--marine-400);
+}
+
+.marine-500 {
+    color: var(--marine-500);
+}
+
+.marine-600 {
+    color: var(--marine-600);
+}
+
+.marine-700 {
+    color: var(--marine-700);
+}
+
+.marine-800 {
+    color: var(--marine-800);
+}
+
+.marine-900 {
+    color: var(--marine-900);
+}
+
+.hover-marine-50:hover,
+.hover-marine-50:focus {
+    color: var(--marine-50);
+}
+
+.hover-marine-100:hover,
+.hover-marine-100:focus {
+    color: var(--marine-100);
+}
+
+.hover-marine-200:hover,
+.hover-marine-200:focus {
+    color: var(--marine-200);
+}
+
+.hover-marine-300:hover,
+.hover-marine-300:focus {
+    color: var(--marine-300);
+}
+
+.hover-marine-400:hover,
+.hover-marine-400:focus {
+    color: var(--marine-400);
+}
+
+.hover-marine-500:hover,
+.hover-marine-500:focus {
+    color: var(--marine-500);
+}
+
+.hover-marine-600:hover,
+.hover-marine-600:focus {
+    color: var(--marine-600);
+}
+
+.hover-marine-700:hover,
+.hover-marine-700:focus {
+    color: var(--marine-700);
+}
+
+.hover-marine-800:hover,
+.hover-marine-800:focus {
+    color: var(--marine-800);
+}
+
+.hover-marine-900:hover,
+.hover-marine-900:focus {
+    color: var(--marine-900);
+}

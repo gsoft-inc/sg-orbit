@@ -1,0 +1,89 @@
+.b--marine-50 {
+    border-color: var(--marine-50);
+}
+
+.b--marine-100 {
+    border-color: var(--marine-100);
+}
+
+.b--marine-200 {
+    border-color: var(--marine-200);
+}
+
+.b--marine-300 {
+    border-color: var(--marine-300);
+}
+
+.b--marine-400 {
+    border-color: var(--marine-400);
+}
+
+.b--marine-500 {
+    border-color: var(--marine-500);
+}
+
+.b--marine-600 {
+    border-color: var(--marine-600);
+}
+
+.b--marine-700 {
+    border-color: var(--marine-700);
+}
+
+.b--marine-800 {
+    border-color: var(--marine-800);
+}
+
+.b--marine-900 {
+    border-color: var(--marine-900);
+}
+
+.hover-b--marine-50:hover,
+.hover-b--marine-50:focus {
+    border-color: var(--marine-50);
+}
+
+.hover-b--marine-100:hover,
+.hover-b--marine-100:focus {
+    border-color: var(--marine-100);
+}
+
+.hover-b--marine-200:hover,
+.hover-b--marine-200:focus {
+    border-color: var(--marine-200);
+}
+
+.hover-b--marine-300:hover,
+.hover-b--marine-300:focus {
+    border-color: var(--marine-300);
+}
+
+.hover-b--marine-400:hover,
+.hover-b--marine-400:focus {
+    border-color: var(--marine-400);
+}
+
+.hover-b--marine-500:hover,
+.hover-b--marine-500:focus {
+    border-color: var(--marine-500);
+}
+
+.hover-b--marine-600:hover,
+.hover-b--marine-600:focus {
+    border-color: var(--marine-600);
+}
+
+.hover-b--marine-700:hover,
+.hover-b--marine-700:focus {
+    border-color: var(--marine-700);
+}
+
+.hover-b--marine-800:hover,
+.hover-b--marine-800:focus {
+    border-color: var(--marine-800);
+}
+
+.hover-b--marine-900:hover,
+.hover-b--marine-900:focus {
+    border-color: var(--marine-900);
+}

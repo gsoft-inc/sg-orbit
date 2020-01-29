@@ -1,0 +1,89 @@
+.fill-sunray-50 {
+    fill: var(--sunray-50);
+}
+
+.fill-sunray-100 {
+    fill: var(--sunray-100);
+}
+
+.fill-sunray-200 {
+    fill: var(--sunray-200);
+}
+
+.fill-sunray-300 {
+    fill: var(--sunray-300);
+}
+
+.fill-sunray-400 {
+    fill: var(--sunray-400);
+}
+
+.fill-sunray-500 {
+    fill: var(--sunray-500);
+}
+
+.fill-sunray-600 {
+    fill: var(--sunray-600);
+}
+
+.fill-sunray-700 {
+    fill: var(--sunray-700);
+}
+
+.fill-sunray-800 {
+    fill: var(--sunray-800);
+}
+
+.fill-sunray-900 {
+    fill: var(--sunray-900);
+}
+
+.hover-fill-sunray-50:hover,
+.hover-fill-sunray-50:focus {
+    fill: var(--sunray-50);
+}
+
+.hover-fill-sunray-100:hover,
+.hover-fill-sunray-100:focus {
+    fill: var(--sunray-100);
+}
+
+.hover-fill-sunray-200:hover,
+.hover-fill-sunray-200:focus {
+    fill: var(--sunray-200);
+}
+
+.hover-fill-sunray-300:hover,
+.hover-fill-sunray-300:focus {
+    fill: var(--sunray-300);
+}
+
+.hover-fill-sunray-400:hover,
+.hover-fill-sunray-400:focus {
+    fill: var(--sunray-400);
+}
+
+.hover-fill-sunray-500:hover,
+.hover-fill-sunray-500:focus {
+    fill: var(--sunray-500);
+}
+
+.hover-fill-sunray-600:hover,
+.hover-fill-sunray-600:focus {
+    fill: var(--sunray-600);
+}
+
+.hover-fill-sunray-700:hover,
+.hover-fill-sunray-700:focus {
+    fill: var(--sunray-700);
+}
+
+.hover-fill-sunray-800:hover,
+.hover-fill-sunray-800:focus {
+    fill: var(--sunray-800);
+}
+
+.hover-fill-sunray-900:hover,
+.hover-fill-sunray-900:focus {
+    fill: var(--sunray-900);
+}

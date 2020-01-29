@@ -1,0 +1,89 @@
+.bg-desktop-50 {
+    background-color: var(--desktop-50);
+}
+
+.bg-desktop-100 {
+    background-color: var(--desktop-100);
+}
+
+.bg-desktop-200 {
+    background-color: var(--desktop-200);
+}
+
+.bg-desktop-300 {
+    background-color: var(--desktop-300);
+}
+
+.bg-desktop-400 {
+    background-color: var(--desktop-400);
+}
+
+.bg-desktop-500 {
+    background-color: var(--desktop-500);
+}
+
+.bg-desktop-600 {
+    background-color: var(--desktop-600);
+}
+
+.bg-desktop-700 {
+    background-color: var(--desktop-700);
+}
+
+.bg-desktop-800 {
+    background-color: var(--desktop-800);
+}
+
+.bg-desktop-900 {
+    background-color: var(--desktop-900);
+}
+
+.hover-bg-desktop-50:hover,
+.hover-bg-desktop-50:focus {
+    background-color: var(--desktop-50);
+}
+
+.hover-bg-desktop-100:hover,
+.hover-bg-desktop-100:focus {
+    background-color: var(--desktop-100);
+}
+
+.hover-bg-desktop-200:hover,
+.hover-bg-desktop-200:focus {
+    background-color: var(--desktop-200);
+}
+
+.hover-bg-desktop-300:hover,
+.hover-bg-desktop-300:focus {
+    background-color: var(--desktop-300);
+}
+
+.hover-bg-desktop-400:hover,
+.hover-bg-desktop-400:focus {
+    background-color: var(--desktop-400);
+}
+
+.hover-bg-desktop-500:hover,
+.hover-bg-desktop-500:focus {
+    background-color: var(--desktop-500);
+}
+
+.hover-bg-desktop-600:hover,
+.hover-bg-desktop-600:focus {
+    background-color: var(--desktop-600);
+}
+
+.hover-bg-desktop-700:hover,
+.hover-bg-desktop-700:focus {
+    background-color: var(--desktop-700);
+}
+
+.hover-bg-desktop-800:hover,
+.hover-bg-desktop-800:focus {
+    background-color: var(--desktop-800);
+}
+
+.hover-bg-desktop-900:hover,
+.hover-bg-desktop-900:focus {
+    background-color: var(--desktop-900);
+}

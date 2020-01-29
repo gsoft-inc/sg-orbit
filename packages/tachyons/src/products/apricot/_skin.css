@@ -1,0 +1,89 @@
+.apricot-50 {
+    color: var(--apricot-50);
+}
+
+.apricot-100 {
+    color: var(--apricot-100);
+}
+
+.apricot-200 {
+    color: var(--apricot-200);
+}
+
+.apricot-300 {
+    color: var(--apricot-300);
+}
+
+.apricot-400 {
+    color: var(--apricot-400);
+}
+
+.apricot-500 {
+    color: var(--apricot-500);
+}
+
+.apricot-600 {
+    color: var(--apricot-600);
+}
+
+.apricot-700 {
+    color: var(--apricot-700);
+}
+
+.apricot-800 {
+    color: var(--apricot-800);
+}
+
+.apricot-900 {
+    color: var(--apricot-900);
+}
+
+.hover-apricot-50:hover,
+.hover-apricot-50:focus {
+    color: var(--apricot-50);
+}
+
+.hover-apricot-100:hover,
+.hover-apricot-100:focus {
+    color: var(--apricot-100);
+}
+
+.hover-apricot-200:hover,
+.hover-apricot-200:focus {
+    color: var(--apricot-200);
+}
+
+.hover-apricot-300:hover,
+.hover-apricot-300:focus {
+    color: var(--apricot-300);
+}
+
+.hover-apricot-400:hover,
+.hover-apricot-400:focus {
+    color: var(--apricot-400);
+}
+
+.hover-apricot-500:hover,
+.hover-apricot-500:focus {
+    color: var(--apricot-500);
+}
+
+.hover-apricot-600:hover,
+.hover-apricot-600:focus {
+    color: var(--apricot-600);
+}
+
+.hover-apricot-700:hover,
+.hover-apricot-700:focus {
+    color: var(--apricot-700);
+}
+
+.hover-apricot-800:hover,
+.hover-apricot-800:focus {
+    color: var(--apricot-800);
+}
+
+.hover-apricot-900:hover,
+.hover-apricot-900:focus {
+    color: var(--apricot-900);
+}

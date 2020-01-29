@@ -1,0 +1,89 @@
+.fill-overcast-50 {
+    fill: var(--overcast-50);
+}
+
+.fill-overcast-100 {
+    fill: var(--overcast-100);
+}
+
+.fill-overcast-200 {
+    fill: var(--overcast-200);
+}
+
+.fill-overcast-300 {
+    fill: var(--overcast-300);
+}
+
+.fill-overcast-400 {
+    fill: var(--overcast-400);
+}
+
+.fill-overcast-500 {
+    fill: var(--overcast-500);
+}
+
+.fill-overcast-600 {
+    fill: var(--overcast-600);
+}
+
+.fill-overcast-700 {
+    fill: var(--overcast-700);
+}
+
+.fill-overcast-800 {
+    fill: var(--overcast-800);
+}
+
+.fill-overcast-900 {
+    fill: var(--overcast-900);
+}
+
+.hover-fill-overcast-50:hover,
+.hover-fill-overcast-50:focus {
+    fill: var(--overcast-50);
+}
+
+.hover-fill-overcast-100:hover,
+.hover-fill-overcast-100:focus {
+    fill: var(--overcast-100);
+}
+
+.hover-fill-overcast-200:hover,
+.hover-fill-overcast-200:focus {
+    fill: var(--overcast-200);
+}
+
+.hover-fill-overcast-300:hover,
+.hover-fill-overcast-300:focus {
+    fill: var(--overcast-300);
+}
+
+.hover-fill-overcast-400:hover,
+.hover-fill-overcast-400:focus {
+    fill: var(--overcast-400);
+}
+
+.hover-fill-overcast-500:hover,
+.hover-fill-overcast-500:focus {
+    fill: var(--overcast-500);
+}
+
+.hover-fill-overcast-600:hover,
+.hover-fill-overcast-600:focus {
+    fill: var(--overcast-600);
+}
+
+.hover-fill-overcast-700:hover,
+.hover-fill-overcast-700:focus {
+    fill: var(--overcast-700);
+}
+
+.hover-fill-overcast-800:hover,
+.hover-fill-overcast-800:focus {
+    fill: var(--overcast-800);
+}
+
+.hover-fill-overcast-900:hover,
+.hover-fill-overcast-900:focus {
+    fill: var(--overcast-900);
+}
