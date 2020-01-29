@@ -1,5 +1,6 @@
 import { MaterialsLayout } from "../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
+import { Table } from "@blocks";
 import { TachyonsFile } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../installation.mdx";
@@ -21,27 +22,17 @@ Shadows denote a certain elevation of an element.
 
 ## Values
 
-| Scale    | Variable         | Class      |
-| :------- | :--------------- | :----------|
-| 100      | --shadow-100     | shadow-100 |
-| 200      | --shadow-200     | shadow-200 |
-
-### Examples
-
-<div className="flex mt6">
-    <div className="mr10 tc">
-        <div className="mw6 shadow-100">
-            <div className="w13 h13 bg-white" />
-        </div>
-        <span className="dib tc mt3">100</span>
-    </div>
-    <div className="tc">
-        <div className="mw6 shadow-200">
-            <div className="w13 h13 bg-white" />
-        </div>
-        <span className="dib tc mt3">200</span>
-    </div>
-</div>
+<Table
+    columns={[
+        { title: "Class" },
+        { title: "Variable" },
+        { title: "" }
+    ]}
+    rows={[
+        ["shadow-100", "--shadow-100", <div className="shadow-100 w10 h10 ma3 bg-white"></div>],
+        ["shadow-200", "--shadow-200", <div className="shadow-200 w10 h10 ma3 bg-white"></div>]
+    ]}
+/>
 
 ## Tachyons
 
