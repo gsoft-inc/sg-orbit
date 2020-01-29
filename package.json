@@ -123,6 +123,7 @@
         "postcss-prefixer": "2.1.2",
         "react": "16.12.0",
         "react-dom": "16.12.0",
+        "react-is": "16.12.0",
         "react-spring": "8.0.27",
         "remark-external-links": "5.0.0",
         "remark-slug": "5.1.2",

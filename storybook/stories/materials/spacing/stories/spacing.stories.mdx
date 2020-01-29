@@ -1,0 +1,49 @@
+import { MaterialsLayout } from "../../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Table } from "@blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../../installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Spacing")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
+/>
+
+# Spacing
+
+Orbit use an 8px point horizontal spacing scale. A few half points are available to cover specific use cases.
+
+## Installation
+
+<Installation />
+
+## Values
+
+<Table
+    columns={[
+        { title: "Scale" },
+        { title: "Value" },
+        { title: "Variable" },
+        { title: "" }
+    ]}
+    rows={[
+        ["1", "4px", "--scale-alpha", <div className="w1 h4 bg-sunray-400"></div>],
+        ["2", "8px", "--scale-bravo", <div className="w2 h4 bg-sunray-400"></div>],
+        ["3", "12px", "--scale-charlie", <div className="w3 h4 bg-sunray-400"></div>],
+        ["4", "16px", "--scale-delta", <div className="w4 h4 bg-sunray-400"></div>],
+        ["5", "20px", "--scale-echo", <div className="w5 h4 bg-sunray-400"></div>],
+        ["6", "24px", "--scale-foxtrot", <div className="w6 h4 bg-sunray-400"></div>],
+        ["7", "32px", "--scale-golf", <div className="w7 h4 bg-sunray-400"></div>],
+        ["8", "40px", "--scale-hotel", <div className="w8 h4 bg-sunray-400"></div>],
+        ["9", "48px", "--scale-india", <div className="w9 h4 bg-sunray-400"></div>],
+        ["10", "56px", "--scale-juliett", <div className="w10 h4 bg-sunray-400"></div>],
+        ["11", "64px", "--scale-kilo", <div className="w11 h4 bg-sunray-400"></div>],
+        ["12", "72px", "--scale-lima", <div className="w12 h4 bg-sunray-400"></div>],
+        ["13", "80px", "--scale-mike", <div className="w13 h4 bg-sunray-400"></div>]
+    ]}
+    rowClassName="h8"
+/>
+
+## Tachyons

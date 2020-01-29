@@ -79,10 +79,10 @@ export const Button = forwardRef((props, ref) => (
     <PureButton { ...props } forwardedRef={ref} />
 ));
 
+// Button.Or is not supported yet.
 [PureButton, Button].forEach(x => {
     x.Content = SemanticButton.Content;
     x.Group = SemanticButton.Group;
-    x.Or = SemanticButton.Or;
 });
 
 // eslint-disable-next-line react/forbid-foreign-prop-types
