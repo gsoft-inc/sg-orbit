@@ -1,8 +1,6 @@
-import styles from "./borders.module.css";
-
 import { MaterialsLayout } from "../../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { Table } from "@blocks";
+import { TachyonsFile } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../../installation.mdx";
 
@@ -15,31 +13,24 @@ import Installation from "../../installation.mdx";
 
 # Borders
 
+Utilities for borders.
+
 ## Installation
 
 <Installation />
 
-## Radiuses
+## Colors
 
-An element can have a border radius modifying its shape.
+Tachyons original borders colors have been replaced with [Orbit foundation colors](?path=/docs/materials-colors--page).
 
-<Table
-    columns={[
-        { title: "Class" },
-        { title: "Value" },
-        { title: "", className: styles.example }
-    ]}
-    rows={[
-        ["br1", "2px", <div className="w10 h10 br1 ma3 bg-cloud-200" />],
-        ["br2", "4px", <div className="w10 h10 br2 ma3 bg-cloud-200" />],
-        ["br3", "8px", <div className="w10 h10 br3 ma3 bg-cloud-200" />],
-        ["br4", "16px", <div className="w10 h10 br4 ma3 bg-cloud-200" />],
-        ["br-pill", "999px", <div className="w10 h10 br-pill ma3 bg-cloud-200" />],
-        ["br-100", "100%", <div className="w10 h10 br-100 ma3 bg-cloud-200" />],
-        ["br-0", "0", <div className="w10 h10 br-0 ma3 bg-cloud-200" />]
-    ]}
-/>
+For every colors of Orbit foundation the following classes are available:
+
+- b--[_color-name_]-[_50-900_] (ex. `b--sunary-50`)
+
+- hover-b--[_color-name_]-[_50-900_] (ex. `hover-b--sunary-50`)
 
 ## Tachyons
+
+<TachyonsFile relativeFilePath="/borders.css" />
 
 

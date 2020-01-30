@@ -62,46 +62,6 @@
 @import "./_opacity-pseudo";
 @import "./_rotations";
 @import "./_skins";
-@import "../products/apricot/_fill";
-@import "../products/apricot/_border";
-@import "../products/apricot/_background";
-@import "../products/apricot/_skin";
-@import "../products/desktop/_fill";
-@import "../products/desktop/_border";
-@import "../products/desktop/_background";
-@import "../products/desktop/_skin";
-@import "../products/overcast/_fill";
-@import "../products/overcast/_border";
-@import "../products/overcast/_background";
-@import "../products/overcast/_skin";
-@import "../brand/marine/_fill";
-@import "../brand/marine/_border";
-@import "../brand/marine/_background";
-@import "../brand/marine/_skin";
-@import "../brand/moonstone/_fill";
-@import "../brand/moonstone/_border";
-@import "../brand/moonstone/_background";
-@import "../brand/moonstone/_skin";
-@import "../brand/sunray/_fill";
-@import "../brand/sunray/_border";
-@import "../brand/sunray/_background";
-@import "../brand/sunray/_skin";
-@import "../ui/alert/_fill";
-@import "../ui/alert/_border";
-@import "../ui/alert/_background";
-@import "../ui/alert/_skin";
-@import "../ui/success/_fill";
-@import "../ui/success/_border";
-@import "../ui/success/_background";
-@import "../ui/success/_skin";
-@import "../ui/cloud/_fill";
-@import "../ui/cloud/_border";
-@import "../ui/cloud/_background";
-@import "../ui/cloud/_skin";
-@import "../ui/white/_fill";
-@import "../ui/white/_border";
-@import "../ui/white/_background";
-@import "../ui/white/_skin";
 @import "./_skins-pseudo";
 @import "./_spacing";
 @import "./_media_queries";
@@ -121,10 +81,3 @@
 @import "./_z-index";
 @import "./_nested";
 @import "./_styles";
-
-/* Debugging */
-/* @import './_debug-children';
-@import './_debug-grid'; */
-
-/* Uncomment out the line below to help debug layout issues */
-/* @import './_debug'; */
