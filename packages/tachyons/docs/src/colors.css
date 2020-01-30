@@ -4,6 +4,7 @@
 @import "../../src/products/apricot/_fill.css";
 
 /* DESKTOP */
+
 @import "../../src/products/desktop/_background.css";
 @import "../../src/products/desktop/_skin.css";
 @import "../../src/products/desktop/_fill.css";
