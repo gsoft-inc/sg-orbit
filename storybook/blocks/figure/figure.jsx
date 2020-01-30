@@ -4,7 +4,7 @@ export function Figure({ url, caption }) {
     return (
         <figure className={styles.figure}>
             <img src={url} alt={ caption } />
-            <figcaption>{ caption }</figcaption>
+            <figcaption className="i">{ caption }</figcaption>
         </figure>
     );
 }

@@ -1,0 +1,25 @@
+<details><summary>How to use fuzzy search</summary>
+
+To use a fuzzy search algorithm we recommend using a library like [fuse.js](https://fusejs.io/).
+
+Once the library is installed you define the following function:
+
+```javascript dark
+function fuzzySearch(event, items, query) {
+    const options = {
+        keys: ["text", "value"]
+    };
+
+    const fuse = new Fuse(items, options);
+    const results = fuse.search(query);
+
+    return results;
+}
+```
+
+And configure your multi-select component to use it:
+
+```jsx dark
+<MultiSelect onSearch={fuzzySearch} ... />
+```
+</details>

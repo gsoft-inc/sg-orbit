@@ -1,7 +1,7 @@
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
-    return storiesOfBuilder(module, createChromaticSection("Shape"))
+    return storiesOfBuilder(module, createChromaticSection("Borders"))
         .parameters(paramsBuilder()
             .chromaticDelay(100)
             .build())
@@ -9,7 +9,7 @@ function stories() {
 }
 
 stories()
-    .add("default",
+    .add("radiuses",
          () =>
              <div className="flex flex-row">
                  <div className="mr5 flex flex-column">
