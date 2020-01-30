@@ -1,6 +1,6 @@
 .figure {
     width: max-content;
     margin: 0;
-    background-color: var(--moonstone-50);
     padding: 1rem;
+    background-color: var(--moonstone-50);
 }

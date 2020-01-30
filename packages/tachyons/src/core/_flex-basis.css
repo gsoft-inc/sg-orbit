@@ -33,16 +33,64 @@
     .flex-basis-auto-ns {
         flex-basis: auto;
     }
+
+    .flex-basis-min-ns {
+        flex-basis: min-content;
+    }
+
+    .flex-basis-max-ns {
+        flex-basis: max-content;
+    }
+
+    .flex-basis-fit-ns {
+        flex-basis: fit-content;
+    }
+
+    .flex-basis-content-ns {
+        flex-basis: content;
+    }
 }
 
 @media (--breakpoint-medium) {
     .flex-basis-auto-m {
         flex-basis: auto;
     }
+
+    .flex-basis-min-m {
+        flex-basis: min-content;
+    }
+
+    .flex-basis-max-m {
+        flex-basis: max-content;
+    }
+
+    .flex-basis-fit-m {
+        flex-basis: fit-content;
+    }
+
+    .flex-basis-content-m {
+        flex-basis: content;
+    }
 }
 
 @media (--breakpoint-large) {
     .flex-basis-auto-l {
         flex-basis: auto;
+    }
+
+    .flex-basis-min-l {
+        flex-basis: min-content;
+    }
+
+    .flex-basis-max-l {
+        flex-basis: max-content;
+    }
+
+    .flex-basis-fit-l {
+        flex-basis: fit-content;
+    }
+
+    .flex-basis-content-l {
+        flex-basis: content;
     }
 }
