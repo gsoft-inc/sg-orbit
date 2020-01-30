@@ -23,9 +23,7 @@ Use typography to present your design and content as clearly and efficiently as 
 
 ## Usage
 
-In order to keep consistency and [vertical-rythmh](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*.
-
-Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
+In order to keep consistency and [vertical-rythmh](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*. Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
 
 | ![vertical-rythm-in-action.png](https://raw.githubusercontent.com/gsoft-inc/sg-orbit/add-css-vars-to-doc/storybook/stories/materials/typography/stories/assets/vertical-rythm-in-action.png) |
 |:--:|
@@ -38,7 +36,7 @@ Headlines are the largest text on the screen, reserved for short, important text
 <Table
     columns={[
         { title: "Font Size", className: styles.class },
-        { title: "Line Height" },
+        { title: "Line Height", className: styles.lineHeight },
         { title: "Font Weight" },
         { title: "", className: styles.example }
     ]}
@@ -59,7 +57,7 @@ Body text is typically used for long-form writing as it works well for small tex
 <Table
     columns={[
         { title: "Font Size", className: styles.class },
-        { title: "Line Height" },
+        { title: "Line Height", className: styles.lineHeight },
         { title: "Font Weight" },
         { title: "", className: styles.example }
     ]}
@@ -83,7 +81,7 @@ A simple ratio-based scale with 9 options.
 <Table
     columns={[
         { title: "Class", className: styles.class },
-        { title: "Value" },
+        { title: "Value", className: styles.value },
         { title: "Variable" },
         { title: "", className: styles.example }
     ]}
