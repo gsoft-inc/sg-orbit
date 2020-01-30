@@ -2,69 +2,59 @@
 /* APRICOT */
 @import "../../src/products/apricot/_background.css";
 @import "../../src/products/apricot/_skin.css";
-@import "../../src/products/apricot/_border.css";
 @import "../../src/products/apricot/_fill.css";
 
 /* DESKTOP */
+
 @import "../../src/products/desktop/_background.css";
 @import "../../src/products/desktop/_skin.css";
-@import "../../src/products/desktop/_border.css";
 @import "../../src/products/desktop/_fill.css";
 
 /* OVERCAST */
 @import "../../src/products/overcast/_background.css";
 @import "../../src/products/overcast/_skin.css";
-@import "../../src/products/overcast/_border.css";
 @import "../../src/products/overcast/_fill.css";
 
 /* PRIMARY */
 @import "../../src/products/primary/_background.css";
 @import "../../src/products/primary/_skin.css";
-@import "../../src/products/primary/_border.css";
 @import "../../src/products/primary/_fill.css";
 
 /* BRAND */
 /* MOONSTONE */
 @import "../../src/brand/moonstone/_background.css";
 @import "../../src/brand/moonstone/_skin.css";
-@import "../../src/brand/moonstone/_border.css";
 @import "../../src/brand/moonstone/_fill.css";
 
 /* SUNRAY */
 @import "../../src/brand/sunray/_background.css";
 @import "../../src/brand/sunray/_skin.css";
-@import "../../src/brand/sunray/_border.css";
 @import "../../src/brand/sunray/_fill.css";
 
 /* MARINE */
 @import "../../src/brand/marine/_background.css";
 @import "../../src/brand/marine/_skin.css";
-@import "../../src/brand/marine/_border.css";
 @import "../../src/brand/marine/_fill.css";
 
 /* FEEDBACK & UI */
 /* CLOUD */
 @import "../../src/ui/cloud/_background.css";
 @import "../../src/ui/cloud/_skin.css";
-@import "../../src/ui/cloud/_border.css";
 @import "../../src/ui/cloud/_fill.css";
 
 /* ALERT */
 @import "../../src/ui/alert/_background.css";
 @import "../../src/ui/alert/_skin.css";
-@import "../../src/ui/alert/_border.css";
 @import "../../src/ui/alert/_fill.css";
 
 /* SUCCESS */
 @import "../../src/ui/success/_background.css";
 @import "../../src/ui/success/_skin.css";
-@import "../../src/ui/success/_border.css";
 @import "../../src/ui/success/_fill.css";
 
 /* WHITE */
 @import "../../src/ui/white/_background.css";
 @import "../../src/ui/white/_skin.css";
-@import "../../src/ui/white/_border.css";
 @import "../../src/ui/white/_fill.css";
 
 /* UTILS */
