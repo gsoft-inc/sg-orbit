@@ -3,7 +3,6 @@
 *******************************/
 
 /* border-box is necessary in order for the radio to be centered everywhere */
-
 .ui.radio.checkbox label:before {
     box-sizing: border-box;
     border: 2px solid var(--cloud-100);
@@ -50,8 +49,23 @@
 
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Fitted checkbox should not be centered */
+.ui.checkbox.fitted .box:before,
+.ui.checkbox.fitted label:before {
+    top: 0;
+    transform: none;
+}
+
+.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked ~ label:after,
+.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
+.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+    top: 0;
+    transform: none;
 }
 
 .ui.checkbox input:checked:disabled ~ .box:before,
@@ -127,8 +141,8 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .ui.checkbox .box:hover::before,
