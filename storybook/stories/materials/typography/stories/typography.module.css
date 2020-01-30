@@ -6,6 +6,11 @@
     width: 175px;
 }
 
+.value,
+.lineHeight {
+    width: 270px;
+}
+
 .example {
     width: 500px;
 }

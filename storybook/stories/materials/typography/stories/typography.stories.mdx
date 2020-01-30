@@ -17,30 +17,30 @@ import Installation from "../../installation.mdx";
 
 Use typography to present your design and content as clearly and efficiently as possible.
 
+Typography a large subject which includes [type scale](http://tachyons.io/docs/typography/scale/), [measure](http://tachyons.io/docs/typography/measure/), [line-height](http://tachyons.io/docs/typography/line-height/), [tracking](http://tachyons.io/docs/typography/tracking/), [font-weight](http://tachyons.io/docs/typography/font-weight/), [font-style](http://tachyons.io/docs/typography/font-style/), [vertical-align](http://tachyons.io/docs/typography/vertical-align/), [text-align](http://tachyons.io/docs/typography/text-align/), [text-transform](http://tachyons.io/docs/typography/text-transform/), [text-decoration](http://tachyons.io/docs/typography/text-decoration/) and [white-space](http://tachyons.io/docs/typography/white-space/).
+
+You will find most of the documentation for typography utilities on [Tachyons website](http://tachyons.io/docs/). Keep in mind though that some sections have adapted to Orbit foundation. For an exhaustive list of utilities classes for typography **including** our customizations, please refer to the [Tachyons section](#tachyons) below.
+
 ## Installation
 
 <Installation />
 
 ## Usage
 
-### Type Scale
+In order to keep consistency and [vertical-rythmh](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*. Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
 
-In order to keep consistency and [vertical-rythmh](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*.
-
-Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
-
-| ![vertical-rythm-in-action.png](https://raw.githubusercontent.com/gsoft-inc/sg-orbit/add-css-vars-to-doc/storybook/stories/materials/typography/stories/vertical-rythm-in-action.png) |
+| ![vertical-rythm-in-action.png](https://raw.githubusercontent.com/gsoft-inc/sg-orbit/add-css-vars-to-doc/storybook/stories/materials/typography/stories/assets/vertical-rythm-in-action.png) |
 |:--:|
 | *Vertical rythmh in action* |
 
 ### Headlines
 
-Headlines are the largest text on the screen, reserved for short, important text or numerals.
+Headlines are the largest text on the screen, reserved for short, important text or numerals. When you add an headline to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***.
 
 <Table
     columns={[
         { title: "Font Size", className: styles.class },
-        { title: "Line Height" },
+        { title: "Line Height", className: styles.lineHeight },
         { title: "Font Weight" },
         { title: "", className: styles.example }
     ]}
@@ -56,12 +56,12 @@ Headlines are the largest text on the screen, reserved for short, important text
 
 ### Body
 
-Body text is typically used for long-form writing as it works well for small text sizes.
+Body text is typically used for long-form writing as it works well for small text sizes. When you add body text to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***.
 
 <Table
     columns={[
         { title: "Font Size", className: styles.class },
-        { title: "Line Height" },
+        { title: "Line Height", className: styles.lineHeight },
         { title: "Font Weight" },
         { title: "", className: styles.example }
     ]}
@@ -76,14 +76,16 @@ Body text is typically used for long-form writing as it works well for small tex
     rowClassName="h13"
 />
 
-### Font Size
+## Utilities
+
+### Type scale
 
 A simple ratio-based scale with 9 options.
 
 <Table
     columns={[
         { title: "Class", className: styles.class },
-        { title: "Value" },
+        { title: "Value", className: styles.value },
         { title: "Variable" },
         { title: "", className: styles.example }
     ]}
@@ -101,9 +103,9 @@ A simple ratio-based scale with 9 options.
     rowClassName="h13"
 />
 
-## Line Height
+### Line Height
 
-Line height, also known as leading, controls the amount of space between baselines in a block of text. A text's line height is proportional to its type size.
+Also known as leading, line height controls the amount of space between baselines in a block of text. A text's line height is proportional to its type size.
 
 <Table
     columns={[
@@ -122,7 +124,7 @@ Line height, also known as leading, controls the amount of space between baselin
     rowClassName="h13"
 />
 
-## Font Weight
+### Font Weight
 
 Weight refers to the relative thickness of a font's stroke. A typeface can come in many weights; and four to six weights is a typical number available for a typeface.
 

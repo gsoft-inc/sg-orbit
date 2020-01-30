@@ -3,15 +3,7 @@
 @import "../../foundation/dist/overcast.css";
 @import "../../foundation/dist/desktop.css";
 
-@import "./core/index.css";
-@import "./products/apricot/_skin.css";
-@import "./products/apricot/_border.css";
-@import "./products/apricot/_fill.css";
-@import "./products/desktop/_background.css";
-@import "./products/desktop/_skin.css";
-@import "./products/desktop/_border.css";
-@import "./products/desktop/_fill.css";
-@import "./products/overcast/_background.css";
-@import "./products/overcast/_skin.css";
-@import "./products/overcast/_border.css";
-@import "./products/overcast/_fill.css";
+@import "./tachyons.css";
+@import "./products/apricot/index.css";
+@import "./products/desktop/index.css";
+@import "./products/overcast/index.css";

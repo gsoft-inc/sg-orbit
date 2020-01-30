@@ -1,5 +1,2 @@
-@import "./core/index.css";
-@import "./products/desktop/_fill";
-@import "./products/desktop/_border";
-@import "./products/desktop/_background";
-@import "./products/desktop/_skin";
+@import "./tachyons.css";
+@import "./products/desktop/index.css";
