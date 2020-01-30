@@ -2,9 +2,11 @@
 
 To use a fuzzy search algorithm we recommend using a library like [fuse.js](https://fusejs.io/).
 
-Once the library is installed you define the following function:
+Once the library is installed, define the following function:
 
 ```javascript dark
+import Fuse from "fuse.js";
+
 function fuzzySearch(event, items, query) {
     const options = {
         keys: ["text", "value"]

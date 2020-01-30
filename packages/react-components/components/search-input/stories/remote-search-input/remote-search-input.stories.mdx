@@ -57,6 +57,28 @@ export const API_REQUEST_OPTIONS = {
     }
 };
 
+export const dataFetcher = useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS });
+
+export const resultsMapper = response => {
+    return response.data.map(x => searchInputResult(x.code, x.name));
+};
+
+## Constants
+
+The following constants are used in the examples below:
+
+```javascript dark
+const dataFetcher = useDefaultResultsFetcher(
+    "https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5",
+    "namePrefix",
+    { requestOptions: API_REQUEST_OPTIONS
+});
+
+const resultsMapper = response => {
+    return response.data.map(x => searchInputResult(x.code, x.name));
+};
+```
+
 ### Default
 
 A default remote search input.
@@ -64,10 +86,8 @@ A default remote search input.
 <Preview>
     <Story name="default">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -84,10 +104,8 @@ A default remote search input.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
         defaultValue={text("defaultValue")}
         debounceDelay={number("debounceDelay", RemoteSearchInput.defaultProps.debounceDelay)}
         loadingDelay={number("loadingDelay", RemoteSearchInput.defaultProps.loadingDelay)}
@@ -110,11 +128,9 @@ A remote search input can have a default value.
 <Preview>
     <Story name="selected value">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
             defaultValue="Canada"
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -128,11 +144,9 @@ A remote search input results box can close when a result is selected.
 <Preview>
     <Story name="clear on select">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
             clearOnSelect
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -146,11 +160,9 @@ A remote search input can be disabled.
 <Preview>
     <Story name="disabled">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
             disabled
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -164,11 +176,9 @@ A remote search input can take the width of its container.
 <Preview>
     <Story name="fluid">
         <RemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
             fluid
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -182,10 +192,8 @@ A remote search input can take the width of its container.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
         closeOnBlur={false}
         closeOnOutsideClick
         onValueChange={logValueChanged}
@@ -217,22 +225,9 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
         <div className="flex items-end items-space-between">
             <div className="flex-auto">
                 <RemoteSearchInput
-                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-                    onResults={response => {
-                        return response.data.map(x => searchInputResult(x.code, x.name));
-                    }}
-                    onValueChange={logValueChanged}
                     size="small"
-                    fluid
-                    placeholder="Type a country name"
-                />
-            </div>
-            <div className="flex-auto">
-                <RemoteSearchInput
-                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-                    onResults={response => {
-                        return response.data.map(x => searchInputResult(x.code, x.name));
-                    }}
+                    onFetchResults={dataFetcher}
+                    onResults={resultsMapper}
                     onValueChange={logValueChanged}
                     fluid
                     placeholder="Type a country name"
@@ -240,12 +235,19 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
             </div>
             <div className="flex-auto">
                 <RemoteSearchInput
-                    onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-                    onResults={response => {
-                        return response.data.map(x => searchInputResult(x.code, x.name));
-                    }}
+                    onFetchResults={dataFetcher}
+                    onResults={resultsMapper}
                     onValueChange={logValueChanged}
+                    fluid
+                    placeholder="Type a country name"
+                />
+            </div>
+            <div className="flex-auto">
+                <RemoteSearchInput
                     size="large"
+                    onFetchResults={dataFetcher}
+                    onResults={resultsMapper}
+                    onValueChange={logValueChanged}
                     fluid
                     placeholder="Type a country name"
                 />
@@ -261,10 +263,8 @@ A remote search input can handle `value` and `open` state in controlled mode.
 <Preview>
     <Story name="controlled">
         <ControlledRemoteSearchInput
-            onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-            onResults={response => {
-                return response.data.map(x => searchInputResult(x.code, x.name));
-            }}
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
             onValueChange={logValueChanged}
             placeholder="Type a country name"
         />
@@ -278,10 +278,8 @@ A remote search input can handle `value` and `open` state in controlled mode.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
         open
         onValueChange={logValueChanged}
         placeholder="Type a country name"
@@ -295,10 +293,8 @@ A remote search input can handle `value` and `open` state in controlled mode.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
         autofocus
         onValueChange={logValueChanged}
         placeholder="Type a country name"
@@ -312,10 +308,8 @@ A remote search input can handle `value` and `open` state in controlled mode.
         .build()}
 >
     <RemoteSearchInput
-        onFetchResults={useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS })}
-        onResults={response => {
-            return response.data.map(x => searchInputResult(x.code, x.name));
-        }}
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
         autofocus
         autofocusDelay={500}
         onValueChange={logValueChanged}

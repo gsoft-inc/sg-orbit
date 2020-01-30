@@ -49,9 +49,15 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 
 ### Constants
 
-The following constants are used in all the examples below:
+The following constants are used in the examples below:
 
 ```js dark
+const GROUP_CREATED_VALUE = "group-created";
+const GROUP_RESTORED_VALUE = "group-restored";
+const GROUP_DELETED_VALUE = "group-deleted";
+const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
+const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
+
 const DEFAULT_ITEMS = [
     multiSelectItem("Created", GROUP_CREATED_VALUE),
     multiSelectItem("Restored", GROUP_RESTORED_VALUE),
@@ -128,8 +134,8 @@ A multi select can have an initial set of selected items.
 <Preview>
     <Story name="default values">
         <MultiSelect
-            items={DEFAULT_ITEMS}
             defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -142,8 +148,8 @@ A multi select dropdown can close when an item is selected.
 <Preview>
     <Story name="close on select">
         <MultiSelect
-            items={DEFAULT_ITEMS}
             closeOnSelect
+            items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -156,8 +162,8 @@ A multi select can use a custom search handler. In the following example, a fuzz
 <Preview>
     <Story name="custom search">
         <MultiSelect
-            items={DEFAULT_ITEMS}
             onSearch={fuzzySearch}
+            items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -172,9 +178,9 @@ A multi select can be disabled.
 <Preview>
     <Story name="disabled">
         <MultiSelect
+            disabled
             items={DEFAULT_ITEMS}
             defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
-            disabled
             onValuesChange={logValuesChanged}
         />
     </Story>
