@@ -1,15 +1,15 @@
-import styles from "./packages.module.css";
-
 import { ExternalLink, Table } from "@blocks";
-import { arrayOf, node, oneOfType, shape, string } from "prop-types";
+import { arrayOf, element, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
+
+import styles from "./packages-table.module.css";
 
 const Img = components.img;
 
 const propTypes = {
     packages: arrayOf(shape({
         name: string.isRequired,
-        description: oneOfType([string, node]).isRequired,
+        description: oneOfType([string, element]).isRequired,
         relativePath: string.isRequired
     }))
 };
