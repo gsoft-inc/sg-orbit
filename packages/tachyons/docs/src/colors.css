@@ -1,3 +1,9 @@
+/* PRIMARY */
+@import "../../src/primary/_background.css";
+@import "../../src/primary/_text.css";
+@import "../../src/primary/_fill.css";
+
+
 /* APRICOT */
 @import "../../src/products/apricot/_background.css";
 @import "../../src/products/apricot/_text.css";
@@ -13,11 +19,6 @@
 @import "../../src/products/overcast/_background.css";
 @import "../../src/products/overcast/_text.css";
 @import "../../src/products/overcast/_fill.css";
-
-/* PRIMARY */
-@import "../../src/primary/_background.css";
-@import "../../src/primary/_text.css";
-@import "../../src/primary/_fill.css";
 
 /* MOONSTONE */
 @import "../../src/brand/moonstone/_background.css";

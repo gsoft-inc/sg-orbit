@@ -1,3 +1,6 @@
+/* PRIMARY */
+@import "../../src/primary/_border.css";
+
 /* APRICOT */
 @import "../../src/products/apricot/_border.css";
 
@@ -6,9 +9,6 @@
 
 /* OVERCAST */
 @import "../../src/products/overcast/_border.css";
-
-/* PRIMARY */
-@import "../../src/primary/_border.css";
 
 /* MOONSTONE */
 @import "../../src/brand/moonstone/_border.css";

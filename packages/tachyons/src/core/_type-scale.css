@@ -1,13 +1,3 @@
-.f-6, .f-headline {
-    font-size: var(--type-scale-headline);
-}
-
-.f-5, .f-subheadline {
-    font-size: var(--type-scale-subheadline);
-}
-
-/* Type Scale */
-
 .f1 {
     font-size: var(--type-scale-1);
 }
@@ -42,6 +32,14 @@
 
 .f9 {
     font-size: var(--type-scale-9);
+}
+
+.f-6, .f-headline {
+    font-size: var(--type-scale-headline);
+}
+
+.f-5, .f-subheadline {
+    font-size: var(--type-scale-subheadline);
 }
 
 @media (--breakpoint-not-small) {
