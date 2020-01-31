@@ -34,6 +34,8 @@
         "build-docs:shadows": "tachyons docs/src/shadows.css --preserve-variables > docs/dist/shadows.css",
         "build-docs:flexbox": "tachyons docs/src/flexbox.css --preserve-variables > docs/dist/flexbox.css",
         "build-docs:borders": "tachyons docs/src/borders.css --preserve-variables > docs/dist/borders.css",
+        "build-docs:spacing": "tachyons docs/src/spacing.css --preserve-variables > docs/dist/spacing.css",
+        "build-docs:typography": "tachyons docs/src/typography.css --preserve-variables > docs/dist/typography.css",
         "watch": "watch \"yarn build-watch\" ./src/",
         "clean": "yarn clear-dist",
         "prepublishOnly": "yarn copy-license-to-dist",
