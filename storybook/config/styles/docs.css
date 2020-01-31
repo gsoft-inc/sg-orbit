@@ -91,10 +91,6 @@ details + details {
     text-decoration: underline;
 }
 
-.sbdocs.sbdocs-table {
-    width: 100%;
-}
-
 .sbdocs.sbdocs-table tr {
     border-top: 1px solid var(--cloud-100);
 }

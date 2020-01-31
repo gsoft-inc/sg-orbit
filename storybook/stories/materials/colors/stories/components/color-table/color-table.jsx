@@ -11,12 +11,12 @@ const propTypes = {
     })).isRequired
 };
 
-function toRowValues(color) {
+function toRowValues({ shade, variable, hexa }) {
     return [
-        color.shade,
-        color.variable,
-        color.hexa,
-        { className: "h8", style: { backgroundColor: color.hexa } }
+        shade,
+        variable,
+        hexa,
+        { className: "h8", style: { backgroundColor: hexa } }
     ];
 }
 

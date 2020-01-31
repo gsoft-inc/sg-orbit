@@ -6,4 +6,4 @@ export * from "./warning-message";
 export * from "./brand-picker";
 export * from "./tachyons-file";
 export * from "./table";
-export * from "./preview";
+export * from "./external-link";

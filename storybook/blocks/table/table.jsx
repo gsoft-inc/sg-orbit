@@ -1,5 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 
+import styles from "./table.module.css";
+
 import { any, arrayOf, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";
@@ -25,6 +27,18 @@ const propTypes = {
     rowClassName: string
 };
 
+function TableRaw({ className, children, ...rest }) {
+    const classes = mergeClasses(
+        styles.table,
+        className
+    );
+
+    return (
+        <MdxTable className={classes} {...rest}>
+            {children}
+        </MdxTable>
+    );
+}
 
 export function Table({ columns, rows, rowClassName }) {
     const renderValue = (value, key) => {
@@ -41,7 +55,7 @@ export function Table({ columns, rows, rowClassName }) {
     };
 
     return (
-        <MdxTable>
+        <TableRaw>
             <thead>
                 <tr>
                     {columns.map(x => <th align="left" className={x.className} key={x.title}>{x.title}</th>)}
@@ -56,10 +70,10 @@ export function Table({ columns, rows, rowClassName }) {
                     );
                 })}
             </tbody>
-        </MdxTable>
+        </TableRaw>
     );
 }
 
 Table.propTypes = propTypes;
 
-Table.Raw = Table;
+Table.Raw = TableRaw;
