@@ -1,46 +1,62 @@
-/* PRIMARY */
+/* 
+ * PRIMARY 
+ */
 @import "../../src/primary/_background.css";
 @import "../../src/primary/_text.css";
 @import "../../src/primary/_fill.css";
 
-
-/* APRICOT */
+/* 
+ * APRICOT
+ */
 @import "../../src/products/apricot/_background.css";
 @import "../../src/products/apricot/_text.css";
 @import "../../src/products/apricot/_fill.css";
 
-/* DESKTOP */
-
+/*
+ * DESKTOP
+ */
 @import "../../src/products/desktop/_background.css";
 @import "../../src/products/desktop/_text.css";
 @import "../../src/products/desktop/_fill.css";
 
-/* OVERCAST */
+/*
+ * OVERCAST
+ */
 @import "../../src/products/overcast/_background.css";
 @import "../../src/products/overcast/_text.css";
 @import "../../src/products/overcast/_fill.css";
 
-/* MOONSTONE */
+/*
+ * MOONSTONE
+ */
 @import "../../src/brand/moonstone/_background.css";
 @import "../../src/brand/moonstone/_text.css";
 @import "../../src/brand/moonstone/_fill.css";
 
-/* SUNRAY */
+/*
+ * SUNRAY
+ */
 @import "../../src/brand/sunray/_background.css";
 @import "../../src/brand/sunray/_text.css";
 @import "../../src/brand/sunray/_fill.css";
 
-/* MARINE */
+/*
+ * MARINE
+ */
 @import "../../src/brand/marine/_background.css";
 @import "../../src/brand/marine/_text.css";
 @import "../../src/brand/marine/_fill.css";
 
-/* CLOUD */
+/* 
+ * CLOUD
+ */
 @import "../../src/ui/cloud/_background.css";
 @import "../../src/ui/cloud/_text.css";
 @import "../../src/ui/cloud/_fill.css";
 
-/* ALERT */
+/*
+ * ALERT
+ */
 @import "../../src/ui/alert/_background.css";
 @import "../../src/ui/alert/_text.css";
 @import "../../src/ui/alert/_fill.css";
@@ -50,10 +66,14 @@
 @import "../../src/ui/success/_text.css";
 @import "../../src/ui/success/_fill.css";
 
-/* WHITE */
+/*
+ * WHITE
+ */
 @import "../../src/ui/white/_background.css";
 @import "../../src/ui/white/_text.css";
 @import "../../src/ui/white/_fill.css";
 
-/* UTILS */
+/*
+ * UTILS
+ */
 @import "../../src/core/_skins";

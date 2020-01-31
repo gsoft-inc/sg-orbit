@@ -7,7 +7,6 @@ import { Props } from "@blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { fuzzySearch, logValuesChanged } from "./utils";
-import FuzzySearch from "./fuzzy-search.mdx";
 import Imports from "./imports.mdx";
 
 import MultiSelectItemUsage from "./multi-select-item-usage.mdx";
@@ -157,7 +156,22 @@ A multi select dropdown can close when an item is selected.
 
 ### Custom search
 
-A multi select can use a custom search handler. In the following example, a fuzzy search algorithm is used.
+A multi select can use a custom search handler.
+
+In the following example, a custom [fuzzy search algorithm](https://en.wikipedia.org/wiki/Approximate_string_matching) based on the [fuse.js](https://fusejs.io/) library is used:
+
+```javascript dark
+function fuzzySearch(event, items, query) {
+    const options = {
+        keys: ["text", "value"]
+    };
+
+    const fuse = new Fuse(items, options);
+    const results = fuse.search(query);
+
+    return results;
+}
+```
 
 <Preview>
     <Story name="custom search">
@@ -168,8 +182,6 @@ A multi select can use a custom search handler. In the following example, a fuzz
         />
     </Story>
 </Preview>
-
-<FuzzySearch />
 
 ### Disabled
 

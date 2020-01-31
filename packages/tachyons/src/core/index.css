@@ -64,7 +64,8 @@
 @import "./_rotations";
 @import "./_skins";
 @import "./_skins-pseudo";
-@import "./_spacing";
+@import "./_paddings";
+@import "./_margins";
 @import "./_media_queries";
 @import "./_negative-margins";
 @import "./_tables";
