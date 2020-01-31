@@ -38,5 +38,17 @@ stories()
                      <Checkbox radio disabled label="Meteor Shower" />
                      <Checkbox radio checked disabled label="Meteor Shower" />
                  </div>
+                 <div className="flex">
+                     <Checkbox />
+                     <Checkbox checked />
+                     <Checkbox disabled />
+                     <Checkbox checked disabled />
+                 </div>
+                 <div className="flex">
+                     <Checkbox radio />
+                     <Checkbox radio checked />
+                     <Checkbox radio disabled />
+                     <Checkbox radio checked disabled />
+                 </div>
              </>
     );
