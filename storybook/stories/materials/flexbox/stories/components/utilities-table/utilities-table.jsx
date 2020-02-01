@@ -20,7 +20,7 @@ function toRowValues({ name, description, example }) {
 
 export function UtilitiesTable({ utilities }) {
     return (
-        <Table 
+        <Table
             columns={[
                 { title: "Class" },
                 { title: "", className: styles.example }
