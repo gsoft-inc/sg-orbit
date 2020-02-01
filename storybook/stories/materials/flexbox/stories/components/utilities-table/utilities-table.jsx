@@ -28,7 +28,7 @@ export function UtilitiesTable({ utilities }) {
             rows={utilities.map(x => toRowValues(x))}
             rowClassName="h13"
         />
-    )
+    );
 }
 
 UtilitiesTable.propTypes = propTypes;
