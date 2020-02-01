@@ -1,5 +1,5 @@
 import { Table } from "@blocks";
-import { arrayOf, element, oneOfType, shape, string } from "prop-types";
+import { arrayOf, element, shape, string } from "prop-types";
 
 import styles from "./utilities-table.module.css";
 
@@ -30,3 +30,5 @@ export function UtilitiesTable({ utilities }) {
         />
     )
 }
+
+UtilitiesTable.propTypes = propTypes;
