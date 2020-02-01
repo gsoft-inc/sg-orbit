@@ -71,8 +71,8 @@ The following constants are used in the examples below:
 const dataFetcher = useDefaultResultsFetcher(
     "https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5",
     "namePrefix",
-    { requestOptions: API_REQUEST_OPTIONS
-});
+    { requestOptions: API_REQUEST_OPTIONS }
+);
 
 const resultsMapper = response => {
     return response.data.map(x => searchInputResult(x.code, x.name));

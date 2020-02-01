@@ -1,9 +1,9 @@
+import { ExternalLink, Table, TachyonsFile } from "@blocks";
+import { Fragment } from "react";
 import { MaterialsLayout } from "../../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { Table, TachyonsFile, ExternalLink } from "@blocks";
-import { createMaterialSection, paramsBuilder } from "@utils";
 import { UtilitiesTable } from "./components/utilities-table";
-import { Fragment } from "react";
+import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../../installation.mdx";
 
 <Meta
@@ -25,11 +25,11 @@ You will find most of the documentation for flexbox utilities on [Tachyons websi
 
 ## Utilities
 
-Custom flexbox utilities added to Tachyons.
+The following custom flexbox utilities have been added to Tachyons to handle common use cases that we kept writing specific selector for.
 
 <UtilitiesTable
     utilities={[
-        { 
+        {
             name: "flex-grow-0",
             description: "Use when you don't want the item to be given additional space during items size calculation.",
             example: (
@@ -39,7 +39,7 @@ Custom flexbox utilities added to Tachyons.
                 </div>
             )
         },
-        { 
+        {
             name: "flex-grow-1",
             description: "Use when you want the item to take as much space as available during items size calculation.",
             example: (
@@ -49,7 +49,7 @@ Custom flexbox utilities added to Tachyons.
                 </div>
             )
         },
-        { 
+        {
             name: "flex-shrink-0",
             description: "Use when you don't want the item to lose space during items size calculation. A common use case of shrink is to prevent an item from breaking on multiple lines.",
             example: (
@@ -66,7 +66,7 @@ Custom flexbox utilities added to Tachyons.
                 </div>
             )
         },
-        { 
+        {
             name: "flex-shrink-1",
             description: "Use when you want an item to lose space during items size calculation if there isn't enough space available.",
             example: (
@@ -82,7 +82,7 @@ Custom flexbox utilities added to Tachyons.
                 </div>
             )
         },
-        { 
+        {
             name: "flex-basis-auto",
             description: <Fragment>Use to set the initial size of a flex item automatically. View flex basis article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">MDN</ExternalLink> for more info.</Fragment>,
             example: (
