@@ -1,24 +1,25 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
-import { bool, func, node, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "icon", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
+const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
 const propTypes = {
     /**
      * A label can be colorless. Use this variant if you need to customize the label.
      */
     naked: bool,
-    /**
-     * A label can contain a button.
-     */
+    // /**
+    //  * A label can contain a button. The component will take care of rendering the button element once an icon for the button is provided.
+    //  */
+    // buttonIcon: element,
     button: bool,
     /**
      * A label can contain an icon.
      */
-    icon: node,
+    icon: element,
     /**
      * An icon can appear on the left or right.
      */
@@ -39,8 +40,17 @@ const defaultProps = {
     iconPosition: "left"
 };
 
-export function PureLabel({ naked, button, className, forwardedRef, icon, iconPosition, children, ...props }) {
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
+// function throwWhenMutuallyExclusivePropsAreProvided({ buttonIcon, iconPosition }) {
+//     if (!isNil(buttonIcon) && iconPosition === "right") {
+//         throw new ArgumentError("@orbit/react-label doesn't support having a \"buttonIcon\" and \"iconPosition=right\" at the same time.");
+//     }
+// }
+
+export function PureLabel(props) {
+    const { naked, button, icon, iconPosition, className, children, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
+    // throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const renderWithRef = () => {
         return (
@@ -51,14 +61,12 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
     };
 
     const renderIcon = () => {
-        if (!isNil(icon)) {
-            return cloneElement(icon, {
-                className: mergeClasses(
-                    "icon",
-                    icon.props && icon.props.className
-                )
-            });
-        }
+        return cloneElement(icon, {
+            className: mergeClasses(
+                "icon",
+                icon.props && icon.props.className
+            )
+        });
     };
 
     const renderLabelContent = () => {
@@ -77,12 +85,12 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
         const classes = mergeClasses(
             naked && "naked",
             button && "with-button",
-            icon && "with-icon",
-            iconPosition === "right" && "with-icon-right",
+            !isNil(icon) && "with-icon",
+            !isNil(icon) && iconPosition === "right" && "with-icon-right",
             className
         );
 
-        return <SemanticLabel className={classes} {...props}>{renderLabelContent()}</SemanticLabel>;
+        return <SemanticLabel className={classes} {...rest}>{renderLabelContent()}</SemanticLabel>;
     };
 
     return isNil(forwardedRef) ? renderLabel() : renderWithRef();

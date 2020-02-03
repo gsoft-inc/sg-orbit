@@ -32,29 +32,43 @@ export const Buttons = props => {
             </div>
             {/* skin should affect content here (icon colour) */}
             <div className="flex flex-column items-start">
-                <Button icon {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon active {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon disabled {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon {...props} ghost><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon active ghost {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon disabled ghost {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon {...props} basic><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon {...props} active basic><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon {...props} disabled basic><SignoutIcon24 className="mr1" />Button</Button>
+                <Button icon={<SignoutIcon24 />} {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} active {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} disabled {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} {...props} ghost>Button</Button>
+                <Button icon={<SignoutIcon24 />} active ghost {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} disabled ghost {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} {...props} basic>Button</Button>
+                <Button icon={<SignoutIcon24 />} {...props} active basic>Button</Button>
+                <Button icon={<SignoutIcon24 />} {...props} disabled basic>Button</Button>
             </div>
             {/* icon + text */}
             <div className="flex flex-column items-start">
-                <Button icon compact {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon circular {...props}><SignoutIcon24 className="icon" /></Button>
-                <Button icon size="tiny" {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="tiny" compact {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="tiny" circular {...props}><SignoutIcon24 className="icon" /></Button>
-                <Button icon size="small" {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="small" compact {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="small" circular {...props}><SignoutIcon24 className="icon" /></Button>
-                <Button icon size="large" {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="large" compact {...props}><SignoutIcon24 className="mr1" />Button</Button>
-                <Button icon size="large" circular {...props}><SignoutIcon24 className="icon" /></Button>
+                <Button icon={<SignoutIcon24 />} compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="tiny" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="tiny" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="tiny" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="small" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="small" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="small" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="large" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="large" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} size="large" circular {...props}></Button>
+            </div>
+            {/* icon right + text */}
+            <div className="flex flex-column items-start">
+                <Button icon={<SignoutIcon24 />} iconPosition="right" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" compact {...props}>Button</Button>
+                <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" circular {...props}></Button>
             </div>
             {/* icon */}
             <div className="flex flex-column items-start">
@@ -78,12 +92,14 @@ export const Buttons = props => {
                 <Button size="large" {...props}><CalendarIcon /></Button>
                 <Button size="large" compact {...props}><CalendarIcon /></Button>
             </div>
-            {/* tag + text / tag + text + icon */}
+            {/* tag + text / tag + text + icon / label + text / label + text + icon */}
             <div className="flex flex-column items-start">
-                <Button tag {...props}><Label tag circular size="mini" empty color="red" />One</Button>
-                <Button tag compact {...props}><Label tag circular size="mini" empty color="red" />One</Button>
-                <Button label {...props}>One<Label circular size="mini" empty color="red" /></Button>
-                <Button label compact {...props}>One<Label circular size="mini" empty color="red" /></Button>
+                <Button tag={<Label tag circular empty color="red" />}>One</Button>
+                <Button tag={<Label tag circular empty color="red" />} icon={<CalendarIcon24 />} iconPosition="right">One</Button>
+                <Button tag={{ color: "orange" }}>One</Button>
+                <Button label={<Label>6</Label>}>One</Button>
+                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} >One</Button>
+                <Button label={{ content: "12", className:"bg-marine-100" }}>One</Button>
             </div>
             {/* text / loading */}
             <div className="flex flex-column items-start">

@@ -1,3 +1,5 @@
+export * from "./factories";
+
 export { ReactComponent as AddIcon } from "./icon-add-32.svg";
 export { ReactComponent as AddIcon24 } from "./icon-add-24.svg";
 export { ReactComponent as ArrowIcon } from "./icon-arrow-32.svg";
