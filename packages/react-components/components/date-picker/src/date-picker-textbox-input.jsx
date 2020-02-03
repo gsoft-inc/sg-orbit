@@ -193,15 +193,13 @@ export class DatePickerTextboxInput extends PureComponent {
                     circular
                     ghost
                     secondary
-                    icon
+                    icon={clearIcon}
                     size="tiny"
                     onClick={this.handleClearButtonClick}
                     type="button"
                     ref={this._clearButtonRef}
                     data-testid="date-picker-textbox-clear-button"
-                >
-                    {clearIcon}
-                </Button>
+                />
             </div>
         );
     }
