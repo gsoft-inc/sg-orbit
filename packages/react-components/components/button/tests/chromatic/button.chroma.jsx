@@ -1,7 +1,7 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
 import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
-import { Label } from "@orbit-ui/react-label/src";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";
 
@@ -237,6 +237,11 @@ stories()
              </div>
     );
 
+stories()
+    .add("custom css class", () =>
+        <Button className="bg-red">Button</Button>
+    );
+
 stories("/icons")
     .add("default", () =>
         <Button icon={<CalendarIcon24 />}>Button</Button>
@@ -254,7 +259,7 @@ function setRedBackground(element) {
     }
 }
 
-stories("/label/render prop")
+stories("/render prop/label")
     .add("default", () =>
         <Button label={<Label>6</Label>}>Button</Button>
     )
@@ -265,7 +270,15 @@ stories("/label/render prop")
         <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
     );
 
-stories("/label/shorthand")
+stories("/render prop/tag")
+    .add("default", () =>
+        <Button tag={<Tag className="bg-red" />}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
+    );
+
+stories("/shorthand/label")
     .add("default", () =>
         <Button label={{ content: "6" }}>Button</Button>
     )
@@ -276,22 +289,8 @@ stories("/label/shorthand")
         <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
     );
 
-stories("/tag/render prop")
+stories("/shorthand/tag")
     .add("default", () =>
-        <Button tag={<Label tag circular empty color="orange" />}>Button</Button>
-    )
-    .add("css class", () =>
-        <Button tag={<Label tag circular empty className="bg-red" />}>Button</Button>
-    )
-    .add("ref", () =>
-        <Button tag={<Label tag circular empty ref={setRedBackground} />}>Button</Button>
-    );
-
-stories("/tag/shorthand")
-    .add("default", () =>
-        <Button tag={{ color: "orange" }}>Button</Button>
-    )
-    .add("css class", () =>
         <Button tag={{ className: "bg-red" }}>Button</Button>
     )
     .add("ref", () =>

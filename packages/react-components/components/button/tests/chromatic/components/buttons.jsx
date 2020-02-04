@@ -1,6 +1,6 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
-import { Label } from "@orbit-ui/react-label/src";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 
 export const Buttons = props => {
     return (
@@ -94,10 +94,10 @@ export const Buttons = props => {
             </div>
             {/* tag + text / tag + text + icon / label + text / label + text + icon */}
             <div className="flex flex-column items-start">
-                <Button tag={<Label tag circular empty color="red" />}>One</Button>
-                <Button tag={<Label tag circular empty color="red" />} compact>One</Button>
-                <Button tag={<Label tag circular empty color="red" />} icon={<CalendarIcon24 />} iconPosition="right">One</Button>
-                <Button tag={<Label tag circular empty color="red" />} icon={<CalendarIcon24 />} iconPosition="right" compact>One</Button>
+                <Button tag={<Tag className="bg-red" />}>One</Button>
+                <Button tag={<Tag className="bg-red" />} compact>One</Button>
+                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right">One</Button>
+                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right" compact>One</Button>
                 <Button label={<Label>6</Label>}>One</Button>
                 <Button label={<Label>6</Label>} compact>One</Button>
                 <Button label={<Label>6</Label>} icon={<CalendarIcon24 />}>One</Button>

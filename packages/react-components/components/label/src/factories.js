@@ -1,4 +1,5 @@
 import { Label } from "./label";
+import { Tag } from "./tag";
 import { isNil } from "lodash";
 
 export function createLabelFromShorthand({ content, ...props }) {
@@ -6,5 +7,5 @@ export function createLabelFromShorthand({ content, ...props }) {
 }
 
 export function createTagFromShorthand(props) {
-    return <Label tag circular empty {...props} />;
+    return <Tag {...props} />;
 }
