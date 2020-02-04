@@ -16,7 +16,7 @@ const propTypes = {
      */
     naked: bool,
     /**
-     * A label can contain a button. Can be a button element or shorthand props.
+     * A label can contain a button.
      */
     button: oneOfType([element, object]),
     /**
@@ -28,7 +28,7 @@ const propTypes = {
      */
     iconPosition: oneOf(["right", "left"]),
     /**
-     * A label can contain a tag. Can be a tag element or shorthand props.
+     * A label can contain a tag.
      */
     tag: oneOfType([element, object]),
     /**

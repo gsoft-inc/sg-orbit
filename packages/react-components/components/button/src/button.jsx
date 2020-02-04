@@ -23,11 +23,11 @@ const propTypes = {
      */
     iconPosition: oneOf(["right", "left"]),
     /**
-     * A button can contain a label. Can be a label element or shorthand props.
+     * A button can contain a label.
      */
     label: oneOfType([element, object]),
     /**
-     * A button can contain a tag. Can be a tag element or shorthand props.
+     * A button can contain a tag.
      */
     tag: oneOfType([element, object]),
     /**
