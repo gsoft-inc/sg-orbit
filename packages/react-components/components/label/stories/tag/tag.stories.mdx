@@ -5,6 +5,7 @@ import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
+import { logButtonClicked } from "../utils";
 import Imports from "../imports.mdx";
 
 <Meta
@@ -44,13 +45,16 @@ A tag can contain a button.
 
 <Preview>
     <Story name="button">
-        <Label tag button>
-            <Label circular empty size="mini" color="red" />
-            Group added
-            <Button type="button" icon circular size="tiny" ghost>
-                <CloseIcon24 />
-            </Button>
-        </Label>
+        <div className="flex items-space-between">
+            <Label tag button={<Button icon={<CloseIcon24 />} />}>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+            <Label tag button={{ icon: <CloseIcon24 />, onClick: logButtonClicked }}>
+                <Label circular empty size="mini" color="red" />
+                Group added
+            </Label>
+        </div>
     </Story>
 </Preview>
 
@@ -75,7 +79,7 @@ A tag can have a subtle appearance.
     <Story name="basic">
         <Label basic tag>
             <Label circular empty size="mini" color="red" />
-        Group added
+            Group added
         </Label>
     </Story>
 </Preview>

@@ -3,6 +3,7 @@ import { Buttons } from "./components";
 import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
 import { Label } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { isNil } from "lodash";
 
 import styles from "./styles.module.css";
 
@@ -52,7 +53,9 @@ stories()
              <div className="flex flex-row">
                  <Buttons naked />
              </div>
-    )
+    );
+
+stories()
     .add("naked coloured",
          () =>
              <div className="flex flex-row">
@@ -70,7 +73,9 @@ stories()
                      <Button disabled className={styles.button} naked>Button</Button>
                  </div>
              </div>
-    )
+    );
+
+stories()
     .add("groups",
          () =>
              <div className="flex flex-row">
@@ -231,4 +236,67 @@ stories()
                  </div>
              </div>
     );
+
+stories("/icons")
+    .add("default", () =>
+        <Button icon={<CalendarIcon24 />}>Button</Button>
+    )
+    .add("right", () =>
+        <Button icon={<CalendarIcon24 />} iconPosition="right">Button</Button>
+    )
+    .add("css class", () =>
+        <Button icon={<CalendarIcon24 className="fill-red" />} iconPosition="right">Button</Button>
+    );
+
+function setRedBackground(element) {
+    if (!isNil(element)) {
+        element.classList.add("bg-red");
+    }
+}
+
+stories("/label/render prop")
+    .add("default", () =>
+        <Button label={<Label>6</Label>}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button label={<Label className="bg-red">6</Label>}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
+    );
+
+stories("/label/shorthand")
+    .add("default", () =>
+        <Button label={{ content: "6" }}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button label={{ content: "6", className: "bg-red" }}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
+    );
+
+stories("/tag/render prop")
+    .add("default", () =>
+        <Button tag={<Label tag circular empty color="orange" />}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button tag={<Label tag circular empty className="bg-red" />}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={<Label tag circular empty ref={setRedBackground} />}>Button</Button>
+    );
+
+stories("/tag/shorthand")
+    .add("default", () =>
+        <Button tag={{ color: "orange" }}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button tag={{ className: "bg-red" }}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={{ ref: setRedBackground }}>Button</Button>
+    );
+
+
 

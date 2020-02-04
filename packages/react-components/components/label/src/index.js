@@ -1,2 +1,2 @@
 export * from "./label";
-export * from "./shorthand";
+export * from "./factories";

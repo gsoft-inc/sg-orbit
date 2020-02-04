@@ -95,11 +95,13 @@ export const Buttons = props => {
             {/* tag + text / tag + text + icon / label + text / label + text + icon */}
             <div className="flex flex-column items-start">
                 <Button tag={<Label tag circular empty color="red" />}>One</Button>
+                <Button tag={<Label tag circular empty color="red" />} compact>One</Button>
                 <Button tag={<Label tag circular empty color="red" />} icon={<CalendarIcon24 />} iconPosition="right">One</Button>
-                <Button tag={{ color: "orange" }}>One</Button>
+                <Button tag={<Label tag circular empty color="red" />} icon={<CalendarIcon24 />} iconPosition="right" compact>One</Button>
                 <Button label={<Label>6</Label>}>One</Button>
-                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} >One</Button>
-                <Button label={{ content: "12", className:"bg-marine-100" }}>One</Button>
+                <Button label={<Label>6</Label>} compact>One</Button>
+                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />}>One</Button>
+                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} compact>One</Button>
             </div>
             {/* text / loading */}
             <div className="flex flex-column items-start">

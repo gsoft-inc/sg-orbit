@@ -23,11 +23,11 @@ const propTypes = {
      */
     iconPosition: oneOf(["right", "left"]),
     /**
-     * A button can contain a label. Can either be a label element or shorthand props.
+     * A button can contain a label. Can be a label element or shorthand props.
      */
     label: oneOfType([element, object]),
     /**
-     * A button can contain a tag. Can either be a tag element or shorthand props.
+     * A button can contain a tag. Can be a tag element or shorthand props.
      */
     tag: oneOfType([element, object]),
     /**
@@ -61,7 +61,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 export function PureButton(props) {
-    const { naked, ghost, compact, icon, iconPosition, label, tag, className, forwardedRef, children, ...rest } = props;
+    const { naked, ghost, icon, iconPosition, label, tag, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -144,11 +144,8 @@ export function PureButton(props) {
             className
         );
 
-        // Force compact when a label is provided.
-        const isCompact = !isNil(label) ? true : compact;
-
         return (
-            <SemanticButton className={classes} compact={isCompact} {...rest}>
+            <SemanticButton className={classes} {...rest}>
                 {renderContent()}
             </SemanticButton>
         );
