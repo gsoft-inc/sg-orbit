@@ -1,7 +1,7 @@
 import { AddIcon, SignoutIcon24 } from "@orbit-ui/icons";
 import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { Label } from "@orbit-ui/react-label/src";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -86,7 +86,7 @@ A button can take the width of its container.
 
 ### Icon
 
-A button can contain an icon.
+A button can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
@@ -100,7 +100,7 @@ A button can contain an icon.
 
 ### Label
 
-A button can contain a label.
+A button can contain a [label](?path=/story/components-label-standard--default-story).
 
 <Preview>
     <Story name="label">
@@ -113,13 +113,13 @@ A button can contain a label.
 
 ### Tag
 
-A button can contain a tag.
+A button can contain a [tag](?path=/docs/components-label-tag--default-story).
 
 <Preview>
     <Story name="tag">
         <div className="flex items-space-between">
-            <Button type="button" tag={<Label tag circular empty color="red" />}>Cutoff</Button>
-            <Button type="button" tag={{ color: "orange" }}>Cutoff</Button>
+            <Button type="button" tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
+            <Button type="button" tag={{ className: "bg-sunray-500" }}>Cutoff</Button>
         </div>
     </Story>
 </Preview>

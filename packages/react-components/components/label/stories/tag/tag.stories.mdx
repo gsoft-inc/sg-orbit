@@ -1,12 +1,8 @@
-import { Button } from "@orbit-ui/react-button/src";
-import { CloseIcon24 } from "@orbit-ui/icons";
-import { CommunicationIcon } from "@orbit-ui/icons";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
-import { logButtonClicked } from "../utils";
-import Imports from "../imports.mdx";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Tag } from "@orbit-ui/react-label/src";
+import Imports from "./imports.mdx";
 
 <Meta
     title={createComponentSection("Label/tag")}
@@ -18,7 +14,7 @@ import Imports from "../imports.mdx";
 
 # Tag
 
-A tag display a colored dot before the text.
+A tag is a small colored dot displayed before the text.
 
 ## Installation
 
@@ -28,89 +24,40 @@ A tag display a colored dot before the text.
 
 ### Default
 
-A default tag.
+A default tag. A tag color can be specified by setting a `background-color`.
 
 <Preview>
     <Story name="default">
-        <Label tag>
-            <Label circular empty size="mini" color="red" />
-            Group added
-        </Label>
+        <Tag className="bg-marine-500" />
     </Story>
 </Preview>
 
-### Button
-
-A tag can contain a button.
-
-<Preview>
-    <Story name="button">
-        <div className="flex items-space-between">
-            <Label tag button={<Button icon={<CloseIcon24 />} />}>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-            <Label tag button={{ icon: <CloseIcon24 />, onClick: logButtonClicked }}>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-        </div>
-    </Story>
-</Preview>
-
-### Icon
-
-A tag can contain an icon.
-
-<Preview>
-    <Story name="icon">
-        <Label tag icon={<CommunicationIcon />} iconPosition="right">
-            <Label circular empty size="mini" color="red" />
-            Group added
-        </Label>
-    </Story>
-</Preview>
-
-### Basic
-
-A tag can have a subtle appearance.
-
-<Preview>
-    <Story name="basic">
-        <Label basic tag>
-            <Label circular empty size="mini" color="red" />
-            Group added
-        </Label>
-    </Story>
-</Preview>
-
-### Sizes
+### Size
 
 A tag can vary in size.
 
 <Preview>
-    <Story name="sizes">
+    <Story name="size">
         <div className="flex items-end items-space-between">
-            <Label size="mini" tag>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-            <Label size="tiny" tag>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-            <Label size="small" tag>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-            <Label tag>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
-            <Label size="large" tag>
-                <Label circular empty size="mini" color="red" />
-                Group added
-            </Label>
+            <Tag size="mini" className="bg-marine-500" />
+            <Tag size="tiny" className="bg-marine-500" />
+            <Tag size="small" className="bg-marine-500" />
+            <Tag size="medium" className="bg-marine-500" />
+            <Tag size="large" className="bg-marine-500" />
+            <Tag size="big" className="bg-marine-500" />
+            <Tag size="huge" className="bg-marine-500" />
+            <Tag size="massive" className="bg-marine-500" />
         </div>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Tag />} />
+</Story>
+
+

@@ -1,12 +1,12 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { Label } from "@orbit-ui/react-label/src";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { logButtonClicked } from "../utils";
-import Imports from "../imports.mdx";
+import { logButtonClicked } from "./utils";
+import Imports from "./imports.mdx";
 
 <Meta
     title={createComponentSection("Label/standard")}
@@ -48,7 +48,7 @@ A default label.
 
 ### Button
 
-A label can include a button.
+A label can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
     <Story name="button">
@@ -65,7 +65,7 @@ A label can include a button.
 
 ### Icon
 
-A label can include an icon.
+A label can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
@@ -74,6 +74,23 @@ A label can include an icon.
                 Notification Sent
             </Label>
             <Label icon={<MagnifierIcon />} iconPosition="right">
+                Notification Sent
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Tag
+
+A label can contain a [tag](?path=/docs/components-label-tag--default-story).
+
+<Preview>
+    <Story name="tag">
+        <div className="flex items-space-between">
+            <Label tag={<Tag className="bg-marine-500" />}>
+                Notification Sent
+            </Label>
+            <Label tag={{ className: "bg-marine-500" }}>
                 Notification Sent
             </Label>
         </div>
@@ -103,16 +120,6 @@ A label can vary in size.
             <Label>Notification Sent</Label>
             <Label size="large">Notification Sent</Label>
         </div>
-    </Story>
-</Preview>
-
-### Empty
-
-A label can be empty.
-
-<Preview>
-    <Story name="empty">
-        <Label circular size="tiny" empty color="red" />
     </Story>
 </Preview>
 

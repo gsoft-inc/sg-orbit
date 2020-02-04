@@ -4,10 +4,11 @@ import { bool, element, func, object, oneOf, oneOfType, string } from "prop-type
 import { cloneElement, forwardRef } from "react";
 import { createButtonFromShorthand } from "@orbit-ui/react-button";
 import { createIconFromExisting } from "@orbit-ui/icons";
+import { createTagFromShorthand } from "./factories";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
+const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
 const propTypes = {
     /**
@@ -27,6 +28,10 @@ const propTypes = {
      */
     iconPosition: oneOf(["right", "left"]),
     /**
+     * A label can contain a tag. Can be a tag element or shorthand props.
+     */
+    tag: oneOfType([element, object]),
+    /**
      * @ignore
      */
     className: string,
@@ -41,14 +46,18 @@ const defaultProps = {
     iconPosition: "left"
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ button, iconPosition }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
     if (!isNil(button) && iconPosition === "right") {
         throw new ArgumentError("@orbit/react-label doesn't support having a button and a right positioned icon at the same time.");
+    }
+
+    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
+        throw new ArgumentError("@orbit/react-label doesn't support having a tag and a left positioned icon at the same time.");
     }
 }
 
 export function PureLabel(props) {
-    const { naked, button, icon, iconPosition, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, icon, iconPosition, tag, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -80,6 +89,22 @@ export function PureLabel(props) {
         });
     };
 
+    const renderTag = () => {
+        const defaults = {
+            as: "span",
+            size: "mini"
+        };
+
+        if (isElement(tag)) {
+            return cloneElement(tag, defaults);
+        }
+
+        return createTagFromShorthand({
+            ...defaults,
+            ...tag
+        });
+    };
+
     const renderContent = () => {
         let left;
         let right;
@@ -96,6 +121,10 @@ export function PureLabel(props) {
             right = renderButton();
         }
 
+        if (!isNil(tag)) {
+            left = renderTag();
+        }
+
         if (!isNil(left) || !isNil(right)) {
             return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
         }
@@ -109,6 +138,7 @@ export function PureLabel(props) {
             !isNil(button) && "with-button",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
+            !isNil(tag) && "with-tag",
             className
         );
 
