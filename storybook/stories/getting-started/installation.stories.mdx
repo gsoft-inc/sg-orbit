@@ -106,3 +106,24 @@ Or you can import the whole theme:
 ```css dark
 @import "~@orbit-ui/semantic-ui-theme";
 ```
+
+## Babel config
+
+Orbit icons depends on [SVGR](https://github.com/gregberge/svgr) to transform SVG icons into React components. To use SVGR, your project babel config must be updated to add [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) plugin with the following configuration:
+
+```js dark
+{
+    plugins: [
+        [
+            "babel-plugin-named-asset-import",
+            {
+                loaderMap: {
+                    svg: {
+                        "ReactComponent": "@svgr/webpack?-svgo,+ref![path]"
+                    }
+                }
+            }
+        ]
+    ]
+}
+```

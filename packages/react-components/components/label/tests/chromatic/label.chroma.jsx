@@ -322,7 +322,7 @@ function setRedBackground(element) {
     }
 }
 
-stories("/render-prop/button")
+stories("/render-props/button")
     .add("default", () =>
         <Label button={<Button icon={<CloseIcon24 />} />}>
             Group added
@@ -339,7 +339,7 @@ stories("/render-prop/button")
         </Label>
     );
 
-stories("/render prop/tag")
+stories("/render props/tag")
     .add("default", () =>
         <Label tag={<Tag className="bg-red" />}>
             Group added
@@ -351,7 +351,7 @@ stories("/render prop/tag")
         </Label>
     );
 
-stories("/shorthand/button")
+stories("/shorthand props/button")
     .add("default", () =>
         <Label button={{ icon: <CloseIcon24 /> }}>
             Group added
@@ -368,7 +368,7 @@ stories("/shorthand/button")
         </Label>
     );
 
-stories("/shorthand/tag")
+stories("/shorthand props/tag")
     .add("default", () =>
         <Label tag={{ className: "bg-red" }}>
             Group added

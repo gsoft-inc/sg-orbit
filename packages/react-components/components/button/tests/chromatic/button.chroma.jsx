@@ -259,7 +259,7 @@ function setRedBackground(element) {
     }
 }
 
-stories("/render prop/label")
+stories("/render props/label")
     .add("default", () =>
         <Button label={<Label>6</Label>}>Button</Button>
     )
@@ -270,7 +270,7 @@ stories("/render prop/label")
         <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
     );
 
-stories("/render prop/tag")
+stories("/render props/tag")
     .add("default", () =>
         <Button tag={<Tag className="bg-red" />}>Button</Button>
     )
@@ -278,7 +278,7 @@ stories("/render prop/tag")
         <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
     );
 
-stories("/shorthand/label")
+stories("/shorthand props/label")
     .add("default", () =>
         <Button label={{ content: "6" }}>Button</Button>
     )
@@ -289,7 +289,7 @@ stories("/shorthand/label")
         <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
     );
 
-stories("/shorthand/tag")
+stories("/shorthand props/tag")
     .add("default", () =>
         <Button tag={{ className: "bg-red" }}>Button</Button>
     )
