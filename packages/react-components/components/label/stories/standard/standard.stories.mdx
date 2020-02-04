@@ -129,15 +129,25 @@ A label can have a circular form.
 
 <Preview>
     <Story name="circular">
-        <div className="flex items-end items-space-between">
-            <Label circular size="mini">R</Label>
-            <Label circular size="tiny">R</Label>
-            <Label circular size="small">R</Label>
-            <Label circular>R</Label>
-            <Label circular size="large">R</Label>
-            <Label circular size="big">R</Label>
-            <Label circular size="huge">R</Label>
-            <Label circular size="massive">R</Label>
+        <div className="flex">
+            <div className="flex items-end items-space-between mr4">
+                <Label circular size="mini">R</Label>
+                <Label circular size="tiny">R</Label>
+                <Label circular size="small">R</Label>
+                <Label circular>R</Label>
+                <Label circular size="large">R</Label>
+                <Label circular size="big">R</Label>
+                <Label circular size="huge">R</Label>
+                <Label circular size="massive">R</Label>
+            </div>
+            <div className="flex items-end items-space-between">
+                <Label circular size="small" icon={<CommunicationIcon />} />
+                <Label circular icon={<CommunicationIcon />} />
+                <Label circular size="large" icon={<CommunicationIcon />} />
+                <Label circular size="big" icon={<CommunicationIcon />} />
+                <Label circular size="huge" icon={<CommunicationIcon />} />
+                <Label circular size="massive" icon={<CommunicationIcon />} />
+            </div>
         </div>
     </Story>
 </Preview>

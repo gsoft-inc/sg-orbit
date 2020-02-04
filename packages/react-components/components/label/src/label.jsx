@@ -1,7 +1,7 @@
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef } from "react";
 import { createButtonFromShorthand } from "@orbit-ui/react-button";
 import { createIconFromExisting } from "@orbit-ui/icons";
 import { createTagFromShorthand } from "./factories";
@@ -133,12 +133,15 @@ export function PureLabel(props) {
     };
 
     const renderLabel = () => {
+        const hasText = Children.count(children);
+
         const classes = mergeClasses(
             naked && "naked",
             !isNil(button) && "with-button",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
+            !hasText && "without-text",
             className
         );
 

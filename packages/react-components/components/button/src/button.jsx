@@ -1,7 +1,7 @@
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef } from "react";
 import { createIconFromExisting } from "@orbit-ui/icons";
 import { createLabelFromShorthand, createTagFromShorthand } from "@orbit-ui/react-label";
 import { isElement } from "react-is";
@@ -134,6 +134,8 @@ export function PureButton(props) {
     };
 
     const renderButton = () => {
+        const hasText = Children.count(children);
+
         const classes = mergeClasses(
             naked && "naked",
             ghost && "ghost",
@@ -141,6 +143,7 @@ export function PureButton(props) {
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
             !isNil(tag) && "with-tag",
+            !hasText && "without-text",
             className
         );
 
