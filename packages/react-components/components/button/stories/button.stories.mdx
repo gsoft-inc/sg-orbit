@@ -88,19 +88,12 @@ A button can take the width of its container.
 
 A button can contain an icon.
 
-The dimensions of an icon in a button are pre-determined. This means you don't need to [specify the icon dimensions](http://localhost:1458/?path=/docs/materials-icons--page#dimensions) unless you want to override the defaults. The pre-determined dimensions will vary based on the button size:
-
-- `tiny`: 16px / 16px
-
-- `small`: 20px / 20px
-
-- `medium` and `large`: 24px / 24px
-
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Button type="button" icon><SignoutIcon24 className="mr1" />Click me</Button>
-            <Button type="button"><AddIcon/></Button>
+            <Button type="button" icon={<SignoutIcon24 />}>Click me</Button>
+            <Button type="button" icon={<SignoutIcon24 />} iconPosition="right">Click me</Button>
+            <Button type="button" icon={<AddIcon/>}></Button>
         </div>
     </Story>
 </Preview>
@@ -111,10 +104,23 @@ A button can contain a label.
 
 <Preview>
     <Story name="label">
-        <Button type="button" compact label>
-            <span className="tl w12">Cutoff</span>
-            <Label as="span" size="mini">6</Label>
-        </Button>
+        <div className="flex items-space-between">
+            <Button type="button" label={<Label>6</Label>}>Cutoff</Button>
+            <Button type="button" label={{ content: "12", className: "bg-marine-100" }}>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Tag
+
+A button can contain a tag.
+
+<Preview>
+    <Story name="tag">
+        <div className="flex items-space-between">
+            <Button type="button" tag={<Label tag circular empty color="red" />}>Cutoff</Button>
+            <Button type="button" tag={{ color: "orange" }}>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -151,10 +157,10 @@ A button can be circular.
     <Story name="circular">
         <div className="flex">
             <div className="flex items-end items-space-between mr4">
-                <Button type="button" icon circular size="tiny"><AddIcon className="icon"/></Button>
-                <Button type="button" icon circular size="small"><AddIcon className="icon"/></Button>
-                <Button type="button" icon circular><AddIcon className="icon"/></Button>
-                <Button type="button" icon circular size="large"><AddIcon className="icon"/></Button>
+                <Button type="button" icon={<AddIcon />} circular size="tiny"></Button>
+                <Button type="button" icon={<AddIcon />} circular size="small"></Button>
+                <Button type="button" icon={<AddIcon />} circular></Button>
+                <Button type="button" icon={<AddIcon />} circular size="large"></Button>
             </div>
             <div className="flex items-end items-space-between">
                 <Button type="button" circular size="tiny">Aa</Button>

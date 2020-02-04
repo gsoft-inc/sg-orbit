@@ -62,7 +62,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
 export function PureInput(props) {
     const { icon, autofocus, autofocusDelay, disabled, children, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
 
     const inputRef = useRef();
 

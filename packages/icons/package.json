@@ -27,6 +27,7 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "*"
+        "@babel/runtime-corejs3": "*",
+        "@orbit-ui/react-components-shared": "2.1.0"
     }
 }

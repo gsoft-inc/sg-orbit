@@ -5,6 +5,7 @@ import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { logButtonClicked } from "../utils";
 import Imports from "../imports.mdx";
 
 <Meta
@@ -51,12 +52,14 @@ A label can include a button.
 
 <Preview>
     <Story name="button">
-        <Label button>
-            Group added
-            <Button type="button" icon circular size="tiny" ghost>
-                <CloseIcon />
-            </Button>
-        </Label>
+        <div className="flex items-space-between">
+            <Label button={<Button icon={<CloseIcon />} />}>
+                Group added
+            </Label>
+            <Label button={{ icon: <CloseIcon />, onClick: logButtonClicked }}>
+                User added
+            </Label>
+        </div>
     </Story>
 </Preview>
 
@@ -67,10 +70,10 @@ A label can include an icon.
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Label icon={<MagnifierIcon />} iconPosition="right">
+            <Label icon={<CommunicationIcon />}>
                 Notification Sent
             </Label>
-            <Label icon={<CommunicationIcon />}>
+            <Label icon={<MagnifierIcon />} iconPosition="right">
                 Notification Sent
             </Label>
         </div>
@@ -123,7 +126,7 @@ A label can have a circular form.
             <Label circular size="mini">R</Label>
             <Label circular size="tiny">R</Label>
             <Label circular size="small">R</Label>
-            <Label circular>D</Label>
+            <Label circular>R</Label>
             <Label circular size="large">R</Label>
             <Label circular size="big">R</Label>
             <Label circular size="huge">R</Label>

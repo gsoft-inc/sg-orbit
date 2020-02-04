@@ -28,13 +28,11 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
                     circular
                     ghost
                     secondary
-                    icon
+                    icon={<CloseIcon24 />}
                     size="tiny"
                     onClick={onRemove}
                     type="button"
-                >
-                    <CloseIcon24 />
-                </Button>
+                />
             </If>
         </Label>
     );
