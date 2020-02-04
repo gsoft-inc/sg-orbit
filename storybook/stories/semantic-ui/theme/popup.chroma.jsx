@@ -71,7 +71,7 @@ stories()
                              open
                              content="Adds users to your feed"
                              trigger={<Button>Add</Button>}
-                             position="right center"
+                             position="left center"
                          />
                      </div><div className="mb13">
                          <Popup

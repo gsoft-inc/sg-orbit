@@ -149,7 +149,7 @@ export class MultiSelectDropdown extends PureComponent {
         headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
-        triggerIcon: <AddIcon24 className="w6 h6 fill-marine-700 ml1" />,
+        triggerIcon: <AddIcon24 className="ml1" />,
         searchInput: <MultiSelectDropdownSearchInput />,
         searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,
