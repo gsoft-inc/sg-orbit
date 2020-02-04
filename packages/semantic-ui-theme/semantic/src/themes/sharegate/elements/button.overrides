@@ -16,40 +16,55 @@
 
 /* LAYOUT */
 /* LAYOUT | Sizes */
-/* LAYOUT | Sizes/Tiny */
+/* LAYOUT | Height/Radius | Sizes | Tiny */
 .ui.button.tiny,
-.ui.button.icon.tiny,
+.ui.button.with-icon.tiny,
 .ui.tiny.buttons .button,
-.ui.tiny.icon.buttons .button {
+.ui.tiny.with-icon.buttons .button {
     min-height: @scaleFoxtrot;
     border-radius: calc(@scaleFoxtrot / 2);
+}
+
+/* LAYOUT | Height/Radius | Sizes | Small */
+.ui.button.small,
+.ui.button.with-icon.small,
+.ui.small.buttons .button,
+.ui.small.with-icon.buttons .button {
+    min-height: @scaleGolf;
+    border-radius: calc(@scaleGolf / 2);
+}
+
+/* LAYOUT | Height/Radius | Sizes | Large */
+.ui.button.large,
+.ui.button.with-icon.large,
+.ui.large.buttons .button,
+.ui.large.with-icon.buttons .button {
+    min-height: @scaleIndia;
+    border-radius: calc(@scaleIndia / 2);
+}
+
+/* LAYOUT | Padding | Sizes | Tiny */
+.ui.button.tiny,
+.ui.tiny.buttons .button {
     padding: 0.25em 1.5rem;
 }
 
-/* LAYOUT | Sizes/Small */
+/* LAYOUT | Padding | Sizes | Small */
 .ui.button.small,
-.ui.button.icon.small,
-.ui.small.buttons .button,
-.ui.small.icon.buttons .button {
-    min-height: @scaleGolf;
-    border-radius: calc(@scaleGolf / 2);
+.ui.small.buttons .button {
     padding: 0.375rem 1.5rem;
 }
 
-/* LAYOUT | Sizes/Large */
+/* LAYOUT | Padding | Sizes | Large */
 .ui.button.large,
-.ui.button.icon.large,
-.ui.large.buttons .button,
-.ui.large.icon.buttons .button {
-    min-height: @scaleIndia;
-    border-radius: calc(@scaleIndia / 2);
+.ui.large.buttons .button {
     padding: 0.5rem 1.5rem;
 }
 
 /* LAYOUT | Circular */
 /* LAYOUT | Circular/Default */
 .ui.button.circular,
-.ui.button.icon.circular, {
+.ui.button.with-icon.circular {
     padding: 0;
     font-size: @typeScale6;
     min-height: @scaleHotel;
@@ -58,7 +73,7 @@
 
 /* LAYOUT | Circular/Tiny */
 .ui.button.tiny.circular,
-.ui.button.icon.tiny.circular {
+.ui.button.with-icon.tiny.circular {
     font-size: @typeScale8;
     min-height: @scaleFoxtrot;
     min-width: @scaleFoxtrot;
@@ -66,7 +81,7 @@
 
 /* LAYOUT | Circular/Small */
 .ui.button.small.circular,
-.ui.button.icon.small.circular {
+.ui.button.with-icon.small.circular {
     font-size: @typeScale7;
     min-height: @scaleGolf;
     min-width: @scaleGolf;
@@ -74,7 +89,7 @@
 
 /* LAYOUT | Circular/Large */
 .ui.button.large.circular,
-.ui.button.icon.large.circular {
+.ui.button.with-icon.large.circular {
     font-size: @typeScale6;
     min-height: @scaleIndia;
     min-width: @scaleIndia;
@@ -141,10 +156,27 @@
 }
 
 /* LAYOUT | Compact | CONTENT | With Icon */
-.ui.button.icon.compact,
-.ui.buttons.icon.compact .button {
+.ui.button.with-icon.compact,
+.ui.buttons.with-icon.compact .button,
+.ui.button.tiny.with-icon.compact,
+.ui.buttons.tiny.with-icon.compact .button,
+.ui.button.small.with-icon.compact,
+.ui.buttons.small.with-icon.compact .button,
+.ui.button.large.with-icon.compact,
+.ui.buttons.large.with-icon.compact .button {
     padding-left: calc(@compactHorizontalPadding / 2);
-    padding-right: @compactHorizontalPadding;
+}
+
+/* LAYOUT | Compact | CONTENT | With Icon Right */
+.ui.button.with-icon.with-icon-right.compact,
+.ui.buttons.with-icon.with-icon-right.compact .button,
+.ui.button.tiny.with-icon.with-icon-right.compact,
+.ui.buttons.tiny.with-icon.with-icon-right.compact .button,
+.ui.button.small.with-icon.with-icon-right.compact,
+.ui.buttons.small.with-icon.with-icon-right.compact .button,
+.ui.button.large.with-icon.with-icon-right.compact,
+.ui.buttons.large.with-icon.with-icon-right.compact .button {
+    padding-right: calc(@compactHorizontalPadding / 2);
 }
 
 /* STATE | Active | SKIN | Basic */
@@ -216,9 +248,25 @@
 }
 
 /* CONTENT | With Icon | Layout | Padding */
-.ui.icon.button,
-.ui.icon.buttons .button {
-    padding: 0.25rem 1.5rem 0.25rem 1rem;
+.ui.with-icon.button,
+.ui.with-icon.buttons .button {
+    padding-left: 1rem;
+}
+
+/* CONTENT | With Icon Right | Layout | Padding */
+.ui.with-icon.with-icon-right.button,
+.ui.with-icon.with-icon-right.buttons .button {
+    padding-right: 1rem;
+}
+
+/* CONTENT | With Icon | Layout | Margin */
+.ui.button:not(.icon).with-icon > .icon:not(.button):not(.dropdown) {
+    margin: 0 0.25rem 0 0;
+}
+
+/* CONTENT | With Icon Right | Layout | Margin */
+.ui.button:not(.icon).with-icon.with-icon-right > .icon:not(.button):not(.dropdown) {
+    margin: 0 0 0 0.25rem;
 }
 
 /* CONTENT | With Tag | Layout | Margin */
@@ -254,7 +302,7 @@
 /* CONTENT | With Tag | Layout | Compact | Padding */
 .ui.button.with-tag.compact,
 .ui.buttons.with-tag.compact .button {
-    padding-right: calc(@scaleDelta / 2);
+    padding-left: calc(@scaleDelta / 2);
 }
 
 /* CONTENT | With Label | Layout | Compact | Padding */
@@ -686,16 +734,16 @@
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Default */
-.ui.button.icon:hover svg,
-.ui.button.icon:focus svg,
-.ui.button.icon.active svg {
+.ui.button.with-icon:hover svg,
+.ui.button.with-icon:focus svg,
+.ui.button.with-icon.active svg {
     fill: @white;
 }
 
 /* CONTENT | Icon/Group | STATE | Active | SKIN | Basic */
-.ui.buttons.basic .button.icon:hover svg,
-.ui.buttons.basic .button.icon:focus svg,
-.ui.buttons.basic .button.icon.active svg {
+.ui.buttons.basic .button.with-icon:hover svg,
+.ui.buttons.basic .button.with-icon:focus svg,
+.ui.buttons.basic .button.with-icon.active svg {
     fill: @marine500;
 }
 
@@ -831,7 +879,7 @@
 }
 
 /* CONTENT | Group | Icon | Default */
-.ui.buttons.icon .button {
+.ui.buttons.with-icon .button {
     padding: 0.25rem 0.75rem;
 }
 

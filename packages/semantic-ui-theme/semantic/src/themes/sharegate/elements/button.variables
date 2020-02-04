@@ -36,7 +36,7 @@
 
 /* Icon */
 
-@iconMargin: 0 0.35em 0 0;
+@iconMargin: 0 0.5rem 0 0;
 @iconHeight: auto;
 
 /* Loader */

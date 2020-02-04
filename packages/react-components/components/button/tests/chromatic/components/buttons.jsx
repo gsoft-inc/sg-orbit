@@ -59,16 +59,16 @@ export const Buttons = props => {
             {/* icon right + text */}
             <div className="flex flex-column items-start">
                 <Button icon={<SignoutIcon24 />} iconPosition="right" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="tiny" circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="small" circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="large" circular {...props}></Button>
             </div>
             {/* icon */}
             <div className="flex flex-column items-start">
