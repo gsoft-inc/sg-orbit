@@ -1,4 +1,4 @@
-import { AddIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { AddIcon, AddIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label, Tag } from "@orbit-ui/react-label/src";
@@ -93,7 +93,7 @@ A button can contain an [icon](?path=/docs/materials-icons--page).
         <div className="flex items-space-between">
             <Button type="button" icon={<SignoutIcon24 />}>Click me</Button>
             <Button type="button" icon={<SignoutIcon24 />} iconPosition="right">Click me</Button>
-            <Button type="button" icon={<AddIcon/>}></Button>
+            <Button type="button" icon={<AddIcon24 />}></Button>
         </div>
     </Story>
 </Preview>
@@ -157,9 +157,9 @@ A button can be circular.
     <Story name="circular">
         <div className="flex">
             <div className="flex items-end items-space-between mr4">
-                <Button type="button" icon={<AddIcon />} circular size="tiny"></Button>
-                <Button type="button" icon={<AddIcon />} circular size="small"></Button>
-                <Button type="button" icon={<AddIcon />} circular></Button>
+                <Button type="button" icon={<AddIcon24 />} circular size="tiny"></Button>
+                <Button type="button" icon={<AddIcon24 />} circular size="small"></Button>
+                <Button type="button" icon={<AddIcon24 />} circular></Button>
                 <Button type="button" icon={<AddIcon />} circular size="large"></Button>
             </div>
             <div className="flex items-end items-space-between">
@@ -201,7 +201,7 @@ A basic button have a subtle appearance.
 
 ### Ghost
 
-A ghost button is similar to a standard button, but have no background color until hovered.
+A ghost button is similar to a standard button, taking the same space as a standard button but doesn't have an visible background.
 
 <Preview>
     <Story name="ghost">

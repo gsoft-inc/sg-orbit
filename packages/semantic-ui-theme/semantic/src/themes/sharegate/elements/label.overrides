@@ -1,7 +1,6 @@
 /*******************************
     Site Overrides
 *******************************/
-
 .ui.mini.labels .label, .ui.mini.label {
     font-size: .375rem;
 }
@@ -25,6 +24,36 @@
     height: @scaleFoxtrot;
 }
 
+/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Small */
+.ui.label.circular.with-icon.small .icon {
+    width: @scaleEcho;
+    height: @scaleEcho;
+}
+
+/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Large */
+.ui.label.circular.with-icon.large .icon {
+    width: @scaleGolf;
+    height: @scaleGolf;
+}
+
+/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Big */
+.ui.label.circular.with-icon.big .icon {
+    width: @scaleHotel;
+    height: @scaleHotel;
+}
+
+/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Huge */
+.ui.label.circular.with-icon.huge .icon {
+    width: @scaleIndia;
+    height: @scaleIndia;
+}
+
+/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Massive */
+.ui.label.circular.with-icon.massive .icon {
+    width: @scaleJuliett;
+    height: @scaleJuliett;
+}
+
 /* CONTENT | With Icon | LAYOUT | Colour */
 .ui.label.with-icon .icon {
     fill: @marine500;
@@ -46,16 +75,26 @@
     padding-right: 0.5rem;
 }
 
+/* CONTENT | With Tag | LAYOUT */
+.ui.label.with-tag .tag {
+    margin-right: @scaleBravo;
+}
+
+
 .ui.label.with-icon:not(.with-icon-right) {
     padding-left: 0.5rem;
 }
 
-.ui.label.with-icon.with-icon-right svg {
-    margin-left: 0.5rem;
+.ui.label.with-icon.with-icon-right .icon {
+    margin-left: 0.25rem;
 }
 
-.ui.label.with-icon:not(.with-icon-right) svg {
-    margin-right: 0.5rem;
+.ui.label.with-icon:not(.with-icon-right) .icon {
+    margin-right: 0.25rem;
+}
+
+.ui.label.with-icon.without-text .icon {
+    margin-right: 0;
 }
 
 /* mini */
@@ -237,7 +276,6 @@
 }
 
 /*  Primary */
-
 .ui.label.primary,
 .ui.menu .item > .label.primary {
     background-color: @primary500;
@@ -267,7 +305,8 @@
 }
 
 /* Naked */
-.ui.label.naked {
+.ui.label.naked,
+.ui.naked .label {
     background-color: @transparent;
 }
 
