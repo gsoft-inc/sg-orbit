@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-foreign-prop-types */
+
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
@@ -166,4 +168,8 @@ export const Label = forwardRef((props, ref) => (
     x.Detail = SemanticLabel.Detail;
     x.Group = SemanticLabel.Group;
 });
+
+if (!isNil(SemanticLabel.propTypes)) {
+    SemanticLabel.propTypes.size = oneOf(["tiny", "small", "medium", "large", "big", "huge", "massive"]);
+}
 
