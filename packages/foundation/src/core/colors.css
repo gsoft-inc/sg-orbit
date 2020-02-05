@@ -67,13 +67,7 @@
     --success-700: #15C257;
     --success-800: #11BC4D;
     --success-900: #0AB03C;
-    /* Vendors */
-    --outlook: #2873BA;
-    --sharepoint: #2873BA;
-    --teams: #575AA7;
-    --planner: #33763A;
-    --one-drive: #0045F5;
-    /* References */
+    /* Primary aliases */
     --primary-50: var(--apricot-50);
     --primary-100: var(--apricot-100);
     --primary-200: var(--apricot-200);
@@ -84,5 +78,4 @@
     --primary-700: var(--apricot-700);
     --primary-800: var(--apricot-800);
     --primary-900: var(--apricot-900);
-    --transparent: transparent;
 }

@@ -14,8 +14,8 @@ const propTypes = {
 function toRowValues({ shade, variable, hexa }) {
     return [
         shade,
-        variable,
-        hexa,
+        { value: variable, className: "code f7 o-90" },
+        { value: hexa, className: "code f7 o-90" },
         { className: "h8", style: { backgroundColor: hexa } }
     ];
 }

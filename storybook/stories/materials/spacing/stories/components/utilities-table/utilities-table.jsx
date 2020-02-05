@@ -1,19 +1,20 @@
 import { Table } from "@blocks";
 import { arrayOf, element, shape, string } from "prop-types";
 
-import styles from "./utilities-table.module.css";
-
 const propTypes = {
     utilities: arrayOf(shape({
-        name: string.isRequired,
-        description: string.isRequired,
+        scale: string.isRequired,
+        value: string.isRequired,
+        variable: string.isRequired,
         example: element.isRequired
     }))
 };
 
-function toRowValues({ name, description, example }) {
+function toRowValues({ scale, value, variable, example }) {
     return [
-        <><span className="code f7">{name}</span><br /><span className="i">{description}</span></>,
+        scale,
+        { value, className: "code f7 o-90" },
+        { value: variable, className: "code f7 o-90" },
         example
     ];
 }
@@ -22,11 +23,13 @@ export function UtilitiesTable({ utilities }) {
     return (
         <Table
             columns={[
-                { title: "Class" },
-                { title: "", className: styles.example }
+                { title: "Scale" },
+                { title: "Value" },
+                { title: "Variable" },
+                { title: "" }
             ]}
             rows={utilities.map(x => toRowValues(x))}
-            rowClassName="h13"
+            rowClassName="h8"
         />
     );
 }
