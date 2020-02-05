@@ -16,40 +16,56 @@
 
 /* LAYOUT */
 /* LAYOUT | Sizes */
-/* LAYOUT | Sizes/Tiny */
+/* LAYOUT | Height/Radius | Sizes | Tiny */
 .ui.button.tiny,
-.ui.button.icon.tiny,
+.ui.button.with-icon.tiny,
 .ui.tiny.buttons .button,
-.ui.tiny.icon.buttons .button {
+.ui.tiny.with-icon.buttons .button {
     min-height: @scaleFoxtrot;
     border-radius: calc(@scaleFoxtrot / 2);
+}
+
+/* LAYOUT | Height/Radius | Sizes | Small */
+.ui.button.small,
+.ui.button.with-icon.small,
+.ui.small.buttons .button,
+.ui.small.with-icon.buttons .button {
+    min-height: @scaleGolf;
+    border-radius: calc(@scaleGolf / 2);
+}
+
+/* LAYOUT | Height/Radius | Sizes | Large */
+.ui.button.large,
+.ui.button.with-icon.large,
+.ui.large.buttons .button,
+.ui.large.with-icon.buttons .button {
+    min-height: @scaleIndia;
+    border-radius: calc(@scaleIndia / 2);
+}
+
+/* LAYOUT | Padding | Sizes | Tiny */
+.ui.button.tiny,
+.ui.tiny.buttons .button {
     padding: 0.25em 1.5rem;
 }
 
-/* LAYOUT | Sizes/Small */
+/* LAYOUT | Padding | Sizes | Small */
 .ui.button.small,
-.ui.button.icon.small,
-.ui.small.buttons .button,
-.ui.small.icon.buttons .button {
-    min-height: @scaleGolf;
-    border-radius: calc(@scaleGolf / 2);
+.ui.small.buttons .button {
     padding: 0.375rem 1.5rem;
 }
 
-/* LAYOUT | Sizes/Large */
+/* LAYOUT | Padding | Sizes | Large */
 .ui.button.large,
-.ui.button.icon.large,
-.ui.large.buttons .button,
-.ui.large.icon.buttons .button {
-    min-height: @scaleIndia;
-    border-radius: calc(@scaleIndia / 2);
+.ui.large.buttons .button {
     padding: 0.5rem 1.5rem;
 }
 
 /* LAYOUT | Circular */
 /* LAYOUT | Circular/Default */
 .ui.button.circular,
-.ui.button.icon.circular, {
+.ui.button.with-icon.circular,
+.ui.button.with-icon.without-text.circular {
     padding: 0;
     font-size: @typeScale6;
     min-height: @scaleHotel;
@@ -58,7 +74,7 @@
 
 /* LAYOUT | Circular/Tiny */
 .ui.button.tiny.circular,
-.ui.button.icon.tiny.circular {
+.ui.button.with-icon.tiny.circular {
     font-size: @typeScale8;
     min-height: @scaleFoxtrot;
     min-width: @scaleFoxtrot;
@@ -66,7 +82,7 @@
 
 /* LAYOUT | Circular/Small */
 .ui.button.small.circular,
-.ui.button.icon.small.circular {
+.ui.button.with-icon.small.circular {
     font-size: @typeScale7;
     min-height: @scaleGolf;
     min-width: @scaleGolf;
@@ -74,7 +90,7 @@
 
 /* LAYOUT | Circular/Large */
 .ui.button.large.circular,
-.ui.button.icon.large.circular {
+.ui.button.with-icon.large.circular {
     font-size: @typeScale6;
     min-height: @scaleIndia;
     min-width: @scaleIndia;
@@ -141,10 +157,54 @@
 }
 
 /* LAYOUT | Compact | CONTENT | With Icon */
-.ui.button.icon.compact,
-.ui.buttons.icon.compact .button {
-    padding-left: calc(@compactHorizontalPadding / 2);
+.ui.button.with-icon.compact,
+.ui.buttons.with-icon.compact .button,
+.ui.button.tiny.with-icon.compact,
+.ui.buttons.tiny.with-icon.compact .button,
+.ui.button.small.with-icon.compact,
+.ui.buttons.small.with-icon.compact .button,
+.ui.button.large.with-icon.compact,
+.ui.buttons.large.with-icon.compact .button {
+    padding-left: @compactHorizontalPadding;
     padding-right: @compactHorizontalPadding;
+}
+
+.ui.button.with-icon.without-text.compact,
+.ui.buttons.with-icon.without-text.compact .button,
+.ui.button.tiny.with-icon.without-text.compact,
+.ui.buttons.tiny.with-icon.without-text.compact .button,
+.ui.button.small.with-icon.without-text.compact,
+.ui.buttons.small.with-icon.without-text.compact .button,
+.ui.button.large.with-icon.without-text.compact,
+.ui.buttons.large.with-icon.without-text.compact .button {
+    padding-left: @compactHorizontalPadding;
+    padding-right: @compactHorizontalPadding;
+}
+
+/* LAYOUT | Compact | CONTENT | With Icon Right */
+.ui.button.with-icon.with-icon-right.compact,
+.ui.buttons.with-icon.with-icon-right.compact .button,
+.ui.button.tiny.with-icon.with-icon-right.compact,
+.ui.buttons.tiny.with-icon.with-icon-right.compact .button,
+.ui.button.small.with-icon.with-icon-right.compact,
+.ui.buttons.small.with-icon.with-icon-right.compact .button,
+.ui.button.large.with-icon.with-icon-right.compact,
+.ui.buttons.large.with-icon.with-icon-right.compact .button {
+    padding-right: @compactHorizontalPadding;
+    padding-left: @compactHorizontalPadding;
+}
+
+/* LAYOUT | Compact | CONTENT | With Icon Right/With Tag */
+.ui.button.with-icon.with-icon-right.with-tag.compact,
+.ui.buttons.with-icon.with-icon-right.with-tag.compact .button,
+.ui.button.tiny.with-icon.with-icon-right.with-tag.compact,
+.ui.buttons.tiny.with-icon.with-icon-right.with-tag.compact .button,
+.ui.button.small.with-icon.with-icon-right.with-tag.compact,
+.ui.buttons.small.with-icon.with-icon-right.with-tag.compact .button,
+.ui.button.large.with-icon.with-icon-right.with-tag.compact,
+.ui.buttons.large.with-icon.with-icon-right.with-tag.compact .button {
+    padding-right: @compactHorizontalPadding;
+    padding-left: @compactHorizontalPadding;
 }
 
 /* STATE | Active | SKIN | Basic */
@@ -216,9 +276,44 @@
 }
 
 /* CONTENT | With Icon | Layout | Padding */
-.ui.icon.button,
-.ui.icon.buttons .button {
-    padding: 0.25rem 1.5rem 0.25rem 1rem;
+.ui.with-icon.button,
+.ui.with-icon.buttons .button {
+    padding-left: 1rem;
+}
+
+/* CONTENT | With Icon/Without Text | Layout | Padding */
+.ui.with-icon.without-text.button,
+.ui.with-icon.without-text.buttons .button {
+    padding-left: 1.5rem;
+}
+
+/* CONTENT | With Icon Right | Layout | Padding */
+.ui.with-icon.with-icon-right.button,
+.ui.with-icon.with-icon-right.buttons .button {
+    padding-right: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* CONTENT | With Icon/With Tag | Layout | Padding */
+.ui.with-icon.with-tag.button,
+.ui.with-icon.with-tag.buttons .button {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* CONTENT | With Icon | Layout | Margin */
+.ui.button:not(.icon).with-icon > .icon:not(.button):not(.dropdown) {
+    margin: 0 0.25rem 0 0;
+}
+
+/* CONTENT | With Icon Right | Layout | Margin */
+.ui.button:not(.icon).with-icon.with-icon-right > .icon:not(.button):not(.dropdown) {
+    margin: 0 0 0 0.25rem;
+}
+
+/* CONTENT | With Icon/Without Text | Layout | Margin */
+.ui.button:not(.icon).with-icon.without-text > .icon:not(.button):not(.dropdown) {
+    margin: 0;
 }
 
 /* CONTENT | With Tag | Layout | Margin */
@@ -249,18 +344,6 @@
 .ui.button.with-label,
 .ui.buttons.with-label .button {
     padding-right: @scaleDelta;
-}
-
-/* CONTENT | With Tag | Layout | Compact | Padding */
-.ui.button.with-tag.compact,
-.ui.buttons.with-tag.compact .button {
-    padding-right: calc(@scaleDelta / 2);
-}
-
-/* CONTENT | With Label | Layout | Compact | Padding */
-.ui.button.with-label.compact,
-.ui.buttons.with-label.compact .button {
-    padding-right: calc(@scaleDelta / 2);
 }
 
 /* SKIN | Ghost */
@@ -320,7 +403,18 @@
 .ui.ghost.secondary.buttons .button:focus,
 .ui.ghost.secondary.button.active,
 .ui.ghost.secondary.buttons.active .button {
-    color: @marine500;
+    color: @marine900;
+}
+
+/* SKIN | Ghost/Secondary | State */
+.ui.basic.secondary.button:hover,
+.ui.basic.secondary.buttons .button:hover,
+.ui.basic.secondary.button:focus,
+.ui.basic.secondary.buttons .button:focus,
+.ui.basic.secondary.button.active,
+.ui.basic.secondary.buttons.active .button {
+    color: @marine900!important;
+    box-shadow: 0px 0px 0px 1px var(--cloud-900) inset !important;
 }
 
 /* SKIN | STATES */
@@ -461,331 +555,355 @@
 /* CONTENT | Icon */
 
 /* CONTENT | Icon | LAYOUT | Sizes */
-.ui.button svg,
-.ui.buttons .button svg {
+.ui.button .icon,
+.ui.buttons .button .icon {
     width: @scaleFoxtrot;
     height: @scaleFoxtrot;
 }
 
-.ui.button.tiny svg,
-.ui.buttons.tiny .button svg {
+.ui.button.tiny .icon,
+.ui.buttons.tiny .button .icon {
     width: @scaleDelta;
     height: @scaleDelta;
 }
 
-.ui.button.small svg,
-.ui.buttons.small .button svg {
+.ui.button.small .icon,
+.ui.buttons.small .button .icon {
     width: @scaleEcho;
     height: @scaleEcho;
 }
 
-.ui.button.large svg,
-.ui.buttons.large .button svg {
+.ui.button.large .icon,
+.ui.buttons.large .button .icon {
     width: @scaleFoxtrot;
     height: @scaleFoxtrot;
 }
 
 /* CONTENT | Icon | SKIN | Default */
-.ui.button svg,
-.ui.buttons .button svg {
+.ui.button .icon,
+.ui.buttons .button .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon | SKIN | Secondary */
-.ui.button.secondary svg,
-.ui.buttons.secondary .button svg {
+.ui.button.with-icon.secondary .icon,
+.ui.buttons.secondary .button.with-icon .icon {
     fill: @marine600;
 }
 
 /* CONTENT | Icon | SKIN | Basic */
-.ui.button.basic svg,
-.ui.buttons.basic .button svg {
+.ui.button.basic.with-icon .icon,
+.ui.buttons.basic .button.with-icon .icon {
     fill: @marine600;
 }
 
 /* CONTENT | Icon | SKIN | Positive */
-.ui.button.positive svg,
-.ui.buttons.positive .button svg {
+.ui.button.with-icon.positive .icon,
+.ui.buttons.positive .button.with-icon .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon | SKIN | Positive/Basic */
-.ui.button.positive.basic svg,
-.ui.buttons.positive.basic .button svg {
+.ui.button.with-icon.positive.basic .icon,
+.ui.buttons.positive.basic .button.with-icon .icon {
     fill: @success500;
 }
 
 /* CONTENT | Icon | SKIN | Positive/Ghost */
-.ui.button.ghost.positive svg,
-.ui.buttons.ghost.positive .button svg {
+.ui.button.ghost.positive .icon,
+.ui.buttons.ghost.positive .button .icon {
     fill: @success500;
 }
 
 /* CONTENT | Icon | SKIN | Secondary/Ghost */
-.ui.button.secondary.ghost svg,
-.ui.buttons.secondary.ghost .button svg {
+.ui.button.with-icon.secondary.ghost .icon,
+.ui.buttons.secondary.ghost .button.with-icon .icon {
     fill: @marine300;
 }
 
 /* CONTENT | Icon | SKIN | Negative/Ghost */
-.ui.buttons.ghost.negative .button svg,
-.ui.button.ghost.negative svg,
-.ui.button.ghost.negative svg,
-.ui.button.ghost.negative svg {
+.ui.buttons.ghost.negative .button.with-icon .icon,
+.ui.button.with-icon.ghost.negative .icon {
     fill: @alert500;
 }
 
 /* CONTENT | Icon | SKIN | Negative/Basic */
-.ui.button.basic.negative svg,
-.ui.buttons.basic.negative .button svg {
+.ui.button.with-icon.basic.negative .icon,
+.ui.buttons.basic.negative .button.with-icon .icon {
     fill: @alert500;
 }
 
 /* CONTENT | Icon | SKIN | Ghost */
-.ui.button.ghost svg,
-.ui.buttons.ghost .button svg {
+.ui.button.with-icon.ghost .icon,
+.ui.buttons.ghost .button.with-icon .icon {
     fill: @marine600;
 }
 
+/* CONTENT | Icon | SKIN | Ghost/Positive */
+.ui.button.with-icon.ghost.positive .icon,
+.ui.buttons.ghost.positive .button.with-icon .icon {
+    fill: @success500;
+}
+
 /* CONTENT | Icon | SKIN | Naked */
-.ui.button.naked.disabled svg,
-.ui.button.naked:disabled svg,
-.ui.buttons.naked.disabled .button svg,
-.ui.buttons.naked:disabled .button svg {
+.ui.button.with-icon.naked.disabled .icon,
+.ui.button.with-icon.naked:disabled .icon,
+.ui.buttons.naked.disabled .button.with-icon .icon,
+.ui.buttons.naked:disabled .button.with-icon .icon {
     fill: initial;
 }
 
 /* CONTENT | Icon | SKIN | Primary/Ghost */
-.ui.button.primary.ghost svg,
-.ui.buttons.primary.ghost .button svg, {
+.ui.button.with-icon.primary.ghost .icon,
+.ui.buttons.primary.ghost .button.with-icon .icon, {
     fill: @primary500;
 }
 
 /* CONTENT | Icon | SKIN | Primary/Basic */
-.ui.button.basic.primary svg,
-.ui.buttons.basic.primary .button svg {
+.ui.button.with-icon.basic.primary .icon,
+.ui.buttons.basic.primary .button.with-icon .icon {
     fill: @primary500;
 }
 
 /* CONTENT | Icon | SKIN | Naked */
-.ui.button.naked svg,
-.ui.buttons.naked .button svg {
+.ui.button.with-icon.naked .icon,
+.ui.buttons.naked .button.with-icon .icon {
     fill: initial;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Default */
-.ui.button.disabled svg,
-.ui.button:disabled svg,
-.ui.buttons .button.disabled svg,
-.ui.buttons .button:disabled svg {
+.ui.button.with-icon.disabled .icon,
+.ui.button.with-icon:disabled .icon,
+.ui.buttons .button.with-icon.disabled .icon,
+.ui.buttons .button.with-icon:disabled .icon {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost */
-.ui.button.ghost.disabled svg,
-.ui.button.ghost:disabled svg,
-.ui.buttons.ghost .button.disabled svg,
-.ui.buttons.ghost .button:disabled svg {
+.ui.button.with-icon.ghost.disabled .icon,
+.ui.button.with-icon.ghost:disabled .icon,
+.ui.buttons.ghost .button.with-icon.disabled .icon,
+.ui.buttons.ghost .button.with-icon:disabled .icon {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic */
-.ui.button.basic.disabled svg,
-.ui.button.basic:disabled svg,
-.ui.buttons.basic .button:disabled svg,
-.ui.buttons.basic .button.disabled svg {
+.ui.button.with-icon.basic.disabled .icon,
+.ui.button.with-icon.basic:disabled .icon,
+.ui.buttons.basic .button.with-icon:disabled .icon,
+.ui.buttons.basic .button.with-icon.disabled .icon {
     fill: @cloud400;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Primary */
-.ui.button.primary.disabled svg,
-.ui.button.primary:disabled svg,
-.ui.buttons.primary .button.disabled svg,
-.ui.buttons.primary .button:disabled svg {
+.ui.button.with-icon.primary.disabled .icon,
+.ui.button.with-icon.primary:disabled .icon,
+.ui.buttons.primary .button.with-icon.disabled .icon,
+.ui.buttons.primary .button.with-icon:disabled .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Naked */
-.ui.button.naked.disabled svg,
-.ui.button.naked:disabled svg,
-.ui.buttons.naked .button.disabled svg,
-.ui.buttons.naked .button:disabled svg {
+.ui.button.with-icon.naked.disabled .icon,
+.ui.button.with-icon.naked:disabled .icon,
+.ui.buttons.naked .button.with-icon.disabled .icon,
+.ui.buttons.naked .button.with-icon:disabled .icon {
     fill: initial;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic/Primary */
-.ui.button.basic.primary.disabled svg,
-.ui.button.basic.primary:disabled svg,
-.ui.buttons.basic.primary .button.disabled svg,
-.ui.buttons.basic.primary .button:disabled svg {
+.ui.button.with-icon.basic.primary.disabled .icon,
+.ui.button.with-icon.basic.primary:disabled .icon,
+.ui.buttons.basic.primary .button.with-icon.disabled .icon,
+.ui.buttons.basic.primary .button.with-icon:disabled .icon {
     fill: @primary200;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost/Primary */
-.ui.button.ghost.primary.disabled svg,
-.ui.button.ghost.primary:disabled svg,
-.ui.buttons.ghost.primary .button.disabled svg,
-.ui.buttons.ghost.primary .button:disabled svg {
+.ui.button.with-icon.ghost.primary.disabled .icon,
+.ui.button.with-icon.ghost.primary:disabled .icon,
+.ui.buttons.ghost.primary .button.with-icon.disabled .icon,
+.ui.buttons.ghost.primary .button.with-icon:disabled .icon {
     fill: @primary200;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Secondary/Ghost */
-.ui.button.ghost.secondary.disabled svg,
-.ui.button.ghost.secondary:disabled svg,
-.ui.buttons.ghost.secondary.disabled .button svg,
-.ui.buttons.ghost.secondary:disabled .button svg {
+.ui.button.with-icon.ghost.secondary.disabled .icon,
+.ui.button.with-icon.ghost.secondary:disabled .icon,
+.ui.buttons.ghost.secondary.disabled .button.with-icon .icon,
+.ui.buttons.ghost.secondary:disabled .button.with-icon .icon {
     fill: @marine100;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive */
-.ui.button.positive.disabled svg,
-.ui.button.positive:disabled svg,
-.ui.buttons.positive .button.disabled svg,
-.ui.buttons.positive .button:disabled svg {
+.ui.button.with-icon.positive.disabled .icon,
+.ui.button.with-icon.positive:disabled .icon,
+.ui.buttons.positive .button.with-icon.disabled .icon,
+.ui.buttons.positive .button.with-icon:disabled .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Basic */
-.ui.button.positive.basic.disabled svg,
-.ui.button.positive.basic:disabled svg ,
-.ui.buttons.positive.basic .button.disabled svg,
-.ui.buttons.positive.basic .button:disabled svg {
+.ui.button.with-icon.positive.basic.disabled .icon,
+.ui.button.with-icon.positive.basic:disabled .icon ,
+.ui.buttons.positive.basic .button.with-icon.disabled .icon,
+.ui.buttons.positive.basic .button.with-icon:disabled .icon {
     fill: @success100;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative */
-.ui.button.negative.disabled svg,
-.ui.button.negative:disabled svg ,
-.ui.buttons.negative .button.disabled svg,
-.ui.buttons.negative .button:disabled svg {
+.ui.button.with-icon.negative.disabled .icon,
+.ui.button.with-icon.negative:disabled .icon ,
+.ui.buttons.negative .button.with-icon.disabled .icon,
+.ui.buttons.negative .button.with-icon:disabled .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Basic */
-.ui.button.negative.basic.disabled svg,
-.ui.button.negative.basic:disabled svg ,
-.ui.buttons.negative.basic .button.disabled svg,
-.ui.buttons.negative.basic .button:disabled svg {
+.ui.button.with-icon.negative.basic.disabled .icon,
+.ui.button.with-icon.negative.basic:disabled .icon ,
+.ui.buttons.negative.basic .button.with-icon.disabled .icon,
+.ui.buttons.negative.basic .button.with-icon:disabled .icon {
     fill: @negativeDisabled;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Ghost */
-.ui.button.ghost.negative.disabled svg,
-.ui.button.ghost.negative:disabled svg,
-.ui.buttons.ghost.negative .button.disabled svg,
-.ui.buttons.ghost.negative .button:disabled svg {
+.ui.button.with-icon.ghost.negative.disabled .icon,
+.ui.button.with-icon.ghost.negative:disabled .icon,
+.ui.buttons.ghost.negative .button.with-icon.disabled .icon,
+.ui.buttons.ghost.negative .button.with-icon:disabled .icon {
     fill: @negativeDisabled;
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Ghost */
-.ui.button.ghost.positive.disabled svg,
-.ui.button.ghost.positive:disabled svg,
-.ui.buttons.ghost.positive .button .disabled svg,
-.ui.buttons.ghost.positive:disabled .button svg {
+.ui.button.with-icon.ghost.positive.disabled .icon,
+.ui.button.with-icon.ghost.positive:disabled .icon,
+.ui.buttons.ghost.positive .button.with-icon .disabled .icon,
+.ui.buttons.ghost.positive:disabled .button.with-icon .icon {
     fill: @success100;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Default */
-.ui.button.icon:hover svg,
-.ui.button.icon:focus svg,
-.ui.button.icon.active svg {
+.ui.button.with-icon:hover .icon,
+.ui.button.with-icon:focus .icon,
+.ui.button.with-icon.active .icon {
     fill: @white;
 }
 
 /* CONTENT | Icon/Group | STATE | Active | SKIN | Basic */
-.ui.buttons.basic .button.icon:hover svg,
-.ui.buttons.basic .button.icon:focus svg,
-.ui.buttons.basic .button.icon.active svg {
-    fill: @marine500;
+.ui.button.basic.with-icon:hover .icon,
+.ui.button.basic.with-icon:focus .icon,
+.ui.button.basic.with-icon.active .icon,
+.ui.buttons.basic .button.with-icon:hover .icon,
+.ui.buttons.basic .button.with-icon:focus .icon,
+.ui.buttons.basic .button.with-icon.active .icon {
+    fill: @marine900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Positive/Ghost */
-.ui.button.ghost.positive.active svg,
-.ui.buttons.ghost.positive .button.active svg,
-.ui.button.ghost.positive:hover svg,
-.ui.buttons.ghost.positive .button:hover svg,
-.ui.button.ghost.positive:focus svg,
-.ui.buttons.ghost.positive .button:focus svg {
+.ui.button.with-icon.ghost.positive.active .icon,
+.ui.button.with-icon.ghost.positive:hover .icon,
+.ui.button.with-icon.ghost.positive:focus .icon,
+.ui.buttons.ghost.positive .button.with-icon.active .icon,
+.ui.buttons.ghost.positive .button.with-icon:hover .icon,
+.ui.buttons.ghost.positive .button.with-icon:focus .icon {
     fill: @success500;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Negative/Ghost */
-.ui.button.ghost.negative.active svg,
-.ui.buttons.ghost.negative .button.active svg,
-.ui.button.ghost.negative:hover svg,
-.ui.buttons.ghost.negative .button:hover svg,
-.ui.button.ghost.negative:focus svg,
-.ui.buttons.ghost.negative .button:focus svg {
-    fill: @alert500;
+.ui.button.with-icon.ghost.negative.active .icon,
+.ui.button.with-icon.ghost.negative:hover .icon,
+.ui.button.with-icon.ghost.negative:focus .icon,
+.ui.buttons.ghost.negative .button.with-icon.active .icon,
+.ui.buttons.ghost.negative .button.with-icon:hover .icon,
+.ui.buttons.ghost.negative .button.with-icon:focus .icon {
+    fill: @alert900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Basic */
-.ui.button.basic:hover svg,
-.ui.button.basic:focus svg,
-.ui.button.basic.active svg {
-    fill: @marine900;
-}
-
-/* CONTENT | Icon | STATE | Active | SKIN | Positive/Basic */
-.ui.button.basic.positive:hover svg,
-.ui.button.basic.positive.active svg,
-.ui.button.basic.positive:focus svg {
+.ui.button.with-icon.basic.positive.active .icon,
+.ui.button.with-icon.basic.positive:hover .icon,
+.ui.button.with-icon.basic.positive:focus .icon,
+.ui.buttons.basic.positive .button.with-icon.active .icon,
+.ui.buttons.basic.positive .button.with-icon:hover .icon,
+.ui.buttons.basic.positive .button.with-icon:focus .icon {
     fill: @success900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Primary/Basic */
-.ui.button.basic.primary:hover svg,
-.ui.button.basic.primary.active svg,
-.ui.button.basic.primary:focus svg {
+.ui.button.with-icon.basic.primary:hover .icon,
+.ui.button.with-icon.basic.primary.active .icon,
+.ui.button.with-icon.basic.primary:focus .icon,
+.ui.buttons.basic.primary .button.with-icon:hover .icon,
+.ui.buttons.basic.primary .button.with-icon.active .icon,
+.ui.buttons.basic.primary .button.with-icon:focus .icon {
     fill: @primary900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Secondary */
-.ui.button.secondary:hover svg,
-.ui.button.secondary.active svg,
-.ui.button.secondary:focus svg {
-    fill: @marine500;
+.ui.button.with-icon.secondary:hover .icon,
+.ui.button.with-icon.secondary.active .icon,
+.ui.button.with-icon.secondary:focus .icon,
+.ui.buttons.secondary .button.with-icon:hover .icon,
+.ui.buttons.secondary .button.with-icon.active .icon,
+.ui.buttons.secondary .button.with-icon:focus .icon {
+    fill: @marine900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Secondary/Basic */
-.ui.basic.secondary.button:hover,
-.ui.basic.secondary.button:focus,
-.ui.basic.secondary.button.active {
+.ui.button.with-icon.basic.secondary:hover .icon,
+.ui.button.with-icon.basic.secondary.active .icon,
+.ui.button.with-icon.basic.secondary:focus .icon,
+.ui.buttons.basic.secondary .button.with-icon:hover .icon,
+.ui.buttons.basic.secondary .button.with-icon.active .icon,
+.ui.buttons.basic.secondary .button.with-icon:focus .icon {
     color: @marine900 !important;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Ghost */
-.ui.button.ghost:hover svg,
-.ui.button.ghost.active svg,
-.ui.button.ghost:focus svg {
+.ui.button.with-icon.ghost:hover .icon,
+.ui.button.with-icon.ghost.active .icon,
+.ui.button.with-icon.ghost:focus .icon,
+.ui.buttons.ghost .button.with-icon:hover .icon,
+.ui.buttons.ghost .button.with-icon.active .icon,
+.ui.buttons.ghost .button.with-icon:focus .icon {
     fill: @marine600;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Primary/Ghost */
-.ui.button.ghost.primary:hover svg,
-.ui.button.ghost.primary.active svg,
-.ui.button.ghost.primary:focus svg {
+.ui.button.with-icon.ghost.primary:hover .icon,
+.ui.button.with-icon.ghost.primary.active .icon,
+.ui.button.with-icon.ghost.primary:focus .icon,
+.ui.buttons.ghost.primary .button.with-icon:hover .icon,
+.ui.buttons.ghost.primary .button.with-icon.active .icon,
+.ui.buttons.ghost.primary .button.with-icon:focus .icon  {
     fill: @primary500;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Negative/Ghost */
-.ui.button.ghost.negative:hover svg,
-.ui.button.ghost.negative.active svg,
-.ui.button.ghost.negative:focus svg {
+.ui.button.with-icon.ghost.negative:hover .icon,
+.ui.button.with-icon.ghost.negative.active .icon,
+.ui.button.with-icon.ghost.negative:focus .icon,
+.ui.buttons.ghost.negative .button.with-icon:hover .icon,
+.ui.buttons.ghost.negative .button.with-icon.active .icon,
+.ui.buttons.ghost.negative .button.with-icon:focus .icon  {
     fill: @alert500;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Negative/Basic */
-.ui.button.basic.negative:hover svg,
-.ui.button.basic.negative.active svg,
-.ui.button.basic.negative:focus svg {
+.ui.button.with-icon.negative.basic:hover .icon,
+.ui.button.with-icon.negative.basic.active .icon,
+.ui.button.with-icon.negative.basic:focus .icon,
+.ui.buttons.negative.basic .button.with-icon:hover .icon,
+.ui.buttons.negative.basic .button.with-icon.active .icon,
+.ui.buttons.negative.basic .button.with-icon:focus .icon  {
     fill: @alert900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Naked */
-.ui.button.naked:hover svg,
-.ui.button.naked:focus svg,
-.ui.button.naked.active svg {
+.ui.button.naked:hover .icon,
+.ui.button.naked:focus .icon,
+.ui.button.naked.active .icon {
     fill: initial;
 }
 
@@ -831,7 +949,7 @@
 }
 
 /* CONTENT | Group | Icon | Default */
-.ui.buttons.icon .button {
+.ui.buttons.with-icon .button {
     padding: 0.25rem 0.75rem;
 }
 
@@ -894,7 +1012,7 @@
 
 /* CONTENT / STATE / Loading */
 /* Specificity hack */
-.ui.loading.loading.loading.loading.loading.loading.button svg{
+.ui.loading.loading.loading.loading.loading.loading.button .icon{
     fill: @transparent;
 }
 

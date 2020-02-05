@@ -59,49 +59,49 @@ export const Buttons = props => {
             {/* icon right + text */}
             <div className="flex flex-column items-start">
                 <Button icon={<SignoutIcon24 />} iconPosition="right" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="tiny" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="tiny" circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="small" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="small" circular {...props}></Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" compact {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} iconPosition="right" size="large" circular {...props}></Button>
+                <Button icon={<SignoutIcon24 />} size="large" circular {...props}></Button>
             </div>
             {/* icon */}
             <div className="flex flex-column items-start">
-                <Button {...props}><CalendarIcon /></Button>
-                <Button active {...props}><CalendarIcon /></Button>
-                <Button disabled {...props}><CalendarIcon /></Button>
-                <Button {...props} ghost><CalendarIcon /></Button>
-                <Button active ghost {...props}><CalendarIcon /></Button>
-                <Button disabled ghost {...props}><CalendarIcon /></Button>
-                <Button {...props} basic><CalendarIcon /></Button>
-                <Button {...props} active basic><CalendarIcon /></Button>
-                <Button {...props} disabled basic><CalendarIcon /></Button>
+                <Button {...props} icon={<CalendarIcon />}></Button>
+                <Button active {...props} icon={<CalendarIcon />}></Button>
+                <Button disabled {...props} icon={<CalendarIcon />}></Button>
+                <Button {...props} ghost icon={<CalendarIcon />}></Button>
+                <Button active ghost {...props} icon={<CalendarIcon />}></Button>
+                <Button disabled ghost {...props} icon={<CalendarIcon />}></Button>
+                <Button {...props} basic icon={<CalendarIcon />}></Button>
+                <Button {...props} active basic icon={<CalendarIcon />}></Button>
+                <Button {...props} disabled basic icon={<CalendarIcon />}></Button>
             </div>
             {/* icon / layout */}
             <div className="flex flex-column items-start">
-                <Button compact {...props}><CalendarIcon /></Button>
-                <Button size="tiny" {...props}><CalendarIcon24 /></Button>
-                <Button size="tiny" compact {...props}><CalendarIcon24 /></Button>
-                <Button size="small" {...props}><CalendarIcon24 /></Button>
-                <Button size="small" compact {...props}><CalendarIcon24 /></Button>
-                <Button size="large" {...props}><CalendarIcon /></Button>
-                <Button size="large" compact {...props}><CalendarIcon /></Button>
+                <Button compact {...props} icon={<CalendarIcon />}></Button>
+                <Button size="tiny" {...props} icon={<CalendarIcon24 />}></Button>
+                <Button size="tiny" compact {...props} icon={<CalendarIcon24 />}></Button>
+                <Button size="small" {...props} icon={<CalendarIcon24 />}></Button>
+                <Button size="small" compact {...props} icon={<CalendarIcon24 />}></Button>
+                <Button size="large" {...props} icon={<CalendarIcon />}></Button>
+                <Button size="large" compact {...props} icon={<CalendarIcon />}></Button>
             </div>
             {/* tag + text / tag + text + icon / label + text / label + text + icon */}
             <div className="flex flex-column items-start">
-                <Button tag={<Tag className="bg-red" />}>One</Button>
-                <Button tag={<Tag className="bg-red" />} compact>One</Button>
-                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right">One</Button>
-                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right" compact>One</Button>
-                <Button label={<Label>6</Label>}>One</Button>
-                <Button label={<Label>6</Label>} compact>One</Button>
-                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />}>One</Button>
-                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} compact>One</Button>
+                <Button tag={<Tag className="bg-red" />} {...props}>One</Button>
+                <Button tag={<Tag className="bg-red" />} compact {...props}>One</Button>
+                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right" {...props}>One</Button>
+                <Button tag={<Tag className="bg-red" />} icon={<CalendarIcon24 />} iconPosition="right" compact {...props}>One</Button>
+                <Button label={<Label>6</Label>} {...props}>One</Button>
+                <Button label={<Label>6</Label>} compact {...props}>One</Button>
+                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} {...props}>One</Button>
+                <Button label={<Label>6</Label>} icon={<CalendarIcon24 />} compact {...props}>One</Button>
             </div>
             {/* text / loading */}
             <div className="flex flex-column items-start">
@@ -131,25 +131,25 @@ export const Buttons = props => {
             </div>
             {/* icon / loading */}
             <div className="flex flex-column items-start">
-                <Button loading className="paused" {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" active {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" disabled {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" {...props} ghost><CalendarIcon /></Button>
-                <Button loading className="paused" active ghost {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" disabled ghost {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" {...props} basic><CalendarIcon /></Button>
-                <Button loading className="paused" {...props} active basic><CalendarIcon /></Button>
-                <Button loading className="paused" {...props} disabled basic><CalendarIcon /></Button>
+                <Button loading className="paused" {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" active {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" disabled {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" {...props} ghost icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" active ghost {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" disabled ghost {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" {...props} basic icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" {...props} active basic icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" {...props} disabled basic icon={<CalendarIcon />}></Button>
             </div>
             {/* loading / layout */}
             <div className="flex flex-column items-start">
-                <Button loading className="paused" compact {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" size="tiny" {...props}><CalendarIcon24 /></Button>
-                <Button loading className="paused" size="tiny" compact {...props}><CalendarIcon24 /></Button>
-                <Button loading className="paused" size="small" {...props}><CalendarIcon24 /></Button>
-                <Button loading className="paused" size="small" compact {...props}><CalendarIcon24 /></Button>
-                <Button loading className="paused" size="large" {...props}><CalendarIcon /></Button>
-                <Button loading className="paused" size="large" compact {...props}><CalendarIcon /></Button>
+                <Button loading className="paused" compact {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" size="tiny" {...props} icon={<CalendarIcon24 />}></Button>
+                <Button loading className="paused" size="tiny" compact {...props} icon={<CalendarIcon24 />}></Button>
+                <Button loading className="paused" size="small" {...props} icon={<CalendarIcon24 />}></Button>
+                <Button loading className="paused" size="small" compact {...props} icon={<CalendarIcon24 />}></Button>
+                <Button loading className="paused" size="large" {...props} icon={<CalendarIcon />}></Button>
+                <Button loading className="paused" size="large" compact {...props} icon={<CalendarIcon />}></Button>
             </div>
         </div>
     );

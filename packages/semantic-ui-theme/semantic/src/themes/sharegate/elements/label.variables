@@ -2,14 +2,14 @@
     User Variable Overrides
 *******************************/
 
-@small: 1em;
+@small: 1rm;
 @medium: 1rem;
 @large: 1.125rem;
 @fontWeight: 400;
 @borderRadius: 999px;
 @basicBorderWidth: 1px;
 @verticalPadding: 8px;
-@horizontalPadding: 1em;
+@horizontalPadding: 1rem;
 @verticalMargin: 0;
 @horizontalMargin: 0;
 @borderColor: @cloud200;
@@ -23,3 +23,4 @@
 @color: @marine600;
 @basicBorder: @basicBorderWidth solid @borderColor;
 @mini: 6px;
+@tagCircleColor: initial;

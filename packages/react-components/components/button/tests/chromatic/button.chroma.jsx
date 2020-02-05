@@ -81,7 +81,7 @@ stories()
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
-                         <Button>One <Label size="mini">12</Label></Button>
+                         <Button label={<Label size="mini">6</Label>}>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
@@ -125,24 +125,24 @@ stories()
                          <Button disabled>One</Button>
                          <Button active>Two</Button>
                      </Button.Group>
-                     <Button.Group icon secondary>
-                         <Button><SignoutIcon24 /></Button>
-                         <Button><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group secondary>
+                         <Button icon={<SignoutIcon24 />} />
+                         <Button icon={<CalendarIcon24 />} />
+                         <Button icon={<ImageIcon />} />
                      </Button.Group>
-                     <Button.Group icon secondary>
-                         <Button disabled><SignoutIcon24 /></Button>
-                         <Button active><CalendarIcon24 /></Button>
+                     <Button.Group secondary>
+                         <Button disabled icon={<SignoutIcon24 />} />
+                         <Button active icon={<CalendarIcon24 />} />
                      </Button.Group>
-                     <Button.Group icon basic>
-                         <Button><SignoutIcon24 /></Button>
-                         <Button><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group basic>
+                         <Button icon={<SignoutIcon24 />}></Button>
+                         <Button icon={<CalendarIcon24 />}></Button>
+                         <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
-                     <Button.Group icon basic>
-                         <Button disabled><SignoutIcon24 /></Button>
-                         <Button disabled><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group basic>
+                         <Button disabled icon={<SignoutIcon24 />}></Button>
+                         <Button disabled icon={<CalendarIcon24 />}></Button>
+                         <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
                  </div>
                  <div className="flex flex-column items-start">
