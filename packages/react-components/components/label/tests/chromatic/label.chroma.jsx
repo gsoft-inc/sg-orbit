@@ -298,14 +298,12 @@ stories()
         </div>
     );
 
-// TODO: add tag prop tests.
-
 stories()
     .add("custom css class", () =>
         <Label className="bg-red">Notification Sent</Label>
     );
 
-stories("/icons")
+stories("/shorthand props/icons")
     .add("default", () =>
         <Label icon={<CommunicationIcon />}>Notification Sent</Label>
     )
@@ -322,7 +320,7 @@ function setRedBackground(element) {
     }
 }
 
-stories("/render-prop/button")
+stories("/shorthand props/button/render")
     .add("default", () =>
         <Label button={<Button icon={<CloseIcon24 />} />}>
             Group added
@@ -339,19 +337,7 @@ stories("/render-prop/button")
         </Label>
     );
 
-stories("/render prop/tag")
-    .add("default", () =>
-        <Label tag={<Tag className="bg-red" />}>
-            Group added
-        </Label>
-    )
-    .add("ref", () =>
-        <Label tag={<Tag ref={setRedBackground} />}>
-            Group added
-        </Label>
-    );
-
-stories("/shorthand/button")
+stories("/shorthand props/button/object")
     .add("default", () =>
         <Label button={{ icon: <CloseIcon24 /> }}>
             Group added
@@ -368,7 +354,19 @@ stories("/shorthand/button")
         </Label>
     );
 
-stories("/shorthand/tag")
+stories("/shorthand props/tag/render")
+    .add("default", () =>
+        <Label tag={<Tag className="bg-red" />}>
+            Group added
+        </Label>
+    )
+    .add("ref", () =>
+        <Label tag={<Tag ref={setRedBackground} />}>
+            Group added
+        </Label>
+    );
+
+stories("/shorthand props/tag/object")
     .add("default", () =>
         <Label tag={{ className: "bg-red" }}>
             Group added

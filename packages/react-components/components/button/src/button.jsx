@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-foreign-prop-types */
+
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
@@ -23,11 +25,11 @@ const propTypes = {
      */
     iconPosition: oneOf(["right", "left"]),
     /**
-     * A button can contain a label. Can be a label element or shorthand props.
+     * A button can contain a label.
      */
     label: oneOfType([element, object]),
     /**
-     * A button can contain a tag. Can be a tag element or shorthand props.
+     * A button can contain a tag.
      */
     tag: oneOfType([element, object]),
     /**
@@ -170,8 +172,6 @@ export const Button = forwardRef((props, ref) => (
     x.Group = SemanticButton.Group;
 });
 
-// eslint-disable-next-line react/forbid-foreign-prop-types
 if (!isNil(SemanticButton.propTypes)) {
-    // eslint-disable-next-line react/forbid-foreign-prop-types
     SemanticButton.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
 }

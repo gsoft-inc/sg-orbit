@@ -242,7 +242,7 @@ stories()
         <Button className="bg-red">Button</Button>
     );
 
-stories("/icons")
+stories("/shorthand props/icons")
     .add("default", () =>
         <Button icon={<CalendarIcon24 />}>Button</Button>
     )
@@ -259,7 +259,7 @@ function setRedBackground(element) {
     }
 }
 
-stories("/render prop/label")
+stories("/shorthand props/label/render")
     .add("default", () =>
         <Button label={<Label>6</Label>}>Button</Button>
     )
@@ -270,15 +270,7 @@ stories("/render prop/label")
         <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
     );
 
-stories("/render prop/tag")
-    .add("default", () =>
-        <Button tag={<Tag className="bg-red" />}>Button</Button>
-    )
-    .add("ref", () =>
-        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
-    );
-
-stories("/shorthand/label")
+stories("/shorthand props/label/object")
     .add("default", () =>
         <Button label={{ content: "6" }}>Button</Button>
     )
@@ -289,7 +281,15 @@ stories("/shorthand/label")
         <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
     );
 
-stories("/shorthand/tag")
+stories("/shorthand props/tag/render")
+    .add("default", () =>
+        <Button tag={<Tag className="bg-red" />}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
+    );
+
+stories("/shorthand props/tag/object")
     .add("default", () =>
         <Button tag={{ className: "bg-red" }}>Button</Button>
     )

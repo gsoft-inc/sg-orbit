@@ -86,7 +86,7 @@ A button can take the width of its container.
 
 ### Icon
 
-A button can contain an [icon](?path=/docs/materials-icons--page).
+A button can contain an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
@@ -100,7 +100,7 @@ A button can contain an [icon](?path=/docs/materials-icons--page).
 
 ### Label
 
-A button can contain a [label](?path=/story/components-label-standard--default-story).
+A button can contain a [label](?path=/story/components-label-standard--default-story). Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="label">
@@ -113,7 +113,7 @@ A button can contain a [label](?path=/story/components-label-standard--default-s
 
 ### Tag
 
-A button can contain a [tag](?path=/docs/components-label-tag--default-story).
+A button can contain a [tag](?path=/docs/components-label-tag--default-story). Specify the tag to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="tag">
@@ -138,13 +138,15 @@ A button can show a loading indicator.
 
 A button can vary in size.
 
+Available sizes are `"tiny"`, `"small"`, `"medium"` and `"large"`.
+
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <Button type="button" size="tiny">Tiny</Button>
-            <Button type="button" size="small">Small</Button>
-            <Button type="button" size="medium">Medium</Button>
-            <Button type="button" size="large">Large</Button>
+            <Button type="button" size="tiny">Cutoff</Button>
+            <Button type="button" size="small">Cutoff</Button>
+            <Button type="button">Cutoff</Button>
+            <Button type="button" size="large">Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -156,17 +158,17 @@ A button can be circular.
 <Preview>
     <Story name="circular">
         <div className="flex">
-            <div className="flex items-end items-space-between mr4">
-                <Button type="button" icon={<AddIcon24 />} circular size="tiny"></Button>
-                <Button type="button" icon={<AddIcon24 />} circular size="small"></Button>
-                <Button type="button" icon={<AddIcon24 />} circular></Button>
-                <Button type="button" icon={<AddIcon />} circular size="large"></Button>
-            </div>
             <div className="flex items-end items-space-between">
                 <Button type="button" circular size="tiny">Aa</Button>
                 <Button type="button" circular size="small">Aa</Button>
                 <Button type="button" circular>Aa</Button>
                 <Button type="button" circular size="large">Aa</Button>
+            </div>
+            <div className="flex items-end items-space-between mr4">
+                <Button type="button" icon={<AddIcon />} circular size="tiny"></Button>
+                <Button type="button" icon={<AddIcon />} circular size="small"></Button>
+                <Button type="button" icon={<AddIcon />} circular></Button>
+                <Button type="button" icon={<AddIcon />} circular size="large"></Button>
             </div>
         </div>
     </Story>
