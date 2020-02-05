@@ -32,7 +32,7 @@ function renderDependencies(relativePath) {
 
 function toRowValues({ name, description, relativePath }) {
     return [
-        <><span className="b">{name}</span><br /><span className="i">{description}</span></>,
+        <><span className="fw5">{name}</span><br /><span className="i">{description}</span></>,
         renderVersion(name),
         renderDependencies(relativePath)
     ];

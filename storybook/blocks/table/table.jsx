@@ -2,9 +2,10 @@
 
 import styles from "./table.module.css";
 
-import { any, arrayOf, object, oneOfType, shape, string } from "prop-types";
+import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";
+import { isNil } from "lodash";
 import { isString } from "lodash";
 import { mergeClasses } from "@orbit-ui/react-components-shared/src";
 
@@ -24,12 +25,17 @@ const ROW_VALUE_SHAPE = {
 const propTypes = {
     columns: arrayOf(shape(COLUMN_SHAPE)).isRequired,
     rows: arrayOf(arrayOf(oneOfType([any, shape(ROW_VALUE_SHAPE)]))).isRequired,
-    rowClassName: string
+    rowClassName: string,
+    fluid: bool
 };
 
-function TableRaw({ className, children, ...rest }) {
+const defaultProps = {
+    fluid: true
+};
+
+function TableRaw({ fluid, className, children, ...rest }) {
     const classes = mergeClasses(
-        styles.table,
+        fluid && styles.fluid,
         className
     );
 
@@ -40,7 +46,7 @@ function TableRaw({ className, children, ...rest }) {
     );
 }
 
-export function Table({ columns, rows, rowClassName }) {
+export function Table({ columns, rows, rowClassName, fluid }) {
     const renderValue = (value, key) => {
         if (isString(value) || isElement(value)) {
             return <td className={rowClassName} key={key}>{value}</td>;
@@ -48,14 +54,14 @@ export function Table({ columns, rows, rowClassName }) {
 
         const classes = mergeClasses(
             rowClassName,
-            value.className
+            !isNil(value) && value.className
         );
 
         return <td className={classes} style={value.style} key={key}>{value.value}</td>;
     };
 
     return (
-        <TableRaw>
+        <TableRaw fluid={fluid}>
             <thead>
                 <tr>
                     {columns.map(x => <th align="left" className={x.className} key={x.title}>{x.title}</th>)}
@@ -75,5 +81,6 @@ export function Table({ columns, rows, rowClassName }) {
 }
 
 Table.propTypes = propTypes;
+Table.defaultProps = defaultProps;
 
 Table.Raw = TableRaw;

@@ -105,10 +105,10 @@ function supportDocsAddon(config) {
 }
 
 function addAliases(config) {
-    const storybookAlias = config.resolve.alias || {};
+    const existingAlias = config.resolve.alias || {};
 
     config.resolve.alias = {
-        ...storybookAlias,
+        ...existingAlias,
         "@decorators": path.resolve(__dirname, "../decorators/"),
         "@blocks": path.resolve(__dirname, "../blocks/"),
         "@shared": path.resolve(__dirname, "../shared/"),
@@ -123,6 +123,17 @@ function bundleCustomReactComponents(config) {
     config.module.rules[0].include.push(path.resolve(__dirname, "../..", "packages"));
 }
 
+// Currently required for:
+//   - https://github.com/reworkcss/css
+function supportPackagesWithDependencyOnNodeFileSystem(config) {
+    const existingNode = config.node || {};
+
+    config.node = {
+        ...existingNode,
+        fs: "empty"
+    };
+}
+
 // NOTE: the source-loader config has not been added to this webpack config, we dont seem to need it.
 // For more info about the docs addon config: https://github.com/storybookjs/storybook/blob/next/addons/docs/README.md#manual-configuration
 module.exports = async ({ config }) => {
@@ -130,6 +141,7 @@ module.exports = async ({ config }) => {
     addAliases(config);
     supportDocsAddon(config);
     bundleCustomReactComponents(config);
+    supportPackagesWithDependencyOnNodeFileSystem(config);
 
     return config;
 };
