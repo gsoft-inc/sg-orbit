@@ -165,7 +165,7 @@
 .ui.buttons.small.with-icon.compact .button,
 .ui.button.large.with-icon.compact,
 .ui.buttons.large.with-icon.compact .button {
-    padding-left: calc(@compactHorizontalPadding / 2);
+    padding-left: @compactHorizontalPadding;
     padding-right: @compactHorizontalPadding;
 }
 
@@ -190,7 +190,7 @@
 .ui.buttons.small.with-icon.with-icon-right.compact .button,
 .ui.button.large.with-icon.with-icon-right.compact,
 .ui.buttons.large.with-icon.with-icon-right.compact .button {
-    padding-right: calc(@compactHorizontalPadding / 2);
+    padding-right: @compactHorizontalPadding;
     padding-left: @compactHorizontalPadding;
 }
 
@@ -203,8 +203,8 @@
 .ui.buttons.small.with-icon.with-icon-right.with-tag.compact .button,
 .ui.button.large.with-icon.with-icon-right.with-tag.compact,
 .ui.buttons.large.with-icon.with-icon-right.with-tag.compact .button {
-    padding-right: calc(@compactHorizontalPadding / 2);
-    padding-left: calc(@compactHorizontalPadding / 2);
+    padding-right: @compactHorizontalPadding;
+    padding-left: @compactHorizontalPadding;
 }
 
 /* STATE | Active | SKIN | Basic */
@@ -344,18 +344,6 @@
 .ui.button.with-label,
 .ui.buttons.with-label .button {
     padding-right: @scaleDelta;
-}
-
-/* CONTENT | With Tag | Layout | Compact | Padding */
-.ui.button.with-tag.compact,
-.ui.buttons.with-tag.compact .button {
-    padding-left: calc(@scaleDelta / 2);
-}
-
-/* CONTENT | With Label | Layout | Compact | Padding */
-.ui.button.with-label.compact,
-.ui.buttons.with-label.compact .button {
-    padding-right: calc(@scaleDelta / 2);
 }
 
 /* SKIN | Ghost */

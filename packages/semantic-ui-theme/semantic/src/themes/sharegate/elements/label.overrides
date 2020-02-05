@@ -13,9 +13,9 @@
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
 }
 
-.ui.label > .button.icon {
+.ui.label > .button.with-icon {
     margin: 0!important;
-    margin-left: 8px!important;
+    margin-left: 0.25rem!important;
 }
 
 /* CONTENT | With Icon | LAYOUT | Sizing */
