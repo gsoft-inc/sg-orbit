@@ -47,6 +47,7 @@ export function PackagesTable({ packages }) {
                 { title: "Dependencies", className: styles.dependencies }
             ]}
             rows={packages.map(x => toRowValues(x))}
+            fluid
         />
     );
 }

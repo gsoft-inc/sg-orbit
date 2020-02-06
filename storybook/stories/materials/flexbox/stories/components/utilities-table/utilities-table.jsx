@@ -1,12 +1,12 @@
-import { Table } from "@blocks";
-import { arrayOf, element, shape, string } from "prop-types";
-
 import styles from "./utilities-table.module.css";
+
+import { Table } from "@blocks";
+import { arrayOf, element, oneOfType, shape, string } from "prop-types";
 
 const propTypes = {
     utilities: arrayOf(shape({
         name: string.isRequired,
-        description: string.isRequired,
+        description: oneOfType([string, element]).isRequired,
         example: element.isRequired
     }))
 };
@@ -23,10 +23,11 @@ export function UtilitiesTable({ utilities }) {
         <Table
             columns={[
                 { title: "Class" },
-                { title: "", className: styles.example }
+                { title: "", headerClassName: styles.example, rowClassName: "" }
             ]}
             rows={utilities.map(x => toRowValues(x))}
             rowClassName="h13"
+            fluid
         />
     );
 }

@@ -1,0 +1,35 @@
+:root {
+    /* Marine */
+    --marine-50: #E2E4E8;
+    --marine-100: #B7BBC5;
+    --marine-200: #878E9E;
+    --marine-300: #566077;
+    --marine-400: #323E5A;
+    --marine-500: #0E1C3D;
+    --marine-600: #0C1937;
+    --marine-700: #0A142F;
+    --marine-800: #081127;
+    --marine-900: #04091A;
+    /* Sunray */
+    --sunray-50: #FFF6E7;
+    --sunray-100: #FEE9C3;
+    --sunray-200: #FEDB9B;
+    --sunray-300: #FDCD72;
+    --sunray-400: #FCC254;
+    --sunray-500: #FCB736;
+    --sunray-600: #FCB030;
+    --sunray-700: #FBA729;
+    --sunray-800: #FB9F22;
+    --sunray-900: #FA9016;
+    /* Moonstone */
+    --moonstone-50: #EFF6F6;
+    --moonstone-100: #D6E9E9;
+    --moonstone-200: #BBDBDA;
+    --moonstone-300: #9FCCCB;
+    --moonstone-400: #8BC1C0;
+    --moonstone-500: #76B6B5;
+    --moonstone-600: #6EAFAE;
+    --moonstone-700: #63A6A5;
+    --moonstone-800: #599E9D;
+    --moonstone-900: #468E8D;
+}

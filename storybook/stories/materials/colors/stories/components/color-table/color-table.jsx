@@ -27,10 +27,9 @@ export function ColorTable({ colors }) {
                 { title: "Shade", className: styles.shade },
                 { title: "Variable", className: styles.variable },
                 { title: "Hexa", className: styles.hexa },
-                { title: "" }
+                { title: "", className: styles.example }
             ]}
             rows={colors.map(x => toRowValues(x))}
-            rowClassName="h8"
         />
     );
 }

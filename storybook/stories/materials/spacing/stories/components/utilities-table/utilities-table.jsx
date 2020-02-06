@@ -1,6 +1,8 @@
 import { Table } from "@blocks";
 import { arrayOf, element, shape, string } from "prop-types";
 
+import styles from "./utilities-table.module.css";
+
 const propTypes = {
     utilities: arrayOf(shape({
         scale: string.isRequired,
@@ -23,13 +25,12 @@ export function UtilitiesTable({ utilities }) {
     return (
         <Table
             columns={[
-                { title: "Scale" },
-                { title: "Value" },
-                { title: "Variable" },
-                { title: "" }
+                { title: "Scale", className: styles.scale },
+                { title: "Value", className: styles.value },
+                { title: "Variable", className: styles.variable },
+                { title: "", className: styles.example }
             ]}
             rows={utilities.map(x => toRowValues(x))}
-            rowClassName="h8"
         />
     );
 }

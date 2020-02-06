@@ -3,9 +3,13 @@
 }
 
 .variable {
-    width: 300px;
+    width: 200px;
 }
 
 .hexa {
     width: 200px;
+}
+
+.example {
+    width: 400px;
 }

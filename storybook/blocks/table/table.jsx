@@ -13,7 +13,8 @@ const MdxTable = components.table;
 
 const COLUMN_SHAPE = {
     title: string.isRequired,
-    className: string
+    headerClassName: string,
+    rowClassName: string
 };
 
 const ROW_VALUE_SHAPE = {
@@ -25,12 +26,13 @@ const ROW_VALUE_SHAPE = {
 const propTypes = {
     columns: arrayOf(shape(COLUMN_SHAPE)).isRequired,
     rows: arrayOf(arrayOf(oneOfType([any, shape(ROW_VALUE_SHAPE)]))).isRequired,
+    // TODO: Can I remove this one in favor of the "rowClassName" in column?
     rowClassName: string,
     fluid: bool
 };
 
 const defaultProps = {
-    fluid: true
+    fluid: false
 };
 
 function TableRaw({ fluid, className, children, ...rest }) {
@@ -47,17 +49,22 @@ function TableRaw({ fluid, className, children, ...rest }) {
 }
 
 export function Table({ columns, rows, rowClassName, fluid }) {
-    const renderValue = (value, key) => {
+    const renderValue = (value, index) => {
+        const defaultClasses = mergeClasses(
+            styles.row,
+            rowClassName
+        );
+
         if (isString(value) || isElement(value)) {
-            return <td className={rowClassName} key={key}>{value}</td>;
+            return <td className={defaultClasses} key={index}>{value}</td>;
         }
 
-        const classes = mergeClasses(
-            rowClassName,
+        const extraClasses = mergeClasses(
+            defaultClasses,
             !isNil(value) && value.className
         );
 
-        return <td className={classes} style={value.style} key={key}>{value.value}</td>;
+        return <td className={extraClasses} style={value.style} key={index}>{value.value}</td>;
     };
 
     return (
