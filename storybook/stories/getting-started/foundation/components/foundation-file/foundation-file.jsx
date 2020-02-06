@@ -1,3 +1,4 @@
+import { FileLink } from "../file-link";
 import { VariablesTable } from "../variables-table";
 import { isNil } from "lodash";
 import { parse } from "css";
@@ -23,7 +24,12 @@ export function FoundationFile({ relativeFilePath }) {
     }
 
     if (!isNil(content)) {
-        return <VariablesTable variables={content} />;
+        return (
+            <>
+                <FileLink relativeFilePath={relativeFilePath} />
+                <VariablesTable variables={content} />
+            </>
+        );
     }
 
     return null;

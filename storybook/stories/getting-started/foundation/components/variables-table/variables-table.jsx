@@ -28,11 +28,12 @@ export function VariablesTable({ variables }) {
     return (
         <Table
             columns={[
-                { title: "Name" },
-                { title: "Value" }
+                { title: "Name", headerStyle: { minWidth: "250px" } },
+                { title: "Value", headerStyle: { minWidth: "250px" } }
             ]}
             rows={variables.map(x => toRowValues(x))}
             rowClassName="code f7 o-90"
+            className="mt2 mb7"
         />
     );
 }

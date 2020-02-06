@@ -59,7 +59,7 @@ function TableRaw({ fluid, className, children, ...rest }) {
     );
 }
 
-export function Table({ columns, rows, headerClassName, rowClassName, fluid }) {
+export function Table({ columns, rows, className, headerClassName, rowClassName, fluid }) {
     ensureRowsValuesMatchColumns(columns, rows);
 
     const renderHeader = (value, index) => {
@@ -104,7 +104,7 @@ export function Table({ columns, rows, headerClassName, rowClassName, fluid }) {
     };
 
     return (
-        <TableRaw fluid={fluid}>
+        <TableRaw fluid={fluid} className={className}>
             <thead>
                 <tr>
                     {columns.map((x, index) => renderHeader(x, index))}
