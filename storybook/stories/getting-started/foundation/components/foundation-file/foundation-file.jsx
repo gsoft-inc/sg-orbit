@@ -1,4 +1,3 @@
-// import { Source } from "@storybook/addon-docs/blocks";
 import { VariablesTable } from "../variables-table";
 import { isNil } from "lodash";
 import { parse } from "css";
@@ -25,8 +24,6 @@ export function FoundationFile({ relativeFilePath }) {
 
     if (!isNil(content)) {
         return <VariablesTable variables={content} />;
-
-        // return <Source code={content} language="css" format={false} copyable={false} dark />;
     }
 
     return null;

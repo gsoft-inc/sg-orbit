@@ -1,5 +1,3 @@
-import styles from "./utilities-table.module.css";
-
 import { Table } from "@blocks";
 import { arrayOf, element, oneOfType, shape, string } from "prop-types";
 
@@ -13,7 +11,7 @@ const propTypes = {
 
 function toRowValues({ name, description, example }) {
     return [
-        <><span className="code f7">{name}</span><br /><span className="i">{description}</span></>,
+        <><span className="code f7 fw6">{name}</span><br />{description}</>,
         example
     ];
 }
@@ -22,8 +20,8 @@ export function UtilitiesTable({ utilities }) {
     return (
         <Table
             columns={[
-                { title: "Class" },
-                { title: "", headerClassName: styles.example, rowClassName: "" }
+                "Class",
+                { title: "", headerStyle: { width: "550px" } }
             ]}
             rows={utilities.map(x => toRowValues(x))}
             rowClassName="h13"

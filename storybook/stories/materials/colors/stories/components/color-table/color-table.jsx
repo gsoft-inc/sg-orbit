@@ -1,8 +1,6 @@
 import { Table } from "@blocks";
 import { arrayOf, shape, string } from "prop-types";
 
-import styles from "./color-table.module.css";
-
 const propTypes = {
     colors: arrayOf(shape({
         shade: string.isRequired,
@@ -14,9 +12,9 @@ const propTypes = {
 function toRowValues({ shade, variable, hexa }) {
     return [
         shade,
-        { value: variable, className: "code f7 o-90" },
-        { value: hexa, className: "code f7 o-90" },
-        { className: "h8", style: { backgroundColor: hexa } }
+        variable,
+        hexa,
+        { style: { backgroundColor: hexa } }
     ];
 }
 
@@ -24,10 +22,10 @@ export function ColorTable({ colors }) {
     return (
         <Table
             columns={[
-                { title: "Shade", className: styles.shade },
-                { title: "Variable", className: styles.variable },
-                { title: "Hexa", className: styles.hexa },
-                { title: "", className: styles.example }
+                { title: "Shade", headerStyle: { width: "150px" } },
+                { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+                { title: "Hexa", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+                { title: "", headerStyle: { width: "400px" } }
             ]}
             rows={colors.map(x => toRowValues(x))}
         />
