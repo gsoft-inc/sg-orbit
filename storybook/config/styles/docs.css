@@ -47,6 +47,10 @@ details + details {
     margin-top: var(--scale-delta);
 }
 
+strong {
+    font-weight: 600;
+}
+
 .sbdocs.sbdocs-h1,
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h3,

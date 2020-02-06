@@ -106,6 +106,7 @@
         "chalk": "3.0.0",
         "copy-files": "0.1.0",
         "cross-env": "7.0.0",
+        "css": "2.2.4",
         "eslint": "6.8.0",
         "eslint-plugin-jest": "23.6.0",
         "eslint-plugin-jsx-control-statements": "2.2.1",

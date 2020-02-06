@@ -32,7 +32,7 @@ function renderDependencies(relativePath) {
 
 function toRowValues({ name, description, relativePath }) {
     return [
-        <><span className="fw5">{name}</span><br /><span className="i">{description}</span></>,
+        <><span className="fw5">{name}</span><br />{description}</>,
         renderVersion(name),
         renderDependencies(relativePath)
     ];
@@ -42,11 +42,12 @@ export function PackagesTable({ packages }) {
     return (
         <Table
             columns={[
-                { title: "Package" },
-                { title: "Version", className: styles.version },
-                { title: "Dependencies", className: styles.dependencies }
+                "Package",
+                { title: "Version", headerClassName: styles.version },
+                { title: "Dependencies", headerClassName: styles.dependencies }
             ]}
             rows={packages.map(x => toRowValues(x))}
+            fluid
         />
     );
 }

@@ -19,7 +19,7 @@ Typography is all about adjusting the text within the design while creating powe
 
 Our typography is inspired by one of our design principles _"Be simple"_. By that we tend to be meaningful and straight forward in our designs, on top of always making things easy to use for our customers.
 
-Not only did we need a font that would match that, but that would allow us to integrate it as well in our products as in our marketing and brand assets. It is important that our font reflects our personality: _fun_, _human_ and _helpful_. With its linear, geometric forms, its simplicity and clarity, and with its fun and perfect curves, [Calibre](https://klim.co.nz/retail-fonts/calibre/) is the perfect choice for us.
+To match that, we needed a font that would reflect our personality: _fun_, _human_ and _helpful_. With its linear, geometric forms, its simplicity, clarity, and with its fun and perfect curves, [Calibre](https://klim.co.nz/retail-fonts/calibre/) is the perfect choice for us.
 
 Our typography utilities includes [type scale](http://tachyons.io/docs/typography/scale/), [measure](http://tachyons.io/docs/typography/measure/), [line-height](http://tachyons.io/docs/typography/line-height/), [tracking](http://tachyons.io/docs/typography/tracking/), [font-weight](http://tachyons.io/docs/typography/font-weight/), [font-style](http://tachyons.io/docs/typography/font-style/), [vertical-align](http://tachyons.io/docs/typography/vertical-align/), [text-align](http://tachyons.io/docs/typography/text-align/), [text-transform](http://tachyons.io/docs/typography/text-transform/), [text-decoration](http://tachyons.io/docs/typography/text-decoration/) and [white-space](http://tachyons.io/docs/typography/white-space/).
 
@@ -41,19 +41,18 @@ Headlines are the largest text on the screen, reserved for short, important text
 
 <Table
     columns={[
-        { title: "Font Size", className: styles.class },
-        { title: "Line Height", className: styles.lineHeight },
-        { title: "Font Weight" },
-        { title: "", className: styles.example }
+        { title: "Font Size", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Line Height", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Font Weight", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f1", "lh1", "500", <h1 className="f1 fw5 lh1 flex items-center">Migrate, adapt, and control the cloud.</h1>],
-        ["f2", "lh1", "500", <h1 className="f2 fw5 lh1 flex items-center">Migrate, adapt, and control the cloud.</h1>],
-        ["f3", "lh3", "500", <h1 className="f3 fw5 lh3 flex items-center">Migrate, adapt, and <br/> control the cloud.</h1>],
-        ["f4", "lh4", "500", <h1 className="f4 fw5 lh4 flex items-center">Migrate, adapt, and <br/>control the cloud.</h1>],
-        ["f5", "lh2", "500", <h1 className="f5 fw5 lh2 flex items-center">Migrate, adapt, and <br/>control the cloud.</h1>]
+        ["f1", "lh1", "500", <h1 className="f1 fw5 lh1 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f2", "lh1", "500", <h1 className="f2 fw5 lh1 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f3", "lh3", "500", <h1 className="f3 fw5 lh3 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f4", "lh4", "500", <h1 className="f4 fw5 lh4 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f5", "lh2", "500", <h1 className="f5 fw5 lh2 pv3">Migrate, adapt, and <br/> control the cloud.</h1>]
     ]}
-    rowClassName="h13"
 />
 
 ### Body
@@ -62,20 +61,19 @@ Body text is typically used for long-form writing as it works well for small tex
 
 <Table
     columns={[
-        { title: "Font Size", className: styles.class },
-        { title: "Line Height", className: styles.lineHeight },
-        { title: "Font Weight" },
-        { title: "", className: styles.example }
+        { title: "Font Size", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Line Height", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Font Weight", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f4", "lh4", "fw4", <p className="f4 lh4 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["f5", "lh2", "fw4", <p className="f5 lh2 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["f6", "lh4", "fw4", <p className="f6 lh4 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["f7", "lh3", "fw4", <p className="f7 lh3 flex items-center">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["f8", "lh5", "fw4", <p className="f8 lh5 flex items-center">If two pieces of the same type of metal touch in space<br/> they will permanently bond.</p>],
-        ["f9", "lh1", "fw4", <p className="f9 lh1 flex items-center">If two pieces of the same type of metal touch in space<br/> they will permanently bond.</p>]
+        ["f4", "lh4", "fw4", <p className="f4 lh4 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
+        ["f5", "lh2", "fw4", <p className="f5 lh2 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
+        ["f6", "lh4", "fw4", <p className="f6 lh4 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
+        ["f7", "lh3", "fw4", <p className="f7 lh3 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
+        ["f8", "lh5", "fw4", <p className="f8 lh5 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
+        ["f9", "lh1", "fw4", <p className="f9 lh1 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>]
     ]}
-    rowClassName="h13"
 />
 
 ## Utilities
@@ -86,23 +84,22 @@ A simple ratio-based scale with 9 options. Font sizes are designed to work in co
 
 <Table
     columns={[
-        { title: "Class", className: styles.class },
-        { title: "Value", className: styles.value },
-        { title: "Variable" },
-        { title: "", className: styles.example }
+        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "500px" } }
     ]}
     rows={[
-        ["f1", "3rem (48px)", "--type-scale-1", <p className="f1">A modular scale</p>],
-        ["f2", "2.5rem (40px)", "--type-scale-2", <p className="f2">A modular scale</p>],
-        ["f3", "2rem (32px) ", "--type-scale-3", <p className="f3">A modular scale</p>],
-        ["f4", "1.5rem (24px)", "--type-scale-4", <p className="f4">A modular scale</p>],
-        ["f5", "1.25rem (20px)", "--type-scale-5", <p className="f5">A modular scale</p>],
-        ["f6", "1.125rem (18px)", "--type-scale-6", <p className="f6">A modular scale</p>],
-        ["f7", "1rem (16px)", "--type-scale-7", <p className="f7">A modular scale</p>],
-        ["f8", "0.875rem (14px)", "--type-scale-8", <p className="f8">A modular scale</p>],
-        ["f9", "0.75rem (12px)", "--type-scale-9", <p className="f9">A modular scale</p>]
+        ["f1", "3rem (48px)", "--type-scale-1", <p className="f1 pv6">A modular scale</p>],
+        ["f2", "2.5rem (40px)", "--type-scale-2", <p className="f2 pv5">A modular scale</p>],
+        ["f3", "2rem (32px) ", "--type-scale-3", <p className="f3 pv4">A modular scale</p>],
+        ["f4", "1.5rem (24px)", "--type-scale-4", <p className="f4 pv4">A modular scale</p>],
+        ["f5", "1.25rem (20px)", "--type-scale-5", <p className="f5 pv3">A modular scale</p>],
+        ["f6", "1.125rem (18px)", "--type-scale-6", <p className="f6 pv3">A modular scale</p>],
+        ["f7", "1rem (16px)", "--type-scale-7", <p className="f7 pv3">A modular scale</p>],
+        ["f8", "0.875rem (14px)", "--type-scale-8", <p className="f8 pv2">A modular scale</p>],
+        ["f9", "0.75rem (12px)", "--type-scale-9", <p className="f9 pv2">A modular scale</p>]
     ]}
-    rowClassName="h13"
 />
 
 ### Line Height
@@ -111,19 +108,18 @@ Also known as leading, line height controls the amount of space between baseline
 
 <Table
     columns={[
-        { title: "Class", className: styles.class },
-        { title: "Value" },
-        { title: "", className: styles.example }
+        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "550px" } }
     ]}
     rows={[
-        ["lh1", "1", <p className="lh1">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["lh2", "1.2", <p className="lh2">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["lh3", "1.25", <p className="lh3">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["lh4", "1.33333", <p className="lh4">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["lh5", "1.4285714286", <p className="lh5">If two pieces of the same type of metal touch in space they will permanently bond.</p>],
-        ["lh6", "15", <p className="lh6">If two pieces of the same type of metal touch in space they will permanently bond.</p>]
+        ["lh1", "1", <p className="lh1 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
+        ["lh2", "1.2", <p className="lh2 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
+        ["lh3", "1.25", <p className="lh3 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
+        ["lh4", "1.33333", <p className="lh4 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
+        ["lh5", "1.4285714286", <p className="lh5 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
+        ["lh6", "15", <p className="lh6 pv3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>]
     ]}
-    rowClassName="h13"
 />
 
 ### Font Weight
@@ -132,20 +128,19 @@ Weight refers to the relative thickness of a font's stroke. A typeface can come 
 
 <Table
     columns={[
-        { title: "Class", className: styles.class },
-        { title: "Value" },
-        { title: "", className: styles.example }
+        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "400px" } }
     ]}
     rows={[
-        ["fw1", "100", <p className="fw1">Space Flight Program</p>],
-        ["fw3", "300", <p className="fw3">Space Flight Program</p>],
-        ["fw4", "400", <p className="fw4">Space Flight Program</p>],
-        ["fw5", "500", <p className="fw5">Space Flight Program</p>],
-        ["fw6", "600", <p className="fw6">Space Flight Program</p>],
-        ["fw7", "700", <p className="fw7">Space Flight Program</p>],
-        ["fw9", "900", <p className="fw9">Space Flight Program</p>]
+        ["fw1", "100", <p className="fw1 pv3">Space Flight Program</p>],
+        ["fw3", "300", <p className="fw3 pv3">Space Flight Program</p>],
+        ["fw4", "400", <p className="fw4 pv3">Space Flight Program</p>],
+        ["fw5", "500", <p className="fw5 pv3">Space Flight Program</p>],
+        ["fw6", "600", <p className="fw6 pv3">Space Flight Program</p>],
+        ["fw7", "700", <p className="fw7 pv3">Space Flight Program</p>],
+        ["fw9", "900", <p className="fw9 pv3">Space Flight Program</p>]
     ]}
-    rowClassName="h13"
 />
 
 ## Tachyons

@@ -1,3 +1,11 @@
+.class {
+    width: 200px;
+}
+
+.variable {
+    width: 225px;
+}
+
 .example {
-    width: 450px;
+    width: 400px;
 }

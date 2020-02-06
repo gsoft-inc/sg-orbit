@@ -33,7 +33,6 @@ export function VariablesTable({ variables }) {
             ]}
             rows={variables.map(x => toRowValues(x))}
             rowClassName="code f7 o-90"
-            fluid={false}
         />
     );
 }
