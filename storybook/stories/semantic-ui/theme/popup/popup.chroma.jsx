@@ -1,7 +1,8 @@
 /* eslint max-len: 0 */
-
-import { Button, Popup } from "semantic-ui-react";
+import { Button } from "@orbit-ui/react-button/src";
+import { Popup } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import styles from "./styles.module.css";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popup"))
@@ -69,12 +70,14 @@ stories()
                      <div className="mb13 pt13">
                          <Popup
                              open
+                             className={ styles.rightCenteredPopup }
                              content="Adds users to your feed"
                              trigger={<Button>Add</Button>}
-                             position="left center"
+                             position="right center"
                          />
                      </div><div className="mb13">
                          <Popup
+                             className={ styles.leftCenteredPopup }
                              open
                              content="Adds users to your feed"
                              trigger={<Button>Add</Button>}

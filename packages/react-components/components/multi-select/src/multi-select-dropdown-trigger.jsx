@@ -142,6 +142,8 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     secondary
+                    icon={icon}
+                    iconPosition="right"
                     size={size}
                     className={this.getClasses()}
                     disabled={disabled}
@@ -150,7 +152,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     ref={this._buttonRef}
                     data-testid="multi-select-dropdown-trigger"
                 >
-                    {text} {icon}
+                    {text}
                 </Button>
             </div>
         );
