@@ -1,8 +1,8 @@
-/* eslint max-len: 0 */
+import styles from "./popup.module.css";
+
 import { Button } from "@orbit-ui/react-button/src";
 import { Popup } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import styles from "./styles.module.css";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popup"))
