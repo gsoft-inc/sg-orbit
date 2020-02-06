@@ -311,6 +311,11 @@
     margin: 0 0 0 0.25rem;
 }
 
+/* CONTENT | With Icon | Layout | Circular | Margin */
+.ui.button:not(.icon).with-icon.circular > .icon:not(.button):not(.dropdown)  {
+    margin: 0;
+}
+
 /* CONTENT | With Icon/Without Text | Layout | Margin */
 .ui.button:not(.icon).with-icon.without-text > .icon:not(.button):not(.dropdown) {
     margin: 0;
