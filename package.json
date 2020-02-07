@@ -35,8 +35,6 @@
         "delete-yarn-lock": "run-p -c delete-yarn-lock:*",
         "delete-yarn-lock:root": "rimraf yarn.lock",
         "delete-yarn-lock:storybook": "cd storybook && rimraf yarn.lock",
-        "deploy-sb": "cd storybook && yarn deploy-sb",
-        "deploy-docs": "cd storybook && yarn deploy-docs",
         "eslint": "run-s \"eslint:* --max-warnings={1:--1}\"",
         "eslint:pkg": "eslint --ext .js,.jsx packages",
         "eslint:sb": "eslint --ext .js,.jsx storybook",
@@ -50,8 +48,8 @@
         "push-release": "node scripts/push-release",
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
         "release-pkg": "cross-env NODE_ENV=production run-s build:pkg publish-pkg",
-        "release-sb": "cross-env NODE_ENV=production run-s build:sb deploy-sb",
-        "release-docs": "cross-env NODE_ENV=production run-s build:docs deploy-docs",
+        "release-sb": "cross-env NODE_ENV=production run-s build:sb netlify-deploy-sb",
+        "release-docs": "cross-env NODE_ENV=production run-s build:docs netlify-deploy-docs",
         "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
         "setup:pkg": "lerna run setup --parallel",
         "start": "yarn start-pkg",
@@ -72,7 +70,9 @@
         "update": "run-s install:pkg install:sb",
         "diff": "lerna changed && lerna diff",
         "netlify-ci-sb": "yarn bootstrap && yarn build:pkg && yarn build:sb",
-        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs"
+        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs",
+        "netlify-deploy-sb": "cd storybook && yarn netlify-deploy-sb",
+        "netlify-deploy-docs": "cd storybook && yarn netlify-deploy-docs"
     },
     "devDependencies": {
         "@babel/cli": "7.8.4",
