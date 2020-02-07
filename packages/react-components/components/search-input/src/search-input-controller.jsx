@@ -312,16 +312,14 @@ export class SearchInputController extends AutoControlledPureComponent {
                 <Button
                     ghost
                     secondary
-                    icon
+                    icon={clearIcon}
                     size="tiny"
                     className="transparent"
                     onClick={this.handleClear}
                     type="button"
                     ref={this._clearButtonRef}
                     data-testid="search-input-clear-button"
-                >
-                    {clearIcon}
-                </Button>
+                />
 
                 <style jsx>{`
                     .clear-btn-container {

@@ -106,11 +106,21 @@ A default date range picker.
 
 A date range picker can offer a predefined set of frequently used ranges by specifying a `presets` prop.
 
-A default set of ranges is available through the `DEFAULT_DATES_PRESETS` object.
+A default set of ranges is available through the `DEFAULT_DATES_PRESETS`:
+
+```js dark
+const DEFAULT_DATES_PRESETS = [
+    toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day")),
+    toPreset("Last month", moment().subtract(1, "months"), moment().startOf("day")),
+    toPreset("Last 3 months", moment().subtract(3, "months"), moment().startOf("day")),
+    toPreset("Last 6 months", moment().subtract(6, "months"), moment().startOf("day")),
+    toPreset("Last 12 months", moment().subtract(12, "months"), moment().startOf("day"))
+];
+```
 
 If you need to create your own presets, use the `toPreset(text, startDate, endDate)` function:
 
-```js
+```js dark
 const LAST_WEEK_PRESET = toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
 ```
 
@@ -264,15 +274,15 @@ A date range picker can take the width of its container.
 
 A date range picker input can vary in size.
 
-The available sizes are: `"small"`, `"medium"` and `"large"`.
+Available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <DateRangePicker fluid onDatesChange={logDatesChanged} />
             </div>
             <div className="flex-auto">

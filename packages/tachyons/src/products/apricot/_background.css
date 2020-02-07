@@ -1,0 +1,89 @@
+.bg-apricot-50 {
+    background-color: var(--apricot-50);
+}
+
+.bg-apricot-100 {
+    background-color: var(--apricot-100);
+}
+
+.bg-apricot-200 {
+    background-color: var(--apricot-200);
+}
+
+.bg-apricot-300 {
+    background-color: var(--apricot-300);
+}
+
+.bg-apricot-400 {
+    background-color: var(--apricot-400);
+}
+
+.bg-apricot-500 {
+    background-color: var(--apricot-500);
+}
+
+.bg-apricot-600 {
+    background-color: var(--apricot-600);
+}
+
+.bg-apricot-700 {
+    background-color: var(--apricot-700);
+}
+
+.bg-apricot-800 {
+    background-color: var(--apricot-800);
+}
+
+.bg-apricot-900 {
+    background-color: var(--apricot-900);
+}
+
+.hover-bg-apricot-50:hover,
+.hover-bg-apricot-50:focus {
+    background-color: var(--apricot-50);
+}
+
+.hover-bg-apricot-100:hover,
+.hover-bg-apricot-100:focus {
+    background-color: var(--apricot-100);
+}
+
+.hover-bg-apricot-200:hover,
+.hover-bg-apricot-200:focus {
+    background-color: var(--apricot-200);
+}
+
+.hover-bg-apricot-300:hover,
+.hover-bg-apricot-300:focus {
+    background-color: var(--apricot-300);
+}
+
+.hover-bg-apricot-400:hover,
+.hover-bg-apricot-400:focus {
+    background-color: var(--apricot-400);
+}
+
+.hover-bg-apricot-500:hover,
+.hover-bg-apricot-500:focus {
+    background-color: var(--apricot-500);
+}
+
+.hover-bg-apricot-600:hover,
+.hover-bg-apricot-600:focus {
+    background-color: var(--apricot-600);
+}
+
+.hover-bg-apricot-700:hover,
+.hover-bg-apricot-700:focus {
+    background-color: var(--apricot-700);
+}
+
+.hover-bg-apricot-800:hover,
+.hover-bg-apricot-800:focus {
+    background-color: var(--apricot-800);
+}
+
+.hover-bg-apricot-900:hover,
+.hover-bg-apricot-900:focus {
+    background-color: var(--apricot-900);
+}

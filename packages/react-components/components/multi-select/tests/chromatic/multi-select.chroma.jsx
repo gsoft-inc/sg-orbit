@@ -163,7 +163,7 @@ stories("/customization")
     .add("trigger icon",
          () =>
              createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown triggerIcon={<AddIcon className="w3 h3 fill-red ml2" />} />
+                 dropdown: <MultiSelect.Dropdown triggerIcon={<AddIcon className="fill-red ml1" />} />
              })
     )
     .add("search input",

@@ -12,9 +12,9 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - It should not be specific to an app, e.g. Azure specific icons. <img src="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/packages/icons/assets/app-specific-icon.png" width="27">
 
-- It must be used as part of an interface, illustrations and product icons should'nt be submitted to this library.
+- It must be used as part of an interface, illustrations and product icons shouldn't be submitted to this library.
 
-- It should'nt be coloured, any icon that has many colours should be in your codebase.
+- It shouldn't be coloured, any icon that has many colours should be in your codebase.
 
 - When an icon is used in a monorepo component it should live in this project.
 
@@ -26,7 +26,7 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - If an icon represents a specific state add it to the file name (e.g. trash-_empty_-32x32.svg)
 
-- Although not ideal when an svg has to be coloured add the colour name(refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_cloud-300_-24x24.svg)
+- Although not ideal when an svg has to be coloured add the colour name (refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_cloud-300_-24x24.svg)
 
 ### Additional usage
 

@@ -1,10 +1,10 @@
-import { CHROMATIC_ROOT, COMPONENTS_ROOT, INTRODUCTION_ROOT, MATERIALS_ROOT } from "@shared/roots";
+import { CHROMATIC_ROOT, COMPONENTS_ROOT, GETTING_STARTED_ROOT, MATERIALS_ROOT } from "@shared/roots";
 import { isNil } from "lodash";
 
 const PARSING_RESULTS_CACHE = {};
 
 const ROOTS = {
-    [INTRODUCTION_ROOT.toLocaleLowerCase()]: {
+    [GETTING_STARTED_ROOT.toLocaleLowerCase()]: {
         priority: 0,
         sortByKind: false
     },
@@ -39,7 +39,7 @@ function parseStory(story) {
     const root = ROOTS[name.toLocaleLowerCase()];
 
     if (isNil(root)) {
-        throw new Error(`Unknown Storybook story root "${root}". Supported roots are ${INTRODUCTION_ROOT}, ${MATERIALS_ROOT}, ${COMPONENTS_ROOT} and ${CHROMATIC_ROOT}.`);
+        throw new Error(`Unknown Storybook story root "${root}". Supported roots are ${GETTING_STARTED_ROOT}, ${MATERIALS_ROOT}, ${COMPONENTS_ROOT} and ${CHROMATIC_ROOT}.`);
     }
 
     const result = {

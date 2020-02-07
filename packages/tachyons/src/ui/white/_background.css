@@ -1,0 +1,8 @@
+.bg-white {
+    background-color: var(--white);
+}
+
+.hover-bg-white:hover,
+.hover-bg-white:focus {
+    background-color: var(--white);
+}

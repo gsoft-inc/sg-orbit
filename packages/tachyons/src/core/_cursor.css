@@ -1,13 +1,3 @@
-/*
-   Cursor
-   Base = crsr
-
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-*/
-
 .crsr-not-allowed {
     cursor: not-allowed;
 }

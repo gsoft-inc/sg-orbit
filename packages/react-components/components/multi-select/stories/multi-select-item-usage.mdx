@@ -2,7 +2,7 @@ A multi select component requires a set of items to display. Those items can be 
 
 To create an item, use the `multiSelectItem(text, value, category?, obj?)` function:
 
-```javascript
+```javascript dark
 const groupCreated = multiSelectItem("Created", "group-created");
 ```
 
@@ -10,7 +10,7 @@ const groupCreated = multiSelectItem("Created", "group-created");
 
 An optional `category` can be specified to group a set of items under a labelled category:
 
-```javascript
+```javascript dark
 const groupCreated = multiSelectItem("Created", "group-created", "Group Lifecycle");
 const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecycle");
 ```
@@ -18,9 +18,18 @@ const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecy
 
 <details><summary >specify optional data</summary>
 
-An optional data `obj` can be specified to provide additional information to callbacks like `onValuesChange`:
+Additional properties can be specified to provide additional information to callbacks like `onValuesChange`.
 
-```javascript
-const groupCreated = multiSelectItem("Created", "group-created", undefined, { backendId: 123 });
+```jsx dark
+const groupCreated = multiSelectItem("Created", "group-created", null, { backendId: 123 });
+
+...
+
+<MultiSelect
+    items={[groupCreated]}
+    onValuesChange={(event, values) => {
+        values.forEach(x => console.log(x.backendId));
+    }}
+/>
 ```
 </details>

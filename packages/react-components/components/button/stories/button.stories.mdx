@@ -1,7 +1,7 @@
-import { AddIcon, CalendarIcon24, SignoutIcon24 } from "@orbit-ui/icons";
+import { AddIcon, AddIcon24, SignoutIcon24 } from "@orbit-ui/icons";
 import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { Label } from "@orbit-ui/react-label/src";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -86,27 +86,41 @@ A button can take the width of its container.
 
 ### Icon
 
-A button can contain an icon.
+A button can contain an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
-        <div className="flex">
-            <Button type="button" icon><SignoutIcon24 className="mr1" />Click me</Button>
-            <Button type="button"><AddIcon/></Button>
+        <div className="flex items-space-between">
+            <Button type="button" icon={<SignoutIcon24 />}>Click me</Button>
+            <Button type="button" icon={<SignoutIcon24 />} iconPosition="right">Click me</Button>
+            <Button type="button" icon={<AddIcon24 />}></Button>
         </div>
     </Story>
 </Preview>
 
 ### Label
 
-A button can contain a label.
+A button can contain a [label](?path=/story/components-label-standard--default-story). Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="label">
-        <Button type="button" compact label>
-            <span className="tl w12">Cutoff</span>
-            <Label as="span" size="mini">6</Label>
-        </Button>
+        <div className="flex items-space-between">
+            <Button type="button" label={<Label>6</Label>}>Cutoff</Button>
+            <Button type="button" label={{ content: "12", className: "bg-marine-100" }}>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Tag
+
+A button can contain a [tag](?path=/docs/components-label-tag--default-story). Specify the tag to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="tag">
+        <div className="flex items-space-between">
+            <Button type="button" tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
+            <Button type="button" tag={{ className: "bg-sunray-500" }}>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 
@@ -124,13 +138,15 @@ A button can show a loading indicator.
 
 A button can vary in size.
 
+Available sizes are `"tiny"`, `"small"`, `"medium"` and `"large"`.
+
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <Button type="button" size="tiny">Tiny</Button>
-            <Button type="button" size="small">Small</Button>
-            <Button type="button" size="medium">Medium</Button>
-            <Button type="button" size="large">Large</Button>
+        <div className="flex items-end items-space-between">
+            <Button type="button" size="tiny">Cutoff</Button>
+            <Button type="button" size="small">Cutoff</Button>
+            <Button type="button">Cutoff</Button>
+            <Button type="button" size="large">Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -141,15 +157,19 @@ A button can be circular.
 
 <Preview>
     <Story name="circular">
-        <div className="flex items-end">
-            <Button type="button" icon circular size="tiny"><AddIcon className="icon"/></Button>
-            <Button type="button" icon circular size="small"><AddIcon className="icon"/></Button>
-            <Button type="button" icon circular><AddIcon className="icon"/></Button>
-            <Button type="button" icon circular size="large"><AddIcon className="icon"/></Button>
-            <Button type="button" circular size="tiny">Aa</Button>
-            <Button type="button" circular size="small">Aa</Button>
-            <Button type="button" circular>Aa</Button>
-            <Button type="button" circular size="large">Aa</Button>
+        <div className="flex">
+            <div className="flex items-end items-space-between">
+                <Button type="button" circular size="tiny">Aa</Button>
+                <Button type="button" circular size="small">Aa</Button>
+                <Button type="button" circular>Aa</Button>
+                <Button type="button" circular size="large">Aa</Button>
+            </div>
+            <div className="flex items-end items-space-between mr4">
+                <Button type="button" icon={<AddIcon24 />} circular size="tiny"></Button>
+                <Button type="button" icon={<AddIcon24 />} circular size="small"></Button>
+                <Button type="button" icon={<AddIcon24 />} circular></Button>
+                <Button type="button" icon={<AddIcon />} circular size="large"></Button>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -160,7 +180,7 @@ A button can show different levels of emphasis.
 
 <Preview>
     <Story name="emphasis">
-        <div className="flex">
+        <div className="flex items-space-between">
             <Button type="button" primary>Primary</Button>
             <Button type="button" secondary>Secondary</Button>
         </div>
@@ -173,7 +193,7 @@ A basic button have a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <div className="flex">
+        <div className="flex items-space-between">
             <Button type="button" basic>Default</Button>
             <Button type="button" basic primary>Primary</Button>
             <Button type="button" basic secondary>Secondary</Button>
@@ -183,35 +203,15 @@ A basic button have a subtle appearance.
 
 ### Ghost
 
-A ghost button is similar to a standard button, but have no background color until hovered.
+A ghost button is similar to a standard button, taking the same space as a standard button but doesn't have an visible background.
 
 <Preview>
     <Story name="ghost">
-        <div className="flex">
+        <div className="flex items-space-between">
             <Button type="button" ghost>Default</Button>
             <Button type="button" ghost primary>Primary</Button>
             <Button type="button" ghost secondary>Secondary</Button>
         </div>
-    </Story>
-</Preview>
-
-### Success
-
-A button can hint towards a positive consequence.
-
-<Preview>
-    <Story name="success">
-        <Button type="button" positive>Cutoff</Button>
-    </Story>
-</Preview>
-
-### Negative
-
-A button can hint towards a negative consequence.
-
-<Preview>
-    <Story name="negative">
-        <Button type="button" negative>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -255,8 +255,8 @@ Buttons can exist together as a group.
     <Story name="groups">
         <Button.Group basic widths="3">
             <Button type="button">All</Button>
-            <Button tag><Label tag circular size="mini" empty color="red" />Inactive</Button>
-            <Button icon type="button" active><CalendarIcon24 className="mr1" />Active</Button>
+            <Button type="button">Inactive</Button>
+            <Button type="button" active>Active</Button>
         </Button.Group>
     </Story>
 </Preview>

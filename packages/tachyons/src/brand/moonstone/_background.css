@@ -1,0 +1,89 @@
+.bg-moonstone-50 {
+    background-color: var(--moonstone-50);
+}
+
+.bg-moonstone-100 {
+    background-color: var(--moonstone-100);
+}
+
+.bg-moonstone-200 {
+    background-color: var(--moonstone-200);
+}
+
+.bg-moonstone-300 {
+    background-color: var(--moonstone-300);
+}
+
+.bg-moonstone-400 {
+    background-color: var(--moonstone-400);
+}
+
+.bg-moonstone-500 {
+    background-color: var(--moonstone-500);
+}
+
+.bg-moonstone-600 {
+    background-color: var(--moonstone-600);
+}
+
+.bg-moonstone-700 {
+    background-color: var(--moonstone-700);
+}
+
+.bg-moonstone-800 {
+    background-color: var(--moonstone-800);
+}
+
+.bg-moonstone-900 {
+    background-color: var(--moonstone-900);
+}
+
+.hover-bg-moonstone-50:hover,
+.hover-bg-moonstone-50:focus {
+    background-color: var(--moonstone-50);
+}
+
+.hover-bg-moonstone-100:hover,
+.hover-bg-moonstone-100:focus {
+    background-color: var(--moonstone-100);
+}
+
+.hover-bg-moonstone-200:hover,
+.hover-bg-moonstone-200:focus {
+    background-color: var(--moonstone-200);
+}
+
+.hover-bg-moonstone-300:hover,
+.hover-bg-moonstone-300:focus {
+    background-color: var(--moonstone-300);
+}
+
+.hover-bg-moonstone-400:hover,
+.hover-bg-moonstone-400:focus {
+    background-color: var(--moonstone-400);
+}
+
+.hover-bg-moonstone-500:hover,
+.hover-bg-moonstone-500:focus {
+    background-color: var(--moonstone-500);
+}
+
+.hover-bg-moonstone-600:hover,
+.hover-bg-moonstone-600:focus {
+    background-color: var(--moonstone-600);
+}
+
+.hover-bg-moonstone-700:hover,
+.hover-bg-moonstone-700:focus {
+    background-color: var(--moonstone-700);
+}
+
+.hover-bg-moonstone-800:hover,
+.hover-bg-moonstone-800:focus {
+    background-color: var(--moonstone-800);
+}
+
+.hover-bg-moonstone-900:hover,
+.hover-bg-moonstone-900:focus {
+    background-color: var(--moonstone-900);
+}

@@ -1,0 +1,26 @@
+/*
+ * TYPE SCALE
+ */
+@import "../../src/core/_type-scale.css";
+
+/*
+ * LINE HEIGHT
+ */
+@import "../../src/core/_line-height.css";
+
+/*
+ * FONT WEIGHT
+ */
+@import "../../src/core/_font-weight.css";
+
+/*
+ * UTILS
+ */
+@import "../../src/core/_text-align.css";
+@import "../../src/core/_font-style.css";
+@import "../../src/core/_text-decoration.css";
+@import "../../src/core/_text-transform.css";
+@import "../../src/core/_letter-spacing.css";
+@import "../../src/core/_vertical-align.css";
+@import "../../src/core/_white-space.css";
+@import "../../src/core/_typography.css";

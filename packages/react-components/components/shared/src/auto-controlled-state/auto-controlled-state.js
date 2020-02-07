@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { difference, isFunction, isNil, isUndefined } from "lodash";
 
 /*
- * How to to develop an auto controlled component to support "controlled" and "uncontrolled" values properties.
+ * How to develop an auto controlled component to support "controlled" and "uncontrolled" values properties.
  *
  * - Extends your component class with "AutoControlledPureComponent" instead of "PureComponent".
  * - Define a static string property "name" on your component.

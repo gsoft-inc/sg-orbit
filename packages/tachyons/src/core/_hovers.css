@@ -1,24 +1,3 @@
-/*
-
-  HOVER EFFECTS
-  Docs: http://tachyons.io/docs/themes/hovers/
-
-    - Dim
-    - Glow
-    - Hide Child
-    - Underline text
-    - Grow
-    - Pointer
-    - Shadow
-
-*/
-
-/*
-
-  Dim element on hover by adding the dim class.
-
-*/
-
 .dim {
     opacity: 1;
     transition: opacity .15s ease-in;
@@ -117,11 +96,11 @@
     cursor: pointer;
 }
 
-/* 
+/*
    Add shadow on hover.
 
-   Performant box-shadow animation pattern from 
-   http://tobiasahlin.com/blog/how-to-animate-box-shadow/ 
+   Performant box-shadow animation pattern from
+   http://tobiasahlin.com/blog/how-to-animate-box-shadow/
 */
 
 .shadow-hover {
@@ -148,7 +127,7 @@
     opacity: 1;
 }
 
-/* Combine with classes in skins and skins-pseudo for 
+/* Combine with classes in skins and skins-pseudo for
  * many different transition possibilities. */
 
 .bg-animate, .bg-animate:hover, .bg-animate:focus {

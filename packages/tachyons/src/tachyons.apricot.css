@@ -1,2 +1,2 @@
-@import "./core/index.css";
-@import "./brands/apricot.css";
+@import "./tachyons";
+@import "./products/apricot/index.css";

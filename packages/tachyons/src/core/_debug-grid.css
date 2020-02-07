@@ -1,14 +1,3 @@
-/*
-
-   DEBUG GRID
-   http://tachyons.io/docs/debug-grid/
-
-   Can be useful for debugging layout issues
-   or helping to make sure things line up perfectly.
-   Just tack one of these classes onto a parent element.
-
-*/
-
 .debug-grid {
     background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=) repeat top left;
 }

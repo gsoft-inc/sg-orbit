@@ -1,4 +1,4 @@
-import { GithubLink } from "@blocks";
+import { CornerGithubLink } from "@blocks";
 import { string } from "prop-types";
 
 const propTypes = {
@@ -8,7 +8,7 @@ const propTypes = {
 export function MaterialsLayout({ sourcePath, children }) {
     return (
         <>
-            <GithubLink path={sourcePath} />
+            <CornerGithubLink path={sourcePath} />
             {children}
         </>
     );

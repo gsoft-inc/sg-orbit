@@ -36,7 +36,7 @@
 
 /* Icon */
 
-@iconMargin: 0 0.35em 0 0;
+@iconMargin: 0 0.5rem 0 0;
 @iconHeight: auto;
 
 /* Loader */
@@ -96,7 +96,6 @@
 @invertedTextHoverColor: @marine600;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
-
 
 /* Basic */
 @basicBackground: transparent none;

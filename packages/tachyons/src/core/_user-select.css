@@ -1,14 +1,3 @@
-/*
-   USER SELECT
-   Base
-    us = user-select
-
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-*/
-
 .usn {
     user-select: none;
 }

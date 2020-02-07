@@ -1,10 +1,3 @@
-/*
-
-    OPACITY PSEUDO
-    Docs: http://tachyons.io/docs/themes/opacity/
-
-*/
-
 .hover-o-100:hover {
     opacity: 1;
 }

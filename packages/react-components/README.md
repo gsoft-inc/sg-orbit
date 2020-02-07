@@ -154,7 +154,7 @@ Components should be composable and configurable. Sub-components should be expos
 
 Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
 
-```javascript
+```jsx
 // definition
 export class DateRangePicker extends AutoControlledPureComponent {
     static Input = DateRangePickerInput;
@@ -177,7 +177,7 @@ An event handler prop exposed by a component should always:
 - Provide the original Synthetic Event as the first argument.
 - Provide the components props as the last argument.
 
-```javascript
+```jsx
 function MyComponent({ onChange }) {
     function handleChange(event) {
         onChange(event, this.props);
@@ -199,7 +199,7 @@ For more information, read the following [blog post](https://css-tricks.com/dang
 
 Components shouldn't render anonymous functions.
 
-```javascript
+```jsx
 function MyComponent() {
     function handleChange() {
         ...
@@ -219,6 +219,20 @@ For more information, read the following posts:
 #### ref
 
 A component `ref` should always be attached to the top most DOM element. A `ref` should never be attached to a React component.
+
+#### Spread props
+
+Unhandled props should always be spread on the root element of the component.
+
+```jsx
+function MyComponent({ className, children ...rest }) {
+    return (
+        <div className={className} {...rest}>
+            {children}
+        </div>
+    );
+}
+```
 
 ### Development experience
 

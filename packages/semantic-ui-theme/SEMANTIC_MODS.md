@@ -20,13 +20,13 @@ The modification has been made in the file `/semantic/config/user.js`.
 
 Before:
 
-```js
+```js dark
 userConfig = requireDotFile('semantic.json');
 ```
 
 After:
 
-```js
+```js dark
   const startPath = path.resolve(path.join(process.cwd(), path.sep, '..'));
 
   userConfig = requireDotFile('semantic.json', startPath);

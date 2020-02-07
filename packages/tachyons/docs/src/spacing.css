@@ -1,0 +1,20 @@
+/*
+ * PADDING
+ */
+@import "../../src/core/_paddings.css";
+
+/*
+ * MARGIN
+ */
+@import "../../src/core/_margins.css";
+
+/*
+ * WIDTH
+ */
+@import "../../src/core/_widths.css";
+@import "../../src/core/_max-widths.css";
+
+/*
+ * HEIGHT
+ */
+@import "../../src/core/_heights.css";

@@ -216,15 +216,15 @@ A single date picker can take the width of its container.
 
 A single date picker can vary in size.
 
-The available sizes are: `"small"`, `"medium"` and `"large"`.
+Available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <SingleDatePicker size="small" fluid onDateChange={logDateChanged} />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <SingleDatePicker fluid onDateChange={logDateChanged} />
             </div>
             <div className="flex-auto">
