@@ -1,0 +1,56 @@
+import { AddIcon, GearIcon32, Icon } from "@orbit-ui/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks/react-components";
+import { createComponentSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={createComponentSection("Icon")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/icons/src/icon.jsx" />)
+        .build()}
+/>
+
+# Icons
+
+## Installation
+
+TODO
+
+## Props
+
+TODO
+
+## Usage
+
+### Default
+
+### Sizes
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Icon content={<GearIcon32 />} size="tiny" />
+            <Icon content={<GearIcon32 />} size="small" />
+            <Icon content={<GearIcon32 />} />
+            <Icon content={<GearIcon32 />} size="large" />
+            <Icon content={<GearIcon32 />} size="big" />
+            <Icon content={<GearIcon32 />} size="huge" />
+            <Icon content={<GearIcon32 />} size="massive" />
+        </div>32
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="size2">
+        <div className="flex items-end items-space-between">
+            <AddIcon size="tiny" />
+            <AddIcon size="small" />
+            <AddIcon />
+            <AddIcon size="large" />
+            <AddIcon size="big" />
+            <AddIcon size="huge" />
+            <AddIcon size="massive" />
+        </div>
+    </Story>
+</Preview>

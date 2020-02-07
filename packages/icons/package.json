@@ -24,7 +24,8 @@
     },
     "peerDependencies": {
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@orbit-ui/tachyons": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
