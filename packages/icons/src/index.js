@@ -61,7 +61,8 @@ import { ReactComponent as WarningIcon24 } from "./icon-warning-24.svg";
 import { ReactComponent as WarningIcon32 } from "./icon-warning-32.svg";
 import { ReactComponent as ZipIcon32 } from "./icon-zip-32.svg";
 
-export { AddIcon24,
+export {
+    AddIcon24,
     AddIcon32,
     AddUserIcon32,
     ArrowFullIcon32,
