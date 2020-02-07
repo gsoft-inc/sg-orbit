@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/icons",
-    "version": "4.0.1",
+    "version": "5.0.0",
     "description": "ShareGate Orbit Icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -28,6 +28,6 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/react-components-shared": "2.1.0"
+        "@orbit-ui/react-components-shared": "2.2.0"
     }
 }
