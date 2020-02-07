@@ -1,0 +1,89 @@
+.bg-primary-50 {
+    background-color: var(--primary-50);
+}
+
+.bg-primary-100 {
+    background-color: var(--primary-100);
+}
+
+.bg-primary-200 {
+    background-color: var(--primary-200);
+}
+
+.bg-primary-300 {
+    background-color: var(--primary-300);
+}
+
+.bg-primary-400 {
+    background-color: var(--primary-400);
+}
+
+.bg-primary-500 {
+    background-color: var(--primary-500);
+}
+
+.bg-primary-600 {
+    background-color: var(--primary-600);
+}
+
+.bg-primary-700 {
+    background-color: var(--primary-700);
+}
+
+.bg-primary-800 {
+    background-color: var(--primary-800);
+}
+
+.bg-primary-900 {
+    background-color: var(--primary-900);
+}
+
+.hover-bg-primary-50:hover,
+.hover-bg-primary-50:focus {
+    background-color: var(--primary-50);
+}
+
+.hover-bg-primary-100:hover,
+.hover-bg-primary-100:focus {
+    background-color: var(--primary-100);
+}
+
+.hover-bg-primary-200:hover,
+.hover-bg-primary-200:focus {
+    background-color: var(--primary-200);
+}
+
+.hover-bg-primary-300:hover,
+.hover-bg-primary-300:focus {
+    background-color: var(--primary-300);
+}
+
+.hover-bg-primary-400:hover,
+.hover-bg-primary-400:focus {
+    background-color: var(--primary-400);
+}
+
+.hover-bg-primary-500:hover,
+.hover-bg-primary-500:focus {
+    background-color: var(--primary-500);
+}
+
+.hover-bg-primary-600:hover,
+.hover-bg-primary-600:focus {
+    background-color: var(--primary-600);
+}
+
+.hover-bg-primary-700:hover,
+.hover-bg-primary-700:focus {
+    background-color: var(--primary-700);
+}
+
+.hover-bg-primary-800:hover,
+.hover-bg-primary-800:focus {
+    background-color: var(--primary-800);
+}
+
+.hover-bg-primary-900:hover,
+.hover-bg-primary-900:focus {
+    background-color: var(--primary-900);
+}

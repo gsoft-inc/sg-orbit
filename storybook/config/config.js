@@ -5,7 +5,7 @@ import { CanvasContainer } from "@decorators/canvas-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeIntroduction, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
+import { includeChromatic, includeComponents, includeGettingStarted, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/icons";
@@ -76,9 +76,9 @@ addParameters({
 
 let stories = [];
 
-if (includeIntroduction) {
+if (includeGettingStarted) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/introduction", true, /.stories.mdx$/)];
+        stories = [...stories, require.context("../stories/getting-started", true, /.stories.mdx$/)];
     }
 }
 

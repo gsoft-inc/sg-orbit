@@ -1,0 +1,19 @@
+import { IntroductionLayout } from "./introduction-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={`${createGettingStartedSection("Supported Platforms")}`}
+    parameters={paramsBuilder()
+        .sortPriority(100)
+        .docsLayout(<IntroductionLayout sourcePath="/" />)
+        .build()}
+/>
+
+# Supported Platforms
+
+Orbit support the following platforms:
+
+| Edge | Chrome | Firefox | Safari | IE |
+|------|--------|---------|--------|----|
+| 17 + | > 76   | 69      | > 12.2 | -  |

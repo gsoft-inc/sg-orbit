@@ -1,0 +1,66 @@
+import { IntroductionLayout } from "./introduction-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createGettingStartedSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={`${createGettingStartedSection("Shorthand Props")}`}
+    parameters={paramsBuilder()
+        .sortPriority(-2)
+        .docsLayout(<IntroductionLayout sourcePath="/" />)
+        .build()}
+/>
+
+# Shorthand Props
+
+Likewise [Semantic UI](https://react.semantic-ui.com/shorthand-props/), Orbit try to offer shorthand props when possible.
+
+_A shorthand prop is a configuration style that allow a consumer of a component to easily provide a sub-component to render._ There are several forms of shorthand values that can be provided, but all of them share one common thing - each is eventually evaluated to React Element. Thus, you can think of shorthand values as a recipe to customize rendered React Element.
+
+For example, one could specify [an icon for a button](http://localhost:6754/?path=/docs/components-button--icon#icon) with a shorthand:
+
+```jsx dark
+<Button icon={<SignoutIcon24 />} type="button">
+    Click me
+</Button>
+```
+
+Why not manually define the icon inside the `<Button />` instead?
+
+```jsx dark
+<Button type="button">
+    <SignoutIcon24 />
+    Click me
+</Button>
+```
+
+That would work but it puts the burden of defining the icon position, dimensions and margins on the consumer instead of the component.
+
+Orbit provides shorthand props to give the consumer control over the sub-components but still offer defaults that match the design system guidelines. This technique makes Orbit components easier to use and help you stay consistant with the design system.
+
+## Object as value
+
+Each component's shorthand has an associated default component type. In the following example the `button` shorthand will render as a `<Button />` component. It is possible to customize props of this default element by providing props object as shorthand value:
+
+```jsx dark
+<Label button={{ icon: <CloseIcon />, onClick: () => { ... } }}>
+    Group Added
+</Label>
+```
+
+If an associated component type support [children](https://reactjs.org/docs/composition-vs-inheritance.html), you can provide them with the `content` prop. However, we do recommended using a [React element shorthand value](#react-element-as-value) when dealing with large components tree.
+
+```jsx dark
+<Label button={{ content: "x" onClick: () => { ... } }}>
+    Group Added
+</Label>
+```
+
+## React element as value
+
+Use this shorthand style to directly provide the component to render. With this style, you can bypass the default component type for the shorthand. Keep in mind though that a set of default props might be passed to your component.
+
+```jsx dark
+<Label tag={<Tag className="bg-marine-500" />}>
+    Notification Sent
+</Label>
+```

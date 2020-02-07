@@ -1,0 +1,89 @@
+.bg-sunray-50 {
+    background-color: var(--sunray-50);
+}
+
+.bg-sunray-100 {
+    background-color: var(--sunray-100);
+}
+
+.bg-sunray-200 {
+    background-color: var(--sunray-200);
+}
+
+.bg-sunray-300 {
+    background-color: var(--sunray-300);
+}
+
+.bg-sunray-400 {
+    background-color: var(--sunray-400);
+}
+
+.bg-sunray-500 {
+    background-color: var(--sunray-500);
+}
+
+.bg-sunray-600 {
+    background-color: var(--sunray-600);
+}
+
+.bg-sunray-700 {
+    background-color: var(--sunray-700);
+}
+
+.bg-sunray-800 {
+    background-color: var(--sunray-800);
+}
+
+.bg-sunray-900 {
+    background-color: var(--sunray-900);
+}
+
+.hover-bg-sunray-50:hover,
+.hover-bg-sunray-50:focus {
+    background-color: var(--sunray-50);
+}
+
+.hover-bg-sunray-100:hover,
+.hover-bg-sunray-100:focus {
+    background-color: var(--sunray-100);
+}
+
+.hover-bg-sunray-200:hover,
+.hover-bg-sunray-200:focus {
+    background-color: var(--sunray-200);
+}
+
+.hover-bg-sunray-300:hover,
+.hover-bg-sunray-300:focus {
+    background-color: var(--sunray-300);
+}
+
+.hover-bg-sunray-400:hover,
+.hover-bg-sunray-400:focus {
+    background-color: var(--sunray-400);
+}
+
+.hover-bg-sunray-500:hover,
+.hover-bg-sunray-500:focus {
+    background-color: var(--sunray-500);
+}
+
+.hover-bg-sunray-600:hover,
+.hover-bg-sunray-600:focus {
+    background-color: var(--sunray-600);
+}
+
+.hover-bg-sunray-700:hover,
+.hover-bg-sunray-700:focus {
+    background-color: var(--sunray-700);
+}
+
+.hover-bg-sunray-800:hover,
+.hover-bg-sunray-800:focus {
+    background-color: var(--sunray-800);
+}
+
+.hover-bg-sunray-900:hover,
+.hover-bg-sunray-900:focus {
+    background-color: var(--sunray-900);
+}

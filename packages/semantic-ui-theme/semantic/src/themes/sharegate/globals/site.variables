@@ -877,7 +877,7 @@
 ;
 
 /*---  Colors  ---*/
-@primaryColorHover        : var(--primary-600);
+@primaryColorHover        : var(--primary-900);
 @secondaryColorHover      : var(--cloud-200);
 @lightPrimaryColorHover   : @lightPrimaryColor;
 @lightSecondaryColorHover : @lightSecondaryColor;
@@ -937,7 +937,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorFocus        : @primary600;
+@primaryColorFocus        : @primary900;
 @secondaryColorFocus      : @secondaryColor;
 @lightPrimaryColorFocus   : @lightPrimaryColor;
 @lightSecondaryColorFocus : @lightSecondaryColor;
@@ -1059,7 +1059,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorActive        : @primary600;
+@primaryColorActive        : @primary900;
 @secondaryColorActive      : @cloud200;
 @lightPrimaryColorActive   : @lightPrimaryColor;
 @lightSecondaryColorActive : @lightSecondaryColor;

@@ -1,16 +1,3 @@
-/*
-
-   UTILITIES
-
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-
-*/
-
-/* Equivalent to .overflow-y-scroll */
-
 .overflow-container {
     overflow-y: scroll;
 }

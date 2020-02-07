@@ -1,0 +1,7 @@
+.fluid {
+    width: 100%;
+}
+
+.row {
+    height: var(--scale-hotel);
+}

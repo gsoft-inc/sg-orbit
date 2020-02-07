@@ -1,0 +1,89 @@
+.fill-desktop-50 {
+    fill: var(--desktop-50);
+}
+
+.fill-desktop-100 {
+    fill: var(--desktop-100);
+}
+
+.fill-desktop-200 {
+    fill: var(--desktop-200);
+}
+
+.fill-desktop-300 {
+    fill: var(--desktop-300);
+}
+
+.fill-desktop-400 {
+    fill: var(--desktop-400);
+}
+
+.fill-desktop-500 {
+    fill: var(--desktop-500);
+}
+
+.fill-desktop-600 {
+    fill: var(--desktop-600);
+}
+
+.fill-desktop-700 {
+    fill: var(--desktop-700);
+}
+
+.fill-desktop-800 {
+    fill: var(--desktop-800);
+}
+
+.fill-desktop-900 {
+    fill: var(--desktop-900);
+}
+
+.hover-fill-desktop-50:hover,
+.hover-fill-desktop-50:focus {
+    fill: var(--desktop-50);
+}
+
+.hover-fill-desktop-100:hover,
+.hover-fill-desktop-100:focus {
+    fill: var(--desktop-100);
+}
+
+.hover-fill-desktop-200:hover,
+.hover-fill-desktop-200:focus {
+    fill: var(--desktop-200);
+}
+
+.hover-fill-desktop-300:hover,
+.hover-fill-desktop-300:focus {
+    fill: var(--desktop-300);
+}
+
+.hover-fill-desktop-400:hover,
+.hover-fill-desktop-400:focus {
+    fill: var(--desktop-400);
+}
+
+.hover-fill-desktop-500:hover,
+.hover-fill-desktop-500:focus {
+    fill: var(--desktop-500);
+}
+
+.hover-fill-desktop-600:hover,
+.hover-fill-desktop-600:focus {
+    fill: var(--desktop-600);
+}
+
+.hover-fill-desktop-700:hover,
+.hover-fill-desktop-700:focus {
+    fill: var(--desktop-700);
+}
+
+.hover-fill-desktop-800:hover,
+.hover-fill-desktop-800:focus {
+    fill: var(--desktop-800);
+}
+
+.hover-fill-desktop-900:hover,
+.hover-fill-desktop-900:focus {
+    fill: var(--desktop-900);
+}

@@ -59,7 +59,6 @@ import {
 import { IconGallery } from "storybook-icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { WarningMessage } from "@blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
 import Installation from "./installation.mdx";
@@ -73,9 +72,15 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Icons includes their padding and are generally available in two sizes, _24px_ and _32px_.
+Icons includes their padding and are generally available in two sizes, _24px_ and _32px_. If an icon is only available in _32px_, he is considered universal.
 
-If an icon is only available in _32px_, he is considered universal.
+To be included in Orbit an icon must satisfy the following guidelines:
+
+- It should not be specific to a ShareGate brand or an any app, e.g. Azure specific icons.
+
+- It must be used as part of an interface, illustrations are not accepted.
+
+- It shouldn't be colored, any icon that has many colors should be in a product codebase.
 
 ## Installation
 
@@ -85,13 +90,13 @@ If an icon is only available in _32px_, he is considered universal.
 
 ### Dimensions
 
-Icons doesn't have a default dimensions to favour reusability.
+Icons doesn't have default dimensions to favour reusability. This means that you must specify dimensions either with [Tachyons](/?path=/docs/getting-started-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
 
-This means that you must specify dimensions either with [Tachyons](/?path=/docs/introduction-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
-
-```jsx
+```jsx dark
 <AddIcon24 className="w6 h6" />
 ```
+
+If you're icon is intended to be used with an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
 
 ## Gallery
 

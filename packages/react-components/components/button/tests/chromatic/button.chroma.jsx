@@ -1,8 +1,9 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
-import { CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
-import { Label } from "@orbit-ui/react-label/src";
+import { CalendarIcon, CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { isNil } from "lodash";
 
 import styles from "./styles.module.css";
 
@@ -52,7 +53,9 @@ stories()
              <div className="flex flex-row">
                  <Buttons naked />
              </div>
-    )
+    );
+
+stories()
     .add("naked coloured",
          () =>
              <div className="flex flex-row">
@@ -70,13 +73,15 @@ stories()
                      <Button disabled className={styles.button} naked>Button</Button>
                  </div>
              </div>
-    )
+    );
+
+stories()
     .add("groups",
          () =>
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
                      <Button.Group>
-                         <Button>One <Label size="mini">12</Label></Button>
+                         <Button label={<Label size="mini">6</Label>}>One</Button>
                          <Button>Two</Button>
                          <Button>Three</Button>
                      </Button.Group>
@@ -120,24 +125,24 @@ stories()
                          <Button disabled>One</Button>
                          <Button active>Two</Button>
                      </Button.Group>
-                     <Button.Group icon secondary>
-                         <Button><SignoutIcon24 /></Button>
-                         <Button><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group secondary>
+                         <Button icon={<SignoutIcon24 />} />
+                         <Button icon={<CalendarIcon24 />} />
+                         <Button icon={<ImageIcon />} />
                      </Button.Group>
-                     <Button.Group icon secondary>
-                         <Button disabled><SignoutIcon24 /></Button>
-                         <Button active><CalendarIcon24 /></Button>
+                     <Button.Group secondary>
+                         <Button disabled icon={<SignoutIcon24 />} />
+                         <Button active icon={<CalendarIcon24 />} />
                      </Button.Group>
-                     <Button.Group icon basic>
-                         <Button><SignoutIcon24 /></Button>
-                         <Button><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group basic>
+                         <Button icon={<SignoutIcon24 />}></Button>
+                         <Button icon={<CalendarIcon24 />}></Button>
+                         <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
-                     <Button.Group icon basic>
-                         <Button disabled><SignoutIcon24 /></Button>
-                         <Button disabled><CalendarIcon24 /></Button>
-                         <Button><ImageIcon /></Button>
+                     <Button.Group basic>
+                         <Button disabled icon={<SignoutIcon24 />}></Button>
+                         <Button disabled icon={<CalendarIcon24 />}></Button>
+                         <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
                  </div>
                  <div className="flex flex-column items-start">
@@ -231,4 +236,121 @@ stories()
                  </div>
              </div>
     );
+
+stories()
+    .add("loading",
+         () =>
+             <div className="flex flex-row">
+                 {/* text / loading */}
+                 <div className="flex flex-column items-start">
+                     <Button loading className="paused">Button</Button>
+                     <Button loading active className="paused">Button</Button>
+                     <Button loading disabled className="paused">Button</Button>
+                     <Button loading className="paused" ghost>Button</Button>
+                     <Button loading active ghost className="paused">Button</Button>
+                     <Button loading disabled ghost className="paused">Button</Button>
+                     <Button loading className="paused" basic>Button</Button>
+                     <Button loading className="paused" active basic>Button</Button>
+                     <Button loading className="paused" disabled basic>Button</Button>
+                 </div>
+                 {/* loading / Layout */}
+                 <div className="flex flex-column items-start">
+                     <Button loading className="paused" compact>Button</Button>
+                     <Button loading className="paused" circular>Aa</Button>
+                     <Button loading className="paused" size="tiny">Button</Button>
+                     <Button loading className="paused" size="tiny" compact>Button</Button>
+                     <Button loading className="paused" size="tiny" circular>Aa</Button>
+                     <Button loading className="paused" size="small">Button</Button>
+                     <Button loading className="paused" size="small" compact>Button</Button>
+                     <Button loading className="paused" size="small" circular>Aa</Button>
+                     <Button loading className="paused" size="large">Button</Button>
+                     <Button loading className="paused" size="large" compact>Button</Button>
+                     <Button loading className="paused" size="large" circular>Aa</Button>
+                 </div>
+                 {/* icon / loading */}
+                 <div className="flex flex-column items-start">
+                     <Button loading className="paused" icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" active icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" disabled icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" ghost icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" active ghost icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" disabled ghost icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" basic icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" active basic icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" disabled basic icon={<CalendarIcon />}></Button>
+                 </div>
+                 {/* loading / layout */}
+                 <div className="flex flex-column items-start">
+                     <Button loading className="paused" compact icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" size="tiny" icon={<CalendarIcon24 />}></Button>
+                     <Button loading className="paused" size="tiny" compact icon={<CalendarIcon24 />}></Button>
+                     <Button loading className="paused" size="small" icon={<CalendarIcon24 />}></Button>
+                     <Button loading className="paused" size="small" compact icon={<CalendarIcon24 />}></Button>
+                     <Button loading className="paused" size="large" icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" size="large" compact icon={<CalendarIcon />}></Button>
+                 </div>
+             </div>
+    );
+
+stories()
+    .add("custom css class", () =>
+        <Button className="bg-red">Button</Button>
+    );
+
+stories("/shorthand props/icons")
+    .add("default", () =>
+        <Button icon={<CalendarIcon24 />}>Button</Button>
+    )
+    .add("right", () =>
+        <Button icon={<CalendarIcon24 />} iconPosition="right">Button</Button>
+    )
+    .add("css class", () =>
+        <Button icon={<CalendarIcon24 className="fill-red" />} iconPosition="right">Button</Button>
+    );
+
+function setRedBackground(element) {
+    if (!isNil(element)) {
+        element.classList.add("bg-red");
+    }
+}
+
+stories("/shorthand props/label/render")
+    .add("default", () =>
+        <Button label={<Label>6</Label>}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button label={<Label className="bg-red">6</Label>}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
+    );
+
+stories("/shorthand props/label/object")
+    .add("default", () =>
+        <Button label={{ content: "6" }}>Button</Button>
+    )
+    .add("css class", () =>
+        <Button label={{ content: "6", className: "bg-red" }}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
+    );
+
+stories("/shorthand props/tag/render")
+    .add("default", () =>
+        <Button tag={<Tag className="bg-red" />}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
+    );
+
+stories("/shorthand props/tag/object")
+    .add("default", () =>
+        <Button tag={{ className: "bg-red" }}>Button</Button>
+    )
+    .add("ref", () =>
+        <Button tag={{ ref: setRedBackground }}>Button</Button>
+    );
+
+
 

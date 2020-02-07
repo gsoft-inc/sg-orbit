@@ -1,13 +1,14 @@
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
-import { DEFAULT_SIZE, LARGE, MEDIUM, MultiSelect, SMALL, multiSelectItem } from "@orbit-ui/react-multi-select/src";
+import { DEFAULT_SIZE, LARGE, MEDIUM, MultiSelect, SMALL } from "@orbit-ui/react-multi-select/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
-import { logValuesChanged } from "./utils";
+import { fuzzySearch, logValuesChanged } from "./utils";
 import Imports from "./imports.mdx";
+
 import MultiSelectItemUsage from "./multi-select-item-usage.mdx";
 
 <Meta
@@ -44,6 +45,34 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 ### multiSelectItem
 
 <MultiSelectItemUsage />
+
+### Constants
+
+The following constants are used in the examples below:
+
+```js dark
+const GROUP_CREATED_VALUE = "group-created";
+const GROUP_RESTORED_VALUE = "group-restored";
+const GROUP_DELETED_VALUE = "group-deleted";
+const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
+const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
+
+const DEFAULT_ITEMS = [
+    multiSelectItem("Created", GROUP_CREATED_VALUE),
+    multiSelectItem("Restored", GROUP_RESTORED_VALUE),
+    multiSelectItem("Deleted", GROUP_DELETED_VALUE),
+    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
+    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+];
+
+const DEFAULT_ITEMS_WITH_CATEGORIES = [
+    multiSelectItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
+    multiSelectItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
+    multiSelectItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
+    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
+    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
+];
+```
 
 ### Default
 
@@ -104,8 +133,8 @@ A multi select can have an initial set of selected items.
 <Preview>
     <Story name="default values">
         <MultiSelect
-            items={DEFAULT_ITEMS}
             defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -118,8 +147,8 @@ A multi select dropdown can close when an item is selected.
 <Preview>
     <Story name="close on select">
         <MultiSelect
-            items={DEFAULT_ITEMS}
             closeOnSelect
+            items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -129,15 +158,26 @@ A multi select dropdown can close when an item is selected.
 
 A multi select can use a custom search handler.
 
+In the following example, a custom [fuzzy search algorithm](https://en.wikipedia.org/wiki/Approximate_string_matching) based on the [fuse.js](https://fusejs.io/) library is used:
+
+```javascript dark
+function fuzzySearch(event, items, query) {
+    const options = {
+        keys: ["text", "value"]
+    };
+
+    const fuse = new Fuse(items, options);
+    const results = fuse.search(query);
+
+    return results;
+}
+```
+
 <Preview>
     <Story name="custom search">
         <MultiSelect
+            onSearch={fuzzySearch}
             items={DEFAULT_ITEMS}
-            onSearch={(event, items, query) => {
-                const extraItem = multiSelectItem("(added from custom search)", "custom-search");
-                // eslint-disable-next-line
-                return [extraItem, ...items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()))];
-            }}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -150,9 +190,9 @@ A multi select can be disabled.
 <Preview>
     <Story name="disabled">
         <MultiSelect
+            disabled
             items={DEFAULT_ITEMS}
             defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
-            disabled
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -175,12 +215,12 @@ A multi select can be disabled.
 
 A multi select can vary in size.
 
-The available sizes are: `"small"`, `"medium"` and `"large"`.
+Available sizes are: `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end">
-            <div className="flex-auto mr2">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
                 <MultiSelect
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
@@ -188,7 +228,7 @@ The available sizes are: `"small"`, `"medium"` and `"large"`.
                     onValuesChange={logValuesChanged}
                 />
             </div>
-            <div className="flex-auto mr2">
+            <div className="flex-auto">
                 <MultiSelect
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={[GROUP_RESTORED_VALUE]}

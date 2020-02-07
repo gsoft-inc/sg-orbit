@@ -1,10 +1,16 @@
-import { Ref, Label as SemanticLabel } from "semantic-ui-react";
-import { bool, func, node, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef } from "react";
-import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+/* eslint-disable react/forbid-foreign-prop-types */
 
-const UNSUPPORTED_PROPS = ["attached", "corner", "floating", "horizontal", "icon", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { Children, cloneElement, forwardRef } from "react";
+import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
+import { createButtonFromShorthand } from "@orbit-ui/react-button";
+import { createIconFromExisting } from "@orbit-ui/icons";
+import { createTagFromShorthand } from "./factories";
+import { isElement } from "react-is";
+import { isNil } from "lodash";
+
+const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
 const propTypes = {
     /**
@@ -14,15 +20,19 @@ const propTypes = {
     /**
      * A label can contain a button.
      */
-    button: bool,
+    button: oneOfType([element, object]),
     /**
      * A label can contain an icon.
      */
-    icon: node,
+    icon: element,
     /**
      * An icon can appear on the left or right.
      */
     iconPosition: oneOf(["right", "left"]),
+    /**
+     * A label can contain a tag.
+     */
+    tag: oneOfType([element, object]),
     /**
      * @ignore
      */
@@ -35,12 +45,24 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    button: false,
     iconPosition: "left"
 };
 
-export function PureLabel({ naked, button, className, forwardedRef, icon, iconPosition, children, ...props }) {
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS);
+function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
+    if (!isNil(button) && iconPosition === "right") {
+        throw new ArgumentError("@orbit/react-label doesn't support having a button and a right positioned icon at the same time.");
+    }
+
+    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
+        throw new ArgumentError("@orbit/react-label doesn't support having a tag and a left positioned icon at the same time.");
+    }
+}
+
+export function PureLabel(props) {
+    const { naked, button, icon, iconPosition, tag, className, children, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const renderWithRef = () => {
         return (
@@ -50,39 +72,86 @@ export function PureLabel({ naked, button, className, forwardedRef, icon, iconPo
         );
     };
 
-    const renderIcon = () => {
-        if (!isNil(icon)) {
-            return cloneElement(icon, {
-                className: mergeClasses(
-                    "icon",
-                    icon.props && icon.props.className
-                )
-            });
+    const renderButton = () => {
+        const defaults = {
+            size: "tiny",
+            circular: true,
+            ghost: true,
+            secondary: true,
+            type: "button"
+        };
+
+        if (isElement(button)) {
+            return cloneElement(button, defaults);
         }
+
+        return createButtonFromShorthand({
+            ...defaults,
+            ...button
+        });
     };
 
-    const renderLabelContent = () => {
+    const renderTag = () => {
+        const defaults = {
+            as: "span",
+            size: "mini"
+        };
+
+        if (isElement(tag)) {
+            return cloneElement(tag, defaults);
+        }
+
+        return createTagFromShorthand({
+            ...defaults,
+            ...tag
+        });
+    };
+
+    const renderContent = () => {
+        let left;
+        let right;
+
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                return <>{children}{renderIcon()}</>;
+                right = createIconFromExisting(icon);
+            } else {
+                left = createIconFromExisting(icon);
             }
+        }
 
-            return <>{renderIcon()}{children}</>;
+        if (!isNil(button)) {
+            right = renderButton();
+        }
+
+        if (!isNil(tag)) {
+            left = renderTag();
+        }
+
+        if (!isNil(left) || !isNil(right)) {
+            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
         }
 
         return children;
     };
 
     const renderLabel = () => {
+        const hasText = Children.count(children);
+
         const classes = mergeClasses(
             naked && "naked",
-            button && "with-button",
-            icon && "with-icon",
-            iconPosition === "right" && "with-icon-right",
+            !isNil(button) && "with-button",
+            !isNil(icon) && "with-icon",
+            !isNil(icon) && iconPosition === "right" && "with-icon-right",
+            !isNil(tag) && "with-tag",
+            !hasText && "without-text",
             className
         );
 
-        return <SemanticLabel className={classes} {...props}>{renderLabelContent()}</SemanticLabel>;
+        return (
+            <SemanticLabel className={classes} {...rest}>
+                {renderContent()}
+            </SemanticLabel>
+        );
     };
 
     return isNil(forwardedRef) ? renderLabel() : renderWithRef();
@@ -99,4 +168,8 @@ export const Label = forwardRef((props, ref) => (
     x.Detail = SemanticLabel.Detail;
     x.Group = SemanticLabel.Group;
 });
+
+if (!isNil(SemanticLabel.propTypes)) {
+    SemanticLabel.propTypes.size = oneOf(["tiny", "small", "medium", "large", "big", "huge", "massive"]);
+}
 

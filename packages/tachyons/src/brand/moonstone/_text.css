@@ -1,0 +1,89 @@
+.moonstone-50 {
+    color: var(--moonstone-50);
+}
+
+.moonstone-100 {
+    color: var(--moonstone-100);
+}
+
+.moonstone-200 {
+    color: var(--moonstone-200);
+}
+
+.moonstone-300 {
+    color: var(--moonstone-300);
+}
+
+.moonstone-400 {
+    color: var(--moonstone-400);
+}
+
+.moonstone-500 {
+    color: var(--moonstone-500);
+}
+
+.moonstone-600 {
+    color: var(--moonstone-600);
+}
+
+.moonstone-700 {
+    color: var(--moonstone-700);
+}
+
+.moonstone-800 {
+    color: var(--moonstone-800);
+}
+
+.moonstone-900 {
+    color: var(--moonstone-900);
+}
+
+.hover-moonstone-50:hover,
+.hover-moonstone-50:focus {
+    color: var(--moonstone-50);
+}
+
+.hover-moonstone-100:hover,
+.hover-moonstone-100:focus {
+    color: var(--moonstone-100);
+}
+
+.hover-moonstone-200:hover,
+.hover-moonstone-200:focus {
+    color: var(--moonstone-200);
+}
+
+.hover-moonstone-300:hover,
+.hover-moonstone-300:focus {
+    color: var(--moonstone-300);
+}
+
+.hover-moonstone-400:hover,
+.hover-moonstone-400:focus {
+    color: var(--moonstone-400);
+}
+
+.hover-moonstone-500:hover,
+.hover-moonstone-500:focus {
+    color: var(--moonstone-500);
+}
+
+.hover-moonstone-600:hover,
+.hover-moonstone-600:focus {
+    color: var(--moonstone-600);
+}
+
+.hover-moonstone-700:hover,
+.hover-moonstone-700:focus {
+    color: var(--moonstone-700);
+}
+
+.hover-moonstone-800:hover,
+.hover-moonstone-800:focus {
+    color: var(--moonstone-800);
+}
+
+.hover-moonstone-900:hover,
+.hover-moonstone-900:focus {
+    color: var(--moonstone-900);
+}

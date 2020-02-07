@@ -1,0 +1,46 @@
+import styles from "./shadows.module.css";
+
+import { MaterialsLayout } from "../../materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Table } from "@blocks";
+import { TachyonsFile } from "@blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import Installation from "../../installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Shadows")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/tachyons/src" />)
+        .build()}
+/>
+
+# Shadows
+
+Shadows can be used to denote a certain elevation of an element.
+
+You will find most of the documentation for shadows utilities on [Tachyons website](http://tachyons.io/docs/themes/box-shadow/). Keep in mind though that all the values have been costumized to match Orbit foundation. For an exhaustive list of utilities classes for shadows **including** our customizations, please refer to the [Tachyons section](#tachyons) below.
+
+## Installation
+
+<Installation />
+
+## Utilities
+
+The following box-shadows utilities have been added to Tachyons to match Orbit foundation values.
+
+<Table
+    columns={[
+        { title: "Class", headerStyle: { width: "200px" } },
+        { title: "Variable", headerStyle: { width: "225px" } },
+        { title: "", headerStyle: { width: "400px" } }
+    ]}
+    rows={[
+        [{ value: "shadow-100", className: "code f7 o-90" }, { value: "--shadow-100", className: "code f7 o-90" }, <div className="shadow-100 h9 ma3"></div>],
+        [{ value: "shadow-200", className: "code f7 o-90" }, { value: "--shadow-200", className: "code f7 o-90" }, <div className="shadow-200 h9 ma3"></div>]
+    ]}
+    rowClassName="bg-white"
+/>
+
+## Tachyons
+
+<TachyonsFile relativeFilePath="/shadows.css" />

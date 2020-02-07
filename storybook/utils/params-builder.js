@@ -2,6 +2,10 @@ import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { cloneElement } from "react";
 import { isNil, isNumber, isPlainObject, isString } from "lodash";
 
+function DefaultDocsLayout({ children }) {
+    return <div>{children}</div>;
+}
+
 class ParamsBuilder {
     _canvasLayout = {}
     _chromatic = {}
@@ -10,7 +14,7 @@ class ParamsBuilder {
     _showPanel = null;
     _selectedPanel = null;
     _excludeFromDocs = false;
-    _docsLayout = null;
+    _docsLayout = <DefaultDocsLayout />;
 
     canvasLayout(config) {
         if (!isNil(config)) {

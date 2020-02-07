@@ -1,5 +1,6 @@
 import styles from "./semantic-link.module.css";
 
+import { ExternalLink } from "@blocks";
 import { SemanticIcon } from "./assets";
 import { string } from "prop-types";
 
@@ -18,9 +19,9 @@ export function getSemanticUrl(path) {
 export function SemanticLink({ path }) {
     return (
         <div className={styles.iconWrapper}>
-            <a href={getSemanticUrl(path)} target="_blank" rel="noopener noreferrer">
+            <ExternalLink href={getSemanticUrl(path)}>
                 <SemanticIcon />
-            </a>
+            </ExternalLink>
         </div>
 
     );

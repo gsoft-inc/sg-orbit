@@ -1,0 +1,16 @@
+.scale {
+    width: 125px;
+}
+
+.class {
+    width: 175px;
+}
+
+.value,
+.lineHeight {
+    width: 250px;
+}
+
+.example {
+    width: 500px;
+}
