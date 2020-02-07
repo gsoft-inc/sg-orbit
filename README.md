@@ -25,7 +25,7 @@ Orbit UI is a design system develop by ShareGate to help create the best experie
 
 The documentation website contains information about installation, the Orbit foundation and Orbit UI React components.
 
-https://sg-orbit.netlify.com
+https://orbit.sharegate.design/
 
 ## Storybook website
 
