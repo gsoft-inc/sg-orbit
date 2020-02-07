@@ -10,7 +10,6 @@ import {
     CalendarIcon24,
     CheckIcon,
     CheckIcon24,
-    ChevronIcon,
     CircleIcon,
     CircleIcon24,
     ClearFilterIcon,
@@ -74,9 +73,6 @@ stories()
          () =>
              <div className="flex flex-column">
                  <div className="flex flex-row items-center">
-                     <div className="mb4 flex">
-                         <ChevronIcon className="h3 w3" />
-                     </div>
                      <div className="mb4 flex">
                          <ArrowFullIcon className="w2 h2" />
                      </div>

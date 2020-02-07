@@ -12,7 +12,6 @@ import { ReactComponent as CalendarIcon32 } from "./icon-calendar-32.svg";
 import { ReactComponent as CheckIcon24 } from "./icon-check-24.svg";
 import { ReactComponent as CheckIcon32 } from "./icon-check-32.svg";
 import { ReactComponent as CheckmarkIcon32 } from "./icon-checkmark-32.svg";
-import { ReactComponent as ChevronIcon32 } from "./icon-chevron-32.svg";
 import { ReactComponent as CircleIcon24 } from "./icon-circle-24.svg";
 import { ReactComponent as CircleIcon32 } from "./icon-circle-32.svg";
 import { ReactComponent as ClearFilterIcon24 } from "./icon-clear-filter-24.svg";
@@ -73,8 +72,7 @@ export {
     CalendarIcon32,
     CheckIcon24,
     CheckIcon32,
-    CheckmarkIcon32 ,
-    ChevronIcon32,
+    CheckmarkIcon32,
     CircleIcon24,
     CircleIcon32,
     ClearFilterIcon24,
@@ -132,7 +130,6 @@ export const ArrowOutlineIcon = createOrbitIcon(<ArrowOutlineIcon32 />, <ArrowOu
 export const CalendarIcon = createOrbitIcon(<CalendarIcon24 />, <CalendarIcon32 />);
 export const CheckIcon = createOrbitIcon(<CheckIcon24 />, <CheckIcon32 />);
 export const CheckmarkIcon = createOrbitIcon(<CheckmarkIcon32 />, <CheckmarkIcon32 />);
-export const ChevronIcon = createOrbitIcon(<ChevronIcon32 />, <ChevronIcon32 />);
 export const CircleIcon = createOrbitIcon(<CircleIcon24 />, <CircleIcon32 />);
 export const ClearFilterIcon = createOrbitIcon(<ClearFilterIcon24 />, <ClearFilterIcon32 />);
 export const CloseIcon = createOrbitIcon(<CloseIcon24 />, <CloseIcon32 />);

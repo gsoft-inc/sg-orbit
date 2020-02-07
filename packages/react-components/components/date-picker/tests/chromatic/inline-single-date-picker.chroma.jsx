@@ -1,4 +1,4 @@
-import { ChevronIcon } from "@orbit-ui/icons";
+import { ArrowIcon32 } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -87,12 +87,12 @@ stories("/disabled")
 stories("/customization")
     .add("close icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input closeIcon={<ChevronIcon className="rotate-90 fill-red" />} />
+            input: <InlineSingleDatePicker.Input closeIcon={<ArrowIcon32 className="rotate-90 fill-red" />} />
         })
     )
     .add("open icon", () =>
         createInlineSingleDatePicker({
-            input: <InlineSingleDatePicker.Input openIcon={<ChevronIcon className="rotate-270 fill-red" />} />,
+            input: <InlineSingleDatePicker.Input openIcon={<ArrowIcon32 className="rotate-270 fill-red" />} />,
             initialVisibleMonth: moment(DEFAULT_DATE),
             defaultOpen: true
         })

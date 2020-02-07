@@ -2,7 +2,7 @@ import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
 import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
-import { ChevronIcon } from "@orbit-ui/icons";
+import { ArrowIcon } from "@orbit-ui/icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
@@ -32,6 +32,8 @@ export class DatePickerCalendar extends PureComponent {
     };
 
     static defaultProps = {
+        navPrevIcon: <ArrowIcon className="rotate-180" />,
+        navNextIcon: <ArrowIcon />,
         temporarySingleDatePickerFlag: false
     };
 
@@ -136,13 +138,11 @@ export class DatePickerCalendar extends PureComponent {
     renderNavPrevIcon() {
         const { navPrevIcon } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(navPrevIcon) ? navPrevIcon : <ChevronIcon className="rotate-180" />;
-
-        return cloneElement(target, {
+        return cloneElement(navPrevIcon, {
+            size: "large",
             className: mergeClasses(
-                target.props && target.props.className,
-                "w4 h4 fill-marine-500"
+                !isNil(navPrevIcon.props) && navPrevIcon.props.className,
+                "fill-marine-500"
             )
         });
     }
@@ -154,13 +154,11 @@ export class DatePickerCalendar extends PureComponent {
     renderNavNextIcon() {
         const { navNextIcon } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(navNextIcon) ? navNextIcon : <ChevronIcon />;
-
-        return cloneElement(target, {
+        return cloneElement(navNextIcon, {
+            size: "large",
             className: mergeClasses(
-                target.props && target.props.className,
-                "w4 h4 fill-marine-500"
+                !isNil(navNextIcon.props) && navNextIcon.props.className,
+                "fill-marine-500"
             )
         });
     }
@@ -265,7 +263,7 @@ export class DatePickerCalendar extends PureComponent {
                     }
 
                     .calendar :global(.DayPickerNavigation_button) {
-                        margin-top: 24px;
+                        margin-top: 17px;
                     }
 
                     .calendar :global(.DayPickerNavigation_button__horizontalDefault) {

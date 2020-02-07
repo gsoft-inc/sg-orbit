@@ -1,3 +1,4 @@
+import { Icon } from "@orbit-ui/icons";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent, cloneElement } from "react";
 import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
@@ -99,6 +100,10 @@ export class DateRangePickerPresets extends PureComponent {
         className: string
     };
 
+    static defaultProps = {
+        icon: <Icon content={<PresetsCalendarIcon />} />
+    };
+
     isDayBlocked = day => {
         const { minDate, maxDate } = this.props;
 
@@ -145,13 +150,11 @@ export class DateRangePickerPresets extends PureComponent {
     renderIcon() {
         const { icon } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(icon) ? icon : <PresetsCalendarIcon />;
-
-        return cloneElement(target, {
+        return cloneElement(icon, {
+            size: "big",
             className: mergeClasses(
-                target.props && target.props.className,
-                "w8 h8 fill-marine-500"
+                !isNil(icon.props) && icon.props.className,
+                "fill-marine-500"
             )
         });
     }

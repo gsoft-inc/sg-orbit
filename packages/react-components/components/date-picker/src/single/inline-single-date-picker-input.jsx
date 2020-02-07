@@ -1,4 +1,4 @@
-import { ChevronIcon } from "@orbit-ui/icons";
+import { ArrowIcon32 } from "@orbit-ui/icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, cloneElement, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
@@ -99,6 +99,11 @@ export class InlineSingleDatePickerInput extends PureComponent {
         className: string
     };
 
+    static defaultProps = {
+        openIcon: <ArrowIcon32 className="rotate-270" />,
+        closeIcon: <ArrowIcon32 className="rotate-90" />
+    }
+
     _containerRef = createRef();
 
     componentDidMount() {
@@ -192,17 +197,14 @@ export class InlineSingleDatePickerInput extends PureComponent {
     renderOpenIcon() {
         const { openIcon } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(openIcon) ? openIcon : <ChevronIcon className="rotate-270" />;
-
-        return cloneElement(target, {
+        return cloneElement(openIcon, {
             className: mergeClasses(
-                target.props && target.props.className,
+                !isNil(openIcon.props) && openIcon.props.className,
                 "fill-primary-500"
             ),
             style: {
-                width: "1em",
-                height: "1em"
+                width: "2em",
+                height: "2em"
             }
         });
     }
@@ -210,17 +212,14 @@ export class InlineSingleDatePickerInput extends PureComponent {
     renderCloseIcon() {
         const { closeIcon, disabled } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(closeIcon) ? closeIcon : <ChevronIcon className="rotate-90" />;
-
-        return cloneElement(target, {
+        return cloneElement(closeIcon, {
             className: mergeClasses(
-                target.props && target.props.className,
+                !isNil(closeIcon.props) && closeIcon.props.className,
                 !disabled ? "fill-primary-500" : "fill-cloud-200"
             ),
             style: {
-                width: "1em",
-                height: "1em"
+                width: "2em",
+                height: "2em"
             }
         });
     }
@@ -246,7 +245,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 ref={this._containerRef}
                 data-testid="inline-single-date-picker-input"
             >
-                <span className="mr2 fw5">{this.getValue()}</span>
+                <span className="fw5">{this.getValue()}</span>
                 <span className="flex">{this.renderIcon()}</span>
             </div>
         );
