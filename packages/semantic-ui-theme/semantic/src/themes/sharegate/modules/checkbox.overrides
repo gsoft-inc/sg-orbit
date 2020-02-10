@@ -43,6 +43,7 @@
     height: 20px;
     content: '';
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: 20px 20px;
     background-color: @white;
     transform: translateY(-50%);
 }
