@@ -12,9 +12,11 @@ export const Buttons = props => {
                 <Button {...props} ghost>Button</Button>
                 <Button active ghost {...props}>Button</Button>
                 <Button disabled ghost {...props}>Button</Button>
-                <Button {...props} basic>Button</Button>
-                <Button {...props} active basic>Button</Button>
-                <Button {...props} disabled basic>Button</Button>
+                <div className="flex flex-column bg-cloud-50">
+                    <Button {...props} basic>Button</Button>
+                    <Button {...props} active basic>Button</Button>
+                    <Button {...props} disabled basic>Button</Button>
+                </div>
             </div>
             {/* Layout */}
             <div className="flex flex-column items-start">
@@ -38,9 +40,11 @@ export const Buttons = props => {
                 <Button icon={<SignoutIcon24 />} {...props} ghost>Button</Button>
                 <Button icon={<SignoutIcon24 />} active ghost {...props}>Button</Button>
                 <Button icon={<SignoutIcon24 />} disabled ghost {...props}>Button</Button>
-                <Button icon={<SignoutIcon24 />} {...props} basic>Button</Button>
-                <Button icon={<SignoutIcon24 />} {...props} active basic>Button</Button>
-                <Button icon={<SignoutIcon24 />} {...props} disabled basic>Button</Button>
+                <div className="flex flex-column bg-cloud-50">
+                    <Button icon={<SignoutIcon24 />} {...props} basic>Button</Button>
+                    <Button icon={<SignoutIcon24 />} {...props} active basic>Button</Button>
+                    <Button icon={<SignoutIcon24 />} {...props} disabled basic>Button</Button>
+                </div>
             </div>
             {/* icon + text */}
             <div className="flex flex-column items-start">
@@ -78,9 +82,11 @@ export const Buttons = props => {
                 <Button {...props} ghost icon={<CalendarIcon />}></Button>
                 <Button active ghost {...props} icon={<CalendarIcon />}></Button>
                 <Button disabled ghost {...props} icon={<CalendarIcon />}></Button>
-                <Button {...props} basic icon={<CalendarIcon />}></Button>
-                <Button {...props} active basic icon={<CalendarIcon />}></Button>
-                <Button {...props} disabled basic icon={<CalendarIcon />}></Button>
+                <div className="flex flex-column bg-cloud-50">
+                    <Button {...props} basic icon={<CalendarIcon />}></Button>
+                    <Button {...props} active basic icon={<CalendarIcon />}></Button>
+                    <Button {...props} disabled basic icon={<CalendarIcon />}></Button>
+                </div>
             </div>
             {/* icon / layout */}
             <div className="flex flex-column items-start">
