@@ -1,0 +1,138 @@
+import styles from "./icons.module.css";
+
+import {
+    AddIcon32,
+    AddUserIcon32,
+    ArrowIcon32,
+    CalendarIcon32,
+    CheckIcon32,
+    CircleIcon32,
+    ClearFilterIcon32,
+    CloseIcon32,
+    CommunicationIcon32,
+    CompareIcon32,
+    CsvIcon32,
+    DoNotDisturbIcon32,
+    DownloadIcon32,
+    EditIcon32,
+    FileIcon32,
+    FolderIcon32,
+    GarbageIcon32,
+    GearIcon32,
+    GroupIcon32,
+    HelpIcon32,
+    HorizontalDotsIcon32,
+    ImageIcon32,
+    InfoIcon32,
+    LightbulbIcon32,
+    MagnifierIcon32,
+    MusicIcon32,
+    NotificationIcon32,
+    PdfIcon32,
+    PrinterIcon32,
+    PrivacyIcon24,
+    ReminderIcon32,
+    RemoveUserIcon32,
+    SignoutIcon32,
+    SortingIcon32,
+    VariationIcon32,
+    VerticalDotsIcon32,
+    VideoIcon32,
+    WarningIcon32,
+    ZipIcon32
+} from "@orbit-ui/icons";
+import { IconGallery } from "storybook-icon-gallery";
+import { MaterialsLayout } from "@stories/materials/materials-layout";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createMaterialSection, paramsBuilder } from "@utils";
+import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
+import Installation from "./installation.mdx";
+
+<Meta
+    title={`${createMaterialSection("Icons")}`}
+    parameters={paramsBuilder()
+        .docsLayout(<MaterialsLayout sourcePath="/packages/icons/src" />)
+        .build()}
+/>
+
+# Icons
+
+Icons are available as [React components](#react) or as [static files](#static-files).
+
+To be included in Orbit an icon must satisfy the following guidelines:
+
+- It should not be specific to a ShareGate brand or any app, e.g. Azure specific icons.
+
+- It must be used as part of an interface, illustrations are not accepted.
+
+- It shouldn't be colored, any icon that has many colors should be in a product codebase.
+
+## Installation
+
+<Installation />
+
+## React
+
+### Dimensions
+
+Icons comes with default dimensions. You can customize dimensions either with [Tachyons](/?path=/docs/getting-started-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
+
+```jsx dark
+<AddIcon24 className="w6 h6" />
+```
+
+If you're icon is intended to be used with an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
+
+### Gallery
+
+<IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue} className={styles.gallery}>
+    {renderItem("AddIcon", AddIcon32)}
+    {renderItem("AddUserIcon", AddUserIcon32)}
+    {renderItem("ArrowIcon", ArrowIcon32)}
+    {renderItem("CalendarIcon", CalendarIcon32)}
+    {renderItem("CheckIcon", CheckIcon32)}
+    {renderItem("CircleIcon", CircleIcon32)}
+    {renderItem("ClearFilterIcon", ClearFilterIcon32)}
+    {renderItem("CloseIcon", CloseIcon32)}
+    {renderItem("CommunicationIcon", CommunicationIcon32)}
+    {renderItem("CompareIcon", CompareIcon32)}
+    {renderItem("CsvIcon", CsvIcon32)}
+    {renderItem("DoNotDisturbIcon", DoNotDisturbIcon32)}
+    {renderItem("DownloadIcon", DownloadIcon32)}
+    {renderItem("EditIcon", EditIcon32)}
+    {renderItem("FileIcon", FileIcon32)}
+    {renderItem("FolderIcon", FolderIcon32)}
+    {renderItem("GarbageIcon", GarbageIcon32)}
+    {renderItem("GearIcon", GearIcon32)}
+    {renderItem("GroupIcon", GroupIcon32)}
+    {renderItem("HelpIcon", HelpIcon32)}
+    {renderItem("HorizontalDotsIcon", HorizontalDotsIcon32)}
+    {renderItem("ImageIcon", ImageIcon32)}
+    {renderItem("InfoIcon", InfoIcon32)}
+    {renderItem("LightbulbIcon", LightbulbIcon32)}
+    {renderItem("MagnifierIcon", MagnifierIcon32)}
+    {renderItem("MusicIcon", MusicIcon32)}
+    {renderItem("NotificationIcon", NotificationIcon32)}
+    {renderItem("PdfIcon", PdfIcon32)}
+    {renderItem("PrinterIcon", PrinterIcon32)}
+    {renderItem("PrivacyIcon", PrivacyIcon24)}
+    {renderItem("ReminderIcon", ReminderIcon32)}
+    {renderItem("RemoveUserIcon", RemoveUserIcon32)}
+    {renderItem("SignoutIcon", SignoutIcon32)}
+    {renderItem("SortingIcon", SortingIcon32)}
+    {renderItem("VariationIcon", VariationIcon32)}
+    {renderItem("VerticalDotsIcon", VerticalDotsIcon32)}
+    {renderItem("VideoIcon", VideoIcon32)}
+    {renderItem("WarningIcon", WarningIcon32)}
+    {renderItem("ZipIcon", ZipIcon32)}
+</IconGallery>
+
+## Static files
+
+(Moved to static files section) Icons includes their padding and are generally available in two sizes, _24px_ and _32px_. If an icon is only available in _32px_, he is considered universal.
+
+Icons comes with default dimensions. You can customize dimensions either with [Tachyons](/?path=/docs/getting-started-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
+
+```jsx dark
+<AddIcon24 className="w6 h6" />
+```

@@ -70,8 +70,6 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 export function PureButton(props) {
     const { naked, ghost, icon, iconPosition, label, tag, size, className, forwardedRef, children, ...rest } = props;
 
-    console.log("In button ", size);
-
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 

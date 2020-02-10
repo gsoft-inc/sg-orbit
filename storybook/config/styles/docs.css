@@ -171,10 +171,6 @@ details .docblock-source {
     border: 1px dashed var(--cloud-100);
 }
 
-.sbdocs.sbdocs-ig-item {
-    flex-basis: calc(12% + 17px) !important;
-}
-
 /* Helpers */
 .items-space-between > * {
     margin-right: var(--scale-alpha) !important;

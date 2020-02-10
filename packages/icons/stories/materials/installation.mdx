@@ -5,29 +5,33 @@ import { Fragment } from "react";
 Install from [the React bundle](?path=/docs/getting-started-installation--page) or as a single package:
 
 ```bash dark
-npm install @orbit-ui/icons
+npm install @orbit-ui/icons @orbit-ui/tachyons
 ```
 </details>
 
 <details><summary >then import what you need</summary>
 
-As a react component:
+As a React component:
 
 ```jsx dark
 import { IconName } from "@orbit-ui/icons";
+
+<IconName />
 ```
 
 As an image:
 
 ```jsx dark
-import IconName from "@orbit-ui/icons/icon-name.svg";
+import IconName24 from "@orbit-ui/icons/icon-name-24.svg";
+
+<img src={IconName24} alt="Icon Name" />
 ```
 
 As a background image:
 
 ```css dark
 .name-icon: {
-    background: url("~@orbit-ui/icons/icon-name.svg");
+    background: url("~@orbit-ui/icons/icon-name-24.svg");
 }
 ```
 

@@ -1,7 +1,9 @@
-import { AddIcon, GearIcon32, Icon } from "@orbit-ui/icons";
+import { AddIcon, GearIcon32, Icon, MultiVariantIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
 import { ReactComponentsLayout } from "@blocks/react-components";
 import { createComponentSection, paramsBuilder } from "@utils";
+import Installation from "./installation.mdx";
 
 <Meta
     title={createComponentSection("Icon")}
@@ -11,21 +13,42 @@ import { createComponentSection, paramsBuilder } from "@utils";
         .build()}
 />
 
-# Icons
+# Icon
+
+An icon component to render a custom icon (e.g. Azure specific icons) with Orbit standard sizes.
+
+For Orbit official icons, please refer to the [icon gallery](?path=/docs/materials-icons--page#gallery).
 
 ## Installation
 
-TODO
+<Installation />
 
 ## Props
 
-TODO
+<Props
+    componentsDefinitions={[
+        { displayName: "Icon", component: Icon },
+        { displayName: "MultiVariantIcon", component: MultiVariantIcon }
+    ]}
+/>
 
 ## Usage
 
 ### Default
 
-### Sizes
+A default icon.
+
+<Preview>
+    <Story name="default">
+        <Icon content={<GearIcon32 />} />
+    </Story>
+</Preview>
+
+### Size
+
+An icon can vary in size.
+
+Available sizes are: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
 
 <Preview>
     <Story name="size">
@@ -37,12 +60,14 @@ TODO
             <Icon content={<GearIcon32 />} size="big" />
             <Icon content={<GearIcon32 />} size="huge" />
             <Icon content={<GearIcon32 />} size="massive" />
-        </div>32
+        </div>
     </Story>
 </Preview>
 
+### Multiple Variants
+
 <Preview>
-    <Story name="size2">
+    <Story name="multi-variants">
         <div className="flex items-end items-space-between">
             <AddIcon size="tiny" />
             <AddIcon size="small" />
