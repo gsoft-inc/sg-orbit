@@ -1,4 +1,4 @@
-import { AddIcon24, MagnifierIcon } from "@orbit-ui/icons";
+import { AddIcon } from "@orbit-ui/icons";
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -113,10 +113,6 @@ export class MultiSelectDropdown extends PureComponent {
          */
         searchInput: node,
         /**
-         * A custom React SVG component displayed before the search input query.
-         */
-        searchIcon: node,
-        /**
          * The search input placeholder text.
          */
         placeholder: string,
@@ -149,9 +145,8 @@ export class MultiSelectDropdown extends PureComponent {
         headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
-        triggerIcon: <AddIcon24 className="ml1" />,
+        triggerIcon: <AddIcon />,
         searchInput: <MultiSelectDropdownSearchInput />,
-        searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -377,12 +372,11 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     renderSearchInput = () => {
-        const { searchInput, searchIcon, placeholder } = this.props;
+        const { searchInput, placeholder } = this.props;
 
         return cloneElement(searchInput, {
             key: "search-input",
             onChange: this.handleSearchChange,
-            icon: searchIcon,
             placeholder
         });
     };

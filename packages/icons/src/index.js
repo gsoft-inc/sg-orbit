@@ -3,15 +3,12 @@ import { createOrbitIcon } from "./orbit-icon";
 import { ReactComponent as AddIcon24 } from "./icon-add-24.svg";
 import { ReactComponent as AddIcon32 } from "./icon-add-32.svg";
 import { ReactComponent as AddUserIcon32 } from "./icon-add-user-32.svg";
-import { ReactComponent as ArrowFullIcon32 } from "./icon-arrow-full-32.svg";
 import { ReactComponent as ArrowIcon24 } from "./icon-arrow-24.svg";
 import { ReactComponent as ArrowIcon32 } from "./icon-arrow-32.svg";
-import { ReactComponent as ArrowOutlineIcon32 } from "./icon-arrow-outline-32.svg";
 import { ReactComponent as CalendarIcon24 } from "./icon-calendar-24.svg";
 import { ReactComponent as CalendarIcon32 } from "./icon-calendar-32.svg";
 import { ReactComponent as CheckIcon24 } from "./icon-check-24.svg";
 import { ReactComponent as CheckIcon32 } from "./icon-check-32.svg";
-import { ReactComponent as CheckmarkIcon32 } from "./icon-checkmark-32.svg";
 import { ReactComponent as CircleIcon24 } from "./icon-circle-24.svg";
 import { ReactComponent as CircleIcon32 } from "./icon-circle-32.svg";
 import { ReactComponent as ClearFilterIcon24 } from "./icon-clear-filter-24.svg";
@@ -64,15 +61,12 @@ export {
     AddIcon24,
     AddIcon32,
     AddUserIcon32,
-    ArrowFullIcon32,
     ArrowIcon24,
     ArrowIcon32,
-    ArrowOutlineIcon32,
     CalendarIcon24,
     CalendarIcon32,
     CheckIcon24,
     CheckIcon32,
-    CheckmarkIcon32,
     CircleIcon24,
     CircleIcon32,
     ClearFilterIcon24,
@@ -124,12 +118,9 @@ export {
 
 export const AddIcon = createOrbitIcon(<AddIcon24 />, <AddIcon32 />);
 export const AddUserIcon = createOrbitIcon(<AddUserIcon32 />, <AddUserIcon32 />);
-export const ArrowFullIcon = createOrbitIcon(<ArrowFullIcon32 />, <ArrowFullIcon32 />);
 export const ArrowIcon = createOrbitIcon(<ArrowIcon24 />, <ArrowIcon32 />);
-export const ArrowOutlineIcon = createOrbitIcon(<ArrowOutlineIcon32 />, <ArrowOutlineIcon32 />);
 export const CalendarIcon = createOrbitIcon(<CalendarIcon24 />, <CalendarIcon32 />);
 export const CheckIcon = createOrbitIcon(<CheckIcon24 />, <CheckIcon32 />);
-export const CheckmarkIcon = createOrbitIcon(<CheckmarkIcon32 />, <CheckmarkIcon32 />);
 export const CircleIcon = createOrbitIcon(<CircleIcon24 />, <CircleIcon32 />);
 export const ClearFilterIcon = createOrbitIcon(<ClearFilterIcon24 />, <ClearFilterIcon32 />);
 export const CloseIcon = createOrbitIcon(<CloseIcon24 />, <CloseIcon32 />);

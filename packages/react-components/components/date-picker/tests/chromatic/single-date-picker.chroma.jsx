@@ -1,4 +1,3 @@
-import { ArrowIcon, CalendarIcon, CloseIcon } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -664,20 +663,6 @@ stories("/customization")
                  input: <SingleDatePicker.Input className="bg-red" />
              })
     )
-    .add("input icon",
-         () =>
-             createSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input icon={<CalendarIcon className="fill-red" />} />
-             })
-    )
-    .add("clear icon",
-         () =>
-             createSingleDatePicker({
-                 date: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input clearIcon={<CloseIcon className="fill-red" />} />
-             })
-    )
     .add("placeholder",
          () =>
              createSingleDatePicker({
@@ -713,14 +698,6 @@ stories("/customization")
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
                  calendar: <SingleDatePicker.Calendar className="border-red" />,
-                 defaultOpen: true
-             })
-    )
-    .add("navigation icons",
-         () =>
-             createSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 calendar: <SingleDatePicker.Calendar navPrevIcon={<ArrowIcon className="rotate-180 fill-red" />} navNextIcon={<ArrowIcon className="fill-red" />} />,
                  defaultOpen: true
              })
     )

@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { CloseIcon24 } from "@orbit-ui/icons";
+import { CloseIcon } from "@orbit-ui/icons";
 import { Label } from "@orbit-ui/react-label";
 import { PureComponent } from "react";
 import { SIZES } from "./sizes";
@@ -28,7 +28,7 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
                     circular
                     ghost
                     secondary
-                    icon={<CloseIcon24 />}
+                    icon={<CloseIcon />}
                     size="tiny"
                     onClick={onRemove}
                     type="button"

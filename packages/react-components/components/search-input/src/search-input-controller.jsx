@@ -1,11 +1,11 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { Button } from "@orbit-ui/react-button";
-import { CloseIcon24, MagnifierIcon } from "@orbit-ui/icons";
+import { CloseIcon, MagnifierIcon } from "@orbit-ui/icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
 import { Search } from "semantic-ui-react";
-import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 import cx from "classnames";
@@ -35,8 +35,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: string,
         debounceDelay: number,
         loading: bool,
-        icon: node,
-        clearIcon: node,
         disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
@@ -52,8 +50,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         loading: false,
-        icon: <MagnifierIcon />,
-        clearIcon: <CloseIcon24 />,
         disabled: false,
         autofocus: false,
         autofocusDelay: 50,
@@ -287,10 +283,10 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     renderInput = () => {
-        const { open, loading, icon, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
+        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
 
         return <Input
-            icon={icon}
+            icon={<MagnifierIcon />}
             iconPosition="left"
             onKeyDown={this.handleInputKeyDown}
             loading={loading && !disabled}
@@ -305,14 +301,12 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     renderClearButton = () => {
-        const { clearIcon } = this.props;
-
         return (
             <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
                 <Button
                     ghost
                     secondary
-                    icon={clearIcon}
+                    icon={<CloseIcon />}
                     size="tiny"
                     className="transparent"
                     onClick={this.handleClear}

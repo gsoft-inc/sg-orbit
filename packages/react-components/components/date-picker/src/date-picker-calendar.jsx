@@ -25,15 +25,11 @@ export class DatePickerCalendar extends PureComponent {
         initialDate: momentType.isRequired,
         initialVisibleMonth: oneOfType([momentType, func]),
         numberOfMonths: number,
-        navPrevIcon: node,
-        navNextIcon: node,
         className: string,
         temporarySingleDatePickerFlag: bool
     };
 
     static defaultProps = {
-        navPrevIcon: <ArrowIcon className="rotate-180" />,
-        navNextIcon: <ArrowIcon />,
         temporarySingleDatePickerFlag: false
     };
 
@@ -135,36 +131,20 @@ export class DatePickerCalendar extends PureComponent {
         return {};
     }
 
-    renderNavPrevIcon() {
-        const { navPrevIcon } = this.props;
-
-        return cloneElement(navPrevIcon, {
-            size: "large",
-            className: mergeClasses(
-                !isNil(navPrevIcon.props) && navPrevIcon.props.className,
-                "fill-marine-500"
-            )
-        });
-    }
-
     renderNavPrev() {
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavPrevIcon()}</div>;
-    }
-
-    renderNavNextIcon() {
-        const { navNextIcon } = this.props;
-
-        return cloneElement(navNextIcon, {
-            size: "large",
-            className: mergeClasses(
-                !isNil(navNextIcon.props) && navNextIcon.props.className,
-                "fill-marine-500"
-            )
-        });
+        return (
+            <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
+                <ArrowIcon size="large" className="rotate-180 fill-marine-500" />
+            </div>
+        );
     }
 
     renderNavNext() {
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavNextIcon()}</div>;
+        return (
+            <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
+                <ArrowIcon size="large" className="fill-marine-500" />
+            </div>
+        );
     }
 
     renderCalendar() {

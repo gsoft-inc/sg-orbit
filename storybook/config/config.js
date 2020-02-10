@@ -78,18 +78,28 @@ let stories = [];
 
 if (includeGettingStarted) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/getting-started", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/getting-started", true, /.stories.mdx$/)
+        ];
     }
 }
 
 if (includeMaterials) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/), require.context("../../packages/icons", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/materials", true, /.stories.mdx$/),
+            require.context("../../packages/icons/stories/materials", true, /.stories.mdx$/)
+        ];
     }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/), require.context("../../packages/icons", true, /.chroma.mdx$/)];
-
+        stories = [
+            ...stories,
+            require.context("../stories/materials", true, /.chroma.jsx$/),
+            require.context("../../packages/icons/tests/chromatic", true, /icons.chroma.jsx$/)
+        ];
     }
 }
 
@@ -98,7 +108,8 @@ if (includeComponents) {
         stories = [
             ...stories,
             require.context("../../packages/react-components/components", true, /.stories.mdx$/),
-            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/)
+            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/),
+            require.context("../../packages/icons/stories/components", true, /.stories.mdx$/)
         ];
     }
 
@@ -113,11 +124,17 @@ if (includeComponents) {
 
 if (includeSemanticTheme) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)
+        ];
     }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)
+        ];
     }
 }
 

@@ -1,8 +1,8 @@
 import { ArrowIcon32 } from "@orbit-ui/icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
-import { PureComponent, cloneElement, createRef } from "react";
+import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
-import { bool, func, node, string } from "prop-types";
+import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -78,14 +78,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A custom React SVG component displayed after the date text when the date picker is opened.
-         */
-        openIcon: node,
-        /**
-         * A custom React SVG component displayed after the date text when the date picker is closed.
-         */
-        closeIcon: node,
-        /**
          * A disabled input does not allow user interaction.
          */
         disabled: bool,
@@ -98,11 +90,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         className: string
     };
-
-    static defaultProps = {
-        openIcon: <ArrowIcon32 className="rotate-270" />,
-        closeIcon: <ArrowIcon32 className="rotate-90" />
-    }
 
     _containerRef = createRef();
 
@@ -195,33 +182,13 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderOpenIcon() {
-        const { openIcon } = this.props;
-
-        return cloneElement(openIcon, {
-            className: mergeClasses(
-                !isNil(openIcon.props) && openIcon.props.className,
-                "fill-primary-500"
-            ),
-            style: {
-                width: "2em",
-                height: "2em"
-            }
-        });
+        return <ArrowIcon32 className="rotate-270 fill-primary-500" style={{ width: "2em", height: "2em" }} />;
     }
 
     renderCloseIcon() {
-        const { closeIcon, disabled } = this.props;
+        const { disabled } = this.props;
 
-        return cloneElement(closeIcon, {
-            className: mergeClasses(
-                !isNil(closeIcon.props) && closeIcon.props.className,
-                !disabled ? "fill-primary-500" : "fill-cloud-200"
-            ),
-            style: {
-                width: "2em",
-                height: "2em"
-            }
-        });
+        return <ArrowIcon32 className={`rotate-90 ${!disabled ? "fill-primary-500" : "fill-cloud-200"}`} style={{ width: "2em", height: "2em" }} />;
     }
 
     renderIcon() {

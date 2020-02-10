@@ -4,8 +4,7 @@ import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL } from "./sizes";
 import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
-import { bool, func, node, oneOf, string } from "prop-types";
-import { cloneElement } from "react";
+import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import cx from "classnames";
 
@@ -37,8 +36,6 @@ export class DatePickerTextboxInput extends PureComponent {
         onClear: func,
         allowClear: bool,
         placeholder: string,
-        icon: node,
-        clearIcon: node,
         disabled: bool,
         open: bool,
         size: oneOf(SIZES),
@@ -48,8 +45,6 @@ export class DatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        icon: <CalendarIcon />,
-        clearIcon: <CloseIcon />,
         disabled: false,
         size: DEFAULT_SIZE
     };
@@ -156,19 +151,13 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     renderIcon() {
-        const { icon, size, disabled } = this.props;
+        const { size, disabled } = this.props;
 
-        return cloneElement(icon, {
-            size,
-            className: mergeClasses(
-                !isNil(icon).props && icon.props.className,
-                !disabled ? "fill-marine-700" : "fill-cloud-500"
-            )
-        });
+        return <CalendarIcon size={size} className={!disabled ? "fill-marine-700" : "fill-cloud-500"} />;
     }
 
     renderClearButton() {
-        const { allowClear, clearIcon, disabled, open } = this.props;
+        const { allowClear, disabled, open } = this.props;
 
         if (!allowClear) {
             return null;
@@ -180,7 +169,7 @@ export class DatePickerTextboxInput extends PureComponent {
                     circular
                     ghost
                     secondary
-                    icon={clearIcon}
+                    icon={<CloseIcon />}
                     size="tiny"
                     onClick={this.handleClearButtonClick}
                     type="button"

@@ -66,14 +66,6 @@ export class DateRangePickerCalendar extends PureComponent {
          */
         position: oneOf(POSITIONS),
         /**
-         * A custom React SVG component for the previous month navigation button.
-         */
-        navPrevIcon: node,
-        /**
-         * A custom React SVG component for the next month navigation button.
-         */
-        navNextIcon: node,
-        /**
          * A custom React component to list and select a preset.
          */
         presetsComponent: node,
@@ -208,7 +200,7 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, navPrevIcon, navNextIcon, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className } = this.props;
 
         return (
             <DatePickerCalendar
@@ -221,8 +213,6 @@ export class DateRangePickerCalendar extends PureComponent {
                 initialVisibleMonth={initialVisibleMonth}
                 numberOfMonths={numberOfMonths}
                 position={position}
-                navPrevIcon={navPrevIcon}
-                navNextIcon={navNextIcon}
                 className={className}
             />
         );

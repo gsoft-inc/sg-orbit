@@ -13,15 +13,6 @@ const DIMENSIONS = {
     [MASSIVE]: "w10 h10"
 };
 
-const propTypes = {
-    content: element.isRequired,
-    size: oneOf(SIZES)
-};
-
-const defaultProps = {
-    size: DEFAULT_SIZE
-};
-
 export function Icon({ content, size, className, ...rest }) {
     const classes = mergeClasses(
         className,
@@ -34,5 +25,31 @@ export function Icon({ content, size, className, ...rest }) {
     });
 }
 
-Icon.propTypes = propTypes;
-Icon.defaultProps = defaultProps;
+Icon.propTypes = {
+    content: element.isRequired,
+    size: oneOf(SIZES)
+};
+
+Icon.defaultProps = {
+    size: DEFAULT_SIZE
+};
+
+export function MultiVariantIcon({ icon24, icon32, size, ...rest }) {
+    let content = icon32;
+
+    if (size === TINY || size === SMALL || size === MEDIUM) {
+        content = icon24;
+    }
+
+    return <Icon content={content} size={size} {...rest} />;
+}
+
+MultiVariantIcon.propTypes = {
+    icon24: element.isRequired,
+    icon32: element.isRequired,
+    size: oneOf(SIZES)
+};
+
+MultiVariantIcon.defaultProps = {
+    size: DEFAULT_SIZE
+};
