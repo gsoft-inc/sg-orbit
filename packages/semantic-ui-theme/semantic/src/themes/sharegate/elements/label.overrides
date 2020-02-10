@@ -10,6 +10,7 @@
 }
 
 .ui.label.icon {
+    margin: 0;
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
 }
 

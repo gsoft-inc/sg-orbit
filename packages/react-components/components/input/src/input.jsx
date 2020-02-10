@@ -2,11 +2,13 @@
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
-import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { createIconFromExisting } from "@orbit-ui/icons";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
+const SIZES = ["small", "medium", "large"];
 
 const propTypes = {
     /**
@@ -21,6 +23,14 @@ const propTypes = {
      * A custom React SVG component displayed before or after the prompt based on "iconPosition".
      */
     icon: element,
+    /**
+     * @ignore
+     */
+    size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
+    disabled: bool,
     /**
      * @ignore
      */
@@ -60,7 +70,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
 }
 
 export function PureInput(props) {
-    const { icon, autofocus, autofocusDelay, disabled, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, icon, size, disabled, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
 
@@ -73,12 +83,7 @@ export function PureInput(props) {
         const { loading } = props;
 
         if (!isNil(icon) && !loading) {
-            return cloneElement(icon, {
-                className: mergeClasses(
-                    "icon",
-                    icon.props && icon.props.className
-                )
-            });
+            return createIconFromExisting(icon, size);
         }
     };
 
@@ -86,7 +91,7 @@ export function PureInput(props) {
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} disabled={disabled}>{children}</SemanticInput>
+            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} size={size} disabled={disabled}>{children}</SemanticInput>
         </Ref>
     );
 }
@@ -99,5 +104,5 @@ export const Input = forwardRef((props, ref) => (
 ));
 
 if (!isNil(SemanticInput.propTypes)) {
-    SemanticInput.propTypes.size = oneOf(["small", "medium", "large"]);
+    SemanticInput.propTypes.size = oneOf(SIZES);
 }

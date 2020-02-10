@@ -60,19 +60,7 @@
     transform: translateY(-50%);
     position: absolute;
     right: var(--scale-bravo);
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
     pointer-events: none;
-}
-
-.ui.icon.input.small > svg.icon {
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-}
-
-.ui.icon.input.large > svg.icon {
-    width: var(--scale-golf);
-    height: var(--scale-golf);
 }
 
 .ui.left.icon.input > input {

@@ -28,7 +28,6 @@ stories()
                      </Label>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Label circular size="mini">R</Label>
                      <Label circular size="tiny">R</Label>
                      <Label circular size="small">R</Label>
                      <Label circular size="medium">R</Label>
@@ -38,7 +37,6 @@ stories()
                      <Label circular size="massive">R</Label>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Label circular size="mini" icon={<CommunicationIcon />} />
                      <Label circular size="tiny" icon={<CommunicationIcon />} />
                      <Label circular size="small" icon={<CommunicationIcon />} />
                      <Label circular size="medium" icon={<CommunicationIcon />} />
@@ -97,7 +95,6 @@ stories()
                 </Label>
             </div>
             <div className="flex flex-column items-start">
-                <Label basic circular size="mini">R</Label>
                 <Label basic circular size="tiny">R</Label>
                 <Label basic circular size="small">R</Label>
                 <Label basic circular size="medium">R</Label>
@@ -107,7 +104,6 @@ stories()
                 <Label basic circular size="massive">R</Label>
             </div>
             <div className="flex flex-column items-start">
-                <Label basic circular size="mini" icon={<CommunicationIcon />} />
                 <Label basic circular size="tiny" icon={<CommunicationIcon />} />
                 <Label basic circular size="small" icon={<CommunicationIcon />} />
                 <Label basic circular size="medium" icon={<CommunicationIcon />} />
