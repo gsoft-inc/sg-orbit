@@ -14,6 +14,8 @@ const DIMENSIONS = {
 };
 
 export function Icon({ content, size, className, ...rest }) {
+    console.log(content, size, className);
+
     const classes = mergeClasses(
         className,
         DIMENSIONS[size]

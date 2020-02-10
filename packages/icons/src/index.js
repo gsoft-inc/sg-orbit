@@ -1,4 +1,4 @@
-import { createOrbitIcon } from "./orbit-icon";
+import { createOrbitIcon } from "./create-orbit-icon";
 
 import { ReactComponent as AddIcon24 } from "./icon-add-24.svg";
 import { ReactComponent as AddIcon32 } from "./icon-add-32.svg";

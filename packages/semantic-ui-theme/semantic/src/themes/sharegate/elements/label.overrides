@@ -18,42 +18,6 @@
     margin-left: 0.25rem!important;
 }
 
-/* CONTENT | With Icon | LAYOUT | Sizing */
-.ui.label.with-icon .icon {
-    width: @scaleFoxtrot;
-    height: @scaleFoxtrot;
-}
-
-/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Small */
-.ui.label.circular.with-icon.small .icon {
-    width: @scaleEcho;
-    height: @scaleEcho;
-}
-
-/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Large */
-.ui.label.circular.with-icon.large .icon {
-    width: @scaleGolf;
-    height: @scaleGolf;
-}
-
-/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Big */
-.ui.label.circular.with-icon.big .icon {
-    width: @scaleHotel;
-    height: @scaleHotel;
-}
-
-/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Huge */
-.ui.label.circular.with-icon.huge .icon {
-    width: @scaleIndia;
-    height: @scaleIndia;
-}
-
-/* CONTENT | With Icon | LAYOUT | Circular | Sizing | Massive */
-.ui.label.circular.with-icon.massive .icon {
-    width: @scaleJuliett;
-    height: @scaleJuliett;
-}
-
 /* CONTENT | With Icon | LAYOUT | Colour */
 .ui.label.with-icon .icon {
     fill: @marine500;

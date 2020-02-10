@@ -10,6 +10,7 @@ import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
+const SIZES = ["tiny", "small", "medium", "large"];
 
 const propTypes = {
     /**
@@ -39,6 +40,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
     className: string,
     /**
      * @ignore
@@ -63,7 +68,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 export function PureButton(props) {
-    const { naked, ghost, icon, iconPosition, label, tag, className, forwardedRef, children, ...rest } = props;
+    const { naked, ghost, icon, iconPosition, label, tag, size, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -114,9 +119,9 @@ export function PureButton(props) {
 
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                right = createIconFromExisting(icon);
+                right = createIconFromExisting(icon, size);
             } else {
-                left = createIconFromExisting(icon);
+                left = createIconFromExisting(icon, size);
             }
         }
 
@@ -150,7 +155,7 @@ export function PureButton(props) {
         );
 
         return (
-            <SemanticButton className={classes} {...rest}>
+            <SemanticButton size={size} className={classes} {...rest}>
                 {renderContent()}
             </SemanticButton>
         );
@@ -173,5 +178,5 @@ export const Button = forwardRef((props, ref) => (
 });
 
 if (!isNil(SemanticButton.propTypes)) {
-    SemanticButton.propTypes.size = oneOf(["tiny", "small", "medium", "large"]);
+    SemanticButton.propTypes.size = oneOf(SIZES);
 }

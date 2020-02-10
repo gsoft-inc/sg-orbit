@@ -18,4 +18,4 @@ Content can affect how a components render, a button with an icon, a label conta
 
 ### Groups
 
-Group of buttons, due to their complexity, and for technical reasons, are treated as separate tests.
+Group of buttons are treated as separate tests.

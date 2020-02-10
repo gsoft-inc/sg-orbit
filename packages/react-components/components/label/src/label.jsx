@@ -36,6 +36,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    size: string,
+    /**
+     * @ignore
+     */
     className: string,
     /**
      * @ignore
@@ -59,7 +63,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPos
 }
 
 export function PureLabel(props) {
-    const { naked, button, icon, iconPosition, tag, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, icon, iconPosition, tag, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -113,9 +117,9 @@ export function PureLabel(props) {
 
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                right = createIconFromExisting(icon);
+                right = createIconFromExisting(icon, size);
             } else {
-                left = createIconFromExisting(icon);
+                left = createIconFromExisting(icon, size);
             }
         }
 
@@ -148,7 +152,7 @@ export function PureLabel(props) {
         );
 
         return (
-            <SemanticLabel className={classes} {...rest}>
+            <SemanticLabel size={size} className={classes} {...rest}>
                 {renderContent()}
             </SemanticLabel>
         );
