@@ -1,6 +1,6 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
-import { CalendarIcon, CalendarIcon24, ImageIcon, SignoutIcon24 } from "@orbit-ui/icons";
+import { CalendarIcon, ImageIcon, SignoutIcon } from "@orbit-ui/icons";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";
@@ -126,22 +126,22 @@ stories()
                          <Button active>Two</Button>
                      </Button.Group>
                      <Button.Group secondary>
-                         <Button icon={<SignoutIcon24 />} />
-                         <Button icon={<CalendarIcon24 />} />
+                         <Button icon={<SignoutIcon />} />
+                         <Button icon={<CalendarIcon />} />
                          <Button icon={<ImageIcon />} />
                      </Button.Group>
                      <Button.Group secondary>
-                         <Button disabled icon={<SignoutIcon24 />} />
-                         <Button active icon={<CalendarIcon24 />} />
+                         <Button disabled icon={<SignoutIcon />} />
+                         <Button active icon={<CalendarIcon />} />
                      </Button.Group>
                      <Button.Group basic>
-                         <Button icon={<SignoutIcon24 />}></Button>
-                         <Button icon={<CalendarIcon24 />}></Button>
+                         <Button icon={<SignoutIcon />}></Button>
+                         <Button icon={<CalendarIcon />}></Button>
                          <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
                      <Button.Group basic>
-                         <Button disabled icon={<SignoutIcon24 />}></Button>
-                         <Button disabled icon={<CalendarIcon24 />}></Button>
+                         <Button disabled icon={<SignoutIcon />}></Button>
+                         <Button disabled icon={<CalendarIcon />}></Button>
                          <Button icon={<ImageIcon />}></Button>
                      </Button.Group>
                  </div>
@@ -282,10 +282,10 @@ stories()
                  {/* loading / layout */}
                  <div className="flex flex-column items-start">
                      <Button loading className="paused" compact icon={<CalendarIcon />}></Button>
-                     <Button loading className="paused" size="tiny" icon={<CalendarIcon24 />}></Button>
-                     <Button loading className="paused" size="tiny" compact icon={<CalendarIcon24 />}></Button>
-                     <Button loading className="paused" size="small" icon={<CalendarIcon24 />}></Button>
-                     <Button loading className="paused" size="small" compact icon={<CalendarIcon24 />}></Button>
+                     <Button loading className="paused" size="tiny" icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" size="tiny" compact icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" size="small" icon={<CalendarIcon />}></Button>
+                     <Button loading className="paused" size="small" compact icon={<CalendarIcon />}></Button>
                      <Button loading className="paused" size="large" icon={<CalendarIcon />}></Button>
                      <Button loading className="paused" size="large" compact icon={<CalendarIcon />}></Button>
                  </div>
@@ -299,13 +299,13 @@ stories()
 
 stories("/shorthand props/icons")
     .add("default", () =>
-        <Button icon={<CalendarIcon24 />}>Button</Button>
+        <Button icon={<CalendarIcon />}>Button</Button>
     )
     .add("right", () =>
-        <Button icon={<CalendarIcon24 />} iconPosition="right">Button</Button>
+        <Button icon={<CalendarIcon />} iconPosition="right">Button</Button>
     )
     .add("css class", () =>
-        <Button icon={<CalendarIcon24 className="fill-red" />} iconPosition="right">Button</Button>
+        <Button icon={<CalendarIcon className="fill-red" />} iconPosition="right">Button</Button>
     );
 
 function setRedBackground(element) {

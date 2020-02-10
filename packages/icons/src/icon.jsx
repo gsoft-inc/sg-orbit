@@ -14,7 +14,7 @@ const DIMENSIONS = {
 };
 
 export function Icon({ content, size, className, ...rest }) {
-    console.log(content, size, className);
+    console.log("Icon ", size, className);
 
     const classes = mergeClasses(
         className,
@@ -37,6 +37,8 @@ Icon.defaultProps = {
 };
 
 export function MultiVariantIcon({ icon24, icon32, size, ...rest }) {
+    console.log("MultiVariantIcon ", size);
+
     let content = icon32;
 
     if (size === TINY || size === SMALL || size === MEDIUM) {
