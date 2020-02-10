@@ -1,0 +1,167 @@
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { PureTextArea, TextArea } from "@orbit-ui/react-input/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("TextArea")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout documentationPath="/collections/textarea" />)
+        .build()}
+/>
+
+# TextArea
+
+A textarea can be used to allow for extended user input.
+
+## Installation
+
+<Installation componentFolder="input" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Input" semanticPath="/elements/input" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "TextArea", component: PureTextArea }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default TextArea.
+
+<Preview>
+    <Story name="default">
+        <TextArea />
+    </Story>
+</Preview>
+
+### Value
+
+A textarea can have an value.
+
+<Preview>
+    <Story name="value">
+        <TextArea value="Orbit" />
+    </Story>
+</Preview>
+
+### Focused
+
+A textarea can show a user is currently interacting with it.
+
+<Preview>
+    <Story name="focused">
+        <TextArea focused placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+
+### Disabled
+
+A textarea can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <TextArea disabled placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+### Read only
+
+A textarea can be read only.
+
+<Preview>
+    <Story name="readonly">
+        <TextArea readOnly value="Amazing app." />
+    </Story>
+</Preview>
+
+### Error
+
+A textarea can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <TextArea error placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+### Success
+
+A textarea can show that it has been validated.
+
+<Preview>
+    <Story name="success">
+        <TextArea success placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+### Transparent
+
+A textarea can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextArea transparent placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+### Min Height
+
+A textarea can have a minimum height.
+
+<Preview>
+    <Story name="min height">
+        <TextArea placeholder="Tell us more" style={{ minHeight: 100 }}/>
+    </Story>
+</Preview>
+
+### Rows
+
+A textarea can have a minimum number of rows.
+
+<Preview>
+    <Story name="rows">
+        <TextArea rows={3} placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextArea autofocus placeholder="Search..." />
+        <TextArea autofocus disabled placeholder="Search..." />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextArea autofocus autofocusDelay={500} placeholder="Search..." />
+        <TextArea autofocus disabled autofocusDelay={500} placeholder="Search..." />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<TextArea />} />
+</Story>
