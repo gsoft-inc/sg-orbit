@@ -52,6 +52,7 @@
 
 
 /* Loading */
+@loaderMargin: 0;
 
 /* Active Category */
 

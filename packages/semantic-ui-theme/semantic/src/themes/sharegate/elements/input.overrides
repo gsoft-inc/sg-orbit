@@ -42,8 +42,8 @@
 }
 
 /* Loadings */
-.ui.loading.loading.input > i.icon:after {
-    margin: 0;
+.ui.loading.loading.input > i.icon:before {
+    transform: translate(-50%, -50%);
 }
 
 /* Icons */

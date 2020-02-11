@@ -92,7 +92,6 @@
 .ui.loading.loading.input.large > i.icon:before {
     width: 2rem!important;
     height: 2rem!important;
-    margin-left: -1rem;
 }
 
 .ui.loading.loading.input.large > i.icon:after {

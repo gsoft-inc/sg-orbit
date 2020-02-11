@@ -4,6 +4,7 @@
 @background: @white;
 @borderColor: @cloud200;
 @borderRadius: .25rem;
+@loaderMargin: 0;
 
 @lineHeightOffset: 0;
 
