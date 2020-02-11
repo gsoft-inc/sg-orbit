@@ -35,16 +35,14 @@ Orbit provide a custom version of the Tachyons library based on [Orbit foundatio
 
 ### Spacing scale
 
-Orbit foundation spacing scale have been implemented as Tachyons CSS classes. Tachyons spacing scale have been increased from _7_ to _13_ values.
-
-This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page#tachyons) for an exhaustive list of all available classes.
+Orbit foundation spacing scale have been implemented as Tachyons CSS classes. To do so, Tachyons spacing scale have been increased from _7_ to _13_ values. This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page#tachyons) for an exhaustive list of all available classes.
 
 ### Typography
 
 Tachyons have been adapted to Orbit foundation typography.
 
 - [Type scale](?path=/docs/materials-typography--page#type-scale) have been increased from _7_ to _9_ values. Classes are available from `f1` to `f9`.
-- [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should not be used.
+- [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should be avoided.
 - [Font-weight](?path=/docs/materials-typography--page#font-weight) have been decreased from 9 to 7 values. `fw2` and `fw8` have been removed.
 
 Please refer to the [typography page](?path=/docs/materials-typography--page#tachyons) for an exhaustive list of all available classes.
@@ -70,7 +68,7 @@ Please refer to the [colors page](?path=/docs/materials-colors--page#tachyons) f
 
 ### Borders
 
-Since Tachyons original colors have been replaced with [Orbit colors](?path=/docs/materials-colors--page), Tachyons border classes have also been adapted.
+Since Tachyons original colors have been replaced with [Orbit colors](?path=/docs/materials-colors--page), we also updated Tachyons border classes.
 
 The following classes are available:
 
@@ -115,15 +113,9 @@ Please refer to the [installation page](?path=/docs/getting-started-installation
 
 ## Quick start
 
-Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes:
+Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes. Here's a few common use cases to get you started.
 
-```jsx dark
-<p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
-```
-
-Here's a few common use cases to get you started...
-
-To align a list of items horizontally:
+### Align a list of items horizontally
 
 ```jsx dark
 <div className="flex">
@@ -133,7 +125,7 @@ To align a list of items horizontally:
 </div>
 ```
 
-To specify a margin-right between each elements:
+### Add a margin-right between each elements
 
 ```jsx dark
 <div className="flex">
@@ -143,7 +135,7 @@ To specify a margin-right between each elements:
 </div>
 ```
 
-To align a text with an icon:
+### Align a text with an icon
 
 ```jsx dark
 <span className="flex items-center">
@@ -152,17 +144,19 @@ To align a text with an icon:
 </span>
 ```
 
-To specify paddings for each side of an element:
+### Add paddings for each side of an element
 
 ```jsx dark
 <div className="pa4">Im padded!</div>
 ```
 
-To specify the background and text color of an element:
+### Set the background and text color of an element
 
 ```jsx dark
 <div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>
 ```
+
+### Dynamic styles
 
 By combining Tachyons with a library like [classnames](https://github.com/JedWatson/classnames) you can easily had dynamic styles to an element based on one or more conditions:
 

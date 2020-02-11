@@ -27,6 +27,7 @@
 }
 
 .sbdocs.sbdocs-p,
+.sbdocs.sbdocs-span,
 /* TODO: Use sbdocs-summary escape hatch when it's available */
 .sbdocs summary {
     font-size: 1.125rem;

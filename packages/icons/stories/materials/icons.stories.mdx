@@ -58,7 +58,9 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Icons includes their padding and are generally available in two variants, 24px and 32px.
+<span>Guidance and suggestions for using icons with Orbit.</span>
+
+Orbit icons includes their padding and are generally available in two variants, 24px and 32px.
 
 To be included in Orbit an icon must satisfy the following conditions:
 
@@ -66,7 +68,7 @@ To be included in Orbit an icon must satisfy the following conditions:
 - It must be used as part of an interface, illustrations are not accepted.
 - It shouldn't be colored.
 
-Icons are provided in two ways:
+We provide icons in two ways:
 
 - React components, [universal](#universal) and [variants](#variants).
 - Static files for [CSS background](#css-background) and [images source](#images-source).
@@ -79,13 +81,13 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 ## Dimensions
 
-Icons dimensions should match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. A few options are available depending on wether you choose to include an icon as a React component or as a static file.
+The dimensions of an icon should always match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a React component or as a static file.
 
 ### React components
 
 If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a `size` prop that will translate to dimensions classes at render time.
 
-React components are available as _universal_ and _variants_.
+Two types of components are available, _universal_ and _variants_ components. They both share the same `size` prop but handles variants differently.
 
 #### Universal
 
@@ -115,7 +117,7 @@ function render() {
 
 By default an icon component render as a `medium` sized icon.
 
-To alter the dimensions of an icon, specify any of the following sizes: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
+To alter the dimensions of an icon, you can specify any of the following sizes: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
 
 <Preview>
     <div className="flex items-center items-space-between">
@@ -135,7 +137,7 @@ If your icon is intended to be used as content of an Orbit component, chances ar
 
 Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-Icons comes with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`. You can customize dimensions either with [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or with CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
+We provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`. You can customize dimensions either with [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or with CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
@@ -159,7 +161,7 @@ function render() {
 
 ## Color
 
-Icons comes in black and white. To change the color of an icon
+Icons comes in [marine-500](?path=/docs/materials-colors--page#marine). To change the color of an icon
 
 ## Gallery
 
