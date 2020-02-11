@@ -1,4 +1,4 @@
-import { BIG, DEFAULT_SIZE, HUGE, LARGE, MASSIVE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
 import { cloneElement } from "react";
 import { element, oneOf } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
@@ -13,20 +13,20 @@ const DIMENSIONS = {
     [MASSIVE]: "w10 h10"
 };
 
-export function Icon({ content, size, className, ...rest }) {
+export function Icon({ source, size, className, ...rest }) {
     const classes = mergeClasses(
         className,
         DIMENSIONS[size]
     );
 
-    return cloneElement(content, {
+    return cloneElement(source, {
         className: classes,
         ...rest
     });
 }
 
 Icon.propTypes = {
-    content: element.isRequired,
+    source: element.isRequired,
     size: oneOf(SIZES)
 };
 
@@ -34,19 +34,19 @@ Icon.defaultProps = {
     size: "medium"
 };
 
-export function MultiVariantIcon({ icon24, icon32, size, ...rest }) {
-    let content = icon32;
+export function MultiVariantIcon({ source24, source32, size, ...rest }) {
+    let source = source32;
 
     if (size === TINY || size === SMALL || size === MEDIUM) {
-        content = icon24;
+        source = source24;
     }
 
-    return <Icon content={content} size={size} {...rest} />;
+    return <Icon source={source} size={size} {...rest} />;
 }
 
 MultiVariantIcon.propTypes = {
-    icon24: element.isRequired,
-    icon32: element.isRequired,
+    source24: element.isRequired,
+    source32: element.isRequired,
     size: oneOf(SIZES)
 };
 

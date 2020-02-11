@@ -11,26 +11,28 @@ npm install @orbit-ui/icons @orbit-ui/tachyons
 
 <details><summary >then import what you need</summary>
 
-As a React component:
+As a universal React component:
 
 ```jsx dark
 import { IconName } from "@orbit-ui/icons";
-
-<IconName />
 ```
 
-As an image:
+As a variant React componentt:
+
+```jsx dark
+import { IconName24 } from "@orbit-ui/icons";
+```
+
+As an `<img />` source:
 
 ```jsx dark
 import IconName24 from "@orbit-ui/icons/icon-name-24.svg";
-
-<img src={IconName24} alt="Icon Name" />
 ```
 
-As a background image:
+As a CSS background:
 
 ```css dark
-.name-icon: {
+.name-icon {
     background: url("~@orbit-ui/icons/icon-name-24.svg");
 }
 ```

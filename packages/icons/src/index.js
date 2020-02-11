@@ -1,160 +1,170 @@
-import { createOrbitIcon } from "./create-orbit-icon";
+import { Icon, MultiVariantIcon } from "./icon";
 
-import { ReactComponent as AddIcon24 } from "./icon-add-24.svg";
-import { ReactComponent as AddIcon32 } from "./icon-add-32.svg";
-import { ReactComponent as AddUserIcon32 } from "./icon-add-user-32.svg";
-import { ReactComponent as ArrowIcon24 } from "./icon-arrow-24.svg";
-import { ReactComponent as ArrowIcon32 } from "./icon-arrow-32.svg";
-import { ReactComponent as CalendarIcon24 } from "./icon-calendar-24.svg";
-import { ReactComponent as CalendarIcon32 } from "./icon-calendar-32.svg";
-import { ReactComponent as CheckIcon24 } from "./icon-check-24.svg";
-import { ReactComponent as CheckIcon32 } from "./icon-check-32.svg";
-import { ReactComponent as CircleIcon24 } from "./icon-circle-24.svg";
-import { ReactComponent as CircleIcon32 } from "./icon-circle-32.svg";
-import { ReactComponent as ClearFilterIcon24 } from "./icon-clear-filter-24.svg";
-import { ReactComponent as ClearFilterIcon32 } from "./icon-clear-filter-32.svg";
-import { ReactComponent as CloseIcon24 } from "./icon-close-24.svg";
-import { ReactComponent as CloseIcon32 } from "./icon-close-32.svg";
-import { ReactComponent as CommunicationIcon32 } from "./icon-communication-32.svg";
-import { ReactComponent as CompareIcon24 } from "./icon-compare-24.svg";
-import { ReactComponent as CompareIcon32 } from "./icon-compare-32.svg";
-import { ReactComponent as CsvIcon32 } from "./icon-csv-32.svg";
-import { ReactComponent as DoNotDisturbIcon32 } from "./icon-do-not-disturb-32.svg";
-import { ReactComponent as DownloadIcon32 } from "./icon-download-32.svg";
-import { ReactComponent as EditIcon32 } from "./icon-edit-32.svg";
-import { ReactComponent as FileIcon32 } from "./icon-file-32.svg";
-import { ReactComponent as FolderIcon32 } from "./icon-folder-32.svg";
-import { ReactComponent as GarbageIcon32 } from "./icon-garbage-32.svg";
-import { ReactComponent as GearIcon32 } from "./icon-gear-32.svg";
-import { ReactComponent as GroupIcon32 } from "./icon-group-32.svg";
-import { ReactComponent as HelpIcon24 } from "./icon-help-24.svg";
-import { ReactComponent as HelpIcon32 } from "./icon-help-32.svg";
-import { ReactComponent as HorizontalDotsIcon32 } from "./icon-horizontal-dots-32.svg";
-import { ReactComponent as ImageIcon32 } from "./icon-image-32.svg";
-import { ReactComponent as InfoIcon24 } from "./icon-info-24.svg";
-import { ReactComponent as InfoIcon32 } from "./icon-info-32.svg";
-import { ReactComponent as LightbulbIcon24 } from "./icon-lightbulb-24.svg";
-import { ReactComponent as LightbulbIcon32 } from "./icon-lightbulb-32.svg";
-import { ReactComponent as MagnifierIcon32 } from "./icon-magnifier-32.svg";
-import { ReactComponent as MusicIcon32 } from "./icon-music-32.svg";
-import { ReactComponent as NotificationIcon24 } from "./icon-notification-24.svg";
-import { ReactComponent as NotificationIcon32 } from "./icon-notification-32.svg";
-import { ReactComponent as PdfIcon32 } from "./icon-pdf-32.svg";
-import { ReactComponent as PrinterIcon24 } from "./icon-printer-24.svg";
-import { ReactComponent as PrinterIcon32 } from "./icon-printer-32.svg";
-import { ReactComponent as PrivacyIcon24 } from "./icon-privacy-24.svg";
-import { ReactComponent as ReminderIcon32 } from "./icon-reminder-32.svg";
-import { ReactComponent as RemoveUserIcon32 } from "./icon-remove-user-32.svg";
-import { ReactComponent as SignoutIcon24 } from "./icon-signout-24.svg";
-import { ReactComponent as SignoutIcon32 } from "./icon-signout-32.svg";
-import { ReactComponent as SortingIcon24 } from "./icon-sorting-24.svg";
-import { ReactComponent as SortingIcon32 } from "./icon-sorting-32.svg";
-import { ReactComponent as VariationIcon24 } from "./icon-variation-24.svg";
-import { ReactComponent as VariationIcon32 } from "./icon-variation-32.svg";
-import { ReactComponent as VerticalDotsIcon32 } from "./icon-vertical-dots-32.svg";
-import { ReactComponent as VideoIcon32 } from "./icon-video-32.svg";
-import { ReactComponent as WarningIcon24 } from "./icon-warning-24.svg";
-import { ReactComponent as WarningIcon32 } from "./icon-warning-32.svg";
-import { ReactComponent as ZipIcon32 } from "./icon-zip-32.svg";
+function createOrbitIcon(source) {
+    return props => {
+        return <Icon source={source} {...props} />;
+    };
+}
 
-export {
-    AddIcon24,
-    AddIcon32,
-    AddUserIcon32,
-    ArrowIcon24,
-    ArrowIcon32,
-    CalendarIcon24,
-    CalendarIcon32,
-    CheckIcon24,
-    CheckIcon32,
-    CircleIcon24,
-    CircleIcon32,
-    ClearFilterIcon24,
-    ClearFilterIcon32,
-    CloseIcon24,
-    CloseIcon32,
-    CommunicationIcon32,
-    CompareIcon24,
-    CompareIcon32,
-    CsvIcon32,
-    DoNotDisturbIcon32,
-    DownloadIcon32,
-    EditIcon32,
-    FileIcon32,
-    FolderIcon32,
-    GarbageIcon32,
-    GearIcon32,
-    GroupIcon32,
-    HelpIcon24 ,
-    HelpIcon32,
-    HorizontalDotsIcon32,
-    ImageIcon32,
-    InfoIcon24,
-    InfoIcon32,
-    LightbulbIcon24,
-    LightbulbIcon32,
-    MagnifierIcon32,
-    MusicIcon32,
-    NotificationIcon24,
-    NotificationIcon32,
-    PdfIcon32,
-    PrinterIcon24,
-    PrinterIcon32,
-    PrivacyIcon24,
-    ReminderIcon32,
-    RemoveUserIcon32,
-    SignoutIcon24,
-    SignoutIcon32,
-    SortingIcon24,
-    SortingIcon32,
-    VariationIcon24,
-    VariationIcon32,
-    VerticalDotsIcon32,
-    VideoIcon32,
-    WarningIcon24,
-    WarningIcon32,
-    ZipIcon32
-};
+function createOrbitMultiVariantIcon(source24, source32) {
+    return props => {
+        return <MultiVariantIcon source24={source24} source32={source32} {...props} />;
+    };
+}
 
-export const AddIcon = createOrbitIcon(<AddIcon24 />, <AddIcon32 />);
-export const AddUserIcon = createOrbitIcon(<AddUserIcon32 />, <AddUserIcon32 />);
-export const ArrowIcon = createOrbitIcon(<ArrowIcon24 />, <ArrowIcon32 />);
-export const CalendarIcon = createOrbitIcon(<CalendarIcon24 />, <CalendarIcon32 />);
-export const CheckIcon = createOrbitIcon(<CheckIcon24 />, <CheckIcon32 />);
-export const CircleIcon = createOrbitIcon(<CircleIcon24 />, <CircleIcon32 />);
-export const ClearFilterIcon = createOrbitIcon(<ClearFilterIcon24 />, <ClearFilterIcon32 />);
-export const CloseIcon = createOrbitIcon(<CloseIcon24 />, <CloseIcon32 />);
-export const CommunicationIcon = createOrbitIcon(<CommunicationIcon32 />, <CommunicationIcon32 />);
-export const CompareIcon = createOrbitIcon(<CompareIcon24 />, <CompareIcon32 />);
-export const CsvIcon = createOrbitIcon(<CsvIcon32 />, <CsvIcon32 />);
-export const DoNotDisturbIcon = createOrbitIcon(<DoNotDisturbIcon32 />, <DoNotDisturbIcon32 />);
-export const DownloadIcon = createOrbitIcon(<DownloadIcon32 />, <DownloadIcon32 />);
-export const EditIcon = createOrbitIcon(<EditIcon32 />, <EditIcon32 />);
-export const FileIcon = createOrbitIcon(<FileIcon32 />, <FileIcon32 />);
-export const FolderIcon = createOrbitIcon(<FolderIcon32 />, <FolderIcon32 />);
-export const GarbageIcon = createOrbitIcon(<GarbageIcon32 />, <GarbageIcon32 />);
-export const GearIcon = createOrbitIcon(<GearIcon32 />, <GearIcon32 />);
-export const GroupIcon = createOrbitIcon(<GroupIcon32 />, <GroupIcon32 />);
-export const HelpIcon = createOrbitIcon(<HelpIcon24 />, <HelpIcon32 />);
-export const HorizontalDotsIcon = createOrbitIcon(<HorizontalDotsIcon32 />, <HorizontalDotsIcon32 />);
-export const ImageIcon = createOrbitIcon(<ImageIcon32 />, <ImageIcon32 />);
-export const InfoIcon = createOrbitIcon(<InfoIcon24 />, <InfoIcon32 />);
-export const LightbulbIcon = createOrbitIcon(<LightbulbIcon24 />, <LightbulbIcon32 />);
-export const MagnifierIcon = createOrbitIcon(<MagnifierIcon32 />, <MagnifierIcon32 />);
-export const MusicIcon = createOrbitIcon(<MusicIcon32 />, <MusicIcon32 />);
-export const NotificationIcon = createOrbitIcon(<NotificationIcon24 />, <NotificationIcon32 />);
-export const PdfIcon = createOrbitIcon(<PdfIcon32 />, <PdfIcon32 />);
-export const PrinterIcon = createOrbitIcon(<PrinterIcon24 />, <PrinterIcon32 />);
-export const PrivacyIcon = createOrbitIcon(<PrivacyIcon24 />, <PrivacyIcon24 />);
-export const ReminderIcon = createOrbitIcon(<ReminderIcon32 />, <ReminderIcon32 />);
-export const RemoveUserIcon = createOrbitIcon(<RemoveUserIcon32 />, <RemoveUserIcon32 />);
-export const SignoutIcon = createOrbitIcon(<SignoutIcon24 />, <SignoutIcon32 />);
-export const SortingIcon = createOrbitIcon(<SortingIcon24 />, <SortingIcon32 />);
-export const VariationIcon = createOrbitIcon(<VariationIcon24 />, <VariationIcon32 />);
-export const VerticalDotsIcon = createOrbitIcon(<VerticalDotsIcon32 />, <VerticalDotsIcon32 />);
-export const VideoIcon = createOrbitIcon(<VideoIcon32 />, <VideoIcon32 />);
-export const WarningIcon = createOrbitIcon(<WarningIcon24 />, <WarningIcon32 />);
-export const ZipIcon = createOrbitIcon(<ZipIcon32 />, <ZipIcon32 />);
+import { ReactComponent as PureAddIcon24 } from "./icon-add-24.svg";
+import { ReactComponent as PureAddIcon32 } from "./icon-add-32.svg";
+import { ReactComponent as PureAddUserIcon32 } from "./icon-add-user-32.svg";
+import { ReactComponent as PureArrowIcon24 } from "./icon-arrow-24.svg";
+import { ReactComponent as PureArrowIcon32 } from "./icon-arrow-32.svg";
+import { ReactComponent as PureCalendarIcon24 } from "./icon-calendar-24.svg";
+import { ReactComponent as PureCalendarIcon32 } from "./icon-calendar-32.svg";
+import { ReactComponent as PureCheckIcon24 } from "./icon-check-24.svg";
+import { ReactComponent as PureCheckIcon32 } from "./icon-check-32.svg";
+import { ReactComponent as PureCircleIcon24 } from "./icon-circle-24.svg";
+import { ReactComponent as PureCircleIcon32 } from "./icon-circle-32.svg";
+import { ReactComponent as PureClearFilterIcon24 } from "./icon-clear-filter-24.svg";
+import { ReactComponent as PureClearFilterIcon32 } from "./icon-clear-filter-32.svg";
+import { ReactComponent as PureCloseIcon24 } from "./icon-close-24.svg";
+import { ReactComponent as PureCloseIcon32 } from "./icon-close-32.svg";
+import { ReactComponent as PureCommunicationIcon32 } from "./icon-communication-32.svg";
+import { ReactComponent as PureCompareIcon24 } from "./icon-compare-24.svg";
+import { ReactComponent as PureCompareIcon32 } from "./icon-compare-32.svg";
+import { ReactComponent as PureCsvIcon32 } from "./icon-csv-32.svg";
+import { ReactComponent as PureDoNotDisturbIcon32 } from "./icon-do-not-disturb-32.svg";
+import { ReactComponent as PureDownloadIcon32 } from "./icon-download-32.svg";
+import { ReactComponent as PureEditIcon32 } from "./icon-edit-32.svg";
+import { ReactComponent as PureFileIcon32 } from "./icon-file-32.svg";
+import { ReactComponent as PureFolderIcon32 } from "./icon-folder-32.svg";
+import { ReactComponent as PureGarbageIcon32 } from "./icon-garbage-32.svg";
+import { ReactComponent as PureGearIcon32 } from "./icon-gear-32.svg";
+import { ReactComponent as PureGroupIcon32 } from "./icon-group-32.svg";
+import { ReactComponent as PureHelpIcon24 } from "./icon-help-24.svg";
+import { ReactComponent as PureHelpIcon32 } from "./icon-help-32.svg";
+import { ReactComponent as PureHorizontalDotsIcon32 } from "./icon-horizontal-dots-32.svg";
+import { ReactComponent as PureImageIcon32 } from "./icon-image-32.svg";
+import { ReactComponent as PureInfoIcon24 } from "./icon-info-24.svg";
+import { ReactComponent as PureInfoIcon32 } from "./icon-info-32.svg";
+import { ReactComponent as PureLightbulbIcon24 } from "./icon-lightbulb-24.svg";
+import { ReactComponent as PureLightbulbIcon32 } from "./icon-lightbulb-32.svg";
+import { ReactComponent as PureMagnifierIcon32 } from "./icon-magnifier-32.svg";
+import { ReactComponent as PureMusicIcon32 } from "./icon-music-32.svg";
+import { ReactComponent as PureNotificationIcon24 } from "./icon-notification-24.svg";
+import { ReactComponent as PureNotificationIcon32 } from "./icon-notification-32.svg";
+import { ReactComponent as PurePdfIcon32 } from "./icon-pdf-32.svg";
+import { ReactComponent as PurePrinterIcon24 } from "./icon-printer-24.svg";
+import { ReactComponent as PurePrinterIcon32 } from "./icon-printer-32.svg";
+import { ReactComponent as PurePrivacyIcon24 } from "./icon-privacy-24.svg";
+import { ReactComponent as PureReminderIcon32 } from "./icon-reminder-32.svg";
+import { ReactComponent as PureRemoveUserIcon32 } from "./icon-remove-user-32.svg";
+import { ReactComponent as PureSignoutIcon24 } from "./icon-signout-24.svg";
+import { ReactComponent as PureSignoutIcon32 } from "./icon-signout-32.svg";
+import { ReactComponent as PureSortingIcon24 } from "./icon-sorting-24.svg";
+import { ReactComponent as PureSortingIcon32 } from "./icon-sorting-32.svg";
+import { ReactComponent as PureVariationIcon24 } from "./icon-variation-24.svg";
+import { ReactComponent as PureVariationIcon32 } from "./icon-variation-32.svg";
+import { ReactComponent as PureVerticalDotsIcon32 } from "./icon-vertical-dots-32.svg";
+import { ReactComponent as PureVideoIcon32 } from "./icon-video-32.svg";
+import { ReactComponent as PureWarningIcon24 } from "./icon-warning-24.svg";
+import { ReactComponent as PureWarningIcon32 } from "./icon-warning-32.svg";
+import { ReactComponent as PureZipIcon32 } from "./icon-zip-32.svg";
+
+export const AddIcon24 = createOrbitIcon(<PureAddIcon24 />);
+export const AddIcon32 = createOrbitIcon(<PureAddIcon32 />);
+export const AddUserIcon32 = createOrbitIcon(<PureAddUserIcon32 />);
+export const ArrowIcon24 = createOrbitIcon(<PureArrowIcon24 />);
+export const ArrowIcon32 = createOrbitIcon(<PureArrowIcon32 />);
+export const CalendarIcon24 = createOrbitIcon(<ureCalendarIcon24 />);
+export const CalendarIcon32 = createOrbitIcon(<PureCalendarIcon32 />);
+export const CheckIcon24 = createOrbitIcon(<PureCheckIcon24 />);
+export const CheckIcon32 = createOrbitIcon(<PureCheckIcon32 />);
+export const CircleIcon24 = createOrbitIcon(<PureCircleIcon24 />);
+export const CircleIcon32 = createOrbitIcon(<PureCircleIcon32 />);
+export const ClearFilterIcon24 = createOrbitIcon(<PureClearFilterIcon24 />);
+export const ClearFilterIcon32 = createOrbitIcon(<PureClearFilterIcon32 />);
+export const CloseIcon24 = createOrbitIcon(<PureCloseIcon24 />);
+export const CloseIcon32 = createOrbitIcon(<PureCloseIcon32 />);
+export const CommunicationIcon32 = createOrbitIcon(<PureCommunicationIcon32 />);
+export const CompareIcon24 = createOrbitIcon(<PureCompareIcon24 />);
+export const CompareIcon32 = createOrbitIcon(<PureCompareIcon32 />);
+export const CsvIcon32 = createOrbitIcon(<PureCsvIcon32 />);
+export const DoNotDisturbIcon32 = createOrbitIcon(<PureDoNotDisturbIcon32 />);
+export const DownloadIcon32 = createOrbitIcon(<PureDownloadIcon32 />);
+export const EditIcon32 = createOrbitIcon(<PureEditIcon32 />);
+export const FileIcon32 = createOrbitIcon(<PureFileIcon32 />);
+export const FolderIcon32 = createOrbitIcon(<PureFolderIcon32 />);
+export const GarbageIcon32 = createOrbitIcon(<PureGarbageIcon32 />);
+export const GearIcon32 = createOrbitIcon(<PureGearIcon32 />);
+export const GroupIcon32 = createOrbitIcon(<PureGroupIcon32 />);
+export const HelpIcon24 = createOrbitIcon(<PureHelpIcon24 />);
+export const HelpIcon32 = createOrbitIcon(<PureHelpIcon32 />);
+export const HorizontalDotsIcon32 = createOrbitIcon(<PureHorizontalDotsIcon32 />);
+export const ImageIcon32 = createOrbitIcon(<PureImageIcon32 />);
+export const InfoIcon24 = createOrbitIcon(<PureInfoIcon24 />);
+export const InfoIcon32 = createOrbitIcon(<PureInfoIcon32 />);
+export const LightbulbIcon24 = createOrbitIcon(<PureLightbulbIcon24 />);
+export const LightbulbIcon32 = createOrbitIcon(<PureLightbulbIcon32 />);
+export const MagnifierIcon32 = createOrbitIcon(<PureMagnifierIcon32 />);
+export const MusicIcon32 = createOrbitIcon(<PureMusicIcon32 />);
+export const NotificationIcon24 = createOrbitIcon(<PureNotificationIcon24 />);
+export const NotificationIcon32 = createOrbitIcon(<PureNotificationIcon32 />);
+export const PdfIcon32 = createOrbitIcon(<PurePdfIcon32 />);
+export const PrinterIcon24 = createOrbitIcon(<PurePrinterIcon24 />);
+export const PrinterIcon32 = createOrbitIcon(<PurePrinterIcon32 />);
+export const PrivacyIcon24 = createOrbitIcon(<PurePrivacyIcon24 />);
+export const ReminderIcon32 = createOrbitIcon(<PureReminderIcon32 />);
+export const RemoveUserIcon32 = createOrbitIcon(<PureRemoveUserIcon32 />);
+export const SignoutIcon24 = createOrbitIcon(<PureSignoutIcon24 />);
+export const SignoutIcon32 = createOrbitIcon(<PureSignoutIcon32 />);
+export const SortingIcon24 = createOrbitIcon(<PureSortingIcon24 />);
+export const SortingIcon32 = createOrbitIcon(<PureSortingIcon32 />);
+export const VariationIcon24 = createOrbitIcon(<PureVariationIcon24 />);
+export const VariationIcon32 = createOrbitIcon(<PureVariationIcon32 />);
+export const VerticalDotsIcon32 = createOrbitIcon(<PureVerticalDotsIcon32 />);
+export const VideoIcon32 = createOrbitIcon(<PureVideoIcon32 />);
+export const WarningIcon24 = createOrbitIcon(<PureWarningIcon24 />);
+export const WarningIcon32 = createOrbitIcon(<PureWarningIcon32 />);
+export const ZipIcon32 = createOrbitIcon(<PureZipIcon32 />);
+
+export const AddIcon = createOrbitMultiVariantIcon(<PureAddIcon24 />, <PureAddIcon32 />);
+export const AddUserIcon = createOrbitMultiVariantIcon(<PureAddUserIcon32 />, <PureAddUserIcon32 />);
+export const ArrowIcon = createOrbitMultiVariantIcon(<PureArrowIcon24 />, <PureArrowIcon32 />);
+export const CalendarIcon = createOrbitMultiVariantIcon(<PureCalendarIcon24 />, <PureCalendarIcon32 />);
+export const CheckIcon = createOrbitMultiVariantIcon(<PureCheckIcon24 />, <PureCheckIcon32 />);
+export const CircleIcon = createOrbitMultiVariantIcon(<PureCircleIcon24 />, <PureCircleIcon32 />);
+export const ClearFilterIcon = createOrbitMultiVariantIcon(<PureClearFilterIcon24 />, <PureClearFilterIcon32 />);
+export const CloseIcon = createOrbitMultiVariantIcon(<PureCloseIcon24 />, <PureCloseIcon32 />);
+export const CommunicationIcon = createOrbitMultiVariantIcon(<PureCommunicationIcon32 />, <PureCommunicationIcon32 />);
+export const CompareIcon = createOrbitMultiVariantIcon(<PureCompareIcon24 />, <PureCompareIcon32 />);
+export const CsvIcon = createOrbitMultiVariantIcon(<PureCsvIcon32 />, <PureCsvIcon32 />);
+export const DoNotDisturbIcon = createOrbitMultiVariantIcon(<PureDoNotDisturbIcon32 />, <PureDoNotDisturbIcon32 />);
+export const DownloadIcon = createOrbitMultiVariantIcon(<PureDownloadIcon32 />, <PureDownloadIcon32 />);
+export const EditIcon = createOrbitMultiVariantIcon(<PureEditIcon32 />, <PureEditIcon32 />);
+export const FileIcon = createOrbitMultiVariantIcon(<PureFileIcon32 />, <PureFileIcon32 />);
+export const FolderIcon = createOrbitMultiVariantIcon(<PureFolderIcon32 />, <PureFolderIcon32 />);
+export const GarbageIcon = createOrbitMultiVariantIcon(<PureGarbageIcon32 />, <PureGarbageIcon32 />);
+export const GearIcon = createOrbitMultiVariantIcon(<PureGearIcon32 />, <PureGearIcon32 />);
+export const GroupIcon = createOrbitMultiVariantIcon(<PureGroupIcon32 />, <PureGroupIcon32 />);
+export const HelpIcon = createOrbitMultiVariantIcon(<PureHelpIcon24 />, <PureHelpIcon32 />);
+export const HorizontalDotsIcon = createOrbitMultiVariantIcon(<PureHorizontalDotsIcon32 />, <PureHorizontalDotsIcon32 />);
+export const ImageIcon = createOrbitMultiVariantIcon(<PureImageIcon32 />, <PureImageIcon32 />);
+export const InfoIcon = createOrbitMultiVariantIcon(<PureInfoIcon24 />, <PureInfoIcon32 />);
+export const LightbulbIcon = createOrbitMultiVariantIcon(<PureLightbulbIcon24 />, <PureLightbulbIcon32 />);
+export const MagnifierIcon = createOrbitMultiVariantIcon(<PureMagnifierIcon32 />, <PureMagnifierIcon32 />);
+export const MusicIcon = createOrbitMultiVariantIcon(<PureMusicIcon32 />, <PureMusicIcon32 />);
+export const NotificationIcon = createOrbitMultiVariantIcon(<PureNotificationIcon24 />, <PureNotificationIcon32 />);
+export const PdfIcon = createOrbitMultiVariantIcon(<PurePdfIcon32 />, <PurePdfIcon32 />);
+export const PrinterIcon = createOrbitMultiVariantIcon(<PurePrinterIcon24 />, <PurePrinterIcon32 />);
+export const PrivacyIcon = createOrbitMultiVariantIcon(<PurePrivacyIcon24 />, <PurePrivacyIcon24 />);
+export const ReminderIcon = createOrbitMultiVariantIcon(<PureReminderIcon32 />, <PureReminderIcon32 />);
+export const RemoveUserIcon = createOrbitMultiVariantIcon(<PureRemoveUserIcon32 />, <PureRemoveUserIcon32 />);
+export const SignoutIcon = createOrbitMultiVariantIcon(<PureSignoutIcon24 />, <PureSignoutIcon32 />);
+export const SortingIcon = createOrbitMultiVariantIcon(<PureSortingIcon24 />, <PureSortingIcon32 />);
+export const VariationIcon = createOrbitMultiVariantIcon(<PureVariationIcon24 />, <PureVariationIcon32 />);
+export const VerticalDotsIcon = createOrbitMultiVariantIcon(<PureVerticalDotsIcon32 />, <PureVerticalDotsIcon32 />);
+export const VideoIcon = createOrbitMultiVariantIcon(<PureVideoIcon32 />, <PureVideoIcon32 />);
+export const WarningIcon = createOrbitMultiVariantIcon(<PureWarningIcon24 />, <PureWarningIcon32 />);
+export const ZipIcon = createOrbitMultiVariantIcon(<PureZipIcon32 />, <PureZipIcon32 />);
 
 export * from "./factories";
 export * from "./sizes";

@@ -1,4 +1,4 @@
-import styles from "./icons.module.css";
+import "./icons.module.css";
 
 import {
     AddIcon32,
@@ -24,6 +24,7 @@ import {
     HorizontalDotsIcon32,
     ImageIcon32,
     InfoIcon32,
+    LightbulbIcon,
     LightbulbIcon32,
     MagnifierIcon32,
     MusicIcon32,
@@ -43,7 +44,7 @@ import {
 } from "@orbit-ui/icons";
 import { IconGallery } from "storybook-icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Preview } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
 import Installation from "./installation.mdx";
@@ -57,35 +58,112 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Icons are available as [React components](#react) or as [static files](#static-files).
+Icons includes their padding and are generally available in two variants, 24px and 32px.
 
-To be included in Orbit an icon must satisfy the following guidelines:
+To be included in Orbit an icon must satisfy the following conditions:
 
 - It should not be specific to a ShareGate brand or any app, e.g. Azure specific icons.
-
 - It must be used as part of an interface, illustrations are not accepted.
+- It shouldn't be colored.
 
-- It shouldn't be colored, any icon that has many colors should be in a product codebase.
+Icons are provided in two ways:
+
+- React components, [universal](#universal) and [variants](#variants).
+- Static files for [CSS background](#css-background) and [images source](#images-source).
+
+If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story), this page only covers Orbit official icons.
 
 ## Installation
 
 <Installation />
 
-## React
+## Dimensions
 
-### Dimensions
+Icons dimensions should match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. A few options are available depending on wether you choose to include an icon as a React component or as a static file.
 
-Icons comes with default dimensions. You can customize dimensions either with [Tachyons](/?path=/docs/getting-started-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
+### React components
+
+If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a `size` prop that will translate to dimensions classes at render time.
+
+React components are available as _universal_ and _variants_.
+
+#### Universal
+
+Universal components will decide for you which variant of an icon to render based on the `size` you specify. Use a universal component if you don't have a strong opinion about which variant of an icon should pair with which set of dimensions. We do recommend using universal components as much as possible since this is the easiest way to ensure an icon variant and a set of dimensions are compliant with current and future versions of Orbit design system.
 
 ```jsx dark
-<AddIcon24 className="w6 h6" />
+import { LightbulbIcon } from "@orbit-ui/icons";
+
+function render() {
+    return <LightbulbIcon />;
+}
 ```
 
-If you're icon is intended to be used with an Orbit component, chances are you don't need to specify the icon dimensions since most Orbit components already have pre-determined dimensions for their icons.
+#### Variants
 
-### Gallery
+Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with a non standard dimension set.
 
-<IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue} className={styles.gallery}>
+```jsx dark
+import { LightbulbIcon24 } from "@orbit-ui/icons";
+
+function render() {
+    return <LightbulbIcon24 />;
+}
+```
+
+#### Sizes
+
+By default an icon component render as a `medium` sized icon.
+
+To alter the dimensions of an icon, specify any of the following sizes: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
+
+<Preview>
+    <div className="flex items-center items-space-between">
+        <LightbulbIcon size="tiny" />
+        <LightbulbIcon size="small" />
+        <LightbulbIcon />
+        <LightbulbIcon size="large" />
+        <LightbulbIcon size="big" />
+        <LightbulbIcon size="huge" />
+        <LightbulbIcon size="massive" />
+    </div>
+</Preview>
+
+If your icon is intended to be used as content of an Orbit component, chances are you don't need to specify the icon size. Most of Orbit components already have pre-determined dimensions for their icons based on their own size.
+
+### Static files
+
+Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
+
+Icons comes with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`. You can customize dimensions either with [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or with CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
+
+#### Image source
+
+```jsx dark
+import LightbulbIcon24 from "@orbit-ui/icons/icon-lightbulb-24.svg";
+
+function render() {
+    return <img src={LightbulbIcon24} alt="Lightbulb" className="w6 h6" />;
+}
+```
+
+#### CSS background
+
+```css dark
+.lightbulb-24 {
+    background: url("~@orbit-ui/icons/icon-lightbulb-24.svg");
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
+}
+```
+
+## Color
+
+Icons comes in black and white. To change the color of an icon
+
+## Gallery
+
+<IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue}>
     {renderItem("AddIcon", AddIcon32)}
     {renderItem("AddUserIcon", AddUserIcon32)}
     {renderItem("ArrowIcon", ArrowIcon32)}
@@ -126,13 +204,3 @@ If you're icon is intended to be used with an Orbit component, chances are you d
     {renderItem("WarningIcon", WarningIcon32)}
     {renderItem("ZipIcon", ZipIcon32)}
 </IconGallery>
-
-## Static files
-
-(Moved to static files section) Icons includes their padding and are generally available in two sizes, _24px_ and _32px_. If an icon is only available in _32px_, he is considered universal.
-
-Icons comes with default dimensions. You can customize dimensions either with [Tachyons](/?path=/docs/getting-started-tachyons--page) dimensions classes (e.g. `w6 h6` for a 24x24 icon and `w7 h7` for a 32xp32 icon) or with straight CSS:
-
-```jsx dark
-<AddIcon24 className="w6 h6" />
-```

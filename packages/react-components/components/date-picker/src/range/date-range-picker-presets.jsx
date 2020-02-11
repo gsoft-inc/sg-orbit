@@ -157,7 +157,7 @@ export class DateRangePickerPresets extends PureComponent {
             return (
                 <div className={this.getCssClasses()}>
                     <div className="self-center mb7">
-                        <Icon content={<PresetsCalendarIcon />} size="big" className="fill-marine-500" />
+                        <Icon source={<PresetsCalendarIcon />} size="big" className="fill-marine-500" />
                     </div>
                     <ul>{this.renderPresets()}</ul>
 
