@@ -2,7 +2,7 @@
 
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOfType } from "prop-types";
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { createRef, forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
@@ -47,13 +47,9 @@ const defaultProps = {
     transparent: false
 };
 
-function getTextAreaElement(textAreaRef) {
-    return textAreaRef.current;
-}
-
 function focus(textAreaRef) {
     if (!isNil(textAreaRef.current)) {
-        getTextAreaElement(textAreaRef).focus();
+        textAreaRef.current.focus();
     }
 }
 
@@ -80,10 +76,7 @@ export function PureTextArea(props) {
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
 
-    const textAreaRef = useRef();
-
-    useImperativeHandle(forwardedRef, () => getTextAreaElement(textAreaRef));
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef);
+    useDelayedAutofocus(autofocus, autofocusDelay, disabled, forwardedRef);
 
     const shouldAutofocus = autofocus && isNil(autofocusDelay);
 
@@ -97,7 +90,7 @@ export function PureTextArea(props) {
     );
 
     return (
-        <Ref innerRef={textAreaRef}>
+        <Ref innerRef={forwardedRef}>
             <SemanticTextArea {...rest} autoFocus={shouldAutofocus} disabled={disabled} className={classes}>{children}</SemanticTextArea>
         </Ref>
     );
@@ -107,5 +100,5 @@ PureTextArea.propTypes = propTypes;
 PureTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
-    <PureTextArea { ...props } forwardedRef={ref} />
+    <PureTextArea { ...props } forwardedRef={ref || createRef()} />
 ));
