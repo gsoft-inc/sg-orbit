@@ -178,7 +178,7 @@ Release Storybook
 
 After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
 
-Dont forget to **publish** the release.
+Don't forget to **publish** the release.
 
 ### Troubleshooting
 
@@ -578,7 +578,7 @@ Answer the CLI questions.
 
 Once the *package.json* is generated, please read again the [GSoft Github guidelines](https://github.com/gsoft-inc/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
 
-Dont forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *"@orbit-ui"* before the package name. For example if the project name is "foo", your package name should be "@orbit-ui/foo".
+Don't forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *"@orbit-ui"* before the package name. For example if the project name is "foo", your package name should be "@orbit-ui/foo".
 
 Make sure the package publish access is *public* by adding the following to the *package.json* file:
 
@@ -610,7 +610,7 @@ If you're package is a new React component, please read the [React components do
 
 ### Bundle
 
-If appropriate, dont forget to add your new package to the [bundle package dependencies](/packages/bundles/react/package.json).
+If appropriate, don't forget to add your new package to the [bundle package dependencies](/packages/bundles/react/package.json).
 
 ## Add a new Yarn script
 

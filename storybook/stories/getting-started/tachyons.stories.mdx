@@ -15,15 +15,23 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 [Tachyons](https://github.com/tachyons-css/tachyons) is a widely adopted [Atomic CSS library](https://acss.io/) ([also called Functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)) that aims to break down CSS rules into small, reusable and single-purpose classes.
 These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
->_Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http://getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
->complex and hard to grasp for most full stack developers and should be avoid. Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
->and therefore the need to adopt a methodology.
->
->One could argue that [CSS modules](https://github.com/css-modules/css-modules) also solve CSS global-mutable-stateful classes problems, which is true, but at the expense of reusability.
+### Composable
 
->_Readability_ leads to _maintability_. If the code is easy to read and understand, the code is easy to maintain. Once you get used to Tachyons naming scheme you can understand the style immediatly. No more indirection!
+_Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http://getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
+complex and hard to grasp for most full stack developers and should be avoid. Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
+and therefore the need to adopt a methodology.
 
->_Consistency_ makes designers happy!
+One could argue that [CSS modules](https://github.com/css-modules/css-modules) also solve CSS global-mutable-stateful classes problems, which is true, but at the expense of reusability.
+
+### Readable
+
+_Readability_ leads to _maintability_. If the code is easy to read and understand, the code is easy to maintain. Once you get used to Tachyons naming scheme you can understand the style immediatly. No more indirection!
+
+### Consistant
+
+_Consistency_ makes designers happy!
+
+### Orbit
 
 In Orbit, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
@@ -113,9 +121,17 @@ Please refer to the [installation page](?path=/docs/getting-started-installation
 
 ## Quick start
 
-Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes. Here's a few common use cases to get you started.
+Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes.
 
-### Align a list of items horizontally
+```jsx dark
+<p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
+```
+
+### Common use cases
+
+Here's a few common use cases to get you started.
+
+#### Align a list of items horizontally
 
 ```jsx dark
 <div className="flex">
@@ -125,7 +141,7 @@ Once installed, read [Tachyons documentation](https://github.com/tachyons-css/ta
 </div>
 ```
 
-### Add a margin-right between each elements
+#### Add a margin-right between each elements
 
 ```jsx dark
 <div className="flex">
@@ -135,7 +151,7 @@ Once installed, read [Tachyons documentation](https://github.com/tachyons-css/ta
 </div>
 ```
 
-### Align a text with an icon
+#### Align a text with an icon
 
 ```jsx dark
 <span className="flex items-center">
@@ -144,13 +160,13 @@ Once installed, read [Tachyons documentation](https://github.com/tachyons-css/ta
 </span>
 ```
 
-### Add paddings for each side of an element
+#### Add padding on each sides of an element
 
 ```jsx dark
 <div className="pa4">Im padded!</div>
 ```
 
-### Set the background and text color of an element
+#### Set the background and text color of an element
 
 ```jsx dark
 <div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>

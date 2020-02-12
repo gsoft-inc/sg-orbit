@@ -58,26 +58,18 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Orbit provide icons in two ways:
+Orbit provide a set of SVG icons built specifically for ShareGate products.
+
+All icons includes their padding and are generally available in two variants, 24px and 32px. We make those icons available to products in two ways:
 
 - React components
 - Static files
 
-If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story), this page only covers Orbit official icon set.
+If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story).
 
 ## Installation
 
 <Installation />
-
-## Specifications
-
-Icons includes their padding and are generally available in two variants, 24px and 32px.
-
-To be included in Orbit an icon must satisfy the following conditions:
-
-- It should not be specific to a ShareGate brand or any app, e.g. Azure specific icons.
-- It must be used as part of an interface, illustrations are not accepted.
-- It shouldn't be colored.
 
 ## Dimensions
 
@@ -87,11 +79,11 @@ The dimensions of an icon should always match [Orbit spacing scale](http://local
 
 If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a `size` prop that will translate to dimensions classes at render time.
 
-Two types of components are available, _universal_ and _variants_ components. They both share the same `size` prop but handles variants differently.
+Two types of components are available, _standardize_ and _variants_ components. They both share the same `size` prop but handles variants differently.
 
-#### Universal
+#### Standardize
 
-Universal components will decide for you which variant of an icon to render based on the `size` you specify. Use a universal component if you don't have a strong opinion about which variant of an icon should pair with which set of dimensions. We do recommend using universal components as much as possible since this is the easiest way to ensure an icon variant and a set of dimensions are compliant with current and future versions of Orbit design system.
+Standardize components will decide for you which variant of an icon to render based on the `size` you specify. Use a standardize component if you don't have a strong opinion about how icons variants and icons dimensions are paired. We do recommend using standardize components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit design system.
 
 ```jsx dark
 import { LightbulbIcon } from "@orbit-ui/icons";
@@ -103,7 +95,7 @@ function render() {
 
 #### Variants
 
-Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with a non standard dimension set.
+Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
 ```jsx dark
 import { LightbulbIcon24 } from "@orbit-ui/icons";

@@ -12,7 +12,7 @@ PureCalendarDay.prototype.componentDidUpdate = function(prevProps) {
     const { isFocused, tabIndex } = this.props;
     if (tabIndex === 0) {
         if (isFocused || tabIndex !== prevProps.tabIndex) {
-            // When the last element that has been focus is the navigation button, dont focus the day because the user will need to shift+tab if he want
+            // When the last element that has been focus is the navigation button, don't focus the day because the user will need to shift+tab if he want
             // to navigate multiple months.
             // The nav role is set by the custom DatePickerCalendar component.
             if (document.activeElement.dataset.role !== NAVIGATION_ROLE) {

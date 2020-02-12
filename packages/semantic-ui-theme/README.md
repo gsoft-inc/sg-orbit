@@ -42,7 +42,7 @@ You should never do the followings:
 
 ### Bundle
 
-When a new Semantic UI module is supported, dont forget to add it to the [bundle styles](../bundles/react/src/core.css).
+When a new Semantic UI module is supported, don't forget to add it to the [bundle styles](../bundles/react/src/core.css).
 
 ## License
 
