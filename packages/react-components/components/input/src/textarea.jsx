@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
+import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType } from "prop-types";
 import { createRef, forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
@@ -77,7 +77,6 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 
 export function PureTextArea(props) {
     const { autofocus, autofocusDelay, className, disabled, error, success, focused, transparent, size, children, forwardedRef, ...rest } = props;
-
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, forwardedRef);
 
     const shouldAutofocus = autofocus && isNil(autofocusDelay);

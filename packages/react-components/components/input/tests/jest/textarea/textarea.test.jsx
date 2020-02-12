@@ -59,7 +59,7 @@ test("when delayed autofocus, the textarea is autofocused after the delay", asyn
     await wait(() => expect(refNode).toHaveFocus(), { timeout: 55, interval: 5 });
 });
 
-test("when delayed autofocus on a disabled input, the textarea is not autofocused after the delay", async () => {
+test("when delayed autofocus on a disabled textarea, the textarea is not autofocused after the delay", async () => {
     let refNode = null;
 
     render(createTextArea({
