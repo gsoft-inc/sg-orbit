@@ -42,6 +42,7 @@ import {
     WarningIcon32,
     ZipIcon32
 } from "@orbit-ui/icons";
+import { ExternalLink, InfoMessage } from "@blocks";
 import { IconGallery } from "storybook-icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
@@ -58,12 +59,9 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Orbit provide a set of SVG icons built specifically for ShareGate products.
+Orbit Design provide a set of SVG icons built specifically for ShareGate products. All official icons includes their padding and are generally available in two variants, 24px and 32px. If an icon is only available in 32px, he is considered universal.
 
-All icons includes their padding and are generally available in two variants, 24px and 32px. We make those icons available to products in two ways:
-
-- React components
-- Static files
+Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
 If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story).
 
@@ -73,17 +71,17 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 ## Dimensions
 
-The dimensions of an icon should always match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
+The dimensions of an icon should always match [Orbit-Design spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
 
 ### React components
 
 If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a `size` prop that will translate to dimensions classes at render time.
 
-Two types of components are available, _standardize_ and _variants_ components. They both share the same `size` prop but handles variants differently.
+Two types of components are available, _multi-variants_ components and _variants_ components. They both share the same `size` prop but handles variants differently.
 
-#### Standardize
+#### Multi-variants
 
-Standardize components will decide for you which variant of an icon to render based on the `size` you specify. Use a standardize component if you don't have a strong opinion about how icons variants and icons dimensions are paired. We do recommend using standardize components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit design system.
+Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit-Design.
 
 ```jsx dark
 import { LightbulbIcon } from "@orbit-ui/icons";
@@ -123,15 +121,15 @@ To alter the dimensions of an icon, you can specify any of the following sizes: 
     </div>
 </Preview>
 
-If your icon is intended to be used as content of an Orbit component, chances are you don't need to specify the icon size. Most of Orbit components already have pre-determined dimensions for their icons based on their own size.
+If your icon is intended to be used as content of an Orbit UI component, chances are you don't need to specify the icon size. Most of Orbit UI components already have pre-determined dimensions for their icons based on their own size.
 
 ### Static files
 
 Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-Orbit provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
+Orbit-Design provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
+You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit UI CSS variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
@@ -155,30 +153,37 @@ function render() {
 
 ## Color
 
-You can alter the color of an icon by specifying a new `fill` value.
+An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
+
+This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/materials-colors--page#colors).
+
+<InfoMessage inline>If you apply a fill color to an icon and the color doesn't change, you should validate that the definition of the SVG doesn't contains any <code>fill</code> attribute. If the SVG contains a <code>fill</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.</InfoMessage>
 
 ### React components
 
-Use [Tachyons color classes](?path=/docs/materials-colors--page#tachyons) to set a new color to an icon component.
+To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop:
 
-<Preview>
-    <div className="flex items-center items-space-between">
-        <LightbulbIcon size="huge" className="fill-marine-50" />
-        <LightbulbIcon size="huge" className="fill-marine-100" />
-        <LightbulbIcon size="huge" className="fill-marine-200" />
-        <LightbulbIcon size="huge" className="fill-marine-300" />
-        <LightbulbIcon size="huge" className="fill-marine-400" />
-        <LightbulbIcon size="huge" className="fill-marine-500" />
-        <LightbulbIcon size="huge" className="fill-marine-600" />
-        <LightbulbIcon size="huge" className="fill-marine-700" />
-        <LightbulbIcon size="huge" className="fill-marine-800" />
-        <LightbulbIcon size="huge" className="fill-marine-900" />
-    </div>
-</Preview>
+```jsx dark
+import { LightbulbIcon } from "@orbit-ui/icons";
 
-### Static files
+function render() {
+    return <LightbulbIcon className="fill-marine-900" />
+}
+```
 
-#### Image source
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/materials-colors--page#colors):
+
+```jsx dark
+import { LightbulbIcon } from "@orbit-ui/icons";
+
+function render() {
+    return <LightbulbIcon style={{ fill: var(--marine-900) }} />
+}
+```
+
+### Image source
+
+To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/materials-colors--page#colors) to set a dynamic color:
 
 ```jsx dark
 import LightbulbIcon24 from "@orbit-ui/icons/icon-lightbulb-24.svg";
@@ -188,7 +193,9 @@ function render() {
 }
 ```
 
-#### CSS background
+### CSS background
+
+You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/materials-colors--page#colors) to the `fill` property of the class:
 
 ```css dark
 .lightbulb-24 {
@@ -196,6 +203,10 @@ function render() {
     fill: var(--marine-900);
 }
 ```
+
+## Custom icons
+
+For custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story).
 
 ## Gallery
 

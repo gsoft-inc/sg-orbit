@@ -16,6 +16,8 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - It shouldn't be coloured, any icon that has many colours should be in your codebase.
 
+- An icon shouldn't have any stroke or fill attributes.
+
 - When an icon is used in a monorepo component it should live in this project.
 
 ### Naming convention

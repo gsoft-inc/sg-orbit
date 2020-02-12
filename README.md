@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  Orbit UI, the design system for ShareGate web apps.
+  Orbit-UI, the toolkit for ShareGate web apps.
 </p>
 
 <p align=center>
@@ -17,13 +17,13 @@
     
 </p>
 
-Orbit UI is a design system develop by ShareGate to help create the best experience for our customers and drive consistency between all our web apps.
+Orbit-UI is a toolkit for Orbit-Design, the design system developed by ShareGate to help create the best experience for our customers and drive consistency between all our web apps.
 
 ## Documentation website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
 
-The documentation website contains information about installation, the Orbit foundation and Orbit UI React components.
+The documentation website contains information about installation, the Orbit-UI foundation and Orbit-UI React components.
 
 https://orbit.sharegate.design/
 
@@ -31,7 +31,7 @@ https://orbit.sharegate.design/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
 
-The storybook website contains stories for Orbit UI custom React components.
+The storybook website contains stories for Orbit-UI custom React components.
 
 https://sg-storybook.netlify.com
 

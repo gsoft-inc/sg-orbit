@@ -7,7 +7,7 @@ export function WarningMessage({ children }) {
     return (
         <Message warning size="small" className="flex items-center">
             <span className={`flex items-center self-start ${styles.icon}`}>
-                <InfoIcon className="w6 h6" />
+                <InfoIcon />
             </span>
             <div className={styles.content}>{children}</div>
         </Message>
