@@ -48,7 +48,7 @@
 
 /* LAYOUT | Size | Large */
 .ui.icon.input.large > i.icon.spinner {
-    width: 2rem;
+    width: 1.5rem;
 }
 
 .ui.loading.loading.input > i.icon:before {
@@ -90,13 +90,13 @@
 
 /* LAYOUT | Size | Large */
 .ui.loading.loading.input.large > i.icon:before {
-    width: 2rem!important;
-    height: 2rem!important;
+    width: 1.5rem!important;
+    height: 1.5rem!important;
 }
 
 .ui.loading.loading.input.large > i.icon:after {
-    width: 2rem!important;
-    height: 2rem!important;
+    width: 1.5rem!important;
+    height: 1.5rem!important;
     margin-left: 0;
 }
 
