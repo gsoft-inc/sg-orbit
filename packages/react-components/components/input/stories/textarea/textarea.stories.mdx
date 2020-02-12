@@ -133,6 +133,28 @@ A textarea can have a minimum number of rows.
     </Story>
 </Preview>
 
+### Size
+
+A textarea can vary in size.
+
+Available sizes are: `"small"`, `"medium"` and `"large"`.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end items-space-between">
+            <div className="flex-auto">
+                <TextArea size="small" placeholder="Tell us more..." />
+            </div>
+            <div className="flex-auto">
+                <TextArea fluid placeholder="Tell us more..." />
+            </div>
+            <div className="flex-auto">
+                <TextArea size="large" placeholder="Tell us more..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
 <Story
     name="autofocus"
     parameters={paramsBuilder()

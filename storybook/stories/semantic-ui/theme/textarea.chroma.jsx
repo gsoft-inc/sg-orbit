@@ -16,14 +16,21 @@ function stories(segment) {
 stories()
     .add("default",
          () =>
-             <div className="flex flex-column">
-                 <TextArea placeholder="Tell us more" />
-                 <TextArea disabled placeholder="Tell us more" />
-                 <TextArea placeholder="Tell us more" style={{ minHeight: 100 }} />
-                 <TextArea rows={2} placeholder="Tell us more" />
-                 <TextArea success placeholder="Tell us more" />
-                 <TextArea error placeholder="Tell us more" />
-                 <TextArea focused placeholder="Tell us more" />
-                 <TextArea transparent placeholder="Tell us more" />
+             <div className="flex flex-row">
+                 <div className="w-50">
+                     <TextArea placeholder="Tell us more" />
+                     <TextArea disabled placeholder="Tell us more" />
+                     <TextArea placeholder="Tell us more" style={{ minHeight: 100 }} />
+                     <TextArea rows={2} placeholder="Tell us more" />
+                     <TextArea success placeholder="Tell us more" />
+                     <TextArea error placeholder="Tell us more" />
+                     <TextArea focused placeholder="Tell us more" />
+                     <TextArea transparent placeholder="Tell us more" />
+                 </div>
+                 <div className="w-50">
+                     <TextArea size="small" placeholder="Tell us more" />
+                     <TextArea size="medium" placeholder="Tell us more" />
+                     <TextArea size="large" placeholder="Tell us more" />
+                 </div>
              </div>
     );

@@ -1,12 +1,11 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
-import { bool, func, number, object, oneOfType } from "prop-types";
+import { DEFAULT_SIZE, SIZES } from "./sizes";
+import { bool, func, number, object, oneOf, oneOfType } from "prop-types";
 import { createRef, forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
-
-const UNSUPPORTED_PROPS = [];
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 const propTypes = {
     /**
@@ -26,6 +25,10 @@ const propTypes = {
      */
     success: bool,
     /**
+     * A textarea can have different sizes.
+    */
+    size: oneOf(SIZES),
+    /**
      * Whether or not a user is currently interacting with the textarea.
      */
     focused: bool,
@@ -44,7 +47,8 @@ const defaultProps = {
     error: false,
     success: false,
     focused: false,
-    transparent: false
+    transparent: false,
+    size: DEFAULT_SIZE
 };
 
 function focus(textAreaRef) {
@@ -72,9 +76,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 }
 
 export function PureTextArea(props) {
-    const { autofocus, autofocusDelay, className, disabled, error, success, focused, transparent, children, forwardedRef, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
+    const { autofocus, autofocusDelay, className, disabled, error, success, focused, transparent, size, children, forwardedRef, ...rest } = props;
 
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, forwardedRef);
 
@@ -86,6 +88,7 @@ export function PureTextArea(props) {
         success && "success",
         focused && "focus",
         transparent && "transparent",
+        size && size,
         className
     );
 
