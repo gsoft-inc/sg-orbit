@@ -58,9 +58,20 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-<span>Guidance and suggestions for using icons with Orbit.</span>
+Orbit provide icons in two ways:
 
-Orbit icons includes their padding and are generally available in two variants, 24px and 32px.
+- React components
+- Static files
+
+If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story), this page only covers Orbit official icon set.
+
+## Installation
+
+<Installation />
+
+## Specifications
+
+Icons includes their padding and are generally available in two variants, 24px and 32px.
 
 To be included in Orbit an icon must satisfy the following conditions:
 
@@ -68,20 +79,9 @@ To be included in Orbit an icon must satisfy the following conditions:
 - It must be used as part of an interface, illustrations are not accepted.
 - It shouldn't be colored.
 
-We provide icons in two ways:
-
-- React components, [universal](#universal) and [variants](#variants).
-- Static files for [CSS background](#css-background) and [images source](#images-source).
-
-If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story), this page only covers Orbit official icons.
-
-## Installation
-
-<Installation />
-
 ## Dimensions
 
-The dimensions of an icon should always match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a React component or as a static file.
+The dimensions of an icon should always match [Orbit spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
 
 ### React components
 
@@ -137,7 +137,9 @@ If your icon is intended to be used as content of an Orbit component, chances ar
 
 Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-We provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`. You can customize dimensions either with [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or with CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
+Orbit provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
+
+You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit spacing scale CSS variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
@@ -161,7 +163,47 @@ function render() {
 
 ## Color
 
-Icons comes in [marine-500](?path=/docs/materials-colors--page#marine). To change the color of an icon
+You can alter the color of an icon by specifying a new `fill` value.
+
+### React components
+
+Use [Tachyons color classes](?path=/docs/materials-colors--page#tachyons) to set a new color to an icon component.
+
+<Preview>
+    <div className="flex items-center items-space-between">
+        <LightbulbIcon size="huge" className="fill-marine-50" />
+        <LightbulbIcon size="huge" className="fill-marine-100" />
+        <LightbulbIcon size="huge" className="fill-marine-200" />
+        <LightbulbIcon size="huge" className="fill-marine-300" />
+        <LightbulbIcon size="huge" className="fill-marine-400" />
+        <LightbulbIcon size="huge" className="fill-marine-500" />
+        <LightbulbIcon size="huge" className="fill-marine-600" />
+        <LightbulbIcon size="huge" className="fill-marine-700" />
+        <LightbulbIcon size="huge" className="fill-marine-800" />
+        <LightbulbIcon size="huge" className="fill-marine-900" />
+    </div>
+</Preview>
+
+### Static files
+
+#### Image source
+
+```jsx dark
+import LightbulbIcon24 from "@orbit-ui/icons/icon-lightbulb-24.svg";
+
+function render() {
+    return <img src={LightbulbIcon24} alt="Lightbulb" className="fill-marine-900" />;
+}
+```
+
+#### CSS background
+
+```css dark
+.lightbulb-24 {
+    background: url("~@orbit-ui/icons/icon-lightbulb-24.svg");
+    fill: var(--marine-900);
+}
+```
 
 ## Gallery
 
