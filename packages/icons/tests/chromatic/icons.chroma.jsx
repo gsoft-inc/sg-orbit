@@ -1,44 +1,101 @@
 import {
     AddIcon,
+    AddIcon24,
+    AddIcon32,
     AddUserIcon,
+    AddUserIcon32,
     ArrowIcon,
+    ArrowIcon24,
+    ArrowIcon32,
     CalendarIcon,
+    CalendarIcon24,
+    CalendarIcon32,
     CheckIcon,
+    CheckIcon24,
+    CheckIcon32,
     CircleIcon,
+    CircleIcon24,
+    CircleIcon32,
     ClearFilterIcon,
+    ClearFilterIcon24,
+    ClearFilterIcon32,
     CloseIcon,
+    CloseIcon24,
+    CloseIcon32,
     CommunicationIcon,
+    CommunicationIcon32,
     CompareIcon,
+    CompareIcon24,
+    CompareIcon32,
     CsvIcon,
+    CsvIcon32,
     DoNotDisturbIcon,
+    DoNotDisturbIcon32,
     DownloadIcon,
+    DownloadIcon32,
     EditIcon,
+    EditIcon32,
     FileIcon,
+    FileIcon32,
     FolderIcon,
+    FolderIcon32,
     GarbageIcon,
+    GarbageIcon32,
     GearIcon,
+    GearIcon32,
     GroupIcon,
+    GroupIcon32,
     HelpIcon,
+    HelpIcon24,
+    HelpIcon32,
     HorizontalDotsIcon,
+    HorizontalDotsIcon32,
     ImageIcon,
+    ImageIcon32,
     InfoIcon,
+    InfoIcon24,
+    InfoIcon32,
     LightbulbIcon,
+    LightbulbIcon24,
+    LightbulbIcon32,
     MagnifierIcon,
+    MagnifierIcon32,
     MusicIcon,
+    MusicIcon32,
     NotificationIcon,
+    NotificationIcon24,
+    NotificationIcon32,
     PdfIcon,
+    PdfIcon32,
     PrinterIcon,
+    PrinterIcon24,
+    PrinterIcon32,
     PrivacyIcon,
+    PrivacyIcon24,
     ReminderIcon,
+    ReminderIcon32,
     RemoveUserIcon,
+    RemoveUserIcon32,
     SignoutIcon,
+    SignoutIcon24,
+    SignoutIcon32,
     SortingIcon,
+    SortingIcon24,
+    SortingIcon32,
     VariationIcon,
+    VariationIcon24,
+    VariationIcon32,
     VerticalDotsIcon,
+    VerticalDotsIcon32,
     VideoIcon,
+    VideoIcon32,
     WarningIcon,
-    ZipIcon
+    WarningIcon24,
+    WarningIcon32,
+    ZipIcon,
+    ZipIcon32
 } from "@orbit-ui/icons";
+import { IconTests } from "./components/icon-tests";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
@@ -50,339 +107,42 @@ function stories() {
 }
 
 stories()
-    .add("tiny",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="tiny" />
-                     <AddUserIcon size="tiny" />
-                     <ArrowIcon size="tiny" />
-                     <CalendarIcon size="tiny" />
-                     <CheckIcon size="tiny" />
-                     <CircleIcon size="tiny" />
-                     <ClearFilterIcon size="tiny" />
-                     <CloseIcon size="tiny" />
-                     <CommunicationIcon size="tiny" />
-                     <CompareIcon size="tiny" />
-                     <CsvIcon size="tiny" />
-                     <DoNotDisturbIcon size="tiny" />
-                     <DownloadIcon size="tiny" />
-                     <EditIcon size="tiny" />
-                     <FileIcon size="tiny" />
-                     <FolderIcon size="tiny" />
-                     <GarbageIcon size="tiny" />
-                     <GearIcon size="tiny" />
-                     <GroupIcon size="tiny" />
-                     <HelpIcon size="tiny" />
-                     <HorizontalDotsIcon size="tiny" />
-                     <ImageIcon size="tiny" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="tiny" />
-                     <LightbulbIcon size="tiny" />
-                     <MagnifierIcon size="tiny" />
-                     <MusicIcon size="tiny" />
-                     <NotificationIcon size="tiny" />
-                     <PdfIcon size="tiny" />
-                     <PrinterIcon size="tiny" />
-                     <PrivacyIcon size="tiny" />
-                     <ReminderIcon size="tiny" />
-                     <RemoveUserIcon size="tiny" />
-                     <SignoutIcon size="tiny" />
-                     <SortingIcon size="tiny" />
-                     <VariationIcon size="tiny" />
-                     <VerticalDotsIcon size="tiny" />
-                     <VideoIcon size="tiny" />
-                     <WarningIcon size="tiny" />
-                     <ZipIcon size="tiny" />
-                 </div>
-             </div>
-    )
-    .add("small",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="small" />
-                     <AddUserIcon size="small" />
-                     <ArrowIcon size="small" />
-                     <CalendarIcon size="small" />
-                     <CheckIcon size="small" />
-                     <CircleIcon size="small" />
-                     <ClearFilterIcon size="small" />
-                     <CloseIcon size="small" />
-                     <CommunicationIcon size="small" />
-                     <CompareIcon size="small" />
-                     <CsvIcon size="small" />
-                     <DoNotDisturbIcon size="small" />
-                     <DownloadIcon size="small" />
-                     <EditIcon size="small" />
-                     <FileIcon size="small" />
-                     <FolderIcon size="small" />
-                     <GarbageIcon size="small" />
-                     <GearIcon size="small" />
-                     <GroupIcon size="small" />
-                     <HelpIcon size="small" />
-                     <HorizontalDotsIcon size="small" />
-                     <ImageIcon size="small" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="small" />
-                     <LightbulbIcon size="small" />
-                     <MagnifierIcon size="small" />
-                     <MusicIcon size="small" />
-                     <NotificationIcon size="small" />
-                     <PdfIcon size="small" />
-                     <PrinterIcon size="small" />
-                     <PrivacyIcon size="small" />
-                     <ReminderIcon size="small" />
-                     <RemoveUserIcon size="small" />
-                     <SignoutIcon size="small" />
-                     <SortingIcon size="small" />
-                     <VariationIcon size="small" />
-                     <VerticalDotsIcon size="small" />
-                     <VideoIcon size="small" />
-                     <WarningIcon size="small" />
-                     <ZipIcon size="small" />
-                 </div>
-             </div>
-    )
-    .add("medium",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon />
-                     <AddUserIcon />
-                     <ArrowIcon />
-                     <CalendarIcon />
-                     <CheckIcon />
-                     <CircleIcon />
-                     <ClearFilterIcon />
-                     <CloseIcon />
-                     <CommunicationIcon />
-                     <CompareIcon />
-                     <CsvIcon />
-                     <DoNotDisturbIcon />
-                     <DownloadIcon />
-                     <EditIcon />
-                     <FileIcon />
-                     <FolderIcon />
-                     <GarbageIcon />
-                     <GearIcon />
-                     <GroupIcon />
-                     <HelpIcon />
-                     <HorizontalDotsIcon />
-                     <ImageIcon />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon />
-                     <LightbulbIcon />
-                     <MagnifierIcon />
-                     <MusicIcon />
-                     <NotificationIcon />
-                     <PdfIcon />
-                     <PrinterIcon />
-                     <PrivacyIcon />
-                     <ReminderIcon />
-                     <RemoveUserIcon />
-                     <SignoutIcon />
-                     <SortingIcon />
-                     <VariationIcon />
-                     <VerticalDotsIcon />
-                     <VideoIcon />
-                     <WarningIcon />
-                     <ZipIcon />
-                 </div>
-             </div>
-    )
-    .add("large",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="large" />
-                     <AddUserIcon size="large" />
-                     <ArrowIcon size="large" />
-                     <CalendarIcon size="large" />
-                     <CheckIcon size="large" />
-                     <CircleIcon size="large" />
-                     <ClearFilterIcon size="large" />
-                     <CloseIcon size="large" />
-                     <CommunicationIcon size="large" />
-                     <CompareIcon size="large" />
-                     <CsvIcon size="large" />
-                     <DoNotDisturbIcon size="large" />
-                     <DownloadIcon size="large" />
-                     <EditIcon size="large" />
-                     <FileIcon size="large" />
-                     <FolderIcon size="large" />
-                     <GarbageIcon size="large" />
-                     <GearIcon size="large" />
-                     <GroupIcon size="large" />
-                     <HelpIcon size="large" />
-                     <HorizontalDotsIcon size="large" />
-                     <ImageIcon size="large" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="large" />
-                     <LightbulbIcon size="large" />
-                     <MagnifierIcon size="large" />
-                     <MusicIcon size="large" />
-                     <NotificationIcon size="large" />
-                     <PdfIcon size="large" />
-                     <PrinterIcon size="large" />
-                     <PrivacyIcon size="large" />
-                     <ReminderIcon size="large" />
-                     <RemoveUserIcon size="large" />
-                     <SignoutIcon size="large" />
-                     <SortingIcon size="large" />
-                     <VariationIcon size="large" />
-                     <VerticalDotsIcon size="large" />
-                     <VideoIcon size="large" />
-                     <WarningIcon size="large" />
-                     <ZipIcon size="large" />
-                 </div>
-             </div>
-    )
-    .add("big",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="big" />
-                     <AddUserIcon size="big" />
-                     <ArrowIcon size="big" />
-                     <CalendarIcon size="big" />
-                     <CheckIcon size="big" />
-                     <CircleIcon size="big" />
-                     <ClearFilterIcon size="big" />
-                     <CloseIcon size="big" />
-                     <CommunicationIcon size="big" />
-                     <CompareIcon size="big" />
-                     <CsvIcon size="big" />
-                     <DoNotDisturbIcon size="big" />
-                     <DownloadIcon size="big" />
-                     <EditIcon size="big" />
-                     <FileIcon size="big" />
-                     <FolderIcon size="big" />
-                     <GarbageIcon size="big" />
-                     <GearIcon size="big" />
-                     <GroupIcon size="big" />
-                     <HelpIcon size="big" />
-                     <HorizontalDotsIcon size="big" />
-                     <ImageIcon size="big" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="big" />
-                     <LightbulbIcon size="big" />
-                     <MagnifierIcon size="big" />
-                     <MusicIcon size="big" />
-                     <NotificationIcon size="big" />
-                     <PdfIcon size="big" />
-                     <PrinterIcon size="big" />
-                     <PrivacyIcon size="big" />
-                     <ReminderIcon size="big" />
-                     <RemoveUserIcon size="big" />
-                     <SignoutIcon size="big" />
-                     <SortingIcon size="big" />
-                     <VariationIcon size="big" />
-                     <VerticalDotsIcon size="big" />
-                     <VideoIcon size="big" />
-                     <WarningIcon size="big" />
-                     <ZipIcon size="big" />
-                 </div>
-             </div>
-    )
-    .add("huge",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="huge" />
-                     <AddUserIcon size="huge" />
-                     <ArrowIcon size="huge" />
-                     <CalendarIcon size="huge" />
-                     <CheckIcon size="huge" />
-                     <CircleIcon size="huge" />
-                     <ClearFilterIcon size="huge" />
-                     <CloseIcon size="huge" />
-                     <CommunicationIcon size="huge" />
-                     <CompareIcon size="huge" />
-                     <CsvIcon size="huge" />
-                     <DoNotDisturbIcon size="huge" />
-                     <DownloadIcon size="huge" />
-                     <EditIcon size="huge" />
-                     <FileIcon size="huge" />
-                     <FolderIcon size="huge" />
-                     <GarbageIcon size="huge" />
-                     <GearIcon size="huge" />
-                     <GroupIcon size="huge" />
-                     <HelpIcon size="huge" />
-                     <HorizontalDotsIcon size="huge" />
-                     <ImageIcon size="huge" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="huge" />
-                     <LightbulbIcon size="huge" />
-                     <MagnifierIcon size="huge" />
-                     <MusicIcon size="huge" />
-                     <NotificationIcon size="huge" />
-                     <PdfIcon size="huge" />
-                     <PrinterIcon size="huge" />
-                     <PrivacyIcon size="huge" />
-                     <ReminderIcon size="huge" />
-                     <RemoveUserIcon size="huge" />
-                     <SignoutIcon size="huge" />
-                     <SortingIcon size="huge" />
-                     <VariationIcon size="huge" />
-                     <VerticalDotsIcon size="huge" />
-                     <VideoIcon size="huge" />
-                     <WarningIcon size="huge" />
-                     <ZipIcon size="huge" />
-                 </div>
-             </div>
-    )
-    .add("massive",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex flex-row items-center mb4">
-                     <AddIcon size="massive" />
-                     <AddUserIcon size="massive" />
-                     <ArrowIcon size="massive" />
-                     <CalendarIcon size="massive" />
-                     <CheckIcon size="massive" />
-                     <CircleIcon size="massive" />
-                     <ClearFilterIcon size="massive" />
-                     <CloseIcon size="massive" />
-                     <CommunicationIcon size="massive" />
-                     <CompareIcon size="massive" />
-                     <CsvIcon size="massive" />
-                     <DoNotDisturbIcon size="massive" />
-                     <DownloadIcon size="massive" />
-                     <EditIcon size="massive" />
-                     <FileIcon size="massive" />
-                     <FolderIcon size="massive" />
-                     <GarbageIcon size="massive" />
-                     <GearIcon size="massive" />
-                     <GroupIcon size="massive" />
-                     <HelpIcon size="massive" />
-                     <HorizontalDotsIcon size="massive" />
-                     <ImageIcon size="massive" />
-                 </div>
-                 <div className="flex flex-row items-center mb4">
-                     <InfoIcon size="massive" />
-                     <LightbulbIcon size="massive" />
-                     <MagnifierIcon size="massive" />
-                     <MusicIcon size="massive" />
-                     <NotificationIcon size="massive" />
-                     <PdfIcon size="massive" />
-                     <PrinterIcon size="massive" />
-                     <PrivacyIcon size="massive" />
-                     <ReminderIcon size="massive" />
-                     <RemoveUserIcon size="massive" />
-                     <SignoutIcon size="massive" />
-                     <SortingIcon size="massive" />
-                     <VariationIcon size="massive" />
-                     <VerticalDotsIcon size="massive" />
-                     <VideoIcon size="massive" />
-                     <WarningIcon size="massive" />
-                     <ZipIcon size="massive" />
-                 </div>
-             </div>
-    );
+    .add("add", () => <IconTests icon24={AddIcon24} icon32={AddIcon32} multiIcon={AddIcon} />)
+    .add("add user", () => <IconTests icon32={AddUserIcon32} multiIcon={AddUserIcon} />)
+    .add("arrow", () => <IconTests icon24={ArrowIcon24} icon32={ArrowIcon32} multiIcon={ArrowIcon} />)
+    .add("calendar", () => <IconTests icon24={CalendarIcon24} icon32={CalendarIcon32} multiIcon={CalendarIcon} />)
+    .add("check", () => <IconTests icon24={CheckIcon24} icon32={CheckIcon32} multiIcon={CheckIcon} />)
+    .add("circle", () => <IconTests icon24={CircleIcon24} icon32={CircleIcon32} multiIcon={CircleIcon} />)
+    .add("clear", () => <IconTests icon24={ClearFilterIcon24} icon32={ClearFilterIcon32} multiIcon={ClearFilterIcon} />)
+    .add("close", () => <IconTests icon24={CloseIcon24} icon32={CloseIcon32} multiIcon={CloseIcon} />)
+    .add("communication", () => <IconTests icon32={CommunicationIcon32} multiIcon={CommunicationIcon} />)
+    .add("compare", () => <IconTests icon24={CompareIcon24} icon32={CompareIcon32} multiIcon={CompareIcon} />)
+    .add("csv", () => <IconTests icon32={CsvIcon32} multiIcon={CsvIcon} />)
+    .add("do not disturb", () => <IconTests icon32={DoNotDisturbIcon32} multiIcon={DoNotDisturbIcon} />)
+    .add("download", () => <IconTests icon32={DownloadIcon32} multiIcon={DownloadIcon} />)
+    .add("edit", () => <IconTests icon32={EditIcon32} multiIcon={EditIcon} />)
+    .add("file", () => <IconTests icon32={FileIcon32} multiIcon={FileIcon} />)
+    .add("folder", () => <IconTests icon32={FolderIcon32} multiIcon={FolderIcon} />)
+    .add("garbage", () => <IconTests icon32={GarbageIcon32} multiIcon={GarbageIcon} />)
+    .add("gear", () => <IconTests icon32={GearIcon32} multiIcon={GearIcon} />)
+    .add("group", () => <IconTests icon32={GroupIcon32} multiIcon={GroupIcon} />)
+    .add("help", () => <IconTests icon24={HelpIcon24} icon32={HelpIcon32} multiIcon={HelpIcon} />)
+    .add("horizontal dots", () => <IconTests icon32={HorizontalDotsIcon32} multiIcon={HorizontalDotsIcon} />)
+    .add("image", () => <IconTests icon32={ImageIcon32} multiIcon={ImageIcon} />)
+    .add("info", () => <IconTests icon24={InfoIcon24} icon32={InfoIcon32} multiIcon={InfoIcon} />)
+    .add("lightbulb", () => <IconTests icon24={LightbulbIcon24} icon32={LightbulbIcon32} multiIcon={LightbulbIcon} />)
+    .add("magnifier", () => <IconTests icon32={MagnifierIcon32} multiIcon={MagnifierIcon} />)
+    .add("music", () => <IconTests icon32={MusicIcon32} multiIcon={MusicIcon} />)
+    .add("notification", () => <IconTests icon24={NotificationIcon24} icon32={NotificationIcon32} multiIcon={NotificationIcon} />)
+    .add("pdf", () => <IconTests icon32={PdfIcon32} multiIcon={PdfIcon} />)
+    .add("printer", () => <IconTests icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
+    .add("privacy", () => <IconTests icon24={PrivacyIcon24} multiIcon={PrivacyIcon} />)
+    .add("reminder", () => <IconTests icon32={ReminderIcon32} multiIcon={ReminderIcon} />)
+    .add("remove user", () => <IconTests icon32={RemoveUserIcon32} multiIcon={RemoveUserIcon} />)
+    .add("signout", () => <IconTests icon24={SignoutIcon24} icon32={SignoutIcon32} multiIcon={SignoutIcon} />)
+    .add("sorting", () => <IconTests icon24={SortingIcon24} icon32={SortingIcon32} multiIcon={SortingIcon} />)
+    .add("variation", () => <IconTests icon24={VariationIcon24} icon32={VariationIcon32} multiIcon={VariationIcon} />)
+    .add("vertical dots", () => <IconTests icon32={VerticalDotsIcon32} multiIcon={VerticalDotsIcon} />)
+    .add("video", () => <IconTests icon32={VideoIcon32} multiIcon={VideoIcon} />)
+    .add("warning", () => <IconTests icon24={WarningIcon24} icon32={WarningIcon32} multiIcon={WarningIcon} />)
+    .add("zip", () => <IconTests icon32={ZipIcon32} multiIcon={ZipIcon} />);
