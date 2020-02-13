@@ -150,7 +150,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         closeOnOutsideClick: bool,
         /**
-         * A date picker can have different sizes.
+         * A date picker can vary in sizes.
          */
         size: oneOf(SIZES),
         /**

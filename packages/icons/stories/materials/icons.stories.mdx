@@ -1,12 +1,15 @@
-import "./icons.module.css";
-
 import {
+    AddIcon,
     AddIcon32,
+    AddUserIcon,
     AddUserIcon32,
+    ArrowIcon,
     ArrowIcon32,
     CalendarIcon,
     CalendarIcon32,
+    CheckIcon,
     CheckIcon32,
+    CircleIcon,
     CircleIcon32,
     ClearFilterIcon32,
     CloseIcon32,
@@ -43,11 +46,10 @@ import {
     ZipIcon32
 } from "@orbit-ui/icons";
 import { ExternalLink, InfoMessage } from "@blocks";
-import { IconGallery } from "storybook-icon-gallery";
+import { IconGallery, createMultiVariant, renderItem } from "./components/icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
-import { getDisplayName, getItemCopyValue, renderItem } from "./gallery-item";
 import Installation from "./installation.mdx";
 
 <Meta
@@ -63,7 +65,7 @@ Orbit Design provide a set of SVG icons built specifically for ShareGate product
 
 Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
-If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story).
+If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component](?path=/docs/components-icon--default-story) documentation.
 
 ## Installation
 
@@ -71,7 +73,7 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 ## Dimensions
 
-The dimensions of an icon should always match [Orbit Design spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
+The dimensions of an icon should always match Orbit Design  [spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
 
 ### React components
 
@@ -129,7 +131,7 @@ Icons SVG files are available from the root of `@orbit-ui/icons` package. These 
 
 Orbit Design provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit UI CSS spacing variables](?path=/docs/materials-spacing--page#values).
+You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and Orbit UI [CSS spacing variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
@@ -210,44 +212,11 @@ For custom SVG icons (e.g. Azure specific icons), please refer to the [icon comp
 
 ## Gallery
 
-<IconGallery getDisplayName={getDisplayName} getCopyValue={getItemCopyValue}>
-    {renderItem("AddIcon", AddIcon32)}
-    {renderItem("AddUserIcon", AddUserIcon32)}
-    {renderItem("ArrowIcon", ArrowIcon32)}
-    {renderItem("CalendarIcon", CalendarIcon32)}
-    {renderItem("CheckIcon", CheckIcon32)}
-    {renderItem("CircleIcon", CircleIcon32)}
-    {renderItem("ClearFilterIcon", ClearFilterIcon32)}
-    {renderItem("CloseIcon", CloseIcon32)}
-    {renderItem("CommunicationIcon", CommunicationIcon32)}
-    {renderItem("CompareIcon", CompareIcon32)}
-    {renderItem("CsvIcon", CsvIcon32)}
-    {renderItem("DoNotDisturbIcon", DoNotDisturbIcon32)}
-    {renderItem("DownloadIcon", DownloadIcon32)}
-    {renderItem("EditIcon", EditIcon32)}
-    {renderItem("FileIcon", FileIcon32)}
-    {renderItem("FolderIcon", FolderIcon32)}
-    {renderItem("GarbageIcon", GarbageIcon32)}
-    {renderItem("GearIcon", GearIcon32)}
-    {renderItem("GroupIcon", GroupIcon32)}
-    {renderItem("HelpIcon", HelpIcon32)}
-    {renderItem("HorizontalDotsIcon", HorizontalDotsIcon32)}
-    {renderItem("ImageIcon", ImageIcon32)}
-    {renderItem("InfoIcon", InfoIcon32)}
-    {renderItem("LightbulbIcon", LightbulbIcon32)}
-    {renderItem("MagnifierIcon", MagnifierIcon32)}
-    {renderItem("MusicIcon", MusicIcon32)}
-    {renderItem("NotificationIcon", NotificationIcon32)}
-    {renderItem("PdfIcon", PdfIcon32)}
-    {renderItem("PrinterIcon", PrinterIcon32)}
-    {renderItem("PrivacyIcon", PrivacyIcon24)}
-    {renderItem("ReminderIcon", ReminderIcon32)}
-    {renderItem("RemoveUserIcon", RemoveUserIcon32)}
-    {renderItem("SignoutIcon", SignoutIcon32)}
-    {renderItem("SortingIcon", SortingIcon32)}
-    {renderItem("VariationIcon", VariationIcon32)}
-    {renderItem("VerticalDotsIcon", VerticalDotsIcon32)}
-    {renderItem("VideoIcon", VideoIcon32)}
-    {renderItem("WarningIcon", WarningIcon32)}
-    {renderItem("ZipIcon", ZipIcon32)}
+<IconGallery>
+    {renderItem("Add", createMultiVariant(<AddIcon />))}
+    {renderItem("AddUser", createMultiVariant(<AddUserIcon />))}
+    {renderItem("Arrow", createMultiVariant(<ArrowIcon />))}
+    {renderItem("Calendar", createMultiVariant(<CalendarIcon />))}
+    {renderItem("Check", createMultiVariant(<CheckIcon />))}
+    {renderItem("Circle", createMultiVariant(<CircleIcon />))}
 </IconGallery>

@@ -1,4 +1,4 @@
-import { AzureIcon32 } from "./assets";
+import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { Icon, MultiVariantIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
@@ -81,17 +81,43 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
 <Preview>
     <Story name="dynamic-color">
         <div className="flex items-end items-space-between">
-            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--sunray-100)" }} />
-            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--sunray-500)" }} />
-            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--sunray-900)" }} />
+            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-100)" }} />
+            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-500)" }} />
+            <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-900)" }} />
         </div>
     </Story>
 </Preview>
 
 ## Multi variants
 
-If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A Multi-variants components will decide  which variant of an icon to render based on the size.
+If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi variants components will decide which variant of an icon to render based on the size you specified.
+
+A multi variants icon support the same props as `<Icon />`.
 
 ### Size
 
+<Preview>
+    <Story name="multi variants size">
+        <div className="flex items-end items-space-between">
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="tiny" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="small" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="large" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="big" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="massive" />
+        </div>
+    </Story>
+</Preview>
+
 ### Color
+
+<Preview>
+    <Story name="multi variants color">
+        <div className="flex items-end items-space-between">
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-100" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-500" />
+            <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-900" />
+        </div>
+    </Story>
+</Preview>

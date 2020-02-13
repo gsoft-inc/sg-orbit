@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-foreign-prop-types */
-
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
@@ -34,9 +32,9 @@ const propTypes = {
      */
     tag: oneOfType([element, object]),
     /**
-     * @ignore
+     * A label can vary in sizes.
      */
-    size: string,
+    size: oneOf(["tiny", "small", "medium", "large", "big", "huge", "massive"]),
     /**
      * @ignore
      */
@@ -49,7 +47,8 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    iconPosition: "left"
+    iconPosition: "left",
+    size: "medium"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
