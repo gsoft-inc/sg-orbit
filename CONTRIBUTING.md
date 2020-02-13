@@ -258,7 +258,7 @@ yarn build:pkg
 yarn release-docs
 ```
 
-Open a web browser and navigate to https://sg-orbit.netlify.com.
+Open a web browser and navigate to https://orbit.sharegate.design.
 
 ### Troubleshooting
 

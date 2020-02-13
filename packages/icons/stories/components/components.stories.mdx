@@ -1,4 +1,5 @@
-import { GearIcon32, Icon, MultiVariantIcon } from "@orbit-ui/icons";
+import { AzureIcon32 } from "./assets";
+import { Icon, MultiVariantIcon } from "@orbit-ui/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { ReactComponentsLayout } from "@blocks/react-components";
@@ -8,16 +9,13 @@ import Installation from "./installation.mdx";
 <Meta
     title={createComponentSection("Icon")}
     parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout sourcePath="/packages/icons/src/icon.jsx" />)
         .build()}
 />
 
 # Icon
 
-An icon component to render a custom icon (e.g. Azure specific icons) with Orbit standard sizes.
-
-For Orbit official icons, please refer to the [icon gallery](?path=/docs/materials-icons--page#gallery).
+An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. If you are looking for Orbit UI official icons, please have a look at the [icons page in the materials section](?path=/docs/materials-icons--page#gallery).
 
 ## Installation
 
@@ -36,11 +34,11 @@ For Orbit official icons, please refer to the [icon gallery](?path=/docs/materia
 
 ### Default
 
-A default icon.
+A default icon will render as a `medium` sized icon.
 
 <Preview>
     <Story name="default">
-        <Icon content={<GearIcon32 />} />
+        <Icon source={<AzureIcon32 />} />
     </Story>
 </Preview>
 
@@ -53,17 +51,51 @@ Available sizes are: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <Icon content={<GearIcon32 />} size="tiny" />
-            <Icon content={<GearIcon32 />} size="small" />
-            <Icon content={<GearIcon32 />} />
-            <Icon content={<GearIcon32 />} size="large" />
-            <Icon content={<GearIcon32 />} size="big" />
-            <Icon content={<GearIcon32 />} size="huge" />
-            <Icon content={<GearIcon32 />} size="massive" />
+            <Icon source={<AzureIcon32 />} size="tiny" />
+            <Icon source={<AzureIcon32 />} size="small" />
+            <Icon source={<AzureIcon32 />} />
+            <Icon source={<AzureIcon32 />} size="large" />
+            <Icon source={<AzureIcon32 />} size="big" />
+            <Icon source={<AzureIcon32 />} size="huge" />
+            <Icon source={<AzureIcon32 />} size="massive" />
         </div>
     </Story>
 </Preview>
 
 ### Color
 
-### Multiple Variants
+An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
+
+<Preview>
+    <Story name="color">
+        <div className="flex items-end items-space-between">
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-50" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-100" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-200" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-300" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-400" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-500" />
+            <Icon source={<AzureIcon32 />} size="massive" className="fill-marine-600" />
+        </div>
+    </Story>
+</Preview>
+
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
+
+<Preview>
+    <Story name="dynamic-color">
+        <div className="flex items-end items-space-between">
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-50)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-100)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-200)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-300)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-400)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-500)" }} />
+            <Icon source={<AzureIcon32 />} size="massive" style={{ fill: "var(--sunray-600)" }} />
+        </div>
+    </Story>
+</Preview>
+
+## Multi variants
+
+If your custom icon support multiple variants and you want to abstract the decision of which variants to use

@@ -4,6 +4,7 @@ import {
     AddIcon32,
     AddUserIcon32,
     ArrowIcon32,
+    CalendarIcon,
     CalendarIcon32,
     CheckIcon32,
     CircleIcon32,
@@ -24,7 +25,6 @@ import {
     HorizontalDotsIcon32,
     ImageIcon32,
     InfoIcon32,
-    LightbulbIcon,
     LightbulbIcon32,
     MagnifierIcon32,
     MusicIcon32,
@@ -59,7 +59,7 @@ import Installation from "./installation.mdx";
 
 # Icons
 
-Orbit Design provide a set of SVG icons built specifically for ShareGate products. All official icons includes their padding and are generally available in two variants, 24px and 32px. If an icon is only available in 32px, he is considered universal.
+Orbit Design provide a set of SVG icons built specifically for ShareGate products. All official icons **includes their padding** and are generally available in two variants, 24px and 32px. If an icon is only available in 32px, he is considered universal.
 
 Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
@@ -71,7 +71,7 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 ## Dimensions
 
-The dimensions of an icon should always match [Orbit-Design spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
+The dimensions of an icon should always match [Orbit Design spacing scale](http://localhost:5045/?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on wether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
 
 ### React components
 
@@ -81,13 +81,13 @@ Two types of components are available, _multi-variants_ components and _variants
 
 #### Multi-variants
 
-Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit-Design.
+Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
 ```jsx dark
-import { LightbulbIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/icons";
 
 function render() {
-    return <LightbulbIcon />;
+    return <CalendarIcon />;
 }
 ```
 
@@ -96,10 +96,10 @@ function render() {
 Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
 ```jsx dark
-import { LightbulbIcon24 } from "@orbit-ui/icons";
+import { CalendarIcon24 } from "@orbit-ui/icons";
 
 function render() {
-    return <LightbulbIcon24 />;
+    return <CalendarIcon24 />;
 }
 ```
 
@@ -110,14 +110,14 @@ By default an icon component render as a `medium` sized icon.
 To alter the dimensions of an icon, you can specify any of the following sizes: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
 
 <Preview>
-    <div className="flex items-center items-space-between">
-        <LightbulbIcon size="tiny" />
-        <LightbulbIcon size="small" />
-        <LightbulbIcon />
-        <LightbulbIcon size="large" />
-        <LightbulbIcon size="big" />
-        <LightbulbIcon size="huge" />
-        <LightbulbIcon size="massive" />
+    <div className="flex items-end items-space-between">
+        <CalendarIcon size="tiny" />
+        <CalendarIcon size="small" />
+        <CalendarIcon />
+        <CalendarIcon size="large" />
+        <CalendarIcon size="big" />
+        <CalendarIcon size="huge" />
+        <CalendarIcon size="massive" />
     </div>
 </Preview>
 
@@ -127,25 +127,25 @@ If your icon is intended to be used as content of an Orbit UI component, chances
 
 Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-Orbit-Design provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
+Orbit Design provide icons with default dimensions, e.g. a 24px variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit UI CSS variables](?path=/docs/materials-spacing--page#values).
+You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a 24x24 icon or `w7 h7` for a 32x32 icon) or CSS and [Orbit UI CSS spacing variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
 ```jsx dark
-import LightbulbIcon24 from "@orbit-ui/icons/icon-lightbulb-24.svg";
+import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
-    return <img src={LightbulbIcon24} alt="Lightbulb" className="w6 h6" />;
+    return <img src={CalendarIcon24} alt="Calendar" className="w6 h6" />;
 }
 ```
 
 #### CSS background
 
 ```css dark
-.lightbulb-24 {
-    background: url("~@orbit-ui/icons/icon-lightbulb-24.svg");
+.calendar-24 {
+    background: url("~@orbit-ui/icons/icon-calendar-24.svg");
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
@@ -155,7 +155,7 @@ function render() {
 
 An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
 
-This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/materials-colors--page#colors).
+This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors).
 
 <InfoMessage inline>If you apply a fill color to an icon and the color doesn't change, you should validate that the definition of the SVG doesn't contains any <code>fill</code> attribute. If the SVG contains a <code>fill</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.</InfoMessage>
 
@@ -164,20 +164,20 @@ This means that you can alter the color of an icon by specifying a new `fill` va
 To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop:
 
 ```jsx dark
-import { LightbulbIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/icons";
 
 function render() {
-    return <LightbulbIcon className="fill-marine-900" />
+    return <CalendarIcon className="fill-marine-900" />
 }
 ```
 
-If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/materials-colors--page#colors):
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
 
 ```jsx dark
-import { LightbulbIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/icons";
 
 function render() {
-    return <LightbulbIcon style={{ fill: var(--marine-900) }} />
+    return <CalendarIcon style={{ fill: var(--marine-900) }} />
 }
 ```
 
@@ -186,20 +186,20 @@ function render() {
 To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/materials-colors--page#colors) to set a dynamic color:
 
 ```jsx dark
-import LightbulbIcon24 from "@orbit-ui/icons/icon-lightbulb-24.svg";
+import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
-    return <img src={LightbulbIcon24} alt="Lightbulb" className="fill-marine-900" />;
+    return <img src={CalendarIcon24} alt="calendar" className="fill-marine-900" />;
 }
 ```
 
 ### CSS background
 
-You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/materials-colors--page#colors) to the `fill` property of the class:
+You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors) to the `fill` property of the class:
 
 ```css dark
-.lightbulb-24 {
-    background: url("~@orbit-ui/icons/icon-lightbulb-24.svg");
+.calendar-24 {
+    background: url("~@orbit-ui/icons/icon-calendar-24.svg");
     fill: var(--marine-900);
 }
 ```
