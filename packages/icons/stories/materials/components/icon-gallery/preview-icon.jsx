@@ -1,21 +1,30 @@
 import styles from "./preview-icon.module.css";
 
-export function PreviewIcon({ icon }) {
+import { cloneElement } from "react";
+import { element, func } from "prop-types";
+
+function renderIcon(icon) {
+    return cloneElement(icon, {
+        size: "large"
+    });
+}
+
+export function PreviewIcon({ icon, onShowDetail }) {
     const onIconClick = () => {
-        console.log("onIconClick!");
+        onShowDetail();
     };
 
     const onIconEnterKeyDown = () => {
-        console.log("onIconEnterKeyDown!");
+        onShowDetail();
     };
 
     return (
-        <div className={`${styles.previewIcon} sbdocs sbdocs-ig-icon`} onKeyDown={onIconEnterKeyDown} tabIndex={0}>
-            {icon}
-            <div className={`${styles.view} sbdocs sbdocs-ig-copy`} tabIndex={-1}>
+        <div className={styles.previewIcon} onKeyDown={onIconEnterKeyDown} tabIndex={0}>
+            {renderIcon(icon)}
+            <div className={styles.viewContainer} tabIndex={-1}>
                 <button
-                    className="sbdocs sbdocs-ig-view-button"
                     onClick={onIconClick}
+                    className={styles.viewButton}
                     type="button"
                     tabIndex={-1}
                 >
@@ -25,3 +34,8 @@ export function PreviewIcon({ icon }) {
         </div>
     );
 }
+
+PreviewIcon.propTypes = {
+    icon: element.isRequired,
+    onShowDetail: func.isRequired
+};
