@@ -31,6 +31,7 @@ stories()
                      <TextArea size="small" placeholder="Tell us more" />
                      <TextArea size="medium" placeholder="Tell us more" />
                      <TextArea size="large" placeholder="Tell us more" />
+                     <TextArea fluid placeholder="Tell us more" />
                  </div>
              </div>
     );

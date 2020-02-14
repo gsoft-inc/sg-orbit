@@ -4,8 +4,11 @@
 
 /* Textarea should'nt need to be wrapped */
 .ui.textarea {
-    width: @inputWidth;
     vertical-align: top;
+}
+
+.ui.textarea.fluid {
+    width: 100%;
 }
 
 /* Text Area */

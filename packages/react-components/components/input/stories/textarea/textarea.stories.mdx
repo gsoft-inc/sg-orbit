@@ -73,6 +73,16 @@ A textarea can be disabled.
     </Story>
 </Preview>
 
+### Fluid
+
+A textarea can take all the space it can.
+
+<Preview>
+    <Story name="fluid">
+        <TextArea fluid placeholder="Tell us more" />
+    </Story>
+</Preview>
+
 ### Read only
 
 A textarea can be read only.
@@ -142,15 +152,9 @@ Available sizes are: `"small"`, `"medium"` and `"large"`.
 <Preview>
     <Story name="size">
         <div className="flex flex-row items-end items-space-between">
-            <div className="flex-auto">
-                <TextArea size="small" placeholder="Tell us more..." />
-            </div>
-            <div className="flex-auto">
-                <TextArea fluid placeholder="Tell us more..." />
-            </div>
-            <div className="flex-auto">
-                <TextArea size="large" placeholder="Tell us more..." />
-            </div>
+            <TextArea size="small" placeholder="Tell us more..." />
+            <TextArea placeholder="Tell us more..." />
+            <TextArea size="large" placeholder="Tell us more..." />
         </div>
     </Story>
 </Preview>

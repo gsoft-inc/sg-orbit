@@ -17,6 +17,10 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
+     * Whether or not the textarea take up the width of its container
+     */
+    fluid: bool,
+    /**
      * Whether or not the textarea is invalid.
      */
     error: bool,
@@ -46,6 +50,7 @@ const defaultProps = {
     autofocus: false,
     error: false,
     success: false,
+    fluid: false,
     focused: false,
     transparent: false,
     size: DEFAULT_SIZE
@@ -76,7 +81,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 }
 
 export function PureTextArea(props) {
-    const { autofocus, autofocusDelay, className, disabled, error, success, focused, transparent, size, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, disabled, error, success, fluid, focused, transparent, size, children, forwardedRef, ...rest } = props;
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, forwardedRef);
 
     const shouldAutofocus = autofocus && isNil(autofocusDelay);
@@ -85,6 +90,7 @@ export function PureTextArea(props) {
         "ui textarea",
         error && "error",
         success && "success",
+        fluid && "fluid",
         focused && "focus",
         transparent && "transparent",
         size && size,
