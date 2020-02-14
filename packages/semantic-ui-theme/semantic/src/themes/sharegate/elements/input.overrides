@@ -42,8 +42,8 @@
 }
 
 /* Loadings */
-.ui.loading.loading.input > i.icon:after {
-    margin: 0;
+.ui.loading.loading.input > i.icon:before {
+    transform: translate(-50%, -50%);
 }
 
 /* Icons */
@@ -52,7 +52,7 @@
 }
 
 .ui.icon.input.large > input {
-    padding-right: calc(var(--scale-hotel) + @iconPadding) !important;
+    padding-right: calc(var(--scale-golf) + @iconPadding) !important;
 }
 
 .ui.icon.input > svg.icon {
@@ -84,7 +84,7 @@
 }
 
 .ui.left.icon.input.large > input {
-    padding-left: calc(var(--scale-hotel) + @iconPadding) !important;
+    padding-left: calc(var(--scale-golf) + @iconPadding) !important;
 }
 
 .ui.left.icon.input > svg.icon {
