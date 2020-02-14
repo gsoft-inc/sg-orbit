@@ -1,18 +1,18 @@
-import styles from "./icon-detail.module.css";
-
 import { MultiVariant } from "./multi-variant";
 import { Variants } from "./variants";
-import { any } from "prop-types";
+import { any, string } from "prop-types";
 
-export function IconDetail({ multiVariant }) {
+export function IconDetail({ iconDisplayName, multiVariant, variants }) {
     return (
         <>
             <MultiVariant {...multiVariant} />
-            <Variants />
+            <Variants iconDisplayName={iconDisplayName} variants={variants} />
         </>
     );
 }
 
 IconDetail.propTypes = {
-    multiVariant: any.isRequired
+    iconDisplayName: string.isRequired,
+    multiVariant: any.isRequired,
+    variants: any.isRequired
 };

@@ -5,7 +5,7 @@ import { IconDetail } from "./icon-detail";
 import { Modal } from "semantic-ui-react";
 import { bool, func, string } from "prop-types";
 
-export function IconModal({ open, iconName, onClose, ...rest }) {
+export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     const handleDocumentKeyDown = event => {
         if (event.keyCode === KEYS.esc) {
             onClose(event);
@@ -14,15 +14,15 @@ export function IconModal({ open, iconName, onClose, ...rest }) {
 
     return (
         <>
-            <Modal open={open} onClose={onClose}>
+            <Modal open={open} onClose={onClose} size="small">
                 <Modal.Header>
                     <div className="flex items-center">
-                        <span className="flex-grow-1">{iconName}</span>
+                        <span className="flex-grow-1">{iconDisplayName}</span>
                         <Button ghost secondary circular icon={<CloseIcon />} size="small" onClick={onClose} />
                     </div>
                 </Modal.Header>
                 <Modal.Content>
-                    <IconDetail {...rest} />
+                    <IconDetail iconDisplayName={iconDisplayName} {...rest} />
                 </Modal.Content>
             </Modal>
 
@@ -36,5 +36,6 @@ export function IconModal({ open, iconName, onClose, ...rest }) {
 IconModal.propTypes = {
     open: bool.isRequired,
     iconName: string.isRequired,
+    iconDisplayName: string.isRequired,
     onClose: func.isRequired
 };

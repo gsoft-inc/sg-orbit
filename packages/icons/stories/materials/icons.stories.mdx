@@ -1,15 +1,20 @@
 import {
     AddIcon,
+    AddIcon24,
     AddIcon32,
     AddUserIcon,
     AddUserIcon32,
     ArrowIcon,
+    ArrowIcon24,
     ArrowIcon32,
     CalendarIcon,
+    CalendarIcon24,
     CalendarIcon32,
     CheckIcon,
+    CheckIcon24,
     CheckIcon32,
     CircleIcon,
+    CircleIcon24,
     CircleIcon32,
     ClearFilterIcon32,
     CloseIcon32,
@@ -46,7 +51,7 @@ import {
     ZipIcon32
 } from "@orbit-ui/icons";
 import { ExternalLink, InfoMessage } from "@blocks";
-import { IconGallery, createMultiVariant, renderItem } from "./components/icon-gallery";
+import { IconGallery, createMultiVariant, createVariant, renderItem } from "./components/icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
@@ -179,7 +184,7 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
 import { CalendarIcon } from "@orbit-ui/icons";
 
 function render() {
-    return <CalendarIcon style={{ fill: var(--marine-900) }} />
+    return <CalendarIcon style={{ fill: var(--marine-900) }} />;
 }
 ```
 
@@ -213,10 +218,10 @@ For custom SVG icons (e.g. Azure specific icons), please refer to the [icon comp
 ## Gallery
 
 <IconGallery>
-    {renderItem("Add", createMultiVariant(<AddIcon />))}
-    {renderItem("AddUser", createMultiVariant(<AddUserIcon />))}
-    {renderItem("Arrow", createMultiVariant(<ArrowIcon />))}
-    {renderItem("Calendar", createMultiVariant(<CalendarIcon />))}
-    {renderItem("Check", createMultiVariant(<CheckIcon />))}
-    {renderItem("Circle", createMultiVariant(<CircleIcon />))}
+    {renderItem("Add", createMultiVariant(<AddIcon />), [createVariant("24x24", <AddIcon24 />, "icon-add-24.svg"), createVariant("32x32", <AddIcon32 />, "icon-add-32.svg")])}
+    {renderItem("AddUser", createMultiVariant(<AddUserIcon />), [createVariant("32x32", <AddUserIcon32 />, "icon-add-user-32.svg")])}
+    {renderItem("Arrow", createMultiVariant(<ArrowIcon />), [createVariant("24x24", <ArrowIcon24 />, "icon-arrow-24.svg"), createVariant("32x32", <ArrowIcon32 />, "icon-arrow-32.svg")])}
+    {renderItem("Calendar", createMultiVariant(<CalendarIcon />), [createVariant("24x24", <CalendarIcon24 />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
+    {renderItem("Check", createMultiVariant(<CheckIcon />), [createVariant("24x24", <CheckIcon24 />, "icon-check-24.svg"), createVariant("32x32", <CheckIcon32 />, "icon-check-32.svg")])}
+    {renderItem("Circle", createMultiVariant(<CircleIcon />), [createVariant("24x24", <CircleIcon24 />, "icon-circle-24.svg"), createVariant("32x32", <CircleIcon32 />, "icon-circle-32.svg")])}
 </IconGallery>

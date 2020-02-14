@@ -1,11 +1,11 @@
 import styles from "./multi-variant.module.css";
 
-import { Link } from "@blocks";
+import { LearnUsageLink } from "./learn-usage-link";
+import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
 import { cloneElement } from "react";
-import { element } from "prop-types";
 
-function renderImport(componentType) {
+function Import({ componentType }) {
     return (
         <>
             <h4>Import</h4>
@@ -14,44 +14,40 @@ function renderImport(componentType) {
     );
 }
 
-function renderUsage(componentType) {
+function Usage({ componentType }) {
     return (
         <>
             <h4>Usage</h4>
             <Source language="jsx" dark format={false} code={`<${componentType} />`} />
-            <div className={`flex justify-end ${styles.learnUsage}`}>
-                <Link href="?path=/docs/materials-icons--page#dimensions">Learn more about usage</Link>
-            </div>
+            <LearnUsageLink />
         </>
     );
 }
 
-function renderPreview(previewIcon) {
+function Preview({ icon }) {
     return (
         <div className={styles.preview}>
-            {cloneElement(previewIcon, { size: "tiny" })}
-            {cloneElement(previewIcon, { size: "small" })}
-            {previewIcon}
-            {cloneElement(previewIcon, { size: "large" })}
-            {cloneElement(previewIcon, { size: "big" })}
-            {cloneElement(previewIcon, { size: "huge" })}
-            {cloneElement(previewIcon, { size: "massive" })}
+            {cloneElement(icon, { size: "tiny" })}
+            {cloneElement(icon, { size: "small" })}
+            {icon}
+            {cloneElement(icon, { size: "large" })}
+            {cloneElement(icon, { size: "big" })}
+            {cloneElement(icon, { size: "huge" })}
+            {cloneElement(icon, { size: "massive" })}
         </div>
     );
 }
 
-export function MultiVariant({ previewIcon }) {
-    const componentType = previewIcon.props.mdxType;
+export function MultiVariant({ icon }) {
+    const componentType = icon.props.mdxType;
 
     return (
         <>
-            {renderPreview(previewIcon)}
-            {renderImport(componentType)}
-            {renderUsage(componentType)}
+            <Preview icon={icon} />
+            <Import componentType={componentType} />
+            <Usage componentType={componentType} />
         </>
     );
 }
 
-MultiVariant.propTypes = {
-    previewIcon: element.isRequired
-};
+MultiVariant.propTypes = MULTI_VARIANT_SHAPE;

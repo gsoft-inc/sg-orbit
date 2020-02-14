@@ -1,11 +1,19 @@
 import { IconGallery } from "./icon-gallery";
 
-export function createMultiVariant(previewIcon) {
+export function createMultiVariant(icon) {
     return {
-        previewIcon
+        icon
     };
 }
 
-export function renderItem(name, multiVariant) {
-    return <IconGallery.Item name={name} multiVariant={multiVariant} />;
+export function createVariant(name, iconComponent, iconFileName) {
+    return {
+        name,
+        iconComponent,
+        iconFileName
+    };
+}
+
+export function renderItem(name, multiVariant, variants) {
+    return <IconGallery.Item name={name} multiVariant={multiVariant} variants={variants} />;
 }
