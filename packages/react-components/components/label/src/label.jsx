@@ -169,7 +169,3 @@ export const Label = forwardRef((props, ref) => (
     x.Group = SemanticLabel.Group;
 });
 
-if (!isNil(SemanticLabel.propTypes)) {
-    SemanticLabel.propTypes.size = oneOf(["tiny", "small", "medium", "large", "big", "huge", "massive"]);
-}
-

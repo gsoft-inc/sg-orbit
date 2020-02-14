@@ -7238,7 +7238,7 @@ css-selector-tokenizer@^0.5.4:
     cssesc "^0.1.0"
     fastparse "^1.1.1"
 
-css-selector-tokenizer@^0.7.0, css-selector-tokenizer@^0.7.1:
+css-selector-tokenizer@^0.7.0:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/css-selector-tokenizer/-/css-selector-tokenizer-0.7.1.tgz#a177271a8bca5019172f4f891fc6eed9cbf68d5d"
   integrity sha512-xYL0AMZJ4gFzJQsHUKa5jiWWi2vH77WVNg7JYRyewwj6oPh4yb/y6Y9ZCw9dsj/9UauMhtuxR+ogQd//EdEVNA==
@@ -16688,14 +16688,6 @@ postcss-ordered-values@^2.1.0:
     postcss "^5.0.4"
     postcss-value-parser "^3.0.1"
 
-postcss-prefixer@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/postcss-prefixer/-/postcss-prefixer-2.1.2.tgz#e2e72e6d478a78c55b0bfbc322691252bab70cc5"
-  integrity sha512-UQ9lvldlOvRFnW0zZfoYwr11LEaxuW+oqqTmb+NlFC0+hfkd7kPxAmI2kzci3L3gAERm+tngpyVdDx5XWTam8g==
-  dependencies:
-    css-selector-tokenizer "^0.7.1"
-    postcss "^7.0.14"
-
 postcss-reduce-idents@^2.2.2:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/postcss-reduce-idents/-/postcss-reduce-idents-2.4.0.tgz#c2c6d20cc958284f6abfbe63f7609bf409059ad3"
@@ -16741,6 +16733,13 @@ postcss-rtl@^1.2.3:
   integrity sha512-7uQeaMBhAlnu7xgytvTocojFKp08W4FND/xE/ajj/J6ABOGhdDF1mLGzaRrC5/u/Sr71BEUi13xgvs2j8U16AA==
   dependencies:
     rtlcss "^2.4.0"
+
+postcss-safe-important@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-safe-important/-/postcss-safe-important-1.2.0.tgz#62b70fa05f4317f4fa638a077a8160cb5dcf38e5"
+  integrity sha512-hPE4Z+B0J4zkvl6LulAXoLucmORibtC4DQyNAipHCe7WfcRrhbO36d8f1W4XR/4dpjwhwKON8NShPru04gV3Pw==
+  dependencies:
+    postcss "^5.0.10"
 
 postcss-safe-parser@^3.0.1:
   version "3.0.1"
