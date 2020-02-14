@@ -13,10 +13,6 @@ import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";
-// These imports ensure that Tachyons selectors have precedence over default Storybook MDX styles.
-import "@orbit-ui/tachyons/storybook/apricot.css";
-import "@orbit-ui/tachyons/storybook/desktop.css";
-import "@orbit-ui/tachyons/storybook/overcast.css";
 
 printEnvironment();
 
