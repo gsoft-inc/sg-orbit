@@ -25,10 +25,10 @@ export function IconItem({ name, multiVariant, variants }) {
 
     return (
         <>
-            <div className={styles.item}>
-                <div className={styles.name}>{displayName.toLowerCase()}</div>
-                <div className={styles.iconWrapper}>
-                    <div className={styles.iconContainer}>
+            <div className={`${styles.item} flex flex-column`}>
+                <div className="pa3 tc">{displayName.toLowerCase()}</div>
+                <div className="flex justify-center">
+                    <div className="w7 h7">
                         <PreviewIcon icon={multiVariant.icon} onShowDetail={handleShowDetail} />
                     </div>
                 </div>
