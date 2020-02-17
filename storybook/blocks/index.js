@@ -5,6 +5,7 @@ export * from "./semantic-link";
 export * from "./warning-message";
 export * from "./brand-picker";
 export * from "./tachyons-file";
+export * from "./checkered-background";
 export * from "./table";
 export * from "./link";
 export * from "./external-link";
