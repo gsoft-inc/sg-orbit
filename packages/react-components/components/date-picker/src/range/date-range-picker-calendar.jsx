@@ -66,7 +66,7 @@ export class DateRangePickerCalendar extends PureComponent {
          */
         position: oneOf(POSITIONS),
         /**
-         * A custom React component to list and select a preset.
+         * A React component to list and select a preset.
          */
         presetsComponent: node,
         /**
@@ -74,7 +74,7 @@ export class DateRangePickerCalendar extends PureComponent {
          */
         presets: arrayOf(shape(PRESET_SHAPE)),
         /**
-         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
         buttons: node,
         /**

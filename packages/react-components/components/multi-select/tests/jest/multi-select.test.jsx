@@ -396,7 +396,7 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropd
     expect(getDropdownMenu(container)).not.toBeInTheDocument();
 });
 
-// ***** Handlers *****
+// ***** API *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
     const handler = jest.fn();

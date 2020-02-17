@@ -5,7 +5,6 @@ import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "@orbit-ui/react-popup";
-import { SIZES } from "../sizes";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -18,6 +17,9 @@ const PRESET_SHAPE = {
     startDate: object.isRequired,
     endDate: object.isRequired
 };
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 export class DateRangePicker extends AutoControlledPureComponent {
     static propTypes = {
@@ -80,7 +82,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         numberOfMonths: number,
         /**
-         * A custom React component that display the currently applied date(s) and open the calendar.
+         * A React component that display the currently applied date(s) and open the calendar.
          */
         input: node,
         /**
@@ -109,11 +111,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         zIndex: string,
         /**
-         * A custom React component to select a date.
+         * A React component to select a date.
          */
         calendar: node,
         /**
-         * A custom React component to list and select a preset.
+         * A React component to list and select a preset.
          */
         presetsComponent: node,
         /**
@@ -121,7 +123,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         presets: arrayOf(shape(PRESET_SHAPE)),
         /**
-         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
         buttons: node,
         /**

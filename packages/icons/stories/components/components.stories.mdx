@@ -1,9 +1,11 @@
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
-import { Icon, MultiVariantIcon } from "@orbit-ui/icons";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
+import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon } from "@orbit-ui/icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { ReactComponentsLayout } from "@blocks/react-components";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { select, text, withKnobs } from "@storybook/addon-knobs";
 import Installation from "./installation.mdx";
 
 <Meta
@@ -25,7 +27,7 @@ An icon component allow you to render a custom icon (e.g. Azure specific icons) 
 
 <Props
     componentsDefinitions={[
-        { displayName: "Icon", component: Icon },
+        { displayName: "Icon", component: PureIcon },
         { displayName: "MultiVariantIcon", component: MultiVariantIcon }
     ]}
 />
@@ -41,6 +43,22 @@ A default icon will render as a `medium` sized icon.
         <Icon source={<AzureIcon32 />} />
     </Story>
 </Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
+        .excludeFromDocs()
+        .build()}
+>
+    <Icon
+        source={<AzureIcon32 />}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE, Big: BIG, Huge: HUGE, Massive: MASSIVE }, DEFAULT_SIZE)}
+        className={text("className")}
+    />
+</Story>
 
 ### Size
 
@@ -88,16 +106,16 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
     </Story>
 </Preview>
 
-## Multi variants
+## Multi-variants
 
-If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi variants components will decide which variant of an icon to render based on the size you specified.
+If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi-variants components will decide which variant of an icon to render based on the size you specified.
 
 A multi variants icon support the same props as `<Icon />`.
 
 ### Size
 
 <Preview>
-    <Story name="multi variants size">
+    <Story name="multi-variants size">
         <div className="flex items-end items-space-between">
             <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="tiny" />
             <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="small" />
@@ -113,7 +131,7 @@ A multi variants icon support the same props as `<Icon />`.
 ### Color
 
 <Preview>
-    <Story name="multi variants color">
+    <Story name="multi-variants color">
         <div className="flex items-end items-space-between">
             <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-100" />
             <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-500" />
@@ -121,3 +139,21 @@ A multi variants icon support the same props as `<Icon />`.
         </div>
     </Story>
 </Preview>
+
+<Story
+    name="icon ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Icon source={<AzureIcon32 />} />} />
+</Story>
+
+<Story
+    name="multi-variants ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Icon source={<AzureIcon32 />} />} />
+</Story>

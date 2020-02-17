@@ -54,10 +54,24 @@ stories()
                      <Label size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Label tag={<Tag className="bg-red" />}>
+                     <Label tag={<Tag className="bg-red" />} size="mini">
                             Group added
                      </Label>
-                     <Label tag={<Tag className="bg-red" />} icon={<CommunicationIcon />} iconPosition="right">
+                     <Label tag={<Tag className="bg-red" />} size="mini" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label tag={<Tag className="bg-red" />} size="mini" icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
+                     </Label>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Label tag={<Tag className="bg-red" />} size="tiny">
+                            Group added
+                     </Label>
+                     <Label tag={<Tag className="bg-red" />} size="tiny" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label tag={<Tag className="bg-red" />} size="tiny" icon={<CommunicationIcon />} iconPosition="right">
                          Group added
                      </Label>
                  </div>
@@ -65,8 +79,22 @@ stories()
                      <Label tag={<Tag className="bg-red" />} size="small">
                          Group added
                      </Label>
+                     <Label tag={<Tag className="bg-red" />} size="small" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
                      <Label tag={<Tag className="bg-red" />} size="small" icon={<CommunicationIcon />} iconPosition="right" >
                           Group added
+                     </Label>
+                 </div>
+                 <div className="flex flex-column items-start">
+                     <Label tag={<Tag className="bg-red" />}>
+                            Group added
+                     </Label>
+                     <Label tag={<Tag className="bg-red" />} button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label tag={<Tag className="bg-red" />} icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
                      </Label>
                  </div>
                  <div className="flex flex-column items-start">
@@ -74,7 +102,7 @@ stories()
                          Group added
                      </Label>
                      <Label tag={<Tag className="bg-red" />} size="large" button={<Button icon={<CloseIcon />} />}>
-                            Group added
+                        Group added
                      </Label>
                      <Label tag={<Tag className="bg-red" />} size="large" icon={<CommunicationIcon />} iconPosition="right">
                          Group added

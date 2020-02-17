@@ -2,13 +2,16 @@
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
-import { createIconFromExisting } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/icons";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
+
+const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
 const propTypes = {
     /**
@@ -20,11 +23,11 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * A custom React SVG component displayed before or after the prompt based on "iconPosition".
+     * A React SVG component displayed before or after the prompt based on "iconPosition".
      */
     icon: element,
     /**
-     * @ignore
+     * An input can vary in sizes.
      */
     size: oneOf(SIZES),
     /**
@@ -38,7 +41,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    autofocus: false
+    autofocus: false,
+    size: DEFAULT_SIZE
 };
 
 function getInputElement(inputRef) {
@@ -83,7 +87,7 @@ export function PureInput(props) {
         const { loading } = props;
 
         if (!isNil(icon) && !loading) {
-            return createIconFromExisting(icon, size);
+            return createIconForControl(icon, size);
         }
     };
 

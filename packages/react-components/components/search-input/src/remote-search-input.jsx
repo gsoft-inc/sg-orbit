@@ -9,10 +9,12 @@ import {
     getAutoControlledStateFromProps,
     httpGet
 } from "@orbit-ui/react-components-shared";
-import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
 import { bool, func, number, oneOf, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {

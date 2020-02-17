@@ -47,7 +47,7 @@ export class SingleDatePickerCalendar extends PureComponent {
          */
         position: oneOf(POSITIONS),
         /**
-         * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+         * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
         buttons: node,
         /**

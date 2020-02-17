@@ -47,12 +47,8 @@
 }
 
 /* Icons */
-.ui.icon.input.small > input {
-    padding-right: calc(var(--scale-foxtrot) + @iconPadding) !important;
-}
-
 .ui.icon.input.large > input {
-    padding-right: calc(var(--scale-hotel) + @iconPadding) !important;
+    padding-right: calc(var(--scale-golf) + @iconPadding) !important;
 }
 
 .ui.icon.input > svg.icon {
@@ -67,12 +63,8 @@
     padding-right: @paddingRight !important;
 }
 
-.ui.left.icon.input.small > input {
-    padding-left: calc(var(--scale-foxtrot) + @iconPadding) !important;
-}
-
 .ui.left.icon.input.large > input {
-    padding-left: calc(var(--scale-hotel) + @iconPadding) !important;
+    padding-left: calc(var(--scale-golf) + @iconPadding) !important;
 }
 
 .ui.left.icon.input > svg.icon {

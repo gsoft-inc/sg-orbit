@@ -1,7 +1,7 @@
 import { Button } from "@orbit-ui/react-button";
-import { CalendarIcon, CloseIcon } from "@orbit-ui/icons";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL } from "./sizes";
-import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { CalendarIcon, CloseIcon, getIconSizeForControl } from "@orbit-ui/icons";
+import { DEFAULT_SIZE, SIZES } from "./sizes";
+import { KEYS, LARGE, MEDIUM, SMALL, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, oneOf, string } from "prop-types";
@@ -153,7 +153,7 @@ export class DatePickerTextboxInput extends PureComponent {
     renderIcon() {
         const { size, disabled } = this.props;
 
-        return <CalendarIcon size={size} className={!disabled ? "fill-marine-700" : "fill-cloud-500"} />;
+        return <CalendarIcon size={getIconSizeForControl(size)} className={!disabled ? "fill-marine-700" : "fill-cloud-500"} />;
     }
 
     renderClearButton() {

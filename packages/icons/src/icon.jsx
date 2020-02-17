@@ -1,7 +1,12 @@
-import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SIZES, SMALL, TINY } from "./sizes";
-import { cloneElement } from "react";
-import { element, oneOf } from "prop-types";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY, mergeClasses } from "@orbit-ui/react-components-shared";
+import { cloneElement, forwardRef } from "react";
+import { element, func, object, oneOf, oneOfType } from "prop-types";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["tiny", SMALL, MEDIUM, LARGE, BIG, HUGE, MASSIVE];
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const DEFAULT_SIZE = "medium";
 
 const DIMENSIONS = {
     [TINY]: "w4 h4",
@@ -13,43 +18,72 @@ const DIMENSIONS = {
     [MASSIVE]: "w10 h10"
 };
 
-export function Icon({ source, size, className, ...rest }) {
+export function PureIcon({ source, size, className, forwardedRef, ...rest }) {
     const classes = mergeClasses(
+        "icon",
         className,
         DIMENSIONS[size]
     );
 
     return cloneElement(source, {
         className: classes,
+        ref: forwardedRef,
         ...rest
     });
 }
 
-Icon.propTypes = {
+PureIcon.propTypes = {
+    /**
+     * An icon as a React component.
+     */
     source: element.isRequired,
-    size: oneOf(SIZES)
+    /**
+     * An icon can vary in size.
+     */
+    size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
+    forwardedRef: oneOfType([object, func])
 };
 
-Icon.defaultProps = {
-    size: "medium"
+PureIcon.defaultProps = {
+    size: DEFAULT_SIZE
 };
 
-export function MultiVariantIcon({ source24, source32, size, ...rest }) {
+export const Icon = forwardRef((props, ref) => (
+    <PureIcon { ...props } forwardedRef={ref} />
+));
+
+export function PureMultiVariantIcon({ source24, source32, size, forwardedRef, ...rest }) {
     let source = source32;
 
     if (size === TINY || size === SMALL || size === MEDIUM) {
         source = source24;
     }
 
-    return <Icon source={source} size={size} {...rest} />;
+    return <Icon source={source} size={size} ref={forwardedRef} {...rest} />;
 }
 
-MultiVariantIcon.propTypes = {
+PureMultiVariantIcon.propTypes = {
+    /**
+     * An icon as a React component for the 24px variant.
+     */
     source24: element.isRequired,
+    /**
+     * An icon as a React component for the 32px variant.
+     */
     source32: element.isRequired,
+    /**
+     * An icon can vary in size.
+     */
     size: oneOf(SIZES)
 };
 
-MultiVariantIcon.defaultProps = {
-    size: "medium"
+PureMultiVariantIcon.defaultProps = {
+    size: DEFAULT_SIZE
 };
+
+export const MultiVariantIcon = forwardRef((props, ref) => (
+    <PureMultiVariantIcon { ...props } forwardedRef={ref} />
+));

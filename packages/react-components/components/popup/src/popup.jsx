@@ -24,7 +24,7 @@ export class Popup extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A custom React component to open the popup.
+         * A React component to open the popup.
          */
         trigger: node.isRequired,
         /**

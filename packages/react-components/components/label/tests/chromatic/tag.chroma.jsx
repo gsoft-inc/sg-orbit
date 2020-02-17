@@ -4,7 +4,7 @@ import { Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Label/tag"))
+    return storiesOfBuilder(module, createChromaticSection("Tag"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

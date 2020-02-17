@@ -1,20 +1,4 @@
 .item {
-    flex-direction: column;
-    flex: 0 1 calc(10%);
+    flex: 0 1 calc(13%);
     margin: 0 10px 30px 0;
-}
-
-.name {
-    padding-bottom: .75rem;
-    text-align: center;
-}
-
-.iconWrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.iconContainer {
-    width: var(	--scale-golf);
-    height: var(--scale-golf);
 }

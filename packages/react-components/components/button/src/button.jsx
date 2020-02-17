@@ -4,13 +4,16 @@ import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from 
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { createIconFromExisting } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/icons";
 import { createLabelFromShorthand, createTagFromShorthand } from "@orbit-ui/react-label";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["tiny", "small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
+
+const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
     /**
@@ -38,7 +41,7 @@ const propTypes = {
      */
     naked: bool,
     /**
-     * @ignore
+     * An input can vary in sizes.
      */
     size: oneOf(SIZES),
     /**
@@ -54,7 +57,8 @@ const propTypes = {
 const defaultProps = {
     ghost: false,
     iconPosition: "left",
-    naked: false
+    naked: false,
+    size: DEFAULT_SIZE
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
@@ -119,9 +123,9 @@ export function PureButton(props) {
 
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                right = createIconFromExisting(icon, size);
+                right = createIconForControl(icon, size);
             } else {
-                left = createIconFromExisting(icon, size);
+                left = createIconForControl(icon, size);
             }
         }
 

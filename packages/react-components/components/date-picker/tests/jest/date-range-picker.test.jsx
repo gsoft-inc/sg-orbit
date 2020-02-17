@@ -319,7 +319,7 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the calen
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-// ***** Handlers *****
+// ***** API *****
 
 test("dont call onDatesChange when dates are selected", async () => {
     const ref = createRef();
