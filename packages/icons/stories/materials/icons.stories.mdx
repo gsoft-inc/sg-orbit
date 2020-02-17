@@ -95,7 +95,7 @@ import {
     ZipIcon,
     ZipIcon32
 } from "@orbit-ui/icons";
-import { ExternalLink, InfoMessage } from "@blocks";
+import { CheckeredBackground, ExternalLink, InfoMessage } from "@blocks";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./components/icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
@@ -162,15 +162,17 @@ By default an icon component render as a `medium` sized icon.
 To alter the dimensions of an icon, you can specify any of the following sizes: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
 
 <Preview>
-    <div className="flex items-end items-space-between">
-        <CalendarIcon size="tiny" />
-        <CalendarIcon size="small" />
-        <CalendarIcon />
-        <CalendarIcon size="large" />
-        <CalendarIcon size="big" />
-        <CalendarIcon size="huge" />
-        <CalendarIcon size="massive" />
-    </div>
+    <CheckeredBackground>
+        <div className="flex items-end items-space-between">
+            <CalendarIcon size="tiny" />
+            <CalendarIcon size="small" />
+            <CalendarIcon />
+            <CalendarIcon size="large" />
+            <CalendarIcon size="big" />
+            <CalendarIcon size="huge" />
+            <CalendarIcon size="massive" />
+        </div>
+    </CheckeredBackground>
 </Preview>
 
 If your icon is intended to be used as content of an Orbit UI component, chances are you don't need to specify the icon size. Most of Orbit UI components already have pre-determined dimensions for their icons based on their own size.

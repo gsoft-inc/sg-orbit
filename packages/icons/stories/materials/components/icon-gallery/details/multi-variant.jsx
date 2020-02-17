@@ -1,5 +1,4 @@
-import styles from "./multi-variant.module.css";
-
+import { CheckeredBackground } from "@blocks";
 import { LearnUsageLink } from "./learn-usage-link";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
@@ -26,7 +25,7 @@ function Usage({ componentType }) {
 
 function Preview({ icon }) {
     return (
-        <div className={styles.preview}>
+        <CheckeredBackground>
             {cloneElement(icon, { size: "tiny" })}
             {cloneElement(icon, { size: "small" })}
             {icon}
@@ -34,7 +33,7 @@ function Preview({ icon }) {
             {cloneElement(icon, { size: "big" })}
             {cloneElement(icon, { size: "huge" })}
             {cloneElement(icon, { size: "massive" })}
-        </div>
+        </CheckeredBackground>
     );
 }
 
