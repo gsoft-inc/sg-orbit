@@ -88,7 +88,8 @@ export function PureButton(props) {
     const renderLabel = () => {
         const defaults = {
             as: "span",
-            size: "mini"
+            size: "mini",
+            highlight: true
         };
 
         if (isElement(label)) {

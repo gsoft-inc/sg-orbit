@@ -217,6 +217,11 @@ stories()
     );
 
 stories()
+    .add("highlight", () =>
+        <Label highlight>Notification Sent</Label>
+    );
+
+stories()
     .add("custom css class", () =>
         <Label className="bg-red">Notification Sent</Label>
     );

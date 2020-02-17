@@ -1,9 +1,9 @@
 /*******************************
     Site Overrides
 *******************************/
-.ui.mini.labels .label, .ui.mini.label {
+/* .ui.mini.labels .label, .ui.mini.label {
     font-size: .375rem;
-}
+} */
 
 .ui.circular.label {
     justify-content: center;
@@ -86,7 +86,7 @@
 }
 
 /* large */
-.ui.label.large{
+.ui.label.large {
     padding-top: 12px;
     padding-bottom: 12px;
 }
@@ -140,56 +140,59 @@
     min-height: 32px
 }
 
-/* check if can be overriden via variables first */
-
+/* TODO: check if can be overriden via variables first */
 .ui.label.tiny:not(.circular) {
     min-height: 24px;
-    font-size: 0.75rem;
+    font-size: var(--type-scale-9);
     padding: 4px 1rem;
 }
 
-/* manage font weight and letter spacing? for labels in tab */
-
 .ui.label.mini:not(.circular) {
     min-height: 20px;
-    font-size: 0.875rem;
+    font-size: var(--type-scale-9);
     padding: 0.15em 0.8125em;
-    font-weight: 600;
 }
 
 /* Circular Labels */
 
 .ui.circular.mini.labels .label,
 .ui.circular.mini.label {
-    font-size: 0.5rem;
+    font-size: var(--type-scale-9);
 }
+
 .ui.circular.tiny.labels .label,
 .ui.circular.tiny.label {
-    font-size: 0.75rem;
+    font-size: var(--type-scale-9);
 }
+
 .ui.circular.small.labels .label,
 .ui.circular.small.label {
-    font-size: 1rem;
+    font-size: var(--type-scale-7);
 }
+
 .ui.circular.labels .label,
 .ui.circular.label {
-    font-size: 1.25rem;
+    font-size: var(--type-scale-6);
 }
+
 .ui.circular.large.labels .label,
 .ui.circular.large.label {
-    font-size: 1.5rem;
+    font-size: var(--type-scale-4);
 }
+
 .ui.circular.big.labels .label,
 .ui.circular.big.label {
     font-size: 1.75rem;
 }
+
 .ui.circular.huge.labels .label,
 .ui.circular.huge.label {
-    font-size: 2rem;
+    font-size: var(--type-scale-3);
 }
+
 .ui.circular.massive.labels .label,
 .ui.circular.massive.label {
-    font-size: 2.5rem;
+    font-size: var(--type-scale-2);
 }
 
 /* override mini label padding in order to keep it 4px */
@@ -202,22 +205,22 @@
 
 .ui.empty.circular.labels .label.mini,
 .ui.empty.circular.label.mini {
-    font-size: 0.75rem;
+    font-size: var(--type-scale-7);
 }
 
 .ui.empty.circular.labels .label.tiny,
 .ui.empty.circular.label.tiny {
-    font-size: 1rem;
+    font-size: var(--type-scale-7);
 }
 
 .ui.empty.circular.labels .label.small,
 .ui.empty.circular.label.small {
-    font-size: 1.25rem;
+    font-size: var(--type-scale-5);
 }
 
 .ui.empty.circular.labels .label,
 .ui.empty.circular.label {
-    font-size: 1.5rem;
+    font-size: var(--type-scale-4);
 }
 
 .ui.empty.circular.labels.large .label,
@@ -227,7 +230,7 @@
 
 .ui.empty.circular.labels.big .label,
 .ui.empty.circular.label.big {
-    font-size: 2rem;
+    font-size: var(--type-scale-3);
 }
 
 .ui.empty.circular.labels.huge .label,
@@ -237,14 +240,7 @@
 
 .ui.empty.circular.labels.massive .label,
 .ui.empty.circular.label.massive {
-    font-size: 2.5rem;
-}
-
-/*  Primary */
-.ui.label.primary,
-.ui.menu .item > .label.primary {
-    background-color: @primary500;
-    color: @white;
+    font-size: var(--type-scale-2);
 }
 
 /* Tags (tags are supported by nesting 2 labels) */
@@ -281,4 +277,9 @@
 
 .ui.label.tag.naked .label {
     background-color: @transparent!important;
+}
+
+/* Highlight */
+.ui.label.highlight {
+    font-weight: 600;
 }

@@ -1,3 +1,4 @@
+import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { cloneElement } from "react";
 import { getIconSizeForControl } from "./sizes";
 import { isFunction } from "lodash";
@@ -11,7 +12,7 @@ function ensureIsKnownIconWrapper(icon) {
         }
     }
 
-    throw new Error("Unknown icon wrapper. Custom icons must be wrapped in an <Icon /> or <MultiVariantIcon /> component.");
+    throw new ArgumentError("Unknown icon wrapper. Custom icons must be wrapped in an <Icon /> or <MultiVariantIcon /> component.");
 }
 
 export function createIconForControl(icon, size) {
