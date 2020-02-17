@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
     rootDir: path.resolve(__dirname, ".."),
-    roots: ["<rootDir>/packages/react-components"],
+    roots: ["<rootDir>/packages/icons", "<rootDir>/packages/react-components"],
     transform: {
         "^.+\\.(js|jsx)$": path.resolve("jest/babel-transform.js")
     },

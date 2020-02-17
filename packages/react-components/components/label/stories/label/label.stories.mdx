@@ -9,7 +9,7 @@ import { logButtonClicked } from "./utils";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Label/standard")}
+    title={createComponentSection("Label")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
@@ -111,11 +111,12 @@ A label can have a subtle appearance.
 
 A label can vary in size.
 
-Available sizes are `"tiny"`, `"small"`, `"medium"` and `"large"`.
+Available sizes are `"mini"`, `"tiny"`, `"small"`, `"medium"` and `"large"`.
 
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
+            <Label size="mini">Notification Sent</Label>
             <Label size="tiny">Notification Sent</Label>
             <Label size="small">Notification Sent</Label>
             <Label>Notification Sent</Label>

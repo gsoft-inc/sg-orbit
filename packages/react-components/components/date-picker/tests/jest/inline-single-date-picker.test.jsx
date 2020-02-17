@@ -212,7 +212,7 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the calen
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-// ***** Handlers *****
+// ***** API *****
 
 test("call onVisibilityChange when the calendar is opened with an input click", async () => {
     const handler = jest.fn();

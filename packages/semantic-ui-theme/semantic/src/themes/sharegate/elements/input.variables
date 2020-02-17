@@ -16,7 +16,7 @@
 @relativeLarge: var(--type-scale-6);
 
 @iconPadding: 5px;
-@iconMargin: calc(var(--scale-golf) + @iconPadding);
+@iconMargin: calc(var(--scale-foxtrot) + @iconPadding);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;

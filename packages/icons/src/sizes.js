@@ -1,10 +1,18 @@
-export const TINY = "tiny";
-export const SMALL = "small";
-export const MEDIUM = "medium";
-export const LARGE = "large";
-export const BIG = "big";
-export const HUGE = "huge";
-export const MASSIVE = "massive";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
 
 export const SIZES = [TINY, SMALL, MEDIUM, LARGE, BIG, HUGE, MASSIVE];
 export const DEFAULT_SIZE = MEDIUM;
+
+const CONTROLS_SIZES = {
+    [TINY]: SMALL,
+    [SMALL]: SMALL,
+    [MEDIUM]: SMALL,
+    [LARGE]: MEDIUM,
+    [BIG]: LARGE,
+    [HUGE]: BIG,
+    [MASSIVE]: HUGE
+};
+
+export function getIconSizeForControl(controlSize) {
+    return CONTROLS_SIZES[controlSize];
+}

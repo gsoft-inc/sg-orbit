@@ -5,7 +5,6 @@ import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { MultiSelectSelectedItems } from "./multi-select-selected-items";
-import { SIZES } from "./sizes";
 import { arrayOf, bool, func, node, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -15,6 +14,9 @@ const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired
 };
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
@@ -80,7 +82,7 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         onVisibilityChange: func,
         /**
-         * A custom React component to select an item.
+         * A React component to select an item.
          */
         dropdown: node,
         /**
@@ -100,11 +102,11 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         placeholder: string,
         /**
-         * A custom React component to display the selected values.
+         * A React component to display the selected values.
          */
         selectedItemsComponent: node,
         /**
-         * A custom React component to clear the selected values.
+         * A React component to clear the selected values.
          */
         clearButton: node,
         /**

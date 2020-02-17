@@ -3,10 +3,14 @@ import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "@orbit-ui/react-button";
-import { createIconFromExisting } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/icons";
 import { createTagFromShorthand } from "./factories";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
+
+// // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+// const SIZES = ["tiny", "small", "medium", "large", "big", "huge", "massive"];
+// const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
@@ -31,10 +35,10 @@ const propTypes = {
      * A label can contain a tag.
      */
     tag: oneOfType([element, object]),
-    /**
-     * A label can vary in sizes.
-     */
-    size: oneOf(["tiny", "small", "medium", "large", "big", "huge", "massive"]),
+    // /**
+    //  * A label can vary in sizes.
+    //  */
+    // size: oneOf(SIZES),
     /**
      * @ignore
      */
@@ -47,8 +51,8 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    iconPosition: "left",
-    size: "medium"
+    iconPosition: "left"
+    // size: DEFAULT_SIZE
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
@@ -116,9 +120,9 @@ export function PureLabel(props) {
 
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                right = createIconFromExisting(icon, size);
+                right = createIconForControl(icon, size);
             } else {
-                left = createIconFromExisting(icon, size);
+                left = createIconForControl(icon, size);
             }
         }
 
