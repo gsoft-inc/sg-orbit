@@ -52,6 +52,10 @@ strong {
     font-weight: 600;
 }
 
+.sbdocs .sbdocs-a code {
+    color: var(--primary-500);
+}
+
 .sbdocs.sbdocs-h1,
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h3,

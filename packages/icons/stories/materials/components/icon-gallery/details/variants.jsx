@@ -8,10 +8,10 @@ function IconComponent({ componentType }) {
     return (
         <details>
             <summary className="marine-900">Use as a component</summary>
-            <h4 className="marine-900">Import</h4>
-            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} />
-            <h4 className="marine-900">Usage</h4>
-            <Source language="jsx" dark format={false} code={`<${componentType} />`} />
+            <h4 className="marine-900 ma0 pa0 mt4">Import</h4>
+            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} className="mv2" />
+            <h4 className="marine-900 ma0 pa0 mt4">Usage</h4>
+            <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mv2" />
             <LearnUsageLink />
         </details>
     );
@@ -21,10 +21,10 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
     return (
         <details>
             <summary className="marine-900">As an image source</summary>
-            <h4 className="marine-900">Import</h4>
-            <Source language="javascript" dark format={false} code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} />
-            <h4 className="marine-900">Usage</h4>
-            <Source language="jsx" dark format={false} code={`<img src={${componentType}} alt="${iconDisplayName}" className="w6 h6" />`} />
+            <h4 className="marine-900 ma0 pa0 mt4">Import</h4>
+            <Source language="javascript" dark format={false} code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} className="mv2" />
+            <h4 className="marine-900 ma0 pa0 mt4">Usage</h4>
+            <Source language="jsx" dark format={false} code={`<img src={${componentType}} alt="${iconDisplayName}" className="w6 h6" />`} className="mv2" />
             <LearnUsageLink />
         </details>
     );
@@ -41,7 +41,7 @@ function CssBackground({ iconFileName, iconDisplayName }) {
     return (
         <details>
             <summary className="marine-900">As a CSS background</summary>
-            <Source language="css" dark format={false} code={code} />
+            <Source language="css" dark format={false} code={code} className="mv2" />
             <LearnUsageLink />
         </details>
     );
@@ -62,7 +62,7 @@ function Variant({ iconDisplayName, iconComponent, iconFileName }) {
 export function Variants({ iconDisplayName, variants }) {
     return (
         <>
-            <h2 className="marine-900">Variants</h2>
+            <h2 className="marine-900 ma0 pa0 mt2 mb4">Variants</h2>
             <Tab menu={{ secondary: true, pointing: true }} panes={variants.map(x => ({ menuItem: x.name, render: () => <Variant iconDisplayName={iconDisplayName} {...x} /> }))} />
         </>
     );
