@@ -4,7 +4,6 @@ import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { IconDetail } from "./icon-detail";
 import { Modal } from "semantic-ui-react";
 import { bool, func, string } from "prop-types";
-import styles from "./icon-modal.module.css";
 
 export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     const handleDocumentKeyDown = event => {
@@ -22,7 +21,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
                         <Button ghost secondary circular icon={<CloseIcon />} size="small" onClick={onClose} />
                     </div>
                 </Modal.Header>
-                <Modal.Content className={styles.iconModal}>
+                <Modal.Content>
                     <IconDetail iconDisplayName={iconDisplayName} {...rest} />
                 </Modal.Content>
             </Modal>

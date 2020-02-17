@@ -8,7 +8,7 @@ function Import({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} />
+            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} className="mv2" />
         </>
     );
 }
@@ -17,7 +17,7 @@ function Usage({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Usage</h4>
-            <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mb1" />
+            <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mv2" />
             <LearnUsageLink />
         </>
     );
@@ -25,7 +25,7 @@ function Usage({ componentType }) {
 
 function Preview({ icon }) {
     return (
-        <CheckeredBackground>
+        <CheckeredBackground className="pl4">
             {cloneElement(icon, { size: "tiny" })}
             {cloneElement(icon, { size: "small" })}
             {icon}
