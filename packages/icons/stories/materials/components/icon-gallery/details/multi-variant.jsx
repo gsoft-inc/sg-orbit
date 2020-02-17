@@ -25,7 +25,7 @@ function Usage({ componentType }) {
 
 function Preview({ icon }) {
     return (
-        <CheckeredBackground className="pl4">
+        <CheckeredBackground>
             {cloneElement(icon, { size: "tiny" })}
             {cloneElement(icon, { size: "small" })}
             {icon}

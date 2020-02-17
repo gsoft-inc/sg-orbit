@@ -3,6 +3,7 @@ import { CloseIcon } from "@orbit-ui/icons";
 import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { IconDetail } from "./icon-detail";
 import { Modal } from "semantic-ui-react";
+import { ModalContext } from "./modal-context";
 import { bool, func, string } from "prop-types";
 
 export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
@@ -22,7 +23,9 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
                     </div>
                 </Modal.Header>
                 <Modal.Content>
-                    <IconDetail iconDisplayName={iconDisplayName} {...rest} />
+                    <ModalContext.Provider value={{ onClose: onClose }}>
+                        <IconDetail iconDisplayName={iconDisplayName} {...rest} />
+                    </ModalContext.Provider>
                 </Modal.Content>
             </Modal>
 
