@@ -141,10 +141,6 @@ export class MultiSelectDropdown extends PureComponent {
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
         searchInput: <MultiSelectDropdownSearchInput />,
-<<<<<<< HEAD
-=======
-        searchIcon: <MagnifierIcon className="fill-marine-500" />,
->>>>>>> master
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
