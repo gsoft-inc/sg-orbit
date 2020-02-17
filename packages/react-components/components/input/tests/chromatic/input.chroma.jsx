@@ -39,21 +39,21 @@ stories()
                          <Input icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input loading className="paused" placeholder="Search..." />
-                         <Input loading className="paused" disabled placeholder="Search..." />
-                         <Input loading className="paused" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading placeholder="Search..." />
+                         <Input loading disabled placeholder="Search..." />
+                         <Input loading disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input loading icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input loading icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input loading icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
                  <div className="flex flex-row">
@@ -78,21 +78,21 @@ stories()
                          <Input className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input loading className="paused success" placeholder="Search..." />
-                         <Input loading className="paused success" disabled placeholder="Search..." />
-                         <Input loading className="paused success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" placeholder="Search..." />
+                         <Input loading className="success" disabled placeholder="Search..." />
+                         <Input loading className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
                  <div className="flex flex-row">
@@ -117,21 +117,21 @@ stories()
                          <Input error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input loading className="paused" error placeholder="Search..." />
-                         <Input loading className="paused" error disabled placeholder="Search..." />
-                         <Input loading className="paused" error disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="paused" error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error placeholder="Search..." />
+                         <Input loading error disabled placeholder="Search..." />
+                         <Input loading error disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading error focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading error disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
              </div>
@@ -161,21 +161,21 @@ stories()
                          <Input transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input loading transparent className="paused" placeholder="Search..." />
-                         <Input loading transparent className="paused" disabled placeholder="Search..." />
-                         <Input loading transparent className="paused" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading transparent className="paused" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading transparent className="paused" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading transparent className="paused" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent placeholder="Search..." />
+                         <Input loading transparent disabled placeholder="Search..." />
+                         <Input loading transparent disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading transparent focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading transparent disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input loading transparent icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input loading transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input loading transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input loading transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input loading transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
                  <div className="flex flex-row">
@@ -200,21 +200,21 @@ stories()
                          <Input transparent className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input transparent loading className="paused success" placeholder="Search..." />
-                         <Input transparent loading className="paused success" disabled placeholder="Search..." />
-                         <Input transparent loading className="paused success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" placeholder="Search..." />
+                         <Input transparent loading className="success" disabled placeholder="Search..." />
+                         <Input transparent loading className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
                  <div className="flex flex-row">
@@ -239,21 +239,21 @@ stories()
                          <Input transparent error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
                      </div>
                      <div className="flex flex-column items-start">
-                         <Input transparent loading className="paused" error placeholder="Search..." />
-                         <Input transparent loading className="paused" error disabled placeholder="Search..." />
-                         <Input transparent loading className="paused" error disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused" error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused" error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input transparent loading className="paused" error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error placeholder="Search..." />
+                         <Input transparent loading error disabled placeholder="Search..." />
+                         <Input transparent loading error disabled placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading error focus icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading error disabled icon={<MagnifierIcon />} placeholder="Search..." />
+                         <Input transparent loading error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
+                         <Input transparent loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
+                         <Input transparent loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
              </div>
@@ -281,12 +281,12 @@ stories()
                      <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
                  </div>
                  <div className="flex flex-column">
-                     <Input size="small" loading placeholder="Search..." className="paused" />
-                     <Input loading placeholder="Search..." className="paused" />
-                     <Input size="large" loading placeholder="Search..." className="paused" />
-                     <Input size="small" iconPosition="left" loading placeholder="Search..." className="paused" />
-                     <Input loading iconPosition="left" placeholder="Search..." className="paused" />
-                     <Input size="large" iconPosition="left" loading placeholder="Search..." className="paused" />
+                     <Input size="small" loading placeholder="Search..." />
+                     <Input loading placeholder="Search..." />
+                     <Input size="large" loading placeholder="Search..." />
+                     <Input size="small" iconPosition="left" loading placeholder="Search..." />
+                     <Input loading iconPosition="left" placeholder="Search..." />
+                     <Input size="large" iconPosition="left" loading placeholder="Search..." />
                  </div>
              </div>
     );

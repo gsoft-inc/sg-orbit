@@ -103,6 +103,14 @@
     box-shadow: 0px 0px 0px 1px transparent inset;
 }
 
+/* LAYOUT | Naked/Basic */
+.ui.button.basic.naked,
+.ui.button.naked.basic,
+.ui.buttons.naked.basic .button,
+.ui.buttons.naked.basic .button {
+    background-color: @transparent!important;
+}
+
 /* LAYOUT | Naked | STATE | Pseudo */
 .ui.button.naked:hover,
 .ui.button.naked:focus,
@@ -211,13 +219,13 @@
 .ui.button.basic:hover,
 .ui.button.basic:focus,
 .ui.button.basic.active {
-    background-color: @transparent!important;
+    background-color: @white!important;
     box-shadow: 0px 0px 0px @basicBorderSize @marine900 inset!important;
     color: @marine900!important;
 }
 
 .ui.basic.buttons .active.button {
-    background: @transparent !important;
+    background: @white !important;
     box-shadow: none !important;
     color: @marine900 !important;
     border: 1px solid @marine900;
@@ -323,6 +331,12 @@
     padding-right: @scaleDelta;
 }
 
+/* SKIN | Basic */
+.ui.basic.buttons .button,
+.ui.basic.button {
+    background-color: @white!important;
+}
+
 /* SKIN | Ghost */
 .ui.ghost.button,
 .ui.buttons.ghost .button {
@@ -383,13 +397,14 @@
     color: @marine900;
 }
 
-/* SKIN | Ghost/Secondary | State */
+/* SKIN | Basic/Secondary | State */
 .ui.basic.secondary.button:hover,
 .ui.basic.secondary.buttons .button:hover,
 .ui.basic.secondary.button:focus,
 .ui.basic.secondary.buttons .button:focus,
 .ui.basic.secondary.button.active,
 .ui.basic.secondary.buttons.active .button {
+    background-color: @white!important;
     color: @marine900!important;
     box-shadow: 0px 0px 0px 1px var(--cloud-900) inset !important;
 }
@@ -408,7 +423,7 @@
 /* SKIN | STATE | Disabled | LAYOUT | Basic */
 .ui.button.basic.disabled,
 .ui.button.basic:disabled {
-    background-color: @transparent!important;
+    background-color: @white!important;
     box-shadow: 0px 0px 0px @basicBorderSize @cloud100 inset!important;
     color: @cloud400!important;
 }
@@ -438,7 +453,7 @@
 .ui.button.primary.basic:disabled,
 .ui.buttons.primary.basic .button.disabled,
 .ui.buttons.primary.basic .button:disabled {
-    background-color: @transparent!important;
+    background-color: @white!important;
     color: @primary200!important;
     box-shadow: 0px 0px 0px @basicBorderSize @primary200 inset!important;
 }
@@ -458,7 +473,7 @@
 .ui.button.secondary.basic:disabled,
 .ui.buttons.secondary.basic .button.disabled,
 .ui.buttons.secondary.basic .button:disabled {
-    background-color: @transparent!important;
+    background-color: @white!important;
     color: @marine100 !important;
 }
 
@@ -495,7 +510,7 @@
 .ui.button.positive.basic:disabled,
 .ui.buttons.positive.basic .button.disabled,
 .ui.buttons.positive.basic .button:disabled {
-    background-color: @transparent!important;
+    background-color: @white!important;
     box-shadow: 0px 0px 0px @basicColoredBorderSize @success100 inset!important;
     color: @success100!important;
 }
@@ -524,9 +539,35 @@
 .ui.button.negative.basic:disabled,
 .ui.buttons.negative.basic .button.disabled,
 .ui.buttons.negative.basic .button:disabled {
-    background-color: @transparent!important;
+    background-color: @white!important;
     box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeDisabled inset!important;
     color: @negativeDisabled!important;
+}
+
+/* SKIN | Basic/Primary | STATE | Active */
+.ui.basic.primary.buttons .active.button,
+.ui.basic.primary.active.button {
+    background-color: @white!important;
+}
+
+/* SKIN | Basic/Positive | STATE | Active */
+.ui.basic.positive.buttons .active.button,
+.ui.basic.positive.active.button,
+.ui.basic.positive.buttons .button:hover,
+.ui.basic.positive.button:hover,
+.ui.basic.positive.buttons .button:focus,
+.ui.basic.positive.active.button:focus {
+    background-color: @white!important;
+}
+
+/* SKIN | Basic/Negative | STATE | Active */
+.ui.basic.negative.buttons .active.button,
+.ui.basic.negative.active.button,
+.ui.basic.negative.buttons .button:hover,
+.ui.basic.negative.button:hover,
+.ui.basic.negative.buttons .button:focus,
+.ui.basic.negative.active.button:focus {
+    background-color: @white!important;
 }
 
 /* CONTENT | Icon */
@@ -866,6 +907,7 @@
 
 /* No border on button basic group until I say so */
 .ui.basic.buttons .button {
+    background-color: @white!important;
     border: 1px solid transparent;
     box-shadow: none;
     border-bottom: 1px solid @cloud100;
@@ -876,7 +918,7 @@
 .ui.basic.buttons .button:focus {
     box-shadow: none;
     border: 1px solid @marine500;
-    background-color: @transparent!important;
+    background-color: @white!important;
     color: @marine900!important;
 }
 

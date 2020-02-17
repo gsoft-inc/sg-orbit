@@ -16,7 +16,7 @@ stories()
          () =>
              <div className="flex flex-row">
                  <div className="w-50">
-                     <Placeholder className="paused">
+                     <Placeholder>
                          <Placeholder.Header image>
                              <Placeholder.Line />
                              <Placeholder.Line />
@@ -28,20 +28,20 @@ stories()
                              <Placeholder.Line />
                          </Placeholder.Paragraph>
                      </Placeholder>
-                     <Placeholder className="paused">
+                     <Placeholder>
                          <Placeholder.Line />
                          <Placeholder.Line />
                          <Placeholder.Line />
                          <Placeholder.Line />
                          <Placeholder.Line />
                      </Placeholder>
-                     <Placeholder className="paused">
+                     <Placeholder>
                          <Placeholder.Header image>
                              <Placeholder.Line />
                              <Placeholder.Line />
                          </Placeholder.Header>
                      </Placeholder>
-                     <Placeholder className="paused">
+                     <Placeholder>
                          <Placeholder.Paragraph>
                              <Placeholder.Line />
                              <Placeholder.Line />
@@ -57,10 +57,10 @@ stories()
                      </Placeholder>
                  </div>
                  <div className="w-50">
-                     <Placeholder className="paused" style={{ height: 150, width: 150 }}>
+                     <Placeholder style={{ height: 150, width: 150 }}>
                          <Placeholder.Image />
                      </Placeholder>
-                     <Placeholder className="paused" fluid>
+                     <Placeholder fluid>
                          <Placeholder.Header image>
                              <Placeholder.Line />
                              <Placeholder.Line />
@@ -72,7 +72,7 @@ stories()
                          </Placeholder.Paragraph>
                      </Placeholder>
                      <Segment inverted>
-                         <Placeholder className="paused" inverted>
+                         <Placeholder inverted>
                              <Placeholder.Header image>
                                  <Placeholder.Line />
                                  <Placeholder.Line />

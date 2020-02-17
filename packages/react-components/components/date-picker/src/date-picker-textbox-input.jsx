@@ -201,7 +201,7 @@ export class DatePickerTextboxInput extends PureComponent {
 
             <style jsx>{`
                 .input {
-                    min-width: 350px;
+                    min-width: 300px;
                 }
 
                 .input:not("disabled") {
