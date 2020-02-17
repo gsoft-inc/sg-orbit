@@ -17,7 +17,7 @@ import Installation from "./installation.mdx";
 
 # Icon
 
-An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. If you are looking for Orbit UI official icons, please have a look at the [icons page](?path=/docs/materials-icons--page#gallery) in the materials section.
+An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. For Orbit UI official icons, please have a look at the [icons page](?path=/docs/materials-icons--page#gallery) in the materials section.
 
 ## Installation
 
@@ -46,12 +46,16 @@ import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
 
 We recommended exporting all your icons from an `index.js` file:
 
-```javascript dark
+```jsx dark
 // assets/index.js
 
-export { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
-export { ReactComponent as FilterIcon24 } from "./icon-filter-24.svg";
-export { ReactComponent as FilterIcon32 } from "./icon-filter-32.svg";
+import { Icon, MultiVariantIcon } from "@orbit-ui/icons";
+import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
+import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
+
+export const AzureIcon32 = <Icon source={Azure32} />;
+export const FilterIcon = <MultiVariantIcon source24={Filter24} source32={Filter32} />;
 ```
 
 ### Default
