@@ -107,7 +107,7 @@ When you're done importing components, you must include Semantic UI theme to sty
 
 ## Icons
 
-Some parts of [Orbit icons](?path=/docs/materials-icons--page) depends on [SVGR](https://github.com/gregberge/svgr) to transform SVG icons files into React components. If you use Orbit icons React components or any Orbit React components, chances are you depend on SVGR. To use SVGR, your project babel config must configure the [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) plugin:
+[Orbit icons](?path=/docs/materials-icons--page) depends on [@svgr/webpack](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you use Orbit icons React components or any Orbit React components, chances are you depend on `@svgr/webpack`. To use `@svgr/webpack`, your project babel config must also configure the [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) plugin:
 
 ```js dark
 {

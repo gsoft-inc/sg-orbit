@@ -34,6 +34,26 @@ An icon component allow you to render a custom icon (e.g. Azure specific icons) 
 
 ## Usage
 
+To use an icon component you must first import your SVG icon as a React component by using [@svgr/webpack](https://react-svgr.com/docs/getting-started/). If you haven't setup `@svgr/webpack` yet, please have a look at the [icon section](http://localhost:2742/?path=/docs/getting-started-installation--page#icons) of the installation page.
+
+To import your SVG icon as a React component:
+
+```jsx dark
+import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+
+<AzureIcon32 />
+```
+
+We recommended exporting all your icons from an `index.js` file:
+
+```javascript dark
+// assets/index.js
+
+export { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+export { ReactComponent as FilterIcon24 } from "./icon-filter-24.svg";
+export { ReactComponent as FilterIcon32 } from "./icon-filter-32.svg";
+```
+
 ### Default
 
 A default icon will render as a `medium` sized icon.
@@ -64,7 +84,7 @@ A default icon will render as a `medium` sized icon.
 
 An icon can vary in size.
 
-Available sizes are: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
+Can be set to: `"tiny"`, `"small"`, `"large"`, `"big"`, `"huge"`, `"massive"` or omitted.
 
 <Preview>
     <Story name="size">
