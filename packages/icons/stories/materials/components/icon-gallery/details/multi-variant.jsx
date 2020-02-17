@@ -8,7 +8,7 @@ import { cloneElement } from "react";
 function Import({ componentType }) {
     return (
         <>
-            <h4>Import</h4>
+            <h4 className="marine-900">Import</h4>
             <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} />
         </>
     );
@@ -17,7 +17,7 @@ function Import({ componentType }) {
 function Usage({ componentType }) {
     return (
         <>
-            <h4>Usage</h4>
+            <h4 className="marine-900">Usage</h4>
             <Source language="jsx" dark format={false} code={`<${componentType} />`} />
             <LearnUsageLink />
         </>

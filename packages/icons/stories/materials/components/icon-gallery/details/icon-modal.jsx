@@ -14,10 +14,10 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
 
     return (
         <>
-            <Modal open={open} onClose={onClose} size="small">
+            <Modal open={open} onClose={onClose} size="small" basic className="bg-white">
                 <Modal.Header>
                     <div className="flex items-center">
-                        <span className="flex-grow-1">{iconDisplayName}</span>
+                        <span className="flex-grow-1 marine-900">{iconDisplayName}</span>
                         <Button ghost secondary circular icon={<CloseIcon />} size="small" onClick={onClose} />
                     </div>
                 </Modal.Header>
