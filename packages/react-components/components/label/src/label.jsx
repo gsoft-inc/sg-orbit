@@ -8,10 +8,6 @@ import { createTagFromShorthand } from "./factories";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-// // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-// const SIZES = ["tiny", "small", "medium", "large", "big", "huge", "massive"];
-// const DEFAULT_SIZE = "medium";
-
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
 const propTypes = {
@@ -35,10 +31,10 @@ const propTypes = {
      * A label can contain a tag.
      */
     tag: oneOfType([element, object]),
-    // /**
-    //  * A label can vary in sizes.
-    //  */
-    // size: oneOf(SIZES),
+    /**
+     * Whether to add emphasis on the label text or not.
+     */
+    highlight: bool,
     /**
      * @ignore
      */
@@ -51,8 +47,8 @@ const propTypes = {
 
 const defaultProps = {
     naked: false,
-    iconPosition: "left"
-    // size: DEFAULT_SIZE
+    iconPosition: "left",
+    highlight: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
@@ -66,7 +62,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPos
 }
 
 export function PureLabel(props) {
-    const { naked, button, icon, iconPosition, tag, size, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -146,6 +142,7 @@ export function PureLabel(props) {
 
         const classes = mergeClasses(
             naked && "naked",
+            highlight && "highlight",
             !isNil(button) && "with-button",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
