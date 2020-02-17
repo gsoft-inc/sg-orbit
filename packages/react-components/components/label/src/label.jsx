@@ -1,4 +1,4 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { ArgumentError, BIG, HUGE, MASSIVE, MINI, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -61,11 +61,24 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPos
     }
 }
 
+function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
+    if (circular) {
+        if (size === MINI || size === TINY) {
+            throw new ArgumentError(`A circular @orbit/react-label doesn't support "${MINI}" and "${TINY}" sizes.`);
+        }
+    } else {
+        if (size === BIG || size === HUGE || size === MASSIVE) {
+            throw new ArgumentError(`A circular @orbit/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
+        }
+    }
+}
+
 export function PureLabel(props) {
     const { naked, button, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedSizeIsProvided(props);
 
     const renderWithRef = () => {
         return (

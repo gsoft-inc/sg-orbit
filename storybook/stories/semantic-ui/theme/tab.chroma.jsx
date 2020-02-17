@@ -1,6 +1,5 @@
-/* eslint max-len: 0 */
-
-import { Label, Menu, Tab } from "semantic-ui-react";
+import { Label } from "@orbit-ui/react-label";
+import { Menu, Tab } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
