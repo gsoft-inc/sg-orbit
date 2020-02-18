@@ -29,7 +29,7 @@
         "@orbit-ui/foundation": "*"
     },
     "dependencies": {
-        "@orbit-ui/icons": "5.0.1"
+        "@orbit-ui/icons": "5.0.2"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

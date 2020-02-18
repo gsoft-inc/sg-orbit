@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/icons": "5.0.1",
+        "@orbit-ui/icons": "5.0.2",
         "@orbit-ui/react-components-shared": "2.2.0",
         "prop-types": "*"
     }
