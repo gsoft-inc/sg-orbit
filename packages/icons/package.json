@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/icons",
-    "version": "5.0.2",
+    "version": "6.0.0",
     "description": "ShareGate Orbit Icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -19,6 +19,6 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "devDependencies": {
-        "@orbit-ui/react-icons": "0.1.0"
+        "@orbit-ui/react-icons": "1.0.0"
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-label",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "ShareGate Orbit UI React label components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -19,9 +19,9 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/react-icons": "0.1.0",
-        "@orbit-ui/react-button": "2.0.0",
-        "@orbit-ui/react-components-shared": "2.2.0",
+        "@orbit-ui/react-button": "2.1.0",
+        "@orbit-ui/react-components-shared": "2.3.0",
+        "@orbit-ui/react-icons": "1.0.0",
         "prop-types": "*"
     }
 }
