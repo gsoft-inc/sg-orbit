@@ -2,7 +2,7 @@ import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
 import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
-import { ArrowIcon } from "@orbit-ui/icons";
+import { ArrowIcon } from "@orbit-ui/react-icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";

@@ -4,7 +4,7 @@ import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from 
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { createIconForControl } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/react-icons";
 import { createLabelFromShorthand, createTagFromShorthand } from "@orbit-ui/react-label";
 import { isElement } from "react-is";
 import { isNil } from "lodash";

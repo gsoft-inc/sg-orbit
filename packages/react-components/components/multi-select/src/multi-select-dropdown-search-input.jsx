@@ -1,5 +1,5 @@
 import { Input } from "@orbit-ui/react-input";
-import { MagnifierIcon } from "@orbit-ui/icons";
+import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { PureComponent } from "react";
 import { func, string } from "prop-types";
 

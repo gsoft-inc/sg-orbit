@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { CalendarIcon, CloseIcon, getIconSizeForControl } from "@orbit-ui/icons";
+import { CalendarIcon, CloseIcon, getIconSizeForControl } from "@orbit-ui/react-icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { KEYS, LARGE, MEDIUM, SMALL, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";

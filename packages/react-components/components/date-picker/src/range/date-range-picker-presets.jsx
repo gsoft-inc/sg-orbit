@@ -1,4 +1,4 @@
-import { Icon } from "@orbit-ui/icons";
+import { Icon } from "@orbit-ui/react-icons";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
 import { arrayOf, bool, func, object, shape, string } from "prop-types";

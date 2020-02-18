@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { CalendarIcon, SignoutIcon } from "@orbit-ui/icons";
+import { CalendarIcon, SignoutIcon } from "@orbit-ui/react-icons";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 
 export const Buttons = props => {

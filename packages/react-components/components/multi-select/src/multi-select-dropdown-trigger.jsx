@@ -1,4 +1,4 @@
-import { AddIcon } from "@orbit-ui/icons";
+import { AddIcon } from "@orbit-ui/react-icons";
 import { Button } from "@orbit-ui/react-button";
 import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";

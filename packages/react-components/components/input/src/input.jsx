@@ -2,7 +2,7 @@
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
-import { createIconForControl } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/react-icons";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";

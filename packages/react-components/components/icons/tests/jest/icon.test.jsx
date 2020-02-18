@@ -1,14 +1,15 @@
-import { FilterIcon24, FilterIcon32 } from "./assets";
-import { MultiVariantIcon } from "@orbit-ui/icons/src";
+import { AzureIcon32 } from "./assets";
+import { Icon } from "@orbit-ui/react-icons/src";
 import { render, wait } from "@testing-library/react";
 
 function createIcon(props = {}) {
-    return <MultiVariantIcon
-        source24={<FilterIcon24 />}
-        source32={<FilterIcon32 />}
+    return <Icon
+        source={<AzureIcon32 />}
         {...props}
     />;
 }
+
+// ***** API *****
 
 test("has \"icon\" class", async () => {
     const { container } = render(createIcon());

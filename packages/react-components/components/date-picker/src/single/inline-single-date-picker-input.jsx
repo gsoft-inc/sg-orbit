@@ -1,4 +1,4 @@
-import { ArrowIcon32 } from "@orbit-ui/icons";
+import { ArrowIcon32 } from "@orbit-ui/react-icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";

@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { CloseIcon } from "@orbit-ui/icons";
+import { CloseIcon } from "@orbit-ui/react-icons";
 import { DOMEventListener, KEYS } from "@orbit-ui/react-components-shared";
 import { IconDetail } from "./icon-detail";
 import { Modal } from "semantic-ui-react";

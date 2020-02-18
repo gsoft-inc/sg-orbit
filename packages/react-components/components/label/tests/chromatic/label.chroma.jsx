@@ -1,7 +1,5 @@
-/* eslint max-len: 0 */
-
 import { Button } from "@orbit-ui/react-button/src";
-import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/react-icons";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";
@@ -93,7 +91,7 @@ stories()
     );
 
 stories()
-.add("with tag",
+    .add("with tag",
          () =>
              <div className="flex flex-row">
                  <div className="flex flex-column items-start">
@@ -197,7 +195,7 @@ stories()
                      </Label>
                  </div>
              </div>
-);
+    );
 
 stories()
     .add("naked", () =>

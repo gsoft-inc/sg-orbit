@@ -94,7 +94,7 @@ import {
     WarningIcon32,
     ZipIcon,
     ZipIcon32
-} from "@orbit-ui/icons";
+} from "@orbit-ui/react-icons";
 import { CheckeredBackground, ExternalLink, InfoMessage } from "@blocks";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./components/icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
@@ -180,7 +180,7 @@ Two types of components are available, _multi-variants_ components and _variants
 Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
 ```jsx dark
-import { CalendarIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/react-icons | @orbit-ui/react-components";
 
 function render() {
     return <CalendarIcon />;
@@ -192,7 +192,7 @@ function render() {
 Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
 ```jsx dark
-import { CalendarIcon24 } from "@orbit-ui/icons";
+import { CalendarIcon24 } from "@orbit-ui/react-icons | @orbit-ui/react-components";
 
 function render() {
     return <CalendarIcon24 />;
@@ -262,7 +262,7 @@ This means that you can alter the color of an icon by specifying a new `fill` va
 To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop:
 
 ```jsx dark
-import { CalendarIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/react-icons | @orbit-ui/react-components";
 
 function render() {
     return <CalendarIcon className="fill-marine-900" />
@@ -272,7 +272,7 @@ function render() {
 If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
 
 ```jsx dark
-import { CalendarIcon } from "@orbit-ui/icons";
+import { CalendarIcon } from "@orbit-ui/react-icons | @orbit-ui/react-components";
 
 function render() {
     return <CalendarIcon style={{ fill: var(--marine-900) }} />;

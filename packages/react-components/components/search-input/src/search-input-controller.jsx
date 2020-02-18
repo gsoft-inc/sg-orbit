@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { Button } from "@orbit-ui/react-button";
-import { CloseIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { CloseIcon, MagnifierIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";

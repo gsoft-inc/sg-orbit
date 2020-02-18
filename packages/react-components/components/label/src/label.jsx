@@ -1,9 +1,9 @@
-import { ArgumentError, BIG, HUGE, MASSIVE, MINI, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { ArgumentError, BIG, HUGE, MASSIVE, MINI, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "@orbit-ui/react-button";
-import { createIconForControl } from "@orbit-ui/icons";
+import { createIconForControl } from "@orbit-ui/react-icons";
 import { createTagFromShorthand } from "./factories";
 import { isElement } from "react-is";
 import { isNil } from "lodash";

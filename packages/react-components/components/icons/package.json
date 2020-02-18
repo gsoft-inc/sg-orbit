@@ -1,7 +1,7 @@
 {
-    "name": "@orbit-ui/react-input",
-    "version": "1.0.0",
-    "description": "ShareGate Orbit UI React input components",
+    "name": "@orbit-ui/react-icons",
+    "version": "0.1.0",
+    "description": "ShareGate Orbit UI React icons components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
@@ -11,15 +11,14 @@
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
-        "@orbit-ui/semantic-ui-theme": "*",
+        "@orbit-ui/tachyons": "*",
         "lodash": "*",
         "react": "*",
-        "react-dom": "*",
-        "semantic-ui-react": "*"
+        "react-dom": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/react-icons": "0.1.0",
+        "@orbit-ui/icons": "5.0.1",
         "@orbit-ui/react-components-shared": "2.2.0",
         "prop-types": "*"
     }

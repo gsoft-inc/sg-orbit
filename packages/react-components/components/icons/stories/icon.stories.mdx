@@ -1,17 +1,17 @@
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
 import { CheckeredBackground,Props } from "@blocks";
-import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon } from "@orbit-ui/icons/src";
+import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon } from "@orbit-ui/react-icons/src";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks/react-components";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { select, text, withKnobs } from "@storybook/addon-knobs";
-import Installation from "./installation.mdx";
+import Imports from "./imports.mdx";
 
 <Meta
     title={createComponentSection("Icon")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/icons/src/icon.jsx" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/icons/src" />)
         .build()}
 />
 
@@ -21,7 +21,7 @@ An icon component allow you to render a custom icon (e.g. Azure specific icons) 
 
 ## Installation
 
-<Installation />
+<Installation componentFolder="icons" imports={<Imports />} />
 
 ## Props
 
@@ -49,7 +49,7 @@ We recommended exporting all your icons from an `index.js` file:
 ```jsx dark
 // assets/index.js
 
-import { Icon, MultiVariantIcon } from "@orbit-ui/icons";
+import { Icon, MultiVariantIcon } from "@orbit-ui/react-icons";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
 import { ReactComponent as Filter32 } from "./icon-filter-32.svg";

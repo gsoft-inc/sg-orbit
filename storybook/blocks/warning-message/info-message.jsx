@@ -1,6 +1,6 @@
 import styles from "./info-message.module.css";
 
-import { InfoIcon } from "@orbit-ui/icons";
+import { InfoIcon } from "@orbit-ui/react-icons";
 import { Message } from "semantic-ui-react";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 

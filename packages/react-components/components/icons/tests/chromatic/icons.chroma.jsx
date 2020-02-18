@@ -94,7 +94,7 @@ import {
     WarningIcon32,
     ZipIcon,
     ZipIcon32
-} from "@orbit-ui/icons";
+} from "@orbit-ui/react-icons/src";
 import { IconTests } from "./components/icon-tests";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

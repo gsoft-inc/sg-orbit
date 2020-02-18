@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button";
-import { CloseIcon } from "@orbit-ui/icons";
+import { CloseIcon } from "@orbit-ui/react-icons";
 import { Label } from "@orbit-ui/react-label";
 import { PureComponent } from "react";
 import { SIZES } from "./sizes";

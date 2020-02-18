@@ -8,7 +8,6 @@ import { customStorybookTheme } from "./theme";
 import { includeChromatic, includeComponents, includeGettingStarted, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
-import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
@@ -86,15 +85,14 @@ if (includeMaterials) {
         stories = [
             ...stories,
             require.context("../stories/materials", true, /.stories.mdx$/),
-            require.context("../../packages/icons/stories/materials", true, /.stories.mdx$/)
+            require.context("../../packages/icons/stories", true, /.stories.mdx$/)
         ];
     }
 
     if (includeChromatic) {
         stories = [
             ...stories,
-            require.context("../stories/materials", true, /.chroma.jsx$/),
-            require.context("../../packages/icons/tests/chromatic", true, /icons.chroma.jsx$/)
+            require.context("../stories/materials", true, /.chroma.jsx$/)
         ];
     }
 }
@@ -104,8 +102,7 @@ if (includeComponents) {
         stories = [
             ...stories,
             require.context("../../packages/react-components/components", true, /.stories.mdx$/),
-            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/),
-            require.context("../../packages/icons/stories/components", true, /.stories.mdx$/)
+            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/)
         ];
     }
 

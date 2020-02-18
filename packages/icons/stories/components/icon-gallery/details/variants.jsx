@@ -9,7 +9,7 @@ function IconComponent({ componentType }) {
         <details>
             <summary className="marine-900">Use as a component</summary>
             <h4 className="marine-900 ma0 pa0 mt4">Import</h4>
-            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/icons";`} className="mv2" />
+            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-icons | @orbit-ui/react-components";`} className="mv2" />
             <h4 className="marine-900 ma0 pa0 mt4">Usage</h4>
             <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mv2" />
             <LearnUsageLink />

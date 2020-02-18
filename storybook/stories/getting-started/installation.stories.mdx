@@ -27,16 +27,14 @@ npm install @orbit-ui/react react-spring moment lodash
 #### Import components
 
 ```javascript dark
-import { Button, DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
+import { Button, DateRangePicker, MultiSelect, ClearIcon, ... } from "@orbit-ui/react-components";
 import { Message, ... } from "semantic-ui-react";
-import { ClearIcon, ... } from "@orbit-ui/icons";
 ```
 
 #### Import styles
 
 ```css dark
 @import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
-@import "~@orbit-ui/semantic-ui-theme";
 ```
 
 ## Custom installation
@@ -83,14 +81,19 @@ npm install @orbit-ui/react-* @orbit-ui/semantic-ui-theme semantic-ui-react styl
 #### Import components
 
 ```javascript dark
-import { Button, DateRangePicker, MultiSelect, ... } from "@orbit-ui/react-components";
-import { SingleDatePicker } from "@orbit-ui/react-date-pickers";
+import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/react-components";
 import { Message, ... } from "semantic-ui-react";
 ```
 
 ### Semantic UI theme
 
 When you're done importing components, you must include Semantic UI theme to style your components. Again, you can either pick and choose the specific modules that you need or import the whole theme.
+
+#### Import the whole theme
+
+```css dark
+@import "~@orbit-ui/semantic-ui-theme";
+```
 
 #### Pick and choose specific modules
 
@@ -99,15 +102,9 @@ When you're done importing components, you must include Semantic UI theme to sty
 @import "~@orbit-ui/semantic-ui-theme/checkbox.css";
 ```
 
-#### Import the whole theme
-
-```css dark
-@import "~@orbit-ui/semantic-ui-theme";
-```
-
 ## Icons
 
-[Orbit UI icons](?path=/docs/materials-icons--page) depends on [@svgr/webpack](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you use Orbit UI icons React components or any Orbit UI React components, chances are you depend on `@svgr/webpack`. To use `@svgr/webpack`, your project babel config must also configure the [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) plugin:
+[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you use Orbit UI icons React components or any Orbit UI React components, chances are you depend on `@svgr/webpack` and you need to configure Babel properly. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```js dark
 {
