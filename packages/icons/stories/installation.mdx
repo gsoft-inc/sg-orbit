@@ -1,33 +1,45 @@
 import { Fragment } from "react";
+import { NpmPackages } from "@blocks/react-components";
 
 <details><summary >install the packages</summary>
 
-Install from [the React bundle](?path=/docs/getting-started-installation--page) or as a single package:
+For icons as React components, install from [the React bundle](?path=/docs/getting-started-installation--page) or as a single package:
+
+<NpmPackages componentFolder="icons" />
+
+For static files:
 
 ```bash dark
 npm install @orbit-ui/icons
 ```
+
 </details>
 
 <details><summary >then import what you need</summary>
 
-As a react component:
+As a multi-variant React component:
 
 ```jsx dark
-import { IconName } from "@orbit-ui/icons";
+import { IconName } from "@orbit-ui/react-icons";
 ```
 
-As an image:
+As a single variant React component:
 
 ```jsx dark
-import IconName from "@orbit-ui/icons/icon-name.svg";
+import { IconName24 } from "@orbit-ui/react-icons";
 ```
 
-As a background image:
+As an image source:
+
+```jsx dark
+import IconName24 from "@orbit-ui/icons/icon-name-24.svg";
+```
+
+As a CSS background:
 
 ```css dark
-.name-icon: {
-    background: url("~@orbit-ui/icons/icon-name.svg");
+.name-icon {
+    background: url("~@orbit-ui/icons/icon-name-24.svg");
 }
 ```
 

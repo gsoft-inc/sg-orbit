@@ -1,7 +1,6 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { DatePickerAnchor } from "../date-picker-anchor";
 import { POSITIONS } from "@orbit-ui/react-popup";
-import { SIZES } from "../sizes";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
@@ -10,6 +9,9 @@ import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 export const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
@@ -57,7 +59,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     numberOfMonths: number,
     /**
-     * A custom React component that display the currently applied date and open the calendar.
+     * A React component that display the currently applied date and open the calendar.
      */
     input: node,
     /**
@@ -82,11 +84,11 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     zIndex: string,
     /**
-     * A custom React component to select a date.
+     * A React component to select a date.
      */
     calendar: node,
     /**
-     * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+     * A React component displayed under the calendar to `clear` and `apply` the date(s).
      */
     buttons: node,
     /**
@@ -115,7 +117,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     fluid: bool,
     /**
-     * A date picker can have different sizes.
+     * A date picker can vary in sizes.
      */
     size: oneOf(SIZES),
     /**

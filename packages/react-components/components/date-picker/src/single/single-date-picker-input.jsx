@@ -1,7 +1,7 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
 import { PureComponent, forwardRef } from "react";
 import { SIZES } from "../sizes";
-import { bool, func, node, object, oneOf, string } from "prop-types";
+import { bool, func, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { withHandlerProxy } from "@orbit-ui/react-components-shared";
@@ -88,14 +88,6 @@ export class PureSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A custom React SVG component displayed before the applied date text.
-         */
-        icon: node,
-        /**
-         * A custom React SVG component for the clear button.
-         */
-        clearIcon: node,
-        /**
          * A disabled input does not allow user interaction.
          */
         disabled: bool,
@@ -141,7 +133,7 @@ export class PureSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, icon, clearIcon, disabled, fluid, open, size, className, inputRef } = this.props;
+        const { allowClear, placeholder, disabled, fluid, open, size, className, inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -156,8 +148,6 @@ export class PureSingleDatePickerInput extends PureComponent {
                 onBlur={this.handleBlur}
                 allowClear={allowClear}
                 placeholder={placeholder}
-                icon={icon}
-                clearIcon={clearIcon}
                 disabled={disabled}
                 fluid={fluid}
                 open={open}

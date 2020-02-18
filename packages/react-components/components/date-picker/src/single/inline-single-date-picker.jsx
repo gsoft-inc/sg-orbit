@@ -57,7 +57,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     numberOfMonths: number,
     /**
-     * A custom React component that display the currently applied date and open the calendar.
+     * A React component that display the currently applied date and open the calendar.
      */
     input: node,
     /**
@@ -82,11 +82,11 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     zIndex: string,
     /**
-     * A custom React component to select a date.
+     * A React component to select a date.
      */
     calendar: node,
     /**
-     * A custom React component displayed under the calendar to `clear` and `apply` the date(s).
+     * A React component displayed under the calendar to `clear` and `apply` the date(s).
      */
     buttons: node,
     /**

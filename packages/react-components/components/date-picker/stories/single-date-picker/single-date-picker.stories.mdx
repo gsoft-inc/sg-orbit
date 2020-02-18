@@ -2,18 +2,16 @@ import {
     BOTTOM_CENTER,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
-    DEFAULT_SIZE,
-    LARGE,
-    MEDIUM,
     PureSingleDatePickerInput,
-    SMALL,
     SingleDatePicker,
     TOP_CENTER,
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components";
+import { DEFAULT_SIZE } from "../../src/sizes";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -216,7 +214,7 @@ A single date picker can take the width of its container.
 
 A single date picker can vary in size.
 
-Available sizes are: `"small"`, `"medium"` and `"large"`.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">

@@ -9,10 +9,12 @@ import {
     getAutoControlledStateFromProps,
     httpGet
 } from "@orbit-ui/react-components-shared";
-import { SIZES } from "./sizes";
 import { SearchInputController } from "./search-input-controller";
-import { bool, func, node, number, oneOf, string } from "prop-types";
+import { bool, func, number, oneOf, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {
@@ -171,14 +173,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * The initial value of open.
          */
         defaultOpen: bool,
-        /**
-         * A custom React SVG component displayed before the prompt.
-         */
-        icon: node,
-        /**
-         * A custom React SVG component for the clear button.
-         */
-        clearIcon: node,
         /**
          * A disabled search input does not allow user interaction.
          */
@@ -429,7 +423,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, icon, clearIcon, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
         const { open, isLoading, results } = this.state;
 
         return (
@@ -451,8 +445,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 debounceDelay={0}
                 placeholder={placeholder}
                 loading={isLoading}
-                icon={icon}
-                clearIcon={clearIcon}
                 disabled={disabled}
                 autofocus={autofocus}
                 autofocusDelay={autofocusDelay}

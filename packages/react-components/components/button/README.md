@@ -1,6 +1,6 @@
 # @orbit-ui/react-button
 
-Full documentation available at: https://sg-orbit.netlify.com
+Full documentation available at: https://orbit.sharegate.design
 
 ## License
 

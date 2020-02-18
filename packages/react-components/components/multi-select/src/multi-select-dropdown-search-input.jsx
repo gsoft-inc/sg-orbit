@@ -1,6 +1,7 @@
 import { Input } from "@orbit-ui/react-input";
+import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { PureComponent } from "react";
-import { func, node, string } from "prop-types";
+import { func, string } from "prop-types";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
     static propTypes = {
@@ -12,10 +13,6 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
          * @returns {void}
          */
         onChange: func,
-        /**
-         * A custom React SVG component displayed before the text.
-         */
-        icon: node,
         /**
          * The placeholder text.
          */
@@ -33,13 +30,13 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     };
 
     render() {
-        const { placeholder, icon, className } = this.props;
+        const { placeholder, className } = this.props;
 
         return (
             <Input
                 onChange={this.handleChange}
                 placeholder={placeholder}
-                icon={icon}
+                icon={<MagnifierIcon className="fill-marine-500" />}
                 iconPosition="left"
                 className={className}
                 autofocus

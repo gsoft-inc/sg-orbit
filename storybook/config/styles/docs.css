@@ -27,6 +27,7 @@
 }
 
 .sbdocs.sbdocs-p,
+.sbdocs.sbdocs-span,
 /* TODO: Use sbdocs-summary escape hatch when it's available */
 .sbdocs summary {
     font-size: 1.125rem;
@@ -49,6 +50,10 @@ details + details {
 
 strong {
     font-weight: 600;
+}
+
+.sbdocs .sbdocs-a code {
+    color: var(--primary-500);
 }
 
 .sbdocs.sbdocs-h1,
@@ -169,10 +174,6 @@ details .docblock-source {
     color: var(--cloud-500);
     background-color: var(--cloud-50);
     border: 1px dashed var(--cloud-100);
-}
-
-.sbdocs.sbdocs-ig-item {
-    flex-basis: calc(12% + 17px) !important;
 }
 
 /* Helpers */

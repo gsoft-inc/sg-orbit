@@ -255,34 +255,6 @@
     color: @cloud100!important;
 }
 
-/* CONTENT */
-/* CONTENT | With Icon */
-/* CONTENT | With Icon | Layout */
-/* CONTENT | With Icon | Layout | Sizes */
-/* CONTENT | With Icon | Layout | Sizes/Tiny */
-.ui.circular.button.tiny > .icon,
-.ui.circular.buttons.tiny .button > .icon {
-    width: @scaleDelta;
-}
-
-/* CONTENT | With Icon | Layout | Sizes/Small */
-.ui.circular.button.small > .icon,
-.ui.circular.buttons.small .button > .icon  {
-    width: @scaleEcho;
-}
-
-/* CONTENT | With Icon | Layout | Sizes/Medium */
-.ui.circular.button > .icon,
-.ui.circular.buttons .button > .icon {
-    width: @scaleFoxtrot;
-}
-
-/* CONTENT | With Icon | Layout | Sizes/Large */
-.ui.circular.button.large > .icon,
-.ui.circular.buttons.large .button > .icon {
-    width: @scaleGolf;
-}
-
 /* CONTENT | With Icon | Layout | Padding */
 .ui.with-icon.button,
 .ui.with-icon.buttons .button {
@@ -599,31 +571,6 @@
 }
 
 /* CONTENT | Icon */
-
-/* CONTENT | Icon | LAYOUT | Sizes */
-.ui.button .icon,
-.ui.buttons .button .icon {
-    width: @scaleFoxtrot;
-    height: @scaleFoxtrot;
-}
-
-.ui.button.tiny .icon,
-.ui.buttons.tiny .button .icon {
-    width: @scaleDelta;
-    height: @scaleDelta;
-}
-
-.ui.button.small .icon,
-.ui.buttons.small .button .icon {
-    width: @scaleEcho;
-    height: @scaleEcho;
-}
-
-.ui.button.large .icon,
-.ui.buttons.large .button .icon {
-    width: @scaleFoxtrot;
-    height: @scaleFoxtrot;
-}
 
 /* CONTENT | Icon | SKIN | Default */
 .ui.button .icon,

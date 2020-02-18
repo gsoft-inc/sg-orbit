@@ -1,4 +1,4 @@
-import { AddIcon, MagnifierIcon } from "@orbit-ui/icons";
+import { AddIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { Dropdown } from "semantic-ui-react";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
@@ -163,20 +163,13 @@ stories("/customization")
     .add("trigger icon",
          () =>
              createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown triggerIcon={<AddIcon className="fill-red ml1" />} />
+                 dropdown: <MultiSelect.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
              })
     )
     .add("search input",
          () =>
              createMultiSelect({
                  dropdown: <MultiSelect.Dropdown searchInput={<MultiSelect.SearchInput className="bg-red border-red" />} />,
-                 defaultOpen: true
-             })
-    )
-    .add("search icon",
-         () =>
-             createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown searchIcon={<MagnifierIcon className="w7 h7 fill-red" />} />,
                  defaultOpen: true
              })
     )

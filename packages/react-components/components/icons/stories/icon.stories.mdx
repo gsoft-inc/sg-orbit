@@ -1,0 +1,195 @@
+import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
+import { CheckeredBackground,Props } from "@blocks";
+import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon } from "@orbit-ui/react-icons/src";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { select, text, withKnobs } from "@storybook/addon-knobs";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Icon")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/components/icons/src" />)
+        .build()}
+/>
+
+# Icon
+
+An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. For Orbit UI official icons, please have a look at the [icons page](?path=/docs/materials-icons--page#gallery) in the materials section.
+
+## Installation
+
+<Installation componentFolder="icons" imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Icon", component: PureIcon },
+        { displayName: "MultiVariantIcon", component: MultiVariantIcon }
+    ]}
+/>
+
+## Usage
+
+To use an icon component you must first import your SVG icon as a React component by using [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/). If you haven't setup `@svgr/webpack` yet, please have a look at the [icon section](http://localhost:2742/?path=/docs/getting-started-installation--page#icons) of the installation page.
+
+To import your SVG icon as a React component:
+
+```jsx dark
+import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+
+<AzureIcon32 />
+```
+
+We recommended exporting all your icons from an `index.js` file:
+
+```jsx dark
+// assets/index.js
+
+import { Icon, MultiVariantIcon } from "@orbit-ui/react-icons";
+import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
+import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
+
+export const AzureIcon32 = <Icon source={Azure32} />;
+export const FilterIcon = <MultiVariantIcon source24={Filter24} source32={Filter32} />;
+```
+
+### Default
+
+A default icon will render as a `medium` sized icon.
+
+<Preview>
+    <Story name="default">
+        <CheckeredBackground>
+            <Icon source={<AzureIcon32 />} />
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
+        .excludeFromDocs()
+        .build()}
+>
+    <Icon
+        source={<AzureIcon32 />}
+        size={select("size", { Tiny: TINY, Small: SMALL, Medium: MEDIUM, Large: LARGE, Big: BIG, Huge: HUGE, Massive: MASSIVE }, DEFAULT_SIZE)}
+        className={text("className")}
+    />
+</Story>
+
+### Size
+
+An icon can vary in size.
+
+Can be set to: `"tiny"`, `"small"`, `"large"`, `"big"`, `"huge"`, `"massive"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <CheckeredBackground>
+            <div className="flex items-end items-space-between">
+                <Icon source={<AzureIcon32 />} size="tiny" />
+                <Icon source={<AzureIcon32 />} size="small" />
+                <Icon source={<AzureIcon32 />} />
+                <Icon source={<AzureIcon32 />} size="large" />
+                <Icon source={<AzureIcon32 />} size="big" />
+                <Icon source={<AzureIcon32 />} size="huge" />
+                <Icon source={<AzureIcon32 />} size="massive" />
+            </div>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+### Color
+
+An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
+
+<Preview>
+    <Story name="color">
+        <CheckeredBackground>
+            <div className="flex items-end items-space-between">
+                <Icon source={<AzureIcon32 />} size="huge" className="fill-primary-100" />
+                <Icon source={<AzureIcon32 />} size="huge" className="fill-primary-500" />
+                <Icon source={<AzureIcon32 />} size="huge" className="fill-primary-900" />
+            </div>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
+
+<Preview>
+    <Story name="dynamic-color">
+        <CheckeredBackground>
+            <div className="flex items-end items-space-between">
+                <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-100)" }} />
+                <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-500)" }} />
+                <Icon source={<AzureIcon32 />} size="huge" style={{ fill: "var(--primary-900)" }} />
+            </div>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+## Multi-variants
+
+If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi-variants components will decide which variant of an icon to render based on the size you specified.
+
+A multi variants icon support the same props as `<Icon />`.
+
+### Size
+
+<Preview>
+    <Story name="multi-variants size">
+        <CheckeredBackground>
+            <div className="flex items-end items-space-between">
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="tiny" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="small" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="large" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="big" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="massive" />
+            </div>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="multi-variants color">
+        <CheckeredBackground>
+            <div className="flex items-end items-space-between">
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-100" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-500" />
+                <MultiVariantIcon source24={<FilterIcon24 />} source32={<FilterIcon32 />} size="huge" className="fill-primary-900" />
+            </div>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+<Story
+    name="icon ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Icon source={<AzureIcon32 />} />} />
+</Story>
+
+<Story
+    name="multi-variants ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Icon source={<AzureIcon32 />} />} />
+</Story>

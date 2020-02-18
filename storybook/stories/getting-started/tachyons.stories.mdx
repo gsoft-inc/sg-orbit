@@ -15,43 +15,49 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 [Tachyons](https://github.com/tachyons-css/tachyons) is a widely adopted [Atomic CSS library](https://acss.io/) ([also called Functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)) that aims to break down CSS rules into small, reusable and single-purpose classes.
 These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
->_Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http://getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
->complex and hard to grasp for most full stack developers and should be avoid. Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
->and therefore the need to adopt a methodology.
->
->One could argue that [CSS modules](https://github.com/css-modules/css-modules) also solve CSS global-mutable-stateful classes problems, which is true, but at the expense of reusability.
+### Composable
 
->_Readability_ leads to _maintability_. If the code is easy to read and understand, the code is easy to maintain. Once you get used to Tachyons naming scheme you can understand the style immediatly. No more indirection!
+_Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http://getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
+complex and hard to grasp for most full stack developers and should be avoid. Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
+and therefore the need to adopt a methodology.
 
->_Consistency_ makes designers happy!
+One could argue that [CSS modules](https://github.com/css-modules/css-modules) also solve CSS global-mutable-stateful classes problems, which is true, but at the expense of reusability.
 
-In Orbit, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
+### Readable
+
+_Readability_ leads to _maintability_. If the code is easy to read and understand, the code is easy to maintain. Once you get used to Tachyons naming scheme you can understand the style immediatly. No more indirection!
+
+### Consistant
+
+_Consistency_ makes designers happy!
+
+### Tachyons as a foundation
+
+In Orbit UI, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
 Over the course of development of our products, we added a few utilities that we could benefit from and were missing from Tachyons. Find out how we customized Tachyons in the [customization section](#customization) of this document.
 
 ## Customization
 
-Orbit provide a custom version of the Tachyons library based on [Orbit foundation](?path=/docs/getting-started-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit customization documentation, please refer to the list of customizations below and the _Materials_ pages.
+Orbit UI provide a custom version of the Tachyons library based on [Orbit UI foundation](?path=/docs/getting-started-foundation--page) variables. You will find most of the documentation on [Tachyons website](http://tachyons.io/docs). For Orbit UI customization documentation, please refer to the list of customizations below and the _Materials_ pages.
 
 ### Spacing scale
 
-Orbit foundation spacing scale have been implemented as Tachyons CSS classes. Tachyons spacing scale have been increased from _7_ to _13_ values.
-
-This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page#tachyons) for an exhaustive list of all available classes.
+Orbit Design spacing scale have been implemented as Tachyons CSS classes. To do so, Tachyons spacing scale have been increased from _7_ to _13_ values. This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/materials-spacing--page#tachyons) for an exhaustive list of all available classes.
 
 ### Typography
 
-Tachyons have been adapted to Orbit foundation typography.
+Tachyons have been adapted to Orbit Design typography.
 
 - [Type scale](?path=/docs/materials-typography--page#type-scale) have been increased from _7_ to _9_ values. Classes are available from `f1` to `f9`.
-- [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should not be used.
+- [Line height](?path=/docs/materials-typography--page#line-height) have been increased to _6_ values. Classes are available from `lh1` to `lh6`. Tachyons original line-height classes `lh-solid`, `lh-title` and `lh-copy` should be avoided.
 - [Font-weight](?path=/docs/materials-typography--page#font-weight) have been decreased from 9 to 7 values. `fw2` and `fw8` have been removed.
 
 Please refer to the [typography page](?path=/docs/materials-typography--page#tachyons) for an exhaustive list of all available classes.
 
 ### Colors
 
-Tachyons original colors have been replaced with [Orbit foundation colors](?path=/docs/materials-colors--page).
+Tachyons original colors have been replaced with [Orbit Design colors](?path=/docs/materials-colors--page).
 
 For any [brand](?path=/docs/materials-colors--page#brand) or [feedback and UI](?path=/docs/materials-colors--page#feedback-and-ui) colors, the following classes are available:
 
@@ -62,7 +68,7 @@ For any [brand](?path=/docs/materials-colors--page#brand) or [feedback and UI](?
 - `fill-[color-name]-[50-900]` (ex. `fill-sunray-50`)
 - `hover-fill-[color-name]-[50-900]` (ex. `hover-fill-sunray-50`)
 
-For any [products](?path=/docs/materials-colors--page#products) colors the same classes are available but with a [_product-name_] instead of a [_color-name_]:
+For any [products](?path=/docs/materials-colors--page#products) colors the same classes are available but with a `[product-name]` instead of a `[color-name]`:
 
 - `[product-name]-[50-900]` (ex. `apricot-50`)
 
@@ -70,14 +76,14 @@ Please refer to the [colors page](?path=/docs/materials-colors--page#tachyons) f
 
 ### Borders
 
-Since Tachyons original colors have been replaced with [Orbit foundation colors](?path=/docs/materials-colors--page), Tachyons border classes have also been adapted.
+Since Tachyons original colors have been replaced with [Orbit Design colors](?path=/docs/materials-colors--page), we also updated Tachyons border classes.
 
 The following classes are available:
 
 - `b--[color-name]-[50-900]` (ex. `b--sunray-50`)
 - `hover-b--[color-name]-[50-900]` (ex. `hover-b--sunray-50`)
 
-For any [products](?path=/docs/materials-colors--page#products) colors the same classes are available but with a [_product-name_] instead of a [_color-name_]:
+For any [products](?path=/docs/materials-colors--page#products) colors the same classes are available but with a `[product-name]` instead of a `[color-name]`:
 
 - `b--[product-name]-[50-900]` (ex. `b--apricot-50`)
 - `hover-b--[product-name]-[50-900]` (ex. `hover-b--apricot-50`)
@@ -86,7 +92,7 @@ Please refer to the [borders page](?path=/docs/materials-borders--page#tachyons)
 
 ### Primary
 
-A set of primary classes have been added to Tachyons. If you choose to [install Tachyons for a specific product](?path=/docs/getting-started-installation--page#react-bundle), the primary classes will be aliases for that product, otherwise they are void until you [set the primary variables of Orbit foundation](?path=/docs/getting-started-foundation--page#override-variables).
+A set of primary classes have been added to Tachyons. If you choose to [install Tachyons for a specific product](?path=/docs/getting-started-installation--page#react-bundle), the primary classes will be aliases for that product, otherwise they are void until you [set the primary variables of Orbit UI foundation](?path=/docs/getting-started-foundation--page#override-variables).
 
 Primary classes are available for colors and borders:
 
@@ -105,7 +111,7 @@ Please refer to the [flexbox page](?path=/docs/materials-flexbox--page#tachyons)
 
 ### Shadows
 
-Tachyons box shadows classes have been rewrited to match Orbit foundation variables.
+Tachyons box shadows classes have been rewrited to match Orbit UI foundation variables.
 
 Please refer to the [shadows page](?path=/docs/materials-shadows--page#tachyons) for an exhaustive list of all available classes.
 
@@ -115,13 +121,17 @@ Please refer to the [installation page](?path=/docs/getting-started-installation
 
 ## Quick start
 
-Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes:
+Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes.
 
 ```jsx dark
 <p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
 ```
 
-To align a list of items horizontally:
+### Common use cases
+
+Here's a few common use cases to get you started.
+
+#### Align a list of items horizontally
 
 ```jsx dark
 <div className="flex">
@@ -131,7 +141,7 @@ To align a list of items horizontally:
 </div>
 ```
 
-To specify a margin-right between each elements:
+#### Add a margin-right between each elements
 
 ```jsx dark
 <div className="flex">
@@ -141,32 +151,28 @@ To specify a margin-right between each elements:
 </div>
 ```
 
-To render a 32px / 32px icon filled with _apricot_ color:
-
-```jsx dark
-<GearIcon className="w7 h7 fill-apricot-500" />
-```
-
-To align a text with an icon:
+#### Align a text with an icon
 
 ```jsx dark
 <span className="flex items-center">
     Check
-    <CheckIcon24 className="w6 h6 ml1 fill-success-500" />
+    <CheckIcon className="ml1 fill-success-500" />
 </span>
 ```
 
-To specify paddings for each side of an element:
+#### Add padding on each sides of an element
 
 ```jsx dark
 <div className="pa4">Im padded!</div>
 ```
 
-To specify the background and text color of an element:
+#### Set the background and text color of an element
 
 ```jsx dark
 <div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>
 ```
+
+### Dynamic styles
 
 By combining Tachyons with a library like [classnames](https://github.com/JedWatson/classnames) you can easily had dynamic styles to an element based on one or more conditions:
 

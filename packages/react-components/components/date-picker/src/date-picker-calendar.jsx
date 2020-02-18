@@ -2,7 +2,7 @@ import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
 import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
-import { ChevronIcon } from "@orbit-ui/icons";
+import { ArrowIcon } from "@orbit-ui/react-icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOfType, string } from "prop-types";
@@ -25,8 +25,6 @@ export class DatePickerCalendar extends PureComponent {
         initialDate: momentType.isRequired,
         initialVisibleMonth: oneOfType([momentType, func]),
         numberOfMonths: number,
-        navPrevIcon: node,
-        navNextIcon: node,
         className: string,
         temporarySingleDatePickerFlag: bool
     };
@@ -133,40 +131,20 @@ export class DatePickerCalendar extends PureComponent {
         return {};
     }
 
-    renderNavPrevIcon() {
-        const { navPrevIcon } = this.props;
-
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(navPrevIcon) ? navPrevIcon : <ChevronIcon className="rotate-180" />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                "w4 h4 fill-marine-500"
-            )
-        });
-    }
-
     renderNavPrev() {
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavPrevIcon()}</div>;
-    }
-
-    renderNavNextIcon() {
-        const { navNextIcon } = this.props;
-
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(navNextIcon) ? navNextIcon : <ChevronIcon />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                "w4 h4 fill-marine-500"
-            )
-        });
+        return (
+            <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
+                <ArrowIcon size="large" className="rotate-180 fill-marine-500" />
+            </div>
+        );
     }
 
     renderNavNext() {
-        return <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>{this.renderNavNextIcon()}</div>;
+        return (
+            <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
+                <ArrowIcon size="large" className="fill-marine-500" />
+            </div>
+        );
     }
 
     renderCalendar() {
@@ -265,7 +243,7 @@ export class DatePickerCalendar extends PureComponent {
                     }
 
                     .calendar :global(.DayPickerNavigation_button) {
-                        margin-top: 24px;
+                        margin-top: 17px;
                     }
 
                     .calendar :global(.DayPickerNavigation_button__horizontalDefault) {

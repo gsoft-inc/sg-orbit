@@ -1,6 +1,6 @@
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Input, PureInput } from "@orbit-ui/react-input/src";
-import { MagnifierIcon } from "@orbit-ui/icons";
+import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -72,6 +72,16 @@ An input can be disabled.
     </Story>
 </Preview>
 
+### Readonly
+
+An input can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Input readOnly value="Orbit" />
+    </Story>
+</Preview>
+
 ### Fluid
 
 An input can take the width of its container.
@@ -121,7 +131,7 @@ An input can show that it is currently loading data.
 
 An input can vary in size.
 
-Available sizes are: `"small"`, `"medium"` and `"large"`.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">

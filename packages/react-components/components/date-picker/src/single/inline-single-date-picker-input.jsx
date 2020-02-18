@@ -1,8 +1,8 @@
-import { ChevronIcon } from "@orbit-ui/icons";
+import { ArrowIcon32 } from "@orbit-ui/react-icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
-import { PureComponent, cloneElement, createRef } from "react";
+import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "../resize-observer";
-import { bool, func, node, string } from "prop-types";
+import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -77,14 +77,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
          * A format to display a date.
          */
         dateFormat: string,
-        /**
-         * A custom React SVG component displayed after the date text when the date picker is opened.
-         */
-        openIcon: node,
-        /**
-         * A custom React SVG component displayed after the date text when the date picker is closed.
-         */
-        closeIcon: node,
         /**
          * A disabled input does not allow user interaction.
          */
@@ -190,39 +182,13 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     renderOpenIcon() {
-        const { openIcon } = this.props;
-
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(openIcon) ? openIcon : <ChevronIcon className="rotate-270" />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                "fill-primary-500"
-            ),
-            style: {
-                width: "1em",
-                height: "1em"
-            }
-        });
+        return <ArrowIcon32 className="rotate-270 fill-primary-500" style={{ width: "2em", height: "2em" }} />;
     }
 
     renderCloseIcon() {
-        const { closeIcon, disabled } = this.props;
+        const { disabled } = this.props;
 
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(closeIcon) ? closeIcon : <ChevronIcon className="rotate-90" />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                !disabled ? "fill-primary-500" : "fill-cloud-200"
-            ),
-            style: {
-                width: "1em",
-                height: "1em"
-            }
-        });
+        return <ArrowIcon32 className={`rotate-90 ${!disabled ? "fill-primary-500" : "fill-cloud-200"}`} style={{ width: "2em", height: "2em" }} />;
     }
 
     renderIcon() {
@@ -246,7 +212,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 ref={this._containerRef}
                 data-testid="inline-single-date-picker-input"
             >
-                <span className="mr2 fw5">{this.getValue()}</span>
+                <span className="fw5">{this.getValue()}</span>
                 <span className="flex">{this.renderIcon()}</span>
             </div>
         );

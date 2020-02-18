@@ -24,7 +24,7 @@
     "dependencies": {
         "@babel/runtime-corejs3": "*",
         "@juggle/resize-observer": "2.4.0",
-        "@orbit-ui/icons": "5.0.2",
+        "@orbit-ui/react-icons": "0.1.0",
         "@orbit-ui/react-button": "2.0.0",
         "@orbit-ui/react-components-shared": "2.2.0",
         "@orbit-ui/react-popup": "3.0.2",
