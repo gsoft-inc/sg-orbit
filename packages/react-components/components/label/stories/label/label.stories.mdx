@@ -129,12 +129,13 @@ Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
 
 A label can have a circular form.
 
-Can be set to: `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"`, `"massive"` or omitted.
+Can be set to: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"`, `"massive"` or omitted.
 
 <Preview>
     <Story name="circular">
         <div className="flex">
             <div className="flex items-end items-space-between mr4">
+                <Label circular size="tiny">R</Label>
                 <Label circular size="small">R</Label>
                 <Label circular>R</Label>
                 <Label circular size="large">R</Label>
@@ -143,6 +144,7 @@ Can be set to: `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"`, `"massive"` 
                 <Label circular size="massive">R</Label>
             </div>
             <div className="flex items-end items-space-between">
+                <Label circular size="tiny" icon={<CommunicationIcon />} />
                 <Label circular size="small" icon={<CommunicationIcon />} />
                 <Label circular icon={<CommunicationIcon />} />
                 <Label circular size="large" icon={<CommunicationIcon />} />

@@ -63,12 +63,12 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPos
 
 function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     if (circular) {
-        if (size === MINI || size === TINY) {
-            throw new ArgumentError(`A circular @orbit/react-label doesn't support "${MINI}" and "${TINY}" sizes.`);
+        if (size === MINI) {
+            throw new ArgumentError(`@orbit/react-label doesn't support "${MINI}" size when "circular".`);
         }
     } else {
         if (size === BIG || size === HUGE || size === MASSIVE) {
-            throw new ArgumentError(`A circular @orbit/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
+            throw new ArgumentError(`@orbit/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
         }
     }
 }

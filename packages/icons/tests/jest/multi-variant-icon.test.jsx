@@ -1,5 +1,5 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
-import { MultiVariantIcon } from "@orbit-ui/icons";
+import { MultiVariantIcon } from "@orbit-ui/icons/src";
 import { render, wait } from "@testing-library/react";
 
 function createIcon(props = {}) {

@@ -1,5 +1,5 @@
 import { AzureIcon32 } from "./assets";
-import { Icon } from "@orbit-ui/icons";
+import { Icon } from "@orbit-ui/icons/src";
 import { render, wait } from "@testing-library/react";
 
 function createIcon(props = {}) {
