@@ -28,22 +28,12 @@ stories()
                      </Label>
                  </div>
                  <div className="flex flex-column items-start">
-                     <Label circular size="tiny">R</Label>
-                     <Label circular size="small">R</Label>
-                     <Label circular size="medium">R</Label>
-                     <Label circular size="large">R</Label>
-                     <Label circular size="big">R</Label>
-                     <Label circular size="huge">R</Label>
-                     <Label circular size="massive">R</Label>
-                 </div>
-                 <div className="flex flex-column items-start">
-                     <Label circular size="tiny" icon={<CommunicationIcon />} />
-                     <Label circular size="small" icon={<CommunicationIcon />} />
-                     <Label circular size="medium" icon={<CommunicationIcon />} />
-                     <Label circular size="large" icon={<CommunicationIcon />} />
-                     <Label circular size="big" icon={<CommunicationIcon />} />
-                     <Label circular size="huge" icon={<CommunicationIcon />} />
-                     <Label circular size="massive" icon={<CommunicationIcon />} />
+                     <Label basic>Notification Sent</Label>
+                     <Label basic icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
+                     <Label basic icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label basic button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
                  </div>
                  <div className="flex flex-column items-start">
                      <Label size="small">Notification Sent</Label>
@@ -54,6 +44,59 @@ stories()
                      <Label size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
                  </div>
                  <div className="flex flex-column items-start">
+                     <Label basic size="small">Notification Sent</Label>
+                     <Label basic size="small" icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label basic size="small" icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
+                     <Label basic size="large">Notification Sent</Label>
+                     <Label basic size="large" icon={<CommunicationIcon />}>Notification Sent</Label>
+                     <Label basic size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
+                 </div>
+                 <div className="flex flex-row items-start">
+                     <div className="flex flex-column items-start">
+                         <Label circular size="tiny">R</Label>
+                         <Label circular size="small">R</Label>
+                         <Label circular size="medium">R</Label>
+                         <Label circular size="large">R</Label>
+                         <Label circular size="big">R</Label>
+                         <Label circular size="huge">R</Label>
+                         <Label circular size="massive">R</Label>
+                     </div>
+                     <div className="flex flex-column items-start">
+                         <Label basic circular size="tiny">R</Label>
+                         <Label basic circular size="small">R</Label>
+                         <Label basic circular size="medium">R</Label>
+                         <Label basic circular size="large">R</Label>
+                         <Label basic circular size="big">R</Label>
+                         <Label basic circular size="huge">R</Label>
+                         <Label basic circular size="massive">R</Label>
+                     </div>
+                     <div className="flex flex-column items-start">
+                         <Label circular size="tiny" icon={<CommunicationIcon />} />
+                         <Label circular size="small" icon={<CommunicationIcon />} />
+                         <Label circular size="medium" icon={<CommunicationIcon />} />
+                         <Label circular size="large" icon={<CommunicationIcon />} />
+                         <Label circular size="big" icon={<CommunicationIcon />} />
+                         <Label circular size="huge" icon={<CommunicationIcon />} />
+                         <Label circular size="massive" icon={<CommunicationIcon />} />
+                     </div>
+                     <div className="flex flex-column items-start">
+                         <Label basic circular size="tiny" icon={<CommunicationIcon />} />
+                         <Label basic circular size="small" icon={<CommunicationIcon />} />
+                         <Label basic circular size="medium" icon={<CommunicationIcon />} />
+                         <Label basic circular size="large" icon={<CommunicationIcon />} />
+                         <Label basic circular size="big" icon={<CommunicationIcon />} />
+                         <Label basic circular size="huge" icon={<CommunicationIcon />} />
+                         <Label basic circular size="massive" icon={<CommunicationIcon />} />
+                     </div>
+                 </div>
+             </div>
+    );
+
+stories()
+.add("with tag",
+         () =>
+             <div className="flex flex-row">
+                 <div className="flex flex-column items-start">
                      <Label tag={<Tag className="bg-red" />} size="mini">
                             Group added
                      </Label>
@@ -61,6 +104,15 @@ stories()
                         Group added
                      </Label>
                      <Label tag={<Tag className="bg-red" />} size="mini" icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="mini">
+                            Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="mini" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="mini" icon={<CommunicationIcon />} iconPosition="right">
                          Group added
                      </Label>
                  </div>
@@ -74,6 +126,15 @@ stories()
                      <Label tag={<Tag className="bg-red" />} size="tiny" icon={<CommunicationIcon />} iconPosition="right">
                          Group added
                      </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="tiny">
+                            Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="tiny" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="tiny" icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
+                     </Label>
                  </div>
                  <div className="flex flex-column items-start">
                      <Label tag={<Tag className="bg-red" />} size="small">
@@ -83,6 +144,15 @@ stories()
                         Group added
                      </Label>
                      <Label tag={<Tag className="bg-red" />} size="small" icon={<CommunicationIcon />} iconPosition="right" >
+                          Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="small">
+                         Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="small" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="small" icon={<CommunicationIcon />} iconPosition="right" >
                           Group added
                      </Label>
                  </div>
@@ -96,6 +166,15 @@ stories()
                      <Label tag={<Tag className="bg-red" />} icon={<CommunicationIcon />} iconPosition="right">
                          Group added
                      </Label>
+                     <Label basic tag={<Tag className="bg-red" />}>
+                            Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
+                     </Label>
                  </div>
                  <div className="flex flex-column items-start">
                      <Label tag={<Tag className="bg-red" />} size="large">
@@ -107,79 +186,18 @@ stories()
                      <Label tag={<Tag className="bg-red" />} size="large" icon={<CommunicationIcon />} iconPosition="right">
                          Group added
                      </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="large">
+                         Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="large" button={<Button icon={<CloseIcon />} />}>
+                        Group added
+                     </Label>
+                     <Label basic tag={<Tag className="bg-red" />} size="large" icon={<CommunicationIcon />} iconPosition="right">
+                         Group added
+                     </Label>
                  </div>
              </div>
-    );
-
-stories()
-    .add("basic", () =>
-        <div className="flex flex-row">
-            <div className="flex flex-column items-start">
-                <Label basic>Notification Sent</Label>
-                <Label basic icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
-                <Label basic icon={<CommunicationIcon />}>Notification Sent</Label>
-                <Label basic button={<Button icon={<CloseIcon />} />}>
-                    Group added
-                </Label>
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic circular size="tiny">R</Label>
-                <Label basic circular size="small">R</Label>
-                <Label basic circular size="medium">R</Label>
-                <Label basic circular size="large">R</Label>
-                <Label basic circular size="big">R</Label>
-                <Label basic circular size="huge">R</Label>
-                <Label basic circular size="massive">R</Label>
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic circular size="tiny" icon={<CommunicationIcon />} />
-                <Label basic circular size="small" icon={<CommunicationIcon />} />
-                <Label basic circular size="medium" icon={<CommunicationIcon />} />
-                <Label basic circular size="large" icon={<CommunicationIcon />} />
-                <Label basic circular size="big" icon={<CommunicationIcon />} />
-                <Label basic circular size="huge" icon={<CommunicationIcon />} />
-                <Label basic circular size="massive" icon={<CommunicationIcon />} />
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic size="small">Notification Sent</Label>
-                <Label basic size="small" icon={<CommunicationIcon />}>Notification Sent</Label>
-                <Label basic size="small" icon={<MagnifierIcon />} iconPosition="right">Notification Sent</Label>
-                <Label basic size="large">Notification Sent</Label>
-                <Label basic size="large" icon={<CommunicationIcon />}>Notification Sent</Label>
-                <Label basic size="large" icon={ <MagnifierIcon />} iconPosition="right">Notification Sent</Label>
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic tag={<Tag className="bg-red" />}>
-                    Group added
-                </Label>
-                <Label basic tag={<Tag className="bg-red" />} icon={<CommunicationIcon />} iconPosition="right">
-                    Group added
-                </Label>
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic tag={<Tag className="bg-red" />} size="small">
-                    Group added
-                </Label>
-                <Label basic tag={<Tag className="bg-red" />} size="small" button={<Button icon={<CloseIcon />} />}>
-                    Group added
-                </Label>
-                <Label basic tag={<Tag className="bg-red" />} size="small" icon={<CommunicationIcon />} iconPosition="right">
-                    Group added
-                </Label>
-            </div>
-            <div className="flex flex-column items-start">
-                <Label basic tag={<Tag className="bg-red" />} size="large">
-                    Group added
-                </Label>
-                <Label basic tag={<Tag className="bg-red" />} size="large" button={<Button icon={<CloseIcon />} />}>
-                    Group added
-                </Label>
-                <Label basic tag={<Tag className="bg-red" />} size="large" icon={<CommunicationIcon />} iconPosition="right">
-                    Group added
-                </Label>
-            </div>
-        </div>
-    );
+);
 
 stories()
     .add("naked", () =>
