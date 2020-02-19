@@ -45,6 +45,10 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
+     * The HTML button type.
+     */
+    type: oneOf(["button", "submit", "reset"]),
+    /**
      * @ignore
      */
     className: string,
@@ -58,7 +62,8 @@ const defaultProps = {
     ghost: false,
     iconPosition: "left",
     naked: false,
-    size: DEFAULT_SIZE
+    size: DEFAULT_SIZE,
+    type: "button"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
