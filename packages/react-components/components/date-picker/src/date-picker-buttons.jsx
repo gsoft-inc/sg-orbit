@@ -61,7 +61,6 @@ export class DatePickerButtons extends PureComponent {
                 size="small"
                 disabled={!canClear}
                 tabIndex={canClear ? "0" : "-1"}
-                type="button"
                 data-testid="date-picker-calendar-clear-button"
             >
                 {clearText}
@@ -85,7 +84,6 @@ export class DatePickerButtons extends PureComponent {
                     disabled={!canApply}
                     size="small"
                     tabIndex={canApply ? "0" : "-1"}
-                    type="button"
                     data-testid="date-picker-calendar-apply-button"
                     ref={this._applyRef}
                 >

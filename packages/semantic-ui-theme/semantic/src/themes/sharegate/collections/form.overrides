@@ -1,3 +1,110 @@
 /*******************************
     Site Overrides
 *******************************/
+
+/* Text Area */
+.ui.textarea {
+    margin: 0em;
+    -webkit-appearance: none;
+    tap-highlight-color:  rgba(255, 255, 255, 0);
+
+    padding: @textAreaPadding;
+    font-size: @textAreaFontSize;
+    background: @textAreaBackground;
+    border: @textAreaBorder;
+    outline: none;
+    color: @inputColor;
+    border-radius: @inputBorderRadius;
+    box-shadow: @inputBoxShadow;
+    transition: @textAreaTransition;
+    font-size: @textAreaFontSize;
+    line-height: @textAreaLineHeight;
+    resize: @textAreaResize;
+    vertical-align: top;
+    min-width: 300px;
+}
+
+.ui.textarea.fluid {
+    width: 100%;
+}
+
+.ui.textarea:not([rows]) {
+    height: @textAreaHeight;
+    min-height: @textAreaMinHeight;
+    max-height: @textAreaMaxHeight;
+}
+
+/*--------------------
+        Focus
+---------------------*/
+
+.ui.textarea:focus,
+.ui.textarea.focus {
+    color: @textAreaFocusColor;
+    border-color: @textAreaFocusBorderColor;
+    border-radius: @textAreaFocusBorderRadius;
+    background: @textAreaFocusBackground;
+    box-shadow: @textAreaFocusBoxShadow;
+    -webkit-appearance: none;
+}
+
+.ui.form .fields.error .field .textarea
+.ui.form .field.error .textarea {
+    background: @formErrorBackground;
+    border-color: @formErrorBorder;
+    color: @formErrorColor;
+    border-radius: @inputErrorBorderRadius;
+    box-shadow: @inputErrorBoxShadow;
+}
+
+.ui.form .field.error .textarea:focus {
+    background: @inputErrorFocusBackground;
+    border-color: @inputErrorFocusBorder;
+    color: @inputErrorFocusColor;
+
+    -webkit-appearance: none;
+    box-shadow: @inputErrorFocusBoxShadow;
+}
+
+/* Overrides */
+.ui.textarea:disabled,
+.ui.textarea.disabled {
+    background-color: @cloud50;
+}
+
+.ui.textarea.error {
+    border-color: var(--alert-800);
+}
+
+/* SKIN | Transparent */
+.ui.textarea.transparent {
+    background-color: @transparent;
+    border-color: @transparent;
+}
+
+.ui.textarea::-webkit-input-placeholder {
+    color: @marine100;
+}
+.ui.textarea::-moz-placeholder {
+    color: @marine100;
+}
+.ui.textarea:-ms-input-placeholder {
+    color: @marine100;
+}
+
+/* LAYOUT | Sizes */
+.ui.textarea {
+    padding: 1rem;
+    line-height: @lh1;
+    /* Firefox fix to make sure it respects number of rows */
+    overflow-x:hidden;
+}
+
+.ui.textarea.small {
+    padding: 0.5rem;
+}
+
+.ui.textarea.large {
+    font-size: 1.125rem;
+    line-height: @lh4;
+}

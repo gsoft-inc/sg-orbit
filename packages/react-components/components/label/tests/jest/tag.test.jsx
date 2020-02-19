@@ -1,17 +1,40 @@
 import { Tag } from "@orbit-ui/react-label/src";
+import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
+
+function createTag(props = {}) {
+    return <Tag
+        {...props}
+    />;
+}
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
+    const ref = createRef();
+
+    render(
+        createTag({
+            ref
+        })
+    );
+
+    await wait();
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+});
+
+test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Tag
-            ref={node => {
+        createTag({
+            ref: node => {
                 refNode = node;
-            }}
-        />
+            }
+        })
     );
 
     await wait();

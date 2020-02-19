@@ -91,11 +91,20 @@ export function PureInput(props) {
         }
     };
 
-    const shouldAutofocus = autofocus && isNil(autofocusDelay);
+    const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} size={size} disabled={disabled}>{children}</SemanticInput>
+            <SemanticInput
+                icon={renderIcon()}
+                autoFocus={shouldAutofocus}
+                size={size}
+                disabled={disabled}
+                data-testid="input"
+                {...rest}
+            >
+                {children}
+            </SemanticInput>
         </Ref>
     );
 }

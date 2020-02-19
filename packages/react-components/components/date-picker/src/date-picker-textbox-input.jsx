@@ -172,7 +172,6 @@ export class DatePickerTextboxInput extends PureComponent {
                     icon={<CloseIcon />}
                     size="tiny"
                     onClick={this.handleClearButtonClick}
-                    type="button"
                     ref={this._clearButtonRef}
                     data-testid="date-picker-textbox-clear-button"
                 />

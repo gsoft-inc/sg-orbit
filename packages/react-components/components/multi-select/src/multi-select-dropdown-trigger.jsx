@@ -145,7 +145,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     className={this.getClasses()}
                     disabled={disabled}
                     tabIndex={disabled ? "-1" : "0"}
-                    type="button"
                     ref={this._buttonRef}
                     data-testid="multi-select-dropdown-trigger"
                 >
