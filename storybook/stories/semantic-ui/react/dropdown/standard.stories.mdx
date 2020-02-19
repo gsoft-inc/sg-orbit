@@ -256,7 +256,7 @@ A dropdown can take the width of its container.
 
 A dropdown can vary in size.
 
-Available sizes are: "small" and "medium".
+Available sizes are: `small`, `medium` and `large`.
 
 <Preview>
     <Story name="size">
@@ -264,6 +264,7 @@ Available sizes are: "small" and "medium".
             <Dropdown
                 placeholder="Gender"
                 selection
+                fluid
                 className="small"
                 options={[
                     {
@@ -281,6 +282,25 @@ Available sizes are: "small" and "medium".
             <Dropdown
                 placeholder="Gender"
                 selection
+                fluid
+                options={[
+                    {
+                        key: "Male",
+                        text: "Male",
+                        value: "Male"
+                    },
+                    {
+                        key: "Female",
+                        text: "Female",
+                        value: "Female"
+                    }
+                ]}
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                className="large"
                 options={[
                     {
                         key: "Male",

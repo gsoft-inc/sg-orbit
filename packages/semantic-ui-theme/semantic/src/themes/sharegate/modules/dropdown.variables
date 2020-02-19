@@ -84,6 +84,7 @@
 @selectionVerticalPadding: 0.4375rem;
 @selectionIconDistance: 2rem;
 @selectionHorizontalPadding: .75rem;
+@itemHorizontalPadding: 1rem;
 
 /* Header */
 @menuHeaderPadding: 0 1.5rem;
