@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 import { TextArea } from "@orbit-ui/react-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

@@ -1,11 +1,12 @@
-/* eslint-disable react/forbid-foreign-prop-types */
-
-import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType } from "prop-types";
 import { createRef, forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 const propTypes = {
     /**
@@ -21,13 +22,9 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether or not the textarea is invalid.
+     * A textarea can show that the data contains errors.
      */
     error: bool,
-    /**
-     * Whether or not the textarea is valid.
-     */
-    success: bool,
     /**
      * A textarea can have different sizes.
     */
@@ -49,7 +46,6 @@ const propTypes = {
 const defaultProps = {
     autofocus: false,
     error: false,
-    success: false,
     fluid: false,
     focused: false,
     transparent: false,
@@ -81,7 +77,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 }
 
 export function PureTextArea(props) {
-    const { autofocus, autofocusDelay, className, disabled, error, success, fluid, focused, transparent, size, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, disabled, error, fluid, focused, transparent, size, children, forwardedRef, ...rest } = props;
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, forwardedRef);
 
     const shouldAutofocus = autofocus && isNil(autofocusDelay);
@@ -89,7 +85,6 @@ export function PureTextArea(props) {
     const classes = mergeClasses(
         "ui textarea",
         error && "error",
-        success && "success",
         fluid && "fluid",
         focused && "focus",
         transparent && "transparent",

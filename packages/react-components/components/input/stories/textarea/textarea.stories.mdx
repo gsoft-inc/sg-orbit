@@ -8,7 +8,8 @@ import Imports from "./imports.mdx";
 <Meta
     title={createComponentSection("TextArea")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout documentationPath="/collections/textarea" />)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/addons/text-area" />)
         .build()}
 />
 
@@ -22,7 +23,7 @@ A textarea can be used to allow for extended user input.
 
 ## Props
 
-<HocWarning componentName="Input" semanticPath="/elements/input" />
+<HocWarning componentName="TextArea" semanticPath="/addons/text-area" />
 
 <Props
     componentsDefinitions={[
@@ -34,7 +35,7 @@ A textarea can be used to allow for extended user input.
 
 ### Default
 
-A default TextArea.
+A default textarea.
 
 <Preview>
     <Story name="default">
@@ -62,7 +63,6 @@ A textarea can show a user is currently interacting with it.
     </Story>
 </Preview>
 
-
 ### Disabled
 
 A textarea can be disabled.
@@ -70,16 +70,6 @@ A textarea can be disabled.
 <Preview>
     <Story name="disabled">
         <TextArea disabled placeholder="Tell us more" />
-    </Story>
-</Preview>
-
-### Fluid
-
-A textarea can take all the space it can.
-
-<Preview>
-    <Story name="fluid">
-        <TextArea fluid placeholder="Tell us more" />
     </Story>
 </Preview>
 
@@ -93,43 +83,29 @@ A textarea can be read only.
     </Story>
 </Preview>
 
-### Error
+### Fluid
 
-A textarea can show that the data contains errors.
+An textarea can take the width of its container.
 
 <Preview>
-    <Story name="error">
-        <TextArea error placeholder="Tell us more" />
+    <Story name="fluid">
+        <TextArea fluid placeholder="Tell us more" />
     </Story>
 </Preview>
 
-### Success
+### Size
 
-A textarea can show that it has been validated.
+A textarea can vary in size.
 
-<Preview>
-    <Story name="success">
-        <TextArea success placeholder="Tell us more" />
-    </Story>
-</Preview>
-
-### Transparent
-
-A textarea can be transparent.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
-    <Story name="transparent">
-        <TextArea transparent placeholder="Tell us more" />
-    </Story>
-</Preview>
-
-### Min Height
-
-A textarea can have a minimum height.
-
-<Preview>
-    <Story name="min height">
-        <TextArea placeholder="Tell us more" style={{ minHeight: 100 }}/>
+    <Story name="size">
+        <div className="flex flex-row items-end items-space-between">
+            <TextArea size="small" placeholder="Tell us more..." />
+            <TextArea placeholder="Tell us more..." />
+            <TextArea size="large" placeholder="Tell us more..." />
+        </div>
     </Story>
 </Preview>
 
@@ -143,19 +119,23 @@ A textarea can have a minimum number of rows.
     </Story>
 </Preview>
 
-### Size
+### Error
 
-A textarea can vary in size.
-
-Available sizes are: `"small"`, `"medium"` and `"large"`.
+A textarea can show that the data contains errors.
 
 <Preview>
-    <Story name="size">
-        <div className="flex flex-row items-end items-space-between">
-            <TextArea size="small" placeholder="Tell us more..." />
-            <TextArea placeholder="Tell us more..." />
-            <TextArea size="large" placeholder="Tell us more..." />
-        </div>
+    <Story name="error">
+        <TextArea error placeholder="Tell us more" />
+    </Story>
+</Preview>
+
+### Transparent
+
+A textarea can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextArea transparent placeholder="Tell us more" />
     </Story>
 </Preview>
 

@@ -2,15 +2,6 @@
     Site Overrides
 *******************************/
 
-/* Textarea should'nt need to be wrapped */
-.ui.textarea {
-    vertical-align: top;
-}
-
-.ui.textarea.fluid {
-    width: 100%;
-}
-
 /* Text Area */
 .ui.textarea {
     margin: 0em;
@@ -29,15 +20,18 @@
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
     resize: @textAreaResize;
+    vertical-align: top;
+    min-width: 300px;
 }
+
+.ui.textarea.fluid {
+    width: 100%;
+}
+
 .ui.textarea:not([rows]) {
     height: @textAreaHeight;
     min-height: @textAreaMinHeight;
     max-height: @textAreaMaxHeight;
-}
-
-.ui.textarea {
-    vertical-align: @checkboxVerticalAlign;
 }
 
 /*--------------------
@@ -80,10 +74,6 @@
 
 .ui.textarea.error {
     border-color: var(--alert-800);
-}
-
-.ui.textarea.success {
-    border-color: var(--success-800);
 }
 
 /* SKIN | Transparent */
