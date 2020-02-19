@@ -1,4 +1,4 @@
-import { AddIcon, AddIcon24, SignoutIcon24 } from "@orbit-ui/icons";
+import { AddIcon, SignoutIcon } from "@orbit-ui/react-icons";
 import { Button, PureButton } from "@orbit-ui/react-button/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label, Tag } from "@orbit-ui/react-label/src";
@@ -91,9 +91,9 @@ A button can contain an [icon](?path=/docs/materials-icons--page). Specify the i
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Button type="button" icon={<SignoutIcon24 />}>Click me</Button>
-            <Button type="button" icon={<SignoutIcon24 />} iconPosition="right">Click me</Button>
-            <Button type="button" icon={<AddIcon24 />}></Button>
+            <Button type="button" icon={<SignoutIcon />}>Click me</Button>
+            <Button type="button" icon={<SignoutIcon />} iconPosition="right">Click me</Button>
+            <Button type="button" icon={<AddIcon />}></Button>
         </div>
     </Story>
 </Preview>
@@ -138,7 +138,7 @@ A button can show a loading indicator.
 
 A button can vary in size.
 
-Available sizes are `"tiny"`, `"small"`, `"medium"` and `"large"`.
+Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -158,16 +158,16 @@ A button can be circular.
 <Preview>
     <Story name="circular">
         <div className="flex">
-            <div className="flex items-end items-space-between">
+            <div className="flex items-end items-space-between mr4">
                 <Button type="button" circular size="tiny">Aa</Button>
                 <Button type="button" circular size="small">Aa</Button>
                 <Button type="button" circular>Aa</Button>
                 <Button type="button" circular size="large">Aa</Button>
             </div>
-            <div className="flex items-end items-space-between mr4">
-                <Button type="button" icon={<AddIcon24 />} circular size="tiny"></Button>
-                <Button type="button" icon={<AddIcon24 />} circular size="small"></Button>
-                <Button type="button" icon={<AddIcon24 />} circular></Button>
+            <div className="flex items-end items-space-between">
+                <Button type="button" icon={<AddIcon />} circular size="tiny"></Button>
+                <Button type="button" icon={<AddIcon />} circular size="small"></Button>
+                <Button type="button" icon={<AddIcon />} circular></Button>
                 <Button type="button" icon={<AddIcon />} circular size="large"></Button>
             </div>
         </div>

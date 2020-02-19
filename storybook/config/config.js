@@ -8,15 +8,10 @@ import { customStorybookTheme } from "./theme";
 import { includeChromatic, includeComponents, includeGettingStarted, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
-import "@orbit-ui/icons";
 import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";
-// These imports ensure that Tachyons selectors have precedence over default Storybook MDX styles.
-import "@orbit-ui/tachyons/storybook/apricot.css";
-import "@orbit-ui/tachyons/storybook/desktop.css";
-import "@orbit-ui/tachyons/storybook/overcast.css";
 
 printEnvironment();
 
@@ -78,18 +73,27 @@ let stories = [];
 
 if (includeGettingStarted) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/getting-started", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/getting-started", true, /.stories.mdx$/)
+        ];
     }
 }
 
 if (includeMaterials) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/materials", true, /.stories.mdx$/), require.context("../../packages/icons", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/materials", true, /.stories.mdx$/),
+            require.context("../../packages/icons/stories", true, /.stories.mdx$/)
+        ];
     }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/materials", true, /.chroma.jsx$/), require.context("../../packages/icons", true, /.chroma.mdx$/)];
-
+        stories = [
+            ...stories,
+            require.context("../stories/materials", true, /.chroma.jsx$/)
+        ];
     }
 }
 
@@ -113,11 +117,17 @@ if (includeComponents) {
 
 if (includeSemanticTheme) {
     if (includeStories) {
-        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)
+        ];
     }
 
     if (includeChromatic) {
-        stories = [...stories, require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)];
+        stories = [
+            ...stories,
+            require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)
+        ];
     }
 }
 

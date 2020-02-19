@@ -1,33 +1,24 @@
 {
     "name": "@orbit-ui/icons",
-    "version": "5.0.1",
+    "version": "6.0.0",
     "description": "ShareGate Orbit Icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
-    "main": "dist/index.js",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
     "scripts": {
-        "start": "yarn watch",
+        "start": "yarn copy-to-dist",
         "prebuild": "yarn clean",
-        "build": "babel src -d dist --copy-files",
-        "postbuild": "yarn copy-to-dist",
-        "prewatch": "yarn clean",
-        "watch": "yarn build --watch",
+        "build": "yarn copy-to-dist",
         "clean": "rimraf dist",
         "prepublishOnly": "yarn copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
-    "peerDependencies": {
-        "react": "*",
-        "react-dom": "*"
-    },
-    "dependencies": {
-        "@babel/runtime-corejs3": "*",
-        "@orbit-ui/react-components-shared": "2.2.0"
+    "devDependencies": {
+        "@orbit-ui/react-icons": "1.0.0"
     }
 }

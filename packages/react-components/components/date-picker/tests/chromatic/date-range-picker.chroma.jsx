@@ -1,7 +1,5 @@
-import { CalendarIcon } from "@orbit-ui/icons";
-import { ChevronIcon, CloseIcon24 } from "@orbit-ui/icons";
 import { DEFAULT_DATE } from "./data";
-import { DateRangePicker, PresetsCalendarIcon, toPreset } from "@orbit-ui/react-date-picker/src";
+import { DateRangePicker, toPreset } from "@orbit-ui/react-date-picker/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import {
     getMonthFirstDay,
@@ -1029,21 +1027,6 @@ stories("/customization")
                  input: <DateRangePicker.Input className="bg-red" />
              })
     )
-    .add("input icon",
-         () =>
-             createDateRangePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <DateRangePicker.Input icon={<CalendarIcon className="fill-red" />} />
-             })
-    )
-    .add("clear icon",
-         () =>
-             createDateRangePicker({
-                 startDate: moment(DEFAULT_DATE),
-                 endDate: moment(DEFAULT_DATE).add(3, "days"),
-                 input: <DateRangePicker.Input clearIcon={<CloseIcon24 className="fill-red" />} />
-             })
-    )
     .add("placeholder",
          () =>
              createDateRangePicker({
@@ -1076,15 +1059,6 @@ stories("/customization")
                  defaultOpen: true
              })
     )
-    .add("presets icon",
-         () =>
-             createDateRangePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 presetsComponent: <DateRangePicker.Presets icon={<PresetsCalendarIcon className="w8 h8 fill-red" />} />,
-                 presets: DEFAULT_PRESETS,
-                 defaultOpen: true
-             })
-    )
     .add("buttons component",
          () =>
              createDateRangePicker({
@@ -1106,14 +1080,6 @@ stories("/customization")
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
                  calendar: <DateRangePicker.Calendar className="border-red" />,
-                 defaultOpen: true
-             })
-    )
-    .add("navigation icons",
-         () =>
-             createDateRangePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 calendar: <DateRangePicker.Calendar navPrevIcon={<ChevronIcon className="w4 h4 rotate-180 fill-red" />} navNextIcon={<ChevronIcon className="w4 h4 fill-red" />} />,
                  defaultOpen: true
              })
     )

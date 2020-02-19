@@ -1,7 +1,8 @@
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
-import { DEFAULT_SIZE, LARGE, MEDIUM, MultiSelect, SMALL } from "@orbit-ui/react-multi-select/src";
+import { DEFAULT_SIZE, MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -215,7 +216,7 @@ A multi select can be disabled.
 
 A multi select can vary in size.
 
-Available sizes are: `"small"`, `"medium"` and `"large"`.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">

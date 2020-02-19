@@ -1,4 +1,3 @@
-import { AddIcon24, MagnifierIcon } from "@orbit-ui/icons";
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -89,7 +88,7 @@ export class MultiSelectDropdown extends PureComponent {
          */
         noResultsMessage: string,
         /**
-         * A custom React component that open the dropdown.
+         * A React component that open the dropdown.
          */
         trigger: node,
         /**
@@ -97,25 +96,17 @@ export class MultiSelectDropdown extends PureComponent {
          */
         triggerText: string,
         /**
-         * A custom React SVG component displayed before the trigger text.
-         */
-        triggerIcon: node,
-        /**
          * A dropdown trigger can have different sizes.
          */
         triggerSize: oneOf(SIZES),
         /**
-         * A custom React component to display the items.
+         * A React component to display the items.
          */
         menu: node,
         /**
-         * A custom React component to enter a query.
+         * A React component to enter a query.
          */
         searchInput: node,
-        /**
-         * A custom React SVG component displayed before the search input query.
-         */
-        searchIcon: node,
         /**
          * The search input placeholder text.
          */
@@ -149,9 +140,7 @@ export class MultiSelectDropdown extends PureComponent {
         headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
-        triggerIcon: <AddIcon24 className="ml1" />,
         searchInput: <MultiSelectDropdownSearchInput />,
-        searchIcon: <MagnifierIcon className="w7 h7 fill-marine-500" />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -362,13 +351,12 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, triggerIcon, open, disabled, triggerSize } = this.props;
+        const { trigger, triggerText, open, disabled, triggerSize } = this.props;
 
         return cloneElement(trigger, {
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,
             text: triggerText,
-            icon: triggerIcon,
             open,
             disabled,
             size: triggerSize,
@@ -377,12 +365,11 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     renderSearchInput = () => {
-        const { searchInput, searchIcon, placeholder } = this.props;
+        const { searchInput, placeholder } = this.props;
 
         return cloneElement(searchInput, {
             key: "search-input",
             onChange: this.handleSearchChange,
-            icon: searchIcon,
             placeholder
         });
     };

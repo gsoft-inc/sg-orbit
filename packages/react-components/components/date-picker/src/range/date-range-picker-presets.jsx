@@ -1,6 +1,7 @@
+import { Icon } from "@orbit-ui/react-icons";
 import { PresetsCalendarIcon } from "../assets";
-import { PureComponent, cloneElement } from "react";
-import { arrayOf, bool, func, node, object, shape, string } from "prop-types";
+import { PureComponent } from "react";
+import { arrayOf, bool, func, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../shared";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
@@ -90,10 +91,6 @@ export class DateRangePickerPresets extends PureComponent {
          */
         presets: arrayOf(shape(PRESET_SHAPE)),
         /**
-         * A custom React SVG component displayed on top of the presets list.
-         */
-        icon: node,
-        /**
          * Additional classes.
          */
         className: string
@@ -142,20 +139,6 @@ export class DateRangePickerPresets extends PureComponent {
         );
     }
 
-    renderIcon() {
-        const { icon } = this.props;
-
-        // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
-        const target = !isNil(icon) ? icon : <PresetsCalendarIcon />;
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                "w8 h8 fill-marine-500"
-            )
-        });
-    }
-
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
@@ -173,7 +156,9 @@ export class DateRangePickerPresets extends PureComponent {
         if (presets.length > 0) {
             return (
                 <div className={this.getCssClasses()}>
-                    <div className="self-center mb7">{this.renderIcon()}</div>
+                    <div className="self-center mb7">
+                        <Icon source={<PresetsCalendarIcon />} size="big" className="fill-marine-500" />
+                    </div>
                     <ul>{this.renderPresets()}</ul>
 
                     <style jsx>{`

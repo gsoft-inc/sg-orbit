@@ -1,8 +1,9 @@
+import { AddIcon } from "@orbit-ui/react-icons";
 import { Button } from "@orbit-ui/react-button";
 import { KEYS, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { SIZES } from "./sizes";
-import { bool, func, node, oneOf, string } from "prop-types";
+import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 
@@ -12,10 +13,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
          * The trigger text.
          */
         text: string,
-        /**
-         * A custom React SVG component displayed before the trigger text.
-         */
-        icon: node,
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -132,7 +129,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text, icon, disabled, size } = this.props;
+        const { text, disabled, size } = this.props;
 
         return (
             <div className="mr2 mb2">
@@ -142,7 +139,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     secondary
-                    icon={icon}
+                    icon={<AddIcon />}
                     iconPosition="right"
                     size={size}
                     className={this.getClasses()}

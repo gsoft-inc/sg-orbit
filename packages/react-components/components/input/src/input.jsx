@@ -2,9 +2,14 @@
 
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
-import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { createIconForControl } from "@orbit-ui/react-icons";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
@@ -18,9 +23,17 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * A custom React SVG component displayed before or after the prompt based on "iconPosition".
+     * A React SVG component displayed before or after the prompt based on "iconPosition".
      */
     icon: element,
+    /**
+     * An input can vary in sizes.
+     */
+    size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
+    disabled: bool,
     /**
      * @ignore
      */
@@ -28,7 +41,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    autofocus: false
+    autofocus: false,
+    size: DEFAULT_SIZE
 };
 
 function getInputElement(inputRef) {
@@ -60,7 +74,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
 }
 
 export function PureInput(props) {
-    const { icon, autofocus, autofocusDelay, disabled, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, icon, size, disabled, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
 
@@ -73,12 +87,7 @@ export function PureInput(props) {
         const { loading } = props;
 
         if (!isNil(icon) && !loading) {
-            return cloneElement(icon, {
-                className: mergeClasses(
-                    "icon",
-                    icon.props && icon.props.className
-                )
-            });
+            return createIconForControl(icon, size);
         }
     };
 
@@ -86,7 +95,7 @@ export function PureInput(props) {
 
     return (
         <Ref innerRef={inputRef}>
-            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} disabled={disabled}>{children}</SemanticInput>
+            <SemanticInput icon={renderIcon()} {...rest} autoFocus={shouldAutofocus} size={size} disabled={disabled}>{children}</SemanticInput>
         </Ref>
     );
 }
@@ -99,5 +108,5 @@ export const Input = forwardRef((props, ref) => (
 ));
 
 if (!isNil(SemanticInput.propTypes)) {
-    SemanticInput.propTypes.size = oneOf(["small", "medium", "large"]);
+    SemanticInput.propTypes.size = oneOf(SIZES);
 }

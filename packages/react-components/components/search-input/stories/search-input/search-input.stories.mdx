@@ -1,7 +1,8 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SMALL, SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
+import { DEFAULT_SIZE, SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -174,7 +175,7 @@ A search input can take the width of its container.
 
 A search input can vary in size.
 
-Available sizes are: `"small"`, `"medium"` and `"large"`.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">

@@ -1,6 +1,6 @@
 # @orbit-ui/icons
 
-Full documentation available at: https://sg-orbit.netlify.com
+Full documentation available at: https://orbit.sharegate.design
 
 ## Maintainers
 
@@ -16,7 +16,7 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - It shouldn't be coloured, any icon that has many colours should be in your codebase.
 
-- When an icon is used in a monorepo component it should live in this project.
+- An icon shouldn't have any stroke or fill attributes.
 
 ### Naming convention
 
@@ -28,7 +28,7 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - Although not ideal when an svg has to be coloured add the colour name (refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_cloud-300_-24x24.svg)
 
-### Additional usage
+### Internal usage
 
 If you add an icon as a CSS background to a package of the monorepo, you must add the `/dist` segment to the path.
 

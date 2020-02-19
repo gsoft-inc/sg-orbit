@@ -1,4 +1,5 @@
-import { Label, Menu, Tab } from "semantic-ui-react";
+import { Label } from "@orbit-ui/react-label";
+import { Menu, Tab } from "semantic-ui-react";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { SemanticLayout } from "../semantic-layout";
 import { createComponentSection, paramsBuilder } from "@utils";
@@ -64,9 +65,9 @@ A tab can include a label to draw attention.
                 {
                     menuItem: (
                         <Menu.Item key="messages" className="with-label">
-          Messages
-                            <Label className="primary" size="mini">
-            NEW
+                            Messages
+                            <Label naked className="bg-primary-500" size="mini" highlight>
+                                NEW
                             </Label>
                         </Menu.Item>
                     ),

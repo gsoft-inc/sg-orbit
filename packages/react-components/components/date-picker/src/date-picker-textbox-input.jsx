@@ -1,11 +1,10 @@
 import { Button } from "@orbit-ui/react-button";
-import { CalendarIcon, CalendarIcon24, CloseIcon24 } from "@orbit-ui/icons";
-import { DEFAULT_SIZE, LARGE, MEDIUM, SIZES, SMALL } from "./sizes";
-import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { CalendarIcon, CloseIcon, getIconSizeForControl } from "@orbit-ui/react-icons";
+import { DEFAULT_SIZE, SIZES } from "./sizes";
+import { KEYS, LARGE, MEDIUM, SMALL, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
-import { bool, func, node, oneOf, string } from "prop-types";
-import { cloneElement } from "react";
+import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import cx from "classnames";
 
@@ -19,18 +18,6 @@ const SIZES_TO_FONT_SIZE = {
     [SMALL]: "f6",
     [MEDIUM]: "f6",
     [LARGE]: "f5"
-};
-
-const SIZES_TO_DEFAULT_ICON = {
-    [SMALL]: <CalendarIcon24 />,
-    [MEDIUM]: <CalendarIcon24 />,
-    [LARGE]: <CalendarIcon />
-};
-
-const SIZES_TO_DEFAULT_ICON_DIMENSIONS = {
-    [SMALL]: "w5 h5",
-    [MEDIUM]: "w6 h6",
-    [LARGE]: "w7 h7"
 };
 
 export class DatePickerTextboxInput extends PureComponent {
@@ -49,8 +36,6 @@ export class DatePickerTextboxInput extends PureComponent {
         onClear: func,
         allowClear: bool,
         placeholder: string,
-        icon: node,
-        clearIcon: node,
         disabled: bool,
         open: bool,
         size: oneOf(SIZES),
@@ -60,7 +45,6 @@ export class DatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        clearIcon: <CloseIcon24 />,
         disabled: false,
         size: DEFAULT_SIZE
     };
@@ -167,21 +151,13 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     renderIcon() {
-        const { icon, size, disabled } = this.props;
+        const { size, disabled } = this.props;
 
-        const target = !isNil(icon) ? icon : SIZES_TO_DEFAULT_ICON[size];
-
-        return cloneElement(target, {
-            className: mergeClasses(
-                target.props && target.props.className,
-                SIZES_TO_DEFAULT_ICON_DIMENSIONS[size],
-                !disabled ? "fill-marine-700" : "fill-cloud-500"
-            )
-        });
+        return <CalendarIcon size={getIconSizeForControl(size)} className={!disabled ? "fill-marine-700" : "fill-cloud-500"} />;
     }
 
     renderClearButton() {
-        const { allowClear, clearIcon, disabled, open } = this.props;
+        const { allowClear, disabled, open } = this.props;
 
         if (!allowClear) {
             return null;
@@ -193,7 +169,7 @@ export class DatePickerTextboxInput extends PureComponent {
                     circular
                     ghost
                     secondary
-                    icon={clearIcon}
+                    icon={<CloseIcon />}
                     size="tiny"
                     onClick={this.handleClearButtonClick}
                     type="button"
@@ -225,7 +201,7 @@ export class DatePickerTextboxInput extends PureComponent {
 
             <style jsx>{`
                 .input {
-                    min-width: 350px;
+                    min-width: 300px;
                 }
 
                 .input:not("disabled") {

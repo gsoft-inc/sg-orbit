@@ -40,7 +40,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
          */
         headerRenderer: func,
         /**
-         * A custom React component to enter a search input.
+         * A React component to enter a search input.
          */
         searchInput: node,
         /**

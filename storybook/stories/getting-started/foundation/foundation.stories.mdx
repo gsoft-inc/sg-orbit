@@ -13,13 +13,13 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 # Foundation
 
-The foundation is the core of Orbit. It contains [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) that store the visual design attributes of the design system. We use those variables across Orbit instead of hard-coded values in order to maintain a scalable and consistent visual system for UI development.
+The foundation is the core of Orbit UI. It contains [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) that store the visual design attributes of Orbit Design. We use those variables across Orbit UI instead of hard-coded values in order to maintain a scalable and consistent visual system for UI development.
 
 Once [installed](?path=/docs/getting-started-installation--page), the default values can be [customized to your needs](#override-variables). Please be aware that customization would no longuer benefinits from updates and could break.
 
 ## Variables
 
-You will find below an exhaustive list of all the variables available in Orbit foundation.
+You will find below an exhaustive list of all the variables available in Orbit UI foundation.
 
 ### Colors
 
@@ -60,7 +60,7 @@ In a `style` attribute:
 </button>
 ```
 
-Or in JavaScript (The computed variable value is available as a string):
+In JavaScript (the computed variable value is available as a string):
 
 ```javascript dark
 window.getComputedStyle(document.documentElement).getPropertyValue("--primary-50");
@@ -72,7 +72,7 @@ The foundation CSS variables can be overrided by simply redeclaring the variable
 
 ```css dark
 :root {
-    --primary-50:  #c63a0c;
+    --primary-50: #c63a0c;
     --apricot-50: #c63a0c;
     --overcast-50: #c63a0c;
     --desktop-50: #c63a0c;
@@ -87,7 +87,7 @@ If you need to use a dynamic value or to scope an update to a specific element y
 </button>
 ```
 
-At last resort, if all the techniques described above doesn't work for you, you can override a variable with JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
+At last resort, if all the techniques described above doesn't work for you, you can override a variable in JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
 
 ```javascript dark
 document.body.style.setProperty("--primary-50", "#c63a0c");
