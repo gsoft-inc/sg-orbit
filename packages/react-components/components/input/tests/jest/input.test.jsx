@@ -52,11 +52,13 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
 });
 
 test("when delayed autofocus on a disabled input, the input is not autofocused after the delay", async () => {
-    const { getByTestId } = render(createInput({
-        disabled: true,
-        autofocus: true,
-        autofocusDelay: 50
-    }));
+    const { getByTestId } = render(
+        createInput({
+            disabled: true,
+            autofocus: true,
+            autofocusDelay: 50
+        })
+    );
 
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
