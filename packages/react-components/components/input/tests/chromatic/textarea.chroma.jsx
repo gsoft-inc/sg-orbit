@@ -24,6 +24,7 @@ stories()
                      <TextArea error placeholder="Tell us more" />
                      <TextArea focused placeholder="Tell us more" />
                      <TextArea transparent placeholder="Tell us more" />
+                     <TextArea resizable placeholder="Tell us more" />
                  </div>
                  <div className="w-50">
                      <TextArea size="small" placeholder="Tell us more" />

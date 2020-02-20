@@ -38,6 +38,10 @@ const propTypes = {
      */
     transparent: bool,
     /**
+     * Whether or not the textarea is resizable.
+     */
+    resizable: bool,
+    /**
      * @ignore
      */
     forwardedRef: oneOfType([object, func])
@@ -49,6 +53,7 @@ const defaultProps = {
     fluid: false,
     focused: false,
     transparent: false,
+    resizable: false,
     size: DEFAULT_SIZE
 };
 
@@ -77,7 +82,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 }
 
 export function PureTextArea(props) {
-    const { autofocus, autofocusDelay, className, disabled, error, fluid, focused, transparent, size, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, disabled, error, fluid, focused, transparent, resizable, size, children, forwardedRef, ...rest } = props;
 
     const [ref, setRef] = useForwardRef(forwardedRef);
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
@@ -90,6 +95,7 @@ export function PureTextArea(props) {
         fluid && "fluid",
         focused && "focus",
         transparent && "transparent",
+        resizable && "resizable",
         size && size,
         className
     );

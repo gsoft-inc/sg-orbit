@@ -22,16 +22,21 @@
     resize: @textAreaResize;
     vertical-align: top;
     min-width: 300px;
-}
-
-.ui.textarea.fluid {
-    width: 100%;
+    resize: none;
 }
 
 .ui.textarea:not([rows]) {
     height: @textAreaHeight;
     min-height: @textAreaMinHeight;
     max-height: @textAreaMaxHeight;
+}
+
+.ui.textarea.fluid {
+    width: 100%;
+}
+
+.ui.textarea.resizable {
+    resize: both;
 }
 
 /*--------------------
