@@ -49,7 +49,7 @@ A textarea can have an value.
 
 <Preview>
     <Story name="value">
-        <TextArea value="Orbit" />
+        <TextArea value="If two pieces of the same type of metal touch in space they will permanently bond." />
     </Story>
 </Preview>
 
@@ -59,7 +59,7 @@ A textarea can show a user is currently interacting with it.
 
 <Preview>
     <Story name="focused">
-        <TextArea focused placeholder="Tell us more" />
+        <TextArea focused placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -69,7 +69,7 @@ A textarea can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <TextArea disabled placeholder="Tell us more" />
+        <TextArea disabled placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -79,7 +79,7 @@ A textarea can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <TextArea readOnly value="Amazing app." />
+        <TextArea readOnly value="If two pieces of the same type of metal touch in space they will permanently bond." />
     </Story>
 </Preview>
 
@@ -89,7 +89,7 @@ An textarea can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <TextArea fluid placeholder="Tell us more" />
+        <TextArea fluid placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -111,11 +111,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 ### Rows
 
-A textarea can have a minimum number of rows.
+A textarea can have a default number of rows.
 
 <Preview>
     <Story name="rows">
-        <TextArea rows={3} placeholder="Tell us more" />
+        <TextArea rows={6} placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -125,7 +125,7 @@ A textarea can show that the data contains errors.
 
 <Preview>
     <Story name="error">
-        <TextArea error placeholder="Tell us more" />
+        <TextArea error placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -135,7 +135,7 @@ A textarea can be transparent.
 
 <Preview>
     <Story name="transparent">
-        <TextArea transparent placeholder="Tell us more" />
+        <TextArea transparent placeholder="Tell us more..." />
     </Story>
 </Preview>
 
@@ -146,8 +146,8 @@ A textarea can be transparent.
         .build()}
 >
     <div className="flex items-space-between">
-        <TextArea autofocus placeholder="Search..." />
-        <TextArea autofocus disabled placeholder="Search..." />
+        <TextArea autofocus placeholder="Tell us more..." />
+        <TextArea autofocus disabled placeholder="Tell us more..." />
     </div>
 </Story>
 
@@ -158,8 +158,8 @@ A textarea can be transparent.
         .build()}
 >
     <div className="flex items-space-between">
-        <TextArea autofocus autofocusDelay={500} placeholder="Search..." />
-        <TextArea autofocus disabled autofocusDelay={500} placeholder="Search..." />
+        <TextArea autofocus autofocusDelay={500} placeholder="Tell us more..." />
+        <TextArea autofocus disabled autofocusDelay={500} placeholder="Tell us more..." />
     </div>
 </Story>
 
