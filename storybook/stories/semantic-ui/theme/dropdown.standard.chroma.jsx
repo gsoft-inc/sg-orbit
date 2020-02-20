@@ -69,9 +69,23 @@ export const FRIENDS = [
     }
 ];
 
-// inline
-
 stories()
+    .add("default", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+    )
     .add("sizes",
          () =>
              <div className="flex flex-column">
@@ -187,7 +201,6 @@ stories()
                 defaultOpen
             />
         </div>
-
     )
     .add("disabled", () =>
         <Dropdown
