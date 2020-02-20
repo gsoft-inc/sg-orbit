@@ -71,6 +71,12 @@ stories("/number of visible months")
                  })
                  .build()
          }
+    )
+    .add("fluid",
+         () =>
+             createSingleDatePicker({
+                 fluid: true
+             })
     );
 
 stories("/date restrictions/2 months visible")

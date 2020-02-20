@@ -85,6 +85,12 @@ stories("/number of visible months")
                  })
                  .build()
          }
+    )
+    .add("fluid",
+         () =>
+             createDateRangePicker({
+                 fluid: true
+             })
     );
 
 stories("/presets")

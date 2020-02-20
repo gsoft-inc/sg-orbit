@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 import { Dropdown } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -8,7 +6,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
-            .canvasLayout({ width: "1800px" })
+            .canvasLayout({ width: "80%" })
             .build())
         .build();
 }
@@ -168,4 +166,12 @@ stories()
                      />
                  </div>
              </div>
+    )
+    .add("fluid", () =>
+        <Dropdown
+            placeholder="Select Friend"
+            selection
+            fluid
+            options={GENDERS}
+        />
     );
