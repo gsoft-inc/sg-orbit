@@ -1,4 +1,4 @@
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

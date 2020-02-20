@@ -3,7 +3,7 @@ import { Dropdown, PureDropdown } from "@orbit-ui/react-dropdown/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -216,7 +216,7 @@ Can be set to: `"small"`, `"large"` or omitted.
                 placeholder="Gender"
                 selection
                 fluid
-                className="small"
+                size="small"
                 options={GENDERS}
             />
             <Dropdown
@@ -229,9 +229,18 @@ Can be set to: `"small"`, `"large"` or omitted.
                 placeholder="Gender"
                 selection
                 fluid
-                className="large"
+                size="large"
                 options={GENDERS}
             />
         </div>
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Dropdown selection options={GENDERS} />} />
+</Story>

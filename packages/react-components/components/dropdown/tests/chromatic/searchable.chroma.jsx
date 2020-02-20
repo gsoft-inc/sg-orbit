@@ -1,4 +1,4 @@
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -49,25 +49,27 @@ stories()
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      <Dropdown
                          placeholder="Gender"
-                         className="small mr5"
+                         className="mr5"
                          selection
                          search
+                         size="small"
                          options={GENDERS}
                      />
                      <Dropdown
                          placeholder="Gender"
-                         className="small mr5"
+                         className="mr5"
                          selection
                          search
                          value="Male"
+                         size="small"
                          options={GENDERS}
                      />
                      <Dropdown
                          placeholder="Gender"
-                         className="small"
                          defaultOpen
                          selection
                          search
+                         size="small"
                          options={GENDERS}
                      />
                  </div>
@@ -98,25 +100,27 @@ stories()
                  <div className="flex">
                      <Dropdown
                          placeholder="Gender"
-                         className="large mr5"
+                         className="mr5"
                          selection
                          search
+                         size="large"
                          options={GENDERS}
                      />
                      <Dropdown
                          placeholder="Gender"
-                         className="large mr5"
+                         className="mr5"
                          selection
                          search
                          value="Male"
+                         size="large"
                          options={GENDERS}
                      />
                      <Dropdown
                          placeholder="Gender"
-                         className="large"
                          defaultOpen
                          selection
                          search
+                         size="large"
                          options={GENDERS}
                      />
                  </div>

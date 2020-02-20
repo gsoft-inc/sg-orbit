@@ -1,8 +1,8 @@
 import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { WarningMessage } from "@blocks";
-import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -159,3 +159,12 @@ A default searchable dropdown can be disabled.
         />
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Dropdown selection search options={LANGUAGES} />} />
+</Story>
