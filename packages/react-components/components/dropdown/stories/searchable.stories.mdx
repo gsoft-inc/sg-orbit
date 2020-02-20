@@ -1,16 +1,15 @@
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown } from "@orbit-ui/react-dropdown/src";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { SemanticLayout } from "../semantic-layout";
 import { WarningMessage } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
-import Installation from "../installation.mdx";
 
 <Meta
     title={createComponentSection("Dropdown/searchable")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
-        .docsLayout(<SemanticLayout documentationPath="/modules/dropdown" />)
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
         .build()}
 />
 
@@ -20,7 +19,7 @@ A dropdown can allow a user to search through a large list of choices.
 
 ## Installation
 
-<Installation imports={<Imports />} />
+<Installation componentFolder="dropdown" imports={<Imports />} />
 
 ## Usage
 
