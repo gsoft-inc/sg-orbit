@@ -7,6 +7,7 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { select, text, withKnobs } from "@storybook/addon-knobs";
 import Imports from "./imports.mdx";
+import IndexExample from "./index-example.mdx";
 
 <Meta
     title={createComponentSection("Icon")}
@@ -44,19 +45,7 @@ import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
 <AzureIcon32 />
 ```
 
-We recommended exporting all your icons from an `index.js` file:
-
-```jsx dark
-// assets/index.js
-
-import { Icon, MultiVariantIcon } from "@orbit-ui/react-icons";
-import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
-import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
-import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
-
-export const AzureIcon32 = <Icon source={Azure32} />;
-export const FilterIcon = <MultiVariantIcon source24={Filter24} source32={Filter32} />;
-```
+<IndexExample />
 
 ### Default
 
