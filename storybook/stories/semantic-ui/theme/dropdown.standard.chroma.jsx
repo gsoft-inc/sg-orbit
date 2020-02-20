@@ -1,3 +1,5 @@
+import { AddIcon } from "@orbit-ui/react-icons";
+import { Button } from "@orbit-ui/react-button";
 import { Dropdown } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -67,8 +69,7 @@ export const FRIENDS = [
     }
 ];
 
-// TODO: Add a test for a fluid dropdown
-// TODO: add tests for: disabled, trigger, clearable, loading, basic, icon, compact, direction, upward, inline
+// inline
 
 stories()
     .add("sizes",
@@ -77,7 +78,7 @@ stories()
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      <Dropdown
                          placeholder="Gender"
-                         className="small"
+                         className="small mr5"
                          selection
                          options={GENDERS}
                      />
@@ -94,6 +95,7 @@ stories()
                          placeholder="Gender"
                          selection
                          options={GENDERS}
+                         className="mr5"
                      />
                      <Dropdown
                          placeholder="Gender"
@@ -105,7 +107,7 @@ stories()
                  <div className="flex">
                      <Dropdown
                          placeholder="Gender"
-                         className="large"
+                         className="large mr5"
                          selection
                          options={GENDERS}
                      />
@@ -125,7 +127,7 @@ stories()
                  <div className="flex" style={{ marginBottom: "200px" }}>
                      <Dropdown
                          placeholder="Select Friend"
-                         className="small"
+                         className="small mr5"
                          selection
                          options={FRIENDS}
                      />
@@ -142,6 +144,7 @@ stories()
                          placeholder="Select Friend"
                          selection
                          options={FRIENDS}
+                         className="mr5"
                      />
                      <Dropdown
                          placeholder="Select Friend"
@@ -153,7 +156,7 @@ stories()
                  <div className="flex">
                      <Dropdown
                          placeholder="Select Friend"
-                         className="large"
+                         className="large mr5"
                          selection
                          options={FRIENDS}
                      />
@@ -168,10 +171,154 @@ stories()
              </div>
     )
     .add("fluid", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+
+    )
+    .add("disabled", () =>
         <Dropdown
-            placeholder="Select Friend"
+            placeholder="Gender"
             selection
-            fluid
+            disabled
             options={GENDERS}
         />
+    )
+    .add("clearable", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                clearable
+                defaultValue="Male"
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                clearable
+                defaultValue="Male"
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+    )
+    .add("error", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                error
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                error
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+    )
+    .add("trigger", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    trigger={<AddIcon />}
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    trigger={<AddIcon />}
+                    options={GENDERS}
+                    defaultOpen
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    trigger={<Button>Open</Button>}
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    trigger={<Button>Open</Button>}
+                    options={GENDERS}
+                    defaultOpen
+                    className="mr5"
+                />
+                <Dropdown
+                    trigger={<Button circular icon={<AddIcon />} />}
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    trigger={<Button circular icon={<AddIcon />} />}
+                    options={GENDERS}
+                    defaultOpen
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    trigger={<span>Open</span>}
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    trigger={<span>Open</span>}
+                    options={GENDERS}
+                    defaultOpen
+                />
+            </div>
+        </div>
+    )
+    .add("loading", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                loading
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                loading
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+    )
+    .add("upward", () =>
+        <div className="flex mt12">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                upward
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                upward
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
     );
