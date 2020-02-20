@@ -2,26 +2,31 @@
         User Overrides
 *******************************/
 .ui.selection.dropdown {
-  line-height: 1;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    min-height: 0;
+    padding: 0 2rem 0 0.75rem;
 }
 
+/* SKIN | Arrow Icon */
 .ui.dropdown > .dropdown.icon {
-    background-color: var(--marine-100);
+    background-color: @marine100;
     mask: url(~@orbit-ui/icons/dist/icon-arrow-24.svg) center center no-repeat!important;
-    mask-size: 24px 24px;
+    mask-size: 1.5rem 1.5rem;
     transform: rotate(90deg);
 }
 
-.ui.selection.dropdown:hover  .dropdown.icon {
-    background-color: var(--marine-500);
+.ui.selection.dropdown:hover  .dropdown.icon,
+.ui.selection.dropdown:focus  .dropdown.icon {
+    background-color: @marine500;
 }
 
 .ui.selection.dropdown:hover  .dropdown.clear.icon {
-    background-color: var(--marine-100);
+    background-color: @marine100;
 }
 
 .ui.dropdown > .clear.icon {
-    background-color: var(--marine-100);
+    background-color: @marine100;
     mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
     mask-size: 20px 20px;
 }
@@ -33,12 +38,12 @@
 
 .ui.selection.dropdown > .dropdown.icon {
     height: 100%;
-    width: 24px;
+    width: 1.5rem;
     padding: 0;
 }
 
 .ui.selection.dropdown > .dropdown.clear.icon {
-    width: 20px;
+    width: 1.25rem;
 }
 
 .ui.dropdown.no-icons .dropdown.icon,
@@ -84,9 +89,15 @@
     border-color: transparent;
 }
 
-.ui.selection.dropdown.selected::before,
-.ui.selection.dropdown .menu .selected.item::before {
-    background-color: @cloud50;
+.ui.dropdown[aria-checked="true"],
+.ui.dropdown .menu [aria-checked="true"].item {
+    background: @cloud50;
+    font-weight: 400;
+
+}
+
+.ui.dropdown[aria-checked="true"]::before,
+.ui.dropdown .menu [aria-checked="true"].item::before {
     position: absolute;
     content: "";
     display: block;
@@ -97,15 +108,16 @@
     left: 0;
 }
 
+.ui.selection.dropdown.small.selected::before,
+.ui.selection.dropdown.small .menu .selected.item::before {
+    width: .125rem;
+}
+
 .ui.selection.active.dropdown .menu {
     border-color: @white;
 }
 
-.ui.selection.dropdown.small {
-    padding: 0.1875rem 1.975rem 0.1875rem 0.875rem;
-    min-height: 2rem;
-}
-
+/* Skin | Selected */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
     font-weight: 400;
@@ -115,12 +127,17 @@
 .ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
-    width: 24px;
+    width: 1.5rem;
 }
 
 .ui.dropdown > .text {
     line-height: 1.33333333;
     font-size: 1.125rem;
+}
+
+.ui.dropdown.small > .text {
+    line-height: 2rem;
+    font-size: 1rem;
 }
 
 .ui.floating.dropdown > .menu {
@@ -134,4 +151,67 @@
 .ui.search.dropdown > input.search {
     min-height: 38px;
     font-size: 1.125rem;
+}
+
+/* LAYOUT | Complex */
+.ui.dropdown > .text > .icon,
+.ui.dropdown > .text > .label,
+.ui.dropdown > .text > .flag,
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
+.ui.dropdown .menu > .item > .icon,
+.ui.dropdown .menu > .item > .label,
+.ui.dropdown .menu > .item > .flag,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img  {
+    margin-right: 0.5rem;
+}
+
+.ui.dropdown .menu > .item {
+    display: flex;
+    align-items: center;
+}
+
+/* SIZE */
+/* SIZE | Small */
+.ui.selection.dropdown.small {
+    padding: 0 1.975rem 0 0.875rem;
+    height: 2rem;
+    min-height: 0;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.ui.dropdown.small .menu > .item,
+.ui.selection.dropdown.small .menu > .item {
+    height: 2rem;
+    padding: 0 1rem !important;
+    line-height: 2rem;
+}
+
+/* SIZE | Medium */
+.ui.selection.dropdown .menu > .item {
+    padding: 0 1rem !important;
+    line-height: 2.5rem;
+}
+
+/* SIZE | Large */
+.ui.selection.dropdown.large {
+    padding: 0 1.975rem 0 0.875rem;
+    min-height: 0;
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.ui.dropdown.large .menu > .item {
+    height: 3rem;
+    padding: 0 1rem !important;
+}
+
+/* SIZE | Large | With Avatar */
+.ui.dropdown > .text > .image.small,
+.ui.dropdown .menu > .item > .image.small {
+    width: 2rem;
+    height: 2rem;
+    max-height: 2rem;
 }
