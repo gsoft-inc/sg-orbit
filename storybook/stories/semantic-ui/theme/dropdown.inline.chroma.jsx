@@ -1,5 +1,3 @@
-import { AddIcon } from "@orbit-ui/react-icons";
-import { Button } from "@orbit-ui/react-button";
 import { Dropdown } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -43,6 +41,29 @@ stories()
             />
         </div>
     )
+    .add("selected value", () =>
+        <div className="flex">
+            <Dropdown
+                placeholder="Gender"
+                inline
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                inline
+                value="Male"
+                options={GENDERS}
+                className="mr5"
+            />
+            <Dropdown
+                placeholder="Gender"
+                inline
+                options={GENDERS}
+                defaultOpen
+            />
+        </div>
+    )
     .add("in a block", () =>
         <div className="flex flex-column">
             <div className="mb12">
@@ -62,7 +83,7 @@ stories()
             </div>
         </div>
     )
-    .add("in a block", () =>
+    .add("disabled", () =>
         <Dropdown
             placeholder="Gender"
             inline

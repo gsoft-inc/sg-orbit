@@ -98,8 +98,15 @@ stories()
                      />
                      <Dropdown
                          placeholder="Gender"
+                         className="small mr5"
+                         selection
+                         value="Male"
+                         options={GENDERS}
+                     />
+                     <Dropdown
+                         placeholder="Gender"
                          className="small"
-                         open
+                         defaultOpen
                          selection
                          options={GENDERS}
                      />
@@ -113,7 +120,14 @@ stories()
                      />
                      <Dropdown
                          placeholder="Gender"
-                         open
+                         selection
+                         value="Male"
+                         options={GENDERS}
+                         className="mr5"
+                     />
+                     <Dropdown
+                         placeholder="Gender"
+                         defaultOpen
                          selection
                          options={GENDERS}
                      />
@@ -127,8 +141,15 @@ stories()
                      />
                      <Dropdown
                          placeholder="Gender"
+                         className="large mr5"
+                         selection
+                         value="Male"
+                         options={GENDERS}
+                     />
+                     <Dropdown
+                         placeholder="Gender"
                          className="large"
-                         open
+                         defaultOpen
                          selection
                          options={GENDERS}
                      />
@@ -148,7 +169,7 @@ stories()
                      <Dropdown
                          placeholder="Select Friend"
                          className="small"
-                         open
+                         defaultOpen
                          selection
                          options={FRIENDS}
                      />
@@ -162,7 +183,7 @@ stories()
                      />
                      <Dropdown
                          placeholder="Select Friend"
-                         open
+                         defaultOpen
                          selection
                          options={FRIENDS}
                      />
@@ -177,7 +198,7 @@ stories()
                      <Dropdown
                          placeholder="Select Friend"
                          className="large"
-                         open
+                         defaultOpen
                          selection
                          options={FRIENDS}
                      />
