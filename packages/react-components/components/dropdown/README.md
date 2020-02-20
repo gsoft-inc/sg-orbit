@@ -1,4 +1,4 @@
-# @orbit-ui/react-dropdown
+# @orbit-ui/react-icons
 
 Full documentation available at: https://orbit.sharegate.design
 

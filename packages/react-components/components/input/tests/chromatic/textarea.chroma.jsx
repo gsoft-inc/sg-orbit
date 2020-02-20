@@ -2,7 +2,7 @@ import { TextArea } from "@orbit-ui/react-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("TextArea"))
+    return storiesOfBuilder(module, createChromaticSection("Text Area"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

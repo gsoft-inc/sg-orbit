@@ -25,6 +25,76 @@ A dropdown can be used to select between choices.
 
 ## Usage
 
+### Constants
+
+The following constants are used in the examples below:
+
+export const GENDERS = [
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
+];
+
+export const FRIENDS = [
+    {
+        key: "Jenny Hess",
+        text: "Jenny Hess",
+        value: "Jenny Hess",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
+    },
+    {
+        key: "Elliot Fu",
+        text: "Elliot Fu",
+        value: "Elliot Fu",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
+    },
+    {
+        key: "Stevie Feliciano",
+        text: "Stevie Feliciano",
+        value: "Stevie Feliciano",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
+    },
+    {
+        key: "Christian",
+        text: "Christian",
+        value: "Christian",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
+    }
+];
+
+```javascript dark
+const GENDERS = [
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
+];
+
+const FRIENDS = [
+    {
+        key: "Jenny Hess",
+        text: "Jenny Hess",
+        value: "Jenny Hess",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
+    },
+    {
+        key: "Elliot Fu",
+        text: "Elliot Fu",
+        value: "Elliot Fu",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
+    },
+    {
+        key: "Stevie Feliciano",
+        text: "Stevie Feliciano",
+        value: "Stevie Feliciano",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
+    },
+    {
+        key: "Christian",
+        text: "Christian",
+        value: "Christian",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
+    }
+];
+```
+
 ### Default
 
 A default dropdown.
@@ -33,18 +103,7 @@ A default dropdown.
     <Story name="default">
         <Dropdown
             selection
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -59,18 +118,7 @@ A dropdown can have an initial value.
             placeholder="Gender"
             selection
             defaultValue="Female"
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -84,68 +132,7 @@ A dropdown can render complex items.
         <Dropdown
             placeholder="Select friend"
             selection
-            options={[
-                {
-                    key: "Jenny Hess",
-                    text: "Jenny Hess",
-                    value: "Jenny Hess",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/women/4.jpg",
-                        size: "mini"
-                    }
-                },
-                {
-                    key: "Elliot Fu",
-                    text: "Elliot Fu",
-                    value: "Elliot Fu",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/women/12.jpg",
-                        size: "mini"
-                    }
-                },
-                {
-                    key: "Stevie Feliciano",
-                    text: "Stevie Feliciano",
-                    value: "Stevie Feliciano",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/men/14.jpg",
-                        size: "mini"
-                    }
-                },
-                {
-                    key: "Christian",
-                    text: "Christian",
-                    value: "Christian",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/men/12.jpg",
-                        size: "mini"
-                    }
-                },
-                {
-                    key: "Matt",
-                    text: "Matt",
-                    value: "Matt",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/men/44.jpg",
-                        size: "mini"
-                    }
-                },
-                {
-                    key: "Justen Kitsune",
-                    text: "Justen Kitsune",
-                    value: "Justen Kitsune",
-                    image: {
-                        avatar: true,
-                        src: "https://randomuser.me/api/portraits/women/14.jpg",
-                        size: "mini"
-                    }
-                }
-            ]}
+            options={FRIENDS}
         />
     </Story>
 </Preview>
@@ -160,18 +147,7 @@ A clearable dropdown let a user remove is selection.
             placeholder="Gender"
             selection
             clearable
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -184,18 +160,7 @@ A dropdown can have a custom trigger.
     <Story name="custom trigger">
         <Dropdown
             trigger={<AddIcon className="w7" />}
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -210,18 +175,7 @@ A dropdown can be disabled.
             placeholder="Gender"
             disabled
             selection
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -236,18 +190,7 @@ A dropdown can take the width of its container.
             placeholder="Gender"
             selection
             fluid
-            options={[
-                {
-                    key: "Male",
-                    text: "Male",
-                    value: "Male"
-                },
-                {
-                    key: "Female",
-                    text: "Female",
-                    value: "Female"
-                }
-            ]}
+            options={GENDERS}
         />
     </Story>
 </Preview>
@@ -266,53 +209,20 @@ Can be set to: `"small"`, `"large"` or omitted.
                 selection
                 fluid
                 className="small"
-                options={[
-                    {
-                        key: "Male",
-                        text: "Male",
-                        value: "Male"
-                    },
-                    {
-                        key: "Female",
-                        text: "Female",
-                        value: "Female"
-                    }
-                ]}
+                options={GENDERS}
             />
             <Dropdown
                 placeholder="Gender"
                 selection
                 fluid
-                options={[
-                    {
-                        key: "Male",
-                        text: "Male",
-                        value: "Male"
-                    },
-                    {
-                        key: "Female",
-                        text: "Female",
-                        value: "Female"
-                    }
-                ]}
+                options={GENDERS}
             />
             <Dropdown
                 placeholder="Gender"
                 selection
                 fluid
                 className="large"
-                options={[
-                    {
-                        key: "Male",
-                        text: "Male",
-                        value: "Male"
-                    },
-                    {
-                        key: "Female",
-                        text: "Female",
-                        value: "Female"
-                    }
-                ]}
+                options={GENDERS}
             />
         </div>
     </Story>
