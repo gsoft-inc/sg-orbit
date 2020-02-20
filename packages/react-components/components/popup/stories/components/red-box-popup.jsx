@@ -43,13 +43,15 @@ export class RedBoxTrigger extends PureComponent {
     };
 
     render() {
-        return <button
-            onClick={this.handleButtonClick}
-            type="button"
-            ref={this._containerRef}
-        >
+        return (
+            <button
+                onClick={this.handleButtonClick}
+                type="button"
+                ref={this._containerRef}
+            >
             Open
-        </button>;
+            </button>
+        );
     }
 
     focus() {

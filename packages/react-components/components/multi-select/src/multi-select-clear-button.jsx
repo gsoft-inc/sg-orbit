@@ -46,7 +46,6 @@ export class MultiSelectClearButton extends PureComponent {
                 compact
                 size={size}
                 className={className}
-                type="button"
                 ref={this._buttonRef}
                 data-testid="multi-select-clear-button"
             >

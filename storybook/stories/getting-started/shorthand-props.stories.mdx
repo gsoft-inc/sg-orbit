@@ -21,7 +21,7 @@ _A shorthand prop is a configuration style that allow a consumer of a component 
 For example, one could specify [an icon for a button](http://localhost:6754/?path=/docs/components-button--icon#icon) with a shorthand:
 
 ```jsx dark
-<Button icon={<SignoutIcon />} type="button">
+<Button icon={<SignoutIcon />}>
     Click me
 </Button>
 ```
@@ -31,7 +31,7 @@ For example, one could specify [an icon for a button](http://localhost:6754/?pat
 In the previous example, instead of using a shorthand, we could have defined the icon as content of the `<Button />`:
 
 ```jsx dark
-<Button type="button">
+<Button>
     <SignoutIcon />
     Click me
 </Button>

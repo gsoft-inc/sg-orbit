@@ -45,8 +45,8 @@ function getDropdownMenu(container) {
     return container.querySelector("div.menu.visible");
 }
 
-async function getSearchInput(getByTestId) {
-    const searchInputNode = await getByTestId(SEARCH_INPUT_ID);
+function getSearchInput(getByTestId) {
+    const searchInputNode = getByTestId(SEARCH_INPUT_ID);
 
     return searchInputNode.querySelector("input");
 }
@@ -112,7 +112,7 @@ test("close the dropdown menu on focusout", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    fireEvent.focusOut(await getSearchInput(getByTestId));
+    fireEvent.focusOut(getSearchInput(getByTestId));
     await wait();
 
     expect(getDropdownMenu(container)).not.toBeInTheDocument();
@@ -172,7 +172,7 @@ test("dont close the dropdown menu on search input click", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.click(await getSearchInput(getByTestId));
+    userEvent.click(getSearchInput(getByTestId));
     await wait();
 
     expect(getDropdownMenu(container)).toBeInTheDocument();
@@ -245,7 +245,7 @@ test("typing a search input filter out the available dropdown menu items", async
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
@@ -258,7 +258,7 @@ test("search input is case insensitive", async () => {
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    userEvent.type(await getSearchInput(getByTestId), "n");
+    userEvent.type(getSearchInput(getByTestId), "n");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
@@ -271,7 +271,7 @@ test("when no items match the search input, empty results is shown", async () =>
 
     expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
 
-    userEvent.type(await getSearchInput(getByTestId), "abc");
+    userEvent.type(getSearchInput(getByTestId), "abc");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(getByTestId(NO_RESULTS_ID)).toBeInTheDocument();
@@ -555,7 +555,7 @@ test("call onSearch when the search input change", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N", expect.anything());
@@ -575,7 +575,7 @@ test("call onSearch with groups when specified", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N", expect.anything());
@@ -595,7 +595,7 @@ test("call onSearch with custom object when specified", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N", expect.anything());
@@ -614,7 +614,7 @@ test("results returned by onSearch are shown", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
@@ -636,7 +636,7 @@ test("onSearch is not call with the already selected items", async () => {
 
     await openDropdownMenu(getByTestId, container);
 
-    userEvent.type(await getSearchInput(getByTestId), "N");
+    userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N", expect.anything());

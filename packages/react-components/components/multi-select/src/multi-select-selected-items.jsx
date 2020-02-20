@@ -31,7 +31,6 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
                     icon={<CloseIcon />}
                     size="tiny"
                     onClick={onRemove}
-                    type="button"
                 />
             </If>
         </Label>

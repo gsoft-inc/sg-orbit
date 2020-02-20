@@ -308,9 +308,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                     secondary
                     icon={<CloseIcon />}
                     size="tiny"
-                    className="transparent"
                     onClick={this.handleClear}
-                    type="button"
                     ref={this._clearButtonRef}
                     data-testid="search-input-clear-button"
                 />

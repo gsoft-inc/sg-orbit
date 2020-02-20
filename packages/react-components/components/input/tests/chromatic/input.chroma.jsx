@@ -2,7 +2,7 @@ import { Input } from "@orbit-ui/react-input/src";
 import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-// TODO: variations doesn't make sense right now since error and success are also variations and are part of default & transparent stories.
+// TODO: variations doesn't make sense right now since error is also variations and are part of default & transparent stories.
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Input"))
@@ -54,45 +54,6 @@ stories()
                          <Input loading icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                          <Input loading icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                          <Input loading icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                     </div>
-                 </div>
-                 <div className="flex flex-row">
-                     <div className="flex flex-column items-start">
-                         <Input className="success" placeholder="Search..." />
-                         <Input className="success" focus placeholder="Search..." />
-                         <Input className="success" disabled placeholder="Search..." />
-                         <Input className="success" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" focus placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                         <Input className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                         <Input className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                     </div>
-                     <div className="flex flex-column items-start">
-                         <Input loading className="success" placeholder="Search..." />
-                         <Input loading className="success" disabled placeholder="Search..." />
-                         <Input loading className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                         <Input loading className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                         <Input loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                         <Input loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                         <Input loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                         <Input loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
                      </div>
                  </div>
                  <div className="flex flex-row">

@@ -17,8 +17,5 @@
         "prepublishOnly": "yarn copy-license-to-dist",
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
-    },
-    "devDependencies": {
-        "@orbit-ui/react-icons": "1.0.0"
     }
 }

@@ -40,7 +40,7 @@ A default button.
 
 <Preview>
     <Story name="default">
-        <Button type="button">Cutoff</Button>
+        <Button>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -50,7 +50,7 @@ A button can be active.
 
 <Preview>
     <Story name="active">
-        <Button type="button" active>Cutoff</Button>
+        <Button active>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -60,7 +60,7 @@ A button can reduce its padding to fit into tighter spaces.
 
 <Preview>
     <Story name="compact">
-        <Button type="button" compact>Cutoff</Button>
+        <Button compact>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -70,7 +70,7 @@ A button can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Button type="button" disabled>Cutoff</Button>
+        <Button disabled>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -80,7 +80,7 @@ A button can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Button type="button" fluid>To infinity and beyond</Button>
+        <Button fluid>To infinity and beyond</Button>
     </Story>
 </Preview>
 
@@ -91,9 +91,9 @@ A button can contain an [icon](?path=/docs/materials-icons--page). Specify the i
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Button type="button" icon={<SignoutIcon />}>Click me</Button>
-            <Button type="button" icon={<SignoutIcon />} iconPosition="right">Click me</Button>
-            <Button type="button" icon={<AddIcon />}></Button>
+            <Button icon={<SignoutIcon />}>Click me</Button>
+            <Button icon={<SignoutIcon />} iconPosition="right">Click me</Button>
+            <Button icon={<AddIcon />}></Button>
         </div>
     </Story>
 </Preview>
@@ -105,8 +105,8 @@ A button can contain a [label](?path=/story/components-label-standard--default-s
 <Preview>
     <Story name="label">
         <div className="flex items-space-between">
-            <Button type="button" label={<Label>6</Label>}>Cutoff</Button>
-            <Button type="button" label={{ content: "12", className: "bg-marine-100" }}>Cutoff</Button>
+            <Button label={<Label>6</Label>}>Cutoff</Button>
+            <Button label={{ content: "12", className: "bg-marine-100" }}>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -118,8 +118,8 @@ A button can contain a [tag](?path=/docs/components-label-tag--default-story). S
 <Preview>
     <Story name="tag">
         <div className="flex items-space-between">
-            <Button type="button" tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
-            <Button type="button" tag={{ className: "bg-sunray-500" }}>Cutoff</Button>
+            <Button tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
+            <Button tag={{ className: "bg-sunray-500" }}>Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -130,7 +130,7 @@ A button can show a loading indicator.
 
 <Preview>
     <Story name="loading">
-        <Button type="button" loading>Loading</Button>
+        <Button loading>Loading</Button>
     </Story>
 </Preview>
 
@@ -143,10 +143,10 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <Button type="button" size="tiny">Cutoff</Button>
-            <Button type="button" size="small">Cutoff</Button>
-            <Button type="button">Cutoff</Button>
-            <Button type="button" size="large">Cutoff</Button>
+            <Button size="tiny">Cutoff</Button>
+            <Button size="small">Cutoff</Button>
+            <Button >Cutoff</Button>
+            <Button size="large">Cutoff</Button>
         </div>
     </Story>
 </Preview>
@@ -159,16 +159,16 @@ A button can be circular.
     <Story name="circular">
         <div className="flex">
             <div className="flex items-end items-space-between mr4">
-                <Button type="button" circular size="tiny">Aa</Button>
-                <Button type="button" circular size="small">Aa</Button>
-                <Button type="button" circular>Aa</Button>
-                <Button type="button" circular size="large">Aa</Button>
+                <Button circular size="tiny">Aa</Button>
+                <Button circular size="small">Aa</Button>
+                <Button circular>Aa</Button>
+                <Button circular size="large">Aa</Button>
             </div>
             <div className="flex items-end items-space-between">
-                <Button type="button" icon={<AddIcon />} circular size="tiny"></Button>
-                <Button type="button" icon={<AddIcon />} circular size="small"></Button>
-                <Button type="button" icon={<AddIcon />} circular></Button>
-                <Button type="button" icon={<AddIcon />} circular size="large"></Button>
+                <Button icon={<AddIcon />} circular size="tiny"></Button>
+                <Button icon={<AddIcon />} circular size="small"></Button>
+                <Button icon={<AddIcon />} circular></Button>
+                <Button icon={<AddIcon />} circular size="large"></Button>
             </div>
         </div>
     </Story>
@@ -181,8 +181,8 @@ A button can show different levels of emphasis.
 <Preview>
     <Story name="emphasis">
         <div className="flex items-space-between">
-            <Button type="button" primary>Primary</Button>
-            <Button type="button" secondary>Secondary</Button>
+            <Button primary>Primary</Button>
+            <Button secondary>Secondary</Button>
         </div>
     </Story>
 </Preview>
@@ -194,9 +194,9 @@ A basic button have a subtle appearance.
 <Preview>
     <Story name="basic">
         <div className="flex items-space-between">
-            <Button type="button" basic>Default</Button>
-            <Button type="button" basic primary>Primary</Button>
-            <Button type="button" basic secondary>Secondary</Button>
+            <Button basic>Default</Button>
+            <Button basic primary>Primary</Button>
+            <Button basic secondary>Secondary</Button>
         </div>
     </Story>
 </Preview>
@@ -208,9 +208,9 @@ A ghost button is similar to a standard button, taking the same space as a stand
 <Preview>
     <Story name="ghost">
         <div className="flex items-space-between">
-            <Button type="button" ghost>Default</Button>
-            <Button type="button" ghost primary>Primary</Button>
-            <Button type="button" ghost secondary>Secondary</Button>
+            <Button ghost>Default</Button>
+            <Button ghost primary>Primary</Button>
+            <Button ghost secondary>Secondary</Button>
         </div>
     </Story>
 </Preview>
@@ -221,7 +221,7 @@ A button can be colorless. Use this variant if you need to customize the button.
 
 <Preview>
     <Story name="naked">
-        <Button type="button" naked>Cutoff</Button>
+        <Button naked>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -238,7 +238,6 @@ A naked button can have a custom color.
                 color: "var(--marine-500)",
                 boxShadow: "0px 0px 0px 1px #FEE9C3 inset"
             }}
-            type="button"
         >
             Cutoff
         </Button>
@@ -254,9 +253,9 @@ Buttons can exist together as a group.
 <Preview>
     <Story name="groups">
         <Button.Group basic widths="3">
-            <Button type="button">All</Button>
-            <Button type="button">Inactive</Button>
-            <Button type="button" active>Active</Button>
+            <Button >All</Button>
+            <Button >Inactive</Button>
+            <Button active>Active</Button>
         </Button.Group>
     </Story>
 </Preview>
@@ -267,5 +266,5 @@ Buttons can exist together as a group.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Button type="button">Cutoff</Button>} />
+    <RefLogger component={<Button >Cutoff</Button>} />
 </Story>

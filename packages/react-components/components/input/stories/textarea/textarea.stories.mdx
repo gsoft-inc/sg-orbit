@@ -1,0 +1,173 @@
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { PureTextArea, TextArea } from "@orbit-ui/react-input/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("TextArea")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/addons/text-area" />)
+        .build()}
+/>
+
+# TextArea
+
+A textarea can be used to allow for extended user input.
+
+## Installation
+
+<Installation componentFolder="input" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="TextArea" semanticPath="/addons/text-area" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "TextArea", component: PureTextArea }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default textarea.
+
+<Preview>
+    <Story name="default">
+        <TextArea />
+    </Story>
+</Preview>
+
+### Value
+
+A textarea can have an value.
+
+<Preview>
+    <Story name="value">
+        <TextArea value="If two pieces of the same type of metal touch in space they will permanently bond." />
+    </Story>
+</Preview>
+
+### Focused
+
+A textarea can show a user is currently interacting with it.
+
+<Preview>
+    <Story name="focused">
+        <TextArea focused placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+### Disabled
+
+A textarea can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <TextArea disabled placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+### Readonly
+
+A textarea can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <TextArea readOnly value="If two pieces of the same type of metal touch in space they will permanently bond." />
+    </Story>
+</Preview>
+
+### Fluid
+
+An textarea can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <TextArea fluid placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+### Size
+
+A textarea can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex flex-row items-end items-space-between">
+            <TextArea size="small" placeholder="Tell us more..." fluid />
+            <TextArea placeholder="Tell us more..." fluid />
+            <TextArea size="large" placeholder="Tell us more..." fluid />
+        </div>
+    </Story>
+</Preview>
+
+### Rows
+
+A textarea can have a default number of rows.
+
+<Preview>
+    <Story name="rows">
+        <TextArea rows={6} placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+### Error
+
+A textarea can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <TextArea error placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+### Transparent
+
+A textarea can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextArea transparent placeholder="Tell us more..." />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextArea autofocus placeholder="Tell us more..." />
+        <TextArea autofocus disabled placeholder="Tell us more..." />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextArea autofocus autofocusDelay={500} placeholder="Tell us more..." />
+        <TextArea autofocus disabled autofocusDelay={500} placeholder="Tell us more..." />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<TextArea />} />
+</Story>
