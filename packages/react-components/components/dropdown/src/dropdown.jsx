@@ -1,6 +1,10 @@
+import "./monkey-patch-dropdown-item";
+
+import { DropdownContext } from "./context";
+import { DropdownItem } from "./item";
 import { LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func, number, object,oneOf, oneOfType, string } from "prop-types";
+import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 
@@ -13,7 +17,7 @@ const SIZES_CLASSES = {
     [LARGE]: "large"
 };
 
-const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "icon", "labeled", "multiple", "pointing", "simple"];
+const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "icon", "labeled", "multiple", "openOnFocus", "pointing", "searchInput", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const propTypes = {
     /**
@@ -85,17 +89,19 @@ export function PureDropdown(props) {
 
     return (
         <Ref innerRef={setRef}>
-            <SemanticDropdown
-                selectOnBlur={false}
-                selectOnNavigation={false}
-                openOnFocus={false}
-                disabled={disabled}
-                className={classes}
-                data-testid="dropdown"
-                {...rest}
-            >
-                {children}
-            </SemanticDropdown>
+            <DropdownContext.Provider value={{ size: size }}>
+                <SemanticDropdown
+                    selectOnBlur={false}
+                    selectOnNavigation={false}
+                    openOnFocus={false}
+                    disabled={disabled}
+                    className={classes}
+                    data-testid="dropdown"
+                    {...rest}
+                >
+                    {children}
+                </SemanticDropdown>
+            </DropdownContext.Provider>
         </Ref>
     );
 }
@@ -110,7 +116,7 @@ export const Dropdown = forwardRef((props, ref) => (
 [PureDropdown, Dropdown].forEach(x => {
     x.Divider = SemanticDropdown.Divider;
     x.Header = SemanticDropdown.Header;
-    x.Item = SemanticDropdown.Item;
+    x.Item = DropdownItem;
     x.Menu = SemanticDropdown.Menu;
     x.SearchInput = SemanticDropdown.SearchInput;
 });
