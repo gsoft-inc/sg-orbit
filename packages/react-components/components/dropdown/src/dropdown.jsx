@@ -64,3 +64,11 @@ PureDropdown.defaultProps = defaultProps;
 export const Dropdown = forwardRef((props, ref) => (
     <PureDropdown { ...props } forwardedRef={ref} />
 ));
+
+[PureDropdown, Dropdown].forEach(x => {
+    x.Divider = SemanticDropdown.Divider;
+    x.Header = SemanticDropdown.Header;
+    x.Item = SemanticDropdown.Item;
+    x.Menu = SemanticDropdown.Menu;
+    x.SearchInput = SemanticDropdown.SearchInput;
+});

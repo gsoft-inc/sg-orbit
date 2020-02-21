@@ -18,18 +18,35 @@ const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecy
 
 <details><summary >specify optional data</summary>
 
-Additional properties can be specified to provide additional information to callbacks like `onValuesChange`.
+Additional properties can be specified to provide additional information to any callbacks e.g. `onValuesChange` or `itemRenderer`.
+
+```javascript dark
+const groupCreated = multiSelectItem("Created", "group-created", null, { backendId: 123 });
+```
+
+Then in any callbacks:
 
 ```jsx dark
-const groupCreated = multiSelectItem("Created", "group-created", null, { backendId: 123 });
-
-...
-
 <MultiSelect
     items={[groupCreated]}
     onValuesChange={(event, values) => {
         values.forEach(x => console.log(x.backendId));
     }}
+/>
+```
+
+Or in a custom result renderer:
+
+```jsx dark
+<MultiSelect
+    items={[groupCreated]}
+    selectedItemsComponent={
+        <MultiSelect.SelectedItems
+            itemRenderer={({ text, value, group, backendId }) => {
+                return <div>{backendId}</div>
+            }}
+        />
+    }
 />
 ```
 </details>
