@@ -12,12 +12,34 @@ To create a result, use the `searchInputResult(id, text, obj?)` function:
 
 <details><summary >specify optional data</summary>
 
-An optional data `obj` can be specified to provide additional information to callbacks like `onValueChange`:
+An optional data `obj` can be specified to provide additional information to any callbacks e.g. `onValueChange` or `resultRenderer`:
 
 ```jsx dark
 <RemoteSearchInput
     onResults={response => {
         return response.data.map(x => searchInputResult(x.code, x.name, { backendId: x.backendId }));
+    }}
+/>
+```
+
+Then in any callbacks:
+
+```jsx dark
+<RemoteSearchInput
+    results={[georgeResult]}
+    onValueChange={(event, { id, text, backendId }) => {
+        console.log(backendId);
+    }}
+/>
+```
+
+Or in a custom result renderer:
+
+```jsx dark
+<RemoteSearchInput
+    results={[georgeResult]}
+    resultRenderer={({ id, text, backendId }) => {
+        return <div>{backendId}</div>;
     }}
 />
 ```

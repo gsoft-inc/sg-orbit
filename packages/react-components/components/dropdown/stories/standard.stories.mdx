@@ -1,0 +1,285 @@
+import { AddIcon } from "@orbit-ui/react-icons";
+import { Dropdown, PureDropdown } from "@orbit-ui/react-dropdown/src";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Dropdown/standard")}
+    parameters={paramsBuilder()
+        .sortPriority(-1)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Dropdown
+
+A dropdown can be used to select between choices.
+
+## Installation
+
+<Installation componentFolder="dropdown" imports={<Imports />} />
+
+## Usage
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Dropdown", component: PureDropdown }
+    ]}
+/>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const GENDERS = [
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
+];
+
+export const FRIENDS = [
+    {
+        key: "Jenny Hess",
+        text: "Jenny Hess",
+        value: "Jenny Hess",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
+    },
+    {
+        key: "Elliot Fu",
+        text: "Elliot Fu",
+        value: "Elliot Fu",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
+    },
+    {
+        key: "Stevie Feliciano",
+        text: "Stevie Feliciano",
+        value: "Stevie Feliciano",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
+    },
+    {
+        key: "Christian",
+        text: "Christian",
+        value: "Christian",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
+    }
+];
+
+```javascript dark
+const GENDERS = [
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
+];
+
+const FRIENDS = [
+    {
+        key: "Jenny Hess",
+        text: "Jenny Hess",
+        value: "Jenny Hess",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
+    },
+    {
+        key: "Elliot Fu",
+        text: "Elliot Fu",
+        value: "Elliot Fu",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
+    },
+    {
+        key: "Stevie Feliciano",
+        text: "Stevie Feliciano",
+        value: "Stevie Feliciano",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
+    },
+    {
+        key: "Christian",
+        text: "Christian",
+        value: "Christian",
+        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
+    }
+];
+```
+
+### Default
+
+A default dropdown.
+
+<Preview>
+    <Story name="default">
+        <Dropdown
+            selection
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A dropdown can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            defaultValue="Female"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Complex items
+
+A dropdown can render complex items.
+
+<Preview>
+    <Story name="complex">
+        <Dropdown
+            placeholder="Select friend"
+            selection
+            options={FRIENDS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable dropdown let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            clearable
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Custom trigger
+
+A dropdown can have a custom trigger.
+
+<Preview>
+    <Story name="custom trigger">
+        <Dropdown
+            trigger={<AddIcon />}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A dropdown can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Dropdown
+            placeholder="Gender"
+            disabled
+            selection
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A dropdown can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            fluid
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Actions
+
+A dropdown can contains non-value actions.
+
+<Preview>
+    <Story name="actions">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            options={GENDERS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
+### Size
+
+A dropdown can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                size="small"
+                options={GENDERS}
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                options={GENDERS}
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                fluid
+                size="large"
+                options={GENDERS}
+            />
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus selection placeholder="Gender" options={GENDERS} />
+        <Dropdown autofocus disabled selection placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus autofocusDelay={500} selection placeholder="Gender" options={GENDERS} />
+        <Dropdown autofocus disabled autofocusDelay={500} selection placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Dropdown selection options={GENDERS} />} />
+</Story>
