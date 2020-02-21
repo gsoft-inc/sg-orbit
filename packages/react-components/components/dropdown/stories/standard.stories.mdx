@@ -237,6 +237,30 @@ Can be set to: `"small"`, `"large"` or omitted.
 </Preview>
 
 <Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus selection placeholder="Gender" options={GENDERS} />
+        <Dropdown autofocus disabled selection placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus autofocusDelay={500} selection placeholder="Gender" options={GENDERS} />
+        <Dropdown autofocus disabled autofocusDelay={500} selection placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
