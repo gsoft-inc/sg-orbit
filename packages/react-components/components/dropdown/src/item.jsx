@@ -13,7 +13,7 @@ const propTypes = {
 };
 
 export function DropdownItem(props) {
-    const { icon, ...rest } = props;
+    const { icon, children, ...rest } = props;
     const context = useContext(DropdownContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown/item");
@@ -25,15 +25,18 @@ export function DropdownItem(props) {
     };
 
     return (
-        <Dropdown.Item icon={renderIcon()} {...rest} />
+        <Dropdown.Item icon={renderIcon()} {...rest}>
+            {children}
+        </Dropdown.Item>
     );
 }
 
-DropdownItem.text = "Hey text";
-DropdownItem.value = "Hey value";
-
 DropdownItem.propTypes = propTypes;
 
-DropdownItem.create = props => {
-    return <DropdownItem {...props} />;
+DropdownItem.create = ({ content, ...rest }) => {
+    return (
+        <DropdownItem {...rest}>
+            {content}
+        </DropdownItem>
+    );
 };

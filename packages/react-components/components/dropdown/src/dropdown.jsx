@@ -4,13 +4,12 @@ import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
 
 const SIZES_CLASSES = {
     [SMALL]: "small",
@@ -18,6 +17,12 @@ const SIZES_CLASSES = {
 };
 
 const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "icon", "labeled", "multiple", "openOnFocus", "pointing", "searchInput", "selectOnBlur", "selectOnNavigation", "simple"];
+
+const ACTION_SHAPE = {
+    content: element,
+    className: string
+};
+
 
 const propTypes = {
     /**
@@ -33,6 +38,18 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
+     * A dropdown can have a list of actions.
+     */
+    actions: arrayOf(shape(ACTION_SHAPE)),
+    /**
+     * @ignore
+     */
+    options: arrayOf(any).isRequired,
+    /**
+     * @ignore
+     */
+    disabled: bool,
+    /**
      * @ignore
      */
     className: string,
@@ -43,8 +60,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    autofocus: false,
-    size: DEFAULT_SIZE
+    autofocus: false
 };
 
 function focus(dropdownRef) {
@@ -73,9 +89,17 @@ function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
     }, [autofocus, autofocusDelay, disabled, dropdownRef]);
 }
 
+const renderAction = ({ className, ...rest }, index) => {
+    const classes = mergeClasses(
+        className,
+        "bg-white o-100"
+    );
+
+    return { className: classes, disabled: true, key: `action-${index}`, ...rest };
+};
 
 export function PureDropdown(props) {
-    const { size, autofocus, autofocusDelay, disabled, className, children, forwardedRef, ...rest } = props;
+    const { size, autofocus, autofocusDelay, actions, options, disabled, className, forwardedRef, ...rest } = props;
 
     const [ref, setRef] = useForwardRef(forwardedRef);
 
@@ -87,10 +111,19 @@ export function PureDropdown(props) {
         className
     );
 
+    const renderOptions = () => {
+        if (!isNil(actions)) {
+            return [...options, ...actions.map(renderAction)];
+        }
+
+        return options;
+    };
+
     return (
         <Ref innerRef={setRef}>
             <DropdownContext.Provider value={{ size: size }}>
                 <SemanticDropdown
+                    options={renderOptions()}
                     selectOnBlur={false}
                     selectOnNavigation={false}
                     openOnFocus={false}
@@ -98,9 +131,7 @@ export function PureDropdown(props) {
                     className={classes}
                     data-testid="dropdown"
                     {...rest}
-                >
-                    {children}
-                </SemanticDropdown>
+                />
             </DropdownContext.Provider>
         </Ref>
     );

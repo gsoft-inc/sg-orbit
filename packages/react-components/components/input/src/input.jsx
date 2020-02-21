@@ -9,7 +9,6 @@ import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-s
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
@@ -42,7 +41,7 @@ const propTypes = {
 
 const defaultProps = {
     autofocus: false,
-    size: DEFAULT_SIZE
+    disabled: false
 };
 
 function getInputElement(inputRef) {

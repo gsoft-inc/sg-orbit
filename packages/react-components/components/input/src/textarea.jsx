@@ -1,12 +1,11 @@
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
-import { bool, func, number, object, oneOf, oneOfType } from "prop-types";
+import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, useForwardRef } from "@orbit-ui/react-components-shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
 
 const propTypes = {
     /**
@@ -18,6 +17,10 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
+     * A textarea can have different sizes.
+    */
+    size: oneOf(SIZES),
+    /**
      * Whether or not the textarea take up the width of its container
      */
     fluid: bool,
@@ -25,10 +28,6 @@ const propTypes = {
      * A textarea can show that the data contains errors.
      */
     error: bool,
-    /**
-     * A textarea can have different sizes.
-    */
-    size: oneOf(SIZES),
     /**
      * Whether or not a user is currently interacting with the textarea.
      */
@@ -44,6 +43,14 @@ const propTypes = {
     /**
      * @ignore
      */
+    disabled: bool,
+    /**
+     * @ignore
+     */
+    className: string,
+    /**
+     * @ignore
+     */
     forwardedRef: oneOfType([object, func])
 };
 
@@ -54,7 +61,7 @@ const defaultProps = {
     focused: false,
     transparent: false,
     resizable: false,
-    size: DEFAULT_SIZE
+    disabled: false
 };
 
 function focus(textAreaRef) {
@@ -82,7 +89,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 }
 
 export function PureTextArea(props) {
-    const { autofocus, autofocusDelay, className, disabled, error, fluid, focused, transparent, resizable, size, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
     const [ref, setRef] = useForwardRef(forwardedRef);
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);

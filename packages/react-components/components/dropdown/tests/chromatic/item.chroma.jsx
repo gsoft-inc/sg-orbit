@@ -84,14 +84,15 @@ stories()
     .add("content", () =>
         <Dropdown
             selection
-            options={[createMale(), createFemale({ content: <a href="https://en.wikipedia.org/wiki/Female">Female</a> })]}
+            options={[createMale(), { content: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female" }]}
             defaultOpen
         />
     )
     .add("actions", () =>
         <Dropdown
             selection
-            options={[createMale(), createFemale(), { content: <a href="https://www.google.com">Google</a>, disabled: true, className: "bg-white o-100" }]}
+            options={[createMale(), createFemale()]}
+            actions={[{ content: <a href="https://www.google.com">Google</a> }]}
             defaultOpen
         />
     );
