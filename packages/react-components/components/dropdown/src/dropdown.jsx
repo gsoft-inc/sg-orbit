@@ -92,7 +92,7 @@ function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
 const renderAction = ({ className, ...rest }, index) => {
     const classes = mergeClasses(
         className,
-        "bg-white o-100"
+        "action bg-white o-100"
     );
 
     return { className: classes, disabled: true, key: `action-${index}`, ...rest };

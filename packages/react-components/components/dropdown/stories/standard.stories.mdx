@@ -203,6 +203,21 @@ A dropdown can take the width of its container.
     </Story>
 </Preview>
 
+### Actions
+
+A dropdown can contains actions.
+
+<Preview>
+    <Story name="actions">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            options={GENDERS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
 ### Size
 
 A dropdown can vary in size.
