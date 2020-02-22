@@ -7,6 +7,7 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { select, text, withKnobs } from "@storybook/addon-knobs";
 import Imports from "./imports.mdx";
+import IndexFileUsage from "./index-file-usage.mdx";
 
 <Meta
     title={createComponentSection("Icon")}
@@ -17,9 +18,7 @@ import Imports from "./imports.mdx";
 
 # Icon
 
-An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes.
-
-You can use any type of icons (e.g. _svg_, _image_, _ico-font_) with this component but we do recommend using inline `svg` element since they come with a lot of benefits. To learn more about why you should use inline `svg` element, [read the following article](https://www.jotform.com/blog/why-you-should-embed-svg-inline-98570/).
+An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. You can use any type of icons (e.g. _svg_, _image_, _ico-font_) with this component but we do recommend using inline `svg` element since they come with [a lot of benefits](https://www.jotform.com/blog/why-you-should-embed-svg-inline-98570).
 
 If you are looking for Orbit UI official icons, please have a look at the [icons page](?path=/docs/materials-icons--page#gallery) in the materials section.
 
@@ -46,34 +45,25 @@ To import your SVG icon as a React component:
 import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
 ```
 
-Then you can either wrap your SVG icon into an `<Icon />` or `<MultiVariantIcon />` component and render the icon immediatly:
+Then you can either wrap your icon with an `<Icon />` or `<MultiVariantIcon />` component:
 
 ```jsx dark
-import { Icon, MultiVariantIcon } from "@orbit-ui/react-icons";
+import { Icon } from "@orbit-ui/react-icons";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
-import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
-import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
 
 <Icon type={Azure32} />
-<MultiVariantIcon type24={Filter24} type32={Filter32} />
 ```
 
-Or export your icons as HOC and render them later:
+Or export your icon as an HOC and render it at a later time:
 
 ```jsx dark
-import { Icon, MultiVariantIcon } from "@orbit-ui/react-icons";
+import { Icon } from "@orbit-ui/react-icons";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
-import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
-import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
 
 export const AzureIcon32 = Icon.create(Azure32);
-export const FilterIcon = MultiVariantIcon.create(Filter24, Filter32);
-
-...
-
-<AzureIcon32 />
-<FilterIcon />
 ```
+
+<IndexFileUsage />
 
 ### Default
 
