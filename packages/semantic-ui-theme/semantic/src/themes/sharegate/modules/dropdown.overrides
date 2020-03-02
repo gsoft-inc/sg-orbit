@@ -207,13 +207,16 @@
     font-size: 1em;
 }
 
-/* LAYOUT | Inline | Hovered */
+/* LAYOUT | Inline | Hovered/Focus */
 .ui.dropdown.inline:hover > .default.text,
-.ui.dropdown.inline:hover > .text {
+.ui.dropdown.inline:hover > .text,
+.ui.dropdown.inline:focus > .default.text,
+.ui.dropdown.inline:focus > .text {
     color: @marine500;
 }
 
-.ui.dropdown.inline:hover > .dropdown.icon {
+.ui.dropdown.inline:hover > .dropdown.icon,
+.ui.dropdown.inline:focus > .dropdown.icon {
     background-color: @marine500;
 }
 
