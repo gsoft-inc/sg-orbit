@@ -7,8 +7,6 @@ import { isFunction } from "lodash";
 function isFunctionCreatingAnIconElement(fct) {
     const asString = fct.toString();
 
-    console.log(asString);
-
     return asString.includes("createElement(Icon") ||
            asString.includes(".Icon") ||
            asString.includes("createElement(PureIcon") ||
