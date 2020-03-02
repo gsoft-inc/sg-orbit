@@ -14,7 +14,7 @@ const directories = fs.readdirSync(path.resolve(__dirname, "../components"), { w
 directories.forEach(x => {
     if (!IGNORE_LIST.includes(x)) {
         test(`${x} components are exported`, () => {
-            expect(indexJs.includes(`react-${x}`)).toBeTruthy();
+            expect(indexJs.includes(`@orbit-ui/react-${x}`)).toBeTruthy();
         });
     }
 });

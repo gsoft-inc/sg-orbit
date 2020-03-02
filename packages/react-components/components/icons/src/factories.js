@@ -14,7 +14,8 @@ function isFunctionCreatingAnIconElement(fct) {
            asString.includes("createElement(MultiVariantIcon") ||
            asString.includes(".MultiVariantIcon") ||
            asString.includes("createElement(PureMultiVariantIcon") ||
-           asString.includes(".PureMultiVariantIcon");
+           asString.includes(".PureMultiVariantIcon") ||
+           asString.includes("cloneElement");
 }
 
 function ensureIsKnownIconWrapper(icon) {
