@@ -104,7 +104,7 @@ When you're done importing components, you must include Semantic UI theme to sty
 
 ## Icons
 
-[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you use Orbit UI icons React components or any Orbit UI React components, chances are you depend on `@svgr/webpack` and you need to configure Babel properly. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using any [Orbit UI React components](?path=/docs/getting-started-packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```js dark
 {

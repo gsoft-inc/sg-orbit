@@ -31,7 +31,7 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
 }
 
 function CssBackground({ iconFileName, iconDisplayName }) {
-    const code = `.${iconDisplayName.toLowerCase()} {
+    const code = `.${iconDisplayName.replace(/\s+/g, "-").toLowerCase()} {
     background: url("~@orbit-ui/icons/${iconFileName}");
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);

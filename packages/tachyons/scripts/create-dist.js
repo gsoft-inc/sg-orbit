@@ -21,3 +21,9 @@ if (!shell.test("-d", `docs/${DIST_PATH}`)) {
 
     console.log(chalk.green("success"), " docs/dist directory created.");
 }
+
+if (!shell.test("-d", `docs/${TEMP_PATH}`)) {
+    shell.mkdir(`docs/${TEMP_PATH}`);
+
+    console.log(chalk.green("success"), " docs/temp directory created.");
+}

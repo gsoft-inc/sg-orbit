@@ -12,7 +12,7 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 # Shorthand Props
 
-Likewise [Semantic UI](https://react.semantic-ui.com/shorthand-props/), Orbit try to offer shorthand props when possible.
+Likewise [Semantic UI](https://react.semantic-ui.com/shorthand-props/), Orbit UI try to offer shorthand props when possible.
 
 _A shorthand prop is a configuration style that allow a consumer of a component to easily provide a sub-component to render._ There are several forms of shorthand values that can be provided, but all of them share one common thing - each is eventually evaluated to React Element. Thus, you can think of shorthand values as a recipe to customize rendered React Element.
 
@@ -37,13 +37,13 @@ In the previous example, instead of using a shorthand, we could have defined the
 </Button>
 ```
 
-That would works and it's quite easy to use, why shouldn't we do this instead? Because it puts the burden of defining the icon position, dimensions and margins on the consumer instead of the component.
+That would works and it's easy to use, why shouldn't you do this instead? Because it puts the burden of defining the icon position, dimensions and margins on the consumers instead of the components.
 
-Orbit provides shorthand props to give the consumer control over the sub-components but still offer defaults that match the design system specifications. This technique makes Orbit components easier to use and help you stay consistant with the design system.
+Orbit UI provides shorthand props to give the consumers control over the sub-components but still offer defaults that match the design system specifications. This technique makes Orbit UI components easier to use and help you stay consistant with the design system.
 
 ## Object as value
 
-Each component's shorthand is associated to a default component type. In the following example the `button` shorthand will render as a `<Button />` component. It is possible to customize props of this default element by providing props object as shorthand value:
+Each component's shorthand is associated to a default component type. In the following example the `button` shorthand will render as a `<Button />` component. It is possible to customize the props of this default element by providing props object as shorthand value:
 
 ```jsx dark
 <Label button={{ icon: <CloseIcon />, onClick: () => { ... } }}>
