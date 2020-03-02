@@ -125,8 +125,7 @@ i.icon.close {
     width: 1.5rem;
     height: 1.5rem;;
     background-color: var(--marine-500);
-    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
-    mask-size: 20px 20px!important;
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center 20px 20px no-repeat!important;
 }
 
 /* States */

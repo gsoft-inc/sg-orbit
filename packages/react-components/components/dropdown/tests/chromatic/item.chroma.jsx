@@ -1,4 +1,4 @@
-import { CalendarIcon } from "@orbit-ui/react-icons";
+import { CalendarIcon, MusicIcon } from "@orbit-ui/react-icons";
 import { Dropdown } from "@orbit-ui/react-dropdown/src";
 // import { Dropdown } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -77,7 +77,7 @@ stories()
     .add("icon in content", () =>
         <Dropdown
             selection
-            options={[createMale(), createFemale(), { content: <span>With icon <CalendarIcon /></span>, value: "Frank the tank" }]}
+            options={[createMale(), createFemale(), { key: "icon", text: "With Icon", value: "icon", content: (<span>With icon <CalendarIcon /><MusicIcon /></span>) }]}
             defaultOpen
         />
     )

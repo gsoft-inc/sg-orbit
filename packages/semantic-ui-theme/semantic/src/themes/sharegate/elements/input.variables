@@ -16,7 +16,7 @@
 @relativeMedium: var(--type-scale-7);
 @relativeLarge: var(--type-scale-6);
 
-@iconPadding: 5px;
+@iconPadding: 4px;
 @iconMargin: calc(var(--scale-golf) + @iconPadding);
 @iconOpacity: 1;
 

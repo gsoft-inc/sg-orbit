@@ -325,21 +325,85 @@ stories()
         </div>
     )
     .add("loading", () =>
-        <div className="flex">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                loading
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                loading
-                options={GENDERS}
-                defaultOpen
-            />
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    placeholder="Gender"
+                    className="mr5"
+                    selection
+                    loading
+                    size="small"
+                    options={GENDERS}
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    className="mr5"
+                    selection
+                    loading
+                    value="Male"
+                    size="small"
+                    options={GENDERS}
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    defaultOpen
+                    selection
+                    loading
+                    size="small"
+                    options={GENDERS}
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    loading
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    loading
+                    value="Male"
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    defaultOpen
+                    selection
+                    loading
+                    options={GENDERS}
+                />
+            </div>
+            <div className="flex">
+                <Dropdown
+                    placeholder="Gender"
+                    className="mr5"
+                    selection
+                    loading
+                    size="large"
+                    options={GENDERS}
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    className="mr5"
+                    selection
+                    loading
+                    value="Male"
+                    size="large"
+                    options={GENDERS}
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    defaultOpen
+                    selection
+                    loading
+                    size="large"
+                    options={GENDERS}
+                />
+            </div>
         </div>
     )
     .add("upward", () =>
