@@ -84,7 +84,7 @@ stories()
     .add("content", () =>
         <Dropdown
             selection
-            options={[createMale(), { content: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female" }]}
+            options={[createMale(), { content: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, text: "Female", value: "Female", key: "female" }]}
             defaultOpen
         />
     )

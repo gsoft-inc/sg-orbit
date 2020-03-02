@@ -125,11 +125,11 @@ i.icon.close {
     width: 1.5rem;
     height: 1.5rem;;
     background-color: var(--marine-500);
-    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center 20px 20px no-repeat!important;
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: 20px 20px!important;
 }
 
 /* States */
-
 .ui.loading i.icon {
     background: none!important;
     mask: none!important;
@@ -145,4 +145,13 @@ i.icon.close {
 
 .ui.loading.loading.search .input > i.icon:after {
     margin: 0;
+}
+
+/* STATES | Error */
+.ui.selection.dropdown.active.error .menu {
+    border: 1px solid @alert500;
+}
+
+.ui.selection.active.dropdown.error:hover .menu {
+  border-color: @alert500;
 }

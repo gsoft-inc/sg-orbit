@@ -294,18 +294,18 @@
 }
 
 /* Content | With Icon */
-.ui.selection.dropdown .menu > .item {
+.ui.dropdown .menu > .item {
     display: flex;
     align-items: center;
 }
 
 /* Content | With Icon in Content */
-.ui.selection.dropdown .menu > .item span {
+.ui.dropdown .menu > .item span {
     display: flex;
     align-items: center;
 }
 
-.ui.selection.dropdown .menu > .item span .icon {
+.ui.dropdown .menu > .item span .icon {
     margin-left: 0.25rem;
 }
 
@@ -319,6 +319,18 @@
     order: 1;
     margin: 0 0 0 0.5rem;
     color: @cloud300;
+}
+
+/* Content | With Link */
+.ui.dropdown .item a {
+    font-weight: 400;
+    color: @marine500;
+}
+
+.ui.dropdown .item a:hover,
+.ui.dropdown .item a:focus {
+    font-weight: 400;
+    text-decoration: underline;
 }
 
 /* Content | With Action */
