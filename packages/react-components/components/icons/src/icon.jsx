@@ -51,11 +51,15 @@ export const Icon = forwardRef((props, ref) => (
     <PureIcon { ...props } forwardedRef={ref} />
 ));
 
-Icon.create = type => {
-    return props => {
-        return <Icon type={type} {...props} />;
-    };
-};
+function createIcon(type) {
+    return forwardRef((props, ref) => <Icon type={type} ref={ref} {...props} />);
+}
+
+[PureIcon, Icon].forEach(x => {
+    x.create = createIcon;
+});
+
+//////////////////////////////////////////////
 
 export function PureMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;
@@ -90,8 +94,10 @@ export const MultiVariantIcon = forwardRef((props, ref) => (
     <PureMultiVariantIcon { ...props } forwardedRef={ref} />
 ));
 
-MultiVariantIcon.create = (type24, type32) => {
-    return props => {
-        return <MultiVariantIcon type24={type24} type32={type32} {...props} />;
-    };
-};
+function createMultiVariant(type24, type32) {
+    return forwardRef((props, ref) => <MultiVariantIcon type24={type24} type32={type32} ref={ref} {...props} />);
+}
+
+[PureMultiVariantIcon, MultiVariantIcon].forEach(x => {
+    x.create = createMultiVariant;
+});
