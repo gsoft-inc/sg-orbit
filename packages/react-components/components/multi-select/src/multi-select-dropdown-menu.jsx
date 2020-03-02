@@ -140,7 +140,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
             return results;
         }
 
-        return <div className="pl6 mb4" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
+        return <div className="pl5 mt2 mb4" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
     }
 
     render() {
