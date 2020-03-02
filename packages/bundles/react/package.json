@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "description": "ShareGate orbit UI for React",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
@@ -23,7 +23,7 @@
         "@orbit-ui/fonts": "2.0.0",
         "@orbit-ui/foundation": "3.0.1",
         "@orbit-ui/icons": "6.0.0",
-        "@orbit-ui/react-components": "7.0.0",
+        "@orbit-ui/react-components": "7.0.1",
         "@orbit-ui/semantic-ui-theme": "5.2.0",
         "@orbit-ui/tachyons": "3.0.3",
         "semantic-ui-react": "0.88.1",
