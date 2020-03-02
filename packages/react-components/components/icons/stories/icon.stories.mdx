@@ -1,7 +1,7 @@
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
 import { CheckeredBackground,Props } from "@blocks";
-import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon } from "@orbit-ui/react-icons/src";
+import { DEFAULT_SIZE, Icon, MultiVariantIcon, PureIcon, PureMultiVariantIcon } from "@orbit-ui/react-icons/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -31,7 +31,7 @@ If you are looking for Orbit UI official icons, please have a look at the [icons
 <Props
     componentsDefinitions={[
         { displayName: "Icon", component: PureIcon },
-        { displayName: "MultiVariantIcon", component: MultiVariantIcon }
+        { displayName: "MultiVariantIcon", component: PureMultiVariantIcon }
     ]}
 />
 

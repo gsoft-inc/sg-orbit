@@ -3,7 +3,7 @@ import { elementType, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["tiny", SMALL, MEDIUM, LARGE, BIG, HUGE, MASSIVE];
+const SIZES = ["tiny", "small", "medium", "large", "big", "huge", "massive"];
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const DEFAULT_SIZE = "medium";
