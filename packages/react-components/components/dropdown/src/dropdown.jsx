@@ -23,7 +23,6 @@ const ACTION_SHAPE = {
     className: string
 };
 
-
 const propTypes = {
     /**
      * A dropdown can vary in sizes.
