@@ -7,7 +7,14 @@ import { isFunction } from "lodash";
 function isFunctionCreatingAnIconElement(fct) {
     const asString = fct.toString();
 
-    return asString.includes("Icon") || asString.includes("MultiVariantIcon");
+    return asString.includes("createElement(Icon") ||
+           asString.includes(".Icon") ||
+           asString.includes("createElement(PureIcon") ||
+           asString.includes(".PureIcon") ||
+           asString.includes("createElement(MultiVariantIcon") ||
+           asString.includes(".MultiVariantIcon") ||
+           asString.includes("createElement(PureMultiVariantIcon") ||
+           asString.includes(".PureMultiVariantIcon");
 }
 
 function ensureIsKnownIconWrapper(icon) {
