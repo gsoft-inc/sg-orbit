@@ -37,3 +37,23 @@ test("ref is a DOM element", async () => {
     expect(refNode instanceof SVGElement).toBeTruthy();
     expect(refNode.tagName.toUpperCase()).toBe("SVG");
 });
+
+test("hoc icon ref is a DOM element", async () => {
+    let refNode = null;
+
+    const HocIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32);
+
+    render(
+        <HocIcon
+            ref={node => {
+                refNode = node;
+            }}
+        />
+    );
+
+    await wait();
+
+    expect(refNode).not.toBeNull();
+    expect(refNode instanceof SVGElement).toBeTruthy();
+    expect(refNode.tagName.toUpperCase()).toBe("SVG");
+});

@@ -200,3 +200,25 @@ A multi variants icon support the same props as `<Icon />`.
 >
     <RefLogger component={<Icon type={AzureIcon32} />} />
 </Story>
+
+export const HocAzureIcon32 = Icon.create(AzureIcon32);
+
+<Story
+    name="hoc icon ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<HocAzureIcon32 />} />
+</Story>
+
+export const HocFilterIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32);
+
+<Story
+    name="hoc multi-variants ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<HocFilterIcon />} />
+</Story>
