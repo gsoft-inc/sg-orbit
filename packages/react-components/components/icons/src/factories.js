@@ -7,6 +7,8 @@ import { isFunction } from "lodash";
 function isFunctionCreatingAnIconElement(fct) {
     const asString = fct.toString();
 
+    console.log(asString);
+
     return asString.includes("createElement(Icon") ||
            asString.includes(".Icon") ||
            asString.includes("createElement(PureIcon") ||
@@ -14,7 +16,8 @@ function isFunctionCreatingAnIconElement(fct) {
            asString.includes("createElement(MultiVariantIcon") ||
            asString.includes(".MultiVariantIcon") ||
            asString.includes("createElement(PureMultiVariantIcon") ||
-           asString.includes(".PureMultiVariantIcon");
+           asString.includes(".PureMultiVariantIcon") ||
+           asString.includes("cloneElement");
 }
 
 function ensureIsKnownIconWrapper(icon) {
