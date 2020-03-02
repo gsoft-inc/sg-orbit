@@ -87,8 +87,8 @@
 @itemHorizontalPadding: 1rem;
 
 /* Header */
-@menuHeaderPadding: 0 1.5rem;
-@menuInputMargin: 1.5rem 1.5rem 1rem 1.5rem;
+@menuHeaderPadding: 0 1rem;
+@menuInputMargin: 1.25rem 1rem 0.5rem 1rem;
 @menuHeaderMargin: 1rem 0 0.5rem 0;
 @menuHeaderColor: @cloud400;
 @menuHeaderFontSize: 12px;
