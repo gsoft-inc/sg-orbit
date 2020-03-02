@@ -2,6 +2,7 @@ import { Dropdown } from "semantic-ui-react";
 import { PureComponent, cloneElement } from "react";
 import { arrayOf, func, node, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -73,6 +74,15 @@ export class MultiSelectDropdownMenu extends PureComponent {
         }
     };
 
+    getCssClasses() {
+        const { className } = this.props;
+
+        return mergeClasses(
+            "pa2",
+            className
+        );
+    }
+
     renderGroupedItems() {
         const { items, headerRenderer } = this.props;
 
@@ -140,14 +150,14 @@ export class MultiSelectDropdownMenu extends PureComponent {
             return results;
         }
 
-        return <div className="pl5 mt2 mb4" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
+        return <div className="pl5 mt2 mb2" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
     }
 
     render() {
-        const { searchInput, className } = this.props;
+        const { searchInput } = this.props;
 
         return (
-            <Dropdown.Menu className={className}>
+            <Dropdown.Menu className={this.getCssClasses()}>
                 {searchInput}
                 <Dropdown.Menu
                     scrolling
