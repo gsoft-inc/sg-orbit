@@ -1,6 +1,5 @@
-import { CalendarIcon, MusicIcon } from "@orbit-ui/react-icons";
+import { CalendarIcon } from "@orbit-ui/react-icons";
 import { Dropdown } from "@orbit-ui/react-dropdown/src";
-// import { Dropdown } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -67,26 +66,57 @@ stories()
             defaultOpen
         />
     )
-    .add("icon before content", () =>
+    .add("icons left", () =>
+        <div className="flex">
+            <Dropdown
+                selection
+                options={[createMale(), createFemale({ icons: <CalendarIcon /> })]}
+                defaultOpen
+                className="mr5"
+            />
+            <Dropdown
+                selection
+                options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })]}
+                defaultOpen
+            />
+        </div>
+    )
+    .add("icon right", () =>
+        <div className="flex">
+            <Dropdown
+                selection
+                options={[createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })]}
+                defaultOpen
+                className="mr5"
+            />
+            <Dropdown
+                selection
+                options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })]}
+                defaultOpen
+            />
+        </div>
+    )
+    .add("raw", () =>
         <Dropdown
             selection
-            options={[createMale(), createFemale({ icon: <CalendarIcon /> })]}
+            options={[createMale(), { raw: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female", key: "female" }]}
             defaultOpen
         />
     )
-    .add("icon in content", () =>
-        <Dropdown
-            selection
-            options={[createMale(), createFemale(), { key: "icon", text: "With Icon", value: "icon", content: (<span>With icon <CalendarIcon /><MusicIcon /></span>) }]}
-            defaultOpen
-        />
-    )
-    .add("content", () =>
-        <Dropdown
-            selection
-            options={[createMale(), { content: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, text: "Female", value: "Female", key: "female" }]}
-            defaultOpen
-        />
+    .add("avatar", () =>
+        <div className="flex">
+            <Dropdown
+                selection
+                options={[createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })]}
+                defaultOpen
+                className="mr5"
+            />
+            <Dropdown
+                selection
+                options={[createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })]}
+                defaultOpen
+            />
+        </div>
     )
     .add("actions", () =>
         <Dropdown

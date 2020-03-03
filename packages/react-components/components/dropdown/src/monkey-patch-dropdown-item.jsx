@@ -1,4 +1,4 @@
-import { Dropdown } from "semantic-ui-react";
 import { DropdownItem } from "./item";
+import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 
-Dropdown.Item.create = DropdownItem.create;
+SemanticDropdown.Item.create = DropdownItem.create;

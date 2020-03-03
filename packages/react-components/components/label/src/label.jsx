@@ -26,7 +26,7 @@ const propTypes = {
     /**
      * An icon can appear on the left or right.
      */
-    iconPosition: oneOf(["right", "left"]),
+    iconPosition: oneOf(["left", "right"]),
     /**
      * A label can contain a tag.
      */
@@ -53,22 +53,22 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
     if (!isNil(button) && iconPosition === "right") {
-        throw new ArgumentError("@orbit/react-label doesn't support having a button and a right positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-label doesn't support having a button and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new ArgumentError("@orbit/react-label doesn't support having a tag and a left positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-label doesn't support having a tag and a left positioned icon at the same time.");
     }
 }
 
 function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     if (circular) {
         if (size === MINI) {
-            throw new ArgumentError(`@orbit/react-label doesn't support "${MINI}" size when "circular".`);
+            throw new ArgumentError(`@orbit-ui/react-label doesn't support "${MINI}" size when "circular".`);
         }
     } else {
         if (size === BIG || size === HUGE || size === MASSIVE) {
-            throw new ArgumentError(`@orbit/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
+            throw new ArgumentError(`@orbit-ui/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
         }
     }
 }

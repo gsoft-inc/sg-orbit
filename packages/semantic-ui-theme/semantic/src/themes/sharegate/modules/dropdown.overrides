@@ -5,7 +5,7 @@
     height: 2.5rem;
     line-height: 2.5rem;
     min-height: 0;
-    padding: 0 2.5rem 0 0.75rem;
+    padding: 0 2.5rem 0 1rem;
 }
 
 /* SKIN | Icon | Arrow */
@@ -224,14 +224,17 @@
 .ui.dropdown > .text > .icon,
 .ui.dropdown > .text > .label,
 .ui.dropdown > .text > .flag,
-.ui.dropdown > .text > img,
-.ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .icon,
 .ui.dropdown .menu > .item > .label,
-.ui.dropdown .menu > .item > .flag,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img  {
+.ui.dropdown .menu > .item > .flag {
     margin-right: 0.25rem;
+}
+
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+    margin-right: 0.5rem;
 }
 
 .ui.dropdown > .text > img,

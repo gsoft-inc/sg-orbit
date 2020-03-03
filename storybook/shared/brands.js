@@ -2,7 +2,7 @@ import { isNil } from "lodash";
 import { useLocalStorage } from "./use-storage";
 
 export const COLORS_WEIGHT = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
-export const BRAND_STORAGE_KEY = "@orbit/storybook/selected-brand";
+export const BRAND_STORAGE_KEY = "@orbit-ui/storybook/selected-brand";
 
 function createBrand(id, displayName) {
     return {
