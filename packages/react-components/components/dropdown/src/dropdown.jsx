@@ -88,13 +88,13 @@ function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
     }, [autofocus, autofocusDelay, disabled, dropdownRef]);
 }
 
-const renderAction = ({ className, ...rest }, index) => {
+const renderAction = ({ content, className, ...rest }, index) => {
     const classes = mergeClasses(
         className,
         "action bg-white o-100"
     );
 
-    return { className: classes, disabled: true, key: `action-${index}`, ...rest };
+    return { raw: content, className: classes, disabled: true, key: index, ...rest };
 };
 
 export function PureDropdown(props) {

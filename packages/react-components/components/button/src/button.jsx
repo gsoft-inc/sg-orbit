@@ -27,7 +27,7 @@ const propTypes = {
     /**
      * An icon can appear on the left or right.
      */
-    iconPosition: oneOf(["right", "left"]),
+    iconPosition: oneOf(["left", "right"]),
     /**
      * A button can contain a label.
      */
@@ -68,11 +68,11 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
     if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit/react-button doesn't support having a label and a right positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-button doesn't support having a label and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new ArgumentError("@orbit/react-button doesn't support having a tag and a left positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-button doesn't support having a tag and a left positioned icon at the same time.");
     }
 }
 

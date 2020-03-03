@@ -33,10 +33,11 @@ function ensureIsKnownIconWrapper(icon) {
     throw new ArgumentError("Unknown icon wrapper. Custom icons must be wrapped in an <Icon /> or <MultiVariantIcon /> component.");
 }
 
-export function createIconForControl(icon, size) {
+export function createIconForControl(icon, size, props = {}) {
     ensureIsKnownIconWrapper(icon);
 
     return cloneElement(icon, {
-        size: getIconSizeForControl(size)
+        size: getIconSizeForControl(size),
+        ...props
     });
 }

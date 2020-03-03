@@ -26,49 +26,6 @@ export const GENDERS = [
     }
 ];
 
-export const FRIENDS = [
-    {
-        key: "Jenny Hess",
-        text: "Jenny Hess",
-        value: "Jenny Hess",
-        image: {
-            avatar: true,
-            src: "https://randomuser.me/api/portraits/women/4.jpg",
-            size: "mini"
-        }
-    },
-    {
-        key: "Elliot Fu",
-        text: "Elliot Fu",
-        value: "Elliot Fu",
-        image: {
-            avatar: true,
-            src: "https://randomuser.me/api/portraits/women/12.jpg",
-            size: "mini"
-        }
-    },
-    {
-        key: "Stevie Feliciano",
-        text: "Stevie Feliciano",
-        value: "Stevie Feliciano",
-        image: {
-            avatar: true,
-            src: "https://randomuser.me/api/portraits/men/14.jpg",
-            size: "mini"
-        }
-    },
-    {
-        key: "Christian",
-        text: "Christian",
-        value: "Christian",
-        image: {
-            avatar: true,
-            src: "https://randomuser.me/api/portraits/men/12.jpg",
-            size: "mini"
-        }
-    }
-];
-
 stories()
     .add("default", () =>
         <div className="flex">
@@ -156,55 +113,6 @@ stories()
                          selection
                          size="large"
                          options={GENDERS}
-                     />
-                 </div>
-             </div>
-    )
-    .add("complex items",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex" style={{ marginBottom: "200px" }}>
-                     <Dropdown
-                         placeholder="Select Friend"
-                         className="small mr5"
-                         selection
-                         options={FRIENDS}
-                     />
-                     <Dropdown
-                         placeholder="Select Friend"
-                         className="small"
-                         defaultOpen
-                         selection
-                         options={FRIENDS}
-                     />
-                 </div>
-                 <div className="flex" style={{ marginBottom: "200px" }}>
-                     <Dropdown
-                         placeholder="Select Friend"
-                         selection
-                         options={FRIENDS}
-                         className="mr5"
-                     />
-                     <Dropdown
-                         placeholder="Select Friend"
-                         defaultOpen
-                         selection
-                         options={FRIENDS}
-                     />
-                 </div>
-                 <div className="flex">
-                     <Dropdown
-                         placeholder="Select Friend"
-                         className="large mr5"
-                         selection
-                         options={FRIENDS}
-                     />
-                     <Dropdown
-                         placeholder="Select Friend"
-                         className="large"
-                         defaultOpen
-                         selection
-                         options={FRIENDS}
                      />
                  </div>
              </div>

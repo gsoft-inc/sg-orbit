@@ -1,4 +1,4 @@
-import { AddIcon } from "@orbit-ui/react-icons";
+import { AddIcon, InfoIcon, WarningIcon } from "@orbit-ui/react-icons";
 import { Dropdown, PureDropdown } from "@orbit-ui/react-dropdown/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -29,7 +29,8 @@ A dropdown can be used to select between choices.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Dropdown", component: PureDropdown }
+        { displayName: "Dropdown", component: PureDropdown },
+        { displayName: "Dropdown.Item", component: PureDropdown.Item }
     ]}
 />
 
@@ -37,70 +38,25 @@ A dropdown can be used to select between choices.
 
 The following constants are used in the examples below:
 
+export const MALE = { key: "Male", text: "Male", value: "Male" };
+export const FEMALE = { key: "Female", text: "Female", value: "Female" };
 export const GENDERS = [
     { key: "Male", text: "Male", value: "Male" },
     { key: "Female", text: "Female", value: "Female" }
 ];
 
-export const FRIENDS = [
-    {
-        key: "Jenny Hess",
-        text: "Jenny Hess",
-        value: "Jenny Hess",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
-    },
-    {
-        key: "Elliot Fu",
-        text: "Elliot Fu",
-        value: "Elliot Fu",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
-    },
-    {
-        key: "Stevie Feliciano",
-        text: "Stevie Feliciano",
-        value: "Stevie Feliciano",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
-    },
-    {
-        key: "Christian",
-        text: "Christian",
-        value: "Christian",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
-    }
-];
+export const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
+export const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+export const FRIENDS = [JENNY, ELLIOT];
 
 ```javascript dark
-const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
-];
+const MALE = { key: "Male", text: "Male", value: "Male" };
+const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const GENDERS = [MALE, FEMALE];
 
-const FRIENDS = [
-    {
-        key: "Jenny Hess",
-        text: "Jenny Hess",
-        value: "Jenny Hess",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/4.jpg", size: "mini" }
-    },
-    {
-        key: "Elliot Fu",
-        text: "Elliot Fu",
-        value: "Elliot Fu",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/women/12.jpg", size: "mini" }
-    },
-    {
-        key: "Stevie Feliciano",
-        text: "Stevie Feliciano",
-        value: "Stevie Feliciano",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/14.jpg", size: "mini" }
-    },
-    {
-        key: "Christian",
-        text: "Christian",
-        value: "Christian",
-        image: { avatar: true, src: "https://randomuser.me/api/portraits/men/12.jpg", size: "mini" }
-    }
-];
+const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
+const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+const FRIENDS = [JENNY, ELLIOT];
 ```
 
 ### Default
@@ -127,20 +83,6 @@ A dropdown can have an initial value.
             selection
             defaultValue="Female"
             options={GENDERS}
-        />
-    </Story>
-</Preview>
-
-### Complex items
-
-A dropdown can render complex items.
-
-<Preview>
-    <Story name="complex">
-        <Dropdown
-            placeholder="Select friend"
-            selection
-            options={FRIENDS}
         />
     </Story>
 </Preview>
@@ -188,21 +130,6 @@ A dropdown can be disabled.
     </Story>
 </Preview>
 
-### Loading
-
-A dropdown can show that it is currently loading data.
-
-<Preview>
-    <Story name="loading">
-        <Dropdown
-            placeholder="Gender"
-            loading
-            selection
-            options={GENDERS}
-        />
-    </Story>
-</Preview>
-
 ### Fluid
 
 A dropdown can take the width of its container.
@@ -218,30 +145,17 @@ A dropdown can take the width of its container.
     </Story>
 </Preview>
 
-### Description
+### Loading
 
-A dropdown can contains elements with description.
-
-<Preview>
-    <Story name="description">
-        <Dropdown
-            selection
-            options={[{ key: "Male", text: "Male", value: "Male", description: "I am a description!" }, { key: "Female", text: "Female", value: "Female", description: "I am another description!" }]}
-        />
-    </Story>
-</Preview>
-
-### Actions
-
-A dropdown can contains non-value actions.
+A dropdown can show that it is currently loading data.
 
 <Preview>
-    <Story name="actions">
+    <Story name="loading">
         <Dropdown
-            placeholder="Gender"
+            placeholder="Friends"
+            loading
             selection
-            options={GENDERS}
-            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+            options={FRIENDS}
         />
     </Story>
 </Preview>
@@ -276,6 +190,82 @@ Can be set to: `"small"`, `"large"` or omitted.
                 options={GENDERS}
             />
         </div>
+    </Story>
+</Preview>
+
+### Actions
+
+A dropdown can contains non selectable items acting as actions.
+
+<Preview>
+    <Story name="actions">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            options={GENDERS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
+### Item avatar
+
+A dropdown item can have an avatar.
+
+<Preview>
+    <Story name="item avatar">
+        <Dropdown
+            placeholder="Friends"
+            selection
+            options={[
+                { ...JENNY, avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenny" } },
+                { ...ELLIOT, avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Elliot" } }
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Item icons
+
+A dropdown item can display icons.
+
+<Preview>
+    <Story name="item icons">
+        <div className="flex items-space-between">
+            <Dropdown
+                placeholder="Gender"
+                selection
+                options={[
+                    { ...MALE, icons: <WarningIcon /> },
+                    { ...FEMALE, icons: [<WarningIcon />, <InfoIcon />] }
+                ]}
+            />
+            <Dropdown
+                placeholder="Gender"
+                selection
+                options={[
+                    { ...MALE, icons: <WarningIcon />, iconsPosition: "right" },
+                    { ...FEMALE, icons: [<WarningIcon />, <InfoIcon />], iconsPosition: "right" }
+                ]}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Item description
+
+A dropdown item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            options={[
+                MALE,
+                { ...FEMALE, description: "Origin from the Latin word femella" }
+            ]}
+        />
     </Story>
 </Preview>
 
