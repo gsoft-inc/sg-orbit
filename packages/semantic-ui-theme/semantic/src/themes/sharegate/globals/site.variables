@@ -620,8 +620,8 @@
 
 @borderColor               : rgba(34, 36, 38, 0.15);
 @strongBorderColor         : rgba(34, 36, 38, 0.22);
-@internalBorderColor       : rgba(34, 36, 38, 0.1);
-@selectedBorderColor       : var(--marine-300);
+@internalBorderColor       : @cloud100;
+@selectedBorderColor       : @cloud300;
 @strongSelectedBorderColor : rgba(34, 36, 38, 0.5);
 @disabledBorderColor       : @cloud100;
 

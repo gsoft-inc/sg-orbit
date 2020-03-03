@@ -1,14 +1,14 @@
 /*******************************
-        User Overrides
+    User Overrides
 *******************************/
 .ui.selection.dropdown {
-    line-height: 2.5rem;
     height: 2.5rem;
+    line-height: 2.5rem;
     min-height: 0;
-    padding: 0 2rem 0 0.75rem;
+    padding: 0 2.5rem 0 0.75rem;
 }
 
-/* SKIN | Arrow Icon */
+/* SKIN | Icon | Arrow */
 .ui.dropdown > .dropdown.icon {
     background-color: @marine100;
     mask: url(~@orbit-ui/icons/dist/icon-arrow-24.svg) center center no-repeat!important;
@@ -16,34 +16,30 @@
     transform: rotate(90deg);
 }
 
-.ui.selection.dropdown:hover  .dropdown.icon,
-.ui.selection.dropdown:focus  .dropdown.icon {
-    background-color: @marine500;
+/* SKIN | Icon */
+
+/* reset margin on icon since we are using flex */
+.ui.dropdown .menu > .item > .icon,
+.ui.dropdown .menu > .item > .label,
+.ui.dropdown .menu > .item > .flag,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+    margin-top: 0;
 }
 
-.ui.selection.dropdown:hover  .dropdown.clear.icon {
-    background-color: @marine100;
-}
-
-.ui.dropdown > .clear.icon {
-    background-color: @marine100;
-    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
-    mask-size: 20px 20px;
-}
-
-.ui.selection.dropdown:hover  > .clear.icon:hover,
-.ui.selection.dropdown:hover  > .clear.icon:focus {
-    background-color: var(--marine-500);
+.ui.selection.dropdown > .search.icon,
+.ui.selection.dropdown > .delete.icon,
+.ui.selection.dropdown > .dropdown.icon {
+    right: @scaleBravo;
+    margin: 0;
 }
 
 .ui.selection.dropdown > .dropdown.icon {
-    height: 100%;
+    height: 1.5rem;
     width: 1.5rem;
     padding: 0;
-}
-
-.ui.selection.dropdown > .dropdown.clear.icon {
-    width: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .ui.dropdown.no-icons .dropdown.icon,
@@ -51,6 +47,37 @@
     display: none!important;
 }
 
+/* SKIN | Arrow Icon */
+.ui.selection.dropdown > .dropdown.icon {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* SKIN | Icon | State | Hover/Focus */
+.ui.selection.dropdown:hover  .dropdown.icon,
+.ui.selection.dropdown:focus  .dropdown.icon {
+    background-color: @marine500;
+}
+
+/* SKIN | Icon | Clear */
+.ui.dropdown > .dropdown.icon.clear {
+    background-color: @marine100;
+    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: 20px 20px!important;
+}
+
+/* Do not highlight clear icon when hovering a dropdown */
+.ui.selection.dropdown:hover  .dropdown.clear.icon {
+    background-color: @marine100;
+}
+
+/* Highlight clear icon when hovering itself */
+.ui.selection.dropdown:hover  > .clear.icon:hover,
+.ui.selection.dropdown:hover  > .clear.icon:focus {
+    background-color: var(--marine-500);
+}
+
+/* Menu */
+/* Used in Multi Select */
 .ui.dropdown .menu {
     border: 0;
 }
@@ -60,23 +87,35 @@
 }
 
 .ui.dropdown .menu > .divider {
-    display: none;
+    margin: 0.5rem 0em;
 }
 
 .ui.dropdown .menu > .input:not(.transparent) .icon {
     padding: 0;
 }
 
+.ui.selection.dropdown.active .menu {
+    border-color: @white;
+}
+
+.ui.selection.dropdown .menu > .item {
+    padding: 0 1rem !important;
+    line-height: 2.5rem;
+}
+
+/* Menu Header */
 .ui.dropdown .menu > .header {
     line-height: 1;
 }
 
+/*  STATE | Selected Item */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
     background-color: @cloud50;
     position: relative;
 }
 
+/*  STATE | Disabled */
 .ui.disabled.dropdown,
 .ui.dropdown .menu > .disabled.item {
     background-color: var(--cloud-50);
@@ -89,11 +128,11 @@
     border-color: transparent;
 }
 
+/* STATE | Checked */
 .ui.dropdown[aria-checked="true"],
 .ui.dropdown .menu [aria-checked="true"].item {
     background: @cloud50;
     font-weight: 400;
-
 }
 
 .ui.dropdown[aria-checked="true"]::before,
@@ -108,26 +147,10 @@
     left: 0;
 }
 
-.ui.selection.dropdown.small.selected::before,
-.ui.selection.dropdown.small .menu .selected.item::before {
-    width: .125rem;
-}
-
-.ui.selection.active.dropdown .menu {
-    border-color: @white;
-}
-
 /* Skin | Selected */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
     font-weight: 400;
-}
-
-.ui.dropdown > .text > img,
-.ui.dropdown > .text > .image,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img {
-    width: 1.5rem;
 }
 
 .ui.dropdown > .text {
@@ -141,7 +164,7 @@
 }
 
 .ui.floating.dropdown > .menu {
-  margin-bottom: @floatingMenuDistance !important;
+    margin-bottom: @floatingMenuDistance !important;
 }
 
 .ui.floating.dropdown .menu > .menu {
@@ -151,6 +174,50 @@
 .ui.search.dropdown > input.search {
     min-height: 38px;
     font-size: 1.125rem;
+}
+
+/* LAYOUT | Inline */
+.ui.dropdown.inline > .dropdown.icon {
+    width: 0.75em;
+    margin-left: @scaleAlpha;
+    background-color: @marine200;
+    mask-size: 1.5em 1.5em !important;
+}
+
+.ui.dropdown.inline > .default.text,
+.ui.dropdown.inline > .text {
+    color: @marine200;
+    font-weight: 400;
+}
+
+.ui.dropdown .menu,
+.ui.dropdown.inline .menu {
+    border-radius: 0.25rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Border Radius for inline dropdown too */
+.ui.dropdown.selection .menu {
+    border-radius: 0em 0em 0.25rem 0.25rem;
+}
+
+/* LAYOUT | Inline */
+.ui.dropdown.inline {
+    font-size: 1em;
+}
+
+/* LAYOUT | Inline | Hovered/Focus */
+.ui.dropdown.inline:hover > .default.text,
+.ui.dropdown.inline:hover > .text,
+.ui.dropdown.inline:focus > .default.text,
+.ui.dropdown.inline:focus > .text {
+    color: @marine500;
+}
+
+.ui.dropdown.inline:hover > .dropdown.icon,
+.ui.dropdown.inline:focus > .dropdown.icon {
+    background-color: @marine500;
 }
 
 /* LAYOUT | Complex */
@@ -164,7 +231,14 @@
 .ui.dropdown .menu > .item > .flag,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img  {
-    margin-right: 0.5rem;
+    margin-right: 0.25rem;
+}
+
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+    width: 1.5rem;
 }
 
 .ui.dropdown .menu > .item {
@@ -175,24 +249,27 @@
 /* SIZE */
 /* SIZE | Small */
 .ui.selection.dropdown.small {
-    padding: 0 1.975rem 0 0.875rem;
+    padding: 0 2rem 0 0.5rem;
     height: 2rem;
     min-height: 0;
     font-size: 1rem;
     line-height: 2rem;
 }
 
+.ui.selection.dropdown.small.selected::before,
+.ui.selection.dropdown.small .menu .selected.item::before {
+    width: .125rem;
+}
+
 .ui.dropdown.small .menu > .item,
 .ui.selection.dropdown.small .menu > .item {
     height: 2rem;
-    padding: 0 1rem !important;
+    padding: 0 0.5rem !important;
     line-height: 2rem;
 }
 
-/* SIZE | Medium */
-.ui.selection.dropdown .menu > .item {
-    padding: 0 1rem !important;
-    line-height: 2.5rem;
+.ui.selection.dropdown.small > .dropdown.icon {
+    width: 1.25rem;
 }
 
 /* SIZE | Large */
@@ -214,4 +291,112 @@
     width: 2rem;
     height: 2rem;
     max-height: 2rem;
+}
+
+/* Content | With Icon */
+.ui.dropdown .menu > .item {
+    display: flex;
+    align-items: center;
+}
+
+/* Content | With Icon in Content */
+.ui.dropdown .menu > .item span {
+    display: flex;
+    align-items: center;
+}
+
+.ui.dropdown .menu > .item span .icon {
+    margin-left: 0.25rem;
+}
+
+.ui.dropdown .menu > .item > .icon {
+    fill: @marine600;
+}
+
+/* Content | With Description */
+.ui.dropdown > .text > .description,
+.ui.dropdown .menu > .item > .description {
+    order: 1;
+    margin: 0 0 0 0.5rem;
+    color: @cloud300;
+}
+
+/* Content | With Link */
+.ui.dropdown .item a {
+    font-weight: 400;
+    color: @marine500;
+}
+
+.ui.dropdown .item a:hover,
+.ui.dropdown .item a:focus {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+/* Content | With Action */
+.ui.dropdown .item.action a {
+    color: @primary500;
+    font-weight: 400;
+}
+
+.ui.dropdown .item.action a:hover,
+.ui.dropdown .item.action a:focus {
+    color: @primary500;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+/* STATE | Loading */
+.ui.loading.dropdown > i.icon {
+    mask: none!important;
+    height: 1.5rem;
+}
+
+.ui.loading.selection.dropdown > i.icon {
+    padding: 0!important;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    height: 1.5rem!important;
+}
+
+.ui.selection.dropdown.loading > .dropdown.icon {
+    margin: 0;
+}
+
+.ui.loading.dropdown > i.icon::before {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 0.25rem;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.ui.loading.dropdown > i.icon::after {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 0.25rem;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+/* STATE | Loading | SIZE | Small */
+.ui.loading.dropdown.small > i.icon {
+    height: 1.25rem;
+}
+
+.ui.loading.selection.dropdown.small > i.icon {
+    height: 1.25rem!important;
+}
+
+.ui.loading.dropdown.small > i.icon::before {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.ui.loading.dropdown.small > i.icon::after {
+    width: 1.25rem;
+    height: 1.25rem;
 }

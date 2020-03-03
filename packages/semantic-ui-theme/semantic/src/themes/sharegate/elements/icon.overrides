@@ -130,7 +130,6 @@ i.icon.close {
 }
 
 /* States */
-
 .ui.loading i.icon {
     background: none!important;
     mask: none!important;
@@ -146,4 +145,13 @@ i.icon.close {
 
 .ui.loading.loading.search .input > i.icon:after {
     margin: 0;
+}
+
+/* STATES | Error */
+.ui.selection.dropdown.active.error .menu {
+    border: 1px solid @alert500;
+}
+
+.ui.selection.active.dropdown.error:hover .menu {
+  border-color: @alert500;
 }
