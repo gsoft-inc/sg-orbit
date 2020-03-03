@@ -91,10 +91,10 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 export function PureTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
-    const [ref, setRef] = useForwardRef(forwardedRef);
+    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, ref);
+    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
 
     const classes = mergeClasses(
         "ui textarea",
@@ -108,7 +108,7 @@ export function PureTextArea(props) {
     );
 
     return (
-        <Ref innerRef={setRef}>
+        <Ref innerRef={setInnerRef}>
             <SemanticTextArea
                 autoFocus={shouldAutofocus}
                 disabled={disabled}

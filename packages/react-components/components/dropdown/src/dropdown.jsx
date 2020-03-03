@@ -1,11 +1,11 @@
 import "./monkey-patch-dropdown-item";
 
+import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
-import { LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useEffect } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -40,6 +40,14 @@ const propTypes = {
      * A dropdown can have a list of actions.
      */
     actions: arrayOf(shape(ACTION_SHAPE)),
+    /**
+     * @ignore
+     */
+    onOpen: func,
+    /**
+     * @ignore
+     */
+    onClose: func,
     /**
      * @ignore
      */
@@ -98,12 +106,55 @@ const renderAction = ({ content, className, ...rest }, index) => {
 };
 
 export function PureDropdown(props) {
-    const { size, autofocus, autofocusDelay, actions, options, disabled, className, forwardedRef, ...rest } = props;
+    const { onOpen, onClose, onFocus, onBlur, size, autofocus, autofocusDelay, actions, options, disabled, className, forwardedRef, ...rest } = props;
 
-    const [ref, setRef] = useForwardRef(forwardedRef);
+    const dropdownRef = useRef(null);
+    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isFocus, setIsFocus] = useState(false);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
-    useAutofocus(autofocus, autofocusDelay, disabled, ref);
+    useAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+
+    const handleOpen = useCallback((...args) => {
+        setIsOpen(true);
+
+        if (!isNil(onOpen)) {
+            onOpen(...args);
+        }
+    }, [onOpen]);
+
+    const handleClose = useCallback((...args) => {
+        setIsOpen(false);
+
+        if (!isNil(onClose)) {
+            onClose(...args);
+        }
+    }, [onClose]);
+
+    const handleFocus = useCallback((...args) => {
+        setIsFocus(true);
+
+        if (!isNil(onFocus)) {
+            onFocus(...args);
+        }
+    }, [onFocus]);
+
+    const handleBlur = useCallback((...args) => {
+        setIsFocus(false);
+
+        if (!isNil(onBlur)) {
+            onBlur(...args);
+        }
+    }, [onBlur]);
+
+    const handleDocumentKeyDown = useCallback(event => {
+        const key = event.keyCode;
+
+        if (key === KEYS.enter) {
+            dropdownRef.current.open(event);
+        }
+    }, []);
 
     const classes = mergeClasses(
         SIZES_CLASSES[size],
@@ -119,20 +170,31 @@ export function PureDropdown(props) {
     };
 
     return (
-        <Ref innerRef={setRef}>
-            <DropdownContext.Provider value={{ size: size }}>
-                <SemanticDropdown
-                    options={renderOptions()}
-                    selectOnBlur={false}
-                    selectOnNavigation={false}
-                    openOnFocus={false}
-                    disabled={disabled}
-                    className={classes}
-                    data-testid="dropdown"
-                    {...rest}
-                />
-            </DropdownContext.Provider>
-        </Ref>
+        <>
+            <Ref innerRef={setInnerRef}>
+                <DropdownContext.Provider value={{ size: size }}>
+                    <SemanticDropdown
+                        options={renderOptions()}
+                        onOpen={handleOpen}
+                        onClose={handleClose}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        selectOnBlur={false}
+                        selectOnNavigation={false}
+                        openOnFocus={false}
+                        disabled={disabled}
+                        className={classes}
+                        ref={dropdownRef}
+                        data-testid="dropdown"
+                        {...rest}
+                    />
+                </DropdownContext.Provider>
+            </Ref>
+
+            <If condition={!isOpen && isFocus}>
+                <DOMEventListener name="keydown" on={handleDocumentKeyDown} />
+            </If>
+        </>
     );
 }
 
