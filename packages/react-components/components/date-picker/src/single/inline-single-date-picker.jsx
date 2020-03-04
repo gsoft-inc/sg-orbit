@@ -1,4 +1,4 @@
-import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
+import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
 import { POSITIONS } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
