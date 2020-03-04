@@ -3,8 +3,22 @@ import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 import { waitFor } from "@utils/wait-for";
 
+const GENDERS = [
+    {
+        key: "Male",
+        text: "Male",
+        value: "Male"
+    },
+    {
+        key: "Female",
+        text: "Female",
+        value: "Female"
+    }
+];
+
 function createDropdown(props = {}) {
     return <Dropdown
+        options={GENDERS}
         {...props}
     />;
 }
@@ -28,6 +42,17 @@ test("when autofocus is true, the inline dropdown is autofocused on render", asy
     await waitFor(25);
 
     expect(getByTestId("dropdown")).toHaveFocus();
+});
+
+test("when autofocus is true, the searchable dropdown is autofocused on render", async () => {
+    const { getByTestId } = render(createDropdown({
+        autofocus: true,
+        search: true
+    }));
+
+    await waitFor(25);
+
+    expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus();
 });
 
 test("when autofocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
