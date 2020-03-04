@@ -1,4 +1,4 @@
-import { AddIcon } from "@orbit-ui/react-icons";
+import { AddIcon, MagnifierIcon } from "@orbit-ui/react-icons";
 import { Button } from "@orbit-ui/react-button";
 import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -330,5 +330,61 @@ stories()
                 options={GENDERS}
                 defaultOpen
             />
+        </div>
+    )
+    .add("icon", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    size="small"
+                    className="mr5"
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    size="small"
+                    defaultOpen
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    className="mr5"
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    defaultOpen
+                />
+            </div>
+            <div className="flex">
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    size="large"
+                    className="mr5"
+                />
+                <Dropdown
+                    placeholder="Gender"
+                    selection
+                    icon={<MagnifierIcon />}
+                    options={GENDERS}
+                    size="large"
+                    defaultOpen
+                />
+            </div>
         </div>
     );

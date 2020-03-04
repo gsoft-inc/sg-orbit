@@ -13,6 +13,6 @@ const CONTROLS_SIZES = {
     [MASSIVE]: HUGE
 };
 
-export function getIconSizeForControl(controlSize) {
+export function getIconSizeForControl(controlSize = DEFAULT_SIZE) {
     return CONTROLS_SIZES[controlSize];
 }

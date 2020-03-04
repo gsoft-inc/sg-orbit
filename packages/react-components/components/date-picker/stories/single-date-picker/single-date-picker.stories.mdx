@@ -219,15 +219,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <div className="flex-auto">
-                <SingleDatePicker size="small" fluid onDateChange={logDateChanged} />
-            </div>
-            <div className="flex-auto">
-                <SingleDatePicker fluid onDateChange={logDateChanged} />
-            </div>
-            <div className="flex-auto">
-                <SingleDatePicker size="large" fluid onDateChange={logDateChanged} />
-            </div>
+            <SingleDatePicker size="small" fluid onDateChange={logDateChanged} />
+            <SingleDatePicker fluid onDateChange={logDateChanged} />
+            <SingleDatePicker size="large" fluid onDateChange={logDateChanged} />
         </div>
     </Story>
 </Preview>

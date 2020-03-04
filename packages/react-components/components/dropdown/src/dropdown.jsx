@@ -5,7 +5,8 @@ import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import { createIconForControl } from "@orbit-ui/react-icons";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -16,7 +17,7 @@ const SIZES_CLASSES = {
     [LARGE]: "large"
 };
 
-const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "icon", "labeled", "multiple", "openOnFocus", "pointing", "searchInput", "selectOnBlur", "selectOnNavigation", "simple"];
+const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "multiple", "openOnFocus", "pointing", "searchInput", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const ACTION_SHAPE = {
     content: element,
@@ -24,6 +25,10 @@ const ACTION_SHAPE = {
 };
 
 const propTypes = {
+    /**
+     * A dropdown can display an icon before it's content.
+     */
+    icon: element,
     /**
      * A dropdown can vary in sizes.
      */
@@ -52,6 +57,10 @@ const propTypes = {
      * @ignore
      */
     options: arrayOf(any).isRequired,
+    /**
+     * @ignore
+     */
+    fluid: bool,
     /**
      * @ignore
      */
@@ -106,7 +115,7 @@ const renderAction = ({ content, className, ...rest }, index) => {
 };
 
 export function PureDropdown(props) {
-    const { onOpen, onClose, onFocus, onBlur, size, autofocus, autofocusDelay, actions, options, disabled, className, forwardedRef, ...rest } = props;
+    const { icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
 
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
@@ -116,50 +125,76 @@ export function PureDropdown(props) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
     useAutofocus(autofocus, autofocusDelay, disabled, innerRef);
 
-    const handleOpen = useCallback((...args) => {
+    const handleOpen = (...args) => {
         setIsOpen(true);
 
         if (!isNil(onOpen)) {
             onOpen(...args);
         }
-    }, [onOpen]);
+    };
 
-    const handleClose = useCallback((...args) => {
+    const handleClose = (...args) => {
         setIsOpen(false);
 
         if (!isNil(onClose)) {
             onClose(...args);
         }
-    }, [onClose]);
+    };
 
-    const handleFocus = useCallback((...args) => {
+    const handleFocus = (...args) => {
         setIsFocus(true);
 
         if (!isNil(onFocus)) {
             onFocus(...args);
         }
-    }, [onFocus]);
+    };
 
-    const handleBlur = useCallback((...args) => {
+    const handleBlur = (...args) => {
         setIsFocus(false);
 
         if (!isNil(onBlur)) {
             onBlur(...args);
         }
-    }, [onBlur]);
+    };
 
-    const handleDocumentKeyDown = useCallback(event => {
+    const handleDocumentKeyDown = event => {
         const key = event.keyCode;
 
         if (key === KEYS.enter) {
             dropdownRef.current.open(event);
         }
-    }, []);
+    };
 
-    const classes = mergeClasses(
+    const dropdownClasses = mergeClasses(
         SIZES_CLASSES[size],
+        !isNil(icon) && "with-icon"
+    );
+
+    const containerClasses = mergeClasses(
+        fluid ? "w-100" : "dib",
+        "relative",
         className
     );
+
+    const renderIcon = () => {
+        if (!isNil(icon)) {
+            return (
+                <div className="dropdown-icon">
+                    {createIconForControl(icon, size)}
+
+                    <style jsx>{`
+                        .dropdown-icon {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: var(--scale-bravo);
+                            z-index: 12;
+                        }
+                    `}</style>
+                </div>
+            );
+        }
+    };
 
     const renderOptions = () => {
         if (!isNil(actions)) {
@@ -171,7 +206,7 @@ export function PureDropdown(props) {
 
     return (
         <>
-            <Ref innerRef={setInnerRef}>
+            {/* <Ref innerRef={setInnerRef}>
                 <DropdownContext.Provider value={{ size: size }}>
                     <SemanticDropdown
                         options={renderOptions()}
@@ -189,7 +224,29 @@ export function PureDropdown(props) {
                         {...rest}
                     />
                 </DropdownContext.Provider>
-            </Ref>
+            </Ref> */}
+
+            <div ref={setInnerRef} className={containerClasses}>
+                <DropdownContext.Provider value={{ size: size }}>
+                    <SemanticDropdown
+                        options={renderOptions()}
+                        onOpen={handleOpen}
+                        onClose={handleClose}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        selectOnBlur={false}
+                        selectOnNavigation={false}
+                        openOnFocus={false}
+                        fluid={fluid}
+                        disabled={disabled}
+                        className={dropdownClasses}
+                        ref={dropdownRef}
+                        data-testid="dropdown"
+                        {...rest}
+                    />
+                </DropdownContext.Provider>
+                {renderIcon()}
+            </div>
 
             <If condition={!isOpen && isFocus}>
                 <DOMEventListener name="keydown" on={handleDocumentKeyDown} />

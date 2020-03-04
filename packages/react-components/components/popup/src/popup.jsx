@@ -297,7 +297,7 @@ export class Popup extends AutoControlledPureComponent {
         const { fluid, className } = this.props;
 
         return mergeClasses(
-            !fluid && "inline-flex",
+            fluid ? "w-100" : "dib",
             "relative",
             className
         );

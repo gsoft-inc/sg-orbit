@@ -176,7 +176,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
         return mergeClasses(
             "flex items-center outline-0",
             open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
-            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500" : "cloud-200 hover-b--transparent crsr-not-allowed",
+            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 pointer" : "cloud-200 hover-b--transparent",
             className
         );
     }

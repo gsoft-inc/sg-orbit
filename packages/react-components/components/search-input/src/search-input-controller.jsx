@@ -268,8 +268,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { fluid, className } = this.props;
 
         return mergeClasses(
+            fluid ? "w-100" : "dib",
             "search-input relative",
-            !fluid && "inline-flex",
             className
         );
     }

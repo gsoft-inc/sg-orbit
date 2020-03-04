@@ -224,35 +224,29 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <div className="flex-auto">
-                <RemoteSearchInput
-                    size="small"
-                    onFetchResults={dataFetcher}
-                    onResults={resultsMapper}
-                    onValueChange={logValueChanged}
-                    fluid
-                    placeholder="Type a country name"
-                />
-            </div>
-            <div className="flex-auto">
-                <RemoteSearchInput
-                    onFetchResults={dataFetcher}
-                    onResults={resultsMapper}
-                    onValueChange={logValueChanged}
-                    fluid
-                    placeholder="Type a country name"
-                />
-            </div>
-            <div className="flex-auto">
-                <RemoteSearchInput
-                    size="large"
-                    onFetchResults={dataFetcher}
-                    onResults={resultsMapper}
-                    onValueChange={logValueChanged}
-                    fluid
-                    placeholder="Type a country name"
-                />
-            </div>
+            <RemoteSearchInput
+                size="small"
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
+            <RemoteSearchInput
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
+            <RemoteSearchInput
+                size="large"
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
         </div>
     </Story>
 </Preview>
