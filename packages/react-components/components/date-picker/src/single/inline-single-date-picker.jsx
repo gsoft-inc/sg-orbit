@@ -1,4 +1,4 @@
-import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared";
+import { ArgumentError } from "@orbit-ui/react-components-shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
 import { POSITIONS } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
@@ -140,15 +140,6 @@ export class InlineSingleDatePicker extends PureComponent {
     static Calendar = SingleDatePickerCalendar;
     static Buttons = SingleDatePickerButtons;
 
-    getCssClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "dib pointer",
-            className
-        );
-    }
-
     render() {
         const { size, ...rest } = this.props;
 
@@ -156,11 +147,6 @@ export class InlineSingleDatePicker extends PureComponent {
             throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
         }
 
-        return (
-            <SingleDatePicker
-                {...rest}
-                className={this.getCssClasses()}
-            />
-        );
+        return <SingleDatePicker {...rest} />;
     }
 }

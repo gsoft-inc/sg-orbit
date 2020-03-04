@@ -277,15 +277,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <div className="flex-auto">
-                <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
-            </div>
-            <div className="flex-auto">
-                <DateRangePicker fluid onDatesChange={logDatesChanged} />
-            </div>
-            <div className="flex-auto">
-                <DateRangePicker size="large" fluid onDatesChange={logDatesChanged} />
-            </div>
+            <DateRangePicker size="small" fluid onDatesChange={logDatesChanged} />
+            <DateRangePicker fluid onDatesChange={logDatesChanged} />
+            <DateRangePicker size="large" fluid onDatesChange={logDatesChanged} />
         </div>
     </Story>
 </Preview>

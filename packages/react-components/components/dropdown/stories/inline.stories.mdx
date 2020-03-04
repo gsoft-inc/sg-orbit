@@ -86,6 +86,30 @@ An inlined dropdown can be disabled.
 </Preview>
 
 <Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus inline placeholder="select friend" options={FRIENDS} />
+        <Dropdown autofocus inline disabled placeholder="select friend" options={FRIENDS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus inline autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+        <Dropdown autofocus inline disabled autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+    </div>
+</Story>
+
+<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()

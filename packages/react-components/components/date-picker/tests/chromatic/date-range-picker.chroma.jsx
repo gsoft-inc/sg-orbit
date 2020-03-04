@@ -42,6 +42,50 @@ function stories(segment) {
         .build();
 }
 
+stories()
+    .add("fluid",
+         () =>
+             createDateRangePicker({
+                 fluid: true
+             })
+    )
+    .add("size",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createDateRangePicker({
+                         size: "small",
+                         className: "mr5"
+                     })}
+                     { createDateRangePicker({
+                         size: "small",
+                         defaultStartDate: moment(DEFAULT_DATE),
+                         defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createDateRangePicker({
+                         className: "mr5"
+                     })}
+                     { createDateRangePicker({
+                         defaultStartDate: moment(DEFAULT_DATE),
+                         defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
+                     })}
+                 </div>
+                 <div className="flex">
+                     { createDateRangePicker({
+                         size: "large",
+                         className: "mr5"
+                     })}
+                     { createDateRangePicker({
+                         size: "large",
+                         defaultStartDate: moment(DEFAULT_DATE),
+                         defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
+                     })}
+                 </div>
+             </div>
+    );
+
 stories("/number of visible months")
     .add("default",
          () =>
@@ -85,12 +129,6 @@ stories("/number of visible months")
                  })
                  .build()
          }
-    )
-    .add("fluid",
-         () =>
-             createDateRangePicker({
-                 fluid: true
-             })
     );
 
 stories("/presets")
@@ -1150,52 +1188,4 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
-    );
-
-stories("/size/small")
-    .add("default",
-         () =>
-             createDateRangePicker({
-                 size: "small"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createDateRangePicker({
-                 size: "small",
-                 defaultStartDate: moment(DEFAULT_DATE),
-                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
-             })
-    );
-
-stories("/size/medium")
-    .add("default",
-         () =>
-             createDateRangePicker({
-                 size: "medium"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createDateRangePicker({
-                 size: "medium",
-                 defaultStartDate: moment(DEFAULT_DATE),
-                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
-             })
-    );
-
-stories("/size/large")
-    .add("default",
-         () =>
-             createDateRangePicker({
-                 size: "large"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createDateRangePicker({
-                 size: "large",
-                 defaultStartDate: moment(DEFAULT_DATE),
-                 defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
-             })
     );

@@ -44,6 +44,62 @@ stories()
              createSearchInputController({
                  fluid: true
              })
+    )
+    .add("size",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createSearchInputController({
+                         size: "small",
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         size: "small",
+                         defaultValue: LAURIE_VALUE,
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         size: "small",
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         open: true
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createSearchInputController({
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         defaultValue: LAURIE_VALUE,
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         open: true
+                     })}
+                 </div>
+                 <div className="flex">
+                     { createSearchInputController({
+                         size: "large",
+                         defaultValue: LAURIE_VALUE,
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         size: "large",
+                         className: "mr5"
+                     })}
+                     { createSearchInputController({
+                         results: DEFAULT_RESULTS.slice(0, 2),
+                         size: "large",
+                         open: true
+                     })}
+                 </div>
+             </div>
     );
 
 stories("/loading/closed")
@@ -189,51 +245,6 @@ stories("/default value/opened")
          () =>
              createSearchInputController({
                  open: true,
-                 defaultValue: LAURIE_VALUE
-             })
-    );
-
-stories("/size/small")
-    .add("default",
-         () =>
-             createSearchInputController({
-                 size: "small"
-             })
-    )
-    .add("selected value",
-         () =>
-             createSearchInputController({
-                 size: "small",
-                 defaultValue: LAURIE_VALUE
-             })
-    );
-
-stories("/size/medium")
-    .add("default",
-         () =>
-             createSearchInputController({
-                 size: "medium"
-             })
-    )
-    .add("selected value",
-         () =>
-             createSearchInputController({
-                 size: "medium",
-                 defaultValue: LAURIE_VALUE
-             })
-    );
-
-stories("/size/large")
-    .add("default",
-         () =>
-             createSearchInputController({
-                 size: "large"
-             })
-    )
-    .add("selected value",
-         () =>
-             createSearchInputController({
-                 size: "large",
                  defaultValue: LAURIE_VALUE
              })
     );

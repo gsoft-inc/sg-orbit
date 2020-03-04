@@ -1,4 +1,4 @@
-import { AddIcon, InfoIcon, WarningIcon } from "@orbit-ui/react-icons";
+import { AddIcon, InfoIcon, MagnifierIcon, WarningIcon } from "@orbit-ui/react-icons";
 import { Dropdown, PureDropdown } from "@orbit-ui/react-dropdown/src";
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -82,6 +82,21 @@ A dropdown can have an initial value.
             placeholder="Gender"
             selection
             defaultValue="Female"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A dropdown can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Dropdown
+            placeholder="Gender"
+            selection
+            icon={<MagnifierIcon />}
             options={GENDERS}
         />
     </Story>
