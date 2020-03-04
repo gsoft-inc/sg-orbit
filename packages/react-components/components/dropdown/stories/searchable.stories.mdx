@@ -161,6 +161,30 @@ A default searchable dropdown can be disabled.
 </Preview>
 
 <Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus selection search placeholder="Select language" options={LANGUAGES} />
+        <Dropdown autofocus selection search disabled placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Dropdown autofocus autofocusDelay={500} selection search placeholder="Select language" options={LANGUAGES} />
+        <Dropdown autofocus disabled autofocusDelay={500} selection search placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()

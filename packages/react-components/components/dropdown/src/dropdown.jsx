@@ -79,13 +79,17 @@ const defaultProps = {
     autofocus: false
 };
 
-function focus(dropdownRef) {
-    if (!isNil(dropdownRef.current)) {
-        dropdownRef.current.focus();
+function focus(search, innerRef) {
+    if (!isNil(innerRef.current)) {
+        if (search) {
+            innerRef.current.querySelector("input.search").focus();
+        } else {
+            innerRef.current.focus();
+        }
     }
 }
 
-function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
+function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
     useEffect(() => {
         let timeoutId;
 
@@ -93,7 +97,7 @@ function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
             const delay = !isNil(autofocusDelay) ? autofocusDelay : 5;
 
             timeoutId = setTimeout(() => {
-                focus(dropdownRef);
+                focus(search, innerRef);
             }, delay);
         }
 
@@ -102,7 +106,7 @@ function useAutofocus(autofocus, autofocusDelay, disabled, dropdownRef) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, disabled, dropdownRef]);
+    }, [autofocus, autofocusDelay, search, disabled, innerRef]);
 }
 
 const renderAction = ({ content, className, ...rest }, index) => {
@@ -115,7 +119,7 @@ const renderAction = ({ content, className, ...rest }, index) => {
 };
 
 export function PureDropdown(props) {
-    const { icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
 
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
@@ -123,7 +127,7 @@ export function PureDropdown(props) {
     const [isFocus, setIsFocus] = useState(false);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
-    useAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+    useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
 
     const handleOpen = (...args) => {
         setIsOpen(true);
@@ -179,7 +183,7 @@ export function PureDropdown(props) {
     const renderIcon = () => {
         if (!isNil(icon)) {
             return (
-                <div className="dropdown-icon">
+                <div className="dropdown-icon flex items-center">
                     {createIconForControl(icon, size)}
 
                     <style jsx>{`
@@ -206,45 +210,28 @@ export function PureDropdown(props) {
 
     return (
         <>
-            {/* <Ref innerRef={setInnerRef}>
-                <DropdownContext.Provider value={{ size: size }}>
-                    <SemanticDropdown
-                        options={renderOptions()}
-                        onOpen={handleOpen}
-                        onClose={handleClose}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        selectOnBlur={false}
-                        selectOnNavigation={false}
-                        openOnFocus={false}
-                        disabled={disabled}
-                        className={classes}
-                        ref={dropdownRef}
-                        data-testid="dropdown"
-                        {...rest}
-                    />
-                </DropdownContext.Provider>
-            </Ref> */}
-
-            <div ref={setInnerRef} className={containerClasses}>
-                <DropdownContext.Provider value={{ size: size }}>
-                    <SemanticDropdown
-                        options={renderOptions()}
-                        onOpen={handleOpen}
-                        onClose={handleClose}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        selectOnBlur={false}
-                        selectOnNavigation={false}
-                        openOnFocus={false}
-                        fluid={fluid}
-                        disabled={disabled}
-                        className={dropdownClasses}
-                        ref={dropdownRef}
-                        data-testid="dropdown"
-                        {...rest}
-                    />
-                </DropdownContext.Provider>
+            <div className={containerClasses}>
+                <Ref innerRef={setInnerRef}>
+                    <DropdownContext.Provider value={{ size: size }}>
+                        <SemanticDropdown
+                            options={renderOptions()}
+                            onOpen={handleOpen}
+                            onClose={handleClose}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            search={search}
+                            selectOnBlur={false}
+                            selectOnNavigation={false}
+                            openOnFocus={false}
+                            fluid={fluid}
+                            disabled={disabled}
+                            className={dropdownClasses}
+                            ref={dropdownRef}
+                            data-testid="dropdown"
+                            {...rest}
+                        />
+                    </DropdownContext.Provider>
+                </Ref>
                 {renderIcon()}
             </div>
 

@@ -19,6 +19,17 @@ test("when autofocus is true, the dropdown is autofocused on render", async () =
     expect(getByTestId("dropdown")).toHaveFocus();
 });
 
+test("when autofocus is true, the inline dropdown is autofocused on render", async () => {
+    const { getByTestId } = render(createDropdown({
+        autofocus: true,
+        inline: true
+    }));
+
+    await waitFor(25);
+
+    expect(getByTestId("dropdown")).toHaveFocus();
+});
+
 test("when autofocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
     const { getByTestId } = render(createDropdown({
         disabled: true,
