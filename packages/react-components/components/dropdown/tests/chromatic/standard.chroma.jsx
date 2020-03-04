@@ -13,7 +13,7 @@ function stories(segment) {
         .build();
 }
 
-export const GENDERS = [
+const GENDERS = [
     {
         key: "Male",
         text: "Male",

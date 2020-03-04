@@ -27,6 +27,47 @@ function stories(segment) {
         .build();
 }
 
+stories()
+    .add("fluid",
+         () =>
+             createSingleDatePicker({
+                 fluid: true
+             })
+    )
+    .add("size",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createSingleDatePicker({
+                         size: "small",
+                         className: "mr5"
+                     })}
+                     { createSingleDatePicker({
+                         size: "small",
+                         defaultDate: moment(DEFAULT_DATE)
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createSingleDatePicker({
+                         className: "mr5"
+                     })}
+                     { createSingleDatePicker({
+                         defaultDate: moment(DEFAULT_DATE)
+                     })}
+                 </div>
+                 <div className="flex">
+                     { createSingleDatePicker({
+                         size: "large",
+                         className: "mr5"
+                     })}
+                     { createSingleDatePicker({
+                         size: "large",
+                         defaultDate: moment(DEFAULT_DATE)
+                     })}
+                 </div>
+             </div>
+    );
+
 stories("/number of visible months")
     .add("default",
          () =>
@@ -71,12 +112,6 @@ stories("/number of visible months")
                  })
                  .build()
          }
-    )
-    .add("fluid",
-         () =>
-             createSingleDatePicker({
-                 fluid: true
-             })
     );
 
 stories("/date restrictions/2 months visible")
@@ -768,49 +803,4 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
-    );
-
-stories("/size/small")
-    .add("default",
-         () =>
-             createSingleDatePicker({
-                 size: "small"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createSingleDatePicker({
-                 size: "small",
-                 defaultDate: moment(DEFAULT_DATE)
-             })
-    );
-
-stories("/size/medium")
-    .add("default",
-         () =>
-             createSingleDatePicker({
-                 size: "medium"
-             })
-    )
-    .add("medium",
-         () =>
-             createSingleDatePicker({
-                 size: "medium",
-                 defaultDate: moment(DEFAULT_DATE)
-             })
-    );
-
-stories("/size/large")
-    .add("default",
-         () =>
-             createSingleDatePicker({
-                 size: "large"
-             })
-    )
-    .add("selected dates",
-         () =>
-             createSingleDatePicker({
-                 size: "large",
-                 defaultDate: moment(DEFAULT_DATE)
-             })
     );

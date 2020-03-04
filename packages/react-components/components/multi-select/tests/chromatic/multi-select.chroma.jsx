@@ -22,6 +22,30 @@ function stories(segment) {
         .build();
 }
 
+stories()
+    .add("size",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createMultiSelect({
+                         size: "small",
+                         defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     { createMultiSelect({
+                         defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+                     })}
+                 </div>
+                 <div className="flex">
+                     { createMultiSelect({
+                         size: "large",
+                         defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
+                     })}
+                 </div>
+             </div>
+    );
+
 stories("/dropdown")
     .add("some items",
          () =>
@@ -213,47 +237,5 @@ stories("/customization")
              createMultiSelect({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
                  className: "bg-red border-red"
-             })
-    );
-
-stories("/size/small")
-    .add("default",
-         () =>
-             createMultiSelect({
-                 size: "small"
-             })
-    )
-    .add("selected value",
-         () =>
-             createMultiSelect({
-                 size: "small",
-                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
-             })
-    );
-
-stories("/size/medium")
-    .add("default",
-         () =>
-             createMultiSelect()
-    )
-    .add("selected value",
-         () =>
-             createMultiSelect({
-                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
-             })
-    );
-
-stories("/size/large")
-    .add("default",
-         () =>
-             createMultiSelect({
-                 size: "large"
-             })
-    )
-    .add("selected value",
-         () =>
-             createMultiSelect({
-                 size: "large",
-                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
              })
     );
