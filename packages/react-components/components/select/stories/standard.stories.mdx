@@ -4,7 +4,6 @@ import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { PureSelect, Select } from "@orbit-ui/react-select/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import AdvancedItemDocs from "./advanced-item-docs.mdx";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -24,17 +23,32 @@ A select can be used to select between choices.
 
 <Installation componentFolder="select" imports={<Imports />} />
 
-## Usage
+### Props
 
-<HocWarning componentName="Select" semanticPath="/modules/dropdown" />
-<AdvancedItemDocs />
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
 
 <Props
     componentsDefinitions={[
-        { displayName: "Select", component: PureSelect },
-        { displayName: "Select.Item", component: PureSelect.Item }
+        { displayName: "Select", component: PureSelect }
     ]}
 />
+
+## Usage
+
+### Items
+
+A select component only accepts items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) through the `options` prop. You can't specify `<Select.Item />` as subcomponents.
+
+For documentation about items and usage examples, please have a look at the [item page](?path=/docs/components-select-item--text).
+
+```jsx dark
+<Select
+    options={[
+        { key: "Male", text: "Male", value: "Male" },
+        { key: "Female", text: "Female", value: "Female", disabled: true }
+    ]}
+/>
+```
 
 ### Constants
 
@@ -72,6 +86,22 @@ A default select.
         />
     </Story>
 </Preview>
+
+### Placeholder
+
+A select can have a placeholder.
+
+<Preview>
+    <Story name="placeholder">
+        <Select
+            placeholder="Gender"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+Even though an [item](?path=/docs/components-select-item--text#props) subcomponent is available, the select component doesn't support specifying items as subcomponents. You must specify the items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) with the `options` prop.
+
 
 ### Selected value
 
