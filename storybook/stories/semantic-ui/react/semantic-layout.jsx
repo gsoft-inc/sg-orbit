@@ -1,4 +1,4 @@
-import { BrandPicker, SemanticLink } from "@blocks";
+import { BrandPicker, CornerSemanticLink } from "@blocks";
 import { string } from "prop-types";
 
 const propTypes = {
@@ -9,7 +9,7 @@ export function SemanticLayout({ documentationPath, children }) {
     return (
         <>
             <BrandPicker />
-            <SemanticLink path={documentationPath} />
+            <CornerSemanticLink path={documentationPath} />
             {children}
         </>
     );

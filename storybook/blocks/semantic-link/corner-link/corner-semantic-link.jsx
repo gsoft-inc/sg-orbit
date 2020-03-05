@@ -1,22 +1,15 @@
-import styles from "./semantic-link.module.css";
+import styles from "./corner-semantic-link.module.css";
 
 import { ExternalLink } from "@blocks";
 import { SemanticIcon } from "./assets";
+import { getSemanticUrl } from "../get-semantic-link";
 import { string } from "prop-types";
-
-const SEMANTIC_URL = "https://react.semantic-ui.com";
 
 const propTypes = {
     path: string.isRequired
 };
 
-export function getSemanticUrl(path) {
-    const relativePath = path.startsWith("/") ? path : `/${path}`;
-
-    return `${SEMANTIC_URL}${relativePath}`;
-}
-
-export function SemanticLink({ path }) {
+export function CornerSemanticLink({ path }) {
     return (
         <div className={styles.iconWrapper}>
             <ExternalLink href={getSemanticUrl(path)}>
@@ -27,4 +20,4 @@ export function SemanticLink({ path }) {
     );
 }
 
-SemanticLink.propTypes = propTypes;
+CornerSemanticLink.propTypes = propTypes;

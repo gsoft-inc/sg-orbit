@@ -1,30 +1,31 @@
-import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Select } from "@orbit-ui/react-select/src";
 import { WarningMessage } from "@blocks";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Dropdown/searchable")}
+    title={createComponentSection("Select/searchable")}
     parameters={paramsBuilder()
+        .sortPriority(2)
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
         .build()}
 />
 
-# Searchable Dropdown
+# Searchable Select
 
-A dropdown can allow a user to search through a large list of choices.
+A select can allow a user to search through a large list of choices.
 
 ## Installation
 
-<Installation componentFolder="dropdown" imports={<Imports />} />
+<Installation componentFolder="select" imports={<Imports />} />
 
 ## Usage
 
 <WarningMessage>
-    This component have the same feature set as the <a href="/?path=/docs/components-dropdown-standard--default-story">standard dropdown</a> component.
+    This component have the same feature set as the <a href="/?path=/docs/components-select-standard--default-story">standard select</a> component.
 </WarningMessage>
 
 ### Constants
@@ -83,13 +84,12 @@ const LANGUAGES = [
 
 ### Default
 
-A default searchable dropdown.
+A default searchable select.
 
 <Preview>
     <Story name="default">
-        <Dropdown
+        <Select
             placeholder="Select language"
-            selection
             search
             options={LANGUAGES}
         />
@@ -98,13 +98,12 @@ A default searchable dropdown.
 
 ### Selected value
 
-A searchable dropdown can have an initial value.
+A searchable select can have an initial value.
 
 <Preview>
     <Story name="selected value">
-        <Dropdown
+        <Select
             placeholder="Select language"
-            selection
             search
             defaultValue="Dutch"
             options={LANGUAGES}
@@ -114,13 +113,12 @@ A searchable dropdown can have an initial value.
 
 ### Clearable
 
-A clearable & searchable dropdown let a user remove is selection.
+A searchable select can let a user remove is selection.
 
 <Preview>
     <Story name="clearable">
-        <Dropdown
+        <Select
             placeholder="Select language"
-            selection
             search
             clearable
             options={LANGUAGES}
@@ -130,13 +128,12 @@ A clearable & searchable dropdown let a user remove is selection.
 
 ### Fluid
 
-A searchable dropdown can take all the space available.
+A searchable select can take all the space available.
 
 <Preview>
     <Story name="fluid">
-        <Dropdown
+        <Select
             placeholder="Select language"
-            selection
             search
             fluid
             options={LANGUAGES}
@@ -146,13 +143,12 @@ A searchable dropdown can take all the space available.
 
 ### Disabled
 
-A default searchable dropdown can be disabled.
+A default searchable select can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Dropdown
+        <Select
             placeholder="Select language"
-            selection
             search
             disabled
             options={LANGUAGES}
@@ -167,8 +163,8 @@ A default searchable dropdown can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Dropdown autofocus selection search placeholder="Select language" options={LANGUAGES} />
-        <Dropdown autofocus selection search disabled placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus search placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus search disabled placeholder="Select language" options={LANGUAGES} />
     </div>
 </Story>
 
@@ -179,8 +175,8 @@ A default searchable dropdown can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Dropdown autofocus autofocusDelay={500} selection search placeholder="Select language" options={LANGUAGES} />
-        <Dropdown autofocus disabled autofocusDelay={500} selection search placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus autofocusDelay={500} search placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus disabled autofocusDelay={500} search placeholder="Select language" options={LANGUAGES} />
     </div>
 </Story>
 
@@ -190,5 +186,5 @@ A default searchable dropdown can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Dropdown selection search options={LANGUAGES} />} />
+    <RefLogger component={<Select search options={LANGUAGES} />} />
 </Story>

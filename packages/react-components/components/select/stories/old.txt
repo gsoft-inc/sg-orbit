@@ -1,0 +1,12 @@
+### Custom trigger
+
+A select can have a custom trigger.
+
+<Preview>
+    <Story name="custom trigger">
+        <Select
+            trigger={<AddIcon />}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>

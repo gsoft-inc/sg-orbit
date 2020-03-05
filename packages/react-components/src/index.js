@@ -8,3 +8,4 @@ export * from "@orbit-ui/react-label";
 export * from "@orbit-ui/react-input";
 export * from "@orbit-ui/react-icons";
 export * from "@orbit-ui/react-dropdown";
+export * from "@orbit-ui/react-select";

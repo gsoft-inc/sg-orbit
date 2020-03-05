@@ -1,0 +1,235 @@
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { PureSelect, Select } from "@orbit-ui/react-select/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import AdvancedItemDocs from "./advanced-item-docs.mdx";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/standard")}
+    parameters={paramsBuilder()
+        .sortPriority(1)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Select
+
+A select can be used to select between choices.
+
+## Installation
+
+<Installation componentFolder="select" imports={<Imports />} />
+
+## Usage
+
+<HocWarning componentName="Select" semanticPath="/modules/dropdown" />
+<AdvancedItemDocs />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect },
+        { displayName: "Select.Item", component: PureSelect.Item }
+    ]}
+/>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const MALE = { key: "Male", text: "Male", value: "Male" };
+export const FEMALE = { key: "Female", text: "Female", value: "Female" };
+export const GENDERS = [
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
+];
+
+export const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
+export const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+export const FRIENDS = [JENNY, ELLIOT];
+
+```javascript dark
+const MALE = { key: "Male", text: "Male", value: "Male" };
+const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const GENDERS = [MALE, FEMALE];
+
+const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
+const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+const FRIENDS = [JENNY, ELLIOT];
+```
+
+### Default
+
+A default select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A select can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            placeholder="Gender"
+            defaultValue="Female"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A select can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Gender"
+            icon={<MagnifierIcon />}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable select let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Gender"
+            clearable
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Gender"
+            disabled
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A select can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Gender"
+            fluid
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Size
+
+A select can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Select
+                placeholder="Gender"
+                fluid
+                size="small"
+                options={GENDERS}
+            />
+            <Select
+                placeholder="Gender"
+                fluid
+                options={GENDERS}
+            />
+            <Select
+                placeholder="Gender"
+                fluid
+                size="large"
+                options={GENDERS}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Error
+
+A select can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <Select
+            placeholder="Gender"
+            error
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Actions
+
+A select can contains non selectable items acting as actions.
+
+<Preview>
+    <Story name="actions">
+        <Select
+            placeholder="Gender"
+            options={GENDERS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus placeholder="Gender" options={GENDERS} />
+        <Select autofocus disabled placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus autofocusDelay={500} placeholder="Gender" options={GENDERS} />
+        <Select autofocus disabled autofocusDelay={500} placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select options={GENDERS} />} />
+</Story>
