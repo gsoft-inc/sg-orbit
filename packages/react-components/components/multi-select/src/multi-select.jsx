@@ -17,6 +17,7 @@ const ITEM_SHAPE = {
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
@@ -154,7 +155,8 @@ export class MultiSelect extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <MultiSelectSelectedItems />,
         clearButton: <MultiSelectClearButton />,
-        disabled: false
+        disabled: false,
+        size: DEFAULT_SIZE
     };
 
     static autoControlledProps = ["values", "open"];

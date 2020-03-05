@@ -11,6 +11,7 @@ import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 const SIZES_CLASSES = {
     [SMALL]: "small",
@@ -48,6 +49,14 @@ const propTypes = {
     /**
      * @ignore
      */
+    search: bool,
+    /**
+     * @ignore
+     */
+    inline: bool,
+    /**
+     * @ignore
+     */
     onOpen: func,
     /**
      * @ignore
@@ -76,7 +85,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    autofocus: false
+    autofocus: false,
+    size: DEFAULT_SIZE
 };
 
 function focus(search, innerRef) {
@@ -119,7 +129,7 @@ const renderAction = ({ content, className, ...rest }, index) => {
 };
 
 export function PureDropdown(props) {
-    const { search, icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
 
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
@@ -191,7 +201,7 @@ export function PureDropdown(props) {
                             position: absolute;
                             top: 50%;
                             transform: translateY(-50%);
-                            left: var(--scale-bravo);
+                            left: ${inline ? 0 : "var(--scale-bravo)"};
                             z-index: 12;
                         }
                     `}</style>
@@ -219,6 +229,7 @@ export function PureDropdown(props) {
                             onClose={handleClose}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
+                            inline={inline}
                             search={search}
                             selectOnBlur={false}
                             selectOnNavigation={false}

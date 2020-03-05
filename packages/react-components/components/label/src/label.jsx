@@ -10,6 +10,9 @@ import { isNil } from "lodash";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
 
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const DEFAULT_SIZE = "medium";
+
 const propTypes = {
     /**
      * A label can be colorless. Use this variant if you need to customize the label.
@@ -48,7 +51,8 @@ const propTypes = {
 const defaultProps = {
     naked: false,
     iconPosition: "left",
-    highlight: false
+    highlight: false,
+    size: DEFAULT_SIZE
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
