@@ -1,7 +1,6 @@
 import { Select } from "@orbit-ui/react-select/src";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitFor } from "@utils/wait-for";
 
 const GENDERS = [
     {
