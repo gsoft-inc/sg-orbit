@@ -3,13 +3,6 @@ import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
-function createRemoteSearchInput(props = {}) {
-    return <CountriesSearchInput
-        onValueChange={noop}
-        {...props}
-    />;
-}
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Search Input/remote"))
         .segment(segment)
@@ -18,6 +11,13 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+function createRemoteSearchInput(props = {}) {
+    return <CountriesSearchInput
+        onValueChange={noop}
+        {...props}
+    />;
 }
 
 stories()

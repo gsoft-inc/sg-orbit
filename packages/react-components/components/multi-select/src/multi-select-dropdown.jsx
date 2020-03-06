@@ -15,14 +15,6 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-function defaultItemRenderer(item, isSelected) {
-    return <MonkeyPatchDropdown.Item text={item.text} value={item.value} selected={isSelected} data-testid="multi-select-dropdown-item" />;
-}
-
-function defaultHeaderRenderer(group) {
-    return <MonkeyPatchDropdown.Header content={group} />;
-}
-
 export class MultiSelectDropdown extends PureComponent {
     static propTypes = {
         /**
@@ -59,22 +51,6 @@ export class MultiSelectDropdown extends PureComponent {
          * @returns {void}
          */
         onClose: func,
-        /**
-         * Render an item.
-         * @param {Item} item - Item to render.
-         * @param {boolean} isSelected - Whether or not the item is selected.
-         * @param {Object} props - All the props.
-         * @returns {ReactElement} - React element to render.
-         */
-        itemRenderer: func,
-        /**
-         * Render an header (also called a category).
-         * @param {string} text - Header text.
-         * @param {Item[]} items - Items under the header.
-         * @param {Object} props - All the props.
-         * @returns {ReactElement} - React element to render.
-         */
-        headerRenderer: func,
         /**
          * Whether or not the dropdown should close when an item is selected.
          */
@@ -136,8 +112,6 @@ export class MultiSelectDropdown extends PureComponent {
 
     static defaultProps = {
         debounceDelay: 200,
-        itemRenderer: defaultItemRenderer,
-        headerRenderer: defaultHeaderRenderer,
         menu: <MultiSelectDropdownMenu />,
         trigger: <MultiSelectDropdownTrigger />,
         searchInput: <MultiSelectDropdownSearchInput />,
@@ -375,14 +349,12 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     renderMenu = () => {
-        const { menu, items, itemRenderer, headerRenderer, noResultsMessage } = this.props;
+        const { menu, items, noResultsMessage } = this.props;
         const { keyboardItem } = this.state;
 
         return cloneElement(menu, {
             items: items,
             onItemClick: this.handleItemClick,
-            itemRenderer,
-            headerRenderer,
             searchInput: this.renderSearchInput(),
             noResultsMessage,
             keyboardItem

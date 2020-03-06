@@ -3,10 +3,7 @@ import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { createIconForControl } from "@orbit-ui/react-icons";
 import { element } from "prop-types";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { useContext } from "react";
-
-const UNSUPPORTED_PROPS = ["flag", "label"];
 
 const propTypes = {
     icon: element
@@ -15,8 +12,6 @@ const propTypes = {
 export function DropdownItem(props) {
     const { icon, ...rest } = props;
     const context = useContext(DropdownContext);
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown/item");
 
     const renderIcon = () => {
         if (!isNil(icon)) {

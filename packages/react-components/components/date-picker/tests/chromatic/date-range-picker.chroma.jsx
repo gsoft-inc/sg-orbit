@@ -17,6 +17,16 @@ export const LAST_3_MONTHS_PRESET = toPreset("Last 3 months", moment(DEFAULT_DAT
 export const LAST_6_MONTHS_PRESET = toPreset("Last 6 months", moment(DEFAULT_DATE).subtract(6, "months"), moment(DEFAULT_DATE).startOf("day"));
 export const LAST_12_MONTHS_PRESET = toPreset("Last 12 months", moment(DEFAULT_DATE).subtract(12, "months"), moment(DEFAULT_DATE).startOf("day"));
 
+function stories(segment) {
+    return storiesOfBuilder(module, createChromaticSection("Date Picker/range"))
+        .segment(segment)
+        .parameters(paramsBuilder()
+            .canvasLayout({ width: "80%" })
+            .chromaticDelay(100)
+            .build())
+        .build();
+}
+
 export const DEFAULT_PRESETS = [
     LAST_WEEK_PRESET,
     LAST_MONTH_PRESET,
@@ -30,16 +40,6 @@ function createDateRangePicker(props = {}) {
         onDatesChange={noop}
         {...props}
     />;
-}
-
-function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Date Picker/range"))
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .chromaticDelay(100)
-            .build())
-        .build();
 }
 
 stories()

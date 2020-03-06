@@ -77,11 +77,9 @@
 }
 
 /* SKIN | Icon | With Starting Icon */
-.ui.selection.dropdown.with-icon {
-    padding-left: calc(var(--scale-golf) + 4px);
-}
+.ui.selection.dropdown.with-icon,
 .ui.search.selection.dropdown.with-icon > input.search {
-    padding-left: var(--scale-golf);
+    padding-left: calc(var(--scale-golf) + 4px);
 }
 .ui.inline.dropdown.with-icon {
     padding-left: 1.15em;

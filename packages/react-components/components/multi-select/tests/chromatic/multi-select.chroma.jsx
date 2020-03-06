@@ -1,17 +1,8 @@
 import { AddIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
-import { Dropdown } from "semantic-ui-react";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
-
-function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
-    return <MultiSelect
-        items={items}
-        onValuesChange={noop}
-        {...otherProps}
-    />;
-}
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Multi Select"))
@@ -20,6 +11,14 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
+    return <MultiSelect
+        items={items}
+        onValuesChange={noop}
+        {...otherProps}
+    />;
 }
 
 stories()
@@ -148,21 +147,6 @@ stories("/customization")
          () =>
              createMultiSelect({
                  dropdown: <MultiSelect.Dropdown className="bg-red border-red" />
-             })
-    )
-    .add("item renderer",
-         () =>
-             createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown itemRenderer={(item, isSelected) => <Dropdown.Item text={item.text} value={item.value} selected={isSelected} className="bg-red" />} />,
-                 defaultOpen: true
-             })
-    )
-    .add("header renderer",
-         () =>
-             createMultiSelect({
-                 items: DEFAULT_ITEMS_WITH_CATEGORIES,
-                 dropdown: <MultiSelect.Dropdown headerRenderer={group => <Dropdown.Header content={group} className="bg-red" />} />,
-                 defaultOpen: true
              })
     )
     .add("no results message",

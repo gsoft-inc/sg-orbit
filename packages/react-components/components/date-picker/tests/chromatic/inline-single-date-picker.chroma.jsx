@@ -4,13 +4,6 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { noop } from "lodash";
 import moment from "moment";
 
-function createInlineSingleDatePicker(props = {}) {
-    return <InlineSingleDatePicker
-        onDateChange={noop}
-        {...props}
-    />;
-}
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Date Picker/single inlined"))
         .segment(segment)
@@ -19,6 +12,13 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+function createInlineSingleDatePicker(props = {}) {
+    return <InlineSingleDatePicker
+        onDateChange={noop}
+        {...props}
+    />;
 }
 
 stories()

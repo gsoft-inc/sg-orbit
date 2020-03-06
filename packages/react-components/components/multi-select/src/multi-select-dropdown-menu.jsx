@@ -1,8 +1,8 @@
-import { Dropdown } from "semantic-ui-react";
-import { PureComponent, cloneElement } from "react";
+import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
+import { PureComponent } from "react";
+import { Ref } from "semantic-ui-react";
 import { arrayOf, func, node, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -24,22 +24,6 @@ export class MultiSelectDropdownMenu extends PureComponent {
          * @returns {void}
          */
         onItemClick: func,
-        /**
-         * Render an item.
-         * @param {Item} item - Item to render.
-         * @param {boolean} isSelected - Whether or not the item is selected.
-         * @param {Object} props - All the props.
-         * @returns {ReactElement} - React element to render.
-         */
-        itemRenderer: func,
-        /**
-         * Render an header (also called a category).
-         * @param {string} text - Header text.
-         * @param {Item[]} items - Items under the header.
-         * @param {Object} props - All the props.
-         * @returns {ReactElement} - React element to render.
-         */
-        headerRenderer: func,
         /**
          * A React component to enter a search input.
          */
@@ -74,31 +58,32 @@ export class MultiSelectDropdownMenu extends PureComponent {
         }
     };
 
-    getCssClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "pa2",
-            className
-        );
-    }
-
     renderGroupedItems() {
-        const { items, headerRenderer } = this.props;
+        const { items } = this.props;
 
         const results = [];
         const groups = groupBy(items, x => x.group);
 
         Object.keys(groups).forEach(key => {
-            const group = groups[key];
-
-            const renderedHeader = cloneElement(headerRenderer(key, group, this.props), {
-                key: key
-            });
+            const renderedHeader = (
+                <Ref
+                    innerRef={el => {
+                        if (el) {
+                            // Doing it this way because react doesn't support using !important in inline style: https://github.com/facebook/react/issues/1881.
+                            el.style.setProperty("padding-left", "1.25rem", "important");
+                        }
+                    }}
+                    key={key}
+                >
+                    <MonkeyPatchDropdown.Header
+                        content={key}
+                    />
+                </Ref>
+            );
 
             results.push(renderedHeader);
 
-            group.forEach(x => {
+            groups[key].forEach(x => {
                 const renderedItem = this.renderItem(x, `${x.group}-${x.value}`);
 
                 results.push(renderedItem);
@@ -115,16 +100,31 @@ export class MultiSelectDropdownMenu extends PureComponent {
     }
 
     renderItem(item, key) {
-        const { itemRenderer, keyboardItem } = this.props;
+        const { keyboardItem } = this.props;
         const { itemWidth } = this.state;
 
         const isSelected = !isNil(keyboardItem) && item.value === keyboardItem.value;
 
-        return cloneElement(itemRenderer(item, isSelected, this.props), {
-            key: key,
-            style: { minWidth: `${itemWidth}px` },
-            onClick: this.handleItemClick
-        });
+        return (
+            <Ref
+                innerRef={el => {
+                    if (el) {
+                        // Doing it this way because react doesn't support using !important in inline style: https://github.com/facebook/react/issues/1881.
+                        el.style.setProperty("padding-left", "1.25rem", "important");
+                    }
+                }}
+                key={key}
+            >
+                <MonkeyPatchDropdown.Item
+                    text={item.text}
+                    value={item.value}
+                    selected={isSelected}
+                    onClick={this.handleItemClick}
+                    style={{ minWidth: `${itemWidth}px` }}
+                    data-testid="multi-select-dropdown-item"
+                />
+            </Ref>
+        );
     }
 
     renderItemSizer() {
@@ -154,18 +154,18 @@ export class MultiSelectDropdownMenu extends PureComponent {
     }
 
     render() {
-        const { searchInput } = this.props;
+        const { searchInput, className } = this.props;
 
         return (
-            <Dropdown.Menu className={this.getCssClasses()}>
+            <MonkeyPatchDropdown.Menu className={className}>
                 {searchInput}
-                <Dropdown.Menu
+                <MonkeyPatchDropdown.Menu
                     scrolling
                     data-testid="multi-select-dropdown-menu-items"
                 >
                     {this.renderResults()}
-                </Dropdown.Menu>
-            </Dropdown.Menu>
+                </MonkeyPatchDropdown.Menu>
+            </MonkeyPatchDropdown.Menu>
         );
     }
 }

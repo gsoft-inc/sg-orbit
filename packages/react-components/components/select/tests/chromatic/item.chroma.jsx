@@ -3,7 +3,7 @@ import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Dropdown/item"))
+    return storiesOfBuilder(module, createChromaticSection("Select/item"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

@@ -3,7 +3,9 @@ import { SelectItem, createSelectItem } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+
+const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "multiple", "openOnFocus", "pointing", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const ACTION_SHAPE = {
     content: element,
@@ -44,6 +46,8 @@ const renderAction = ({ content, className, ...rest }, index) => {
 
 export function PureSelect(props) {
     const { options, actions, inline, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
 
     const renderOptions = () => {
         const selectOptions = options.map(x => {

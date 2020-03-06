@@ -3,14 +3,6 @@ import { SearchInput } from "@orbit-ui/react-search-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
-function createSearchInput({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
-    return <SearchInput
-        results={results}
-        onValueChange={noop}
-        {...otherProps}
-    />;
-}
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Search Input/results set"))
         .segment(segment)
@@ -19,6 +11,14 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+function createSearchInput({ results = DEFAULT_RESULTS, ...otherProps } = {}) {
+    return <SearchInput
+        results={results}
+        onValueChange={noop}
+        {...otherProps}
+    />;
 }
 
 stories()

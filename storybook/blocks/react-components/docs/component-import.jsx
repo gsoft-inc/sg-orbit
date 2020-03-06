@@ -1,4 +1,4 @@
-import { MultiImports } from "./multi-imports";
+import { MultiImports } from "@blocks";
 import { string } from "prop-types";
 
 const BUNDLE_LABEL = "bundle";
@@ -9,7 +9,7 @@ const propTypes = {
     standalone: string.isRequired
 };
 
-export function Import({ bundle, standalone, ...rest }) {
+export function ComponentImport({ bundle, standalone, ...rest }) {
     return (
         <MultiImports
             versions={[
@@ -21,4 +21,4 @@ export function Import({ bundle, standalone, ...rest }) {
     );
 }
 
-Import.propTypes = propTypes;
+ComponentImport.propTypes = propTypes;

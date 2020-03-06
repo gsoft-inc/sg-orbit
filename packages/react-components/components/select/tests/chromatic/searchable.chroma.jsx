@@ -3,7 +3,7 @@ import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Dropdown/searchable"))
+    return storiesOfBuilder(module, createChromaticSection("Select/searchable"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

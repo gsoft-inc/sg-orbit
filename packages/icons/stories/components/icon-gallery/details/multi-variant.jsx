@@ -1,4 +1,5 @@
-import { CheckeredBackground, Import } from "@blocks";
+import { CheckeredBackground } from "@blocks";
+import { ComponentImport } from "@blocks/react-components";
 import { LearnUsageLink } from "./learn-usage-link";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
@@ -8,9 +9,9 @@ function ImportSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Import
-                bundle={`import { ${componentType} } from "@orbit-ui/react-components"`}
-                standalone={`import { ${componentType} } from "@orbit-ui/react-icons"`}
+            <ComponentImport
+                bundle={`import { ${componentType} } from "@orbit-ui/react-components";`}
+                standalone={`import { ${componentType} } from "@orbit-ui/react-icons";`}
                 className="mv2"
             />
         </>

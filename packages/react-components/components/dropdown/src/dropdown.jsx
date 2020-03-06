@@ -1,6 +1,6 @@
 import "./item-factory";
 
-import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
+import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useForwardRef } from "@orbit-ui/react-components-shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
@@ -17,8 +17,6 @@ const SIZES_CLASSES = {
     [SMALL]: "small",
     [LARGE]: "large"
 };
-
-const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "multiple", "openOnFocus", "pointing", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const propTypes = {
     /**
@@ -118,7 +116,6 @@ export function PureDropdown(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
     useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
 
     const handleOpen = (...args) => {

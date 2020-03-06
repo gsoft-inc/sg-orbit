@@ -7,7 +7,7 @@ import { isArray, isNil } from "lodash";
 import { isElement } from "react-is";
 import { useContext } from "react";
 
-const UNSUPPORTED_PROPS = ["content", "icon", "image"];
+const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
 
 const AVATAR_SHAPE = {
     src: string.isRequired,
