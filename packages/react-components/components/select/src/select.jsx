@@ -12,7 +12,7 @@ const ACTION_SHAPE = {
 
 const propTypes = {
     /**
-     * An array of item definitions e.g. `{ text: "", value: "", ... }`.
+     * An array of items object shorthands.
      */
     options: arrayOf(any),
     /**

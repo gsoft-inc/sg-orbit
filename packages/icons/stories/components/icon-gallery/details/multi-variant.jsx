@@ -1,19 +1,23 @@
-import { CheckeredBackground } from "@blocks";
+import { CheckeredBackground, Import } from "@blocks";
 import { LearnUsageLink } from "./learn-usage-link";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
 import { cloneElement } from "react";
 
-function Import({ componentType }) {
+function ImportSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Source language="javascript" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-icons | @orbit-ui/react-components";`} className="mv2" />
+            <Import
+                bundle={`import { ${componentType} } from "@orbit-ui/react-components"`}
+                standalone={`import { ${componentType} } from "@orbit-ui/react-icons"`}
+                className="mv2"
+            />
         </>
     );
 }
 
-function Usage({ componentType }) {
+function UsageSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Usage</h4>
@@ -23,7 +27,7 @@ function Usage({ componentType }) {
     );
 }
 
-function Preview({ icon }) {
+function PreviewSection({ icon }) {
     return (
         <CheckeredBackground>
             {cloneElement(icon, { size: "tiny" })}
@@ -42,9 +46,9 @@ export function MultiVariant({ icon }) {
 
     return (
         <>
-            <Preview icon={icon} />
-            <Import componentType={componentType} />
-            <Usage componentType={componentType} />
+            <PreviewSection icon={icon} />
+            <ImportSection componentType={componentType} />
+            <UsageSection componentType={componentType} />
         </>
     );
 }
