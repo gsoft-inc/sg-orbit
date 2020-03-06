@@ -284,4 +284,9 @@ stories()
                 })}
             </div>
         </div>
+    )
+    .add("multiple values", () =>
+        createSelect({
+            multiple: true
+        })
     );

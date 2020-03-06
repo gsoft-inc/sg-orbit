@@ -2,7 +2,7 @@ import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Select } from "@orbit-ui/react-select/src";
+import { Select, selectItem } from "@orbit-ui/react-select/src";
 import { WarningMessage } from "@blocks";
 import Imports from "./imports.mdx";
 
@@ -33,14 +33,14 @@ An inlined select can appear inline with other content.
 The following constants are used in the examples below:
 
 export const FRIENDS = [
-    { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" },
-    { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" }
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
 ];
 
 ```javascript dark
 const FRIENDS = [
-    { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" },
-    { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" }
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
 ];
 ```
 

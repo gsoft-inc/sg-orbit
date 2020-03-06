@@ -2,7 +2,7 @@ import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-c
 import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { PureSelect, Select } from "@orbit-ui/react-select/src";
+import { PureSelect, Select, selectAction, selectItem } from "@orbit-ui/react-select/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -37,15 +37,17 @@ A select can be used to select between choices.
 
 ### Items
 
-A select component only accepts items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) through the `options` prop. You can't specify `<Select.Item />` as subcomponents.
+A select component only accepts items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) through the `options` property. You can't specify `<Select.Item />` as subcomponents.
 
-For documentation about items and usage examples, please have a look at the [item page](?path=/docs/components-select-item--text).
+To provide a select item as a shorthand object, you can define an object literal having the following format: `{ text, value, ... }`. To avoid redundant keys, use the `selectItem(text, value, additionalProps?)` function.
+
+For a list of all the properties available on a select item and usage examples, please have a look at the [item page](?path=/docs/components-select-item--text).
 
 ```jsx dark
 <Select
     options={[
-        { key: "Male", text: "Male", value: "Male" },
-        { key: "Female", text: "Female", value: "Female", disabled: true }
+        selectItem("Male", "Male"),
+        selectItem("Female", "Female", { disabled: true })
     ]}
 />
 ```
@@ -54,25 +56,26 @@ For documentation about items and usage examples, please have a look at the [ite
 
 The following constants are used in the examples below:
 
-export const MALE = { key: "Male", text: "Male", value: "Male" };
-export const FEMALE = { key: "Female", text: "Female", value: "Female" };
 export const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
 ];
 
-export const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
-export const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
-export const FRIENDS = [JENNY, ELLIOT];
+export const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
 
 ```javascript dark
-const MALE = { key: "Male", text: "Male", value: "Male" };
-const FEMALE = { key: "Female", text: "Female", value: "Female" };
-const GENDERS = [MALE, FEMALE];
+const GENDERS = [
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
+];
 
-const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
-const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
-const FRIENDS = [JENNY, ELLIOT];
+const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
 ```
 
 ### Default
@@ -204,6 +207,8 @@ A select can show that the data contains errors.
 ### Actions
 
 A select can contains non selectable items acting as actions.
+
+Actions must be specified as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) having the following format: `{ content, className? ... }`.
 
 <Preview>
     <Story name="actions">

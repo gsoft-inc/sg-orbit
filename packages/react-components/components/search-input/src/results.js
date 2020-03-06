@@ -6,8 +6,8 @@ export const RESULT_SHAPE = {
     text: string.isRequired
 };
 
-export function searchInputResult(id, text, obj) {
-    if (isNil(obj)) {
+export function searchInputResult(id, text, additionalProps) {
+    if (isNil(additionalProps)) {
         return {
             id,
             text
@@ -17,6 +17,6 @@ export function searchInputResult(id, text, obj) {
     return {
         id,
         text,
-        ...obj
+        ...additionalProps
     };
 }

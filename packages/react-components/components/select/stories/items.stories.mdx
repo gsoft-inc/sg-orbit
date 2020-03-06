@@ -2,7 +2,7 @@ import { InfoIcon, WarningIcon } from "@orbit-ui/react-icons";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { PureSelect, Select } from "@orbit-ui/react-select/src";
+import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -37,24 +37,21 @@ An item of a select component.
 
 The following constants are used in the examples below:
 
-export const MALE = { key: "Male", text: "Male", value: "Male" };
-export const FEMALE = { key: "Female", text: "Female", value: "Female" };
-export const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
-];
+export const MALE = selectItem("Male", "Male");
+export const FEMALE = selectItem("Female", "Female");
+export const GENDERS = [MALE, FEMALE];
 
-export const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
-export const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+export const JENNY = selectItem("Jenny Hess", "Jenny Hess");
+export const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
 export const FRIENDS = [JENNY, ELLIOT];
 
 ```javascript dark
-const MALE = { key: "Male", text: "Male", value: "Male" };
-const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const MALE = selectItem("Male", "Male");
+const FEMALE = selectItem("Female", "Female");
 const GENDERS = [MALE, FEMALE];
 
-const JENNY = { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" };
-const ELLIOT = { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" };
+const JENNY = selectItem("Jenny Hess", "Jenny Hess");
+const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
 const FRIENDS = [JENNY, ELLIOT];
 ```
 
@@ -81,7 +78,7 @@ A select item can have a description.
             placeholder="Gender"
             options={[
                 MALE,
-                { ...FEMALE, description: "Origin from the Latin word femella" }
+                selectItem("Female", "Female", { description: "Origin from the Latin word femella" })
             ]}
         />
     </Story>
@@ -96,8 +93,8 @@ A select item can have an avatar.
         <Select
             placeholder="Friends"
             options={[
-                { ...JENNY, avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenny" } },
-                { ...ELLIOT, avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Elliot" } }
+                selectItem("Jenny Hess", "Jenny Hess", { avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenny" } }),
+                selectItem("Elliot Fu", "Elliot Fu", { avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Elliot" } })
             ]}
         />
     </Story>
@@ -113,15 +110,15 @@ A select item can display icons.
             <Select
                 placeholder="Gender"
                 options={[
-                    { ...MALE, icons: <WarningIcon /> },
-                    { ...FEMALE, icons: [<WarningIcon />, <InfoIcon />] }
+                    selectItem("Male", "Male", { icons: <WarningIcon /> }),
+                    selectItem("Female", "Female", { icons: [<WarningIcon />, <InfoIcon />] })
                 ]}
             />
             <Select
                 placeholder="Gender"
                 options={[
-                    { ...MALE, icons: <WarningIcon />, iconsPosition: "right" },
-                    { ...FEMALE, icons: [<WarningIcon />, <InfoIcon />], iconsPosition: "right" }
+                    selectItem("Male", "Male", { icons: <WarningIcon />, iconsPosition: "right" }),
+                    selectItem("Female", "Female", { icons: [<WarningIcon />, <InfoIcon />], iconsPosition: "right" })
                 ]}
             />
         </div>
@@ -138,7 +135,7 @@ A select item can be disabled.
             placeholder="Gender"
             options={[
                 MALE,
-                { ...FEMALE, disabled: true }
+                selectItem("Female", "Female", { disabled: true })
             ]}
         />
     </Story>

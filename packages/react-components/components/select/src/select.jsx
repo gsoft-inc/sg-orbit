@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
-const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "multiple", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
+const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const ACTION_SHAPE = {
     content: element,
@@ -35,13 +35,13 @@ const defaultProps = {
     inline: false
 };
 
-const renderAction = ({ content, className, ...rest }, index) => {
+const renderAction = ({ content, key, className, ...rest }, index) => {
     const classes = mergeClasses(
         className,
         "action bg-white o-100"
     );
 
-    return { content, className: classes, disabled: true, key: index, ...rest };
+    return { content, className: classes, disabled: true, key: key || index, ...rest };
 };
 
 export function PureSelect(props) {
