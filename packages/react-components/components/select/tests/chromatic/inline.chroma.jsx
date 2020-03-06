@@ -1,5 +1,5 @@
-import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -12,15 +12,15 @@ function stories(segment) {
         .build();
 }
 
-export const GENDERS = [
+const GENDERS = [
     { key: "Male", text: "Male", value: "Male" },
     { key: "Female", text: "Female", value: "Female" }
 ];
 
-function createInlineDropdown({ options = GENDERS, ...otherProps } = {}) {
-    return <Dropdown
-        inline
+function createInlineSelect({ options = GENDERS, ...otherProps } = {}) {
+    return <Select
         placeholder="select gender"
+        inline
         options={options}
         {...otherProps}
     />;
@@ -29,22 +29,22 @@ function createInlineDropdown({ options = GENDERS, ...otherProps } = {}) {
 stories()
     .add("default", () =>
         <div className="flex">
-            {createInlineDropdown({
+            {createInlineSelect({
                 className: "mr5"
             })}
-            {createInlineDropdown({
+            {createInlineSelect({
                 defaultOpen: true
             })}
         </div>
     )
     .add("selected value", () =>
         <div className="flex">
-            {createInlineDropdown({
-                value: "Female",
+            {createInlineSelect({
+                defaultValue: "Female",
                 className: "mr5"
             })}
-            {createInlineDropdown({
-                value: "Female",
+            {createInlineSelect({
+                defaultValue: "Female",
                 defaultOpen: true
             })}
         </div>
@@ -53,30 +53,28 @@ stories()
         <div className="flex flex-column">
             <div className="mb12">
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown()} elementum viverra maximus.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
                 </div>
             </div>
             <div>
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown({ defaultOpen: true })} elementum viverra maximus.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ defaultOpen: true })} elementum viverra maximus.
                 </div>
             </div>
         </div>
     )
     .add("disabled", () =>
-        <div>
-            {createInlineDropdown({
-                disabled: true
-            })}
-        </div>
+        createInlineSelect({
+            disabled: true
+        })
     )
     .add("error", () =>
         <div className="flex">
-            {createInlineDropdown({
+            {createInlineSelect({
                 error: true,
                 className: "mr5"
             })}
-            {createInlineDropdown({
+            {createInlineSelect({
                 error: true,
                 defaultOpen: true
             })}
@@ -85,32 +83,32 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="f9 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
             </div>
             <div className="mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
             </div>
             <div className="f5 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
             </div>
             <div className="f1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineDropdown({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
             </div>
         </div>
     )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="f9 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
             </div>
             <div className="mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
             </div>
             <div className="f5 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineDropdown()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
             </div>
             <div className="f1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineDropdown()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect()} elementum viverra maximus.
             </div>
         </div>
     );

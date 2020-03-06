@@ -1,5 +1,5 @@
 import { CalendarIcon } from "@orbit-ui/react-icons";
-import { Dropdown } from "@orbit-ui/react-dropdown/src";
+import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -12,358 +12,261 @@ function stories(segment) {
         .build();
 }
 
-export function createMale(props = {}) {
-    return {
-        key: "Male",
-        text: "Male",
-        value: "Male",
-        ...props
-    };
+function createMale(props = {}) {
+    return { key: "Male", text: "Male", value: "Male", ...props };
 }
 
-export function createFemale(props = {}) {
-    return {
-        key: "Female",
-        text: "Female",
-        value: "Female",
-        ...props
-    };
+function createFemale(props = {}) {
+    return { key: "Female", text: "Female", value: "Female", ...props };
+}
+
+const GENDERS = [createMale(), createFemale()];
+
+function createSelect({ options = GENDERS, ...otherProps } = {}) {
+    return <Select
+        options={options}
+        {...otherProps}
+    />;
 }
 
 stories()
     .add("default", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    defaultOpen
-                />
+                {createSelect({
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
-
         </div>
     )
     .add("active", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ active: true })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ active: true })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ active: true })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ active: true })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ active: true })]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ active: true })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("selected", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ selected: true })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ selected: true })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ selected: true })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ selected: true })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ selected: true })]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ selected: true })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
-
         </div>
     )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ disabled: true })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ disabled: true })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ disabled: true })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ disabled: true })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ disabled: true })]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ disabled: true })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
-
         </div>
     )
     .add("description", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ description: "I am a description!" })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "I am a description!" })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ description: "I am a description!" })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "I am a description!" })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ description: "I am a description!" })]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "I am a description!" })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("icons left", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon /> })]}
-                    size="small"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
+                    size: "small",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon /> })]}
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon /> })]}
-                    size="large"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
+                    size: "large",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("icon right", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })]}
-                    size="small"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
+                    size: "small",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })]}
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })]}
-                    size="large"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })]}
-                    size="large"
-                    defaultOpen
-                />
-            </div>
-        </div>
-    )
-    .add("raw", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), { raw: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female", key: "female" }]}
-                    size="small"
-                    defaultOpen
-                />
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), { raw: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female", key: "female" }]}
-                    defaultOpen
-                />
-            </div>
-            <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), { raw: <a href="https://en.wikipedia.org/wiki/Female">Female</a>, value: "Female", key: "female" }]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
+                    size: "large",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })]}
-                    size="small"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })]}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
+                    size: "small",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })]}
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })]}
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })]}
-                    size="large"
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    selection
-                    options={[createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })]}
-                    size="large"
-                    defaultOpen
-                />
-            </div>
-        </div>
-    )
-    .add("actions", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    actions={[{ content: <a href="https://www.google.com">Google</a> }]}
-                    size="small"
-                    defaultOpen
-                />
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    actions={[{ content: <a href="https://www.google.com">Google</a> }]}
-                    defaultOpen
-                />
-            </div>
-            <div className="flex">
-                <Dropdown
-                    selection
-                    options={[createMale(), createFemale()]}
-                    actions={[{ content: <a href="https://www.google.com">Google</a> }]}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
+                    size: "large",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     );

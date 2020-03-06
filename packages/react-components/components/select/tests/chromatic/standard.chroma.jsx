@@ -1,6 +1,5 @@
-import { AddIcon, MagnifierIcon } from "@orbit-ui/react-icons";
-import { Button } from "@orbit-ui/react-button";
-import { Dropdown } from "@orbit-ui/react-dropdown/src";
+import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -14,377 +13,275 @@ function stories(segment) {
 }
 
 const GENDERS = [
-    {
-        key: "Male",
-        text: "Male",
-        value: "Male"
-    },
-    {
-        key: "Female",
-        text: "Female",
-        value: "Female"
-    }
+    { key: "Male", text: "Male", value: "Male" },
+    { key: "Female", text: "Female", value: "Female" }
 ];
+
+function createSelect({ options = GENDERS, ...otherProps } = {}) {
+    return <Select
+        placeholder="Gender"
+        options={options}
+        {...otherProps}
+    />;
+}
 
 stories()
     .add("default", () =>
         <div className="flex">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                options={GENDERS}
-                defaultOpen
-            />
+            {createSelect({
+                className: "mr5"
+            })}
+            {createSelect({
+                defaultOpen: true
+            })}
         </div>
     )
     .add("sizes",
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     <Dropdown
-                         placeholder="Gender"
-                         className="mr5"
-                         selection
-                         size="small"
-                         options={GENDERS}
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         className="mr5"
-                         selection
-                         value="Male"
-                         size="small"
-                         options={GENDERS}
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         defaultOpen
-                         selection
-                         size="small"
-                         options={GENDERS}
-                     />
+                     {createSelect({
+                         size: "small",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "small",
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "small",
+                         defaultOpen: true
+                     })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     <Dropdown
-                         placeholder="Gender"
-                         selection
-                         options={GENDERS}
-                         className="mr5"
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         selection
-                         value="Male"
-                         options={GENDERS}
-                         className="mr5"
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         defaultOpen
-                         selection
-                         options={GENDERS}
-                     />
+                     {createSelect({
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         defaultOpen: true
+                     })}
                  </div>
                  <div className="flex">
-                     <Dropdown
-                         placeholder="Gender"
-                         className="mr5"
-                         selection
-                         size="large"
-                         options={GENDERS}
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         className="mr5"
-                         selection
-                         value="Male"
-                         size="large"
-                         options={GENDERS}
-                     />
-                     <Dropdown
-                         placeholder="Gender"
-                         defaultOpen
-                         selection
-                         size="large"
-                         options={GENDERS}
-                     />
+                     {createSelect({
+                         size: "large",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "large",
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "large",
+                         defaultOpen: true
+                     })}
                  </div>
              </div>
     )
     .add("fluid", () =>
         <div className="flex">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                fluid
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                fluid
-                options={GENDERS}
-                defaultOpen
-            />
+            {createSelect({
+                fluid: true,
+                className: "mr5"
+            })}
+            {createSelect({
+                fluid: true,
+                className: "mr5",
+                defaultOpen: true
+            })}
         </div>
     )
     .add("disabled", () =>
-        <Dropdown
-            placeholder="Gender"
-            selection
-            disabled
-            options={GENDERS}
-        />
+        createSelect({
+            disabled: true
+        })
     )
     .add("clearable", () =>
-        <div className="flex">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                clearable
-                defaultValue="Male"
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                clearable
-                defaultValue="Male"
-                options={GENDERS}
-                defaultOpen
-            />
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    clearable: true,
+                    defaultValue: "Female",
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    clearable: true,
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    clearable: true,
+                    defaultValue: "Female",
+                    size: "large"
+                })}
+            </div>
+            <div className="flex">
+                {createSelect({
+                    clearable: true,
+                    defaultValue: "Female",
+                    defaultOpen: true
+                })}
+            </div>
         </div>
     )
     .add("error", () =>
         <div className="flex">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                error
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                error
-                options={GENDERS}
-                defaultOpen
-            />
-        </div>
-    )
-    .add("trigger", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    trigger={<AddIcon />}
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    trigger={<AddIcon />}
-                    options={GENDERS}
-                    defaultOpen
-                />
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    trigger={<Button>Open</Button>}
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    trigger={<Button>Open</Button>}
-                    options={GENDERS}
-                    defaultOpen
-                    className="mr5"
-                />
-                <Dropdown
-                    trigger={<Button circular icon={<AddIcon />} />}
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    trigger={<Button circular icon={<AddIcon />} />}
-                    options={GENDERS}
-                    defaultOpen
-                />
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    trigger={<span>Open</span>}
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    trigger={<span>Open</span>}
-                    options={GENDERS}
-                    defaultOpen
-                />
-            </div>
+            {createSelect({
+                error: true,
+                className: "mr5"
+            })}
+            {createSelect({
+                error: true,
+                className: "mr5",
+                defaultOpen: true
+            })}
         </div>
     )
     .add("loading", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    placeholder="Gender"
-                    className="mr5"
-                    selection
-                    loading
-                    size="small"
-                    options={GENDERS}
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    className="mr5"
-                    selection
-                    loading
-                    value="Male"
-                    size="small"
-                    options={GENDERS}
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    defaultOpen
-                    selection
-                    loading
-                    size="small"
-                    options={GENDERS}
-                />
+                {createSelect({
+                    loading: true,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    defaultValue: "Female",
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    loading
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    loading
-                    value="Male"
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    defaultOpen
-                    selection
-                    loading
-                    options={GENDERS}
-                />
+                {createSelect({
+                    loading: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    placeholder="Gender"
-                    className="mr5"
-                    selection
-                    loading
-                    size="large"
-                    options={GENDERS}
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    className="mr5"
-                    selection
-                    loading
-                    value="Male"
-                    size="large"
-                    options={GENDERS}
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    defaultOpen
-                    selection
-                    loading
-                    size="large"
-                    options={GENDERS}
-                />
+                {createSelect({
+                    loading: true,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    defaultValue: "Female",
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    loading: true,
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("upward", () =>
-        <div className="flex mt12">
-            <Dropdown
-                placeholder="Gender"
-                selection
-                upward
-                options={GENDERS}
-                className="mr5"
-            />
-            <Dropdown
-                placeholder="Gender"
-                selection
-                upward
-                options={GENDERS}
-                defaultOpen
-            />
+        <div style={{ marginTop: "50px" }}>
+            { createSelect({
+                upward: true,
+                defaultOpen: true
+            })}
         </div>
     )
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    size="small"
-                    className="mr5"
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    size="small"
-                    defaultOpen
-                />
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: "Male",
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    className="mr5"
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    defaultOpen
-                />
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: "Male",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    defaultOpen: true
+                })}
             </div>
             <div className="flex">
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    size="large"
-                    className="mr5"
-                />
-                <Dropdown
-                    placeholder="Gender"
-                    selection
-                    icon={<MagnifierIcon />}
-                    options={GENDERS}
-                    size="large"
-                    defaultOpen
-                />
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: "Male",
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
+    )
+    .add("actions", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "small",
+                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createSelect({
+                    size: "large",
+                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
+                    defaultOpen: true
+                })}
             </div>
         </div>
     );
