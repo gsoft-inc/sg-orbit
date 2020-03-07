@@ -10,13 +10,6 @@ import {
 import { noop } from "lodash";
 import moment from "moment";
 
-function createSingleDatePicker(props = {}) {
-    return <SingleDatePicker
-        onDateChange={noop}
-        {...props}
-    />;
-}
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Date Picker/single"))
         .segment(segment)
@@ -25,6 +18,13 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+function createSingleDatePicker(props = {}) {
+    return <SingleDatePicker
+        onDateChange={noop}
+        {...props}
+    />;
 }
 
 stories()

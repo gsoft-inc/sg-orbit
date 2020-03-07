@@ -1,30 +1,31 @@
-import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { MagnifierIcon } from "@orbit-ui/react-icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Select, selectItem } from "@orbit-ui/react-select/src";
 import { WarningMessage } from "@blocks";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Dropdown/inline")}
+    title={createComponentSection("Select/inline")}
     parameters={paramsBuilder()
+        .sortPriority(3)
         .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
         .build()}
 />
 
-# Inline Dropdown
+# Inline Select
 
-An inlined dropdown can appear inline with other content.
+An inlined select can appear inline with other content.
 
 ## Installation
 
-<Installation componentFolder="dropdown" imports={<Imports />} />
+<Installation componentFolder="select" imports={<Imports />} />
 
 ## Usage
 
 <WarningMessage>
-    This component have the same feature set as the <a href="/?path=/docs/components-dropdown-standard--default-story">standard dropdown</a> component.
+    This component <i>mostly</i> support the same feature set as the <a href="/?path=/docs/components-select-standard--default-story">standard select</a> component.
 </WarningMessage>
 
 ### Constants
@@ -32,24 +33,24 @@ An inlined dropdown can appear inline with other content.
 The following constants are used in the examples below:
 
 export const FRIENDS = [
-    { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" },
-    { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" }
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
 ];
 
 ```javascript dark
 const FRIENDS = [
-    { key: "Jenny Hess", text: "Jenny Hess", value: "Jenny Hess" },
-    { key: "Elliot Fu", text: "Elliot Fu", value: "Elliot Fu" }
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
 ];
 ```
 
 ### Default
 
-A default inlined dropdown.
+A default inlined select.
 
 <Preview>
     <Story name="default">
-        <Dropdown
+        <Select
             placeholder="select friend"
             inline
             options={FRIENDS}
@@ -59,11 +60,11 @@ A default inlined dropdown.
 
 ### Selected value
 
-A inline dropdown can have an initial value
+A inline select can have an initial value
 
 <Preview>
     <Story name="selected value">
-        <Dropdown
+        <Select
             placeholder="select friend"
             defaultValue="Elliot Fu"
             inline
@@ -72,13 +73,27 @@ A inline dropdown can have an initial value
     </Story>
 </Preview>
 
+### In a block
+
+An inlined select can be embedded in a block.
+
+<Preview>
+    <Story name="in a block">
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <Select
+            placeholder="select friend"
+            inline
+            options={FRIENDS}
+        /> elementum viverra maximus.</div>
+    </Story>
+</Preview>
+
 ### Icon
 
-An inline dropdown can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+An inline select can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
-        <Dropdown
+        <Select
             placeholder="Gender"
             icon={<MagnifierIcon />}
             inline
@@ -87,27 +102,13 @@ An inline dropdown can display an icon before it's content. Specify the icon to 
     </Story>
 </Preview>
 
-### In a block
-
-An inlined dropdown can be embedded in a block.
-
-<Preview>
-    <Story name="in a block">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <Dropdown
-            placeholder="select friend"
-            inline
-            options={FRIENDS}
-        /> elementum viverra maximus.</div>
-    </Story>
-</Preview>
-
 ### Disabled
 
-An inlined dropdown can be disabled.
+An inlined select can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Dropdown
+        <Select
             placeholder="select friend"
             inline
             disabled
@@ -123,8 +124,8 @@ An inlined dropdown can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Dropdown autofocus inline placeholder="select friend" options={FRIENDS} />
-        <Dropdown autofocus inline disabled placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline disabled placeholder="select friend" options={FRIENDS} />
     </div>
 </Story>
 
@@ -135,8 +136,8 @@ An inlined dropdown can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Dropdown autofocus inline autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
-        <Dropdown autofocus inline disabled autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline disabled autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
     </div>
 </Story>
 
@@ -146,5 +147,5 @@ An inlined dropdown can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Dropdown inline options={FRIENDS} />} />
+    <RefLogger component={<Select inline options={FRIENDS} />} />
 </Story>

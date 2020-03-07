@@ -1,10 +1,10 @@
-import "./monkey-patch-dropdown-item";
+import "./item-factory";
 
-import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
+import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useForwardRef } from "@orbit-ui/react-components-shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "@orbit-ui/react-icons";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
@@ -16,13 +16,6 @@ const DEFAULT_SIZE = "medium";
 const SIZES_CLASSES = {
     [SMALL]: "small",
     [LARGE]: "large"
-};
-
-const UNSUPPORTED_PROPS = ["as", "basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "multiple", "openOnFocus", "pointing", "searchInput", "selectOnBlur", "selectOnNavigation", "simple"];
-
-const ACTION_SHAPE = {
-    content: element,
-    className: string
 };
 
 const propTypes = {
@@ -42,10 +35,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autofocusDelay: number,
-    /**
-     * A dropdown can have a list of actions.
-     */
-    actions: arrayOf(shape(ACTION_SHAPE)),
     /**
      * @ignore
      */
@@ -119,24 +108,14 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
     }, [autofocus, autofocusDelay, search, disabled, innerRef]);
 }
 
-const renderAction = ({ content, className, ...rest }, index) => {
-    const classes = mergeClasses(
-        className,
-        "action bg-white o-100"
-    );
-
-    return { raw: content, className: classes, disabled: true, key: index, ...rest };
-};
-
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, actions, options, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
 
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
     useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
 
     const handleOpen = (...args) => {
@@ -210,21 +189,12 @@ export function PureDropdown(props) {
         }
     };
 
-    const renderOptions = () => {
-        if (!isNil(actions)) {
-            return [...options, ...actions.map(renderAction)];
-        }
-
-        return options;
-    };
-
     return (
         <>
             <div className={containerClasses}>
                 <Ref innerRef={setInnerRef}>
                     <DropdownContext.Provider value={{ size: size }}>
                         <SemanticDropdown
-                            options={renderOptions()}
                             onOpen={handleOpen}
                             onClose={handleClose}
                             onFocus={handleFocus}

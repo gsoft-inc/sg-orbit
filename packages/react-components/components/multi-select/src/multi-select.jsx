@@ -9,7 +9,7 @@ import { arrayOf, bool, func, node, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired

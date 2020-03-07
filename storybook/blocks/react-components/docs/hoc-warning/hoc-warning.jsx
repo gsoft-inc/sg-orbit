@@ -9,11 +9,9 @@ const propTypes = {
 
 export function HocWarning({ componentName, semanticPath }) {
     return (
-        <div className="mb6">
-            <WarningMessage>
-                <Message componentName={componentName} semanticPath={semanticPath} />
-            </WarningMessage>
-        </div>
+        <WarningMessage className="mb6">
+            <Message componentName={componentName} semanticPath={semanticPath} />
+        </WarningMessage>
     );
 }
 
