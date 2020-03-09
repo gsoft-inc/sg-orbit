@@ -14,7 +14,7 @@ jest.mock("@react-components/date-picker/src/react-dates-wrapper.jsx", () => {
     };
 });
 
-jest.mock("@react-components/popup/src/fade-in.jsx", () => {
+jest.mock("@react-components/popup/src/popup/fade-in.jsx", () => {
     return {
         FadeIn: ({ active, children, className }) => {
             return (
