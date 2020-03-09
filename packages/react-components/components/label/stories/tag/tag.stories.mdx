@@ -1,7 +1,8 @@
-import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props } from "@blocks";
+import { PureTag, Tag } from "@orbit-ui/react-label/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Tag } from "@orbit-ui/react-label/src";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -20,11 +21,21 @@ A tag is a small colored dot displayed before the text.
 
 <Installation componentFolder="label" imports={<Imports />} />
 
+## Props
+
+<HocWarning componentName="Label" semanticPath="/elements/label" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Tag", component: PureTag }
+    ]}
+/>
+
 ## Usage
 
 ### Default
 
-A default tag. A tag color can be specified by setting a `background-color`.
+A default tag is colorless. You must a color by specifying a `background-color`.
 
 <Preview>
     <Story name="default">

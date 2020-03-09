@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/react-icons";
+import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";

@@ -1,6 +1,6 @@
 import { Button } from "@orbit-ui/react-button/src";
 import { Buttons } from "./components";
-import { CalendarIcon, ImageIcon, SignoutIcon } from "@orbit-ui/react-icons";
+import { CalendarIcon, ImageIcon, SignoutIcon } from "@orbit-ui/react-icons/src";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";

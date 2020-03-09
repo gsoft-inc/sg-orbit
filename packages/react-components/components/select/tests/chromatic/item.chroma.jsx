@@ -1,4 +1,4 @@
-import { CalendarIcon } from "@orbit-ui/react-icons";
+import { CalendarIcon } from "@orbit-ui/react-icons/src";
 import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

@@ -1,5 +1,5 @@
-import { AddIcon } from "@orbit-ui/react-icons";
-import { Button } from "@orbit-ui/react-button";
+import { AddIcon } from "@orbit-ui/react-icons/src";
+import { Button } from "@orbit-ui/react-button/src";
 import { Dropdown } from "@orbit-ui/react-dropdown/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

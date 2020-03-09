@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 import { Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

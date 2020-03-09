@@ -1,4 +1,4 @@
-import { AddIcon } from "@orbit-ui/react-icons";
+import { AddIcon } from "@orbit-ui/react-icons/src";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { MultiSelect } from "@orbit-ui/react-multi-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
