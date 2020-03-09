@@ -1,5 +1,5 @@
 import { Ref, Popup as SemanticPopup } from "semantic-ui-react";
-import { bool, func, object, oneOfType, string } from "prop-types";
+import { any, bool, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
@@ -8,6 +8,10 @@ const UNSUPPORTED_PROPS = [];
 
 const propTypes = {
     flush: bool,
+    /**
+     * @ignore
+     */
+    trigger: any.isRequired,
     /**
      * @ignore
      */

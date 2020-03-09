@@ -5,7 +5,7 @@ import { Label } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
 import { PureTooltip, Tooltip } from "@orbit-ui/react-popup/src";
-import { createComponentSection, paramsBuilder } from "@utils";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -139,3 +139,12 @@ A disabled tooltip only renders its trigger.
         <Tooltip disabled content="Adds users to your feed" trigger={<Button>Add</Button>} />
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Tooltip content="Adds users to your feed" open trigger={<Button>Add</Button>} />} />
+</Story>
