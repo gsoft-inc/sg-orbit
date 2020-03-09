@@ -1,3 +1,10 @@
-```javascript dark
-    import { TextArea } from "@orbit-ui/react-input" | "@orbit-ui/react-components";
-```
+import { ComponentImport } from "@blocks/react-components";
+
+<ComponentImport
+    bundle={`
+        import { TextArea } from "@orbit-ui/react-components";
+    `}
+    standalone={`
+        import { TextArea } from "@orbit-ui/react-input";
+    `}
+/>

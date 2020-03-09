@@ -1,6 +1,16 @@
-```javascript dark
-import {
-    SearchInput,
-    searchInputResult
-} from "@orbit-ui/react-search-input" | "@orbit-ui/react-components";
-```
+import { ComponentImport } from "@blocks/react-components";
+
+<ComponentImport
+    bundle={`
+        import {
+            SearchInput,
+            searchInputResult
+        } from "@orbit-ui/react-components";
+    `}
+    standalone={`
+        import {
+            SearchInput,
+            searchInputResult
+        } from "@orbit-ui/react-search-input";
+    `}
+/>

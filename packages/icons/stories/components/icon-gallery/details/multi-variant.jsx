@@ -10,8 +10,12 @@ function ImportSection({ componentType }) {
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
             <ComponentImport
-                bundle={`import { ${componentType} } from "@orbit-ui/react-components";`}
-                standalone={`import { ${componentType} } from "@orbit-ui/react-icons";`}
+                bundle={`
+                    import { ${componentType} } from "@orbit-ui/react-components";
+                `}
+                standalone={`
+                    import { ${componentType} } from "@orbit-ui/react-icons";
+                `}
                 className="mv2"
             />
         </>

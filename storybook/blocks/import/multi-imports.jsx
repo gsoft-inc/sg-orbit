@@ -5,6 +5,7 @@ import { Source } from "@storybook/components";
 import { arrayOf, shape, string } from "prop-types";
 import { mergeClasses } from "@orbit-ui/react-components-shared";
 import { useLocalStorage } from "@shared/use-storage";
+import dedent from "dedent";
 
 const VERSION_SHAPE = {
     label: string.isRequired,
@@ -53,7 +54,7 @@ export function MultiImports({ versions, className }) {
             .filter(x => x.label === current)
             .map(x => {
                 return (
-                    <Source language="javascript" dark format={false} code={x.code} className={classes} key={x.label} />
+                    <Source language="javascript" dark format={false} code={dedent(x.code)} className={classes} key={x.label} />
                 );
             });
     };

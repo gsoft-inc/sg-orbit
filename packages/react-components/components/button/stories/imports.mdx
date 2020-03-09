@@ -1,3 +1,10 @@
-```javascript dark
-import { Button } from "@orbit-ui/react-button" | "@orbit-ui/react-components";
-```
+import { ComponentImport } from "@blocks/react-components";
+
+<ComponentImport
+    bundle={`
+        import { Button } from "@orbit-ui/react-components";
+    `}
+    standalone={`
+        import { Button } from "@orbit-ui/react-button";
+    `}
+/>
