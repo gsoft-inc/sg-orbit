@@ -102,10 +102,10 @@ A tooltip can offload padding to its child.
 
 <Preview>
     <Story name="flush">
-        <Tooltip trigger={<Button circular secondary icon={<AddIcon />} />} className="flush">
-            <Tooltip.Content className="pa10">
-                <div>Adds users to your feed</div>
-            </Tooltip.Content>
+        <Tooltip flush trigger={<Button circular secondary icon={<AddIcon />} />}>
+            <div className="pa10">
+                Adds users to your feed
+            </div>
         </Tooltip>
     </Story>
 </Preview>

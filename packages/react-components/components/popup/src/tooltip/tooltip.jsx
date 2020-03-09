@@ -1,13 +1,17 @@
 import { Ref, Popup as SemanticPopup } from "semantic-ui-react";
-import { bool, func, object, oneOfType } from "prop-types";
+import { bool, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 
 const UNSUPPORTED_PROPS = [];
 
 const propTypes = {
     flush: bool,
+    /**
+     * @ignore
+     */
+    className: string,
     /**
      * @ignore
      */
@@ -19,7 +23,7 @@ const defaultProps = {
 };
 
 export function PureTooltip(props) {
-    const { flush, forwardedRef, children, ...rest } = props;
+    const { flush, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-popup/tooltip");
 
@@ -32,8 +36,13 @@ export function PureTooltip(props) {
     };
 
     const renderTooltip = () => {
+        const classes = mergeClasses(
+            flush && "flush",
+            className
+        );
+
         return (
-            <SemanticPopup {...rest}>
+            <SemanticPopup className={classes} {...rest}>
                 {children}
             </SemanticPopup>
         );

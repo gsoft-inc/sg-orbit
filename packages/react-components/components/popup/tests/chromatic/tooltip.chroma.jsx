@@ -1,4 +1,7 @@
+import { AddIcon } from "@orbit-ui/react-icons/src";
 import { Button } from "@orbit-ui/react-button/src";
+import { Input, TextArea } from "@orbit-ui/react-input/src";
+import { Label } from "@orbit-ui/react-label/src";
 import { Tooltip } from "@orbit-ui/react-popup/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -32,8 +35,56 @@ stories()
             basic: true
         })
     )
-    // .add("position", () =>
-    // )
+    .add("position", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "top center"
+                    })}
+                </div>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "top left"
+                    })}
+                </div>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "top right"
+                    })}
+                </div>
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "bottom center"
+                    })}
+                </div>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "bottom left"
+                    })}
+                </div>
+                <div style={{ marginRight: "250px" }}>
+                    {createTooltip({
+                        position: "bottom right"
+                    })}
+                </div>
+            </div>
+            <div className="flex">
+                <div style={{ marginRight: "450px" }}>
+                    {createTooltip({
+                        position: "right center"
+                    })}
+                </div>
+                <div>
+                    {createTooltip({
+                        position: "left center"
+                    })}
+                </div>
+            </div>
+        </div>
+    )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -92,4 +143,79 @@ stories()
         createTooltip({
             flush: true
         })
+    )
+    .add("disabled", () =>
+        createTooltip({
+            disabled: true
+        })
+    )
+    .add("triggers", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Button size="tiny">Add</Button>
+                    })}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Button size="small">Add</Button>
+                    })}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip()}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Button size="large">Add</Button>
+                    })}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Button circular icon={<AddIcon />} />
+                    })}
+                </div>
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Label>Add</Label>
+                    })}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Label circular>A</Label>
+                    })}
+                </div>
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <a href="https://www.google.com">Google</a>
+                    })}
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <span>Span</span>
+                    })}
+                </div>
+                <div>
+                    {createTooltip({
+                        trigger: <div>Div</div>
+                    })}
+                </div>
+            </div>
+            <div className="flex">
+                <div style={{ marginRight: "200px" }}>
+                    {createTooltip({
+                        trigger: <Input />
+                    })}
+                </div>
+                <div>
+                    {createTooltip({
+                        trigger: <TextArea />
+                    })}
+                </div>
+            </div>
+        </div>
     );
