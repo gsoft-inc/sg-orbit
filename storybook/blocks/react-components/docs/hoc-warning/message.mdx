@@ -1,5 +1,8 @@
 import { InlineSemanticLink } from "@blocks";
 
-This component is a HOC which adds additional props to the original Semantic UI React <code children={`<${props.componentName} />`} /> component. The documentation for the props of the original Semantic UI component is available on <InlineSemanticLink path={props.semanticPath}>Semantic UI React website</InlineSemanticLink>.
+This component is a HOC which adds additional features to the original Semantic UI React <code children={`<${props.componentName} />`} /> component. The documentation for the props of the original Semantic UI component is available on <InlineSemanticLink path={props.semanticPath}>Semantic UI React website</InlineSemanticLink>.
 
-_The documentation for the additional props is available below._
+<If condition={props.additionalProps}>
+    <i>The documentation for the additional props is available below.</i>
+</If>
+
