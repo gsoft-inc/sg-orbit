@@ -2,9 +2,7 @@ import { Ref, Popup as SemanticPopup } from "semantic-ui-react";
 import { any, bool, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
-
-const UNSUPPORTED_PROPS = [];
+import { mergeClasses } from "@orbit-ui/react-components-shared";
 
 const propTypes = {
     flush: bool,
@@ -28,8 +26,6 @@ const defaultProps = {
 
 export function PureTooltip(props) {
     const { flush, className, forwardedRef, children, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-popup/tooltip");
 
     const renderWithRef = () => {
         return (
