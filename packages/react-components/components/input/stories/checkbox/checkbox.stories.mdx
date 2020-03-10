@@ -112,6 +112,22 @@ A checkbox can have a label after his text.
     </Story>
 </Preview>
 
+### Size
+
+A checkbox can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-lot-of-space-between">
+            <Checkbox size="small" text="Milky Way" />
+            <Checkbox text="Milky Way" />
+            <Checkbox size="large" text="Milky Way" />
+        </div>
+    </Story>
+</Preview>
+
 <Story
     name="autofocus"
     parameters={paramsBuilder()

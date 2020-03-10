@@ -1,19 +1,28 @@
 import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOfType, string } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect } from "react";
 import { createIconForControl } from "@orbit-ui/react-icons";
 import { createLabelFromShorthand } from "@orbit-ui/react-label";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 // TODO: Shouldn't accept "radio" or "toggle".
 const UNSUPPORTED_PROPS = ["as", "slider", "type"];
 
-// TODO: What about size
-// TODO: If size is support what about Icons in label
-
 const propTypes = {
+    /**
+     * Whether or not the checkbox should autofocus on render.
+     */
+    autofocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autofocusDelay: number,
     /**
      * The text associated to the checkbox.
      */
@@ -27,17 +36,17 @@ const propTypes = {
      */
     label: oneOfType([element, object]),
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * An input can vary in sizes.
      */
-    autofocus: bool,
-    /**
-     * Delay before trying to autofocus.
-     */
-    autofocusDelay: number,
+    size: oneOf(SIZES),
     /**
      * @ignore
      */
     disabled: bool,
+    /**
+     * @ignore
+     */
+    className: string,
     /**
      * @ignore
      */
@@ -46,6 +55,7 @@ const propTypes = {
 
 const defaultProps = {
     autofocus: false,
+    size: DEFAULT_SIZE,
     disabled: false
 };
 
@@ -78,7 +88,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
 }
 
 export function PureCheckbox(props) {
-    const { text, icon, label, autofocus, autofocusDelay, disabled, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icon, label, size, disabled, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/checkbox");
 
@@ -116,6 +126,11 @@ export function PureCheckbox(props) {
         return <label>{!isNil(text) && text}{!isNil(right) && right}</label>;
     };
 
+    const classes = mergeClasses(
+        size && size,
+        className
+    );
+
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     return (
@@ -124,6 +139,7 @@ export function PureCheckbox(props) {
                 label={renderContent()}
                 autoFocus={shouldAutofocus}
                 disabled={disabled}
+                className={classes}
                 data-testid="checkbox"
                 {...rest}
             />

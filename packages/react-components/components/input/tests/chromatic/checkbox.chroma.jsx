@@ -97,28 +97,92 @@ stories()
         </div>
     )
     .add("icon", () =>
-        <div className="flex">
-            {createCheckbox({
-                icon: <CommunicationIcon />,
-                text: null,
-                className: "mr5"
-            })}
-            {createCheckbox({
-                icon: <CommunicationIcon />,
-                text: "Email"
-            })}
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icon: <CommunicationIcon />,
+                    size: "small"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icon: <CommunicationIcon />
+                })}
+            </div>
+            <div className="flex">
+                {createCheckbox({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icon: <CommunicationIcon />,
+                    size: "large"
+                })}
+            </div>
         </div>
     )
     .add("label", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    text: null,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    size: "small"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    text: null,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    label: <Label>6</Label>
+                })}
+            </div>
+            <div className="flex">
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    text: null,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    size: "large"
+                })}
+            </div>
+        </div>
+    )
+    .add("size", () =>
         <div className="flex">
             {createCheckbox({
-                label: <Label>6</Label>,
-                text: null,
+                size: "small",
                 className: "mr5"
             })}
             {createCheckbox({
-                label: <Label>6</Label>,
-                text: "Email"
+                className: "mr5"
+            })}
+            {createCheckbox({
+                size: "large"
             })}
         </div>
     );
