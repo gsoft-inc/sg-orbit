@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-select",
     "version": "0.1.0",
-    "description": "ShareGate Orbit UI React select components",
+    "description": "Standalone select components.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",

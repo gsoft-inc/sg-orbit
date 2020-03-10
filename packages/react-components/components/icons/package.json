@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-icons",
     "version": "2.0.1",
-    "description": "ShareGate Orbit UI React icons components",
+    "description": "Icons of Orbit UI as React components and a few components to standardize icons size.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
