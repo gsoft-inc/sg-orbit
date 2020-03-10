@@ -1,5 +1,5 @@
 import { Input } from "@orbit-ui/react-input/src";
-import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 // TODO: variations doesn't make sense right now since error is also variations and are part of default & transparent stories.
