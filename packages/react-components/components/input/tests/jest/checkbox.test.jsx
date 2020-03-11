@@ -1,24 +1,24 @@
-import { Input } from "@orbit-ui/react-input/src";
+import { Checkbox } from "@orbit-ui/react-input/src";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 import { waitFor } from "@utils/wait-for";
 
-function createInput(props = {}) {
-    return <Input
+function createCheckbox(props = {}) {
+    return <Checkbox
         {...props}
     />;
 }
 
 function getInput(getByTestId) {
-    const searchInputNode = getByTestId("input");
+    const searchInputNode = getByTestId("checkbox");
 
     return searchInputNode.querySelector("input");
 }
 
 // ***** Behaviors *****
 
-test("when autofocus is true, the input is autofocused on render", async () => {
-    const { getByTestId } = render(createInput({
+test("when autofocus is true, the checkbox is autofocused on render", async () => {
+    const { getByTestId } = render(createCheckbox({
         autofocus: true
     }));
 
@@ -27,8 +27,8 @@ test("when autofocus is true, the input is autofocused on render", async () => {
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
-test("when autofocus on a disabled input, the input is not autofocused on render", async () => {
-    const { getByTestId } = render(createInput({
+test("when autofocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
+    const { getByTestId } = render(createCheckbox({
         disabled: true,
         autofocus: true
     }));
@@ -38,8 +38,8 @@ test("when autofocus on a disabled input, the input is not autofocused on render
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
-test("when delayed autofocus, the input is autofocused after the delay", async () => {
-    const { getByTestId } = render(createInput({
+test("when delayed autofocus, the checkbox is autofocused after the delay", async () => {
+    const { getByTestId } = render(createCheckbox({
         autofocus: true,
         autofocusDelay: 50
     }));
@@ -51,9 +51,9 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
-test("when delayed autofocus on a disabled input, the input is not autofocused after the delay", async () => {
+test("when delayed autofocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
     const { getByTestId } = render(
-        createInput({
+        createCheckbox({
             disabled: true,
             autofocus: true,
             autofocusDelay: 50
@@ -74,7 +74,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createInput({
+        createCheckbox({
             ref
         })
     );
@@ -90,7 +90,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createInput({
+        createCheckbox({
             ref: node => {
                 refNode = node;
             }
@@ -102,20 +102,4 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
-});
-
-test("when a function ref is provided, delayed autofocus works", async () => {
-    const { getByTestId } = render(createInput({
-        autofocus: true,
-        autofocusDelay: 50,
-        ref: () => {
-            // don't need to hold a ref..
-        }
-    }));
-
-    await wait();
-    expect(getInput(getByTestId)).not.toHaveFocus();
-
-    await waitFor(55);
-    expect(getInput(getByTestId)).toHaveFocus();
 });

@@ -237,3 +237,8 @@
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: 16px 16px;
 }
+
+.ui.checkbox label > .icon,
+.ui.checkbox label > .label {
+    margin-left: var(--scale-alpha)
+}

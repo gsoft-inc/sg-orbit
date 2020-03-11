@@ -1,0 +1,113 @@
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props, WarningMessage } from "@blocks";
+import { PureToggle, Toggle } from "@orbit-ui/react-input/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Toggle")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .build()}
+/>
+
+# Toggle
+
+A toggle offers an on or off choice to a user.
+
+## Installation
+
+<Installation componentFolder="input" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Toggle", component: PureToggle }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
+</WarningMessage>
+
+### Text
+
+A toggle can have a text.
+
+<Preview>
+    <Story name="text">
+        <Toggle text="Milky Way"/>
+    </Story>
+</Preview>
+
+### On
+
+A toggle can be on.
+
+<Preview>
+    <Story name="on">
+        <Toggle defaultChecked text="Milky Way"/>
+    </Story>
+</Preview>
+
+### Disabled
+
+A toggle can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Toggle disabled text="Milky Way"/>
+    </Story>
+</Preview>
+
+### Readonly
+
+A toggle can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Toggle readOnly text="Milky Way" />
+    </Story>
+</Preview>
+
+### No text
+
+A toggle doesn't require a text.
+
+<Preview>
+    <Story name="no text">
+        <Toggle />
+    </Story>
+</Preview>
+
+### Size
+
+A toggle can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-lot-of-space-between">
+            <Toggle size="small" text="Milky Way" />
+            <Toggle text="Milky Way" />
+            <Toggle size="large" text="Milky Way" />
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Toggle text="Milky Way" />} />
+</Story>
+

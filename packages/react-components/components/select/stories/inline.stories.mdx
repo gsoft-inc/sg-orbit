@@ -1,9 +1,9 @@
-import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Props, WarningMessage } from "@blocks";
+import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Select, selectItem } from "@orbit-ui/react-select/src";
-import { WarningMessage } from "@blocks";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -22,10 +22,20 @@ An inlined select can appear inline with other content.
 
 <Installation componentFolder="select" imports={<Imports />} />
 
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
 ## Usage
 
 <WarningMessage>
-    This component <i>mostly</i> support the same feature set as the <a href="/?path=/docs/components-select-standard--default-story">standard select</a> component.
+    This component <i>mostly</i> support the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
 </WarningMessage>
 
 ### Constants
@@ -89,7 +99,7 @@ An inlined select can be embedded in a block.
 
 ### Icon
 
-An inline select can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+An inline select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
