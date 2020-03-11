@@ -1,3 +1,5 @@
+import { CommunicationIcon } from "@orbit-ui/react-icons/src";
+import { Label } from "@orbit-ui/react-label/src";
 import { Toggle } from "@orbit-ui/react-input/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -10,17 +12,17 @@ function stories(segment) {
         .build();
 }
 
-function createToggle({ label = "Milky Way", ...otherProps } = {}) {
+function createToggle({ text = "Milky Way", ...otherProps } = {}) {
     return (
         <Toggle
-            label={label}
+            text={text}
             {...otherProps}
         />
     );
 }
 
 stories()
-    .add("default", () =>
+    .add("text", () =>
         createToggle()
     )
     .add("checked", () =>
@@ -28,9 +30,9 @@ stories()
             checked: true
         })
     )
-    .add("no label", () =>
+    .add("no text", () =>
         createToggle({
-            label: null
+            text: null
         })
     )
     .add("disabled", () =>
@@ -46,7 +48,7 @@ stories()
             })}
             {createToggle({
                 disabled: true,
-                label: null
+                text: null
             })}
         </div>
     )
@@ -63,7 +65,97 @@ stories()
             })}
             {createToggle({
                 readOnly: true,
-                label: null
+                text: null
+            })}
+        </div>
+    )
+    .add("icon", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icon: <CommunicationIcon />,
+                    size: "small"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icon: <CommunicationIcon />
+                })}
+            </div>
+            <div className="flex">
+                {createToggle({
+                    icon: <CommunicationIcon />,
+                    text: null,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icon: <CommunicationIcon />,
+                    size: "large"
+                })}
+            </div>
+        </div>
+    )
+    .add("label", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    label: <Label>6</Label>,
+                    text: null,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    label: <Label>6</Label>,
+                    size: "small"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    label: <Label>6</Label>,
+                    text: null,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    label: <Label>6</Label>
+                })}
+            </div>
+            <div className="flex">
+                {createToggle({
+                    label: <Label>6</Label>,
+                    text: null,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    label: <Label>6</Label>,
+                    size: "large"
+                })}
+            </div>
+        </div>
+    )
+    .add("size", () =>
+        <div className="flex">
+            {createToggle({
+                size: "small",
+                className: "mr5"
+            })}
+            {createToggle({
+                className: "mr5"
+            })}
+            {createToggle({
+                size: "large"
             })}
         </div>
     );

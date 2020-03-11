@@ -1,5 +1,5 @@
 import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect } from "react";
 import { createIconForControl } from "@orbit-ui/react-icons";
 import { createLabelFromShorthand } from "@orbit-ui/react-label";
@@ -11,10 +11,9 @@ import { mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from 
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-// TODO: Shouldn't accept "radio" or "toggle".
-const UNSUPPORTED_PROPS = ["as", "slider", "type"];
+const UNSUPPORTED_PROPS = ["as", "slider", "type", "radio", "toggle"];
 
-const propTypes = {
+export const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the checkbox should autofocus on render.
      */
@@ -50,13 +49,22 @@ const propTypes = {
     /**
      * @ignore
      */
-    forwardedRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func]),
+    /**
+     * @ignore
+     */
+    unsupportedProps: arrayOf(string),
+    /**
+     * @ignore
+     */
+    unsupportedPropsComponentName: string
 };
 
-const defaultProps = {
+export const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
-    disabled: false
+    disabled: false,
+    unsupportedPropsComponentName: "@orbit-ui/react-input/checkbox"
 };
 
 function getInputElement(innerRef) {
@@ -88,9 +96,9 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
 }
 
 export function PureCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icon, label, size, disabled, className, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icon, label, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/checkbox");
+    throwWhenUnsupportedPropIsProvided(props, !isNil(unsupportedProps) ? unsupportedProps : UNSUPPORTED_PROPS, unsupportedPropsComponentName);
 
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
@@ -149,8 +157,8 @@ export function PureCheckbox(props) {
     );
 }
 
-PureCheckbox.propTypes = propTypes;
-PureCheckbox.defaultProps = defaultProps;
+PureCheckbox.propTypes = CHECKBOX_PROP_TYPES;
+PureCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Checkbox = forwardRef((props, ref) => (
     <PureCheckbox { ...props } forwardedRef={ref} />
