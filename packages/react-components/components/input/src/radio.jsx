@@ -9,7 +9,7 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
-export const CHECKBOX_PROP_TYPES = {
+const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the checkbox should autofocus on render.
      */
@@ -57,7 +57,7 @@ export const CHECKBOX_PROP_TYPES = {
 };
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
-export const CHECKBOX_DEFAULT_PROPS = {
+const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
     disabled: false,
