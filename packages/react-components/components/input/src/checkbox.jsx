@@ -123,7 +123,9 @@ export function PureCheckbox(props) {
             right = renderLabel();
         }
 
-        return <label>{!isNil(text) && text}{!isNil(right) && right}</label>;
+        if (!isNil(text) || !isNil(right)) {
+            return <label>{!isNil(text) && text}{!isNil(right) && right}</label>;
+        }
     };
 
     const classes = mergeClasses(
