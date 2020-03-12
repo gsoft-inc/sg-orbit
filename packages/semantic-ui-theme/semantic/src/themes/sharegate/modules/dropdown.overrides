@@ -10,14 +10,29 @@
 
 /* SKIN | Icon | Arrow */
 .ui.dropdown > .dropdown.icon {
-    background-color: @marine100;
+    background-color: @marine500;
     mask: url(~@orbit-ui/icons/dist/icon-arrow-24.svg) center center no-repeat!important;
     mask-size: 1.5rem 1.5rem;
-    transform: rotate(90deg);
+    margin-left: 8px;
+    top: 50%;
+    right: @scaleAlpha;
+    transform: rotate(90deg) translateX(-50%);
+    position: absolute;
+}
+
+.ui.dropdown.selection > .dropdown.icon {
+    background-color: @marine100;
+}
+
+.dropdown-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 12;
 }
 
 /* SKIN | Icon */
-
 /* reset margin on icon since we are using flex */
 .ui.dropdown .menu > .item > .icon,
 .ui.dropdown .menu > .item > .label,
@@ -81,8 +96,10 @@
 .ui.search.selection.dropdown.with-icon > input.search {
     padding-left: calc(var(--scale-golf) + 4px);
 }
+
 .ui.inline.dropdown.with-icon {
     padding-left: 1.15em;
+    line-height: 1;
 }
 
 /* Menu */
@@ -118,10 +135,20 @@
 }
 
 /*  STATE | Selected Item */
-.ui.dropdown.selected,
-.ui.dropdown .menu .selected.item {
+.ui.dropdown.selection.selected,
+.ui.dropdown.selection .menu .selected.item {
     background-color: @cloud50;
     position: relative;
+}
+
+.ui.dropdown.selected,
+.ui.dropdown .menu .selected.item {
+    background-color: transparent;
+}
+
+.ui.dropdown.selected.active:hover,
+.ui.dropdown .menu .selected.item:hover {
+    background: var(--cloud-50);
 }
 
 /*  STATE | Disabled */
@@ -138,14 +165,16 @@
 }
 
 /* STATE | Checked */
-.ui.dropdown[aria-checked="true"],
-.ui.dropdown .menu [aria-checked="true"].item {
+.ui.dropdown.selection[aria-checked="true"],
+.ui.dropdown.selection .menu [aria-checked="true"].item {
     background: @cloud50;
     font-weight: 400;
 }
 
-.ui.dropdown[aria-checked="true"]::before,
-.ui.dropdown .menu [aria-checked="true"].item::before {
+.ui.dropdown.selection[aria-checked="true"]::before,
+.ui.dropdown.selection .menu [aria-checked="true"].item::before,
+.ui.dropdown.inline[aria-checked="true"]::before,
+.ui.dropdown.inline .menu [aria-checked="true"].item::before {
     position: absolute;
     content: "";
     display: block;
@@ -156,6 +185,33 @@
     left: 0;
 }
 
+/* STATE | Error */
+.ui.dropdown.error[aria-checked="true"]::before,
+.ui.dropdown.error .menu [aria-checked="true"].item::before {
+    background-color: @alert500;
+}
+
+.ui.dropdown.inline.error > .default.text,
+.ui.dropdown.inline.error > .text{
+    color: @alert500;
+}
+
+.ui.dropdown.inline.error > .dropdown.icon {
+    background-color: @alert500;
+}
+
+.ui.dropdown.inline.error:hover > .default.text,
+.ui.dropdown.inline.error:hover > .text,
+.ui.dropdown.inline.error:focus > .default.text,
+.ui.dropdown.inline.error:focus > .text {
+    color: @alert500;
+}
+
+.ui.dropdown.inline.error:hover > .dropdown.icon,
+.ui.dropdown.inline.error:focus > .dropdown.icon {
+    background-color: @alert500;
+}
+
 /* Skin | Selected */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
@@ -163,8 +219,13 @@
 }
 
 .ui.dropdown > .text {
-    line-height: 1.33333333;
+    line-height: 1;
     font-size: 1.125rem;
+    padding-right: 1.25em;
+}
+
+.ui.dropdown.selection > .text {
+    padding-right: 0;
 }
 
 .ui.dropdown.small > .text {
@@ -187,11 +248,13 @@
 
 /* LAYOUT | Inline */
 .ui.dropdown.inline > .dropdown.icon {
-    width: 0.75em;
-    margin-left: @scaleAlpha;
+    width: 1em;
+    height: 1em;
+    margin-left: .125em;
     background-color: @marine200;
     mask-size: 1.5em 1.5em !important;
 }
+
 .ui.dropdown.inline + .dropdown-icon > .icon {
     width: 1em !important;
     height: 1em !important;
@@ -444,4 +507,63 @@
 .ui.loading.dropdown.small > i.icon::after {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+/* CONTENT | Multiple */
+.ui.multiple.selection.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.ui.multiple.dropdown>.text {
+    margin: 0;
+}
+
+/* CONTENT | Multiple | Label */
+.ui.multiple.dropdown > .label {
+    font-size: 1rem;
+    padding: 0 0.5rem 0 1rem;
+    margin: 0;
+    box-shadow: 0px 0px 0px 0 @cloud200 inset;
+    display: flex;
+    align-items: center;
+}
+
+/* CONTENT | Multiple | Label | SIZE | Small */
+.ui.multiple.dropdown.small > .label {
+    font-size: var(--type-scale-9);
+}
+
+/* CONTENT | Multiple | Label but not first one*/
+.ui.multiple.dropdown > .label + .label {
+    margin-left: @scaleAlpha;
+}
+
+/* CONTENT | Multiple | Delete icon */
+.ui.multiple.dropdown .label > .delete.icon {
+    width: @scaleEcho;
+    height: @scaleEcho;
+    /* offset centering so it looks centered */
+    margin-top: 2px;
+    margin-left: 4px;
+    mask-size: 20px 20px!important;
+    background-color: @marine300;
+}
+
+.ui.multiple.dropdown .label > .delete.icon:hover {
+    background-color: @marine600;
+}
+
+/* CONTENT | Select */
+.ui.dropdown > .dropdown.icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ui.dropdown .visible.menu.transition {
+    margin-top: 0.5rem;
+}
+
+.ui.dropdown.selection .visible.menu.transition {
+    margin-top: 0;
 }

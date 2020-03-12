@@ -18,6 +18,14 @@ const GENDERS = [
     { key: "Female", text: "Female", value: "Female" }
 ];
 
+const ACTIONS = [
+    { key: "New", text: "New", value: "New" },
+    { key: "Open...", text: "Open...", value: "Open..." },
+    { key: "Rename...", text: "Rename...", value: "Rename..." },
+    { key: "Save As...", text: "Save As...", value: "Save As..." },
+    { key: "Make a copy...", text: "Make a copy...", value: "Make a copy..." }
+];
+
 function createDropdown({ options = GENDERS, ...otherProps } = {}) {
     return <Dropdown
         options={options}
@@ -25,47 +33,66 @@ function createDropdown({ options = GENDERS, ...otherProps } = {}) {
     />;
 }
 
+function createMenu({ options = ACTIONS, ...otherProps } = {}) {
+    return <Dropdown
+        options={options}
+        {...otherProps}
+    />;
+}
+
 stories()
-    .add("trigger", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createDropdown({
-                    trigger: <AddIcon />,
-                    className: "mr5"
-                })}
-                {createDropdown({
-                    trigger: <AddIcon />,
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createDropdown({
-                    trigger: <Button>Open</Button>,
-                    className: "mr5"
-                })}
-                {createDropdown({
-                    trigger: <Button>Open</Button>,
-                    className: "mr5",
-                    defaultOpen: true
-                })}
-                {createDropdown({
-                    trigger: <Button circular icon={<AddIcon />} />,
-                    className: "mr5"
-                })}
-                {createDropdown({
-                    trigger: <Button circular icon={<AddIcon />} />,
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex">
-                {createDropdown({
-                    trigger: <span>Open</span>,
-                    className: "mr5"
-                })}
-                {createDropdown({
-                    trigger: <span>Open</span>,
-                    defaultOpen: true
-                })}
-            </div>
-        </div>
+    .add("default",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createMenu({
+                         text: "File",
+                         selection: false
+                     })}
+                 </div>
+             </div>
+    )
+    .add("trigger",
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createDropdown({
+                         trigger: <AddIcon />,
+                         className: "mr5"
+                     })}
+                     {createDropdown({
+                         trigger: <AddIcon />,
+                         defaultOpen: true
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createDropdown({
+                         trigger: <Button>Open</Button>,
+                         className: "mr5"
+                     })}
+                     {createDropdown({
+                         trigger: <Button>Open</Button>,
+                         className: "mr5",
+                         defaultOpen: true
+                     })}
+                     {createDropdown({
+                         trigger: <Button circular icon={<AddIcon />} />,
+                         className: "mr5"
+                     })}
+                     {createDropdown({
+                         trigger: <Button circular icon={<AddIcon />} />,
+                         defaultOpen: true
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createDropdown({
+                         trigger: <span>Open</span>,
+                         className: "mr5"
+                     })}
+                     {createDropdown({
+                         trigger: <span>Open</span>,
+                         defaultOpen: true
+                     })}
+                 </div>
+             </div>
     );

@@ -286,7 +286,54 @@ stories()
         </div>
     )
     .add("multiple values", () =>
-        createSelect({
-            multiple: true
-        })
+        <div className="flex flex-column">
+            <div className="flex" style={{ "marginBottom": "150px" }}>
+                {createSelect({
+                    size: "small",
+                    multiple: true
+                })}
+                {createSelect({
+                    size: "small",
+                    multiple: true,
+                    defaultValue: [ "Female", "Male" ]
+                })}
+                {createSelect({
+                    size: "small",
+                    multiple: true,
+                    defaultValue: [ "Female" ],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ "marginBottom": "150px" }}>
+                {createSelect({
+                    multiple: true
+                })}
+                {createSelect({
+                    multiple: true,
+                    defaultValue: [ "Female", "Male" ]
+                })}
+                {createSelect({
+                    multiple: true,
+                    defaultValue: [ "Female" ],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createSelect({
+                    size: "large",
+                    multiple: true
+                })}
+                {createSelect({
+                    size: "large",
+                    multiple: true,
+                    defaultValue: [ "Female", "Male" ]
+                })}
+                {createSelect({
+                    size: "large",
+                    multiple: true,
+                    defaultValue: [ "Female" ],
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
     );

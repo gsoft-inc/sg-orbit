@@ -53,12 +53,12 @@ stories()
         <div className="flex flex-column">
             <div className="mb12">
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
                 </div>
             </div>
             <div>
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ defaultOpen: true })} elementum viverra maximus.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ defaultOpen: true })}elementum viverra maximus.
                 </div>
             </div>
         </div>
@@ -83,32 +83,32 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="f9 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
             <div className="mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
             <div className="f5 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
             <div className="f1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
         </div>
     )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="f9 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
             <div className="mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
             <div className="f5 mb12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
             <div className="f1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect()} elementum viverra maximus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
         </div>
     );

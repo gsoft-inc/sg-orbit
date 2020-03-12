@@ -24,6 +24,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    multiple: bool,
+    /**
+     * @ignore
+     */
     inline: bool,
     /**
      * @ignore
@@ -32,7 +36,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    inline: false
+    inline: false,
+    multiple: false
 };
 
 const renderAction = ({ content, key, className, ...rest }, index) => {
@@ -45,7 +50,7 @@ const renderAction = ({ content, key, className, ...rest }, index) => {
 };
 
 export function PureSelect(props) {
-    const { options, actions, inline, forwardedRef, ...rest } = props;
+    const { options, actions, inline, multiple, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
 
@@ -69,6 +74,7 @@ export function PureSelect(props) {
             options={renderOptions()}
             selection={!inline}
             inline={inline}
+            multiple={multiple}
             ref={forwardedRef}
             {...rest}
         />
