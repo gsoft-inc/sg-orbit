@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-popup",
     "version": "3.1.0",
-    "description": "Sharegate Orbit UI React popup component",
+    "description": "Standalone popup components.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",

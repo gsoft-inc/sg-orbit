@@ -1,18 +1,24 @@
 import { WarningMessage } from "@blocks";
-import { string } from "prop-types";
+import { bool, string } from "prop-types";
 import Message from "./message.mdx";
 
 const propTypes = {
     componentName: string,
-    semanticPath: string
+    semanticPath: string,
+    additionalProps: bool
 };
 
-export function HocWarning({ componentName, semanticPath }) {
+const defaultProps = {
+    additionalProps: true
+};
+
+export function HocWarning({ componentName, semanticPath, additionalProps }) {
     return (
         <WarningMessage className="mb6">
-            <Message componentName={componentName} semanticPath={semanticPath} />
+            <Message componentName={componentName} semanticPath={semanticPath} additionalProps={additionalProps} />
         </WarningMessage>
     );
 }
 
 HocWarning.propTypes = propTypes;
+HocWarning.defaultProps = defaultProps;

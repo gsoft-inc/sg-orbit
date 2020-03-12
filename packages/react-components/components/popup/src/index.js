@@ -1,2 +1,2 @@
 export * from "./popup";
-export * from "./positions";
+export * from "./tooltip";

@@ -1,4 +1,4 @@
-import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

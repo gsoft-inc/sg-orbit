@@ -180,3 +180,7 @@ details .docblock-source {
 .items-space-between > * {
     margin-right: var(--scale-alpha) !important;
 }
+
+.items-lot-of-space-between > * {
+    margin-right: var(--scale-delta) !important;
+}

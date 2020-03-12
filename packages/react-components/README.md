@@ -2,10 +2,6 @@
 
 Full documentation available at: https://orbit.sharegate.design
 
-## Maintainers
-
-The following documentation is only for the maintainers of this repository.
-
 ## Add a new component
 
 Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com) and [Semantic UI React](https://react.semantic-ui.com).

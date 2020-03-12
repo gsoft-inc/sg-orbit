@@ -109,6 +109,7 @@ function addAliases(config) {
 
     config.resolve.alias = {
         ...existingAlias,
+        "@root": path.resolve(__dirname, "../.."),
         "@decorators": path.resolve(__dirname, "../decorators/"),
         "@blocks": path.resolve(__dirname, "../blocks/"),
         "@shared": path.resolve(__dirname, "../shared/"),

@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-dropdown",
     "version": "1.0.0",
-    "description": "ShareGate Orbit UI React dropdown components",
+    "description": "Standalone dropdown components.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",

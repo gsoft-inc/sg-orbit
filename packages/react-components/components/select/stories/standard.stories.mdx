@@ -1,8 +1,8 @@
 import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { MagnifierIcon } from "@orbit-ui/react-icons";
+import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Props } from "@blocks";
-import { PureSelect, Select, selectAction, selectItem } from "@orbit-ui/react-select/src";
+import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -106,7 +106,7 @@ A select can have an initial value.
 
 ### Icon
 
-A select can display an icon before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">

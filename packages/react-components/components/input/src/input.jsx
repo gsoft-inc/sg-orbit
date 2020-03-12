@@ -3,9 +3,9 @@
 import { Ref, Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
 import { createIconForControl } from "@orbit-ui/react-icons";
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -46,23 +46,23 @@ const defaultProps = {
     disabled: false
 };
 
-function getInputElement(inputRef) {
-    return inputRef.current.querySelector("input");
+function getInputElement(innerRef) {
+    return innerRef.current.querySelector("input");
 }
 
-function focus(inputRef) {
-    if (!isNil(inputRef.current)) {
-        getInputElement(inputRef).focus();
+function focus(innerRef) {
+    if (!isNil(innerRef.current)) {
+        getInputElement(innerRef).focus();
     }
 }
 
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
+function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
     useEffect(() => {
         let timeoutId;
 
         if (autofocus && !disabled && !isNil(autofocusDelay)) {
             timeoutId = setTimeout(() => {
-                focus(inputRef);
+                focus(innerRef);
             }, autofocusDelay);
         }
 
@@ -71,18 +71,16 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, disabled, inputRef]);
+    }, [autofocus, autofocusDelay, disabled, innerRef]);
 }
 
 export function PureInput(props) {
     const { autofocus, autofocusDelay, icon, size, disabled, children, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/input");
 
-    const inputRef = useRef();
-
-    useImperativeHandle(forwardedRef, () => getInputElement(inputRef));
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, inputRef);
+    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
+    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
 
     const renderIcon = () => {
         const { loading } = props;
@@ -95,7 +93,7 @@ export function PureInput(props) {
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     return (
-        <Ref innerRef={inputRef}>
+        <Ref innerRef={setInnerRef}>
             <SemanticInput
                 icon={renderIcon()}
                 autoFocus={shouldAutofocus}

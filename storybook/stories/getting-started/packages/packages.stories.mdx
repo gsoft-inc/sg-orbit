@@ -2,7 +2,7 @@ import { ExternalLink } from "@blocks";
 import { Fragment } from "react";
 import { IntroductionLayout } from "../introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { PackagesTable } from "./components/packages-table";
+import { PackagesTable, ReactComponentsPackages } from "./components";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
@@ -35,22 +35,7 @@ The core packages are the backbone of Orbit UI. They include all the Orbit UI bi
 
 Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/). When Orbit UI doesn't provide a component, you should use a component from Semantic UI React.
 
-<PackagesTable
-    packages={[
-        { name: "@orbit-ui/semantic-ui-theme", description: <Fragment>Orbit UI custom theme for <ExternalLink href="https://semantic-ui.com">Semantic UI</ExternalLink>. The theme is based on the variables of @orbit-ui/foundation.</Fragment>, relativePath: "packages/semantic-ui-theme" },
-        { name: "@orbit-ui/react", description: "A single package bundle to use Orbit UI in a React app.", relativePath: "packages/bundles/react" },
-        { name: "@orbit-ui/react-components", description: "A bundle containing all Orbit UI custom React components.", relativePath: "packages/react-components" },
-        { name: "@orbit-ui/react-icons", description: "The icons of Orbit UI as React components and a few components to standardize icons size.", relativePath: "packages/react-components/components/icons" },
-        { name: "@orbit-ui/react-date-picker", description: "Standalone date pickers components.", relativePath: "packages/react-components/components/date-picker" },
-        { name: "@orbit-ui/react-multi-select", description: "Standalone multi-select components.", relativePath: "packages/react-components/components/multi-select" },
-        { name: "@orbit-ui/react-search-input", description: "Standalone search input components.", relativePath: "packages/react-components/components/search-input" },
-        { name: "@orbit-ui/react-popup", description: "Standalone popup components.", relativePath: "packages/react-components/components/popup" },
-        { name: "@orbit-ui/react-button", description: "Standalone button components.", relativePath: "packages/react-components/components/button" },
-        { name: "@orbit-ui/react-label", description: "Standalone label components.", relativePath: "packages/react-components/components/label" },
-        { name: "@orbit-ui/react-input", description: "Standalone input components.", relativePath: "packages/react-components/components/input" },
-        { name: "@orbit-ui/react-components-shared", description: "Orbit UI React components utilities.", relativePath: "packages/react-components/components/shared" }
-    ]}
-/>
+<ReactComponentsPackages />
 
 
 

@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-search-input",
     "version": "3.2.2",
-    "description": "Sharegate Orbit UI React search-input components",
+    "description": "Standalone search input components.",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
