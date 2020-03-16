@@ -6,34 +6,29 @@ import { isNil } from "lodash";
 export function ReactComponentsPackages() {
     const [componentPackages, setComponentPackages] = useState(null);
 
-    const getComponentsPackages = () => {
-        if (isNil(componentPackages)) {
-            const context = require.context("@root/packages/react-components/components", true, /\/package.json/, "eager");
+    if (isNil(componentPackages)) {
+        // TODO: Is it do-able with webpack "import" ?
+        const context = require.context("@root/packages/react-components/components", true, /\/package.json/, "eager");
 
-            const discoveryPromises = context.keys().map(filePath => {
-                return new Promise(resolve => {
-                    context(filePath).then(x => {
-                        resolve({
-                            name: filePath.replace("./", "").replace("/package.json", ""),
-                            manifest: x
-                        });
+        const discoveryPromises = context.keys().map(filePath => {
+            return new Promise(resolve => {
+                context(filePath).then(x => {
+                    resolve({
+                        name: filePath.replace("./", "").replace("/package.json", ""),
+                        manifest: x
                     });
                 });
             });
+        });
 
-            Promise.all(discoveryPromises).then(x => {
-                setComponentPackages(x);
-            });
+        Promise.all(discoveryPromises).then(x => {
+            setComponentPackages(x);
+        });
 
-            return [];
-        }
+        return null;
+    }
 
-        return componentPackages;
-    };
-
-    const packages = getComponentsPackages();
-
-    const componentsRows = packages.map(x => (
+    const componentsRows = componentPackages.map(x => (
         { name: x.manifest.name, description: x.manifest.description, relativePath: `packages/react-components/components/${x.name}` }
     ));
 

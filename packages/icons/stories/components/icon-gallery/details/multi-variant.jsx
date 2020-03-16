@@ -1,5 +1,4 @@
-import { CheckeredBackground } from "@blocks";
-import { ComponentImport } from "@blocks/react-components";
+import { CheckeredBackground, ComponentImport } from "@blocks";
 import { LearnUsageLink } from "./learn-usage-link";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";

@@ -10,3 +10,5 @@ export * from "./table";
 export * from "./link";
 export * from "./external-link";
 export * from "./import";
+export * from "./hoc-warning";
+export * from "./file-preview";

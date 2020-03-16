@@ -1,8 +1,8 @@
-import { HocWarning, Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { HocWarning, Props } from "@blocks";
 import { Input, PureInput } from "@orbit-ui/react-input/src";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -94,7 +94,7 @@ An input can take the width of its container.
 
 ### Icon
 
-An input can be formatted with an [icon](?path=/docs/materials-icons--page).
+An input can be formatted with an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">

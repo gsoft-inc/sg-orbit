@@ -1,1 +1,1 @@
-export * from "./controlled-single-date-picker";
+export * from "./controlled-single-date-picker.sample";

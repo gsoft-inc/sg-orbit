@@ -36,11 +36,21 @@ export class ControlledRemoteSearchInput extends PureComponent {
         const { onFetchResults, onResults, placeholder } = this.props;
         const { value, open } = this.state;
 
+        const style = {
+            width: "80px"
+        };
+
         return (
             <>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>value:</span> {isNil(value) ? "N/A" : value}</div>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
-                <br /><br />
+                <div className="mb6">
+                    <div className="mb1">
+                        <span className="fw6" style={style}>value:</span> {isNil(value) ? "N/A" : value}
+                    </div>
+                    <div className="mb1">
+                        <span className="fw6" style={style}>open:</span> {open ? "true" : "false"}
+                    </div>
+                </div>
+
                 <RemoteSearchInput
                     open={open}
                     value={value}

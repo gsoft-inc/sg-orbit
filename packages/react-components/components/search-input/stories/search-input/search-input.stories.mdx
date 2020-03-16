@@ -1,10 +1,10 @@
 import { ControlledSearchInput } from "./components";
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
 import { DEFAULT_SIZE, SearchInput, SearchInputController } from "@orbit-ui/react-search-input/src";
+import { FilePreview, Props } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValueChanged } from "../utils";
@@ -205,15 +205,13 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A search input can handle `value` and `open` state in controlled mode.
 
-<Preview>
-    <Story name="controlled">
-        <ControlledSearchInput
-            results={DEFAULT_RESULTS}
-            value={LAURIE_VALUE}
-            onValueChange={logValueChanged}
-        />
-    </Story>
-</Preview>
+<FilePreview filePath="/search-input/stories/search-input/components/controlled-search-input">
+    <ControlledSearchInput
+        results={DEFAULT_RESULTS}
+        value={LAURIE_VALUE}
+        onValueChange={logValueChanged}
+    />
+</FilePreview>
 
 <Story
     name="open"

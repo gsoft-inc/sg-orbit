@@ -34,11 +34,21 @@ export class ControlledSingleDatePicker extends PureComponent {
     render() {
         const { date, open } = this.state;
 
+        const style = {
+            width: "80px"
+        };
+
         return (
             <>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>date:</span> {isNil(date) ? "null" : moment(date).format("YYYY-MM-DD")}</div>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
-                <br /><br />
+                <div className="mb6">
+                    <div className="mb1">
+                        <span className="dib fw6" style={style}>date:</span> {isNil(date) ? "null" : moment(date).format("YYYY-MM-DD")}
+                    </div>
+                    <div className="mb1">
+                        <span className="dib fw6" style={style}>open:</span> {open ? "true" : "false"}
+                    </div>
+                </div>
+
                 <SingleDatePicker
                     { ...this.state }
                     onDateChange={this.handleDateChange}

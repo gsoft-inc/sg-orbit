@@ -1,10 +1,10 @@
 import { ControlledMultiSelect } from "./components";
 import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
 import { DEFAULT_SIZE, MultiSelect } from "@orbit-ui/react-multi-select/src";
+import { FilePreview, Props } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { fuzzySearch, logValuesChanged } from "./utils";
@@ -252,13 +252,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A multi select can handle `values` and `open` state in controlled mode.
 
-<Preview>
-    <Story name="controlled">
-        <ControlledMultiSelect
-            items={DEFAULT_ITEMS}
-            values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
-            onValuesChange={logValuesChanged}
-        />
-    </Story>
-</Preview>
+<FilePreview filePath="/multi-select/stories/components/controlled-multi-select">
+    <ControlledMultiSelect
+        items={DEFAULT_ITEMS}
+        values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        onValuesChange={logValuesChanged}
+    />
+</FilePreview>
 

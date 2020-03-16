@@ -10,10 +10,10 @@ import {
 } from "@orbit-ui/react-date-picker/src";
 import { ControlledSingleDatePicker } from "./components";
 import { DEFAULT_SIZE } from "../../src/sizes";
+import { FilePreview, Props } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logDateChanged, momentKnob } from "../utils";
@@ -284,13 +284,11 @@ The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bott
 
 A single date picker can handle `date` and `open` state in controlled mode.
 
-<Preview>
-    <Story name="controlled">
-        <ControlledSingleDatePicker
-            date={moment()}
-            onDateChange={logDateChanged}
-        />
-    </Story>
-</Preview>
+<FilePreview filePath="/date-picker/stories/single-date-picker/components/controlled-single-date-picker">
+    <ControlledSingleDatePicker
+        date={moment()}
+        onDateChange={logDateChanged}
+    />
+</FilePreview>
 
 
