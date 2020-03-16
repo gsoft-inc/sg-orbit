@@ -1,1 +1,1 @@
-export * from "./controlled-search-input";
+export * from "./controlled-search-input.sample";

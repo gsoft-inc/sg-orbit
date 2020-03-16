@@ -7,6 +7,7 @@ export function ReactComponentsPackages() {
     const [componentPackages, setComponentPackages] = useState(null);
 
     if (isNil(componentPackages)) {
+        // TODO: Is it do-able with webpack "import" ?
         const context = require.context("@root/packages/react-components/components", true, /\/package.json/, "eager");
 
         const discoveryPromises = context.keys().map(filePath => {

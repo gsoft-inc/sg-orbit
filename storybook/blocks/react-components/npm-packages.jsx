@@ -18,13 +18,11 @@ export function NpmPackages({ componentFolder }) {
 
                 setDependencies([json.name, ...peerDependencies].join(" "));
             });
+
+        return null;
     }
 
-    if (!isNil(dependencies)) {
-        return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
-    }
-
-    return null;
+    return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
 }
 
 NpmPackages.propTypes = propTypes;

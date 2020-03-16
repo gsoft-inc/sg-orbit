@@ -9,13 +9,13 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@orbit-ui/react-date-picker/src";
-import { ControlledDateRangePicker, FileSource } from "./components";
+import { ControlledDateRangePicker } from "./components";
 import { DEFAULT_PRESETS_OPTIONS } from "../data";
 import { DEFAULT_SIZE } from "../../src/sizes";
+import { FilePreview, Props } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { LARGE, MEDIUM, SMALL } from "@orbit-ui/react-components-shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { Props } from "@blocks";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "../utils";
@@ -342,14 +342,10 @@ The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bott
 
 A date range picker can handle `startDate`, `endDate` and `open` state in controlled mode.
 
-<Preview>
-    <Story name="controlled">
-        <ControlledDateRangePicker
-            startDate={moment()}
-            endDate={moment().add(3, "days")}
-            onDatesChange={logDatesChanged}
-        />
-    </Story>
-</Preview>
-
-<FileSource filePath="!!raw-loader!@root/packages/react-components/components/date-picker/stories/date-range-picker/components/controlled-date-range-picker.jsx" />
+<FilePreview filePath="/date-picker/stories/date-range-picker/components/controlled-date-range-picker">
+    <ControlledDateRangePicker
+        startDate={moment()}
+        endDate={moment().add(3, "days")}
+        onDatesChange={logDatesChanged}
+    />
+</FilePreview>

@@ -34,11 +34,21 @@ export class ControlledMultiSelect extends PureComponent {
         const { items } = this.props;
         const { values, open } = this.state;
 
+        const style = {
+            width: "80px"
+        };
+
         return (
             <>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>values:</span> {isNil(values) ? "null" : JSON.stringify(values, null, 4)}</div>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
-                <br /><br />
+                <div className="mb6">
+                    <div className="mb1">
+                        <span className="dib fw6" style={style}>values:</span> {isNil(values) ? "null" : JSON.stringify(values, null, 4)}
+                    </div>
+                    <div className="mb1">
+                        <span className="dib fw6" style={style}>open:</span> {open ? "true" : "false"}
+                    </div>
+                </div>
+
                 <MultiSelect
                     items={items}
                     values={values}

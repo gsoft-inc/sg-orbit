@@ -36,12 +36,24 @@ export class ControlledDateRangePicker extends PureComponent {
     render() {
         const { startDate, endDate, open } = this.state;
 
+        const labelStyle = {
+            width: "80px"
+        };
+
         return (
             <>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>startDate:</span> {isNil(startDate) ? "null" : moment(startDate).format("YYYY-MM-DD")}</div>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>endDate:</span> {isNil(endDate) ? "null" : moment(endDate).format("YYYY-MM-DD")}</div>
-                <div className="mb1"><span className="fw6" style={{ width: "80px", display: "inline-block" }}>open:</span> {open ? "true" : "false"}</div>
-                <br /><br />
+                <div className="mb6">
+                    <div className="mb1">
+                        <span className="dib fw6" style={labelStyle}>startDate:</span> {isNil(startDate) ? "null" : moment(startDate).format("YYYY-MM-DD")}
+                    </div>
+                    <div className="mb1">
+                        <span className="dib fw6" style={labelStyle}>endDate:</span> {isNil(endDate) ? "null" : moment(endDate).format("YYYY-MM-DD")}
+                    </div>
+                    <div className="mb1">
+                        <span className="dib fw6" style={labelStyle}>open:</span> {open ? "true" : "false"}
+                    </div>
+                </div>
+
                 <DateRangePicker
                     { ...this.state }
                     onDatesChange={this.handleDatesChange}
