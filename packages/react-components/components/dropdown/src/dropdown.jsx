@@ -171,8 +171,13 @@ export function PureDropdown(props) {
 
     const renderIcon = () => {
         if (!isNil(icon)) {
+            const classes = mergeClasses(
+                "ui dropdown-icon flex items-center",
+                inline && "inline"
+            );
+
             return (
-                <div className="dropdown-icon flex items-center">
+                <div className={classes}>
                     {createIconForControl(icon, size)}
                 </div>
             );

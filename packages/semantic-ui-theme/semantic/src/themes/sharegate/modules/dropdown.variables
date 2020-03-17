@@ -71,7 +71,7 @@
 @selectionMinHeight: 2.5rem;
 @selectionMinWidth: 300px;
 @selectionBorder: 1px solid @cloud200;
-@selectionHoverBorderColor: @marine500;
+@selectionHoverBorderColor: @white;
 @selectionVisibleBorderColor: @white;
 @selectionActiveHoverBorderColor: @white;
 @selectionActiveHoverBoxShadow: @shadow100;
@@ -152,6 +152,8 @@
 /* Selected */
 
 /* Error */
+@errorItemHoverBackground: var(--alert-50);
+@errorItemActiveBackground: var(--alert-50);
 
 /* Clearable */
 

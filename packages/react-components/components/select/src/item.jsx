@@ -1,4 +1,4 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { ArgumentError, LARGE, MEDIUM, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Dropdown, DropdownContext } from "@orbit-ui/react-dropdown";
 import { Image as SemanticImage } from "semantic-ui-react";
 import { arrayOf, bool, element, oneOf, oneOfType, shape, string } from "prop-types";
@@ -70,6 +70,11 @@ export function SelectItem(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const renderAvatar = () => {
+        const SIZES_TO_AVATAR = {
+            [SMALL]: "mini",
+            [MEDIUM]: "small",
+            [LARGE]: "small"
+        };
         if (!isNil(avatar)) {
             if (isElement(avatar)) {
                 return avatar;
@@ -78,7 +83,7 @@ export function SelectItem(props) {
             return SemanticImage.create({
                 ...avatar,
                 avatar: true,
-                size: "mini"
+                size: SIZES_TO_AVATAR[context.size]
             });
         }
     };
