@@ -6,27 +6,25 @@ const propTypes = {
     relativeFilePath: string.isRequired
 };
 
-export function TachyonsFile({ relativeFilePath }) {
+export function TachyonsFile({ relativeFilePath: relativePath }) {
     const [content, setContent] = useState(null);
 
     if (isNil(content)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!../../../packages/tachyons/docs/dist${relativeFilePath}`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/tachyons/docs/dist${relativePath}`)
             .then(module => {
                 setContent(module.default);
             });
+
+        return null;
     }
 
-    if (!isNil(content)) {
-        return (
-            <pre>
-                <code className="f9 o-70">
-                    {content}
-                </code>
-            </pre>
-        );
-    }
-
-    return null;
+    return (
+        <pre>
+            <code className="f9 o-70">
+                {content}
+            </code>
+        </pre>
+    );
 }
 
 TachyonsFile.propTypes = propTypes;

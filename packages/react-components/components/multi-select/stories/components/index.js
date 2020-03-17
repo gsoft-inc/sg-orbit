@@ -1,1 +1,1 @@
-export * from "./controlled-multi-select";
+export * from "./controlled-multi-select.sample";

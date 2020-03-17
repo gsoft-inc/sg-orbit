@@ -11,20 +11,18 @@ export function NpmPackages({ componentFolder }) {
     const [dependencies, setDependencies] = useState(null);
 
     if (isNil(dependencies)) {
-        import(/* webpackMode: "eager" */ `../../../../packages/react-components/components/${componentFolder}/package.json`)
+        import(/* webpackMode: "eager" */ `@root/packages/react-components/components/${componentFolder}/package.json`)
             .then(module => {
                 const json = module.default;
                 const peerDependencies = Object.keys(json.peerDependencies).filter(x => x !== "react" && x !== "react-dom");
 
                 setDependencies([json.name, ...peerDependencies].join(" "));
             });
+
+        return null;
     }
 
-    if (!isNil(dependencies)) {
-        return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
-    }
-
-    return null;
+    return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
 }
 
 NpmPackages.propTypes = propTypes;
