@@ -330,7 +330,11 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return (
             <>
-                <div className={this.getContainerClasses()} ref={this._containerRef}>
+                <div
+                    className={this.getContainerClasses()}
+                    ref={this._containerRef}
+                    tabIndex={-1}
+                >
                     <Search
                         open={open && !disabled}
                         minCharacters={minCharacters}

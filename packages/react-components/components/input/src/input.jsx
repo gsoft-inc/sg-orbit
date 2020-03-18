@@ -1,11 +1,13 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Ref, Input as SemanticInput } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { Input as SemanticInput } from "semantic-ui-react";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { createButtonFromShorthand } from "@orbit-ui/react-button";
 import { createIconForControl } from "@orbit-ui/react-icons";
-import { forwardRef, useEffect } from "react";
+import { isElement } from "react-is";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -23,13 +25,21 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * A React SVG component displayed before or after the prompt based on "iconPosition".
+     * A React component displayed before or after the prompt based on "iconPosition".
      */
     icon: element,
+    /**
+     * An input can contain a button.
+     */
+    button: element,
     /**
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
+    className: string,
     /**
      * @ignore
      */
@@ -74,37 +84,103 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
     }, [autofocus, autofocusDelay, disabled, innerRef]);
 }
 
+function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }) {
+    if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
+        throw new ArgumentError("@orbit-ui/react-input/input doesn't support having a button and a right positioned icon at the same time.");
+    }
+}
+
 export function PureInput(props) {
-    const { autofocus, autofocusDelay, icon, size, disabled, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, fluid, icon, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/input");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+    const containerRef = useRef();
+    const inputRef = useRef();
+
+    useImperativeHandle(forwardedRef, () => {
+        const domElement = containerRef.current;
+
+        // This function is part of the component external API.
+        domElement.focus = () => {
+            inputRef.current.focus();
+        };
+
+        return domElement;
+    });
+
+    useDelayedAutofocus(autofocus, autofocusDelay, disabled, containerRef);
 
     const renderIcon = () => {
-        const { loading } = props;
-
         if (!isNil(icon) && !loading) {
             return createIconForControl(icon, size);
         }
     };
 
+    const renderButton = () => {
+        if (!isNil(button)) {
+            if (!loading && !disabled) {
+                const defaults = {
+                    size: "tiny",
+                    circular: true,
+                    ghost: true,
+                    secondary: true,
+                    type: "button"
+                };
+
+                const getClasses = userClasses => {
+                    return mergeClasses(
+                        "ui input-clear-button",
+                        userClasses
+                    );
+                };
+
+                if (isElement(button)) {
+                    return cloneElement(button, {
+                        className: getClasses(button.props && button.props.className),
+                        ...defaults
+                    });
+                }
+
+                return createButtonFromShorthand({
+                    className: getClasses(button.className),
+                    ...defaults,
+                    ...button
+                });
+            }
+        }
+    };
+
+    const classes = mergeClasses(
+        "relative",
+        fluid ? "w-100" : "dib",
+        className
+    );
+
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     return (
-        <Ref innerRef={setInnerRef}>
+        <div
+            ref={containerRef}
+            className={classes}
+            tabIndex={-1}
+            data-testid="input"
+        >
             <SemanticInput
                 icon={renderIcon()}
                 autoFocus={shouldAutofocus}
+                fluid={fluid}
                 size={size}
+                loading={loading}
                 disabled={disabled}
-                data-testid="input"
+                ref={inputRef}
                 {...rest}
             >
                 {children}
             </SemanticInput>
-        </Ref>
+            {renderButton()}
+        </div>
     );
 }
 

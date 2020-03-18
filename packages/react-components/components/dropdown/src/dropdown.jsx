@@ -191,7 +191,10 @@ export function PureDropdown(props) {
 
     return (
         <>
-            <div className={containerClasses}>
+            <div
+                className={containerClasses}
+                tabIndex={-1}
+            >
                 <Ref innerRef={setInnerRef}>
                     <DropdownContext.Provider value={{ size: size }}>
                         <SemanticDropdown
