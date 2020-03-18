@@ -106,6 +106,7 @@
 
 .ui.selection.dropdown .menu > .item {
     min-width: 300px;
+    height: 2.5rem;
 }
 
 .ui.dropdown .menu > .item {
