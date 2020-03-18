@@ -75,6 +75,16 @@ export function SelectItem(props) {
             [MEDIUM]: "small",
             [LARGE]: "small"
         };
+
+        const defaults = {
+            avatar: true,
+            size: SIZES_TO_AVATAR[context.size]
+        };
+
+        if (isElement(avatar)) {
+            return <SemanticImage {...defaults}>{avatar}</SemanticImage>;
+        }
+
         if (!isNil(avatar)) {
             if (isElement(avatar)) {
                 return avatar;
@@ -82,8 +92,7 @@ export function SelectItem(props) {
 
             return SemanticImage.create({
                 ...avatar,
-                avatar: true,
-                size: SIZES_TO_AVATAR[context.size]
+                ...defaults
             });
         }
     };

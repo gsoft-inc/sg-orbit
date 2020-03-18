@@ -1,3 +1,38 @@
 /*******************************
     Site Overrides
 *******************************/
+
+/* Avatar by size */
+.ui.avatar.images .image,
+.ui.avatar.images img,
+.ui.avatar.images svg,
+.ui.avatar.image img,
+.ui.avatar.image svg,
+.ui.avatar.image {
+    width: @smallWidth;
+    height: @smallWidth;
+}
+
+.ui.avatar.small.images .image,
+.ui.avatar.small.images img,
+.ui.avatar.small.images svg,
+.ui.avatar.small.image img,
+.ui.avatar.small.image svg,
+.ui.avatar.small.image {
+    width: @smallWidth;
+    height: @smallWidth;
+}
+
+.ui.avatar.tiny.images .image,
+.ui.avatar.tiny.images img,
+.ui.avatar.tiny.images svg,
+.ui.avatar.tiny.image img,
+.ui.avatar.tiny.image svg,
+.ui.avatar.tiny.image {
+    width: @tinyWidth;
+    height: @tinyWidth;
+}
+
+.ui.avatar.image {
+    line-height: 1;
+}

@@ -101,7 +101,7 @@
 }
 
 .ui.selection.dropdown .menu > .item {
-    padding: 0.5rem 1rem !important;
+    padding: 0.25rem 1rem !important;
 }
 
 .ui.selection.dropdown .menu > .item {
