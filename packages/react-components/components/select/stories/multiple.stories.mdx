@@ -1,0 +1,20 @@
+import { HocWarning, Props, WarningMessage } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/multiple values")}
+    parameters={paramsBuilder()
+        .sortPriority(2)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Multiple Values Select
+
+A select can allow a user to make multiple choices.
+

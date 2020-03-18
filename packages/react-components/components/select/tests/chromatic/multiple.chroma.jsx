@@ -247,4 +247,59 @@ stories()
                 })}
             </div>
         </div>
+    )
+    .add("searchable", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ "marginBottom": "150px" }}>
+                {createMultipleSelect({
+                    search: true,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    size: "small",
+                    defaultValue: ["Female", "Male"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    size: "small",
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ "marginBottom": "150px" }}>
+                {createMultipleSelect({
+                    search: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    defaultValue: ["Female", "Male"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createMultipleSelect({
+                    search: true,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    size: "large",
+                    defaultValue: ["Female", "Male"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    search: true,
+                    size: "large",
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
     );
