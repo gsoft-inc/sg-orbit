@@ -24,10 +24,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    multiple: bool,
-    /**
-     * @ignore
-     */
     inline: bool,
     /**
      * @ignore
@@ -36,8 +32,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    inline: false,
-    multiple: false
+    inline: false
 };
 
 const renderAction = ({ content, key, className, ...rest }, index) => {
@@ -74,7 +69,6 @@ export function PureSelect(props) {
             options={renderOptions()}
             selection={!inline}
             inline={inline}
-            multiple={multiple}
             ref={forwardedRef}
             {...rest}
         />

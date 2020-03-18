@@ -24,7 +24,7 @@
 /* Menu */
 
 /* Text */
-@textCursorSpacing: 0;
+@textCursorSpacing: 0px;
 
 /* Menu Item */
 @itemLineHeight: 1.5em;

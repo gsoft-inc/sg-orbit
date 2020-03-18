@@ -283,30 +283,3 @@
 .ui.label.highlight {
     font-weight: 600;
 }
-
-/* CONTENT  | In Select */
-/* label in multi select should be smaller than 40px */
-.ui.multiple.dropdown a.label:not(.circular) {
-    min-height: 24px;
-}
-
-/* label in large multi select should be smaller than 40px */
-.ui.multiple.dropdown.large a.label:not(.circular) {
-    min-height: 32px;
-}
-
-/* label in large multi select should be smaller than 40px */
-.ui.multiple.dropdown.small a.label:not(.circular) {
-    min-height: 20px;
-}
-
-/* STATE | Active | Content | In Select */
-.ui.multiple.dropdown > .active.label {
-    background-color: @cloud50;
-    color: @marine600;
-}
-
-/* STATE | Hover/Focus | Content | In Select */
-.ui.multiple.dropdown > a.label:hover {
-    background-color: @cloud50;
-}
