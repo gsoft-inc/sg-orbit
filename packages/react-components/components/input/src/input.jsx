@@ -31,7 +31,7 @@ const propTypes = {
     /**
      * An input can contain a button.
      */
-    button: element,
+    button: oneOfType([element, object]),
     /**
      * An input can vary in sizes.
      */
@@ -130,8 +130,13 @@ export function PureInput(props) {
                 };
 
                 const getClasses = userClasses => {
+                    console.log(mergeClasses(
+                        "input-clear-button",
+                        userClasses
+                    ));
+
                     return mergeClasses(
-                        "ui input-clear-button",
+                        "input-clear-button",
                         userClasses
                     );
                 };
@@ -144,9 +149,9 @@ export function PureInput(props) {
                 }
 
                 return createButtonFromShorthand({
-                    className: getClasses(button.className),
                     ...defaults,
-                    ...button
+                    ...button,
+                    className: getClasses(button.className)
                 });
             }
         }

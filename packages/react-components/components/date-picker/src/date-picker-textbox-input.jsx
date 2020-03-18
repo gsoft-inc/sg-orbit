@@ -151,7 +151,7 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     render() {
-        const { value, placeholder, size, disabled, fluid } = this.props;
+        const { value, placeholder, size, disabled, fluid, className } = this.props;
 
         return (
             <Input
@@ -170,6 +170,7 @@ export class DatePickerTextboxInput extends PureComponent {
                 readOnly
                 tabIndex={disabled ? "-1" : "0"}
                 autoComplete="off"
+                className={className}
                 ref={this._inputRef}
                 data-testid="date-picker-textbox-input"
             />
