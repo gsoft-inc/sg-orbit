@@ -1,3 +1,8 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+/* Size */
+@miniWidth: 1rem;
+@tinyWidth: 1.5rem;
+@smallWidth: 2rem;

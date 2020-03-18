@@ -504,25 +504,6 @@
     margin-right: 0.5rem;
 }
 
-/* With Avatar */
-.ui.dropdown > .text > img,
-.ui.dropdown > .text > .image,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img {
-    width: 2rem;
-    height: 2rem;
-    max-height: 2rem;
-}
-
-.ui.dropdown.small > .text > img,
-.ui.dropdown.small > .text > .image,
-.ui.dropdown.small .menu > .item > .image,
-.ui.dropdown.small .menu > .item > img {
-    width: 1.5rem;
-    height: 1.5rem;
-    max-height: 1.5rem;
-}
-
 /*******************************
     Searchable
 *******************************/

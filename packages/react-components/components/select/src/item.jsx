@@ -71,7 +71,7 @@ export function SelectItem(props) {
 
     const renderAvatar = () => {
         const SIZES_TO_AVATAR = {
-            [SMALL]: "mini",
+            [SMALL]: "tiny",
             [MEDIUM]: "small",
             [LARGE]: "small"
         };

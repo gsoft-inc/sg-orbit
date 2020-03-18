@@ -43,7 +43,7 @@
 @selectionMenuBoxShadow: @shadow100;
 
 /* Menu Image */
-@menuImageMaxHeight: 2em;
+@menuImageMaxHeight: 2rem;
 @menuImageVerticalMargin: 0;
 
 
