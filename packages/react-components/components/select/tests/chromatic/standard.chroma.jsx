@@ -36,6 +36,18 @@ stories()
             })}
         </div>
     )
+    .add("selected value", () =>
+        <div className="flex">
+            {createSelect({
+                defaultValue: "Female",
+                className: "mr5"
+            })}
+            {createSelect({
+                defaultValue: "Female",
+                defaultOpen: true
+            })}
+        </div>
+    )
     .add("sizes",
          () =>
              <div className="flex flex-column">
@@ -97,9 +109,16 @@ stories()
         </div>
     )
     .add("disabled", () =>
-        createSelect({
-            disabled: true
-        })
+        <div className="flex">
+            {createSelect({
+                disabled: true,
+                className: "mr5"
+            })}
+            {createSelect({
+                disabled: true,
+                defaultValue: "Female"
+            })}
+        </div>
     )
     .add("clearable", () =>
         <div className="flex flex-column">
@@ -280,58 +299,6 @@ stories()
                 {createSelect({
                     size: "large",
                     actions: [{ content: <a href="https://www.google.com">Google</a> }],
-                    defaultOpen: true
-                })}
-            </div>
-        </div>
-    )
-    .add("multiple values", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createSelect({
-                    size: "small",
-                    multiple: true
-                })}
-                {createSelect({
-                    size: "small",
-                    multiple: true,
-                    defaultValue: [ "Female", "Male" ]
-                })}
-                {createSelect({
-                    size: "small",
-                    multiple: true,
-                    defaultValue: [ "Female" ],
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createSelect({
-                    multiple: true
-                })}
-                {createSelect({
-                    multiple: true,
-                    defaultValue: [ "Female", "Male" ]
-                })}
-                {createSelect({
-                    multiple: true,
-                    defaultValue: [ "Female" ],
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex">
-                {createSelect({
-                    size: "large",
-                    multiple: true
-                })}
-                {createSelect({
-                    size: "large",
-                    multiple: true,
-                    defaultValue: [ "Female", "Male" ]
-                })}
-                {createSelect({
-                    size: "large",
-                    multiple: true,
-                    defaultValue: [ "Female" ],
                     defaultOpen: true
                 })}
             </div>

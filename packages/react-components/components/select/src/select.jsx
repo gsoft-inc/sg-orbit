@@ -1,9 +1,9 @@
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
 import { Dropdown } from "@orbit-ui/react-dropdown";
 import { SelectItem, createSelectItem } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "@orbit-ui/react-components-shared";
+import { isArray, isNil } from "lodash";
 
 const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
 
@@ -28,26 +28,44 @@ const propTypes = {
     /**
      * @ignore
      */
+    multiple: bool,
+    /**
+     * @ignore
+     */
     forwardedRef: oneOfType([object, func])
 };
 
 const defaultProps = {
-    inline: false
+    inline: false,
+    multiple: false
 };
 
-const renderAction = ({ content, key, className, ...rest }, index) => {
+function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValues, values }) {
+    if (multiple) {
+        if (!isNil(defaultValues) && !isArray(defaultValues)) {
+            throw new ArgumentError("@orbit-ui/react-select defaultValues must be an array when multiple is true.");
+        }
+
+        if (!isNil(values) && !isArray(values)) {
+            throw new ArgumentError("@orbit-ui/react-select values must be an array when multiple is true.");
+        }
+    }
+}
+
+function renderAction({ content, key, className, ...rest }, index) {
     const classes = mergeClasses(
         className,
         "action bg-white o-100"
     );
 
     return { content, className: classes, disabled: true, key: key || index, ...rest };
-};
+}
 
 export function PureSelect(props) {
-    const { options, actions, inline, multiple, forwardedRef, ...rest } = props;
+    const { options, actions, inline, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-select");
+    throwWhenMultipleAndValuesIsNotAnArray(props);
 
     const renderOptions = () => {
         const selectOptions = options.map(x => {
