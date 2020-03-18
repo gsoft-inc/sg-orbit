@@ -71,14 +71,24 @@ export function SelectItem(props) {
 
     const renderAvatar = () => {
         if (!isNil(avatar)) {
+            const defaults = {
+                avatar: true,
+                size: "mini"
+            };
+
             if (isElement(avatar)) {
-                return avatar;
+                return (
+                    <SemanticImage {...defaults}>
+                        {avatar}
+                    </SemanticImage>
+                );
+
+                // return avatar;
             }
 
             return SemanticImage.create({
                 ...avatar,
-                avatar: true,
-                size: "mini"
+                ...defaults
             });
         }
     };

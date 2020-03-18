@@ -1,7 +1,6 @@
 import { searchInputResult } from "@orbit-ui/react-search-input/src";
 
 export const RESULT_ID = "search-input-result";
-export const TEXTBOX_ID = "search-input-textbox";
 export const CLEAR_BUTTON_ID = "search-input-clear-button";
 
 export const GEORGE_VALUE = "George";
@@ -26,8 +25,8 @@ export const DEFAULT_RESULTS = [
 
 export const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
 
-export async function getTextbox(getByTestId) {
-    const textboxNode = await getByTestId(TEXTBOX_ID);
+export async function getInput(getByTestId) {
+    const textboxNode = await getByTestId("search-input-textbox");
 
     return textboxNode.querySelector("input");
 }

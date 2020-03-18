@@ -256,7 +256,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, size } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size } = this.props;
         const { selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -268,6 +268,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             rangeFormat,
             dateFormat,
             disabled,
+            fluid,
             size
         });
     }

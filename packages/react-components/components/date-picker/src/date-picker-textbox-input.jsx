@@ -1,24 +1,12 @@
 import { Button } from "@orbit-ui/react-button";
-import { CalendarIcon, CloseIcon, getIconSizeForControl } from "@orbit-ui/react-icons";
+import { CalendarIcon, CloseIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
-import { KEYS, LARGE, MEDIUM, SMALL, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { Input } from "@orbit-ui/react-input";
+import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
-import cx from "classnames";
-
-const SIZES_TO_HEIGHT = {
-    [SMALL]: "h7",
-    [MEDIUM]: "h8",
-    [LARGE]: "h9"
-};
-
-const SIZES_TO_FONT_SIZE = {
-    [SMALL]: "f6",
-    [MEDIUM]: "f6",
-    [LARGE]: "f5"
-};
 
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
@@ -37,6 +25,7 @@ export class DatePickerTextboxInput extends PureComponent {
         allowClear: bool,
         placeholder: string,
         disabled: bool,
+        fluid: bool,
         open: bool,
         size: oneOf(SIZES),
         className: string
@@ -49,13 +38,13 @@ export class DatePickerTextboxInput extends PureComponent {
         size: DEFAULT_SIZE
     };
 
-    _containerRef = createRef();
+    _inputRef = createRef();
     _clearButtonRef = createRef();
     _containerResizeObserver = null;
 
     componentDidMount() {
         this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
-        this._containerResizeObserver.observe(this._containerRef.current);
+        this._containerResizeObserver.observe(this._inputRef.current);
     }
 
     componentWillUnmount() {
@@ -87,7 +76,9 @@ export class DatePickerTextboxInput extends PureComponent {
         let canPropagate = true;
 
         if (allowClear) {
-            canPropagate = !this._clearButtonRef.current.contains(event.target);
+            if (!isNil(this._clearButtonRef.current)) {
+                canPropagate = !this._clearButtonRef.current.contains(event.target);
+            }
         }
 
         if (canPropagate) {
@@ -137,88 +128,59 @@ export class DatePickerTextboxInput extends PureComponent {
     handleClearButtonClick = withHandlerProxy(this, "onClear");
 
     getCssClasses() {
-        const { disabled, open, size, className } = this.props;
+        const { className } = this.props;
 
-        return mergeClasses(
-            "input pv3 ph2 ba outline-0 f6 br2 flex items-center",
-            open ? "b--marine-600 marine-600" : "b--cloud-200 marine-200",
-            !this.isPlaceholder() && "marine-600",
-            !disabled ? "hover-b--marine-600 hover-marine-600 pointer" : "bg-cloud-100 cloud-400",
-            SIZES_TO_HEIGHT[size],
-            SIZES_TO_FONT_SIZE[size],
-            className
-        );
-    }
-
-    renderIcon() {
-        const { size, disabled } = this.props;
-
-        return <CalendarIcon size={getIconSizeForControl(size)} className={!disabled ? "fill-marine-700" : "fill-cloud-500"} />;
+        return mergeClasses(className);
     }
 
     renderClearButton() {
-        const { allowClear, disabled, open } = this.props;
+        const { allowClear, open } = this.props;
 
-        if (!allowClear) {
+        if (!allowClear || this.isPlaceholder() || open) {
             return null;
         }
 
         return (
-            <div className={cx("clear-btn-container", { dn: this.isPlaceholder() || disabled || open })}>
-                <Button
-                    circular
-                    ghost
-                    secondary
-                    icon={<CloseIcon />}
-                    size="tiny"
-                    onClick={this.handleClearButtonClick}
-                    ref={this._clearButtonRef}
-                    data-testid="date-picker-textbox-clear-button"
-                />
-            </div>
+            <Button
+                icon={<CloseIcon />}
+                onClick={this.handleClearButtonClick}
+                ref={this._clearButtonRef}
+                data-testid="date-picker-textbox-clear-button"
+            />
         );
     }
 
     render() {
-        const { value, placeholder, disabled } = this.props;
+        const { value, placeholder, size, disabled, fluid, className } = this.props;
 
-        return <div
-            onClick={this.handleClick}
-            onKeyDown={this.handleKeyDown}
-            onFocus={this.handleFocus}
-            onBlur={this.handlerBlur}
-            className={this.getCssClasses()}
-            tabIndex={disabled ? "-1" : "0"}
-            autoComplete="off"
-            disabled={disabled}
-            ref={this._containerRef}
-            data-testid="date-picker-textbox-input"
-        >
-            {this.renderIcon()}
-            <span className="flex-grow-1 ml2" data-testid="date-picker-textbox-input-value">{this.isPlaceholder() ? placeholder : value}</span>
-            {this.renderClearButton()}
-
-            <style jsx>{`
-                .input {
-                    min-width: 300px;
-                }
-
-                .input:not("disabled") {
-                    cursor: text;
-                }
-
-                .input:focus {
-                    border: 1px solid var(--marine-700);
-                    color: var(--marine-700);
-                }
-            `}</style>
-        </div>;
+        return (
+            <Input
+                onClick={this.handleClick}
+                onKeyDown={this.handleKeyDown}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                value={value}
+                placeholder={placeholder}
+                icon={<CalendarIcon />}
+                iconPosition="left"
+                button={this.renderClearButton()}
+                size={size}
+                disabled={disabled}
+                fluid={fluid}
+                readOnly
+                tabIndex={disabled ? "-1" : "0"}
+                autoComplete="off"
+                className={className}
+                ref={this._inputRef}
+                data-testid="date-picker-textbox-input"
+            />
+        );
     }
 
     // This method is part of the component external API.
     focus() {
-        if (!isNil(this._containerRef.current)) {
-            this._containerRef.current.focus();
+        if (!isNil(this._inputRef.current)) {
+            this._inputRef.current.focus();
         }
     }
 }

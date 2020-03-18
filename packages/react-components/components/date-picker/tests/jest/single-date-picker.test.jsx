@@ -1,4 +1,4 @@
-import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, TEXTBOX_CLEAR_BUTTON_ID, TEXTBOX_ID, TEXTBOX_VALUE_ID } from "./shared";
+import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, INPUT_CLEAR_BUTTON_ID, getInput } from "./shared";
 import { DATE_FORMAT, openCalendar } from "./shared";
 import { PureComponent, createRef } from "react";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
@@ -54,7 +54,7 @@ function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...ot
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    userEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getInput(getByTestId));
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -64,7 +64,7 @@ test("open the calendar on input click", async () => {
 test("open the calendar on space keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+    fireEvent.keyDown(getInput(getByTestId), { key: " ", keyCode: 32 });
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -74,7 +74,7 @@ test("open the calendar on space keydown", async () => {
 test("open the calendar on enter keydown", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(getInput(getByTestId), { key: "Enter", keyCode: 13 });
 
     const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -108,7 +108,7 @@ test("close the calendar on input click", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    userEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getInput(getByTestId));
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -119,7 +119,7 @@ test("close the calendar on blur", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    getByTestId(TEXTBOX_ID).blur();
+    getInput(getByTestId).blur();
     await wait();
 
     expect(calendarNode).not.toBeInTheDocument();
@@ -130,7 +130,7 @@ test("when disabled, dont open the calendar on input click", async () => {
         disabled: true
     }));
 
-    userEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getInput(getByTestId));
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -141,7 +141,7 @@ test("when disabled, dont open the calendar on space keydown", async () => {
         disabled: true
     }));
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+    fireEvent.keyDown(getInput(getByTestId), { key: " ", keyCode: 32 });
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -152,7 +152,7 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
         disabled: true
     }));
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(getInput(getByTestId), { key: "Enter", keyCode: 13 });
     await wait();
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
@@ -164,14 +164,14 @@ test("clear the date on input clear button click", async () => {
 
     const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
 
-    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+    const inputNode = getInput(getByTestId);
 
-    expect(textboxNode).toHaveTextContent(formattedDate);
+    expect(inputNode).toHaveValue(formattedDate);
 
-    userEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(INPUT_CLEAR_BUTTON_ID));
     await wait();
 
-    expect(textboxNode).not.toHaveTextContent(formattedDate);
+    expect(inputNode).not.toHaveValue(formattedDate);
 });
 
 test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
@@ -180,14 +180,14 @@ test("when the calendar is closed and a value is selected, clear the value on es
 
     const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
 
-    const textboxNode = getByTestId(TEXTBOX_VALUE_ID);
+    const inputNode = getInput(getByTestId);
 
-    expect(textboxNode).toHaveTextContent(formattedDate);
+    expect(inputNode).toHaveValue(formattedDate);
 
-    fireEvent.keyDown(textboxNode, { key: "Escape", keyCode: 27 });
+    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
     await wait();
 
-    expect(textboxNode).not.toHaveTextContent(formattedDate);
+    expect(inputNode).not.toHaveValue(formattedDate);
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
@@ -223,14 +223,14 @@ test("clear the date on calendar clear button click", async () => {
         dateFormat: DATE_FORMAT
     }));
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).toHaveTextContent(formattedDate);
+    expect(getInput(getByTestId)).toHaveValue(formattedDate);
 
     await openCalendar(getByTestId);
 
     userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     await wait();
 
-    expect(getByTestId(TEXTBOX_VALUE_ID)).not.toHaveTextContent(formattedDate);
+    expect(getInput(getByTestId)).not.toHaveValue(formattedDate);
 });
 
 test("when the calendar close, the input should be focused", async () => {
@@ -240,14 +240,14 @@ test("when the calendar close, the input should be focused", async () => {
 
     getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
 
-    const textboxNode = getByTestId(TEXTBOX_ID);
+    const inputNode = getInput(getByTestId);
 
-    expect(textboxNode).not.toHaveFocus();
+    expect(inputNode).not.toHaveFocus();
 
     userEvent.click(document.body);
     await wait();
 
-    expect(textboxNode).toHaveFocus();
+    expect(inputNode).toHaveFocus();
 });
 
 test("when a date is selected and the calendar is closed without applying the selection, clear the date", async () => {
@@ -264,13 +264,14 @@ test("when a date is selected and the calendar is closed without applying the se
 
     ref.current.triggerDateChange(date);
 
-    const textboxNode = getByTestId(TEXTBOX_ID);
-    expect(textboxNode).toHaveTextContent(formattedDate);
+    const inputNode = getInput(getByTestId);
+
+    expect(inputNode).toHaveValue(formattedDate);
 
     userEvent.click(document.body);
     await wait();
 
-    expect(textboxNode).not.toHaveTextContent(formattedDate);
+    expect(inputNode).not.toHaveValue(formattedDate);
 });
 
 test("when closeOnBlur is false, dont close the calendar on blur", async () => {
@@ -365,7 +366,7 @@ test("call onDateChange when the date is cleared from the input", async () => {
         onDateChange: handler
     }));
 
-    userEvent.click(getByTestId(TEXTBOX_CLEAR_BUTTON_ID));
+    userEvent.click(getByTestId(INPUT_CLEAR_BUTTON_ID));
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
@@ -378,7 +379,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    userEvent.click(getByTestId(TEXTBOX_ID));
+    userEvent.click(getInput(getByTestId));
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -392,7 +393,7 @@ test("call onVisibilityChange when the calendar is opened with space keydown", a
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: " ", keyCode: 32 });
+    fireEvent.keyDown(getInput(getByTestId), { key: " ", keyCode: 32 });
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -406,7 +407,7 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(TEXTBOX_ID), { key: "Enter", keyCode: 13 });
+    fireEvent.keyDown(getInput(getByTestId), { key: "Enter", keyCode: 13 });
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
@@ -452,7 +453,7 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
 
     await openCalendar(getByTestId);
 
-    getByTestId(TEXTBOX_ID).blur();
+    getInput(getByTestId).blur();
     await wait();
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());

@@ -1068,7 +1068,7 @@ stories("/customization")
          () =>
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <DateRangePicker.Input className="bg-red" />
+                 input: <DateRangePicker.Input className="border-red" />
              })
     )
     .add("placeholder",

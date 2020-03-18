@@ -27,7 +27,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     text: string,
     /**
-     * A React SVG component displayed after the checkbox text.
+     * A React component displayed after the checkbox text.
      */
     icon: element,
     /**
