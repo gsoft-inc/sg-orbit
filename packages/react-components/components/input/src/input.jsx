@@ -130,11 +130,6 @@ export function PureInput(props) {
                 };
 
                 const getClasses = userClasses => {
-                    console.log(mergeClasses(
-                        "input-clear-button",
-                        userClasses
-                    ));
-
                     return mergeClasses(
                         "input-clear-button",
                         userClasses

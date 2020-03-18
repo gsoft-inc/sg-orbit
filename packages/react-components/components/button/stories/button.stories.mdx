@@ -5,7 +5,6 @@ import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Test } from "./test";
 import CustomColorHover from "./custom-color-hover.mdx";
 import Imports from "./imports.mdx";
 
@@ -268,13 +267,4 @@ Buttons can exist together as a group.
         .build()}
 >
     <RefLogger component={<Button >Cutoff</Button>} />
-</Story>
-
-<Story
-    name="test"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Test />
 </Story>

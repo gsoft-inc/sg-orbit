@@ -285,19 +285,21 @@ export class SearchInputController extends AutoControlledPureComponent {
     renderInput = () => {
         const { open, loading, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
 
-        return <Input
-            icon={<MagnifierIcon />}
-            iconPosition="left"
-            onKeyDown={this.handleInputKeyDown}
-            loading={loading && !disabled}
-            autofocus={open || autofocus}
-            autofocusDelay={open ? undefined : autofocusDelay}
-            disabled={disabled}
-            size={size}
-            fluid={fluid}
-            ref={this._inputRef}
-            data-testid="search-input-textbox"
-        />;
+        return (
+            <Input
+                icon={<MagnifierIcon />}
+                iconPosition="left"
+                onKeyDown={this.handleInputKeyDown}
+                loading={loading && !disabled}
+                autofocus={open || autofocus}
+                autofocusDelay={open ? undefined : autofocusDelay}
+                disabled={disabled}
+                size={size}
+                fluid={fluid}
+                ref={this._inputRef}
+                data-testid="search-input-textbox"
+            />
+        );
     }
 
     renderClearButton = () => {
