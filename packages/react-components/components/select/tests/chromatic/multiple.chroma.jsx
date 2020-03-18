@@ -3,7 +3,7 @@ import { Select } from "@orbit-ui/react-select/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Select/multiple-values"))
+    return storiesOfBuilder(module, createChromaticSection("Select/multiple"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
