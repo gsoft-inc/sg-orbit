@@ -431,6 +431,13 @@
     fill: @marine200;
 }
 
+/* CONTENT | With Delete / Search Icon */
+.ui.selection.dropdown > .search.icon,
+.ui.selection.dropdown > .delete.icon {
+    right: @scaleBravo;
+    margin: 0;
+}
+
 /*******************************
     Multi Select
 *******************************/
@@ -638,11 +645,13 @@
 .ui.multiple.dropdown .label > .delete.icon {
     width: @scaleEcho;
     height: @scaleEcho;
-    /* offset centering so it looks centered */
-    margin-top: 2px;
     margin-left: 4px;
     mask-size: 20px 20px!important;
     background-color: @marine300;
+}
+
+.ui.multiple.dropdown.large .label > .delete.icon {
+    margin-top: 2px;
 }
 
 .ui.multiple.dropdown .label > .delete.icon:hover {
