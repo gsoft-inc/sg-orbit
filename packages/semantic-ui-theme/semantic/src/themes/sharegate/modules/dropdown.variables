@@ -71,7 +71,7 @@
 @selectionMinHeight: 2.5rem;
 @selectionMinWidth: 300px;
 @selectionBorder: 1px solid @cloud200;
-@selectionHoverBorderColor: @white;
+@selectionHoverBorderColor: @marine500;
 @selectionVisibleBorderColor: @white;
 @selectionActiveHoverBorderColor: @white;
 @selectionActiveHoverBoxShadow: @shadow100;
