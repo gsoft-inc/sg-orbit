@@ -301,6 +301,11 @@
     margin-top: 0;
 }
 
+/* LAYOUT | Spacing */
+.ui.dropdown.dropdown .menu .input {
+    margin: 1rem 1rem 0.5rem 1rem;
+}
+
 /* SKIN | select/dropdown */
 .ui.dropdown .scrolling.menu {
     border-top: 0;
