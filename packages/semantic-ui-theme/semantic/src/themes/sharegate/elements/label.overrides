@@ -281,5 +281,5 @@
 
 /* Highlight */
 .ui.label.highlight {
-    font-weight: 600;
+    font-weight: 500;
 }

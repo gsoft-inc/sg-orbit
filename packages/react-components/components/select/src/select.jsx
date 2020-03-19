@@ -45,7 +45,7 @@ const renderAction = ({ content, key, className, ...rest }, index) => {
 };
 
 export function PureSelect(props) {
-    const { options, actions, inline, multiple, forwardedRef, ...rest } = props;
+    const { options, actions, inline, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-dropdown");
 
