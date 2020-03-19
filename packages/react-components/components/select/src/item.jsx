@@ -86,11 +86,6 @@ export function SelectItem(props) {
         }
 
         if (!isNil(avatar)) {
-            const defaults = {
-                avatar: true,
-                size: "mini"
-            };
-
             if (isElement(avatar)) {
                 return (
                     <SemanticImage {...defaults}>
