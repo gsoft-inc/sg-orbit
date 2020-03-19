@@ -150,7 +150,7 @@
 .ui.label.mini:not(.circular) {
     min-height: 20px;
     font-size: var(--type-scale-9);
-    padding: 0.15em 0.8125em;
+    padding: 0 0.8125em;
 }
 
 /* Circular Labels */
