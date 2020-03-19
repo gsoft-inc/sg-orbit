@@ -17,7 +17,7 @@ stories()
     .add("default",
          () =>
              <>
-                 <div className="flex flex-row">
+                 <div className="flex">
                      <div className="flex flex-column">
                          <Message>
                              <Message.Header>Setup a security policy for external sharing</Message.Header>

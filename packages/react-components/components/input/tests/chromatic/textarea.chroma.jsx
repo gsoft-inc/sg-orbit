@@ -14,7 +14,7 @@ function stories(segment) {
 stories()
     .add("default",
          () =>
-             <div className="flex flex-row">
+             <div className="flex">
                  <div className="w-50">
                      <TextArea placeholder="Tell us more" />
                      <TextArea disabled placeholder="Tell us more" />

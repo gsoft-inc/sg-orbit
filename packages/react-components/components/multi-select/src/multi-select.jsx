@@ -343,7 +343,10 @@ export class MultiSelect extends AutoControlledPureComponent {
         const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
 
         return (
-            <div className={classes}>
+            <div
+                className={classes}
+                tabIndex={-1}
+            >
                 {this.renderDropDown()}
                 {this.renderSelectedItems()}
                 {this.renderClearButton()}

@@ -3,7 +3,11 @@ import { Tag } from "./tag";
 import { isNil } from "lodash";
 
 export function createLabelFromShorthand({ content, ...props }) {
-    return <Label {...props}>{!isNil(content) && content}</Label>;
+    if (!isNil(content)) {
+        return <Label {...props}>{content}</Label>;
+    }
+
+    return <Label {...props} />;
 }
 
 export function createTagFromShorthand(props) {

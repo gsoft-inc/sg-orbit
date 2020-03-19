@@ -37,52 +37,51 @@ stories()
             })}
         </div>
     )
-    .add("sizes",
-         () =>
-             <div className="flex flex-column">
-                 <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createSearchableSelect({
-                         className: "mr5",
-                         size: "small"
-                     })}
-                     {createSearchableSelect({
-                         defaultValue: "Male",
-                         className: "mr5",
-                         size: "small"
-                     })}
-                     {createSearchableSelect({
-                         size: "small",
-                         defaultOpen: true
-                     })}
-                 </div>
-                 <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createSearchableSelect({
-                         className: "mr5"
-                     })}
-                     {createSearchableSelect({
-                         defaultValue: "Male",
-                         className: "mr5"
-                     })}
-                     {createSearchableSelect({
-                         defaultOpen: true
-                     })}
-                 </div>
-                 <div className="flex">
-                     {createSearchableSelect({
-                         className: "mr5",
-                         size: "large"
-                     })}
-                     {createSearchableSelect({
-                         defaultValue: "Male",
-                         className: "mr5",
-                         size: "large"
-                     })}
-                     {createSearchableSelect({
-                         size: "large",
-                         defaultOpen: true
-                     })}
-                 </div>
-             </div>
+    .add("size", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
+                    className: "mr5",
+                    size: "small"
+                })}
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5",
+                    size: "small"
+                })}
+                {createSearchableSelect({
+                    size: "small",
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
+                    className: "mr5"
+                })}
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5"
+                })}
+                {createSearchableSelect({
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createSearchableSelect({
+                    className: "mr5",
+                    size: "large"
+                })}
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5",
+                    size: "large"
+                })}
+                {createSearchableSelect({
+                    size: "large",
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
     )
     .add("disabled", () =>
         createSearchableSelect({

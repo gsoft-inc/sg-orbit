@@ -2,9 +2,11 @@ import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon, SignoutIcon } from "@orbit-ui/react-icons/src";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 
+// TODO: Instead of component we should have shareable stories. I think we need a function that accept a Button component and return an array of stories. "variant-stories.jsx".
+
 export const Buttons = props => {
     return (
-        <div className="flex flex-row items-start">
+        <div className="flex items-start">
             <div className="flex flex-column items-start">
                 <Button {...props}>Button</Button>
                 <Button active {...props}>Button</Button>

@@ -11,7 +11,7 @@ function stories() {
 stories()
     .add("radiuses",
          () =>
-             <div className="flex flex-row">
+             <div className="flex">
                  <div className="mr5 flex flex-column">
                      <div className="w13 h13 br1 overflow-hidden bg-cloud-200" alt="Astronaut floating in space" />
                  </div>
