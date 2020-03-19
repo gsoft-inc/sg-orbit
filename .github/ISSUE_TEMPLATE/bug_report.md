@@ -6,6 +6,8 @@ labels: bug report, needs triage'
 
 <!--
     Please note that your issue will be fixed much faster if you includes the exact reproduction steps and a demo.
+
+    If the bug prevent your team from releasing please add the tag "blocking" to your issue.
 -->
 
 ### Describe the bug

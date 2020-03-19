@@ -143,15 +143,13 @@ All components should be developed as functional components.
 
 All components should leverage React hooks.
 
-#### Foundation
-
-A component UI should be based on [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page).
-
 #### Styling
 
 Use tachyons classes as much as possible.
 
 For custom classes, Orbit UI components currently rely on [styled-jsx](https://github.com/zeit/styled-jsx) but it might change on a near future. Stay tuned!
+
+Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
 
 #### Controlled & Auto-controlled
 
