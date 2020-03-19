@@ -131,6 +131,7 @@
 /* Split Actual Padding Between Child and Parent (allows for label spacing) */
 
 /* Child Elements */
+@multipleSelectionChildLeftMargin: 0;
 
 /* Dropdown Icon */
 
