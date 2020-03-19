@@ -25,7 +25,7 @@ export function BrandPicker() {
     }, [currentBrand]);
 
     return (
-        <ul className="flex flex-row justify-end list pl0 mb7 mt8">
+        <ul className="flex justify-end list pl0 mb7 mt8">
             {Object.values(BRANDS).map((x, item) => {
                 const spacing = item === 0 ? "ml0" : "ml2";
                 const currentBrandClasses = currentBrand.id === x.id ? `bg-${x.id}-500 white b--${x.id}-500 hover-b--${x.id}-700` : `bg-white marine-500 b--cloud-200 hover-b--${x.id}-700`;

@@ -701,7 +701,7 @@ stories("/customization")
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
-                 input: <SingleDatePicker.Input className="bg-red" />
+                 input: <SingleDatePicker.Input className="border-red" />
              })
     )
     .add("placeholder",

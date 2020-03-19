@@ -65,3 +65,20 @@
 .ui.icon.input.disabled > svg.icon  {
     fill: var(--marine-100);
 }
+
+/* Fluid */
+.ui.fluid.input {
+    display: block;
+    width: 100%;
+}
+.ui.fluid.input > input {
+    width: 100% !important;
+}
+
+/* Clear button */
+.ui.input-clear-button {
+    position: absolute;
+    top: 50%;
+    right: var(--scale-echo);
+    transform: translateX(50%) translateY(-50%);
+}

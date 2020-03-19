@@ -12,7 +12,7 @@ stories()
     .add("default",
          () =>
              <div>
-                 <div className="flex flex-row items-center">
+                 <div className="flex items-center">
                      <div className="pa4 bg-moonstone-50" />
                      <div className="pa4 bg-moonstone-100" />
                      <div className="pa4 bg-moonstone-200" />
@@ -44,7 +44,7 @@ stories()
                      <div className="pa4 bg-marine-800" />
                      <div className="pa4 bg-marine-900" />
                  </div>
-                 <div className="flex flex-row items-center">
+                 <div className="flex items-center">
                      <div className="pa4 bg-desktop-50" />
                      <div className="pa4 bg-desktop-100" />
                      <div className="pa4 bg-desktop-200" />
@@ -76,7 +76,7 @@ stories()
                      <div className="pa4 bg-apricot-800" />
                      <div className="pa4 bg-apricot-900" />
                  </div>
-                 <div className="flex flex-row items-center">
+                 <div className="flex items-center">
                      <div className="pa4 bg-alert-50" />
                      <div className="pa4 bg-alert-100" />
                      <div className="pa4 bg-alert-200" />

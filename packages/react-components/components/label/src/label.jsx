@@ -56,7 +56,7 @@ const defaultProps = {
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
-    if (!isNil(button) && iconPosition === "right") {
+    if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
         throw new ArgumentError("@orbit-ui/react-label doesn't support having a button and a right positioned icon at the same time.");
     }
 

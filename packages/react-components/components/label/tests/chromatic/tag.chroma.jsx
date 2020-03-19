@@ -13,7 +13,7 @@ function stories(segment) {
 stories()
     .add("default",
          () =>
-             <div className="flex flex-row">
+             <div className="flex">
                  <div className="flex flex-column items-start">
                      <Tag className="bg-red" size="mini" />
                      <Tag className="bg-red" size="tiny" />

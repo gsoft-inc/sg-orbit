@@ -1,7 +1,8 @@
+import { Button } from "@orbit-ui/react-button/src";
+import { CloseIcon, MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { HocWarning, Props } from "@blocks";
 import { Input, PureInput } from "@orbit-ui/react-input/src";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
-import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
@@ -114,6 +115,25 @@ An input can be formatted with an [icon](?path=/docs/materials-icons--page). Spe
     <Input icon={<MagnifierIcon />} loading />
 </Story>
 
+### Button
+
+An input can contain a [button](?path=/docs/components-button--default-story). Specify the button to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="button">
+        <Input button={<Button icon={<CloseIcon />} />} placeholder="Search..." />
+    </Story>
+</Preview>
+
+<Story
+    name="button & loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Input button={<Button icon={<CloseIcon />} />} placeholder="Search..." loading />
+</Story>
+
 ### Loading
 
 An input can show that it is currently loading data.
@@ -135,7 +155,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-row items-end items-space-between">
+        <div className="flex items-end items-space-between">
             <div className="flex-auto">
                 <Input size="small" icon={<MagnifierIcon />} fluid placeholder="Search..." />
             </div>
