@@ -49,51 +49,51 @@ stories()
         </div>
     )
     .add("sizes",
-        () =>
-            <div className="flex flex-column">
-                <div className="flex" style={{ marginBottom: "150px" }}>
-                    {createSelect({
-                        size: "small",
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        size: "small",
-                        defaultValue: "Female",
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        size: "small",
-                        defaultOpen: true
-                    })}
-                </div>
-                <div className="flex" style={{ marginBottom: "150px" }}>
-                    {createSelect({
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        defaultValue: "Female",
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        defaultOpen: true
-                    })}
-                </div>
-                <div className="flex">
-                    {createSelect({
-                        size: "large",
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        size: "large",
-                        defaultValue: "Female",
-                        className: "mr5"
-                    })}
-                    {createSelect({
-                        size: "large",
-                        defaultOpen: true
-                    })}
-                </div>
-            </div>
+         () =>
+             <div className="flex flex-column">
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createSelect({
+                         size: "small",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "small",
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "small",
+                         defaultOpen: true
+                     })}
+                 </div>
+                 <div className="flex" style={{ marginBottom: "150px" }}>
+                     {createSelect({
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         defaultOpen: true
+                     })}
+                 </div>
+                 <div className="flex">
+                     {createSelect({
+                         size: "large",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "large",
+                         defaultValue: "Female",
+                         className: "mr5"
+                     })}
+                     {createSelect({
+                         size: "large",
+                         defaultOpen: true
+                     })}
+                 </div>
+             </div>
     )
     .add("fluid", () =>
         <div className="flex">
