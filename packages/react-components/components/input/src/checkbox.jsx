@@ -124,7 +124,7 @@ export function PureCheckbox(props) {
         let right;
 
         if (!isNil(icon)) {
-            right = createIconForControl(icon, "medium");
+            right = createIconForControl(icon, size);
         }
 
         if (!isNil(label)) {
