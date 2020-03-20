@@ -2,10 +2,24 @@
         Site Overrides
 *******************************/
 
+/* hidden HTML Input should be small */
+.ui.checkbox input[type="checkbox"],
+.ui.checkbox input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+}
+
 /* border-box is necessary in order for the radio to be centered everywhere */
 .ui.radio.checkbox label:before {
     box-sizing: border-box;
     border: 2px solid var(--cloud-100);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui.radio.checkbox label:after {
+    top: 50%;
+    transform: scale(0.5) translateY(-100%);
 }
 
 .ui.radio.checkbox input:checked ~ .box:after,
