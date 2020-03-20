@@ -228,7 +228,12 @@ stories()
         </div>
     )
     .add("fluid", () =>
-        <Input fluid placeholder="Search..." />
+        <>
+            <Input fluid placeholder="Search..." />
+            <div className="w-10">
+                <Input fluid placeholder="Search..." />
+            </div>
+        </>
     )
     .add("size", () =>
         <div className="flex">
