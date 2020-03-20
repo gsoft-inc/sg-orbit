@@ -1,0 +1,177 @@
+import { HocWarning, Props, WarningMessage } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@orbit-ui/react-icons/src";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/multiple values")}
+    parameters={paramsBuilder()
+        .sortPriority(4)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Multiple Values Select
+
+A select can allow a user to make multiple choices.
+
+## Installation
+
+<Installation componentFolder="select" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const GENDERS = [
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
+];
+
+```javascript dark
+const GENDERS = [
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
+];
+```
+
+### Default
+
+A default multiple values select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            multiple
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Selected values
+
+A multiple values select can have initial values. _Dont forget to specify values has an array_.
+
+<Preview>
+    <Story name="selected values">
+        <Select
+            placeholder="Gender"
+            multiple
+            defaultValue={["Female"]}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A multiple values select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Gender"
+            multiple
+            icon={<MagnifierIcon />}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A multiple values select can take all the space available.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Gender"
+            multiple
+            fluid
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A multiple values select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Gender"
+            multiple
+            disabled
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Searchable
+
+A multiple values select can be searchable.
+
+<Preview>
+    <Story name="searchable">
+        <Select
+            placeholder="Gender"
+            multiple
+            search
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus multiple placeholder="Gender" options={GENDERS} />
+        <Select autofocus multiple disabled placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus autofocusDelay={500} multiple placeholder="Gender" options={GENDERS} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select multiple options={GENDERS} />} />
+</Story>

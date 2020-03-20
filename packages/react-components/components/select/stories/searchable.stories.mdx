@@ -1,5 +1,6 @@
 import { HocWarning, Props, WarningMessage } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@orbit-ui/react-icons/src";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureSelect, Select, selectItem } from "@orbit-ui/react-select/src";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -121,6 +122,21 @@ A searchable select can have an initial value.
     </Story>
 </Preview>
 
+### Icon
+
+A searchable select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Select language"
+            search
+            icon={<MagnifierIcon />}
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
 ### Clearable
 
 A searchable select can let a user remove is selection.
@@ -153,7 +169,7 @@ A searchable select can take all the space available.
 
 ### Disabled
 
-A default searchable select can be disabled.
+A searchable select can be disabled.
 
 <Preview>
     <Story name="disabled">

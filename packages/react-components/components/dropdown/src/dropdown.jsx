@@ -109,7 +109,7 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
 
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
@@ -171,19 +171,14 @@ export function PureDropdown(props) {
 
     const renderIcon = () => {
         if (!isNil(icon)) {
-            return (
-                <div className="dropdown-icon flex items-center">
-                    {createIconForControl(icon, size)}
+            const classes = mergeClasses(
+                "ui dropdown-icon flex items-center",
+                inline && "inline"
+            );
 
-                    <style jsx>{`
-                        .dropdown-icon {
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            left: ${inline ? 0 : "var(--scale-bravo)"};
-                            z-index: 12;
-                        }
-                    `}</style>
+            return (
+                <div className={classes}>
+                    {createIconForControl(icon, size)}
                 </div>
             );
         }
@@ -208,6 +203,8 @@ export function PureDropdown(props) {
                             selectOnNavigation={false}
                             openOnFocus={false}
                             fluid={fluid}
+                            trigger={trigger}
+                            icon={isNil(trigger) ? undefined : null }
                             disabled={disabled}
                             className={dropdownClasses}
                             ref={dropdownRef}
