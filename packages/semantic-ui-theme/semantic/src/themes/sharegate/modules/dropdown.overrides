@@ -346,7 +346,7 @@
 .ui.dropdown.disabled,
 .ui.dropdown .menu > .item.disabled {
     background-color: var(--cloud-50);
-    border-color: var(--cloud-50);
+    border-color: var(--cloud-100);
 }
 
 .ui.dropdown .menu > .header {
