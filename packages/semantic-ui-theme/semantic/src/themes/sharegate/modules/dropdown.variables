@@ -24,7 +24,7 @@
 /* Menu */
 
 /* Text */
-@textCursorSpacing: 0;
+@textCursorSpacing: 0px;
 
 /* Menu Item */
 @itemLineHeight: 1.5em;
@@ -43,7 +43,7 @@
 @selectionMenuBoxShadow: @shadow100;
 
 /* Menu Image */
-@menuImageMaxHeight: 2em;
+@menuImageMaxHeight: 2rem;
 @menuImageVerticalMargin: 0;
 
 
@@ -89,7 +89,7 @@
 
 /* Header */
 @menuHeaderPadding: 0 1rem;
-@menuInputMargin: 1.25rem 1.25rem 0.75rem 1.25rem;
+@menuInputMargin: 0;
 @menuHeaderMargin: 1rem 0 0.5rem 0;
 @menuHeaderColor: @cloud400;
 @menuHeaderFontSize: 12px;
@@ -131,6 +131,7 @@
 /* Split Actual Padding Between Child and Parent (allows for label spacing) */
 
 /* Child Elements */
+@multipleSelectionChildLeftMargin: 0;
 
 /* Dropdown Icon */
 
@@ -152,6 +153,8 @@
 /* Selected */
 
 /* Error */
+@errorItemHoverBackground: var(--alert-50);
+@errorItemActiveBackground: var(--alert-50);
 
 /* Clearable */
 

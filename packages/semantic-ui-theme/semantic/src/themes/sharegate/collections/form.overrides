@@ -78,7 +78,7 @@
 }
 
 .ui.textarea.error {
-    border-color: var(--alert-800);
+    border-color: var(--alert-500);
 }
 
 /* SKIN | Transparent */
