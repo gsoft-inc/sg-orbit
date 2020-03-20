@@ -236,18 +236,6 @@ An input can be transparent.
 
 A few API functions are available for an input component. To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the input component, then call the API function.
 
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    setTimeout(() => {
-        ref.callApi();
-    }, 100);
-
-    return <Input ref={ref} />;
-}
-```
-
 ### focus
 
 An input can be focused programmatically.
@@ -266,7 +254,7 @@ function MyComponent() {
 
 ### select
 
-An input text can be [selected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select).
+An input text can be [selected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select) programmatically.
 
 ```jsx dark
 function MyComponent() {
