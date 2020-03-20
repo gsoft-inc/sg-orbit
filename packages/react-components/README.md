@@ -135,14 +135,29 @@ Every Orbit UI custom components must share a consistent API and a similar desig
 
 ### Design
 
+#### Functional components
+
+All components should be developed as functional components.
+
+#### Hooks
+
+All components should leverage React hooks.
+
+#### Styling
+
+Use tachyons classes as much as possible.
+
+For custom classes, Orbit UI components currently rely on [styled-jsx](https://github.com/zeit/styled-jsx) but it might change on a near future. Stay tuned!
+
+Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
+
 #### Controlled & Auto-controlled
 
-A component should always be develop to offer a [controlled](https://reactjs.org/docs/forms.html) mode usage. However, using a *controlled* component involve a lot of additional code
-for the consumer and a component should as flexible as possible but also painless to use.
+A component should always be develop to offer a [controlled](https://reactjs.org/docs/forms.html) and [auto-controlled](https://reactjs.org/docs/uncontrolled-components.html) usage. 
 
-That's why a component should also offer an *auto-controlled* mode for some properties.
+A *controlled* component gives a lot of flexibility to the consumer and is well fit for a lot of use cases but also involve additional code. We believe a component should be flexible but also painless to use. That's why a component should also offer an *auto-controlled* mode for basic use cases who don't requires controlling the props.
 
-For more information, view the [auto-controlled-state](/components/shared/src/auto-controlled-state) directory.
+For more information, view the [auto-controlled-state](/components/shared/src/auto-controlled-state) directory. _NOTE: since we switched to functional components, this might not apply anymore. We haven't yet developed an alternative for functional components._
 
 #### Composable
 
@@ -152,9 +167,11 @@ Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
 
 ```jsx
 // definition
-export class DateRangePicker extends AutoControlledPureComponent {
-    static Input = DateRangePickerInput;
+function DateRangePicker() {
+    ...
 }
+
+DateRangePicker.Input;
 
 // usage
 import { DateRangePicker } from "@orbit-ui/react-components";
@@ -165,6 +182,12 @@ import { DateRangePicker } from "@orbit-ui/react-components";
 #### Derived state
 
 If you need to compute a derived state, prefer using `getDerivedStateFromProps` to `componentDidUpdate`.
+
+_NOTE: since we switched to functional components, this might not apply anymore._
+
+#### Shorthand props
+
+A component prop accepting an Orbit UI element should support [shorthand props](https://orbit.sharegate.design/?path=/docs/getting-started-shorthand-props--page).
 
 #### Event handlers exposed by the component
 
@@ -191,28 +214,7 @@ A component shouldn't stop the propagation of an event. Instead, other parts of 
 
 For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
 
-#### Anonymous functions
-
-Components shouldn't render anonymous functions.
-
-```jsx
-function MyComponent() {
-    function handleChange() {
-        ...
-    }
-
-    return (
-        <input ... onChange={this.handleChange} />
-    );
-}
-```
-
-For more information, read the following posts:
-
-- http://johnnyji.me/react/2016/06/27/why-arrow-functions-murder-react-performance.html
-- https://www.freecodecamp.org/news/the-best-way-to-bind-event-handlers-in-react-282db2cf1530/
-
-#### ref
+#### Ref
 
 A component `ref` should always be attached to the top most DOM element. A `ref` should never be attached to a React component.
 
@@ -230,7 +232,11 @@ function MyComponent({ className, children ...rest }) {
 }
 ```
 
-### Development experience
+#### Shared code
+
+When possible, a component should rely on [react-components-shared](/components/shared) as much as possible.
+
+### Developer experience
 
 #### Props
 
@@ -296,6 +302,8 @@ A component should have an hover state
 A component should have a disabled state
 
 A component should have an error state
+
+Input components should have a readonly state
 
 #### Behaviors
 

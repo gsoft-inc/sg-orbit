@@ -107,6 +107,11 @@ export function PureInput(props) {
             inputRef.current.focus();
         };
 
+        // This function is part of the component external API.
+        domElement.select = () => {
+            inputRef.current.select();
+        };
+
         return domElement;
     });
 

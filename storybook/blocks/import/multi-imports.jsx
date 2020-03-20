@@ -14,10 +14,15 @@ const VERSION_SHAPE = {
 
 const propTypes = {
     versions: arrayOf(shape(VERSION_SHAPE)).isRequired,
+    language: string,
     className: string
 };
 
-export function MultiImports({ versions, className }) {
+const defaultProps = {
+    language: "javascript"
+};
+
+export function MultiImports({ versions, language, className }) {
     const [current, setCurrent] = useLocalStorage("@orbit-ui/storybook/selected-import", versions[0].label);
 
     const renderLabels = () => {
@@ -54,7 +59,7 @@ export function MultiImports({ versions, className }) {
             .filter(x => x.label === current)
             .map(x => {
                 return (
-                    <Source language="javascript" dark format={false} code={dedent(x.code)} className={classes} key={x.label} />
+                    <Source language={language} dark format={false} code={dedent(x.code)} className={classes} key={x.label} />
                 );
             });
     };
@@ -68,3 +73,4 @@ export function MultiImports({ versions, className }) {
 }
 
 MultiImports.propTypes = propTypes;
+MultiImports.defaultProps = defaultProps;
