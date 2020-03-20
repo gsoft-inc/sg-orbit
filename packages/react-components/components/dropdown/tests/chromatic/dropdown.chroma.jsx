@@ -47,7 +47,13 @@ stories()
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      {createMenu({
                          text: "File",
-                         selection: false
+                         selection: false,
+                         className: "mr5"
+                     })}
+                     {createMenu({
+                         text: "File",
+                         selection: false,
+                         defaultOpen: true
                      })}
                  </div>
              </div>

@@ -27,22 +27,34 @@ createSharedStories(<Button positive />, stories("/positive"));
 createSharedStories(<Button negative />, stories("/negative"));
 
 createSharedStories(<Button naked />, stories("/naked"))
-    .add("coloured",
-         () =>
-             <div className="flex">
-                 <Button
-                     className={`${styles.button} mr5`}
-                     naked
-                     style={{
-                         backgroundColor: "#FCD5BC",
-                         boxShadow: "0px 0px 0px 1px #FCD003 inset"
-                     }}
-                 >
-                         Button
-                 </Button>
-                 <Button className={`${styles.button} mr5`} naked active>Button</Button>
-                 <Button disabled className={styles.button} naked>Button</Button>
-             </div>
+    .add("coloured", () =>
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                <Button
+                    className={`${styles.button} mr5`}
+                    naked
+                    style={{
+                        backgroundColor: "#FCD5BC",
+                        boxShadow: "0px 0px 0px 1px #FCD003 inset"
+                    }}
+                >Button</Button>
+                <Button active className={`${styles.button} mr5`} naked>Button</Button>
+                <Button disabled className={styles.button} naked>Button</Button>
+            </div>
+            <div className="flex">
+                <Button
+                    className={`${styles.button} mr5`}
+                    circular
+                    naked
+                    style={{
+                        backgroundColor: "#FCD5BC",
+                        boxShadow: "0px 0px 0px 1px #FCD003 inset"
+                    }}
+                >Aa</Button>
+                <Button active className={`${styles.button} mr5`} circular naked>Aa</Button>
+                <Button disabled className={styles.button} circular naked>Aa</Button>
+            </div>
+        </div>
     );
 
 function setRedBackground(element) {
@@ -50,6 +62,11 @@ function setRedBackground(element) {
         element.classList.add("bg-red");
     }
 }
+
+stories()
+    .add("fluid", () =>
+        <Button fluid>Button</Button>
+    );
 
 stories("/label")
     .add("element ref", () =>
