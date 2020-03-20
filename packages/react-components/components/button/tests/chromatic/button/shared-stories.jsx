@@ -112,7 +112,7 @@ export function createSharedStories(button, stories) {
                     <div className="flex mb5">
                         <Button element={button} className="mr5">Button</Button>
                         <Button active element={button} className="mr5">Button</Button>
-                        <Button disabled element={button}>Button</Button>
+                        <Button disabled element={button} className="mr5">Button</Button>
                         <Button className="bg-red" element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
@@ -136,7 +136,7 @@ export function createSharedStories(button, stories) {
                     <div className="flex mb5">
                         <Button ghost element={button} className="mr5">Button</Button>
                         <Button active ghost element={button} className="mr5">Button</Button>
-                        <Button disabled ghost element={button}>Button</Button>
+                        <Button disabled ghost element={button} className="mr5">Button</Button>
                         <Button className="bg-red" ghost element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
@@ -160,7 +160,7 @@ export function createSharedStories(button, stories) {
                     <div className="flex mb5">
                         <Button basic element={button} className="mr5">Button</Button>
                         <Button active basic element={button} className="mr5">Button</Button>
-                        <Button disabled basic element={button}>Button</Button>
+                        <Button disabled basic element={button} className="mr5">Button</Button>
                         <Button className="bg-red" basic element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
@@ -184,7 +184,7 @@ export function createSharedStories(button, stories) {
                     <div className="flex mb5">
                         <Button compact element={button} className="mr5">Button</Button>
                         <Button active compact element={button} className="mr5">Button</Button>
-                        <Button disabled compact element={button}>Button</Button>
+                        <Button disabled compact element={button} className="mr5">Button</Button>
                         <Button className="bg-red" compact element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
@@ -207,7 +207,7 @@ export function createSharedStories(button, stories) {
                 <div className="flex mb5">
                     <Button circular element={button} className="mr5">Aa</Button>
                     <Button active circular element={button} className="mr5">Aa</Button>
-                    <Button disabled circular element={button}>Aa</Button>
+                    <Button disabled circular element={button} className="mr5">Aa</Button>
                     <Button className="bg-red" circular element={button}>Button</Button>
                 </div>
                 <div className="flex items-end mb5">
