@@ -1,5 +1,5 @@
 import { Button } from "@orbit-ui/react-button/src";
-import { Buttons } from "./components";
+import { Buttons, createSharedStories } from "./components";
 import { CalendarIcon, ImageIcon, SignoutIcon } from "@orbit-ui/react-icons/src";
 import { Label, Tag } from "@orbit-ui/react-label/src";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -16,6 +16,8 @@ function stories(segment) {
             .build())
         .build();
 }
+
+createSharedStories(<Button />, stories("/standard"));
 
 stories()
     .add("default",
@@ -303,11 +305,9 @@ function setRedBackground(element) {
 }
 
 stories("/label")
-    // TODO: Move to shared component
+    // TODO: Merge with what is already in shared component
     .add("element", () =>
         <div className="flex">
-            <Button label={<Label>6</Label>}>Button</Button>
-            <Button label={<Label className="bg-red">6</Label>}>Button</Button>
             <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
         </div>
     )
@@ -317,21 +317,12 @@ stories("/label")
             <Button label={{ content: "6", className: "bg-red" }}>Button</Button>
             <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
         </div>
-    )
-    .add("size", () =>
-        <div className="flex items-end">
-            <Button size="tiny" label={<Label>6</Label>}>Button</Button>
-            <Button size="small" label={<Label>6</Label>}>Button</Button>
-            <Button label={<Label>6</Label>}>Button</Button>
-            <Button size="large" label={<Label>6</Label>}>Button</Button>
-        </div>
     );
 
 stories("/tag")
-    // TODO: Move to shared component
+    // TODO: Merge with what is already in shared component
     .add("element", () =>
         <div className="flex">
-            <Button tag={<Tag className="bg-red" />}>Button</Button>
             <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
         </div>
 
@@ -340,14 +331,6 @@ stories("/tag")
         <div className="flex">
             <Button tag={{ className: "bg-red" }}>Button</Button>
             <Button tag={{ ref: setRedBackground }}>Button</Button>
-        </div>
-    )
-    .add("size", () =>
-        <div className="flex items-end">
-            <Button size="tiny" tag={<Tag className="bg-red" />}>Button</Button>
-            <Button size="small" tag={<Tag className="bg-red" />}>Button</Button>
-            <Button tag={<Tag className="bg-red" />}>Button</Button>
-            <Button size="large" tag={<Tag className="bg-red" />}>Button</Button>
         </div>
     );
 

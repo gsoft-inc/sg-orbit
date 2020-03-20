@@ -1,13 +1,195 @@
-import { Button } from "@orbit-ui/react-button/src";
 import { CalendarIcon, SignoutIcon } from "@orbit-ui/react-icons/src";
 import { Label, Tag } from "@orbit-ui/react-label/src";
+import { any } from "prop-types";
+import { cloneElement } from "react";
+
+function Button({ element, ...rest }) {
+    return cloneElement(element, rest);
+}
+
+Button.propTypes = {
+    element: any.isRequired
+};
+
+function Icons({ element, ...rest }) {
+    const button = cloneElement(element, rest);
+
+    return (
+        <>
+            <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                <Button size="tiny" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
+                <Button size="small" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
+                <Button icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
+                <Button size="large" icon={<SignoutIcon />} element={button}>Button</Button>
+            </div>
+            <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                <Button size="tiny" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                <Button size="small" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                <Button icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                <Button size="large" icon={<SignoutIcon />} iconPosition="right" element={button}>Button</Button>
+            </div>
+            <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                <Button size="tiny" icon={<SignoutIcon />} element={button} className="mr5" />
+                <Button size="small" icon={<SignoutIcon />} element={button} className="mr5" />
+                <Button icon={<SignoutIcon />} element={button} className="mr5" />
+                <Button size="large" icon={<SignoutIcon />} element={button} />
+            </div>
+            <div className="flex">
+                <Button icon={<SignoutIcon />} active element={button} className="mr5">Button</Button>
+                <Button icon={<SignoutIcon />} disabled element={button}>Button</Button>
+            </div>
+        </>
+    );
+}
+
+export function createSharedStories(button, stories) {
+    stories
+        .add("default", () =>
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "50px" }}>
+                    <Button element={button} className="mr5">Button</Button>
+                    <Button active element={button} className="mr5">Button</Button>
+                    <Button disabled element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" element={button} className="mr5">Button</Button>
+                    <Button size="small" element={button} className="mr5">Button</Button>
+                    <Button element={button} className="mr5">Button</Button>
+                    <Button size="large" element={button}>Button</Button>
+                </div>
+                <Icons element={button} />
+            </div>
+        )
+        .add("ghost", () =>
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "50px" }}>
+                    <Button ghost element={button} className="mr5">Button</Button>
+                    <Button ghost active element={button} className="mr5">Button</Button>
+                    <Button ghost disabled element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" ghost element={button} className="mr5">Button</Button>
+                    <Button size="small" ghost element={button} className="mr5">Button</Button>
+                    <Button ghost element={button} className="mr5">Button</Button>
+                    <Button size="large" ghost element={button}>Button</Button>
+                </div>
+                <Icons ghost element={button} />
+            </div>
+        )
+        .add("basic", () =>
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "50px" }}>
+                    <Button basic element={button} className="mr5">Button</Button>
+                    <Button basic active element={button} className="mr5">Button</Button>
+                    <Button basic disabled element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" basic element={button} className="mr5">Button</Button>
+                    <Button size="small" basic element={button} className="mr5">Button</Button>
+                    <Button basic element={button} className="mr5">Button</Button>
+                    <Button size="large" basic element={button}>Button</Button>
+                </div>
+                <Icons basic element={button} />
+            </div>
+        )
+        .add("compact", () =>
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "50px" }}>
+                    <Button compact element={button} className="mr5">Button</Button>
+                    <Button compact active element={button} className="mr5">Button</Button>
+                    <Button compact disabled element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" compact element={button} className="mr5">Button</Button>
+                    <Button size="small" compact element={button} className="mr5">Button</Button>
+                    <Button compact element={button} className="mr5">Button</Button>
+                    <Button size="large" compact element={button}>Button</Button>
+                </div>
+                <Icons compact element={button} />
+            </div>
+        )
+        .add("circular", () =>
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "50px" }}>
+                    <Button circular element={button} className="mr5">Aa</Button>
+                    <Button circular active element={button} className="mr5">Aa</Button>
+                    <Button circular disabled element={button}>Aa</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" circular element={button} className="mr5">Aa</Button>
+                    <Button size="small" circular element={button} className="mr5">Aa</Button>
+                    <Button circular element={button} className="mr5">Aa</Button>
+                    <Button size="large" circular element={button}>Aa</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" icon={<SignoutIcon />} circular element={button} className="mr5" />
+                    <Button size="small" icon={<SignoutIcon />} circular element={button} className="mr5" />
+                    <Button icon={<SignoutIcon />} circular element={button} className="mr5" />
+                    <Button size="large" icon={<SignoutIcon />} circular element={button} />
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
+                    <Button size="small" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
+                    <Button icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
+                    <Button size="large" icon={<SignoutIcon />} iconPosition="right" circular element={button} />
+                </div>
+                <div className="flex">
+                    <Button icon={<SignoutIcon />} active circular element={button} className="mr5" />
+                    <Button icon={<SignoutIcon />} disabled circular element={button} />
+                </div>
+            </div>
+        )
+        .add("tag", () =>
+            <div className="flex flex-column">
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button size="small" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button size="large" tag={<Tag className="bg-red" />} element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button compact size="tiny" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button compact size="small" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button compact tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                    <Button compact size="large" tag={<Tag className="bg-red" />} element={button}>Button</Button>
+                </div>
+                <div className="flex">
+                    <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                    <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" compact element={button}>Button</Button>
+                </div>
+            </div>
+        )
+        .add("label", () =>
+            <div className="flex flex-column">
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button size="tiny" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button size="small" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button size="large" label={<Label>6</Label>} element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button compact size="tiny" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button compact size="small" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button compact label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                    <Button compact size="large" label={<Label>6</Label>} element={button}>Button</Button>
+                </div>
+                <div className="flex items-end" style={{ marginBottom: "50px" }}>
+                    <Button label={<Label>6</Label>} icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
+                    <Button label={<Label>6</Label>} icon={<SignoutIcon />} compact element={button}>Button</Button>
+                </div>
+                <div className="flex">
+                    <Button label={<Label className="bg-red">6</Label>} element={button}>Button</Button>
+                </div>
+            </div>
+        );
+}
 
 // TODO: Instead of component we should have shareable stories. I think we need a function that accept a Button component and return an array of stories. "variant-stories.jsx".
 
 export const Buttons = props => {
     return (
         <div className="flex items-start">
-            <div className="flex flex-column items-start">
+            {/* <div className="flex flex-column items-start">
                 <Button {...props}>Button</Button>
                 <Button active {...props}>Button</Button>
                 <Button disabled {...props}>Button</Button>
@@ -19,7 +201,7 @@ export const Buttons = props => {
                     <Button {...props} active basic>Button</Button>
                     <Button {...props} disabled basic>Button</Button>
                 </div>
-            </div>
+            </div> */}
             {/* Layout */}
             <div className="flex flex-column items-start">
                 <Button compact {...props}>Button</Button>
@@ -100,6 +282,7 @@ export const Buttons = props => {
                 <Button size="large" {...props} icon={<CalendarIcon />}></Button>
                 <Button size="large" compact {...props} icon={<CalendarIcon />}></Button>
             </div>
+            {/* CONTENT? */}
             {/* tag + text / tag + text + icon / label + text / label + text + icon */}
             <div className="flex flex-column items-start">
                 <Button tag={<Tag className="bg-red" />} {...props}>One</Button>
