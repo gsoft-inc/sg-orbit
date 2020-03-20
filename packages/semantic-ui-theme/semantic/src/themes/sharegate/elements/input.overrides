@@ -8,6 +8,10 @@
     min-width: 300px;
 }
 
+.ui.input.fluid > input {
+    min-width: 100%;
+}
+
 .ui.input.small > input {
     height: var(--scale-golf);
     line-height: var(--scale-golf);
