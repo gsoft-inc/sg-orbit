@@ -224,6 +224,12 @@
     mask-size: 16px 16px;
 }
 
+/* Toggle | STATE | Disabled/Read Only*/
+.ui.toggle.checkbox.disabled::before,
+.ui.toggle.checkbox.read-only::before {
+    cursor: default;
+}
+
 .ui.toggle.checkbox.checked::before {
     transform: translate3d(1.625rem, 0, 0);
     background-color:  @primary500;
@@ -241,4 +247,9 @@
 .ui.checkbox label > .icon,
 .ui.checkbox label > .label {
     margin-left: var(--scale-alpha)
+}
+
+/* State | Read Only */
+.ui.checkbox.read-only input.hidden + label {
+    cursor: default;
 }
