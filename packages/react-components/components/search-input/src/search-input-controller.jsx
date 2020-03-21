@@ -264,16 +264,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         return !isEmpty(query) && !disabled;
     }
 
-    getContainerClasses() {
-        const { fluid, className } = this.props;
-
-        return mergeClasses(
-            fluid ? "w-100" : "dib",
-            "search-input relative",
-            className
-        );
-    }
-
     renderResult = result => {
         const { resultRenderer } = this.props;
 
@@ -327,13 +317,19 @@ export class SearchInputController extends AutoControlledPureComponent {
     };
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid, className } = this.props;
         const { transformedResults, query } = this.state;
+
+        const containerClasses = mergeClasses(
+            fluid ? "w-100" : "dib",
+            "search-input relative outline-0",
+            className
+        );
 
         return (
             <>
                 <div
-                    className={this.getContainerClasses()}
+                    className={containerClasses}
                     ref={this._containerRef}
                     tabIndex={-1}
                 >
@@ -353,6 +349,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
                         fluid={fluid}
+                        className="outline-0"
                     />
                     {this.renderClearButton()}
 

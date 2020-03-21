@@ -157,8 +157,8 @@ export function PureInput(props) {
         }
     };
 
-    const classes = mergeClasses(
-        "relative",
+    const containerClasses = mergeClasses(
+        "relative outline-0",
         fluid ? "w-100" : "dib",
         className
     );
@@ -168,7 +168,7 @@ export function PureInput(props) {
     return (
         <div
             ref={containerRef}
-            className={classes}
+            className={containerClasses}
             tabIndex={-1}
             data-testid="input"
         >

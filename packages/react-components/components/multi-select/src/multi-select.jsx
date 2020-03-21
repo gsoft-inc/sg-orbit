@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
@@ -339,8 +339,10 @@ export class MultiSelect extends AutoControlledPureComponent {
     render() {
         const { className } = this.props;
 
-        const defaultClasses = "flex flex-wrap";
-        const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        const classes = mergeClasses(
+            "flex flex-wrap outline-0",
+            className
+        );
 
         return (
             <div
