@@ -43,15 +43,53 @@ A select can allow a user to make multiple choices.
 
 The following constants are used in the examples below:
 
-export const GENDERS = [
-    selectItem("Male", "Male"),
-    selectItem("Female", "Female")
+export const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
 ];
 
 ```javascript dark
-const GENDERS = [
-    selectItem("Male", "Male"),
-    selectItem("Female", "Female")
+const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
 ];
 ```
 
@@ -63,7 +101,7 @@ A default multiple values select.
     <Story name="default">
         <Select
             multiple
-            options={GENDERS}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -75,10 +113,10 @@ A multiple values select can have initial values. _Dont forget to specify values
 <Preview>
     <Story name="selected values">
         <Select
-            placeholder="Gender"
+            placeholder="Select language"
             multiple
-            defaultValue={["Female"]}
-            options={GENDERS}
+            defaultValue={["Dutch"]}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -90,10 +128,10 @@ A multiple values select can display an [icon](?path=/docs/materials-icons--page
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="Gender"
+            placeholder="Select language"
             multiple
             icon={<MagnifierIcon />}
-            options={GENDERS}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -105,10 +143,10 @@ A multiple values select can take all the space available.
 <Preview>
     <Story name="fluid">
         <Select
-            placeholder="Gender"
+            placeholder="Select language"
             multiple
             fluid
-            options={GENDERS}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -120,10 +158,10 @@ A multiple values select can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Gender"
+            placeholder="Select language"
             multiple
             disabled
-            options={GENDERS}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -135,10 +173,10 @@ A multiple values select can be searchable.
 <Preview>
     <Story name="searchable">
         <Select
-            placeholder="Gender"
+            placeholder="Select language"
             multiple
             search
-            options={GENDERS}
+            options={LANGUAGES}
         />
     </Story>
 </Preview>
@@ -150,8 +188,8 @@ A multiple values select can be searchable.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus multiple placeholder="Gender" options={GENDERS} />
-        <Select autofocus multiple disabled placeholder="Gender" options={GENDERS} />
+        <Select autofocus multiple placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus multiple disabled placeholder="Select language" options={LANGUAGES} />
     </div>
 </Story>
 
@@ -162,8 +200,8 @@ A multiple values select can be searchable.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} multiple placeholder="Gender" options={GENDERS} />
-        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Gender" options={GENDERS} />
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
     </div>
 </Story>
 
@@ -173,5 +211,5 @@ A multiple values select can be searchable.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select multiple options={GENDERS} />} />
+    <RefLogger component={<Select multiple options={LANGUAGES} />} />
 </Story>
