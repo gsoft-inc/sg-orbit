@@ -127,12 +127,6 @@ export class DatePickerTextboxInput extends PureComponent {
     handleBlur = withHandlerProxy(this, "onBlur");
     handleClearButtonClick = withHandlerProxy(this, "onClear");
 
-    getCssClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(className);
-    }
-
     renderClearButton() {
         const { allowClear, open } = this.props;
 
