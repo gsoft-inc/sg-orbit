@@ -1127,12 +1127,17 @@ stories("/customization")
                  defaultOpen: true
              })
     )
-    .add("css class",
-         () =>
-             createDateRangePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 className: "border-red"
-             })
+    .add("styling", () =>
+        <div className="flex">
+            {createDateRangePicker({
+                initialVisibleMonth: moment(DEFAULT_DATE),
+                className: "border-red mr5"
+            })}
+            {createDateRangePicker({
+                initialVisibleMonth: moment(DEFAULT_DATE),
+                style: { border: "1px solid red" }
+            })}
+        </div>
     );
 
 stories("/z-index")

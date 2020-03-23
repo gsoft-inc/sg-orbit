@@ -14,7 +14,8 @@ export function createSharedStories(label, stories) {
                 <div className="flex mb5">
                     <Label element={label} className="mr5">Notification Sent</Label>
                     <Label highlight element={label} className="mr5">Notification Sent</Label>
-                    <Label className="bg-red" element={label}>Notification Sent</Label>
+                    <Label className="bg-red mr5" element={label}>Notification Sent</Label>
+                    <Label style={{ backgroundColor: "red" }} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
                     <Label size="mini" element={label} className="mr5">Notification Sent</Label>

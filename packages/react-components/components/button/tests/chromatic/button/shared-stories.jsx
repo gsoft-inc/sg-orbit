@@ -113,7 +113,8 @@ export function createSharedStories(button, stories) {
                         <Button element={button} className="mr5">Button</Button>
                         <Button active element={button} className="mr5">Button</Button>
                         <Button disabled element={button} className="mr5">Button</Button>
-                        <Button className="bg-red" element={button}>Button</Button>
+                        <Button className="bg-red mr5" element={button}>Button</Button>
+                        <Button style={{ backgroundColor: "red" }} element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
                         <Button size="tiny" element={button} className="mr5">Button</Button>

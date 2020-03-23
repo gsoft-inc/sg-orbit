@@ -216,10 +216,15 @@ stories("/customization")
                  clearButton: <MultiSelect.ClearButton text="Custom clear text" />
              })
     )
-    .add("css class",
-         () =>
-             createMultiSelect({
-                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 className: "bg-red border-red"
-             })
+    .add("styling", () =>
+        <div className="flex">
+            {createMultiSelect({
+                defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
+                className: "bg-red mr5"
+            })}
+            {createMultiSelect({
+                defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
+                style: { backgroundColor: "red" }
+            })}
+        </div>
     );

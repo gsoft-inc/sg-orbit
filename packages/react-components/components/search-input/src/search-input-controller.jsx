@@ -5,7 +5,7 @@ import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
-import { arrayOf, bool, func, number, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
 
@@ -39,7 +39,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocusDelay: number,
         fluid: bool,
         size: oneOf(SIZES),
-        className: string
+        className: string,
+        style: object
     };
 
     static defaultProps = {
@@ -306,7 +307,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     render() {
-        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid, className } = this.props;
+        const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid, className, style } = this.props;
         const { transformedResults, query } = this.state;
 
         const searchClasses = mergeClasses(
@@ -334,6 +335,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                         loading={loading && !disabled}
                         fluid={fluid}
                         className={searchClasses}
+                        style={style}
                     />
                 </Ref>
 

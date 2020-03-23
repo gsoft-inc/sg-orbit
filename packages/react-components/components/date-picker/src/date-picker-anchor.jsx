@@ -1,6 +1,6 @@
 import { BOTTOM_LEFT, POSITIONS, Popup } from "@orbit-ui/react-popup";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
+import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class DatePickerAnchor extends PureComponent {
@@ -16,7 +16,8 @@ export class DatePickerAnchor extends PureComponent {
         closeOnBlur: bool,
         closeOnOutsideClick: bool,
         fluid: bool,
-        className: string
+        className: string,
+        style: object
     };
 
     static defaultProps = {
@@ -33,7 +34,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
+        const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
 
         return (
             <Popup
@@ -47,6 +48,7 @@ export class DatePickerAnchor extends PureComponent {
                 closeOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
                 className={className}
+                style={style}
             >
                 {calendar}
             </Popup>

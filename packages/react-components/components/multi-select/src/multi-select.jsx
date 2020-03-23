@@ -5,7 +5,7 @@ import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { MultiSelectSelectedItems } from "./multi-select-selected-items";
-import { arrayOf, bool, func, node, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
@@ -139,6 +139,10 @@ export class MultiSelect extends AutoControlledPureComponent {
          * Additional classes.
          */
         className: string,
+        /**
+         * Custom inline style.
+         */
+        style: object,
         /**
          * Used by interaction tests.
          * @ignore
@@ -337,7 +341,7 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     render() {
-        const { className } = this.props;
+        const { className, style } = this.props;
 
         const classes = mergeClasses(
             "flex flex-wrap outline-0",
@@ -347,6 +351,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         return (
             <div
                 className={classes}
+                style={style}
                 tabIndex={-1}
             >
                 {this.renderDropDown()}

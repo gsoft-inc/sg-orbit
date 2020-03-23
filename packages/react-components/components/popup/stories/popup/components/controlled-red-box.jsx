@@ -11,7 +11,7 @@ export class ControlledRedBox extends PureComponent {
     };
 
     render() {
-        const { position, offsets, className } = this.props;
+        const { position, offsets, ...rest } = this.props;
         const { open } = this.state;
 
         return (
@@ -23,7 +23,7 @@ export class ControlledRedBox extends PureComponent {
                     position={position}
                     offsets={offsets}
                     onVisibilityChange={this.handleVisibilityChange}
-                    className={className}
+                    {...rest}
                 />
             </>
         );

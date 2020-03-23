@@ -303,4 +303,14 @@ stories()
                 })}
             </div>
         </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            {createSelect({
+                className: "border-red mr5"
+            })}
+            {createSelect({
+                style: { border: "1px solid red" }
+            })}
+        </div>
     );

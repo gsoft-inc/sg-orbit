@@ -1,7 +1,7 @@
 import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "@orbit-ui/react-components-shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
-import { arrayOf, bool, func, node, oneOf, string } from "prop-types";
+import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
 
@@ -102,7 +102,11 @@ export class Popup extends AutoControlledPureComponent {
         /**
          * Additional classes.
          */
-        className: string
+        className: string,
+        /**
+         * Custom inline style.
+         */
+        style: object
     };
 
     static defaultProps = {
@@ -293,16 +297,6 @@ export class Popup extends AutoControlledPureComponent {
         };
     }
 
-    getCssClasses() {
-        const { fluid, className } = this.props;
-
-        return mergeClasses(
-            fluid ? "w-100" : "dib",
-            "relative",
-            className
-        );
-    }
-
     open(event) {
         const { onVisibilityChange } = this.props;
 
@@ -403,7 +397,14 @@ export class Popup extends AutoControlledPureComponent {
     }
 
     render() {
+        const { fluid, className, style } = this.props;
         const { open } = this.state;
+
+        const classes = mergeClasses(
+            fluid ? "w-100" : "dib",
+            "relative",
+            className
+        );
 
         return (
             <>
@@ -412,7 +413,8 @@ export class Popup extends AutoControlledPureComponent {
                     // For more info: https://github.com/facebook/react/issues/6410
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
-                    className={this.getCssClasses()}
+                    className={classes}
+                    style={style}
                     tabIndex="-1"
                     ref={this._containerRef}
                 >

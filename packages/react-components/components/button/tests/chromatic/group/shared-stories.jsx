@@ -12,7 +12,7 @@ function Groups({ element, ...rest }) {
 
     return (
         <div className="flex">
-            <div className="flex flex-column items-start mr8">
+            <div className="flex flex-column items-start mr12">
                 <Group element={group} className="mb5">
                     <Button>One</Button>
                     <Button>Two</Button>
@@ -98,10 +98,20 @@ function Groups({ element, ...rest }) {
                     <Button active label={<Label>6</Label>}>Two</Button>
                     <Button label={<Label>6</Label>}>Tree</Button>
                 </Group>
-                <Group element={group}>
+                <Group element={group} className="mb5">
                     <Button disabled tag={<Tag className="bg-red" />}>One</Button>
                     <Button active tag={<Tag className="bg-red" />}>Two</Button>
                     <Button tag={<Tag className="bg-red" />}>Tree</Button>
+                </Group>
+                <Group element={group} className="bg-red mb5">
+                    <Button>One</Button>
+                    <Button>Two</Button>
+                    <Button>Three</Button>
+                </Group>
+                <Group element={group} style={{ backgroundColor: "red" }}>
+                    <Button>One</Button>
+                    <Button>Two</Button>
+                    <Button>Three</Button>
                 </Group>
             </div>
         </div>

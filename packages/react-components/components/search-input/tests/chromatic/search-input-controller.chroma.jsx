@@ -274,10 +274,14 @@ stories("/customization")
                  }
              })
     )
-    .add("class name",
-         () =>
-             createSearchInputController({
-                 className: "bg-red-inner"
-             })
+    .add("styling", () =>
+        <div className="flex">
+            {createSearchInputController({
+                className: "border-red mr5"
+            })}
+            {createSearchInputController({
+                style: { border: "1px solid red" }
+            })}
+        </div>
     );
 

@@ -12,25 +12,49 @@ function stories(segment) {
 }
 
 stories()
-    .add("default",
-         () =>
-             <div className="flex">
-                 <div className="w-50">
-                     <TextArea placeholder="Tell us more" />
-                     <TextArea disabled placeholder="Tell us more" />
-                     <TextArea placeholder="Tell us more" style={{ minHeight: 100 }} />
-                     <TextArea rows={2} placeholder="Tell us more" />
-                     <TextArea success placeholder="Tell us more" />
-                     <TextArea error placeholder="Tell us more" />
-                     <TextArea focused placeholder="Tell us more" />
-                     <TextArea transparent placeholder="Tell us more" />
-                     <TextArea resizable placeholder="Tell us more" />
-                 </div>
-                 <div className="w-50">
-                     <TextArea size="small" placeholder="Tell us more" />
-                     <TextArea size="medium" placeholder="Tell us more" />
-                     <TextArea size="large" placeholder="Tell us more" />
-                     <TextArea fluid placeholder="Tell us more" />
-                 </div>
-             </div>
+    .add("default", () =>
+        <TextArea />
+    )
+    .add("placeholder", () =>
+        <TextArea placeholder="Tell us more" />
+    )
+    .add("disabled", () =>
+        <div className="flex">
+            <TextArea disabled className="mr5" />
+            <TextArea placeholder="Tell us more" disabled />
+        </div>
+    )
+    .add("error", () =>
+        <TextArea error placeholder="Tell us more" />
+    )
+    .add("focused", () =>
+        <TextArea focused placeholder="Tell us more" />
+    )
+    .add("transparent", () =>
+        <TextArea transparent placeholder="Tell us more" />
+    )
+    .add("resizable", () =>
+        <TextArea resizable placeholder="Tell us more" />
+    )
+    .add("rows", () =>
+        <div className="flex items-end">
+            <TextArea rows={2} placeholder="Tell us more" className="mr5" />
+            <TextArea rows={20} placeholder="Tell us more" className="mr5" />
+        </div>
+    )
+    .add("fluid", () =>
+        <TextArea fluid placeholder="Tell us more" />
+    )
+    .add("size", () =>
+        <div className="flex items-end">
+            <TextArea size="small" placeholder="Tell us more" className="mr5" />
+            <TextArea size="medium" placeholder="Tell us more" className="mr5" />
+            <TextArea size="large" placeholder="Tell us more" />
+        </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            <TextArea className="bg-red mr5" placeholder="Tell us more" />
+            <TextArea style={{ backgroundColor: "red" }} placeholder="Tell us more" />
+        </div>
     );

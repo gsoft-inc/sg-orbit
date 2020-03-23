@@ -742,12 +742,17 @@ stories("/customization")
                  defaultOpen: true
              })
     )
-    .add("css class",
-         () =>
-             createSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 className: "border-red"
-             })
+    .add("styling", () =>
+        <div className="flex">
+            {createSingleDatePicker({
+                initialVisibleMonth: moment(DEFAULT_DATE),
+                className: "border-red mr5"
+            })}
+            {createSingleDatePicker({
+                initialVisibleMonth: moment(DEFAULT_DATE),
+                style: { border: "1px solid red" }
+            })}
+        </div>
     );
 
 stories("/z-index")

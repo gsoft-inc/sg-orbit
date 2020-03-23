@@ -218,4 +218,18 @@ stories()
                 </div>
             </div>
         </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            <div style={{ marginRight: "200px" }}>
+                {createTooltip({
+                    className: "bg-red"
+                })}
+            </div>
+            <div>
+                {createTooltip({
+                    style: { backgroundColor: "red" }
+                })}
+            </div>
+        </div>
     );

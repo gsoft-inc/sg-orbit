@@ -257,6 +257,12 @@ stories()
                 <Input size="large" iconPosition="left" loading placeholder="Search..." />
             </div>
         </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            <Input className="border-red mr5" />
+            <Input style={{ border: "1px solid red" }} />
+        </div>
     );
 
 function setRedBackground(element) {
