@@ -4,11 +4,10 @@ import { CloseIcon, MagnifierIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
 import { RESULT_SHAPE } from "./results";
-import { Search } from "semantic-ui-react";
+import { Ref, Search } from "semantic-ui-react";
 import { arrayOf, bool, func, number, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import cx from "classnames";
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -149,7 +148,7 @@ export class SearchInputController extends AutoControlledPureComponent {
             }
         };
 
-        if (!this._clearButtonRef.current.contains(event.relatedTarget)) {
+        if (!isNil(this._clearButtonRef.current) && !this._clearButtonRef.current.contains(event.relatedTarget)) {
             // Without a defered execution the selected value is always different than the typed value.
             setTimeout(() => {
                 const { value, query } = this.state;
@@ -228,10 +227,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onOutsideClick } = this.props;
 
         if (!isNil(onOutsideClick)) {
-            if (this._containerRef.current) {
-                if (!this._containerRef.current.contains(event.target)) {
-                    onOutsideClick(event, this.props);
-                }
+            if (!isNil(this._containerRef.current) && !this._containerRef.current.contains(event.target)) {
+                onOutsideClick(event, this.props);
             }
         }
     };
@@ -272,14 +269,30 @@ export class SearchInputController extends AutoControlledPureComponent {
         return resultRenderer(data, this.props);
     };
 
+    renderClearButton() {
+        if (!this.canClear()) {
+            return null;
+        }
+
+        return (
+            <Button
+                icon={<CloseIcon />}
+                onClick={this.handleClear}
+                ref={this._clearButtonRef}
+                data-testid="search-input-clear-button"
+            />
+        );
+    }
+
     renderInput = () => {
         const { open, loading, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
 
         return (
             <Input
+                onKeyDown={this.handleInputKeyDown}
                 icon={<MagnifierIcon />}
                 iconPosition="left"
-                onKeyDown={this.handleInputKeyDown}
+                button={this.renderClearButton()}
                 loading={loading && !disabled}
                 autofocus={open || autofocus}
                 autofocusDelay={open ? undefined : autofocusDelay}
@@ -292,47 +305,18 @@ export class SearchInputController extends AutoControlledPureComponent {
         );
     }
 
-    renderClearButton = () => {
-        return (
-            <div className={cx("clear-btn-container absolute", { dn: !this.canClear() })}>
-                <Button
-                    ghost
-                    secondary
-                    icon={<CloseIcon />}
-                    size="tiny"
-                    onClick={this.handleClear}
-                    ref={this._clearButtonRef}
-                    data-testid="search-input-clear-button"
-                />
-
-                <style jsx>{`
-                    .clear-btn-container {
-                        top: 50%;
-                        transform: translateX(50%) translateY(-50%);
-                        right: var(--scale-echo)
-                    }
-                `}</style>
-            </div>
-        );
-    };
-
     render() {
         const { open, loading, disabled, noResultsMessage, minCharacters, placeholder, fluid, className } = this.props;
         const { transformedResults, query } = this.state;
 
-        const containerClasses = mergeClasses(
-            fluid ? "w-100" : "dib",
-            "search-input relative outline-0",
+        const searchClasses = mergeClasses(
+            "outline-0",
             className
         );
 
         return (
             <>
-                <div
-                    className={containerClasses}
-                    ref={this._containerRef}
-                    tabIndex={-1}
-                >
+                <Ref innerRef={this._containerRef}>
                     <Search
                         open={open && !disabled}
                         minCharacters={minCharacters}
@@ -349,16 +333,9 @@ export class SearchInputController extends AutoControlledPureComponent {
                         tabIndex={disabled ? "-1" : "0"}
                         loading={loading && !disabled}
                         fluid={fluid}
-                        className="outline-0"
+                        className={searchClasses}
                     />
-                    {this.renderClearButton()}
-
-                    <style jsx>{`
-                        .search-input.search-input :global(.prompt) {
-                            padding-right: var(--scale-juliett) !important;
-                        }
-                    `}</style>
-                </div>
+                </Ref>
 
                 <If condition={open}>
                     <DOMEventListener name="click" on={this.handleDocumentClick} />

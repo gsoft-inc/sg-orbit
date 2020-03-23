@@ -284,7 +284,11 @@ stories("/button")
         <Input button={<Button icon={<CloseIcon />} />} disabled />
     )
     .add("loading", () =>
-        <Input button={<Button icon={<CloseIcon />} />} loading />
+        <div className="flex">
+            <Input button={<Button icon={<CloseIcon />} />} loading className="mr5" />
+            <Input icon={<CloseIcon />} loading className="mr5" />
+            <Input icon={<CloseIcon />} loading iconPosition="left" />
+        </div>
     )
     .add("size", () =>
         <div className="flex items-end">
