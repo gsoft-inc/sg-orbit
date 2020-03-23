@@ -16,7 +16,7 @@
 
 
 /* Result */
-@resultsWidth: 100%;
+@resultsWidth: auto;
 @resultDivider: 0;
 @resultsBorder: 0;
 @resultHoverBackground: @cloud50;
