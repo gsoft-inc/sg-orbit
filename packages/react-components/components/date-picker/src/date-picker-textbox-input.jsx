@@ -2,7 +2,7 @@ import { Button } from "@orbit-ui/react-button";
 import { CalendarIcon, CloseIcon } from "@orbit-ui/react-icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "@orbit-ui/react-input";
-import { KEYS, isNullOrEmpty, mergeClasses, withHandlerProxy } from "@orbit-ui/react-components-shared";
+import { KEYS, isNullOrEmpty, withHandlerProxy } from "@orbit-ui/react-components-shared";
 import { PureComponent, createRef } from "react";
 import { ResizeObserver } from "./resize-observer";
 import { bool, func, oneOf, string } from "prop-types";
