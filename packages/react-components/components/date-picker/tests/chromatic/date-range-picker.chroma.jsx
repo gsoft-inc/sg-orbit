@@ -45,9 +45,18 @@ function createDateRangePicker(props = {}) {
 stories()
     .add("fluid",
          () =>
-             createDateRangePicker({
-                 fluid: true
-             })
+             <div className="flex flex-column">
+                 <div className="mb5">
+                     {createDateRangePicker({
+                         fluid: true
+                     })}
+                 </div>
+                 <div className="w-10">
+                     {createDateRangePicker({
+                         fluid: true
+                     })}
+                 </div>
+             </div>
     )
     .add("size",
          () =>
