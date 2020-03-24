@@ -35,18 +35,18 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -57,20 +57,20 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -81,20 +81,20 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -105,20 +105,20 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -127,22 +127,22 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
-                    options: [createMale(), createFemale({ description: "I am a description!" })],
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
-                    options: [createMale(), createFemale({ description: "I am a description!" })],
-                    defaultOpen: true
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
-                    options: [createMale(), createFemale({ description: "I am a description!" })],
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -153,37 +153,37 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
                     size: "small",
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
                     size: "large",
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>
@@ -194,37 +194,63 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
                     size: "small",
-                    defaultOpen: true,
+                    open: true,
+                    fluid: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
                     size: "small",
-                    defaultOpen: true
+                    open: true,
+                    fluid: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    size: "small",
+                    open: true,
+                    fluid: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
-                    defaultOpen: true,
+                    open: true,
+                    fluid: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    defaultOpen: true
+                    open: true,
+                    fluid: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    open: true,
+                    fluid: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
                     size: "large",
-                    defaultOpen: true,
+                    open: true,
+                    fluid: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
                     size: "large",
-                    defaultOpen: true
+                    open: true,
+                    fluid: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
+                    size: "large",
+                    fluid: true,
+                    open: true
                 })}
             </div>
         </div>
@@ -235,37 +261,37 @@ stories()
                 {createSelect({
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
                     size: "small",
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
                     size: "small",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
             <div className="flex">
                 {createSelect({
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
                     size: "large",
-                    defaultOpen: true,
+                    open: true,
                     className: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
                     size: "large",
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>

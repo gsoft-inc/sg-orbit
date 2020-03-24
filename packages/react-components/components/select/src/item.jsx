@@ -14,6 +14,12 @@ const AVATAR_SHAPE = {
     alt: string
 };
 
+const SIZES_TO_AVATAR = {
+    [SMALL]: "tiny",
+    [MEDIUM]: "small",
+    [LARGE]: "small"
+};
+
 const propTypes = {
     /**
      * The item text.
@@ -56,12 +62,6 @@ function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avat
     }
 }
 
-function renderIcons(icons, size) {
-    const normalizedIcons = isArray(icons) ? icons : [icons];
-
-    return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
-}
-
 export function SelectItem(props) {
     const { text, icons, iconsPosition, avatar, description, children, ...rest } = props;
     const context = useContext(DropdownContext);
@@ -70,12 +70,6 @@ export function SelectItem(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const renderAvatar = () => {
-        const SIZES_TO_AVATAR = {
-            [SMALL]: "tiny",
-            [MEDIUM]: "small",
-            [LARGE]: "small"
-        };
-
         const defaults = {
             avatar: true,
             size: SIZES_TO_AVATAR[context.size]
@@ -92,8 +86,6 @@ export function SelectItem(props) {
                         {avatar}
                     </SemanticImage>
                 );
-
-                // return avatar;
             }
 
             return SemanticImage.create({
@@ -101,6 +93,12 @@ export function SelectItem(props) {
                 ...defaults
             });
         }
+    };
+
+    const renderIcons = () => {
+        const normalizedIcons = isArray(icons) ? icons : [icons];
+
+        return <>{normalizedIcons.map((x, index) => createIconForControl(x, context.size, { key: index }))}</>;
     };
 
     const renderText = hasRightContent => {
