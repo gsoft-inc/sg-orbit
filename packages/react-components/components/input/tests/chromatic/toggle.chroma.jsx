@@ -75,6 +75,29 @@ stories()
                 {createToggle({
                     icons: <CommunicationIcon />,
                     text: null,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: <CommunicationIcon />,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>,
+                    size: "tiny"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    icons: <CommunicationIcon />,
+                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -144,6 +167,18 @@ stories()
                 {createToggle({
                     label: <Label>6</Label>,
                     text: null,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    label: <Label>6</Label>,
+                    size: "tiny"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createToggle({
+                    label: <Label>6</Label>,
+                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -180,6 +215,10 @@ stories()
         <div className="flex flex-column">
             <div className="flex items-end mb5">
                 {createToggle({
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createToggle({
                     size: "small",
                     className: "mr5"
                 })}
@@ -191,6 +230,11 @@ stories()
                 })}
             </div>
             <div className="flex items-end">
+                {createToggle({
+                    size: "tiny",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
                 {createToggle({
                     size: "small",
                     defaultChecked: true,

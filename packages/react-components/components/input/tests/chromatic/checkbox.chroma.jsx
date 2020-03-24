@@ -102,6 +102,29 @@ stories()
                 {createCheckbox({
                     icons: <CommunicationIcon />,
                     text: null,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: <CommunicationIcon />,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>,
+                    size: "tiny"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    icons: <CommunicationIcon />,
+                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -171,6 +194,18 @@ stories()
                 {createCheckbox({
                     label: <Label>6</Label>,
                     text: null,
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    size: "tiny"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createCheckbox({
+                    label: <Label>6</Label>,
+                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -207,6 +242,10 @@ stories()
         <div className="flex flex-column">
             <div className="flex items-end mb5">
                 {createCheckbox({
+                    size: "tiny",
+                    className: "mr5"
+                })}
+                {createCheckbox({
                     size: "small",
                     className: "mr5"
                 })}
@@ -218,6 +257,11 @@ stories()
                 })}
             </div>
             <div className="flex items-end">
+                {createCheckbox({
+                    size: "tiny",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
                 {createCheckbox({
                     size: "small",
                     defaultChecked: true,
