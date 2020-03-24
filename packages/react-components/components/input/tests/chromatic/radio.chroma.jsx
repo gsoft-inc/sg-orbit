@@ -75,29 +75,6 @@ stories()
                 {createRadio({
                     icons: <CommunicationIcon />,
                     text: null,
-                    size: "tiny",
-                    className: "mr5"
-                })}
-                {createRadio({
-                    icons: <CommunicationIcon />,
-                    size: "tiny",
-                    className: "mr5"
-                })}
-                {createRadio({
-                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
-                    size: "tiny",
-                    className: "mr5"
-                })}
-                {createRadio({
-                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
-                    label: <Label>6</Label>,
-                    size: "tiny"
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
-                    icons: <CommunicationIcon />,
-                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -167,18 +144,6 @@ stories()
                 {createRadio({
                     label: <Label>6</Label>,
                     text: null,
-                    size: "tiny",
-                    className: "mr5"
-                })}
-                {createRadio({
-                    label: <Label>6</Label>,
-                    size: "tiny"
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
-                    label: <Label>6</Label>,
-                    text: null,
                     size: "small",
                     className: "mr5"
                 })}
@@ -215,10 +180,6 @@ stories()
         <div className="flex flex-column">
             <div className="flex mb5">
                 {createRadio({
-                    size: "tiny",
-                    className: "mr5"
-                })}
-                {createRadio({
                     size: "small",
                     className: "mr5"
                 })}
@@ -230,11 +191,6 @@ stories()
                 })}
             </div>
             <div className="flex">
-                {createRadio({
-                    size: "tiny",
-                    defaultChecked: true,
-                    className: "mr5"
-                })}
                 {createRadio({
                     size: "small",
                     defaultChecked: true,

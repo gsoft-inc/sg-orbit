@@ -153,32 +153,6 @@
     top: 2px;
 }
 
-/* SIZE | Tiny */
-.ui.toggle.tiny.checkbox .box:after,
-.ui.toggle.tiny.checkbox label:after {
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0.75rem;
-    height: 0.75rem;
-}
-
-.ui.toggle.checkbox.tiny input:checked ~ .box::after,
-.ui.toggle.checkbox.tiny input:checked ~ label::after {
-    left: 1.125rem;
-}
-
-.ui.toggle.tiny.checkbox .box:before,
-.ui.toggle.tiny.checkbox label:before {
-    width: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.ui.toggle.checkbox.tiny .box,
-.ui.toggle.checkbox.tiny label {
-    padding-left: 2.25rem!important;
-}
-
 /* SIZE | Small */
 .ui.toggle.small.checkbox .box:after,
 .ui.toggle.small.checkbox label:after {
@@ -276,24 +250,20 @@
 
 .ui.checkbox label {
     padding-left: 1.75rem;
-    font-size: 0.875rem;
-}
-
-.ui.checkbox.tiny label {
-    font-size: var(--type-scale-9);
+    font-size: var(	--type-scale-7);
 }
 
 .ui.checkbox.small label {
-    font-size: 0.875rem;
+    font-size: var(--type-scale-8);
 }
 
 .ui.checkbox.large label {
-    font-size: 1rem;
+    font-size: var(--type-scale-5);
 }
 
 /* Large */
 .ui.checkbox.toggle.large label {
-    font-size: 1rem;
+    font-size: var(--type-scale-5);
 }
 
 .ui.checkbox .box:hover::before,
@@ -369,18 +339,6 @@
     mask-size: 16px 16px;
 }
 
-/* SIZE | Tiny */
-.ui.toggle.tiny.checkbox::before {
-    width: 12px;
-    height: 12px;
-    top: 50%;
-    transform: translate3d(0.125rem, -50%, 0);
-}
-
-.ui.toggle.tiny.checkbox.checked::before {
-    transform: translate3d(1.125rem, -50%, 0);
-}
-
 /* SIZE | Small */
 .ui.toggle.small.checkbox::before {
     width: 12px;
@@ -419,11 +377,6 @@
     top: 50%;
 }
 
-/* Checkmark | SIZE | Tiny */
-.ui.toggle.checkbox.tiny::before {
-    mask-size: 12px 12px;
-}
-
 /* Checkmark | SIZE | Small */
 .ui.toggle.checkbox.small::before {
     mask-size: 12px 12px;
@@ -452,27 +405,6 @@
 .ui.checkbox.read-only input:hover ~ .box:before,
 .ui.checkbox.read-only input:hover ~ label:before {
   border: 2px solid var(--cloud-100);
-}
-
-/* LAYOUT | SIZE | Tiny | Checkbox */
-.ui.checkbox.tiny .box,
-.ui.checkbox.tiny label {
-    padding-left: 1.25rem!important;
-}
-
-.ui.checkbox.tiny .box:before,
-.ui.checkbox.tiny label:before {
-    width: 1rem;
-    height: 1rem;
-}
-
-.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ .box:after,
-.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ label:after,
-.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after {
-    width: 1rem;
-    height: 1rem;
-    mask-size: 1rem 1rem;
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */
@@ -515,13 +447,6 @@
     width: 1.5rem;
     height: 1.5rem;
     mask-size: 1.5rem 1.5rem;
-}
-
-/* LAYOUT | SIZE | Tiny | Checkbox */
-.ui.radio.checkbox.tiny .box:after,
-.ui.radio.checkbox.tiny label:after {
-  width: 1rem;
-  height: 1rem;
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */

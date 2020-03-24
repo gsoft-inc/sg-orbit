@@ -5,7 +5,7 @@ export const DEFAULT_SIZE = MEDIUM;
 
 const CONTROLS_SIZES = {
     [TINY]: TINY,
-    [SMALL]: SMALL,
+    [SMALL]: TINY,
     [MEDIUM]: SMALL,
     [LARGE]: MEDIUM,
     [BIG]: LARGE,
