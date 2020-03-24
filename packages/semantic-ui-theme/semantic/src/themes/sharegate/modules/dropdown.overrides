@@ -20,7 +20,7 @@
     padding: 0 2rem 0 0.5rem;
     height: 2rem;
     min-height: 0;
-    font-size: 1rem;
+    font-size: var(--type-scale-8);
     line-height: 2rem;
 }
 
@@ -45,7 +45,7 @@
 /* SKIN | Dropdown/Select | Text */
 .ui.dropdown > .text {
     line-height: 1;
-    font-size: 1.125rem;
+    font-size: var(--type-scale-7);
     padding-right: 0.5em;
 }
 
@@ -56,7 +56,7 @@
 /* SKIN | SIZE | Dropdown/Select | Text */
 .ui.dropdown.small > .text {
     line-height: 2rem;
-    font-size: 1rem;
+    font-size: var(--type-scale-8);
 }
 
 /* SKIN | Select | Text */
@@ -163,7 +163,12 @@
 
 /* SIZE | Small */
 .ui.selection.dropdown.small.with-icon {
-    padding-left: var(--scale-golf);
+    padding-left: calc(var(--scale-foxtrot) + 4px);
+}
+
+/* SIZE | Large */
+.ui.selection.dropdown.large.with-icon {
+    padding-left: calc(var(--scale-golf) + 4px);
 }
 
 /* CONTENT | Item | With description */
@@ -525,8 +530,8 @@
 
 /* SKIN | Icon  */
 .ui.selection.dropdown.with-icon,
-.ui.search.selection.dropdown.with-icon > input.search {
-    padding-left: calc(var(--scale-golf) + 4px);
+.ui.search.selection.dropdown.with-icon:not(.multiple) > input.search {
+    padding-left: var(--scale-golf);
 }
 
 /* LAYOUT | Inline | Icon */
@@ -554,7 +559,7 @@
 *******************************/
 .ui.search.dropdown > input.search {
     min-height: 38px;
-    font-size: 1rem;
+    font-size: var(--type-scale-7);
 }
 
 /* SIZE | Small */
@@ -567,8 +572,8 @@
 }
 
 /* With Icon */
-.ui.search.selection.dropdown.small.with-icon > input.search {
-    padding-left: var(--scale-golf);
+.ui.search.selection.dropdown.small.with-icon:not(.multiple) > input.search {
+    padding-left: calc(var(--scale-foxtrot) + 4px);
 }
 
 .ui.search.multiple.selection.dropdown.small > input.search {
@@ -583,10 +588,15 @@
 
 /* SIZE | Large */
 .ui.search.dropdown.large > input.search {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
     height: 3rem;
     min-height: 0;
     line-height: 3rem;
+}
+
+/* With Icon */
+.ui.search.selection.dropdown.large.with-icon:not(.multiple) > input.search {
+    padding-left: calc(var(--scale-golf) + 4px);
 }
 
 /*******************************
@@ -673,7 +683,7 @@
 
 /* CONTENT | Multiple | Label */
 .ui.multiple.dropdown > .label {
-    font-size: 1rem;
+    font-size: var(--type-scale-8);
     padding: 0 0.5rem 0 1rem;
     margin: 0;
     box-shadow: 0px 0px 0px 0 @cloud200 inset;
@@ -700,15 +710,25 @@
 
 /* CONTENT | Multiple | Label | Delete icon */
 .ui.multiple.dropdown .label > .delete.icon {
-    width: @scaleEcho;
-    height: @scaleEcho;
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+    margin-top: 1px;
     margin-left: 4px;
-    mask-size: 20px 20px!important;
+    mask-size: var(--scale-delta) var(--scale-delta)!important;
     background-color: @marine300;
 }
 
+.ui.multiple.dropdown.small .label > .delete.icon {
+    margin-top: 0;
+    width: var(--scale-charlie);
+    height: var(--scale-charlie);
+    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
+}
+
 .ui.multiple.dropdown.large .label > .delete.icon {
-    margin-top: 2px;
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+    mask-size: var(--scale-echo) var(--scale-echo)!important;
 }
 
 .ui.multiple.dropdown .label > .delete.icon:hover {

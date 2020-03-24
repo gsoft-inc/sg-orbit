@@ -106,10 +106,11 @@
 }
 
 .ui.textarea.small {
+    font-size: var(	--type-scale-8);
     padding: 0.5rem;
 }
 
 .ui.textarea.large {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
     line-height: @lh4;
 }
