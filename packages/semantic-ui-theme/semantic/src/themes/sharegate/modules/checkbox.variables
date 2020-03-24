@@ -40,7 +40,7 @@
 
 /* Focus */
 @checkboxFocusBackground: @white;
-@checkboxFocusBorderColor: @cloud200;
+@checkboxFocusBorderColor: @cloud500;
 
 /* Active */
 @checkboxActiveBackground: @primary500;
@@ -48,7 +48,7 @@
 
 /* Active Focus */
 @checkboxActiveFocusBackground: @primary500;
-@checkboxActiveFocusBorderColor: @primary500;
+@checkboxActiveFocusBorderColor: @primary900;
 
 
 /* Indeterminate */
