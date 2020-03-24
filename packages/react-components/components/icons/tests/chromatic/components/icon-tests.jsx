@@ -13,7 +13,7 @@ export function IconTests({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon24 size="huge" />
                     <Icon24 size="massive" />
                     <Icon24 size="massive" className="fill-sunray-900" />
-                    <span className="ml6 f4">(24x24)</span>
+                    <Icon24 size="massive" style={{ fill: "var(--sunray-900)" }} />
                 </div>
             </If>
             <If condition={!isNil(Icon32)}>
@@ -26,7 +26,7 @@ export function IconTests({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon32 size="huge" />
                     <Icon32 size="massive" />
                     <Icon32 size="massive" className="fill-sunray-900" />
-                    <span className="ml6 f4">(32x32)</span>
+                    <Icon32 size="massive" style={{ fill: "var(--sunray-900)" }} />
                 </div>
             </If>
             <div className="flex items-end">
@@ -38,7 +38,7 @@ export function IconTests({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon size="huge" />
                 <MultiIcon size="massive" />
                 <MultiIcon size="massive" className="fill-sunray-900" />
-                <span className="ml6 f4">(multi)</span>
+                <MultiIcon size="massive" style={{ fill: "var(--sunray-900)" }} />
             </div>
         </div>
     );

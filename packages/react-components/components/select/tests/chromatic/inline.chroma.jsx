@@ -91,8 +91,11 @@ stories()
             <div className="f5 mb12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
-            <div className="f1">
+            <div className="f1 mb12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
+            </div>
+            <div className="f5">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon />, disabled: true })}elementum viverra maximus.
             </div>
         </div>
     )

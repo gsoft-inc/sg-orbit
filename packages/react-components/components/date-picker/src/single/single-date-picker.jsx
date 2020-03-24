@@ -4,7 +4,7 @@ import { POSITIONS } from "@orbit-ui/react-popup";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
-import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -123,7 +123,11 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * Additional classes.
      */
-    className: string
+    className: string,
+    /**
+     * Custom inline style.
+     */
+    style: object
 };
 
 export class SingleDatePicker extends AutoControlledPureComponent {
@@ -250,7 +254,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -267,6 +271,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 closeOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
                 className={className}
+                style={style}
             />
         );
     }

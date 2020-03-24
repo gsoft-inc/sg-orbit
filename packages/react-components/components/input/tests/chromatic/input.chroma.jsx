@@ -18,244 +18,101 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
+        <Input />
+    )
+    .add("placeholder", () =>
+        <Input placeholder="Search..." />
+    )
+    .add("value", () =>
         <div className="flex">
-            <div className="flex">
-                <div className="flex flex-column items-start">
-                    <Input placeholder="Search..." />
-                    <Input focus placeholder="Search..." />
-                    <Input disabled placeholder="Search..." />
-                    <Input placeholder="Search..." defaultValue="Obiwan" />
-                    <Input focus placeholder="Search..." defaultValue="Obiwan" />
-                    <Input disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                </div>
-                <div className="flex flex-column items-start">
-                    <Input loading placeholder="Search..." />
-                    <Input loading disabled placeholder="Search..." />
-                    <Input loading disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input loading icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input loading icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input loading icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                </div>
+            <Input value="SpaceX will win the race!" placeholder="Search..." className="mr5" />
+            <Input defaultValue="SpaceX will win the race!" placeholder="Search..." />
+        </div>
+    )
+    .add("icon", () =>
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                <Input icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
             </div>
-            <div className="flex">
-                <div className="flex flex-column items-start">
-                    <Input error placeholder="Search..." />
-                    <Input error focus placeholder="Search..." />
-                    <Input error disabled placeholder="Search..." />
-                    <Input error placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error focus placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                </div>
-                <div className="flex flex-column items-start">
-                    <Input loading error placeholder="Search..." />
-                    <Input loading error disabled placeholder="Search..." />
-                    <Input loading error disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                </div>
+            <div className="flex mb5">
+                <Input defaultValue="SpaceX will win the race!" icon={<MagnifierIcon />} className="mr5" />
+                <Input defaultValue="SpaceX will win the race!" icon={<MagnifierIcon />} iconPosition="left" />
+            </div>
+            <div className="flex mb5">
+                <Input icon={<MagnifierIcon />} disabled placeholder="Search..." className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" disabled placeholder="Search..." />
+            </div>
+            <div className="flex mb5">
+                <Input icon={<MagnifierIcon />} loading placeholder="Search..." className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" loading placeholder="Search..." />
+            </div>
+            <div className="flex items-end mb5">
+                <Input size="small" icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
+                <Input icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
+                <Input size="large" icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
+            </div>
+            <div className="flex items-end">
+                <Input size="small" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
+                <Input size="large" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
             </div>
         </div>
     )
-    .add("transparent", () =>
-        <div className="flex">
-            <div className="flex">
-                <div className="flex flex-column items-start">
-                    <Input transparent placeholder="Search..." />
-                    <Input transparent focus placeholder="Search..." />
-                    <Input transparent disabled placeholder="Search..." />
-                    <Input transparent placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent focus placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                </div>
-                <div className="flex flex-column items-start">
-                    <Input loading transparent placeholder="Search..." />
-                    <Input loading transparent disabled placeholder="Search..." />
-                    <Input loading transparent disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading transparent focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading transparent disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input loading transparent icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input loading transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input loading transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input loading transparent icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input loading transparent icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                </div>
-            </div>
-            <div className="flex">
-                <div className="flex flex-column items-start">
-                    <Input transparent className="success" placeholder="Search..." />
-                    <Input transparent className="success" focus placeholder="Search..." />
-                    <Input transparent className="success" disabled placeholder="Search..." />
-                    <Input transparent className="success" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" focus placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input transparent className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input transparent className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input transparent className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                </div>
-                <div className="flex flex-column items-start">
-                    <Input transparent loading className="success" placeholder="Search..." />
-                    <Input transparent loading className="success" disabled placeholder="Search..." />
-                    <Input transparent loading className="success" disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading className="success" icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                </div>
-            </div>
-            <div className="flex">
-                <div className="flex flex-column items-start">
-                    <Input transparent error placeholder="Search..." />
-                    <Input transparent error focus placeholder="Search..." />
-                    <Input transparent error disabled placeholder="Search..." />
-                    <Input transparent error placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error focus placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input transparent error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input transparent error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input transparent error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                    <Input transparent error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Chewbacca" />
-                </div>
-                <div className="flex flex-column items-start">
-                    <Input transparent loading error placeholder="Search..." />
-                    <Input transparent loading error disabled placeholder="Search..." />
-                    <Input transparent loading error disabled placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading error focus icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading error disabled icon={<MagnifierIcon />} placeholder="Search..." />
-                    <Input transparent loading error icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error focus icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error disabled icon={<MagnifierIcon />} placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." />
-                    <Input transparent loading error icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error icon={<MagnifierIcon />} focus iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                    <Input transparent loading error icon={<MagnifierIcon />} disabled iconPosition="left" placeholder="Search..." defaultValue="Obiwan" />
-                </div>
-            </div>
-        </div>
+    .add("focus", () =>
+        <Input focus placeholder="Search..." />
     )
-    .add("variations", () =>
-        <div style={{ width: "333px" }}>
-            <Input fluid placeholder="Search..." />
-            <Input fluid focus placeholder="Search..." />
-            <Input fluid disabled placeholder="Search..." />
+    .add("disabled", () =>
+        <Input disabled placeholder="Search..." />
+    )
+    .add("loading", () =>
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                <Input size="small" loading placeholder="Search..." className="mr5" />
+                <Input loading placeholder="Search..." className="mr5" />
+                <Input size="large" loading placeholder="Search..." />
+            </div>
+            <div className="flex items-end">
+                <Input size="small" loading iconPosition="left" placeholder="Search..." className="mr5" />
+                <Input loading iconPosition="left" placeholder="Search..." className="mr5" />
+                <Input size="large" loading iconPosition="left" placeholder="Search..." />
+            </div>
         </div>
     )
     .add("fluid", () =>
-        <>
-            <Input fluid placeholder="Search..." />
+        <div className="flex flex-column">
+            <div className="mb5">
+                <Input fluid placeholder="Search..." />
+            </div>
             <div className="w-10">
                 <Input fluid placeholder="Search..." />
             </div>
-        </>
+        </div>
+    )
+    .add("error", () =>
+        <Input error placeholder="Search..." />
+    )
+    .add("transparent", () =>
+        <Input transparent placeholder="Search..." />
     )
     .add("size", () =>
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                <Input placeholder="Search..." size="small" className="mr5" />
+                <Input placeholder="Search..." className="mr5" />
+                <Input placeholder="Search..." size="large" />
+            </div>
+            <div className="flex items-end">
+                <Input defaultValue="SpaceX will win the race!" size="small" className="mr5" />
+                <Input defaultValue="SpaceX will win the race!" className="mr5" />
+                <Input defaultValue="SpaceX will win the race!" size="large" />
+            </div>
+        </div>
+    )
+    .add("styling", () =>
         <div className="flex">
-            <div className="flex flex-column">
-                <Input size="small" placeholder="Search..." />
-                <Input placeholder="Search..." />
-                <Input size="large" placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} size="small" placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} size="large" placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} iconPosition="left" size="small" placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-                <Input icon={<MagnifierIcon />} iconPosition="left" size="large" placeholder="Search..." />
-            </div>
-            <div className="flex flex-column">
-                <Input size="small" loading placeholder="Search..." />
-                <Input loading placeholder="Search..." />
-                <Input size="large" loading placeholder="Search..." />
-                <Input size="small" iconPosition="left" loading placeholder="Search..." />
-                <Input loading iconPosition="left" placeholder="Search..." />
-                <Input size="large" iconPosition="left" loading placeholder="Search..." />
-            </div>
+            <Input className="border-red mr5" />
+            <Input style={{ border: "1px solid red" }} />
         </div>
     );
 
@@ -266,17 +123,13 @@ function setRedBackground(element) {
 }
 
 stories("/button")
-    .add("element", () =>
-        <div className="flex">
-            <Input button={<Button icon={<CloseIcon />} />} />
-            <Input button={<Button icon={<CloseIcon />} className= "bg-red" />} />
-            <Input button={<Button icon={<CloseIcon />} ref={setRedBackground} />} />
-        </div>
+    .add("element ref", () =>
+        <Input button={<Button icon={<CloseIcon />} ref={setRedBackground} />} />
     )
     .add("object", () =>
         <div className="flex">
-            <Input button={{ icon: <CloseIcon /> }} />
-            <Input button={{ icon: <CloseIcon />, className: "bg-red" }} />
+            <Input button={{ icon: <CloseIcon /> }} className="mr5" />
+            <Input button={{ icon: <CloseIcon />, className: "bg-red mr5" }} />
             <Input button={{ icon: <CloseIcon />, ref: setRedBackground }} />
         </div>
     )
@@ -284,12 +137,16 @@ stories("/button")
         <Input button={<Button icon={<CloseIcon />} />} disabled />
     )
     .add("loading", () =>
-        <Input button={<Button icon={<CloseIcon />} />} loading />
+        <div className="flex">
+            <Input button={<Button icon={<CloseIcon />} />} loading className="mr5" />
+            <Input icon={<CloseIcon />} loading className="mr5" />
+            <Input icon={<CloseIcon />} loading iconPosition="left" />
+        </div>
     )
     .add("size", () =>
         <div className="flex items-end">
-            <Input size="small" button={<Button icon={<CloseIcon />} />} />
-            <Input button={<Button icon={<CloseIcon />} />} />
+            <Input size="small" button={<Button icon={<CloseIcon />} />} className="mr5" />
+            <Input button={<Button icon={<CloseIcon />} />} className="mr5" />
             <Input size="large" button={<Button icon={<CloseIcon />} />} />
         </div>
     );

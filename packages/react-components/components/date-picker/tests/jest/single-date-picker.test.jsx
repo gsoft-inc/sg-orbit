@@ -4,6 +4,7 @@ import { PureComponent, createRef } from "react";
 import { SingleDatePicker } from "@orbit-ui/react-date-picker/src";
 import { fireEvent, render, wait, waitForElement } from "@testing-library/react";
 import { isNil, noop } from "lodash";
+import { waitFor } from "@utils/wait-for";
 import moment from "moment";
 import userEvent from "@utils/user-event";
 
@@ -245,7 +246,7 @@ test("when the calendar close, the input should be focused", async () => {
     expect(inputNode).not.toHaveFocus();
 
     userEvent.click(document.body);
-    await wait();
+    await waitFor(50);
 
     expect(inputNode).toHaveFocus();
 });

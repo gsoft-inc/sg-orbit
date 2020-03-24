@@ -51,6 +51,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    loading: bool,
+    /**
+     * @ignore
+     */
     className: string,
     /**
      * @ignore
@@ -63,7 +67,8 @@ const defaultProps = {
     iconPosition: "left",
     naked: false,
     size: DEFAULT_SIZE,
-    type: "button"
+    type: "button",
+    loading: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
@@ -77,7 +82,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 export function PureButton(props) {
-    const { naked, ghost, icon, iconPosition, label, tag, size, className, forwardedRef, children, ...rest } = props;
+    const { naked, ghost, icon, iconPosition, label, tag, size, loading, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -124,27 +129,29 @@ export function PureButton(props) {
     };
 
     const renderContent = () => {
-        let left;
-        let right;
+        if (!loading) {
+            let left;
+            let right;
 
-        if (!isNil(icon)) {
-            if (iconPosition === "right") {
-                right = createIconForControl(icon, size);
-            } else {
-                left = createIconForControl(icon, size);
+            if (!isNil(icon)) {
+                if (iconPosition === "right") {
+                    right = createIconForControl(icon, size);
+                } else {
+                    left = createIconForControl(icon, size);
+                }
             }
-        }
 
-        if (!isNil(label)) {
-            right = renderLabel();
-        }
+            if (!isNil(label)) {
+                right = renderLabel();
+            }
 
-        if (!isNil(tag)) {
-            left = renderTag();
-        }
+            if (!isNil(tag)) {
+                left = renderTag();
+            }
 
-        if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+            if (!isNil(left) || !isNil(right)) {
+                return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+            }
         }
 
         return children;
@@ -165,7 +172,7 @@ export function PureButton(props) {
         );
 
         return (
-            <SemanticButton size={size} className={classes} {...rest}>
+            <SemanticButton size={size} loading={loading} className={classes} {...rest}>
                 {renderContent()}
             </SemanticButton>
         );

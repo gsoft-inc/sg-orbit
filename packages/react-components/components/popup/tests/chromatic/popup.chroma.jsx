@@ -96,8 +96,11 @@ stories("/offsets/top")
     );
 
 stories()
-    .add("css class", () =>
-        <RedBoxPopup className="border-red" closeOnBlur={false} />
+    .add("styling", () =>
+        <div className="flex">
+            <RedBoxPopup className="border-red mr5" closeOnBlur={false} />
+            <RedBoxPopup style={{ border: "1px solid red" }} closeOnBlur={false} />
+        </div>
     );
 
 

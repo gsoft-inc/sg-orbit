@@ -1,3 +1,14 @@
 /*******************************
         Site Overrides
 *******************************/
+.ui.search.fluid {
+    width: 100%;
+}
+
+/* Results */
+.ui.search > .results {
+    min-width: 300px;
+}
+.ui.search.fluid > .results {
+    width: 100%;
+}

@@ -158,7 +158,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * Additional classes.
          */
-        className: string
+        className: string,
+        /**
+         * Custom inline style.
+         */
+        style: object
     };
 
     static defaultProps = {
@@ -297,7 +301,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className } = this.props;
+        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -314,6 +318,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 closeOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
                 className={className}
+                style={style}
             />
         );
     }

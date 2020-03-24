@@ -1,6 +1,6 @@
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
 import { SearchInputController } from "./search-input-controller";
-import { arrayOf, bool, func, number, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
@@ -139,7 +139,11 @@ export class SearchInput extends AutoControlledPureComponent {
         /**
          * Additional classes.
          */
-        className: string
+        className: string,
+        /**
+         * Custom inline style.
+         */
+        style: object
     };
 
     static defaultProps = {
@@ -274,7 +278,7 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className } = this.props;
+        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className, style } = this.props;
         const { open, visibleResults } = this.state;
 
         return (
@@ -301,6 +305,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 size={size}
                 fluid={fluid}
                 className={className}
+                style={style}
             />
         );
     }

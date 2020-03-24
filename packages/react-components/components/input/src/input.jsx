@@ -29,6 +29,10 @@ const propTypes = {
      */
     icon: element,
     /**
+     * An icon can appear on the left or right.
+     */
+    iconPosition: oneOf(["left"]),
+    /**
      * An input can contain a button.
      */
     button: oneOfType([element, object]),
@@ -91,7 +95,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 }
 
 export function PureInput(props) {
-    const { autofocus, autofocusDelay, className, fluid, icon, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/input");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -125,7 +129,9 @@ export function PureInput(props) {
 
     const renderButton = () => {
         if (!isNil(button)) {
-            if (!loading && !disabled) {
+            const canRenderButton = !disabled && (!loading || (loading && iconPosition === "left"));
+
+            if (canRenderButton) {
                 const defaults = {
                     size: "tiny",
                     circular: true,
@@ -157,8 +163,8 @@ export function PureInput(props) {
         }
     };
 
-    const classes = mergeClasses(
-        "relative",
+    const containerClasses = mergeClasses(
+        "relative outline-0",
         fluid ? "w-100" : "dib",
         className
     );
@@ -168,12 +174,13 @@ export function PureInput(props) {
     return (
         <div
             ref={containerRef}
-            className={classes}
+            className={containerClasses}
             tabIndex={-1}
             data-testid="input"
         >
             <SemanticInput
                 icon={renderIcon()}
+                iconPosition={iconPosition}
                 autoFocus={shouldAutofocus}
                 fluid={fluid}
                 size={size}

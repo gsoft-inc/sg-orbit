@@ -95,10 +95,15 @@ stories("/customization")
             dateFormat: "YYYY MMM Do"
         })
     )
-    .add("css class", () =>
-        createInlineSingleDatePicker({
-            className: "bg-red"
-        })
+    .add("styling", () =>
+        <div className="flex">
+            {createInlineSingleDatePicker({
+                className: "bg-red mr5"
+            })}
+            {createInlineSingleDatePicker({
+                style: { backgroundColor: "red" }
+            })}
+        </div>
     );
 
 stories("/z-index")

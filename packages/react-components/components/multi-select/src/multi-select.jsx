@@ -1,11 +1,11 @@
-import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "@orbit-ui/react-components-shared";
+import { AutoControlledPureComponent, getAutoControlledStateFromProps, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MultiSelectClearButton } from "./multi-select-clear-button";
 import { MultiSelectDropdown } from "./multi-select-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
 import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { MultiSelectSelectedItems } from "./multi-select-selected-items";
-import { arrayOf, bool, func, node, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
@@ -139,6 +139,10 @@ export class MultiSelect extends AutoControlledPureComponent {
          * Additional classes.
          */
         className: string,
+        /**
+         * Custom inline style.
+         */
+        style: object,
         /**
          * Used by interaction tests.
          * @ignore
@@ -337,14 +341,17 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     render() {
-        const { className } = this.props;
+        const { className, style } = this.props;
 
-        const defaultClasses = "flex flex-wrap";
-        const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        const classes = mergeClasses(
+            "flex flex-wrap outline-0",
+            className
+        );
 
         return (
             <div
                 className={classes}
+                style={style}
                 tabIndex={-1}
             >
                 {this.renderDropDown()}

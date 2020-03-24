@@ -154,7 +154,7 @@ stories()
                     defaultOpen: true
                 })}
             </div>
-            <div className="flex">
+            <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
@@ -170,6 +170,12 @@ stories()
                     icon: <MagnifierIcon />,
                     size: "large",
                     defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
+                    disabled: true
                 })}
             </div>
         </div>
