@@ -176,7 +176,7 @@
 
 .ui.toggle.checkbox.tiny .box,
 .ui.toggle.checkbox.tiny label {
-    padding-left: 2.25rem;
+    padding-left: 2.25rem!important;
 }
 
 /* SIZE | Small */
@@ -212,7 +212,7 @@
 
 .ui.toggle.checkbox.small .box,
 .ui.toggle.checkbox.small label {
-    padding-left: 2.25rem;
+    padding-left: 2.25rem!important
 }
 
 /* SIZE | Large */
@@ -233,7 +233,7 @@
 
 .ui.toggle.checkbox.large .box,
 .ui.toggle.checkbox.large label {
-    padding-left: 3.375rem;
+    padding-left: 3.375rem!important;
 }
 
 .ui.checkbox.toggle input:checked ~ .box:before,
@@ -430,10 +430,11 @@
 }
 
 .ui.toggle.checkbox.checked.disabled::before {
-    transform: translate3d(1.625rem, 0, 0);
+    transform: translate3d(1.375rem, -50%, 0);
     background-color: @primary100;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: 14px 14px;
+    top: 50%;
 }
 
 .ui.checkbox label > .icon,
