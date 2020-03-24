@@ -100,16 +100,30 @@ stories()
         </div>
     )
     .add("fluid", () =>
-        <div className="flex">
-            {createMultipleSelect({
-                fluid: true,
-                className: "mr5"
-            })}
-            {createMultipleSelect({
-                fluid: true,
-                className: "mr5",
-                defaultOpen: true
-            })}
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    fluid: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    fluid: true,
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                <div className="w-10 mr5">
+                    {createMultipleSelect({
+                        fluid: true
+                    })}
+                </div>
+                <div className="w-10">
+                    {createMultipleSelect({
+                        fluid: true,
+                        defaultOpen: true
+                    })}
+                </div>
+            </div>
         </div>
     )
     .add("disabled", () =>
@@ -283,7 +297,7 @@ stories()
                     defaultOpen: true
                 })}
             </div>
-            <div className="flex">
+            <div className="flex" style={{ "marginBottom": "150px" }}>
                 {createMultipleSelect({
                     search: true,
                     size: "large",
@@ -299,6 +313,12 @@ stories()
                     search: true,
                     size: "large",
                     defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    disabled: true
                 })}
             </div>
         </div>

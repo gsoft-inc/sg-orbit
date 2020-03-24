@@ -41,9 +41,18 @@ stories()
     )
     .add("fluid",
          () =>
-             createSearchInputController({
-                 fluid: true
-             })
+             <div className="flex flex-column">
+                 <div className="mb5">
+                     {createSearchInputController({
+                         fluid: true
+                     })}
+                 </div>
+                 <div className="w-10">
+                     {createSearchInputController({
+                         fluid: true
+                     })}
+                 </div>
+             </div>
     )
     .add("size",
          () =>
@@ -103,35 +112,87 @@ stories()
     );
 
 stories("/loading/closed")
-    .add("value selected",
-         () =>
-             createSearchInputController({
-                 value: LAURIE_VALUE,
-                 loading: true
-             })
+    .add("value selected", () =>
+        <div className="flex">
+            {createSearchInputController({
+                value: LAURIE_VALUE,
+                loading: true,
+                size: "small",
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                value: LAURIE_VALUE,
+                loading: true,
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                value: LAURIE_VALUE,
+                loading: true,
+                size: "large"
+            })}
+        </div>
     )
-    .add("no selection",
-         () =>
-             createSearchInputController({
-                 loading: true
-             })
+    .add("no selection", () =>
+        <div className="flex">
+            {createSearchInputController({
+                loading: true,
+                size: "small",
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                loading: true,
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                loading: true,
+                size: "large"
+            })}
+        </div>
     );
 
 stories("/loading/opened")
-    .add("value selected",
-         () =>
-             createSearchInputController({
-                 open: true,
-                 value: LAURIE_VALUE,
-                 loading: true
-             })
+    .add("value selected", () =>
+        <div className="flex">
+            {createSearchInputController({
+                open: true,
+                value: LAURIE_VALUE,
+                loading: true,
+                size: "small",
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                open: true,
+                value: LAURIE_VALUE,
+                loading: true,
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                open: true,
+                value: LAURIE_VALUE,
+                loading: true,
+                size: "large"
+            })}
+        </div>
     )
-    .add("no selection",
-         () =>
-             createSearchInputController({
-                 open: true,
-                 loading: true
-             })
+    .add("no selection", () =>
+        <div className="flex">
+            {createSearchInputController({
+                open: true,
+                loading: true,
+                size: "small",
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                open: true,
+                loading: true,
+                className: "mr5"
+            })}
+            {createSearchInputController({
+                open: true,
+                loading: true,
+                size: "large"
+            })}
+        </div>
     );
 
 stories("/disabled")

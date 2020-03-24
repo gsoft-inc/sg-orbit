@@ -43,13 +43,33 @@ stories()
         </div>
     )
     .add("fluid", () =>
-        <TextArea fluid placeholder="Tell us more" />
+        <div className="flex flex-column">
+            <div className="mb5">
+                <TextArea fluid placeholder="Tell us more" />
+            </div>
+            <div className="w-10">
+                <TextArea fluid placeholder="Tell us more" />
+            </div>
+        </div>
     )
     .add("size", () =>
-        <div className="flex items-end">
-            <TextArea size="small" placeholder="Tell us more" className="mr5" />
-            <TextArea size="medium" placeholder="Tell us more" className="mr5" />
-            <TextArea size="large" placeholder="Tell us more" />
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                <TextArea size="small" placeholder="Tell us more" className="mr5" />
+                <TextArea size="medium" placeholder="Tell us more" className="mr5" />
+                <TextArea size="large" placeholder="Tell us more" />
+            </div>
+            <div className="flex items-end">
+                <TextArea size="small" defaultValue="SpaceX will win the race!" className="mr5" />
+                <TextArea size="medium" defaultValue="SpaceX will win the race!" className="mr5" />
+                <TextArea size="large" defaultValue="SpaceX will win the race!" />
+            </div>
+        </div>
+    )
+    .add("value", () =>
+        <div className="flex">
+            <TextArea placeholder="Tell us more" value="SpaceX will win the race!" className="mr5" />
+            <TextArea placeholder="Tell us more" defaultValue="SpaceX will win the race!" />
         </div>
     )
     .add("styling", () =>

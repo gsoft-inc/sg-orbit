@@ -65,7 +65,14 @@ function setRedBackground(element) {
 
 stories()
     .add("fluid", () =>
-        <Button fluid>Button</Button>
+        <div className="flex flex-column">
+            <div className="mb5">
+                <Button fluid>Button</Button>
+            </div>
+            <div className="w-10">
+                <Button fluid>Button</Button>
+            </div>
+        </div>
     );
 
 stories("/label")

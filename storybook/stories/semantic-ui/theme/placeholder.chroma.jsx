@@ -12,78 +12,91 @@ function stories(segment) {
 }
 
 stories()
-    .add("default",
-         () =>
-             <div className="flex">
-                 <div className="w-50">
-                     <Placeholder>
-                         <Placeholder.Header image>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Header>
-                         <Placeholder.Paragraph>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Paragraph>
-                     </Placeholder>
-                     <Placeholder>
-                         <Placeholder.Line />
-                         <Placeholder.Line />
-                         <Placeholder.Line />
-                         <Placeholder.Line />
-                         <Placeholder.Line />
-                     </Placeholder>
-                     <Placeholder>
-                         <Placeholder.Header image>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Header>
-                     </Placeholder>
-                     <Placeholder>
-                         <Placeholder.Paragraph>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Paragraph>
-                         <Placeholder.Paragraph>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Paragraph>
-                     </Placeholder>
-                 </div>
-                 <div className="w-50">
-                     <Placeholder style={{ height: 150, width: 150 }}>
-                         <Placeholder.Image />
-                     </Placeholder>
-                     <Placeholder fluid>
-                         <Placeholder.Header image>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Header>
-                         <Placeholder.Paragraph>
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                             <Placeholder.Line />
-                         </Placeholder.Paragraph>
-                     </Placeholder>
-                     <Segment inverted>
-                         <Placeholder inverted>
-                             <Placeholder.Header image>
-                                 <Placeholder.Line />
-                                 <Placeholder.Line />
-                             </Placeholder.Header>
-                             <Placeholder.Paragraph>
-                                 <Placeholder.Line />
-                                 <Placeholder.Line />
-                                 <Placeholder.Line />
-                             </Placeholder.Paragraph>
-                         </Placeholder>
-                     </Segment>
-                 </div>
-             </div>
+    .add("line", () =>
+        <div className="flex flex-column">
+            <div className="mb5">
+                <Placeholder>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                </Placeholder>
+            </div>
+            <div>
+                <Placeholder>
+                    <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                    <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                </Placeholder>
+            </div>
+        </div>
+    )
+    .add("image", () =>
+        <div className="flex flex-column">
+            <div className="mb5">
+                <Placeholder>
+                    <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                    </Placeholder.Header>
+                </Placeholder>
+            </div>
+            <div className="mb5">
+                <Placeholder>
+                    <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                    </Placeholder.Header>
+                    <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                </Placeholder>
+            </div>
+            <div>
+                <Placeholder style={{ height: 150, width: 150 }}>
+                    <Placeholder.Image />
+                </Placeholder>
+            </div>
+        </div>
+    )
+    .add("fluid", () =>
+        <Placeholder fluid>
+            <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+            </Placeholder.Header>
+            <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+            </Placeholder.Paragraph>
+        </Placeholder>
+    )
+    .add("inverted", () =>
+        <Segment inverted>
+            <Placeholder inverted>
+                <Placeholder.Header image>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                </Placeholder.Header>
+                <Placeholder.Paragraph>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                </Placeholder.Paragraph>
+            </Placeholder>
+        </Segment>
     );

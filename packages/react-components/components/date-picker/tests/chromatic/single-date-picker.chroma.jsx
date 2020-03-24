@@ -30,9 +30,18 @@ function createSingleDatePicker(props = {}) {
 stories()
     .add("fluid",
          () =>
-             createSingleDatePicker({
-                 fluid: true
-             })
+             <div className="flex flex-column">
+                 <div className="mb5">
+                     {createSingleDatePicker({
+                         fluid: true
+                     })}
+                 </div>
+                 <div className="w-10">
+                     {createSingleDatePicker({
+                         fluid: true
+                     })}
+                 </div>
+             </div>
     )
     .add("size",
          () =>
