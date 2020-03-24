@@ -173,16 +173,33 @@ stories()
         </div>
     )
     .add("size", () =>
-        <div className="flex">
-            {createCheckbox({
-                size: "small",
-                className: "mr5"
-            })}
-            {createCheckbox({
-                className: "mr5"
-            })}
-            {createCheckbox({
-                size: "large"
-            })}
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                {createCheckbox({
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    size: "large"
+                })}
+            </div>
+            <div className="flex items-end">
+                {createCheckbox({
+                    size: "small",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    defaultChecked: true,
+                    size: "large"
+                })}
+            </div>
         </div>
     );

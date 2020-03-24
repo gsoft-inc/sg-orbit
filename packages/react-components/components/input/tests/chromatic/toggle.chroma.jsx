@@ -146,16 +146,33 @@ stories()
         </div>
     )
     .add("size", () =>
-        <div className="flex">
-            {createToggle({
-                size: "small",
-                className: "mr5"
-            })}
-            {createToggle({
-                className: "mr5"
-            })}
-            {createToggle({
-                size: "large"
-            })}
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                {createToggle({
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    className: "mr5"
+                })}
+                {createToggle({
+                    size: "large"
+                })}
+            </div>
+            <div className="flex items-end">
+                {createToggle({
+                    size: "small",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    defaultChecked: true,
+                    size: "large"
+                })}
+            </div>
         </div>
     );
