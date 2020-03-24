@@ -103,20 +103,26 @@
     border: 1px solid var(--cloud-100);
 }
 
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked:focus ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked:focus ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ label::after {
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) {
+    position: relative;
+}
+
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after {
+    cursor: pointer;
     width: .5rem;
     height: .5rem;
     content: "";
     display: block;
     background-color: @primary500;
     border-radius: .125rem;
+    position: absolute;
     top: 10px;
     left: 6px;
     transform: translateY(-50%);
