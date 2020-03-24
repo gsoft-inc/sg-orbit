@@ -244,6 +244,10 @@
     align-items: center;
 }
 
+.ui.checkbox.radio label {
+    padding-left: 1.625rem!important;
+}
+
 .ui.checkbox label {
     padding-left: 1.75rem;
     font-size: 0.875rem;
@@ -402,7 +406,7 @@
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.checkbox.small .box,
 .ui.checkbox.small label {
-    padding-left: 1.5rem;
+    padding-left: 1.25rem!important;
 }
 
 .ui.checkbox.small .box:before,
@@ -423,7 +427,7 @@
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.checkbox.large .box,
 .ui.checkbox.large label {
-    padding-left: 2rem;
+    padding-left: 1.75rem!important;
 }
 
 .ui.checkbox.large .box:before,
