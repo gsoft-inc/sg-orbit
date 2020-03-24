@@ -11,7 +11,7 @@ const DEFAULT_SIZE = "medium";
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the toggle should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -19,15 +19,15 @@ const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the checkbox.
+     * The text associated to the toggle.
      */
     text: string,
     /**
-     * A React component displayed after the checkbox text.
+     * A toggle can display icons.
      */
-    icon: element,
+    icons: oneOfType([element, arrayOf(element)]),
     /**
-     * A label displayed after the checkbox text.
+     * A label displayed after the toggle text.
      */
     label: oneOfType([element, object]),
     /**
