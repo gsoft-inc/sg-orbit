@@ -298,24 +298,20 @@
 
 .ui.checkbox label {
     padding-left: 1.75rem;
-    font-size: 0.875rem;
-}
-
-.ui.checkbox.tiny label {
-    font-size: var(--type-scale-9);
+    font-size: var(	--type-scale-7);
 }
 
 .ui.checkbox.small label {
-    font-size: 0.875rem;
+    font-size: var(--type-scale-8);
 }
 
 .ui.checkbox.large label {
-    font-size: 1rem;
+    font-size: var(--type-scale-5);
 }
 
 /* Large */
 .ui.checkbox.toggle.large label {
-    font-size: 1rem;
+    font-size: var(--type-scale-5);
 }
 
 .ui.checkbox .box:hover::before,
@@ -391,18 +387,6 @@
     mask-size: 16px 16px;
 }
 
-/* SIZE | Tiny */
-.ui.toggle.tiny.checkbox::before {
-    width: 12px;
-    height: 12px;
-    top: 50%;
-    transform: translate3d(0.125rem, -50%, 0);
-}
-
-.ui.toggle.tiny.checkbox.checked::before {
-    transform: translate3d(1.125rem, -50%, 0);
-}
-
 /* SIZE | Small */
 .ui.toggle.small.checkbox::before {
     width: 12px;
@@ -439,11 +423,6 @@
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: 14px 14px;
     top: 50%;
-}
-
-/* Checkmark | SIZE | Tiny */
-.ui.toggle.checkbox.tiny::before {
-    mask-size: 12px 12px;
 }
 
 /* Checkmark | SIZE | Small */
@@ -559,13 +538,6 @@
     width: 1.5rem;
     height: 1.5rem;
     mask-size: 1.5rem 1.5rem;
-}
-
-/* LAYOUT | SIZE | Tiny | Checkbox */
-.ui.radio.checkbox.tiny .box:after,
-.ui.radio.checkbox.tiny label:after {
-  width: 1rem;
-  height: 1rem;
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */

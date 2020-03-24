@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["tiny", "small", "medium", "large"];
+const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.

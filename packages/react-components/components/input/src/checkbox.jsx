@@ -8,7 +8,7 @@ import { isElement } from "react-is";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["tiny", "small", "medium", "large"];
+const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["as", "slider", "type", "radio", "toggle"];
