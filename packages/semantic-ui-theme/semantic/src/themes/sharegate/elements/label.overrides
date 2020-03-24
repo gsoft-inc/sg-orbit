@@ -137,7 +137,8 @@
 }
 
 .ui.label.small:not(.circular) {
-    min-height: 32px
+    min-height: 32px;
+    font-size: var(--type-scale-8);
 }
 
 /* TODO: check if can be overriden via variables first */

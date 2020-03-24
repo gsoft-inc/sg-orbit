@@ -1,7 +1,6 @@
 /*******************************
     Site Overrides
 *******************************/
-
 .ui.input > input {
     height: var(--scale-hotel);
     line-height: var(--scale-hotel);
@@ -42,6 +41,9 @@
 }
 
 /* Icons */
+.ui.icon.input.small > input {
+    padding-right: calc(var(--scale-foxtrot) + @iconPadding) !important;
+}
 .ui.icon.input.large > input {
     padding-right: calc(var(--scale-golf) + @iconPadding) !important;
 }
@@ -56,6 +58,10 @@
 
 .ui.left.icon.input > input {
     padding-right: @paddingRight !important;
+}
+
+.ui.left.icon.input.small > input {
+    padding-left: calc(var(--scale-foxtrot) + @iconPadding) !important;
 }
 
 .ui.left.icon.input.large > input {

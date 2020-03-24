@@ -306,7 +306,7 @@
 }
 
 .ui.checkbox.large label {
-    font-size: var(--type-scale-5);
+    font-size: var(--type-scale-6);
 }
 
 /* Large */
