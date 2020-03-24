@@ -146,17 +146,34 @@ stories()
         </div>
     )
     .add("size", () =>
-        <div className="flex">
-            {createRadio({
-                size: "small",
-                className: "mr5"
-            })}
-            {createRadio({
-                className: "mr5"
-            })}
-            {createRadio({
-                size: "large"
-            })}
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                {createRadio({
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createRadio({
+                    className: "mr5"
+                })}
+                {createRadio({
+                    size: "large"
+                })}
+            </div>
+            <div className="flex">
+                {createRadio({
+                    size: "small",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createRadio({
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createRadio({
+                    defaultChecked: true,
+                    size: "large"
+                })}
+            </div>
         </div>
     )
     .add("group", () =>
