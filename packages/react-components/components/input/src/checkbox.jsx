@@ -138,6 +138,8 @@ export function PureCheckbox(props) {
 
     const classes = mergeClasses(
         size && size,
+        !isNil(icon) && "with-icon",
+        !text && "without-text",
         className
     );
 

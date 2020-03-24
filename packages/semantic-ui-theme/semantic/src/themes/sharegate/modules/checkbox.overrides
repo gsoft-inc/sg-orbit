@@ -94,9 +94,7 @@
 /* State / Disabled */
 .ui.checkbox.indeterminate.checked input:disabled ~ .box:before,
 .ui.checkbox.indeterminate.checked input:disabled ~ label:before {
-    background: @primary100 url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
-    border-color: @primary100;
-    background-size: 8px 8px;
+    background: @cloud100;
 }
 
 .ui.checkbox.indeterminate input:disabled ~ .box:before,
@@ -113,10 +111,32 @@
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input ~ label::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ .box::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ label::after {
-    mask: url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
-    mask-size: 8px 8px;
-    content: '';
-    background-color: @white;
+    width: .5rem;
+    height: .5rem;
+    content: "";
+    display: block;
+    background-color: @primary500;
+    border-radius: .125rem;
+    top: 10px;
+    left: 6px;
+    transform: translateY(-50%);
+}
+
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after {
+    background-color: @primary100;
+}
+
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before {
+    background: @white;
+    border-color: @cloud200;
 }
 
 /* Toggle
@@ -124,7 +144,7 @@
 /* Semantic wants a very high toggle but we don't, let's position this */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-    top: 3px;
+    top: 2px;
 }
 
 /* SIZE | Small */
@@ -136,16 +156,31 @@
     height: 0.75rem;
 }
 
+.ui.toggle.checkbox input:checked ~ .box::after,
+.ui.toggle.checkbox input:checked ~ label::after {
+    left: 1.375rem;
+}
+
+.ui.toggle.checkbox.large input:checked ~ .box::after,
+.ui.toggle.checkbox.large input:checked ~ label::after {
+    left: 1.625rem;
+}
+
+.ui.toggle.checkbox.small input:checked ~ .box::after,
+.ui.toggle.checkbox.small input:checked ~ label::after {
+    left: 1.125rem;
+}
+
 .ui.toggle.small.checkbox .box:before,
 .ui.toggle.small.checkbox label:before {
-    width: 2.5rem;
+    width: 2rem;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .ui.toggle.checkbox.small .box,
 .ui.toggle.checkbox.small label {
-    padding-left: 2.75rem;
+    padding-left: 2.25rem;
 }
 
 /* SIZE | Large */
@@ -153,8 +188,8 @@
 .ui.toggle.large.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .ui.toggle.large.checkbox .box:before,
@@ -166,7 +201,7 @@
 
 .ui.toggle.checkbox.large .box,
 .ui.toggle.checkbox.large label {
-    padding-left: 3.25rem;
+    padding-left: 3.375rem;
 }
 
 .ui.checkbox.toggle input:checked ~ .box:before,
@@ -201,6 +236,24 @@
 .ui.checkbox label {
     display: flex;
     align-items: center;
+}
+
+.ui.checkbox label {
+    padding-left: 1.75rem;
+    font-size: 0.875rem;
+}
+
+.ui.checkbox.small label {
+    font-size: 0.875rem;
+}
+
+.ui.checkbox.large label {
+    font-size: 1rem;
+}
+
+/* Large */
+.ui.checkbox.toggle.large label {
+    font-size: 1rem;
 }
 
 .ui.checkbox .box:hover::before,
@@ -269,10 +322,10 @@
     content: "";
     display: block;
     position: absolute;
-    transform: translate3d(0.25rem, 0, 0);
-    top: 0.185rem;
-    width: 14px;
-    height: 14px;
+    transform: translate3d(0.125rem, -50%, 0);
+    top: 50%;
+    width: 16px;
+    height: 16px;
     z-index: 10;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
@@ -285,11 +338,11 @@
     width: 12px;
     height: 12px;
     top: 50%;
-    transform: translate3d(0.25rem, -50%, 0);
+    transform: translate3d(0.125rem, -50%, 0);
 }
 
 .ui.toggle.small.checkbox.checked::before {
-    transform: translate3d(1.625rem, -50%, 0);
+    transform: translate3d(1.125rem, -50%, 0);
 }
 
 /* SIZE | Large */
@@ -301,7 +354,7 @@
 }
 
 .ui.toggle.large.checkbox.checked::before {
-    transform: translate3d(1.625rem, -50%, 0);
+    transform: translate3d(1.75rem, -50%, 0);
 }
 
 /* Toggle | STATE | Disabled/Read Only*/
@@ -311,17 +364,23 @@
 }
 
 .ui.toggle.checkbox.checked::before {
-    transform: translate3d(1.625rem, 0, 0);
+    transform: translate3d(1.375rem, -50%, 0);
     background-color:  @primary500;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: 16px 16px;
+    mask-size: 14px 14px;
+    top: 50%;
+}
+
+/* Checkmark | SIZE | Small */
+.ui.toggle.checkbox.small::before {
+    mask-size: 12px 12px;
 }
 
 .ui.toggle.checkbox.checked.disabled::before {
     transform: translate3d(1.625rem, 0, 0);
     background-color: @primary100;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: 16px 16px;
+    mask-size: 14px 14px;
 }
 
 .ui.checkbox label > .icon,
@@ -337,7 +396,7 @@
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.checkbox.small .box,
 .ui.checkbox.small label {
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
 }
 
 .ui.checkbox.small .box:before,
@@ -374,4 +433,23 @@
     width: 1.5rem;
     height: 1.5rem;
     mask-size: 1.5rem 1.5rem;
+}
+
+/* LAYOUT | SIZE | Small | Checkbox */
+.ui.radio.checkbox.small .box:after,
+.ui.radio.checkbox.small label:after {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* LAYOUT | SIZE | Large | Checkbox */
+.ui.radio.checkbox.large .box:after,
+.ui.radio.checkbox.large label:after {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Additions */
+.ui.checkbox.without-text .icon {
+    margin-left: 0;
 }
