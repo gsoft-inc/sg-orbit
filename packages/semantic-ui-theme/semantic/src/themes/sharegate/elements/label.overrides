@@ -151,11 +151,32 @@
 .ui.label.mini:not(.circular) {
     min-height: 20px;
     font-size: var(--type-scale-9);
-    padding: 0 0.8125em;
+    padding: 0 1rem;
+}
+
+.ui.label.with-icon:not(.circular),
+.ui.label.with-icon:not(.circular) {
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+}
+
+.ui.label.with-icon.with-icon-right:not(.circular),
+.ui.label.with-icon.with-icon-right:not(.circular) {
+    padding-right: 0.5rem;
+    padding-left: 1rem;
+}
+
+.ui.label.with-icon.without-text:not(.circular) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.ui.label.large.with-icon.without-text:not(.circular) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 /* Circular Labels */
-
 .ui.circular.mini.labels .label,
 .ui.circular.mini.label {
     font-size: var(--type-scale-9);
