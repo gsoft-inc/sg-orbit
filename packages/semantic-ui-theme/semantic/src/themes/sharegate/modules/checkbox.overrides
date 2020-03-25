@@ -17,7 +17,8 @@
     transform: translateY(-50%);
 }
 
-.ui.radio.checkbox label:after {
+.ui.radio.checkbox label:after,
+.ui.radio.checkbox.without-text.with-icon label:after  {
     top: 50%;
     transform: scale(0.5) translateY(-100%);
 }
