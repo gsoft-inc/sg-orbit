@@ -149,7 +149,7 @@
 }
 
 .ui.button .ui.label.mini:not(.circular) {
-    padding: 0 0 0.8125em;
+    padding: 0 0.8125em;
 }
 
 .ui.label.mini:not(.circular) {
