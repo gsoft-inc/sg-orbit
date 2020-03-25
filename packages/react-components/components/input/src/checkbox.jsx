@@ -3,8 +3,8 @@ import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string 
 import { cloneElement, forwardRef, useEffect } from "react";
 import { createIconForControl } from "@orbit-ui/react-icons";
 import { createLabelFromShorthand } from "@orbit-ui/react-label";
+import { isArray, isNil } from "lodash";
 import { isElement } from "react-is";
-import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "@orbit-ui/react-components-shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -27,9 +27,9 @@ export const CHECKBOX_PROP_TYPES = {
      */
     text: string,
     /**
-     * A React component displayed after the checkbox text.
+     * A checkbox can display icons.
      */
-    icon: element,
+    icons: oneOfType([element, arrayOf(element)]),
     /**
      * A label displayed after the checkbox text.
      */
@@ -96,12 +96,18 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
 }
 
 export function PureCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icon, label, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icons, label, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, !isNil(unsupportedProps) ? unsupportedProps : UNSUPPORTED_PROPS, unsupportedPropsComponentName);
 
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+
+    const renderIcons = () => {
+        const normalizedIcons = isArray(icons) ? icons : [icons];
+
+        return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
+    };
 
     const renderLabel = () => {
         const defaults = {
@@ -123,12 +129,16 @@ export function PureCheckbox(props) {
     const renderContent = () => {
         let right;
 
-        if (!isNil(icon)) {
-            right = createIconForControl(icon, "medium");
+        if (!isNil(icons)) {
+            right = renderIcons();
         }
 
         if (!isNil(label)) {
-            right = renderLabel();
+            if (!isNil(right)) {
+                right = <>{right}{renderLabel()}</>;
+            } else {
+                right = renderLabel();
+            }
         }
 
         if (!isNil(text) || !isNil(right)) {
@@ -138,6 +148,8 @@ export function PureCheckbox(props) {
 
     const classes = mergeClasses(
         size && size,
+        !isNil(icons) && "with-icon",
+        isNil(text) && "without-text",
         className
     );
 

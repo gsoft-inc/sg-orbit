@@ -69,40 +69,71 @@ stories()
             })}
         </div>
     )
-    .add("icon", () =>
+    .add("icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createToggle({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
                 {createToggle({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createToggle({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     className: "mr5"
                 })}
                 {createToggle({
-                    icon: <CommunicationIcon />
+                    icons: <CommunicationIcon />,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
                 {createToggle({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
                 {createToggle({
-                    icon: <CommunicationIcon />,
-                    size: "large"
+                    icons: <CommunicationIcon />,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "large",
+                    label: <Label>6</Label>
                 })}
             </div>
         </div>
@@ -146,16 +177,33 @@ stories()
         </div>
     )
     .add("size", () =>
-        <div className="flex">
-            {createToggle({
-                size: "small",
-                className: "mr5"
-            })}
-            {createToggle({
-                className: "mr5"
-            })}
-            {createToggle({
-                size: "large"
-            })}
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                {createToggle({
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createToggle({
+                    className: "mr5"
+                })}
+                {createToggle({
+                    size: "large"
+                })}
+            </div>
+            <div className="flex items-end">
+                {createToggle({
+                    size: "small",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createToggle({
+                    defaultChecked: true,
+                    size: "large"
+                })}
+            </div>
         </div>
     );

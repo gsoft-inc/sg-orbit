@@ -1,5 +1,5 @@
 import { Checkbox, PureCheckbox } from "@orbit-ui/react-input/src";
-import { CommunicationIcon } from "@orbit-ui/react-icons/src";
+import { CommunicationIcon, GroupIcon, InfoIcon } from "@orbit-ui/react-icons/src";
 import { HocWarning, Props } from "@blocks";
 import { Installation, ReactComponentsLayout } from "@blocks/react-components";
 import { Label } from "@orbit-ui/react-label/src";
@@ -94,13 +94,16 @@ A checkbox doesn't require to have text.
     </Story>
 </Preview>
 
-### Icon
+### Icons
 
-A checkbox can display an [icon](?path=/docs/materials-icons--page) after his text. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A checkbox can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text. Specify the icons to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
-    <Story name="icon">
-        <Checkbox text="Email" icon={<CommunicationIcon />} />
+    <Story name="icons">
+        <div className="flex items-lot-of-space-between">
+            <Checkbox text="Email" icons={<CommunicationIcon />} />
+            <Checkbox text="Email" icons={[<CommunicationIcon />, <GroupIcon />, <InfoIcon />]} />
+        </div>
     </Story>
 </Preview>
 
@@ -122,7 +125,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-lot-of-space-between">
+        <div className="flex items-end items-lot-of-space-between">
             <Checkbox size="small" text="Milky Way" />
             <Checkbox text="Milky Way" />
             <Checkbox size="large" text="Milky Way" />

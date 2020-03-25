@@ -2,10 +2,24 @@
         Site Overrides
 *******************************/
 
+/* hidden HTML Input should be small */
+.ui.checkbox input[type="checkbox"],
+.ui.checkbox input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+}
+
 /* border-box is necessary in order for the radio to be centered everywhere */
 .ui.radio.checkbox label:before {
     box-sizing: border-box;
     border: 2px solid var(--cloud-100);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui.radio.checkbox label:after {
+    top: 50%;
+    transform: scale(0.5) translateY(-100%);
 }
 
 .ui.radio.checkbox input:checked ~ .box:after,
@@ -80,9 +94,7 @@
 /* State / Disabled */
 .ui.checkbox.indeterminate.checked input:disabled ~ .box:before,
 .ui.checkbox.indeterminate.checked input:disabled ~ label:before {
-    background: @primary100 url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
-    border-color: @primary100;
-    background-size: 8px 8px;
+    background: @cloud100;
 }
 
 .ui.checkbox.indeterminate input:disabled ~ .box:before,
@@ -91,18 +103,46 @@
     border: 1px solid var(--cloud-100);
 }
 
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked:focus ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:checked:focus ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input ~ label::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:focus ~ label::after {
-    mask: url("@{iconsPath}/icon-bar-white.svg") center center no-repeat;
-    mask-size: 8px 8px;
-    content: '';
-    background-color: @white;
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) {
+    position: relative;
+}
+
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle)::after {
+    cursor: pointer;
+    width: .5rem;
+    height: .5rem;
+    content: "";
+    display: block;
+    background-color: @primary500;
+    border-radius: .125rem;
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    transform: translateY(-50%);
+}
+
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after {
+    background-color: @primary100;
+}
+
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before {
+    background: @white;
+    border-color: @cloud500;
 }
 
 /* Toggle
@@ -110,7 +150,112 @@
 /* Semantic wants a very high toggle but we don't, let's position this */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-    top: 3px;
+    top: 2px;
+}
+
+/* toggle Focus */
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
+    border: 1px solid var(--cloud-500);
+}
+
+.ui.toggle.checkbox input:checked:focus ~ .box:before,
+.ui.toggle.checkbox input:checked:focus ~ label:before {
+    border: 1px solid var(--primary-900);
+}
+
+/* Radio Focus */
+.ui.radio.checkbox input:focus ~ .box:before,
+.ui.radio.checkbox input:focus ~ label:before {
+    border: 2px solid var(--cloud-500);
+}
+
+.ui.radio.checkbox input:checked:focus ~ .box:before,
+.ui.radio.checkbox input:checked:focus ~ label:before {
+    border: 2px solid var(--primary-900);
+}
+
+/* SIZE | Tiny */
+.ui.toggle.tiny.checkbox .box:after,
+.ui.toggle.tiny.checkbox label:after {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.ui.toggle.checkbox.tiny input:checked ~ .box::after,
+.ui.toggle.checkbox.tiny input:checked ~ label::after {
+    left: 1.125rem;
+}
+
+.ui.toggle.tiny.checkbox .box:before,
+.ui.toggle.tiny.checkbox label:before {
+    width: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui.toggle.checkbox.tiny .box,
+.ui.toggle.checkbox.tiny label {
+    padding-left: 2.25rem!important;
+}
+
+/* SIZE | Small */
+.ui.toggle.small.checkbox .box:after,
+.ui.toggle.small.checkbox label:after {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.ui.toggle.checkbox input:checked ~ .box::after,
+.ui.toggle.checkbox input:checked ~ label::after {
+    left: 1.375rem;
+}
+
+.ui.toggle.checkbox.large input:checked ~ .box::after,
+.ui.toggle.checkbox.large input:checked ~ label::after {
+    left: 1.625rem;
+}
+
+.ui.toggle.checkbox.small input:checked ~ .box::after,
+.ui.toggle.checkbox.small input:checked ~ label::after {
+    left: 1.125rem;
+}
+
+.ui.toggle.small.checkbox .box:before,
+.ui.toggle.small.checkbox label:before {
+    width: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui.toggle.checkbox.small .box,
+.ui.toggle.checkbox.small label {
+    padding-left: 2.25rem!important
+}
+
+/* SIZE | Large */
+.ui.toggle.large.checkbox .box:after,
+.ui.toggle.large.checkbox label:after {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.ui.toggle.large.checkbox .box:before,
+.ui.toggle.large.checkbox label:before {
+    width: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui.toggle.checkbox.large .box,
+.ui.toggle.checkbox.large label {
+    padding-left: 3.375rem!important;
 }
 
 .ui.checkbox.toggle input:checked ~ .box:before,
@@ -147,13 +292,40 @@
     align-items: center;
 }
 
-.ui.checkbox .box:hover::before,
-.ui.checkbox label:hover::before {
-    border: 1px solid var(--cloud-200);
+.ui.checkbox.radio label {
+    padding-left: 1.625rem!important;
 }
 
-.ui.checkbox.radio {
+.ui.checkbox label {
+    padding-left: 1.75rem;
+    font-size: var(	--type-scale-7);
+}
+
+.ui.checkbox.small {
+    min-height: 16px;
     line-height: 1;
+}
+
+.ui.checkbox .ui.label.mini:not(.circular) {
+    padding: 0 0.8125em;
+}
+
+.ui.checkbox.small label {
+    font-size: var(--type-scale-8);
+}
+
+.ui.checkbox.large label {
+    font-size: var(--type-scale-6);
+}
+
+/* Large */
+.ui.checkbox.toggle.large label {
+    font-size: var(--type-scale-5);
+}
+
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before {
+    border: 1px solid var(--cloud-100);
 }
 
 .ui.checkbox.radio.checked .box:hover::before,
@@ -163,7 +335,7 @@
 
 .ui.checkbox.radio .box:hover::before,
 .ui.checkbox.radio label:hover::before {
-    border: 2px solid var(--cloud-200);
+    border: 2px solid var(--cloud-100);
 }
 
 .ui.slider.checkbox .box:after,
@@ -213,10 +385,10 @@
     content: "";
     display: block;
     position: absolute;
-    transform: translate3d(0.25rem, 0, 0);
-    top: 0.185rem;
-    width: 14px;
-    height: 14px;
+    transform: translate3d(0.125rem, -50%, 0);
+    top: 50%;
+    width: 16px;
+    height: 16px;
     z-index: 10;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
@@ -224,21 +396,174 @@
     mask-size: 16px 16px;
 }
 
+/* SIZE | Small */
+.ui.toggle.small.checkbox::before {
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    transform: translate3d(0.125rem, -50%, 0);
+}
+
+.ui.toggle.small.checkbox.checked::before {
+    transform: translate3d(1.125rem, -50%, 0);
+}
+
+/* SIZE | Large */
+.ui.toggle.large.checkbox::before {
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    transform: translate3d(0.25rem, -50%, 0);
+}
+
+.ui.toggle.large.checkbox.checked::before {
+    transform: translate3d(1.75rem, -50%, 0);
+}
+
+/* Toggle | STATE | Disabled/Read Only*/
+.ui.toggle.checkbox.disabled::before,
+.ui.toggle.checkbox.read-only::before {
+    cursor: default;
+}
+
 .ui.toggle.checkbox.checked::before {
-    transform: translate3d(1.625rem, 0, 0);
+    transform: translate3d(1.375rem, -50%, 0);
     background-color:  @primary500;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: 16px 16px;
+    mask-size: 14px 14px;
+    top: 50%;
+}
+
+/* Checkmark | SIZE | Small */
+.ui.toggle.checkbox.small::before {
+    mask-size: 12px 12px;
 }
 
 .ui.toggle.checkbox.checked.disabled::before {
-    transform: translate3d(1.625rem, 0, 0);
+    transform: translate3d(1.375rem, -50%, 0);
     background-color: @primary100;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: 16px 16px;
+    mask-size: 14px 14px;
+    top: 50%;
 }
 
 .ui.checkbox label > .icon,
 .ui.checkbox label > .label {
     margin-left: var(--scale-alpha)
+}
+
+/* State | Read Only */
+.ui.checkbox.read-only input.hidden + label {
+    cursor: default;
+}
+
+.ui.checkbox.read-only input:focus ~ .box:before,
+.ui.checkbox.read-only input:focus ~ label:before,
+.ui.checkbox.read-only input:hover ~ .box:before,
+.ui.checkbox.read-only input:hover ~ label:before {
+    border: 1px solid var(--cloud-500);
+}
+
+.ui.checkbox.read-only input:checked:focus ~ .box:before,
+.ui.checkbox.read-only input:checked:focus ~ label:before,
+.ui.checkbox.read-only input:checked:hover ~ .box:before,
+.ui.checkbox.read-only input:checked:hover ~ label:before {
+    border: 1px solid var(--primary-900);
+}
+
+.ui.checkbox.radio.read-only input:focus ~ .box:before,
+.ui.checkbox.radio.read-only input:focus ~ label:before,
+.ui.checkbox.radio.read-only input:hover ~ .box:before,
+.ui.checkbox.radio.read-only input:hover ~ label:before {
+    border: 2px solid var(--cloud-500);
+}
+
+.ui.checkbox.radio.read-only input:checked:focus ~ .box:before,
+.ui.checkbox.radio.read-only input:checked:focus ~ label:before,
+.ui.checkbox.radio.read-only input:checked:hover ~ .box:before,
+.ui.checkbox.radio.read-only input:checked:hover ~ label:before {
+    border: 2px solid var(--primary-900);
+}
+
+
+/* LAYOUT | SIZE | Tiny | Checkbox */
+.ui.checkbox.tiny .box,
+.ui.checkbox.tiny label {
+    padding-left: 1.25rem!important;
+}
+
+.ui.checkbox.tiny .box:before,
+.ui.checkbox.tiny label:before {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ label:after,
+.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
+.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+    width: 1rem;
+    height: 1rem;
+    mask-size: 1rem 1rem;
+}
+
+/* LAYOUT | SIZE | Small | Checkbox */
+.ui.checkbox.small .box,
+.ui.checkbox.small label {
+    padding-left: 1.25rem!important;
+}
+
+.ui.checkbox.small .box:before,
+.ui.checkbox.small label:before {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ label:after,
+.ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
+.ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+    width: 1rem;
+    height: 1rem;
+    mask-size: 1rem 1rem;
+}
+
+/* LAYOUT | SIZE | Large | Checkbox */
+.ui.checkbox.large .box,
+.ui.checkbox.large label {
+    padding-left: 1.75rem!important;
+}
+
+.ui.checkbox.large .box:before,
+.ui.checkbox.large label:before {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ label:after,
+.ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
+.ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+    width: 1.5rem;
+    height: 1.5rem;
+    mask-size: 1.5rem 1.5rem;
+}
+
+/* LAYOUT | SIZE | Small | Checkbox */
+.ui.radio.checkbox.small .box:after,
+.ui.radio.checkbox.small label:after {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* LAYOUT | SIZE | Large | Checkbox */
+.ui.radio.checkbox.large .box:after,
+.ui.radio.checkbox.large label:after {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Additions */
+.ui.checkbox.without-text .icon {
+    margin-left: 0;
 }

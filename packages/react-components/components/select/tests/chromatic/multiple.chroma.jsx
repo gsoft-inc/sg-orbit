@@ -224,7 +224,13 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    search: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -239,7 +245,12 @@ stories()
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    search: true
                 })}
             </div>
             <div className="flex">
@@ -257,7 +268,13 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    search: true
                 })}
             </div>
         </div>

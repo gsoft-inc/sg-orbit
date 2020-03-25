@@ -96,39 +96,70 @@ stories()
             })}
         </div>
     )
-    .add("icon", () =>
+    .add("icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createCheckbox({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
                 {createCheckbox({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createCheckbox({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     className: "mr5"
                 })}
                 {createCheckbox({
-                    icon: <CommunicationIcon />
+                    icons: <CommunicationIcon />,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
                 {createCheckbox({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
                 {createCheckbox({
-                    icon: <CommunicationIcon />,
+                    icons: <CommunicationIcon />,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
+                    label: <Label>6</Label>,
                     size: "large"
                 })}
             </div>
@@ -173,16 +204,33 @@ stories()
         </div>
     )
     .add("size", () =>
-        <div className="flex">
-            {createCheckbox({
-                size: "small",
-                className: "mr5"
-            })}
-            {createCheckbox({
-                className: "mr5"
-            })}
-            {createCheckbox({
-                size: "large"
-            })}
+        <div className="flex flex-column">
+            <div className="flex items-end mb5">
+                {createCheckbox({
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    size: "large"
+                })}
+            </div>
+            <div className="flex items-end">
+                {createCheckbox({
+                    size: "small",
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    defaultChecked: true,
+                    className: "mr5"
+                })}
+                {createCheckbox({
+                    defaultChecked: true,
+                    size: "large"
+                })}
+            </div>
         </div>
     );
