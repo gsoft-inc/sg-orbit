@@ -148,7 +148,8 @@
     padding: 4px 1rem;
 }
 
-.ui.button .ui.label.mini:not(.circular) {
+.ui.button .ui.label.mini:not(.circular),
+.ui.checkbox .ui.label.mini:not(.circular){
     padding: 0 0.8125em;
 }
 
