@@ -158,17 +158,6 @@ export function PureDropdown(props) {
         }
     };
 
-    const dropdownClasses = mergeClasses(
-        SIZES_CLASSES[size],
-        !isNil(icon) && "with-icon"
-    );
-
-    const containerClasses = mergeClasses(
-        fluid ? "w-100" : "dib",
-        "relative",
-        className
-    );
-
     const renderIcon = () => {
         if (!isNil(icon)) {
             const classes = mergeClasses(
@@ -183,6 +172,17 @@ export function PureDropdown(props) {
             );
         }
     };
+
+    const containerClasses = mergeClasses(
+        fluid ? "w-100" : "dib",
+        "relative outline-0",
+        className
+    );
+
+    const dropdownClasses = mergeClasses(
+        SIZES_CLASSES[size],
+        !isNil(icon) && "with-icon"
+    );
 
     return (
         <>
