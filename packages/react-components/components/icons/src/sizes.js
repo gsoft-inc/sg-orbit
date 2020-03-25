@@ -1,9 +1,10 @@
-import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY } from "@orbit-ui/react-components-shared";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, TINY } from "@orbit-ui/react-components-shared";
 
-export const SIZES = [TINY, SMALL, MEDIUM, LARGE, BIG, HUGE, MASSIVE];
+export const SIZES = [MINI, TINY, SMALL, MEDIUM, LARGE, BIG, HUGE, MASSIVE];
 export const DEFAULT_SIZE = MEDIUM;
 
 const CONTROLS_SIZES = {
+    [MINI]: TINY,
     [TINY]: TINY,
     [SMALL]: TINY,
     [MEDIUM]: SMALL,
