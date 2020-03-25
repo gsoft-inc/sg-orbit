@@ -301,6 +301,11 @@
     font-size: var(	--type-scale-7);
 }
 
+.ui.checkbox.small {
+    min-height: 16px;
+    line-height: 1;
+}
+
 .ui.checkbox.small label {
     font-size: var(--type-scale-8);
 }
@@ -558,8 +563,3 @@
 .ui.checkbox.without-text .icon {
     margin-left: 0;
 }
-
-/* Focus */
-/* .ui.checkbox input:focus ~ label::before {
-    outline: 2px solid @primary100;
-} */
