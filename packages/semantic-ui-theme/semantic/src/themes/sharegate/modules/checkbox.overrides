@@ -306,6 +306,10 @@
     line-height: 1;
 }
 
+.ui.checkbox .ui.label.mini:not(.circular) {
+    padding: 0 0.8125em;
+}
+
 .ui.checkbox.small label {
     font-size: var(--type-scale-8);
 }

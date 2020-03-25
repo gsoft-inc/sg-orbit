@@ -325,6 +325,10 @@
     margin-left: @scaleBravo;
 }
 
+.ui.button .ui.label.mini:not(.circular) {
+    padding: 0 0.8125em;
+}
+
 /* CONTENT | With Label | Layout | Padding */
 .ui.button.with-label,
 .ui.buttons.with-label .button {
