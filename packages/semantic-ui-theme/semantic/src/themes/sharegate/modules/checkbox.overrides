@@ -22,6 +22,11 @@
     transform: scale(0.5) translateY(-100%);
 }
 
+.ui.radio.checkbox.without-text label:after {
+    top: 50%;
+    transform: scale(0.5) translateY(0);
+}
+
 .ui.radio.checkbox input:checked ~ .box:after,
 .ui.radio.checkbox input:checked ~ label:after {
     mask: none;
