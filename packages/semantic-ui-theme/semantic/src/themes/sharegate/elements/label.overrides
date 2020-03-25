@@ -148,6 +148,10 @@
     padding: 4px 1rem;
 }
 
+.ui.button .ui.label.mini:not(.circular) {
+    padding: 0 0 0.8125em;
+}
+
 .ui.label.mini:not(.circular) {
     min-height: 20px;
     font-size: var(--type-scale-9);
