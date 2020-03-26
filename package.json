@@ -47,7 +47,7 @@
         "push-release": "node scripts/push-release",
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
         "release-pkg": "cross-env NODE_ENV=production run-s build:pkg publish-pkg",
-        "release-pkg-next": "cross-env NODE_ENV=production run-s build:pkg publish-pkg --dist-tag",
+        "release-pkg-next": "cross-env NODE_ENV=production run-s build:pkg publish-pkg --dist-tag alpha",
         "release-sb": "cross-env NODE_ENV=production run-s build:sb netlify-deploy-sb",
         "release-docs": "cross-env NODE_ENV=production run-s build:docs netlify-deploy-docs",
         "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
