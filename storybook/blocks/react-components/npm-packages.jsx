@@ -1,17 +1,12 @@
 import { Source } from "@storybook/components";
 import { isNil } from "lodash";
-import { string } from "prop-types";
 import { useState } from "react";
 
-const propTypes = {
-    componentFolder: string.isRequired
-};
-
-export function NpmPackages({ componentFolder }) {
+export function NpmPackages() {
     const [dependencies, setDependencies] = useState(null);
 
     if (isNil(dependencies)) {
-        import(/* webpackMode: "eager" */ `@root/packages/react-components/src/${componentFolder}/package.json`)
+        import(/* webpackMode: "eager" */ "@root/packages/react-components/package.json")
             .then(module => {
                 const json = module.default;
                 const peerDependencies = Object.keys(json.peerDependencies).filter(x => x !== "react" && x !== "react-dom");
@@ -24,5 +19,3 @@ export function NpmPackages({ componentFolder }) {
 
     return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
 }
-
-NpmPackages.propTypes = propTypes;

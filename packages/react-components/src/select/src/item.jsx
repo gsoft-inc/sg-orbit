@@ -58,7 +58,7 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
     if (!isNil(icons) && iconsPosition === "left" && !isNil(avatar)) {
-        throw new ArgumentError("@orbit-ui/react-select/item doesn't support having a left positioned icons and an avatar at the same time.");
+        throw new ArgumentError("@orbit-ui/react-components/select/item doesn't support having a left positioned icons and an avatar at the same time.");
     }
 }
 
@@ -66,7 +66,7 @@ export function SelectItem(props) {
     const { text, icons, iconsPosition, avatar, description, children, ...rest } = props;
     const context = useContext(DropdownContext);
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-select/item");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const renderAvatar = () => {

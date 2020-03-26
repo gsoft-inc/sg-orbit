@@ -25,7 +25,7 @@ const defaultProps = {
 };
 
 export function PureTag({ forwardedRef, ...props }) {
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label/tag");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/tag");
 
     const renderWithRef = () => {
         return (

@@ -28,10 +28,25 @@ export function getCurrentBrand() {
 export function useStorage() {
     const [value, setValue] = useLocalStorage(BRAND_STORAGE_KEY, JSON.stringify(DEFAULT_BRAND));
 
+    console.log("** useStorage", value);
+
     return [
         JSON.parse(value),
         x => setValue(JSON.stringify(x))
     ];
+}
+
+export function useStorage2() {
+    const [value, setValue] = useLocalStorage(BRAND_STORAGE_KEY, JSON.stringify(DEFAULT_BRAND));
+
+    console.log("** useStorage", value);
+
+    return value;
+
+    // return [
+    //     value,
+    //     x => setValue(JSON.stringify(x))
+    // ];
 }
 
 export function createPrimaryColorVariableName(colorWeight) {

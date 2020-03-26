@@ -90,14 +90,14 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit-ui/react-input/input doesn't support having a button and a right positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-components/input doesn't support having a button and a right positioned icon at the same time.");
     }
 }
 
 export function PureInput(props) {
     const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-input/input");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/input");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const containerRef = useRef();

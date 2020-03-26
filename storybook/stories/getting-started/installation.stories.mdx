@@ -1,3 +1,4 @@
+import { BrandImport } from "@blocks";
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
@@ -33,9 +34,12 @@ import { Message, ... } from "semantic-ui-react";
 
 #### Import styles
 
-```css dark
-@import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
-```
+<BrandImport
+    apricot={"@import \"~@orbit-ui/react/apricot.css\";"}
+    overcast={"@import \"~@orbit-ui/react/overcast.css\";"}
+    desktop={"@import \"~@orbit-ui/react/desktop.css\";"}
+    language="css"
+/>
 
 ## Custom installation
 

@@ -61,7 +61,7 @@ const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
     disabled: false,
-    unsupportedPropsComponentName: "@orbit-ui/react-input/checkbox"
+    unsupportedPropsComponentName: "@orbit-ui/react-components/checkbox"
 };
 
 const UNSUPPORTED_PROPS = ["as", "defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
@@ -82,7 +82,7 @@ export function PureRadio(props) {
             <Checkbox
                 radio
                 unsupportedProps={UNSUPPORTED_PROPS}
-                unsupportedPropsComponentName="@orbit-ui/react-input/radio"
+                unsupportedPropsComponentName="@orbit-ui/react-components/radio"
                 {...rest}
             />
         );

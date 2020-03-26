@@ -2,7 +2,7 @@ import { ExternalLink } from "@blocks";
 import { Fragment } from "react";
 import { IntroductionLayout } from "../introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { PackagesTable, ReactComponentsPackages } from "./components";
+import { PackagesTable } from "./components";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 <Meta
@@ -16,6 +16,16 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 # Packages
 
 Multiple packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition. For more information view the [installation page](?path=/docs/getting-started-installation--page).
+
+## Bundles
+
+Bundles are the easiest way to install Orbit UI in your app with a single package.
+
+<PackagesTable
+    packages={[
+        { name: "@orbit-ui/react", description: "A single package bundle to use Orbit UI in a React app.", relativePath: "packages/bundles/react" }
+    ]}
+/>
 
 ## Core
 
@@ -35,7 +45,12 @@ The core packages are the backbone of Orbit UI. They include all the Orbit UI bi
 
 Orbit UI components are built on top of [Semantic UI](https://semantic-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/). When Orbit UI doesn't provide a component, you should use a component from Semantic UI React.
 
-<ReactComponentsPackages />
+<PackagesTable
+    packages={[
+        { name: "@orbit-ui/react-components", description: "Orbit UI React components.", relativePath: "packages/react-components" },
+        { name: "@orbit-ui/semantic-ui-theme", description: <Fragment>Custom <ExternalLink href="https://semantic-ui.com">Semantic UI</ExternalLink> theme for Orbit UI. The theme is based on the variables of @orbit-ui/foundation.</Fragment>, relativePath: "packages/semantic-ui-theme" }
+    ]}
+/>
 
 
 

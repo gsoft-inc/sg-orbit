@@ -64,7 +64,7 @@ export const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
     disabled: false,
-    unsupportedPropsComponentName: "@orbit-ui/react-input/checkbox"
+    unsupportedPropsComponentName: "@orbit-ui/react-components/checkbox"
 };
 
 function getInputElement(innerRef) {

@@ -12,6 +12,7 @@ function useStorage(storage, key, initialValue = "") {
 
     useEffect(() => {
         const newValue = storage.getItem(key);
+
         if (value !== newValue) {
             setValue(newValue || initialValue);
         }
@@ -20,6 +21,8 @@ function useStorage(storage, key, initialValue = "") {
     const handleStorage = useCallback(
         event => {
             if (event.key === key && event.newValue !== value) {
+                console.log("Hey! Hey!", event.newValue);
+
                 setValue(event.newValue || initialValue);
             }
         },

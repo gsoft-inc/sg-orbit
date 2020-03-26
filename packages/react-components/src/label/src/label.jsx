@@ -57,22 +57,22 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit-ui/react-label doesn't support having a button and a right positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a button and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new ArgumentError("@orbit-ui/react-label doesn't support having a tag and a left positioned icon at the same time.");
+        throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
     }
 }
 
 function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     if (circular) {
         if (size === MINI) {
-            throw new ArgumentError(`@orbit-ui/react-label doesn't support "${MINI}" size when "circular".`);
+            throw new ArgumentError(`@orbit-ui/react-components/label doesn't support "${MINI}" size when "circular".`);
         }
     } else {
         if (size === BIG || size === HUGE || size === MASSIVE) {
-            throw new ArgumentError(`@orbit-ui/react-label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
+            throw new ArgumentError(`@orbit-ui/react-components/label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
         }
     }
 }
@@ -80,7 +80,7 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 export function PureLabel(props) {
     const { naked, button, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-label");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenUnsupportedSizeIsProvided(props);
 

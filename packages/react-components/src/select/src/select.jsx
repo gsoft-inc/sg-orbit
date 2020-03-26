@@ -43,11 +43,11 @@ const defaultProps = {
 function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValues, values }) {
     if (multiple) {
         if (!isNil(defaultValues) && !isArray(defaultValues)) {
-            throw new ArgumentError("@orbit-ui/react-select defaultValues must be an array when multiple is true.");
+            throw new ArgumentError("@orbit-ui/react-components/select defaultValues must be an array when multiple is true.");
         }
 
         if (!isNil(values) && !isArray(values)) {
-            throw new ArgumentError("@orbit-ui/react-select values must be an array when multiple is true.");
+            throw new ArgumentError("@orbit-ui/react-components/select values must be an array when multiple is true.");
         }
     }
 }
@@ -64,7 +64,7 @@ const renderAction = ({ content, key, className, ...rest }, index) => {
 export function PureSelect(props) {
     const { options, actions, inline, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-select");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMultipleAndValuesIsNotAnArray(props);
 
     const renderOptions = () => {
