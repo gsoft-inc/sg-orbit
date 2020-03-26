@@ -57,7 +57,7 @@ The component stories must provide:
 - A story named *default* that render the component default state.
 - A story named *knobs* with pre-configured [knobs](https://github.com/storybookjs/storybook/tree/next/addons/knobs). 
 
-The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/components/*/stories/**.stories.mdx`.
+The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/src/*/stories/**.stories.mdx`.
 
 ```
 /packages
@@ -107,7 +107,7 @@ stories("/segment")
     )
 ```
 
-The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/components/*/tests/chromatic/**.chroma.jsx`.
+The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/src/*/tests/chromatic/**.chroma.jsx`.
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
 

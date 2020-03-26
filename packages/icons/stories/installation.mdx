@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import { NpmPackages } from "@blocks/react-components";
+import { InstallDependencies } from "@blocks";
 
 <details><summary >install the packages</summary>
 
-For icons as React components, install from [the React bundle](?path=/docs/getting-started-installation--page) or as a single package:
+For icons as React components, install from the [React bundle](?path=/docs/getting-started-installation--page):
 
-<NpmPackages componentFolder="icons" />
+<InstallDependencies packageName="bundles/react" />
 
 For static files:
 
@@ -20,13 +20,13 @@ npm install @orbit-ui/icons
 As a multi-variant React component:
 
 ```jsx dark
-import { IconName } from "@orbit-ui/react-icons";
+import { IconName } from "@orbit-ui/react-components";
 ```
 
 As a single variant React component:
 
 ```jsx dark
-import { IconName24 } from "@orbit-ui/react-icons";
+import { IconName24 } from "@orbit-ui/react-components";
 ```
 
 As an image source:

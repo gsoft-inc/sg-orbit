@@ -1,8 +1,8 @@
 import styles from "./info-message.module.css";
 
-import { InfoIcon } from "@orbit-ui/react-icons";
+import { InfoIcon } from "@react-components/icons/src";
 import { Message } from "semantic-ui-react";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { mergeClasses } from "@react-components/shared/src";
 
 export function InfoMessage({ inline, children }) {
     const classes = mergeClasses(

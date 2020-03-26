@@ -1,0 +1,141 @@
+import { InfoIcon, WarningIcon } from "@react-components/icons";
+import { InstallationReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@react-components/select";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/item")}
+    parameters={paramsBuilder()
+        .sortPriority(5)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Select Item
+
+An item of a select component.
+
+## Installation
+
+<InstallationReactComponents componentFolder="select" imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select.Item", component: PureSelect.Item }
+    ]}
+/>
+
+## Usage
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const MALE = selectItem("Male", "Male");
+export const FEMALE = selectItem("Female", "Female");
+export const GENDERS = [MALE, FEMALE];
+
+export const JENNY = selectItem("Jenny Hess", "Jenny Hess");
+export const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
+export const FRIENDS = [JENNY, ELLIOT];
+
+```javascript dark
+const MALE = selectItem("Male", "Male");
+const FEMALE = selectItem("Female", "Female");
+const GENDERS = [MALE, FEMALE];
+
+const JENNY = selectItem("Jenny Hess", "Jenny Hess");
+const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
+const FRIENDS = [JENNY, ELLIOT];
+```
+
+### Text
+
+A select item accept text content.
+
+<Preview>
+    <Story name="text">
+        <Select
+            placeholder="Gender"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Description
+
+A select item can have a description.
+
+<Preview>
+    <Story name="description">
+        <Select
+            placeholder="Gender"
+            options={[
+                MALE,
+                selectItem("Female", "Female", { description: "Origin from the Latin word femella" })
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Avatar
+
+A select item can have an avatar.
+
+<Preview>
+    <Story name="avatar">
+        <Select
+            placeholder="Friends"
+            options={[
+                selectItem("Jenny Hess", "Jenny Hess", { avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenny" } }),
+                selectItem("Elliot Fu", "Elliot Fu", { avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Elliot" } })
+            ]}
+        />
+    </Story>
+</Preview>
+
+### Icons
+
+A select item can display icons.
+
+<Preview>
+    <Story name="icons">
+        <div className="flex items-space-between">
+            <Select
+                placeholder="Gender"
+                options={[
+                    selectItem("Male", "Male", { icons: <WarningIcon /> }),
+                    selectItem("Female", "Female", { icons: [<WarningIcon />, <InfoIcon />] })
+                ]}
+            />
+            <Select
+                placeholder="Gender"
+                options={[
+                    selectItem("Male", "Male", { icons: <WarningIcon />, iconsPosition: "right" }),
+                    selectItem("Female", "Female", { icons: [<WarningIcon />, <InfoIcon />], iconsPosition: "right" })
+                ]}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Disabled
+
+A select item can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Gender"
+            options={[
+                MALE,
+                selectItem("Female", "Female", { disabled: true })
+            ]}
+        />
+    </Story>
+</Preview>

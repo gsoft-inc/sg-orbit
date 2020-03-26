@@ -2,7 +2,7 @@
 
 import styles from "./table.module.css";
 
-import { ArgumentError, mergeClasses } from "@orbit-ui/react-components-shared/src";
+import { ArgumentError, mergeClasses } from "@react-components/shared/src";
 import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";

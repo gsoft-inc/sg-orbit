@@ -1,3 +1,4 @@
+import { BrandImport, InstallDependencies } from "@blocks";
 import { IntroductionLayout } from "./introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
@@ -33,9 +34,12 @@ import { Message, ... } from "semantic-ui-react";
 
 #### Import styles
 
-```css dark
-@import "~@orbit-ui/react/[(apricot|overcast|desktop).css]";
-```
+<BrandImport
+    apricot={"@import \"~@orbit-ui/react/apricot.css\";"}
+    overcast={"@import \"~@orbit-ui/react/overcast.css\";"}
+    desktop={"@import \"~@orbit-ui/react/desktop.css\";"}
+    language="css"
+/>
 
 ## Custom installation
 
@@ -55,28 +59,35 @@ npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/fo
 
 #### Import styles
 
-```css dark
-@import "~@orbit-ui/fonts";
-@import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
-@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
-```
+<BrandImport
+    apricot={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/apricot.css";
+        @import "~@orbit-ui/tachyons/apricot.css";
+    `}
+    overcast={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/overcast.css";
+        @import "~@orbit-ui/tachyons/overcast.css";
+    `}
+    desktop={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/desktop.css";
+        @import "~@orbit-ui/tachyons/desktop.css";
+    `}
+    language="css"
+/>
 
-### React component packages
+### React components packages
 
-Once the *core packages* are installed, you can optionally add *React component packages*. You can either pick and choose the component packages to install or install all the components and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/getting-started-packages--page#react-components).
 
-#### Install all components
+#### Install packages
 
-```bash dark
-npm install @orbit-ui/react-components @orbit-ui/semantic-ui-theme semantic-ui-react react-spring styled-jsx moment lodash
-```
-
-#### Hand-pick a few components to install
-
-```bash dark
-npm install @orbit-ui/react-* @orbit-ui/semantic-ui-theme semantic-ui-react styled-jsx
-```
+<InstallDependencies packageName="react-components" />
 
 #### Import components
 
@@ -85,26 +96,9 @@ import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/rea
 import { Message, ... } from "semantic-ui-react";
 ```
 
-### Semantic UI theme
-
-When you're done importing components, you must include Semantic UI theme to style your components. Again, you can either pick and choose the specific modules that you need or import the whole theme.
-
-#### Import the whole theme
-
-```css dark
-@import "~@orbit-ui/semantic-ui-theme";
-```
-
-#### Pick and choose specific modules
-
-```css dark
-@import "~@orbit-ui/semantic-ui-theme/button.css";
-@import "~@orbit-ui/semantic-ui-theme/checkbox.css";
-```
-
 ## Icons
 
-[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using any [Orbit UI React components](?path=/docs/getting-started-packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using [Orbit UI React components](?path=/docs/getting-started-packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```js dark
 {

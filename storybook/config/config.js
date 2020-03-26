@@ -101,7 +101,7 @@ if (includeComponents) {
     if (includeStories) {
         stories = [
             ...stories,
-            require.context("../../packages/react-components/components", true, /.stories.mdx$/),
+            require.context("../../packages/react-components/src", true, /.stories.mdx$/),
             require.context("../stories/semantic-ui/react", true, /.stories.mdx$/)
         ];
     }
@@ -109,7 +109,7 @@ if (includeComponents) {
     if (includeChromatic) {
         stories = [
             ...stories,
-            require.context("../../packages/react-components/components", true, /.chroma.jsx$/),
+            require.context("../../packages/react-components/src", true, /.chroma.jsx$/),
             require.context("../stories/semantic-ui/react", true, /.chroma.jsx$/)
         ];
     }

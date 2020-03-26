@@ -1,4 +1,4 @@
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { mergeClasses } from "@react-components/shared/src";
 
 import styles from "./checkered-background.module.css";
 

@@ -1,4 +1,4 @@
-import { CornerGithubLink } from "@blocks";
+import { BrandPicker, CornerGithubLink } from "@blocks";
 import { string } from "prop-types";
 
 const propTypes = {
@@ -8,6 +8,7 @@ const propTypes = {
 export function IntroductionLayout({ sourcePath, children }) {
     return (
         <>
+            <BrandPicker />
             <CornerGithubLink path={sourcePath} />
             {children}
         </>
