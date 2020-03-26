@@ -1,0 +1,315 @@
+import { ControlledRemoteSearchInput } from "./components";
+import { DEFAULT_SIZE, RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@react-components/search-input";
+import { FilePreview, Props } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
+import { createComponentSection, paramsBuilder } from "@utils";
+import { logValueChanged } from "../utils";
+import Imports from "./imports.mdx";
+import ResultsFetcherUsage from "./results-fetcher-usage.mdx";
+import SearchInputResultUsage from "./search-input-result-usage.mdx";
+
+<Meta
+    title={createComponentSection("Search Input/remote")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/search-input/src" />)
+        .build()}
+/>
+
+# Remote Search Input
+
+A remote search input allows a user to query for results from a remote data source.
+
+## Installation
+
+<Installation componentFolder="search-input" imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "RemoteSearchInput", component: RemoteSearchInput }
+    ]}
+/>
+
+## Remote API throttling
+
+For demo purpose, we use [GeoDB cities free API](https://rapidapi.com/wirefreethought/api/geodb-cities) through [Rapid API](https://rapidapi.com/) which is throttled at 16 requests / sec.
+
+*Please, be patient!*
+
+## Usage
+
+### Fetching results
+
+<ResultsFetcherUsage />
+
+### searchInputResult
+
+<SearchInputResultUsage />
+
+export const API_REQUEST_OPTIONS = {
+    headers: {
+        "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
+        "x-rapidapi-key": "8aa06f2e50msh9ff37516b3c0282p1e8624jsn81c867aa0d74"
+    }
+};
+
+export const dataFetcher = useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS });
+
+export const resultsMapper = response => {
+    return response.data.map(x => searchInputResult(x.code, x.name));
+};
+
+## Constants
+
+The following constants are used in the examples below:
+
+```javascript dark
+const dataFetcher = useDefaultResultsFetcher(
+    "https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5",
+    "namePrefix",
+    { requestOptions: API_REQUEST_OPTIONS }
+);
+
+const resultsMapper = response => {
+    return response.data.map(x => searchInputResult(x.code, x.name));
+};
+```
+
+### Default
+
+A default remote search input.
+
+<Preview>
+    <Story name="default">
+        <RemoteSearchInput
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        defaultValue={text("defaultValue")}
+        debounceDelay={number("debounceDelay", RemoteSearchInput.defaultProps.debounceDelay)}
+        loadingDelay={number("loadingDelay", RemoteSearchInput.defaultProps.loadingDelay)}
+        minCharacters={number("minCharacters", RemoteSearchInput.defaultProps.minCharacters)}
+        noResultsMessage={text("noResultsMessage")}
+        placeholder={text("placeholder", "Type a country name")}
+        fluid={boolean("fluid", false)}
+        disabled={boolean("disabled", false)}
+        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
+        closeOnBlur={boolean("closeOnBlur", true)}
+        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
+        onValueChange={logValueChanged}
+    />
+</Story>
+
+### Selected value
+
+A remote search input can have a default value.
+
+<Preview>
+    <Story name="selected value">
+        <RemoteSearchInput
+            defaultValue="Canada"
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+### Clear on select
+
+A remote search input results box can close when a result is selected.
+
+<Preview>
+    <Story name="clear on select">
+        <RemoteSearchInput
+            clearOnSelect
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A remote search input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <RemoteSearchInput
+            disabled
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A remote search input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <RemoteSearchInput
+            fluid
+            onFetchResults={dataFetcher}
+            onResults={resultsMapper}
+            onValueChange={logValueChanged}
+            placeholder="Type a country name"
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="dont close on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        closeOnBlur={false}
+        closeOnOutsideClick
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="failing fetch"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={() => Promise.reject()}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+### Size
+
+A search input can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <RemoteSearchInput
+                size="small"
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
+            <RemoteSearchInput
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
+            <RemoteSearchInput
+                size="large"
+                onFetchResults={dataFetcher}
+                onResults={resultsMapper}
+                onValueChange={logValueChanged}
+                fluid
+                placeholder="Type a country name"
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Controlled
+
+A remote search input can handle `value` and `open` state in controlled mode.
+
+<FilePreview filePath="/search-input/stories/remote-search-input/components/controlled-remote-search-input">
+    <ControlledRemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</FilePreview>
+
+<Story
+    name="open"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        open
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        autofocus
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RemoteSearchInput
+        onFetchResults={dataFetcher}
+        onResults={resultsMapper}
+        autofocus
+        autofocusDelay={500}
+        onValueChange={logValueChanged}
+        placeholder="Type a country name"
+    />
+</Story>
+
+
+
+

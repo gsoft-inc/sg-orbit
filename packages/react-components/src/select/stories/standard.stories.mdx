@@ -1,0 +1,254 @@
+import { HocWarning, Props } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@react-components/select";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/standard")}
+    parameters={paramsBuilder()
+        .sortPriority(1)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Select
+
+A select can be used to select between choices.
+
+## Installation
+
+<Installation componentFolder="select" imports={<Imports />} />
+
+### Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
+## Usage
+
+### Items
+
+A select component only accepts items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) through the `options` property. You can't specify `<Select.Item />` as subcomponents.
+
+To provide a select item as a shorthand object, you can define an object literal having the following format: `{ text, value, ... }`. To avoid redundant keys, use the `selectItem(text, value, additionalProps?)` function.
+
+For a list of all the properties available on a select item and usage examples, please have a look at the [item page](?path=/docs/components-select-item--text).
+
+```jsx dark
+<Select
+    options={[
+        selectItem("Male", "Male"),
+        selectItem("Female", "Female", { disabled: true })
+    ]}
+/>
+```
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const GENDERS = [
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
+];
+
+export const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
+
+```javascript dark
+const GENDERS = [
+    selectItem("Male", "Male"),
+    selectItem("Female", "Female")
+];
+
+const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
+```
+
+### Default
+
+A default select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A select can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            placeholder="Gender"
+            defaultValue="Female"
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Gender"
+            icon={<MagnifierIcon />}
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable select let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Gender"
+            clearable
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Gender"
+            disabled
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A select can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Gender"
+            fluid
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Size
+
+A select can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Select
+                placeholder="Gender"
+                fluid
+                size="small"
+                options={GENDERS}
+            />
+            <Select
+                placeholder="Gender"
+                fluid
+                options={GENDERS}
+            />
+            <Select
+                placeholder="Gender"
+                fluid
+                size="large"
+                options={GENDERS}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Error
+
+A select can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <Select
+            placeholder="Gender"
+            error
+            options={GENDERS}
+        />
+    </Story>
+</Preview>
+
+### Actions
+
+A select can contains non selectable items acting as actions.
+
+Actions must be specified as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) having the following format: `{ content, className? ... }`.
+
+<Preview>
+    <Story name="actions">
+        <Select
+            placeholder="Gender"
+            options={GENDERS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus placeholder="Gender" options={GENDERS} />
+        <Select autofocus disabled placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus autofocusDelay={500} placeholder="Gender" options={GENDERS} />
+        <Select autofocus disabled autofocusDelay={500} placeholder="Gender" options={GENDERS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select options={GENDERS} />} />
+</Story>

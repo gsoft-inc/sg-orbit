@@ -11,7 +11,7 @@ export function NpmPackages({ componentFolder }) {
     const [dependencies, setDependencies] = useState(null);
 
     if (isNil(dependencies)) {
-        import(/* webpackMode: "eager" */ `@root/packages/react-components/components/${componentFolder}/package.json`)
+        import(/* webpackMode: "eager" */ `@root/packages/react-components/src/${componentFolder}/package.json`)
             .then(module => {
                 const json = module.default;
                 const peerDependencies = Object.keys(json.peerDependencies).filter(x => x !== "react" && x !== "react-dom");

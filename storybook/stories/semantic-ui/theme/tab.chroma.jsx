@@ -1,4 +1,4 @@
-import { Label } from "@orbit-ui/react-label";
+import { Label } from "@react-components/label";
 import { Menu, Tab } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

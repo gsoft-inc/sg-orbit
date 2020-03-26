@@ -7,7 +7,6 @@
     "workspaces": {
         "packages": [
             "packages/*",
-            "packages/react-components/components/*",
             "packages/bundles/*"
         ]
     },

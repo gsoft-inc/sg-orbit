@@ -1,0 +1,216 @@
+import { HocWarning, Props, WarningMessage } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@react-components/select";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/searchable")}
+    parameters={paramsBuilder()
+        .sortPriority(2)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Searchable Select
+
+A select can allow a user to search through a large list of choices.
+
+## Installation
+
+<Installation componentFolder="select" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
+];
+
+```javascript dark
+const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
+];
+```
+
+### Default
+
+A default searchable select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            placeholder="Select language"
+            search
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A searchable select can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            placeholder="Select language"
+            search
+            defaultValue="Dutch"
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A searchable select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Select language"
+            search
+            icon={<MagnifierIcon />}
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A searchable select can let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Select language"
+            search
+            clearable
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A searchable select can take all the space available.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Select language"
+            search
+            fluid
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A searchable select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Select language"
+            search
+            disabled
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus search placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus search disabled placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus autofocusDelay={500} search placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus disabled autofocusDelay={500} search placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select search options={LANGUAGES} />} />
+</Story>

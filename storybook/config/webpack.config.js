@@ -115,7 +115,7 @@ function addAliases(config) {
         "@shared": path.resolve(__dirname, "../shared/"),
         "@utils": path.resolve(__dirname, "../utils/"),
         "@stories": path.resolve(__dirname, "../stories/"),
-        "@react-components": path.resolve(__dirname, "../../packages/react-components/components")
+        "@react-components": path.resolve(__dirname, "../../packages/react-components/src")
     };
 }
 

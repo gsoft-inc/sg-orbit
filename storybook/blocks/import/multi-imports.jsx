@@ -1,9 +1,9 @@
 import styles from "./multi-imports.module.css";
 
-import { Button } from "@orbit-ui/react-button";
+import { Button } from "@react-components/button/src";
 import { Source } from "@storybook/components";
 import { arrayOf, shape, string } from "prop-types";
-import { mergeClasses } from "@orbit-ui/react-components-shared";
+import { mergeClasses } from "@react-components/shared/src";
 import { useLocalStorage } from "@shared/use-storage";
 import dedent from "dedent";
 

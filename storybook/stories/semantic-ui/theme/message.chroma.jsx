@@ -1,5 +1,5 @@
-import { Button } from "@orbit-ui/react-button/src";
-import { GroupIcon } from "@orbit-ui/react-icons/src";
+import { Button } from "@react-components/button";
+import { GroupIcon } from "@react-components/icons";
 import { Message } from "semantic-ui-react";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

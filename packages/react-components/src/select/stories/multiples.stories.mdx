@@ -1,0 +1,215 @@
+import { HocWarning, Props, WarningMessage } from "@blocks";
+import { Installation, ReactComponentsLayout } from "@blocks/react-components";
+import { MagnifierIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@react-components/select";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/multiple values")}
+    parameters={paramsBuilder()
+        .sortPriority(4)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Multiple Values Select
+
+A select can allow a user to make multiple choices.
+
+## Installation
+
+<Installation componentFolder="select" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
+];
+
+```javascript dark
+const LANGUAGES = [
+    selectItem("Arabic", "Arabic"),
+    selectItem("Chinese", "Chinese"),
+    selectItem("Danish", "Danish"),
+    selectItem("Dutch", "Dutch"),
+    selectItem("English", "English"),
+    selectItem("French", "French"),
+    selectItem("German", "German"),
+    selectItem("Greek", "Greek"),
+    selectItem("Hungarian", "Hungarian"),
+    selectItem("Italian", "Italian"),
+    selectItem("Japanese", "Japanese"),
+    selectItem("Korean", "Korean"),
+    selectItem("Lithuanian", "Lithuanian"),
+    selectItem("Persian", "Persian"),
+    selectItem("Polish", "Polish"),
+    selectItem("Portuguese", "Portuguese"),
+    selectItem("Russian", "Russian"),
+    selectItem("Spanish", "Spanish"),
+    selectItem("Swedish", "Swedish"),
+    selectItem("Turkish", "Turkish"),
+    selectItem("Vietnamese", "Vietnamese")
+];
+```
+
+### Default
+
+A default multiple values select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            multiple
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Selected values
+
+A multiple values select can have initial values. _Dont forget to specify values has an array_.
+
+<Preview>
+    <Story name="selected values">
+        <Select
+            placeholder="Select language"
+            multiple
+            defaultValue={["Dutch"]}
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A multiple values select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Select language"
+            multiple
+            icon={<MagnifierIcon />}
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A multiple values select can take all the space available.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Select language"
+            multiple
+            fluid
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A multiple values select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Select language"
+            multiple
+            disabled
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+### Searchable
+
+A multiple values select can be searchable.
+
+<Preview>
+    <Story name="searchable">
+        <Select
+            placeholder="Select language"
+            multiple
+            search
+            options={LANGUAGES}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus multiple placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus multiple disabled placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select multiple options={LANGUAGES} />} />
+</Story>

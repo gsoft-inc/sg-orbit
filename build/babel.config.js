@@ -63,4 +63,3 @@ module.exports = {
         "babel-plugin-add-react-displayname"
     ].filter(Boolean)
 };
-
