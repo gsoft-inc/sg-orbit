@@ -80,6 +80,7 @@
         "@babel/plugin-transform-runtime": "7.9.0",
         "@babel/preset-env": "7.9.0",
         "@babel/preset-react": "7.9.4",
+        "@rehooks/local-storage": "2.3.0",
         "@sharegate/browserslist-config-recommended": "1.0.1",
         "@sharegate/eslint-config-lodash": "1.0.2",
         "@sharegate/eslint-config-react": "1.1.0",

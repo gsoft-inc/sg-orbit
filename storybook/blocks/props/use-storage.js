@@ -1,7 +1,7 @@
 import { isNil } from "lodash";
-import { useSessionStorage } from "@shared/use-storage";
+import { useLocalStorage, writeStorage } from "@rehooks/local-storage";
 
-const STORAGE_KEY = "SB_PROPS_VISIBILITY";
+const STORAGE_KEY = "@orbit-ui/storybook/props";
 
 function getStoryId() {
     const params = new URLSearchParams(document.location.search);
@@ -22,17 +22,19 @@ function getStorageKey() {
     const storyId = getStoryId();
 
     if (!isNil(storyId)) {
-        return `${STORAGE_KEY}-${storyId}`;
+        return `${STORAGE_KEY}/${storyId}-visibility`;
     }
 
     return "default";
 }
 
 export function useStorage(defaultValue) {
-    const [value, setValue] = useSessionStorage(getStorageKey(), JSON.stringify(defaultValue));
+    const [value] = useLocalStorage(getStorageKey(), defaultValue);
 
     return [
-        JSON.parse(value),
-        x => setValue(JSON.stringify(x))
+        value,
+        newValue => {
+            writeStorage(getStorageKey(), newValue);
+        }
     ];
 }

@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useLocalStorage } from "./use-storage";
+import { useLocalStorage, writeStorage } from "@rehooks/local-storage";
 
 export const COLORS_WEIGHT = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
 export const BRAND_STORAGE_KEY = "@orbit-ui/storybook/selected-brand";
@@ -26,27 +26,14 @@ export function getCurrentBrand() {
 }
 
 export function useStorage() {
-    const [value, setValue] = useLocalStorage(BRAND_STORAGE_KEY, JSON.stringify(DEFAULT_BRAND));
-
-    console.log("** useStorage", value);
+    const [value] = useLocalStorage(BRAND_STORAGE_KEY, DEFAULT_BRAND);
 
     return [
-        JSON.parse(value),
-        x => setValue(JSON.stringify(x))
+        value,
+        newValue => {
+            writeStorage(BRAND_STORAGE_KEY, newValue);
+        }
     ];
-}
-
-export function useStorage2() {
-    const [value, setValue] = useLocalStorage(BRAND_STORAGE_KEY, JSON.stringify(DEFAULT_BRAND));
-
-    console.log("** useStorage", value);
-
-    return value;
-
-    // return [
-    //     value,
-    //     x => setValue(JSON.stringify(x))
-    // ];
 }
 
 export function createPrimaryColorVariableName(colorWeight) {

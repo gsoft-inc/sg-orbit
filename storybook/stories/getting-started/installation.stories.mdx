@@ -59,16 +59,31 @@ npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/fo
 
 #### Import styles
 
-```css dark
-@import "~@orbit-ui/fonts";
-@import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation[/(apricot|overcast|desktop).css]";
-@import "~@orbit-ui/tachyons[/(apricot|overcast|desktop|legacy).css]";
-```
+<BrandImport
+    apricot={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/apricot.css";
+        @import "~@orbit-ui/tachyons/apricot.css";
+    `}
+    overcast={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/overcast.css";
+        @import "~@orbit-ui/tachyons/overcast.css";
+    `}
+    desktop={`
+        @import "~@orbit-ui/fonts";
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/desktop.css";
+        @import "~@orbit-ui/tachyons/desktop.css";
+    `}
+    language="css"
+/>
 
-### React component packages
+### React components packages
 
-Once the *core packages* are installed, you can optionally add *React component packages*. You can either pick and choose the component packages to install or install all the components and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+Once the *core packages* are installed, you can optionally install *React components packages*.
 
 #### Install all components
 
