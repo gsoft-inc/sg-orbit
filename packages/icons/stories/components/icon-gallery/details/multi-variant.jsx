@@ -8,7 +8,7 @@ function ImportSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Source language="js" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-components"`} className="mv2" />
+            <Source language="js" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-components";`} className="mv2" />
         </>
     );
 }

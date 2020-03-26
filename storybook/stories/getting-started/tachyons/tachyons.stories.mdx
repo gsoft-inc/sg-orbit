@@ -1,6 +1,7 @@
-import { IntroductionLayout } from "./introduction-layout";
+import { IntroductionLayout } from "../introduction-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { createGettingStartedSection, paramsBuilder } from "@utils";
+import Installation from "./installation.mdx";
 
 <Meta
     title={`${createGettingStartedSection("Tachyons")}`}
@@ -36,6 +37,10 @@ _Consistency_ makes designers happy!
 In Orbit UI, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
 Over the course of development of our products, we added a few utilities that we could benefit from and were missing from Tachyons. Find out how we customized Tachyons in the [customization section](#customization) of this document.
+
+## Installation
+
+<Installation />
 
 ## Customization
 

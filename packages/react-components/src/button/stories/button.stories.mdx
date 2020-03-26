@@ -1,9 +1,8 @@
 import { AddIcon, SignoutIcon } from "@react-components/icons";
 import { Button, PureButton } from "@react-components/button";
-import { HocWarning, Props } from "@blocks";
+import { HocWarning, Installation, Props, ReactComponentsLayout } from "@blocks";
 import { Label, Tag } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks/react-components";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import CustomColorHover from "./custom-color-hover.mdx";
 import Imports from "./imports.mdx";
@@ -18,9 +17,11 @@ import Imports from "./imports.mdx";
 
 # Button
 
-## Import
+A Button indicates a possible user action.
 
-<Imports />
+## Installation
+
+<Installation componentFolder="input" imports={<Imports />}/>
 
 ## Props
 
