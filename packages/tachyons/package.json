@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/tachyons",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "description": "Custom Tachyons for Sharegate Orbit UI",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "license": "Apache-2.0",
