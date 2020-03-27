@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { GroupIcon } from "@react-components/icons";
-import { Message } from "@react-components/Message";
+import { Message } from "@react-components/message";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
