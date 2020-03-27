@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { GroupIcon } from "@react-components/icons";
-import { Message } from "semantic-ui-react";
+import { Message } from "@react-components/Message";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
