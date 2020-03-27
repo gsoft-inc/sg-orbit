@@ -119,7 +119,7 @@
 
 /* Search Selection */
 @searchSelectionLineHeight: 1;
-@searchSelectionInputPadding: 0.4375rem 2rem 0.4375rem 1rem;
+@searchSelectionInputPadding: 0.9rem 2rem 0.9rem 1rem;
 
 /* Inline */
 

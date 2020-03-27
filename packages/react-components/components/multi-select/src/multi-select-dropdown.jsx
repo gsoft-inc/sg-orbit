@@ -1,4 +1,4 @@
-import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "@orbit-ui/react-components-shared";
+import { ArgumentError, DOMEventListener, KEYS, LARGE, SMALL, mergeClasses } from "@orbit-ui/react-components-shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
 import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
@@ -13,6 +13,11 @@ import { debounce, isFunction, isNil } from "lodash";
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired
+};
+
+const SIZES_CLASSES = {
+    [SMALL]: "small",
+    [LARGE]: "large"
 };
 
 export class MultiSelectDropdown extends PureComponent {
@@ -316,10 +321,11 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     getClasses() {
-        const { className } = this.props;
+        const { className, triggerSize } = this.props;
 
         return mergeClasses(
             "no-icons",
+            SIZES_CLASSES[triggerSize],
             className
         );
     }

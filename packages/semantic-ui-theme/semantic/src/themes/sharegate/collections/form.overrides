@@ -99,7 +99,7 @@
 
 /* LAYOUT | Sizes */
 .ui.textarea {
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     line-height: @lh1;
     /* Firefox fix to make sure it respects number of rows */
     overflow-x:hidden;
@@ -107,10 +107,11 @@
 
 .ui.textarea.small {
     font-size: var(	--type-scale-8);
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .ui.textarea.large {
     font-size: var(--type-scale-6);
     line-height: @lh4;
+    padding: 1.25rem 1.5rem;
 }

@@ -18,15 +18,31 @@
 }
 
 .ui[class*="left icon"].input > i.icon.spinner {
-    left: 0.5rem;
+    left: 10px;
     width: 1.5rem;
+}
+
+.ui[class*="left icon"].input.small > i.icon.spinner {
+    left: 8px;
+}
+
+.ui[class*="left icon"].input.large > i.icon.spinner {
+    left: 12px;
 }
 
 /* LAYOUT */
 
 .ui.icon.input > i.icon.spinner {
     width: 1.25rem;
+    right: 10px;
+}
+
+.ui.icon.input.small > i.icon.spinner {
     right: 0.5rem;
+}
+
+.ui.icon.input.large > i.icon.spinner {
+    right: 12px;
 }
 
 .ui.loading.loading.input > i.icon:after {
