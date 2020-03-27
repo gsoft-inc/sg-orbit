@@ -6,7 +6,7 @@ import {
     TOP_LEFT,
     TOP_RIGHT
 } from "@react-components/popup";
-import { RedBoxPopup } from "@react-components/popup/stories/popup/components";
+import { RedBoxPopup } from "@react-components/popup/stories/components";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
