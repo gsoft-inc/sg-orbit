@@ -1,5 +1,6 @@
-import { Label, Tag } from "@react-components/label";
+import { Label } from "@react-components/label";
 import { SignoutIcon } from "@react-components/icons";
+import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
 function Button({ element, ...rest }) {

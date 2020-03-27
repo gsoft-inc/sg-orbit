@@ -1,6 +1,7 @@
 import { Button } from "@react-components/button";
 import { CalendarIcon, ImageIcon, SignoutIcon } from "@react-components/icons";
-import { Label, Tag } from "@react-components/label";
+import { Label } from "@react-components/label";
+import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
 function Group({ element, ...rest }) {

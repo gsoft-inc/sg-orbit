@@ -1,3 +1,3 @@
-import InstallationReactComponents from "./install-react-components.mdx";
+import InstallReactComponents from "./install-react-components.mdx";
 
-export { InstallationReactComponents };
+export { InstallReactComponents };

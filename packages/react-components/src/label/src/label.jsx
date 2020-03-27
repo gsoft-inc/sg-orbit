@@ -4,7 +4,7 @@ import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "../../button";
 import { createIconForControl } from "../../icons";
-import { createTagFromShorthand } from "./factories";
+import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 

@@ -1,0 +1,120 @@
+import { ControlledRadioGroup } from "./components";
+import { FilePreview, HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureRadio, Radio } from "@react-components/radio";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Radio")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .build()}
+/>
+
+# Radio
+
+Radio buttons allow a user to select one option from a set.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Radio", component: PureRadio }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
+</WarningMessage>
+
+### Text
+
+A radio can have a text.
+
+<Preview>
+    <Story name="text">
+        <Radio text="Milky Way"/>
+    </Story>
+</Preview>
+
+### Selected
+
+A radio can be selected.
+
+<Preview>
+    <Story name="selected">
+        <Radio defaultChecked text="Milky Way"/>
+    </Story>
+</Preview>
+
+### Disabled
+
+A radio can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Radio disabled text="Milky Way"/>
+    </Story>
+</Preview>
+
+### Readonly
+
+A radio can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Radio readOnly text="Milky Way" />
+    </Story>
+</Preview>
+
+### No text
+
+A radio doesn't require a text.
+
+<Preview>
+    <Story name="no text">
+        <Radio />
+    </Story>
+</Preview>
+
+### Size
+
+A radio can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-lot-of-space-between">
+            <Radio size="small" text="Milky Way" />
+            <Radio text="Milky Way" />
+            <Radio size="large" text="Milky Way" />
+        </div>
+    </Story>
+</Preview>
+
+### Group
+
+Radios buttons in a group must be controlled components.
+
+<FilePreview filePath="/input/stories/radio/components/controlled-radio-group">
+    <ControlledRadioGroup />
+</FilePreview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Radio text="Milky Way" />} />
+</Story>

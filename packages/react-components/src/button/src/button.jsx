@@ -5,7 +5,8 @@ import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
-import { createLabelFromShorthand, createTagFromShorthand } from "../../label";
+import { createLabelFromShorthand } from "../../label";
+import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
