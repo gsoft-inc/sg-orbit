@@ -1,7 +1,8 @@
 import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
-import { Input, TextArea } from "@react-components/input";
+import { Input } from "@react-components/input";
 import { Label } from "@react-components/label";
+import { TextArea } from "@react-components/textarea";
 import { Tooltip } from "@react-components/popup";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
