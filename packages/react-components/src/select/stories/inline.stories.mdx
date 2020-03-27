@@ -1,0 +1,160 @@
+import { HocWarning, InstallationReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
+import { MagnifierIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSelect, Select, selectItem } from "@react-components/select";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/inline")}
+    parameters={paramsBuilder()
+        .sortPriority(3)
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Inline Select
+
+An inlined select can appear inline with other content.
+
+## Installation
+
+<InstallationReactComponents componentFolder="select" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: PureSelect }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component <i>mostly</i> support the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
+
+```javascript dark
+const FRIENDS = [
+    selectItem("Jenny Hess", "Jenny Hess"),
+    selectItem("Elliot Fu", "Elliot Fu")
+];
+```
+
+### Default
+
+A default inlined select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            placeholder="select friend"
+            inline
+            options={FRIENDS}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A inline select can have an initial value
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            placeholder="select friend"
+            defaultValue="Elliot Fu"
+            inline
+            options={FRIENDS}
+        />
+    </Story>
+</Preview>
+
+### In a block
+
+An inlined select can be embedded in a block.
+
+<Preview>
+    <Story name="in a block">
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <Select
+            placeholder="select friend"
+            inline
+            options={FRIENDS}
+        /> elementum viverra maximus.</div>
+    </Story>
+</Preview>
+
+### Icon
+
+An inline select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Gender"
+            icon={<MagnifierIcon />}
+            inline
+            options={FRIENDS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+An inlined select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="select friend"
+            inline
+            disabled
+            options={FRIENDS}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus inline placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline disabled placeholder="select friend" options={FRIENDS} />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autofocus inline autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline disabled autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Select inline options={FRIENDS} />} />
+</Story>

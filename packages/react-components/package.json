@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "7.0.1",
+    "version": "8.0.0",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -12,27 +12,31 @@
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "run-p build:*",
-        "build:this": "babel src -d dist --config-file ./babel.config.js",
-        "build:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- babel src -d dist --config-file ../../babel.config.js --copy-files",
+        "build": "babel src -d dist --config-file ./babel.config.js --copy-files",
         "prewatch": "yarn clean",
-        "watch": "run-p \"build:* --watch\"",
-        "clean": "run-p clean:*",
-        "clean:this": "rimraf dist",
-        "clean:components": "lerna exec --scope @orbit-ui/react-* --ignore @orbit-ui/react-components --parallel -- rimraf dist"
+        "watch": "run-p \"build --watch\"",
+        "clean": "rimraf dist"
+    },
+    "peerDependencies": {
+        "@orbit-ui/css-normalize": "*",
+        "@orbit-ui/semantic-ui-theme": "*",
+        "@orbit-ui/tachyons": "*",
+        "lodash": "*",
+        "moment": "*",
+        "react": "*",
+        "react-dom": "*",
+        "react-spring": "*",
+        "semantic-ui-react": "*",
+        "styled-jsx": "*"
     },
     "dependencies": {
-        "@orbit-ui/react-button": "2.2.2",
-        "@orbit-ui/react-components-shared": "2.4.0",
-        "@orbit-ui/react-date-picker": "5.2.2",
-        "@orbit-ui/react-dropdown": "1.0.0",
-        "@orbit-ui/react-icons": "2.0.1",
-        "@orbit-ui/react-input": "1.2.2",
-        "@orbit-ui/react-label": "2.2.2",
-        "@orbit-ui/react-multi-select": "3.2.2",
-        "@orbit-ui/react-popup": "3.1.0",
-        "@orbit-ui/react-search-input": "3.2.2",
-        "@orbit-ui/react-select": "0.1.0"
+        "@babel/runtime-corejs3": "*",
+        "@juggle/resize-observer": "2.4.0",
+        "@orbit-ui/icons": "6.0.1",
+        "classnames": "*",
+        "prop-types": "*",
+        "react-dates": "21.5.1",
+        "react-moment-proptypes": "1.7.0"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

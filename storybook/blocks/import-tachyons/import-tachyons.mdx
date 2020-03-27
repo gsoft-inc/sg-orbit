@@ -1,0 +1,34 @@
+import { BrandImport } from "@blocks";
+
+<details><summary>then import the CSS files</summary>
+
+For a specific product:
+
+<BrandImport
+    apricot={`
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/apricot.css";
+        @import \"~@orbit-ui/tachyons/apricot.css\";
+    `}
+    overcast={`
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/overcast.css";
+        @import \"~@orbit-ui/tachyons/overcast.css\";
+    `}
+    desktop={`
+        @import "~@orbit-ui/css-normalize";
+        @import "~@orbit-ui/foundation/desktop.css";
+        @import \"~@orbit-ui/tachyons/desktop.css\";
+    `}
+    language="css"
+/>
+
+For legacy browsers:
+
+```css dark
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/tachyons/legacy.css";
+```
+
+</details>

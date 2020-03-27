@@ -1,0 +1,207 @@
+import { Button } from "@react-components/button";
+import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@react-components/icons";
+import { HocWarning, InstallationReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Label, PureLabel, Tag } from "@react-components/label";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { logButtonClicked } from "./utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Label")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
+        .build()}
+/>
+
+# Label
+
+A label displays content classification.
+
+## Installation
+
+<InstallationReactComponents componentFolder="label" imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Label" semanticPath="/elements/label" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Label", component: PureLabel }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default label.
+
+<Preview>
+    <Story name="default">
+        <Label>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Button
+
+A label can contain a [button](?path=/docs/components-button--default-story). Specify the button to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="button">
+        <div className="flex items-space-between">
+            <Label button={<Button icon={<CloseIcon />} />}>
+                Group added
+            </Label>
+            <Label button={{ icon: <CloseIcon />, onClick: logButtonClicked }}>
+                User added
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Icon
+
+A label can contain an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-space-between">
+            <Label icon={<CommunicationIcon />}>
+                Notification Sent
+            </Label>
+            <Label icon={<MagnifierIcon />} iconPosition="right">
+                Notification Sent
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Tag
+
+A label can contain a [tag](?path=/docs/components-label-tag--default-story). Specify the tag to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="tag">
+        <div className="flex items-space-between">
+            <Label tag={<Tag className="bg-primary-500" />}>
+                Notification Sent
+            </Label>
+            <Label tag={{ className: "bg-sunray-500" }}>
+                Notification Sent
+            </Label>
+        </div>
+    </Story>
+</Preview>
+
+### Basic
+
+A label can have a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <Label basic>Basic</Label>
+    </Story>
+</Preview>
+
+### Size
+
+A label can vary in size.
+
+Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Label size="mini">Notification Sent</Label>
+            <Label size="tiny">Notification Sent</Label>
+            <Label size="small">Notification Sent</Label>
+            <Label>Notification Sent</Label>
+            <Label size="large">Notification Sent</Label>
+        </div>
+    </Story>
+</Preview>
+
+### Circular
+
+A label can have a circular form.
+
+A circular label size can be set to: `"tiny"`, `"small"`, `"medium"`, `"large"`, `"big"`, `"huge"`, `"massive"` or omitted.
+
+<Preview>
+    <Story name="circular">
+        <div className="flex">
+            <div className="flex items-end items-space-between mr4">
+                <Label circular size="tiny">R</Label>
+                <Label circular size="small">R</Label>
+                <Label circular>R</Label>
+                <Label circular size="large">R</Label>
+                <Label circular size="big">R</Label>
+                <Label circular size="huge">R</Label>
+                <Label circular size="massive">R</Label>
+            </div>
+            <div className="flex items-end items-space-between">
+                <Label circular size="tiny" icon={<CommunicationIcon />} />
+                <Label circular size="small" icon={<CommunicationIcon />} />
+                <Label circular icon={<CommunicationIcon />} />
+                <Label circular size="large" icon={<CommunicationIcon />} />
+                <Label circular size="big" icon={<CommunicationIcon />} />
+                <Label circular size="huge" icon={<CommunicationIcon />} />
+                <Label circular size="massive" icon={<CommunicationIcon />} />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Highlight
+
+A label can be highlighed to draw attention on his text.
+
+<Preview>
+    <Story name="highlight">
+        <Label highlight>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Naked
+
+A label can be colorless. Use this variant if you need to customize the label.
+
+<Preview>
+    <Story name="naked">
+        <Label naked>Notification Sent</Label>
+    </Story>
+</Preview>
+
+### Custom color
+
+A naked label can have a custom color.
+
+<Preview>
+    <Story name="custom-color">
+        <Label
+            naked
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Notification Sent
+        </Label>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Label />} />
+</Story>
+
+
+

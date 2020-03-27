@@ -19,7 +19,7 @@ export function FilePreview({ filePath, withSource, children, ...rest }) {
     const [source, setSource] = useState(null);
 
     if (isNil(source)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/components${filePath}.sample.jsx`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)
             .then(module => {
                 setSource(module.default);
             });

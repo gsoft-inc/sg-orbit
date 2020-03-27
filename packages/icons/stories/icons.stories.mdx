@@ -94,8 +94,8 @@ import {
     WarningIcon32,
     ZipIcon,
     ZipIcon32
-} from "@orbit-ui/react-icons/src";
-import { CheckeredBackground, ComponentImport, ExternalLink } from "@blocks";
+} from "@react-components/icons";
+import { CheckeredBackground, ExternalLink } from "@blocks";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./components/icon-gallery";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
@@ -179,41 +179,25 @@ Two types of components are available, _multi-variants_ components and _variants
 
 Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
-<ComponentImport
-    language="jsx"
-    bundle={`
-        import { CalendarIcon } from "@orbit-ui/react-components";\n
-        function render() {
-            return <CalendarIcon />;
-        }
-    `}
-    standalone={`
-        import { CalendarIcon } from "@orbit-ui/react-icons";\n
-        function render() {
-            return <CalendarIcon />;
-        }
-    `}
-/>
+```jsx dark
+import { CalendarIcon } from "@orbit-ui/react-components";
+
+function render() {
+    return <CalendarIcon />;
+}
+```
 
 #### Variants
 
 Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
-<ComponentImport
-    language="jsx"
-    bundle={`
-        import { CalendarIcon24 } from "@orbit-ui/react-components";\n
-        function render() {
-            return <CalendarIcon24 />;
-        }
-    `}
-    standalone={`
-        import { CalendarIcon24 } from "@orbit-ui/react-icons";\n
-        function render() {
-            return <CalendarIcon24 />;
-        }
-    `}
-/>
+```jsx dark
+import { CalendarIcon24 } from "@orbit-ui/react-components";
+
+function render() {
+    return <CalendarIcon24 />;
+}
+```
 
 #### Sizes
 
@@ -277,39 +261,23 @@ This means that you can alter the color of an icon by specifying a new `fill` va
 
 To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop:
 
-<ComponentImport
-    language="jsx"
-    bundle={`
-        import { CalendarIcon } from "@orbit-ui/react-components";\n
-        function render() {
-            return <CalendarIcon className="fill-marine-900" />
-        }
-    `}
-    standalone={`
-        import { CalendarIcon } from "@orbit-ui/react-icons";\n
-        function render() {
-            return <CalendarIcon className="fill-marine-900" />
-        }
-    `}
-/>
+```jsx dark
+import { CalendarIcon } from "@orbit-ui/react-components";
+
+function render() {
+    return <CalendarIcon className="fill-marine-900" />
+}
+```
 
 If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
 
-<ComponentImport
-    language="jsx"
-    bundle={`
-        import { CalendarIcon } from "@orbit-ui/react-components";\n
-        function render() {
-            return <CalendarIcon style={{ fill: "var(--marine-900)" }} />;
-        }
-    `}
-    standalone={`
-        import { CalendarIcon } from "@orbit-ui/react-icons";\n
-        function render() {
-            return <CalendarIcon style={{ fill: "var(--marine-900)" }} />;
-        }
-    `}
-/>
+```jsx dark
+import { CalendarIcon } from "@orbit-ui/react-components";
+
+function render() {
+    return <CalendarIcon style={{ fill: "var(--marine-900)" }} />;
+}
+```
 
 ### Image source
 
