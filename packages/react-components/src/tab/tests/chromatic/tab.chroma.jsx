@@ -1,5 +1,5 @@
 import { Label } from "@react-components/label";
-import { Menu, Tab } from "semantic-ui-react";
+import { Menu, Tab } from "@react-components/tab";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

@@ -14,4 +14,6 @@ export * from "./popup";
 export * from "./tooltip";
 export * from "./search-input";
 export * from "./select";
+export * from "./tab";
+export * from "./message";
 export * from "./shared";
