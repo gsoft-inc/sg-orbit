@@ -57,39 +57,35 @@ function Labels({ element, ...rest }) {
 export function createSharedStories(checkbox, stories) {
     return stories
         .add("text", () =>
-            <div className="flex">
-                <div className="flex flex-column">
-                    <div className="flex mb8">
-                        <Checkbox text="Milky Way" element={checkbox} className="mr5" />
-                        <Checkbox disabled text="Milky Way" element={checkbox} className="mr5" />
-                        <Checkbox readonly text="Milky Way" element={checkbox} />
-                    </div>
-                    <div className="flex mb8">
-                        <Checkbox size="small" text="Milky Way" element={checkbox} className="mr5" />
-                        <Checkbox text="Milky Way" element={checkbox} className="mr5" />
-                        <Checkbox size="large" text="Milky Way" element={checkbox} />
-                    </div>
-                    <Icons text="Milky Way" element={checkbox} />
-                    <Labels text="Milky Way" element={checkbox} />
+            <div className="flex flex-column">
+                <div className="flex mb8">
+                    <Checkbox text="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox disabled text="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox readonly text="Milky Way" element={checkbox} />
                 </div>
+                <div className="flex mb8">
+                    <Checkbox size="small" text="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox text="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox size="large" text="Milky Way" element={checkbox} />
+                </div>
+                <Icons text="Milky Way" element={checkbox} />
+                <Labels text="Milky Way" element={checkbox} />
             </div>
         )
         .add("no text", () =>
-            <div className="flex">
-                <div className="flex flex-column">
-                    <div className="flex mb8">
-                        <Checkbox element={checkbox} className="mr5" />
-                        <Checkbox disabled element={checkbox} className="mr5" />
-                        <Checkbox readonly element={checkbox} />
-                    </div>
-                    <div className="flex mb8">
-                        <Checkbox size="small" element={checkbox} className="mr5" />
-                        <Checkbox element={checkbox} className="mr5" />
-                        <Checkbox size="large" element={checkbox} />
-                    </div>
-                    <Icons element={checkbox} />
-                    <Labels element={checkbox} />
+            <div className="flex flex-column">
+                <div className="flex mb8">
+                    <Checkbox element={checkbox} className="mr5" />
+                    <Checkbox disabled element={checkbox} className="mr5" />
+                    <Checkbox readonly element={checkbox} />
                 </div>
+                <div className="flex mb8">
+                    <Checkbox size="small" element={checkbox} className="mr5" />
+                    <Checkbox element={checkbox} className="mr5" />
+                    <Checkbox size="large" element={checkbox} />
+                </div>
+                <Icons element={checkbox} />
+                <Labels element={checkbox} />
             </div>
         );
 }
