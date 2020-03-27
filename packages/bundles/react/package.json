@@ -18,6 +18,11 @@
         "copy-to-dist": "node scripts/copy-to-dist",
         "copy-license-to-dist": "node ../../../scripts/copy-root-license dist"
     },
+    "peerDependencies": {
+        "lodash": "*",
+        "moment": "*",
+        "react-spring": "*"
+    },
     "dependencies": {
         "@orbit-ui/css-normalize": "2.0.2",
         "@orbit-ui/fonts": "2.0.1",

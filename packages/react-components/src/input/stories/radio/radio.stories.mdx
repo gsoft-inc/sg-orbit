@@ -1,5 +1,5 @@
-import { ControlledRadioGroup } from "./components/controlled-radio-group";
-import { HocWarning, InstallationReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
+import { ControlledRadioGroup } from "./components";
+import { FilePreview, HocWarning, InstallationReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureRadio, Radio } from "@react-components/input";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -106,11 +106,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 Radios buttons in a group must be controlled components.
 
-<Preview>
-    <Story name="group">
-        <ControlledRadioGroup />
-    </Story>
-</Preview>
+<FilePreview filePath="/input/stories/radio/components/controlled-radio-group">
+    <ControlledRadioGroup />
+</FilePreview>
 
 <Story
     name="ref"
