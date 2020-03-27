@@ -1,4 +1,4 @@
-import { Tooltip } from "@react-components/popup";
+import { Tooltip } from "@react-components/tooltip";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 

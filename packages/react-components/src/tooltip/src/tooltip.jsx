@@ -2,7 +2,7 @@ import { Ref, Popup as SemanticPopup } from "semantic-ui-react";
 import { any, bool, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses } from "../../../shared";
+import { mergeClasses } from "../../shared";
 
 const propTypes = {
     flush: bool,

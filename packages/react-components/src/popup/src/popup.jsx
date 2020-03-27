@@ -1,4 +1,4 @@
-import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "../../../shared";
+import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "../../shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";

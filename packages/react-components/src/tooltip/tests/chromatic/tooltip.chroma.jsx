@@ -3,7 +3,7 @@ import { Button } from "@react-components/button";
 import { Input } from "@react-components/input";
 import { Label } from "@react-components/label";
 import { TextArea } from "@react-components/textarea";
-import { Tooltip } from "@react-components/popup";
+import { Tooltip } from "@react-components/tooltip";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

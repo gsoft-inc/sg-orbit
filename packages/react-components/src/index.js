@@ -10,6 +10,7 @@ export * from "./radio";
 export * from "./label";
 export * from "./multi-select";
 export * from "./popup";
+export * from "./tooltip";
 export * from "./search-input";
 export * from "./select";
 export * from "./shared";
