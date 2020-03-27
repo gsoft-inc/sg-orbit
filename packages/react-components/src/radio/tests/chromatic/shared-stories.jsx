@@ -23,9 +23,9 @@ function Icons({ element, ...rest }) {
             </div>
             <div className="flex mb8">
                 <Radio disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio readonly icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Radio disabled icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Radio readonly icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
+                <Radio readOnly icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
             </div>
             <div className="flex mb8">
                 <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
@@ -47,8 +47,8 @@ function Labels({ element, ...rest }) {
                 <Radio label={<Label>6</Label>} size="large" element={radio} />
             </div>
             <div className="flex">
-                <Radio disabled label={<Label>6</Label>} size="small" element={radio} className="mr5" />
-                <Radio readonly label={<Label>6</Label>} size="small" element={radio} />
+                <Radio disabled label={<Label>6</Label>} element={radio} className="mr5" />
+                <Radio readOnly label={<Label>6</Label>} element={radio} />
             </div>
         </>
     );
@@ -62,7 +62,7 @@ export function createSharedStories(checkbox, stories) {
                     <div className="flex mb8">
                         <Radio text="Milky Way" element={checkbox} className="mr5" />
                         <Radio disabled text="Milky Way" element={checkbox} className="mr5" />
-                        <Radio readonly text="Milky Way" element={checkbox} />
+                        <Radio readOnly text="Milky Way" element={checkbox} />
                     </div>
                     <div className="flex mb8">
                         <Radio size="small" text="Milky Way" element={checkbox} className="mr5" />
@@ -80,7 +80,7 @@ export function createSharedStories(checkbox, stories) {
                     <div className="flex mb8">
                         <Radio element={checkbox} className="mr5" />
                         <Radio disabled element={checkbox} className="mr5" />
-                        <Radio readonly element={checkbox} />
+                        <Radio readOnly element={checkbox} />
                     </div>
                     <div className="flex mb8">
                         <Radio size="small" element={checkbox} className="mr5" />

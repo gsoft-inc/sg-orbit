@@ -14,13 +14,4 @@ function stories(segment) {
 
 createSharedStories(<Radio />, stories("/unchecked"));
 
-createSharedStories(<Radio checked />, stories("/checked"));
-
-stories()
-    .add("group", () =>
-        <div className="flex flex-column">
-            <Radio text="Mars" name="checkboxRadioGroup" value="mars" className="mb2" />
-            <Radio text="Moon" name="checkboxRadioGroup" value="moon" className="mb2" />
-            <Radio text="Venus" name="checkboxRadioGroup" value="venus" />
-        </div>
-    );
+createSharedStories(<Radio defaultChecked />, stories("/checked"));

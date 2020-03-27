@@ -14,6 +14,6 @@ function stories(segment) {
 
 createSharedStories(<Checkbox />, stories("/unchecked"));
 
-createSharedStories(<Checkbox checked />, stories("/checked"));
+createSharedStories(<Checkbox defaultChecked />, stories("/checked"));
 
-createSharedStories(<Checkbox indeterminate />, stories("/indeterminate"));
+createSharedStories(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
