@@ -1,2 +1,2 @@
-export * from "./label";
 export * from "./factories";
+export * from "./tag";

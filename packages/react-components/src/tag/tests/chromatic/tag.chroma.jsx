@@ -1,4 +1,4 @@
-import { Tag } from "@react-components/label";
+import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

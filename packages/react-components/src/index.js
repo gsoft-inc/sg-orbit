@@ -8,6 +8,7 @@ export * from "./checkbox";
 export * from "./toggle";
 export * from "./radio";
 export * from "./label";
+export * from "./tag";
 export * from "./multi-select";
 export * from "./popup";
 export * from "./tooltip";

@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { CloseIcon, CommunicationIcon } from "@react-components/icons";
-import { Tag } from "@react-components/label";
+import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
 function Label({ element, ...rest }) {

@@ -1,6 +1,7 @@
 import { Button } from "@react-components/button";
 import { CommunicationIcon } from "@react-components/icons";
-import { Label, Tag } from "@react-components/label";
+import { Label } from "@react-components/label";
+import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createSharedStories } from "./shared-stories";
 import { isNil } from "lodash";

@@ -1,4 +1,4 @@
-import { Tag } from "@react-components/label";
+import { Tag } from "@react-components/tag";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 
