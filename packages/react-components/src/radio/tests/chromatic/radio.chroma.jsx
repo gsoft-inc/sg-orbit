@@ -1,10 +1,10 @@
-import { Checkbox } from "@react-components/input";
 import { CommunicationIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
+import { Radio } from "@react-components/radio";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Checkbox"))
+    return storiesOfBuilder(module, createChromaticSection("Radio"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -12,9 +12,9 @@ function stories(segment) {
         .build();
 }
 
-function createCheckbox({ text = "Milky Way", ...otherProps } = {}) {
+function createRadio({ text = "Milky Way", ...otherProps } = {}) {
     return (
-        <Checkbox
+        <Radio
             text={text}
             {...otherProps}
         />
@@ -23,52 +23,30 @@ function createCheckbox({ text = "Milky Way", ...otherProps } = {}) {
 
 stories()
     .add("text", () =>
-        createCheckbox()
+        createRadio()
     )
     .add("checked", () =>
-        createCheckbox({
+        createRadio({
             checked: true
         })
     )
-    .add("indeterminate", () =>
-        createCheckbox({
-            defaultIndeterminate: true
-        })
-    )
     .add("no text", () =>
-        <div className="flex">
-            {createCheckbox({
-                text: null,
-                className: "mr5"
-            })}
-            {createCheckbox({
-                text: null,
-                checked: true,
-                className: "mr5"
-            })}
-            {createCheckbox({
-                text: null,
-                defaultIndeterminate: true
-            })}
-        </div>
+        createRadio({
+            text: null
+        })
     )
     .add("disabled", () =>
         <div className="flex">
-            {createCheckbox({
+            {createRadio({
                 disabled: true,
                 className: "mr5"
             })}
-            {createCheckbox({
+            {createRadio({
                 disabled: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createCheckbox({
-                disabled: true,
-                defaultIndeterminate: true,
-                className: "mr5"
-            })}
-            {createCheckbox({
+            {createRadio({
                 disabled: true,
                 text: null
             })}
@@ -76,21 +54,16 @@ stories()
     )
     .add("readonly", () =>
         <div className="flex">
-            {createCheckbox({
+            {createRadio({
                 readOnly: true,
                 className: "mr5"
             })}
-            {createCheckbox({
+            {createRadio({
                 readOnly: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createCheckbox({
-                readOnly: true,
-                defaultIndeterminate: true,
-                className: "mr5"
-            })}
-            {createCheckbox({
+            {createRadio({
                 readOnly: true,
                 text: null
             })}
@@ -99,65 +72,65 @@ stories()
     .add("icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     size: "small",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "small",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     text: null,
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: <CommunicationIcon />,
                     size: "large",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "large",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>,
                     size: "large"
@@ -168,35 +141,35 @@ stories()
     .add("label", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>,
                     text: null,
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     label: <Label>6</Label>,
                     size: "large"
                 })}
@@ -205,32 +178,39 @@ stories()
     )
     .add("size", () =>
         <div className="flex flex-column">
-            <div className="flex items-end mb5">
-                {createCheckbox({
+            <div className="flex mb5">
+                {createRadio({
                     size: "small",
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     size: "large"
                 })}
             </div>
-            <div className="flex items-end">
-                {createCheckbox({
+            <div className="flex">
+                {createRadio({
                     size: "small",
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createCheckbox({
+                {createRadio({
                     defaultChecked: true,
                     size: "large"
                 })}
             </div>
+        </div>
+    )
+    .add("group", () =>
+        <div className="flex flex-column">
+            <Radio text="Mars" name="checkboxRadioGroup" value="mars" className="mb2" />
+            <Radio text="Moon" name="checkboxRadioGroup" value="moon" className="mb2" />
+            <Radio text="Venus" name="checkboxRadioGroup" value="venus" />
         </div>
     );

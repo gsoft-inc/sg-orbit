@@ -1,10 +1,10 @@
+import { Checkbox } from "@react-components/checkbox";
 import { CommunicationIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
-import { Toggle } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Toggle"))
+    return storiesOfBuilder(module, createChromaticSection("Checkbox"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -12,9 +12,9 @@ function stories(segment) {
         .build();
 }
 
-function createToggle({ text = "Milky Way", ...otherProps } = {}) {
+function createCheckbox({ text = "Milky Way", ...otherProps } = {}) {
     return (
-        <Toggle
+        <Checkbox
             text={text}
             {...otherProps}
         />
@@ -23,30 +23,52 @@ function createToggle({ text = "Milky Way", ...otherProps } = {}) {
 
 stories()
     .add("text", () =>
-        createToggle()
+        createCheckbox()
     )
     .add("checked", () =>
-        createToggle({
+        createCheckbox({
             checked: true
         })
     )
-    .add("no text", () =>
-        createToggle({
-            text: null
+    .add("indeterminate", () =>
+        createCheckbox({
+            defaultIndeterminate: true
         })
+    )
+    .add("no text", () =>
+        <div className="flex">
+            {createCheckbox({
+                text: null,
+                className: "mr5"
+            })}
+            {createCheckbox({
+                text: null,
+                checked: true,
+                className: "mr5"
+            })}
+            {createCheckbox({
+                text: null,
+                defaultIndeterminate: true
+            })}
+        </div>
     )
     .add("disabled", () =>
         <div className="flex">
-            {createToggle({
+            {createCheckbox({
                 disabled: true,
                 className: "mr5"
             })}
-            {createToggle({
+            {createCheckbox({
                 disabled: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createToggle({
+            {createCheckbox({
+                disabled: true,
+                defaultIndeterminate: true,
+                className: "mr5"
+            })}
+            {createCheckbox({
                 disabled: true,
                 text: null
             })}
@@ -54,16 +76,21 @@ stories()
     )
     .add("readonly", () =>
         <div className="flex">
-            {createToggle({
+            {createCheckbox({
                 readOnly: true,
                 className: "mr5"
             })}
-            {createToggle({
+            {createCheckbox({
                 readOnly: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createToggle({
+            {createCheckbox({
+                readOnly: true,
+                defaultIndeterminate: true,
+                className: "mr5"
+            })}
+            {createCheckbox({
                 readOnly: true,
                 text: null
             })}
@@ -72,68 +99,68 @@ stories()
     .add("icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     size: "small",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "small",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     text: null,
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: <CommunicationIcon />,
                     size: "large",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "large",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
-                    size: "large",
-                    label: <Label>6</Label>
+                    label: <Label>6</Label>,
+                    size: "large"
                 })}
             </div>
         </div>
@@ -141,35 +168,35 @@ stories()
     .add("label", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>,
                     text: null,
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     label: <Label>6</Label>,
                     size: "large"
                 })}
@@ -179,28 +206,28 @@ stories()
     .add("size", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb5">
-                {createToggle({
+                {createCheckbox({
                     size: "small",
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     size: "large"
                 })}
             </div>
             <div className="flex items-end">
-                {createToggle({
+                {createCheckbox({
                     size: "small",
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createToggle({
+                {createCheckbox({
                     defaultChecked: true,
                     size: "large"
                 })}

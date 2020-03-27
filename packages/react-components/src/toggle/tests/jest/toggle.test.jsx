@@ -1,4 +1,4 @@
-import { Toggle } from "@react-components/input";
+import { Toggle } from "@react-components/toggle";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 

@@ -1,10 +1,10 @@
 import { CommunicationIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
-import { Radio } from "@react-components/input";
+import { Toggle } from "@react-components/toggle";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Radio"))
+    return storiesOfBuilder(module, createChromaticSection("Toggle"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -12,9 +12,9 @@ function stories(segment) {
         .build();
 }
 
-function createRadio({ text = "Milky Way", ...otherProps } = {}) {
+function createToggle({ text = "Milky Way", ...otherProps } = {}) {
     return (
-        <Radio
+        <Toggle
             text={text}
             {...otherProps}
         />
@@ -23,30 +23,30 @@ function createRadio({ text = "Milky Way", ...otherProps } = {}) {
 
 stories()
     .add("text", () =>
-        createRadio()
+        createToggle()
     )
     .add("checked", () =>
-        createRadio({
+        createToggle({
             checked: true
         })
     )
     .add("no text", () =>
-        createRadio({
+        createToggle({
             text: null
         })
     )
     .add("disabled", () =>
         <div className="flex">
-            {createRadio({
+            {createToggle({
                 disabled: true,
                 className: "mr5"
             })}
-            {createRadio({
+            {createToggle({
                 disabled: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createRadio({
+            {createToggle({
                 disabled: true,
                 text: null
             })}
@@ -54,16 +54,16 @@ stories()
     )
     .add("readonly", () =>
         <div className="flex">
-            {createRadio({
+            {createToggle({
                 readOnly: true,
                 className: "mr5"
             })}
-            {createRadio({
+            {createToggle({
                 readOnly: true,
                 checked: true,
                 className: "mr5"
             })}
-            {createRadio({
+            {createToggle({
                 readOnly: true,
                 text: null
             })}
@@ -72,68 +72,68 @@ stories()
     .add("icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     size: "small",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "small",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     text: null,
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: <CommunicationIcon />,
                     size: "large",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
                     size: "large",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     icons: [<CommunicationIcon />, <CommunicationIcon />, <CommunicationIcon />],
-                    label: <Label>6</Label>,
-                    size: "large"
+                    size: "large",
+                    label: <Label>6</Label>
                 })}
             </div>
         </div>
@@ -141,35 +141,35 @@ stories()
     .add("label", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>,
                     text: null,
                     size: "small",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>,
                     size: "small"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>,
                     text: null,
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>
                 })}
             </div>
             <div className="flex">
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>,
                     text: null,
                     size: "large",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     label: <Label>6</Label>,
                     size: "large"
                 })}
@@ -178,39 +178,32 @@ stories()
     )
     .add("size", () =>
         <div className="flex flex-column">
-            <div className="flex mb5">
-                {createRadio({
+            <div className="flex items-end mb5">
+                {createToggle({
                     size: "small",
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     size: "large"
                 })}
             </div>
-            <div className="flex">
-                {createRadio({
+            <div className="flex items-end">
+                {createToggle({
                     size: "small",
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     defaultChecked: true,
                     className: "mr5"
                 })}
-                {createRadio({
+                {createToggle({
                     defaultChecked: true,
                     size: "large"
                 })}
             </div>
-        </div>
-    )
-    .add("group", () =>
-        <div className="flex flex-column">
-            <Radio text="Mars" name="checkboxRadioGroup" value="mars" className="mb2" />
-            <Radio text="Moon" name="checkboxRadioGroup" value="moon" className="mb2" />
-            <Radio text="Venus" name="checkboxRadioGroup" value="venus" />
         </div>
     );

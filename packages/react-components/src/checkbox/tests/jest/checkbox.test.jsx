@@ -1,4 +1,4 @@
-import { Checkbox } from "@react-components/input";
+import { Checkbox } from "@react-components/checkbox";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 import { waitFor } from "@utils/wait-for";

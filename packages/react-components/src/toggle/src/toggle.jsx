@@ -1,4 +1,4 @@
-import { Checkbox } from "../../input";
+import { Checkbox } from "../../checkbox";
 import { Ref } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -11,7 +11,7 @@ const DEFAULT_SIZE = "medium";
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the radio should autofocus on render.
+     * Whether or not the toggle should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -19,15 +19,15 @@ const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the radio.
+     * The text associated to the toggle.
      */
     text: string,
     /**
-     * A checkbox can display icons.
+     * A toggle can display icons.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * A label displayed after the radio text.
+     * A label displayed after the toggle text.
      */
     label: oneOfType([element, object]),
     /**
@@ -64,37 +64,36 @@ const CHECKBOX_DEFAULT_PROPS = {
     unsupportedPropsComponentName: "@orbit-ui/react-components/checkbox"
 };
 
-const UNSUPPORTED_PROPS = ["as", "defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
+const UNSUPPORTED_PROPS = ["as", "defaultIndeterminate", "indeterminate", "slider", "radio", "type"];
 
-export function PureRadio(props) {
+export function PureToggle(props) {
     const { forwardedRef, ...rest } = props;
 
     const renderWithRef = () => {
         return (
             <Ref innerRef={forwardedRef}>
-                {renderRadio()}
+                {renderToggle()}
             </Ref>
         );
     };
 
-    const renderRadio = () => {
+    const renderToggle = () => {
         return (
             <Checkbox
-                radio
+                toggle
                 unsupportedProps={UNSUPPORTED_PROPS}
-                unsupportedPropsComponentName="@orbit-ui/react-components/radio"
+                unsupportedPropsComponentName="@orbit-ui/react-components/toggle"
                 {...rest}
             />
         );
     };
 
-    return isNil(forwardedRef) ? renderRadio() : renderWithRef();
+    return isNil(forwardedRef) ? renderToggle() : renderWithRef();
 }
 
-PureRadio.propTypes = CHECKBOX_PROP_TYPES;
-PureRadio.defaultProps = CHECKBOX_DEFAULT_PROPS;
+PureToggle.propTypes = CHECKBOX_PROP_TYPES;
+PureToggle.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
-export const Radio = forwardRef((props, ref) => (
-    <PureRadio { ...props } forwardedRef={ref} />
+export const Toggle = forwardRef((props, ref) => (
+    <PureToggle { ...props } forwardedRef={ref} />
 ));
-

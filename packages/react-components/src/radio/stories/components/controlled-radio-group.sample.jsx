@@ -1,4 +1,4 @@
-import { Radio } from "@react-components/input";
+import { Radio } from "@react-components/radio";
 import { useState } from "react";
 
 export function ControlledRadioGroup() {

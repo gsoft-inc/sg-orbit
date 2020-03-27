@@ -1,4 +1,4 @@
-import { TextArea } from "@react-components/input";
+import { TextArea } from "@react-components/textarea";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 import { waitFor } from "@utils/wait-for";
