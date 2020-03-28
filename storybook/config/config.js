@@ -101,32 +101,23 @@ if (includeComponents) {
     if (includeStories) {
         stories = [
             ...stories,
-            require.context("../../packages/react-components/src", true, /.stories.mdx$/),
-            require.context("../stories/semantic-ui/react", true, /.stories.mdx$/)
+            require.context("../../packages/react-components/src", true, /.stories.mdx$/)
         ];
     }
 
     if (includeChromatic) {
         stories = [
             ...stories,
-            require.context("../../packages/react-components/src", true, /.chroma.jsx$/),
-            require.context("../stories/semantic-ui/react", true, /.chroma.jsx$/)
+            require.context("../../packages/react-components/src", true, /.chroma.jsx$/)
         ];
     }
 }
 
 if (includeSemanticTheme) {
-    if (includeStories) {
-        stories = [
-            ...stories,
-            require.context("../stories/semantic-ui/theme", true, /.stories.mdx$/)
-        ];
-    }
-
     if (includeChromatic) {
         stories = [
             ...stories,
-            require.context("../stories/semantic-ui/theme", true, /.chroma.jsx$/)
+            require.context("../stories/semantic-ui", true, /.chroma.jsx$/)
         ];
     }
 }
