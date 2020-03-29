@@ -8,7 +8,7 @@
 .ui.button,
 .ui.buttons .button {
     min-height: @scaleHotel;
-    display: flex;
+    display: inline-flex;
     border-radius: calc(@scaleHotel / 2);
     align-items: center;
     justify-content: center;
@@ -357,12 +357,6 @@
     background-color: @transparent;
 }
 
-/* SKIN | Basic | Secondary */
-.ui.basic.secondary.buttons .button,
-.ui.basic.secondary.button {
-    color: @marine500 !important;
-}
-
 /* SKIN | Ghost | Primary */
 .ui.ghost.primary.button,
 .ui.ghost.primary.buttons .button {
@@ -399,6 +393,12 @@
 .ui.ghost.secondary.button.active,
 .ui.ghost.secondary.buttons.active .button {
     color: @marine900;
+}
+
+/* SKIN | Basic | Secondary */
+.ui.basic.secondary.buttons .button,
+.ui.basic.secondary.button {
+    color: @marine500 !important;
 }
 
 /* SKIN | Basic/Secondary | State */
@@ -996,7 +996,6 @@
     border-bottom-right-radius: calc(@scaleIndia / 2);
 }
 
-
 /* LAYOUT | Sizes | Large */
 .ui.buttons.large .button:first-child {
     border-top-left-radius: calc(@scaleIndia / 2);
@@ -1018,6 +1017,34 @@
 .ui.loading.button:after {
     margin: 0;
     transform: translate(-50%, -50%);
+}
+
+/* SKIN | Link */
+.ui.button.link {
+    background: none !important;
+    color: var(--primary-600);
+    font-weight: 400;
+}
+
+/* SKIN | Link | STATE | Active */
+.ui.button.link:focus,
+.ui.button.link:hover,
+.ui.button.link:active {
+    text-decoration: underline;
+}
+
+/* SKIN | Link | Basic */
+.ui.button.link.basic {
+    color: var(--marine-500);
+    box-shadow: none !important;
+}
+
+/* SKIN | Link | Basic | STATE | Active */
+.ui.button.link.basic:focus,
+.ui.button.link.basic:hover,
+.ui.button.link.basic:active {
+    text-decoration: none;
+    color: var(--primary-600) !important;
 }
 
 /* Animation */
