@@ -80,7 +80,7 @@
     color: var(--cloud-900);
 }
 
-.calendar .CalendarDay__default:hover),
+.calendar .CalendarDay__default:hover,
 .calendar .CalendarDay__default:focus {
     background: var(--cloud-100);
 }
@@ -89,27 +89,27 @@
     outline: none;
 }
 
-.calendar .DayPickerNavigation_button):focus {
+.calendar .DayPickerNavigation_button:focus {
     outline: none;
 }
 
-.calendar .CalendarDay__blocked_calendar:hover),
+.calendar .CalendarDay__blocked_calendar:hover,
 .calendar .CalendarDay__blocked_calendar:focus {
     background: var(--transparent);
     color: var(--cloud-400);
 }
 
-.calendar .CalendarDay__selected:hover),
+.calendar .CalendarDay__selected:hover,
 .calendar .CalendarDay__selected:active {
     background: var(--primary-500);
 }
 
-.calendar .CalendarDay__selected_span:hover),
+.calendar .CalendarDay__selected_span:hover,
 .calendar .CalendarDay__selected_span:active {
     background: var(--primary-50);
 }
 
-.calendar .CalendarDay__default.CalendarDay__selected):focus {
+.calendar .CalendarDay__default.CalendarDay__selected:focus {
     background: var(--primary-500);
     color: var(--white);
 }
