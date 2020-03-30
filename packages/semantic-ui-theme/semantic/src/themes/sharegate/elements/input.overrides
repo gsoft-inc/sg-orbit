@@ -45,27 +45,27 @@
 
 /* Icons */
 .ui.icon.input.small > input {
-    padding-right: var(--scale-golf)!important;
+    padding-right: calc(var(--scale-delta) + var(--scale-delta))!important;
 }
 
 .ui.icon.input.large > input {
-    padding-right: var(--scale-india) !important;
+    padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot))!important;
 }
 
 .ui.icon.input > svg.icon {
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    right: 10px;
+    right: calc( var(--scale-echo) / 2 );
     pointer-events: none;
 }
 
 .ui.icon.input.small > svg.icon {
-    right: var(--scale-bravo);
+    right: calc(var(--scale-delta) / 2);
 }
 
 .ui.icon.input.large > svg.icon {
-    right: var(--scale-charlie);
+    right: calc(var(--scale-foxtrot) / 2);
 }
 
 .ui.left.icon.input > input {
@@ -86,15 +86,15 @@
 }
 
 .ui.left.icon.input > svg.icon {
-    left: 10px;
+    left: calc(var(--scale-echo) / 2);
 }
 
 .ui.left.icon.input.small > svg.icon {
-    left: var(--scale-bravo);
+    left: calc(var(--scale-delta) / 2);
 }
 
 .ui.left.icon.input.large > svg.icon {
-    left: var(--scale-charlie);
+    left: calc(var(--scale-foxtrot) / 2);
 }
 
 .ui.icon.input.disabled > svg.icon  {
@@ -114,34 +114,34 @@
 .ui.input-clear-button {
     position: absolute;
     top: 50%;
-    right: var(--scale-echo);
+    right: calc(var(--scale-hotel) / 2);
     transform: translateY(-50%);
 }
 
 /* Input with clear button */
 .with-button .ui.input > input {
     /* 20px padding + 32px button */
-    padding-right: 52px;
+    padding-right: calc(var(--scale-echo) + var(--scale-golf));
 }
 
 .with-button .ui.input + .input-clear-button {
-    right: 10px;
+    right: calc(var(--scale-echo) / 2);
 }
 
 /* Small */
 .with-button .ui.input.small > input {
     /* 16px padding + 24px button = 40px */
-    padding-right: var(--scale-hotel);
+    padding-right: calc(var(--scale-delta) + var(--scale-foxtrot));
 }
 
 .with-button .ui.input.small + .input-clear-button {
-    right: var(--scale-bravo);
+    right: calc(var(--scale-delta) / 2);
 }
 
 /* Large */
 .with-button .ui.input.large > input {
     /* 24px padding + 40px button = 64px */
-    padding-right: var(--scale-kilo);
+    padding-right: calc(var(--scale-foxtrot) + var(--scale-hotel));
 }
 
 .with-button .ui.input.large + .input-clear-button {

@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-foreign-prop-types */
-import { ArgumentError, LARGE, MEDIUM, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
@@ -96,9 +96,9 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 export function PureInput(props) {
     const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
     const SIZES_TO_BUTTON = {
-        [SMALL]: "tiny",
-        [MEDIUM]: "small",
-        [LARGE]: "medium"
+        [SMALL]: TINY,
+        [MEDIUM]: SMALL,
+        [LARGE]: MEDIUM
     };
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/input");
