@@ -1022,7 +1022,7 @@
 /* SKIN | Link */
 .ui.button.link {
     background: none !important;
-    color: var(--primary-600);
+    color: var(--primary-500);
     font-weight: 400;
     padding: 0;
     min-height: auto;
@@ -1046,7 +1046,7 @@
 .ui.button.link.basic:hover,
 .ui.button.link.basic:active {
     text-decoration: none;
-    color: var(--primary-600) !important;
+    color: var(--primary-500) !important;
 }
 
 /* Animation */

@@ -1,3 +1,5 @@
+import "./date-range-picker-presets.css";
+
 import { Button } from "../../../button";
 import { Icon } from "../../../icons";
 import { PresetsCalendarIcon } from "../assets";
@@ -6,7 +8,6 @@ import { arrayOf, bool, func, object, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { isSameDay } from "../shared";
 import { mergeClasses } from "../../../shared";
-import cx from "classnames";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const PRESET_SHAPE = {
@@ -32,8 +33,13 @@ class Preset extends PureComponent {
     render() {
         const { preset, isSelected, isBlocked } = this.props;
 
+        const classes = mergeClasses(
+            "pa1",
+            isSelected && "primary-500"
+        );
+
         return (
-            <li className="flex justify-center pa2 mb2 lh1">
+            <li className="flex justify-center pa1 mb2 lh1">
                 <Choose>
                     <When condition={isBlocked}>
                         <span className="f7 cloud-400 outline-0">{preset.text}</span>
@@ -43,7 +49,7 @@ class Preset extends PureComponent {
                             link
                             basic
                             onClick={this.handleClick}
-                            className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
+                            className={classes}
                             data-testid={`date-range-picker-presets-${preset.text}`}
                         >
                             {preset.text}
@@ -124,15 +130,6 @@ export class DateRangePickerPresets extends PureComponent {
         return isSameDay(preset.startDate, startDate) && isSameDay(preset.endDate, endDate);
     }
 
-    getCssClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "presets flex flex-column pt8 ph8 br b--cloud-100",
-            className
-        );
-    }
-
     renderPresets() {
         const { onSelectPreset, presets } = this.props;
 
@@ -145,26 +142,22 @@ export class DateRangePickerPresets extends PureComponent {
     }
 
     render() {
-        const { presets } = this.props;
+        const { presets, className } = this.props;
 
         if (presets.length > 0) {
+            const classes = mergeClasses(
+                "presets flex flex-column pt8 ph8 br b--cloud-100",
+                className
+            );
+
             return (
-                <div className={this.getCssClasses()}>
-                    <div className="self-center mb7">
+                <div className={classes}>
+                    <div className="self-center mb6">
                         <Icon type={PresetsCalendarIcon} size="big" className="fill-marine-500" />
                     </div>
-                    <ul>{this.renderPresets()}</ul>
-
-                    <style jsx>{`
-                        ul {
-                            padding: 0;
-                            margin: 0;
-                            list-style-type: none;
-                        }
-                        .presets {
-                            min-width: 200px;
-                        }
-                    `}</style>
+                    <ul className="presets__values">
+                        {this.renderPresets()}
+                    </ul>
                 </div>
             );
         }
