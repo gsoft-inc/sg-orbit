@@ -26,8 +26,7 @@
         "react": "*",
         "react-dom": "*",
         "react-spring": "*",
-        "semantic-ui-react": "*",
-        "styled-jsx": "*"
+        "semantic-ui-react": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
