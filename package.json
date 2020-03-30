@@ -114,6 +114,7 @@
         "eslint-plugin-mdx": "1.6.8",
         "fuse.js": "3.6.1",
         "gulp": "4.0.2",
+        "identity-obj-proxy": "3.0.0",
         "jest": "25.2.2",
         "lerna": "3.20.2",
         "lodash": "4.17.15",

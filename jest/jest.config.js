@@ -11,6 +11,7 @@ module.exports = {
         "/node_modules/(?!(@babel|@juggle)).+\\.js$"
     ],
     moduleNameMapper: {
+        "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
         "@utils/(.*)$": "<rootDir>/jest/utils/$1",
         "@react-components/(.*)$": "<rootDir>/packages/react-components/src/$1"
