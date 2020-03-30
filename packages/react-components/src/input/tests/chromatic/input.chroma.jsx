@@ -129,7 +129,7 @@ stories("/button")
     .add("object", () =>
         <div className="flex">
             <Input button={{ icon: <CloseIcon /> }} className="mr5" />
-            <Input button={{ icon: <CloseIcon />, className: "bg-red mr5" }} />
+            <Input button={{ icon: <CloseIcon />, className: "bg-red" }} className="mr5" />
             <Input button={{ icon: <CloseIcon />, ref: setRedBackground }} />
         </div>
     )
