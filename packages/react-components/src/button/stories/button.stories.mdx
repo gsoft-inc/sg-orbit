@@ -217,6 +217,27 @@ A ghost button is similar to a standard button, taking the same space as a stand
     </Story>
 </Preview>
 
+### Link
+
+A button can be rendered as a link:
+
+<Preview>
+    <Story name="as-anchor">
+        <Button as="a">Cutoff</Button>
+    </Story>
+</Preview>
+
+Or look like a link:
+
+<Preview>
+    <Story name="link">
+        <div className="flex items-space-between">
+            <Button link>Cutoff</Button>
+            <Button link basic>Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
 ### Naked
 
 A button can be colorless. Use this variant if you need to customize the button.

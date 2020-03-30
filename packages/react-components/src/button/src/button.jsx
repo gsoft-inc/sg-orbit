@@ -22,6 +22,10 @@ const propTypes = {
      */
     ghost: bool,
     /**
+     * A button can look like a link.
+     */
+    link: bool,
+    /**
      * A button can contain an icon.
      */
     icon: element,
@@ -65,6 +69,7 @@ const propTypes = {
 
 const defaultProps = {
     ghost: false,
+    link: false,
     iconPosition: "left",
     naked: false,
     size: DEFAULT_SIZE,
@@ -83,7 +88,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 export function PureButton(props) {
-    const { naked, ghost, icon, iconPosition, label, tag, size, loading, className, forwardedRef, children, ...rest } = props;
+    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -164,6 +169,7 @@ export function PureButton(props) {
         const classes = mergeClasses(
             naked && "naked",
             ghost && "ghost",
+            link && "link",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
@@ -173,7 +179,13 @@ export function PureButton(props) {
         );
 
         return (
-            <SemanticButton size={size} loading={loading} className={classes} {...rest}>
+            <SemanticButton
+                basic={basic}
+                size={size}
+                loading={loading}
+                className={classes}
+                {...rest}
+            >
                 {renderContent()}
             </SemanticButton>
         );
