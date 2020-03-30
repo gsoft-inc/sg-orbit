@@ -802,15 +802,15 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 12;
-    left: calc(var(@scaleEcho) / 2 );
+    left: calc(@scaleEcho / 2 );
 }
 
 .ui.dropdown.small + .ui.dropdown-icon {
-    left: calc(var(@scaleDelta) / 2 );
+    left: calc(@scaleDelta / 2 );
 }
 
 .ui.dropdown.large + .ui.dropdown-icon {
-    left: calc(var(@scaleFoxtrot) / 2 );
+    left: calc(@scaleFoxtrot / 2 );
 }
 
 .ui.dropdown-icon.inline {
