@@ -46,7 +46,7 @@
 /* LAYOUT | Padding | Sizes | Tiny */
 .ui.button.tiny,
 .ui.tiny.buttons .button {
-    padding: 0.25em 1.5rem;
+    padding: 0.125em 1.5rem;
 }
 
 /* LAYOUT | Padding | Sizes | Small */
