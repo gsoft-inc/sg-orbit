@@ -61,11 +61,11 @@
 }
 
 .ui.icon.input.small > svg.icon {
-    right: 8px;
+    right: var(--scale-bravo);
 }
 
 .ui.icon.input.large > svg.icon {
-    right: 12px;
+    right: var(--scale-charlie);
 }
 
 .ui.left.icon.input > input {
@@ -90,11 +90,11 @@
 }
 
 .ui.left.icon.input.small > svg.icon {
-    left: 8px;
+    left: var(--scale-bravo);
 }
 
 .ui.left.icon.input.large > svg.icon {
-    left: 12px;
+    left: var(--scale-charlie);
 }
 
 .ui.icon.input.disabled > svg.icon  {
@@ -115,5 +115,35 @@
     position: absolute;
     top: 50%;
     right: var(--scale-echo);
-    transform: translateX(50%) translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* Input with clear button */
+.with-button .ui.input > input {
+    /* 20px padding + 32px button */
+    padding-right: 52px;
+}
+
+.with-button .ui.input + .input-clear-button {
+    right: 10px;
+}
+
+/* Small */
+.with-button .ui.input.small > input {
+    /* 16px padding + 24px button = 40px */
+    padding-right: var(--scale-hotel);
+}
+
+.with-button .ui.input.small + .input-clear-button {
+    right: var(--scale-bravo);
+}
+
+/* Large */
+.with-button .ui.input.large > input {
+    /* 24px padding + 40px button = 64px */
+    padding-right: var(--scale-kilo);
+}
+
+.with-button .ui.input.large + .input-clear-button {
+    right: var(--scale-charlie);
 }
