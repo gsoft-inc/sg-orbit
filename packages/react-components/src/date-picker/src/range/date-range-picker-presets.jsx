@@ -1,3 +1,4 @@
+import { Button } from "../../../button";
 import { Icon } from "../../../icons";
 import { PresetsCalendarIcon } from "../assets";
 import { PureComponent } from "react";
@@ -32,30 +33,23 @@ class Preset extends PureComponent {
         const { preset, isSelected, isBlocked } = this.props;
 
         return (
-            <li className="pa2 mb2 lh1">
+            <li className="flex justify-center pa2 mb2 lh1">
                 <Choose>
                     <When condition={isBlocked}>
                         <span className="f7 cloud-400 outline-0">{preset.text}</span>
                     </When>
                     <Otherwise>
-                        <button
+                        <Button
+                            link
+                            basic
                             onClick={this.handleClick}
                             className={cx("f7 marine-700 outline-0 pointer lh1 hover-primary-500", { "primary-500": isSelected })}
-                            type="button"
                             data-testid={`date-range-picker-presets-${preset.text}`}
                         >
                             {preset.text}
-                        </button>
+                        </Button>
                     </Otherwise>
                 </Choose>
-
-                <style jsx>{`
-                    button {
-                        background-color: transparent;
-                        border: none;
-                        padding: 0;
-                    }
-                `}</style>
             </li>
         );
     }

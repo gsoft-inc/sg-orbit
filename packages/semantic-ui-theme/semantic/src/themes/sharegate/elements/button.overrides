@@ -1024,6 +1024,8 @@
     background: none !important;
     color: var(--primary-600);
     font-weight: 400;
+    padding: 0;
+    min-height: auto;
 }
 
 /* SKIN | Link | STATE | Active */
