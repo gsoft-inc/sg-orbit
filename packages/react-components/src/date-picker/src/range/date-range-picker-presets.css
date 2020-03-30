@@ -1,0 +1,9 @@
+.presets {
+    min-width: 200px;
+}
+
+.presets__values {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}

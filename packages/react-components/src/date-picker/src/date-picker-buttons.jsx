@@ -2,6 +2,7 @@ import { Button } from "../../button";
 import { PureComponent, createRef } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
+import { mergeClasses } from "../../shared";
 
 export class DatePickerButtons extends PureComponent {
     static propTypes = {
@@ -71,39 +72,31 @@ export class DatePickerButtons extends PureComponent {
     renderApplyButton() {
         const { canApply, applyText } = this.props;
 
-
         return (
-            // Sadly, the div container is necessary to apply styled-jsx. Fragment doesn't work.
-            <div className="container">
-                {/* Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click. */}
-                <Button
-                    onClick={this.handleApply}
-                    ghost
-                    compact
-                    primary={canApply}
-                    disabled={!canApply}
-                    size="small"
-                    tabIndex={canApply ? "0" : "-1"}
-                    data-testid="date-picker-calendar-apply-button"
-                    ref={this._applyRef}
-                >
-                    {applyText}
-                </Button>
-
-                <style jsx>{`
-                    .container {
-                        margin-left: auto;
-                    }
-                `}</style>
-            </div>
+            <Button
+                onClick={this.handleApply}
+                ghost
+                compact
+                primary={canApply}
+                disabled={!canApply}
+                size="small"
+                className="ml-auto"
+                tabIndex={canApply ? "0" : "-1"}
+                data-testid="date-picker-calendar-apply-button"
+                ref={this._applyRef}
+            >
+                {applyText}
+            </Button>
         );
     }
 
     render() {
         const { className } = this.props;
 
-        const defaultClasses = "flex ph6 pb6";
-        const classes = isNil(className) ? defaultClasses : `${defaultClasses} ${className}`;
+        const classes = mergeClasses(
+            "flex ph6 pb6",
+            className
+        );
 
         return (
             <div className={classes}>
