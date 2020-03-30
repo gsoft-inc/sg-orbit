@@ -71,32 +71,48 @@ export class DatePickerButtons extends PureComponent {
     renderApplyButton() {
         const { canApply, applyText } = this.props;
 
-
         return (
-            // Sadly, the div container is necessary to apply styled-jsx. Fragment doesn't work.
-            <div className="container">
-                {/* Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click. */}
-                <Button
-                    onClick={this.handleApply}
-                    ghost
-                    compact
-                    primary={canApply}
-                    disabled={!canApply}
-                    size="small"
-                    tabIndex={canApply ? "0" : "-1"}
-                    data-testid="date-picker-calendar-apply-button"
-                    ref={this._applyRef}
-                >
-                    {applyText}
-                </Button>
-
-                <style jsx>{`
-                    .container {
-                        margin-left: auto;
-                    }
-                `}</style>
-            </div>
+            // Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click.
+            <Button
+                onClick={this.handleApply}
+                ghost
+                compact
+                primary={canApply}
+                disabled={!canApply}
+                size="small"
+                tabIndex={canApply ? "0" : "-1"}
+                data-testid="date-picker-calendar-apply-button"
+                ref={this._applyRef}
+            >
+                {applyText}
+            </Button>
         );
+
+        // return (
+        //     // Sadly, the div container is necessary to apply styled-jsx. Fragment doesn't work.
+        //     <div className="container">
+        //         {/* Must used a CSS class to hide the button instead of conditional rendering otherwise clicking the button will be considered an outside click. */}
+        //         <Button
+        //             onClick={this.handleApply}
+        //             ghost
+        //             compact
+        //             primary={canApply}
+        //             disabled={!canApply}
+        //             size="small"
+        //             tabIndex={canApply ? "0" : "-1"}
+        //             data-testid="date-picker-calendar-apply-button"
+        //             ref={this._applyRef}
+        //         >
+        //             {applyText}
+        //         </Button>
+
+        //         <style jsx>{`
+        //             .container {
+        //                 margin-left: auto;
+        //             }
+        //         `}</style>
+        //     </div>
+        // );
     }
 
     render() {
