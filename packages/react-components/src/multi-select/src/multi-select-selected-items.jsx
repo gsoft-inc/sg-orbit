@@ -5,7 +5,6 @@ import { PureComponent } from "react";
 import { SIZES } from "./sizes";
 import { arrayOf, bool, func, oneOf, shape, string } from "prop-types";
 import { mergeClasses } from "../../shared";
-import cx from "classnames";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -14,11 +13,15 @@ const ITEM_SHAPE = {
 };
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
+    const classes = mergeClasses(
+        !disabled && "icon"
+    );
+
     return (
         <Label
             basic
             size={size}
-            className={cx({ icon: !disabled })}
+            className={classes}
             disabled={disabled}
             data-testid={`multi-select-selected-item-${item.value}`}
         >
@@ -53,19 +56,19 @@ class MultiSelectSelectedItem extends PureComponent {
         onRemove(event, item, this.props);
     };
 
-    getClasses() {
-        const { className } = this.props;
+    render() {
+        const { item, itemRenderer, disabled, size, className } = this.props;
 
-        return mergeClasses(
+        const classes = mergeClasses(
             "mr2 mb2",
             className
         );
-    }
 
-    render() {
-        const { item, itemRenderer, disabled, size } = this.props;
-
-        return <div className={this.getClasses()}>{itemRenderer(item, { disabled, size, onRemove: this.handleRemove })}</div>;
+        return (
+            <div className={classes}>
+                {itemRenderer(item, { disabled, size, onRemove: this.handleRemove })}
+            </div>
+        );
     }
 }
 

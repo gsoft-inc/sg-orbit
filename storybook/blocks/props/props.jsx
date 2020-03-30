@@ -4,8 +4,8 @@ import { Checkbox } from "semantic-ui-react";
 import { Props as StorybookProps } from "@storybook/addon-docs/blocks";
 import { Tabs } from "@storybook/components";
 import { any, arrayOf, shape, string } from "prop-types";
+import { mergeClasses } from "@react-components/shared";
 import { useStorage } from "./use-storage";
-import cx from "classnames";
 
 const propTypes = {
     componentsDefinitions: arrayOf(shape({
@@ -42,8 +42,13 @@ export function Props({ componentsDefinitions }) {
 
     const hasMultipleComponents = componentsDefinitions.length > 1;
 
+    const classes = mergeClasses(
+        "relative flex flex-column props-table",
+        !hasMultipleComponents && styles.noTabs
+    );
+
     return (
-        <div className={`relative flex flex-column props-table ${cx({ [styles.noTabs]: !hasMultipleComponents })}`}>
+        <div className={classes}>
             <div className={state.isVisible ? "mb5" : "mb3"}>
                 <Checkbox
                     label={`View component${hasMultipleComponents ? "s" : ""} props`}
