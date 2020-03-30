@@ -14,7 +14,7 @@ const ITEM_SHAPE = {
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
     const classes = mergeClasses(
-        !disabled ?? "icon"
+        !disabled && "icon"
     );
 
     return (
