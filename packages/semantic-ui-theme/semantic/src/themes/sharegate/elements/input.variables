@@ -10,14 +10,14 @@
 
 @paddingLeft: var(--scale-delta);
 @paddingRight: var(--scale-delta);
-@padding: var(--scale-charlie) var(--scale-delta);
+@padding: var(--scale-charlie) var(--scale-echo);
 
 @relativeSmall: var(--type-scale-8);
 @relativeMedium: var(--type-scale-7);
 @relativeLarge: var(--type-scale-6);
 
 @iconPadding: 4px;
-@iconMargin: var(--scale-golf);
+@iconMargin: var(--scale-hotel);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;

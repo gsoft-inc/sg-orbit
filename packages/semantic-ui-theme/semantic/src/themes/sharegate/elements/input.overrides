@@ -14,12 +14,15 @@
 .ui.input.small > input {
     height: var(--scale-golf);
     line-height: var(--scale-golf);
-    padding-left: var(--scale-bravo);
+    padding-left: var(--scale-delta);
+    padding-right: var(--scale-delta);
 }
 
 .ui.input.large > input {
     height: var(--scale-india);
     line-height: var(--scale-india);
+    padding-left: var(--scale-foxtrot);
+    padding-right: var(--scale-foxtrot);
 }
 
 .ui.input:not(.disabled) input[disabled],
@@ -42,34 +45,56 @@
 
 /* Icons */
 .ui.icon.input.small > input {
-    padding-right: calc(var(--scale-foxtrot) + @iconPadding) !important;
+    padding-right: calc(var(--scale-delta) + var(--scale-delta))!important;
 }
+
 .ui.icon.input.large > input {
-    padding-right: calc(var(--scale-golf) + @iconPadding) !important;
+    padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot))!important;
 }
 
 .ui.icon.input > svg.icon {
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    right: var(--scale-bravo);
+    right: calc( var(--scale-echo) / 2 );
     pointer-events: none;
 }
 
-.ui.left.icon.input > input {
-    padding-right: @paddingRight !important;
+.ui.icon.input.small > svg.icon {
+    right: calc(var(--scale-delta) / 2);
 }
 
-.ui.left.icon.input.small > input {
-    padding-left: calc(var(--scale-foxtrot) + @iconPadding) !important;
+.ui.icon.input.large > svg.icon {
+    right: calc(var(--scale-foxtrot) / 2);
+}
+
+.ui.left.icon.input > input {
+    padding-right: var(--scale-echo) !important;
 }
 
 .ui.left.icon.input.large > input {
-    padding-left: calc(var(--scale-golf) + @iconPadding) !important;
+    padding-right: var(--scale-foxtrot) !important;
+}
+
+.ui.left.icon.input.small > input {
+    padding-left: var(--scale-golf) !important;
+    padding-right: var(--scale-delta) !important;
+}
+
+.ui.left.icon.input.large > input {
+    padding-left: var(--scale-india) !important;
 }
 
 .ui.left.icon.input > svg.icon {
-    left: var(--scale-bravo);
+    left: calc(var(--scale-echo) / 2);
+}
+
+.ui.left.icon.input.small > svg.icon {
+    left: calc(var(--scale-delta) / 2);
+}
+
+.ui.left.icon.input.large > svg.icon {
+    left: calc(var(--scale-foxtrot) / 2);
 }
 
 .ui.icon.input.disabled > svg.icon  {
@@ -89,6 +114,36 @@
 .ui.input-clear-button {
     position: absolute;
     top: 50%;
-    right: var(--scale-echo);
-    transform: translateX(50%) translateY(-50%);
+    right: calc(var(--scale-hotel) / 2);
+    transform: translateY(-50%);
+}
+
+/* Input with clear button */
+.with-button .ui.input > input {
+    /* 20px padding + 32px button */
+    padding-right: calc(var(--scale-echo) + var(--scale-golf));
+}
+
+.with-button .ui.input + .input-clear-button {
+    right: calc(var(--scale-echo) / 2);
+}
+
+/* Small */
+.with-button .ui.input.small > input {
+    /* 16px padding + 24px button = 40px */
+    padding-right: calc(var(--scale-delta) + var(--scale-foxtrot));
+}
+
+.with-button .ui.input.small + .input-clear-button {
+    right: calc(var(--scale-delta) / 2);
+}
+
+/* Large */
+.with-button .ui.input.large > input {
+    /* 24px padding + 40px button = 64px */
+    padding-right: calc(var(--scale-foxtrot) + var(--scale-hotel));
+}
+
+.with-button .ui.input.large + .input-clear-button {
+    right: var(--scale-charlie);
 }
