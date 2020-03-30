@@ -1,7 +1,7 @@
-async function waitFor(delay) {
+async function waitDelay(delay) {
     await new Promise(resolve => setTimeout(resolve, delay));
 }
 
 module.exports = {
-    waitFor
+    waitDelay
 };

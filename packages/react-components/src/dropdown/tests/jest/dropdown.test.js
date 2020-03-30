@@ -1,7 +1,7 @@
 import { Dropdown } from "@react-components/dropdown";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitFor } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-for";
 
 const GENDERS = [
     {
@@ -28,7 +28,7 @@ test("when autofocus is true, the dropdown is autofocused on render", async () =
         autofocus: true
     }));
 
-    await waitFor(25);
+    await waitDelay(25);
 
     expect(getByTestId("dropdown")).toHaveFocus();
 });
@@ -39,7 +39,7 @@ test("when autofocus is true, the inline dropdown is autofocused on render", asy
         inline: true
     }));
 
-    await waitFor(25);
+    await waitDelay(25);
 
     expect(getByTestId("dropdown")).toHaveFocus();
 });
@@ -50,7 +50,7 @@ test("when autofocus is true, the searchable dropdown is autofocused on render",
         search: true
     }));
 
-    await waitFor(25);
+    await waitDelay(25);
 
     expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus();
 });
@@ -61,7 +61,7 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
         autofocus: true
     }));
 
-    await waitFor(25);
+    await waitDelay(25);
 
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
@@ -76,7 +76,7 @@ test("when delayed autofocus, the dropdown is autofocused after the delay", asyn
     expect(getByTestId("dropdown")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getByTestId("dropdown")).toHaveFocus();
 });
 
@@ -91,7 +91,7 @@ test("when delayed autofocus on a disabled dropdown, the dropdown is not autofoc
     expect(getByTestId("dropdown")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
 

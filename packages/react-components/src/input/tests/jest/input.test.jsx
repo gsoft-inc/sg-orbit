@@ -1,7 +1,7 @@
 import { Input } from "@react-components/input";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitFor } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-for";
 
 function createInput(props = {}) {
     return <Input
@@ -47,7 +47,7 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitFor(55);
+    await waitDelay(55);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
@@ -64,7 +64,7 @@ test("when delayed autofocus on a disabled input, the input is not autofocused a
     expect(getInput(getByTestId)).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
@@ -116,6 +116,6 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitFor(55);
+    await waitDelay(55);
     expect(getInput(getByTestId)).toHaveFocus();
 });
