@@ -145,9 +145,9 @@ All components should leverage React hooks.
 
 #### Styling
 
-Use tachyons classes as much as possible.
+Use Tachyons classes as much as possible.
 
-For custom classes, Orbit UI components currently rely on [styled-jsx](https://github.com/zeit/styled-jsx) but it might change on a near future. Stay tuned!
+When you can't use Tachyons, define a custom CSS stylesheet and import it in your component.
 
 Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
 

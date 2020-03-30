@@ -60,6 +60,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    disabled: bool,
+    /**
+     * @ignore
+     */
     className: string,
     /**
      * @ignore
@@ -74,7 +78,8 @@ const defaultProps = {
     naked: false,
     size: DEFAULT_SIZE,
     type: "button",
-    loading: false
+    loading: false,
+    disabled: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
@@ -88,7 +93,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, className, forwardedRef, children, ...rest } = props;
+    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -121,7 +126,8 @@ export function PureButton(props) {
     const renderTag = () => {
         const defaults = {
             as: "span",
-            size: "mini"
+            size: "mini",
+            disabled: disabled
         };
 
         if (isElement(tag)) {
@@ -183,6 +189,7 @@ export function PureButton(props) {
                 basic={basic}
                 size={size}
                 loading={loading}
+                disabled={disabled}
                 className={classes}
                 {...rest}
             >
