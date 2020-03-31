@@ -627,7 +627,7 @@
 
 .ui.search.selection.dropdown > input.search {
     height: 38px;
-    padding: 0.25rem 0 0.25rem 1.25rem;
+    padding: 0.25rem 2.5rem 0.25rem 1.25rem;
 }
 
 .ui.search.selection.dropdown.multiple > input.search {
