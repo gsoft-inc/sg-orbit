@@ -10,25 +10,25 @@
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
     min-height: var(--scale-hotel);
-    line-height: var(--scale-hotel);
-    padding: 0.125rem var(--scale-hotel) 0.125rem var(--scale-delta);
+    line-height: 38px;
+    padding: 0 var(--scale-hotel) 0 var(--scale-echo);
 }
 
 /* LAYOUT | SIZE | Small */
 .ui.selection.dropdown.small {
-    padding: 0 var(--scale-golf) 0 var(--scale-bravo);
+    padding: 0 var(--scale-golf) 0 var(--scale-delta);
     height: var(--scale-golf);
     min-height: 0;
     font-size: var(--type-scale-8);
-    line-height: var(--scale-golf);
+    line-height: 30px;
 }
 
 /* LAYOUT | SIZE | Large */
 .ui.selection.dropdown.large {
-    padding: 0 var(--scale-india) 0 var(--scale-delta);
+    padding: 0 var(--scale-india) 0 var(--scale-foxtrot);
     min-height: 0;
     height: var(--scale-india);
-    line-height: var(--scale-india);
+    line-height: 46px;
 }
 
 /* LAYOUT | Inline */
@@ -54,13 +54,14 @@
 
 /* SKIN | SIZE | Small | Dropdown/Select | Text */
 .ui.dropdown.small > .text {
-    line-height: var(--scale-golf);
     font-size: var(--type-scale-8);
+    line-height: 1;
 }
 
 /* SKIN | SIZE | Large | Dropdown/Select | Text */
 .ui.dropdown.large > .text {
     font-size: var(--type-scale-6);
+    line-height: 1;
 }
 
 /* SKIN | Select | Text */
@@ -105,7 +106,7 @@
 }
 
 .ui.selection.dropdown .menu > .item {
-    padding: 0.25rem var(--scale-delta) !important;
+    padding: 0.25rem var(--scale-echo) !important;
 }
 
 .ui.selection.dropdown .menu > .item {
@@ -130,14 +131,14 @@
 .ui.dropdown.small .menu > .item,
 .ui.selection.dropdown.small .menu > .item {
     height: var(--scale-golf);
-    padding: 0 0.5rem !important;
+    padding: 0 1rem !important;
     line-height: var(--scale-golf);
 }
 
 /* CONTENT | Item | SIZE | Large */
 .ui.dropdown.large .menu > .item {
     height: var(--scale-india);
-    padding: 0 var(--scale-delta) !important;
+    padding: 0 var(--scale-echo) !important;
     line-height: var(--scale-india);
 }
 
@@ -180,7 +181,7 @@
 
 /* SIZE | Large */
 .ui.selection.dropdown.large.with-icon {
-    padding-left: 2.5rem;
+    padding-left: 3rem;
 }
 
 /* CONTENT | Item | With description */
@@ -343,7 +344,7 @@
 
 /* LAYOUT | Dropdown | Menu */
 .ui.dropdown.selection .menu {
-    width: calc(100% + 3px);
+    width: calc(100% + 2px);
     margin: 0 0 0 -1px;
     min-width: 100%;
     border-radius: 0em 0em 0.25rem 0.25rem;
@@ -594,21 +595,39 @@
     font-size: var(--type-scale-7);
 }
 
-.ui.search.dropdown.large > input.search {
-    font-size: var(--type-scale-6);
-}
-
 .ui.multiple.search.dropdown > input.search {
     margin: 0;
+    padding-left: 0;
+}
+
+.ui.multiple.search.dropdown.large > input.search {
+    padding-left: 0;
+}
+
+.ui.multiple.search.dropdown.small > input.search {
+    padding-left: 0;
 }
 
 /* SIZE | Small */
 .ui.search.dropdown.small {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 }
 
 .ui.search.selection.dropdown.small > input.search {
-    padding: 0.4375rem var(--scale-golf) 0.4375rem var(--scale-delta);
+    padding: 0.5625rem 0 0.5625rem 1rem;
+}
+
+.ui.search.selection.dropdown.large > input.search {
+    padding: 0.5625rem 0 0.5625rem 1.5rem;
+}
+
+.ui.search.selection.dropdown > input.search {
+    height: 38px;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+}
+
+.ui.search.selection.dropdown.multiple > input.search {
+    padding-left: 0
 }
 
 /* With Icon */
@@ -621,7 +640,7 @@
 }
 
 .ui.search.selection.dropdown.small > input.search {
-    height: var(--scale-golf);
+    height: 30px;
     min-height: 0;
     line-height: var(--scale-golf);
 }
@@ -629,14 +648,14 @@
 /* SIZE | Large */
 .ui.search.dropdown.large > input.search {
     font-size: var(--type-scale-6);
-    height: var(--scale-india);
+    height: 46px;
     min-height: 0;
     line-height: var(--scale-india);
 }
 
 /* With Icon */
 .ui.search.selection.dropdown.large.with-icon:not(.multiple) > input.search {
-    padding-left: 2.5rem;
+    padding-left: 3rem;
 }
 
 /*******************************
@@ -730,11 +749,11 @@
 }
 
 .ui.multiple.search.dropdown > .text {
-    line-height: calc(2.25rem - 2px);
+    line-height: 38px;
 }
 
 .ui.multiple.search.dropdown.small > .text {
-    line-height: var(--scale-golf);
+    line-height: 30px;
 }
 
 .ui.multiple.search.dropdown.large > .text {
