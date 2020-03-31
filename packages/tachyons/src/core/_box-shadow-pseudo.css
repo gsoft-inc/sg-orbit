@@ -1,0 +1,42 @@
+.hover-shadow-100:hover,
+.hover-shadow-100:focus {
+    box-shadow: var(--shadow-100);
+}
+
+.hover-shadow-200:hover,
+.hover-shadow-200:focus {
+    box-shadow: var(--shadow-200);
+}
+
+@media (--breakpoint-not-small) {
+    .hover-shadow-100-ns:hover,
+    .hover-shadow-100-ns:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .hover-shadow-200-ns:hover,
+    .hover-shadow-200-ns:focus {
+        box-shadow: var(--shadow-200);
+    }
+}
+
+@media (--breakpoint-medium) {
+    .hover-shadow-100-m:hover,
+    .hover-shadow-100-m:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .hover-shadow-200-m:hover,
+    .hover-shadow-200-m:focus {
+        box-shadow: var(--shadow-200);
+    }
+}
+
+@media (--breakpoint-large) {
+    .hover-shadow-100-l:hover,
+    .hover-shadow-100-l:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .hover-shadow-200-l:hover,
+    .hover-shadow-200-l:focus {
+        box-shadow: var(--shadow-200);
+    }
+}
