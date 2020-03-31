@@ -25,7 +25,6 @@
         "moment": "*",
         "react": "*",
         "react-dom": "*",
-        "react-spring": "*",
         "semantic-ui-react": "*"
     },
     "dependencies": {

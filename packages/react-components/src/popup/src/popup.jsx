@@ -1,17 +1,10 @@
+import "./popup.css";
+
 import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, mergeClasses } from "../../shared";
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
-import { FadeIn } from "./fade-in";
 import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isNil } from "lodash";
-
-function fadeInAnimationRenderer(open, renderContent, styles) {
-    return (
-        <FadeIn active={open} styles={styles}>
-            {renderContent()}
-        </FadeIn>
-    );
-}
 
 export class Popup extends AutoControlledPureComponent {
     static propTypes = {
@@ -78,15 +71,6 @@ export class Popup extends AutoControlledPureComponent {
          */
         onOutsideClick: func,
         /**
-         * Render the open / close animation.
-         * @param {boolean} open - Whether or not the popup is open.
-         * @param {function} renderContent - Render the content of the popup.
-         * @param {Object} styles - Positioning styles.
-         * @param {Object} props - All the props.
-         * @returns {ReactElement} - React element to render.
-         */
-        animationRenderer: func,
-        /**
          * Whether or not the popup should close when the popup loose focus.
          */
         closeOnBlur: bool,
@@ -113,7 +97,6 @@ export class Popup extends AutoControlledPureComponent {
         position: BOTTOM_LEFT,
         offsets: ["0px", "0px"],
         zIndex: "998",
-        animationRenderer: fadeInAnimationRenderer,
         closeOnBlur: true,
         closeOnOutsideClick: false,
         fluid: false
@@ -138,7 +121,6 @@ export class Popup extends AutoControlledPureComponent {
     _hasFocus = false;
     _triggerRef = createRef();
     _containerRef = createRef();
-    _animateInitialOpening = !this.props.defaultOpen;
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, Popup.autoControlledProps);
@@ -149,7 +131,6 @@ export class Popup extends AutoControlledPureComponent {
 
         if (open) {
             this.focusTrigger();
-            this._animateInitialOpening = false;
         }
     }
 
@@ -287,16 +268,6 @@ export class Popup extends AutoControlledPureComponent {
         return style;
     }
 
-    getOpeningStyle() {
-        const { zIndex } = this.props;
-
-        return {
-            position: "absolute",
-            zIndex,
-            ...this.getPositioningStyle()
-        };
-    }
-
     open(event) {
         const { onVisibilityChange } = this.props;
 
@@ -356,18 +327,18 @@ export class Popup extends AutoControlledPureComponent {
     };
 
     renderContent() {
-        const { animationRenderer } = this.props;
+        const { zIndex } = this.props;
         const { open } = this.state;
 
-        if (this._animateInitialOpening) {
-            return animationRenderer(open, this.renderPopup, this.getOpeningStyle(), this.props);
-        } else {
-            // Subsequent opening should be animated.
-            this._animateInitialOpening = true;
-        }
+        const openingStyle = {
+            display: open ? "block" : "none",
+            position: "absolute",
+            zIndex,
+            ...this.getPositioningStyle()
+        };
 
         return (
-            <div style={{ ...this.getOpeningStyle() }}>
+            <div className="popup__content" style={openingStyle}>
                 {this.renderPopup()}
             </div>
         );
@@ -379,7 +350,7 @@ export class Popup extends AutoControlledPureComponent {
         setTimeout(() => {
             if (document.activeElement.nodeName === "BODY") {
                 if (!isNil(this._containerRef.current)) {
-                // Chrome, Edge
+                    // Chrome, Edge
                     this._containerRef.current.focus();
                 }
             } else {
