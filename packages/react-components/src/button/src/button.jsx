@@ -208,9 +208,10 @@ export const Button = forwardRef((props, ref) => (
     <PureButton { ...props } forwardedRef={ref} />
 ));
 
-// Button.Or is not supported yet.
+// Not supported yet:
+// - Button.Content
+// - Button.Or
 [PureButton, Button].forEach(x => {
-    x.Content = SemanticButton.Content;
     x.Group = SemanticButton.Group;
 });
 

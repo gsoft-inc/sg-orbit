@@ -185,8 +185,3 @@ export const Label = forwardRef((props, ref) => (
     <PureLabel { ...props } forwardedRef={ref} />
 ));
 
-[PureLabel, Label].forEach(x => {
-    x.Detail = SemanticLabel.Detail;
-    x.Group = SemanticLabel.Group;
-});
-

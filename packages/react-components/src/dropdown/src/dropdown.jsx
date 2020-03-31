@@ -230,10 +230,11 @@ export const Dropdown = forwardRef((props, ref) => (
     <PureDropdown { ...props } forwardedRef={ref} />
 ));
 
+// Not supported yet:
+// - Dropdown.Divider
+// - Dropdown.Header
+// - Dropdown.Menu
+// - Dropdown.SearchInput
 [PureDropdown, Dropdown].forEach(x => {
-    x.Divider = SemanticDropdown.Divider;
-    x.Header = SemanticDropdown.Header;
     x.Item = DropdownItem;
-    x.Menu = SemanticDropdown.Menu;
-    x.SearchInput = SemanticDropdown.SearchInput;
 });

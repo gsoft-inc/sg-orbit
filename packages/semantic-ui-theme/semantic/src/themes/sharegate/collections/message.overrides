@@ -71,3 +71,25 @@
 .ui.message > .close.icon:hover {
     background-color: @marine900;
 }
+
+/* Columns */
+
+.ui.message.with-columns {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.ui.message.with-columns .icon:not(.close) + .content {
+    padding-left: 0rem;
+}
+
+.ui.message.with-columns > .content {
+    display: block;
+    flex: 1 1 auto;
+    vertical-align: middle;
+}
+
+.ui.message.with-columns > .button {
+    margin-right: 1.25rem;
+}

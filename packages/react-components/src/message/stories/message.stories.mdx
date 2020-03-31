@@ -44,9 +44,7 @@ A message can have an header.
     <Story name="header">
         <Message>
             <Message.Header>Setup a security policy for external sharing</Message.Header>
-            <p>
-                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
-            </p>
+            <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
         </Message>
     </Story>
 </Preview>
@@ -85,66 +83,6 @@ A message can be dismissed.
     </Story>
 </Preview>
 
-### Info
-
-A message can display information.
-
-<Preview>
-    <Story name="info">
-        <Message info>
-            <Message.Header>Setup a security policy for external sharing</Message.Header>
-            <p>
-                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
-### Positive / Success
-
-A message can display a positive message.
-
-<Preview>
-    <Story name="positive success">
-        <Message positive>
-            <Message.Header>Setup a security policy for external sharing</Message.Header>
-            <p>
-                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
-### Warning
-
-A message can display a warning message.
-
-<Preview>
-    <Story name="warning">
-        <Message warning>
-            <Message.Header>Review your settings before setting up a security policy</Message.Header>
-            <p>
-                Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
-### Negative / Error
-
-A message can display a negative message.
-
-<Preview>
-    <Story name="negative error">
-        <Message negative>
-            <Message.Header>Cannot setup a security policy for external sharing</Message.Header>
-            <p>
-                Your trial has expired.
-            </p>
-        </Message>
-    </Story>
-</Preview>
-
 ### Floating
 
 A message can float above content that it is related to.
@@ -152,13 +90,21 @@ A message can float above content that it is related to.
 <Preview>
     <Story name="floating">
         <Message floating>
-            <Message.Header>
-                Setup a security policy for external sharing
-            </Message.Header>
-            <p>
-                Easily manage external sharing links and set-up automatic access reviews
-                for entrusted group owners.
-            </p>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
+            <p>Easily manage external sharing links and set-up automatic access reviewsfor entrusted group owners.</p>
+        </Message>
+    </Story>
+</Preview>
+
+### Compact
+
+A message can be compact.
+
+<Preview>
+    <Story name="compact">
+        <Message compact>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
+            <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
         </Message>
     </Story>
 </Preview>
@@ -168,7 +114,7 @@ A message can float above content that it is related to.
 A message can have two columns.
 <Preview>
     <Story name="left aligned">
-        <Message icon>
+        <Message columns>
             <Button>Click Here</Button>
             <Message.Content>
                 <Message.Header>Just one second</Message.Header>
@@ -180,12 +126,12 @@ A message can have two columns.
 
 <Preview>
     <Story name="right aligned">
-        <Message icon>
+        <Message columns>
             <Message.Content>
                 <Message.Header>Just one second</Message.Header>
                 <p>We are fetching that content for you.</p>
             </Message.Content>
-            <InfoIcon className="w10 h10" />
+            <InfoIcon size="massive" />
         </Message>
     </Story>
 </Preview>
@@ -199,9 +145,59 @@ Can be set to: `"small"`, or omitted.
 <Preview>
     <Story name="size">
         <Message size="small">
-            <p className="fw6">
-                Easily manage external sharing links and set-up automatic access reviews.
-            </p>
+            Easily manage external sharing links and set-up automatic access reviews.
+        </Message>
+    </Story>
+</Preview>
+
+### Info
+
+A message can display information.
+
+<Preview>
+    <Story name="info">
+        <Message info>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
+            <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+        </Message>
+    </Story>
+</Preview>
+
+### Positive / Success
+
+A message can display a positive message.
+
+<Preview>
+    <Story name="positive success">
+        <Message positive>
+            <Message.Header>Setup a security policy for external sharing</Message.Header>
+            <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+        </Message>
+    </Story>
+</Preview>
+
+### Warning
+
+A message can display a warning message.
+
+<Preview>
+    <Story name="warning">
+        <Message warning>
+            <Message.Header>Review your settings before setting up a security policy</Message.Header>
+            <p>Easily manage external sharing links and set-up automatic access reviews for entrusted group owners.</p>
+        </Message>
+    </Story>
+</Preview>
+
+### Negative / Error
+
+A message can display a negative message.
+
+<Preview>
+    <Story name="negative error">
+        <Message negative>
+            <Message.Header>Cannot setup a security policy for external sharing</Message.Header>
+            <p>Your trial has expired.</p>
         </Message>
     </Story>
 </Preview>

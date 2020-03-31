@@ -354,7 +354,7 @@ stories("/date restrictions/2 months visible")
                  .build()
          }
     )
-    .add("min+max dates are blocking previous & next months",
+    .add("min + max dates are blocking previous & next months",
          () =>
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
@@ -566,7 +566,7 @@ stories("/date restrictions/1 month visible")
                  .build()
          }
     )
-    .add("min+max dates are blocking previous & next months",
+    .add("min + max dates are blocking previous & next months",
          () =>
              createDateRangePicker({
                  startDate: moment(DEFAULT_DATE),
