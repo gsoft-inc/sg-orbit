@@ -1,7 +1,7 @@
 import { Checkbox } from "@react-components/checkbox";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitFor } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-for";
 
 function createCheckbox(props = {}) {
     return <Checkbox
@@ -47,7 +47,7 @@ test("when delayed autofocus, the checkbox is autofocused after the delay", asyn
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitFor(55);
+    await waitDelay(55);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
@@ -64,7 +64,7 @@ test("when delayed autofocus on a disabled checkbox, the checkbox is not autofoc
     expect(getInput(getByTestId)).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
