@@ -1,7 +1,7 @@
 import { TextArea } from "@react-components/textarea";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitFor } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-for";
 
 function createTextArea(props = {}) {
     return <TextArea
@@ -42,7 +42,7 @@ test("when delayed autofocus, the textarea is autofocused after the delay", asyn
     expect(getByTestId("textarea")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getByTestId("textarea")).toHaveFocus();
 });
 
@@ -57,7 +57,7 @@ test("when delayed autofocus on a disabled textarea, the textarea is not autofoc
     expect(getByTestId("textarea")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitFor(55);
+    await waitDelay(55);
     expect(getByTestId("textarea")).not.toHaveFocus();
 });
 
@@ -109,6 +109,6 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
-    await waitFor(55);
+    await waitDelay(55);
     expect(getByTestId("textarea")).toHaveFocus();
 });
