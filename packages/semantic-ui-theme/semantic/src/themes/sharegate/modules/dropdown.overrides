@@ -10,25 +10,29 @@
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
     min-height: var(--scale-hotel);
-    line-height: var(--scale-hotel);
-    padding: 0.125rem var(--scale-hotel) 0.125rem var(--scale-delta);
+    line-height: calc(var(--scale-hotel) - 2px);
+    padding: 0 var(--scale-hotel) 0 var(--scale-echo);
+}
+
+.ui.dropdown.selection.multiple {
+    padding: 4px var(--scale-hotel) 4px var(--scale-echo);
 }
 
 /* LAYOUT | SIZE | Small */
 .ui.selection.dropdown.small {
-    padding: 0 var(--scale-golf) 0 var(--scale-bravo);
+    padding: 0 var(--scale-golf) 0 var(--scale-delta);
     height: var(--scale-golf);
     min-height: 0;
     font-size: var(--type-scale-8);
-    line-height: var(--scale-golf);
+    line-height: calc(var(--scale-golf) - 2px);
 }
 
 /* LAYOUT | SIZE | Large */
 .ui.selection.dropdown.large {
-    padding: 0 var(--scale-india) 0 var(--scale-delta);
+    padding: 0 var(--scale-india) 0 var(--scale-foxtrot);
     min-height: 0;
     height: var(--scale-india);
-    line-height: var(--scale-india);
+    line-height: calc(var(--scale-india) - 2px);
 }
 
 /* LAYOUT | Inline */
@@ -54,13 +58,14 @@
 
 /* SKIN | SIZE | Small | Dropdown/Select | Text */
 .ui.dropdown.small > .text {
-    line-height: var(--scale-golf);
     font-size: var(--type-scale-8);
+    line-height: 1;
 }
 
 /* SKIN | SIZE | Large | Dropdown/Select | Text */
 .ui.dropdown.large > .text {
     font-size: var(--type-scale-6);
+    line-height: 1;
 }
 
 /* SKIN | Select | Text */
@@ -101,16 +106,16 @@
     display: flex;
     align-items: center;
     padding: 0 var(--scale-delta) !important;
-    line-height: 2.5rem;
+    line-height: var(--scale-hotel);
 }
 
 .ui.selection.dropdown .menu > .item {
-    padding: 0.25rem var(--scale-delta) !important;
+    padding: var(--scale-alpha) var(--scale-echo) !important;
 }
 
 .ui.selection.dropdown .menu > .item {
     min-width: 300px;
-    height: 2.5rem;
+    height: var(--scale-hotel);
 }
 
 .ui.dropdown .menu > .item {
@@ -130,14 +135,14 @@
 .ui.dropdown.small .menu > .item,
 .ui.selection.dropdown.small .menu > .item {
     height: var(--scale-golf);
-    padding: 0 0.5rem !important;
+    padding: 0 var(--scale-delta) !important;
     line-height: var(--scale-golf);
 }
 
 /* CONTENT | Item | SIZE | Large */
 .ui.dropdown.large .menu > .item {
     height: var(--scale-india);
-    padding: 0 var(--scale-delta) !important;
+    padding: 0 var(--scale-echo) !important;
     line-height: var(--scale-india);
 }
 
@@ -157,7 +162,7 @@
 .ui.dropdown .menu > .item > .icon,
 .ui.dropdown .menu > .item > .label,
 .ui.dropdown .menu > .item > .flag {
-    margin-right: 0.25rem;
+    margin-right: var(--scale-alpha);
 }
 
 .ui.dropdown .menu > .item span {
@@ -166,7 +171,7 @@
 }
 
 .ui.dropdown .menu > .item span .icon {
-    margin-left: 0.25rem;
+    margin-left: var(--scale-alpha);
 }
 
 .ui.dropdown .menu > .item > .icon {
@@ -180,21 +185,21 @@
 
 /* SIZE | Large */
 .ui.selection.dropdown.large.with-icon {
-    padding-left: 2.5rem;
+    padding-left: var(--scale-india);
 }
 
 /* CONTENT | Item | With description */
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
     order: 1;
-    margin: 0 0 0 0.5rem;
+    margin: 0 0 0 var(--scale-bravo);
     color: @cloud300;
 }
 
 /* CONTENT | Item | With description Preceded with icon(s) */
 .ui.dropdown > .text > .icon + .description,
 .ui.dropdown .menu > .item > .icon + .description {
-    margin: 0 0 0 0.25rem;
+    margin: 0 0 0 var(--scale-alpha);
 }
 
 /* CONTENT | Item | With action */
@@ -225,7 +230,7 @@
 /* CONTENT | Item | Label In Select */
 /* label in multi select should be smaller than 40px */
 .ui.multiple.dropdown a.label:not(.circular) {
-    min-height: 24px;
+    min-height: var(--scale-foxtrot);
 }
 
 /* label in large multi select should be smaller than 40px */
@@ -286,7 +291,7 @@
     position: absolute;
     content: "";
     display: block;
-    width: 0.25rem;
+    width: var(--scale-alpha);
     height: 100%;
     background-color: @primary500;
     top: 0;
@@ -317,7 +322,7 @@
 *******************************/
 /* Layout | Position */
 .ui.dropdown .visible.menu.transition {
-    margin-top: 0.5rem;
+    margin-top: var(--scale-bravo);
 }
 
 .ui.dropdown.selection .visible.menu.transition {
@@ -326,7 +331,7 @@
 
 /* LAYOUT | Spacing */
 .ui.dropdown.dropdown .menu .input {
-    margin: var(--scale-delta) var(--scale-delta) 0.5rem var(--scale-delta);
+    margin: var(--scale-delta) var(--scale-delta) var(--scale-bravo) var(--scale-delta);
 }
 
 /* SKIN | select/dropdown */
@@ -336,17 +341,17 @@
 
 .ui.dropdown .menu {
     border: none;
-    border-radius: 0.25rem;
+    border-radius: var(--scale-alpha);
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 /* LAYOUT | Dropdown | Menu */
 .ui.dropdown.selection .menu {
-    width: calc(100% + 3px);
+    width: calc(100% + 2px);
     margin: 0 0 0 -1px;
     min-width: 100%;
-    border-radius: 0em 0em 0.25rem 0.25rem;
+    border-radius: 0em 0em var(--scale-alpha) var(--scale-alpha);
 }
 
 /* Layout | Dropdown | Upward */
@@ -360,7 +365,7 @@
 
 /* LAYOUT | Inline Dropdown */
 .ui.dropdown.inline .menu {
-    border-radius: 0.25rem;
+    border-radius: var(--scale-alpha);
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -382,7 +387,7 @@
 
 /* Divider */
 .ui.dropdown .menu > .divider {
-    margin: 0.5rem 0em;
+    margin: var(--scale-bravo) 0em;
 }
 
 /*******************************
@@ -560,7 +565,7 @@
 /* SKIN | Icon  */
 .ui.selection.dropdown.with-icon,
 .ui.search.selection.dropdown.with-icon:not(.multiple) > input.search {
-    padding-left: 2.5rem;
+    padding-left: var(--scale-hotel);
 }
 
 /* LAYOUT | Inline | Icon */
@@ -573,14 +578,14 @@
     Avatar / Not the movie
 *******************************/
 .ui.selection.dropdown.avatar .menu > .item {
-    padding: 0.25rem var(--scale-delta) !important;
+    padding: var(--scale-alpha) var(--scale-delta) !important;
 }
 
 .ui.dropdown > .text > img,
 .ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
-    margin-right: 0.5rem;
+    margin-right: var(--scale-bravo);
 }
 
 /*******************************
@@ -594,21 +599,44 @@
     font-size: var(--type-scale-7);
 }
 
-.ui.search.dropdown.large > input.search {
-    font-size: var(--type-scale-6);
-}
-
 .ui.multiple.search.dropdown > input.search {
     margin: 0;
+    padding-left: 0;
+}
+
+.ui.multiple.search.dropdown.large > input.search {
+    padding-left: 0;
+}
+
+.ui.multiple.search.dropdown.small > input.search {
+    padding-left: 0;
 }
 
 /* SIZE | Small */
 .ui.search.dropdown.small {
-    padding-left: 0.5rem;
+    padding-left: var(--scale-delta);
 }
 
 .ui.search.selection.dropdown.small > input.search {
-    padding: 0.4375rem var(--scale-golf) 0.4375rem var(--scale-delta);
+    padding: 0.5625rem 0 0.5625rem var(--scale-delta);
+}
+
+.ui.search.selection.dropdown.large > input.search {
+    padding: 0.5625rem 0 0.5625rem var(--scale-foxtrot);
+}
+
+.ui.search.selection.dropdown > input.search {
+    height: calc(var(--scale-hotel) - 2px);
+    padding: var(--scale-alpha) var(--scale-hotel) var(--scale-alpha) var(--scale-echo);
+}
+
+.ui.search.selection.dropdown.multiple > input.search {
+    height: var(--scale-foxtrot);
+    padding: 0;
+}
+
+.ui.search.selection.dropdown.multiple > input.search {
+    padding-left: 0
 }
 
 /* With Icon */
@@ -621,7 +649,7 @@
 }
 
 .ui.search.selection.dropdown.small > input.search {
-    height: var(--scale-golf);
+    height: calc(var(--scale-golf) - 2px);
     min-height: 0;
     line-height: var(--scale-golf);
 }
@@ -629,14 +657,14 @@
 /* SIZE | Large */
 .ui.search.dropdown.large > input.search {
     font-size: var(--type-scale-6);
-    height: var(--scale-india);
+    height: calc(var(--scale-india) - 2px);
     min-height: 0;
     line-height: var(--scale-india);
 }
 
 /* With Icon */
 .ui.search.selection.dropdown.large.with-icon:not(.multiple) > input.search {
-    padding-left: 2.5rem;
+    padding-left: var(--scale-india);
 }
 
 /*******************************
@@ -730,11 +758,11 @@
 }
 
 .ui.multiple.search.dropdown > .text {
-    line-height: calc(2.25rem - 2px);
+    line-height: calc(var(--scale-golf) - 2px);
 }
 
 .ui.multiple.search.dropdown.small > .text {
-    line-height: var(--scale-golf);
+    line-height: calc(var(--scale-golf) - 2px);
 }
 
 .ui.multiple.search.dropdown.large > .text {
@@ -744,12 +772,12 @@
 /* CONTENT | Multiple | Label */
 .ui.multiple.dropdown > .label {
     font-size: var(--type-scale-8);
-    padding: 0 0.5rem 0 var(--scale-delta);
+    padding: 0 var(--scale-bravo) 0 var(--scale-delta);
     margin: 0;
     box-shadow: 0px 0px 0px 0 @cloud200 inset;
     display: flex;
     align-items: center;
-    margin: .25rem @scaleAlpha .25rem 0;
+    margin: 0.125rem @scaleAlpha 0.125rem 0;
 }
 
 /* CONTENT | Multiple | Label | State | Disabled */
