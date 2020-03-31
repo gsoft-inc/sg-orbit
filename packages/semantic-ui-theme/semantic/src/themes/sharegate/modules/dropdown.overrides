@@ -649,7 +649,7 @@
 }
 
 .ui.search.selection.dropdown.small > input.search {
-    height: var(calc(--scale-golf) - 2px);
+    height: calc(var(--scale-golf) - 2px);
     min-height: 0;
     line-height: var(--scale-golf);
 }
