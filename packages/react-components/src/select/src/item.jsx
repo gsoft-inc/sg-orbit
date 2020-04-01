@@ -75,10 +75,6 @@ export function SelectItem(props) {
             size: SIZES_TO_AVATAR[context.size]
         };
 
-        if (isElement(avatar)) {
-            return <SemanticImage {...defaults}>{avatar}</SemanticImage>;
-        }
-
         if (!isNil(avatar)) {
             if (isElement(avatar)) {
                 return (

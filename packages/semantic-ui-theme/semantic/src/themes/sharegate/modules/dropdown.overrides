@@ -12,6 +12,7 @@
     min-height: var(--scale-hotel);
     line-height: calc(var(--scale-hotel) - 2px);
     padding: 0 var(--scale-hotel) 0 var(--scale-echo);
+    display: flex;
 }
 
 .ui.dropdown.selection.multiple {
@@ -54,6 +55,8 @@
 
 .ui.dropdown.selection > .text {
     padding-right: 1.25em;
+    display: flex;
+    align-items: center;
 }
 
 /* SKIN | SIZE | Small | Dropdown/Select | Text */
@@ -140,9 +143,10 @@
 }
 
 /* CONTENT | Item | SIZE | Large */
-.ui.dropdown.large .menu > .item {
+.ui.dropdown.large .menu > .item,
+.ui.selection.dropdown.large .menu > .item {
     height: var(--scale-india);
-    padding: 0 var(--scale-echo) !important;
+    padding: 0 var(--scale-foxtrot) !important;
     line-height: var(--scale-india);
 }
 

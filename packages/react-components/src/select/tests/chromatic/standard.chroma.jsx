@@ -12,10 +12,9 @@ function stories(segment) {
         .build();
 }
 
-const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
-];
+const MALE = { key: "Male", text: "Male", value: "Male" };
+const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const GENDERS = [MALE, FEMALE];
 
 function createSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
@@ -296,6 +295,96 @@ stories()
                 {createSelect({
                     icon: <MagnifierIcon />,
                     disabled: true
+                })}
+            </div>
+        </div>
+    )
+    .add("avatar", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    icon: <MagnifierIcon />
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true
                 })}
             </div>
         </div>
