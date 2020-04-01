@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
-import { CommunicationIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
+import { LightbulbIcon } from "@react-components/icons";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createSharedStories } from "./shared-stories";
@@ -52,13 +52,13 @@ function setRedBackground(element) {
 
 stories("/button")
     .add("element ref", () =>
-        <Label button={<Button icon={<CommunicationIcon />} className= "bg-red" />} className="mr5">Notification Sent</Label>
+        <Label button={<Button icon={<LightbulbIcon />} className= "bg-red" />} className="mr5">Notification Sent</Label>
     )
     .add("object", () =>
         <div className="flex">
-            <Label button={{ icon: <CommunicationIcon /> }} className="mr5">Notification Sent</Label>
-            <Label button={{ icon: <CommunicationIcon />, className: "bg-red" }} className="mr5">Notification Sent</Label>
-            <Label button={{ icon: <CommunicationIcon />, ref: setRedBackground }}>Notification Sent</Label>
+            <Label button={{ icon: <LightbulbIcon /> }} className="mr5">Notification Sent</Label>
+            <Label button={{ icon: <LightbulbIcon />, className: "bg-red" }} className="mr5">Notification Sent</Label>
+            <Label button={{ icon: <LightbulbIcon />, ref: setRedBackground }}>Notification Sent</Label>
         </div>
     );
 

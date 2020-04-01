@@ -73,6 +73,14 @@
 }
 
 /* LAYOUT | Circular/Tiny */
+.ui.button.mini.circular,
+.ui.button.with-icon.mini.circular {
+    font-size: @typeScale9;
+    min-height: @scaleEcho;
+    min-width: @scaleEcho;
+}
+
+/* LAYOUT | Circular/Tiny */
 .ui.button.tiny.circular,
 .ui.button.with-icon.tiny.circular {
     font-size: @typeScale8;

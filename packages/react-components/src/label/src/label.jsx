@@ -1,4 +1,4 @@
-import { ArgumentError, BIG, HUGE, MASSIVE, MINI, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -93,8 +93,16 @@ export function PureLabel(props) {
     };
 
     const renderButton = () => {
+        const SIZES_TO_BUTTON = {
+            [MINI]: MINI,
+            [TINY]: TINY,
+            [SMALL]: SMALL,
+            [MEDIUM]: MEDIUM,
+            [LARGE]: LARGE
+        };
+
         const defaults = {
-            size: "tiny",
+            size: SIZES_TO_BUTTON[size],
             circular: true,
             ghost: true,
             secondary: true,

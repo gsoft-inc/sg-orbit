@@ -829,8 +829,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 12;
+    z-index: 3;
     left: calc(@scaleEcho / 2 );
+}
+
+.ui.selection.dropdown.visible + .ui.dropdown-icon,
+.ui.selection.dropdown.active + .ui.dropdown-icon {
+    z-index: 12;
 }
 
 .ui.dropdown.small + .ui.dropdown-icon {
@@ -844,4 +849,21 @@
 .ui.dropdown-icon.inline {
     left: 0;
     z-index: 3;
+}
+
+/* STATES | Error */
+.ui.selection.dropdown.active.error .menu {
+    border: 1px solid @alert500;
+}
+
+.ui.selection.dropdown.active .menu {
+    border: 1px solid @primary100;
+}
+
+.ui.dropdown .menu {
+    border: 1px solid @cloud100;
+}
+
+.ui.selection.active.dropdown.error:hover .menu {
+    border-color: @alert500;
 }

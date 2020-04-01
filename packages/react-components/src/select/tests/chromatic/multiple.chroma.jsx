@@ -112,12 +112,12 @@ stories()
                 })}
             </div>
             <div className="flex">
-                <div className="w-10 mr5">
+                <div className="w-30 mr5">
                     {createMultipleSelect({
                         fluid: true
                     })}
                 </div>
-                <div className="w-10">
+                <div className="w-30">
                     {createMultipleSelect({
                         fluid: true,
                         defaultOpen: true

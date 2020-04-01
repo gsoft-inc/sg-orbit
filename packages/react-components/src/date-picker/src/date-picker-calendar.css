@@ -2,6 +2,7 @@
     border-radius: var(--scale-alpha);
     box-shadow: var(--shadow-200);
     background-color: var(--white);
+    border: 1px solid var(--cloud-100);
 }
 
 .calendar .CalendarMonth_table {
