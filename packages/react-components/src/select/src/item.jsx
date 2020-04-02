@@ -1,10 +1,9 @@
-import { ArgumentError, LARGE, MEDIUM, SMALL, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { Image as SemanticImage } from "semantic-ui-react";
 import { arrayOf, bool, element, oneOf, oneOfType, shape, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { isArray, isNil } from "lodash";
-import { isElement } from "react-is";
+import { renderAvatar } from "./avatar";
 import { useContext } from "react";
 
 const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
@@ -12,12 +11,6 @@ const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
 const AVATAR_SHAPE = {
     src: string.isRequired,
     alt: string
-};
-
-const SIZES_TO_AVATAR = {
-    [SMALL]: "tiny",
-    [MEDIUM]: "small",
-    [LARGE]: "small"
 };
 
 const propTypes = {
@@ -69,28 +62,6 @@ export function SelectItem(props) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
-    const renderAvatar = () => {
-        const defaults = {
-            avatar: true,
-            size: SIZES_TO_AVATAR[context.size]
-        };
-
-        if (!isNil(avatar)) {
-            if (isElement(avatar)) {
-                return (
-                    <SemanticImage {...defaults}>
-                        {avatar}
-                    </SemanticImage>
-                );
-            }
-
-            return SemanticImage.create({
-                ...avatar,
-                ...defaults
-            });
-        }
-    };
-
     const renderIcons = () => {
         const normalizedIcons = isArray(icons) ? icons : [icons];
 
@@ -127,7 +98,7 @@ export function SelectItem(props) {
         }
 
         if (!isNil(avatar)) {
-            left = renderAvatar();
+            left = renderAvatar(avatar, context.size);
         }
 
         if (!isNil(text) || !isNil(description) || !isNil(left) || !isNil(right)) {

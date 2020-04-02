@@ -200,8 +200,6 @@ export function PureDropdown(props) {
                             onBlur={handleBlur}
                             inline={inline}
                             search={search}
-                            selectOnBlur={false}
-                            selectOnNavigation={false}
                             openOnFocus={false}
                             fluid={fluid}
                             trigger={trigger}

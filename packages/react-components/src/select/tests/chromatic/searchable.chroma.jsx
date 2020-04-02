@@ -205,7 +205,8 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -229,7 +230,8 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -256,7 +258,8 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultOpen: true
+                    defaultOpen: true,
+                    className: "mr5"
                 })}
             </div>
         </div>

@@ -1,15 +1,27 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown } from "../../dropdown";
+import { Label } from "semantic-ui-react";
 import { SelectItem, createSelectItem } from "./item";
-import { any, arrayOf, bool, element, func, object, oneOfType, shape, string } from "prop-types";
+import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
 import { isArray, isNil } from "lodash";
+import { renderAvatar } from "./avatar";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
+const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
 
 const ACTION_SHAPE = {
     content: element,
     className: string
+};
+
+const SIZES_TO_LABEL = {
+    [SMALL]: MINI,
+    [MEDIUM]: TINY,
+    [LARGE]: SMALL
 };
 
 const propTypes = {
@@ -21,6 +33,10 @@ const propTypes = {
      * A select can have a list of actions after his items.
      */
     actions: arrayOf(shape(ACTION_SHAPE)),
+    /**
+     * A select can vary in size.
+     */
+    size: oneOf(SIZES),
     /**
      * @ignore
      */
@@ -36,36 +52,65 @@ const propTypes = {
 };
 
 const defaultProps = {
+    size: DEFAULT_SIZE,
     inline: false,
     multiple: false
 };
 
-function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValues, values }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
+    if (inline && !isNil(size)) {
+        throw new ArgumentError("@orbit-ui/react-components/select you cannot specify a size for an inline select.");
+    }
+}
+
+function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value }) {
     if (multiple) {
-        if (!isNil(defaultValues) && !isArray(defaultValues)) {
+        if (!isNil(defaultValue) && !isArray(defaultValue)) {
             throw new ArgumentError("@orbit-ui/react-components/select defaultValues must be an array when multiple is true.");
         }
 
-        if (!isNil(values) && !isArray(values)) {
+        if (!isNil(value) && !isArray(value)) {
             throw new ArgumentError("@orbit-ui/react-components/select values must be an array when multiple is true.");
         }
     }
 }
 
-const renderAction = ({ content, key, className, ...rest }, index) => {
-    const classes = mergeClasses(
-        className,
-        "action bg-white o-100"
-    );
-
-    return { content, className: classes, disabled: true, key: key || index, ...rest };
-};
-
 export function PureSelect(props) {
-    const { options, actions, inline, forwardedRef, ...rest } = props;
+    const { options, actions, inline, size, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
+
+    const renderLabel = ({ text, avatar }, index, otherProps) => {
+        let content = text;
+
+        if (!isNil(avatar)) {
+            content = (
+                <>
+                    {renderAvatar(avatar)}
+                    {text}
+                </>
+            );
+        }
+
+        return (
+            <Label
+                content={content}
+                size={SIZES_TO_LABEL[size]}
+                {...otherProps}
+            />
+        );
+    };
+
+    const renderAction = ({ content, key, className, ...otherProps }, index) => {
+        const classes = mergeClasses(
+            className,
+            "action bg-white o-100"
+        );
+
+        return { content, className: classes, disabled: true, key: key || index, ...otherProps };
+    };
 
     const renderOptions = () => {
         const selectOptions = options.map(x => {
@@ -85,8 +130,13 @@ export function PureSelect(props) {
     return (
         <Dropdown
             options={renderOptions()}
+            selectOnBlur={false}
+            selectOnNavigation={false}
+            closeOnChange
             selection={!inline}
             inline={inline}
+            size={size}
+            renderLabel={renderLabel}
             ref={forwardedRef}
             {...rest}
         />

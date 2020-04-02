@@ -231,22 +231,6 @@
     text-decoration: underline;
 }
 
-/* CONTENT | Item | Label In Select */
-/* label in multi select should be smaller than 40px */
-.ui.multiple.dropdown a.label:not(.circular) {
-    min-height: var(--scale-foxtrot);
-}
-
-/* label in large multi select should be smaller than 40px */
-.ui.multiple.dropdown.small a.label:not(.circular) {
-    min-height: 20px;
-}
-
-/* label in large multi select should be smaller than 40px */
-.ui.multiple.dropdown.large a.label:not(.circular) {
-    min-height: 32px;
-}
-
 /* STATE | Active | Content | In Select */
 .ui.multiple.dropdown > .active.label {
     background-color: @cloud50;
@@ -590,6 +574,12 @@
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
     margin-right: var(--scale-bravo);
+}
+
+.ui.dropdown.inline > .text > img {
+    width: 1em;
+    height: 1em;
+    max-height: none;
 }
 
 /*******************************

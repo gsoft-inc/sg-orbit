@@ -12,10 +12,9 @@ function stories(segment) {
         .build();
 }
 
-const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
-];
+const MALE = { key: "Male", text: "Male", value: "Male" };
+const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const GENDERS = [MALE, FEMALE];
 
 function createMultipleSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
@@ -279,6 +278,78 @@ stories()
             </div>
         </div>
     )
+    .add("icon", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: ["Male"],
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "small",
+                    search: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: ["Male"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    search: true
+                })}
+            </div>
+            <div className="flex">
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: ["Male"],
+                    size: "large",
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    icon: <MagnifierIcon />,
+                    size: "large",
+                    search: true
+                })}
+            </div>
+        </div>
+    )
     .add("searchable", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ "marginBottom": "150px" }}>
@@ -339,4 +410,90 @@ stories()
                 })}
             </div>
         </div>
+    )
+    .add("avatar", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+        </div>
     );
+
