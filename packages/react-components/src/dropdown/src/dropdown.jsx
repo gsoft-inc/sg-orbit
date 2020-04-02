@@ -3,9 +3,8 @@ import "./item-factory";
 import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useForwardRef } from "../../shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
-import { Ref } from "semantic-ui-react";
-import { MonkeyPatchDropdown as SemanticDropdown } from "./monkey-patch-dropdown";
-import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
+import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
@@ -83,12 +82,17 @@ const propTypes = {
     /**
      * @ignore
      */
-    forwardedRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func]),
+    /**
+     * @ignore
+     */
+    __semanticDropdown: elementType
 };
 
 const defaultProps = {
     autofocus: false,
-    size: DEFAULT_SIZE
+    size: DEFAULT_SIZE,
+    __semanticDropdown: SemanticDropdown
 };
 
 function focus(search, innerRef) {
@@ -122,7 +126,7 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __semanticDropdown: InnerDropdown,...rest } = props;
 
     const _state = useRef({ valueChanged: false });
     const dropdownRef = useRef(null);
@@ -222,7 +226,7 @@ export function PureDropdown(props) {
             >
                 <Ref innerRef={setInnerRef}>
                     <DropdownContext.Provider value={{ size: size }}>
-                        <SemanticDropdown
+                        <InnerDropdown
                             onOpen={handleOpen}
                             onClose={handleClose}
                             onFocus={handleFocus}

@@ -1,6 +1,7 @@
 import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown } from "../../dropdown";
 import { Label } from "semantic-ui-react";
+import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { SelectItem, createSelectItem } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
@@ -137,6 +138,7 @@ export function PureSelect(props) {
             size={size}
             renderLabel={renderLabel}
             ref={forwardedRef}
+            __semanticDropdown={MonkeyPatchSemanticDropdown}
             {...rest}
         />
     );

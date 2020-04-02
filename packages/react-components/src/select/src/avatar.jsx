@@ -9,10 +9,11 @@ const SIZES_TO_AVATAR = {
     [LARGE]: "small"
 };
 
-export const renderAvatar = (avatar, size) => {
+export const renderAvatar = (avatar, size, additionalProps) => {
     const defaults = {
         avatar: true,
-        size: !isNil(size) ? SIZES_TO_AVATAR[size] : undefined
+        size: !isNil(size) ? SIZES_TO_AVATAR[size] : undefined,
+        ...additionalProps
     };
 
     if (!isNil(avatar)) {

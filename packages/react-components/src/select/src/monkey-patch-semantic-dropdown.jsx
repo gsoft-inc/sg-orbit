@@ -1,40 +1,10 @@
-import { Dropdown, Image as SemanticImage } from "semantic-ui-react";
-import { DropdownContext } from "./context";
-import { LARGE, MEDIUM, SMALL } from "../../shared";
+import { Dropdown } from "semantic-ui-react";
+import { DropdownContext } from "../../dropdown";
 import { get, isNil } from "lodash";
-import { isElement } from "react-is";
+import { renderAvatar } from "./avatar";
 import cx from "classnames";
 
-const SIZES_TO_AVATAR = {
-    [SMALL]: "tiny",
-    [MEDIUM]: "small",
-    [LARGE]: "small"
-};
-
-function renderAvatar(avatar, size, isInlineSelect) {
-    const defaults = {
-        avatar: true,
-        size: isInlineSelect ? undefined : SIZES_TO_AVATAR[size],
-        inline: isInlineSelect
-    };
-
-    if (!isNil(avatar)) {
-        if (isElement(avatar)) {
-            return (
-                <SemanticImage {...defaults}>
-                    {avatar}
-                </SemanticImage>
-            );
-        }
-
-        return SemanticImage.create({
-            ...avatar,
-            ...defaults
-        });
-    }
-}
-
-export class MonkeyPatchDropdown extends Dropdown {
+export class MonkeyPatchSemanticDropdown extends Dropdown {
     static contextType = DropdownContext;
 
     // Monkey patch fixes:
@@ -53,7 +23,7 @@ export class MonkeyPatchDropdown extends Dropdown {
             const toAvatarResult = (item, itemText) => {
                 return (
                     <>
-                        {renderAvatar(item.avatar, this.context.size, inline)}
+                        {renderAvatar(item.avatar, !inline ? this.context.size : undefined, { inline })}
                         {itemText}
                     </>
                 );
