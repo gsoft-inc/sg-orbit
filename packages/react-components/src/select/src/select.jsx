@@ -58,7 +58,7 @@ const defaultProps = {
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
-    if (inline && !isNil(size)) {
+    if (inline && size !== DEFAULT_SIZE) {
         throw new ArgumentError("@orbit-ui/react-components/select you cannot specify a size for an inline select.");
     }
 }
@@ -132,7 +132,6 @@ export function PureSelect(props) {
             options={renderOptions()}
             selectOnBlur={false}
             selectOnNavigation={false}
-            closeOnChange
             selection={!inline}
             inline={inline}
             size={size}

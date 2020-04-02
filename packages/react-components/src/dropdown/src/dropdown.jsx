@@ -55,6 +55,18 @@ const propTypes = {
     /**
      * @ignore
      */
+    onFocus: func,
+    /**
+     * @ignore
+     */
+    onBlur: func,
+    /**
+     * @ignore
+     */
+    onChange: func,
+    /**
+     * @ignore
+     */
     options: arrayOf(any).isRequired,
     /**
      * @ignore
@@ -110,14 +122,19 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, ...rest } = props;
 
+    const _state = useRef({ valueChanged: false });
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
     useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
+
+    const setValueChanged = newValue => {
+        _state.current.valueChanged = newValue;
+    };
 
     const handleOpen = (...args) => {
         setIsOpen(true);
@@ -151,11 +168,23 @@ export function PureDropdown(props) {
         }
     };
 
+    const handleChange = (...args) => {
+        setValueChanged(true);
+
+        if (!isNil(onChange)) {
+            onChange(...args);
+        }
+    };
+
     const handleDocumentKeyDown = event => {
         const key = event.keyCode;
 
         if (key === KEYS.enter) {
-            dropdownRef.current.open(event);
+            if (!_state.current.valueChanged) {
+                dropdownRef.current.open(event);
+            }
+
+            setValueChanged(false);
         }
     };
 
@@ -198,6 +227,7 @@ export function PureDropdown(props) {
                             onClose={handleClose}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
+                            onChange={handleChange}
                             inline={inline}
                             search={search}
                             openOnFocus={false}
