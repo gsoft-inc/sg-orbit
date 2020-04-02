@@ -27,6 +27,10 @@ const propTypes = {
      */
     icon: element,
     /**
+     * A label can be compact.
+     */
+    compact: bool,
+    /**
      * An icon can appear on the left or right.
      */
     iconPosition: oneOf(["left", "right"]),
@@ -55,13 +59,17 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ button, compact, circular, tag, icon, iconPosition }) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a button and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
+    }
+
+    if (!isNil(compact) && !isNil(circular)) {
+        throw new ArgumentError("@orbit-ui/react-components/label doesn't support being circular and compact at the same time.");
     }
 }
 
@@ -78,7 +86,7 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 }
 
 export function PureLabel(props) {
-    const { naked, button, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, compact, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -156,10 +164,14 @@ export function PureLabel(props) {
         }
 
         if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+            return <>{!isNil(left) && left}<span className="text">{children}</span>{!isNil(right) && right}</>;
         }
 
-        return children;
+        return (
+            <>
+                <span className="text">{children}</span>
+            </>
+        );
     };
 
     const renderLabel = () => {
@@ -169,6 +181,7 @@ export function PureLabel(props) {
             naked && "naked",
             highlight && "highlight",
             !isNil(button) && "with-button",
+            !isNil(compact) && "compact",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
