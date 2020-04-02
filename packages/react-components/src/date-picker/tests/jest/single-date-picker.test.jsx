@@ -15,18 +15,6 @@ jest.mock("@react-components/date-picker/src/react-dates-wrapper.jsx", () => {
     };
 });
 
-jest.mock("@react-components/popup/src/fade-in.jsx", () => {
-    return {
-        FadeIn: ({ active, children, className }) => {
-            return (
-                <div style={{ display: active ? "block" : "none" }} className={className}>
-                    {children}
-                </div>
-            );
-        }
-    };
-});
-
 class DayPickerSingleDateControllerMock extends PureComponent {
     triggerDateChange(date) {
         const { onDateChange } = this.props;

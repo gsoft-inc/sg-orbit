@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "8.0.0",
+    "version": "8.1.0",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -25,7 +25,6 @@
         "moment": "*",
         "react": "*",
         "react-dom": "*",
-        "react-spring": "*",
         "semantic-ui-react": "*"
     },
     "dependencies": {

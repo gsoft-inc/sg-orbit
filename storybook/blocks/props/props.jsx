@@ -1,8 +1,8 @@
 import styles from "./props.module.css";
 
-import { Checkbox } from "semantic-ui-react";
 import { Props as StorybookProps } from "@storybook/addon-docs/blocks";
 import { Tabs } from "@storybook/components";
+import { Toggle } from "@react-components/toggle";
 import { any, arrayOf, shape, string } from "prop-types";
 import { mergeClasses } from "@react-components/shared";
 import { useStorage } from "./use-storage";
@@ -50,10 +50,9 @@ export function Props({ componentsDefinitions }) {
     return (
         <div className={classes}>
             <div className={state.isVisible ? "mb5" : "mb3"}>
-                <Checkbox
-                    label={`View component${hasMultipleComponents ? "s" : ""} props`}
+                <Toggle
+                    text={`View component${hasMultipleComponents ? "s" : ""} props`}
                     checked={state.isVisible}
-                    toggle
                     onChange={handleToggleChange}
                 />
             </div>
