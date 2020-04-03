@@ -331,7 +331,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                         input={this.renderInput()}
                         placeholder={placeholder}
                         disabled={disabled}
-                        tabIndex={disabled ? "-1" : "0"}
+                        tabIndex="-1"
                         loading={loading && !disabled}
                         fluid={fluid}
                         className={searchClasses}
