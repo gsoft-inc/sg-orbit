@@ -7,9 +7,9 @@
 
 .ui.button,
 .ui.buttons .button {
-    min-height: @scaleHotel;
+    min-height: var(--scale-hotel);
     display: inline-flex;
-    border-radius: calc(@scaleHotel / 2);
+    border-radius: calc(var(--scale-hotel) / 2);
     align-items: center;
     justify-content: center;
     padding: @verticalPadding 0 (@verticalPadding + @shadowOffset);
@@ -22,8 +22,8 @@
 .ui.button.with-icon.tiny,
 .ui.tiny.buttons .button,
 .ui.tiny.with-icon.buttons .button {
-    min-height: @scaleFoxtrot;
-    border-radius: calc(@scaleFoxtrot / 2);
+    min-height: var(--scale-foxtrot);
+    border-radius: calc(var(--scale-foxtrot) / 2);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Small */
@@ -31,8 +31,8 @@
 .ui.button.with-icon.small,
 .ui.small.buttons .button,
 .ui.small.with-icon.buttons .button {
-    min-height: @scaleGolf;
-    border-radius: calc(@scaleGolf / 2);
+    min-height: var(--scale-golf);
+    border-radius: calc(var(--scale-golf) / 2);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Large */
@@ -40,8 +40,8 @@
 .ui.button.with-icon.large,
 .ui.large.buttons .button,
 .ui.large.with-icon.buttons .button {
-    min-height: @scaleIndia;
-    border-radius: calc(@scaleIndia / 2);
+    min-height: var(--scale-india);
+    border-radius: calc(var(--scale-india) / 2);
 }
 
 /* LAYOUT | Padding | Sizes | Tiny */
@@ -85,40 +85,40 @@
 .ui.button.with-icon.without-text.circular {
     padding: 0!important;
     font-size: @typeScale6;
-    min-height: @scaleHotel;
-    min-width: @scaleHotel;
+    min-height: var(--scale-hotel);
+    min-width: var(--scale-hotel);
 }
 
 /* LAYOUT | Circular/Tiny */
 .ui.button.mini.circular,
 .ui.button.with-icon.mini.circular {
     font-size: @typeScale9;
-    min-height: @scaleEcho;
-    min-width: @scaleEcho;
+    min-height: var(--scale-echo);
+    min-width: var(--scale-echo);
 }
 
 /* LAYOUT | Circular/Tiny */
 .ui.button.tiny.circular,
 .ui.button.with-icon.tiny.circular {
     font-size: @typeScale8;
-    min-height: @scaleFoxtrot;
-    min-width: @scaleFoxtrot;
+    min-height: var(--scale-foxtrot);
+    min-width: var(--scale-foxtrot);
 }
 
 /* LAYOUT | Circular/Small */
 .ui.button.small.circular,
 .ui.button.with-icon.small.circular {
     font-size: @typeScale7;
-    min-height: @scaleGolf;
-    min-width: @scaleGolf;
+    min-height: var(--scale-golf);
+    min-width: var(--scale-golf);
 }
 
 /* LAYOUT | Circular/Large */
 .ui.button.large.circular,
 .ui.button.with-icon.large.circular {
     font-size: @typeScale6;
-    min-height: @scaleIndia;
-    min-width: @scaleIndia;
+    min-height: var(--scale-india);
+    min-width: var(--scale-india);
 }
 
 /* LAYOUT | Naked */
@@ -421,7 +421,7 @@
 /* CONTENT | With Tag | Layout | Margin */
 .ui.button.with-tag .tag,
 .ui.buttons.with-tag .tag {
-    margin-right: @scaleBravo;
+    margin-right: var(--scale-bravo);
 }
 
 /* CONTENT | With Tag | SKIN | Naked */
@@ -483,7 +483,7 @@
 /* CONTENT | With Label | Layout | Margin */
 .ui.button.with-label .label,
 .ui.buttons.with-label .label {
-    margin-left: @scaleBravo;
+    margin-left: var(--scale-bravo);
 }
 
 .ui.button .ui.label.mini:not(.circular) {
@@ -1129,57 +1129,57 @@
 /* Setting border radius for group of buttons */
 /* LAYOUT | Sizes | Medium */
 .ui.buttons .button:first-child {
-    border-top-left-radius: calc(@scaleHotel / 2);
-    border-bottom-left-radius: calc(@scaleHotel / 2);
+    border-top-left-radius: calc(var(--scale-hotel) / 2);
+    border-bottom-left-radius: calc(var(--scale-hotel) / 2);
 }
 
 .ui.buttons .button:last-child {
-    border-top-right-radius: calc(@scaleHotel / 2);
-    border-bottom-right-radius: calc(@scaleHotel / 2);
+    border-top-right-radius: calc(var(--scale-hotel) / 2);
+    border-bottom-right-radius: calc(var(--scale-hotel) / 2);
 }
 
 /* LAYOUT | Sizes | Tiny */
 .ui.buttons.tiny .button:first-child {
-    border-top-left-radius: calc(@scaleFoxtrot / 2);
-    border-bottom-left-radius: calc(@scaleFoxtrot / 2);
+    border-top-left-radius: calc(var(--scale-foxtrot) / 2);
+    border-bottom-left-radius: calc(var(--scale-foxtrot) / 2);
 }
 
 .ui.buttons.tiny .button:last-child {
-    border-top-right-radius: calc(@scaleFoxtrot / 2);
-    border-bottom-right-radius: calc(@scaleFoxtrot / 2);
+    border-top-right-radius: calc(var(--scale-foxtrot) / 2);
+    border-bottom-right-radius: calc(var(--scale-foxtrot) / 2);
 }
 
 /* LAYOUT | Sizes | Small */
 .ui.buttons.small .button:first-child {
-    border-top-left-radius: calc(@scaleGolf / 2);
-    border-bottom-left-radius: calc(@scaleGolf / 2);
+    border-top-left-radius: calc(var(--scale-golf) / 2);
+    border-bottom-left-radius: calc(var(--scale-golf) / 2);
 }
 
 .ui.buttons.small .button:last-child {
-    border-top-right-radius: calc(@scaleGolf / 2);
-    border-bottom-right-radius: calc(@scaleGolf / 2);
+    border-top-right-radius: calc(var(--scale-golf) / 2);
+    border-bottom-right-radius: calc(var(--scale-golf) / 2);
 }
 
 /* LAYOUT | Sizes | Large */
 .ui.buttons.large .button:first-child {
-    border-top-left-radius: calc(@scaleIndia / 2);
-    border-bottom-left-radius: calc(@scaleIndia / 2);
+    border-top-left-radius: calc(var(--scale-india) / 2);
+    border-bottom-left-radius: calc(var(--scale-india) / 2);
 }
 
 .ui.buttons.large .button:last-child {
-    border-top-right-radius: calc(@scaleIndia / 2);
-    border-bottom-right-radius: calc(@scaleIndia / 2);
+    border-top-right-radius: calc(var(--scale-india) / 2);
+    border-bottom-right-radius: calc(var(--scale-india) / 2);
 }
 
 /* LAYOUT | Sizes | Large */
 .ui.buttons.large .button:first-child {
-    border-top-left-radius: calc(@scaleIndia / 2);
-    border-bottom-left-radius: calc(@scaleIndia / 2);
+    border-top-left-radius: calc(var(--scale-india) / 2);
+    border-bottom-left-radius: calc(var(--scale-india) / 2);
 }
 
 .ui.buttons.large .button:last-child {
-    border-top-right-radius: calc(@scaleIndia / 2);
-    border-bottom-right-radius: calc(@scaleIndia / 2);
+    border-top-right-radius: calc(var(--scale-india) / 2);
+    border-bottom-right-radius: calc(var(--scale-india) / 2);
 }
 
 /* CONTENT / STATE / Loading */

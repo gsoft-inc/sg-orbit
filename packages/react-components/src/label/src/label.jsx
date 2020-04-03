@@ -68,7 +68,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, compact, circular,
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
     }
 
-    if (!isNil(compact) && !isNil(circular)) {
+    if (compact && circular) {
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support being circular and compact at the same time.");
     }
 }
@@ -164,14 +164,10 @@ export function PureLabel(props) {
         }
 
         if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}<span className="text">{children}</span>{!isNil(right) && right}</>;
+            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
         }
 
-        return (
-            <>
-                <span className="text">{children}</span>
-            </>
-        );
+        return children;
     };
 
     const renderLabel = () => {
