@@ -2,11 +2,10 @@ import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhe
 import { Dropdown } from "../../dropdown";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
-import { SelectItem, createSelectItem } from "./item";
+import { SelectItem, createSelectItem, renderAvatar } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
 import { isArray, isNil } from "lodash";
-import { renderAvatar } from "./avatar";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -14,15 +13,15 @@ const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
 
-const ACTION_SHAPE = {
-    content: element,
-    className: string
-};
-
 const SIZES_TO_LABEL = {
     [SMALL]: MINI,
     [MEDIUM]: TINY,
     [LARGE]: SMALL
+};
+
+const ACTION_SHAPE = {
+    content: element,
+    className: string
 };
 
 const propTypes = {

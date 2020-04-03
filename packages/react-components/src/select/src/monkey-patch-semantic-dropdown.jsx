@@ -1,7 +1,7 @@
 import { Dropdown } from "semantic-ui-react";
 import { DropdownContext } from "../../dropdown";
 import { get, isNil } from "lodash";
-import { renderAvatar } from "./avatar";
+import { renderAvatar, renderIcons } from "./item";
 import cx from "classnames";
 
 export class MonkeyPatchSemanticDropdown extends Dropdown {
@@ -9,7 +9,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
 
     // Monkey patch fixes:
     //
-    // When an option have an avatar, the avatar should be rendered in the selected item.
+    // When an option have an avatar or icons, the avatar or icons should be rendered in the selected item text.
     renderText = () => {
         const { multiple, placeholder, search, inline, text } = this.props;
         const { searchQuery, value, open, focus } = this.state;
@@ -20,11 +20,30 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
         if (!isNil(text)) {
             result = text;
         } else {
-            const toAvatarResult = (item, itemText) => {
+            const toAvatarResult = ({ avatar }, itemText) => {
                 return (
                     <>
-                        {renderAvatar(item.avatar, !inline ? this.context.size : undefined, { inline })}
+                        {renderAvatar(avatar, !inline ? this.context.size : undefined, { inline })}
                         {itemText}
+                    </>
+                );
+            };
+
+            const toIconsResult = ({ icons, iconsPosition }, itemText) => {
+                let left = null;
+                let right = null;
+
+                if (iconsPosition === "right") {
+                    right = renderIcons(icons, this.context.size, inline ? { className: "fr" } : undefined);
+                } else {
+                    left = renderIcons(icons, this.context.size, inline ? { className: "fl" } : undefined);
+                }
+
+                return (
+                    <>
+                        {!isNil(left) && left}
+                        <span className="mr1">{itemText}</span>
+                        {!isNil(right) && right}
                     </>
                 );
             };
@@ -36,6 +55,8 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                 if (!search && !isNil(item)) {
                     if (!isNil(item.avatar)) {
                         result = toAvatarResult(item, itemText);
+                    } else if (!isNil(item.icons)) {
+                        result = toIconsResult(item, itemText);
                     }
                 }
 
@@ -46,6 +67,8 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                 if (!isNil(item)) {
                     if (!isNil(item.avatar)) {
                         result = toAvatarResult(item, itemText);
+                    } else if (!isNil(item.icons)) {
+                        result = toIconsResult(item, itemText);
                     }
                 }
             }

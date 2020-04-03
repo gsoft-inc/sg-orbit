@@ -1,4 +1,4 @@
-import { MagnifierIcon } from "@react-components/icons";
+import { CalendarIcon, MagnifierIcon } from "@react-components/icons";
 import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -299,7 +299,7 @@ stories()
             </div>
         </div>
     )
-    .add("avatar", () =>
+    .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({
@@ -384,7 +384,118 @@ stories()
             </div>
         </div>
     )
-    .add("actions", () =>
+    .add("item icons", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+        </div>
+    )
+    .add("item actions", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({

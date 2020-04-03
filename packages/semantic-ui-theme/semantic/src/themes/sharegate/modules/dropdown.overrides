@@ -87,10 +87,13 @@
     font-weight: 400;
 }
 
-/* LAYOUT | Inline | Text */
 .ui.dropdown.inline,
 .ui.dropdown.inline > .text {
     font-size: 1em;
+}
+
+.ui.dropdown.inline > .text > span {
+    height: 1em;
 }
 
 /* LAYOUT | Inline | Text | STATE | Hover/Focus */
@@ -152,21 +155,33 @@
 
 /* CONTENT | Item | With Icon */
 /* reset margin on icon/label/flag/image since we are using flex */
-.ui.dropdown .menu > .item > .icon,
-.ui.dropdown .menu > .item > .label,
-.ui.dropdown .menu > .item > .flag,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img {
+.ui.dropdown .menu > .item .icon,
+.ui.dropdown .menu > .item .label,
+.ui.dropdown .menu > .item .flag,
+.ui.dropdown .menu > .item .image,
+.ui.dropdown .menu > .item img {
     margin-top: 0;
 }
 
-.ui.dropdown > .text > .icon,
-.ui.dropdown > .text > .label,
-.ui.dropdown > .text > .flag,
-.ui.dropdown .menu > .item > .icon,
-.ui.dropdown .menu > .item > .label,
-.ui.dropdown .menu > .item > .flag {
+.ui.dropdown > .text .icon,
+.ui.dropdown > .text .label,
+.ui.dropdown > .text .flag,
+.ui.dropdown .menu > .item .icon,
+.ui.dropdown .menu > .item .label,
+.ui.dropdown .menu > .item .flag {
     margin-right: var(--scale-alpha);
+}
+
+.ui.dropdown.inline > .text .icon {
+    width: 1em !important;
+    height: 1em !important;
+}
+
+.ui.dropdown.inline > .text img,
+.ui.dropdown.inline > .text .image {
+    width: 1em;
+    height: 1em;
+    max-height: none;
 }
 
 .ui.dropdown .menu > .item span {
@@ -176,10 +191,6 @@
 
 .ui.dropdown .menu > .item span .icon {
     margin-left: var(--scale-alpha);
-}
-
-.ui.dropdown .menu > .item > .icon {
-    fill: @marine600;
 }
 
 /* SIZE | Small */
@@ -193,16 +204,16 @@
 }
 
 /* CONTENT | Item | With description */
-.ui.dropdown > .text > .description,
-.ui.dropdown .menu > .item > .description {
+.ui.dropdown > .text .description,
+.ui.dropdown .menu > .item .description {
     order: 1;
     margin: 0 0 0 var(--scale-bravo);
     color: @cloud300;
 }
 
 /* CONTENT | Item | With description Preceded with icon(s) */
-.ui.dropdown > .text > .icon + .description,
-.ui.dropdown .menu > .item > .icon + .description {
+.ui.dropdown > .text .icon + .description,
+.ui.dropdown .menu > .item .icon + .description {
     margin: 0 0 0 var(--scale-alpha);
 }
 
@@ -569,17 +580,11 @@
     padding: var(--scale-alpha) var(--scale-delta) !important;
 }
 
-.ui.dropdown > .text > img,
-.ui.dropdown > .text > .image,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img {
+.ui.dropdown > .text img,
+.ui.dropdown > .text .image,
+.ui.dropdown .menu > .item .image,
+.ui.dropdown .menu > .item img {
     margin-right: var(--scale-bravo);
-}
-
-.ui.dropdown.inline > .text > img {
-    width: 1em;
-    height: 1em;
-    max-height: none;
 }
 
 /*******************************

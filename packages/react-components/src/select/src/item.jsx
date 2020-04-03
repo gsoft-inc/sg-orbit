@@ -1,9 +1,10 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown, DropdownContext } from "../../dropdown";
+import { Image as SemanticImage } from "semantic-ui-react";
 import { arrayOf, bool, element, oneOf, oneOfType, shape, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { isArray, isNil } from "lodash";
-import { renderAvatar } from "./avatar";
+import { isElement } from "react-is";
 import { useContext } from "react";
 
 const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
@@ -11,6 +12,12 @@ const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
 const AVATAR_SHAPE = {
     src: string.isRequired,
     alt: string
+};
+
+const SIZES_TO_AVATAR = {
+    [SMALL]: MINI,
+    [MEDIUM]: TINY,
+    [LARGE]: SMALL
 };
 
 const propTypes = {
@@ -49,6 +56,43 @@ const defaultProps = {
     disabled: false
 };
 
+export const renderAvatar = (avatar, size, additionalProps = {}) => {
+    const defaults = {
+        avatar: true,
+        size: !isNil(size) ? SIZES_TO_AVATAR[size] : undefined,
+        ...additionalProps
+    };
+
+    if (!isNil(avatar)) {
+        if (isElement(avatar)) {
+            return (
+                <SemanticImage {...defaults}>
+                    {avatar}
+                </SemanticImage>
+            );
+        }
+
+        return SemanticImage.create({
+            ...avatar,
+            ...defaults
+        });
+    }
+};
+
+export const renderIcons = (icons, size, additionalProps = {}) => {
+    const normalizedIcons = isArray(icons) ? icons : [icons];
+
+    return (
+        <span {...additionalProps}>
+            {normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}
+        </span>
+    );
+
+    // return (
+    //     <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>
+    // );
+};
+
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
     if (!isNil(icons) && iconsPosition === "left" && !isNil(avatar)) {
         throw new ArgumentError("@orbit-ui/react-components/select/item doesn't support having a left positioned icons and an avatar at the same time.");
@@ -61,12 +105,6 @@ export function SelectItem(props) {
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
     throwWhenMutuallyExclusivePropsAreProvided(props);
-
-    const renderIcons = () => {
-        const normalizedIcons = isArray(icons) ? icons : [icons];
-
-        return <>{normalizedIcons.map((x, index) => createIconForControl(x, context.size, { key: index }))}</>;
-    };
 
     const renderText = hasRightContent => {
         if (!isNil(text)) {

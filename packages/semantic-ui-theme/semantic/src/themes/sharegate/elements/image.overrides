@@ -33,6 +33,16 @@
     height: @tinyWidth;
 }
 
+.ui.avatar.mini.images .image,
+.ui.avatar.mini.images img,
+.ui.avatar.mini.images svg,
+.ui.avatar.mini.image img,
+.ui.avatar.mini.image svg,
+.ui.avatar.mini.image {
+    width: @miniWidth;
+    height: @miniWidth;
+}
+
 .ui.avatar.image {
     line-height: 1;
 }

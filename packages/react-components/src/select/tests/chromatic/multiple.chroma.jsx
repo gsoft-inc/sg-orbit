@@ -411,7 +411,7 @@ stories()
             </div>
         </div>
     )
-    .add("avatar", () =>
+    .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createMultipleSelect({
