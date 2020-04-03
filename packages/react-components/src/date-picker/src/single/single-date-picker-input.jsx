@@ -110,7 +110,7 @@ export class PureSingleDatePickerInput extends PureComponent {
         /**
          * @ignore
          */
-        inputRef: object
+        __inputRef: object
     };
 
     handleOpen = withHandlerProxy(this, "onOpen", false);
@@ -133,7 +133,7 @@ export class PureSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, disabled, fluid, open, size, className, inputRef } = this.props;
+        const { allowClear, placeholder, disabled, fluid, open, size, className, __inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -153,12 +153,12 @@ export class PureSingleDatePickerInput extends PureComponent {
                 open={open}
                 size={size}
                 className={className}
-                ref={inputRef}
+                ref={__inputRef}
             />
         );
     }
 }
 
 export const SingleDatePickerInput = forwardRef((props, ref) => (
-    <PureSingleDatePickerInput { ...props } inputRef={ref} />
+    <PureSingleDatePickerInput { ...props } __inputRef={ref} />
 ));

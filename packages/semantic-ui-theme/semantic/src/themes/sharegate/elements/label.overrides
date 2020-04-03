@@ -1,10 +1,6 @@
 /*******************************
     Site Overrides
 *******************************/
-/* .ui.mini.labels .label, .ui.mini.label {
-    font-size: .375rem;
-} */
-
 .ui.circular.label {
     justify-content: center;
 }
@@ -12,6 +8,12 @@
 .ui.label.icon {
     margin: 0;
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
+}
+
+.ui.label > .image {
+    width: var(--scale-golf) !important;
+    height: var(--scale-golf) !important;
+    margin-right: var(--scale-bravo) !important;
 }
 
 .ui.label > .button.with-icon {
@@ -74,6 +76,17 @@
     margin-left: 0;
 }
 
+.ui.label.mini > .image {
+    width: var(--scale-delta) !important;
+    height: var(--scale-delta) !important;
+}
+
+/* mini */
+.ui.label.tiny > .image {
+    width: var(--scale-echo) !important;
+    height: var(--scale-echo) !important;
+}
+
 /* small */
 .ui.label.small,
 .ui.menu .item > .label.small {
@@ -85,6 +98,11 @@
     padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
 }
 
+.ui.label.small > .image {
+    width: var(--scale-foxtrot) !important;
+    height: var(--scale-foxtrot) !important;
+}
+
 /* large */
 .ui.label.large {
     padding-top: 12px;
@@ -94,6 +112,11 @@
 .ui.label.basic.large {
     padding-top: 7px;
     padding-bottom: 7px;
+}
+
+.ui.label.large > .image {
+    width: var(--scale-hotel) !important;
+    height: var(--scale-hotel) !important;
 }
 
 .ui.label.basic {
@@ -154,13 +177,11 @@
     padding: 0 1rem;
 }
 
-.ui.label.with-icon:not(.circular),
 .ui.label.with-icon:not(.circular) {
     padding-left: 0.5rem;
     padding-right: 1rem;
 }
 
-.ui.label.with-icon.with-icon-right:not(.circular),
 .ui.label.with-icon.with-icon-right:not(.circular) {
     padding-right: 0.5rem;
     padding-left: 1rem;
