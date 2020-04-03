@@ -1,4 +1,4 @@
-import { MagnifierIcon } from "@react-components/icons";
+import { CalendarIcon, MagnifierIcon } from "@react-components/icons";
 import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -489,6 +489,117 @@ stories()
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+        </div>
+    )
+    .add("item icons", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: ["Female"],
+                    className: "mr5"
+                })}
+                {createMultipleSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
                     className: "mr5"

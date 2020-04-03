@@ -2,7 +2,7 @@ import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhe
 import { Dropdown } from "../../dropdown";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
-import { SelectItem, createSelectItem, renderAvatar } from "./item";
+import { SelectItem, createSelectItem, renderAvatar, renderIcons } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
 import { isArray, isNil } from "lodash";
@@ -82,7 +82,7 @@ export function PureSelect(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
 
-    const renderLabel = ({ text, avatar }, index, otherProps) => {
+    const renderLabel = ({ text, avatar, icons, iconsPosition }, index, otherProps) => {
         let content = text;
 
         if (!isNil(avatar)) {
@@ -90,6 +90,23 @@ export function PureSelect(props) {
                 <>
                     {renderAvatar(avatar)}
                     {text}
+                </>
+            );
+        } else if (!isNil(icons)) {
+            let left = null;
+            let right = null;
+
+            if (iconsPosition === "right") {
+                right = renderIcons(icons, size);
+            } else {
+                left = renderIcons(icons, size);
+            }
+
+            content = (
+                <>
+                    {!isNil(left) && left}
+                    <span className="mr1">{text}</span>
+                    {!isNil(right) && right}
                 </>
             );
         }

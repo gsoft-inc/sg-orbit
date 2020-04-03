@@ -34,9 +34,9 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                 let right = null;
 
                 if (iconsPosition === "right") {
-                    right = renderIcons(icons, this.context.size, inline ? { className: "fr" } : undefined);
+                    right = renderIcons(icons, this.context.size, inline, iconsPosition);
                 } else {
-                    left = renderIcons(icons, this.context.size, inline ? { className: "fl" } : undefined);
+                    left = renderIcons(icons, this.context.size, inline, iconsPosition);
                 }
 
                 return (

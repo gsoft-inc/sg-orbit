@@ -13,7 +13,11 @@
 .ui.label > .image {
     width: var(--scale-golf) !important;
     height: var(--scale-golf) !important;
-    margin-right: var(--scale-bravo);
+    margin-right: var(--scale-bravo) !important;
+}
+
+.ui.label > .icon {
+    margin-right: var(--scale-alpha) !important;
 }
 
 .ui.label > .button.with-icon {

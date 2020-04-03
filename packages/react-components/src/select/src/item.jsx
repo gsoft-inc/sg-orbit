@@ -79,18 +79,18 @@ export const renderAvatar = (avatar, size, additionalProps = {}) => {
     }
 };
 
-export const renderIcons = (icons, size, additionalProps = {}) => {
+export const renderIcons = (icons, size, isInline, iconsPosition) => {
     const normalizedIcons = isArray(icons) ? icons : [icons];
 
-    return (
-        <span {...additionalProps}>
-            {normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}
-        </span>
-    );
+    if (isInline) {
+        return (
+            <span className={iconsPosition === "right" ? "fr" : "fl"}>
+                {normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}
+            </span>
+        );
+    }
 
-    // return (
-    //     <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>
-    // );
+    return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
