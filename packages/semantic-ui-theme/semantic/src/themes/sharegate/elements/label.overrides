@@ -16,10 +16,6 @@
     margin-right: var(--scale-bravo) !important;
 }
 
-.ui.label > .icon {
-    margin-right: var(--scale-alpha) !important;
-}
-
 .ui.label > .button.with-icon {
     margin: 0!important;
     margin-left: 0.25rem!important;

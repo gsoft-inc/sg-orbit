@@ -249,7 +249,7 @@
 }
 
 /* STATE | Hover/Focus | Content | In Select */
-.ui.multiple.dropdown > a.label:hover {
+.ui.multiple.dropdown > .label:hover {
     background-color: @cloud50;
 }
 
@@ -784,6 +784,10 @@
     box-shadow: 0px 0px 1px 0 var(--cloud-400) inset;
     padding-right: var(--scale-delta);
     color: @marine200;
+}
+
+.ui.multiple.dropdown > .label span {
+    margin-left: var(--scale-alpha);
 }
 
 /* CONTENT | Multiple | Label | SIZE | Small */
