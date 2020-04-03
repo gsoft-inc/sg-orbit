@@ -1,3 +1,4 @@
+/* eslint max-len: 0 */
 import { CalendarIcon, MagnifierIcon } from "@react-components/icons";
 import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
