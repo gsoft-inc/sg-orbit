@@ -118,7 +118,7 @@ export class PureDateRangePickerInput extends PureComponent {
         /**
          * @ignore
          */
-        inputRef: object
+        __inputRef: object
     };
 
     static defaultProps = {
@@ -149,7 +149,7 @@ export class PureDateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, disabled, fluid, open, size, className, inputRef } = this.props;
+        const { allowClear, placeholder, disabled, fluid, open, size, className, __inputRef } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -169,12 +169,12 @@ export class PureDateRangePickerInput extends PureComponent {
                 open={open}
                 size={size}
                 className={className}
-                ref={inputRef}
+                ref={__inputRef}
             />
         );
     }
 }
 
 export const DateRangePickerInput = forwardRef((props, ref) => (
-    <PureDateRangePickerInput { ...props } inputRef={ref} />
+    <PureDateRangePickerInput { ...props } __inputRef={ref} />
 ));

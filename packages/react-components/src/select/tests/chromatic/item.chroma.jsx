@@ -309,7 +309,7 @@ stories()
             <div className="flex">
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" />, disabled: true }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" />, disabled: true })],
-                    defaultOpen: true
+                    open: true
                 })}
             </div>
         </div>

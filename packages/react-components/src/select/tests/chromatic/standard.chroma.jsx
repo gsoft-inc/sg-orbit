@@ -1,4 +1,4 @@
-import { MagnifierIcon } from "@react-components/icons";
+import { CalendarIcon, MagnifierIcon } from "@react-components/icons";
 import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -12,10 +12,9 @@ function stories(segment) {
         .build();
 }
 
-const GENDERS = [
-    { key: "Male", text: "Male", value: "Male" },
-    { key: "Female", text: "Female", value: "Female" }
-];
+const MALE = { key: "Male", text: "Male", value: "Male" };
+const FEMALE = { key: "Female", text: "Female", value: "Female" };
+const GENDERS = [MALE, FEMALE];
 
 function createSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
@@ -300,7 +299,203 @@ stories()
             </div>
         </div>
     )
-    .add("actions", () =>
+    .add("item avatar", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+        </div>
+    )
+    .add("item icons", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "small",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
+                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
+                    ],
+                    defaultValue: "Female",
+                    className: "mr5"
+                })}
+                {createSelect({
+                    size: "large",
+                    options: [
+                        { ...MALE, icons: <CalendarIcon /> },
+                        { ...FEMALE, icons: <CalendarIcon /> }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+            </div>
+        </div>
+    )
+    .add("item actions", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSelect({

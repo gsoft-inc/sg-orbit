@@ -4,7 +4,7 @@ import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useForwardRef } fro
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { any, arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
@@ -54,6 +54,18 @@ const propTypes = {
     /**
      * @ignore
      */
+    onFocus: func,
+    /**
+     * @ignore
+     */
+    onBlur: func,
+    /**
+     * @ignore
+     */
+    onChange: func,
+    /**
+     * @ignore
+     */
     options: arrayOf(any).isRequired,
     /**
      * @ignore
@@ -70,12 +82,17 @@ const propTypes = {
     /**
      * @ignore
      */
-    forwardedRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func]),
+    /**
+     * @ignore
+     */
+    __semanticDropdown: elementType
 };
 
 const defaultProps = {
     autofocus: false,
-    size: DEFAULT_SIZE
+    size: DEFAULT_SIZE,
+    __semanticDropdown: SemanticDropdown
 };
 
 function focus(search, innerRef) {
@@ -109,14 +126,19 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, ...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __semanticDropdown: InnerDropdown,...rest } = props;
 
+    const _state = useRef({ valueChanged: false });
     const dropdownRef = useRef(null);
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
     useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
+
+    const setValueChanged = newValue => {
+        _state.current.valueChanged = newValue;
+    };
 
     const handleOpen = (...args) => {
         setIsOpen(true);
@@ -150,11 +172,23 @@ export function PureDropdown(props) {
         }
     };
 
+    const handleChange = (...args) => {
+        setValueChanged(true);
+
+        if (!isNil(onChange)) {
+            onChange(...args);
+        }
+    };
+
     const handleDocumentKeyDown = event => {
         const key = event.keyCode;
 
         if (key === KEYS.enter) {
-            dropdownRef.current.open(event);
+            if (!_state.current.valueChanged) {
+                dropdownRef.current.open(event);
+            }
+
+            setValueChanged(false);
         }
     };
 
@@ -192,15 +226,14 @@ export function PureDropdown(props) {
             >
                 <Ref innerRef={setInnerRef}>
                     <DropdownContext.Provider value={{ size: size }}>
-                        <SemanticDropdown
+                        <InnerDropdown
                             onOpen={handleOpen}
                             onClose={handleClose}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
+                            onChange={handleChange}
                             inline={inline}
                             search={search}
-                            selectOnBlur={false}
-                            selectOnNavigation={false}
                             openOnFocus={false}
                             fluid={fluid}
                             trigger={trigger}

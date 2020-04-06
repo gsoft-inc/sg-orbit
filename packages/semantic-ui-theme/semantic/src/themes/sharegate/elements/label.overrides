@@ -17,6 +17,12 @@
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
 }
 
+.ui.label > .image {
+    width: var(--scale-golf) !important;
+    height: var(--scale-golf) !important;
+    margin-right: var(--scale-bravo) !important;
+}
+
 .ui.label > .button.with-icon {
     margin: 0!important;
     margin-left: 0.25rem!important;
@@ -69,6 +75,76 @@
     margin-left: 0;
 }
 
+.ui.label.mini > .image {
+    width: var(--scale-delta) !important;
+    height: var(--scale-delta) !important;
+}
+
+/* mini */
+.ui.label.tiny > .image {
+    width: var(--scale-echo) !important;
+    height: var(--scale-echo) !important;
+}
+
+/* small */
+.ui.label.small,
+.ui.menu .item > .label.small {
+    padding: 7px @horizontalPadding;
+}
+
+.ui.label.small.icon,
+.ui.menu .item > .label.small.icon {
+    padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
+}
+
+.ui.label.small > .image {
+    width: var(--scale-foxtrot) !important;
+    height: var(--scale-foxtrot) !important;
+}
+
+/* large */
+.ui.label.large {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.ui.label.basic.large {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.ui.label.large > .image {
+    width: var(--scale-hotel) !important;
+    height: var(--scale-hotel) !important;
+}
+
+.ui.label.basic {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.ui.label.basic.icon {
+    padding: 6px calc(@horizontalPadding/2) 6px @horizontalPadding;
+}
+
+.ui.label.small,
+.ui.tag.label.small {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.ui.label.small.basic.icon {
+    padding: 1px calc(@horizontalPadding/2) 1px @horizontalPadding;
+}
+
+.ui.label.large.icon {
+    padding: 12px calc(@horizontalPadding/2) 12px @horizontalPadding;
+}
+
+.ui.label.large.basic.icon {
+    padding: 10px calc(@horizontalPadding/2) 10px @horizontalPadding;
+}
+
 .ui.label {
     display: inline-flex!important;
     align-items: center;
@@ -96,6 +172,27 @@
 .ui.label.mini:not(.circular) {
     min-height: 20px;
     font-size: var(--type-scale-9);
+    padding: 0 1rem;
+}
+
+.ui.label.with-icon:not(.circular) {
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+}
+
+.ui.label.with-icon.with-icon-right:not(.circular) {
+    padding-right: 0.5rem;
+    padding-left: 1rem;
+}
+
+.ui.label.with-icon.without-text:not(.circular) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.ui.label.large.with-icon.without-text:not(.circular) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 /* Circular Labels */
