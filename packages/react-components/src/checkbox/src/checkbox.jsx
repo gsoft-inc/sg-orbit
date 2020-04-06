@@ -1,11 +1,12 @@
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "../../shared";
 import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect } from "react";
+import { createCountFromShorthand } from "../../count";
 import { createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
 import { isArray, isNil } from "lodash";
 import { isElement } from "react-is";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -34,6 +35,10 @@ export const CHECKBOX_PROP_TYPES = {
      * A label displayed after the checkbox text.
      */
     label: oneOfType([element, object]),
+    /**
+     * A count displayed after the checkbox text.
+     */
+    count: oneOfType([element, object]),
     /**
      * An input can vary in sizes.
      */
@@ -95,10 +100,17 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
     }, [autofocus, autofocusDelay, disabled, innerRef]);
 }
 
+function throwWhenMutuallyExclusivePropsAreProvided({ label, count }) {
+    if (!isNil(label) && !isNil(count)) {
+        throw new ArgumentError("@orbit-ui/react-components/checkbox doesn't support having a label and a count at the same time.");
+    }
+}
+
 export function PureCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icons, label, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, !isNil(unsupportedProps) ? unsupportedProps : UNSUPPORTED_PROPS, unsupportedPropsComponentName);
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
@@ -126,6 +138,14 @@ export function PureCheckbox(props) {
         });
     };
 
+    const renderCount = () => {
+        if (isElement(count)) {
+            return count;
+        }
+
+        return createCountFromShorthand(count);
+    };
+
     const renderContent = () => {
         let right;
 
@@ -138,6 +158,14 @@ export function PureCheckbox(props) {
                 right = <>{right}{renderLabel()}</>;
             } else {
                 right = renderLabel();
+            }
+        }
+
+        if (!isNil(count)) {
+            if (!isNil(right)) {
+                right = <>{right}{renderCount()}</>;
+            } else {
+                right = renderCount();
             }
         }
 

@@ -1,4 +1,5 @@
 import { CommunicationIcon } from "@react-components/icons";
+import { Count } from "@react-components/count";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
@@ -46,9 +47,27 @@ function Labels({ element, ...rest }) {
                 <Checkbox label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox label={<Label>6</Label>} size="large" element={checkbox} />
             </div>
-            <div className="flex">
+            <div className="flex mb8">
                 <Checkbox disabled label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox readOnly label={<Label>6</Label>} element={checkbox} />
+            </div>
+        </>
+    );
+}
+
+function Counts({ element, ...rest }) {
+    const checkbox = cloneElement(element, rest);
+
+    return (
+        <>
+            <div className="flex items-end mb8">
+                <Checkbox count={<Count>6</Count>} size="small" element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} size="large" element={checkbox} />
+            </div>
+            <div className="flex">
+                <Checkbox disabled count={<Count>6</Count>} element={checkbox} className="mr5" />
+                <Checkbox readOnly count={<Count>6</Count>} element={checkbox} />
             </div>
         </>
     );
@@ -70,6 +89,7 @@ export function createSharedStories(checkbox, stories) {
                 </div>
                 <Icons text="Milky Way" element={checkbox} />
                 <Labels text="Milky Way" element={checkbox} />
+                <Counts text="Milky Way" element={checkbox} />
             </div>
         )
         .add("no text", () =>
@@ -86,6 +106,7 @@ export function createSharedStories(checkbox, stories) {
                 </div>
                 <Icons element={checkbox} />
                 <Labels element={checkbox} />
+                <Counts element={checkbox} />
             </div>
         );
 }
