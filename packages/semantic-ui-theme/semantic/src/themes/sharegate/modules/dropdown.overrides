@@ -634,6 +634,14 @@
     padding: var(--scale-alpha) var(--scale-hotel) var(--scale-alpha) var(--scale-echo);
 }
 
+.ui.search.selection.dropdown:focus-within {
+    border-color: var(--marine-500);
+}
+
+.ui.selection.active.dropdown:focus-within {
+    border-color: var(--primary-100);
+}
+
 .ui.search.selection.dropdown.multiple > input.search {
     height: var(--scale-foxtrot);
     padding: 0;

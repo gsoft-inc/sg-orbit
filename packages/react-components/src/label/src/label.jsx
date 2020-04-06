@@ -45,6 +45,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    disabled: bool,
+    /**
+     * @ignore
+     */
     className: string,
     /**
      * @ignore
@@ -86,7 +90,7 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 }
 
 export function PureLabel(props) {
-    const { naked, button, compact, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, compact, disabled, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -176,6 +180,7 @@ export function PureLabel(props) {
         const classes = mergeClasses(
             naked && "naked",
             highlight && "highlight",
+            disabled && "disabled",
             !isNil(button) && "with-button",
             !isNil(compact) && "compact",
             !isNil(icon) && "with-icon",
