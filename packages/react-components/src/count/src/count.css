@@ -1,0 +1,5 @@
+.count {
+    border-left: 1px solid var(--cloud-100);
+    margin-left: calc(1em / 2);
+    padding-left: calc(1em / 2);
+}

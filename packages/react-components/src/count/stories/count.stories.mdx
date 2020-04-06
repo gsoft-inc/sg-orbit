@@ -1,0 +1,60 @@
+import { Count, PureCount } from "@react-components/count";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { text, withKnobs } from "@storybook/addon-knobs";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Count")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/count/src" />)
+        .build()}
+/>
+
+# Count
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Count", component: PureCount }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default count.
+
+<Preview>
+    <Story name="default">
+        <Count>6</Count>
+    </Story>
+</Preview>
+
+<Story
+    name="knobs"
+    decorators={[withKnobs]}
+    parameters={paramsBuilder()
+        .showPanel()
+        .selectedPanel("Knobs")
+        .excludeFromDocs()
+        .build()}
+>
+    <Count className={text("className")}>6</Count>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Count>6</Count>} />
+</Story>
