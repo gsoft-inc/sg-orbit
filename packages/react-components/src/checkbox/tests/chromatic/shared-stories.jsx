@@ -33,6 +33,11 @@ function Icons({ element, ...rest }) {
                 <Checkbox label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} element={checkbox} className="mr5" />
                 <Checkbox label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={checkbox} />
             </div>
+            <div className="flex items-end mb8">
+                <Checkbox count={<Count>6</Count>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} icons={[<CommunicationIcon />, <CommunicationIcon />]} element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={checkbox} />
+            </div>
         </>
     );
 }

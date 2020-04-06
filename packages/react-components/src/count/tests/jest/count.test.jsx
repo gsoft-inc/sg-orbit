@@ -2,8 +2,8 @@ import { Count } from "@react-components/count";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
 
-function createCount() {
-    return <Count>6</Count>;
+function createCount(props) {
+    return <Count {...props}>6</Count>;
 }
 
 // ***** Refs *****
