@@ -21,7 +21,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    size: DEFAULT_SIZE
+    size: DEFAULT_SIZE,
+    disabled: false
 };
 
 export function PureTag({ forwardedRef, className, disabled, ...props }) {

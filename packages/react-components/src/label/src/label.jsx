@@ -45,10 +45,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    disabled: bool,
-    /**
-     * @ignore
-     */
     className: string,
     /**
      * @ignore
@@ -180,7 +176,6 @@ export function PureLabel(props) {
         const classes = mergeClasses(
             naked && "naked",
             highlight && "highlight",
-            disabled && "disabled",
             !isNil(button) && "with-button",
             !isNil(compact) && "compact",
             !isNil(icon) && "with-icon",

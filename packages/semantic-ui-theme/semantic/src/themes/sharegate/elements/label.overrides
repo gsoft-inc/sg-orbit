@@ -53,7 +53,7 @@
 }
 
 /* STATE | With Tag | Disabled */
-.ui.empty.circular.label.disabled {
+.ui.label.tag.disabled {
     opacity: 0.4;
 }
 
