@@ -1,6 +1,6 @@
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { boolean, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
-import { func, object, oneOf, oneOfType } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 
@@ -14,6 +14,10 @@ const propTypes = {
      * A tag can vary in sizes.
      */
     size: oneOf(["mini", "tiny", "small", "medium", "large", "big", "huge", "massive"]),
+    /**
+     * @ignore
+     */
+    disabled: boolean,
     /**
      * @ignore
      */
