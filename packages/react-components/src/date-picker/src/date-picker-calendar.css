@@ -1,7 +1,8 @@
 .calendar {
-    border-radius: var(--scale-alpha);
     box-shadow: var(--shadow-200);
     background-color: var(--white);
+    border: 1px solid var(--cloud-100);
+    border-radius: var(--scale-alpha);
 }
 
 .calendar .CalendarMonth_table {
@@ -13,6 +14,10 @@
     background-color: var(--white) !important;
     color: var(--marine-700) !important;
     font-size: 1rem !important;
+}
+
+.calendar .DayPicker {
+    border-radius: var(--scale-alpha);
 }
 
 .calendar .DayPicker__horizontal {

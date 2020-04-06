@@ -147,3 +147,8 @@
 .with-button .ui.input.large + .input-clear-button {
     right: var(--scale-charlie);
 }
+
+/* Input fix for Edge */
+.ui.input:-ms-clear {
+    display:none;
+}

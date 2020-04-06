@@ -1,10 +1,17 @@
 /*******************************
     Site Overrides
 *******************************/
+/* Default label */
+.ui.label {
+    padding: 0;
+}
+
+/* Circular label */
 .ui.circular.label {
     justify-content: center;
 }
 
+/* Icon */
 .ui.label.icon {
     margin: 0;
     padding: 8px calc(@horizontalPadding/2) 8px @horizontalPadding;
@@ -26,20 +33,9 @@
     fill: @marine500;
 }
 
-/* CONTENT | With Icon | LAYOUT | Colour | Naked*/
+/* CONTENT | With Icon | LAYOUT | Colour | Naked */
 .ui.label.with-icon.naked .icon {
     fill: initial;
-}
-
-/* CONTENT | With Button | LAYOUT */
-.ui.label.with-button,
-.ui.tag.label.with-button {
-    padding-right: 0.5rem;
-}
-
-/* CONTENT | With Icon | LAYOUT | Position */
-.ui.label.with-icon.with-icon-right {
-    padding-right: 0.5rem;
 }
 
 /* CONTENT | With Tag | LAYOUT */
@@ -47,24 +43,27 @@
     margin-right: @scaleBravo;
 }
 
-
-.ui.label.with-icon:not(.with-icon-right) {
-    padding-left: 0.5rem;
-}
-
+/* CONTENT | With Icon Right | LAYOUT */
 .ui.label.with-icon.with-icon-right .icon {
     margin-left: 0.25rem;
 }
 
+/* CONTENT | With Icon Left | LAYOUT */
 .ui.label.with-icon:not(.with-icon-right) .icon {
     margin-right: 0.25rem;
 }
 
+/* CONTENT | With Icon - Without text | LAYOUT */
 .ui.label.with-icon.without-text .icon {
     margin-right: 0;
 }
 
-/* mini */
+/* STATE | With Tag | Disabled */
+.ui.label.tag.disabled {
+    opacity: 0.4;
+}
+
+/* Mini label in menu */
 .ui.menu .item > .label.mini {
     padding: 2px @horizontalPadding;
     margin-left: var(--scale-bravo);
@@ -88,62 +87,15 @@
 }
 
 /* small */
-.ui.label.small,
-.ui.menu .item > .label.small {
-    padding: 7px @horizontalPadding;
-}
-
-.ui.label.small.icon,
-.ui.menu .item > .label.small.icon {
-    padding: 4px calc(@horizontalPadding/2) 4px @horizontalPadding;
-}
-
 .ui.label.small > .image {
     width: var(--scale-foxtrot) !important;
     height: var(--scale-foxtrot) !important;
 }
 
 /* large */
-.ui.label.large {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-
-.ui.label.basic.large {
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-
 .ui.label.large > .image {
     width: var(--scale-hotel) !important;
     height: var(--scale-hotel) !important;
-}
-
-.ui.label.basic {
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-
-.ui.label.basic.icon {
-    padding: 6px calc(@horizontalPadding/2) 6px @horizontalPadding;
-}
-
-.ui.label.small,
-.ui.tag.label.small {
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.ui.label.small.basic.icon {
-    padding: 1px calc(@horizontalPadding/2) 1px @horizontalPadding;
-}
-
-.ui.label.large.icon {
-    padding: 12px calc(@horizontalPadding/2) 12px @horizontalPadding;
-}
-
-.ui.label.large.basic.icon {
-    padding: 10px calc(@horizontalPadding/2) 10px @horizontalPadding;
 }
 
 .ui.label {
@@ -168,74 +120,68 @@
 .ui.label.tiny:not(.circular) {
     min-height: 24px;
     font-size: var(--type-scale-9);
-    padding: 4px 1rem;
 }
 
 .ui.label.mini:not(.circular) {
     min-height: 20px;
     font-size: var(--type-scale-9);
-    padding: 0 1rem;
-}
-
-.ui.label.with-icon:not(.circular) {
-    padding-left: 0.5rem;
-    padding-right: 1rem;
-}
-
-.ui.label.with-icon.with-icon-right:not(.circular) {
-    padding-right: 0.5rem;
-    padding-left: 1rem;
-}
-
-.ui.label.with-icon.without-text:not(.circular) {
-    padding-right: 1rem;
-    padding-left: 1rem;
-}
-
-.ui.label.large.with-icon.without-text:not(.circular) {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
 }
 
 /* Circular Labels */
 .ui.circular.mini.labels .label,
 .ui.circular.mini.label {
     font-size: var(--type-scale-9);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.tiny.labels .label,
 .ui.circular.tiny.label {
     font-size: var(--type-scale-9);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.small.labels .label,
 .ui.circular.small.label {
     font-size: var(--type-scale-7);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.labels .label,
 .ui.circular.label {
     font-size: var(--type-scale-6);
+    min-width: 2.5rem;
+    min-height: 2.5rem;
 }
 
 .ui.circular.large.labels .label,
 .ui.circular.large.label {
     font-size: var(--type-scale-4);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.big.labels .label,
 .ui.circular.big.label {
-    font-size: 1.75rem;
+    font-size: var(--type-scale-3);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.huge.labels .label,
 .ui.circular.huge.label {
-    font-size: var(--type-scale-3);
+    font-size: var(--type-scale-2);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 .ui.circular.massive.labels .label,
 .ui.circular.massive.label {
-    font-size: var(--type-scale-2);
+    font-size: var(--type-scale-1);
+    min-width: 2em;
+    min-height: 2em;
 }
 
 /* override mini label padding in order to keep it 4px */
@@ -245,55 +191,69 @@
 }
 
 /* circluar empty font size */
-
 .ui.empty.circular.labels .label.mini,
 .ui.empty.circular.label.mini {
-    font-size: var(--type-scale-7);
+    font-size: var(--type-scale-9);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels .label.tiny,
 .ui.empty.circular.label.tiny {
     font-size: var(--type-scale-7);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels .label.small,
 .ui.empty.circular.label.small {
     font-size: var(--type-scale-5);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels .label,
 .ui.empty.circular.label {
     font-size: var(--type-scale-4);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels.large .label,
 .ui.empty.circular.label.large {
     font-size: 1.75rem;
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels.big .label,
 .ui.empty.circular.label.big {
     font-size: var(--type-scale-3);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels.huge .label,
 .ui.empty.circular.label.huge {
     font-size: 2.25rem;
+    min-width: 0em;
+    min-height: 0em;
 }
 
 .ui.empty.circular.labels.massive .label,
 .ui.empty.circular.label.massive {
     font-size: var(--type-scale-2);
+    min-width: 0em;
+    min-height: 0em;
 }
 
 /* Tags (tags are supported by nesting 2 labels) */
-
 .ui.tag.label {
-  margin: @verticalMargin @horizontalMargin;
-  position: static;
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @borderRadius;
-  transition: @transition;
+    margin: @verticalMargin @horizontalMargin;
+    position: static;
+    padding: @verticalPadding @horizontalPadding;
+    border-radius: @borderRadius;
+    transition: @transition;
 }
 
 .ui.tag.label > .ui.label {
@@ -325,4 +285,258 @@
 /* Highlight */
 .ui.label.highlight {
     font-weight: 500;
+}
+
+/* Padding Labels */
+/* Default No icon - No button */
+.ui.label.mini {
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo);
+}
+
+.ui.label.tiny {
+    padding-left: var(--scale-charlie);
+    padding-right: var(--scale-charlie);
+}
+
+.ui.label.small {
+    padding-left: var(--scale-delta);
+    padding-right: var(--scale-delta);
+}
+
+.ui.label.medium {
+    padding-left: var(--scale-echo);
+    padding-right: var(--scale-echo);
+}
+
+.ui.label.large {
+    padding-left: var(--scale-foxtrot);
+    padding-right: var(--scale-foxtrot);
+}
+
+/* Default - With button */
+.ui.label.mini.with-button {
+    padding-right: calc(var(--scale-bravo) / 2);
+}
+
+.ui.label.tiny.with-button {
+    padding-right: calc(var(--scale-charlie) / 2);
+}
+
+.ui.label.small.with-button {
+    padding-right: calc(var(--scale-delta) / 2);
+}
+
+.ui.label.medium.with-button {
+    padding-right: calc(var(--scale-echo) / 2);
+}
+
+.ui.label.large.with-button {
+    padding-right: calc(var(--scale-foxtrot) / 2);
+}
+
+/* Default - With icon left */
+.ui.label.mini.with-icon:not(.with-icon-right) {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.label.tiny.with-icon:not(.with-icon-right) {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.label.small.with-icon:not(.with-icon-right) {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.label.medium.with-icon:not(.with-icon-right) {
+    padding-left: calc(var(--scale-echo) - 2px);
+}
+
+.ui.label.large.with-icon:not(.with-icon-right) {
+    padding-left: calc(var(--scale-foxtrot) - 2px);
+}
+
+/* Compact - With icon left */
+.ui.label.mini.with-icon.compact:not(.with-icon-right) {
+    padding-left: calc(var(--scale-bravo) / 2 - 2px);
+}
+
+.ui.label.tiny.with-icon.compact:not(.with-icon-right) {
+    padding-left: calc(var(--scale-charlie) / 2 - 2px);
+}
+
+.ui.label.small.with-icon.compact:not(.with-icon-right) {
+    padding-left: calc(var(--scale-delta) / 2 - 2px);
+}
+
+.ui.label.medium.with-icon.compact:not(.with-icon-right) {
+    padding-left: calc(var(--scale-echo) / 2 - 2px);
+}
+
+.ui.label.large.with-icon.compact:not(.with-icon-right) {
+    padding-left: calc(var(--scale-foxtrot) / 2 - 2px);
+}
+
+
+/* Default - With icon right */
+.ui.label.mini.with-icon-right {
+    padding-right: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.label.tiny.with-icon-right {
+    padding-right: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.label.small.with-icon-right {
+    padding-right: calc(var(--scale-delta) - 2px);
+}
+
+.ui.label.medium.with-icon-right {
+    padding-right: calc(var(--scale-echo) - 2px);
+}
+
+.ui.label.large.with-icon-right {
+    padding-right: calc(var(--scale-foxtrot) - 2px);
+}
+
+/* Default - With icon - Without text  */
+.ui.label.mini.with-icon.without-text {
+    padding-right: var(--scale-bravo);
+    padding-left: var(--scale-bravo);
+}
+
+.ui.label.tiny.with-icon.without-text {
+    padding-right: var(--scale-charlie);
+    padding-left: var(--scale-charlie);
+}
+
+.ui.label.small.with-icon.without-text {
+    padding-right: var(--scale-delta);
+    padding-left: var(--scale-delta);
+}
+
+.ui.label.medium.with-icon.without-text {
+    padding-right: var(--scale-echo);
+    padding-left: var(--scale-echo);
+}
+
+.ui.label.large.with-icon.without-text {
+    padding-right: var(--scale-foxtrot);
+    padding-left: var(--scale-foxtrot);
+}
+
+/* Compact - With icon - Without text  */
+.ui.label.mini.compact.with-icon.without-text {
+    padding-right: calc(var(--scale-bravo) /2);
+    padding-left: calc(var(--scale-bravo) /2);
+}
+
+.ui.label.tiny.compact.with-icon.without-text {
+    padding-right: calc(var(--scale-charlie) /2);
+    padding-left: calc(var(--scale-charlie) /2);
+}
+
+.ui.label.small.compact.with-icon.without-text {
+    padding-right: calc(var(--scale-delta) /2);
+    padding-left: calc(var(--scale-delta) /2);
+}
+
+.ui.label.medium.compact.with-icon.without-text {
+    padding-right: calc(var(--scale-echo) /2);
+    padding-left: calc(var(--scale-echo) /2);
+}
+
+.ui.label.large.compact.with-icon.without-text {
+    padding-right: calc(var(--scale-foxtrot) /2);
+    padding-left: calc(var(--scale-foxtrot) /2);
+}
+
+/* Default - With Tag  */
+.ui.label.mini.with-tag {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.label.tiny.with-tag {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.label.small.with-tag {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.label.medium.with-tag {
+    padding-left: calc(var(--scale-echo) - 4px);
+}
+
+.ui.label.large.with-tag {
+    padding-left: calc(var(--scale-foxtrot) - 4px);
+}
+
+/* Compact - With Tag  */
+.ui.label.mini.with-tag.compact {
+    padding-left: calc(var(--scale-bravo) / 2 - 1px);
+}
+
+.ui.label.tiny.with-tag.compact {
+    padding-left: calc(var(--scale-charlie) / 2 - 2px);
+}
+
+.ui.label.small.with-tag.compact {
+    padding-left: calc(var(--scale-delta) / 2 - 2px);
+}
+
+.ui.label.medium.with-tag.compact {
+    padding-left: calc(var(--scale-echo) / 2 - 4px);
+}
+
+.ui.label.large.with-tag.compact {
+    padding-left: calc(var(--scale-foxtrot) / 2 - 4px);
+}
+
+/* COMPACT */
+/* Default No icon - No button */
+.ui.label.compact.mini {
+    padding-left: calc(var(--scale-bravo) / 2);
+    padding-right: calc(var(--scale-bravo) / 2);
+}
+
+.ui.label.compact.tiny {
+    padding-left: calc(var(--scale-charlie) / 2);
+    padding-right: calc(var(--scale-charlie) / 2);
+}
+
+.ui.label.compact.small {
+    padding-left: calc(var(--scale-delta) / 2);
+    padding-right: calc(var(--scale-delta) / 2);
+}
+
+.ui.label.compact.medium {
+    padding-left: calc(var(--scale-echo) / 2);
+    padding-right: calc(var(--scale-echo) / 2);
+}
+
+.ui.label.compact.large {
+    padding-left: calc(var(--scale-foxtrot) / 2);
+    padding-right: calc(var(--scale-foxtrot) / 2);
+}
+
+/* Default - With button */
+.ui.label.compact.mini.with-button {
+    padding-right: calc(var(--scale-bravo) / 4);
+}
+
+.ui.label.compact.tiny.with-button {
+    padding-right: calc(var(--scale-charlie) / 4);
+}
+
+.ui.label.compact.small.with-button {
+    padding-right: calc(var(--scale-delta) / 4);
+}
+
+.ui.label.compact.medium.with-button {
+    padding-right: calc(var(--scale-echo) / 4);
+}
+
+.ui.label.compact.large.with-button {
+    padding-right: calc(var(--scale-foxtrot) / 4);
 }
