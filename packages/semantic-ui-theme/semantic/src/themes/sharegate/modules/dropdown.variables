@@ -72,13 +72,13 @@
 @selectionMinWidth: 300px;
 @selectionBorder: 1px solid @cloud200;
 @selectionHoverBorderColor: @marine500;
-@selectionVisibleBorderColor: @white;
-@selectionActiveHoverBorderColor: @white;
+@selectionVisibleBorderColor: @primary100;
+@selectionActiveHoverBorderColor: @primary100;
 @selectionActiveHoverBoxShadow: @shadow100;
 @selectionFocusMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
 @selectionVisibleBoxShadow: @shadow100;
 @selectionVisibleMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
-@selectionFocusBorderColor: @white;
+@selectionFocusBorderColor: @marine600;
 @selectionFocusBoxShadow: @shadow100;
 @selectionItemDivider: '';
 @itemVerticalPadding: 0.75rem;

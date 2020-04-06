@@ -45,18 +45,18 @@ function Loadings({ element, ...rest }) {
     return (
         <>
             <div className="flex mb5">
-                <Button loading element={button} className="mr5">Button</Button>
-                <Button active loading element={button} className="mr5">Button</Button>
-                <Button disabled loading element={button} className="mr5">Button</Button>
+                <Button loading element={button} className="mr5">AA</Button>
+                <Button active loading element={button} className="mr5">AA</Button>
+                <Button disabled loading element={button} className="mr5">AA</Button>
                 <Button loading element={button} className="mr5" />
-                <Button icon={<SignoutIcon />} loading element={button} className="mr5">Button</Button>
-                <Button icon={<SignoutIcon />} iconPosition="right" loading element={button}>Button</Button>
+                <Button icon={<SignoutIcon />} loading element={button} className="mr5">AA</Button>
+                <Button icon={<SignoutIcon />} iconPosition="right" loading element={button}>AA</Button>
             </div>
             <div className="flex items-end mb5">
-                <Button size="tiny" loading element={button} className="mr5">Button</Button>
-                <Button size="small" loading element={button} className="mr5">Button</Button>
-                <Button loading element={button} className="mr5">Button</Button>
-                <Button size="large" loading element={button}>Button</Button>
+                <Button size="tiny" loading element={button} className="mr5">Aa</Button>
+                <Button size="small" loading element={button} className="mr5">Aa</Button>
+                <Button loading element={button} className="mr5">Aa</Button>
+                <Button size="large" loading element={button}>Aa</Button>
             </div>
         </>
     );
@@ -200,7 +200,7 @@ export function createSharedStories(button, stories) {
                     <Labels compact element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Tags basic element={button} />
+                    <Tags compact element={button} />
                 </div>
             </div>
         )

@@ -12,3 +12,7 @@
 .ui.search.fluid > .results {
     width: 100%;
 }
+
+.ui.search > .results {
+    border: 1px solid @cloud100;
+}

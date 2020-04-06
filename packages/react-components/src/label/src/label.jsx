@@ -1,4 +1,4 @@
-import { ArgumentError, BIG, HUGE, MASSIVE, MINI, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -26,6 +26,10 @@ const propTypes = {
      * A label can contain an icon.
      */
     icon: element,
+    /**
+     * A label can be compact.
+     */
+    compact: bool,
     /**
      * An icon can appear on the left or right.
      */
@@ -55,13 +59,17 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ button, tag, icon, iconPosition }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ button, compact, circular, tag, icon, iconPosition }) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a button and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
         throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
+    }
+
+    if (compact && circular) {
+        throw new ArgumentError("@orbit-ui/react-components/label doesn't support being circular and compact at the same time.");
     }
 }
 
@@ -78,7 +86,7 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 }
 
 export function PureLabel(props) {
-    const { naked, button, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, compact, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -93,8 +101,16 @@ export function PureLabel(props) {
     };
 
     const renderButton = () => {
+        const SIZES_TO_BUTTON = {
+            [MINI]: MINI,
+            [TINY]: TINY,
+            [SMALL]: SMALL,
+            [MEDIUM]: MEDIUM,
+            [LARGE]: LARGE
+        };
+
         const defaults = {
-            size: "tiny",
+            size: SIZES_TO_BUTTON[size],
             circular: true,
             ghost: true,
             secondary: true,
@@ -161,6 +177,7 @@ export function PureLabel(props) {
             naked && "naked",
             highlight && "highlight",
             !isNil(button) && "with-button",
+            !isNil(compact) && "compact",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
