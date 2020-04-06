@@ -1,4 +1,4 @@
-import styles from "./count.css";
+import "./count.css";
 
 import { forwardRef } from "react";
 import { mergeClasses } from "../../shared";
