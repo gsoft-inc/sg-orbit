@@ -7,6 +7,6 @@
     }
 }
 
-.popup__content {
+.o-ui.popup .content {
     animation: fade-in 0.3s;
 }

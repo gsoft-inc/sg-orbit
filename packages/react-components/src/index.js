@@ -16,4 +16,5 @@ export * from "./search-input";
 export * from "./select";
 export * from "./tab";
 export * from "./message";
+export * from "./count";
 export * from "./shared";

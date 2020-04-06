@@ -1,5 +1,6 @@
 import { Checkbox, PureCheckbox } from "@react-components/checkbox";
 import { CommunicationIcon, GroupIcon, InfoIcon } from "@react-components/icons";
+import { Count } from "@react-components/count";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -113,6 +114,16 @@ A checkbox can have a [label](?path=/docs/components-label--default-story) after
 <Preview>
     <Story name="label">
         <Checkbox text="Email" label={<Label>6</Label>} />
+    </Story>
+</Preview>
+
+### Count
+
+A checkbox can have a [count](?path=/story/components-count--default-story) after his text. Specify the count to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="count">
+        <Checkbox text="Email" count={<Count>6</Count>} />
     </Story>
 </Preview>
 

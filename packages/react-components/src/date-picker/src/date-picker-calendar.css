@@ -1,51 +1,51 @@
-.calendar {
+.o-ui.calendar {
     box-shadow: var(--shadow-200);
     background-color: var(--white);
     border: 1px solid var(--cloud-100);
     border-radius: var(--scale-alpha);
 }
 
-.calendar .CalendarMonth_table {
+.o-ui.calendar .CalendarMonth_table {
     margin-top: var(--scale-bravo) !important;
 }
 
-.calendar .CalendarDay__default {
+.o-ui.calendar .CalendarDay__default {
     border: none !important;
     background-color: var(--white) !important;
     color: var(--marine-700) !important;
     font-size: 1rem !important;
 }
 
-.calendar .DayPicker {
+.o-ui.calendar .DayPicker {
     border-radius: var(--scale-alpha);
 }
 
-.calendar .DayPicker__horizontal {
+.o-ui.calendar .DayPicker__horizontal {
     background-color: var(--white) !important;
 }
 
-.calendar .CalendarMonth {
+.o-ui.calendar .CalendarMonth {
     background-color: var(--white) !important;
 }
 
-.calendar .CalendarDay__selected {
+.o-ui.calendar .CalendarDay__selected {
     background: var(--primary-500) !important;
     color: var(--white) !important;
 }
 
-.calendar .CalendarMonthGrid {
+.o-ui.calendar .CalendarMonthGrid {
     background-color: var(--white) !important;
 }
 
-.calendar .CalendarDay__selected_span {
+.o-ui.calendar .CalendarDay__selected_span {
     background: var(--primary-50) !important;
 }
 
-.calendar .CalendarDay__hovered_span {
+.o-ui.calendar .CalendarDay__hovered_span {
     background: var(--primary-50) !important;
 }
 
-.calendar .CalendarMonth_caption {
+.o-ui.calendar .CalendarMonth_caption {
     font-size: 24px !important;
     color: var(--marine-500) !important;
     padding-top: 1.25rem !important;
@@ -53,83 +53,83 @@
     line-height: 1 !important;
 }
 
-.calendar .DayPickerNavigation_button__default {
+.o-ui.calendar .DayPickerNavigation_button__default {
     border: 0 !important;
 }
 
-.calendar .CalendarDay__blocked_calendar {
+.o-ui.calendar .CalendarDay__blocked_calendar {
     background: var(--transparent) !important;
     color: var(--cloud-400) !important;
 }
 
-.calendar .DayPickerNavigation {
+.o-ui.calendar .DayPickerNavigation {
     display: flex;
     justify-content: space-between;
     padding: 0 24px !important;
 }
 
-.calendar .DayPickerNavigation_button {
+.o-ui.calendar .DayPickerNavigation_button {
     margin-top: 17px !important;
 }
 
-.calendar .DayPickerNavigation_button__horizontalDefault {
+.o-ui.calendar .DayPickerNavigation_button__horizontalDefault {
     padding: 0 !important;
 }
 
-.calendar .DayPickerNavigation_button__disabled {
+.o-ui.calendar .DayPickerNavigation_button__disabled {
     border: 0 !important;
 }
 
-.calendar .DayPicker_weekHeader_li small {
+.o-ui.calendar .DayPicker_weekHeader_li small {
     font-size: 0.875rem !important;
     color: var(--cloud-900) !important;
 }
 
-.calendar .CalendarDay__default:hover,
-.calendar .CalendarDay__default:focus {
+.o-ui.calendar .CalendarDay__default:hover,
+.o-ui.calendar .CalendarDay__default:focus {
     background: var(--cloud-100) !important;
 }
 
-.calendar .CalendarDay__default:focus {
+.o-ui.calendar .CalendarDay__default:focus {
     outline: none !important;
 }
 
-.calendar .DayPickerNavigation_button:focus {
+.o-ui.calendar .DayPickerNavigation_button:focus {
     outline: none !important;
 }
 
-.calendar .CalendarDay__blocked_calendar:hover,
-.calendar .CalendarDay__blocked_calendar:focus {
+.o-ui.calendar .CalendarDay__blocked_calendar:hover,
+.o-ui.calendar .CalendarDay__blocked_calendar:focus {
     background: var(--transparent) !important;
     color: var(--cloud-400) !important;
 }
 
-.calendar .CalendarDay__selected:hover,
-.calendar .CalendarDay__selected:active {
+.o-ui.calendar .CalendarDay__selected:hover,
+.o-ui.calendar .CalendarDay__selected:active {
     background: var(--primary-500) !important;
 }
 
-.calendar .CalendarDay__selected_span:hover,
-.calendar .CalendarDay__selected_span:active {
+.o-ui.calendar .CalendarDay__selected_span:hover,
+.o-ui.calendar .CalendarDay__selected_span:active {
     background: var(--primary-50) !important;
 }
 
-.calendar .CalendarDay__default.CalendarDay__selected:focus {
+.o-ui.calendar .CalendarDay__default.CalendarDay__selected:focus {
     background: var(--primary-500) !important;
     color: var(--white) !important;
 }
 
-.calendar .CalendarDay__blocked_calendar.CalendarDay__selected {
+.o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected {
     background: var(--primary-500) !important;
     color: var(--white) !important;
     opacity: 0.6 !important;
 }
 
-.calendar .CalendarDay__blocked_calendar.CalendarDay__selected_span {
+.o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected_span {
     background: var(--primary-50) !important;
     opacity: 0.6 !important;
 }
 
-.calendar .DayPickerNavigation_button__disabled path {
+.o-ui.calendar .DayPickerNavigation_button__disabled path {
     fill: var(--cloud-100) !important;
 }

@@ -80,9 +80,7 @@ stories()
 
 stories("/label")
     .add("element ref", () =>
-        <div className="flex">
-            <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
-        </div>
+        <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
     )
     .add("object", () =>
         <div className="flex">
@@ -94,10 +92,7 @@ stories("/label")
 
 stories("/tag")
     .add("element ref", () =>
-        <div className="flex">
-            <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
-        </div>
-
+        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
     )
     .add("object", () =>
         <div className="flex">
