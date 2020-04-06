@@ -86,7 +86,7 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 }
 
 export function PureLabel(props) {
-    const { naked, button, compact, disabled, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
+    const { naked, button, compact, icon, iconPosition, tag, highlight, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
