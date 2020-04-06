@@ -58,8 +58,8 @@
     margin-right: 0;
 }
 
-/* STATE | With Tag | Disabled */
-.ui.label.tag.disabled {
+/* STATE | Disabled */
+.ui.label.disabled {
     opacity: 0.4;
 }
 

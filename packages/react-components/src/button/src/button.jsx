@@ -110,7 +110,8 @@ export function PureButton(props) {
         const defaults = {
             as: "span",
             size: "mini",
-            highlight: true
+            highlight: true,
+            disabled: disabled
         };
 
         if (isElement(label)) {

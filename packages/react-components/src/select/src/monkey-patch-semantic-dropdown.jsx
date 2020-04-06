@@ -1,6 +1,6 @@
 import { Dropdown } from "semantic-ui-react";
 import { DropdownContext } from "../../dropdown";
-import { get, isNil } from "lodash";
+import { isNil } from "lodash";
 import { renderAvatar, renderIcons } from "./item";
 import cx from "classnames";
 
@@ -14,13 +14,13 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
         const { multiple, placeholder, search, inline, text } = this.props;
         const { searchQuery, value, open, focus } = this.state;
 
-        const hasValue = this.hasValue();
         let result = placeholder;
+        const hasValue = this.hasValue();
 
         if (!isNil(text)) {
             result = text;
-        } else {
-            const toAvatarResult = ({ avatar }, itemText) => {
+        } else if (!multiple) {
+            const toAvatarResult = ({ text: itemText, avatar }) => {
                 return (
                     <>
                         {renderAvatar(avatar, !inline ? this.context.size : undefined, { inline })}
@@ -29,7 +29,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                 );
             };
 
-            const toIconsResult = ({ icons, iconsPosition }, itemText) => {
+            const toIconsResult = ({ text: itemText, icons, iconsPosition }) => {
                 let left = null;
                 let right = null;
 
@@ -48,27 +48,33 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                 );
             };
 
-            if ((open && !multiple) || (!open && !multiple && focus)) {
-                const item = this.getSelectedItem();
-                const itemText = result = get(item, "text");
-
-                if (!search && !isNil(item)) {
-                    if (!isNil(item.avatar)) {
-                        result = toAvatarResult(item, itemText);
-                    } else if (!isNil(item.icons)) {
-                        result = toIconsResult(item, itemText);
-                    }
+            const tryRenderCustomContent = item => {
+                if (!isNil(item.avatar)) {
+                    result = toAvatarResult(item);
+                } else if (!isNil(item.icons)) {
+                    result = toIconsResult(item);
                 }
+            };
 
-            } else if (hasValue) {
-                const item = this.getItemByValue(value);
-                const itemText = result = get(item, "text");
+            if (open && focus) {
+                const item = this.getSelectedItem();
 
                 if (!isNil(item)) {
-                    if (!isNil(item.avatar)) {
-                        result = toAvatarResult(item, itemText);
-                    } else if (!isNil(item.icons)) {
-                        result = toIconsResult(item, itemText);
+                    if (!search) {
+                        tryRenderCustomContent(this.getSelectedItem());
+                    } else {
+                        result = item.text;
+                    }
+                }
+            }
+            else if (hasValue) {
+                const item = this.getItemByValue(value);
+
+                if (!isNil(item)) {
+                    if (!search || !focus) {
+                        tryRenderCustomContent(item);
+                    } else {
+                        result = item.text;
                     }
                 }
             }
