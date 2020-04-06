@@ -1,4 +1,4 @@
-import "./count.css";
+import styles from "./count.css";
 
 import { forwardRef } from "react";
 import { mergeClasses } from "../../shared";
@@ -10,7 +10,7 @@ const propTypes = {
 
 export function PureCount({ className, children, forwardedRef, ...rest }) {
     const classes = mergeClasses(
-        "count",
+        "o-ui count",
         className
     );
 

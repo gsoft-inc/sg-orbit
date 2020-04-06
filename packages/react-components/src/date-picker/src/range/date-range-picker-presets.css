@@ -1,8 +1,8 @@
-.presets {
+.o-ui.presets {
     min-width: 200px;
 }
 
-.presets__values {
+.o-ui.presets .values {
     padding: 0;
     margin: 0;
     list-style-type: none;

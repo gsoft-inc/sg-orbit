@@ -338,7 +338,7 @@ export class Popup extends AutoControlledPureComponent {
         };
 
         return (
-            <div className="popup__content" style={openingStyle}>
+            <div className="content" style={openingStyle}>
                 {this.renderPopup()}
             </div>
         );
@@ -372,6 +372,7 @@ export class Popup extends AutoControlledPureComponent {
         const { open } = this.state;
 
         const classes = mergeClasses(
+            "o-ui popup",
             fluid ? "w-100" : "dib",
             "relative",
             className

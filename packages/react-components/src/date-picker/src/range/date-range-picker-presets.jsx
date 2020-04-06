@@ -146,7 +146,7 @@ export class DateRangePickerPresets extends PureComponent {
 
         if (presets.length > 0) {
             const classes = mergeClasses(
-                "presets flex flex-column pt8 ph8 br b--cloud-100",
+                "o-ui presets flex flex-column pt8 ph8 br b--cloud-100",
                 className
             );
 
@@ -155,7 +155,7 @@ export class DateRangePickerPresets extends PureComponent {
                     <div className="self-center mb6">
                         <Icon type={PresetsCalendarIcon} size="big" className="fill-marine-500" />
                     </div>
-                    <ul className="presets__values">
+                    <ul className="values">
                         {this.renderPresets()}
                     </ul>
                 </div>
