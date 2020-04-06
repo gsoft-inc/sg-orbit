@@ -131,13 +131,13 @@ stories("/disabled")
     .add("values selected",
          () =>
              createMultiSelect({
+                 defaultValues: [GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE],
                  disabled: true
              })
     )
     .add("no selection",
          () =>
              createMultiSelect({
-                 defaultValues: [GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE],
                  disabled: true
              })
     );

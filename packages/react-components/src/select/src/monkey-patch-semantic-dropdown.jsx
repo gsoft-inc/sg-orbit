@@ -53,6 +53,8 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                     result = toAvatarResult(item);
                 } else if (!isNil(item.icons)) {
                     result = toIconsResult(item);
+                } else {
+                    result = item.text;
                 }
             };
 
@@ -66,8 +68,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
                         result = item.text;
                     }
                 }
-            }
-            else if (hasValue) {
+            } else if (hasValue) {
                 const item = this.getItemByValue(value);
 
                 if (!isNil(item)) {

@@ -22,7 +22,6 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
             basic
             size={size}
             className={classes}
-            disabled={disabled}
             data-testid={`multi-select-selected-item-${item.value}`}
         >
             {item.text}
