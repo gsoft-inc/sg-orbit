@@ -2,7 +2,7 @@ import { Count, PureCount } from "@react-components/count";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { text, withKnobs } from "@storybook/addon-knobs";
+import { text as textKnob, withKnobs } from "@storybook/addon-knobs";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -13,6 +13,8 @@ import Imports from "./imports.mdx";
 />
 
 # Count
+
+Associate a quantity with a text or a component.
 
 ## Installation
 
@@ -27,6 +29,8 @@ import Imports from "./imports.mdx";
 />
 
 ## Usage
+
+A count component is not meant to be standalone. It's an *addon component* to use in pair with a text or another component that supports count.
 
 ### Default
 
@@ -47,8 +51,44 @@ A default count.
         .excludeFromDocs()
         .build()}
 >
-    <Count className={text("className")}>6</Count>
+    <Count className={textKnob("className")}>6</Count>
 </Story>
+
+### Text
+
+A count can be pair with a text.
+
+<Preview>
+    <Story name="text">
+        <div>
+            Inactive <Count>6</Count>
+        </div>
+    </Story>
+</Preview>
+
+### Font
+
+A count inherits his parent [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font).
+
+<Preview>
+    <Story name="inherits font">
+        <div className="f6 fw5">
+            Inactive <Count>6</Count>
+        </div>
+    </Story>
+</Preview>
+
+### Custom color
+
+A quantity color can be customized.
+
+<Preview>
+    <Story name="custom color">
+        <div>
+            Inactive <Count className="primary-500">6</Count>
+        </div>
+    </Story>
+</Preview>
 
 <Story
     name="ref"
