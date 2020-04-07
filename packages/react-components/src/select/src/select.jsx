@@ -82,8 +82,9 @@ export function PureSelect(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
 
-    const renderLabel = ({ text, avatar, icons, iconsPosition }, index, otherProps) => {
+    const renderLabel = ({ text, avatar, icons, iconsPosition }, index, { className, ...otherProps }) => {
         let content = text;
+        let additionalClasses = "";
 
         if (!isNil(avatar)) {
             content = (
@@ -92,6 +93,8 @@ export function PureSelect(props) {
                     {text}
                 </>
             );
+
+            additionalClasses = "with-avatar";
         } else if (!isNil(icons)) {
             let left = null;
             let right = null;
@@ -109,12 +112,20 @@ export function PureSelect(props) {
                     {!isNil(right) && right}
                 </>
             );
+
+            additionalClasses = "with-icons";
         }
+
+        const classes = mergeClasses(
+            additionalClasses,
+            className
+        );
 
         return (
             <Label
                 content={content}
                 size={SIZES_TO_LABEL[size]}
+                className={classes}
                 {...otherProps}
             />
         );
