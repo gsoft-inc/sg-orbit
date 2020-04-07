@@ -1,4 +1,4 @@
-import { TextArea } from "@react-components/textarea";
+import { TextArea } from "@react-components/text-area";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

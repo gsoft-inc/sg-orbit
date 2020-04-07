@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { createButtonFromShorthand } from "../../button";
 import { createIconForControl } from "../../icons";
@@ -12,7 +12,7 @@ import { isNil } from "lodash";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
+export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
 const propTypes = {
     /**
@@ -50,13 +50,23 @@ const propTypes = {
     /**
      * @ignore
      */
-    forwardedRef: oneOfType([object, func])
+    forwardedRef: oneOfType([object, func]),
+    /**
+     * @ignore
+     */
+    __componentName: string,
+    /**
+     * @ignore
+     */
+    __unsupportedProps: arrayOf(string)
 };
 
 const defaultProps = {
     autofocus: false,
     size: DEFAULT_SIZE,
-    disabled: false
+    disabled: false,
+    __componentName: "@orbit-ui/react-components/input",
+    __unsupportedProps: INPUT_UNSUPPORTED_PROPS
 };
 
 function getInputElement(innerRef) {
@@ -87,22 +97,23 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
     }, [autofocus, autofocusDelay, disabled, innerRef]);
 }
 
-function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }, componentName) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit-ui/react-components/input doesn't support having a button and a right positioned icon at the same time.");
+        throw new ArgumentError(`${componentName} doesn't support having a button and a right positioned icon at the same time.`);
     }
 }
 
 export function PureInput(props) {
-    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, __componentName, __unsupportedProps, ...rest } = props;
+
     const SIZES_TO_BUTTON = {
         [SMALL]: TINY,
         [MEDIUM]: SMALL,
         [LARGE]: MEDIUM
     };
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/input");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
+    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
     const containerRef = useRef();
     const inputRef = useRef();

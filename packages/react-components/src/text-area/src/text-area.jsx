@@ -10,6 +10,14 @@ const DEFAULT_SIZE = "medium";
 
 const propTypes = {
     /**
+     * The value of the textarea.
+     */
+    value: string,
+    /**
+     * The default value of the textarea.
+     */
+    defaultValue: string,
+    /**
      * Whether or not the textarea should autofocus on render.
      */
     autofocus: bool,

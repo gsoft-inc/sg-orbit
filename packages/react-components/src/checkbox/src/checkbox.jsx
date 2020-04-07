@@ -58,18 +58,19 @@ export const CHECKBOX_PROP_TYPES = {
     /**
      * @ignore
      */
-    unsupportedProps: arrayOf(string),
+    __componentName: string,
     /**
      * @ignore
      */
-    unsupportedPropsComponentName: string
+    __unsupportedProps: arrayOf(string)
 };
 
 export const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
     disabled: false,
-    unsupportedPropsComponentName: "@orbit-ui/react-components/checkbox"
+    __componentName: "@orbit-ui/react-components/checkbox",
+    __unsupportedProps: UNSUPPORTED_PROPS
 };
 
 function getInputElement(innerRef) {
@@ -100,17 +101,17 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
     }, [autofocus, autofocusDelay, disabled, innerRef]);
 }
 
-function throwWhenMutuallyExclusivePropsAreProvided({ label, count }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
     if (!isNil(label) && !isNil(count)) {
-        throw new ArgumentError("@orbit-ui/react-components/checkbox doesn't support having a label and a count at the same time.");
+        throw new ArgumentError(`${componentName} doesn't support having a label and a count at the same time.`);
     }
 }
 
 export function PureCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, unsupportedProps, unsupportedPropsComponentName, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, !isNil(unsupportedProps) ? unsupportedProps : UNSUPPORTED_PROPS, unsupportedPropsComponentName);
-    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
+    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
     const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
