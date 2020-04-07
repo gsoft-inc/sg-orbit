@@ -33,35 +33,14 @@ const CHECKBOX_PROP_TYPES = {
     /**
      * An input can vary in sizes.
      */
-    size: oneOf(SIZES),
-    /**
-     * @ignore
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func]),
-    /**
-     * @ignore
-     */
-    unsupportedProps: arrayOf(string),
-    /**
-     * @ignore
-     */
-    unsupportedPropsComponentName: string
+    size: oneOf(SIZES)
 };
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,
-    disabled: false,
-    unsupportedPropsComponentName: "@orbit-ui/react-components/checkbox"
+    __componentName: "@orbit-ui/react-components/checkbox"
 };
 
 const UNSUPPORTED_PROPS = ["as", "defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
@@ -80,10 +59,10 @@ export function PureRadio(props) {
     const renderRadio = () => {
         return (
             <Checkbox
-                radio
-                unsupportedProps={UNSUPPORTED_PROPS}
-                unsupportedPropsComponentName="@orbit-ui/react-components/radio"
                 {...rest}
+                radio
+                __componentName="@orbit-ui/react-components/radio"
+                __unsupportedProps={UNSUPPORTED_PROPS}
             />
         );
     };
