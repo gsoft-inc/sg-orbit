@@ -1,10 +1,14 @@
-import { Input } from "../../input";
+import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
+
+const COMPONENT_NAME = "@orbit-ui/react-components/text-input";
+const UNSUPPORTED_PROPS = INPUT_UNSUPPORTED_PROPS;
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
@@ -54,6 +58,9 @@ const propTypes = {
      */
     defaultValue: string,
     ...INPUT_PROP_TYPES,
+    /**
+     * The [type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) of the input.
+     */
     type: oneOf(["text", "password", "email"])
 };
 
@@ -62,12 +69,16 @@ const defaultProps = {
     type: "text"
 };
 
-export function PureTextInput({ forwardedRef, ...props }) {
+export function PureTextInput(props) {
+    const { forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, COMPONENT_NAME);
+
     return (
         <Input
             ref={forwardedRef}
-            __componentName="@orbit-ui/react-components/text-input"
-            {...props}
+            __componentName={COMPONENT_NAME}
+            {...rest}
         />
     );
 }

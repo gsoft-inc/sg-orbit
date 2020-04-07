@@ -11,7 +11,31 @@ import { isArray, isNil } from "lodash";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
+const UNSUPPORTED_PROPS = [
+    "as",
+    "additionLabel",
+    "additionPosition",
+    "allowAdditions",
+    "basic",
+    "button",
+    "closeOnBlur",
+    "closeOnChange",
+    "closeOnEscape",
+    "compact",
+    "deburr",
+    "direction",
+    "floating",
+    "header",
+    "labeled",
+    "item",
+    "openOnFocus",
+    "pointing",
+    "selection",
+    "selectOnBlur",
+    "selectOnNavigation",
+    "simple",
+    "wrapSelection"
+];
 
 const SIZES_TO_LABEL = {
     [SMALL]: MINI,

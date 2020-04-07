@@ -47,7 +47,7 @@ stories()
             })}
         </div>
     )
-    .add("sizes",
+    .add("size",
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
