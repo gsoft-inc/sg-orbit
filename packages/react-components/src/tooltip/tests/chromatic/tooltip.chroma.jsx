@@ -2,7 +2,7 @@ import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { Input } from "@react-components/input";
 import { Label } from "@react-components/label";
-import { TextArea } from "@react-components/textarea";
+import { TextArea } from "@react-components/text-area";
 import { Tooltip } from "@react-components/tooltip";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

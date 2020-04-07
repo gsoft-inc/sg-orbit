@@ -4,8 +4,6 @@ import { Input } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil } from "lodash";
 
-// TODO: variations doesn't make sense right now since error is also variations and are part of default & transparent stories.
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Input"))
         .segment(segment)
