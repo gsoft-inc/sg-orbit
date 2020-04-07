@@ -338,7 +338,7 @@
 }
 
 .ui.checkbox label {
-    padding-left: 1.75rem;
+    padding-left: var(--scale-foxtrot);
     font-size: var(	--type-scale-7);
 }
 
