@@ -1,6 +1,6 @@
 import { Checkbox } from "../../checkbox";
 import { Ref } from "semantic-ui-react";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
