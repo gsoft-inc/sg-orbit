@@ -1,5 +1,5 @@
+import { BulbIcon } from "@react-components/icons";
 import { DropdownMenu } from "@react-components/dropdown-menu";
-import { EditIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -60,13 +60,13 @@ stories("/sub components")
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "200px" }}>
                 <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" />
+                    <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" icon={<EditIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
@@ -80,13 +80,13 @@ stories("/sub components")
             </div>
             <div className="flex" style={{ marginBottom: "250px" }}>
                 <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" />
+                    <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" icon={<EditIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
@@ -100,13 +100,13 @@ stories("/sub components")
             </div>
             <div className="flex">
                 <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" />
+                    <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Filter by tag" icon={<EditIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />

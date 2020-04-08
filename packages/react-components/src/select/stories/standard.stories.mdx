@@ -22,7 +22,7 @@ A select can be used to select between choices.
 
 <InstallReactComponents imports={<Imports />} />
 
-### Props
+## Props
 
 <HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
 
@@ -215,6 +215,20 @@ Actions must be specified as [object shorthands](?path=/docs/getting-started-sho
             placeholder="Gender"
             options={GENDERS}
             actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+        />
+    </Story>
+</Preview>
+
+### Upward
+
+A select can be open it's menu upward.
+
+<Preview>
+    <Story name="upward">
+        <Select
+            placeholder="Gender"
+            options={GENDERS}
+            upward
         />
     </Story>
 </Preview>

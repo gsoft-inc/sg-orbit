@@ -51,10 +51,6 @@ const UNSUPPORTED_PROPS = [
 
 const propTypes = {
     /**
-     * An array of items object shorthands.
-     */
-    options: arrayOf(any),
-    /**
      * A dropdown menu can vary in size.
      */
     size: oneOf(SIZES),
