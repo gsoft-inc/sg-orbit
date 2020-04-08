@@ -5,9 +5,6 @@ import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { useContext } from "react";
 
-// TODO:
-// - Support href ??? with external links?
-
 const UNSUPPORTED_PROPS = ["content", "flag", "image", "label"];
 
 const propTypes = {
@@ -19,6 +16,10 @@ const propTypes = {
      * The item value.
      */
     value: string,
+    /**
+     * An item can navigate to a page.
+     */
+    href: string,
     /**
      * A description to display with less emphasize.
      */

@@ -16,11 +16,7 @@ const createRenameItem = (props = {}) => {
     return { key: "Rename...", text: "Rename...", value: "Rename...", ...props };
 };
 
-const ACTIONS = [
-    createNewItem(),
-    createOpenItem(),
-    createRenameItem()
-];
+const ACTIONS = [createNewItem(), createOpenItem(), createRenameItem()];
 
 function createDropdownMenu({ text = "File", trigger, options = ACTIONS, ...otherProps } = {}) {
     return <DropdownMenu
@@ -424,6 +420,64 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon />, disabled: true })],
                     defaultOpen: true
+                })}
+            </div>
+        </div>
+    )
+    .add("link", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
+                    size: "small",
+                    open: true,
+                    style: { marginRight: "100px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
+                    size: "small",
+                    open: true,
+                    style: { marginRight: "125px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
+                    size: "small",
+                    open: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
+                    open: true,
+                    style: { marginRight: "100px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
+                    open: true,
+                    style: { marginRight: "125px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
+                    open: true
+                })}
+            </div>
+            <div className="flex">
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
+                    size: "large",
+                    open: true,
+                    style: { marginRight: "100px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
+                    size: "large",
+                    open: true,
+                    style: { marginRight: "125px" }
+                })}
+                {createDropdownMenu({
+                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
+                    size: "large",
+                    open: true
                 })}
             </div>
         </div>
