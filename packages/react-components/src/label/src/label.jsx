@@ -191,8 +191,6 @@ export function PureLabel(props) {
             className
         );
 
-        console.log("** icon: ", icon);
-
         return (
             <SemanticLabel size={size} className={classes} {...rest}>
                 {renderContent()}

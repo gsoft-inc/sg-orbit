@@ -12,7 +12,6 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = [
-    "as",
     "additionLabel",
     "additionPosition",
     "allowAdditions",
@@ -52,7 +51,7 @@ const propTypes = {
     /**
      * An array of items object shorthands.
      */
-    options: arrayOf(any),
+    options: arrayOf(any).isRequired,
     /**
      * A select can have a list of actions after his items.
      */
@@ -105,6 +104,10 @@ export function PureSelect(props) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
+
+    // A select doesn't support children.
+    // eslint-disable-next-line react/destructuring-assignment
+    delete props["children"];
 
     const renderLabel = ({ text, avatar, icons, iconsPosition }, index, { className, ...otherProps }) => {
         let content = text;
@@ -202,6 +205,7 @@ export const Select = forwardRef((props, ref) => (
     <PureSelect { ...props } forwardedRef={ref} />
 ));
 
+// Select.Divider, Select.Header, Select.Menu and Select.SearchInput are not supported.
 [PureSelect, Select].forEach(x => {
     x.Item = SelectItem;
 });

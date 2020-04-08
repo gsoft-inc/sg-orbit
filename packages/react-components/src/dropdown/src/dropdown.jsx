@@ -66,7 +66,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    options: arrayOf(any).isRequired,
+    options: arrayOf(any),
     /**
      * @ignore
      */
