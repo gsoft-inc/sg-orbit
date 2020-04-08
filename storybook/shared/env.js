@@ -1,9 +1,5 @@
 import { isNil } from "lodash";
 
-const COMPONENTS_SCOPE = "components";
-const SUI_THEME_SCOPE = "sui-theme";
-const MATERIALS_SCOPE = "materials";
-
 ///////////////////
 
 const isDebug = process.env.NODE_ENV !== "production";
@@ -23,19 +19,6 @@ const includeChromaticValue = process.env.STORYBOOK_INCLUDE_CHROMATIC;
 export const includeChromatic = !isDocs && (isChromatic || isNil(includeChromaticValue) || includeChromaticValue === "true");
 export const includeStories = !isChromatic;
 
-const scopes = process.env.STORYBOOK_SCOPES;
-
-let parsedScopes = null;
-
-if (!isNil(scopes)) {
-    parsedScopes = scopes.split(",");
-}
-
-export const includeComponents = isNil(parsedScopes) || parsedScopes.includes(COMPONENTS_SCOPE);
-export const includeSemanticTheme = isNil(parsedScopes) || parsedScopes.includes(SUI_THEME_SCOPE);
-export const includeMaterials = (isDebug || isChromatic || isDocs) && (isNil(parsedScopes) || parsedScopes.includes(MATERIALS_SCOPE));
-export const includeGettingStarted = isDebug || isDocs;
-
 ///////////////////
 
 export function printEnvironment() {
@@ -44,7 +27,6 @@ export function printEnvironment() {
         console.log("Is runned by chromatic: ", isChromatic);
         console.log("Is in docs mode: ", isDocs);
         console.log("Include chromatic stories: ", includeChromatic);
-        console.log("Scopes: ", isNil(scopes) ? "None" : scopes);
         console.log("**************************");
     }
 }

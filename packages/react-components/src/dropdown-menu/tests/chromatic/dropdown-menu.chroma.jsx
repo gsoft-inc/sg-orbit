@@ -1,4 +1,4 @@
-import { AddIcon, CalendarIcon, MagnifierIcon, VerticalDotsIcon } from "@react-components/icons";
+import { AddIcon, CalendarIcon, FileIcon, MagnifierIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { DropdownMenu } from "@react-components/dropdown-menu";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -144,8 +144,15 @@ stories()
     )
     .add("icon", () =>
         <div className="flex flex-column">
-            <div>
-
+            <div className="flex">
+                {createDropdownMenu({
+                    icon: <FileIcon />,
+                    className: "mr5"
+                })}
+                {createDropdownMenu({
+                    icon: <FileIcon />,
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
@@ -153,20 +160,10 @@ stories()
         createDropdownMenu({
             scrolling: true,
             options: [
-                { key: "New", text: "New", value: "New" },
-                { key: "Open...", text: "Open...", value: "Open..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." },
-                { key: "Rename...", text: "Rename...", value: "Rename..." }
+                ...ACTIONS,
+                ...ACTIONS,
+                ...ACTIONS,
+                ...ACTIONS
             ],
             defaultOpen: true
         })

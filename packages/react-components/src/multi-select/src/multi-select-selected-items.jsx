@@ -1,4 +1,3 @@
-import { Button } from "../../button";
 import { CloseIcon } from "../../icons";
 import { Label } from "../../label";
 import { PureComponent } from "react";
@@ -13,28 +12,14 @@ const ITEM_SHAPE = {
 };
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
-    const classes = mergeClasses(
-        !disabled && "icon"
-    );
-
     return (
         <Label
             basic
             size={size}
-            className={classes}
+            button={!disabled ? { icon: <CloseIcon />, onClick: onRemove } : undefined}
             data-testid={`multi-select-selected-item-${item.value}`}
         >
             {item.text}
-            <If condition={!disabled}>
-                <Button
-                    circular
-                    ghost
-                    secondary
-                    icon={<CloseIcon />}
-                    size="tiny"
-                    onClick={onRemove}
-                />
-            </If>
         </Label>
     );
 }

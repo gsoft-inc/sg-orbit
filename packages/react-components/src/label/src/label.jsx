@@ -176,20 +176,22 @@ export function PureLabel(props) {
     };
 
     const renderLabel = () => {
-        const hasText = Children.count(children);
+        const hasText = Children.count(children) > 0;
 
         const classes = mergeClasses(
             naked && "naked",
             highlight && "highlight",
             disabled && "disabled",
-            !isNil(button) && "with-button",
             !isNil(compact) && "compact",
+            !isNil(button) && "with-button",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
             !hasText && "without-text",
             className
         );
+
+        console.log("** icon: ", icon);
 
         return (
             <SemanticLabel size={size} className={classes} {...rest}>

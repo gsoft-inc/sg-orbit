@@ -171,7 +171,7 @@ export function PureButton(props) {
     };
 
     const renderButton = () => {
-        const hasText = Children.count(children);
+        const hasText = Children.count(children) > 0;
 
         const classes = mergeClasses(
             naked && "naked",
