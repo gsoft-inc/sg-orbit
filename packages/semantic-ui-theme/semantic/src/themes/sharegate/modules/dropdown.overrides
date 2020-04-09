@@ -120,7 +120,7 @@
 }
 
 .ui.selection.dropdown .menu > .item {
-    min-width: 300px;
+    min-width: 325px;
     height: var(--scale-hotel);
 }
 

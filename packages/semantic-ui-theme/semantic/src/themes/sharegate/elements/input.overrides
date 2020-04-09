@@ -4,7 +4,7 @@
 .ui.input > input {
     height: var(--scale-hotel);
     line-height: var(--scale-hotel);
-    min-width: 300px;
+    min-width: 325px;
 }
 
 .ui.input.fluid > input {
@@ -124,8 +124,14 @@
     padding-right: calc(var(--scale-echo) + var(--scale-golf));
 }
 
-.with-button .ui.input + .input-clear-button {
+.with-button .ui.input + .input-clear-button, {
     right: calc(var(--scale-echo) / 2);
+}
+
+/* Date Picker */
+.with-button .ui.input.large > input,
+.with-button .ui.left.icon.input.large > input {
+    padding-right: var(--scale-india) !important;
 }
 
 /* Small */

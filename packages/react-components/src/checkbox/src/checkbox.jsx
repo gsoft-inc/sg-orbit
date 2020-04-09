@@ -171,7 +171,7 @@ export function PureCheckbox(props) {
         }
 
         if (!isNil(text) || !isNil(right)) {
-            return <label>{!isNil(text) && text}{!isNil(right) && right}</label>;
+            return <label title={text}>{!isNil(text) && <span className="text">{text}</span>}{!isNil(right) && right}</label>;
         }
     };
 

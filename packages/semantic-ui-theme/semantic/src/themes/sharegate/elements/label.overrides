@@ -377,7 +377,6 @@
     padding-left: calc(var(--scale-foxtrot) / 2 - 2px);
 }
 
-
 /* Default - With icon right */
 .ui.label.mini.with-icon-right {
     padding-right: calc(var(--scale-bravo) - 2px);
@@ -491,6 +490,110 @@
 
 .ui.label.large.with-tag.compact {
     padding-left: calc(var(--scale-foxtrot) / 2 - 4px);
+}
+
+/* Default - With Avatar  */
+.ui.label.mini.with-avatar,
+.ui.multiple.dropdown > .label.mini.with-avatar {
+    padding-left: calc(var(--scale-bravo) / 2);
+}
+
+.ui.label.tiny.with-avatar,
+.ui.multiple.dropdown > .label.tiny.with-avatar {
+    padding-left: calc(var(--scale-charlie) / 2);
+}
+
+.ui.label.small.with-avatar,
+.ui.multiple.dropdown > .label.small.with-avatar {
+    padding-left: calc(var(--scale-delta) / 2);
+}
+
+.ui.label.medium.with-avatar,
+.ui.multiple.dropdown > .label.medium.with-avatar {
+    padding-left: calc(var(--scale-echo) /2 );
+}
+
+.ui.label.large.with-avatar,
+.ui.multiple.dropdown > .label.large.with-avatar {
+    padding-left: calc(var(--scale-foxtrot) / 2);
+}
+
+/* Compact - With Avatar  */
+.ui.label.mini.with-avatar.compact,
+.ui.multiple.dropdown > .label.mini.with-avatar.compact {
+    padding-left: calc(var(--scale-bravo) / 4);
+}
+
+.ui.label.tiny.with-avatar.compact,
+.ui.multiple.dropdown > .label.tiny.with-avatar.compact {
+    padding-left: calc(var(--scale-charlie) / 4);
+}
+
+.ui.label.small.with-avatar.compact,
+.ui.multiple.dropdown > .label.small.with-avatar.compact {
+    padding-left: calc(var(--scale-delta) / 4);
+}
+
+.ui.label.medium.with-avatar.compact,
+.ui.multiple.dropdown > .label.medium.with-avatar.compact {
+    padding-left: calc(var(--scale-echo) / 4);
+}
+
+.ui.label.large.with-avatar.compact,
+.ui.multiple.dropdown > .label.large.with-avatar.compact {
+    padding-left: calc(var(--scale-foxtrot) / 4);
+}
+
+/* Default - With Icons Left  */
+.ui.label.mini.with-icons-left,
+.ui.multiple.dropdown > .label.mini.with-icons-left {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.label.tiny.with-icons-left,
+.ui.multiple.dropdown > .label.tiny.with-icons-left {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.label.small.with-icons-left,
+.ui.multiple.dropdown > .label.small.with-icons-left {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.label.medium.with-icons-left,
+.ui.multiple.dropdown > .label.medium.with-icons-left {
+    padding-left: calc(var(--scale-echo) - 4px);
+}
+
+.ui.label.large.with-icons-left,
+.ui.multiple.dropdown > .label.large.with-icons-left {
+    padding-left: calc(var(--scale-foxtrot) - 4px);
+}
+
+/* Compact - With Icons Left  */
+.ui.label.mini.with-icons-left.compact,
+.ui.multiple.dropdown > .label.mini.with-icons-left.compact {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.label.tiny.with-icons-left.compact,
+.ui.multiple.dropdown > .label.tiny.with-icons-left.compact {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.label.small.with-icons-left.compact,
+.ui.multiple.dropdown > .label.small.with-icons-left.compact {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.label.medium.with-icons-left.compact,
+.ui.multiple.dropdown > .label.medium.with-icons-left.compact {
+    padding-left: calc(var(--scale-echo) - 2px);
+}
+
+.ui.label.large.with-avatar.compact,
+.ui.multiple.dropdown > .label.large.with-avatar.compact {
+    padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
 /* COMPACT */

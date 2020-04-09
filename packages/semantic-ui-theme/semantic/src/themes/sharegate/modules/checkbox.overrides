@@ -19,17 +19,16 @@
 
 .ui.radio.checkbox label:after,
 .ui.radio.checkbox.without-text.with-icon label:after  {
-    top: 50%;
-    transform: scale(0.5) translateY(-100%);
+    transform: scale(0.5);
+    top: auto;
 }
 
 .ui.radio.checkbox.without-text label:after {
-    top: 50%;
-    transform: scale(0.5) translateY(0);
+    transform: scale(0.5);
 }
 
 .ui.radio.checkbox.without-text.with-label label:after {
-    transform: scale(0.5) translateY(-100%);
+    transform: scale(0.5);
 }
 
 .ui.radio.checkbox input:checked ~ .box:after,
@@ -165,7 +164,7 @@
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
-    top: 12px;
+    top: 0;
     left: 6px;
 }
 
@@ -333,13 +332,31 @@
     align-items: center;
 }
 
+/* Making sure the checkbox have the height they deserve */
+.ui.checkbox.large,
+.ui.checkbox.large > label {
+    min-height: var(--scale-foxtrot);
+}
+
+.ui.checkbox.small,
+.ui.checkbox.small > label {
+    min-height: var(--scale-delta);
+}
+
 .ui.checkbox.radio label {
     padding-left: 1.625rem!important;
+    min-height: var(--scale-echo);
 }
 
 .ui.checkbox label {
-    padding-left: var(--scale-foxtrot);
+    padding-left: calc(var(--scale-foxtrot) + var(--scale-alpha));
     font-size: var(	--type-scale-7);
+}
+
+.ui.checkbox label span.text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .ui.checkbox.small {
@@ -490,7 +507,22 @@
 
 .ui.checkbox label > .icon,
 .ui.checkbox label > .label {
-    margin-left: var(--scale-alpha)
+    margin-left: var(--scale-alpha);
+}
+
+.ui.checkbox label > .icon {
+    flex-shrink: 0;
+    flex-basis: var(--scale-echo);
+}
+
+/* Small */
+.ui.checkbox.small label > .icon {
+    flex-basis: var(--scale-delta);
+}
+
+/* Large */
+.ui.checkbox.large label > .icon {
+    flex-basis: var(--scale-foxtrot);
 }
 
 /* State | Read Only */
@@ -551,7 +583,8 @@
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.checkbox.small .box,
 .ui.checkbox.small label {
-    padding-left: var(--scale-echo)!important;
+    padding-left: var(--scale-foxtrot)!important;
+    min-height: var(--scale-delta);
 }
 
 .ui.checkbox.small .box:before,
@@ -572,7 +605,8 @@
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.checkbox.large .box,
 .ui.checkbox.large label {
-    padding-left: 1.75rem!important;
+    padding-left: 2rem!important;
+    min-height: var(--scale-foxtrot);
 }
 
 .ui.checkbox.large .box:before,

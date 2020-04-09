@@ -46,7 +46,7 @@ function Labels({ element, ...rest }) {
                 <Radio label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio label={<Label>6</Label>} size="large" element={radio} />
             </div>
-            <div className="flex">
+            <div className="flex mb8">
                 <Radio disabled label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio readOnly label={<Label>6</Label>} element={radio} />
             </div>
@@ -71,6 +71,17 @@ export function createSharedStories(checkbox, stories) {
                     </div>
                     <Icons text="Milky Way" element={checkbox} />
                     <Labels text="Milky Way" element={checkbox} />
+                    <div className="flex mb8">
+                        <div className="flex mw5">
+                            <Radio text="Shurnarkabtishashutu, under the southern horn of the bull" element={checkbox} className="mr5" />
+                        </div>
+                        <div className="flex mw5">
+                            <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={checkbox} className="mr5" />
+                        </div>
+                        <div className="flex mw5">
+                            <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={checkbox} className="mr5" />
+                        </div>
+                    </div>
                 </div>
             </div>
         )
