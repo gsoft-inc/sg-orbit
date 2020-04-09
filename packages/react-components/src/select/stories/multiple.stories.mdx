@@ -42,53 +42,63 @@ A select can allow a user to make multiple choices.
 
 The following constants are used in the examples below:
 
-export const LANGUAGES = [
-    selectItem("Arabic", "Arabic"),
-    selectItem("Chinese", "Chinese"),
-    selectItem("Danish", "Danish"),
-    selectItem("Dutch", "Dutch"),
-    selectItem("English", "English"),
-    selectItem("French", "French"),
-    selectItem("German", "German"),
-    selectItem("Greek", "Greek"),
-    selectItem("Hungarian", "Hungarian"),
-    selectItem("Italian", "Italian"),
-    selectItem("Japanese", "Japanese"),
-    selectItem("Korean", "Korean"),
-    selectItem("Lithuanian", "Lithuanian"),
-    selectItem("Persian", "Persian"),
-    selectItem("Polish", "Polish"),
-    selectItem("Portuguese", "Portuguese"),
-    selectItem("Russian", "Russian"),
-    selectItem("Spanish", "Spanish"),
-    selectItem("Swedish", "Swedish"),
-    selectItem("Turkish", "Turkish"),
-    selectItem("Vietnamese", "Vietnamese")
+export const GALAXIES = [
+    selectItem("Andromeda", "Andromeda"),
+    selectItem("Antennae", "Antennae"),
+    selectItem("Backward", "Backward"),
+    selectItem("Black Eye", "Black Eye"),
+    selectItem("Butterfly", "Butterfly"),
+    selectItem("Cartwheel", "Cartwheel"),
+    selectItem("Cigar", "Cigar"),
+    selectItem("Circinus", "Circinus"),
+    selectItem("Coma Pinwheel", "Coma Pinwheel"),
+    selectItem("Comet", "Comet"),
+    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
+    selectItem("Eye of Sauron", "Eye of Sauron"),
+    selectItem("Fireworks", "Fireworks"),
+    selectItem("Hockey Stick", "Hockey Stick"),
+    selectItem("Hoag's Object", "Hoag's Object"),
+    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
+    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
+    selectItem("Little Sombrero", "Little Sombrero"),
+    selectItem("Medusa Merger", "Medusa Merger"),
+    selectItem("Mice", "Mice"),
+    selectItem("Milky Way", "Milky Way"),
+    selectItem("Needle", "Needle"),
+    selectItem("Southern Pinwheel", "Southern Pinwheel"),
+    selectItem("Sunflower", "Sunflower"),
+    selectItem("Tadpole", "Tadpole"),
+    selectItem("Whirlpool", "Whirlpool")
 ];
 
 ```javascript dark
-const LANGUAGES = [
-    selectItem("Arabic", "Arabic"),
-    selectItem("Chinese", "Chinese"),
-    selectItem("Danish", "Danish"),
-    selectItem("Dutch", "Dutch"),
-    selectItem("English", "English"),
-    selectItem("French", "French"),
-    selectItem("German", "German"),
-    selectItem("Greek", "Greek"),
-    selectItem("Hungarian", "Hungarian"),
-    selectItem("Italian", "Italian"),
-    selectItem("Japanese", "Japanese"),
-    selectItem("Korean", "Korean"),
-    selectItem("Lithuanian", "Lithuanian"),
-    selectItem("Persian", "Persian"),
-    selectItem("Polish", "Polish"),
-    selectItem("Portuguese", "Portuguese"),
-    selectItem("Russian", "Russian"),
-    selectItem("Spanish", "Spanish"),
-    selectItem("Swedish", "Swedish"),
-    selectItem("Turkish", "Turkish"),
-    selectItem("Vietnamese", "Vietnamese")
+const GALAXIES = [
+    selectItem("Andromeda", "Andromeda"),
+    selectItem("Antennae", "Antennae"),
+    selectItem("Backward", "Backward"),
+    selectItem("Black Eye", "Black Eye"),
+    selectItem("Butterfly", "Butterfly"),
+    selectItem("Cartwheel", "Cartwheel"),
+    selectItem("Cigar", "Cigar"),
+    selectItem("Circinus", "Circinus"),
+    selectItem("Coma Pinwheel", "Coma Pinwheel"),
+    selectItem("Comet", "Comet"),
+    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
+    selectItem("Eye of Sauron", "Eye of Sauron"),
+    selectItem("Fireworks", "Fireworks"),
+    selectItem("Hockey Stick", "Hockey Stick"),
+    selectItem("Hoag's Object", "Hoag's Object"),
+    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
+    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
+    selectItem("Little Sombrero", "Little Sombrero"),
+    selectItem("Medusa Merger", "Medusa Merger"),
+    selectItem("Mice", "Mice"),
+    selectItem("Milky Way", "Milky Way"),
+    selectItem("Needle", "Needle"),
+    selectItem("Southern Pinwheel", "Southern Pinwheel"),
+    selectItem("Sunflower", "Sunflower"),
+    selectItem("Tadpole", "Tadpole"),
+    selectItem("Whirlpool", "Whirlpool")
 ];
 ```
 
@@ -100,7 +110,7 @@ A default multiple values select.
     <Story name="default">
         <Select
             multiple
-            options={LANGUAGES}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -112,10 +122,9 @@ A multiple values select can have initial values. _Dont forget to specify values
 <Preview>
     <Story name="selected values">
         <Select
-            placeholder="Select language"
             multiple
-            defaultValue={["Dutch"]}
-            options={LANGUAGES}
+            defaultValue={["Comet"]}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -127,10 +136,10 @@ A multiple values select can display an [icon](?path=/docs/materials-icons--page
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="Select language"
+            placeholder="Select a galaxy"
             multiple
             icon={<MagnifierIcon />}
-            options={LANGUAGES}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -142,10 +151,10 @@ A multiple values select can take all the space available.
 <Preview>
     <Story name="fluid">
         <Select
-            placeholder="Select language"
+            placeholder="Select a galaxy"
             multiple
             fluid
-            options={LANGUAGES}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -157,10 +166,10 @@ A multiple values select can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Select language"
+            placeholder="Select a galaxy"
             multiple
             disabled
-            options={LANGUAGES}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -172,10 +181,10 @@ A multiple values select can be searchable.
 <Preview>
     <Story name="searchable">
         <Select
-            placeholder="Select language"
+            placeholder="Select a galaxy"
             multiple
             search
-            options={LANGUAGES}
+            options={GALAXIES}
         />
     </Story>
 </Preview>
@@ -187,8 +196,8 @@ A multiple values select can be searchable.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus multiple placeholder="Select language" options={LANGUAGES} />
-        <Select autofocus multiple disabled placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus multiple disabled placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
@@ -199,8 +208,8 @@ A multiple values select can be searchable.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
-        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select language" options={LANGUAGES} />
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
@@ -210,5 +219,5 @@ A multiple values select can be searchable.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select multiple options={LANGUAGES} />} />
+    <RefLogger component={<Select multiple options={GALAXIES} />} />
 </Story>
