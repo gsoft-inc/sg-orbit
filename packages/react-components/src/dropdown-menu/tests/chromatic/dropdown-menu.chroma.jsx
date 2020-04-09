@@ -40,7 +40,7 @@ function stories(segment) {
 stories()
     .add("text", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "200px" }}>
+            <div className="flex" style={{ marginBottom: "150px" }}>
                 {createDropdownMenu({
                     size: "small",
                     className: "mr5"
@@ -142,7 +142,7 @@ stories()
     )
     .add("icon", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "200px" }}>
+            <div className="flex" style={{ marginBottom: "150px" }}>
                 {createDropdownMenu({
                     icon: <FileIcon />,
                     size: "small",
@@ -204,7 +204,7 @@ stories()
                     direction: "left",
                     size: "small",
                     defaultOpen: true,
-                    style: { marginBottom: "200px" }
+                    style: { marginBottom: "150px" }
                 })}
                 {createDropdownMenu({
                     direction: "left",
@@ -214,8 +214,7 @@ stories()
                 {createDropdownMenu({
                     direction: "left",
                     size: "large",
-                    defaultOpen: true,
-                    style: { marginBottom: "200px" }
+                    defaultOpen: true
                 })}
             </div>
             <div className="flex flex-column">
@@ -223,7 +222,7 @@ stories()
                     direction: "right",
                     size: "small",
                     defaultOpen: true,
-                    style: { marginBottom: "200px" }
+                    style: { marginBottom: "150px" }
                 })}
                 {createDropdownMenu({
                     direction: "right",
@@ -233,8 +232,7 @@ stories()
                 {createDropdownMenu({
                     direction: "right",
                     size: "large",
-                    defaultOpen: true,
-                    style: { marginBottom: "200px" }
+                    defaultOpen: true
                 })}
             </div>
         </div>
