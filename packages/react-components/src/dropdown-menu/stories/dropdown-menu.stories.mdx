@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { DropdownMenu, PureDropdownMenu } from "@react-components/dropdown-menu";
-import { EditIcon, FolderIcon, GarbageIcon, HelpIcon, VerticalDotsIcon } from "@react-components/icons";
+import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -28,9 +28,9 @@ A dropdown menu can be used to offer a list of choices.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Dropdown", component: PureDropdownMenu },
-        { displayName: "Dropdown.Item", component: PureDropdownMenu.Item },
-        { displayName: "Dropdown.Header", component: PureDropdownMenu.Header }
+        { displayName: "DropdownMenu", component: PureDropdownMenu },
+        { displayName: "DropdownMenu.Item", component: PureDropdownMenu.Item },
+        { displayName: "DropdownMenu.Header", component: PureDropdownMenu.Header }
     ]}
 />
 
@@ -42,12 +42,12 @@ A default dropdown menu.
 
 <Preview>
     <Story name="default">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -58,12 +58,12 @@ A dropdown menu can have an icon.
 
 <Preview>
     <Story name="icon">
-        <DropdownMenu text="File" icon={<EditIcon />}>
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+        <DropdownMenu text="Task" icon={<FolderIcon />}>
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -75,11 +75,11 @@ A dropdown menu can have a custom trigger.
 <Preview>
     <Story name="trigger">
         <DropdownMenu trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}>
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -90,13 +90,13 @@ A dropdown menu can have an header.
 
 <Preview>
     <Story name="header">
-        <DropdownMenu text="File">
+        <DropdownMenu text="Task">
             <DropdownMenu.Header text="Quick actions" />
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -107,16 +107,13 @@ A dropdown menu items can be divided.
 
 <Preview>
     <Story name="divider">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
             <DropdownMenu.Divider />
-            <DropdownMenu.Item text="Download As..." />
-            <DropdownMenu.Item text="Publish To Web" />
-            <DropdownMenu.Item text="E-mail Collaborators" />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -127,28 +124,34 @@ A dropdown menu can vary in size.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-lot-of-space-between">
-            <DropdownMenu text="File" size="small">
-                <DropdownMenu.Item text="New" />
-                <DropdownMenu.Item text="Open..." />
-                <DropdownMenu.Item text="Save as..." />
-                <DropdownMenu.Item text="Rename" />
-                <DropdownMenu.Item text="Make a copy" />
-            </DropdownMenu>
-            <DropdownMenu text="File">
-                <DropdownMenu.Item text="New" />
-                <DropdownMenu.Item text="Open..." />
-                <DropdownMenu.Item text="Save as..." />
-                <DropdownMenu.Item text="Rename" />
-                <DropdownMenu.Item text="Make a copy" />
-            </DropdownMenu>
-            <DropdownMenu text="File" size="large">
-                <DropdownMenu.Item text="New" />
-                <DropdownMenu.Item text="Open..." />
-                <DropdownMenu.Item text="Save as..." />
-                <DropdownMenu.Item text="Rename" />
-                <DropdownMenu.Item text="Make a copy" />
-            </DropdownMenu>
+        <div className="flex">
+            <div className="mr12">
+                <DropdownMenu text="Task" size="small">
+                    <DropdownMenu.Item text="Launch..." />
+                    <DropdownMenu.Item text="Eject..." />
+                    <DropdownMenu.Item text="Land..." />
+                    <DropdownMenu.Item text="Help" />
+                    <DropdownMenu.Item text="Exit" />
+                </DropdownMenu>
+            </div>
+            <div className="mr12">
+                <DropdownMenu text="Task">
+                    <DropdownMenu.Item text="Launch..." />
+                    <DropdownMenu.Item text="Eject..." />
+                    <DropdownMenu.Item text="Land..." />
+                    <DropdownMenu.Item text="Help" />
+                    <DropdownMenu.Item text="Exit" />
+                </DropdownMenu>
+            </div>
+            <div>
+                <DropdownMenu text="Task" size="large">
+                    <DropdownMenu.Item text="Launch..." />
+                    <DropdownMenu.Item text="Eject..." />
+                    <DropdownMenu.Item text="Land..." />
+                    <DropdownMenu.Item text="Help" />
+                    <DropdownMenu.Item text="Exit" />
+                </DropdownMenu>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -159,21 +162,25 @@ A dropdown menu can open to the `left` or to the `right`.
 
 <Preview>
     <Story name="direction">
-        <div className="flex items-lot-of-space-between">
-            <DropdownMenu text="Left" direction="left">
-                <DropdownMenu.Item text="New" />
-                <DropdownMenu.Item text="Open..." />
-                <DropdownMenu.Item text="Save as..." />
-                <DropdownMenu.Item text="Rename" />
-                <DropdownMenu.Item text="Make a copy" />
-            </DropdownMenu>
-            <DropdownMenu text="Right" direction="right">
-                <DropdownMenu.Item text="New" />
-                <DropdownMenu.Item text="Open..." />
-                <DropdownMenu.Item text="Save as..." />
-                <DropdownMenu.Item text="Rename" />
-                <DropdownMenu.Item text="Make a copy" />
-            </DropdownMenu>
+        <div className="flex">
+            <div className="mr12">
+                <DropdownMenu text="Left" direction="left">
+                    <DropdownMenu.Item text="Launch..." />
+                    <DropdownMenu.Item text="Eject..." />
+                    <DropdownMenu.Item text="Land..." />
+                    <DropdownMenu.Item text="Help" />
+                    <DropdownMenu.Item text="Exit" />
+                </DropdownMenu>
+            </div>
+            <div>
+                <DropdownMenu text="Right" direction="right">
+                    <DropdownMenu.Item text="Launch..." />
+                    <DropdownMenu.Item text="Eject..." />
+                    <DropdownMenu.Item text="Land..." />
+                    <DropdownMenu.Item text="Help" />
+                    <DropdownMenu.Item text="Exit" />
+                </DropdownMenu>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -184,12 +191,78 @@ A dropdown menu can open upward.
 
 <Preview>
     <Story name="upward">
-        <DropdownMenu text="File" upward>
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+        <DropdownMenu text="Task" upward>
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+## Item
+
+### Description
+
+A dropdown menu item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." description="ctrl + l" />
+            <DropdownMenu.Item text="Eject..." description="ctrl + e" />
+            <DropdownMenu.Item text="Land..." description="ctrl + shift + l" />
+            <DropdownMenu.Item text="Help" description="ctrl + h" />
+            <DropdownMenu.Item text="Exit" description="ctrl + alt + del" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Icon
+
+A dropdown menu item can have an icon.
+
+<Preview>
+    <Story name="item icon">
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item icon={<HelpIcon />} text="Help" />
+            <DropdownMenu.Item icon={<SignoutIcon />} text="Exit" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Link
+
+A dropdown menu item can have a link.
+
+<Preview>
+    <Story name="item link">
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item as="a" text="Help" href="https://www.google.com" target="_blank" icon={<HelpIcon />} />
+            <DropdownMenu.Item text="Exit" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Disabled
+
+A dropdown menu can be disabled.
+
+<Preview>
+    <Story name="item disabled">
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." disabled />
+            <DropdownMenu.Item text="Land..." disabled />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     </Story>
 </Preview>
@@ -201,12 +274,12 @@ A dropdown menu can open upward.
         .build()}
 >
     <RefLogger component={
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
+        <DropdownMenu text="Task">
+            <DropdownMenu.Item text="Launch..." />
+            <DropdownMenu.Item text="Eject..." />
+            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.Item text="Help" />
+            <DropdownMenu.Item text="Exit" />
         </DropdownMenu>
     }
     />
