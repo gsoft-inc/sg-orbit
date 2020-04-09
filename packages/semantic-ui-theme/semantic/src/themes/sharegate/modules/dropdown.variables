@@ -91,7 +91,7 @@
 @menuHeaderPadding: 0 1rem;
 @menuInputMargin: 0;
 @menuHeaderMargin: 1rem 0 0.5rem 0;
-@menuHeaderColor: @cloud400;
+@menuHeaderColor: @marine900;
 @menuHeaderFontSize: 12px;
 @menuHeaderFontWeight: 500;
 @menuHeaderTextTransform: uppercase;
