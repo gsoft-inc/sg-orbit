@@ -75,18 +75,18 @@ stories()
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     trigger: <AddIcon />,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "150px" }
                 })}
                 {createDropdownMenu({
                     trigger: <AddIcon />,
                     size: "small",
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <AddIcon />,
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <AddIcon />,
@@ -97,18 +97,18 @@ stories()
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "150px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     size: "small",
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
@@ -119,18 +119,18 @@ stories()
             <div className="flex">
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "150px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
                     size: "small",
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
@@ -246,18 +246,17 @@ stories()
                     upward: true,
                     size: "small",
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     upward: true,
                     defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     upward: true,
                     size: "large",
-                    defaultOpen: true,
-                    style: { marginRight: "100px" }
+                    defaultOpen: true
                 })}
             </div>
         </div>
@@ -431,13 +430,13 @@ stories("/item")
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
                     size: "small",
                     open: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
                     size: "small",
                     open: true,
-                    style: { marginRight: "125px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
@@ -449,12 +448,12 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
                     open: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
                     open: true,
-                    style: { marginRight: "125px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
@@ -466,13 +465,13 @@ stories("/item")
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
                     size: "large",
                     open: true,
-                    style: { marginRight: "100px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
                     size: "large",
                     open: true,
-                    style: { marginRight: "125px" }
+                    style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
