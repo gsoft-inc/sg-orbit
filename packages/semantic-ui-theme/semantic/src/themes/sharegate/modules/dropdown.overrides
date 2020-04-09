@@ -120,6 +120,14 @@
     line-height: var(--scale-hotel);
 }
 
+.ui.dropdown .menu > .item span.text,
+.ui.dropdown .menu > .item span.description {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .ui.selection.dropdown .menu > .item {
     padding: var(--scale-alpha) var(--scale-echo) !important;
 }
