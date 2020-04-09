@@ -45,8 +45,7 @@ For a list of all the properties available on a select item and usage examples, 
 ```jsx dark
 <Select
     options={[
-        selectItem("Male", "Male"),
-        selectItem("Female", "Female", { disabled: true })
+        selectItem("Julie Payette", "Julie Payette", { disabled: true })
     ]}
 />
 ```
@@ -107,7 +106,7 @@ A select can display an [icon](?path=/docs/materials-icons--page) before it's co
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             icon={<GroupIcon />}
             options={ASTRONAUTS}
         />
@@ -121,7 +120,7 @@ A clearable select let a user remove is selection.
 <Preview>
     <Story name="clearable">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             clearable
             options={ASTRONAUTS}
         />
@@ -135,7 +134,7 @@ A select can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             disabled
             options={ASTRONAUTS}
         />
@@ -149,7 +148,7 @@ A select can take the width of its container.
 <Preview>
     <Story name="fluid">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             fluid
             options={ASTRONAUTS}
         />
@@ -166,18 +165,18 @@ Can be set to: `"small"`, `"large"` or omitted.
     <Story name="size">
         <div className="flex items-end items-space-between">
             <Select
-                placeholder="Select an astronaut"
+                placeholder="Astronaut"
                 fluid
                 size="small"
                 options={ASTRONAUTS}
             />
             <Select
-                placeholder="Select an astronaut"
+                placeholder="Astronaut"
                 fluid
                 options={ASTRONAUTS}
             />
             <Select
-                placeholder="Select an astronaut"
+                placeholder="Astronaut"
                 fluid
                 size="large"
                 options={ASTRONAUTS}
@@ -193,7 +192,7 @@ A select can show that the data contains errors.
 <Preview>
     <Story name="error">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             error
             options={ASTRONAUTS}
         />
@@ -209,7 +208,7 @@ Actions must be specified as [object shorthands](?path=/docs/getting-started-sho
 <Preview>
     <Story name="actions">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={ASTRONAUTS}
             actions={[{ content: <a href="https://en.wikipedia.org/wiki/Canadian_Astronaut_Corps" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
         />
@@ -223,7 +222,7 @@ A select can be open it's menu upward.
 <Preview>
     <Story name="upward">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={ASTRONAUTS}
             upward
         />
@@ -237,8 +236,8 @@ A select can be open it's menu upward.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus placeholder="Select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus disabled placeholder="Select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autofocus disabled placeholder="Astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -249,8 +248,8 @@ A select can be open it's menu upward.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} placeholder="Select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus disabled autofocusDelay={500} placeholder="Select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus autofocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autofocus disabled autofocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 

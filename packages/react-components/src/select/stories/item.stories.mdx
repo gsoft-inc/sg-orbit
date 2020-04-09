@@ -77,7 +77,7 @@ A select item accept text content.
 <Preview>
     <Story name="text">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={ASTRONAUTS}
         />
     </Story>
@@ -90,7 +90,7 @@ A select item can have a description.
 <Preview>
     <Story name="description">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={[
                 DAVID_SAINT_JACQUES_VALUE,
                 selectItem("Chris Hadfield", "Chris Hadfield", { description: "Commander of the ISS" }),
@@ -110,7 +110,7 @@ A select item can have an avatar.
 <Preview>
     <Story name="avatar">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={[
                 selectItem("David Saint-Jacques", "David Saint-Jacques", { avatar: { src: "https://randomuser.me/api/portraits/men/10.jpg", alt: "David Saint-Jacques" } }),
                 selectItem("Chris Hadfield", "Chris Hadfield", { avatar: { src: "https://randomuser.me/api/portraits/men/11.jpg", alt: "Chris Hadfield" } }),
@@ -131,7 +131,7 @@ A select item can display icons.
     <Story name="icons">
         <div className="flex items-space-between">
             <Select
-                placeholder="Select an astronaut"
+                placeholder="Astronaut"
                 options={[
                     DAVID_SAINT_JACQUES_VALUE,
                     selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon /> }),
@@ -142,7 +142,7 @@ A select item can display icons.
                 ]}
             />
             <Select
-                placeholder="Select an astronaut"
+                placeholder="Astronaut"
                 options={[
                     DAVID_SAINT_JACQUES_VALUE,
                     selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon />, iconsPosition: "right" }),
@@ -163,7 +163,7 @@ A select item can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Select an astronaut"
+            placeholder="Astronaut"
             options={[
                 DAVID_SAINT_JACQUES_VALUE,
                 selectItem("Chris Hadfield", "Chris Hadfield", { disabled: true }),
