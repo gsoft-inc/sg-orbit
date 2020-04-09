@@ -7,6 +7,11 @@
     line-height: 1;
 }
 
+/* LAYOUT | Dropdown Menu */
+.ui.dropdown-menu .menu {
+    min-width: 175px;
+}
+
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
     min-height: var(--scale-hotel);
