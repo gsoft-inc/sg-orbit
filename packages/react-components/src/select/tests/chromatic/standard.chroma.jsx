@@ -519,6 +519,44 @@ stories()
             </div>
         </div>
     )
+    .add("item overflow", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSelect({
+                    options: [
+                        MALE,
+                        { ...FEMALE, text: "Super long text that will not fit without overflowing" }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        MALE,
+                        { ...FEMALE, description: "Super long text that will not fit without overflowing" }
+                    ],
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex">
+                {createSelect({
+                    options: [
+                        MALE,
+                        { ...FEMALE, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }
+                    ],
+                    defaultOpen: true,
+                    className: "mr5"
+                })}
+                {createSelect({
+                    options: [
+                        MALE,
+                        { ...FEMALE, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }
+                    ],
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
+    )
     .add("styling", () =>
         <div className="flex">
             {createSelect({
