@@ -2,12 +2,8 @@ import { Children, forwardRef } from "react";
 import { Dropdown } from "../../dropdown";
 import { DropdownMenuHeader } from "./header";
 import { DropdownMenuItem } from "./item";
-import { func, object, oneOf, oneOfType, string } from "prop-types";
-import { mergeClasses } from "../../shared";
+import { func, object, oneOf, oneOfType } from "prop-types";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
-
-// TODO:
-// - Header should not have content prop and children? Maybe should support props: icon and text instead.
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -58,10 +54,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    className: string,
-    /**
-     * @ignore
-     */
     forwardedRef: oneOfType([object, func])
 };
 
@@ -70,21 +62,16 @@ const defaultProps = {
 };
 
 export function PureDropdownMenu(props) {
-    const { className, forwardedRef, children, ...rest } = props;
+    const { forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
     const hasChildren = Children.count(children) > 0;
 
-    const classes = mergeClasses(
-        "ui dropdown-menu",
-        className
-    );
-
     return (
         <Dropdown
-            className={classes}
             ref={forwardedRef}
+            __dropdownClasses="dropdown-menu"
             {...rest}
         >
             <Choose>

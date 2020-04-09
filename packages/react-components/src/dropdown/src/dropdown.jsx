@@ -86,6 +86,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    __dropdownClasses: string,
+    /**
+     * @ignore
+     */
     __semanticDropdown: elementType
 };
 
@@ -126,7 +130,7 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __semanticDropdown: InnerDropdown,...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown: InnerDropdown,...rest } = props;
 
     const _state = useRef({ valueChanged: false });
     const dropdownRef = useRef(null);
@@ -215,7 +219,8 @@ export function PureDropdown(props) {
 
     const dropdownClasses = mergeClasses(
         SIZES_CLASSES[size],
-        !isNil(icon) && "with-icon"
+        !isNil(icon) && "with-icon",
+        __dropdownClasses
     );
 
     return (
