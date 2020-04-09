@@ -194,65 +194,6 @@ A dropdown menu can open upward.
     </Story>
 </Preview>
 
-### Item description
-
-<Preview>
-    <Story name="item description">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." description="ctrl + o" />
-            <DropdownMenu.Item text="Save as..." description="ctrl + s" />
-            <DropdownMenu.Item text="Rename" description="ctrl + r" />
-            <DropdownMenu.Item text="Make a copy" />
-        </DropdownMenu>
-    </Story>
-</Preview>
-
-### Item icon
-
-<Preview>
-    <Story name="item icon">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
-            <DropdownMenu.Item icon={<FolderIcon />} text="Move to folder" />
-            <DropdownMenu.Item icon={<GarbageIcon />} text="Move to trash" />
-        </DropdownMenu>
-    </Story>
-</Preview>
-
-### Item link
-
-<Preview>
-    <Story name="item link">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" />
-            <DropdownMenu.Item as="a" text="Help" href="https://www.google.com" target="_blank" icon={<HelpIcon />} />
-        </DropdownMenu>
-    </Story>
-</Preview>
-
-### Item disabled
-
-<Preview>
-    <Story name="item disabled">
-        <DropdownMenu text="File">
-            <DropdownMenu.Item text="New" />
-            <DropdownMenu.Item text="Open..." />
-            <DropdownMenu.Item text="Save as..." disabled />
-            <DropdownMenu.Item text="Rename" />
-            <DropdownMenu.Item text="Make a copy" disabled />
-        </DropdownMenu>
-    </Story>
-</Preview>
-
 <Story
     name="ref"
     parameters={paramsBuilder()

@@ -1,0 +1,119 @@
+import { Button } from "@react-components/button";
+import { DropdownMenu, PureDropdownMenu } from "@react-components/dropdown-menu";
+import { EditIcon, FolderIcon, GarbageIcon, HelpIcon, VerticalDotsIcon } from "@react-components/icons";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("Dropdown Menu/item")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Dropdown Menu Item
+
+An item of a dropdown menu component.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "DropdownMenu.Item", component: PureDropdownMenu.Item }
+    ]}
+/>
+
+## Usage
+
+### Text
+
+A dropdown menu item can have a text content.
+
+<Preview>
+    <Story name="text">
+        <DropdownMenu text="File">
+            <DropdownMenu.Item text="New" />
+            <DropdownMenu.Item text="Open..." />
+            <DropdownMenu.Item text="Save as..." />
+            <DropdownMenu.Item text="Rename" />
+            <DropdownMenu.Item text="Make a copy" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Description
+
+A dropdown menu item can have a description.
+
+<Preview>
+    <Story name="description">
+        <DropdownMenu text="File">
+            <DropdownMenu.Item text="New" />
+            <DropdownMenu.Item text="Open..." description="ctrl + o" />
+            <DropdownMenu.Item text="Save as..." description="ctrl + s" />
+            <DropdownMenu.Item text="Rename" description="ctrl + r" />
+            <DropdownMenu.Item text="Make a copy" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Icon
+
+A dropdown menu item can have an icon.
+
+<Preview>
+    <Story name="icon">
+        <DropdownMenu text="File">
+            <DropdownMenu.Item text="New" />
+            <DropdownMenu.Item text="Open..." />
+            <DropdownMenu.Item text="Save as..." />
+            <DropdownMenu.Item text="Rename" />
+            <DropdownMenu.Item text="Make a copy" />
+            <DropdownMenu.Item icon={<FolderIcon />} text="Move to folder" />
+            <DropdownMenu.Item icon={<GarbageIcon />} text="Move to trash" />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Link
+
+A dropdown menu item can have a link.
+
+<Preview>
+    <Story name="link">
+        <DropdownMenu text="File">
+            <DropdownMenu.Item text="New" />
+            <DropdownMenu.Item text="Open..." />
+            <DropdownMenu.Item text="Save as..." />
+            <DropdownMenu.Item text="Rename" />
+            <DropdownMenu.Item text="Make a copy" />
+            <DropdownMenu.Item as="a" text="Help" href="https://www.google.com" target="_blank" icon={<HelpIcon />} />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Disabled
+
+A dropdown menu can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <DropdownMenu text="File">
+            <DropdownMenu.Item text="New" />
+            <DropdownMenu.Item text="Open..." />
+            <DropdownMenu.Item text="Save as..." disabled />
+            <DropdownMenu.Item text="Rename" />
+            <DropdownMenu.Item text="Make a copy" disabled />
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+
+
