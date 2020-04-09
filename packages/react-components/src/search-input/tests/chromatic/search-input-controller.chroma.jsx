@@ -1,4 +1,4 @@
-import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
+import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
 import { SearchInputController } from "@react-components/search-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";

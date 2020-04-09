@@ -3,7 +3,7 @@ A multi select component requires a set of items to display. Those items can be 
 To create an item, use the `multiSelectItem(text, value, category?, additionalProps?)` function:
 
 ```javascript dark
-const groupCreated = multiSelectItem("Created", "group-created");
+const apollo = multiSelectItem("Apollo Program", "apollo");
 ```
 
 <details><summary >optional category</summary>
@@ -11,8 +11,8 @@ const groupCreated = multiSelectItem("Created", "group-created");
 An optional `category` can be specified to group a set of items under a labelled category:
 
 ```javascript dark
-const groupCreated = multiSelectItem("Created", "group-created", "Group Lifecycle");
-const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecycle");
+const apollo = multiSelectItem("Apollo Program", "apollo", "1970");
+const skylab = multiSelectItem("Skylab", "skylab", "1970");
 ```
 </details>
 
@@ -21,7 +21,7 @@ const groupRestored = multiSelectItem("Created", "group-restored", "Group Lifecy
 Additional properties can be specified to provide additional information to any callbacks e.g. `onValuesChange` or `itemRenderer`.
 
 ```javascript dark
-const groupCreated = multiSelectItem("Created", "group-created", null, { backendId: 123 });
+const apollo = multiSelectItem("Apollo Program", "apollo", null, { backendId: 123 });
 ```
 
 Then in any callbacks:

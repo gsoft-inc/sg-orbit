@@ -1,4 +1,4 @@
-import { InfoIcon, WarningIcon } from "@react-components/icons";
+import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureSelect, Select, selectItem } from "@react-components/select";
@@ -36,22 +36,38 @@ An item of a select component.
 
 The following constants are used in the examples below:
 
-export const MALE = selectItem("Male", "Male");
-export const FEMALE = selectItem("Female", "Female");
-export const GENDERS = [MALE, FEMALE];
+export const DAVID_SAINT_JACQUES_VALUE = selectItem("David Saint-Jacques", "David Saint-Jacques");
+export const CHRIS_HADFIELD_VALUE = selectItem("Chris Hadfield", "Chris Hadfield");
+export const JEREMY_HANSEN_VALUE = selectItem("Jeremy Hansen", "Jeremy Hansen");
+export const JENNI_SIDEY_VALUE = selectItem("Jenni Sidey", "Jenni Sidey");
+export const ROBERT_THIRKS_VALUE = selectItem("Robert Thirks", "Robert Thirks");
+export const JULIE_PAYETTE = selectItem("Julie Payette", "Julie Payette");
 
-export const JENNY = selectItem("Jenny Hess", "Jenny Hess");
-export const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
-export const FRIENDS = [JENNY, ELLIOT];
+export const ASTRONAUTS = [
+    DAVID_SAINT_JACQUES_VALUE,
+    CHRIS_HADFIELD_VALUE,
+    JEREMY_HANSEN_VALUE,
+    JENNI_SIDEY_VALUE,
+    ROBERT_THIRKS_VALUE,
+    JULIE_PAYETTE
+];
 
 ```javascript dark
-const MALE = selectItem("Male", "Male");
-const FEMALE = selectItem("Female", "Female");
-const GENDERS = [MALE, FEMALE];
+export const DAVID_SAINT_JACQUES_VALUE = selectItem("David Saint-Jacques", "David Saint-Jacques");
+export const CHRIS_HADFIELD_VALUE = selectItem("Chris Hadfield", "Chris Hadfield");
+export const JEREMY_HANSEN_VALUE = selectItem("Jeremy Hansen", "Jeremy Hansen");
+export const JENNI_SIDEY_VALUE = selectItem("Jenni Sidey", "Jenni Sidey");
+export const ROBERT_THIRKS_VALUE = selectItem("Robert Thirks", "Robert Thirks");
+export const JULIE_PAYETTE = selectItem("Julie Payette", "Julie Payette");
 
-const JENNY = selectItem("Jenny Hess", "Jenny Hess");
-const ELLIOT = selectItem("Elliot Fu", "Elliot Fu");
-const FRIENDS = [JENNY, ELLIOT];
+export const ASTRONAUTS = [
+    DAVID_SAINT_JACQUES_VALUE,
+    CHRIS_HADFIELD_VALUE,
+    JEREMY_HANSEN_VALUE,
+    JENNI_SIDEY_VALUE,
+    ROBERT_THIRKS_VALUE,
+    JULIE_PAYETTE
+];
 ```
 
 ### Text
@@ -61,8 +77,8 @@ A select item accept text content.
 <Preview>
     <Story name="text">
         <Select
-            placeholder="Gender"
-            options={GENDERS}
+            placeholder="Select an astronaut"
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -74,10 +90,14 @@ A select item can have a description.
 <Preview>
     <Story name="description">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             options={[
-                MALE,
-                selectItem("Female", "Female", { description: "From the Latin word femella" })
+                DAVID_SAINT_JACQUES_VALUE,
+                selectItem("Chris Hadfield", "Chris Hadfield", { description: "Commander of the ISS" }),
+                JEREMY_HANSEN_VALUE,
+                JENNI_SIDEY_VALUE,
+                ROBERT_THIRKS_VALUE,
+                selectItem("Julie Payette", "Julie Payette", { description: "29th GGC" })
             ]}
         />
     </Story>
@@ -90,10 +110,14 @@ A select item can have an avatar.
 <Preview>
     <Story name="avatar">
         <Select
-            placeholder="Friends"
+            placeholder="Select an astronaut"
             options={[
-                selectItem("Jenny Hess", "Jenny Hess", { avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenny" } }),
-                selectItem("Elliot Fu", "Elliot Fu", { avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Elliot" } })
+                selectItem("David Saint-Jacques", "David Saint-Jacques", { avatar: { src: "https://randomuser.me/api/portraits/men/10.jpg", alt: "David Saint-Jacques" } }),
+                selectItem("Chris Hadfield", "Chris Hadfield", { avatar: { src: "https://randomuser.me/api/portraits/men/11.jpg", alt: "Chris Hadfield" } }),
+                selectItem("Jeremy Hansen", "Jeremy Hansen", { avatar: { src: "https://randomuser.me/api/portraits/men/12.jpg", alt: "Jeremy Hansen" } }),
+                selectItem("Jenni Sidey", "Jenni Sidey", { avatar: { src: "https://randomuser.me/api/portraits/women/12.jpg", alt: "Jenni Sidey" } }),
+                selectItem("Robert Thirks", "Robert Thirks", { avatar: { src: "https://randomuser.me/api/portraits/men/13.jpg", alt: "Robert Thirks" } }),
+                selectItem("Julie Payette", "Julie Payette", { avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Julie Payette" } })
             ]}
         />
     </Story>
@@ -107,17 +131,25 @@ A select item can display icons.
     <Story name="icons">
         <div className="flex items-space-between">
             <Select
-                placeholder="Gender"
+                placeholder="Select an astronaut"
                 options={[
-                    selectItem("Male", "Male", { icons: <WarningIcon className="fill-marine-300" /> }),
-                    selectItem("Female", "Female", { icons: <InfoIcon className="fill-marine-300" /> })
+                    DAVID_SAINT_JACQUES_VALUE,
+                    selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon /> }),
+                    JEREMY_HANSEN_VALUE,
+                    JENNI_SIDEY_VALUE,
+                    ROBERT_THIRKS_VALUE,
+                    selectItem("Julie Payette", "Julie Payette", { icons: [<InfoIcon />, <HelpIcon />] })
                 ]}
             />
             <Select
-                placeholder="Gender"
+                placeholder="Select an astronaut"
                 options={[
-                    selectItem("Male", "Male", { icons: <WarningIcon className="fill-marine-300" />, iconsPosition: "right" }),
-                    selectItem("Female", "Female", { icons: <InfoIcon className="fill-marine-300" />, iconsPosition: "right" })
+                    DAVID_SAINT_JACQUES_VALUE,
+                    selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon />, iconsPosition: "right" }),
+                    JEREMY_HANSEN_VALUE,
+                    JENNI_SIDEY_VALUE,
+                    ROBERT_THIRKS_VALUE,
+                    selectItem("Julie Payette", "Julie Payette", { icons: [<InfoIcon />, <HelpIcon />], iconsPosition: "right" })
                 ]}
             />
         </div>
@@ -131,10 +163,15 @@ A select item can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             options={[
-                MALE,
-                selectItem("Female", "Female", { disabled: true })
+                DAVID_SAINT_JACQUES_VALUE,
+                selectItem("Chris Hadfield", "Chris Hadfield", { disabled: true }),
+                JEREMY_HANSEN_VALUE,
+                JENNI_SIDEY_VALUE,
+                ROBERT_THIRKS_VALUE,
+                JULIE_PAYETTE,
+                selectItem("Julie Payette", "Julie Payette", { disabled: true })
             ]}
         />
     </Story>

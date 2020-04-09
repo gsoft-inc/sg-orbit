@@ -1,5 +1,5 @@
-import { BulbIcon } from "@react-components/icons";
 import { DropdownMenu } from "@react-components/dropdown-menu";
+import { LightbulbIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -66,7 +66,7 @@ stories("/sub components")
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
@@ -86,7 +86,7 @@ stories("/sub components")
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
@@ -106,7 +106,7 @@ stories("/sub components")
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
                 <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "100px" }}>
-                    <DropdownMenu.Header text="Quick Actions" icon={<BulbIcon />} />
+                    <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />

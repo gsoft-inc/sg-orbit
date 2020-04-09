@@ -42,7 +42,7 @@ A radio can have a text.
 
 <Preview>
     <Story name="text">
-        <Radio text="Milky Way"/>
+        <Radio text="Mars"/>
     </Story>
 </Preview>
 
@@ -52,7 +52,7 @@ A radio can be selected.
 
 <Preview>
     <Story name="selected">
-        <Radio defaultChecked text="Milky Way"/>
+        <Radio defaultChecked text="Mars"/>
     </Story>
 </Preview>
 
@@ -62,7 +62,7 @@ A radio can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Radio disabled text="Milky Way"/>
+        <Radio disabled text="Mars"/>
     </Story>
 </Preview>
 
@@ -72,7 +72,7 @@ A radio can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Radio readOnly text="Milky Way" />
+        <Radio readOnly text="Mars" />
     </Story>
 </Preview>
 
@@ -95,9 +95,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-lot-of-space-between">
-            <Radio size="small" text="Milky Way" />
-            <Radio text="Milky Way" />
-            <Radio size="large" text="Milky Way" />
+            <Radio size="small" text="Mars" />
+            <Radio text="Mars" />
+            <Radio size="large" text="Mars" />
         </div>
     </Story>
 </Preview>
@@ -106,7 +106,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 Radios buttons in a group must be controlled components.
 
-<FilePreview filePath="/input/stories/radio/components/controlled-radio-group">
+<FilePreview filePath="/radio/stories/components/controlled-radio-group">
     <ControlledRadioGroup />
 </FilePreview>
 
@@ -116,5 +116,5 @@ Radios buttons in a group must be controlled components.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Radio text="Milky Way" />} />
+    <RefLogger component={<Radio text="Mars" />} />
 </Story>

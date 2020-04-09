@@ -55,25 +55,23 @@ For a list of all the properties available on a select item and usage examples, 
 
 The following constants are used in the examples below:
 
-export const GENDERS = [
-    selectItem("Male", "Male"),
-    selectItem("Female", "Female")
-];
-
-export const FRIENDS = [
-    selectItem("Jenny Hess", "Jenny Hess"),
-    selectItem("Elliot Fu", "Elliot Fu")
+export const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
 
 ```javascript dark
-const GENDERS = [
-    selectItem("Male", "Male"),
-    selectItem("Female", "Female")
-];
-
-const FRIENDS = [
-    selectItem("Jenny Hess", "Jenny Hess"),
-    selectItem("Elliot Fu", "Elliot Fu")
+const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
 ```
 
@@ -84,7 +82,7 @@ A default select.
 <Preview>
     <Story name="default">
         <Select
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -96,9 +94,8 @@ A select can have an initial value.
 <Preview>
     <Story name="selected value">
         <Select
-            placeholder="Gender"
-            defaultValue="Female"
-            options={GENDERS}
+            defaultValue="Chris Hadfield"
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -110,9 +107,9 @@ A select can display an [icon](?path=/docs/materials-icons--page) before it's co
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             icon={<GroupIcon />}
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -124,9 +121,9 @@ A clearable select let a user remove is selection.
 <Preview>
     <Story name="clearable">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             clearable
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -138,9 +135,9 @@ A select can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             disabled
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -152,9 +149,9 @@ A select can take the width of its container.
 <Preview>
     <Story name="fluid">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             fluid
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -169,21 +166,21 @@ Can be set to: `"small"`, `"large"` or omitted.
     <Story name="size">
         <div className="flex items-end items-space-between">
             <Select
-                placeholder="Gender"
+                placeholder="Select an astronaut"
                 fluid
                 size="small"
-                options={GENDERS}
+                options={ASTRONAUTS}
             />
             <Select
-                placeholder="Gender"
+                placeholder="Select an astronaut"
                 fluid
-                options={GENDERS}
+                options={ASTRONAUTS}
             />
             <Select
-                placeholder="Gender"
+                placeholder="Select an astronaut"
                 fluid
                 size="large"
-                options={GENDERS}
+                options={ASTRONAUTS}
             />
         </div>
     </Story>
@@ -196,9 +193,9 @@ A select can show that the data contains errors.
 <Preview>
     <Story name="error">
         <Select
-            placeholder="Gender"
+            placeholder="Select an astronaut"
             error
-            options={GENDERS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -212,9 +209,9 @@ Actions must be specified as [object shorthands](?path=/docs/getting-started-sho
 <Preview>
     <Story name="actions">
         <Select
-            placeholder="Gender"
-            options={GENDERS}
-            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Gender" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
+            placeholder="Select an astronaut"
+            options={ASTRONAUTS}
+            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Canadian_Astronaut_Corps" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
         />
     </Story>
 </Preview>
@@ -226,8 +223,8 @@ A select can be open it's menu upward.
 <Preview>
     <Story name="upward">
         <Select
-            placeholder="Gender"
-            options={GENDERS}
+            placeholder="Select an astronaut"
+            options={ASTRONAUTS}
             upward
         />
     </Story>
@@ -240,8 +237,8 @@ A select can be open it's menu upward.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus placeholder="Gender" options={GENDERS} />
-        <Select autofocus disabled placeholder="Gender" options={GENDERS} />
+        <Select autofocus placeholder="Select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus disabled placeholder="Select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -252,8 +249,8 @@ A select can be open it's menu upward.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} placeholder="Gender" options={GENDERS} />
-        <Select autofocus disabled autofocusDelay={500} placeholder="Gender" options={GENDERS} />
+        <Select autofocus autofocusDelay={500} placeholder="Select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus disabled autofocusDelay={500} placeholder="Select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -263,5 +260,5 @@ A select can be open it's menu upward.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select options={GENDERS} />} />
+    <RefLogger component={<Select options={ASTRONAUTS} />} />
 </Story>
