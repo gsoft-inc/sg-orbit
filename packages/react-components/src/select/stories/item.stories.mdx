@@ -36,37 +36,37 @@ An item of a select component.
 
 The following constants are used in the examples below:
 
-export const DAVID_SAINT_JACQUES_VALUE = selectItem("David Saint-Jacques", "David Saint-Jacques");
-export const CHRIS_HADFIELD_VALUE = selectItem("Chris Hadfield", "Chris Hadfield");
-export const JEREMY_HANSEN_VALUE = selectItem("Jeremy Hansen", "Jeremy Hansen");
-export const JENNI_SIDEY_VALUE = selectItem("Jenni Sidey", "Jenni Sidey");
-export const ROBERT_THIRKS_VALUE = selectItem("Robert Thirks", "Robert Thirks");
-export const JULIE_PAYETTE = selectItem("Julie Payette", "Julie Payette");
+export const DAVID_SAINT_JACQUES_ITEM = selectItem("David Saint-Jacques", "David Saint-Jacques");
+export const CHRIS_HADFIELD_ITEM = selectItem("Chris Hadfield", "Chris Hadfield");
+export const JEREMY_HANSEN_ITEM = selectItem("Jeremy Hansen", "Jeremy Hansen");
+export const JENNI_SIDEY_ITEM = selectItem("Jenni Sidey", "Jenni Sidey");
+export const ROBERT_THIRKS_ITEM = selectItem("Robert Thirks", "Robert Thirks");
+export const JULIE_PAYETTE_ITEM = selectItem("Julie Payette", "Julie Payette");
 
 export const ASTRONAUTS = [
-    DAVID_SAINT_JACQUES_VALUE,
-    CHRIS_HADFIELD_VALUE,
-    JEREMY_HANSEN_VALUE,
-    JENNI_SIDEY_VALUE,
-    ROBERT_THIRKS_VALUE,
-    JULIE_PAYETTE
+    DAVID_SAINT_JACQUES_ITEM,
+    CHRIS_HADFIELD_ITEM,
+    JEREMY_HANSEN_ITEM,
+    JENNI_SIDEY_ITEM,
+    ROBERT_THIRKS_ITEM,
+    JULIE_PAYETTE_ITEM
 ];
 
 ```javascript dark
-export const DAVID_SAINT_JACQUES_VALUE = selectItem("David Saint-Jacques", "David Saint-Jacques");
-export const CHRIS_HADFIELD_VALUE = selectItem("Chris Hadfield", "Chris Hadfield");
-export const JEREMY_HANSEN_VALUE = selectItem("Jeremy Hansen", "Jeremy Hansen");
-export const JENNI_SIDEY_VALUE = selectItem("Jenni Sidey", "Jenni Sidey");
-export const ROBERT_THIRKS_VALUE = selectItem("Robert Thirks", "Robert Thirks");
-export const JULIE_PAYETTE = selectItem("Julie Payette", "Julie Payette");
+export const DAVID_SAINT_JACQUES_ITEM = selectItem("David Saint-Jacques", "David Saint-Jacques");
+export const CHRIS_HADFIELD_ITEM = selectItem("Chris Hadfield", "Chris Hadfield");
+export const JEREMY_HANSEN_ITEM = selectItem("Jeremy Hansen", "Jeremy Hansen");
+export const JENNI_SIDEY_ITEM = selectItem("Jenni Sidey", "Jenni Sidey");
+export const ROBERT_THIRKS_ITEM = selectItem("Robert Thirks", "Robert Thirks");
+export const JULIE_PAYETTE_ITEM = selectItem("Julie Payette", "Julie Payette");
 
 export const ASTRONAUTS = [
-    DAVID_SAINT_JACQUES_VALUE,
-    CHRIS_HADFIELD_VALUE,
-    JEREMY_HANSEN_VALUE,
-    JENNI_SIDEY_VALUE,
-    ROBERT_THIRKS_VALUE,
-    JULIE_PAYETTE
+    DAVID_SAINT_JACQUES_ITEM,
+    CHRIS_HADFIELD_ITEM,
+    JEREMY_HANSEN_ITEM,
+    JENNI_SIDEY_ITEM,
+    ROBERT_THIRKS_ITEM,
+    JULIE_PAYETTE_ITEM
 ];
 ```
 
@@ -92,11 +92,11 @@ A select item can have a description.
         <Select
             placeholder="Astronaut"
             options={[
-                DAVID_SAINT_JACQUES_VALUE,
+                DAVID_SAINT_JACQUES_ITEM,
                 selectItem("Chris Hadfield", "Chris Hadfield", { description: "Commander of the ISS" }),
-                JEREMY_HANSEN_VALUE,
-                JENNI_SIDEY_VALUE,
-                ROBERT_THIRKS_VALUE,
+                JEREMY_HANSEN_ITEM,
+                JENNI_SIDEY_ITEM,
+                ROBERT_THIRKS_ITEM,
                 selectItem("Julie Payette", "Julie Payette", { description: "29th GGC" })
             ]}
         />
@@ -133,22 +133,22 @@ A select item can display icons.
             <Select
                 placeholder="Astronaut"
                 options={[
-                    DAVID_SAINT_JACQUES_VALUE,
+                    DAVID_SAINT_JACQUES_ITEM,
                     selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon /> }),
-                    JEREMY_HANSEN_VALUE,
-                    JENNI_SIDEY_VALUE,
-                    ROBERT_THIRKS_VALUE,
+                    JEREMY_HANSEN_ITEM,
+                    JENNI_SIDEY_ITEM,
+                    ROBERT_THIRKS_ITEM,
                     selectItem("Julie Payette", "Julie Payette", { icons: [<InfoIcon />, <HelpIcon />] })
                 ]}
             />
             <Select
                 placeholder="Astronaut"
                 options={[
-                    DAVID_SAINT_JACQUES_VALUE,
+                    DAVID_SAINT_JACQUES_ITEM,
                     selectItem("Chris Hadfield", "Chris Hadfield", { icons: <WarningIcon />, iconsPosition: "right" }),
-                    JEREMY_HANSEN_VALUE,
-                    JENNI_SIDEY_VALUE,
-                    ROBERT_THIRKS_VALUE,
+                    JEREMY_HANSEN_ITEM,
+                    JENNI_SIDEY_ITEM,
+                    ROBERT_THIRKS_ITEM,
                     selectItem("Julie Payette", "Julie Payette", { icons: [<InfoIcon />, <HelpIcon />], iconsPosition: "right" })
                 ]}
             />
@@ -165,12 +165,12 @@ A select item can be disabled.
         <Select
             placeholder="Astronaut"
             options={[
-                DAVID_SAINT_JACQUES_VALUE,
+                DAVID_SAINT_JACQUES_ITEM,
                 selectItem("Chris Hadfield", "Chris Hadfield", { disabled: true }),
-                JEREMY_HANSEN_VALUE,
-                JENNI_SIDEY_VALUE,
-                ROBERT_THIRKS_VALUE,
-                JULIE_PAYETTE,
+                JEREMY_HANSEN_ITEM,
+                JENNI_SIDEY_ITEM,
+                ROBERT_THIRKS_ITEM,
+                JULIE_PAYETTE_ITEM,
                 selectItem("Julie Payette", "Julie Payette", { disabled: true })
             ]}
         />

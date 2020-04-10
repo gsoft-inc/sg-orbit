@@ -49,55 +49,41 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 
 The following constants are used in the examples below:
 
-export const MERCURY_VALUE = "mercury";
-export const GEMINI_VALUE = "gemini";
-export const APOLLO_VALUE = "apollo";
-export const SKYLAB_VALUE = "skylab";
-export const SOYUZ_VALUE = "soyuz";
-export const ARTEMIS_VALUE = "artemis";
-
 export const DEFAULT_ITEMS = [
-    multiSelectItem("Mercury Program", MERCURY_VALUE),
-    multiSelectItem("Gemini Program", GEMINI_VALUE),
-    multiSelectItem("Apollo Program", APOLLO_VALUE),
-    multiSelectItem("Skylab", SKYLAB_VALUE),
-    multiSelectItem("Apollo–Soyuz Test Project", SOYUZ_VALUE),
-    multiSelectItem("Artemis Program", ARTEMIS_VALUE)
+    multiSelectItem("Mercury Program", "mercury"),
+    multiSelectItem("Gemini Program", "gemini"),
+    multiSelectItem("Apollo Program", "apollo"),
+    multiSelectItem("Skylab", "skylab"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
+    multiSelectItem("Artemis Program", "artemis")
 ];
 
 export const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Mercury Program", MERCURY_VALUE, "1950"),
-    multiSelectItem("Gemini Program", GEMINI_VALUE, "1960"),
-    multiSelectItem("Apollo Program", APOLLO_VALUE, "1970"),
-    multiSelectItem("Skylab", SKYLAB_VALUE, "1970"),
-    multiSelectItem("Apollo–Soyuz Test Project", SOYUZ_VALUE, "1970"),
-    multiSelectItem("Artemis Program", ARTEMIS_VALUE, "2010")
+    multiSelectItem("Mercury Program", "mercury", "1950"),
+    multiSelectItem("Gemini Program", "gemini", "1960"),
+    multiSelectItem("Apollo Program", "apollo", "1970"),
+    multiSelectItem("Skylab", "skylab", "1970"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    multiSelectItem("Artemis Program", "artemis", "2010")
 ];
 
 ```js dark
-const MERCURY_VALUE = "mercury";
-const GEMINI_VALUE = "gemini";
-const APOLLO_VALUE = "apollo";
-const SKYLAB_VALUE = "skylab";
-const SOYUZ_VALUE = "soyuz";
-const ARTEMIS_VALUE = "artemis";
-
 const DEFAULT_ITEMS = [
-    multiSelectItem("Mercury Program", MERCURY_VALUE),
-    multiSelectItem("Gemini Program", GEMINI_VALUE),
-    multiSelectItem("Apollo Program", APOLLO_VALUE),
-    multiSelectItem("Skylab", SKYLAB_VALUE),
-    multiSelectItem("Apollo–Soyuz Test Project", SOYUZ_VALUE),
-    multiSelectItem("Artemis Program", ARTEMIS_VALUE)
+    multiSelectItem("Mercury Program", "mercury"),
+    multiSelectItem("Gemini Program", "gemini"),
+    multiSelectItem("Apollo Program", "apollo"),
+    multiSelectItem("Skylab", "skylab"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
+    multiSelectItem("Artemis Program", "artemis")
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Mercury Program", MERCURY_VALUE, "1950"),
-    multiSelectItem("Gemini Program", GEMINI_VALUE, "1960"),
-    multiSelectItem("Apollo Program", APOLLO_VALUE, "1970"),
-    multiSelectItem("Skylab", SKYLAB_VALUE, "1970"),
-    multiSelectItem("Apollo–Soyuz Test Project", SOYUZ_VALUE, "1970"),
-    multiSelectItem("Artemis Program", ARTEMIS_VALUE, "2010")
+    multiSelectItem("Mercury Program", "mercury", "1950"),
+    multiSelectItem("Gemini Program", "gemini", "1960"),
+    multiSelectItem("Apollo Program", "apollo", "1970"),
+    multiSelectItem("Skylab", "skylab", "1970"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    multiSelectItem("Artemis Program", "artemis", "2010")
 ];
 ```
 
@@ -126,7 +112,7 @@ A default multi select.
     <MultiSelect
         items={DEFAULT_ITEMS}
         // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
-        defaultValues={[SKYLAB_VALUE, GEMINI_VALUE]}
+        defaultValues={["skylab", "gemini"]}
         closeOnSelect={boolean("closeOnSelect", false)}
         noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
         triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
@@ -160,7 +146,7 @@ A multi select can have an initial set of selected items.
 <Preview>
     <Story name="default values">
         <MultiSelect
-            defaultValues={[GEMINI_VALUE, SKYLAB_VALUE]}
+            defaultValues={["gemini", "skylab"]}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
@@ -219,7 +205,7 @@ A multi select can be disabled.
         <MultiSelect
             disabled
             items={DEFAULT_ITEMS}
-            defaultValues={[GEMINI_VALUE, SKYLAB_VALUE]}
+            defaultValues={["gemini", "skylab"]}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -251,14 +237,14 @@ Can be set to: `"small"`, `"large"` or omitted.
                 <MultiSelect
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GEMINI_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
             <div className="flex-auto">
                 <MultiSelect
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GEMINI_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
@@ -266,7 +252,7 @@ Can be set to: `"small"`, `"large"` or omitted.
                 <MultiSelect
                     size="large"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GEMINI_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
@@ -281,7 +267,7 @@ A multi select can handle `values` and `open` state in controlled mode.
 <FilePreview filePath="/multi-select/stories/components/controlled-multi-select">
     <ControlledMultiSelect
         items={DEFAULT_ITEMS}
-        values={[SKYLAB_VALUE, GEMINI_VALUE]}
+        values={["skylab", "gemini"]}
         onValuesChange={logValuesChanged}
     />
 </FilePreview>

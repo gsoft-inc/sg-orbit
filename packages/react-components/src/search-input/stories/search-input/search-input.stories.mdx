@@ -43,37 +43,23 @@ A search input allows a user to query for results from a fixed set of data.
 
 The following constants are used in the examples below:
 
-export const ALAN_SHEPARD_VALUE = "Alan Shepard";
-export const JOHN_GLEN_VALUE = "John Glen";
-export const NEIL_ARMSTRONG_VALUE = "Neil Armstrong";
-export const BUZZ_ALDRIN_VALUE = "Buzz Aldrin";
-export const GUS_GRISSOM_VALUE = "Gus Grissom";
-export const DEKE_SLAYTON_VALUE = "Deke Slayton";
-
 export const DEFAULT_RESULTS = [
-    searchInputResult("1", ALAN_SHEPARD_VALUE),
-    searchInputResult("2", JOHN_GLEN_VALUE),
-    searchInputResult("3", NEIL_ARMSTRONG_VALUE),
-    searchInputResult("4", BUZZ_ALDRIN_VALUE),
-    searchInputResult("5", GUS_GRISSOM_VALUE),
-    searchInputResult("6", DEKE_SLAYTON_VALUE)
+    searchInputResult("1", "Alan Shepard"),
+    searchInputResult("2", "John Glen"),
+    searchInputResult("3", "Neil Armstrong"),
+    searchInputResult("4", "Buzz Aldrin"),
+    searchInputResult("5", "Gus Grissom"),
+    searchInputResult("6", "Deke Slayton")
 ];
 
 ```javascript dark
-const ALAN_SHEPARD_VALUE = "Alan Shepard";
-const JOHN_GLEN_VALUE = "John Glen";
-const NEIL_ARMSTRONG_VALUE = "Neil Armstrong";
-const BUZZ_ALDRIN_VALUE = "Buzz Aldrin";
-const GUS_GRISSOM_VALUE = "Gus Grissom";
-const DEKE_SLAYTON_VALUE = "Deke Slayton";
-
 const DEFAULT_RESULTS = [
-    searchInputResult("1", ALAN_SHEPARD_VALUE),
-    searchInputResult("2", JOHN_GLEN_VALUE),
-    searchInputResult("3", NEIL_ARMSTRONG_VALUE),
-    searchInputResult("4", BUZZ_ALDRIN_VALUE),
-    searchInputResult("5", GUS_GRISSOM_VALUE),
-    searchInputResult("6", DEKE_SLAYTON_VALUE)
+    searchInputResult("1", "Alan Shepard"),
+    searchInputResult("2", "John Glen"),
+    searchInputResult("3", "Neil Armstrong"),
+    searchInputResult("4", "Buzz Aldrin"),
+    searchInputResult("5", "Gus Grissom"),
+    searchInputResult("6", "Deke Slayton")
 ];
 ```
 
@@ -122,7 +108,7 @@ A search input can have an initial value.
 <Preview>
     <Story name="selected value">
         <SearchInput
-            defaultValue={JOHN_GLEN_VALUE}
+            defaultValue="John Glen"
             results={DEFAULT_RESULTS}
             onValueChange={logValueChanged}
         />
@@ -222,7 +208,7 @@ A search input can handle `value` and `open` state in controlled mode.
 <FilePreview filePath="/search-input/stories/search-input/components/controlled-search-input">
     <ControlledSearchInput
         results={DEFAULT_RESULTS}
-        value={JOHN_GLEN_VALUE}
+        value="John Glen"
         onValueChange={logValueChanged}
     />
 </FilePreview>
