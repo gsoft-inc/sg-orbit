@@ -95,17 +95,6 @@ export function createSharedStories(checkbox, stories) {
                 <Icons text="Milky Way" element={checkbox} />
                 <Labels text="Milky Way" element={checkbox} />
                 <Counts text="Milky Way" element={checkbox} />
-                <div className="flex mb8">
-                    <div className="flex items-end mw5">
-                        <Checkbox text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
-                    </div>
-                    <div className="flex items-end mw5">
-                        <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
-                    </div>
-                    <div className="flex items-end mw5">
-                        <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
-                    </div>
-                </div>
             </div>
         )
         .add("no text", () =>
@@ -123,6 +112,19 @@ export function createSharedStories(checkbox, stories) {
                 <Icons element={checkbox} />
                 <Labels element={checkbox} />
                 <Counts element={checkbox} />
+            </div>
+        )
+        .add("overflow", () =>
+            <div className="flex mb8">
+                <div className="flex items-end mw5">
+                    <Checkbox text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
+                <div className="flex items-end mw5">
+                    <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
+                <div className="flex items-end mw5">
+                    <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
             </div>
         );
 }
