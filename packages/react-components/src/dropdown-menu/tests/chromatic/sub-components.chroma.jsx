@@ -59,33 +59,33 @@ stories("/sub components")
     .add("header", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "200px" }}>
-                <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
-                <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
-                <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" size="small" defaultOpen>
                     <DropdownMenu.Header>Custom content</DropdownMenu.Header>
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
             </div>
-            <div className="flex" style={{ marginBottom: "250px" }}>
-                <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
+            <div className="flex" style={{ marginBottom: "225px" }}>
+                <DropdownMenu text="File" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
-                <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
@@ -99,13 +99,13 @@ stories("/sub components")
                 </DropdownMenu>
             </div>
             <div className="flex">
-                <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
                     <DropdownMenu.Item text="Save as..." />
                 </DropdownMenu>
-                <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "100px" }}>
+                <DropdownMenu text="File" size="large" defaultOpen style={{ marginRight: "200px" }}>
                     <DropdownMenu.Header text="Quick Actions" icon={<LightbulbIcon />} />
                     <DropdownMenu.Item text="New" />
                     <DropdownMenu.Item text="Open..." />
@@ -122,7 +122,7 @@ stories("/sub components")
     )
     .add("divider", () =>
         <div className="flex">
-            <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "100px" }}>
+            <DropdownMenu text="File" size="small" defaultOpen style={{ marginRight: "200px" }}>
                 <DropdownMenu.Item text="New" />
                 <DropdownMenu.Item text="Open..." />
                 <DropdownMenu.Divider />
@@ -132,7 +132,7 @@ stories("/sub components")
                 <DropdownMenu.Item text="Download As..." />
                 <DropdownMenu.Item text="Publish To Web" />
             </DropdownMenu>
-            <DropdownMenu text="File" defaultOpen style={{ marginRight: "100px" }}>
+            <DropdownMenu text="File" defaultOpen style={{ marginRight: "200px" }}>
                 <DropdownMenu.Item text="New" />
                 <DropdownMenu.Item text="Open..." />
                 <DropdownMenu.Divider />
