@@ -3,7 +3,7 @@ import { NumberInput } from "@react-components/number-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Number Input"))
+    return storiesOfBuilder(module, createChromaticSection("NumberInput"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

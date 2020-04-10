@@ -3,7 +3,7 @@ import { LightbulbIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Dropdown Menu"))
+    return storiesOfBuilder(module, createChromaticSection("DropdownMenu"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

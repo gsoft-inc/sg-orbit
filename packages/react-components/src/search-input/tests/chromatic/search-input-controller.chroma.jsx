@@ -4,7 +4,7 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { noop } from "lodash";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Search Input/controller"))
+    return storiesOfBuilder(module, createChromaticSection("SearchInput/controller"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
