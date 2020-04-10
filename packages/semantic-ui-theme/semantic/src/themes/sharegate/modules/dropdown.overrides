@@ -427,32 +427,33 @@
 /* LAYOUT | Menu Header */
 .ui.dropdown .menu > .header {
     line-height: 1;
+}
+
+.ui.dropdown-menu .menu > .header {
     font-size: var(--type-scale-8);
     letter-spacing: -0.25px;
     display: flex;
     align-items: center;
-}
-
-.ui.dropdown-menu .menu > .header {
     color: var(--marine-900);
 }
 
+/* Icon */
 .ui.dropdown .menu > .header .icon {
     margin-right: var(--scale-alpha);
 }
 
 /* Small */
-.ui.dropdown.small .menu > .header {
+.ui.dropdown-menu.small .menu > .header {
     font-size: var(--type-scale-9);
 }
 
 /* Large */
-.ui.dropdown.large .menu > .header {
+.ui.dropdown-menu.large .menu > .header {
     font-size: var(--type-scale-7);
     padding: 0 var(--scale-foxtrot);
 }
 
-/* Divider */
+/* LAYOUT | DIVIDER */
 .ui.dropdown .menu > .divider {
     margin: var(--scale-bravo) 0em;
 }
