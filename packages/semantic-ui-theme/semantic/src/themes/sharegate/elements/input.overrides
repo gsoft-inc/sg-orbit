@@ -128,7 +128,6 @@
     right: calc(var(--scale-echo) / 2);
 }
 
-/* Date Picker */
 .with-button .ui.input.large > input,
 .with-button .ui.left.icon.input.large > input {
     padding-right: var(--scale-india) !important;

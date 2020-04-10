@@ -115,8 +115,7 @@ export function PureSelect(props) {
 
             additionalClasses = mergeClasses(
                 "with-icons",
-                !isNil(right) && right && "with-icons-right",
-                !isNil(left) && left && "with-icons-left",
+                iconsPosition === "right" ? "with-icons-right" : "with-icons-left"
             );
         }
 
