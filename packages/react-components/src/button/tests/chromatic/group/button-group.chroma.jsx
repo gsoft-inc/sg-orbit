@@ -3,7 +3,7 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { createSharedStories } from "./shared-stories";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Button Group"))
+    return storiesOfBuilder(module, createChromaticSection("ButtonGroup"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })

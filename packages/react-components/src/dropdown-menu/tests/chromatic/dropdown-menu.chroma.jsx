@@ -28,7 +28,7 @@ function createDropdownMenu({ text = "File", trigger, options = ACTIONS, ...othe
 }
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Dropdown Menu"))
+    return storiesOfBuilder(module, createChromaticSection("DropdownMenu"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

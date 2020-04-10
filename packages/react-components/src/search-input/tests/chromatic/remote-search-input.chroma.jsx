@@ -3,7 +3,7 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { noop } from "lodash";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Search Input/remote"))
+    return storiesOfBuilder(module, createChromaticSection("SearchInput/remote"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })

@@ -27,7 +27,7 @@ const DEFAULT_ITEMS_WITH_CATEGORIES = [
 ];
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Multi Select"))
+    return storiesOfBuilder(module, createChromaticSection("MultiSelect"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
