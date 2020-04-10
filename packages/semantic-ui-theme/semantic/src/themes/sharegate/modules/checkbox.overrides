@@ -593,15 +593,15 @@
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.radio.checkbox.small .box:after,
 .ui.radio.checkbox.small label:after {
-  width: var(--scale-delta);
-  height: var(--scale-delta);
+    width: var(--scale-delta);
+    height: var(--scale-delta);
 }
 
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.radio.checkbox.large .box:after,
 .ui.radio.checkbox.large label:after {
-  width: var(--scale-foxtrot);
-  height: var(--scale-foxtrot);
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
 }
 
 /* Additions */

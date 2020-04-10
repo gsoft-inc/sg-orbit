@@ -21,8 +21,6 @@
         "build-sb-for-chroma": "cd storybook && yarn build-sb-for-chroma",
         "build-theme": "cd packages/semantic-ui-theme && yarn build",
         "chromatic": "cd storybook && yarn chromatic",
-        "chromatic-theme": "cd storybook && yarn chromatic-theme",
-        "chromatic-materials": "cd storybook && yarn chromatic-materials",
         "chromatic-ci": "cd storybook && yarn chromatic-ci",
         "clean": "run-p -c clean:*",
         "clean:pkg": "lerna run clean --parallel",

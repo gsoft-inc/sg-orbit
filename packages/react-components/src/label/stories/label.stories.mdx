@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon, CommunicationIcon, MagnifierIcon } from "@react-components/icons";
+import { CheckIcon, CloseIcon, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Label, PureLabel } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -52,14 +52,9 @@ A label can contain a [button](?path=/docs/components-button--default-story). Sp
 
 <Preview>
     <Story name="button">
-        <div className="flex items-space-between">
-            <Label button={<Button icon={<CloseIcon />} />}>
-                Group added
-            </Label>
-            <Label button={{ icon: <CloseIcon />, onClick: logButtonClicked }}>
-                User added
-            </Label>
-        </div>
+        <Label button={<Button icon={<CloseIcon />} />}>
+            Notification Sent
+        </Label>
     </Story>
 </Preview>
 
@@ -70,10 +65,10 @@ A label can contain an [icon](?path=/docs/materials-icons--page). Specify the ic
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Label icon={<CommunicationIcon />}>
+            <Label icon={<InfoIcon />}>
                 Notification Sent
             </Label>
-            <Label icon={<MagnifierIcon />} iconPosition="right">
+            <Label icon={<CheckIcon />} iconPosition="right">
                 Notification Sent
             </Label>
         </div>
@@ -86,14 +81,9 @@ A label can contain a [tag](?path=/docs/components-label-tag--default-story). Sp
 
 <Preview>
     <Story name="tag">
-        <div className="flex items-space-between">
-            <Label tag={<Tag className="bg-primary-500" />}>
-                Notification Sent
-            </Label>
-            <Label tag={{ className: "bg-sunray-500" }}>
-                Notification Sent
-            </Label>
-        </div>
+        <Label tag={<Tag className="bg-primary-500" />}>
+            Notification Sent
+        </Label>
     </Story>
 </Preview>
 
@@ -103,7 +93,7 @@ A label can have a subtle appearance.
 
 <Preview>
     <Story name="basic">
-        <Label basic>Basic</Label>
+        <Label basic>Notification Sent</Label>
     </Story>
 </Preview>
 
@@ -144,13 +134,13 @@ A circular label size can be set to: `"tiny"`, `"small"`, `"medium"`, `"large"`,
                 <Label circular size="massive">R</Label>
             </div>
             <div className="flex items-end items-space-between">
-                <Label circular size="tiny" icon={<CommunicationIcon />} />
-                <Label circular size="small" icon={<CommunicationIcon />} />
-                <Label circular icon={<CommunicationIcon />} />
-                <Label circular size="large" icon={<CommunicationIcon />} />
-                <Label circular size="big" icon={<CommunicationIcon />} />
-                <Label circular size="huge" icon={<CommunicationIcon />} />
-                <Label circular size="massive" icon={<CommunicationIcon />} />
+                <Label circular size="tiny" icon={<LightbulbIcon />} />
+                <Label circular size="small" icon={<LightbulbIcon />} />
+                <Label circular icon={<LightbulbIcon />} />
+                <Label circular size="large" icon={<LightbulbIcon />} />
+                <Label circular size="big" icon={<LightbulbIcon />} />
+                <Label circular size="huge" icon={<LightbulbIcon />} />
+                <Label circular size="massive" icon={<LightbulbIcon />} />
             </div>
         </div>
     </Story>

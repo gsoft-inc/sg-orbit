@@ -2,12 +2,14 @@ import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
 import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "button", "iconsPosition"];
+const COMPONENT_NAME = "@orbit-ui/react-components/number-input";
+const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "button", "iconsPosition", "type"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
@@ -67,17 +69,20 @@ const defaultProps = {
     ...INPUT_DEFAULT_PROPS
 };
 
-export function PureNumberInput({ icon, loading, forwardedRef, ...props }) {
+export function PureNumberInput(props) {
+    const { icon, loading, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, COMPONENT_NAME);
+
     return (
         <Input
-            {...props}
             type="number"
             icon={icon}
             iconPosition={!isNil(icon) || !isNil(loading) ? "left" : undefined}
             loading={loading}
             ref={forwardedRef}
-            __componentName="@orbit-ui/react-components/number-input"
-            __unsupportedProps={UNSUPPORTED_PROPS}
+            __componentName={COMPONENT_NAME}
+            {...rest}
         />
     );
 }

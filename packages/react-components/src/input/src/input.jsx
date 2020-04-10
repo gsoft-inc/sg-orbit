@@ -1,7 +1,8 @@
 /* eslint-disable react/forbid-foreign-prop-types */
-import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+
+import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { createButtonFromShorthand } from "../../button";
 import { createIconForControl } from "../../icons";
@@ -54,19 +55,14 @@ const propTypes = {
     /**
      * @ignore
      */
-    __componentName: string,
-    /**
-     * @ignore
-     */
-    __unsupportedProps: arrayOf(string)
+    __componentName: string
 };
 
 const defaultProps = {
     autofocus: false,
     size: DEFAULT_SIZE,
     disabled: false,
-    __componentName: "@orbit-ui/react-components/input",
-    __unsupportedProps: INPUT_UNSUPPORTED_PROPS
+    __componentName: "@orbit-ui/react-components/input"
 };
 
 function getInputElement(innerRef) {
@@ -104,7 +100,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 }
 
 export function PureInput(props) {
-    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, __componentName, __unsupportedProps, ...rest } = props;
+    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, __componentName, ...rest } = props;
 
     const SIZES_TO_BUTTON = {
         [SMALL]: TINY,
@@ -112,7 +108,6 @@ export function PureInput(props) {
         [LARGE]: MEDIUM
     };
 
-    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
     const containerRef = useRef();

@@ -462,24 +462,6 @@ Before running make sure you built the packages with the `build:pkg` command.
 yarn chromatic
 ```
 
-### chromatic-theme
-
-Same as *chromatic* but only for the SUI theme.
-
-Before running make sure you built the theme with the `build-theme` command.
-
-```bash
-yarn chromatic-theme
-```
-
-### chromatic-materials
-
-Same as *chromatic* but only for the materials parts.
-
-```bash
-yarn chromatic-materials
-```
-
 ## Testing
 
 For testing the components we currently rely only on visual testing & interaction testing.

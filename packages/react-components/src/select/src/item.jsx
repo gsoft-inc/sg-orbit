@@ -26,15 +26,19 @@ const propTypes = {
      */
     text: string,
     /**
+     * The item value.
+     */
+    value: string,
+    /**
      * A description to display with less emphasize.
      */
     description: string,
     /**
-     * A select item can display an avatar before it's content.
+     * An item can display an avatar before it's content.
      */
     avatar: oneOfType([element, shape(AVATAR_SHAPE)]),
     /**
-     * A select item can display icons.
+     * An item can display icons.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
@@ -42,13 +46,9 @@ const propTypes = {
      */
     iconsPosition: oneOf(["left", "right"]),
     /**
-     * A disabled select item cannot be selected.
+     * A disabled item cannot be selected.
      */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    raw: element
+    disabled: bool
 };
 
 const defaultProps = {
@@ -100,7 +100,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avat
 }
 
 export function SelectItem(props) {
-    const { text, icons, iconsPosition, avatar, description, children, ...rest } = props;
+    const { text, icons, iconsPosition, avatar, description, ...rest } = props;
     const context = useContext(DropdownContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
@@ -139,11 +139,7 @@ export function SelectItem(props) {
             left = renderAvatar(avatar, context.size);
         }
 
-        if (!isNil(text) || !isNil(description) || !isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{renderText(!isNil(right))}{!isNil(right) && right}{renderDescription()}</>;
-        }
-
-        return children;
+        return <>{!isNil(left) && left}{renderText(!isNil(right))}{!isNil(right) && right}{renderDescription()}</>;
     };
 
     return (

@@ -11,7 +11,30 @@ import { isArray, isNil } from "lodash";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = ["basic", "button", "compact", "additionLabel", "additionPosition", "allowAdditions", "direction", "floating", "header", "item", "labeled", "openOnFocus", "pointing", "selection", "selectOnBlur", "selectOnNavigation", "simple"];
+const UNSUPPORTED_PROPS = [
+    "additionLabel",
+    "additionPosition",
+    "allowAdditions",
+    "basic",
+    "button",
+    "closeOnBlur",
+    "closeOnChange",
+    "closeOnEscape",
+    "compact",
+    "deburr",
+    "direction",
+    "floating",
+    "header",
+    "labeled",
+    "item",
+    "openOnFocus",
+    "pointing",
+    "selection",
+    "selectOnBlur",
+    "selectOnNavigation",
+    "simple",
+    "wrapSelection"
+];
 
 const SIZES_TO_LABEL = {
     [SMALL]: MINI,
@@ -28,7 +51,7 @@ const propTypes = {
     /**
      * An array of items object shorthands.
      */
-    options: arrayOf(any),
+    options: arrayOf(any).isRequired,
     /**
      * A select can have a list of actions after his items.
      */
@@ -81,6 +104,10 @@ export function PureSelect(props) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
+
+    // A select doesn't support children.
+    // eslint-disable-next-line react/destructuring-assignment
+    delete props["children"];
 
     const renderLabel = ({ text, avatar, icons, iconsPosition }, index, { className, ...otherProps }) => {
         let content = text;
@@ -178,6 +205,7 @@ export const Select = forwardRef((props, ref) => (
     <PureSelect { ...props } forwardedRef={ref} />
 ));
 
+// Select.Divider, Select.Header, Select.Menu and Select.SearchInput are not supported.
 [PureSelect, Select].forEach(x => {
     x.Item = SelectItem;
 });

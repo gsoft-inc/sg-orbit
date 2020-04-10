@@ -1,5 +1,4 @@
 import { CountriesSearchInput } from "./components";
-import { LAURIE_VALUE } from "@react-components/search-input/stories/data";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
@@ -46,6 +45,6 @@ stories("/selected value")
     .add("value selected",
          () =>
              createRemoteSearchInput({
-                 defaultValue: LAURIE_VALUE
+                 defaultValue: "Canada"
              })
     );

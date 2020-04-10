@@ -19,86 +19,86 @@ stories()
         <Input />
     )
     .add("placeholder", () =>
-        <Input placeholder="Search..." />
+        <Input placeholder="Where to?" />
     )
     .add("value", () =>
         <div className="flex">
-            <Input value="SpaceX will win the race!" placeholder="Search..." className="mr5" />
-            <Input defaultValue="SpaceX will win the race!" placeholder="Search..." />
+            <Input value="SpaceX will win the race!" placeholder="Where to?" className="mr5" />
+            <Input defaultValue="SpaceX will win the race!" placeholder="Where to?" />
         </div>
     )
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex mb5">
-                <Input icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
-                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+                <Input icon={<MagnifierIcon />} placeholder="Where to?" className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Where to?" />
             </div>
             <div className="flex mb5">
                 <Input defaultValue="SpaceX will win the race!" icon={<MagnifierIcon />} className="mr5" />
                 <Input defaultValue="SpaceX will win the race!" icon={<MagnifierIcon />} iconPosition="left" />
             </div>
             <div className="flex mb5">
-                <Input icon={<MagnifierIcon />} disabled placeholder="Search..." className="mr5" />
-                <Input icon={<MagnifierIcon />} iconPosition="left" disabled placeholder="Search..." />
+                <Input icon={<MagnifierIcon />} disabled placeholder="Where to?" className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" disabled placeholder="Where to?" />
             </div>
             <div className="flex mb5">
-                <Input icon={<MagnifierIcon />} loading placeholder="Search..." className="mr5" />
-                <Input icon={<MagnifierIcon />} iconPosition="left" loading placeholder="Search..." />
+                <Input icon={<MagnifierIcon />} loading placeholder="Where to?" className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" loading placeholder="Where to?" />
             </div>
             <div className="flex items-end mb5">
-                <Input size="small" icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
-                <Input icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
-                <Input size="large" icon={<MagnifierIcon />} placeholder="Search..." className="mr5" />
+                <Input size="small" icon={<MagnifierIcon />} placeholder="Where to?" className="mr5" />
+                <Input icon={<MagnifierIcon />} placeholder="Where to?" className="mr5" />
+                <Input size="large" icon={<MagnifierIcon />} placeholder="Where to?" className="mr5" />
             </div>
             <div className="flex items-end">
-                <Input size="small" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
-                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
-                <Input size="large" icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." className="mr5" />
+                <Input size="small" icon={<MagnifierIcon />} iconPosition="left" placeholder="Where to?" className="mr5" />
+                <Input icon={<MagnifierIcon />} iconPosition="left" placeholder="Where to?" className="mr5" />
+                <Input size="large" icon={<MagnifierIcon />} iconPosition="left" placeholder="Where to?" className="mr5" />
             </div>
         </div>
     )
     .add("focus", () =>
-        <Input focus placeholder="Search..." />
+        <Input focus placeholder="Where to?" />
     )
     .add("disabled", () =>
-        <Input disabled placeholder="Search..." />
+        <Input disabled placeholder="Where to?" />
     )
     .add("loading", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb5">
-                <Input size="small" loading placeholder="Search..." className="mr5" />
-                <Input loading placeholder="Search..." className="mr5" />
-                <Input size="large" loading placeholder="Search..." />
+                <Input size="small" loading placeholder="Where to?" className="mr5" />
+                <Input loading placeholder="Where to?" className="mr5" />
+                <Input size="large" loading placeholder="Where to?" />
             </div>
             <div className="flex items-end">
-                <Input size="small" loading iconPosition="left" placeholder="Search..." className="mr5" />
-                <Input loading iconPosition="left" placeholder="Search..." className="mr5" />
-                <Input size="large" loading iconPosition="left" placeholder="Search..." />
+                <Input size="small" loading iconPosition="left" placeholder="Where to?" className="mr5" />
+                <Input loading iconPosition="left" placeholder="Where to?" className="mr5" />
+                <Input size="large" loading iconPosition="left" placeholder="Where to?" />
             </div>
         </div>
     )
     .add("fluid", () =>
         <div className="flex flex-column">
             <div className="mb5">
-                <Input fluid placeholder="Search..." />
+                <Input fluid placeholder="Where to?" />
             </div>
             <div className="w-10">
-                <Input fluid placeholder="Search..." />
+                <Input fluid placeholder="Where to?" />
             </div>
         </div>
     )
     .add("error", () =>
-        <Input error placeholder="Search..." />
+        <Input error placeholder="Where to?" />
     )
     .add("transparent", () =>
-        <Input transparent placeholder="Search..." />
+        <Input transparent placeholder="Where to?" />
     )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb5">
-                <Input placeholder="Search..." size="small" className="mr5" />
-                <Input placeholder="Search..." className="mr5" />
-                <Input placeholder="Search..." size="large" />
+                <Input placeholder="Where to?" size="small" className="mr5" />
+                <Input placeholder="Where to?" className="mr5" />
+                <Input placeholder="Where to?" size="large" />
             </div>
             <div className="flex items-end">
                 <Input defaultValue="SpaceX will win the race!" size="small" className="mr5" />
