@@ -164,7 +164,7 @@
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
-    top: 0;
+    top: 50%;
     left: 6px;
 }
 

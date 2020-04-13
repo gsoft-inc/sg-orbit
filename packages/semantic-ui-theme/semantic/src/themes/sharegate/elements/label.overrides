@@ -508,8 +508,7 @@
     padding-left: calc(var(--scale-echo) /2 );
 }
 
-.ui.label.large.with-avatar,
-.ui.multiple.dropdown > .label.large.with-avatar {
+.ui.label.large.with-avatar {
     padding-left: calc(var(--scale-echo) /2 );
 }
 
@@ -530,8 +529,7 @@
     padding-left: calc(var(--scale-echo) / 4);
 }
 
-.ui.label.large.with-avatar.compact,
-.ui.multiple.dropdown > .label.large.with-avatar.compact {
+.ui.label.large.with-avatar.compact {
     padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
@@ -552,8 +550,7 @@
     padding-left: calc(var(--scale-echo) - 4px);
 }
 
-.ui.label.large.with-icons-left,
-.ui.multiple.dropdown > .label.large.with-icons-left {
+.ui.label.large.with-icons-left {
     padding-left: calc(var(--scale-foxtrot) - 4px);
 }
 
@@ -574,8 +571,7 @@
     padding-left: calc(var(--scale-echo) - 2px);
 }
 
-.ui.label.large.with-avatar.compact,
-.ui.multiple.dropdown > .label.large.with-avatar.compact {
+.ui.label.large.with-avatar.compact {
     padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
