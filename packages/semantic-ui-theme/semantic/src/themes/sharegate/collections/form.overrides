@@ -21,7 +21,7 @@
     line-height: @textAreaLineHeight;
     resize: @textAreaResize;
     vertical-align: top;
-    min-width: 300px;
+    min-width: 325px;
     resize: none;
 }
 

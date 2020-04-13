@@ -1,4 +1,5 @@
 import { CommunicationIcon } from "@react-components/icons";
+import { Count } from "@react-components/count";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
@@ -46,7 +47,7 @@ function Labels({ element, ...rest }) {
                 <Radio label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio label={<Label>6</Label>} size="large" element={radio} />
             </div>
-            <div className="flex">
+            <div className="flex mb8">
                 <Radio disabled label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio readOnly label={<Label>6</Label>} element={radio} />
             </div>
@@ -54,23 +55,42 @@ function Labels({ element, ...rest }) {
     );
 }
 
-export function createSharedStories(checkbox, stories) {
+function Counts({ element, ...rest }) {
+    const radio = cloneElement(element, rest);
+
+    return (
+        <>
+            <div className="flex items-end mb8">
+                <Radio count={<Count>6</Count>} size="small" element={radio} className="mr5" />
+                <Radio count={<Count>6</Count>} element={radio} className="mr5" />
+                <Radio count={<Count>6</Count>} size="large" element={radio} />
+            </div>
+            <div className="flex mb8">
+                <Radio disabled count={<Count>6</Count>} element={radio} className="mr5" />
+                <Radio readOnly count={<Count>6</Count>} element={radio} />
+            </div>
+        </>
+    );
+}
+
+export function createSharedStories(radio, stories) {
     return stories
         .add("text", () =>
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex mb8">
-                        <Radio text="Milky Way" element={checkbox} className="mr5" />
-                        <Radio disabled text="Milky Way" element={checkbox} className="mr5" />
-                        <Radio readOnly text="Milky Way" element={checkbox} />
+                        <Radio text="Milky Way" element={radio} className="mr5" />
+                        <Radio disabled text="Milky Way" element={radio} className="mr5" />
+                        <Radio readOnly text="Milky Way" element={radio} />
                     </div>
                     <div className="flex mb8">
-                        <Radio size="small" text="Milky Way" element={checkbox} className="mr5" />
-                        <Radio text="Milky Way" element={checkbox} className="mr5" />
-                        <Radio size="large" text="Milky Way" element={checkbox} />
+                        <Radio size="small" text="Milky Way" element={radio} className="mr5" />
+                        <Radio text="Milky Way" element={radio} className="mr5" />
+                        <Radio size="large" text="Milky Way" element={radio} />
                     </div>
-                    <Icons text="Milky Way" element={checkbox} />
-                    <Labels text="Milky Way" element={checkbox} />
+                    <Icons text="Milky Way" element={radio} />
+                    <Labels text="Milky Way" element={radio} />
+                    <Counts text="Milky Way" element={radio} />
                 </div>
             </div>
         )
@@ -78,25 +98,42 @@ export function createSharedStories(checkbox, stories) {
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex mb8">
-                        <Radio element={checkbox} className="mr5" />
-                        <Radio disabled element={checkbox} className="mr5" />
-                        <Radio readOnly element={checkbox} />
+                        <Radio element={radio} className="mr5" />
+                        <Radio disabled element={radio} className="mr5" />
+                        <Radio readOnly element={radio} />
                     </div>
                     <div className="flex mb8">
-                        <Radio size="small" element={checkbox} className="mr5" />
-                        <Radio element={checkbox} className="mr5" />
-                        <Radio size="large" element={checkbox} />
+                        <Radio size="small" element={radio} className="mr5" />
+                        <Radio element={radio} className="mr5" />
+                        <Radio size="large" element={radio} />
                     </div>
-                    <Icons element={checkbox} />
-                    <Labels element={checkbox} />
+                    <Icons element={radio} />
+                    <Labels element={radio} />
+                    <Counts text="Milky Way" element={radio} />
                 </div>
             </div>
         )
         .add("group", () =>
             <div className="flex flex-column">
-                <Radio text="Mars" name="checkboxRadioGroup" value="mars" element={checkbox} className="mb2" />
-                <Radio text="Moon" name="checkboxRadioGroup" value="moon" element={checkbox} className="mb2" />
-                <Radio text="Venus" name="checkboxRadioGroup" value="venus" element={checkbox} />
+                <Radio text="Mars" name="checkboxRadioGroup" value="mars" element={radio} className="mb2" />
+                <Radio text="Moon" name="checkboxRadioGroup" value="moon" element={radio} className="mb2" />
+                <Radio text="Venus" name="checkboxRadioGroup" value="venus" element={radio} />
+            </div>
+        )
+        .add("overflow", () =>
+            <div className="flex mb8">
+                <div className="flex mw5">
+                    <Radio text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                </div>
+                <div className="flex mw5">
+                    <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                </div>
+                <div className="flex mw5">
+                    <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                </div>
+                <div className="flex mw5">
+                    <Radio count={<Count>6</Count>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                </div>
             </div>
         );
 }

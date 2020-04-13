@@ -7,7 +7,7 @@
 
 /* Results */
 .ui.search > .results {
-    min-width: 300px;
+    min-width: 325px;
 }
 .ui.search.fluid > .results {
     width: 100%;

@@ -138,7 +138,7 @@
 }
 
 .ui.selection.dropdown .menu > .item {
-    min-width: 300px;
+    min-width: 325px;
     height: var(--scale-hotel);
 }
 
@@ -654,6 +654,90 @@
 .ui.dropdown .menu > .item .image,
 .ui.dropdown .menu > .item img {
     margin-right: var(--scale-bravo);
+}
+
+/* Default - With Avatar  */
+.ui.multiple.dropdown > .label.mini.with-avatar {
+    padding-left: calc(var(--scale-bravo) / 2);
+}
+
+.ui.multiple.dropdown > .label.tiny.with-avatar {
+    padding-left: calc(var(--scale-charlie) / 2);
+}
+
+.ui.multiple.dropdown > .label.small.with-avatar {
+    padding-left: calc(var(--scale-delta) / 2);
+}
+
+.ui.multiple.dropdown > .label.medium.with-avatar {
+    padding-left: calc(var(--scale-echo) /2 );
+}
+
+.ui.multiple.dropdown > .label.large.with-avatar {
+    padding-left: calc(var(--scale-foxtrot) / 2);
+}
+
+/* Compact - With Avatar  */
+.ui.multiple.dropdown > .label.mini.with-avatar.compact {
+    padding-left: calc(var(--scale-bravo) / 4);
+}
+
+.ui.multiple.dropdown > .label.tiny.with-avatar.compact {
+    padding-left: calc(var(--scale-charlie) / 4);
+}
+
+.ui.multiple.dropdown > .label.small.with-avatar.compact {
+    padding-left: calc(var(--scale-delta) / 4);
+}
+
+.ui.multiple.dropdown > .label.medium.with-avatar.compact {
+    padding-left: calc(var(--scale-echo) / 4);
+}
+
+.ui.multiple.dropdown > .label.large.with-avatar.compact {
+    padding-left: calc(var(--scale-foxtrot) / 4);
+}
+
+/* Default - With Icons Left  */
+.ui.multiple.dropdown > .label.mini.with-icons-left {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.multiple.dropdown > .label.tiny.with-icons-left {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.multiple.dropdown > .label.small.with-icons-left {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.multiple.dropdown > .label.medium.with-icons-left {
+    padding-left: calc(var(--scale-echo) - 4px);
+}
+
+.ui.multiple.dropdown > .label.large.with-icons-left {
+    padding-left: calc(var(--scale-foxtrot) - 4px);
+}
+
+/* Compact - With Icons Left  */
+.ui.multiple.dropdown > .label.mini.with-icons-left.compact {
+    padding-left: calc(var(--scale-bravo) - 2px);
+}
+
+.ui.multiple.dropdown > .label.tiny.with-icons-left.compact {
+    padding-left: calc(var(--scale-charlie) - 2px);
+}
+
+.ui.multiple.dropdown > .label.small.with-icons-left.compact {
+    padding-left: calc(var(--scale-delta) - 2px);
+}
+
+.ui.multiple.dropdown > .label.medium.with-icons-left.compact {
+    padding-left: calc(var(--scale-echo) - 2px);
+}
+
+.ui.multiple.dropdown > .label.large.with-avatar.compact {
+    padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
 /*******************************

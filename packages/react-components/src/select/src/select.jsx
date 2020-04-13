@@ -140,7 +140,10 @@ export function PureSelect(props) {
                 </>
             );
 
-            additionalClasses = "with-icons";
+            additionalClasses = mergeClasses(
+                "with-icons",
+                iconsPosition === "right" ? "with-icons-right" : "with-icons-left"
+            );
         }
 
         const classes = mergeClasses(
