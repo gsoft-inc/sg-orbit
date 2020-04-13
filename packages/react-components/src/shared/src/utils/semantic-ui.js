@@ -11,8 +11,8 @@ export class UnsupportedSemanticPropError extends ExtendableError {
     }
 }
 
-export function throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, componentName) {
-    __unsupportedProps.forEach(x => {
+export function throwWhenUnsupportedPropIsProvided(props, unsupportedProps, componentName) {
+    unsupportedProps.forEach(x => {
         if (!isNil(props[x])) {
             throw new UnsupportedSemanticPropError(x, componentName);
         }

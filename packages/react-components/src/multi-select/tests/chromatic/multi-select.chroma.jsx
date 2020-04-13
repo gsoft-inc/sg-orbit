@@ -1,11 +1,33 @@
 import { AddIcon } from "@react-components/icons";
-import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "@react-components/multi-select/stories/data";
 import { MultiSelect } from "@react-components/multi-select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { multiSelectItem } from "@react-components/multi-select";
 import { noop } from "lodash";
 
+const GROUP_CREATED_VALUE = "group-created";
+const GROUP_RESTORED_VALUE = "group-restored";
+const GROUP_DELETED_VALUE = "group-deleted";
+const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
+const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
+
+const DEFAULT_ITEMS = [
+    multiSelectItem("Created", GROUP_CREATED_VALUE),
+    multiSelectItem("Restored", GROUP_RESTORED_VALUE),
+    multiSelectItem("Deleted", GROUP_DELETED_VALUE),
+    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
+    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+];
+
+const DEFAULT_ITEMS_WITH_CATEGORIES = [
+    multiSelectItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
+    multiSelectItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
+    multiSelectItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
+    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
+    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
+];
+
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Multi Select"))
+    return storiesOfBuilder(module, createChromaticSection("MultiSelect"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

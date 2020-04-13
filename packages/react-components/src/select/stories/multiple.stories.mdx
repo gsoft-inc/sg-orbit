@@ -6,17 +6,17 @@ import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Select/searchable")}
+    title={createComponentSection("Select/multiple values")}
     parameters={paramsBuilder()
-        .sortPriority(2)
+        .sortPriority(4)
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
         .build()}
 />
 
-# Searchable Select
+# Multiple Values Select
 
-A select can allow a user to search through a large list of choices.
+A select can allow a user to make multiple choices.
 
 ## Installation
 
@@ -105,27 +105,26 @@ const GALAXIES = [
 
 ### Default
 
-A default searchable select.
+A default multiple values select.
 
 <Preview>
     <Story name="default">
         <Select
-            placeholder="Select a galaxy"
-            search
+            multiple
             options={GALAXIES}
         />
     </Story>
 </Preview>
 
-### Selected value
+### Selected values
 
-A searchable select can have an initial value.
+A multiple values select can have initial values. _Dont forget to specify values has an array_.
 
 <Preview>
-    <Story name="selected value">
+    <Story name="selected values">
         <Select
-            search
-            defaultValue="Comet"
+            multiple
+            defaultValue={["Comet"]}
             options={GALAXIES}
         />
     </Story>
@@ -133,29 +132,14 @@ A searchable select can have an initial value.
 
 ### Icon
 
-A searchable select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A multiple values select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
         <Select
             placeholder="Select a galaxy"
-            search
+            multiple
             icon={<MagnifierIcon />}
-            options={GALAXIES}
-        />
-    </Story>
-</Preview>
-
-### Clearable
-
-A searchable select can let a user remove is selection.
-
-<Preview>
-    <Story name="clearable">
-        <Select
-            placeholder="Select a galaxy"
-            search
-            clearable
             options={GALAXIES}
         />
     </Story>
@@ -163,13 +147,13 @@ A searchable select can let a user remove is selection.
 
 ### Fluid
 
-A searchable select can take all the space available.
+A multiple values select can take all the space available.
 
 <Preview>
     <Story name="fluid">
         <Select
             placeholder="Select a galaxy"
-            search
+            multiple
             fluid
             options={GALAXIES}
         />
@@ -178,14 +162,29 @@ A searchable select can take all the space available.
 
 ### Disabled
 
-A searchable select can be disabled.
+A multiple values select can be disabled.
 
 <Preview>
     <Story name="disabled">
         <Select
             placeholder="Select a galaxy"
-            search
+            multiple
             disabled
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Searchable
+
+A multiple values select can be searchable.
+
+<Preview>
+    <Story name="searchable">
+        <Select
+            placeholder="Select a galaxy"
+            multiple
+            search
             options={GALAXIES}
         />
     </Story>
@@ -198,8 +197,8 @@ A searchable select can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus search placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus search disabled placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus multiple disabled placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
@@ -210,8 +209,8 @@ A searchable select can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus disabled autofocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
@@ -221,5 +220,5 @@ A searchable select can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select search options={GALAXIES} />} />
+    <RefLogger component={<Select multiple options={GALAXIES} />} />
 </Story>

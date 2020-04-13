@@ -43,7 +43,7 @@ const CHECKBOX_DEFAULT_PROPS = {
     __componentName: "@orbit-ui/react-components/checkbox"
 };
 
-const UNSUPPORTED_PROPS = ["as", "defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
+const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
 
 export function PureRadio(props) {
     const { forwardedRef, ...rest } = props;

@@ -12,7 +12,7 @@ import { isElement } from "react-is";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = ["as", "slider", "type", "radio", "toggle"];
+const UNSUPPORTED_PROPS = ["slider", "type", "radio", "toggle"];
 
 export const CHECKBOX_PROP_TYPES = {
     /**

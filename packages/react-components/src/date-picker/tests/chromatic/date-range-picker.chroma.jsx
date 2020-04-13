@@ -18,7 +18,7 @@ export const LAST_6_MONTHS_PRESET = toPreset("Last 6 months", moment(DEFAULT_DAT
 export const LAST_12_MONTHS_PRESET = toPreset("Last 12 months", moment(DEFAULT_DATE).subtract(12, "months"), moment(DEFAULT_DATE).startOf("day"));
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Date Picker/range"))
+    return storiesOfBuilder(module, createChromaticSection("DatePicker/range"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })

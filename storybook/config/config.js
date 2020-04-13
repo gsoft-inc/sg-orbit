@@ -5,7 +5,7 @@ import { CanvasContainer } from "@decorators/canvas-container";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { customStorySort } from "./sort-stories";
 import { customStorybookTheme } from "./theme";
-import { includeChromatic, includeComponents, includeGettingStarted, includeMaterials, includeSemanticTheme, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
+import { includeChromatic, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/semantic-ui-theme";
@@ -71,55 +71,23 @@ addParameters({
 
 let stories = [];
 
-if (includeGettingStarted) {
-    if (includeStories) {
-        stories = [
-            ...stories,
-            require.context("../stories/getting-started", true, /.stories.mdx$/)
-        ];
-    }
+if (includeStories) {
+    stories = [
+        ...stories,
+        require.context("../stories/getting-started", true, /.stories.mdx$/),
+        require.context("../stories/materials", true, /.stories.mdx$/),
+        require.context("../../packages/icons/stories", true, /.stories.mdx$/),
+        require.context("../../packages/react-components/src", true, /.stories.mdx$/)
+    ];
 }
 
-if (includeMaterials) {
-    if (includeStories) {
-        stories = [
-            ...stories,
-            require.context("../stories/materials", true, /.stories.mdx$/),
-            require.context("../../packages/icons/stories", true, /.stories.mdx$/)
-        ];
-    }
-
-    if (includeChromatic) {
-        stories = [
-            ...stories,
-            require.context("../stories/materials", true, /.chroma.jsx$/)
-        ];
-    }
-}
-
-if (includeComponents) {
-    if (includeStories) {
-        stories = [
-            ...stories,
-            require.context("../../packages/react-components/src", true, /.stories.mdx$/)
-        ];
-    }
-
-    if (includeChromatic) {
-        stories = [
-            ...stories,
-            require.context("../../packages/react-components/src", true, /.chroma.jsx$/)
-        ];
-    }
-}
-
-if (includeSemanticTheme) {
-    if (includeChromatic) {
-        stories = [
-            ...stories,
-            require.context("../stories/semantic-ui", true, /.chroma.jsx$/)
-        ];
-    }
+if (includeChromatic) {
+    stories = [
+        ...stories,
+        require.context("../stories/materials", true, /.chroma.jsx$/),
+        require.context("../../packages/react-components/src", true, /.chroma.jsx$/),
+        require.context("../stories/semantic-ui", true, /.chroma.jsx$/)
+    ];
 }
 
 configure(stories, module);

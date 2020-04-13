@@ -32,18 +32,18 @@ function createSelect({ options = GENDERS, ...otherProps } = {}) {
 stories()
     .add("default", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     size: "small",
                     open: true
                 })}
             </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     open: true
                 })}
             </div>
-            <div className="flex">
+            <div>
                 {createSelect({
                     size: "large",
                     open: true
@@ -53,20 +53,20 @@ stories()
     )
     .add("active", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
                     size: "small",
                     open: true
                 })}
             </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
                     open: true
                 })}
             </div>
-            <div className="flex">
+            <div>
                 {createSelect({
                     options: [createMale(), createFemale({ active: true })],
                     size: "large",
@@ -77,20 +77,20 @@ stories()
     )
     .add("selected", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
                     size: "small",
                     open: true
                 })}
             </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
                     open: true
                 })}
             </div>
-            <div className="flex">
+            <div>
                 {createSelect({
                     options: [createMale(), createFemale({ selected: true })],
                     size: "large",
@@ -101,20 +101,20 @@ stories()
     )
     .add("disabled", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
                     size: "small",
                     open: true
                 })}
             </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
                     open: true
                 })}
             </div>
-            <div className="flex">
+            <div>
                 {createSelect({
                     options: [createMale(), createFemale({ disabled: true })],
                     size: "large",
@@ -125,20 +125,20 @@ stories()
     )
     .add("description", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
                     size: "small",
                     open: true
                 })}
             </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
+            <div style={{ marginBottom: "150px" }}>
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
                     open: true
                 })}
             </div>
-            <div className="flex">
+            <div>
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
                     size: "large",
@@ -312,5 +312,24 @@ stories()
                     open: true
                 })}
             </div>
+        </div>
+    )
+    .add("overflow", () =>
+        <div className="flex" style={{ marginBottom: "150px" }}>
+            {createSelect({
+                options: [
+                    createMale(),
+                    createFemale({ text: "Super long text that will not fit without overflowing" })
+                ],
+                defaultOpen: true,
+                className: "mr5"
+            })}
+            {createSelect({
+                options: [
+                    createMale(),
+                    createFemale({ description: "Super long text that will not fit without overflowing" })
+                ],
+                defaultOpen: true
+            })}
         </div>
     );

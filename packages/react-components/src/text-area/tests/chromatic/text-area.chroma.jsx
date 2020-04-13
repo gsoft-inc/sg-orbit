@@ -2,7 +2,7 @@ import { TextArea } from "@react-components/text-area";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Text Area"))
+    return storiesOfBuilder(module, createChromaticSection("TextArea"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

@@ -11,7 +11,7 @@ import { noop } from "lodash";
 import moment from "moment";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Date Picker/single"))
+    return storiesOfBuilder(module, createChromaticSection("DatePicker/single"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })

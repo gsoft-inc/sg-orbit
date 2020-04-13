@@ -7,14 +7,14 @@ import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Text Input")}
+    title={createComponentSection("TextInput")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/elements/input" />)
         .build()}
 />
 
-# Text Input
+# TextInput
 
 A text input allow a user to enter and edit a text.
 
@@ -50,7 +50,7 @@ A text input can have a value.
 
 <Preview>
     <Story name="value">
-        <TextInput defaultValue="Orbit" />
+        <TextInput defaultValue="Deep space" />
     </Story>
 </Preview>
 
@@ -80,7 +80,7 @@ A text input can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <TextInput readOnly value="Orbit" />
+        <TextInput readOnly value="Deep space" />
     </Story>
 </Preview>
 

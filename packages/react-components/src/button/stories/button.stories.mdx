@@ -1,4 +1,4 @@
-import { AddIcon, SignoutIcon } from "@react-components/icons";
+import { AddIcon, EditIcon, LightbulbIcon } from "@react-components/icons";
 import { Button, PureButton } from "@react-components/button";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Label } from "@react-components/label";
@@ -93,8 +93,8 @@ A button can contain an [icon](?path=/docs/materials-icons--page). Specify the i
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Button icon={<SignoutIcon />}>Click me</Button>
-            <Button icon={<SignoutIcon />} iconPosition="right">Click me</Button>
+            <Button icon={<LightbulbIcon />}>Cutoff</Button>
+            <Button icon={<EditIcon />} iconPosition="right">Cutoff</Button>
             <Button icon={<AddIcon />}></Button>
         </div>
     </Story>
@@ -106,10 +106,7 @@ A button can contain a [label](?path=/story/components-label-standard--default-s
 
 <Preview>
     <Story name="label">
-        <div className="flex items-space-between">
-            <Button label={<Label>6</Label>}>Cutoff</Button>
-            <Button label={{ content: "12", className: "bg-marine-100" }}>Cutoff</Button>
-        </div>
+        <Button label={<Label>6</Label>}>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -119,10 +116,7 @@ A button can contain a [tag](?path=/docs/components-label-tag--default-story). S
 
 <Preview>
     <Story name="tag">
-        <div className="flex items-space-between">
-            <Button tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
-            <Button tag={{ className: "bg-sunray-500" }}>Cutoff</Button>
-        </div>
+        <Button tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
     </Story>
 </Preview>
 
@@ -222,7 +216,7 @@ A ghost button is similar to a standard button, taking the same space as a stand
 A button can be rendered as a link:
 
 <Preview>
-    <Story name="as-anchor">
+    <Story name="as anchor">
         <Button as="a">Cutoff</Button>
     </Story>
 </Preview>

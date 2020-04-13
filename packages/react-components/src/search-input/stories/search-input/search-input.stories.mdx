@@ -1,6 +1,5 @@
 import { ControlledSearchInput } from "./components";
-import { DEFAULT_RESULTS, LAURIE_VALUE } from "../data";
-import { DEFAULT_SIZE, SearchInput, SearchInputController } from "@react-components/search-input";
+import { DEFAULT_SIZE, SearchInput, SearchInputController, searchInputResult } from "@react-components/search-input";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -11,14 +10,14 @@ import Imports from "./imports.mdx";
 import SearchInputResultUsage from "./search-input-result-usage.mdx";
 
 <Meta
-    title={createComponentSection("Search Input/results set")}
+    title={createComponentSection("SearchInput/results set")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/search-input/src" />)
         .build()}
 />
 
-# Search Input
+# SearchInput
 
 A search input allows a user to query for results from a fixed set of data.
 
@@ -44,21 +43,23 @@ A search input allows a user to query for results from a fixed set of data.
 
 The following constants are used in the examples below:
 
-```javascript dark
-const GEORGE_VALUE = "George";
-const LAURIE_VALUE = "Laurie";
-const CLARA_VALUE = "Clara";
-const FELIX_VALUE = "Felix";
-const AUDREY_VALUE = "Audrey";
-const ALEXANDRE_VALUE = "Alexandre";
+export const DEFAULT_RESULTS = [
+    searchInputResult("1", "Alan Shepard"),
+    searchInputResult("2", "John Glen"),
+    searchInputResult("3", "Neil Armstrong"),
+    searchInputResult("4", "Buzz Aldrin"),
+    searchInputResult("5", "Gus Grissom"),
+    searchInputResult("6", "Deke Slayton")
+];
 
+```javascript dark
 const DEFAULT_RESULTS = [
-    searchInputResult("1", GEORGE_VALUE),
-    searchInputResult("2", LAURIE_VALUE),
-    searchInputResult("3", CLARA_VALUE),
-    searchInputResult("4", FELIX_VALUE),
-    searchInputResult("5", AUDREY_VALUE),
-    searchInputResult("6", ALEXANDRE_VALUE)
+    searchInputResult("1", "Alan Shepard"),
+    searchInputResult("2", "John Glen"),
+    searchInputResult("3", "Neil Armstrong"),
+    searchInputResult("4", "Buzz Aldrin"),
+    searchInputResult("5", "Gus Grissom"),
+    searchInputResult("6", "Deke Slayton")
 ];
 ```
 
@@ -107,7 +108,7 @@ A search input can have an initial value.
 <Preview>
     <Story name="selected value">
         <SearchInput
-            defaultValue={LAURIE_VALUE}
+            defaultValue="John Glen"
             results={DEFAULT_RESULTS}
             onValueChange={logValueChanged}
         />
@@ -207,7 +208,7 @@ A search input can handle `value` and `open` state in controlled mode.
 <FilePreview filePath="/search-input/stories/search-input/components/controlled-search-input">
     <ControlledSearchInput
         results={DEFAULT_RESULTS}
-        value={LAURIE_VALUE}
+        value="John Glen"
         onValueChange={logValueChanged}
     />
 </FilePreview>

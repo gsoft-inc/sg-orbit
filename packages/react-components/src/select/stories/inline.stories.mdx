@@ -1,5 +1,5 @@
+import { GroupIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
-import { MagnifierIcon } from "@react-components/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureSelect, Select, selectItem } from "@react-components/select";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -27,7 +27,8 @@ An inlined select can appear inline with other content.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Select", component: PureSelect }
+        { displayName: "Select", component: PureSelect },
+        { displayName: "Select.Item", component: PureSelect.Item }
     ]}
 />
 
@@ -41,15 +42,23 @@ An inlined select can appear inline with other content.
 
 The following constants are used in the examples below:
 
-export const FRIENDS = [
-    selectItem("Jenny Hess", "Jenny Hess"),
-    selectItem("Elliot Fu", "Elliot Fu")
+export const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
 
 ```javascript dark
-const FRIENDS = [
-    selectItem("Jenny Hess", "Jenny Hess"),
-    selectItem("Elliot Fu", "Elliot Fu")
+const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
 ```
 
@@ -60,9 +69,9 @@ A default inlined select.
 <Preview>
     <Story name="default">
         <Select
-            placeholder="select friend"
+            placeholder="select an astronaut"
             inline
-            options={FRIENDS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -74,10 +83,9 @@ A inline select can have an initial value
 <Preview>
     <Story name="selected value">
         <Select
-            placeholder="select friend"
-            defaultValue="Elliot Fu"
+            defaultValue="Chris Hadfield"
             inline
-            options={FRIENDS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -88,11 +96,11 @@ An inlined select can be embedded in a block.
 
 <Preview>
     <Story name="in a block">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et<br /> et lacus at euismod <Select
-            placeholder="select friend"
+        <div>Canadian astronaut <Select
+            placeholder="select an astronaut"
             inline
-            options={FRIENDS}
-        /> elementum viverra maximus.</div>
+            options={ASTRONAUTS}
+        />, the first Canadian Commander of the ISS, would go on to achieve worldwide fame in 2013 for releasing a music video he recorded on the International Space Station of his version of David Bowie's song "Space Oddity".</div>
     </Story>
 </Preview>
 
@@ -103,10 +111,10 @@ An inline select can display an [icon](?path=/docs/materials-icons--page) before
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="Gender"
-            icon={<MagnifierIcon />}
+            placeholder="select an astronaut"
+            icon={<GroupIcon />}
             inline
-            options={FRIENDS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -118,10 +126,10 @@ An inlined select can be disabled.
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="select friend"
+            placeholder="select an astronaut"
             inline
             disabled
-            options={FRIENDS}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -133,8 +141,8 @@ An inlined select can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline placeholder="select friend" options={FRIENDS} />
-        <Select autofocus inline disabled placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus inline disabled placeholder="select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -145,8 +153,8 @@ An inlined select can be disabled.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
-        <Select autofocus inline disabled autofocusDelay={500} placeholder="select friend" options={FRIENDS} />
+        <Select autofocus inline autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus inline disabled autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -156,5 +164,5 @@ An inlined select can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select inline options={FRIENDS} />} />
+    <RefLogger component={<Select inline options={ASTRONAUTS} />} />
 </Story>

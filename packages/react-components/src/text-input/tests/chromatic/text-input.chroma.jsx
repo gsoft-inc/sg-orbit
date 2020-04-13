@@ -2,7 +2,7 @@ import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Text Input"))
+    return storiesOfBuilder(module, createChromaticSection("TextInput"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

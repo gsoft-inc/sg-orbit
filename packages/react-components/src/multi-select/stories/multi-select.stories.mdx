@@ -1,6 +1,5 @@
 import { ControlledMultiSelect } from "./components";
-import { DEFAULT_ITEMS, DEFAULT_ITEMS_WITH_CATEGORIES, GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE } from "./data";
-import { DEFAULT_SIZE, MultiSelect } from "@react-components/multi-select";
+import { DEFAULT_SIZE, MultiSelect, multiSelectItem } from "@react-components/multi-select";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -12,7 +11,7 @@ import Imports from "./imports.mdx";
 import MultiSelectItemUsage from "./multi-select-item-usage.mdx";
 
 <Meta
-    title={createComponentSection("Multi Select")}
+    title={createComponentSection("MultiSelect")}
     parameters={paramsBuilder()
         .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/multi-select/src" />)
         .build()}
@@ -50,27 +49,41 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 
 The following constants are used in the examples below:
 
-```js dark
-const GROUP_CREATED_VALUE = "group-created";
-const GROUP_RESTORED_VALUE = "group-restored";
-const GROUP_DELETED_VALUE = "group-deleted";
-const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
-const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
+export const DEFAULT_ITEMS = [
+    multiSelectItem("Mercury Program", "mercury"),
+    multiSelectItem("Gemini Program", "gemini"),
+    multiSelectItem("Apollo Program", "apollo"),
+    multiSelectItem("Skylab", "skylab"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
+    multiSelectItem("Artemis Program", "artemis")
+];
 
+export const DEFAULT_ITEMS_WITH_CATEGORIES = [
+    multiSelectItem("Mercury Program", "mercury", "1950"),
+    multiSelectItem("Gemini Program", "gemini", "1960"),
+    multiSelectItem("Apollo Program", "apollo", "1970"),
+    multiSelectItem("Skylab", "skylab", "1970"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    multiSelectItem("Artemis Program", "artemis", "2010")
+];
+
+```js dark
 const DEFAULT_ITEMS = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+    multiSelectItem("Mercury Program", "mercury"),
+    multiSelectItem("Gemini Program", "gemini"),
+    multiSelectItem("Apollo Program", "apollo"),
+    multiSelectItem("Skylab", "skylab"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
+    multiSelectItem("Artemis Program", "artemis")
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
+    multiSelectItem("Mercury Program", "mercury", "1950"),
+    multiSelectItem("Gemini Program", "gemini", "1960"),
+    multiSelectItem("Apollo Program", "apollo", "1970"),
+    multiSelectItem("Skylab", "skylab", "1970"),
+    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    multiSelectItem("Artemis Program", "artemis", "2010")
 ];
 ```
 
@@ -99,7 +112,7 @@ A default multi select.
     <MultiSelect
         items={DEFAULT_ITEMS}
         // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
-        defaultValues={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        defaultValues={["skylab", "gemini"]}
         closeOnSelect={boolean("closeOnSelect", false)}
         noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
         triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
@@ -133,7 +146,7 @@ A multi select can have an initial set of selected items.
 <Preview>
     <Story name="default values">
         <MultiSelect
-            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            defaultValues={["gemini", "skylab"]}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
@@ -192,7 +205,7 @@ A multi select can be disabled.
         <MultiSelect
             disabled
             items={DEFAULT_ITEMS}
-            defaultValues={[GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE]}
+            defaultValues={["gemini", "skylab"]}
             onValuesChange={logValuesChanged}
         />
     </Story>
@@ -224,14 +237,14 @@ Can be set to: `"small"`, `"large"` or omitted.
                 <MultiSelect
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
             <div className="flex-auto">
                 <MultiSelect
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
@@ -239,7 +252,7 @@ Can be set to: `"small"`, `"large"` or omitted.
                 <MultiSelect
                     size="large"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
-                    defaultValues={[GROUP_RESTORED_VALUE]}
+                    defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
@@ -254,7 +267,7 @@ A multi select can handle `values` and `open` state in controlled mode.
 <FilePreview filePath="/multi-select/stories/components/controlled-multi-select">
     <ControlledMultiSelect
         items={DEFAULT_ITEMS}
-        values={[GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]}
+        values={["skylab", "gemini"]}
         onValuesChange={logValuesChanged}
     />
 </FilePreview>

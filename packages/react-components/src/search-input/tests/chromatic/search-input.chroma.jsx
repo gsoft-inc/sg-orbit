@@ -1,10 +1,10 @@
-import { DEFAULT_RESULTS, LAURIE_VALUE } from "@react-components/search-input/stories/data";
+import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
 import { SearchInput } from "@react-components/search-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Search Input/results set"))
+    return storiesOfBuilder(module, createChromaticSection("SearchInput/results set"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
