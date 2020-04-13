@@ -131,6 +131,9 @@ export function createSharedStories(radio, stories) {
                 <div className="flex mw5">
                     <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
+                <div className="flex mw5">
+                    <Radio count={<Count>6</Count>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                </div>
             </div>
         );
 }
