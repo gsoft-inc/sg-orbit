@@ -11,23 +11,23 @@ function Icons({ element, ...rest }) {
 
     return (
         <>
-            <div className="flex mb8">
+            <div className="flex items-end mb8">
                 <Toggle icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
                 <Toggle icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle icons={<CommunicationIcon />} size="large" element={radio} />
             </div>
-            <div className="flex mb8">
+            <div className="flex items-end mb8">
                 <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
                 <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
                 <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
             </div>
-            <div className="flex mb8">
+            <div className="flex items-end mb8">
                 <Toggle disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle disabled icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
                 <Toggle readOnly icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
             </div>
-            <div className="flex mb8">
+            <div className="flex items-end mb8">
                 <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
                 <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
                 <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
@@ -41,7 +41,7 @@ function Labels({ element, ...rest }) {
 
     return (
         <>
-            <div className="flex mb8">
+            <div className="flex items-end mb8">
                 <Toggle label={<Label>6</Label>} size="small" element={radio} className="mr5" />
                 <Toggle label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle label={<Label>6</Label>} size="large" element={radio} />
@@ -59,12 +59,12 @@ export function createSharedStories(checkbox, stories) {
         .add("text", () =>
             <div className="flex">
                 <div className="flex flex-column">
-                    <div className="flex mb8">
+                    <div className="flex items-end mb8">
                         <Toggle text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle disabled text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle readOnly text="Milky Way" element={checkbox} />
                     </div>
-                    <div className="flex mb8">
+                    <div className="flex items-end mb8">
                         <Toggle size="small" text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle size="large" text="Milky Way" element={checkbox} />
@@ -77,18 +77,33 @@ export function createSharedStories(checkbox, stories) {
         .add("no text", () =>
             <div className="flex">
                 <div className="flex flex-column">
-                    <div className="flex mb8">
+                    <div className="flex items-end mb8">
                         <Toggle element={checkbox} className="mr5" />
                         <Toggle disabled element={checkbox} className="mr5" />
                         <Toggle readOnly element={checkbox} />
                     </div>
-                    <div className="flex mb8">
+                    <div className="flex items-end mb8">
                         <Toggle size="small" element={checkbox} className="mr5" />
                         <Toggle element={checkbox} className="mr5" />
                         <Toggle size="large" element={checkbox} />
                     </div>
                     <Icons element={checkbox} />
                     <Labels element={checkbox} />
+                </div>
+            </div>
+        )
+        .add("overflow", () =>
+            <div className="flex">
+                <div className="flex">
+                    <div className="flex mw5">
+                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    </div>
+                    <div className="flex mw5">
+                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} label={<Label>6</Label>} className="mr5" />
+                    </div>
+                    <div className="flex mw5">
+                        <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    </div>
                 </div>
             </div>
         );

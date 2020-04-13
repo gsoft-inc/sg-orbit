@@ -125,6 +125,9 @@ export function createSharedStories(checkbox, stories) {
                 <div className="flex items-end mw5">
                     <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
+                <div className="flex items-end mw5">
+                    <Checkbox label={<Label>6</Label>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
             </div>
         );
 }

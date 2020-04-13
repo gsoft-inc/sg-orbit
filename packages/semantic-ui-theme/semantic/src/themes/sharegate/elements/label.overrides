@@ -116,7 +116,6 @@
     font-size: var(--type-scale-8);
 }
 
-/* TODO: check if can be overriden via variables first */
 .ui.label.tiny:not(.circular) {
     min-height: 24px;
     font-size: var(--type-scale-9);
@@ -488,7 +487,8 @@
     padding-left: calc(var(--scale-echo) / 2 - 4px);
 }
 
-.ui.label.large.with-tag.compact {);
+.ui.label.large.with-tag.compact {
+    padding-left: calc(var(--scale-foxtrot) / 2 - 4px);
 }
 
 /* Default - With Avatar  */
@@ -509,7 +509,8 @@
 }
 
 .ui.label.large.with-avatar,
-.ui.multiple.dropdown > .label.large.with-avatar {);
+.ui.multiple.dropdown > .label.large.with-avatar {
+    padding-left: calc(var(--scale-echo) /2 );
 }
 
 /* Compact - With Avatar  */
@@ -530,7 +531,8 @@
 }
 
 .ui.label.large.with-avatar.compact,
-.ui.multiple.dropdown > .label.large.with-avatar.compact {);
+.ui.multiple.dropdown > .label.large.with-avatar.compact {
+    padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
 /* Default - With Icons Left  */
@@ -551,7 +553,8 @@
 }
 
 .ui.label.large.with-icons-left,
-.ui.multiple.dropdown > .label.large.with-icons-left {);
+.ui.multiple.dropdown > .label.large.with-icons-left {
+    padding-left: calc(var(--scale-foxtrot) - 4px);
 }
 
 /* Compact - With Icons Left  */
