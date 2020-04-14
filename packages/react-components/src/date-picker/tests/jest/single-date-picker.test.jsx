@@ -28,7 +28,6 @@ class DayPickerSingleDateControllerMock extends PureComponent {
 }
 
 function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...otherProps } = {}) {
-    // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
     const rdc = isNil(reactDatesCalendar) ? <DayPickerSingleDateControllerMock /> : reactDatesCalendar;
 
     return <SingleDatePicker

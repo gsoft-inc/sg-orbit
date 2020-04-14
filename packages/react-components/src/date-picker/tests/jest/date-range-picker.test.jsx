@@ -40,7 +40,6 @@ class DayPickerRangeControllerMock extends PureComponent {
 }
 
 function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...otherProps } = {}) {
-    // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
     const rdc = isNil(reactDatesCalendar) ? <DayPickerRangeControllerMock /> : reactDatesCalendar;
 
     return <DateRangePicker

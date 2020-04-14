@@ -5,6 +5,9 @@ import { mergeClasses } from "../../shared";
 import { string } from "prop-types";
 
 const propTypes = {
+    /**
+     * Additional classes.
+     */
     className: string
 };
 

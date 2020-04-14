@@ -50,7 +50,7 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
-     * The HTML button type.
+     * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
     /**

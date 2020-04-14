@@ -4,7 +4,7 @@ import { ArgumentError, AutoControlledPureComponent, DOMEventListener, KEYS, get
 import { BOTTOM_LEFT, POSITIONS, isBottom, isCenter, isLeft, isRight, isTop } from "./positions";
 import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";
 import { cloneElement, createRef } from "react";
-import { isNil } from "lodash";
+import { isFunction, isNil } from "lodash";
 
 export class Popup extends AutoControlledPureComponent {
     static propTypes = {
@@ -293,7 +293,9 @@ export class Popup extends AutoControlledPureComponent {
     focusTrigger() {
         setTimeout(() => {
             if (!isNil(this._triggerRef.current)) {
-                this._triggerRef.current.focus();
+                if (isFunction(this._triggerRef.current.focus)) {
+                    this._triggerRef.current.focus();
+                }
             }
         }, 0);
     }
