@@ -1,11 +1,11 @@
 import "./popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
-import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, func, instanceOf, isFunction, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { assignRef, mergeClasses, useResizeObserver } from "../../shared";
 import { createPortal } from "react-dom";
 import { isNil, merge } from "lodash";
 import { usePopper } from "react-popper";
-import { useResizeObserver } from "../../shared";
 
 // USAGE:
 // Trigger:
@@ -24,9 +24,11 @@ import { useResizeObserver } from "../../shared";
 //    - With a custom boundary when in a container that is not the document or the viewport OR disablePortal
 
 
+// TODO:
+// - Need something like setRef. Currently the ref is on the wrapper but it should be on the popper element when it's unwrap.
+
 const propTypes = {
-    defaultOpen: bool,
-    trigger: node.isRequired,
+    show: bool,
     /**
      * Position of the popper element.
      */
@@ -48,16 +50,19 @@ const propTypes = {
         "left-end"
     ]),
     /**
+     * The popper trigger element.
+     */
+    triggerElement: instanceOf(HTMLElement).isRequired,
+    /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */
     pinned: bool,
     /**
      * Whether or not to render the popper element in an additional element that will handles [PopperJs](https://popper.js.org) references, attributes and styles.
      */
-    wrap: bool,
+    noWrap: bool,
     /**
      * Allow to displace the popper element from its trigger element.
-     *
      * Ex: ["10px", "-10px"]
      */
     offset: arrayOf(number),
@@ -68,7 +73,7 @@ const propTypes = {
     /**
      * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For documentation, view [https://popper.js.org/docs/v2/modifiers](https://popper.js.org/docs/v2/modifiers).
      */
-    modifiers: array,
+    popperModifiers: array,
     /**
      * A set of options passed directly to [PopperJs](https://popper.js.org). For documentation, view [https://popper.js.org/docs/v2/constructors/#options](https://popper.js.org/docs/v2/constructors/#options)
      */
@@ -86,13 +91,17 @@ const propTypes = {
      */
     animate: bool,
     /**
-     * Additional classes.
+     * Additional classes that will be added to the popper element wrapper when wrap is true.
      */
     className: string,
     /**
-     * Additional inline styles.
+     * Additional inline styles that will be added to the popper element wrapper when wrap is true.
      */
     style: object,
+    /**
+     * The content of the popper.
+     */
+    children: node.isRequired,
     /**
      * @ignore
      */
@@ -100,9 +109,10 @@ const propTypes = {
 };
 
 const defaultProps = {
+    show: false,
     position: "bottom",
     pinned: false,
-    wrap: true,
+    noWrap: false,
     disabled: false,
     disablePortal: false,
     animate: true
@@ -134,13 +144,45 @@ function setModifierOptions(name, options, modifiers) {
     }
 }
 
-export function PurePopper({ defaultOpen, trigger, position, pinned, wrap, offset, disabled, modifiers, popperOptions, containerElement, disablePortal, animate, style, forwardedRef, children, ...rest }) {
-    const [triggerElement, setTriggerElement] = useState(null);
+// function useNotifyVisibilityChanged(show, handler) {
+//     const isVisible = useRef();
+
+//     useEffect(() => {
+//         isVisible.current = false;
+//     }, []);
+
+//     if (isVisible.current !== show) {
+//         if (!isNil(handler)) {
+//             handler(show);
+//         }
+//     }
+// }
+
+export function PurePopper(props) {
+    const {
+        show,
+        position,
+        triggerElement,
+        pinned,
+        noWrap,
+        offset,
+        disabled,
+        popperModifiers,
+        popperOptions,
+        containerElement: portalElement,
+        disablePortal,
+        animate,
+        className,
+        style,
+        forwardedRef,
+        children,
+        ...rest
+    } = props;
+
     const [popperElement, setPopperElement] = useState(null);
-    const [isOpen, setIsOpen] = useState(defaultOpen);
 
     const createModifiers = () => {
-        const mergedModifiers = modifiers || [];
+        const mergedModifiers = popperModifiers || [];
 
         if (pinned) {
             disableModifier("preventOverflow", mergedModifiers);
@@ -166,47 +208,61 @@ export function PurePopper({ defaultOpen, trigger, position, pinned, wrap, offse
 
     useResizeObserver(popperElement, handlePopperElementResize);
 
-    const renderTrigger = () => {
-        if (!disabled) {
-            return cloneElement(trigger, {
-                onClick: () => { setIsOpen(!isOpen); },
-                ref: setTriggerElement
-            });
+    const setPopperRef = useCallback(element => {
+        if (!isNil(element)) {
+            setPopperElement(element);
         }
 
-        return trigger;
+        assignRef(element, forwardedRef);
+    }, [setPopperElement, forwardedRef]);
+
+    const renderWrapper = popper => {
+        const classes = mergeClasses(
+            "outline-0",
+            className
+        );
+
+        return (
+            <div
+                className={classes}
+                tabIndex="-1"
+                data-testid="popper-wrapper"
+                {...rest}
+            >
+                {popper}
+            </div>
+        );
     };
 
     const renderPopper = () => {
         const popper = Children.only(children);
 
-        return cloneElement(wrap ? <div ref={forwardedRef} {...rest}>{popper}</div> : popper, {
+        return cloneElement(!noWrap ? renderWrapper(popper) : popper, {
             style: {
                 ...style,
                 ...styles.popper,
-                display: isOpen ? "block" : "none",
+                display: show ? "block" : "none",
                 animation: animate ? "ou-popper-fade-in 0.3s" : undefined
             },
-            ref: setPopperElement,
+            ref: setPopperRef,
             ...attributes.popper
         });
     };
 
-    return (
-        <>
-            {renderTrigger()}
-            <If condition={!disabled}>
-                <Choose>
-                    <When condition={disablePortal}>
-                        {renderPopper()}
-                    </When>
-                    <Otherwise>
-                        {createPortal(renderPopper(), containerElement || window.document.body)}
-                    </Otherwise>
-                </Choose>
-            </If>
-        </>
-    );
+    if (!disabled) {
+        return (
+            <Choose>
+                <When condition={disablePortal}>
+                    {renderPopper()}
+                </When>
+                <Otherwise>
+                    {createPortal(renderPopper(), portalElement || window.document.body)}
+                </Otherwise>
+            </Choose>
+        );
+    }
+
+    return null;
 }
 
 PurePopper.propTypes = propTypes;

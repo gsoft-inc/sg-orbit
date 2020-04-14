@@ -61,8 +61,8 @@ export function RedBoxPopperWithBoundary({ scrollTop, modifiers, setPreventOverf
     return (
         <div className={styles.boundary} ref={setBoundaryElement}>
             <RedBoxPopper
-                defaultOpen
-                modifiers={createModifiers()}
+                defaultShow
+                popperModifiers={createModifiers()}
                 {...rest}
             />
         </div>

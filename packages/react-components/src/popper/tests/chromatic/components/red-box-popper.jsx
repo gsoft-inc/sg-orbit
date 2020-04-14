@@ -1,6 +1,8 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
-import { forwardRef } from "react";
+import { bool } from "prop-types";
+import { forwardRef, useState } from "react";
+import { isNil } from "lodash";
 
 function PureRedBox({ forwardedRef, ...rest }) {
     return (
@@ -14,19 +16,47 @@ function PureRedBox({ forwardedRef, ...rest }) {
     );
 }
 
-const RedBox = forwardRef((props, ref) => (
+export const RedBox = forwardRef((props, ref) => (
     <PureRedBox { ...props } forwardedRef={ref} />
 ));
 
-export function RedBoxPopper(rest) {
+function PureRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
+    const [triggerElement, setTriggerElement] = useState(null);
+    const [isVisible, setVisibility] = useState(defaultShow);
+
     return (
-        <Popper
-            trigger={<Button fluid>Open</Button>}
-            {...rest}
-        >
-            <RedBox />
-        </Popper>
+        <>
+            <Button
+                fluid
+                onClick={() => setVisibility(!isVisible)}
+                ref={setTriggerElement}
+            >
+                Open
+            </Button>
+            <If condition={!isNil(triggerElement)}>
+                <Popper
+                    show={isVisible}
+                    triggerElement={triggerElement}
+                    ref={forwardedRef}
+                    {...rest}
+                >
+                    <RedBox />
+                </Popper>
+            </If>
+        </>
     );
 }
+
+export const RedBoxPopper = forwardRef((props, ref) => (
+    <PureRedBoxPopper { ...props } forwardedRef={ref} />
+));
+
+RedBoxPopper.propTypes = {
+    defaultShow: bool
+};
+
+RedBoxPopper.defaultProps = {
+    defaultShow: false
+};
 
 

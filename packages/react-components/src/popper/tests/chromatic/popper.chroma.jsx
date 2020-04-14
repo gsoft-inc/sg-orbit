@@ -19,73 +19,73 @@ stories()
         <RedBoxPopper />
     )
     .add("open", () =>
-        <RedBoxPopper defaultOpen />
+        <RedBoxPopper defaultShow />
     )
     .add("position auto", () =>
-        <RedBoxPopper defaultOpen position="auto" />
+        <RedBoxPopper defaultShow position="auto" />
     )
     .add("position auto-start", () =>
-        <RedBoxPopper defaultOpen position="auto-start" />
+        <RedBoxPopper defaultShow position="auto-start" />
     )
     .add("position auto-end", () =>
-        <RedBoxPopper defaultOpen position="auto-end" />
+        <RedBoxPopper defaultShow position="auto-end" />
     )
     .add("position top", () =>
-        <RedBoxPopper defaultOpen position="top" pinned />
+        <RedBoxPopper defaultShow position="top" pinned />
     )
     .add("position top-start", () =>
-        <RedBoxPopper defaultOpen position="top-start" pinned />
+        <RedBoxPopper defaultShow position="top-start" pinned />
     )
     .add("position top-end", () =>
-        <RedBoxPopper defaultOpen position="top-end" pinned />
+        <RedBoxPopper defaultShow position="top-end" pinned />
     )
     .add("position bottom", () =>
-        <RedBoxPopper defaultOpen position="bottom" pinned />
+        <RedBoxPopper defaultShow position="bottom" pinned />
     )
     .add("position bottom-end", () =>
-        <RedBoxPopper defaultOpen position="bottom-end" pinned />
+        <RedBoxPopper defaultShow position="bottom-end" pinned />
     )
     .add("position bottom-start", () =>
-        <RedBoxPopper defaultOpen position="bottom-start" pinned />
+        <RedBoxPopper defaultShow position="bottom-start" pinned />
     )
     .add("position right", () =>
-        <RedBoxPopper defaultOpen position="right" pinned />
+        <RedBoxPopper defaultShow position="right" pinned />
     )
     .add("position right", () =>
-        <RedBoxPopper defaultOpen position="right" pinned />
+        <RedBoxPopper defaultShow position="right" pinned />
     )
     .add("position right-start", () =>
-        <RedBoxPopper defaultOpen position="right-start" pinned />
+        <RedBoxPopper defaultShow position="right-start" pinned />
     )
     .add("position right-end", () =>
-        <RedBoxPopper defaultOpen position="right-end" pinned />
+        <RedBoxPopper defaultShow position="right-end" pinned />
     )
     .add("position left", () =>
-        <RedBoxPopper defaultOpen position="left" pinned />
+        <RedBoxPopper defaultShow position="left" pinned />
     )
     .add("position left-start", () =>
-        <RedBoxPopper defaultOpen position="left-start" pinned />
+        <RedBoxPopper defaultShow position="left-start" pinned />
     )
     .add("position left-end", () =>
-        <RedBoxPopper defaultOpen position="left-end" pinned />
+        <RedBoxPopper defaultShow position="left-end" pinned />
     )
     .add("fixed positioning", () =>
-        <RedBoxPopper defaultOpen popperOptions={{ strategy: "fixed" }} />
+        <RedBoxPopper defaultShow popperOptions={{ strategy: "fixed" }} />
     )
     .add("disable portal", () =>
-        <RedBoxPopper defaultOpen disablePortal />
+        <RedBoxPopper defaultShow disablePortal />
     )
     .add("container element", () =>
-        <RedBoxPopper defaultOpen containerElement={window.document.getElementById("root")} />
+        <RedBoxPopper defaultShow containerElement={window.document.getElementById("root")} />
     )
-    .add("not wrapped", () =>
-        <RedBoxPopper defaultOpen wrap={false} />
+    .add("no wrapped", () =>
+        <RedBoxPopper defaultShow wrap={false} />
     )
-    .add("wrap and className", () =>
-        <RedBoxPopper defaultOpen className="border-blue" />
-    )
-    .add("wrap and style", () =>
-        <RedBoxPopper defaultOpen style={{ border: "1px solid blue" }} />
+    .add("styling", () =>
+        <div className="flex">
+            <RedBoxPopper defaultShow className="border-blue mr5" />
+            <RedBoxPopper defaultShow style={{ border: "1px solid blue" }} />
+        </div>
     )
     .add("can prevent overflow when not pinned",
          () => <RedBoxPopperWithBoundary position="right" scrollTop={100} setPreventOverflowBoundaryElement />,
@@ -109,44 +109,44 @@ stories()
         <RedBoxPopper disabled />
     )
     .add("without animation", () =>
-        <RedBoxPopper defaultOpen animate={false} />
+        <RedBoxPopper defaultShow animate={false} />
     );
 
 stories("/offsets/bottom")
     .add("left+positive", () =>
-        <RedBoxPopper position="bottom-end" offset={[30, 30]} defaultOpen />
+        <RedBoxPopper position="bottom-end" offset={[30, 30]} defaultShow />
     )
     .add("left+negative", () =>
-        <RedBoxPopper position="bottom-end" offset={[-30, -30]} defaultOpen />
+        <RedBoxPopper position="bottom-end" offset={[-30, -30]} defaultShow />
     )
     .add("right+positive", () =>
-        <RedBoxPopper position="bottom-start" offset={[30, 30]} defaultOpen />
+        <RedBoxPopper position="bottom-start" offset={[30, 30]} defaultShow />
     )
     .add("right+negative", () =>
-        <RedBoxPopper position="bottom-start" offset={[-30, -30]} defaultOpen />
+        <RedBoxPopper position="bottom-start" offset={[-30, -30]} defaultShow />
     );
 
 stories("/offsets/top")
     .add("left+positive", () =>
-        <RedBoxPopper position="top-end" offset={[30, 30]} defaultOpen />,
+        <RedBoxPopper position="top-end" offset={[30, 30]} defaultShow />,
          paramsBuilder()
              .canvasLayout({ marginTop: "150px" })
              .build()
     )
     .add("left+negative", () =>
-        <RedBoxPopper position="top-end" offset={[-30, -30]} defaultOpen />,
+        <RedBoxPopper position="top-end" offset={[-30, -30]} defaultShow />,
          paramsBuilder()
              .canvasLayout({ marginTop: "150px" })
              .build()
     )
     .add("right+positive", () =>
-        <RedBoxPopper position="top-start" offset={[30, 30]} defaultOpen />,
+        <RedBoxPopper position="top-start" offset={[30, 30]} defaultShow />,
          paramsBuilder()
              .canvasLayout({ marginTop: "150px" })
              .build()
     )
     .add("right+negative", () =>
-        <RedBoxPopper position="top-start" offset={[-30, -30]} defaultOpen />,
+        <RedBoxPopper position="top-start" offset={[-30, -30]} defaultShow />,
          paramsBuilder()
              .canvasLayout({ marginTop: "150px" })
              .build()

@@ -1,6 +1,7 @@
-import { IS_PRODUCTION, ensure } from "../utils";
+import { IS_PRODUCTION } from "../env";
 import { PureComponent } from "react";
 import { difference, isFunction, isNil, isUndefined } from "lodash";
+import { ensure } from "../contracts";
 
 /*
  * How to develop an auto controlled component to support "controlled" and "uncontrolled" values properties.
