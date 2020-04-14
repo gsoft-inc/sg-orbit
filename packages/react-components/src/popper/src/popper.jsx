@@ -5,7 +5,7 @@ import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, on
 import { createPortal } from "react-dom";
 import { isNil, merge } from "lodash";
 import { usePopper } from "react-popper";
-import { useResizeObserver } from "./use-resize-observer";
+import { useResizeObserver } from "../../shared";
 
 // USAGE:
 // Trigger:
@@ -76,7 +76,7 @@ const propTypes = {
     /**
      * A DOM element in which the popper element will appended via a React portal.
      */
-    containerElement: instanceOf(Element),
+    containerElement: instanceOf(HTMLElement),
     /**
      * Disable the React portal behavior. The popper element will be rendered within it's parent DOM hierarchy.
      */
