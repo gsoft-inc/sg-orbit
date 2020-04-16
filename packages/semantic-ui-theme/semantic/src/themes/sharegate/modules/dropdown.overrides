@@ -53,6 +53,21 @@
     align-items: center;
 }
 
+/* LAYOUT | Inline | STATE | Loading */
+.ui.inline.dropdown.loading > i.icon::before {
+    width: 0.825em;
+    height: 0.825em;
+    border-width: 0.125em;
+    left: 0.15em;
+}
+
+.ui.inline.dropdown.loading > i.icon::after {
+    width: 0.825em;
+    height: 0.825em;
+    border-width: 0.125em;
+    left: 0.15em;
+}
+
 /*******************************
     Text
 *******************************/

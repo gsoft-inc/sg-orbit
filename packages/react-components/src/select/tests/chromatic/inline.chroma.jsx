@@ -83,6 +83,22 @@ stories()
             disabled: true
         })
     )
+    .add("loading", () =>
+        <div className="flex flex-column">
+            <div className="f9 mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="f5 mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="f1">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+        </div>
+    )
     .add("error", () =>
         <div className="flex">
             {createInlineSelect({
