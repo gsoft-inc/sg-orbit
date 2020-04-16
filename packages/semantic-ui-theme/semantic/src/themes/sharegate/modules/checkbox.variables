@@ -12,7 +12,7 @@
 
 /* Checkbox */
 @checkboxBackground: @white;
-@checkboxBorder: 1px solid @cloud200;
+@checkboxBorder: 1px solid var(--marine-100);
 @checkboxBorderRadius: @3px;
 @checkboxTransition:
     border @defaultDuration @defaultEasing,
