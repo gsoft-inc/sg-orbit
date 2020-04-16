@@ -3,7 +3,7 @@ import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const RESULT_SHAPE = {
     id: string.isRequired,
     text: string.isRequired

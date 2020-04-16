@@ -1,7 +1,7 @@
 import "./popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
-import { array, arrayOf, bool, func, instanceOf, isFunction, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { assignRef, mergeClasses, useResizeObserver } from "../../shared";
 import { createPortal } from "react-dom";
 import { isNil, merge } from "lodash";
@@ -23,12 +23,7 @@ import { usePopper } from "react-popper";
 // Prevent Overflow:
 //    - With a custom boundary when in a container that is not the document or the viewport OR disablePortal
 
-
-// TODO:
-// - Need something like setRef. Currently the ref is on the wrapper but it should be on the popper element when it's unwrap.
-
-const propTypes = {
-    show: bool,
+export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Position of the popper element.
      */
@@ -49,10 +44,6 @@ const propTypes = {
         "left-start",
         "left-end"
     ]),
-    /**
-     * The popper trigger element.
-     */
-    triggerElement: instanceOf(HTMLElement).isRequired,
     /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */
@@ -108,14 +99,27 @@ const propTypes = {
     forwardedRef: oneOfType([object, func])
 };
 
-const defaultProps = {
-    show: false,
+export const SHARED_POPPER_DEFAULT_PROPS = {
     position: "bottom",
     pinned: false,
     noWrap: false,
     disabled: false,
     disablePortal: false,
     animate: true
+};
+
+const propTypes = {
+    show: bool,
+    /**
+     * The popper trigger element.
+     */
+    triggerElement: instanceOf(HTMLElement).isRequired,
+    ...SHARED_POPPER_PROP_TYPES
+};
+
+const defaultProps = {
+    show: false,
+    ...SHARED_POPPER_DEFAULT_PROPS
 };
 
 function disableModifier(name, modifiers) {
@@ -158,28 +162,26 @@ function setModifierOptions(name, options, modifiers) {
 //     }
 // }
 
-export function PurePopper(props) {
-    const {
-        show,
-        position,
-        triggerElement,
-        pinned,
-        noWrap,
-        offset,
-        disabled,
-        popperModifiers,
-        popperOptions,
-        containerElement: portalElement,
-        disablePortal,
-        animate,
-        className,
-        style,
-        forwardedRef,
-        children,
-        ...rest
-    } = props;
-
-    const [popperElement, setPopperElement] = useState(null);
+export function InnerPopper({
+    show,
+    position,
+    triggerElement,
+    pinned,
+    noWrap,
+    offset,
+    disabled,
+    popperModifiers,
+    popperOptions,
+    containerElement: portalElement,
+    disablePortal,
+    animate,
+    className,
+    style,
+    forwardedRef,
+    children,
+    ...rest
+}) {
+    const [popperElement, setPopperElement] = useState();
 
     const createModifiers = () => {
         const mergedModifiers = popperModifiers || [];
@@ -213,7 +215,7 @@ export function PurePopper(props) {
             setPopperElement(element);
         }
 
-        assignRef(element, forwardedRef);
+        assignRef(forwardedRef, element);
     }, [setPopperElement, forwardedRef]);
 
     const renderWrapper = popper => {
@@ -265,9 +267,9 @@ export function PurePopper(props) {
     return null;
 }
 
-PurePopper.propTypes = propTypes;
-PurePopper.defaultProps = defaultProps;
+InnerPopper.propTypes = propTypes;
+InnerPopper.defaultProps = defaultProps;
 
 export const Popper = forwardRef((props, ref) => (
-    <PurePopper { ...props } forwardedRef={ref} />
+    <InnerPopper { ...props } forwardedRef={ref} />
 ));

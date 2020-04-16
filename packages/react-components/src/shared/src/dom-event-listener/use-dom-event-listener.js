@@ -1,6 +1,9 @@
 import { isNil } from "lodash";
 import { useEffect, useRef } from "react";
 
+// TODO:
+//  - Add params validation
+
 function resolveTarget(target) {
     if (target === "document") {
         return document;

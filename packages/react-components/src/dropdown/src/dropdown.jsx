@@ -1,6 +1,6 @@
 import "./item-factory";
 
-import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useForwardRef } from "../../shared";
+import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useCombinedRefs } from "../../shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
@@ -132,16 +132,17 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
 export function PureDropdown(props) {
     const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown: InnerDropdown,...rest } = props;
 
-    const _state = useRef({ valueChanged: false });
-    const dropdownRef = useRef(null);
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
+    const stateRef = useRef({ valueChanged: false });
+    const componentRef = useRef();
+    const innerRef = useCombinedRefs(forwardedRef);
+
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
     useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
 
     const setValueChanged = newValue => {
-        _state.current.valueChanged = newValue;
+        stateRef.current.valueChanged = newValue;
     };
 
     const handleOpen = (...args) => {
@@ -188,8 +189,8 @@ export function PureDropdown(props) {
         const key = event.keyCode;
 
         if (key === KEYS.enter) {
-            if (!_state.current.valueChanged) {
-                dropdownRef.current.open(event);
+            if (!stateRef.current.valueChanged) {
+                componentRef.current.open(event);
             }
 
             setValueChanged(false);
@@ -229,7 +230,7 @@ export function PureDropdown(props) {
                 className={containerClasses}
                 tabIndex={-1}
             >
-                <Ref innerRef={setInnerRef}>
+                <Ref innerRef={innerRef}>
                     <DropdownContext.Provider value={{ size: size }}>
                         <InnerDropdown
                             onOpen={handleOpen}
@@ -245,7 +246,7 @@ export function PureDropdown(props) {
                             icon={isNil(trigger) ? undefined : null }
                             disabled={disabled}
                             className={dropdownClasses}
-                            ref={dropdownRef}
+                            ref={componentRef}
                             data-testid="dropdown"
                             {...rest}
                         />

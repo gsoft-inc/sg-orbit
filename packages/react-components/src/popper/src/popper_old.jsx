@@ -188,35 +188,33 @@ function setModifierOptions(name, options, modifiers) {
     }
 }
 
-export function PurePopper(props) {
-    const {
-        defaultOpen,
-        trigger,
-        position,
-        onVisibilityChange,
-        onDocumentKeyDown,
-        onFocus,
-        onBlur,
-        onOutsideClick,
-        closeOnEscape,
-        closeOnBlur,
-        closeOnOutsideClick,
-        pinned,
-        wrap,
-        offset,
-        disabled,
-        popperModifiers,
-        popperOptions,
-        containerElement: portalElement,
-        disablePortal,
-        animate,
-        className,
-        style,
-        forwardedRef,
-        children,
-        ...rest
-    } = props;
-
+export function PurePopper({
+    defaultOpen,
+    trigger,
+    position,
+    onVisibilityChange,
+    onDocumentKeyDown,
+    onFocus,
+    onBlur,
+    onOutsideClick,
+    closeOnEscape,
+    closeOnBlur,
+    closeOnOutsideClick,
+    pinned,
+    wrap,
+    offset,
+    disabled,
+    popperModifiers,
+    popperOptions,
+    containerElement: portalElement,
+    disablePortal,
+    animate,
+    className,
+    style,
+    forwardedRef,
+    children,
+    ...rest
+}) {
     const [triggerElement, setTriggerElement] = useState(null);
     const [popperElement, setPopperElement] = useState(null);
     const [isVisible, setVisibility] = useState(defaultOpen);

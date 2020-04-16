@@ -11,7 +11,6 @@ import { isNil } from "lodash";
  * const deferredShowLoading = defer(() => { this.setState({ isLoading: true }) }, 200);
  *
  * deferredShowLoading();
- *
  * deferredShowLoading.cancel();
  */
 export function defer(func, delay = 0) {

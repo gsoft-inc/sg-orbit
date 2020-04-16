@@ -1,8 +1,8 @@
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useForwardRef } from "../../shared";
+import { mergeClasses, useCombinedRefs } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -101,7 +101,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
 export function PureTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
+    const innerRef = useCombinedRefs(forwardedRef);
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
@@ -118,7 +118,7 @@ export function PureTextArea(props) {
     );
 
     return (
-        <Ref innerRef={setInnerRef}>
+        <Ref innerRef={innerRef}>
             <SemanticTextArea
                 autoFocus={shouldAutofocus}
                 disabled={disabled}

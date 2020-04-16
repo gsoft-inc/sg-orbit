@@ -122,7 +122,7 @@ export function getAutoControlledStateFromProps(props, state, autoControlledProp
         }
     });
 
-    // Always compute the derived state for the initial state because the controlled props initial values might be the same at the component default values.
+    // Always compute the derived state for the initial state because the controlled props initial values might be the same as the component default values.
     if (stateBuilder.hasNewValues || isInitialState) {
         if (!isInitialState) {
             ensureAutoControlledPropsHasNotChanged(getStateAutoControlledProps(stateBuilder.state), lastAutoControlledProps);

@@ -5,7 +5,7 @@ import { SIZES } from "./sizes";
 import { arrayOf, bool, func, oneOf, shape, string } from "prop-types";
 import { mergeClasses } from "../../shared";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired

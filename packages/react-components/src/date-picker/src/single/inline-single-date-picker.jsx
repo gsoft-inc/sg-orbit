@@ -9,7 +9,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "pro
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * A controlled date value.
@@ -116,7 +116,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     className: string
 };
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
     allowClear: true,
     dateFormat: "MMM Do YYYY",

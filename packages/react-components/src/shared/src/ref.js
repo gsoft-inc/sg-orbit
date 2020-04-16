@@ -1,7 +1,7 @@
 import { isFunction, isNil } from "lodash";
-import { useCallback, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-export function assignRef(node, ref) {
+export function assignRef(ref, node) {
     if (!isNil(ref)) {
         if (isFunction(ref)) {
             ref(node);
@@ -11,13 +11,14 @@ export function assignRef(node, ref) {
     }
 }
 
-export function useForwardRef(forwardedRef) {
-    const ref = useRef();
+export function useCombinedRefs(...refs) {
+    const targetRef = useRef();
 
-    const setRef = useCallback(node => {
-        assignRef(node, forwardedRef);
-        assignRef(ref, node);
-    }, [forwardedRef]);
+    useEffect(() => {
+        refs.forEach(ref => {
+            assignRef(ref, targetRef.current);
+        });
+    }, [refs]);
 
-    return [ref, setRef];
+    return targetRef;
 }

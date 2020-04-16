@@ -9,7 +9,7 @@ import { isNil } from "lodash";
 import { isSameDay } from "../shared";
 import { mergeClasses } from "../../../shared";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const PRESET_SHAPE = {
     text: string.isRequired,
     startDate: object.isRequired,
