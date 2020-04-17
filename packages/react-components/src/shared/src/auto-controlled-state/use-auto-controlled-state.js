@@ -109,7 +109,7 @@ function computeStateFromProps(autoControlledProps, componentProps, currentState
 }
 
 function computeStateForSet(maybeState, currentState, controlledProps) {
-    const newState = Object.assign(currentState);
+    const newState = Object.assign({}, currentState);
     let hasChanges = false;
 
     Object.keys(maybeState).forEach(propName => {
