@@ -50,6 +50,16 @@
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
     box-shadow: 0px 0px 0px 2px var(--primary-100);
+    border: 1px solid var(--marine-100);
+}
+
+/* STATE | Focus | Hover */
+.ui.checkbox input:focus ~ label:hover::before {
+    border: 1px solid var(--marine-300);
+}
+
+.ui.checkbox input:checked:focus ~ label:hover::before {
+    border: 1px solid var(--primary-900);
 }
 
 .ui.checkbox input:checked ~ .box:before,
@@ -57,6 +67,11 @@
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before {
     background: @primary500;
+}
+
+.ui.checkbox input:checked:focus ~ .box:before,
+.ui.checkbox input:checked:focus ~ label:before {
+    border-color: var(--primary-500);
 }
 
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -192,7 +207,6 @@
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before {
     background: @white;
-    border-color: @cloud500;
 }
 
 /* Toggle
@@ -205,7 +219,9 @@
 
 /* toggle Focus */
 .ui.toggle.checkbox input:focus ~ .box:before,
-.ui.toggle.checkbox input:focus ~ label:before {
+.ui.toggle.checkbox input:focus ~ label:before,
+.ui.toggle.checkbox input:focus:hover ~ .box:before,
+.ui.toggle.checkbox input:focus:hover ~ label:before {
     border: 1px solid var(--cloud-500);
 }
 

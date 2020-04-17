@@ -616,21 +616,37 @@
     color: @alert500;
 }
 
-/* SKIN | Ghost | State */
+/* SKIN | Ghost | State | Base */
 .ui.ghost.button:hover,
 .ui.ghost.buttons .button:hover,
-.ui.ghost.button:focus,
-.ui.ghost.buttons .button:focus,
 .ui.ghost.button.active,
 .ui.ghost.buttons.active .button {
-    background-color: @cloud50;
+    background-color: var(--cloud-50);
+}
+
+/* SKIN | Ghost | State | Focus */
+.ui.ghost.button:focus,
+.ui.ghost.buttons .button:focus {
+    background-color: transparent;
+}
+
+/* SKIN | Ghost | Primary | State | Active */
+.ui.ghost.primary.button.active,
+.ui.ghost.primary.buttons.active .button,
+.ui.ghost.primary.button:active,
+.ui.ghost.primary.buttons:active .button {
+    background-color: transparent;
+}
+
+/* SKIN | Ghost | State | Focus + Hover */
+.ui.ghost.button:focus:hover,
+.ui.ghost.buttons .button:focus:hover {
+    background-color: var(--cloud-50);
 }
 
 /* SKIN | Ghost/Secondary | State */
 .ui.ghost.secondary.button:hover,
 .ui.ghost.secondary.buttons .button:hover,
-.ui.ghost.secondary.button:focus,
-.ui.ghost.secondary.buttons .button:focus,
 .ui.ghost.secondary.button.active,
 .ui.ghost.secondary.buttons.active .button {
     color: @marine900;
@@ -676,7 +692,7 @@
 .ui.disabled.button:hover,
 .ui.disabled.button:focus,
 .ui.disabled.button.active {
-    background-color: @cloud50;
+    background-color: var(--cloud-50);
     color: @cloud400;
 }
 
@@ -723,9 +739,9 @@
 .ui.button.secondary:disabled,
 .ui.buttons.secondary .button.disabled,
 .ui.buttons.secondary .button:disabled {
-    background-color: @cloud50!important;
+    background-color: var(--cloud-50)!important;
     color: @cloud400!important;
-    box-shadow: 0px 0px 0px @basicBorderSize @cloud50 inset;
+    box-shadow: 0px 0px 0px @basicBorderSize var(--cloud-50) inset;
 }
 
 /* SKIN | STATE | Disabled | LAYOUT | Secondary/Basic */
