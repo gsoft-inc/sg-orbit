@@ -1,8 +1,5 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import { useAutoControlledState } from "./use-auto-controlled-state";
-
-// TODO:
-// - A test validating and setAutoControlledState doesn't re-render too many times
+import { useAutoControlledState } from "@react-components/shared";
 
 // ***** State from props *****
 
@@ -347,18 +344,104 @@ test("setting a new value for an uncontrolled prop doesn't update the other valu
 
 // ***** onChange *****
 
-// test("call onChange on first run", () => {
+test("call onChange on first run", () => {
+    const autoControlledProps = {
+        open: false
+    };
 
-// });
+    let callCount = 0;
+    let lastState;
+    let lastIsInitialState;
 
-// test("call onChange when a new value is provided for a controlled prop", () => {
+    renderHook(() => useAutoControlledState(autoControlledProps, {}, {}, (state, isInitialState) => {
+        callCount++;
+        lastState = state;
+        lastIsInitialState = isInitialState;
+    }));
 
-// });
+    expect(callCount).toBe(1);
+    expect(lastState.open).toBeFalsy();
+    expect(lastIsInitialState).toBeTruthy();
+});
 
-// test("don't call onChange when a new value is set for a controlled prop", () => {
+test("call onChange when a new value is provided for a controlled prop", () => {
+    const autoControlledProps = {
+        open: false
+    };
 
-// });
+    let callCount = 0;
+    let lastState;
+    let lastIsInitialState;
 
-// test("call onChange when a new value is set for an uncontrolled prop", () => {
+    const { rerender } = renderHook(({ componentProps }) => useAutoControlledState(autoControlledProps, componentProps, {}, (state, isInitialState) => {
+        callCount++;
+        lastState = state;
+        lastIsInitialState = isInitialState;
+    }), {
+        initialProps: {
+            componentProps: {
+                open: false
+            }
+        }
+    });
 
-// });
+    rerender({
+        componentProps: {
+            open: true
+        }
+    });
+
+    expect(callCount).toBe(2);
+    expect(lastState.open).toBeTruthy();
+    expect(lastIsInitialState).toBeFalsy();
+});
+
+test("don't call onChange when a new value is set for a controlled prop", () => {
+    const autoControlledProps = {
+        open: false
+    };
+
+    const componentProps = {
+        open: false
+    };
+
+    let callCount = 0;
+
+    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps, {}, () => {
+        callCount++;
+    }));
+
+    act(() => {
+        result.current.setAutoControlledState({
+            open: true
+        });
+    });
+
+    expect(callCount).toBe(1);
+});
+
+test("call onChange when a new value is set for an uncontrolled prop", () => {
+    const autoControlledProps = {
+        open: false
+    };
+
+    let callCount = 0;
+    let lastState;
+    let lastIsInitialState;
+
+    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}, {}, (state, isInitialState) => {
+        callCount++;
+        lastState = state;
+        lastIsInitialState = isInitialState;
+    }));
+
+    act(() => {
+        result.current.setAutoControlledState({
+            open: true
+        });
+    });
+
+    expect(callCount).toBe(2);
+    expect(lastState.open).toBeTruthy();
+    expect(lastIsInitialState).toBeFalsy();
+});
