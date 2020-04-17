@@ -55,19 +55,19 @@
 
 /* LAYOUT | Inline | STATE | Loading */
 .ui.inline.dropdown.loading > i.icon {
-    width: 1em;
-    height: 1em;
+    width: 0.875em;
+    height: 0.875em;
 }
 
 .ui.inline.dropdown.loading > i.icon::before {
-    width: 1em;
-    height: 1em;
+    width: 0.875em;
+    height: 0.875em;
     border-width: 0.125em;
 }
 
 .ui.inline.dropdown.loading > i.icon::after {
-    width: 1em;
-    height: 1em;
+    width: 0.875em;
+    height: 0.875em;
     border-width: 0.125em;
 }
 
@@ -878,7 +878,7 @@
     height: var(--scale-foxtrot);
     border-width: 0.1875rem;
     top: 0;
-    left: 0;
+    left: 0.125em;
     margin: 0;
 }
 
@@ -892,7 +892,7 @@
     height: var(--scale-echo);
     border-width: 0.1875rem;
     top: 0;
-    left: 0;
+    left: 0.125em;
     margin: 0;
 }
 
