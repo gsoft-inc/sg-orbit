@@ -25,6 +25,10 @@ import { usePopper } from "react-popper";
 
 export const SHARED_POPPER_PROP_TYPES = {
     /**
+     * Wether to show the popper element or not.
+     */
+    show: bool,
+    /**
      * Position of the popper element.
      */
     position: oneOf([
@@ -109,7 +113,6 @@ export const SHARED_POPPER_DEFAULT_PROPS = {
 };
 
 const propTypes = {
-    show: bool,
     /**
      * The popper trigger element.
      */

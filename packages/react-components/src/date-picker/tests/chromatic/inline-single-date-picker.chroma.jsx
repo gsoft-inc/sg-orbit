@@ -23,16 +23,21 @@ function createInlineSingleDatePicker(props = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createInlineSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
+    .add("default opened", () =>
+        createInlineSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
     .add("closed",
          () =>
              createInlineSingleDatePicker()
-    )
-    .add("opened",
-         () =>
-             createInlineSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 defaultOpen: true
-             })
     );
 
 stories("/selected date/closed")

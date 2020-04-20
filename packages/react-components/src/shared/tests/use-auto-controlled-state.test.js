@@ -1,447 +1,250 @@
+import { ErrorBoundary, muteConsoleErrors } from "@utils/error-handling";
 import { act, renderHook } from "@testing-library/react-hooks";
 import { useAutoControlledState } from "@react-components/shared";
 
+// Errors in useEffect are not catch by @testing-library/react-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
+function withErrorBoundary(onError) {
+    return {
+        wrapper: ({ children }) => <ErrorBoundary onError={onError}>{children}</ErrorBoundary>
+    };
+}
+
+function muteReactTestRendererConsoleErrors() {
+    return muteConsoleErrors(["The above error occurred in the <TestHook> component:", "react-test-renderer.development.js"]);
+}
+
 // ***** State from props *****
 
-test("state contains controlled prop value when a controlled prop value is provided, ", () => {
-    const autoControlledProps = {
-        open: false
-    };
+test("state is the controlled value when a controlled value is provided", () => {
+    const { result } = renderHook(() => useAutoControlledState(true, undefined, false));
 
-    const componentProps = {
-        open: true
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
 });
 
-test("state contains default prop value when no controlled prop value is provided but a default prop value is provided", () => {
-    const autoControlledProps = {
-        open: false
-    };
+test("state is the initial value when an initial value is provided", () => {
+    const { result } = renderHook(() => useAutoControlledState(undefined, true, false));
 
-    const componentProps = {
-        defaultOpen: true
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
 });
 
-test("state contains default value when no controlled prop value and no default prop value are provided", () => {
-    const autoControlledProps = {
-        open: false
-    };
+test("throw an error when a controlled value and an initial value are provided", () => {
+    const { result } = renderHook(() => useAutoControlledState(true, true, false));
 
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
-
-    expect(result.current.autoControlledState.open).toBeFalsy();
+    expect(result.error).toBeDefined();
 });
 
-test("state always contains a value for all auto controlled props", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
+test("state is the default value when no controlled value and no initial value are provided", () => {
+    const { result } = renderHook(() => useAutoControlledState(undefined, undefined, false));
 
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
-
-    expect(result.current.autoControlledState.open).toBeDefined();
-    expect(result.current.autoControlledState.values).toBeDefined();
+    expect(result.current[0]).toBeFalsy();
 });
 
-test("state is unchanged when a subsequent run is made with the same values", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
+test("state in unchanged when a subsequent run is made with the same values", () => {
+    let callCount = 0;
 
-    const componentProps = {
-        open: true
-    };
+    const { result, rerender } = renderHook(() => useAutoControlledState(true, undefined, false, () => {
+        callCount++;
+    }));
 
-    const { result, rerender } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(autoControlledProps.values);
+    expect(result.current[0]).toBeTruthy();
 
     rerender();
 
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(autoControlledProps.values);
+    expect(result.current[0]).toBeTruthy();
+    expect(callCount).toBe(1);
 });
 
-test("support multiple controlled props", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
+test("state is updated when a new controlled value is provided on a subsequent run", () => {
+    let callCount = 0;
 
-    const componentProps = {
-        open: true,
-        values: ["Neil Armstrong"]
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(componentProps.values);
-});
-
-test("support multiple default props", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
-
-    const componentProps = {
-        defaultOpen: true,
-        defaultValues: ["Neil Armstrong"]
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(componentProps.defaultValues);
-});
-
-test("support mixing controlled props, default props and default values", () => {
-    const autoControlledProps = {
-        open: false,
-        values: [],
-        focus: false
-    };
-
-    const componentProps = {
-        open: true,
-        defaultValues: ["Neil Armstrong"]
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toBe(componentProps.defaultValues);
-    expect(result.current.autoControlledState.focus).toBe(autoControlledProps.focus);
-});
-
-test("state contains the new value when a new controlled prop value is provided on a subsequent run", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const { result, rerender } = renderHook(({ componentProps }) => useAutoControlledState(autoControlledProps, componentProps), {
+    const { result, rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, () => {
+        callCount++;
+    }), {
         initialProps: {
-            componentProps: {
-                open: true
-            }
+            controlledValue: true
         }
     });
 
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
 
     rerender({
-        componentProps: {
-            open: false
-        }
+        controlledValue: false
     });
 
-    expect(result.current.autoControlledState.open).toBeFalsy();
+    expect(result.current[0]).toBeFalsy();
+    expect(callCount).toBe(2);
 });
 
-test("throw an error when a controlled prop value is not provided on the first run but is provided on a subsequent run", () => {
-    const autoControlledProps = {
-        open: false
-    };
+test("throw an error when a controlled value is not provided on the first run but is provided on a subsequent run", () => {
+    let hasError = false;
 
-    const { result, rerender } = renderHook(({ componentProps }) => useAutoControlledState(autoControlledProps, componentProps), {
+    const unmuteErrors = muteReactTestRendererConsoleErrors();
+
+    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false), {
         initialProps: {
-            componentProps: {}
-        }
+            controlledValue: undefined
+        },
+        ...withErrorBoundary(() => {
+            hasError = true;
+        })
     });
 
     rerender({
-        componentProps: {
-            open: true
-        }
+        controlledValue: true
     });
 
-    expect(result.error.message).toContain("useAutoControlledProps.ensureControlledPropsHaveNotChanged");
+    unmuteErrors();
+
+    expect(hasError).toBeTruthy();
 });
 
-test("throw an error when a controlled prop value value and a default prop value are provided for the same auto controlled prop", () => {
-    const autoControlledProps = {
-        open: false
-    };
+test("throw an error when a controlled value is provided on the first run but is not provided on a subsequent run", () => {
+    let hasError = false;
 
-    const componentProps = {
-        open: true,
-        defaultOpen: true
-    };
+    const unmuteErrors = muteReactTestRendererConsoleErrors();
 
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    expect(result.error.message).toContain("useAutoControlledState.computeNewState");
-});
-
-test("default prop value doesn't override state on subsequent runs", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const { result, rerender } = renderHook(({ componentProps }) => useAutoControlledState(autoControlledProps, componentProps), {
+    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false), {
         initialProps: {
-            componentProps: {
-                defaultOpen: true
-            }
-        }
+            controlledValue: true
+        },
+        ...withErrorBoundary(() => {
+            hasError = true;
+        })
     });
 
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    rerender({
+        controlledValue: undefined
+    });
+
+    unmuteErrors();
+
+    expect(hasError).toBeTruthy();
+});
+
+test("initial value doesn't override state on a subsequent run when in uncontrolled mode", () => {
+    const { result, rerender } = renderHook(() => useAutoControlledState(undefined, false, false));
+
+    expect(result.current[0]).toBeFalsy();
 
     act(() => {
-        result.current.setAutoControlledState({
-            open: false
-        });
+        result.current[1](true);
     });
 
-    expect(result.current.autoControlledState.open).toBeFalsy();
-
-    rerender({
-        componentProps: {}
-    });
-
-    expect(result.current.autoControlledState.open).toBeFalsy();
-});
-
-test("default value doesn't override state on subsequent runs", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const { result, rerender } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
-
-    expect(result.current.autoControlledState.open).toBeFalsy();
-
-    act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
-    });
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
 
     rerender();
 
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
+});
+
+test("default value doesn't override state on a subsequent run when in uncontrolled mode", () => {
+    const { result, rerender } = renderHook(() => useAutoControlledState(undefined, undefined, false));
+
+    expect(result.current[0]).toBeFalsy();
+
+    act(() => {
+        result.current[1](true);
+    });
+
+    expect(result.current[0]).toBeTruthy();
+
+    rerender();
+
+    expect(result.current[0]).toBeTruthy();
 });
 
 // ***** setAutoControlledState *****
 
-test("setting a new value for an uncontrolled prop update the state with the new value", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
+test("setting the value of an uncontrolled prop update the state with the new value", () => {
+    const { result } = renderHook(() => useAutoControlledState(undefined, undefined, false));
 
     act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
+        result.current[1](true);
     });
 
-    expect(result.current.autoControlledState.open).toBeTruthy();
+    expect(result.current[0]).toBeTruthy();
 });
 
-test("setting a new value for a controlled prop doesn't update the state", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const componentProps = {
-        open: false
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
+test("setting the value of a controlled prop doesn't update the state", () => {
+    const { result } = renderHook(() => useAutoControlledState(false, undefined, false));
 
     act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
+        result.current[1](true);
     });
 
-    expect(result.current.autoControlledState.open).toBeFalsy();
-});
-
-test("can set multiple uncontrolled props values in the same call", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
-
-    act(() => {
-        result.current.setAutoControlledState({
-            open: true,
-            values: ["Neil Armstrong"]
-        });
-    });
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(["Neil Armstrong"]);
-});
-
-test("can set values for uncontrolled and controlled props in the same call", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
-
-    const componentProps = {
-        open: false
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps));
-
-    act(() => {
-        result.current.setAutoControlledState({
-            open: true,
-            values: ["Neil Armstrong"]
-        });
-    });
-
-    expect(result.current.autoControlledState.open).toBeFalsy();
-    expect(result.current.autoControlledState.values).toEqual(["Neil Armstrong"]);
-});
-
-test("setting a new value for an uncontrolled prop doesn't update the other values of the state", () => {
-    const autoControlledProps = {
-        open: false,
-        values: []
-    };
-
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}));
-
-    act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
-    });
-
-    act(() => {
-        result.current.setAutoControlledState({
-            values: ["Neil Armstrong"]
-        });
-    });
-
-    expect(result.current.autoControlledState.open).toBeTruthy();
-    expect(result.current.autoControlledState.values).toEqual(["Neil Armstrong"]);
+    expect(result.current[0]).toBeFalsy();
 });
 
 // ***** onChange *****
 
 test("call onChange on first run", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
     let callCount = 0;
     let lastState;
     let lastIsInitialState;
 
-    renderHook(() => useAutoControlledState(autoControlledProps, {}, {}, (state, isInitialState) => {
+    renderHook(() => useAutoControlledState(true, undefined, false, (state, isInitialState) => {
         callCount++;
         lastState = state;
         lastIsInitialState = isInitialState;
     }));
 
     expect(callCount).toBe(1);
-    expect(lastState.open).toBeFalsy();
+    expect(lastState).toBeTruthy();
     expect(lastIsInitialState).toBeTruthy();
 });
 
 test("call onChange when a new value is provided for a controlled prop", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
     let callCount = 0;
     let lastState;
-    let lastIsInitialState;
 
-    const { rerender } = renderHook(({ componentProps }) => useAutoControlledState(autoControlledProps, componentProps, {}, (state, isInitialState) => {
+    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, state => {
         callCount++;
         lastState = state;
-        lastIsInitialState = isInitialState;
     }), {
         initialProps: {
-            componentProps: {
-                open: false
-            }
+            controlledValue: true
         }
     });
 
     rerender({
-        componentProps: {
-            open: true
-        }
+        controlledValue: false
     });
 
     expect(callCount).toBe(2);
-    expect(lastState.open).toBeTruthy();
-    expect(lastIsInitialState).toBeFalsy();
+    expect(lastState).toBeFalsy();
 });
 
 test("don't call onChange when a new value is set for a controlled prop", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
-    const componentProps = {
-        open: false
-    };
-
     let callCount = 0;
 
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, componentProps, {}, () => {
+    const { result } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, () => {
         callCount++;
-    }));
+    }), {
+        initialProps: {
+            controlledValue: true
+        }
+    });
 
     act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
+        result.current[1](false);
     });
 
     expect(callCount).toBe(1);
 });
 
 test("call onChange when a new value is set for an uncontrolled prop", () => {
-    const autoControlledProps = {
-        open: false
-    };
-
     let callCount = 0;
     let lastState;
-    let lastIsInitialState;
 
-    const { result } = renderHook(() => useAutoControlledState(autoControlledProps, {}, {}, (state, isInitialState) => {
+    const { result } = renderHook(() => useAutoControlledState(undefined, true, false, state => {
         callCount++;
         lastState = state;
-        lastIsInitialState = isInitialState;
     }));
 
     act(() => {
-        result.current.setAutoControlledState({
-            open: true
-        });
+        result.current[1](false);
     });
 
     expect(callCount).toBe(2);
-    expect(lastState.open).toBeTruthy();
-    expect(lastIsInitialState).toBeFalsy();
+    expect(lastState).toBeFalsy();
 });

@@ -44,6 +44,18 @@ function createDateRangePicker(props = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createDateRangePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            open: true
+        })
+    )
+    .add("default opened", () =>
+        createDateRangePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
     .add("fluid",
          () =>
              <div className="flex flex-column">

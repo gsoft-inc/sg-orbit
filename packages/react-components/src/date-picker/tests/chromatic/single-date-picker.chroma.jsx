@@ -29,6 +29,18 @@ function createSingleDatePicker(props = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            open: true
+        })
+    )
+    .add("default opened", () =>
+        createSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
     .add("fluid",
          () =>
              <div className="flex flex-column">

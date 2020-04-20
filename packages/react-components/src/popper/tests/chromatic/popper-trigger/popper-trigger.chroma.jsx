@@ -33,8 +33,8 @@ stories()
             show: true
         })
     )
-    .add("default open", () =>
+    .add("default show", () =>
         createPopperTrigger({
-            defaultOpen: true
+            defaultShow: true
         })
     );

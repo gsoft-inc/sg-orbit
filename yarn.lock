@@ -5310,6 +5310,14 @@ babel-plugin-transform-property-literals@^6.9.4:
   dependencies:
     esutils "^2.0.2"
 
+babel-plugin-transform-react-handled-props@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-handled-props/-/babel-plugin-transform-react-handled-props-2.1.0.tgz#11ca76679f7143637d418579f7f021879d4f721e"
+  integrity sha512-Bm7Eqw+hBsKZPyRB6QnnH7FOln/kR2Wgpt9G7pl5S7Nw5Dy5U1DUijLzLwHtOw3/YNc9nvccpCf+QhyA/i0HoA==
+  dependencies:
+    "@babel/types" "^7.4.4"
+    lodash "^4.17.11"
+
 babel-plugin-transform-regexp-constructors@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-regexp-constructors/-/babel-plugin-transform-regexp-constructors-0.4.3.tgz#58b7775b63afcf33328fae9a5f88fbd4fb0b4965"

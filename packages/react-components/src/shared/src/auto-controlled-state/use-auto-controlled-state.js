@@ -1,132 +1,22 @@
 import { IS_PRODUCTION } from "../env";
-import { difference, isFunction, isNil, isUndefined } from "lodash";
 import { ensure } from "../contracts";
-import { useCallback, useState } from "react";
+import { isFunction, isNil, isUndefined } from "lodash";
+import { useCallback, useEffect, useState } from "react";
 
-function getDefaultPropName(prop) {
-    return `default${prop[0].toUpperCase()}${prop.slice(1)}`;
-}
-
-function areEqual(newValue, currentValue) {
-    // Using the Object.is algorithm since this is what React hooks setState is also using for comparison.
-    // For more info: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description
-    return Object.is(newValue, currentValue);
-}
-
-function validatePrerequisites(autoControlledProps, componentDefaultProps) {
+function validatePrerequisites(controlledValue, initialValue) {
     if (!IS_PRODUCTION) {
-        // Validate that auto controlled props
-        //   - doesn't have default values.
-        Object.keys(autoControlledProps).forEach(propName => {
-            const defaultProp = getDefaultPropName(propName);
-
-            if (!isNil(componentDefaultProps)) {
-                if (componentDefaultProps.hasOwnProperty(defaultProp)) {
-                    throw new Error(`Auto controlled prop "${propName}" shouldn't have a default value for ${defaultProp}.`);
-                }
-
-                if (componentDefaultProps.hasOwnProperty(propName)) {
-                    throw new Error(`Auto controlled prop "${propName}" shouldn't have a default value.`);
-                }
-            }
-        });
+        if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
+            throw new Error(
+                "useAutoControlledState - An auto controlled prop can have either a controlled value or an initial value, but not both."
+            );
+        }
     }
 }
 
-function ensureControlledPropsHaveNotChanged(newProps, lastProps) {
-    const illegalProps = difference(newProps, lastProps);
-
-    if (illegalProps.length !== 0) {
-        throw new Error(
-            // eslint-disable-next-line max-len
-            `useAutoControlledProps.ensureControlledPropsHaveNotChanged - "${illegalProps.join(",")}" prop${illegalProps.length > 1 ? "s were" : " was"} not controlled during the previous rendering. A property cannot switch between "controlled" and "uncontrolled" mode. Did you inadvertently set a default value for your controlled prop?`
-        );
+function ensureControlledStateHaveNotChanged(controlledValue, isControlled) {
+    if ((isControlled && isUndefined(controlledValue)) || (!isControlled && !isUndefined(controlledValue))) {
+        throw new Error("useAutoControlledState - An auto controlled prop cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
     }
-}
-
-function computeInitialState(autoControlledProps, componentProps) {
-    const state = {};
-    const controlledProps = [];
-
-    Object.keys(autoControlledProps).forEach(propName => {
-        const defaultValue = autoControlledProps[propName];
-        const propsValue = componentProps[propName];
-
-        if (isUndefined(propsValue)) {
-            // This prop is "uncontrolled".
-            const defaultPropValue = componentProps[getDefaultPropName(propName)];
-            const value = !isUndefined(defaultPropValue) ? defaultPropValue : defaultValue;
-
-            state[propName] = value;
-        } else {
-            // This prop is "controlled".
-            if (!IS_PRODUCTION) {
-                const defaultPropName = getDefaultPropName(propName);
-
-                if (!isUndefined(componentProps[defaultPropName])) {
-                    throw new Error(
-                        `useAutoControlledState.computeNewState - "${propName}" prop is auto controlled. Specify either "${propName}" or "${defaultPropName}", but not both.`
-                    );
-                }
-            }
-
-            controlledProps.push(propName);
-            state[propName] = propsValue;
-        }
-    });
-
-    return {
-        state,
-        controlledProps
-    };
-}
-
-function computeStateFromProps(autoControlledProps, componentProps, currentState) {
-    const newState = Object.assign({}, currentState);
-    const newControlledProps = [];
-
-    let hasChanges = false;
-
-    Object.keys(autoControlledProps).forEach(propName => {
-        const propsValue = componentProps[propName];
-
-        if (!isUndefined(propsValue)) {
-            // This prop is "controlled".
-            newControlledProps.push(propName);
-
-            if (!areEqual(propsValue, currentState[propName])) {
-                newState[propName] = propsValue;
-                hasChanges = true;
-            }
-        }
-    });
-
-    return {
-        newState,
-        newControlledProps,
-        hasChanges
-    };
-}
-
-function computeStateForSet(maybeState, currentState, controlledProps) {
-    const newState = Object.assign({}, currentState);
-    let hasChanges = false;
-
-    Object.keys(maybeState).forEach(propName => {
-        if (!controlledProps.includes(propName)) {
-            const maybeValue = maybeState[propName];
-
-            if (!areEqual(maybeValue, currentState[propName])) {
-                newState[propName] = maybeValue;
-                hasChanges = true;
-            }
-        }
-    });
-
-    return {
-        newState,
-        hasChanges
-    };
 }
 
 function notifyStateChanged(newState, isInitialState, handler) {
@@ -135,93 +25,113 @@ function notifyStateChanged(newState, isInitialState, handler) {
     }
 }
 
+function computeInitialState(controlledValue, initialValue, defaultValue) {
+    let state;
+    let isControlled = false;
+
+    if (isUndefined(controlledValue)) {
+        // This prop is "uncontrolled".
+        state = !isUndefined(initialValue) ? initialValue : defaultValue;
+
+    } else {
+        // This prop is "controlled".
+        state = controlledValue;
+        isControlled = true;
+    }
+
+    return {
+        state,
+        isControlled
+    };
+}
+
+function computeSubsequentState(controlledValue, currentState, isControlled) {
+    let newState = null;
+    let hasChanged = false;
+
+    ensureControlledStateHaveNotChanged(controlledValue, isControlled);
+
+    if (isControlled) {
+        if (currentState !== controlledValue) {
+            newState = controlledValue;
+            hasChanged = true;
+        }
+    }
+
+    return {
+        newState,
+        hasChanged
+    };
+}
+
 /**
- * Safely attempt to set state for auto controlled props that might be "controlled" by the consumer.
+ * Safely attempt to set state for an auto controlled prop that might be "controlled" by the consumer.
  * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
  *
- * @param {Object} maybeState - Props to update.
+ * @param {Object} maybeState - The expected new state value.
  * @example
- * setAutoControlledProps({
- *      open: true,
- *      values: ["Neil Armstrong"]
- * });
+ * setAutoControlledState(["Neil Armstrong"]);
  */
-function setAutoControlledState(maybeState, currentState, setState, controlledProps, onChange) {
-    ensure(maybeState, "maybeState", "useAutoControlledProps.setAutoControlledState").isPlainObject().isNotNull();
+function setAutoControlledState(maybeState, currentState, setState, isControlled, onChange) {
+    ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
 
-    const { newState, hasChanges } = computeStateForSet(maybeState, currentState, controlledProps);
-
-    if (hasChanges) {
-        setState(newState);
-        notifyStateChanged(newState, false, onChange);
+    if (!isControlled) {
+        if (maybeState !== currentState) {
+            setState(maybeState);
+            notifyStateChanged(maybeState, false, onChange);
+        }
     }
 }
 
 /**
- * This is a similar implementation to Semantic UI React "AutoControlledComponent" base component: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js.
+ * This implementation is a port of Semantic UI React "AutoControlledComponent" base component to hooks: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js.
  * The goal is to seemlessly support "controlled" and "uncontrolled" component behaviors by abstracting the complexity in this hook.
  * This is achieved by abstracting the state and updating a state value only when a prop is considered "uncontrolled".
  *
- * @param {Object} autoControlledProps - The component auto controlled props definition. For each entry, the key is the name of the auto controlled prop and the value is the default value.
- * @param {Object} componentProps - The component props object.
- * @param {Object} defaultProps - The component default props object.
+ * @param {Object} controlledValue - The controlled value.
+ * @param {Object} initialValue - The initial value.
+ * @param {Object} defaultValue - The default value.
  * @param {Function} [onChange] - An optionnal function called when the auto controlled state is updated.
+ * @returns {[Object, Function]} An array with the first value being the value of the state and the second value being a function to manually update the state value.
  * @example
- * const [selectedValues, setSelectedValues] = useState([]);
- *
- * const autoControlledProps = {
- *      open: false,
- *      values: ["Neil Armstrong"]
- * };
- *
- * const { autoControlledState, setAutoControlledState } = useAutoControlledState(autoControlledProps, props, defaultValues, (newState, initialState) => {
+ * const [autoControlledValues, setValues] = useAutoControlledState(values, defaultValues, false, (newValues, isInitialState) => {
  *      // Optionally compute derived state...
  *      if (isInitialState) {
- *          setSelectedValues(newState.values);
+ *          setSelectedValues(newValues)
  *      }
  * });
  *
  * ...
  *
- * if (!autoControlledState.open) {
- *      setAutoControlledState({ open: true });
- * }
+ * setValues([...autoControlledValues, "Neil Armstrong"]);
  */
-export function useAutoControlledState(autoControlledProps, componentProps, componentDefaultProps, onChange) {
-    ensure(autoControlledProps, "autoControlledProps", "useAutoControlledProps").isPlainObject().isNotNull();
-    ensure(componentProps, "componentProps", "useAutoControlledProps").isPlainObject().isNotNull();
-    ensure(componentDefaultProps, "componentDefaultProps", "useAutoControlledProps").isPlainObject();
-
+export function useAutoControlledState(controlledValue, initialValue, defaultValue, onChange) {
     const [state, setState] = useState(null);
-    const [controlledProps, setControlledProps] = useState(null);
+    const [isControlled, setIsControlled] = useState(false);
 
-    const isInitialState = isNil(state);
+    validatePrerequisites(controlledValue, initialValue);
+
+    useEffect(() => {
+        if (isNil(state)) {
+            const { state: initialState, isControlled: isControlledProp } = computeInitialState(controlledValue, initialValue, defaultValue);
+
+            setState(initialState);
+            setIsControlled(isControlledProp);
+            notifyStateChanged(initialState, true, onChange);
+        }
+        else {
+            const { newState, hasChanged } = computeSubsequentState(controlledValue, state, isControlled);
+
+            if (hasChanged) {
+                setState(newState);
+                notifyStateChanged(newState, false, onChange);
+            }
+        }
+    }, [state, isControlled, controlledValue, initialValue, defaultValue, onChange]);
 
     const memoizedSetAutoControlledState = useCallback(maybeState => {
-        setAutoControlledState(maybeState, state, setState, controlledProps, onChange);
-    }, [controlledProps, onChange, state]);
+        setAutoControlledState(maybeState, state, setState, isControlled, onChange);
+    }, [state, isControlled, onChange]);
 
-    if (isInitialState) {
-        validatePrerequisites(autoControlledProps, componentDefaultProps);
-
-        const { state: initialState, controlledProps: initialControlledProps } = computeInitialState(autoControlledProps, componentProps);
-
-        setState(initialState);
-        setControlledProps(initialControlledProps);
-        notifyStateChanged(initialState, true, onChange);
-    } else {
-        const { newState, newControlledProps, hasChanges } = computeStateFromProps(autoControlledProps, componentProps, state);
-
-        if (hasChanges) {
-            ensureControlledPropsHaveNotChanged(newControlledProps, controlledProps);
-            setState(newState);
-            setControlledProps(newControlledProps);
-            notifyStateChanged(newState, false, onChange);
-        }
-    }
-
-    return {
-        autoControlledState: state,
-        setAutoControlledState: memoizedSetAutoControlledState
-    };
+    return [state, memoizedSetAutoControlledState];
 }

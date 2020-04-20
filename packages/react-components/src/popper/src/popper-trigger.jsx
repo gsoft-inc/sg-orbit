@@ -1,4 +1,4 @@
-import { KEYS, mergeClasses, useDomEventListener } from "../../shared";
+import { KEYS, getUnhandledProps, mergeClasses, useAutoControlledState, useDomEventListener } from "../../shared";
 import { Popper } from "./popper";
 import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from "react";
@@ -93,7 +93,13 @@ const SHARED_POPPER_DEFAULT_PROPS = {
 
 const propTypes = {
     ...SHARED_POPPER_PROP_TYPES,
+    /**
+     * The initial value of show.
+     */
     defaultShow: bool,
+    /**
+     * The popper trigger.
+     */
     trigger: node.isRequired,
     /**
      * Called when the popup open / close.
@@ -145,14 +151,29 @@ const defaultProps = {
     ...SHARED_POPPER_DEFAULT_PROPS
 };
 
-export function InnerPopperTrigger({ trigger, disabled, forwardedRef, ...rest }) {
+const autoControlledProps = {
+    show: false
+};
+
+export function InnerPopperTrigger(props) {
+    // Disabled until https://github.com/layershifter/babel-plugin-transform-react-handled-props is fixed to support spread.
+    // eslint-disable-next-line no-unused-vars
+    const { defaultShow, trigger, disabled, forwardedRef, ...rest } = props;
+    // const { autoControlledState, setAutoControlledState } = useAutoControlledState(autoControlledProps, props, defaultProps);
+
     const [triggerElement, setTriggerElement] = useState();
-    const [isVisible, setVisibility] = useState(false);
+
+    // TODO: useCallback
+    const handleTriggerClick = () => {
+        // setAutoControlledState({
+        //     show: !autoControlledState.show
+        // });
+    };
 
     const renderTrigger = () => {
         if (!disabled) {
             return cloneElement(trigger, {
-                onClick: () => { setVisibility(!isVisible); },
+                onClick: handleTriggerClick,
                 ref: setTriggerElement
             });
         }
@@ -164,7 +185,7 @@ export function InnerPopperTrigger({ trigger, disabled, forwardedRef, ...rest })
         if (!isNil(triggerElement)) {
             return (
                 <Popper
-                    show={isVisible}
+                    // show={autoControlledState.show}
                     triggerElement={triggerElement}
                     disabled={disabled}
                     ref={forwardedRef}
