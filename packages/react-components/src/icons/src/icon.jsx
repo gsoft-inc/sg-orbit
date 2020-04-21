@@ -25,7 +25,7 @@ export function PureIcon({ type: Component, size, className, forwardedRef, ...re
         DIMENSIONS[size]
     );
 
-    return <Component className={classes} ref={forwardedRef} {...rest} />;
+    return <Component {...rest} className={classes} ref={forwardedRef} />;
 }
 
 PureIcon.propTypes = {

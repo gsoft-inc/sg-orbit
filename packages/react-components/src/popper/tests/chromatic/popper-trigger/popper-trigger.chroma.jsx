@@ -18,12 +18,12 @@ function stories(segment) {
 
 function createPopperTrigger(props = {}) {
     return (
-        <PopperTrigger
-            trigger={<Button fluid>Open</Button>}
+        <PopperTrigger.Button
+            button={<Button fluid>Open</Button>}
             {...props}
         >
             <RedBox />
-        </PopperTrigger>
+        </PopperTrigger.Button>
     );
 }
 

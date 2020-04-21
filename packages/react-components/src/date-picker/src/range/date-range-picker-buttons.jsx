@@ -48,7 +48,7 @@ export class DateRangePickerButtons extends PureComponent {
          */
         applyText: string,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

@@ -137,11 +137,11 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**
-         * Custom inline style.
+         * @ignore
          */
         style: object
     };

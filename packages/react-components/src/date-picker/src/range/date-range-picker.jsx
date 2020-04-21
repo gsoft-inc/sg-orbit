@@ -156,11 +156,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**
-         * Custom inline style.
+         * @ignore
          */
         style: object
     };

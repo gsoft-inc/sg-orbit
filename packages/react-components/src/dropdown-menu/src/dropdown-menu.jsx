@@ -70,9 +70,9 @@ export function PureDropdownMenu(props) {
 
     return (
         <Dropdown
+            {...rest}
             ref={forwardedRef}
             __dropdownClasses="dropdown-menu"
-            {...rest}
         >
             <Choose>
                 <When condition={hasChildren}>

@@ -18,7 +18,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
          */
         placeholder: string,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

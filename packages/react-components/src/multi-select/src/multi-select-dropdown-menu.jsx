@@ -37,7 +37,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
          */
         keyboardItem: shape(ITEM_SHAPE),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

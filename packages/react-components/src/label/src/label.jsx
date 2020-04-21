@@ -192,7 +192,7 @@ export function PureLabel(props) {
         );
 
         return (
-            <SemanticLabel size={size} className={classes} {...rest}>
+            <SemanticLabel {...rest} size={size} className={classes}>
                 {renderContent()}
             </SemanticLabel>
         );

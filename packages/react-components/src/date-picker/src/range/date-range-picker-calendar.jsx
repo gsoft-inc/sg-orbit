@@ -84,11 +84,11 @@ export class DateRangePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: node,
+        className: string,
         /**
-         * Additional classes.
+         * @ignore
          */
-        className: string
+        reactDatesCalendar: node
     };
 
     static defaultProps = {

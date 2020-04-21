@@ -76,7 +76,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * A DOM element in which the popper element will appended via a React portal.
      */
-    containerElement: instanceOf(HTMLElement),
+    portalContainerElement: instanceOf(HTMLElement),
     /**
      * Disable the React portal behavior. The popper element will be rendered within it's parent DOM hierarchy.
      */
@@ -86,15 +86,15 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     animate: bool,
     /**
-     * Additional classes that will be added to the popper element wrapper when wrap is true.
+     * @ignore
      */
     className: string,
     /**
-     * Additional inline styles that will be added to the popper element wrapper when wrap is true.
+     * @ignore
      */
     style: object,
     /**
-     * The content of the popper.
+     * @ignore
      */
     children: node.isRequired,
     /**
@@ -151,20 +151,6 @@ function setModifierOptions(name, options, modifiers) {
     }
 }
 
-// function useNotifyVisibilityChanged(show, handler) {
-//     const isVisible = useRef();
-
-//     useEffect(() => {
-//         isVisible.current = false;
-//     }, []);
-
-//     if (isVisible.current !== show) {
-//         if (!isNil(handler)) {
-//             handler(show);
-//         }
-//     }
-// }
-
 export function InnerPopper({
     show,
     position,
@@ -175,7 +161,7 @@ export function InnerPopper({
     disabled,
     popperModifiers,
     popperOptions,
-    containerElement: portalElement,
+    portalContainerElement: portalElement,
     disablePortal,
     animate,
     className,
@@ -184,7 +170,7 @@ export function InnerPopper({
     children,
     ...rest
 }) {
-    const [popperElement, setPopperElement] = useState();
+    const [popperElement, setPopperElement] = useState(null);
 
     const createModifiers = () => {
         const mergedModifiers = popperModifiers || [];
@@ -229,10 +215,10 @@ export function InnerPopper({
 
         return (
             <div
+                {...rest}
                 className={classes}
                 tabIndex="-1"
                 data-testid="popper-wrapper"
-                {...rest}
             >
                 {popper}
             </div>

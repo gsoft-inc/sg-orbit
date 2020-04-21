@@ -187,12 +187,12 @@ export function PureButton(props) {
 
         return (
             <SemanticButton
+                {...rest}
                 basic={basic}
                 size={size}
                 loading={loading}
                 disabled={disabled}
                 className={classes}
-                {...rest}
             >
                 {renderContent()}
             </SemanticButton>

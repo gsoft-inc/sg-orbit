@@ -104,7 +104,7 @@ export class PureSingleDatePickerInput extends PureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**

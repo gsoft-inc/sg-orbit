@@ -91,7 +91,7 @@ export class DateRangePickerPresets extends PureComponent {
          */
         presets: arrayOf(shape(PRESET_SHAPE)),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

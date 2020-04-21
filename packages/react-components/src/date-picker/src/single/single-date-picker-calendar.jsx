@@ -55,13 +55,13 @@ export class SingleDatePickerCalendar extends PureComponent {
          */
         allowClear: bool,
         /**
-         * Additional classes.
+         * @ignore
          */
-        className: string,
+        reactDatesCalendar: node,
         /**
          * @ignore
          */
-        reactDatesCalendar: node
+        className: string
     };
 
     static defaultProps = {

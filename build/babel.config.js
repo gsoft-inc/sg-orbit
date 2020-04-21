@@ -59,7 +59,6 @@ module.exports = {
                 }
             }
         ],
-        "babel-plugin-add-react-displayname",
-        "babel-plugin-transform-react-handled-props"
+        "babel-plugin-add-react-displayname"
     ].filter(Boolean)
 };

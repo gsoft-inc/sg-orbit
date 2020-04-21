@@ -121,11 +121,11 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     size: oneOf(SIZES),
     /**
-     * Additional classes.
+     * @ignore
      */
     className: string,
     /**
-     * Custom inline style.
+     * @ignore
      */
     style: object
 };

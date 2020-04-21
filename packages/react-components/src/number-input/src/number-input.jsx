@@ -76,13 +76,13 @@ export function PureNumberInput(props) {
 
     return (
         <Input
+            {...rest}
             type="number"
             icon={icon}
             iconPosition={!isNil(icon) || !isNil(loading) ? "left" : undefined}
             loading={loading}
             ref={forwardedRef}
             __componentName={COMPONENT_NAME}
-            {...rest}
         />
     );
 }

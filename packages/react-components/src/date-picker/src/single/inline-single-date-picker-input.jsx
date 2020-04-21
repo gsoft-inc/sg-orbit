@@ -86,7 +86,7 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         open: bool,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

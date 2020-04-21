@@ -112,7 +112,7 @@ export class PureDateRangePickerInput extends PureComponent {
         */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**

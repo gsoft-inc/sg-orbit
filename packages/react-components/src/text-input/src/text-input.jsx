@@ -76,9 +76,9 @@ export function PureTextInput(props) {
 
     return (
         <Input
+            {...rest}
             ref={forwardedRef}
             __componentName={COMPONENT_NAME}
-            {...rest}
         />
     );
 }

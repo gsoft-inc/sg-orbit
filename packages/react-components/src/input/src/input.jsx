@@ -190,6 +190,7 @@ export function PureInput(props) {
             data-testid="input"
         >
             <SemanticInput
+                {...rest}
                 icon={renderIcon()}
                 iconPosition={iconPosition}
                 autoFocus={shouldAutofocus}
@@ -198,7 +199,6 @@ export function PureInput(props) {
                 loading={loading}
                 disabled={disabled}
                 ref={inputRef}
-                {...rest}
             >
                 {children}
             </SemanticInput>

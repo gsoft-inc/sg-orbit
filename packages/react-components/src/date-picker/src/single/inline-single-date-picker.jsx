@@ -111,7 +111,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     disabled: bool,
     /**
-     * Additional classes.
+     * @ignore
      */
     className: string
 };
