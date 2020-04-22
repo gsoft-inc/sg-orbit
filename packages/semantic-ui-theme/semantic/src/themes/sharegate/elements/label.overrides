@@ -28,6 +28,12 @@
     margin-left: 0.25rem!important;
 }
 
+/* Button */
+/* STATE | Focus */
+.ui.label .input > input:focus {
+    box-shadow: 0px 0px 0px 2px var(--primary-100);
+}
+
 /* CONTENT | With Icon | LAYOUT | Colour */
 .ui.label.with-icon .icon {
     fill: @marine500;

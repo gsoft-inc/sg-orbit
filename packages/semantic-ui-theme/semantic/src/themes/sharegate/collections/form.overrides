@@ -49,8 +49,16 @@
     border-color: @textAreaFocusBorderColor;
     border-radius: @textAreaFocusBorderRadius;
     background: @textAreaFocusBackground;
-    box-shadow: @textAreaFocusBoxShadow;
+    box-shadow: 0 0 0 2px var(--primary-100);
     -webkit-appearance: none;
+}
+
+.ui.textarea:active {
+    border: 1px solid var(--marine-500);
+}
+
+.ui.textarea.error:active {
+    border: 1px solid var(--alert-900);
 }
 
 .ui.form .fields.error .field .textarea

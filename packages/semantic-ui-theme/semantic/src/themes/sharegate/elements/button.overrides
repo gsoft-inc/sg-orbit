@@ -205,8 +205,25 @@
 
 .ui.button:focus,
 .ui.button:active,
-.ui.button.active {
-    box-shadow: 0px 0px 0px 2px var(--primary-200);
+.ui.button.active,
+.ui.buttons .button:focus, {
+    box-shadow: 0px 0px 0px 2px var(--primary-200) !important;
+}
+
+.ui.button:focus {
+    background-color: var(--marine-500);
+}
+
+.ui.button:focus:active,
+.ui.button:focus.active,
+.ui.button:focus:hover {
+    background-color: var(--marine-900);
+}
+
+.ui.button.primary:focus:active,
+.ui.button.primary:focus.active,
+.ui.button.primary:focus:hover {
+    background-color: var(--primary-900);
 }
 
 .ui.button.naked.active,
@@ -228,6 +245,16 @@
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset!important;
 }
 
+.ui.button.basic.link.active,
+.ui.button.basic.link:active {
+    box-shadow: none !important;
+}
+
+.ui.button.basic.active:focus,
+.ui.button.basic:active:focus {
+    box-shadow: 0px 0px 0px 1px var(--cloud-900) inset, 0px 0px 0px 2px var(--primary-200) !important;
+}
+
 .ui.button.basic:focus:hover {
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset, 0px 0px 0px 2px var(--primary-200)!important;
 }
@@ -236,6 +263,42 @@
 .ui.button.basic.secondary:active {
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset!important;
     color: @marine900!important;
+}
+
+/* SKIN | Negative */
+.ui.button.negative:hover:focus,
+.ui.buttons.negative .button:hover:focus {
+    background-color: var(--alert-900);
+}
+
+/* SKIN | Negative | Focus */
+.ui.basic.negative.buttons .button:focus,
+.ui.basic.negative.button:focus {
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColor inset, 0px 0px 0px 2px var(--primary-200) !important;
+    color: var(--alert-500) !important;
+}
+
+/* SKIN | Negative | Active + Hover */
+.ui.basic.negative.buttons .button:active:hover,
+.ui.basic.negative.button:active:hover,
+.ui.basic.negative.buttons .button.active:hover,
+.ui.basic.negative.button.active:hover {
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColor inset, 0px 0px 0px 2px var(--primary-200) !important;
+    color: var(--alert-500) !important;
+}
+
+/* SKIN | Positive */
+.ui.button.positive:hover:focus,
+.ui.buttons.positive .button:hover:focus {
+    background-color: var(--success-900);
+}
+
+/* SKIN | Positive | STATE | Active */
+.ui.button.positive:active,
+.ui.buttons.positive .button:active,
+.ui.button.positive.active,
+.ui.buttons.positive .button.active {
+    background-color: var(--success-900);
 }
 
 .ui.button.basic:focus {
@@ -598,16 +661,40 @@
     background-color: @transparent;
 }
 
+.ui.ghost.button.active,
+.ui.buttons.ghost .button.active,
+.ui.ghost.button:active,
+.ui.buttons.ghost .button:active {
+    background-color: var(--cloud-50);
+    color: var(--marine-600);
+}
+
 /* SKIN | Ghost | Primary */
 .ui.ghost.primary.button,
 .ui.ghost.primary.buttons .button {
     color: @primary500;
 }
 
+/* SKIN | Ghost | Primary | Active */
+.ui.ghost.primary.button:active,
+.ui.ghost.primary.buttons .button:active,
+.ui.ghost.primary.button.active,
+.ui.ghost.primary.buttons .button.active {
+    color: @primary500;
+    background-color: var(--cloud-50);
+}
+
 /* SKIN | Ghost | Positive */
 .ui.ghost.button.positive,
 .ui.ghost.buttons.positive .button {
     color: @success500;
+}
+
+/* SKIN | Ghost | Active */
+.ui.positive.buttons.ghost .button:active,
+.ui.positive.button.ghost:active {
+    color: var(--success-500);
+    background-color: var(--cloud-50);
 }
 
 /* SKIN | Ghost | Negative */
@@ -630,14 +717,6 @@
     background-color: transparent;
 }
 
-/* SKIN | Ghost | Primary | State | Active */
-.ui.ghost.primary.button.active,
-.ui.ghost.primary.buttons.active .button,
-.ui.ghost.primary.button:active,
-.ui.ghost.primary.buttons:active .button {
-    background-color: transparent;
-}
-
 /* SKIN | Ghost | State | Focus + Hover */
 .ui.ghost.button:focus:hover,
 .ui.ghost.buttons .button:focus:hover {
@@ -648,7 +727,9 @@
 .ui.ghost.secondary.button:hover,
 .ui.ghost.secondary.buttons .button:hover,
 .ui.ghost.secondary.button.active,
-.ui.ghost.secondary.buttons.active .button {
+.ui.ghost.secondary.buttons.active .button,
+.ui.ghost.secondary.button:active,
+.ui.ghost.secondary.buttons.active .button:active {
     color: @marine900;
 }
 
@@ -869,6 +950,14 @@
 .ui.button.with-icon.positive .icon,
 .ui.buttons.positive .button.with-icon .icon {
     fill: @white;
+}
+
+/* CONTENT | Icon | SKIN | Positive | State | Active */
+.ui.button.with-icon.positive:active .icon,
+.ui.buttons.positive .button.with-icon:active .icon,
+.ui.button.with-icon.positive.active .icon,
+.ui.buttons.positive .button.with-icon.active .icon {
+    fill: var(--white);
 }
 
 /* CONTENT | Icon | SKIN | Positive/Basic */
@@ -1098,13 +1187,27 @@
     fill: @success900;
 }
 
+/* CONTENT | Icon | STATE | Hover | SKIN | Primary/Basic */
+.ui.button.with-icon.basic.primary:hover .icon,
+.ui.buttons.basic.primary .button.with-icon:hover .icon {
+    fill: @primary900;
+}
+
 /* CONTENT | Icon | STATE | Active | SKIN | Primary/Basic */
 .ui.button.with-icon.basic.primary:hover .icon,
 .ui.button.with-icon.basic.primary.active .icon,
-.ui.button.with-icon.basic.primary:focus .icon,
 .ui.buttons.basic.primary .button.with-icon:hover .icon,
-.ui.buttons.basic.primary .button.with-icon.active .icon,
+.ui.buttons.basic.primary .button.with-icon.active .icon {
+    fill: @primary900;
+}
+
+.ui.button.with-icon.basic.primary:focus .icon,
 .ui.buttons.basic.primary .button.with-icon:focus .icon {
+    fill: @primary500;
+}
+
+.ui.button.with-icon.basic.primary:focus:hover .icon,
+.ui.buttons.basic.primary .button.with-icon:focus:hover .icon {
     fill: @primary900;
 }
 
@@ -1128,14 +1231,38 @@
     color: @marine900 !important;
 }
 
+.ui.secondary.buttons .active.button:focus,
+.ui.secondary.buttons .active.button:active:focus,
+.ui.secondary.active.button:focus,
+.ui.secondary.button .active.button:active:focus {
+    background-color: @secondaryColorActive;
+}
+
+.ui.positive.buttons .active.button:focus,
+.ui.positive.buttons .active.button:active:focus,
+.ui.positive.active.button:focus,
+.ui.positive.button .active.button:active:focus {
+    background-color: @positiveColorActive;
+}
+
 /* CONTENT | Icon | STATE | Active | SKIN | Ghost */
 .ui.button.with-icon.ghost:hover .icon,
 .ui.button.with-icon.ghost.active .icon,
-.ui.button.with-icon.ghost:focus .icon,
 .ui.buttons.ghost .button.with-icon:hover .icon,
-.ui.buttons.ghost .button.with-icon.active .icon,
-.ui.buttons.ghost .button.with-icon:focus .icon {
+.ui.buttons.ghost .button.with-icon.active .icon {
     fill: @marine600;
+}
+
+/* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
+.ui.button.with-icon.ghost:focus:hover .icon,
+.ui.buttons.ghost .button.with-icon:focus:hover .icon {
+    fill: @marine600;
+}
+
+/* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
+.ui.button.with-icon.ghost:focus .icon,
+.ui.buttons.ghost .button.with-icon:focus .icon {
+    fill: @marine300;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Primary/Ghost */
@@ -1316,19 +1443,56 @@
     text-decoration: underline;
 }
 
-.ui.button.link:active {
+.ui.button.link:active,
+.ui.button.link.active {
     color: var(--primary-900);
     box-shadow: none;
+    background: none;
+    text-decoration: underline;
 }
 
 .ui.button.link:focus {
     background-color: var(--primary-50);
     text-decoration: none;
-    box-shadow: none;
+    box-shadow: none!important;
+}
+
+.ui.button.link.basic:focus {
+    box-shadow: none!important;
+}
+
+.ui.button.link:active:hover,
+.ui.button.link.active:hover {
+    color: var(--primary-900);
+    background: none;
+    text-decoration: underline;
+}
+
+.ui.button.link:active:focus,
+.ui.button.link.active:focus {
+    color: var(--primary-900);
+    background-color: var(--primary-50);
+    text-decoration: underline;
 }
 
 .ui.button.link:focus:hover {
     text-decoration: underline;
+    background: var(--primary-50);
+}
+
+.ui.button.link:active:hover,
+.ui.button.link.active:hover {
+    text-decoration: underline;
+}
+
+.ui.button.link:active:hover:focus {
+    background: var(--primary-50);
+}
+
+.ui.button.link.basic:focus:hover {
+    text-decoration: underline;
+    box-shadow: none!important;
+    background: var(--marine-50) !important;
 }
 
 /* SKIN | Link | Basic */

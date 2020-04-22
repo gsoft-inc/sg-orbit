@@ -86,7 +86,7 @@
     Focused Input
 --------------------*/
 /* Used on inputs, textarea etc */
-@focusedFormBorderColor: @marine600;
+@focusedFormBorderColor: @cloud200;
 
 /* Used on dropdowns, other larger blocks */
 @focusedFormMutedBorderColor: @marine600; // weird behaviour with dropdown select might me the cause here
@@ -978,7 +978,7 @@
 
 /*---  Emotive  ---*/
 @positiveColorFocus       : @positiveColor;
-@negativeColorFocus       : var(--alert-900);
+@negativeColorFocus       : var(--alert-500);
 
 /*---  Brand   ---*/
 @facebookFocusColor       : @facebookColor;

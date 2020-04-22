@@ -62,6 +62,11 @@
     border: 1px solid var(--primary-900);
 }
 
+.ui.checkbox input:checked ~ label:hover::before,
+.ui.checkbox.radio input:checked ~ label:hover::before {
+    border: 1px solid var(--primary-900);
+}
+
 .ui.checkbox input:checked ~ .box:before,
 .ui.checkbox input:checked ~ label:before,
 .ui.checkbox input:checked:focus ~ .box:before,
