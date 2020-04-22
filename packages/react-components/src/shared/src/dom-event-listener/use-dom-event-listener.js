@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 // TODO:
 //  - Add params validation
@@ -17,20 +17,20 @@ function resolveTarget(target) {
     return target.current;
 }
 
-export function useDomEventListener(name, on, target = "document", capture = false) {
-    const resolvedTarget = useRef();
-
+export function useDomEventListener(name, on, active = true, { target = "document", capture = false } = {}) {
     useEffect(() => {
-        resolvedTarget.current = resolveTarget(target);
+        const resolvedTarget = resolveTarget(target);
 
-        if (!isNil(resolvedTarget.current)) {
-            resolvedTarget.current.addEventListener(name, on, capture);
+        if (active) {
+            if (!isNil(resolvedTarget)) {
+                resolvedTarget.addEventListener(name, on, capture);
+            }
         }
 
         return () => {
-            if (!isNil(resolvedTarget.current)) {
-                resolvedTarget.current.removeEventListener(name, on, capture);
+            if (!isNil(resolvedTarget)) {
+                resolvedTarget.removeEventListener(name, on, capture);
             }
         };
-    }, [resolvedTarget, name, on, target, capture]);
+    }, [name, on, active, target, capture]);
 }

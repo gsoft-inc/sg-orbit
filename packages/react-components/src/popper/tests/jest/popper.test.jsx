@@ -4,6 +4,9 @@ import { createRef, forwardRef, useState } from "react";
 import { isNil } from "lodash";
 import { render, wait } from "@testing-library/react";
 
+// TODO:
+//  - don't show popper when disabled
+
 function PureDummyPopper({ forwardedRef, ...rest }) {
     const [triggerElement, setTriggerElement] = useState(null);
 

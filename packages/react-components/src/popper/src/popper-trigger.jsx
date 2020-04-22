@@ -1,6 +1,7 @@
 import { ArgumentError, KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
 import { Popper } from "./popper";
 import { PopperButtonTrigger } from "./popper-button-trigger";
+import { PopperTextInputTrigger } from "./popper-text-input-trigger";
 import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { isFunction, isNil } from "lodash";
@@ -17,8 +18,8 @@ import { isFunction, isNil } from "lodash";
 // If focusTriggerOnHide is `true`, the trigger must expose a `focus` function in order to work.
 
 // TODO:
-//  - Focus the trigger on open? Focus the trigger on close?
-//  - Don't open when disabled?
+//  - PopperInputTrigger
+//  - Don't forget le canPropagate for onClick
 
 // *******************
 
@@ -125,6 +126,10 @@ const propTypes = {
      * The popper trigger.
      */
     trigger: node.isRequired,
+    /**
+     * The [event handler](https://reactjs.org/docs/events.html) that toggle the popper visibility.
+     * Ex. "onClick"
+     */
     toggleHandler: string.isRequired,
     /**
      * Called when the popup open / close.
@@ -133,9 +138,26 @@ const propTypes = {
      * @returns {void}
      */
     onVisibilityChange: func,
+    /**
+     * Whether or not to show the popper on spacebar keydown.
+     */
     showOnSpacebar: bool,
+    /**
+     * Whether or not to show the popper on enter keydown.
+     */
     showOnEnter: bool,
+    /**
+     * Whether or not to focus the trigger when the popper is made visible. When `true`, the trigger must expose a `focus` function in order to work.
+     */
     focusTriggerOnShow: bool,
+    /**
+     * Whether or not to focus the trigger on escape keydown. When `true`, the trigger must expose a `focus` function in order to work.
+     */
+    focusTriggerOnEscape: bool,
+    /**
+     * Whether or not to focus the first focusable element of the popper on show.
+     */
+    focusPopperOnShow: bool,
     /**
      * Whether or not the popper should hide on escape keydown.
      */
@@ -148,28 +170,33 @@ const propTypes = {
      * Whether or not the popper should hide when a click happens outside.
      * Requires `hideOnBlur` to be `false`.
      */
-    hideOnOutsideClick: bool,
-    /**
-     * Whether or not to focus the trigger when the popper hide. If `true`, the trigger must expose a `focus` function in order to work.
-     */
-    focusTriggerOnHide: bool
+    hideOnOutsideClick: bool
 };
 
 const defaultProps = {
     ...SHARED_POPPER_DEFAULT_PROPS,
     showOnSpacebar: true,
     showOnEnter: true,
-    focusTriggerOnShow: true,
+    focusTriggerOnShow: false,
+    focusTriggerOnEscape: true,
+    focusPopperOnShow: false,
     hideOnEscape: true,
     hideOnBlur: true,
-    hideOnOutsideClick: false,
-    focusTriggerOnHide: true
+    hideOnOutsideClick: false
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick }) {
+function throwWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusPopperOnShow }) {
     if (hideOnBlur && hideOnOutsideClick) {
         throw new ArgumentError("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
     }
+
+    if (focusTriggerOnShow && focusPopperOnShow) {
+        throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusPopperOnShow\" props cannot be both \"true\".");
+    }
+}
+
+function findFirstFocusableElement(container) {
+    return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
 export function InnerPopperTrigger(props) {
@@ -191,10 +218,11 @@ export function InnerPopperTrigger(props) {
         showOnSpacebar,
         showOnEnter,
         focusTriggerOnShow,
+        focusTriggerOnEscape,
+        focusPopperOnShow,
         hideOnEscape,
         hideOnBlur,
         hideOnOutsideClick,
-        focusTriggerOnHide,
         disabled,
         className,
         forwardedRef,
@@ -205,6 +233,7 @@ export function InnerPopperTrigger(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const [triggerElement, setTriggerElement] = useState(null);
+    const [popperElement, setPopperElement] = useState(null);
     const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
 
     const containerRef = useCombinedRefs(forwardedRef);
@@ -230,16 +259,42 @@ export function InnerPopperTrigger(props) {
         }, 0);
     }, [triggerElement]);
 
+    const focusPopper = useCallback(onCannotFocus => {
+        setTimeout(() => {
+            if (!isNil(popperElement)) {
+                const focusableElement = findFirstFocusableElement(popperElement);
+
+                if (!isNil(focusableElement)) {
+                    if (isFunction(focusableElement.focus)) {
+                        focusableElement.focus();
+                    }
+                } else {
+                    if (isFunction(onCannotFocus)) {
+                        onCannotFocus();
+                    }
+                }
+            }
+        }, 0);
+    }, [popperElement]);
+
     // Focus the trigger when transitioning the popper to being visible.
     useEffect(() => {
+        console.log("** in useEffect");
+
         if (focusTriggerOnShow) {
             if (isVisible) {
                 focusTrigger();
             }
+        } else if (focusPopperOnShow) {
+            if (isVisible) {
+                focusPopper();
+            }
         }
-    }, [isVisible, focusTriggerOnShow, focusTrigger]);
+    }, [isVisible, focusTriggerOnShow, focusPopperOnShow, focusTrigger, focusPopper]);
 
     const showPopper = useCallback(event => {
+        console.log("** showPopper");
+
         setIsVisible(true);
 
         if (!isNil(onVisibilityChange)) {
@@ -248,48 +303,66 @@ export function InnerPopperTrigger(props) {
     }, [setIsVisible, onVisibilityChange]);
 
     const hidePopper = useCallback(event => {
+        console.log("** hidePopper");
+
         setIsVisible(false);
 
         if (!isNil(onVisibilityChange)) {
             onVisibilityChange(event, false);
         }
-
-        if (focusTriggerOnHide) {
-            focusTrigger();
-        }
-    }, [setIsVisible, focusTriggerOnHide, focusTrigger, onVisibilityChange]);
-
-    const togglePopper = useCallback(event => {
-        if (isVisible) {
-            hidePopper(event);
-        } else {
-            showPopper(event);
-        }
-    }, [isVisible, showPopper, hidePopper]);
+    }, [setIsVisible, onVisibilityChange]);
 
     const handleTriggerToggle = useCallback(event => {
-        togglePopper(event);
-    }, [togglePopper]);
+        console.log("** handleTriggerToggle");
+
+        if (!disabled) {
+            if (isVisible) {
+                hidePopper(event);
+            } else {
+                showPopper(event);
+            }
+        }
+
+    }, [isVisible, disabled, showPopper, hidePopper]);
 
     const handleTriggerKeyDown = useCallback(event => {
-        const key = event.keyCode;
+        console.log("** handleTriggerKeyDown");
 
-        if (key === KEYS.space) {
-            if (showOnSpacebar) {
-                event.preventDefault();
-                showPopper(event);
+        if (!disabled) {
+            const key = event.keyCode;
+
+            if (key === KEYS.space) {
+                if (showOnSpacebar) {
+                    event.preventDefault();
+                    showPopper(event);
+                }
+
+            } else if (key === KEYS.enter) {
+                if (showOnEnter) {
+                    event.preventDefault();
+                    showPopper(event);
+                }
             }
-
-        } else if (key === KEYS.enter) {
-            if (showOnEnter) {
-                event.preventDefault();
-                showPopper(event);
-            }
-
         }
-    }, [showOnSpacebar, showOnEnter, showPopper]);
+    }, [disabled, showOnSpacebar, showOnEnter, showPopper]);
+
+    const handleKeyDown = useCallback(event => {
+        if (event.keyCode === KEYS.esc) {
+            console.log("** handleKeyDown - esc");
+
+            if (hideOnEscape) {
+                hidePopper(event);
+
+                if (focusTriggerOnEscape) {
+                    focusTrigger();
+                }
+            }
+        }
+    }, [hidePopper, focusTrigger, hideOnEscape, focusTriggerOnEscape]);
 
     const handleFocus = useCallback(() => {
+        console.log("** handleFocus");
+
         hasFocus.current = true;
     }, [hasFocus]);
 
@@ -297,6 +370,8 @@ export function InnerPopperTrigger(props) {
     // - hide on outside click
     // - hide on blur
     const handleBlur = useCallback(event => {
+        console.log("** handleBlur");
+
         hasFocus.current = false;
 
         if (isVisible) {
@@ -316,45 +391,49 @@ export function InnerPopperTrigger(props) {
     // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
     // More info at: https://allyjs.io/tutorials/mutating-active-element.html
     const handleDocumentBlur = useCallback(() => {
-        setTimeout(() => {
-            if (document.activeElement.nodeName === "BODY") {
-                if (!isNil(containerRef.current)) {
-                    // Chrome, Edge
-                    containerRef.current.focus();
-                }
-            } else {
-                // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a proper blur event when another element is focused.
-                // That's an ugly hack to fix this.
-                setTimeout(() => {
-                    if (document.activeElement.disabled) {
+        console.log("** handleDocumentBlur");
+
+        // TODO: not sure if it's right to only run this code if it's has focus? Should add a test.
+        if (hasFocus.current) {
+            setTimeout(() => {
+                if (document.activeElement.nodeName === "BODY") {
+                    focusPopper(() => {
                         if (!isNil(containerRef.current)) {
+                            // Chrome, Edge
                             containerRef.current.focus();
                         }
-                    }
-                }, 100);
-            }
-        }, 0);
+                    });
+                } else {
+                    // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a blur event when another element is focused.
+                    // That's an ugly hack to fix this.
+                    setTimeout(() => {
+                        if (document.activeElement.disabled) {
+                            focusPopper(() => {
+                                if (!isNil(containerRef.current)) {
+                                    containerRef.current.focus();
+                                }
+                            });
+                        }
+                    }, 100);
+                }
+            }, 0);
+        }
     }, [containerRef]);
 
     const handleDocumentClick = useCallback(event => {
+        console.log("** handleDocumentClick");
+
         if (!containerRef.current.contains(event.target)) {
+            console.log("** handleDocumentClick - outside");
+
             if (hideOnOutsideClick) {
                 hidePopper(event);
             }
         }
     }, [containerRef, hideOnOutsideClick, hidePopper]);
 
-    const handleDocumentKeyDown = useCallback(event => {
-        if (event.keyCode === KEYS.esc) {
-            if (hideOnEscape) {
-                hidePopper(event);
-            }
-        }
-    }, [hidePopper, hideOnEscape]);
-
-    useDomEventListener("click", handleDocumentClick);
-    useDomEventListener("blur", handleDocumentBlur, undefined, true);
-    useDomEventListener("keydown", handleDocumentKeyDown);
+    useDomEventListener("click", handleDocumentClick, isVisible);
+    useDomEventListener("blur", handleDocumentBlur, isVisible, { capture: true });
 
     const renderTrigger = () => {
         if (!disabled) {
@@ -384,6 +463,7 @@ export function InnerPopperTrigger(props) {
                     portalContainerElement={portalContainerElement}
                     disablePortal={disablePortal}
                     animate={animate}
+                    ref={setPopperElement}
                 >
                     {children}
                 </Popper>
@@ -403,6 +483,7 @@ export function InnerPopperTrigger(props) {
             // For more info: https://github.com/facebook/react/issues/6410
             onFocus={handleFocus}
             onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
             tabIndex="-1"
             className={classes}
             ref={containerRef}
@@ -422,4 +503,5 @@ export const PopperTrigger = forwardRef((props, ref) => (
 
 [InnerPopperTrigger, PopperTrigger].forEach(x => {
     x.Button = PopperButtonTrigger;
+    x.TextInput = PopperTextInputTrigger;
 });

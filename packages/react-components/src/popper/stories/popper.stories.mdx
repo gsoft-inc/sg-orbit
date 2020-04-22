@@ -1,0 +1,21 @@
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+
+<Meta
+    title={createComponentSection("Popper")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/popper/src" />)
+        .build()}
+/>
+
+## Usage
+
+### Default
+
+<Preview>
+    <Story name="default">
+        <div>Hello</div>
+    </Story>
+</Preview>

@@ -59,7 +59,7 @@ test("handler is not called when an event is trigerred on another target element
 
     renderHook(() => useDomEventListener("click", () => {
         wasCalled = true;
-    }, div));
+    }, true, { target: div }));
 
     const button = appendButton();
 
@@ -75,7 +75,7 @@ test("target can be document", () => {
 
     renderHook(() => useDomEventListener("click", () => {
         wasCalled = true;
-    }), "document");
+    }), true, { target: "document" });
 
     const button = appendButton();
 
@@ -91,7 +91,7 @@ test("target can be window", () => {
 
     renderHook(() => useDomEventListener("click", () => {
         wasCalled = true;
-    }), "window");
+    }), true, { target: "window" });
 
     const button = appendButton();
 
@@ -110,7 +110,7 @@ test("target can be any DOM element", () => {
 
     renderHook(() => useDomEventListener("click", () => {
         wasCalled = true;
-    }, div));
+    }, true, { target: div }));
 
     const button = appendButton();
     div.append(button);
@@ -138,7 +138,7 @@ test("target can be a React ref", () => {
 
     renderHook(() => useDomEventListener("click", () => {
         wasCalled = true;
-    }, divRef.current));
+    }, true, { target: divRef }));
 
     act(() => {
         fireEvent.click(buttonRef.current);
@@ -168,4 +168,20 @@ test("can listen to multiple events on the same target element", () => {
 
     expect(clickWasCalled).toBeTruthy();
     expect(mouseOverWasCalled).toBeTruthy();
+});
+
+test("doesn't call handler when active is false", () => {
+    let wasCalled = false;
+
+    renderHook(() => useDomEventListener("click", () => {
+        wasCalled = true;
+    }, false));
+
+    const button = appendButton();
+
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    expect(wasCalled).toBeFalsy();
 });
