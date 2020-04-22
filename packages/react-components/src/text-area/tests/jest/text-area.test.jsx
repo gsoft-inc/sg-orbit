@@ -112,3 +112,43 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await waitDelay(55);
     expect(getByTestId("textarea")).toHaveFocus();
 });
+
+// ***** API *****
+
+test("can focus the text area with the focus api", async () => {
+    let refNode = null;
+
+    const { getByTestId } = render(
+        createTextArea({
+            ref: node => {
+                refNode = node;
+            }
+        })
+    );
+
+    await wait();
+
+    refNode.focus();
+
+    expect(getByTestId("textarea")).toHaveFocus();
+});
+
+test("can select the text area text with the select api", async () => {
+    let refNode = null;
+
+    const { getByTestId } = render(
+        createTextArea({
+            value: "Orbit",
+            ref: node => {
+                refNode = node;
+            }
+        })
+    );
+
+    await wait();
+
+    refNode.select();
+
+    expect(getByTestId("textarea").selectionStart).toBe(0);
+    expect(getByTestId("textarea").selectionEnd).toBe(5);
+});

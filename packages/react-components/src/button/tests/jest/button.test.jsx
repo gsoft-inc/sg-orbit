@@ -43,3 +43,23 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("BUTTON");
 });
+
+// ***** API *****
+
+test("can focus the button with the focus api", async () => {
+    let refNode = null;
+
+    render(
+        createButton({
+            ref: node => {
+                refNode = node;
+            }
+        })
+    );
+
+    await wait();
+
+    refNode.focus();
+
+    expect(refNode).toHaveFocus();
+});

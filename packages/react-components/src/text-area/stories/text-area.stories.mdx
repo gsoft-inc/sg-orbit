@@ -170,3 +170,21 @@ A textarea can be transparent.
 >
     <RefLogger component={<TextArea />} />
 </Story>
+
+## API
+
+A few [API functions are available for a text area component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text input component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <TextArea ref={ref} />
+        </div>
+    );
+}
+```

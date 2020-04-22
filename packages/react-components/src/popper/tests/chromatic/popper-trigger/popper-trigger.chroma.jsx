@@ -33,8 +33,18 @@ stories()
             show: true
         })
     )
+    .add("hide", () =>
+        createPopperTrigger({
+            show: false
+        })
+    )
     .add("default show", () =>
         createPopperTrigger({
             defaultShow: true
+        })
+    )
+    .add("default hide", () =>
+        createPopperTrigger({
+            defaultShow: false
         })
     );

@@ -114,17 +114,13 @@ export function PureInput(props) {
     const inputRef = useRef();
 
     useImperativeHandle(forwardedRef, () => {
+        const apiMethods = ["blur", "focus", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
         const domElement = containerRef.current;
 
-        // This function is part of the component external API.
-        domElement.focus = () => {
-            inputRef.current.focus();
-        };
-
-        // This function is part of the component external API.
-        domElement.select = () => {
-            inputRef.current.select();
-        };
+        // These functions are part of the component external API.
+        apiMethods.forEach(x => {
+            domElement[x] = inputRef.current[x];
+        });
 
         return domElement;
     });
