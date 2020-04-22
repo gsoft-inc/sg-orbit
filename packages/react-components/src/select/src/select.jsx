@@ -67,6 +67,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    transparent: bool,
+    /**
+     * @ignore
+     */
     multiple: bool,
     /**
      * @ignore
@@ -77,7 +81,8 @@ const propTypes = {
 const defaultProps = {
     size: DEFAULT_SIZE,
     inline: false,
-    multiple: false
+    multiple: false,
+    transparent: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
@@ -99,7 +104,7 @@ function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value 
 }
 
 export function PureSelect(props) {
-    const { options, actions, inline, size, forwardedRef, ...rest } = props;
+    const { options, actions, inline, size, transparent, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -185,6 +190,10 @@ export function PureSelect(props) {
         return selectOptions;
     };
 
+    const classes = mergeClasses(
+        transparent && "transparent"
+    );
+
     return (
         <Dropdown
             options={renderOptions()}
@@ -194,7 +203,9 @@ export function PureSelect(props) {
             inline={inline}
             size={size}
             renderLabel={renderLabel}
+            transparent={transparent}
             ref={forwardedRef}
+            __dropdownClasses={classes}
             __semanticDropdown={MonkeyPatchSemanticDropdown}
             {...rest}
         />
