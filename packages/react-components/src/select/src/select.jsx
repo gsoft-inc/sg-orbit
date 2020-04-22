@@ -203,7 +203,6 @@ export function PureSelect(props) {
             inline={inline}
             size={size}
             renderLabel={renderLabel}
-            transparent={transparent}
             ref={forwardedRef}
             __dropdownClasses={classes}
             __semanticDropdown={MonkeyPatchSemanticDropdown}
