@@ -61,13 +61,13 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
-     * @ignore
+     * A transparent select has no background.
      */
-    inline: bool,
+    transparent: bool,
     /**
      * @ignore
      */
-    transparent: bool,
+    inline: bool,
     /**
      * @ignore
      */
@@ -80,9 +80,9 @@ const propTypes = {
 
 const defaultProps = {
     size: DEFAULT_SIZE,
+    transparent: false,
     inline: false,
-    multiple: false,
-    transparent: false
+    multiple: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
@@ -104,7 +104,7 @@ function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value 
 }
 
 export function PureSelect(props) {
-    const { options, actions, inline, size, transparent, forwardedRef, ...rest } = props;
+    const { options, actions, size, transparent, inline, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);

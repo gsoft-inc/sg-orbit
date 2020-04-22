@@ -161,6 +161,21 @@ A searchable select can let a user remove is selection.
     </Story>
 </Preview>
 
+### Disabled
+
+A searchable select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            disabled
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
 ### Fluid
 
 A searchable select can take all the space available.
@@ -186,21 +201,6 @@ A searchable select can be transparent.
             placeholder="Select a galaxy"
             search
             transparent
-            options={GALAXIES}
-        />
-    </Story>
-</Preview>
-
-### Disabled
-
-A searchable select can be disabled.
-
-<Preview>
-    <Story name="disabled">
-        <Select
-            placeholder="Select a galaxy"
-            search
-            disabled
             options={GALAXIES}
         />
     </Story>
