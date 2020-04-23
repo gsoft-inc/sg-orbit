@@ -156,6 +156,20 @@ A select can take the width of its container.
     </Story>
 </Preview>
 
+### Loading
+
+A select can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <Select
+            placeholder="Astronaut"
+            loading
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
 ### Size
 
 A select can vary in size.
@@ -196,6 +210,20 @@ A select can show that the data contains errors.
             placeholder="Astronaut"
             error
             options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Transparent
+
+A select can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <Select
+            placeholder="Astronaut"
+            options={ASTRONAUTS}
+            transparent
         />
     </Story>
 </Preview>

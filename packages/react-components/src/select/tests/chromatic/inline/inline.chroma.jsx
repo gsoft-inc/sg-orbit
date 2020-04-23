@@ -83,6 +83,25 @@ stories()
             disabled: true
         })
     )
+    .add("loading", () =>
+        <div className="flex flex-column">
+            <div className="f9 mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="f6 mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="f5 mb12">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+            <div className="f1">
+                Lore euismod {createInlineSelect({ loading: true })}elementum viverra maximus.
+            </div>
+        </div>
+    )
     .add("error", () =>
         <div className="flex">
             {createInlineSelect({
@@ -101,6 +120,9 @@ stories()
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
             <div className="mb12">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
+            </div>
+            <div className="f6 mb12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect({ icon: <MagnifierIcon /> })}elementum viverra maximus.
             </div>
             <div className="f5 mb12">
@@ -122,6 +144,9 @@ stories()
             <div className="mb12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
+            <div className="f6 mb12">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
+            </div>
             <div className="f5 mb12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
@@ -138,6 +163,9 @@ stories()
             <div className="mb12">
                 Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_AVATAR })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_AVATAR, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at euismod elementum viverra maximus.
             </div>
+            <div className="f6 mb12">
+                Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_AVATAR })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_AVATAR, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at euismod elementum viverra maximus.
+            </div>
             <div className="f5 mb12">
                 Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_AVATAR })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_AVATAR, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at euismod elementum viverra maximus.
             </div>
@@ -152,6 +180,9 @@ stories()
                 Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_ICONS })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_ICONS, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at {createInlineSelect({ options: GENDERS_WITH_ICONS_RIGHT, defaultValue: "Female" })} euismod elementum viverra maximus.
             </div>
             <div className="mb12">
+                Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_ICONS })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_ICONS, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at {createInlineSelect({ options: GENDERS_WITH_ICONS_RIGHT, defaultValue: "Female" })} euismod elementum viverra maximus.
+            </div>
+            <div className="f6 mb12">
                 Lorem ipsum dolor sit {createInlineSelect({ options: GENDERS_WITH_ICONS })}, consectetur adipiscing elit {createInlineSelect({ options: GENDERS_WITH_ICONS, defaultValue: "Female" })}. Pellentesque vestibulum <br /> et lacus at {createInlineSelect({ options: GENDERS_WITH_ICONS_RIGHT, defaultValue: "Female" })} euismod elementum viverra maximus.
             </div>
             <div className="f5 mb12">

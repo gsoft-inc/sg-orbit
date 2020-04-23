@@ -145,6 +145,21 @@ A multiple values select can display an [icon](?path=/docs/materials-icons--page
     </Story>
 </Preview>
 
+### Disabled
+
+A multiple values select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Select a galaxy"
+            multiple
+            disabled
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
 ### Fluid
 
 A multiple values select can take all the space available.
@@ -160,16 +175,31 @@ A multiple values select can take all the space available.
     </Story>
 </Preview>
 
-### Disabled
+### Loading
 
-A multiple values select can be disabled.
+A multiple values select can show that it is currently loading data.
 
 <Preview>
-    <Story name="disabled">
+    <Story name="loading">
         <Select
             placeholder="Select a galaxy"
             multiple
-            disabled
+            loading
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Transparent
+
+A multiple values select can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <Select
+            placeholder="Select a galaxy"
+            multiple
+            transparent
             options={GALAXIES}
         />
     </Story>

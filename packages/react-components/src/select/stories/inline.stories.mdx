@@ -134,6 +134,21 @@ An inlined select can be disabled.
     </Story>
 </Preview>
 
+### Loading
+
+An inlined select can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <Select
+            placeholder="select an astronaut"
+            inline
+            loading
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
 <Story
     name="autofocus"
     parameters={paramsBuilder()
