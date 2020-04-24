@@ -418,7 +418,7 @@ export function InnerPopperTrigger(props) {
                 }
             }, 0);
         }
-    }, [containerRef]);
+    }, [containerRef, focusPopper]);
 
     const handleDocumentClick = useCallback(event => {
         console.log("** handleDocumentClick");

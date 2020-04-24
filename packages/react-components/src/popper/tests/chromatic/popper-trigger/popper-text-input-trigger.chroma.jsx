@@ -1,3 +1,5 @@
+import { Button } from "@react-components/button";
+import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
 import { RedBox } from "./components";
 import { TextInput } from "@react-components/text-input";
@@ -5,6 +7,11 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 
 // TODO:
 //  - Must become popper.chroma.jsx, will create a new one specific for the input.
+//  - In SB menu, should go under Popper.
+//  - Popper
+//      - popper
+//      - input trigger
+//      - button trigger
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("PopperTextInputTrigger"))
@@ -74,6 +81,42 @@ stories()
                 }, {
                     readOnly: true
                 })}
+            </div>
+        </div>
+    )
+    .add("shorthand input", () =>
+        <PopperTrigger.TextInput
+            input={{ placeholder: "Pick a date", fluid: true }}
+        >
+            <RedBox />
+        </PopperTrigger.TextInput>
+    )
+    .add("clearable input", () =>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                {createPopperTrigger({}, {
+                    button: <Button icon={<CloseIcon />} />
+                })}
+            </div>
+            <div style={{ marginBottom: "100px" }}>
+                {createPopperTrigger({}, {
+                    button: {
+                        icon: <CloseIcon />
+                    }
+                })}
+            </div>
+            <div>
+                <PopperTrigger.TextInput
+                    input={{
+                        placeholder: "Pick a date",
+                        fluid: true,
+                        button: {
+                            icon: <CloseIcon />
+                        }
+                    }}
+                >
+                    <RedBox />
+                </PopperTrigger.TextInput>
             </div>
         </div>
     )

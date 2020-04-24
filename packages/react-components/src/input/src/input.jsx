@@ -142,8 +142,7 @@ export function PureInput(props) {
                     size: SIZES_TO_BUTTON[size],
                     circular: true,
                     ghost: true,
-                    secondary: true,
-                    type: "button"
+                    secondary: true
                 };
 
                 const getClasses = userClasses => {
@@ -161,8 +160,8 @@ export function PureInput(props) {
                 }
 
                 return createButtonFromShorthand({
-                    ...defaults,
                     ...button,
+                    ...defaults,
                     className: getClasses(button.className)
                 });
             }

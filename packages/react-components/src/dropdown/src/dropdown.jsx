@@ -1,8 +1,8 @@
 import "./item-factory";
 
-import { DOMEventListener, KEYS, LARGE, SMALL, mergeClasses, useCombinedRefs } from "../../shared";
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
+import { KEYS, LARGE, SMALL, mergeClasses, useCombinedRefs, useDomEventListener } from "../../shared";
 import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
@@ -197,6 +197,8 @@ export function PureDropdown(props) {
         }
     };
 
+    useDomEventListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
+
     const renderIcon = () => {
         if (!isNil(icon)) {
             const classes = mergeClasses(
@@ -225,40 +227,34 @@ export function PureDropdown(props) {
     );
 
     return (
-        <>
-            <div
-                className={containerClasses}
-                tabIndex={-1}
-            >
-                <Ref innerRef={innerRef}>
-                    <DropdownContext.Provider value={{ size: size }}>
-                        <InnerDropdown
-                            {...rest}
-                            onOpen={handleOpen}
-                            onClose={handleClose}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            inline={inline}
-                            search={search}
-                            openOnFocus={false}
-                            fluid={fluid}
-                            trigger={trigger}
-                            icon={isNil(trigger) ? undefined : null }
-                            disabled={disabled}
-                            className={dropdownClasses}
-                            ref={componentRef}
-                            data-testid="dropdown"
-                        />
-                    </DropdownContext.Provider>
-                </Ref>
-                {renderIcon()}
-            </div>
-
-            <If condition={!isOpen && isFocus}>
-                <DOMEventListener name="keydown" on={handleDocumentKeyDown} />
-            </If>
-        </>
+        <div
+            className={containerClasses}
+            tabIndex={-1}
+        >
+            <Ref innerRef={innerRef}>
+                <DropdownContext.Provider value={{ size: size }}>
+                    <InnerDropdown
+                        {...rest}
+                        onOpen={handleOpen}
+                        onClose={handleClose}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        inline={inline}
+                        search={search}
+                        openOnFocus={false}
+                        fluid={fluid}
+                        trigger={trigger}
+                        icon={isNil(trigger) ? undefined : null }
+                        disabled={disabled}
+                        className={dropdownClasses}
+                        ref={componentRef}
+                        data-testid="dropdown"
+                    />
+                </DropdownContext.Provider>
+            </Ref>
+            {renderIcon()}
+        </div>
     );
 }
 
