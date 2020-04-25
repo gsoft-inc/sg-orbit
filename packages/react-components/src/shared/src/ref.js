@@ -16,7 +16,10 @@ export function useCombinedRefs(...refs) {
 
     useEffect(() => {
         refs.forEach(ref => {
-            assignRef(ref, targetRef.current);
+            if (!isNil(ref)) {
+                assignRef(ref, targetRef.current);
+            }
+
         });
     }, [refs]);
 

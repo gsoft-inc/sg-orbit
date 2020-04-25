@@ -4,16 +4,16 @@ import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { Input } from "../../input";
 import { KEYS, isNullOrEmpty, withHandlerProxy } from "../../shared";
 import { PureComponent, createRef } from "react";
-import { ResizeObserver } from "./resize-observer";
+// import { ResizeObserver } from "./resize-observer";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class DatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
-        onOpen: func,
-        onClose: func,
-        onSizeChange: func,
+        // onOpen: func,
+        // onClose: func,
+        // onSizeChange: func,
         onClick: func,
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -39,17 +39,17 @@ export class DatePickerTextboxInput extends PureComponent {
     };
 
     _inputRef = createRef();
-    _clearButtonRef = createRef();
-    _containerResizeObserver = null;
+    // _clearButtonRef = createRef();
+    // _containerResizeObserver = null;
 
-    componentDidMount() {
-        this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
-        this._containerResizeObserver.observe(this._inputRef.current);
-    }
+    // componentDidMount() {
+    //     this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
+    //     this._containerResizeObserver.observe(this._inputRef.current);
+    // }
 
-    componentWillUnmount() {
-        this._containerResizeObserver.disconnect();
-    }
+    // componentWillUnmount() {
+    //     this._containerResizeObserver.disconnect();
+    // }
 
     isPlaceholder() {
         const { value } = this.props;
@@ -57,45 +57,45 @@ export class DatePickerTextboxInput extends PureComponent {
         return isNullOrEmpty(value);
     }
 
-    handleContainerSizeChange = entries => {
-        const { onSizeChange } = this.props;
+    // handleContainerSizeChange = entries => {
+    //     const { onSizeChange } = this.props;
 
-        if (!isNil(onSizeChange)) {
-            // The native chrome implementation doesn't currently support the "border-box" specs. Therefore, we rely on "getBoundingClientRect"
-            // for the value when a size changed is detected.
-            // Specs available here: https://drafts.csswg.org/resize-observer-1/
-            const dimensions = entries[0].target.getBoundingClientRect();
+    //     if (!isNil(onSizeChange)) {
+    //         // The native chrome implementation doesn't currently support the "border-box" specs. Therefore, we rely on "getBoundingClientRect"
+    //         // for the value when a size changed is detected.
+    //         // Specs available here: https://drafts.csswg.org/resize-observer-1/
+    //         const dimensions = entries[0].target.getBoundingClientRect();
 
-            onSizeChange({ width: dimensions.width, height: dimensions.height });
-        }
-    };
+    //         onSizeChange({ width: dimensions.width, height: dimensions.height });
+    //     }
+    // };
 
-    handleClick = event => {
-        const { onClick, onOpen, onClose, allowClear, disabled, open } = this.props;
+    // handleClick = event => {
+    //     const { onClick, onOpen, onClose, allowClear, disabled, open } = this.props;
 
-        let canPropagate = true;
+    //     let canPropagate = true;
 
-        if (allowClear) {
-            if (!isNil(this._clearButtonRef.current)) {
-                canPropagate = !this._clearButtonRef.current.contains(event.target);
-            }
-        }
+    //     if (allowClear) {
+    //         if (!isNil(this._clearButtonRef.current)) {
+    //             canPropagate = !this._clearButtonRef.current.contains(event.target);
+    //         }
+    //     }
 
-        if (canPropagate) {
-            if (!isNil(onClick)) {
-                onClick(event, this.props);
-            }
+    //     if (canPropagate) {
+    //         if (!isNil(onClick)) {
+    //             onClick(event, this.props);
+    //         }
 
-            if (!disabled) {
-                if (!open) {
-                    onOpen(event, this.props);
-                } else {
-                    onClose(event, this.props);
-                }
+    //         if (!disabled) {
+    //             if (!open) {
+    //                 onOpen(event, this.props);
+    //             } else {
+    //                 onClose(event, this.props);
+    //             }
 
-            }
-        }
-    };
+    //         }
+    //     }
+    // };
 
     handleKeyDown = event => {
         const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
@@ -138,18 +138,19 @@ export class DatePickerTextboxInput extends PureComponent {
             <Button
                 icon={<CloseIcon />}
                 onClick={this.handleClearButtonClick}
-                ref={this._clearButtonRef}
+                // ref={this._clearButtonRef}
                 data-testid="date-picker-textbox-clear-button"
             />
         );
     }
 
     render() {
-        const { value, placeholder, size, disabled, fluid, className } = this.props;
+        const { value, onClick, placeholder, size, disabled, fluid, className } = this.props;
 
         return (
             <Input
-                onClick={this.handleClick}
+                // onClick={this.handleClick}
+                onClick={onClick}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}

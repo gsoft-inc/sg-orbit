@@ -68,6 +68,21 @@ stories()
             focusPopperOnShow: true
         })
     )
+    .add("disabled", () =>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                {createPopperTrigger({
+                    disabled: true
+                })}
+            </div>
+            <div>
+                {createPopperTrigger({
+                    disabled: true,
+                    defaultShow: true
+                })}
+            </div>
+        </div>
+    )
     .add("readonly input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
@@ -85,9 +100,7 @@ stories()
         </div>
     )
     .add("shorthand input", () =>
-        <PopperTrigger.TextInput
-            input={{ placeholder: "Pick a date", fluid: true }}
-        >
+        <PopperTrigger.TextInput input={{ placeholder: "Pick a date", fluid: true }}>
             <RedBox />
         </PopperTrigger.TextInput>
     )

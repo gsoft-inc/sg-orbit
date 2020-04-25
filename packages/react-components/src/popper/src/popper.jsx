@@ -151,6 +151,21 @@ function setModifierOptions(name, options, modifiers) {
     }
 }
 
+// function usePopperModifiers(pinned, offset, popperModifiers) {
+//     const mergedModifiers = popperModifiers || [];
+
+//     if (pinned) {
+//         disableModifier("preventOverflow", mergedModifiers);
+//         disableModifier("flip", mergedModifiers);
+//     }
+
+//     if (!isNil(offset)) {
+//         setModifierOptions("offset", { offset }, mergedModifiers);
+//     }
+
+//     return mergedModifiers;
+// }
+
 export function InnerPopper({
     show,
     position,

@@ -1,18 +1,89 @@
 import { PopperTrigger } from "./popper-trigger";
-import { cloneElement, useCallback, useRef } from "react";
+import { cloneElement, forwardRef, useCallback } from "react";
 import { createInputFromShorthand } from "../../input";
-import { element, object, oneOfType } from "prop-types";
-import { isElement } from "react-is";
+import { element, func, object, oneOfType } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { isElement as isReactElement } from "react-is";
+import { useCombinedRefs } from "../../shared";
 
 const propTypes = {
-    input: oneOfType([element, object]).isRequired
+    /**
+     * The text input trigger.
+     */
+    input: oneOfType([element, object]).isRequired,
+    /**
+     * @ignore
+     */
+    onClick: func,
+    /**
+     * @ignore
+     */
+    forwardedRef: oneOfType([object, func])
 };
 
-export function PopperTextInputTrigger({ input, onClick, ...rest }) {
-    const buttonRef = useRef();
+function parseInput(input) {
+    const result = (isElement, hasButton, button) => ({
+        input,
+        isElement,
+        hasButton,
+        button
+    });
 
-    const handleClick = useCallback(event => {
+    if (isReactElement(input)) {
+        const button = input.props.button;
+
+        return result(true, !isNil(button), button);
+    }
+
+    return result(false, !isNil(input.button), input.button);
+}
+
+function useButtonRenderer({ hasButton, button }) {
+    const ref = useCombinedRefs(hasButton && !isNil(button.ref) ? button.ref : undefined);
+
+    const renderer = () => {
+        if (isReactElement(button)) {
+            return cloneElement(button, {
+                ...button.props,
+                ref
+            });
+        }
+
+        return {
+            ...button,
+            ref
+        };
+    };
+
+    return [renderer, ref];
+}
+
+function useTriggerRenderer({ input, isElement, hasButton }, buttonRenderer) {
+    return () => {
+        if (isElement) {
+            if (hasButton) {
+                return cloneElement(input, {
+                    ...input.props,
+                    button: buttonRenderer()
+                });
+            }
+
+            return input;
+        }
+
+        if (hasButton) {
+            return createInputFromShorthand({
+                ...input,
+                button: buttonRenderer()
+            });
+        }
+
+        return createInputFromShorthand(input);
+    };
+}
+
+function useHandleClick(onClick, buttonRef) {
+    return useCallback(event => {
         let canPropagate = true;
 
         if (!isNil(buttonRef.current)) {
@@ -25,55 +96,30 @@ export function PopperTextInputTrigger({ input, onClick, ...rest }) {
             }
         }
     }, [buttonRef, onClick]);
+}
 
-    const renderButton = button => {
-        if (isElement(button)) {
-            return cloneElement(button, {
-                ...button.props,
-                ref: buttonRef
-            });
-        }
+export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...rest }) {
+    const parsingResult = parseInput(input);
 
-        return {
-            ...button,
-            ref: buttonRef
-        };
-    };
+    const [buttonRenderer, buttonRef] = useButtonRenderer(parsingResult);
+    const triggerRenderer = useTriggerRenderer(parsingResult, buttonRenderer);
 
-    const renderTrigger = () => {
-        if (isElement(input)) {
-            const button = input.props.button;
-
-            if (!isNil(button)) {
-                return cloneElement(input, {
-                    ...input.props,
-                    button: renderButton(button)
-                });
-            }
-
-            return input;
-        }
-
-        const button = input.button;
-
-        if (!isNil(button)) {
-            return createInputFromShorthand({
-                ...input,
-                button: renderButton(button)
-            });
-        }
-
-        return createInputFromShorthand(input);
-    };
+    const handleClick = useHandleClick(onClick, buttonRef);
 
     return (
         <PopperTrigger
             {...rest}
-            trigger={renderTrigger()}
+            trigger={triggerRenderer()}
+            // trigger={createInputFromShorthand({ ...input })}
             toggleHandler="onClick"
             onClick={handleClick}
+            ref={forwardedRef}
         />
     );
 }
 
-PopperTextInputTrigger.propTypes = propTypes;
+InnerPopperTextInputTrigger.propTypes = propTypes;
+
+export const PopperTextInputTrigger = forwardRef((props, ref) => (
+    <InnerPopperTextInputTrigger {...props} forwardedRef={ref} />
+));

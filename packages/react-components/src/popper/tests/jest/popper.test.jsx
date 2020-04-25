@@ -5,7 +5,7 @@ import { isNil } from "lodash";
 import { render, wait } from "@testing-library/react";
 
 // TODO:
-//  - don't show popper when disabled
+//  - don't toggle popper when disabled
 
 function PureDummyPopper({ forwardedRef, ...rest }) {
     const [triggerElement, setTriggerElement] = useState(null);
@@ -54,7 +54,7 @@ test("when wrapped, ref is a DOM element", async () => {
     expect(ref.current.getAttribute("data-testid")).toBe("popper-wrapper");
 });
 
-test("when using a callback ref, ref is a DOM element", async () => {
+test("when wrapped, using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
