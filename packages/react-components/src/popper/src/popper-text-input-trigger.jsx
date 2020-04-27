@@ -6,6 +6,9 @@ import { isFunction, isNil } from "lodash";
 import { isElement as isReactElement } from "react-is";
 import { useCombinedRefs } from "../../shared";
 
+// TODO:
+// - should call original onClick if available (input.props.onClick)
+
 const propTypes = {
     /**
      * The text input trigger.

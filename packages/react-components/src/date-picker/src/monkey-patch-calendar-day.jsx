@@ -10,6 +10,7 @@ import raf from "raf";
 // you use the keyboard to navigate between months you always loose the focus on the prev / next navigation buttons.
 PureCalendarDay.prototype.componentDidUpdate = function(prevProps) {
     const { isFocused, tabIndex } = this.props;
+
     if (tabIndex === 0) {
         if (isFocused || tabIndex !== prevProps.tabIndex) {
             // When the last element that has been focus is the navigation button, don't focus the day because the user will need to shift+tab if he want

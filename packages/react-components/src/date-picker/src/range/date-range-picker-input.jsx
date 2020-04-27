@@ -17,29 +17,6 @@ export class PureDateRangePickerInput extends PureComponent {
          */
         endDate: momentType,
         /**
-         * Called when an open event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onOpen: func,
-        /**
-         * Called when a close event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onClose: func,
-        /**
-         * Called when the size of the input changed.
-         * @param {{ width: number, height: number }} dimensions - The input dimensions.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onSizeChange: func,
-        /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Object} props - All the props.
@@ -125,9 +102,6 @@ export class PureDateRangePickerInput extends PureComponent {
         rangeFormat: "{startDate} - {endDate}"
     };
 
-    handleOpen = withHandlerProxy(this, "onOpen", false);
-    handleClose = withHandlerProxy(this, "onClose", false);
-    handleSizeChange = withHandlerProxy(this, "onSizeChange", false);
     handleClear = withHandlerProxy(this, "onClear", false);
     handleClick = withHandlerProxy(this, "onClick");
     handleKeyDown = withHandlerProxy(this, "onKeyDown");
@@ -154,9 +128,6 @@ export class PureDateRangePickerInput extends PureComponent {
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
-                onOpen={this.handleOpen}
-                onClose={this.handleClose}
-                onSizeChange={this.handleSizeChange}
                 onClear={this.handleClear}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}

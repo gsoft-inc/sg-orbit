@@ -220,18 +220,22 @@ export function InnerPopper({
     };
 
     const renderPopper = () => {
-        const popper = Children.only(children);
+        // This condition is a kind of a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
+        // popper is shown.
+        if (show) {
+            const popper = Children.only(children);
 
-        return cloneElement(!noWrap ? renderWrapper(popper) : popper, {
-            style: {
-                ...style,
-                ...styles.popper,
-                display: show ? "block" : "none",
-                animation: animate ? "ou-popper-fade-in 0.3s" : undefined
-            },
-            ref: setPopperRef,
-            ...attributes.popper
-        });
+            return cloneElement(!noWrap ? renderWrapper(popper) : popper, {
+                style: {
+                    ...style,
+                    ...styles.popper,
+                    display: show ? "block" : "none",
+                    animation: animate ? "ou-popper-fade-in 0.3s" : undefined
+                },
+                ref: setPopperRef,
+                ...attributes.popper
+            });
+        }
     };
 
     if (!disabled) {

@@ -1,12 +1,4 @@
-import {
-    BOTTOM_CENTER,
-    BOTTOM_LEFT,
-    BOTTOM_RIGHT,
-    InlineSingleDatePicker,
-    TOP_CENTER,
-    TOP_LEFT,
-    TOP_RIGHT
-} from "@react-components/date-picker";
+import { InlineSingleDatePicker } from "@react-components/date-picker";
 import { InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -77,7 +69,7 @@ A default inlined single date picker.
         numberOfMonths={number("numberOfMonths")}
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
-        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER }, BOTTOM_LEFT)}
+        position={select("position", { "top-start": "top-start", "top-end": "top-end", "bottom": "bottom", "bottom-start": "bottom-start", "bottom-end": "bottom-end", "right": "right", "right-start": "right-start", "right-end": "right-end", "left": "left", "left-start": "left-start", "left-end": "left-end" }, "bottom-start")}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
         closeOnOutsideClick={boolean("closeOnOutsideClick", false)}

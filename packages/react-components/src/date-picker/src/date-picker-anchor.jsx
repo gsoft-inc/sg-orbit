@@ -15,7 +15,7 @@ export class DatePickerAnchor extends PureComponent {
         onVisibilityChange: func,
         closeOnBlur: bool,
         closeOnOutsideClick: bool,
-        // fluid: bool,
+        fluid: bool,
         className: string,
         style: object
     };
@@ -34,12 +34,11 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        // const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
-        const { open, input, calendar, position, offset, closeOnBlur, closeOnOutsideClick, className, style } = this.props;
+        const { open, input, calendar, position, offset, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
 
         return (
             <PopperTrigger.TextInput
-                open={open}
+                show={open}
                 input={input}
                 position={position}
                 offset={offset}
@@ -47,30 +46,12 @@ export class DatePickerAnchor extends PureComponent {
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
-                // fluid={fluid}
+                fluid={fluid}
                 className={className}
                 style={style}
             >
                 {calendar}
             </PopperTrigger.TextInput>
         );
-
-        // return (
-        //     <Popup
-        //         open={open}
-        //         trigger={input}
-        //         position={position}
-        //         offsets={offsets}
-        //         zIndex={zIndex}
-        //         onVisibilityChange={this.handleVisibilityChange}
-        //         closeOnBlur={closeOnBlur}
-        //         closeOnOutsideClick={closeOnOutsideClick}
-        //         fluid={fluid}
-        //         className={className}
-        //         style={style}
-        //     >
-        //         {calendar}
-        //     </Popup>
-        // );
     }
 }

@@ -18,7 +18,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(
             paramsBuilder()
-                .canvasLayout({ width: "30%", marginTop: "100px" })
+                .canvasLayout({ width: "80%", marginTop: "100px" })
                 .chromaticDelay(100)
                 .chromaticPauseAnimationAtEnd()
                 .build()
@@ -29,7 +29,7 @@ function stories(segment) {
 function createPopperTrigger(popperProps = {}, inputProps = {}) {
     return (
         <PopperTrigger.TextInput
-            input={<TextInput {...inputProps} placeholder="Pick a date" fluid />}
+            input={<TextInput {...inputProps} placeholder="Pick a date" />}
             {...popperProps}
         >
             <RedBox />
@@ -83,6 +83,9 @@ stories()
             </div>
         </div>
     )
+    .add("fluid input", () =>
+        createPopperTrigger({ fluid: true }, { fluid: true })
+    )
     .add("readonly input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
@@ -100,7 +103,7 @@ stories()
         </div>
     )
     .add("shorthand input", () =>
-        <PopperTrigger.TextInput input={{ placeholder: "Pick a date", fluid: true }}>
+        <PopperTrigger.TextInput input={{ placeholder: "Pick a date" }}>
             <RedBox />
         </PopperTrigger.TextInput>
     )
@@ -122,7 +125,6 @@ stories()
                 <PopperTrigger.TextInput
                     input={{
                         placeholder: "Pick a date",
-                        fluid: true,
                         button: {
                             icon: <CloseIcon />
                         }

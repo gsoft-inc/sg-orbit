@@ -6,8 +6,8 @@ import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "../../../popper";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { cloneElement } from "react";
-import { isNil } from "lodash";
+import { cloneElement, createRef } from "react";
+import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -196,6 +196,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         open: false
     };
 
+    _inputRef = createRef();
+
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, DateRangePicker.autoControlledProps, ({ startDate, endDate }) => ({
             selectedStartDate: startDate,
@@ -235,9 +237,20 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ startDate: selectedStartDate });
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
+        this.focusInput();
 
         onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName, this.props);
     };
+
+    focusInput() {
+        setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                if (isFunction(this._inputRef.current.focus)) {
+                    this._inputRef.current.focus();
+                }
+            }
+        }, 0);
+    }
 
     openCalendar(event) {
         const { onVisibilityChange } = this.props;
@@ -261,9 +274,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size } = this.props;
-        const { selectedStartDate, selectedEndDate } = this.state;
+        const { open, selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
+            open,
             startDate: selectedStartDate,
             endDate: selectedEndDate,
             onClear: this.handleInputClear,
@@ -273,7 +287,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            size
+            size,
+            ref: this._inputRef
         });
     }
 

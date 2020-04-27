@@ -1,12 +1,12 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "../../../shared";
 import { DatePickerAnchor } from "../date-picker-anchor";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement } from "react";
-import { isNil } from "lodash";
+import { cloneElement, createRef } from "react";
+import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -157,6 +157,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         open: false
     };
 
+    _inputRef = createRef();
+
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
             selectedDate: date
@@ -193,9 +195,20 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
         this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ date: selectedDate });
+        this.focusInput();
 
         onDateChange(event, selectedDate, this.props);
     };
+
+    focusInput() {
+        setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                if (isFunction(this._inputRef.current.focus)) {
+                    this._inputRef.current.focus();
+                }
+            }
+        }, 0);
+    }
 
     openCalendar(event) {
         const { onVisibilityChange } = this.props;
@@ -219,9 +232,10 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, size } = this.props;
-        const { selectedDate } = this.state;
+        const { open, selectedDate } = this.state;
 
         return cloneElement(input, {
+            open,
             date: selectedDate,
             onClear: this.handleInputClear,
             allowClear,
@@ -230,7 +244,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            size
+            size,
+            ref: this._inputRef
         });
     }
 

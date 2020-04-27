@@ -1,6 +1,6 @@
 import { ArgumentError } from "../../../shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";

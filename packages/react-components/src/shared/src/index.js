@@ -13,5 +13,5 @@ export * from "./handlers";
 export * from "./styles";
 export * from "./semantic-ui";
 export * from "./ref";
-export * from "./use-resize-observer";
+export * from "./resize-observer";
 export * from "./sizes";
