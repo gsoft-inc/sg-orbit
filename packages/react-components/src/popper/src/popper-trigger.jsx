@@ -1,4 +1,5 @@
 import { ArgumentError, KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
+import { POSITIONS } from "./positions";
 import { Popper } from "./popper";
 import { PopperButtonTrigger } from "./popper-button-trigger";
 import { PopperTextInputTrigger } from "./popper-text-input-trigger";
@@ -28,23 +29,7 @@ const SHARED_POPPER_PROP_TYPES = {
     /**
      * Position of the popper element.
      */
-    position: oneOf([
-        "auto",
-        "auto-start",
-        "auto-end",
-        "top",
-        "top-start",
-        "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "right",
-        "right-start",
-        "right-end",
-        "left",
-        "left-start",
-        "left-end"
-    ]),
+    position: oneOf(POSITIONS),
     /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */

@@ -110,7 +110,6 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
         <PopperTrigger
             {...rest}
             trigger={triggerRenderer()}
-            // trigger={createInputFromShorthand({ ...input })}
             toggleHandler="onClick"
             onClick={handleClick}
             ref={forwardedRef}

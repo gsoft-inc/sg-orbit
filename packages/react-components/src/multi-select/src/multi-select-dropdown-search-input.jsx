@@ -1,6 +1,6 @@
-import { Input } from "../../input";
 import { MagnifierIcon } from "../../icons";
 import { PureComponent } from "react";
+import { TextInput } from "../../text-input";
 import { func, string } from "prop-types";
 
 export class MultiSelectDropdownSearchInput extends PureComponent {
@@ -33,7 +33,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
         const { placeholder, className } = this.props;
 
         return (
-            <Input
+            <TextInput
                 onChange={this.handleChange}
                 placeholder={placeholder}
                 icon={<MagnifierIcon className="fill-marine-500" />}

@@ -4,7 +4,7 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -103,9 +103,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
         position: oneOf(POSITIONS),
         /**
          * An array containing an horizontal and vertical offsets for the calendar position.
-         * Ex: `["10px", "-10px"]`
+         * Ex: `[10, -10]`
          */
-        offsets: arrayOf(string),
+        offset: arrayOf(number),
         /**
          * z-index of the calendar.
          */
@@ -301,7 +301,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -310,7 +310,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
                 position={position}
-                offsets={offsets}
+                offset={offset}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

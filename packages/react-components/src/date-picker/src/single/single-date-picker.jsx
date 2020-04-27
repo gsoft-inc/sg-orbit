@@ -76,9 +76,9 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     position: oneOf(POSITIONS),
     /**
      * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: ["10px", "-10px"]
+     * Ex: [10, -10]
      */
-    offsets: arrayOf(string),
+    offset: arrayOf(number),
     /**
      * z-index of the calendar.
      */
@@ -254,7 +254,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -263,7 +263,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
                 position={position}
-                offsets={offsets}
+                offset={offset}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

@@ -50,4 +50,9 @@ stories()
         createPopperTrigger({
             defaultShow: false
         })
+    )
+    .add("shorthand button", () =>
+        <PopperTrigger.Button button={{ content: "Open", fluid: true }}>
+            <RedBox />
+        </PopperTrigger.Button>
     );

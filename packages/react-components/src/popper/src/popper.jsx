@@ -1,6 +1,7 @@
 import "./popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
+import { POSITIONS } from "./positions";
 import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { assignRef, mergeClasses, useResizeObserver } from "../../shared";
 import { createPortal } from "react-dom";
@@ -17,12 +18,6 @@ import { usePopper } from "react-popper";
 //    - The popper element must accept a `ref` prop and assign it to it's root element.
 // This is done this way to avoid adding an additional root element around the popper element.
 
-// STORIES:
-// Flip:
-//    - With a custom boundary when in a container that is not the document or the viewport OR disablePortal
-// Prevent Overflow:
-//    - With a custom boundary when in a container that is not the document or the viewport OR disablePortal
-
 export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Wether to show the popper element or not.
@@ -31,23 +26,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Position of the popper element.
      */
-    position: oneOf([
-        "auto",
-        "auto-start",
-        "auto-end",
-        "top",
-        "top-start",
-        "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "right",
-        "right-start",
-        "right-end",
-        "left",
-        "left-start",
-        "left-end"
-    ]),
+    position: oneOf(POSITIONS),
     /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */
@@ -58,7 +37,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     noWrap: bool,
     /**
      * Allow to displace the popper element from its trigger element.
-     * Ex: ["10px", "-10px"]
+     * Ex: [10, -10]
      */
     offset: arrayOf(number),
     /**

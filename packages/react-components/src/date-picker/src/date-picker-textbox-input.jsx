@@ -1,20 +1,20 @@
 import { Button } from "../../button";
 import { CalendarIcon, CloseIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
-import { Input } from "../../input";
-import { KEYS, isNullOrEmpty, withHandlerProxy } from "../../shared";
-import { PureComponent, createRef } from "react";
+import { PureComponent, createRef, forwardRef } from "react";
+import { TextInput } from "../../text-input";
+import { isNullOrEmpty, withHandlerProxy } from "../../shared";
 // import { ResizeObserver } from "./resize-observer";
-import { bool, func, oneOf, string } from "prop-types";
-import { isNil } from "lodash";
+import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 
-export class DatePickerTextboxInput extends PureComponent {
+export class PureDatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
         // onOpen: func,
         // onClose: func,
         // onSizeChange: func,
         onClick: func,
+        // eslint-disable-next-line react/no-unused-prop-types
         onKeyDown: func,
         // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
@@ -28,7 +28,8 @@ export class DatePickerTextboxInput extends PureComponent {
         fluid: bool,
         open: bool,
         size: oneOf(SIZES),
-        className: string
+        className: string,
+        forwardedRef: oneOfType([object, func])
     };
 
     static defaultProps = {
@@ -38,7 +39,7 @@ export class DatePickerTextboxInput extends PureComponent {
         size: DEFAULT_SIZE
     };
 
-    _inputRef = createRef();
+    // _inputRef = createRef();
     // _clearButtonRef = createRef();
     // _containerResizeObserver = null;
 
@@ -97,32 +98,59 @@ export class DatePickerTextboxInput extends PureComponent {
     //     }
     // };
 
-    handleKeyDown = event => {
-        const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
+    // handleKeyDown = event => {
+    //     const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
 
-        if (!disabled) {
-            const key = event.keyCode;
+    //     if (!disabled) {
+    //         const key = event.keyCode;
 
-            if (key === KEYS.space || key === KEYS.enter) {
-                if (key === KEYS.space) {
-                    event.preventDefault();
-                }
+    //         if (key === KEYS.space || key === KEYS.enter) {
+    //             if (key === KEYS.space) {
+    //                 event.preventDefault();
+    //             }
 
-                if (!open) {
-                    onOpen(event, this.props);
-                }
-            } else if (key === KEYS.esc) {
-                if (!open) {
-                    onClear(event, this.props);
-                }
-            }
-        }
+    //             if (!open) {
+    //                 onOpen(event, this.props);
+    //             }
+    //         } else if (key === KEYS.esc) {
+    //             if (!open) {
+    //                 onClear(event, this.props);
+    //             }
+    //         }
+    //     }
 
-        if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
-        }
-    }
+    //     if (!isNil(onKeyDown)) {
+    //         onKeyDown(event, this.props);
+    //     }
+    // }
 
+    // handleKeyDown = event => {
+    //     const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
+
+    //     if (!disabled) {
+    //         const key = event.keyCode;
+
+    //         if (key === KEYS.space || key === KEYS.enter) {
+    //             if (key === KEYS.space) {
+    //                 event.preventDefault();
+    //             }
+
+    //             if (!open) {
+    //                 onOpen(event, this.props);
+    //             }
+    //         } else if (key === KEYS.esc) {
+    //             if (!open) {
+    //                 onClear(event, this.props);
+    //             }
+    //         }
+    //     }
+
+    //     if (!isNil(onKeyDown)) {
+    //         onKeyDown(event, this.props);
+    //     }
+    // }
+
+    handleKeyDown = withHandlerProxy(this, "onKeyDown");
     handleFocus = withHandlerProxy(this, "onFocus");
     handleBlur = withHandlerProxy(this, "onBlur");
     handleClearButtonClick = withHandlerProxy(this, "onClear");
@@ -145,10 +173,11 @@ export class DatePickerTextboxInput extends PureComponent {
     }
 
     render() {
-        const { value, onClick, placeholder, size, disabled, fluid, className } = this.props;
+        // const { value, onClick, placeholder, size, disabled, fluid, className } = this.props;
+        const { value, onClick, placeholder, size, disabled, fluid, className, forwardedRef } = this.props;
 
         return (
-            <Input
+            <TextInput
                 // onClick={this.handleClick}
                 onClick={onClick}
                 onKeyDown={this.handleKeyDown}
@@ -166,7 +195,8 @@ export class DatePickerTextboxInput extends PureComponent {
                 tabIndex={disabled ? "-1" : "0"}
                 autoComplete="off"
                 className={className}
-                ref={this._inputRef}
+                ref={forwardedRef}
+                // ref={this._inputRef}
                 data-testid="date-picker-textbox-input"
             />
         );
@@ -174,8 +204,13 @@ export class DatePickerTextboxInput extends PureComponent {
 
     // This method is part of the component external API.
     focus() {
-        if (!isNil(this._inputRef.current)) {
-            this._inputRef.current.focus();
-        }
+        // TODO: put back
+        // if (!isNil(this._inputRef.current)) {
+        //     this._inputRef.current.focus();
+        // }
     }
 }
+
+export const DatePickerTextboxInput = forwardRef((props, ref) => (
+    <PureDatePickerTextboxInput { ...props } forwardedRef={ref} />
+));

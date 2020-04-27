@@ -74,9 +74,9 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     position: oneOf(POSITIONS),
     /**
      * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: ["10px", "-10px"]
+     * Ex: [10, -10]
      */
-    offsets: arrayOf(string),
+    offset: arrayOf(number),
     /**
      * z-index of the calendar.
      */

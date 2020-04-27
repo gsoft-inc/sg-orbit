@@ -55,61 +55,55 @@ test("using a callback ref, ref is a DOM element", async () => {
 });
 
 test("can assign a ref to a text input", async () => {
-    let refNode = null;
+    const ref = createRef();
 
     render(
         createPopperTrigger({}, {
-            ref: node => {
-                refNode = node;
-            }
+            ref
         })
     );
 
     await wait();
 
-    expect(refNode).not.toBeNull();
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
-    expect(refNode.getAttribute("data-testid")).toBe("input");
+    expect(ref.current).not.toBeNull();
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.getAttribute("data-testid")).toBe("input");
 });
 
-test("can assign a ref a text input having a button", async () => {
-    let refNode = null;
+test("can assign a ref to a text input having a button", async () => {
+    const ref = createRef();
 
     render(
         createPopperTrigger({}, {
             button: <Button icon={<CloseIcon />} />,
-            ref: node => {
-                refNode = node;
-            }
+            ref
         })
     );
 
     await wait();
 
-    expect(refNode).not.toBeNull();
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
-    expect(refNode.getAttribute("data-testid")).toBe("input");
+    expect(ref.current).not.toBeNull();
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.getAttribute("data-testid")).toBe("input");
 });
 
 test("can assign a ref to a text input button", async () => {
-    let refNode = null;
+    const ref = createRef();
 
     render(
         createPopperTrigger({}, {
             button: <Button
                 icon={<CloseIcon />}
-                ref={node => {
-                    refNode = node;
-                }}
+                ref={ref}
             />
         })
     );
 
     await wait();
 
-    expect(refNode).not.toBeNull();
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("BUTTON");
+    expect(ref.current).not.toBeNull();
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("BUTTON");
 });

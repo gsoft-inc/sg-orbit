@@ -1,6 +1,6 @@
-import { BOTTOM_LEFT, POSITIONS, Popup } from "../../popup";
+import { POSITIONS, PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, object, oneOf, string } from "prop-types";
+import { arrayOf, bool, func, node, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class DatePickerAnchor extends PureComponent {
@@ -9,20 +9,20 @@ export class DatePickerAnchor extends PureComponent {
         input: node.isRequired,
         calendar: node.isRequired,
         position: oneOf(POSITIONS),
-        offsets: arrayOf(string),
-        zIndex: string,
+        offset: arrayOf(number),
+        // zIndex: string,
         // eslint-disable-next-line react/no-unused-prop-types
         onVisibilityChange: func,
         closeOnBlur: bool,
         closeOnOutsideClick: bool,
-        fluid: bool,
+        // fluid: bool,
         className: string,
         style: object
     };
 
     static defaultProps = {
-        position: BOTTOM_LEFT,
-        offsets: ["0px", "10px"]
+        position: "bottom-start",
+        offset: [0, 10]
     };
 
     handleVisibilityChange = (event, visible) => {
@@ -34,24 +34,43 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        // const { open, input, calendar, position, offsets, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { open, input, calendar, position, offset, closeOnBlur, closeOnOutsideClick, className, style } = this.props;
 
         return (
-            <Popup
+            <PopperTrigger.TextInput
                 open={open}
-                trigger={input}
+                input={input}
                 position={position}
-                offsets={offsets}
-                zIndex={zIndex}
+                offset={offset}
+                // zIndex={zIndex}
                 onVisibilityChange={this.handleVisibilityChange}
-                closeOnBlur={closeOnBlur}
-                closeOnOutsideClick={closeOnOutsideClick}
-                fluid={fluid}
+                hideOnBlur={closeOnBlur}
+                hideOnOutsideClick={closeOnOutsideClick}
+                // fluid={fluid}
                 className={className}
                 style={style}
             >
                 {calendar}
-            </Popup>
+            </PopperTrigger.TextInput>
         );
+
+        // return (
+        //     <Popup
+        //         open={open}
+        //         trigger={input}
+        //         position={position}
+        //         offsets={offsets}
+        //         zIndex={zIndex}
+        //         onVisibilityChange={this.handleVisibilityChange}
+        //         closeOnBlur={closeOnBlur}
+        //         closeOnOutsideClick={closeOnOutsideClick}
+        //         fluid={fluid}
+        //         className={className}
+        //         style={style}
+        //     >
+        //         {calendar}
+        //     </Popup>
+        // );
     }
 }
