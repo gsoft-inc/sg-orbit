@@ -10,7 +10,7 @@ export class DatePickerAnchor extends PureComponent {
         calendar: node.isRequired,
         position: oneOf(POSITIONS),
         offset: arrayOf(number),
-        // zIndex: string,
+        zIndex: number,
         // eslint-disable-next-line react/no-unused-prop-types
         onVisibilityChange: func,
         closeOnBlur: bool,
@@ -22,7 +22,8 @@ export class DatePickerAnchor extends PureComponent {
 
     static defaultProps = {
         position: "bottom-start",
-        offset: [0, 10]
+        offset: [0, 10],
+        zIndex: 2
     };
 
     handleVisibilityChange = (event, visible) => {
@@ -34,7 +35,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offset, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { open, input, calendar, position, offset, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
 
         return (
             <PopperTrigger.TextInput
@@ -42,11 +43,11 @@ export class DatePickerAnchor extends PureComponent {
                 input={input}
                 position={position}
                 offset={offset}
-                // zIndex={zIndex}
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
+                zIndex={zIndex}
                 className={className}
                 style={style}
             >

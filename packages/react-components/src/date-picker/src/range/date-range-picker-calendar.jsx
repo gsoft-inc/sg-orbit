@@ -1,6 +1,6 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement, forwardRef } from "react";
 import { START_DATE } from "react-dates/constants";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";

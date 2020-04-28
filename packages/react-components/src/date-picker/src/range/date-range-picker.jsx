@@ -109,7 +109,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * z-index of the calendar.
          */
-        zIndex: string,
+        zIndex: number,
         /**
          * A React component to select a date.
          */

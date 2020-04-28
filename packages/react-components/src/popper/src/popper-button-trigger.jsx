@@ -4,9 +4,6 @@ import { element, object, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 import { isElement } from "react-is";
 
-// TODO:
-//  - support button shorthand
-
 const propTypes = {
     /**
      * The button trigger.

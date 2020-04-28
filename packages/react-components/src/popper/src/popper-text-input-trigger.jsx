@@ -106,7 +106,6 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
 
     const [buttonRenderer, buttonRef] = useButtonRenderer(parsingResult);
     const triggerRenderer = useTriggerRenderer(parsingResult, buttonRenderer);
-
     const handleClick = useHandleClick(onClick, buttonRef);
 
     return (

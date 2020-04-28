@@ -1,6 +1,6 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerSingleDateController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement } from "react";
 import { bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
 import { momentObj as momentType } from "react-moment-proptypes";

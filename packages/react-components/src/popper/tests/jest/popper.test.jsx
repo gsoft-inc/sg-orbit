@@ -6,6 +6,7 @@ import { render, wait } from "@testing-library/react";
 
 // TODO:
 //  - don't toggle popper when disabled
+//  - support additional props
 
 function PureDummyPopper({ forwardedRef, ...rest }) {
     const [triggerElement, setTriggerElement] = useState(null);

@@ -1,12 +1,8 @@
+import { AbsoluteRedBox } from "./components";
 import { DEFAULT_DATE } from "./data";
 import { DateRangePicker, toPreset } from "@react-components/date-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import {
-    getMonthFirstDay,
-    getMonthLastDay,
-    getNextMonthLastDay,
-    getPreviousMonthFirstDay
-} from "./utils";
+import { getMonthFirstDay, getMonthLastDay, getNextMonthLastDay, getPreviousMonthFirstDay } from "./utils";
 import { noop } from "lodash";
 import { toStoryValuesPresets } from "@react-components/date-picker/stories/utils";
 import moment from "moment";
@@ -1190,7 +1186,7 @@ stories("/z-index")
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
@@ -1204,11 +1200,11 @@ stories("/z-index")
                  {createDateRangePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
                      defaultOpen: true,
-                     zIndex: "1"
+                     zIndex: 1
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
@@ -1216,3 +1212,4 @@ stories("/z-index")
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
              </div>
     );
+

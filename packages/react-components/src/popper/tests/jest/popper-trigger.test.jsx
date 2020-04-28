@@ -2,11 +2,15 @@ import { Button } from "@react-components/button";
 import { PopperTrigger } from "@react-components/popper";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
+import userEvent from "@utils/user-event";
 
-function createPopperTrigger(popperProps = {}) {
+// TODO:
+//  - support additional props
+
+function createPopperTrigger(popperProps = {}, triggerProps = {}) {
     return (
         <PopperTrigger
-            trigger={<Button />}
+            trigger={<Button {...triggerProps} />}
             toggleHandler="onClick"
             {...popperProps}
         >
@@ -51,4 +55,24 @@ test("using a callback ref, ref is a DOM element", async () => {
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("popper-trigger");
+});
+
+// ***** API *****
+
+test("can set an handler on the trigger for the toggle handler", async () => {
+    let wasCalled = false;
+
+    const { getByTestId } = render(
+        createPopperTrigger({}, {
+            onClick: () => {
+                wasCalled = true;
+            }
+        })
+    );
+
+    userEvent.click(getByTestId("button"));
+
+    await wait();
+
+    expect(wasCalled).toBeTruthy();
 });

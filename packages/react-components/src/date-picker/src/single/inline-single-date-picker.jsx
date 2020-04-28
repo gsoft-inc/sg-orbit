@@ -80,7 +80,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * z-index of the calendar.
      */
-    zIndex: string,
+    zIndex: number,
     /**
      * A React component to select a date.
      */

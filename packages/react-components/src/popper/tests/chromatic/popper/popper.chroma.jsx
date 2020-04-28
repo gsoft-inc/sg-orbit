@@ -2,7 +2,7 @@ import { RedBoxPopper, RedBoxPopperWithBoundary } from "./components";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/popper"))
         .segment(segment)
         .parameters(
             paramsBuilder()

@@ -3,8 +3,10 @@ import { POSITIONS } from "./positions";
 import { Popper } from "./popper";
 import { PopperButtonTrigger } from "./popper-button-trigger";
 import { PopperTextInputTrigger } from "./popper-text-input-trigger";
-import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import { createPopperFromShorthand } from "./factories";
+import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 
 // USAGE:
@@ -47,6 +49,10 @@ const SHARED_POPPER_PROP_TYPES = {
      * A disabled popper only renders its trigger.
      */
     disabled: bool,
+    /**
+     * Popper component.
+     */
+    popper: oneOfType([element, object]),
     /**
      * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For documentation, view [https://popper.js.org/docs/v2/modifiers](https://popper.js.org/docs/v2/modifiers).
      */
@@ -123,6 +129,10 @@ const propTypes = {
      * Whether or not the trigger will be rendered as fluid.
      */
     fluid: bool,
+    /**
+     * z-index of the popper element.
+     */
+    zIndex: number,
     /**
      * Whether or not to show the popper on spacebar keydown.
      */
@@ -254,7 +264,7 @@ function useFocusPopper(popperElement) {
     }, [popperElement]);
 }
 
-function useFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, focusPopperOnShow, focusTrigger, focusPopper) {
+function useSetFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, focusPopperOnShow, focusTrigger, focusPopper) {
     useEffect(() => {
         if (focusTriggerOnShow) {
             if (isVisible) {
@@ -414,6 +424,20 @@ function useHandleDocumentClick(isVisible, triggerElement, popperElement, hideOn
     useDomEventListener("click", handler, isVisible);
 }
 
+// Ensure the original handler is called if provided by the consumer.
+function getToggleHandler(trigger, handlerName, handler) {
+    if (!isNil(trigger.props[handlerName])) {
+        return event => {
+            handler(event);
+
+            // Call the original handler.
+            trigger.props[handlerName](event);
+        };
+    }
+
+    return handler;
+}
+
 function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, handleKeyDown) {
     const [triggerElement, setTriggerElement] = useState(null);
 
@@ -423,7 +447,7 @@ function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, hand
     const renderer = () => {
         if (!disabled) {
             return cloneElement(trigger, {
-                [toggleHandler]: handleToggle,
+                [toggleHandler]: getToggleHandler(trigger, toggleHandler, handleToggle),
                 onKeyDown: handleKeyDown,
                 ref: ref
             });
@@ -435,13 +459,27 @@ function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, hand
     return [renderer, focusTrigger, triggerElement];
 }
 
+function getPopperElement(popper) {
+    if (!isNil(popper)) {
+        if (isElement(popper)) {
+            return popper;
+        }
+
+        return createPopperFromShorthand(popper);
+    }
+
+    return <Popper />;
+}
+
 function usePopperRenderer(
     isVisible,
+    zIndex,
     position,
     pinned,
     noWrap,
     offset,
     disabled,
+    popper,
     popperModifiers,
     popperOptions,
     portalContainerElement,
@@ -456,25 +494,30 @@ function usePopperRenderer(
 
     const renderer = () => {
         if (!isNil(triggerElement)) {
-            return (
-                <Popper
-                    show={isVisible}
-                    triggerElement={triggerElement}
-                    position={position}
-                    pinned={pinned}
-                    noWrap={noWrap}
-                    offset={offset}
-                    disabled={disabled}
-                    popperModifiers={popperModifiers}
-                    popperOptions={popperOptions}
-                    portalContainerElement={portalContainerElement}
-                    disablePortal={disablePortal}
-                    animate={animate}
-                    ref={setPopperElement}
-                >
-                    {children}
-                </Popper>
-            );
+            const inferredElement = getPopperElement(popper);
+
+            const styles = {
+                ...(inferredElement.style || {}),
+                zIndex
+            };
+
+            return cloneElement(inferredElement, {
+                show: isVisible,
+                triggerElement,
+                position,
+                pinned,
+                noWrap,
+                offset,
+                disabled,
+                popperModifiers,
+                popperOptions,
+                portalContainerElement,
+                disablePortal,
+                animate,
+                style: styles,
+                ref: setPopperElement,
+                children
+            });
         }
     };
 
@@ -489,10 +532,12 @@ export function InnerPopperTrigger(props) {
         toggleHandler,
         onVisibilityChange,
         fluid,
+        zIndex,
         position,
         pinned,
         noWrap,
         offset,
+        popper,
         popperModifiers,
         popperOptions,
         portalContainerElement,
@@ -512,7 +557,6 @@ export function InnerPopperTrigger(props) {
         children,
         ...rest
     } = props;
-
     useThrowWhenMutuallyExclusivePropsAreProvided(props);
 
     const [isVisible, showPopper, hidePopper] = usePopperVisibility(show, defaultShow, onVisibilityChange);
@@ -523,13 +567,16 @@ export function InnerPopperTrigger(props) {
     const handleTriggerKeyDown = useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopper);
 
     const [triggerRenderer, focusTrigger, triggerElement] = useTriggerRenderer(trigger, toggleHandler, disabled, handleTriggerToggle, handleTriggerKeyDown);
+
     const [popperRenderer, focusPopper, popperElement] = usePopperRenderer(
         isVisible,
+        zIndex,
         position,
         pinned,
         noWrap,
         offset,
         disabled,
+        popper,
         popperModifiers,
         popperOptions,
         portalContainerElement,
@@ -538,7 +585,7 @@ export function InnerPopperTrigger(props) {
         children,
         triggerElement);
 
-    useFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, focusPopperOnShow, focusTrigger, focusPopper);
+    useSetFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, focusPopperOnShow, focusTrigger, focusPopper);
 
     const handleContainerFocus = useHandleContainerFocus(hasFocus);
     const handleContainerBlur = useHandleContainerBlur(isVisible, hideOnBlur, hasFocus, hidePopper);

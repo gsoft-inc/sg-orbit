@@ -1,20 +1,10 @@
 import { Button } from "@react-components/button";
-import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
 import { RedBox } from "./components";
-import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-// TODO:
-//  - Must become popper.chroma.jsx, will create a new one specific for the input.
-//  - In SB menu, should go under Popper.
-//  - Popper
-//      - popper
-//      - input trigger
-//      - button trigger
-
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/text input trigger"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/trigger"))
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -26,14 +16,15 @@ function stories(segment) {
         .build();
 }
 
-function createPopperTrigger(popperProps = {}, inputProps = {}) {
+function createPopperTrigger(props = {}) {
     return (
-        <PopperTrigger.TextInput
-            input={<TextInput {...inputProps} placeholder="Pick a date" />}
-            {...popperProps}
+        <PopperTrigger
+            trigger={<Button fluid>Open</Button>}
+            toggleHandler="onClick"
+            {...props}
         >
             <RedBox />
-        </PopperTrigger.TextInput>
+        </PopperTrigger>
     );
 }
 
@@ -44,6 +35,16 @@ stories()
     .add("show", () =>
         createPopperTrigger({
             show: true
+        })
+    )
+    .add("hide", () =>
+        createPopperTrigger({
+            show: false
+        })
+    )
+    .add("default show", () =>
+        createPopperTrigger({
+            defaultShow: true
         })
     )
     .add("focus trigger on show", () =>
@@ -72,56 +73,40 @@ stories()
                 })}
             </div>
         </div>
-    )
-    .add("fluid input", () =>
-        createPopperTrigger({ fluid: true }, { fluid: true })
-    )
-    .add("readonly input", () =>
+    ).add("multiple popper in the same page", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    readOnly: true
+                {createPopperTrigger({
+                    defaultShow: true
                 })}
             </div>
             <div>
                 {createPopperTrigger({
                     defaultShow: true
-                }, {
-                    readOnly: true
                 })}
             </div>
         </div>
     )
-    .add("shorthand input", () =>
-        <PopperTrigger.TextInput input={{ placeholder: "Pick a date" }}>
-            <RedBox />
-        </PopperTrigger.TextInput>
-    )
-    .add("clearable input", () =>
+    .add("styling", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    button: <Button icon={<CloseIcon />} />
-                })}
-            </div>
-            <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    button: {
-                        icon: <CloseIcon />
-                    }
+                {createPopperTrigger({
+                    className: "border-blue",
+                    defaultShow: true
                 })}
             </div>
             <div>
-                <PopperTrigger.TextInput
-                    input={{
-                        placeholder: "Pick a date",
-                        button: {
-                            icon: <CloseIcon />
-                        }
-                    }}
-                >
-                    <RedBox />
-                </PopperTrigger.TextInput>
+                {createPopperTrigger({
+                    style: { border: "1px solid blue" },
+                    defaultShow: true
+                })}
             </div>
         </div>
+    )
+    .add("TEMP - dont close on blur", () =>
+        createPopperTrigger({
+            hideOnBlur: false
+        })
     );
+
+

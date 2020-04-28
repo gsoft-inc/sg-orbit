@@ -193,6 +193,7 @@ export function PureButton(props) {
                 loading={loading}
                 disabled={disabled}
                 className={classes}
+                data-testid="button"
             >
                 {renderContent()}
             </SemanticButton>

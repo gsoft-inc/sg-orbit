@@ -162,7 +162,7 @@ export class PureDatePickerCalendar extends PureComponent {
         const { buttons, leftContent, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
-            "o-ui calendar flex z-2",
+            "o-ui calendar flex",
             className
         );
 

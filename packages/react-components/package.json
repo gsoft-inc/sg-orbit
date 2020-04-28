@@ -32,7 +32,7 @@
         "@juggle/resize-observer": "3.1.3",
         "@popperjs/core": "2.2.2",
         "prop-types": "*",
-        "react-dates": "21.5.1",
+        "react-dates": "21.8.0",
         "react-moment-proptypes": "*",
         "react-popper": "2.2.1",
         "semantic-ui-react": "0.88.1"

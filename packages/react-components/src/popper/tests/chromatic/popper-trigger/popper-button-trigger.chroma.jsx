@@ -4,7 +4,7 @@ import { RedBox } from "./components";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("PopperButtonTrigger"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/button trigger"))
         .segment(segment)
         .parameters(
             paramsBuilder()
