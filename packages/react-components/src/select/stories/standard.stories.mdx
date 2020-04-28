@@ -1,5 +1,5 @@
 import { GroupIcon } from "@react-components/icons";
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureSelect, Select, selectItem } from "@react-components/select";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -34,6 +34,10 @@ A select can be used to select between choices.
 />
 
 ## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
 
 ### Items
 
@@ -210,20 +214,6 @@ A select can show that the data contains errors.
             placeholder="Astronaut"
             error
             options={ASTRONAUTS}
-        />
-    </Story>
-</Preview>
-
-### Transparent
-
-A select can be transparent.
-
-<Preview>
-    <Story name="transparent">
-        <Select
-            placeholder="Astronaut"
-            options={ASTRONAUTS}
-            transparent
         />
     </Story>
 </Preview>
