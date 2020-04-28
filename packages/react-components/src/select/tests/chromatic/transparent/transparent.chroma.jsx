@@ -9,7 +9,6 @@ const GENDERS = [MALE, FEMALE];
 function createSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
         placeholder="Gender"
-        search
         transparent
         options={options}
         {...otherProps}
