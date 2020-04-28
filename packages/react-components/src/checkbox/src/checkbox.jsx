@@ -188,12 +188,12 @@ export function PureCheckbox(props) {
     return (
         <Ref innerRef={innerRef}>
             <SemanticCheckbox
+                data-testid="checkbox"
                 {...rest}
                 label={renderContent()}
                 autoFocus={shouldAutofocus}
                 disabled={disabled}
                 className={classes}
-                data-testid="checkbox"
             />
         </Ref>
     );

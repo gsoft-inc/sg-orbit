@@ -18,7 +18,11 @@ export function PureCount({ className, children, forwardedRef, ...rest }) {
     );
 
     return (
-        <span {...rest} className={classes} ref={forwardedRef}>
+        <span
+            {...rest}
+            className={classes}
+            ref={forwardedRef}
+        >
             {children}
         </span>
     );

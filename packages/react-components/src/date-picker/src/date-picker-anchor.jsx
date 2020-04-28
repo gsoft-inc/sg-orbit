@@ -35,7 +35,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offset, zIndex, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { open, input, calendar, position, offset, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
 
         return (
             <PopperTrigger.TextInput
@@ -46,6 +46,7 @@ export class DatePickerAnchor extends PureComponent {
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
+                disabled={disabled}
                 fluid={fluid}
                 zIndex={zIndex}
                 className={className}

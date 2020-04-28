@@ -447,8 +447,8 @@ function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, hand
     const renderer = () => {
         if (!disabled) {
             return cloneElement(trigger, {
-                [toggleHandler]: getToggleHandler(trigger, toggleHandler, handleToggle),
-                onKeyDown: handleKeyDown,
+                [toggleHandler]: !disabled ? getToggleHandler(trigger, toggleHandler, handleToggle) : undefined,
+                onKeyDown: !disabled ? handleKeyDown : undefined,
                 ref: ref
             });
         }
@@ -602,15 +602,15 @@ export function InnerPopperTrigger(props) {
 
     return (
         <div
+            data-testid="popper-trigger"
+            tabIndex="-1"
             {...rest}
             // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
             // For more info: https://github.com/facebook/react/issues/6410
-            onFocus={handleContainerFocus}
-            onBlur={handleContainerBlur}
-            tabIndex="-1"
+            onFocus={!disabled ? handleContainerFocus : undefined}
+            onBlur={!disabled ? handleContainerBlur : undefined}
             className={classes}
             ref={containerRef}
-            data-testid="popper-trigger"
         >
             {triggerRenderer()}
             {popperRenderer()}

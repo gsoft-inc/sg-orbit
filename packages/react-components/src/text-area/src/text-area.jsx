@@ -120,11 +120,11 @@ export function PureTextArea(props) {
     return (
         <Ref innerRef={innerRef}>
             <SemanticTextArea
+                data-testid="textarea"
                 {...rest}
                 autoFocus={shouldAutofocus}
                 disabled={disabled}
                 className={classes}
-                data-testid="textarea"
             >
                 {children}
             </SemanticTextArea>

@@ -234,6 +234,7 @@ export function PureDropdown(props) {
             <Ref innerRef={innerRef}>
                 <DropdownContext.Provider value={{ size: size }}>
                     <InnerDropdown
+                        data-testid="dropdown"
                         {...rest}
                         onOpen={handleOpen}
                         onClose={handleClose}
@@ -249,7 +250,6 @@ export function PureDropdown(props) {
                         disabled={disabled}
                         className={dropdownClasses}
                         ref={componentRef}
-                        data-testid="dropdown"
                     />
                 </DropdownContext.Provider>
             </Ref>

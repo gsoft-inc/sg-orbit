@@ -178,10 +178,10 @@ function useWrapperRenderer(className, rest) {
 
         return (
             <div
+                data-testid="popper-wrapper"
+                tabIndex="-1"
                 {...rest}
                 className={classes}
-                tabIndex="-1"
-                data-testid="popper-wrapper"
             >
                 {popper}
             </div>
