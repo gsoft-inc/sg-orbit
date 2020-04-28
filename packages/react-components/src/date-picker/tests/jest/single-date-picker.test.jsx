@@ -221,6 +221,25 @@ test("clear the date on calendar clear button click", async () => {
     expect(getInput(getByTestId)).not.toHaveValue(formattedDate);
 });
 
+test("when the date is cleared on calendar clear button click, the apply button is focused", async () => {
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultDate: date,
+        dateFormat: DATE_FORMAT
+    }));
+
+    expect(getInput(getByTestId)).toHaveValue(formattedDate);
+
+    await openCalendar(getByTestId);
+
+    userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(getByTestId(CALENDAR_APPLY_BUTTON_ID)).toHaveFocus();
+});
+
 test("when the calendar close on esc keydown, the input should be focused", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 

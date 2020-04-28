@@ -207,7 +207,7 @@ test("when dates are selected, clicking on the calendar apply button close the c
     expect(calendarNode).not.toBeInTheDocument();
 });
 
-test("clear the date on calendar clear button click", async () => {
+test("clear the dates on calendar clear button click", async () => {
     const startDate = moment();
     const endDate = moment().add(3, "days");
     const formattedStartDate = startDate.format(DATE_FORMAT);
@@ -230,6 +230,31 @@ test("clear the date on calendar clear button click", async () => {
     await wait();
 
     expect(inputNode).not.toHaveValue(formattedRange);
+});
+
+test("when the dates are cleared on calendar clear button click, the apply button is focused", async () => {
+    const startDate = moment();
+    const endDate = moment().add(3, "days");
+    const formattedStartDate = startDate.format(DATE_FORMAT);
+    const formattedEndDate = endDate.format(DATE_FORMAT);
+    const formattedRange = toDateRange(formattedStartDate, formattedEndDate);
+
+    const { getByTestId } = render(createDateRangePicker({
+        defaultStartDate: startDate,
+        defaultEndDate: endDate,
+        dateFormat: DATE_FORMAT
+    }));
+
+    const inputNode = getInput(getByTestId);
+
+    expect(inputNode).toHaveValue(formattedRange);
+
+    await openCalendar(getByTestId);
+
+    userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    await waitDelay(50);
+
+    expect(getByTestId(CALENDAR_APPLY_BUTTON_ID)).toHaveFocus();
 });
 
 test("when the calendar close on esc keydown, the input should be focused", async () => {
