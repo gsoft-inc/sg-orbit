@@ -14,12 +14,6 @@ import Imports from "./imports.mdx";
         .build()}
 />
 
-# Usage
-
-<WarningMessage>
-    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
-</WarningMessage>
-
 # Transparent Select
 
 A select can be transparent in order to be more discrete.
@@ -49,65 +43,25 @@ A select can be transparent in order to be more discrete.
 
 The following constants are used in the examples below:
 
-export const GALAXIES = [
-    selectItem("Andromeda", "Andromeda"),
-    selectItem("Antennae", "Antennae"),
-    selectItem("Backward", "Backward"),
-    selectItem("Black Eye", "Black Eye"),
-    selectItem("Butterfly", "Butterfly"),
-    selectItem("Cartwheel", "Cartwheel"),
-    selectItem("Cigar", "Cigar"),
-    selectItem("Circinus", "Circinus"),
-    selectItem("Coma Pinwheel", "Coma Pinwheel"),
-    selectItem("Comet", "Comet"),
-    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
-    selectItem("Eye of Sauron", "Eye of Sauron"),
-    selectItem("Fireworks", "Fireworks"),
-    selectItem("Hockey Stick", "Hockey Stick"),
-    selectItem("Hoag's Object", "Hoag's Object"),
-    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
-    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
-    selectItem("Little Sombrero", "Little Sombrero"),
-    selectItem("Medusa Merger", "Medusa Merger"),
-    selectItem("Mice", "Mice"),
-    selectItem("Milky Way", "Milky Way"),
-    selectItem("Needle", "Needle"),
-    selectItem("Southern Pinwheel", "Southern Pinwheel"),
-    selectItem("Sunflower", "Sunflower"),
-    selectItem("Tadpole", "Tadpole"),
-    selectItem("Whirlpool", "Whirlpool")
+export const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
 
 ```javascript dark
-const GALAXIES = [
-    selectItem("Andromeda", "Andromeda"),
-    selectItem("Antennae", "Antennae"),
-    selectItem("Backward", "Backward"),
-    selectItem("Black Eye", "Black Eye"),
-    selectItem("Butterfly", "Butterfly"),
-    selectItem("Cartwheel", "Cartwheel"),
-    selectItem("Cigar", "Cigar"),
-    selectItem("Circinus", "Circinus"),
-    selectItem("Coma Pinwheel", "Coma Pinwheel"),
-    selectItem("Comet", "Comet"),
-    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
-    selectItem("Eye of Sauron", "Eye of Sauron"),
-    selectItem("Fireworks", "Fireworks"),
-    selectItem("Hockey Stick", "Hockey Stick"),
-    selectItem("Hoag's Object", "Hoag's Object"),
-    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
-    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
-    selectItem("Little Sombrero", "Little Sombrero"),
-    selectItem("Medusa Merger", "Medusa Merger"),
-    selectItem("Mice", "Mice"),
-    selectItem("Milky Way", "Milky Way"),
-    selectItem("Needle", "Needle"),
-    selectItem("Southern Pinwheel", "Southern Pinwheel"),
-    selectItem("Sunflower", "Sunflower"),
-    selectItem("Tadpole", "Tadpole"),
-    selectItem("Whirlpool", "Whirlpool")
+const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
 ];
-```
+
 
 ### Default
 
@@ -118,22 +72,22 @@ A default transparent select.
         <Select
             transparent
             placeholder="Select a galaxy"
-            options={GALAXIES}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
 
-### Selected values
+### Selected defaultValue
 
-A transparent select can have initial values. Dont forget to specify values has an array_.
+A transparent select can have an initial value.
 
 <Preview>
     <Story name="selected values">
         <Select
             transparent
             placeholder="Select a galaxy"
-            defaultValue={["Comet"]}
-            options={GALAXIES}
+            defaultValue="John Glen"
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -148,7 +102,7 @@ A transparent select can display an [icon](?path=/docs/materials-icons--page) be
             placeholder="Select a galaxy"
             transparent
             icon={<MagnifierIcon />}
-            options={GALAXIES}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -163,7 +117,22 @@ A transparent select can be disabled.
             placeholder="Select a galaxy"
             transparent
             disabled
-            options={GALAXIES}
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable select let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Astronaut"
+            clearable
+            transparent
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -178,7 +147,7 @@ A transparent select can take all the space available.
             placeholder="Select a galaxy"
             transparent
             fluid
-            options={GALAXIES}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -193,7 +162,7 @@ A transparent select can show that it is currently loading data.
             placeholder="Select a galaxy"
             transparent
             loading
-            options={GALAXIES}
+            options={ASTRONAUTS}
         />
     </Story>
 </Preview>
@@ -206,8 +175,8 @@ A transparent select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus multiple placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus multiple disabled placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus multiple disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -218,8 +187,8 @@ A transparent select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -229,5 +198,5 @@ A transparent select can show that it is currently loading data.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select multiple options={GALAXIES} />} />
+    <RefLogger component={<Select multiple options={ASTRONAUTS} />} />
 </Story>
