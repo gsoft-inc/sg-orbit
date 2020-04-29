@@ -57,13 +57,13 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     portalContainerElement: instanceOf(HTMLElement),
     /**
-     * Disable the React portal behavior. The popper element will be rendered within it's parent DOM hierarchy.
+     * Whether or not to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
      */
-    disablePortal: bool,
+    noPortal: bool,
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    animate: bool,
+    noAnimation: bool,
     /**
      * @ignore
      */
@@ -87,8 +87,8 @@ export const SHARED_POPPER_DEFAULT_PROPS = {
     pinned: false,
     noWrap: false,
     disabled: false,
-    disablePortal: false,
-    animate: true
+    noPortal: false,
+    noAnimation: false
 };
 
 const propTypes = {
@@ -189,7 +189,7 @@ function useWrapperRenderer(className, rest) {
     };
 }
 
-function usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef) {
+function usePopperRenderer(show, noWrap, noAnimation, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef) {
     return () => {
         // This condition is a kind of a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
         // popper is shown.
@@ -201,10 +201,10 @@ function usePopperRenderer(show, noWrap, animate, style, children, popperStyles,
                     ...style,
                     ...popperStyles,
                     display: show ? "block" : "none",
-                    animation: animate ? "ou-popper-fade-in 0.3s" : undefined
+                    animation: !noAnimation ? "ou-popper-fade-in 0.3s" : undefined
                 },
-                ref: popperRef,
-                ...popperAttributes
+                ...popperAttributes,
+                ref: popperRef
             });
         }
     };
@@ -221,8 +221,8 @@ export function InnerPopper({
     popperModifiers,
     popperOptions,
     portalContainerElement: portalElement,
-    disablePortal,
-    animate,
+    noPortal,
+    noAnimation,
     className,
     style,
     forwardedRef,
@@ -235,12 +235,12 @@ export function InnerPopper({
     const popperRef = useCombinedRefs(forwardedRef, setPopperElement);
 
     const wrapperRenderer = useWrapperRenderer(className, rest);
-    const popperRenderer = usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
+    const popperRenderer = usePopperRenderer(show, noWrap, noAnimation, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
 
     if (!disabled) {
         return (
             <Choose>
-                <When condition={disablePortal}>
+                <When condition={noPortal}>
                     {popperRenderer()}
                 </When>
                 <Otherwise>

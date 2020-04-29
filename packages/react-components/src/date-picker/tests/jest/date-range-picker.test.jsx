@@ -314,6 +314,9 @@ test("when closeOnBlur is false, dont close the calendar on blur", async () => {
     userEvent.click(document.body);
     await wait();
 
+    getByTestId(CALENDAR_APPLY_BUTTON_ID).focus();
+    await wait();
+
     expect(calendarNode).toBeInTheDocument();
 });
 
@@ -485,7 +488,7 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is dismissed", async () => {
+test("call onVisibilityChange when the calendar is closed with an outside click", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createDateRangePicker({

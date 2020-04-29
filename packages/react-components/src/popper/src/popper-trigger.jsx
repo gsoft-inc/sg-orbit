@@ -66,13 +66,13 @@ const SHARED_POPPER_PROP_TYPES = {
      */
     portalContainerElement: instanceOf(HTMLElement),
     /**
-     * Disable the React portal behavior. The popper element will be rendered within it's parent DOM hierarchy.
+     * Whether or not to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
      */
-    disablePortal: bool,
+    noPortal: bool,
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    animate: bool,
+    noAnimation: bool,
     /**
      * @ignore
      */
@@ -97,8 +97,8 @@ const SHARED_POPPER_DEFAULT_PROPS = {
     pinned: false,
     noWrap: false,
     disabled: false,
-    disablePortal: false,
-    animate: true
+    noPortal: false,
+    noAnimation: false
 };
 
 /////////////////
@@ -201,7 +201,7 @@ function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsi
 
 function useShowPopper(setIsVisible, onVisibilityChange) {
     return useCallback(event => {
-        console.log("** showPopper");
+        // console.log("** showPopper");
 
         setIsVisible(true);
 
@@ -213,7 +213,7 @@ function useShowPopper(setIsVisible, onVisibilityChange) {
 
 function useHidePopper(setIsVisible, onVisibilityChange) {
     return useCallback(event => {
-        console.log("** hidePopper");
+        // console.log("** hidePopper");
 
         setIsVisible(false);
 
@@ -280,7 +280,7 @@ function useSetFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, fo
 
 function useHandleTriggerToggle(isVisible, disabled, showPopper, hidePopper) {
     return useCallback(event => {
-        console.log("** handleTriggerToggle");
+        // console.log("** handleTriggerToggle");
 
         if (!disabled) {
             if (isVisible) {
@@ -294,7 +294,7 @@ function useHandleTriggerToggle(isVisible, disabled, showPopper, hidePopper) {
 
 function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopper) {
     return useCallback(event => {
-        console.log("** handleTriggerKeyDown");
+        // console.log("** handleTriggerKeyDown");
 
         if (!disabled) {
             const key = event.keyCode;
@@ -317,7 +317,7 @@ function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopp
 
 function useHandleContainerFocus(hasFocus) {
     return useCallback(() => {
-        console.log("** handleContainerFocus");
+        // console.log("** handleContainerFocus");
 
         hasFocus.current = true;
     }, [hasFocus]);
@@ -328,7 +328,7 @@ function useHandleContainerFocus(hasFocus) {
 // - hide on blur
 function useHandleContainerBlur(isVisible, hideOnBlur, hasFocus, hidePopper) {
     return useCallback(event => {
-        console.log("** handleContainerBlur");
+        // console.log("** handleContainerBlur");
 
         hasFocus.current = false;
 
@@ -360,7 +360,7 @@ function useHandleDocumentKeyDown(isVisible, hasFocus, hidePopper, focusTrigger,
     const handler = useCallback(event => {
         if (hasFocus.current) {
             if (event.keyCode === KEYS.esc) {
-                console.log("** handleContainerKeyDown - esc");
+                // console.log("** handleContainerKeyDown - esc");
 
                 if (hideOnEscape) {
                     hidePopper(event);
@@ -380,9 +380,8 @@ function useHandleDocumentKeyDown(isVisible, hasFocus, hidePopper, focusTrigger,
 // More info at: https://allyjs.io/tutorials/mutating-active-element.html
 function useHandleDocumentBlur(isVisible, containerRef, hasFocus, focusPopper) {
     const handler = useCallback(() => {
-        console.log("** handleDocumentBlur");
+        // console.log("** handleDocumentBlur");
 
-        // TODO: not sure if it's right to only run this code if it's has focus? Should add a test.
         if (hasFocus.current) {
             setTimeout(() => {
                 if (document.activeElement.nodeName === "BODY") {
@@ -414,6 +413,8 @@ function useHandleDocumentBlur(isVisible, containerRef, hasFocus, focusPopper) {
 
 function useHandleDocumentClick(isVisible, triggerElement, popperElement, hideOnOutsideClick, hidePopper) {
     const handler = useCallback(event => {
+        // console.log("** useHandleDocumentClick");
+
         if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
             if (hideOnOutsideClick) {
                 hidePopper(event);
@@ -483,8 +484,8 @@ function usePopperRenderer(
     popperModifiers,
     popperOptions,
     portalContainerElement,
-    disablePortal,
-    animate,
+    noPortal,
+    noAnimation,
     children,
     triggerElement
 ) {
@@ -512,8 +513,8 @@ function usePopperRenderer(
                 popperModifiers,
                 popperOptions,
                 portalContainerElement,
-                disablePortal,
-                animate,
+                noPortal,
+                noAnimation,
                 style: styles,
                 ref: setPopperElement,
                 children
@@ -541,8 +542,8 @@ export function InnerPopperTrigger(props) {
         popperModifiers,
         popperOptions,
         portalContainerElement,
-        disablePortal,
-        animate,
+        noPortal,
+        noAnimation,
         showOnSpacebar,
         showOnEnter,
         focusTriggerOnShow,
@@ -580,8 +581,8 @@ export function InnerPopperTrigger(props) {
         popperModifiers,
         popperOptions,
         portalContainerElement,
-        disablePortal,
-        animate,
+        noPortal,
+        noAnimation,
         children,
         triggerElement);
 

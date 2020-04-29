@@ -72,14 +72,17 @@ stories()
     .add("fixed positioning", () =>
         <RedBoxPopper defaultShow popperOptions={{ strategy: "fixed" }} />
     )
-    .add("disable portal", () =>
-        <RedBoxPopper defaultShow disablePortal />
+    .add("no portal", () =>
+        <RedBoxPopper defaultShow noPortal />
     )
-    .add("container element", () =>
+    .add("custom container element", () =>
         <RedBoxPopper defaultShow containerElement={window.document.getElementById("root")} />
     )
-    .add("no wrapped", () =>
-        <RedBoxPopper defaultShow wrap={false} />
+    .add("no wrap", () =>
+        <RedBoxPopper defaultShow noWrap />
+    )
+    .add("no animation", () =>
+        <RedBoxPopper defaultShow noAnimation />
     )
     .add("styling", () =>
         <div className="flex">

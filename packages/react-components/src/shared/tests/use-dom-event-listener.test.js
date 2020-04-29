@@ -20,11 +20,9 @@ function appendButton() {
 }
 
 test("handler is called when the specified event is triggered on the target element", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }));
+    renderHook(() => useDomEventListener("click", handler));
 
     const button = appendButton();
 
@@ -32,15 +30,13 @@ test("handler is called when the specified event is triggered on the target elem
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeTruthy();
+    expect(handler).toHaveBeenCalled();
 });
 
 test("handler is not called when another event is triggered on the target element", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }));
+    renderHook(() => useDomEventListener("click", handler));
 
     const button = appendButton();
 
@@ -48,18 +44,16 @@ test("handler is not called when another event is triggered on the target elemen
         fireEvent.mouseOver(button);
     });
 
-    expect(wasCalled).toBeFalsy();
+    expect(handler).not.toHaveBeenCalled();
 });
 
 test("handler is not called when an event is trigerred on another target element", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
     const div = document.createElement("div");
     document.body.append(div);
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }, true, { target: div }));
+    renderHook(() => useDomEventListener("click", handler, true, { target: div }));
 
     const button = appendButton();
 
@@ -67,15 +61,13 @@ test("handler is not called when an event is trigerred on another target element
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeFalsy();
+    expect(handler).not.toHaveBeenCalled();
 });
 
 test("target can be document", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }), true, { target: "document" });
+    renderHook(() => useDomEventListener("click", handler), true, { target: "document" });
 
     const button = appendButton();
 
@@ -83,15 +75,13 @@ test("target can be document", () => {
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeTruthy();
+    expect(handler).toHaveBeenCalled();
 });
 
 test("target can be window", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }), true, { target: "window" });
+    renderHook(() => useDomEventListener("click", handler), true, { target: "window" });
 
     const button = appendButton();
 
@@ -99,18 +89,16 @@ test("target can be window", () => {
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeTruthy();
+    expect(handler).toHaveBeenCalled();
 });
 
 test("target can be any DOM element", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
     const div = document.createElement("div");
     document.body.append(div);
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }, true, { target: div }));
+    renderHook(() => useDomEventListener("click", handler, true, { target: div }));
 
     const button = appendButton();
     div.append(button);
@@ -119,11 +107,11 @@ test("target can be any DOM element", () => {
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeTruthy();
+    expect(handler).toHaveBeenCalled();
 });
 
 test("target can be a React ref", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
     const divRef = createRef();
     const buttonRef = createRef();
@@ -136,28 +124,21 @@ test("target can be a React ref", () => {
 
     wait();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }, true, { target: divRef }));
+    renderHook(() => useDomEventListener("click", handler, true, { target: divRef }));
 
     act(() => {
         fireEvent.click(buttonRef.current);
     });
 
-    expect(wasCalled).toBeTruthy();
+    expect(handler).toHaveBeenCalled();
 });
 
 test("can listen to multiple events on the same target element", () => {
-    let clickWasCalled = false;
-    let mouseOverWasCalled = false;
+    const clickHandler = jest.fn();
+    const mouseOverHandler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        clickWasCalled = true;
-    }));
-
-    renderHook(() => useDomEventListener("mouseover", () => {
-        mouseOverWasCalled = true;
-    }));
+    renderHook(() => useDomEventListener("click", clickHandler));
+    renderHook(() => useDomEventListener("mouseover", mouseOverHandler));
 
     const button = appendButton();
 
@@ -166,16 +147,14 @@ test("can listen to multiple events on the same target element", () => {
         fireEvent.mouseOver(button);
     });
 
-    expect(clickWasCalled).toBeTruthy();
-    expect(mouseOverWasCalled).toBeTruthy();
+    expect(clickHandler).toHaveBeenCalled();
+    expect(mouseOverHandler).toHaveBeenCalled();
 });
 
 test("doesn't call handler when active is false", () => {
-    let wasCalled = false;
+    const handler = jest.fn();
 
-    renderHook(() => useDomEventListener("click", () => {
-        wasCalled = true;
-    }, false));
+    renderHook(() => useDomEventListener("click", handler, false));
 
     const button = appendButton();
 
@@ -183,5 +162,5 @@ test("doesn't call handler when active is false", () => {
         fireEvent.click(button);
     });
 
-    expect(wasCalled).toBeFalsy();
+    expect(handler).not.toHaveBeenCalled();
 });

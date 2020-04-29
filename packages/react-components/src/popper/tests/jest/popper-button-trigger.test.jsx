@@ -1,7 +1,11 @@
 import { Button } from "@react-components/button";
 import { PopperTrigger } from "@react-components/popper";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
+import { render, wait, waitForElement } from "@testing-library/react";
+import userEvent from "@utils/user-event";
+
+const BUTTON_ID = "button";
+const POPPER_ID = "popper-wrapper";
 
 function createPopperTrigger(popperProps = {}, buttonProps = {}) {
     return (
@@ -13,6 +17,29 @@ function createPopperTrigger(popperProps = {}, buttonProps = {}) {
         </PopperTrigger.Button>
     );
 }
+
+// ***** Behaviors *****
+
+test("show the popper on button click", async () => {
+    const { getByTestId } = render(createPopperTrigger());
+
+    userEvent.click(getByTestId(BUTTON_ID));
+    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
+
+    expect(popperNode).toBeInTheDocument();
+});
+
+test("hide the popper on button click", async () => {
+    const { getByTestId } = render(createPopperTrigger());
+
+    userEvent.click(getByTestId(BUTTON_ID));
+    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
+
+    userEvent.click(getByTestId(BUTTON_ID));
+    await wait();
+
+    expect(popperNode).not.toBeInTheDocument();
+});
 
 // ***** Refs *****
 
