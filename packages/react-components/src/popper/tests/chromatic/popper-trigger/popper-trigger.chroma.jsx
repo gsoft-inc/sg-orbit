@@ -102,11 +102,6 @@ stories()
                 })}
             </div>
         </div>
-    )
-    .add("TEMP - dont close on blur", () =>
-        createPopperTrigger({
-            hideOnBlur: false
-        })
     );
 
 

@@ -1,10 +1,15 @@
 import { Button } from "@react-components/button";
+import { ControlledPopper } from "./controlled-popper.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-components/popper"
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PinnedPlayground } from "./pinned-playground";
+import { PopperElement } from "./popper-element.sample";
+import { TextInput } from "@react-components/text-input";
 import { createComponentSection, paramsBuilder } from "@utils";
+import CustomTrigger from "./custom-trigger.mdx";
 import Imports from "./imports.mdx";
-import TriggerExample from "./trigger-example.mdx";
+import NoWrapPopperElement from "./no-wrap-popper-element.mdx";
 
 <Meta
     title={createComponentSection("Popper")}
@@ -47,22 +52,20 @@ A valid popper trigger must follow a few rules:
 
 - accept an handler prop matching the specified `toggleHandler` prop, e.g. `onClick`.
 - accept a `ref` prop and assign it to it's root element.
-- when popper props `focusTriggerOnShow` or `focusTriggerOnHide` is `true`, the trigger ref must also expose a `focus` function.
+- when  `focusTriggerOnShow` or `focusTriggerOnHide` are `true`, the trigger ref must also expose a `focus` function.
 
-If your trigger is an Orbit UI component, you don't have to worry about these rules.
+> If your trigger is an Orbit UI component, you don't have to worry about these rules.
 
-<TriggerExample />
+<CustomTrigger />
 
 ### Adapters
 
-A popper comes with adapters specialized for different kind of triggers. Use them whenever you can, they will save you time and simplify your code. Currently available adapters are for [button](#button-adapter) and [text input](#text-input-adapter).
+A popper offer adapters specialized for different kind of triggers. Use them whenever you can, they will save you time and simplify your code. The available adapters are for [button](#button-adapter) and [text input](#text-input-adapter).
 
-TODO: Add code sample with and without adapter for button.
-
-### This is a not a tooltip
+### This is not a tooltip
 
 A popper is not meant to be used as a tooltip but rather as a low level component to build something more complex like a [date picker](?path=/docs/components-datepicker-range--default-story). A tooltip is
-a specialization of a popper, use the [tooltip](?path=/docs/components-tooltip--default-story) component instead.
+a specialization of a popper, if you need a component that behave like a tooltip, use the [tooltip](?path=/docs/components-tooltip--default-story) component instead.
 
 ### Default
 
@@ -70,25 +73,91 @@ A default popper.
 
 <Preview>
     <Story name="default">
-        <PopperTrigger.Button
-            button={<Button>Toggle</Button>}
-        >
-            <div className="bg-white">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
+        <PopperTrigger.Button button={<Button>Toggle</Button>}>
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
         </PopperTrigger.Button>
     </Story>
 </Preview>
 
-### Initially visible
-
 ### Position
+
+A popper can show at different positions.
+
+The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
+
+<Preview>
+    <Story name="position">
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+            position="right"
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
 
 ### Offset
 
+A popper can have an horizontal and vertical offset.
+
+<Preview>
+    <Story name="offset">
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+            offset={[0, 15]}
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
+
 ### Disabled
+
+A disabled popper will never show.
+
+<Preview>
+    <Story name="disabled">
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+            disabled
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
 
 ### Fluid
 
+A popper trigger can be fluid.
+
+<Preview>
+    <Story name="fluid">
+        <PopperTrigger.Button
+            button={<Button fluid>Toggle</Button>}
+            fluid
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
+
 ### Pinned
+
+A popper automatic repositioning features can be disabled, it will always be placed according to the position value. Automatic repositioning features are Popper.js [flip](https://popper.js.org/docs/v2/modifiers/flip/) and [prevent overflow](https://popper.js.org/docs/v2/modifiers/prevent-overflow/) features.
+
+<Preview>
+    <Story name="pinned">
+        <PinnedPlayground>
+            <PopperTrigger.Button
+                button={<Button>Toggle</Button>}
+                pinned
+                position="top"
+            >
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </PopperTrigger.Button>
+        </PinnedPlayground>
+    </Story>
+</Preview>
 
 ### No wrap
 
@@ -98,13 +167,51 @@ A popper can be rendered without an additional element around it's popper elemen
 - The popper element must accept a `style` prop.
 - The popper element must accept a `ref` prop and assign it to it's root element.
 
-### No portal
+<NoWrapPopperElement />
 
-A popper element can be rendered within it's parent DOM hierarchy instead of the document body.
+<Preview>
+    <Story name="no wrap">
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+            noWrap
+        >
+            <PopperElement />
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
+
+### Without an adapter
+
+<Preview>
+    <Story name="without an adapter">
+        <PopperTrigger
+            trigger={<Button>Toggle</Button>}
+            toggleHandler="onClick"
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger>
+    </Story>
+</Preview>
 
 ### Button adapter
 
+<Preview>
+    <Story name="button adapter">
+        <PopperTrigger.Button button={<Button>Toggle</Button>}>
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.Button>
+    </Story>
+</Preview>
+
 ### Text input adapter
+
+<Preview>
+    <Story name="text input adapter">
+        <PopperTrigger.TextInput input={<TextInput placeholder="Toggle" readOnly />}>
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger.TextInput>
+    </Story>
+</Preview>
 
 <Story
     name="dont hide on blur"
@@ -117,7 +224,7 @@ A popper element can be rendered within it's parent DOM hierarchy instead of the
         hideOnBlur={false}
         hideOnOutsideClick
     >
-        <div className="bg-white b--primary">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
+        <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
     </PopperTrigger.Button>
 </Story>
 
@@ -145,3 +252,9 @@ A popper element can be rendered within it's parent DOM hierarchy instead of the
 </Story>
 
 ### Controlled
+
+A popper can handle `show` state in controlled mode.
+
+<FilePreview filePath="/popper/stories/controlled-popper">
+    <ControlledPopper />
+</FilePreview>

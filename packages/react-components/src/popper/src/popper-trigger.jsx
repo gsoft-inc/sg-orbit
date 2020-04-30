@@ -57,7 +57,7 @@ const SHARED_POPPER_PROP_TYPES = {
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    noAnimation: bool,
+    animate: bool,
     /**
      * @ignore
      */
@@ -83,7 +83,7 @@ const SHARED_POPPER_DEFAULT_PROPS = {
     noWrap: false,
     disabled: false,
     noPortal: false,
-    noAnimation: false
+    animate: true
 };
 
 /////////////////
@@ -463,7 +463,7 @@ function usePopperRenderer(
     popperOptions,
     portalContainerElement,
     noPortal,
-    noAnimation,
+    animate,
     children,
     triggerElement
 ) {
@@ -491,7 +491,7 @@ function usePopperRenderer(
                 popperOptions,
                 portalContainerElement,
                 noPortal,
-                noAnimation,
+                animate,
                 style: styles,
                 ref: setPopperElement
             });
@@ -519,7 +519,7 @@ export function InnerPopperTrigger(props) {
         popperOptions,
         portalContainerElement,
         noPortal,
-        noAnimation,
+        animate,
         showOnSpacebar,
         showOnEnter,
         focusTriggerOnShow,
@@ -558,7 +558,7 @@ export function InnerPopperTrigger(props) {
         popperOptions,
         portalContainerElement,
         noPortal,
-        noAnimation,
+        animate,
         children,
         triggerElement);
 

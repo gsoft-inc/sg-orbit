@@ -1,4 +1,4 @@
-import { ControlledSingleDatePicker } from "./components";
+import { ControlledSingleDatePicker } from "./controlled-single-date-picker.sample";
 import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
@@ -220,7 +220,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A single date picker calendar can be anchored at different positions.
 
-The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"`, `"left-end"`.
+The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
 
 <Preview>
     <Story
@@ -274,7 +274,7 @@ The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-st
 
 A single date picker can handle `date` and `open` state in controlled mode.
 
-<FilePreview filePath="/date-picker/stories/single-date-picker/components/controlled-single-date-picker">
+<FilePreview filePath="/date-picker/stories/single-date-picker/controlled-single-date-picker">
     <ControlledSingleDatePicker
         date={moment()}
         onDateChange={logDateChanged}

@@ -16,7 +16,7 @@ function PureDummyPopper({ forwardedRef, ...rest }) {
             <If condition={!isNil(triggerElement)}>
                 <Popper
                     show
-                    noAnimation
+                    animate={false}
                     triggerElement={triggerElement}
                     ref={forwardedRef}
                     {...rest}

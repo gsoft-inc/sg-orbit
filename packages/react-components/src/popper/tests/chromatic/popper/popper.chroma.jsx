@@ -73,7 +73,14 @@ stories()
         <RedBoxPopper defaultShow popperOptions={{ strategy: "fixed" }} />
     )
     .add("no portal", () =>
-        <RedBoxPopper defaultShow noPortal />
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper noPortal />
+            </div>
+            <div>
+                <RedBoxPopper defaultShow noPortal />
+            </div>
+        </div>
     )
     .add("custom container element", () =>
         <RedBoxPopper defaultShow containerElement={window.document.getElementById("root")} />
@@ -82,7 +89,7 @@ stories()
         <RedBoxPopper defaultShow noWrap />
     )
     .add("no animation", () =>
-        <RedBoxPopper defaultShow noAnimation />
+        <RedBoxPopper defaultShow animate={false} />
     )
     .add("styling", () =>
         <div className="flex">
@@ -91,22 +98,22 @@ stories()
         </div>
     )
     .add("can prevent overflow when not pinned",
-         () => <RedBoxPopperWithBoundary position="right" scrollTop={100} setPreventOverflowBoundaryElement />,
+         () => <RedBoxPopperWithBoundary position="right" noPortal scrollTop={100} setPreventOverflowBoundaryElement />,
          paramsBuilder()
              .canvasLayout({ width: "40%" })
              .build()
     )
     .add("do not prevent overflow when pinned",
-         () => <RedBoxPopperWithBoundary position="right" scrollTop={100} pinned />,
+         () => <RedBoxPopperWithBoundary position="right" noPortal scrollTop={100} pinned />,
          paramsBuilder()
              .canvasLayout({ width: "40%" })
              .build()
     )
     .add("can flip", () =>
-        <RedBoxPopperWithBoundary position="top" scrollTop={100} setFlipBoundaryElement />
+        <RedBoxPopperWithBoundary position="top" noPortal scrollTop={100} setFlipBoundaryElement />
     )
     .add("do not flip when pinned", () =>
-        <RedBoxPopperWithBoundary position="top" scrollTop={100} pinned />
+        <RedBoxPopperWithBoundary position="top" noPortal scrollTop={100} pinned />
     )
     .add("disabled", () =>
         <RedBoxPopper disabled />

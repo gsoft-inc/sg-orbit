@@ -1,4 +1,4 @@
-import { ControlledDateRangePicker } from "./components";
+import { ControlledDateRangePicker } from "./controlled-date-range-picker.sample";
 import { DEFAULT_DATES_PRESETS, DateRangePicker, PureDateRangePickerCalendar, PureDateRangePickerInput } from "@react-components/date-picker";
 import { DEFAULT_PRESETS_OPTIONS } from "../data";
 import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
@@ -277,7 +277,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A date range picker calendar can be anchored at different positions.
 
-The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"`, `"left-end"`.
+The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
 
 <Preview>
     <Story
@@ -332,7 +332,7 @@ The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-st
 
 A date range picker can handle `startDate`, `endDate` and `open` state in controlled mode.
 
-<FilePreview filePath="/date-picker/stories/date-range-picker/components/controlled-date-range-picker">
+<FilePreview filePath="/date-picker/stories/date-range-picker/controlled-date-range-picker">
     <ControlledDateRangePicker
         startDate={moment()}
         endDate={moment().add(3, "days")}

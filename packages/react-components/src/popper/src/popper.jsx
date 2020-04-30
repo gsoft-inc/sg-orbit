@@ -53,7 +53,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    noAnimation: bool,
+    animate: bool,
     /**
      * @ignore
      */
@@ -78,7 +78,7 @@ export const SHARED_POPPER_DEFAULT_PROPS = {
     noWrap: false,
     disabled: false,
     noPortal: false,
-    noAnimation: false
+    animate: true
 };
 
 const propTypes = {
@@ -179,7 +179,7 @@ function useWrapperRenderer(className, rest) {
     };
 }
 
-function usePopperRenderer(show, noWrap, noAnimation, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef) {
+function usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef) {
     return () => {
         // This condition is a kind of a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
         // popper is shown.
@@ -191,12 +191,14 @@ function usePopperRenderer(show, noWrap, noAnimation, style, children, popperSty
                     ...style,
                     ...popperStyles,
                     display: show ? "block" : "none",
-                    animation: !noAnimation ? "ou-popper-fade-in 0.3s" : undefined
+                    animation: animate ? "ou-popper-fade-in 0.3s" : undefined
                 },
                 ...popperAttributes,
                 ref: popperRef
             });
         }
+
+        return null;
     };
 }
 
@@ -212,7 +214,7 @@ export function InnerPopper({
     popperOptions,
     portalContainerElement: portalElement,
     noPortal,
-    noAnimation,
+    animate,
     className,
     style,
     forwardedRef,
@@ -225,7 +227,7 @@ export function InnerPopper({
     const popperRef = useCombinedRefs(forwardedRef, setPopperElement);
 
     const wrapperRenderer = useWrapperRenderer(className, rest);
-    const popperRenderer = usePopperRenderer(show, noWrap, noAnimation, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
+    const popperRenderer = usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
 
     if (!disabled) {
         return (
