@@ -79,6 +79,15 @@
     border-color: var(--primary-500);
 }
 
+.ui.indeterminate.checkbox:hover label:before {
+    border-color: var(--marine-300)!important;
+}
+
+.ui.checkbox input:checked:focus ~ .box:before,
+.ui.checkbox input:checked:focus ~ label:before {
+    border-color: var(--primary-500);
+}
+
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
@@ -212,6 +221,13 @@
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before {
     background: @white;
+}
+
+.ui.checkbox input:not([type=radio]):indeterminate ~ .box:hover:before,
+.ui.checkbox input:not([type=radio]):indeterminate ~ label:hover:before
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:hover:before,
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:hover:before {
+    border-color: var(--marine-700)!important;
 }
 
 /* Toggle

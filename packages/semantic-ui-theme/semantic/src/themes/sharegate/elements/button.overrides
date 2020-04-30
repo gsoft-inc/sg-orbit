@@ -1440,7 +1440,7 @@ a.ui.button {
     font-weight: 400;
     padding: 0;
     min-height: auto;
-    border-radius: 0;
+    border-radius: 2px;
 }
 
 /* SKIN | Link | STATE | Active */
