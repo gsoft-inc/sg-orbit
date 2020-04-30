@@ -70,7 +70,7 @@ function Counts({ element, ...rest }) {
                 <Checkbox count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox count={<Count>6</Count>} size="large" element={checkbox} />
             </div>
-            <div className="flex">
+            <div className="flex mb8">
                 <Checkbox disabled count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox readOnly count={<Count>6</Count>} element={checkbox} />
             </div>
@@ -112,6 +112,22 @@ export function createSharedStories(checkbox, stories) {
                 <Icons element={checkbox} />
                 <Labels element={checkbox} />
                 <Counts element={checkbox} />
+            </div>
+        )
+        .add("overflow", () =>
+            <div className="flex mb8">
+                <div className="flex items-end mw5">
+                    <Checkbox text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
+                <div className="flex items-end mw5">
+                    <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
+                <div className="flex items-end mw5">
+                    <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
+                <div className="flex items-end mw5">
+                    <Checkbox label={<Label>6</Label>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                </div>
             </div>
         );
 }

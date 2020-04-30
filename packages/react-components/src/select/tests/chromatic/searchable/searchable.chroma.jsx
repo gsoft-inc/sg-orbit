@@ -3,7 +3,7 @@ import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Select/multiple"))
+    return storiesOfBuilder(module, createChromaticSection("Select/searchable"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -16,10 +16,10 @@ const MALE = { key: "Male", text: "Male", value: "Male" };
 const FEMALE = { key: "Female", text: "Female", value: "Female" };
 const GENDERS = [MALE, FEMALE];
 
-function createMultipleSelect({ options = GENDERS, ...otherProps } = {}) {
+function createSearchableSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
         placeholder="Gender"
-        multiple
+        search
         options={options}
         {...otherProps}
     />;
@@ -28,123 +28,73 @@ function createMultipleSelect({ options = GENDERS, ...otherProps } = {}) {
 stories()
     .add("default", () =>
         <div className="flex">
-            {createMultipleSelect({
+            {createSearchableSelect({
                 className: "mr5"
             })}
-            {createMultipleSelect({
-                defaultOpen: true
-            })}
-        </div>
-    )
-    .add("selected value", () =>
-        <div className="flex">
-            {createMultipleSelect({
-                defaultValue: ["Female"],
-                className: "mr5"
-            })}
-            {createMultipleSelect({
-                defaultValue: ["Female", "Male"],
-                className: "mr5"
-            })}
-            {createMultipleSelect({
-                defaultValue: ["Female"],
+            {createSearchableSelect({
                 defaultOpen: true
             })}
         </div>
     )
     .add("size", () =>
         <div className="flex flex-column">
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    size: "small",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    defaultValue: ["Female", "Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    defaultValue: ["Female", "Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex">
-                {createMultipleSelect({
-                    size: "large",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    defaultValue: ["Female", "Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    defaultOpen: true
-                })}
-            </div>
-        </div>
-    )
-    .add("fluid", () =>
-        <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    fluid: true,
+                {createSearchableSelect({
+                    className: "mr5",
+                    size: "small"
+                })}
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5",
+                    size: "small"
+                })}
+                {createSearchableSelect({
+                    size: "small",
+                    defaultOpen: true
+                })}
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
                     className: "mr5"
                 })}
-                {createMultipleSelect({
-                    fluid: true,
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5"
+                })}
+                {createSearchableSelect({
                     defaultOpen: true
                 })}
             </div>
             <div className="flex">
-                <div className="w-30 mr5">
-                    {createMultipleSelect({
-                        fluid: true
-                    })}
-                </div>
-                <div className="w-30">
-                    {createMultipleSelect({
-                        fluid: true,
-                        defaultOpen: true
-                    })}
-                </div>
+                {createSearchableSelect({
+                    className: "mr5",
+                    size: "large"
+                })}
+                {createSearchableSelect({
+                    defaultValue: "Male",
+                    className: "mr5",
+                    size: "large"
+                })}
+                {createSearchableSelect({
+                    size: "large",
+                    defaultOpen: true
+                })}
             </div>
         </div>
     )
     .add("disabled", () =>
-        <div className="flex">
-            {createMultipleSelect({
-                disabled: true,
-                className: "mr5"
-            })}
-            {createMultipleSelect({
-                disabled: true,
-                defaultValue: ["Female", "Male"],
-                className: "mr5"
-            })}
-        </div>
+        createSearchableSelect({
+            className: "mr5",
+            disabled: true
+        })
     )
     .add("error", () =>
         <div className="flex">
-            {createMultipleSelect({
+            {createSearchableSelect({
                 error: true,
                 className: "mr5"
             })}
-            {createMultipleSelect({
+            {createSearchableSelect({
                 error: true,
                 className: "mr5",
                 defaultOpen: true
@@ -154,53 +104,83 @@ stories()
     .add("loading", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     size: "small",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     size: "small",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     size: "small",
                     defaultOpen: true
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     defaultOpen: true
                 })}
             </div>
             <div className="flex">
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     size: "large",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     size: "large",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     loading: true,
                     size: "large",
+                    defaultOpen: true
+                })}
+            </div>
+        </div>
+    )
+    .add("clearable", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
+                    clearable: true,
+                    defaultValue: "Male",
+                    size: "small",
+                    className: "mr5"
+                })}
+                {createSearchableSelect({
+                    clearable: true,
+                    defaultValue: "Male",
+                    className: "mr5"
+                })}
+                {createSearchableSelect({
+                    clearable: true,
+                    defaultValue: "Male",
+                    size: "large"
+
+                })}
+            </div>
+            <div className="flex">
+                {createSearchableSelect({
+                    clearable: true,
+                    defaultValue: "Male",
                     defaultOpen: true
                 })}
             </div>
@@ -209,202 +189,58 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
+                    defaultValue: "Male",
                     size: "small",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     icon: <MagnifierIcon />,
-                    size: "small",
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    search: true
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    search: true
-                })}
-            </div>
-            <div className="flex">
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "large",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    search: true
-                })}
-            </div>
-        </div>
-    )
-    .add("icon", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "small",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    search: true
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    search: true
-                })}
-            </div>
-            <div className="flex">
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "large",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    defaultOpen: true,
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    search: true
-                })}
-            </div>
-        </div>
-    )
-    .add("searchable", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
-                    size: "small",
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    size: "small",
-                    defaultValue: ["Female", "Male"],
-                    className: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
                     size: "small",
                     defaultOpen: true
                 })}
             </div>
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
                     className: "mr5"
                 })}
-                {createMultipleSelect({
-                    search: true,
-                    defaultValue: ["Female", "Male"],
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: "Male",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
-                    search: true,
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
                     defaultOpen: true
                 })}
             </div>
-            <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
                     size: "large",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
-                    search: true,
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
+                    defaultValue: "Male",
                     size: "large",
-                    defaultValue: ["Female", "Male"],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
-                    search: true,
+                {createSearchableSelect({
+                    icon: <MagnifierIcon />,
                     size: "large",
                     defaultOpen: true
                 })}
             </div>
             <div className="flex">
-                {createMultipleSelect({
+                {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     disabled: true
                 })}
@@ -414,7 +250,7 @@ stories()
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
@@ -422,16 +258,16 @@ stories()
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
@@ -442,22 +278,22 @@ stories()
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
@@ -467,7 +303,7 @@ stories()
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
@@ -475,16 +311,16 @@ stories()
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
@@ -499,7 +335,7 @@ stories()
     .add("item icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
@@ -507,25 +343,25 @@ stories()
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "small",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
@@ -536,30 +372,30 @@ stories()
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
@@ -569,7 +405,7 @@ stories()
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
@@ -577,25 +413,25 @@ stories()
                     ],
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
-                    defaultValue: ["Female"],
+                    defaultValue: "Female",
                     className: "mr5"
                 })}
-                {createMultipleSelect({
+                {createSearchableSelect({
                     size: "large",
                     options: [
                         { ...MALE, icons: <CalendarIcon /> },
@@ -607,4 +443,3 @@ stories()
             </div>
         </div>
     );
-

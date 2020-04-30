@@ -15,6 +15,13 @@
     padding: @verticalPadding 0 (@verticalPadding + @shadowOffset);
 }
 
+/* Reset appaearance when button is used as an anchor */
+a.ui.button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 /* LAYOUT */
 /* LAYOUT | Sizes */
 /* LAYOUT | Height/Radius | Sizes | Tiny */

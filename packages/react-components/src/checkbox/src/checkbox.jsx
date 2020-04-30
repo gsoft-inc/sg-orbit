@@ -1,7 +1,7 @@
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided, useCombinedRefs } from "../../shared";
 import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useEffect, useRef } from "react";
+import { cloneElement, forwardRef, useEffect } from "react";
 import { createCountFromShorthand } from "../../count";
 import { createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
@@ -171,7 +171,7 @@ export function PureCheckbox(props) {
         }
 
         if (!isNil(text) || !isNil(right)) {
-            return <label>{!isNil(text) && text}{!isNil(right) && right}</label>;
+            return <label title={text}>{!isNil(text) && <span className="text">{text}</span>}{!isNil(right) && right}</label>;
         }
     };
 

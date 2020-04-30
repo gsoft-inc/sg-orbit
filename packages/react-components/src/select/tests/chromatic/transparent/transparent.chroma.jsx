@@ -1,18 +1,6 @@
-/* eslint-disable max-len */
-
 import { CalendarIcon, MagnifierIcon } from "@react-components/icons";
 import { Select } from "@react-components/select";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-
-function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Select/standard"))
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .canvasLayout({ width: "80%" })
-            .build())
-        .build();
-}
 
 const MALE = { key: "Male", text: "Male", value: "Male" };
 const FEMALE = { key: "Female", text: "Female", value: "Female" };
@@ -21,9 +9,20 @@ const GENDERS = [MALE, FEMALE];
 function createSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
         placeholder="Gender"
+        transparent
         options={options}
         {...otherProps}
     />;
+}
+
+function stories(segment) {
+    return storiesOfBuilder(module, createChromaticSection("Select/transparent"))
+        .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .canvasLayout({ width: "80%" })
+            .build())
+        .build();
 }
 
 stories()
@@ -234,7 +233,7 @@ stories()
     )
     .add("upward", () =>
         <div style={{ marginTop: "50px" }}>
-            { createSelect({
+            {createSelect({
                 upward: true,
                 defaultOpen: true
             })}

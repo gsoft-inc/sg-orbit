@@ -1,21 +1,22 @@
-import { GroupIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
+import { MagnifierIcon } from "@react-components/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PureSelect, Select, selectItem } from "@react-components/select";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
 <Meta
-    title={createComponentSection("Select/inline")}
+    title={createComponentSection("Select/transparent")}
     parameters={paramsBuilder()
-        .sortPriority(3)
+        .sortPriority(4)
+        .canvasLayout({ width: "80%" })
         .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
         .build()}
 />
 
-# Inline Select
+# Transparent Select
 
-An inlined select can appear inline with other content.
+A select can be transparent in order to be more discrete.
 
 ## Installation
 
@@ -35,7 +36,7 @@ An inlined select can appear inline with other content.
 ## Usage
 
 <WarningMessage>
-    This component <i>mostly</i> support the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
 </WarningMessage>
 
 ### Constants
@@ -60,17 +61,17 @@ const ASTRONAUTS = [
     selectItem("Robert Thirks", "Robert Thirks"),
     selectItem("Julie Payette", "Julie Payette")
 ];
-```
+
 
 ### Default
 
-A default inlined select.
+A default transparent select.
 
 <Preview>
     <Story name="default">
         <Select
-            placeholder="select an astronaut"
-            inline
+            transparent
+            placeholder="Select a galaxy"
             options={ASTRONAUTS}
         />
     </Story>
@@ -78,42 +79,29 @@ A default inlined select.
 
 ### Selected value
 
-A inline select can have an initial value
+A transparent select can have an initial value.
 
 <Preview>
-    <Story name="selected value">
+    <Story name="selected values">
         <Select
-            defaultValue="Chris Hadfield"
-            inline
+            transparent
+            placeholder="Select a galaxy"
+            defaultValue="John Glen"
             options={ASTRONAUTS}
         />
     </Story>
 </Preview>
 
-### In a block
-
-An inlined select can be embedded in a block.
-
-<Preview>
-    <Story name="in a block">
-        <div>Canadian astronaut <Select
-            placeholder="select an astronaut"
-            inline
-            options={ASTRONAUTS}
-        />, the first Canadian Commander of the ISS, would go on to achieve worldwide fame in 2013 for releasing a music video he recorded on the International Space Station of his version of David Bowie's song "Space Oddity".</div>
-    </Story>
-</Preview>
-
 ### Icon
 
-An inline select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A transparent select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
 
 <Preview>
     <Story name="icon">
         <Select
-            placeholder="select an astronaut"
-            icon={<GroupIcon />}
-            inline
+            placeholder="Select a galaxy"
+            transparent
+            icon={<MagnifierIcon />}
             options={ASTRONAUTS}
         />
     </Story>
@@ -121,14 +109,44 @@ An inline select can display an [icon](?path=/docs/materials-icons--page) before
 
 ### Disabled
 
-An inlined select can be disabled.
+A transparent select can be disabled.
 
 <Preview>
     <Story name="disabled">
         <Select
-            placeholder="select an astronaut"
-            inline
+            placeholder="Select a galaxy"
+            transparent
             disabled
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable transparent select let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Astronaut"
+            clearable
+            transparent
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A transparent select can take all the space available.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Select a galaxy"
+            transparent
+            fluid
             options={ASTRONAUTS}
         />
     </Story>
@@ -136,18 +154,19 @@ An inlined select can be disabled.
 
 ### Loading
 
-An inlined select can show that it is currently loading data.
+A transparent select can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
         <Select
-            placeholder="select an astronaut"
-            inline
+            placeholder="Select a galaxy"
+            transparent
             loading
             options={ASTRONAUTS}
         />
     </Story>
 </Preview>
+
 
 <Story
     name="autofocus"
@@ -156,8 +175,8 @@ An inlined select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline placeholder="select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus inline disabled placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus multiple disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -168,8 +187,8 @@ An inlined select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus inline disabled autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -179,5 +198,5 @@ An inlined select can show that it is currently loading data.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select inline options={ASTRONAUTS} />} />
+    <RefLogger component={<Select multiple options={ASTRONAUTS} />} />
 </Story>

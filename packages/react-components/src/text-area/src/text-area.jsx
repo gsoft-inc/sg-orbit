@@ -1,6 +1,6 @@
 import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect } from "react";
 import { isNil } from "lodash";
 import { mergeClasses, useCombinedRefs } from "../../shared";
 
