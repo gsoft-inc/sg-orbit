@@ -9,17 +9,6 @@ import { createPopperFromShorthand } from "./factories";
 import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 
-// USAGE:
-// Trigger:
-//    - The trigger must accept a toggle handler. The toggle handler will depend on the adapter type. For example for a PopperButtonTrigger, the trigger must accept a `onClick` trigger.
-//    - The trigger must accept a `ref` prop and assign it to it's root element.
-// If noWrap is true, the Poppper Element:
-//    - The popper element will receive a bunch of data attributes (starting with data-popper*) that must be spread on it's root element.
-//    - The popper element must accept a `style` prop.
-//    - The popper element must accept a `ref` prop and assign it to it's root element.
-//    - This is done this way to avoid adding an additional root element around the popper element.
-// If focusTriggerOnHide is `true`, the trigger must expose a `focus` function in order to work.
-
 /////////////////
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -50,15 +39,11 @@ const SHARED_POPPER_PROP_TYPES = {
      */
     disabled: bool,
     /**
-     * Popper component.
-     */
-    popper: oneOfType([element, object]),
-    /**
-     * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For documentation, view [https://popper.js.org/docs/v2/modifiers](https://popper.js.org/docs/v2/modifiers).
+     * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For more info, view [PopperJs modifiers documentation](https://popper.js.org/docs/v2/modifiers).
      */
     popperModifiers: array,
     /**
-     * A set of options passed directly to [PopperJs](https://popper.js.org). For documentation, view [https://popper.js.org/docs/v2/constructors/#options](https://popper.js.org/docs/v2/constructors/#options)
+     * A set of options passed directly to [PopperJs](https://popper.js.org). For more info, view [PopperJs options documentation](https://popper.js.org/docs/v2/constructors/#options).
      */
     popperOptions: object,
     /**
@@ -165,7 +150,11 @@ const propTypes = {
      * Whether or not the popper should hide when a click happens outside.
      * Requires `hideOnBlur` to be `false`.
      */
-    hideOnOutsideClick: bool
+    hideOnOutsideClick: bool,
+    /**
+     * The popper component.
+     */
+    popper: oneOfType([element, object])
 };
 
 const defaultProps = {
@@ -201,8 +190,6 @@ function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsi
 
 function useShowPopper(setIsVisible, onVisibilityChange) {
     return useCallback(event => {
-        // console.log("** showPopper");
-
         setIsVisible(true);
 
         if (!isNil(onVisibilityChange)) {
@@ -213,8 +200,6 @@ function useShowPopper(setIsVisible, onVisibilityChange) {
 
 function useHidePopper(setIsVisible, onVisibilityChange) {
     return useCallback(event => {
-        // console.log("** hidePopper");
-
         setIsVisible(false);
 
         if (!isNil(onVisibilityChange)) {
@@ -280,8 +265,6 @@ function useSetFocusWhenTransitioningToVisible(isVisible, focusTriggerOnShow, fo
 
 function useHandleTriggerToggle(isVisible, disabled, showPopper, hidePopper) {
     return useCallback(event => {
-        // console.log("** handleTriggerToggle");
-
         if (!disabled) {
             if (isVisible) {
                 hidePopper(event);
@@ -294,8 +277,6 @@ function useHandleTriggerToggle(isVisible, disabled, showPopper, hidePopper) {
 
 function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopper) {
     return useCallback(event => {
-        // console.log("** handleTriggerKeyDown");
-
         if (!disabled) {
             const key = event.keyCode;
 
@@ -317,8 +298,6 @@ function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopp
 
 function useHandleContainerFocus(hasFocus) {
     return useCallback(() => {
-        // console.log("** handleContainerFocus");
-
         hasFocus.current = true;
     }, [hasFocus]);
 }
@@ -328,8 +307,6 @@ function useHandleContainerFocus(hasFocus) {
 // - hide on blur
 function useHandleContainerBlur(isVisible, hideOnBlur, hasFocus, hidePopper) {
     return useCallback(event => {
-        // console.log("** handleContainerBlur");
-
         hasFocus.current = false;
 
         if (isVisible) {
@@ -360,8 +337,6 @@ function useHandleDocumentKeyDown(isVisible, hasFocus, hidePopper, focusTrigger,
     const handler = useCallback(event => {
         if (hasFocus.current) {
             if (event.keyCode === KEYS.esc) {
-                // console.log("** handleContainerKeyDown - esc");
-
                 if (hideOnEscape) {
                     hidePopper(event);
 
@@ -380,8 +355,6 @@ function useHandleDocumentKeyDown(isVisible, hasFocus, hidePopper, focusTrigger,
 // More info at: https://allyjs.io/tutorials/mutating-active-element.html
 function useHandleDocumentBlur(isVisible, containerRef, hasFocus, focusPopper) {
     const handler = useCallback(() => {
-        // console.log("** handleDocumentBlur");
-
         if (hasFocus.current) {
             setTimeout(() => {
                 if (document.activeElement.nodeName === "BODY") {
@@ -413,8 +386,6 @@ function useHandleDocumentBlur(isVisible, containerRef, hasFocus, focusPopper) {
 
 function useHandleDocumentClick(isVisible, triggerElement, popperElement, hideOnOutsideClick, hidePopper) {
     const handler = useCallback(event => {
-        // console.log("** useHandleDocumentClick");
-
         if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
             if (hideOnOutsideClick) {
                 hidePopper(event);
@@ -460,16 +431,23 @@ function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, hand
     return [renderer, focusTrigger, triggerElement];
 }
 
-function getPopperElement(popper) {
+function getPopperElement(popper, triggerElement, children) {
     if (!isNil(popper)) {
         if (isElement(popper)) {
-            return popper;
+            return cloneElement(popper, {
+                triggerElement,
+                children
+            });
         }
 
-        return createPopperFromShorthand(popper);
+        return createPopperFromShorthand({
+            ...popper,
+            triggerElement,
+            content: children
+        });
     }
 
-    return <Popper />;
+    return <Popper triggerElement={triggerElement} children={children} />;
 }
 
 function usePopperRenderer(
@@ -495,7 +473,7 @@ function usePopperRenderer(
 
     const renderer = () => {
         if (!isNil(triggerElement)) {
-            const inferredElement = getPopperElement(popper);
+            const inferredElement = getPopperElement(popper, triggerElement, children);
 
             const styles = {
                 ...(inferredElement.style || {}),
@@ -504,7 +482,6 @@ function usePopperRenderer(
 
             return cloneElement(inferredElement, {
                 show: isVisible,
-                triggerElement,
                 position,
                 pinned,
                 noWrap,
@@ -516,8 +493,7 @@ function usePopperRenderer(
                 noPortal,
                 noAnimation,
                 style: styles,
-                ref: setPopperElement,
-                children
+                ref: setPopperElement
             });
         }
     };

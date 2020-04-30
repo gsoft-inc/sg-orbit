@@ -3,7 +3,7 @@ import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureSingleDatePickerInput, SingleDatePicker } from "@react-components/date-picker";
+import { PureSingleDatePickerCalendar, PureSingleDatePickerInput, SingleDatePicker } from "@react-components/date-picker";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logDateChanged, momentKnob } from "../utils";
@@ -33,7 +33,7 @@ A single date picker allow a user to select a date.
     componentsDefinitions={[
         { displayName: "SingleDatePicker", component: SingleDatePicker },
         { displayName: "SingleDatePicker.Input", component: PureSingleDatePickerInput },
-        { displayName: "SingleDatePicker.Calendar", component: SingleDatePicker.Calendar },
+        { displayName: "SingleDatePicker.Calendar", component: PureSingleDatePickerCalendar },
         { displayName: "SingleDatePicker.Buttons", component: SingleDatePicker.Buttons }
     ]}
 />

@@ -8,16 +8,6 @@ import { isFunction, isNil, merge } from "lodash";
 import { mergeClasses, useCombinedRefs, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-// USAGE:
-// Trigger:
-//    - The trigger must accept an `onClick` prop.
-//    - The trigger must accept a `ref` prop and assign it to it's root element.
-// If wrap is false, Poppper Element:
-//    - The popper element will receive a bunch of data attributes (starting with data-popper*) that must be spread on it's root element.
-//    - The popper element must accept a `style` prop.
-//    - The popper element must accept a `ref` prop and assign it to it's root element.
-// This is done this way to avoid adding an additional root element around the popper element.
-
 export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Wether to show the popper element or not.
@@ -32,7 +22,7 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     pinned: bool,
     /**
-     * Whether or not to render the popper element in an additional element that will handles [PopperJs](https://popper.js.org) references, attributes and styles.
+     * Whether or not to render the popper element in an additional element that will handles [Popper.js](https://popper.js.org) references, attributes and styles.
      */
     noWrap: bool,
     /**
@@ -45,11 +35,11 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     disabled: bool,
     /**
-     * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For documentation, view [https://popper.js.org/docs/v2/modifiers](https://popper.js.org/docs/v2/modifiers).
+     * An array of modifiers passed directly to [Popper.js](https://popper.js.org) modifiers. For more info, view [Popper.js modifiers documentation](https://popper.js.org/docs/v2/modifiers).
      */
     popperModifiers: array,
     /**
-     * A set of options passed directly to [PopperJs](https://popper.js.org). For documentation, view [https://popper.js.org/docs/v2/constructors/#options](https://popper.js.org/docs/v2/constructors/#options)
+     * A set of options passed directly to [Popper.js](https://popper.js.org). For more info, view [Popper.js options documentation](https://popper.js.org/docs/v2/constructors/#options).
      */
     popperOptions: object,
     /**
@@ -75,7 +65,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * @ignore
      */
-    children: node.isRequired,
+    children: node,
     /**
      * @ignore
      */
@@ -95,7 +85,7 @@ const propTypes = {
     /**
      * The popper trigger element.
      */
-    triggerElement: instanceOf(HTMLElement).isRequired,
+    triggerElement: instanceOf(HTMLElement),
     ...SHARED_POPPER_PROP_TYPES
 };
 

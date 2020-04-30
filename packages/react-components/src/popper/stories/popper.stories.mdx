@@ -1,6 +1,10 @@
+import { Button } from "@react-components/button";
+import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-components/popper"
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
 import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./imports.mdx";
+import TriggerExample from "./trigger-example.mdx";
 
 <Meta
     title={createComponentSection("Popper")}
@@ -10,12 +14,134 @@ import { createComponentSection, paramsBuilder } from "@utils";
         .build()}
 />
 
+# Popper
+
+A popper can be used to display some content on top of another.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "PopperTrigger", component: InnerPopperTrigger },
+        { displayName: "Popper", component: InnerPopper }
+    ]}
+/>
+
 ## Usage
+
+This popper component is an abstraction on top of [Popper.js](https://popper.js.org/) that aims to *simplify usage* and provide *default behaviors* specifics to Orbit UI. All [Popper.js](https://popper.js.org/) features
+can still be customized by specifying the `popperModifiers` and `popperOptions` props.
+
+Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction for [Popper.js](https://popper.js.org/) and a `<PopperTrigger />` component which is a wrapper on top
+of `<Popper />` that adds *show/hide* behaviors specifics to Orbit UI.
+
+We do recommend using `<PopperTrigger />` whenever you can.
+
+### Trigger
+
+A valid popper trigger must follow a few rules:
+
+- accept an handler prop matching the specified `toggleHandler` prop, e.g. `onClick`.
+- accept a `ref` prop and assign it to it's root element.
+- when popper props `focusTriggerOnShow` or `focusTriggerOnHide` is `true`, the trigger ref must also expose a `focus` function.
+
+If your trigger is an Orbit UI component, you don't have to worry about these rules.
+
+<TriggerExample />
+
+### Adapters
+
+A popper comes with adapters specialized for different kind of triggers. Use them whenever you can, they will save you time and simplify your code. Currently available adapters are for [button](#button-adapter) and [text input](#text-input-adapter).
+
+TODO: Add code sample with and without adapter for button.
+
+### This is a not a tooltip
+
+A popper is not meant to be used as a tooltip but rather as a low level component to build something more complex like a [date picker](?path=/docs/components-datepicker-range--default-story). A tooltip is
+a specialization of a popper, use the [tooltip](?path=/docs/components-tooltip--default-story) component instead.
 
 ### Default
 
+A default popper.
+
 <Preview>
     <Story name="default">
-        <div>Hello</div>
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+        >
+            <div className="bg-white">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
+        </PopperTrigger.Button>
     </Story>
 </Preview>
+
+### Initially visible
+
+### Position
+
+### Offset
+
+### Disabled
+
+### Fluid
+
+### Pinned
+
+### No wrap
+
+A popper can be rendered without an additional element around it's popper element. If you choose to do so, your popper element must follow a few rules:
+
+- The popper element will receive a bunch of data attributes (starting with data-popper*) that must be spread on it's root element.
+- The popper element must accept a `style` prop.
+- The popper element must accept a `ref` prop and assign it to it's root element.
+
+### No portal
+
+A popper element can be rendered within it's parent DOM hierarchy instead of the document body.
+
+### Button adapter
+
+### Text input adapter
+
+<Story
+    name="dont hide on blur"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <PopperTrigger.Button
+        button={<Button>Toggle</Button>}
+        hideOnBlur={false}
+        hideOnOutsideClick
+    >
+        <div className="bg-white b--primary">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
+    </PopperTrigger.Button>
+</Story>
+
+<Story
+    name="z-index"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div>
+        <PopperTrigger.Button
+            button={<Button>Toggle</Button>}
+        >
+            <div className="bg-white">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
+        </PopperTrigger.Button>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
+    </div>
+</Story>
+
+### Controlled

@@ -2,6 +2,7 @@ import { DEFAULT_DATES_PRESETS, LAST_12_MONTHS_PRESET, LAST_3_MONTHS_PRESET, LAS
 
 export * from "./date-range-picker";
 export { PureDateRangePickerInput } from "./date-range-picker-input";
+export { PureDateRangePickerCalendar } from "./date-range-picker-calendar";
 export {
     toPreset,
     LAST_WEEK_PRESET,

@@ -1,0 +1,20 @@
+<details><summary >custom trigger example</summary>
+
+```jsx dark
+function InnerCustomtrigger({ onClick, forwardedRef, ...rest }) {
+    return (
+        <button
+            {...rest}
+            onClick={onClick}
+            ref={forwardedRef}
+        >
+            Toggle
+        </button>
+    );
+}
+
+export const CustomTrigger = forwardRef((props, ref) => (
+    <InnerCustomtrigger {...props} forwardedRef={ref} />
+));
+```
+</details>

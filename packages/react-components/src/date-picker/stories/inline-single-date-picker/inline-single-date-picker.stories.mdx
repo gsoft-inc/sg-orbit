@@ -1,4 +1,4 @@
-import { InlineSingleDatePicker } from "@react-components/date-picker";
+import { InlineSingleDatePicker, PureInlineSingleDatePickerInput, PureSingleDatePickerCalendar } from "@react-components/date-picker";
 import { InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
@@ -28,8 +28,8 @@ An inlined single date picker can appear inline with other content.
 <Props
     componentsDefinitions={[
         { displayName: "InlineSingleDatePicker", component: InlineSingleDatePicker },
-        { displayName: "InlineSingleDatePicker.Input", component: InlineSingleDatePicker.Input },
-        { displayName: "InlineSingleDatePicker.Calendar", component: InlineSingleDatePicker.Calendar },
+        { displayName: "InlineSingleDatePicker.Input", component: PureInlineSingleDatePickerInput },
+        { displayName: "InlineSingleDatePicker.Calendar", component: PureSingleDatePickerCalendar },
         { displayName: "InlineSingleDatePicker.Buttons", component: InlineSingleDatePicker.Buttons }
     ]}
 />
