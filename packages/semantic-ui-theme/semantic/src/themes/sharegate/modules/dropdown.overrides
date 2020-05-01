@@ -132,6 +132,10 @@
     color: @marine500;
 }
 
+.ui.dropdown.dropdown-menu {
+    border-bottom: 1px solid rebeccapurple!important;
+}
+
 /*******************************
     Item
 *******************************/

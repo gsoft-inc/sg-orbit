@@ -1,7 +1,6 @@
 /*******************************
         Site Overrides
 *******************************/
-
 /* hidden HTML Input should be small */
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
