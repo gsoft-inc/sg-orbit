@@ -50,7 +50,7 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
-     * The HTML button type.
+     * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
@@ -187,12 +187,13 @@ export function PureButton(props) {
 
         return (
             <SemanticButton
+                data-testid="button"
+                {...rest}
                 basic={basic}
                 size={size}
                 loading={loading}
                 disabled={disabled}
                 className={classes}
-                {...rest}
             >
                 {renderContent()}
             </SemanticButton>

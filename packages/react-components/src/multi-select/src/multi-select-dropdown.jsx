@@ -9,7 +9,7 @@ import { SIZES } from "./sizes";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired
@@ -105,7 +105,7 @@ export class MultiSelectDropdown extends PureComponent {
          */
         closeOnOutsideClick: bool,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };
@@ -315,15 +315,6 @@ export class MultiSelectDropdown extends PureComponent {
         }, 0);
     }
 
-    getClasses() {
-        const { className } = this.props;
-
-        return mergeClasses(
-            "no-icons",
-            className
-        );
-    }
-
     renderTrigger = () => {
         const { trigger, triggerText, open, disabled, triggerSize } = this.props;
 
@@ -362,7 +353,12 @@ export class MultiSelectDropdown extends PureComponent {
     };
 
     render() {
-        const { open, disabled } = this.props;
+        const { open, disabled, className } = this.props;
+
+        const classes = mergeClasses(
+            "no-icons",
+            className
+        );
 
         return (
             <>
@@ -375,7 +371,7 @@ export class MultiSelectDropdown extends PureComponent {
                         tabIndex="-1"
                         upward={false}
                         floating
-                        className={this.getClasses()}
+                        className={classes}
                     >
                         <If condition={open}>
                             {this.renderMenu()}

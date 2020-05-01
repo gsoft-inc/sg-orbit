@@ -1,6 +1,7 @@
-import { IS_PRODUCTION, ensure } from "../utils";
+import { IS_PRODUCTION } from "../env";
 import { PureComponent } from "react";
 import { difference, isFunction, isNil, isUndefined } from "lodash";
+import { ensure } from "../contracts";
 
 /*
  * How to develop an auto controlled component to support "controlled" and "uncontrolled" values properties.
@@ -121,7 +122,7 @@ export function getAutoControlledStateFromProps(props, state, autoControlledProp
         }
     });
 
-    // Always compute the derived state for the initial state because the controlled props initial values might be the same at the component default values.
+    // Always compute the derived state for the initial state because the controlled props initial values might be the same as the component default values.
     if (stateBuilder.hasNewValues || isInitialState) {
         if (!isInitialState) {
             ensureAutoControlledPropsHasNotChanged(getStateAutoControlledProps(stateBuilder.state), lastAutoControlledProps);

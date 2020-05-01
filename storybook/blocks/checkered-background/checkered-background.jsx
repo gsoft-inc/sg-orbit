@@ -10,7 +10,10 @@ export function CheckeredBackground({ className, children, ...rest }) {
     );
 
     return (
-        <div className={classes} {...rest}>
+        <div
+            {...rest}
+            className={classes}
+        >
             {children}
         </div>
     );

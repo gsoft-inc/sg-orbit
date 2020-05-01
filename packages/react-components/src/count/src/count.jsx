@@ -5,6 +5,9 @@ import { mergeClasses } from "../../shared";
 import { string } from "prop-types";
 
 const propTypes = {
+    /**
+     * @ignore
+     */
     className: string
 };
 
@@ -15,7 +18,11 @@ export function PureCount({ className, children, forwardedRef, ...rest }) {
     );
 
     return (
-        <span className={classes} ref={forwardedRef} {...rest}>
+        <span
+            {...rest}
+            className={classes}
+            ref={forwardedRef}
+        >
             {children}
         </span>
     );

@@ -22,6 +22,7 @@ module.exports = {
         }
     ],
     rules: {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
+        "jsx-control-statements/jsx-use-if-tag": "off"
     }
 };

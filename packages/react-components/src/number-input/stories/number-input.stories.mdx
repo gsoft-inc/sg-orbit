@@ -221,11 +221,9 @@ A number input can be transparent.
 
 ## API
 
-A few API functions are available for a number input component. To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the number input component, then call the API function.
+A few [API functions are available for a number input component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the number input component, then call the API function.
 
-### focus
-
-A number input can be focused programmatically.
+Here's an example for the `focus` function:
 
 ```jsx dark
 function MyComponent() {
@@ -235,23 +233,6 @@ function MyComponent() {
         <div onFocus={() => { ref.focus(); }}>
             <NumberInput ref={ref} />
         </div>
-    );
-}
-```
-
-### select
-
-A number input text can be [selected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select) programmatically.
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <NumberInput
-            ref={ref}
-            onFocus={() => { ref.select(); }}
-        />
     );
 }
 ```

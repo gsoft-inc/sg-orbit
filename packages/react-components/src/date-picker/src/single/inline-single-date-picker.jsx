@@ -1,6 +1,6 @@
 import { ArgumentError } from "../../../shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
@@ -9,7 +9,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "pro
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * A controlled date value.
@@ -74,13 +74,13 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     position: oneOf(POSITIONS),
     /**
      * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: ["10px", "-10px"]
+     * Ex: [10, -10]
      */
-    offsets: arrayOf(string),
+    offset: arrayOf(number),
     /**
      * z-index of the calendar.
      */
-    zIndex: string,
+    zIndex: number,
     /**
      * A React component to select a date.
      */
@@ -111,12 +111,12 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     disabled: bool,
     /**
-     * Additional classes.
+     * @ignore
      */
     className: string
 };
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
     allowClear: true,
     dateFormat: "MMM Do YYYY",

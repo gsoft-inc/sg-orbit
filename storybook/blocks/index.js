@@ -12,6 +12,7 @@ export * from "./link";
 export * from "./external-link";
 export * from "./hoc-warning";
 export * from "./file-preview";
+export * from "./file-source";
 export * from "./install-dependencies";
 export * from "./import-tachyons";
 export * from "./react-components-layout";

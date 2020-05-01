@@ -5,8 +5,8 @@ import "./monkey-patch-day-picker";
 import { ArgumentError, mergeClasses } from "../../shared";
 import { ArrowIcon } from "../../icons";
 import { NAVIGATION_ROLE } from "./element-roles";
-import { PureComponent, cloneElement } from "react";
-import { bool, func, node, number, oneOfType, string } from "prop-types";
+import { PureComponent, cloneElement, forwardRef } from "react";
+import { bool, func, node, number, object, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -16,7 +16,7 @@ const PHRASES = {
     chooseAvailableEndDate: ({ date }) => `Choose ${date}.`
 };
 
-export class DatePickerCalendar extends PureComponent {
+export class PureDatePickerCalendar extends PureComponent {
     static propTypes = {
         calendar: node.isRequired,
         buttons: node.isRequired,
@@ -27,6 +27,7 @@ export class DatePickerCalendar extends PureComponent {
         initialVisibleMonth: oneOfType([momentType, func]),
         numberOfMonths: number,
         className: string,
+        forwardedRef: oneOfType([object, func]),
         temporarySingleDatePickerFlag: bool
     };
 
@@ -158,15 +159,15 @@ export class DatePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { buttons, leftContent, className } = this.props;
+        const { buttons, leftContent, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
-            "o-ui calendar flex z-2",
+            "o-ui calendar flex",
             className
         );
 
         return (
-            <div className={classes} data-testid="date-picker-calendar">
+            <div className={classes} data-testid="date-picker-calendar" ref={forwardedRef}>
                 {leftContent}
                 <div className="flex flex-column">
                     {this.renderCalendar()}
@@ -176,3 +177,7 @@ export class DatePickerCalendar extends PureComponent {
         );
     }
 }
+
+export const DatePickerCalendar = forwardRef((props, ref) => (
+    <PureDatePickerCalendar { ...props } forwardedRef={ref} />
+));

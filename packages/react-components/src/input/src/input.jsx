@@ -114,17 +114,13 @@ export function PureInput(props) {
     const inputRef = useRef();
 
     useImperativeHandle(forwardedRef, () => {
+        const apiMethods = ["blur", "focus", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
         const domElement = containerRef.current;
 
-        // This function is part of the component external API.
-        domElement.focus = () => {
-            inputRef.current.focus();
-        };
-
-        // This function is part of the component external API.
-        domElement.select = () => {
-            inputRef.current.select();
-        };
+        // These functions are part of the component external API.
+        apiMethods.forEach(x => {
+            domElement[x] = inputRef.current[x];
+        });
 
         return domElement;
     });
@@ -146,8 +142,7 @@ export function PureInput(props) {
                     size: SIZES_TO_BUTTON[size],
                     circular: true,
                     ghost: true,
-                    secondary: true,
-                    type: "button"
+                    secondary: true
                 };
 
                 const getClasses = userClasses => {
@@ -165,8 +160,8 @@ export function PureInput(props) {
                 }
 
                 return createButtonFromShorthand({
-                    ...defaults,
                     ...button,
+                    ...defaults,
                     className: getClasses(button.className)
                 });
             }
@@ -190,6 +185,7 @@ export function PureInput(props) {
             data-testid="input"
         >
             <SemanticInput
+                {...rest}
                 icon={renderIcon()}
                 iconPosition={iconPosition}
                 autoFocus={shouldAutofocus}
@@ -198,7 +194,6 @@ export function PureInput(props) {
                 loading={loading}
                 disabled={disabled}
                 ref={inputRef}
-                {...rest}
             >
                 {children}
             </SemanticInput>

@@ -1,18 +1,9 @@
-import {
-    BOTTOM_CENTER,
-    BOTTOM_LEFT,
-    BOTTOM_RIGHT,
-    PureSingleDatePickerInput,
-    SingleDatePicker,
-    TOP_CENTER,
-    TOP_LEFT,
-    TOP_RIGHT
-} from "@react-components/date-picker";
-import { ControlledSingleDatePicker } from "./components";
+import { ControlledSingleDatePicker } from "./controlled-single-date-picker.sample";
 import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { PureSingleDatePickerCalendar, PureSingleDatePickerInput, SingleDatePicker } from "@react-components/date-picker";
 import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logDateChanged, momentKnob } from "../utils";
@@ -42,7 +33,7 @@ A single date picker allow a user to select a date.
     componentsDefinitions={[
         { displayName: "SingleDatePicker", component: SingleDatePicker },
         { displayName: "SingleDatePicker.Input", component: PureSingleDatePickerInput },
-        { displayName: "SingleDatePicker.Calendar", component: SingleDatePicker.Calendar },
+        { displayName: "SingleDatePicker.Calendar", component: PureSingleDatePickerCalendar },
         { displayName: "SingleDatePicker.Buttons", component: SingleDatePicker.Buttons }
     ]}
 />
@@ -83,7 +74,7 @@ A default single date picker.
         placeholder={text("placeholder")}
         dateFormat={text("dateFormat")}
         size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
-        position={select("position", { TopLeft: TOP_LEFT, TopRight: TOP_RIGHT, TopCenter: TOP_CENTER, BottomLeft: BOTTOM_LEFT, BottomRight: BOTTOM_RIGHT, BottomCenter: BOTTOM_CENTER })}
+        position={select("position", { "top-start": "top-start", "top-end": "top-end", "bottom": "bottom", "bottom-start": "bottom-start", "bottom-end": "bottom-end", "right": "right", "right-start": "right-start", "right-end": "right-end", "left": "left", "left-start": "left-start", "left-end": "left-end" }, "bottom-start")}
         disabled={boolean("disabled", false)}
         fluid={boolean("fluid", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -229,7 +220,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A single date picker calendar can be anchored at different positions.
 
-The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bottom-left"`, `"bottom-right"` and `"bottom-center"`.
+The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
 
 <Preview>
     <Story
@@ -239,7 +230,7 @@ The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bott
             .build()}
     >
         <SingleDatePicker
-            position="top-left"
+            position="top-start"
             onDateChange={logDateChanged}
         />
     </Story>
@@ -283,7 +274,7 @@ The available positions are: `"top-left"`, `"top-right"`, `"top-center"`, `"bott
 
 A single date picker can handle `date` and `open` state in controlled mode.
 
-<FilePreview filePath="/date-picker/stories/single-date-picker/components/controlled-single-date-picker">
+<FilePreview filePath="/date-picker/stories/single-date-picker/controlled-single-date-picker">
     <ControlledSingleDatePicker
         date={moment()}
         onDateChange={logDateChanged}

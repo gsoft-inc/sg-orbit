@@ -1,0 +1,14 @@
+<details><summary >custom trigger example</summary>
+
+```jsx dark
+export const Trigger = forwardRef(({ onClick, ...rest }, ref) => (
+    <button
+        {...rest}
+        onClick={onClick}
+        ref={ref}
+    >
+        Toggle
+    </button>
+));
+```
+</details>

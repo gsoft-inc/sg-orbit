@@ -25,7 +25,13 @@ export function PureIcon({ type: Component, size, className, forwardedRef, ...re
         DIMENSIONS[size]
     );
 
-    return <Component className={classes} ref={forwardedRef} {...rest} />;
+    return (
+        <Component
+            {...rest}
+            className={classes}
+            ref={forwardedRef}
+        />
+    );
 }
 
 PureIcon.propTypes = {
@@ -68,7 +74,14 @@ export function PureMultiVariantIcon({ type24: Component24, type32: Component32,
         type = Component24;
     }
 
-    return <Icon type={type} size={size} ref={forwardedRef} {...rest} />;
+    return (
+        <Icon
+            {...rest}
+            type={type}
+            size={size}
+            ref={forwardedRef}
+        />
+    );
 }
 
 PureMultiVariantIcon.propTypes = {

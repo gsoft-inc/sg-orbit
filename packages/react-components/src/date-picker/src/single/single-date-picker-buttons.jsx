@@ -40,7 +40,7 @@ export class SingleDatePickerButtons extends PureComponent {
          */
         applyText: string,
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

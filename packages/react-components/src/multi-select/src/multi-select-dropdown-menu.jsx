@@ -4,7 +4,7 @@ import { Ref } from "semantic-ui-react";
 import { arrayOf, func, node, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired
@@ -37,7 +37,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
          */
         keyboardItem: shape(ITEM_SHAPE),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

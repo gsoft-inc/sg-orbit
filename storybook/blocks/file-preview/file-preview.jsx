@@ -28,7 +28,7 @@ export function FilePreview({ filePath, withSource, children, ...rest }) {
     }
 
     return (
-        <Preview withSource={{ code: source, ...withSource }} {...rest} >
+        <Preview {...rest} withSource={{ code: source, ...withSource }}>
             {children}
         </Preview>
     );

@@ -42,7 +42,10 @@ export function PureTooltip(props) {
         );
 
         return (
-            <SemanticPopup className={classes} {...rest}>
+            <SemanticPopup
+                {...rest}
+                className={classes}
+            >
                 {children}
             </SemanticPopup>
         );

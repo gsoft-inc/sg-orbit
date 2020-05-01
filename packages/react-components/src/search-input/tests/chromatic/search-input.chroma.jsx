@@ -29,6 +29,12 @@ stories()
     .add("opened",
          () =>
              createSearchInput({
+                 open: true
+             })
+    )
+    .add("default opened",
+         () =>
+             createSearchInput({
                  defaultOpen: true
              })
     )

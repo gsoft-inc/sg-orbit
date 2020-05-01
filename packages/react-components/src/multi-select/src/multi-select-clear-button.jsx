@@ -23,7 +23,7 @@ export class MultiSelectClearButton extends PureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string
     };

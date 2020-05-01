@@ -119,3 +119,43 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await waitDelay(55);
     expect(getInput(getByTestId)).toHaveFocus();
 });
+
+// ***** API *****
+
+test("can focus the input with the focus api", async () => {
+    let refNode = null;
+
+    const { getByTestId } = render(
+        createInput({
+            ref: node => {
+                refNode = node;
+            }
+        })
+    );
+
+    await wait();
+
+    refNode.focus();
+
+    expect(getInput(getByTestId)).toHaveFocus();
+});
+
+test("can select the input text with the select api", async () => {
+    let refNode = null;
+
+    const { getByTestId } = render(
+        createInput({
+            value: "Orbit",
+            ref: node => {
+                refNode = node;
+            }
+        })
+    );
+
+    await wait();
+
+    refNode.select();
+
+    expect(getInput(getByTestId).selectionStart).toBe(0);
+    expect(getInput(getByTestId).selectionEnd).toBe(5);
+});

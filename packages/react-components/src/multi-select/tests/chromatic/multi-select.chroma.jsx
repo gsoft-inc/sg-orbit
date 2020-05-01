@@ -44,22 +44,32 @@ function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createMultiSelect({
+            open: true
+        })
+    )
+    .add("default opened", () =>
+        createMultiSelect({
+            defaultOpen: true
+        })
+    )
     .add("size",
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createMultiSelect({
+                     {createMultiSelect({
                          size: "small",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createMultiSelect({
+                     {createMultiSelect({
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex">
-                     { createMultiSelect({
+                     {createMultiSelect({
                          size: "large",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}

@@ -14,6 +14,18 @@
     fill: red !important;
 }
 
-.bg-blue {
+.bg-blue.bg-blue.bg-blue.bg-blue {
     background: blue !important;
+}
+
+.bg-blue-inner > * {
+    background: blue !important;
+}
+
+.border-blue {
+    border: 1px solid blue !important;
+}
+
+.fill-blue {
+    fill: blue !important;
 }

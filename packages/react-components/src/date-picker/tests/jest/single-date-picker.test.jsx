@@ -28,7 +28,6 @@ class DayPickerSingleDateControllerMock extends PureComponent {
 }
 
 function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...otherProps } = {}) {
-    // eslint-disable-next-line jsx-control-statements/jsx-use-if-tag
     const rdc = isNil(reactDatesCalendar) ? <DayPickerSingleDateControllerMock /> : reactDatesCalendar;
 
     return <SingleDatePicker
@@ -222,7 +221,26 @@ test("clear the date on calendar clear button click", async () => {
     expect(getInput(getByTestId)).not.toHaveValue(formattedDate);
 });
 
-test("when the calendar close, the input should be focused", async () => {
+test("when the date is cleared on calendar clear button click, the apply button is focused", async () => {
+    const date = moment();
+    const formattedDate = date.format(DATE_FORMAT);
+
+    const { getByTestId } = render(createSingleDatePicker({
+        defaultDate: date,
+        dateFormat: DATE_FORMAT
+    }));
+
+    expect(getInput(getByTestId)).toHaveValue(formattedDate);
+
+    await openCalendar(getByTestId);
+
+    userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
+    await wait();
+
+    expect(getByTestId(CALENDAR_APPLY_BUTTON_ID)).toHaveFocus();
+});
+
+test("when the calendar close on esc keydown, the input should be focused", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
     await openCalendar(getByTestId);
@@ -233,7 +251,7 @@ test("when the calendar close, the input should be focused", async () => {
 
     expect(inputNode).not.toHaveFocus();
 
-    userEvent.click(document.body);
+    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await waitDelay(50);
 
     expect(inputNode).toHaveFocus();
@@ -271,6 +289,9 @@ test("when closeOnBlur is false, dont close the calendar on blur", async () => {
     const calendarNode = await openCalendar(getByTestId);
 
     userEvent.click(document.body);
+    await wait();
+
+    getByTestId(CALENDAR_APPLY_BUTTON_ID).focus();
     await wait();
 
     expect(calendarNode).toBeInTheDocument();
@@ -403,7 +424,7 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
 });
 
-test("call onVisibilityChange when the calendar is dismissed", async () => {
+test("call onVisibilityChange when the calendar is closed with an outside click", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createSingleDatePicker({

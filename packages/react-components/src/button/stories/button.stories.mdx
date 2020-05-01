@@ -285,3 +285,21 @@ Buttons can exist together as a group.
 >
     <RefLogger component={<Button >Cutoff</Button>} />
 </Story>
+
+## API
+
+A few [API functions are available for a button component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the button component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Button ref={ref} />
+        </div>
+    );
+}
+```

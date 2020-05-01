@@ -4,14 +4,14 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { cloneElement } from "react";
-import { isNil } from "lodash";
+import { cloneElement, createRef } from "react";
+import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const PRESET_SHAPE = {
     text: string.isRequired,
     startDate: object.isRequired,
@@ -103,13 +103,13 @@ export class DateRangePicker extends AutoControlledPureComponent {
         position: oneOf(POSITIONS),
         /**
          * An array containing an horizontal and vertical offsets for the calendar position.
-         * Ex: `["10px", "-10px"]`
+         * Ex: `[10, -10]`
          */
-        offsets: arrayOf(string),
+        offset: arrayOf(number),
         /**
          * z-index of the calendar.
          */
-        zIndex: string,
+        zIndex: number,
         /**
          * A React component to select a date.
          */
@@ -156,11 +156,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**
-         * Custom inline style.
+         * @ignore
          */
         style: object
     };
@@ -195,6 +195,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
         selectedPresetName: null,
         open: false
     };
+
+    _inputRef = createRef();
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, DateRangePicker.autoControlledProps, ({ startDate, endDate }) => ({
@@ -235,9 +237,20 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ startDate: selectedStartDate });
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
+        this.focusInput();
 
         onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName, this.props);
     };
+
+    focusInput() {
+        setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                if (isFunction(this._inputRef.current.focus)) {
+                    this._inputRef.current.focus();
+                }
+            }
+        }, 0);
+    }
 
     openCalendar(event) {
         const { onVisibilityChange } = this.props;
@@ -261,9 +274,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size } = this.props;
-        const { selectedStartDate, selectedEndDate } = this.state;
+        const { open, selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
+            open,
             startDate: selectedStartDate,
             endDate: selectedEndDate,
             onClear: this.handleInputClear,
@@ -273,7 +287,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            size
+            size,
+            ref: this._inputRef
         });
     }
 
@@ -301,7 +316,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -310,7 +325,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
                 position={position}
-                offsets={offsets}
+                offset={offset}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

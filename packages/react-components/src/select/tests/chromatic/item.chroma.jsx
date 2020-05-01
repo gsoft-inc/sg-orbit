@@ -332,4 +332,24 @@ stories()
                 defaultOpen: true
             })}
         </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            {createSelect({
+                options: [
+                    createMale(),
+                    createFemale({ text: "Super long text that will not fit without overflowing", className: "bg-red" })
+                ],
+                defaultOpen: true,
+                className: "mr5"
+            })}
+            {createSelect({
+                options: [
+                    createMale(),
+                    createFemale({ text: "Super long text that will not fit without overflowing", style: { background: "red" } })
+                ],
+                defaultOpen: true,
+                className: "mr5"
+            })}
+        </div>
     );

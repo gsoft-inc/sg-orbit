@@ -20,7 +20,9 @@
     },
     "peerDependencies": {
         "lodash": "*",
-        "moment": "*"
+        "moment": "*",
+        "react": "*",
+        "react-dom": "*"
     },
     "dependencies": {
         "@orbit-ui/css-normalize": "2.0.2",

@@ -1,3 +1,4 @@
+import { AbsoluteRedBox } from "./components";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker } from "@react-components/date-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -8,7 +9,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/single inlined"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "80%", height: "600px" })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
             .build())
@@ -23,16 +24,21 @@ function createInlineSingleDatePicker(props = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createInlineSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
+    .add("default opened", () =>
+        createInlineSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
     .add("closed",
          () =>
              createInlineSingleDatePicker()
-    )
-    .add("opened",
-         () =>
-             createInlineSingleDatePicker({
-                 initialVisibleMonth: moment(DEFAULT_DATE),
-                 defaultOpen: true
-             })
     );
 
 stories("/selected date/closed")
@@ -135,7 +141,7 @@ stories("/z-index")
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
@@ -148,11 +154,11 @@ stories("/z-index")
              <div>
                  {createInlineSingleDatePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
-                     defaultOpen: true, zIndex: "1"
+                     defaultOpen: true, zIndex: 1
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>

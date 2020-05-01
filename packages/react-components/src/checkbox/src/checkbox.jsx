@@ -1,4 +1,4 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "../../shared";
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided, useCombinedRefs } from "../../shared";
 import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useEffect } from "react";
@@ -113,7 +113,7 @@ export function PureCheckbox(props) {
     throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
+    const innerRef = useCombinedRefs(forwardedRef);
     useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
 
     const renderIcons = () => {
@@ -186,14 +186,14 @@ export function PureCheckbox(props) {
     const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
     return (
-        <Ref innerRef={setInnerRef}>
+        <Ref innerRef={innerRef}>
             <SemanticCheckbox
+                data-testid="checkbox"
+                {...rest}
                 label={renderContent()}
                 autoFocus={shouldAutofocus}
                 disabled={disabled}
                 className={classes}
-                data-testid="checkbox"
-                {...rest}
             />
         </Ref>
     );

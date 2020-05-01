@@ -158,10 +158,10 @@ export function PureSelect(props) {
 
         return (
             <Label
+                {...otherProps}
                 content={content}
                 size={SIZES_TO_LABEL[size]}
                 className={classes}
-                {...otherProps}
             />
         );
     };
@@ -196,6 +196,7 @@ export function PureSelect(props) {
 
     return (
         <Dropdown
+            {...rest}
             options={renderOptions()}
             selectOnBlur={false}
             selectOnNavigation={false}
@@ -206,7 +207,6 @@ export function PureSelect(props) {
             ref={forwardedRef}
             __dropdownClasses={classes}
             __semanticDropdown={MonkeyPatchSemanticDropdown}
-            {...rest}
         />
     );
 }

@@ -8,7 +8,7 @@ import { isNil } from "lodash";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the toggle should autofocus on render.
@@ -36,7 +36,7 @@ const CHECKBOX_PROP_TYPES = {
     size: oneOf(SIZES)
 };
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
     size: DEFAULT_SIZE,

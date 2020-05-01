@@ -21,8 +21,8 @@ export function DropdownItem(props) {
 
     return (
         <SemanticDropdown.Item
-            icon={renderIcon()}
             {...rest}
+            icon={renderIcon()}
         />
     );
 }

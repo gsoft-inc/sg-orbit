@@ -1,21 +1,21 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popup";
-import { PureComponent, cloneElement } from "react";
+import { POSITIONS } from "../../../popper";
+import { PureComponent, cloneElement, forwardRef } from "react";
 import { START_DATE } from "react-dates/constants";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const PRESET_SHAPE = {
     text: string.isRequired,
     startDate: object.isRequired,
     endDate: object.isRequired
 };
 
-export class DateRangePickerCalendar extends PureComponent {
+export class PureDateRangePickerCalendar extends PureComponent {
     static propTypes = {
         /**
          * A controlled start date value.
@@ -84,11 +84,15 @@ export class DateRangePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: node,
+        className: string,
         /**
-         * Additional classes.
+         * @ignore
          */
-        className: string
+        forwardedRef: oneOfType([object, func]),
+        /**
+         * @ignore
+         */
+        reactDatesCalendar: node
     };
 
     static defaultProps = {
@@ -200,7 +204,7 @@ export class DateRangePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className, forwardedRef } = this.props;
 
         return (
             <DatePickerCalendar
@@ -214,7 +218,12 @@ export class DateRangePickerCalendar extends PureComponent {
                 numberOfMonths={numberOfMonths}
                 position={position}
                 className={className}
+                ref={forwardedRef}
             />
         );
     }
 }
+
+export const DateRangePickerCalendar = forwardRef((props, ref) => (
+    <PureDateRangePickerCalendar { ...props } forwardedRef={ref} />
+));

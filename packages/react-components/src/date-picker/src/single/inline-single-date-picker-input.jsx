@@ -1,43 +1,23 @@
 import { ArrowIcon32 } from "../../../icons";
 import { KEYS, mergeClasses, withHandlerProxy } from "../../../shared";
-import { PureComponent, createRef } from "react";
-import { ResizeObserver } from "../resize-observer";
-import { bool, func, string } from "prop-types";
+import { PureComponent, forwardRef } from "react";
+import { bool, func, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
-export class InlineSingleDatePickerInput extends PureComponent {
+export class PureInlineSingleDatePickerInput extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
          */
         date: momentType,
         /**
-         * Called when an open event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        onOpen: func,
-        /**
-         * Called when a close event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        onClose: func,
-        /**
-         * Called when the size of the input changed.
-         * @param {{ width: number, height: number }} dimensions - The input dimensions.
-         * @returns {void}
-         */
-        onSizeChange: func,
-        /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Object} props - All the props.
          * @returns {void}
          */
+        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * Called on keydown.
@@ -86,77 +66,30 @@ export class InlineSingleDatePickerInput extends PureComponent {
          */
         open: bool,
         /**
-         * Additional classes.
+         * @ignore
          */
-        className: string
-    };
-
-    _containerRef = createRef();
-
-    componentDidMount() {
-        this._containerResizeObserver = new ResizeObserver(this.handleContainerSizeChange);
-        this._containerResizeObserver.observe(this._containerRef.current);
-    }
-
-    componentWillUnmount() {
-        this._containerResizeObserver.disconnect();
-    }
-
-    handleContainerSizeChange = entries => {
-        const { onSizeChange } = this.props;
-
-        if (!isNil(onSizeChange)) {
-            // The native chrome implementation doesn't currently support the "border-box" specs. Therefore, we rely on "getBoundingClientRect"
-            // for the value when a size changed is detected.
-            // Specs available here: https://drafts.csswg.org/resize-observer-1/
-            const dimensions = entries[0].target.getBoundingClientRect();
-
-            onSizeChange({ width: dimensions.width, height: dimensions.height });
-        }
-    };
-
-    handleClick = event => {
-        const { onClick, onOpen, onClose, disabled, open } = this.props;
-
-        if (!isNil(onClick)) {
-            onClick(event, this.props);
-        }
-
-        if (!disabled) {
-            if (!open) {
-                onOpen(event, this.props);
-            } else {
-                onClose(event, this.props);
-            }
-        }
+        className: string,
+        /**
+         * @ignore
+         */
+        forwardedRef: oneOfType([object, func])
     };
 
     handleKeyDown = event => {
-        const { onKeyDown, onOpen, onClear, disabled, open } = this.props;
+        const { onKeyDown, onClear, open } = this.props;
 
-        if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
-        }
-
-        const key = event.keyCode;
-
-        if (key === KEYS.space || key === KEYS.enter) {
-            if (key === KEYS.space) {
-                event.preventDefault();
-            }
-
-            if (!disabled) {
-                if (!open) {
-                    onOpen(event, this.props);
-                }
-            }
-        } else if (key === KEYS.esc) {
+        if (event.keyCode === KEYS.esc) {
             if (!open) {
                 onClear(event, this.props);
             }
         }
+
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event, this.props);
+        }
     }
 
+    handleClick = withHandlerProxy(this, "onClick");
     handleFocus = withHandlerProxy(this, "onFocus");
     handleBlur = withHandlerProxy(this, "onBlur");
 
@@ -168,17 +101,6 @@ export class InlineSingleDatePickerInput extends PureComponent {
         }
 
         return placeholder;
-    }
-
-    getCssClasses() {
-        const { disabled, open, className } = this.props;
-
-        return mergeClasses(
-            "flex items-center outline-0",
-            open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
-            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 pointer" : "cloud-200 hover-b--transparent",
-            className
-        );
     }
 
     renderOpenIcon() {
@@ -198,7 +120,14 @@ export class InlineSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { disabled } = this.props;
+        const { open, disabled, className, forwardedRef } = this.props;
+
+        const classes = mergeClasses(
+            "flex items-center outline-0",
+            open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
+            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 pointer" : "cloud-200 hover-b--transparent",
+            className
+        );
 
         return (
             <div
@@ -206,10 +135,10 @@ export class InlineSingleDatePickerInput extends PureComponent {
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
-                className={this.getCssClasses()}
+                className={classes}
                 tabIndex={disabled ? "-1" : "0"}
                 disabled={disabled}
-                ref={this._containerRef}
+                ref={forwardedRef}
                 data-testid="inline-single-date-picker-input"
             >
                 <span className="fw5">{this.getValue()}</span>
@@ -217,11 +146,8 @@ export class InlineSingleDatePickerInput extends PureComponent {
             </div>
         );
     }
-
-    // This method is part of the component external API.
-    focus() {
-        if (!isNil(this._containerRef.current)) {
-            this._containerRef.current.focus();
-        }
-    }
 }
+
+export const InlineSingleDatePickerInput = forwardRef((props, ref) => (
+    <PureInlineSingleDatePickerInput { ...props } forwardedRef={ref} />
+));
