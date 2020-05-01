@@ -132,8 +132,9 @@
     color: @marine500;
 }
 
-.ui.dropdown.dropdown-menu {
-    border-bottom: 1px solid rebeccapurple!important;
+.ui.dropdown.dropdown-menu:focus {
+    background-color: @marine50!important;
+    border-radius: 2px;
 }
 
 /*******************************
