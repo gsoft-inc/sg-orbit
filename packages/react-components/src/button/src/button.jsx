@@ -92,12 +92,12 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-function isLink({ as, link }) {
-    return as === "a" || link;
+function isLink(as) {
+    return as === "a";
 }
 
 export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, type, loading, disabled, className, forwardedRef, children, ...rest } = props;
+    const { as, basic, ghost, link, naked, icon, iconPosition, label, tag, size, type, loading, disabled, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -191,9 +191,10 @@ export function PureButton(props) {
 
         return (
             <SemanticButton
+                as={as}
                 basic={basic}
                 size={size}
-                type={!isLink ? type : undefined}
+                type={!isLink(as) ? type : undefined}
                 loading={loading}
                 disabled={disabled}
                 className={classes}
