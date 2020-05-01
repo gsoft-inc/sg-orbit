@@ -5,20 +5,12 @@ import { RedBox } from "./components";
 import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-// TODO:
-//  - Must become popper.chroma.jsx, will create a new one specific for the input.
-//  - In SB menu, should go under Popper.
-//  - Popper
-//      - popper
-//      - input trigger
-//      - button trigger
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popper/text input trigger"))
         .segment(segment)
         .parameters(
             paramsBuilder()
-                .canvasLayout({ width: "80%", marginTop: "100px" })
+                .canvasLayout({ width: "80%", height: "600px", marginTop: "100px" })
                 .chromaticDelay(100)
                 .chromaticPauseAnimationAtEnd()
                 .build()
@@ -74,7 +66,14 @@ stories()
         </div>
     )
     .add("fluid input", () =>
-        createPopperTrigger({ fluid: true }, { fluid: true })
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                {createPopperTrigger({ fluid: true }, { fluid: true })}
+            </div>
+            <div>
+                {createPopperTrigger({ fluid: true }, { fluid: true })}
+            </div>
+        </div>
     )
     .add("readonly input", () =>
         <div className="flex flex-column">

@@ -15,7 +15,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/single"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "80%", height: "600px" })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
             .build())

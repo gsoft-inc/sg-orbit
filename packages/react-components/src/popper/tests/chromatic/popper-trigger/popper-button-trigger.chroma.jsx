@@ -8,7 +8,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(
             paramsBuilder()
-                .canvasLayout({ width: "80%", marginTop: "100px" })
+                .canvasLayout({ width: "80%", height: "600px", marginTop: "100px" })
                 .chromaticDelay(100)
                 .chromaticPauseAnimationAtEnd()
                 .build()
@@ -57,5 +57,12 @@ stories()
         </PopperTrigger.Button>
     )
     .add("fluid button", () =>
-        createPopperTrigger({ fluid: true }, { fluid: true })
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                {createPopperTrigger({ fluid: true }, { fluid: true })}
+            </div>
+            <div>
+                {createPopperTrigger({ fluid: true, defaultShow: true }, { fluid: true })}
+            </div>
+        </div>
     );

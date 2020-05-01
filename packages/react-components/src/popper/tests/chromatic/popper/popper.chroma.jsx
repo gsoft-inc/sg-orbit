@@ -6,7 +6,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(
             paramsBuilder()
-                .canvasLayout({ width: "30%", marginTop: "100px" })
+                .canvasLayout({ width: "30%", height: "600px", marginTop: "100px" })
                 .chromaticDelay(100)
                 .chromaticPauseAnimationAtEnd()
                 .build()
@@ -82,8 +82,8 @@ stories()
             </div>
         </div>
     )
-    .add("custom container element", () =>
-        <RedBoxPopper defaultShow containerElement={window.document.getElementById("root")} />
+    .add("custom portal container element", () =>
+        <RedBoxPopper defaultShow portalContainerElement={window.document.getElementById("root")} />
     )
     .add("no wrap", () =>
         <RedBoxPopper defaultShow noWrap />
@@ -92,9 +92,13 @@ stories()
         <RedBoxPopper defaultShow animate={false} />
     )
     .add("styling", () =>
-        <div className="flex">
-            <RedBoxPopper defaultShow className="border-blue mr5" />
-            <RedBoxPopper defaultShow style={{ border: "1px solid blue" }} />
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper defaultShow className="border-blue" />
+            </div>
+            <div>
+                <RedBoxPopper defaultShow style={{ border: "1px solid blue" }} />
+            </div>
         </div>
     )
     .add("can prevent overflow when not pinned",

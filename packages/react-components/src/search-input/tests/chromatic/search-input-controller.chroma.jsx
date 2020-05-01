@@ -33,12 +33,6 @@ stories()
                  open: true
              })
     )
-    .add("default opened",
-         () =>
-             createSearchInputController({
-                 defaultOpen: true
-             })
-    )
     .add("autofocus",
          () =>
              createSearchInputController({
