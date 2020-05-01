@@ -179,6 +179,10 @@
     font-size: var(--type-scale-6);
 }
 
+.ui.dropdown .menu > .item.selected {
+    background-color: var(--cloud-50);
+}
+
 /* CONTENT | Item | SIZE | Small */
 .ui.dropdown.small .menu > .item,
 .ui.selection.dropdown.small .menu > .item {
