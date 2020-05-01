@@ -5,8 +5,8 @@ import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-component
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PinnedPlayground } from "./pinned-playground";
 import { PopperElement } from "./popper-element.sample";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { TextInput } from "@react-components/text-input";
-import { createComponentSection, paramsBuilder } from "@utils";
 import CustomTrigger from "./custom-trigger.mdx";
 import Imports from "./imports.mdx";
 import NoWrapPopperElement from "./no-wrap-popper-element.mdx";
@@ -258,3 +258,20 @@ A popper can handle `show` state in controlled mode.
 <FilePreview filePath="/popper/stories/controlled-popper">
     <ControlledPopper />
 </FilePreview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={
+        <PopperTrigger
+            trigger={<Button>Toggle</Button>}
+            toggleHandler="onClick"
+        >
+            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        </PopperTrigger>
+    }
+    />
+</Story>

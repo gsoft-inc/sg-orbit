@@ -61,7 +61,7 @@ const ASTRONAUTS = [
     selectItem("Robert Thirks", "Robert Thirks"),
     selectItem("Julie Payette", "Julie Payette")
 ];
-
+```
 
 ### Default
 
@@ -167,7 +167,6 @@ A transparent select can show that it is currently loading data.
     </Story>
 </Preview>
 
-
 <Story
     name="autofocus"
     parameters={paramsBuilder()
@@ -175,8 +174,8 @@ A transparent select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
-        <Select autofocus multiple disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus transparent disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -187,8 +186,8 @@ A transparent select can show that it is currently loading data.
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
-        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autofocus disabled autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
@@ -198,5 +197,5 @@ A transparent select can show that it is currently loading data.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Select multiple options={ASTRONAUTS} />} />
+    <RefLogger component={<Select transparent options={ASTRONAUTS} />} />
 </Story>
