@@ -27,7 +27,7 @@ createSharedStories(<Button positive />, stories("/positive"));
 
 createSharedStories(<Button negative />, stories("/negative"));
 
-createSharedStories(<Button href="https://sharegate.com" target="_blank" link />, stories("/link"));
+createSharedStories(<Button link />, stories("/link"));
 
 createSharedStories(<Button naked />, stories("/naked"))
     .add("coloured", () =>
