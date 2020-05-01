@@ -217,7 +217,7 @@ A button can be rendered as a link:
 
 <Preview>
     <Story name="as anchor">
-        <Button as="a">Cutoff</Button>
+        <Button as="a" href="https://sharegate.com" target="_blank">Cutoff</Button>
     </Story>
 </Preview>
 
@@ -226,8 +226,8 @@ Or look like a link:
 <Preview>
     <Story name="link">
         <div className="flex items-lot-of-space-between">
-            <Button link>Cutoff</Button>
-            <Button link basic>Cutoff</Button>
+            <Button href="https://sharegate.com" target="_blank" link>Cutoff</Button>
+            <Button href="https://sharegate.com" target="_blank" link basic>Cutoff</Button>
         </div>
     </Story>
 </Preview>
