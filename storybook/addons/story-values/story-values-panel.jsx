@@ -7,7 +7,7 @@ import { useChannel, useParameter } from "@storybook/api";
 import { useState } from "react";
 
 function StoryValuesPanel({ active }) {
-    const [values, setValues] = useState(null);
+    const [values, setValues] = useState();
     const storyValues = useParameter(PARAM_KEY, null);
 
     useChannel({

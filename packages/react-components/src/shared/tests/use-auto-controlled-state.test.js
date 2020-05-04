@@ -39,7 +39,7 @@ test("state is the default value when no controlled value and no initial value a
     expect(result.current[0]).toBeFalsy();
 });
 
-test("state in unchanged when a subsequent run is made with the same values", () => {
+test("state is unchanged when a subsequent run is made with the same values", () => {
     let callCount = 0;
 
     const { result, rerender } = renderHook(() => useAutoControlledState(true, undefined, false, () => {

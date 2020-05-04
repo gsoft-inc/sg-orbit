@@ -8,7 +8,7 @@ import userEvent from "@utils/user-event";
 const POPPER_WRAPPER_ID = "popper-wrapper";
 
 function PureDummyPopper({ forwardedRef, ...rest }) {
-    const [triggerElement, setTriggerElement] = useState(null);
+    const [triggerElement, setTriggerElement] = useState();
 
     return (
         <>

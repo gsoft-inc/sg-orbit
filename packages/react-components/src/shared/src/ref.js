@@ -14,14 +14,15 @@ export function assignRef(ref, node) {
 export function useCombinedRefs(...refs) {
     const targetRef = useRef();
 
-    useEffect(() => {
+    const effect = () => {
         refs.forEach(ref => {
             if (!isNil(ref)) {
                 assignRef(ref, targetRef.current);
             }
-
         });
-    }, [refs]);
+    };
+
+    useEffect.apply(null, [effect, ...refs]);
 
     return targetRef;
 }
