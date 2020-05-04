@@ -107,7 +107,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createInput({
         autofocus: true,
-        autofocusDelay: 50,
+        autofocusDelay: 100,
         ref: () => {
             // don't need to hold a ref..
         }
@@ -116,7 +116,7 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
