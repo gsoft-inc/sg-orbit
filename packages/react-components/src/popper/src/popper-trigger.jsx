@@ -285,7 +285,6 @@ function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopp
                     event.preventDefault();
                     showPopper(event);
                 }
-
             } else if (key === KEYS.enter) {
                 if (showOnEnter) {
                     event.preventDefault();

@@ -244,7 +244,7 @@ test("consumer can set is own toggle handler", async () => {
     userEvent.click(getByTestId("button"));
     await wait();
 
-    expect(handler).toHaveBeenCalled();
+    expect(handler).toHaveBeenCalledTimes(1);
 });
 
 test("call onVisibilityChange when the popper is showed with a trigger toggle", async () => {
@@ -289,7 +289,7 @@ test("call onVisibilityChange when the popper is showed with enter keydown", asy
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
-test("call onVisibilityChange when the calendar is hided with an outside click", async () => {
+test("call onVisibilityChange when the popper is hidden with an outside click", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createPopperTrigger({
@@ -304,7 +304,7 @@ test("call onVisibilityChange when the calendar is hided with an outside click",
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
-test("call onVisibilityChange when the calendar is hided with esc keydown", async () => {
+test("call onVisibilityChange when the popper is hidden with esc keydown", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createPopperTrigger({
@@ -319,7 +319,7 @@ test("call onVisibilityChange when the calendar is hided with esc keydown", asyn
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
-test("call onVisibilityChange when the calendar hide on blur", async () => {
+test("call onVisibilityChange when the popper hide on blur", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(createPopperTrigger({

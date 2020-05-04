@@ -106,6 +106,20 @@ test("when wrapped, using a callback ref, ref is a DOM element", async () => {
     expect(refNode.getAttribute("data-testid")).toBe(POPPER_WRAPPER_ID);
 });
 
+test("when wrapped, set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createPopper({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
+
 test("when not wrapped, ref is a DOM element", async () => {
     const ref = createRef();
 
@@ -142,4 +156,19 @@ test("when not wrapped and using a callback ref, ref is a DOM element", async ()
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).not.toBe(POPPER_WRAPPER_ID);
+});
+
+test("when not wrapped, set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createPopper({
+            noWrap: true,
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
 });

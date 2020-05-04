@@ -40,26 +40,22 @@ test("state is the default value when no controlled value and no initial value a
 });
 
 test("state is unchanged when a subsequent run is made with the same values", () => {
-    let callCount = 0;
+    const handler = jest.fn();
 
-    const { result, rerender } = renderHook(() => useAutoControlledState(true, undefined, false, () => {
-        callCount++;
-    }));
+    const { result, rerender } = renderHook(() => useAutoControlledState(true, undefined, false, handler));
 
     expect(result.current[0]).toBeTruthy();
 
     rerender();
 
     expect(result.current[0]).toBeTruthy();
-    expect(callCount).toBe(1);
+    expect(handler).toHaveBeenCalledTimes(1);
 });
 
 test("state is updated when a new controlled value is provided on a subsequent run", () => {
-    let callCount = 0;
+    const handler = jest.fn();
 
-    const { result, rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, () => {
-        callCount++;
-    }), {
+    const { result, rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, handler), {
         initialProps: {
             controlledValue: true
         }
@@ -72,7 +68,7 @@ test("state is updated when a new controlled value is provided on a subsequent r
     });
 
     expect(result.current[0]).toBeFalsy();
-    expect(callCount).toBe(2);
+    expect(handler).toHaveBeenCalledTimes(2);
 });
 
 test("throw an error when a controlled value is not provided on the first run but is provided on a subsequent run", () => {
@@ -215,11 +211,9 @@ test("call onChange when a new value is provided for a controlled prop", () => {
 });
 
 test("don't call onChange when a new value is set for a controlled prop", () => {
-    let callCount = 0;
+    const handler = jest.fn();
 
-    const { result } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, () => {
-        callCount++;
-    }), {
+    const { result } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, handler), {
         initialProps: {
             controlledValue: true
         }
@@ -229,7 +223,7 @@ test("don't call onChange when a new value is set for a controlled prop", () => 
         result.current[1](false);
     });
 
-    expect(callCount).toBe(1);
+    expect(handler).toHaveBeenCalledTimes(1);
 });
 
 test("call onChange when a new value is set for an uncontrolled prop", () => {

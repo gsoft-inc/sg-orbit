@@ -73,8 +73,8 @@ export const CHECKBOX_DEFAULT_PROPS = {
     __unsupportedProps: UNSUPPORTED_PROPS
 };
 
-function getInputElement(innerRef) {
-    return innerRef.current.querySelector("input");
+function getInputElement(checkboxRef) {
+    return checkboxRef.current.querySelector("input");
 }
 
 function focus(innerRef) {
@@ -83,13 +83,13 @@ function focus(innerRef) {
     }
 }
 
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
+function useDelayedAutofocus(autofocus, autofocusDelay, disabled, checkboxRef) {
     useEffect(() => {
         let timeoutId;
 
         if (autofocus && !disabled && !isNil(autofocusDelay)) {
             timeoutId = setTimeout(() => {
-                focus(innerRef);
+                focus(checkboxRef);
             }, autofocusDelay);
         }
 
@@ -98,7 +98,7 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, disabled, innerRef]);
+    }, [autofocus, autofocusDelay, disabled, checkboxRef]);
 }
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
