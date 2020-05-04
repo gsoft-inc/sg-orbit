@@ -1,7 +1,7 @@
 import { IS_PRODUCTION } from "../env";
 import { ensure } from "../contracts";
-import { isFunction, isNil, isUndefined } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { isFunction, isUndefined } from "lodash";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function validatePrerequisites(controlledValue, initialValue) {
     if (!IS_PRODUCTION) {
@@ -25,24 +25,30 @@ function notifyStateChanged(newState, isInitialState, handler) {
     }
 }
 
-function computeInitialState(controlledValue, initialValue, defaultValue) {
+function useComputeInitialState(controlledValue, initialValue, defaultValue) {
+    const result = (state, isControlled, isInitialState = false) => ({ state, isControlled, isInitialState });
+
+    const hasComputed = useRef(false);
+
+    if (hasComputed.current) {
+        return result(null, null);
+    }
+
     let state;
     let isControlled = false;
 
     if (isUndefined(controlledValue)) {
         // This prop is "uncontrolled".
         state = !isUndefined(initialValue) ? initialValue : defaultValue;
-
     } else {
         // This prop is "controlled".
         state = controlledValue;
         isControlled = true;
     }
 
-    return {
-        state,
-        isControlled
-    };
+    hasComputed.current = true;
+
+    return result(state, isControlled, true);
 }
 
 function computeSubsequentState(controlledValue, currentState, isControlled) {
@@ -67,20 +73,18 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
 /**
  * Safely attempt to set state for an auto controlled prop that might be "controlled" by the consumer.
  * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
- *
- * @param {Object} maybeState - The expected new state value.
- * @example
- * setAutoControlledState(["Neil Armstrong"]);
  */
-function setAutoControlledState(maybeState, currentState, setState, isControlled, onChange) {
-    ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
+function useSetAutoControlledState(currentState, setState, isControlled, onChange) {
+    return useCallback(maybeState => {
+        ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
 
-    if (!isControlled) {
-        if (maybeState !== currentState) {
-            setState(maybeState);
-            notifyStateChanged(maybeState, false, onChange);
+        if (!isControlled) {
+            if (maybeState !== currentState) {
+                setState(maybeState);
+                notifyStateChanged(maybeState, false, onChange);
+            }
         }
-    }
+    }, [currentState, setState, isControlled, onChange]);
 }
 
 /**
@@ -94,32 +98,33 @@ function setAutoControlledState(maybeState, currentState, setState, isControlled
  * @param {Function} [onChange] - An optionnal function called when the auto controlled state is updated.
  * @returns {[Object, Function]} An array with the first value being the value of the state and the second value being a function to manually update the state value.
  * @example
- * const [autoControlledValues, setValues] = useAutoControlledState(values, defaultValues, false, (newValues, isInitialState) => {
+ * const [autoControlledValue, setAutoControlledState] = useAutoControlledState(value, initialValue, defaultValue, (newValue, isInitialState) => {
  *      // Optionally compute derived state...
  *      if (isInitialState) {
- *          setSelectedValues(newValues)
+ *          setSelectedValue(newValue)
  *      }
  * });
  *
  * ...
  *
- * setValues([...autoControlledValues, "Neil Armstrong"]);
+ * setAutoControlledState("Neil Armstrong");
  */
 export function useAutoControlledState(controlledValue, initialValue, defaultValue, onChange) {
-    const [state, setState] = useState(null);
-    const [isControlled, setIsControlled] = useState(false);
-
     validatePrerequisites(controlledValue, initialValue);
 
-    useEffect(() => {
-        if (isNil(state)) {
-            const { state: initialState, isControlled: isControlledProp } = computeInitialState(controlledValue, initialValue, defaultValue);
+    const { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
 
-            setState(initialState);
-            setIsControlled(isControlledProp);
-            notifyStateChanged(initialState, true, onChange);
-        }
-        else {
+    // console.log("** useComputeInitialState, ", " initialState: ", initialState, " isControlledProp: ", isControlledProp, " isInitialState: ", isInitialState);
+
+    const [state, setState] = useState(initialState);
+    const [isControlled] = useState(isControlledProp);
+
+    if (isInitialState) {
+        notifyStateChanged(initialState, true, onChange);
+    }
+
+    useEffect(() => {
+        if (!isInitialState) {
             const { newState, hasChanged } = computeSubsequentState(controlledValue, state, isControlled);
 
             if (hasChanged) {
@@ -127,11 +132,9 @@ export function useAutoControlledState(controlledValue, initialValue, defaultVal
                 notifyStateChanged(newState, false, onChange);
             }
         }
-    }, [state, isControlled, controlledValue, initialValue, defaultValue, onChange]);
+    }, [state, isControlled, isInitialState, controlledValue, initialValue, defaultValue, onChange]);
 
-    const memoizedSetAutoControlledState = useCallback(maybeState => {
-        setAutoControlledState(maybeState, state, setState, isControlled, onChange);
-    }, [state, isControlled, onChange]);
+    const setAutoControlledState = useSetAutoControlledState(state, setState, isControlled, onChange);
 
-    return [state, memoizedSetAutoControlledState];
+    return [state, setAutoControlledState];
 }

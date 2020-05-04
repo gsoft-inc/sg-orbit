@@ -3,7 +3,7 @@ import styles from "./boundary.module.css";
 import { Children, cloneElement, useState } from "react";
 
 export function Boundary({ children }) {
-    const [boundaryElement, setBoundaryElement] = useState(null);
+    const [boundaryElement, setBoundaryElement] = useState();
 
     const popper = cloneElement(Children.only(children), {
         popperModifiers: [

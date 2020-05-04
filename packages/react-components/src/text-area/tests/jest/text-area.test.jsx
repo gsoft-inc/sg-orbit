@@ -35,14 +35,14 @@ test("when autofocus on a disabled textarea, the textarea is not autofocused on 
 test("when delayed autofocus, the textarea is autofocused after the delay", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getByTestId("textarea")).toHaveFocus();
 });
 
@@ -50,14 +50,14 @@ test("when delayed autofocus on a disabled textarea, the textarea is not autofoc
     const { getByTestId } = render(createTextArea({
         disabled: true,
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getByTestId("textarea")).not.toHaveFocus();
 });
 
@@ -100,7 +100,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 50,
+        autofocusDelay: 100,
         ref: () => {
             // don't need to hold a ref..
         }
@@ -109,7 +109,7 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getByTestId("textarea")).toHaveFocus();
 });
 

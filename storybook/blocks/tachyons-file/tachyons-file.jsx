@@ -7,7 +7,7 @@ const propTypes = {
 };
 
 export function TachyonsFile({ relativeFilePath: relativePath }) {
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState();
 
     if (isNil(content)) {
         import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/tachyons/docs/dist${relativePath}`)

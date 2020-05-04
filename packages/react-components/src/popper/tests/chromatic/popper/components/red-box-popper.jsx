@@ -21,7 +21,7 @@ export const RedBox = forwardRef((props, ref) => (
 ));
 
 function PureRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
-    const [triggerElement, setTriggerElement] = useState(null);
+    const [triggerElement, setTriggerElement] = useState();
     const [isVisible, setVisibility] = useState(defaultShow);
 
     return (

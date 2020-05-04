@@ -99,17 +99,17 @@ const defaultProps = {
     __semanticDropdown: SemanticDropdown
 };
 
-function focus(search, innerRef) {
-    if (!isNil(innerRef.current)) {
+function focus(search, dropdownRef) {
+    if (!isNil(dropdownRef.current)) {
         if (search) {
-            innerRef.current.querySelector("input.search").focus();
+            dropdownRef.current.querySelector("input.search").focus();
         } else {
-            innerRef.current.focus();
+            dropdownRef.current.focus();
         }
     }
 }
 
-function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
+function useAutofocus(autofocus, autofocusDelay, search, disabled, dropdownRef) {
     useEffect(() => {
         let timeoutId;
 
@@ -117,7 +117,7 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
             const delay = !isNil(autofocusDelay) ? autofocusDelay : 5;
 
             timeoutId = setTimeout(() => {
-                focus(search, innerRef);
+                focus(search, dropdownRef);
             }, delay);
         }
 
@@ -126,11 +126,11 @@ function useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, search, disabled, innerRef]);
+    }, [autofocus, autofocusDelay, search, disabled, dropdownRef]);
 }
 
 export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown: InnerDropdown,...rest } = props;
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown: ConcreteDropdown,...rest } = props;
 
     const stateRef = useRef({ valueChanged: false });
     const componentRef = useRef();
@@ -233,7 +233,7 @@ export function PureDropdown(props) {
         >
             <Ref innerRef={innerRef}>
                 <DropdownContext.Provider value={{ size: size }}>
-                    <InnerDropdown
+                    <ConcreteDropdown
                         data-testid="dropdown"
                         {...rest}
                         onOpen={handleOpen}

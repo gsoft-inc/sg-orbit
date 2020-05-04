@@ -1,5 +1,5 @@
 import { isFunction, isNil } from "lodash";
-import { useEffect, useRef } from "react";
+import { useCallback } from "react";
 
 export function assignRef(ref, node) {
     if (!isNil(ref)) {
@@ -11,17 +11,26 @@ export function assignRef(ref, node) {
     }
 }
 
+/**
+ * @param {...Function|Object} refs - Refs to combine.
+ * @returns {Function} - A callback ref.
+ * @example
+ * const combinedRef = useCombinedRefs(forwardedRef);
+ *
+ * return <div ref={combinedRef}>...</div>
+ */
 export function useCombinedRefs(...refs) {
-    const targetRef = useRef();
+    const combinedRef = useCallback(current => {
+        // Support using the returned callback function has a ref.
+        combinedRef.current = current;
 
-    useEffect(() => {
         refs.forEach(ref => {
             if (!isNil(ref)) {
-                assignRef(ref, targetRef.current);
+                assignRef(ref, current);
             }
-
         });
-    }, [refs]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, refs);
 
-    return targetRef;
+    return combinedRef;
 }

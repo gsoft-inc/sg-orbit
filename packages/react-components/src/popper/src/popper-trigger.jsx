@@ -285,7 +285,6 @@ function useHandleTriggerKeyDown(disabled, showOnSpacebar, showOnEnter, showPopp
                     event.preventDefault();
                     showPopper(event);
                 }
-
             } else if (key === KEYS.enter) {
                 if (showOnEnter) {
                     event.preventDefault();
@@ -411,7 +410,7 @@ function getToggleHandler(trigger, handlerName, handler) {
 }
 
 function useTriggerRenderer(trigger, toggleHandler, disabled, handleToggle, handleKeyDown) {
-    const [triggerElement, setTriggerElement] = useState(null);
+    const [triggerElement, setTriggerElement] = useState();
 
     const ref = useCombinedRefs(setTriggerElement, !isNil(trigger.ref) ? trigger.ref : undefined);
     const focusTrigger = useFocusTrigger(triggerElement);
@@ -467,7 +466,7 @@ function usePopperRenderer(
     children,
     triggerElement
 ) {
-    const [popperElement, setPopperElement] = useState(null);
+    const [popperElement, setPopperElement] = useState();
 
     const focusPopper = useFocusPopper(popperElement);
 

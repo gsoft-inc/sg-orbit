@@ -41,13 +41,13 @@ test("when autofocus on a disabled input, the input is not autofocused on render
 test("when delayed autofocus, the input is autofocused after the delay", async () => {
     const { getByTestId } = render(createInput({
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
@@ -56,7 +56,7 @@ test("when delayed autofocus on a disabled input, the input is not autofocused a
         createInput({
             disabled: true,
             autofocus: true,
-            autofocusDelay: 50
+            autofocusDelay: 100
         })
     );
 
@@ -64,7 +64,7 @@ test("when delayed autofocus on a disabled input, the input is not autofocused a
     expect(getInput(getByTestId)).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
@@ -107,7 +107,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createInput({
         autofocus: true,
-        autofocusDelay: 50,
+        autofocusDelay: 100,
         ref: () => {
             // don't need to hold a ref..
         }
@@ -116,7 +116,7 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 

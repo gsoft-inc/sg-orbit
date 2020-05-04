@@ -1,5 +1,5 @@
 import { PopperTrigger } from "./popper-trigger";
-import { cloneElement, forwardRef, useCallback } from "react";
+import { cloneElement, forwardRef, useCallback, useRef } from "react";
 import { createInputFromShorthand } from "../../input";
 import { element, func, object, oneOfType } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -39,6 +39,7 @@ function parseInput(input) {
 }
 
 function useButtonRenderer({ hasButton, button }) {
+    const buttonRef = useRef();
     const ref = useCombinedRefs(hasButton && !isNil(button.ref) ? button.ref : undefined);
 
     const renderer = () => {
@@ -55,7 +56,7 @@ function useButtonRenderer({ hasButton, button }) {
         };
     };
 
-    return [renderer, ref];
+    return [renderer, buttonRef];
 }
 
 function useTriggerRenderer({ input, isElement, hasButton }, buttonRenderer) {

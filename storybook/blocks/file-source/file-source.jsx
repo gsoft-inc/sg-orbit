@@ -16,7 +16,7 @@ const defaultProps = {
 };
 
 export function FileSource({ filePath, language, format }) {
-    const [source, setSource] = useState(null);
+    const [source, setSource] = useState();
 
     if (isNil(source)) {
         import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)

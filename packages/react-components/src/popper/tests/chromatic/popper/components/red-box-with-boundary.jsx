@@ -36,7 +36,7 @@ function setModifierBoundaryElement(name, boundaryElement, modifiers) {
 }
 
 export function RedBoxPopperWithBoundary({ scrollTop, modifiers, setPreventOverflowBoundaryElement, setFlipBoundaryElement, ...rest }) {
-    const [boundaryElement, setBoundaryElement] = useState(null);
+    const [boundaryElement, setBoundaryElement] = useState();
 
     useLayoutEffect(() => {
         if (!isNil(boundaryElement)) {
