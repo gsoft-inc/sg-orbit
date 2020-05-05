@@ -113,6 +113,20 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     expect(getByTestId("textarea")).toHaveFocus();
 });
 
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createTextArea({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
+
 // ***** API *****
 
 test("can focus the text area with the focus api", async () => {

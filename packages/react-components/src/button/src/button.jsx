@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, cloneElement, forwardRef, useCallback } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
@@ -92,21 +92,14 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
+function useIconRenderer(icon, size) {
+    return useCallback(() => {
+        return createIconForControl(icon, size);
+    }, [icon, size]);
+}
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderButton()}
-            </Ref>
-        );
-    };
-
-    const renderLabel = () => {
+function useLabelRenderer(label, disabled) {
+    return useCallback(() => {
         const defaults = {
             as: "span",
             size: "mini",
@@ -122,9 +115,11 @@ export function PureButton(props) {
             ...defaults,
             ...label
         });
-    };
+    }, [label, disabled]);
+}
 
-    const renderTag = () => {
+function useTagRenderer(tag, disabled) {
+    return () => {
         const defaults = {
             as: "span",
             size: "mini",
@@ -140,67 +135,89 @@ export function PureButton(props) {
             ...tag
         });
     };
+}
 
-    const renderContent = () => {
-        if (!loading) {
-            let left;
-            let right;
+function useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children) {
+    const iconRenderer = useIconRenderer(icon, size);
+    const labelRenderer = useLabelRenderer(label, disabled);
+    const tagRenderer = useTagRenderer(tag, disabled);
 
-            if (!isNil(icon)) {
-                if (iconPosition === "right") {
-                    right = createIconForControl(icon, size);
-                } else {
-                    left = createIconForControl(icon, size);
-                }
-            }
+    if (!loading) {
+        let left;
+        let right;
 
-            if (!isNil(label)) {
-                right = renderLabel();
-            }
-
-            if (!isNil(tag)) {
-                left = renderTag();
-            }
-
-            if (!isNil(left) || !isNil(right)) {
-                return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+        if (!isNil(icon)) {
+            if (iconPosition === "right") {
+                right = iconRenderer();
+            } else {
+                left = iconRenderer();
             }
         }
 
-        return children;
-    };
+        if (!isNil(label)) {
+            right = labelRenderer();
+        }
 
-    const renderButton = () => {
-        const hasText = Children.count(children) > 0;
+        if (!isNil(tag)) {
+            left = tagRenderer();
+        }
 
-        const classes = mergeClasses(
-            naked && "naked",
-            ghost && "ghost",
-            link && "link",
-            !isNil(icon) && "with-icon",
-            !isNil(icon) && iconPosition === "right" && "with-icon-right",
-            !isNil(label) && "with-label",
-            !isNil(tag) && "with-tag",
-            !hasText && "without-text",
-            className
-        );
+        if (!isNil(left) || !isNil(right)) {
+            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+        }
+    }
 
+    return children;
+}
+
+function useButtonRenderer(basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest) {
+    const contentRenderer = useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children);
+    const hasText = Children.count(children) > 0;
+
+    const classes = mergeClasses(
+        naked && "naked",
+        ghost && "ghost",
+        link && "link",
+        !isNil(icon) && "with-icon",
+        !isNil(icon) && iconPosition === "right" && "with-icon-right",
+        !isNil(label) && "with-label",
+        !isNil(tag) && "with-tag",
+        !hasText && "without-text",
+        className
+    );
+
+    return (
+        <SemanticButton
+            data-testid="button"
+            {...rest}
+            basic={basic}
+            size={size}
+            loading={loading}
+            disabled={disabled}
+            className={classes}
+        >
+            {contentRenderer()}
+        </SemanticButton>
+    );
+}
+
+export function PureButton(props) {
+    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+
+    const buttonRenderer = useButtonRenderer(basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest);
+
+    if (!isNil(forwardedRef)) {
         return (
-            <SemanticButton
-                data-testid="button"
-                {...rest}
-                basic={basic}
-                size={size}
-                loading={loading}
-                disabled={disabled}
-                className={classes}
-            >
-                {renderContent()}
-            </SemanticButton>
+            <Ref innerRef={forwardedRef}>
+                {buttonRenderer()}
+            </Ref>
         );
-    };
+    }
 
-    return isNil(forwardedRef) ? renderButton() : renderWithRef();
+    return buttonRenderer();
 }
 
 PureButton.propTypes = propTypes;

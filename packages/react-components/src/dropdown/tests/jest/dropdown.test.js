@@ -131,3 +131,17 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("dropdown");
 });
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createDropdown({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});

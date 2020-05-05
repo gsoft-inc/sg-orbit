@@ -103,3 +103,17 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
 });
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createCheckbox({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
