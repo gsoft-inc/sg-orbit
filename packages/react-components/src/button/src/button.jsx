@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
 import { Children, cloneElement, forwardRef, useCallback } from "react";
-import { Ref, Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
+import { Button as SemanticButton } from "semantic-ui-react";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
 import { createTagFromShorthand } from "../../tag";
@@ -45,6 +45,14 @@ const propTypes = {
      * A button can be colorless. Use this variant if you need to customize the button.
      */
     naked: bool,
+    /**
+     * Whether or not the checkbox should autofocus on render.
+     */
+    autofocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autofocusDelay: number,
     /**
      * An input can vary in sizes.
      */
@@ -90,6 +98,14 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
         throw new ArgumentError("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
     }
+}
+
+function useFocusButton(buttonRef) {
+    return useCallback(() => {
+        if (!isNil(buttonRef.current)) {
+            buttonRef.current.focus();
+        }
+    });
 }
 
 function useIconRenderer(icon, size) {
@@ -142,36 +158,47 @@ function useContentRenderer(icon, iconPosition, label, tag, size, loading, disab
     const labelRenderer = useLabelRenderer(label, disabled);
     const tagRenderer = useTagRenderer(tag, disabled);
 
-    if (!loading) {
-        let left;
-        let right;
+    return () => {
+        if (!loading) {
+            let left;
+            let right;
 
-        if (!isNil(icon)) {
-            if (iconPosition === "right") {
-                right = iconRenderer();
-            } else {
-                left = iconRenderer();
+            if (!isNil(icon)) {
+                if (iconPosition === "right") {
+                    right = iconRenderer();
+                } else {
+                    left = iconRenderer();
+                }
+            }
+
+            if (!isNil(label)) {
+                right = labelRenderer();
+            }
+
+            if (!isNil(tag)) {
+                left = tagRenderer();
+            }
+
+            if (!isNil(left) || !isNil(right)) {
+                return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
             }
         }
 
-        if (!isNil(label)) {
-            right = labelRenderer();
-        }
-
-        if (!isNil(tag)) {
-            left = tagRenderer();
-        }
-
-        if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
-        }
-    }
-
-    return children;
+        return children;
+    };
 }
 
-function useButtonRenderer(basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest) {
+export function PureButton(props) {
+    const { basic, ghost, link, naked, icon, iconPosition, label, tag, autofocus, autofocusDelay, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+
+    const innerRef = useCombinedRefs(forwardedRef);
+    const focusButton = useFocusButton(innerRef);
+    const autofocusAttributes = useAutofocus(autofocus, autofocusDelay, disabled, focusButton);
     const contentRenderer = useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children);
+
     const hasText = Children.count(children) > 0;
 
     const classes = mergeClasses(
@@ -187,37 +214,21 @@ function useButtonRenderer(basic, ghost, link, naked, icon, iconPosition, label,
     );
 
     return (
-        <SemanticButton
-            data-testid="button"
-            {...rest}
-            basic={basic}
-            size={size}
-            loading={loading}
-            disabled={disabled}
-            className={classes}
-        >
-            {contentRenderer()}
-        </SemanticButton>
+        <SemanticRef innerRef={innerRef}>
+            <SemanticButton
+                data-testid="button"
+                {...rest}
+                basic={basic}
+                size={size}
+                loading={loading}
+                disabled={disabled}
+                className={classes}
+                {...autofocusAttributes}
+            >
+                {contentRenderer()}
+            </SemanticButton>
+        </SemanticRef>
     );
-}
-
-export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-
-    const buttonRenderer = useButtonRenderer(basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest);
-
-    if (!isNil(forwardedRef)) {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {buttonRenderer()}
-            </Ref>
-        );
-    }
-
-    return buttonRenderer();
 }
 
 PureButton.propTypes = propTypes;

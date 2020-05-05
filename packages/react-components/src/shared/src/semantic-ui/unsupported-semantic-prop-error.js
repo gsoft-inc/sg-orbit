@@ -1,4 +1,4 @@
-import { ExtendableError } from "./throwable-errors";
+import { ExtendableError } from "../throwable-errors";
 import { isNil } from "lodash";
 
 export class UnsupportedSemanticPropError extends ExtendableError {
