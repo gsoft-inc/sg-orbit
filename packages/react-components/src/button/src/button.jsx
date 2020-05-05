@@ -93,13 +93,13 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
 }
 
 function useIconRenderer(icon, size) {
-    return useCallback(() => {
+    return () => {
         return createIconForControl(icon, size);
-    }, [icon, size]);
+    };
 }
 
 function useLabelRenderer(label, disabled) {
-    return useCallback(() => {
+    return () => {
         const defaults = {
             as: "span",
             size: "mini",
@@ -115,7 +115,7 @@ function useLabelRenderer(label, disabled) {
             ...defaults,
             ...label
         });
-    }, [label, disabled]);
+    };
 }
 
 function useTagRenderer(tag, disabled) {
