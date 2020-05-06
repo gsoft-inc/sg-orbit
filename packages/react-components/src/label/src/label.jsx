@@ -3,7 +3,7 @@ import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "../../button";
-import { createIconForControl } from "../../icons";
+import { createCompactIconForControl, createIconForControl } from "../../icons";
 import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
@@ -108,10 +108,10 @@ export function PureLabel(props) {
     const renderButton = () => {
         const SIZES_TO_BUTTON = {
             [MINI]: MINI,
-            [TINY]: TINY,
-            [SMALL]: SMALL,
-            [MEDIUM]: MEDIUM,
-            [LARGE]: LARGE
+            [TINY]: MINI,
+            [SMALL]: TINY,
+            [MEDIUM]: SMALL,
+            [LARGE]: MEDIUM
         };
 
         const defaults = {
@@ -149,14 +149,25 @@ export function PureLabel(props) {
     };
 
     const renderContent = () => {
+        const hasText = Children.count(children) > 0;
+
         let left;
         let right;
 
         if (!isNil(icon)) {
-            if (iconPosition === "right") {
+            if (iconPosition === "right" && hasText) {
                 right = createIconForControl(icon, size);
-            } else {
-                left = createIconForControl(icon, size);
+            }
+            else if (iconPosition === "right") {
+                right = createCompactIconForControl(icon, size);
+            }
+            else {
+                if (hasText) {
+                    left = createIconForControl(icon, size);
+                }
+                else {
+                    left = createCompactIconForControl(icon, size);
+                }
             }
         }
 
@@ -169,10 +180,10 @@ export function PureLabel(props) {
         }
 
         if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+            return <>{!isNil(left) && left}<span className="text">{children}</span>{!isNil(right) && right}</>;
         }
 
-        return children;
+        return <span className="text">{children}</span>;
     };
 
     const renderLabel = () => {

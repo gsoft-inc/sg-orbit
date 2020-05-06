@@ -237,18 +237,36 @@
     top: 2px;
 }
 
+.ui.toggle.checkbox .box:before,
+.ui.toggle.checkbox label:before {
+    border: 1px solid var(--cloud-200);
+}
+
+.ui.toggle.checkbox:hover .box:before,
+.ui.toggle.checkbox:hover label:before {
+    border: 1px solid var(--cloud-200);
+}
+
 /* toggle Focus */
-.ui.toggle.checkbox input:focus ~ .box:before,
-.ui.toggle.checkbox input:focus ~ label:before,
 .ui.toggle.checkbox input:focus:hover ~ .box:before,
 .ui.toggle.checkbox input:focus:hover ~ label:before {
     border: 1px solid var(--cloud-500);
+}
+
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
+    border: 1px solid var(--cloud-200);
 }
 
 /* toggle Focus Checked */
 .ui.toggle.checkbox input:checked:focus ~ .box:before,
 .ui.toggle.checkbox input:checked:focus ~ label:before {
     border: 1px solid var(--primary-900);
+}
+
+.ui.toggle.checkbox input:checked:focus ~ .box::before,
+.ui.toggle.checkbox input:checked:focus ~ label::before {
+    border: 1px solid var(--primary-500);
 }
 
 /* SIZE | Tiny */
@@ -573,11 +591,14 @@
     border: 1px solid var(--marine-100);
 }
 
-.ui.checkbox.read-only input:checked:focus ~ .box:before,
-.ui.checkbox.read-only input:checked:focus ~ label:before,
 .ui.checkbox.read-only input:checked:hover ~ .box:before,
 .ui.checkbox.read-only input:checked:hover ~ label:before {
     border: 1px solid var(--primary-900);
+}
+
+.ui.checkbox.read-only input:checked:focus ~ .box:before,
+.ui.checkbox.read-only input:checked:focus ~ label:before {
+    border: 1px solid var(--primary-500);
 }
 
 /* LAYOUT | SIZE | Tiny | Checkbox */

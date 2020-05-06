@@ -96,7 +96,13 @@ a.ui.button {
     min-width: var(--scale-hotel);
 }
 
-/* LAYOUT | Circular/Tiny */
+.ui.button.circular.compact,
+.ui.button.with-icon.circular.compact,
+.ui.button.with-icon.without-text.circular.compact {
+    font-size: @typeScale4;
+}
+
+/* LAYOUT | Circular/Mini */
 .ui.button.mini.circular,
 .ui.button.with-icon.mini.circular {
     font-size: @typeScale9;
@@ -112,6 +118,12 @@ a.ui.button {
     min-width: var(--scale-foxtrot);
 }
 
+/* LAYOUT | Circular/Tiny|Compact */
+.ui.button.tiny.circular.compact,
+.ui.button.with-icon.tiny.circular.compact {
+    font-size: @typeScale6;
+}
+
 /* LAYOUT | Circular/Small */
 .ui.button.small.circular,
 .ui.button.with-icon.small.circular {
@@ -120,12 +132,24 @@ a.ui.button {
     min-width: var(--scale-golf);
 }
 
+/* LAYOUT | Circular/Small|Compact */
+.ui.button.small.circular.compact,
+.ui.button.with-icon.small.circular.compact {
+    font-size: @typeScale5;
+}
+
 /* LAYOUT | Circular/Large */
 .ui.button.large.circular,
 .ui.button.with-icon.large.circular {
     font-size: @typeScale6;
     min-height: var(--scale-india);
     min-width: var(--scale-india);
+}
+
+/* LAYOUT | Circular/Large|Compact */
+.ui.button.large.circular.compact,
+.ui.button.with-icon.large.circular.compact {
+    font-size: @typeScale4;
 }
 
 /* LAYOUT | Naked */

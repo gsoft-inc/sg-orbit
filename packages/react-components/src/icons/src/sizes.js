@@ -14,6 +14,21 @@ const CONTROLS_SIZES = {
     [MASSIVE]: HUGE
 };
 
+const CONTROLS_SIZES_COMPACT = {
+    [MINI]: TINY,
+    [TINY]: TINY,
+    [SMALL]: SMALL,
+    [MEDIUM]: MEDIUM,
+    [LARGE]: LARGE,
+    [BIG]: BIG,
+    [HUGE]: HUGE,
+    [MASSIVE]: MASSIVE
+};
+
 export function getIconSizeForControl(controlSize = DEFAULT_SIZE) {
     return CONTROLS_SIZES[controlSize];
+}
+
+export function getIconSizeForCompactControl(controlSize = DEFAULT_SIZE) {
+    return CONTROLS_SIZES_COMPACT[controlSize];
 }

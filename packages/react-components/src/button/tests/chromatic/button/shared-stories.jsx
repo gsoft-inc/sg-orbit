@@ -219,6 +219,12 @@ export function createSharedStories(button, stories) {
                     <Button size="large" circular element={button}>Aa</Button>
                 </div>
                 <div className="flex items-end mb5">
+                    <Button size="tiny" circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="small" circular compact element={button} className="mr5">Aa</Button>
+                    <Button circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="large" circular compact element={button}>Aa</Button>
+                </div>
+                <div className="flex items-end mb5">
                     <Button size="tiny" icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button size="small" icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon />} circular element={button} className="mr5" />

@@ -4,7 +4,7 @@ import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from 
 import { Children, cloneElement, forwardRef } from "react";
 import { Ref, Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { createIconForControl } from "../../icons";
+import { createCompactIconForControl, createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
 import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
@@ -146,15 +146,24 @@ export function PureButton(props) {
     };
 
     const renderContent = () => {
+        const hasText = Children.count(children) > 0;
+
         if (!loading) {
             let left;
             let right;
 
             if (!isNil(icon)) {
-                if (iconPosition === "right") {
+                if (iconPosition === "right" && hasText) {
                     right = createIconForControl(icon, size);
-                } else {
-                    left = createIconForControl(icon, size);
+                } else if (iconPosition === "right" && !hasText) {
+                    right = createCompactIconForControl(icon, size);
+                }
+                else {
+                    if (hasText) {
+                        left = createIconForControl(icon, size);
+                    } else {
+                        left = createCompactIconForControl(icon, size);
+                    }
                 }
             }
 
