@@ -74,8 +74,6 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 function useSetFocus(containerRef) {
     return () => {
         if (!isNil(containerRef.current)) {
-            console.log(containerRef.current);
-
             containerRef.current.querySelector("input").focus();
         }
     };
@@ -204,8 +202,8 @@ export function PureInput(props) {
 
     const renderIcon = useIconRenderer({ icon, size, loading });
     const renderButton = useButtonRenderer({ iconPosition, button, size, loading, disabled });
-    const renderInput = useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderButton(), renderIcon());
-    const render = useRenderer({ className, fluid }, containerRef, renderInput() );
+    const renderInput = useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderIcon());
+    const render = useRenderer({ button, fluid, className }, containerRef, renderButton(), renderInput() );
 
     return render();
 }

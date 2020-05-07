@@ -159,7 +159,7 @@ function usePopperInstance(position, triggerElement, pinned, offset, popperModif
     return [styles.popper, attributes.popper];
 }
 
-function useWrapperRenderer(className, rest) {
+function useWrapperRenderer({ className, rest }) {
     return popper => {
         const classes = mergeClasses(
             "outline-0",
@@ -179,14 +179,14 @@ function useWrapperRenderer(className, rest) {
     };
 }
 
-function usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef) {
+function usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper) {
     return () => {
         // This condition is a kind of a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
         // popper is shown.
         if (show) {
             const popper = Children.only(children);
 
-            return cloneElement(!noWrap ? wrapperRenderer(popper) : popper, {
+            return cloneElement(!noWrap ? renderWrapper(popper) : popper, {
                 style: {
                     ...style,
                     ...popperStyles,
@@ -196,6 +196,25 @@ function usePopperRenderer(show, noWrap, animate, style, children, popperStyles,
                 ...popperAttributes,
                 ref: popperRef
             });
+        }
+
+        return null;
+    };
+}
+
+function useRenderer({ disabled, noPortal, portalElement }, popper) {
+    return () => {
+        if (!disabled) {
+            return (
+                <Choose>
+                    <When condition={noPortal}>
+                        {popper}
+                    </When>
+                    <Otherwise>
+                        {createPortal(popper, portalElement || window.document.body)}
+                    </Otherwise>
+                </Choose>
+            );
         }
 
         return null;
@@ -227,23 +246,11 @@ export function InnerPopper({
 
     const [popperStyles, popperAttributes] = usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement);
 
-    const wrapperRenderer = useWrapperRenderer(className, rest);
-    const popperRenderer = usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
+    const renderWrapper = useWrapperRenderer({ className, rest });
+    const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper);
+    const render = useRenderer({ disabled, noPortal, portalElement }, renderPopper());
 
-    if (!disabled) {
-        return (
-            <Choose>
-                <When condition={noPortal}>
-                    {popperRenderer()}
-                </When>
-                <Otherwise>
-                    {createPortal(popperRenderer(), portalElement || window.document.body)}
-                </Otherwise>
-            </Choose>
-        );
-    }
-
-    return null;
+    return render();
 }
 
 InnerPopper.propTypes = propTypes;

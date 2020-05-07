@@ -209,12 +209,12 @@ function useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag
                 <SemanticButton
                     data-testid="button"
                     {...rest}
+                    {...autofocusProps}
                     basic={basic}
                     size={size}
                     loading={loading}
                     disabled={disabled}
                     className={classes}
-                    {...autofocusProps}
                 >
                     {renderContent()}
                 </SemanticButton>

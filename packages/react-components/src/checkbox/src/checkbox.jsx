@@ -173,10 +173,10 @@ function useRenderer({ text, icons, label, size, disabled, className, rest }, au
                 <SemanticCheckbox
                     data-testid="checkbox"
                     {...rest}
+                    {...autofocusProps}
                     label={content}
                     disabled={disabled}
                     className={classes}
-                    {...autofocusProps}
                 />
             </SemanticRef>
         );
