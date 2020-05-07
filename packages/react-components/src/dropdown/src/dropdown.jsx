@@ -2,11 +2,11 @@ import "./item-factory";
 
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
-import { KEYS, LARGE, SMALL, mergeClasses, useCombinedRefs, useDomEventListener } from "../../shared";
-import { Ref, Dropdown as SemanticDropdown } from "semantic-ui-react";
+import { KEYS, LARGE, SMALL, SemanticRef, mergeClasses, useAutofocus, useCombinedRefs, useDomEventListener } from "../../shared";
+import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -99,107 +99,137 @@ const defaultProps = {
     __semanticDropdown: SemanticDropdown
 };
 
-function focus(search, dropdownRef) {
-    if (!isNil(dropdownRef.current)) {
-        if (search) {
-            dropdownRef.current.querySelector("input.search").focus();
-        } else {
-            dropdownRef.current.focus();
-        }
-    }
-}
-
-function useAutofocus(autofocus, autofocusDelay, search, disabled, dropdownRef) {
-    useEffect(() => {
-        let timeoutId;
-
-        if (autofocus && !disabled) {
-            const delay = !isNil(autofocusDelay) ? autofocusDelay : 5;
-
-            timeoutId = setTimeout(() => {
-                focus(search, dropdownRef);
-            }, delay);
-        }
-
-        return () => {
-            if (!isNil(timeoutId)) {
-                clearTimeout(timeoutId);
+function useSetFocus(search, dropdownRef) {
+    return useCallback(() => {
+        if (!isNil(dropdownRef.current)) {
+            if (search) {
+                dropdownRef.current.querySelector("input.search").focus();
+            } else {
+                dropdownRef.current.focus();
             }
-        };
-    }, [autofocus, autofocusDelay, search, disabled, dropdownRef]);
+        }
+    }, [search, dropdownRef]);
 }
 
-export function PureDropdown(props) {
-    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown: ConcreteDropdown,...rest } = props;
-
-    const stateRef = useRef({ valueChanged: false });
-    const componentRef = useRef();
-    const innerRef = useCombinedRefs(forwardedRef);
-
-    const [isOpen, setIsOpen] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
-
-    useAutofocus(autofocus, autofocusDelay, search, disabled, innerRef);
-
-    const setValueChanged = newValue => {
-        stateRef.current.valueChanged = newValue;
-    };
-
-    const handleOpen = (...args) => {
+function useHandleOpen(onOpen, setIsOpen) {
+    return useCallback((...args) => {
         setIsOpen(true);
 
         if (!isNil(onOpen)) {
             onOpen(...args);
         }
-    };
+    }, [onOpen, setIsOpen]);
+}
 
-    const handleClose = (...args) => {
+function useHandleClose(onClose, setIsOpen) {
+    return useCallback((...args) => {
         setIsOpen(false);
 
         if (!isNil(onClose)) {
             onClose(...args);
         }
-    };
+    }, [onClose, setIsOpen]);
+}
 
-    const handleFocus = (...args) => {
+function useHandleFocus(onFocus, setIsFocus) {
+    return useCallback((...args) => {
         setIsFocus(true);
 
         if (!isNil(onFocus)) {
             onFocus(...args);
         }
-    };
+    }, [onFocus, setIsFocus]);
+}
 
-    const handleBlur = (...args) => {
+function useHandleBlur(onBlur, setIsFocus) {
+    return useCallback((...args) => {
         setIsFocus(false);
 
         if (!isNil(onBlur)) {
             onBlur(...args);
         }
-    };
+    }, [onBlur, setIsFocus]);
+}
 
-    const handleChange = (...args) => {
-        setValueChanged(true);
+function useHandleChange(onChange, hasValueChangeRef) {
+    return useCallback((...args) => {
+        hasValueChangeRef.current = true;
 
         if (!isNil(onChange)) {
             onChange(...args);
         }
-    };
+    }, [onChange, hasValueChangeRef]);
+}
 
-    const handleDocumentKeyDown = event => {
+function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
+    const handleDocumentKeyDown = useCallback(() => {
         const key = event.keyCode;
 
         if (key === KEYS.enter) {
-            if (!stateRef.current.valueChanged) {
-                componentRef.current.open(event);
+            if (!hasValueChangeRef.current) {
+                dropdownComponentRef.current.open(event);
             }
 
-            setValueChanged(false);
+            hasValueChangeRef.current = false;
         }
-    };
+    }, [hasValueChangeRef, dropdownComponentRef]);
 
     useDomEventListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
+}
 
-    const renderIcon = () => {
+function useDropdownRenderer(
+    search,
+    inline,
+    icon,
+    size,
+    fluid,
+    trigger,
+    disabled,
+    __dropdownClasses,
+    __semanticDropdown,
+    rest,
+    handleOpen,
+    handleClose,
+    handleFocus,
+    handleBlur,
+    handleChange,
+    dropdownComponentRef,
+    autofocusProps) {
+    return () => {
+        const ConcreteDropdown = __semanticDropdown;
+
+        const classes = mergeClasses(
+            SIZES_CLASSES[size],
+            !isNil(icon) && "with-icon",
+            __dropdownClasses
+        );
+
+        return (
+            <ConcreteDropdown
+                data-testid="dropdown"
+                {...rest}
+                {...autofocusProps}
+                onOpen={handleOpen}
+                onClose={handleClose}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                inline={inline}
+                search={search}
+                openOnFocus={false}
+                fluid={fluid}
+                trigger={trigger}
+                icon={isNil(trigger) ? undefined : null }
+                disabled={disabled}
+                className={classes}
+                ref={dropdownComponentRef}
+            />
+        );
+    };
+}
+
+function useIconRenderer(inline, icon, size) {
+    return () => {
         if (!isNil(icon)) {
             const classes = mergeClasses(
                 "ui dropdown-icon flex items-center",
@@ -213,47 +243,68 @@ export function PureDropdown(props) {
             );
         }
     };
+}
 
-    const containerClasses = mergeClasses(
+export function PureDropdown(props) {
+    const { search, inline, icon, size, autofocus, autofocusDelay, fluid, trigger, disabled, className, forwardedRef, onOpen, onClose, onFocus, onBlur, onChange, __dropdownClasses, __semanticDropdown, ...rest } = props;
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [isFocus, setIsFocus] = useState(false);
+
+    const hasValueChangeRef = useRef(false);
+    const dropdownComponentRef = useRef();
+    const innerRef = useCombinedRefs(forwardedRef);
+
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+
+    const handleOpen = useHandleOpen(onOpen, setIsOpen);
+    const handleClose = useHandleClose(onClose, setIsOpen);
+    const handleFocus = useHandleFocus(onFocus, setIsFocus);
+    const handleBlur = useHandleBlur(onBlur, setIsFocus);
+    const handleChange = useHandleChange(onChange, hasValueChangeRef);
+
+    useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
+
+    const dropdownRenderer = useDropdownRenderer(
+        search,
+        inline,
+        icon,
+        size,
+        fluid,
+        trigger,
+        disabled,
+        __dropdownClasses,
+        __semanticDropdown,
+        rest,
+        handleOpen,
+        handleClose,
+        handleFocus,
+        handleBlur,
+        handleChange,
+        dropdownComponentRef,
+        autofocusProps
+    );
+
+    const iconRenderer = useIconRenderer(inline, icon, size);
+
+    const classes = mergeClasses(
         fluid ? "w-100" : "dib",
         "relative outline-0",
         className
     );
 
-    const dropdownClasses = mergeClasses(
-        SIZES_CLASSES[size],
-        !isNil(icon) && "with-icon",
-        __dropdownClasses
-    );
-
     return (
         <div
-            className={containerClasses}
+            className={classes}
             tabIndex={-1}
         >
-            <Ref innerRef={innerRef}>
-                <DropdownContext.Provider value={{ size: size }}>
-                    <ConcreteDropdown
-                        data-testid="dropdown"
-                        {...rest}
-                        onOpen={handleOpen}
-                        onClose={handleClose}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        inline={inline}
-                        search={search}
-                        openOnFocus={false}
-                        fluid={fluid}
-                        trigger={trigger}
-                        icon={isNil(trigger) ? undefined : null }
-                        disabled={disabled}
-                        className={dropdownClasses}
-                        ref={componentRef}
-                    />
+            <SemanticRef innerRef={innerRef}>
+                <DropdownContext.Provider value={{ size }}>
+                    {dropdownRenderer()}
                 </DropdownContext.Provider>
-            </Ref>
-            {renderIcon()}
+            </SemanticRef>
+            {iconRenderer()}
         </div>
     );
 }

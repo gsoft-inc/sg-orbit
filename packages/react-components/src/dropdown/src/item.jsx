@@ -9,20 +9,24 @@ const propTypes = {
     icon: element
 };
 
-export function DropdownItem(props) {
-    const { icon, ...rest } = props;
-    const context = useContext(DropdownContext);
-
-    const renderIcon = () => {
+function useIconRenderer(icon, size) {
+    return () => {
         if (!isNil(icon)) {
-            return createIconForControl(icon, context.size);
+            return createIconForControl(icon, size);
         }
     };
+}
+
+export function DropdownItem(props) {
+    const { icon, ...rest } = props;
+    const { size } = useContext(DropdownContext);
+
+    const iconRenderer = useIconRenderer(icon, size);
 
     return (
         <SemanticDropdown.Item
             {...rest}
-            icon={renderIcon()}
+            icon={iconRenderer()}
         />
     );
 }

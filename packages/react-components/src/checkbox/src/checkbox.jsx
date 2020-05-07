@@ -79,14 +79,10 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentN
     }
 }
 
-function getInputElement(checkboxElement) {
-    return checkboxElement.querySelector("input");
-}
-
-function useFocusCheckbox(checkboxRef) {
+function useSetFocus(checkboxRef) {
     return useCallback(() => {
         if (!isNil(checkboxRef.current)) {
-            getInputElement(checkboxRef.current).focus();
+            checkboxRef.current.querySelector("input").focus();
         }
     }, [checkboxRef]);
 }
@@ -170,8 +166,8 @@ export function PureCheckbox(props) {
 
     const innerRef = useCombinedRefs(forwardedRef);
 
-    const focusCheckbox = useFocusCheckbox(innerRef);
-    const autofocusAttributes = useAutofocus(autofocus, autofocusDelay, disabled, focusCheckbox);
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
     const contentRenderer = useContentRenderer(text, icons, label, count, size);
 
@@ -191,7 +187,7 @@ export function PureCheckbox(props) {
                 label={contentRenderer()}
                 disabled={disabled}
                 className={classes}
-                {...autofocusAttributes}
+                {...autofocusProps}
             />
         </SemanticRef>
     );

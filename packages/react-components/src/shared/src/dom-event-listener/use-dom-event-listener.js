@@ -17,20 +17,20 @@ function resolveTarget(target) {
     return target.current;
 }
 
-export function useDomEventListener(name, on, active = true, { target = "document", capture = false } = {}) {
+export function useDomEventListener(eventName, handler, active = true, { target = "document", capture = false } = {}) {
     useEffect(() => {
         const resolvedTarget = resolveTarget(target);
 
         if (active) {
             if (!isNil(resolvedTarget)) {
-                resolvedTarget.addEventListener(name, on, capture);
+                resolvedTarget.addEventListener(eventName, handler, capture);
             }
         }
 
         return () => {
             if (!isNil(resolvedTarget)) {
-                resolvedTarget.removeEventListener(name, on, capture);
+                resolvedTarget.removeEventListener(eventName, handler, capture);
             }
         };
-    }, [name, on, active, target, capture]);
+    }, [eventName, handler, active, target, capture]);
 }

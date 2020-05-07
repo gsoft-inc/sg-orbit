@@ -100,12 +100,12 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-function useFocusButton(buttonRef) {
+function useSetFocus(buttonRef) {
     return useCallback(() => {
         if (!isNil(buttonRef.current)) {
             buttonRef.current.focus();
         }
-    });
+    }, [buttonRef]);
 }
 
 function useIconRenderer(icon, size) {
@@ -195,8 +195,10 @@ export function PureButton(props) {
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const innerRef = useCombinedRefs(forwardedRef);
-    const focusButton = useFocusButton(innerRef);
-    const autofocusAttributes = useAutofocus(autofocus, autofocusDelay, disabled, focusButton);
+
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
     const contentRenderer = useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children);
 
     const hasText = Children.count(children) > 0;
@@ -223,7 +225,7 @@ export function PureButton(props) {
                 loading={loading}
                 disabled={disabled}
                 className={classes}
-                {...autofocusAttributes}
+                {...autofocusProps}
             >
                 {contentRenderer()}
             </SemanticButton>

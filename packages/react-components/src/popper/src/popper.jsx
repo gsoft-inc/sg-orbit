@@ -222,11 +222,12 @@ export function InnerPopper({
     ...rest
 }) {
     const [popperElement, setPopperElement] = useState();
+
+    const popperRef = useCombinedRefs(forwardedRef, setPopperElement);
+
     const [popperStyles, popperAttributes] = usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement);
 
     const wrapperRenderer = useWrapperRenderer(className, rest);
-
-    const popperRef = useCombinedRefs(forwardedRef, setPopperElement);
     const popperRenderer = usePopperRenderer(show, noWrap, animate, style, children, popperStyles, popperAttributes, wrapperRenderer, popperRef);
 
     if (!disabled) {

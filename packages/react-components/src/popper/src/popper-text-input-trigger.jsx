@@ -38,9 +38,8 @@ function parseInput(input) {
     return result(false, !isNil(input.button), input.button);
 }
 
-function useButtonRenderer({ hasButton, button }) {
-    const buttonRef = useRef();
-    const ref = useCombinedRefs(hasButton && !isNil(button.ref) ? button.ref : undefined);
+function useButtonRenderer({ hasButton, button }, buttonRef) {
+    const ref = useCombinedRefs(buttonRef, hasButton && !isNil(button.ref) ? button.ref : undefined);
 
     const renderer = () => {
         if (isReactElement(button)) {
@@ -56,7 +55,7 @@ function useButtonRenderer({ hasButton, button }) {
         };
     };
 
-    return [renderer, buttonRef];
+    return renderer;
 }
 
 function useTriggerRenderer({ input, isElement, hasButton }, buttonRenderer) {
@@ -100,10 +99,13 @@ function useHandleClick(onClick, buttonRef) {
 }
 
 export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...rest }) {
+    const buttonRef = useRef();
+
     const parsingResult = parseInput(input);
 
-    const [buttonRenderer, buttonRef] = useButtonRenderer(parsingResult);
+    const buttonRenderer = useButtonRenderer(parsingResult, buttonRef);
     const triggerRenderer = useTriggerRenderer(parsingResult, buttonRenderer);
+
     const handleClick = useHandleClick(onClick, buttonRef);
 
     return (
