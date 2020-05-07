@@ -1,6 +1,6 @@
-import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, SemanticRef, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
-import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "../../button";
 import { createIconForControl } from "../../icons";
@@ -90,32 +90,18 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     }
 }
 
-export function PureLabel(props) {
-    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-    throwWhenUnsupportedSizeIsProvided(props);
-
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderLabel()}
-            </Ref>
-        );
+function useButtonRenderer({ button, size }) {
+    const buttonSizes = {
+        [MINI]: MINI,
+        [TINY]: TINY,
+        [SMALL]: SMALL,
+        [MEDIUM]: MEDIUM,
+        [LARGE]: LARGE
     };
 
-    const renderButton = () => {
-        const SIZES_TO_BUTTON = {
-            [MINI]: MINI,
-            [TINY]: TINY,
-            [SMALL]: SMALL,
-            [MEDIUM]: MEDIUM,
-            [LARGE]: LARGE
-        };
-
+    return () => {
         const defaults = {
-            size: SIZES_TO_BUTTON[size],
+            size: buttonSizes[size],
             circular: true,
             ghost: true,
             secondary: true,
@@ -131,8 +117,10 @@ export function PureLabel(props) {
             ...button
         });
     };
+}
 
-    const renderTag = () => {
+function useTagRenderer({ tag }) {
+    return () => {
         const defaults = {
             as: "span",
             size: "mini"
@@ -147,8 +135,13 @@ export function PureLabel(props) {
             ...tag
         });
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ button, icon, iconPosition, tag, size, children }) {
+    const renderButton = useButtonRenderer({ button, size });
+    const renderTag = useTagRenderer({ tag });
+
+    return () => {
         let left;
         let right;
 
@@ -174,8 +167,10 @@ export function PureLabel(props) {
 
         return children;
     };
+}
 
-    const renderLabel = () => {
+function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, content) {
+    return () => {
         const hasText = Children.count(children) > 0;
 
         const classes = mergeClasses(
@@ -197,12 +192,34 @@ export function PureLabel(props) {
                 size={size}
                 className={classes}
             >
-                {renderContent()}
+                {content}
             </SemanticLabel>
         );
     };
+}
 
-    return isNil(forwardedRef) ? renderLabel() : renderWithRef();
+function useRenderer({ forwardedRef }, label) {
+    return () => {
+        return (
+            <SemanticRef innerRef={forwardedRef}>
+                {label}
+            </SemanticRef>
+        );
+    };
+}
+
+export function PureLabel(props) {
+    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedSizeIsProvided(props);
+
+    const renderContent = useContentRenderer({ button, icon, iconPosition, tag, size, children });
+    const renderLabel = useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, renderContent());
+    const render = useRenderer({ forwardedRef }, renderLabel());
+
+    return render();
 }
 
 PureLabel.propTypes = propTypes;

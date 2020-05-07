@@ -61,29 +61,37 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
+function useRenderer({ forwardedRef, children, rest }) {
+    return () => {
+        const hasChildren = Children.count(children) > 0;
+
+        return (
+            <Dropdown
+                {...rest}
+                ref={forwardedRef}
+                __dropdownClasses="dropdown-menu"
+            >
+                <Choose>
+                    <When condition={hasChildren}>
+                        <Dropdown.Menu>{children}</Dropdown.Menu>
+                    </When>
+                    <Otherwise>
+                        {children}
+                    </Otherwise>
+                </Choose>
+            </Dropdown>
+        );
+    };
+}
+
 export function PureDropdownMenu(props) {
     const { forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
-    const hasChildren = Children.count(children) > 0;
+    const render = useRenderer({ forwardedRef, children, rest });
 
-    return (
-        <Dropdown
-            {...rest}
-            ref={forwardedRef}
-            __dropdownClasses="dropdown-menu"
-        >
-            <Choose>
-                <When condition={hasChildren}>
-                    <Dropdown.Menu>{children}</Dropdown.Menu>
-                </When>
-                <Otherwise>
-                    {children}
-                </Otherwise>
-            </Choose>
-        </Dropdown>
-    );
+    return render();
 }
 
 PureDropdownMenu.propTypes = propTypes;

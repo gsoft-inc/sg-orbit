@@ -17,4 +17,3 @@ export * from "./resize-observer";
 export * from "./sizes";
 export * from "./semantic-ui";
 export * from "./use-autofocus";
-export * from "./pub-sub";

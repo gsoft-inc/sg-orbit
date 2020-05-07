@@ -15,19 +15,18 @@ const propTypes = {
     icon: element
 };
 
-export function DropdownMenuHeader(props) {
-    const { text, icon, children, ...rest } = props;
-    const context = useContext(DropdownContext);
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/header");
-
-    const renderText = () => {
+function useTextRenderer({ text }) {
+    return () => {
         if (!isNil(text)) {
             return <span className="text">{text}</span>;
         }
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ text, icon, size, children }) {
+    const renderText = useTextRenderer({ text });
+
+    return () => {
         const hasChildren = Children.count(children) > 0;
 
         if (hasChildren) {
@@ -37,17 +36,34 @@ export function DropdownMenuHeader(props) {
         let left;
 
         if (!isNil(icon)) {
-            left = createIconForControl(icon, context.size);
+            left = createIconForControl(icon, size);
         }
 
         return <>{!isNil(left) && left}{renderText()}</>;
     };
+}
 
-    return (
-        <Dropdown.Header {...rest}>
-            {renderContent()}
-        </Dropdown.Header>
-    );
+function useRenderer({ rest }, content) {
+    return () => {
+        return (
+            <Dropdown.Header {...rest}>
+                {content}
+            </Dropdown.Header>
+        );
+    };
+}
+
+export function DropdownMenuHeader(props) {
+    const { text, icon, children, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/header");
+
+    const { size } = useContext(DropdownContext);
+
+    const renderContent = useContentRenderer({ text, icon, size, children });
+    const render = useRenderer({ rest }, renderContent());
+
+    return render();
 }
 
 DropdownMenuHeader.propTypes = propTypes;

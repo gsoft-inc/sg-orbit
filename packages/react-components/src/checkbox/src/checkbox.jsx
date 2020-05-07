@@ -87,7 +87,7 @@ function useSetFocus(checkboxRef) {
     }, [checkboxRef]);
 }
 
-function useIconsRenderer(icons, size) {
+function useIconsRenderer({ icons, size }) {
     return () => {
         const normalizedIcons = isArray(icons) ? icons : [icons];
 
@@ -95,7 +95,7 @@ function useIconsRenderer(icons, size) {
     };
 }
 
-function useLabelRenderer(label) {
+function useLabelRenderer({ label }) {
     return () => {
         const defaults = {
             as: "span",
@@ -114,7 +114,7 @@ function useLabelRenderer(label) {
     };
 }
 
-function useCountRenderer(count) {
+function useCountRenderer({ count }) {
     return () => {
         if (isElement(count)) {
             return count;
@@ -124,37 +124,62 @@ function useCountRenderer(count) {
     };
 }
 
-function useContentRenderer(text, icons, label, count, size) {
-    const iconsRenderer = useIconsRenderer(icons, size);
-    const labelRenderer = useLabelRenderer(label);
-    const countRenderer = useCountRenderer(count);
+function useContentRenderer({ text, icons, label, count, size }) {
+    const renderIcons = useIconsRenderer({ icons, size });
+    const renderLabel = useLabelRenderer({ label });
+    const renderCount = useCountRenderer({ count });
 
     return () => {
         let right;
 
         if (!isNil(icons)) {
-            right = iconsRenderer();
+            right = renderIcons();
         }
 
         if (!isNil(label)) {
             if (!isNil(right)) {
-                right = <>{right}{labelRenderer()}</>;
+                right = <>{right}{renderLabel()}</>;
             } else {
-                right = labelRenderer();
+                right = renderLabel();
             }
         }
 
         if (!isNil(count)) {
             if (!isNil(right)) {
-                right = <>{right}{countRenderer()}</>;
+                right = <>{right}{renderCount()}</>;
             } else {
-                right = countRenderer();
+                right = renderCount();
             }
         }
 
         if (!isNil(text) || !isNil(right)) {
             return <label title={text}>{!isNil(text) && <span className="text">{text}</span>}{!isNil(right) && right}</label>;
         }
+    };
+}
+
+function useRenderer({ text, icons, label, size, disabled, className, rest }, autofocusProps, innerRef, content) {
+    return () => {
+        const classes = mergeClasses(
+            size && size,
+            !isNil(icons) && "with-icon",
+            !isNil(label) && "with-label",
+            isNil(text) && "without-text",
+            className
+        );
+
+        return (
+            <SemanticRef innerRef={innerRef}>
+                <SemanticCheckbox
+                    data-testid="checkbox"
+                    {...rest}
+                    label={content}
+                    disabled={disabled}
+                    className={classes}
+                    {...autofocusProps}
+                />
+            </SemanticRef>
+        );
     };
 }
 
@@ -169,28 +194,10 @@ export function PureCheckbox(props) {
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const contentRenderer = useContentRenderer(text, icons, label, count, size);
+    const renderContent = useContentRenderer({ text, icons, label, count, size });
+    const render = useRenderer({ text, icons, label, size, disabled, className, rest }, autofocusProps, innerRef, renderContent());
 
-    const classes = mergeClasses(
-        size && size,
-        !isNil(icons) && "with-icon",
-        !isNil(label) && "with-label",
-        isNil(text) && "without-text",
-        className
-    );
-
-    return (
-        <SemanticRef innerRef={innerRef}>
-            <SemanticCheckbox
-                data-testid="checkbox"
-                {...rest}
-                label={contentRenderer()}
-                disabled={disabled}
-                className={classes}
-                {...autofocusProps}
-            />
-        </SemanticRef>
-    );
+    return render();
 }
 
 PureCheckbox.propTypes = CHECKBOX_PROP_TYPES;

@@ -108,13 +108,13 @@ function useSetFocus(buttonRef) {
     }, [buttonRef]);
 }
 
-function useIconRenderer(icon, size) {
+function useIconRenderer({ icon, size }) {
     return () => {
         return createIconForControl(icon, size);
     };
 }
 
-function useLabelRenderer(label, disabled) {
+function useLabelRenderer({ label, disabled }) {
     return () => {
         const defaults = {
             as: "span",
@@ -134,7 +134,7 @@ function useLabelRenderer(label, disabled) {
     };
 }
 
-function useTagRenderer(tag, disabled) {
+function useTagRenderer({ tag, disabled }) {
     return () => {
         const defaults = {
             as: "span",
@@ -153,10 +153,10 @@ function useTagRenderer(tag, disabled) {
     };
 }
 
-function useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children) {
-    const iconRenderer = useIconRenderer(icon, size);
-    const labelRenderer = useLabelRenderer(label, disabled);
-    const tagRenderer = useTagRenderer(tag, disabled);
+function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
+    const renderIcon = useIconRenderer({ icon, size });
+    const renderLabel = useLabelRenderer({ label, disabled });
+    const renderTag = useTagRenderer({ tag, disabled });
 
     return () => {
         if (!loading) {
@@ -165,18 +165,18 @@ function useContentRenderer(icon, iconPosition, label, tag, size, loading, disab
 
             if (!isNil(icon)) {
                 if (iconPosition === "right") {
-                    right = iconRenderer();
+                    right = renderIcon();
                 } else {
-                    left = iconRenderer();
+                    left = renderIcon();
                 }
             }
 
             if (!isNil(label)) {
-                right = labelRenderer();
+                right = renderLabel();
             }
 
             if (!isNil(tag)) {
-                left = tagRenderer();
+                left = renderTag();
             }
 
             if (!isNil(left) || !isNil(right)) {
@@ -185,6 +185,41 @@ function useContentRenderer(icon, iconPosition, label, tag, size, loading, disab
         }
 
         return children;
+    };
+}
+
+function useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest }, autofocusProps, innerRef, renderContent) {
+    return () => {
+        const hasText = Children.count(children) > 0;
+
+        const classes = mergeClasses(
+            naked && "naked",
+            ghost && "ghost",
+            link && "link",
+            !isNil(icon) && "with-icon",
+            !isNil(icon) && iconPosition === "right" && "with-icon-right",
+            !isNil(label) && "with-label",
+            !isNil(tag) && "with-tag",
+            !hasText && "without-text",
+            className
+        );
+
+        return (
+            <SemanticRef innerRef={innerRef}>
+                <SemanticButton
+                    data-testid="button"
+                    {...rest}
+                    basic={basic}
+                    size={size}
+                    loading={loading}
+                    disabled={disabled}
+                    className={classes}
+                    {...autofocusProps}
+                >
+                    {renderContent()}
+                </SemanticButton>
+            </SemanticRef>
+        );
     };
 }
 
@@ -199,38 +234,10 @@ export function PureButton(props) {
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const contentRenderer = useContentRenderer(icon, iconPosition, label, tag, size, loading, disabled, children);
+    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
+    const render = useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest }, autofocusProps, innerRef, renderContent);
 
-    const hasText = Children.count(children) > 0;
-
-    const classes = mergeClasses(
-        naked && "naked",
-        ghost && "ghost",
-        link && "link",
-        !isNil(icon) && "with-icon",
-        !isNil(icon) && iconPosition === "right" && "with-icon-right",
-        !isNil(label) && "with-label",
-        !isNil(tag) && "with-tag",
-        !hasText && "without-text",
-        className
-    );
-
-    return (
-        <SemanticRef innerRef={innerRef}>
-            <SemanticButton
-                data-testid="button"
-                {...rest}
-                basic={basic}
-                size={size}
-                loading={loading}
-                disabled={disabled}
-                className={classes}
-                {...autofocusProps}
-            >
-                {contentRenderer()}
-            </SemanticButton>
-        </SemanticRef>
-    );
+    return render();
 }
 
 PureButton.propTypes = propTypes;
