@@ -1,8 +1,8 @@
-import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
+import { SemanticRef, mergeClasses, useAutofocus, useCombinedRefs } from "../../shared";
+import { TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useCombinedRefs } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -74,62 +74,54 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-function focus(textAreaRef) {
-    if (!isNil(textAreaRef.current)) {
-        textAreaRef.current.focus();
-    }
+function useSetFocus(textAreaRef) {
+    return () => {
+        if (!isNil(textAreaRef.current)) {
+            textAreaRef.current.focus();
+        }
+    };
 }
 
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
-    useEffect(() => {
-        let timeoutId;
+function useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef) {
+    return () => {
+        const classes = mergeClasses(
+            "ui textarea",
+            error && "error",
+            fluid && "fluid",
+            focused && "focus",
+            transparent && "transparent",
+            resizable && "resizable",
+            size && size,
+            className
+        );
 
-        if (autofocus && !disabled && !isNil(autofocusDelay)) {
-            timeoutId = setTimeout(() => {
-                focus(textAreaRef);
-            }, autofocusDelay);
-        }
-
-        return () => {
-            if (!isNil(timeoutId)) {
-                clearTimeout(timeoutId);
-            }
-        };
-    }, [autofocus, autofocusDelay, disabled, textAreaRef]);
+        return (
+            <SemanticRef innerRef={innerRef}>
+                <SemanticTextArea
+                    data-testid="textarea"
+                    {...rest}
+                    {...autofocusProps}
+                    disabled={disabled}
+                    className={classes}
+                >
+                    {children}
+                </SemanticTextArea>
+            </SemanticRef>
+        );
+    };
 }
 
 export function PureTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useCombinedRefs(forwardedRef);
-    const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
 
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const classes = mergeClasses(
-        "ui textarea",
-        error && "error",
-        fluid && "fluid",
-        focused && "focus",
-        transparent && "transparent",
-        resizable && "resizable",
-        size && size,
-        className
-    );
+    const render = useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
 
-    return (
-        <Ref innerRef={innerRef}>
-            <SemanticTextArea
-                data-testid="textarea"
-                {...rest}
-                autoFocus={shouldAutofocus}
-                disabled={disabled}
-                className={classes}
-            >
-                {children}
-            </SemanticTextArea>
-        </Ref>
-    );
+    return render();
 }
 
 PureTextArea.propTypes = propTypes;
