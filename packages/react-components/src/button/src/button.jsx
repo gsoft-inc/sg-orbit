@@ -116,7 +116,7 @@ function useIconRenderer({ icon, size }) {
 
 function useLabelRenderer({ label, disabled }) {
     return () => {
-        const defaults = {
+        const props = {
             as: "span",
             size: "mini",
             highlight: true,
@@ -124,11 +124,11 @@ function useLabelRenderer({ label, disabled }) {
         };
 
         if (isElement(label)) {
-            return cloneElement(label, defaults);
+            return cloneElement(label, props);
         }
 
         return createLabelFromShorthand({
-            ...defaults,
+            ...props,
             ...label
         });
     };
@@ -136,18 +136,18 @@ function useLabelRenderer({ label, disabled }) {
 
 function useTagRenderer({ tag, disabled }) {
     return () => {
-        const defaults = {
+        const props = {
             as: "span",
             size: "mini",
             disabled: disabled
         };
 
         if (isElement(tag)) {
-            return cloneElement(tag, defaults);
+            return cloneElement(tag, props);
         }
 
         return createTagFromShorthand({
-            ...defaults,
+            ...props,
             ...tag
         });
     };

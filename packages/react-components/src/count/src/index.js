@@ -1,2 +1,2 @@
 export * from "./count";
-export * from "./factories";
+export * from "./shorthands";

@@ -2,10 +2,12 @@ import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhe
 import { Dropdown } from "../../dropdown";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
-import { SelectItem, createSelectItem, renderAvatar, renderIcons } from "./item";
+import { SelectItem, createSelectItem } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef } from "react";
 import { isArray, isNil } from "lodash";
+import { renderAvatar } from "./render-avatar";
+import { renderIcons } from "./render-icons";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -36,15 +38,15 @@ const UNSUPPORTED_PROPS = [
     "wrapSelection"
 ];
 
-const SIZES_TO_LABEL = {
-    [SMALL]: MINI,
-    [MEDIUM]: TINY,
-    [LARGE]: SMALL
-};
-
 const ACTION_SHAPE = {
     content: element,
     className: string
+};
+
+const LABEL_SIZE = {
+    [SMALL]: MINI,
+    [MEDIUM]: TINY,
+    [LARGE]: SMALL
 };
 
 const propTypes = {
@@ -103,18 +105,8 @@ function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value 
     }
 }
 
-export function PureSelect(props) {
-    const { options, actions, size, transparent, inline, forwardedRef, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-    throwWhenMultipleAndValuesIsNotAnArray(props);
-
-    // A select doesn't support children.
-    // eslint-disable-next-line react/destructuring-assignment
-    delete props["children"];
-
-    const renderLabel = ({ text, avatar, icons, iconsPosition }, index, { className, ...otherProps }) => {
+function useMultipleValuesLabelRenderer({ size }) {
+    return ({ text, avatar, icons, iconsPosition }, index, { className, ...rest }) => {
         let content = text;
         let additionalClasses = "";
 
@@ -158,15 +150,17 @@ export function PureSelect(props) {
 
         return (
             <Label
-                {...otherProps}
+                {...rest}
                 content={content}
-                size={SIZES_TO_LABEL[size]}
+                size={LABEL_SIZE[size]}
                 className={classes}
             />
         );
     };
+}
 
-    const renderAction = ({ content, key, className, ...otherProps }, index) => {
+function useActionRenderer() {
+    return ({ content, key, className, ...otherProps }, index) => {
         const classes = mergeClasses(
             className,
             "action bg-white o-100"
@@ -174,8 +168,12 @@ export function PureSelect(props) {
 
         return { content, className: classes, disabled: true, key: key || index, ...otherProps };
     };
+}
 
-    const renderOptions = () => {
+function useOptionsRenderer({ options, actions }) {
+    const renderAction = useActionRenderer();
+
+    return () => {
         const selectOptions = options.map(x => {
             return {
                 ...x,
@@ -189,26 +187,49 @@ export function PureSelect(props) {
 
         return selectOptions;
     };
+}
 
-    const classes = mergeClasses(
-        transparent && "transparent"
-    );
+function useRenderer({ size, transparent, inline, forwardedRef, rest }, options) {
+    const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 
-    return (
-        <Dropdown
-            {...rest}
-            options={renderOptions()}
-            selectOnBlur={false}
-            selectOnNavigation={false}
-            selection={!inline}
-            inline={inline}
-            size={size}
-            renderLabel={renderLabel}
-            ref={forwardedRef}
-            __dropdownClasses={classes}
-            __semanticDropdown={MonkeyPatchSemanticDropdown}
-        />
-    );
+    return () => {
+        const classes = mergeClasses(
+            transparent && "transparent"
+        );
+
+        return (
+            <Dropdown
+                {...rest}
+                options={options}
+                selectOnBlur={false}
+                selectOnNavigation={false}
+                selection={!inline}
+                inline={inline}
+                size={size}
+                renderLabel={renderMultipleValuesLabel}
+                ref={forwardedRef}
+                __dropdownClasses={classes}
+                __semanticDropdown={MonkeyPatchSemanticDropdown}
+            />
+        );
+    };
+}
+
+export function PureSelect(props) {
+    const { options, actions, size, transparent, inline, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenMultipleAndValuesIsNotAnArray(props);
+
+    // A select doesn't support children.
+    // eslint-disable-next-line react/destructuring-assignment
+    delete props["children"];
+
+    const renderOptions = useOptionsRenderer({ options, actions });
+    const render = useRenderer({ size, transparent, inline, forwardedRef, rest }, renderOptions());
+
+    return render();
 }
 
 PureSelect.propTypes = propTypes;

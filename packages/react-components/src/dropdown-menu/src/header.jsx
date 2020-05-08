@@ -23,7 +23,7 @@ function useTextRenderer({ text }) {
     };
 }
 
-function useContentRenderer({ text, icon, size, children }) {
+function useContentRenderer({ text, icon, children }, size) {
     const renderText = useTextRenderer({ text });
 
     return () => {
@@ -60,7 +60,7 @@ export function DropdownMenuHeader(props) {
 
     const { size } = useContext(DropdownContext);
 
-    const renderContent = useContentRenderer({ text, icon, size, children });
+    const renderContent = useContentRenderer({ text, icon, children }, size);
     const render = useRenderer({ rest }, renderContent());
 
     return render();

@@ -1,8 +1,7 @@
-import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { Label as SemanticLabel } from "semantic-ui-react";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { bool, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
-import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "circular", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon", "tag"];
 
@@ -32,26 +31,16 @@ const defaultProps = {
 export function PureTag({ forwardedRef, className, disabled, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/tag");
 
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderTag()}
-            </Ref>
-        );
-    };
+    const classes = mergeClasses(
+        disabled && "disabled",
+        className
+    );
 
-    const renderTag = () => {
-        const classes = mergeClasses(
-            disabled && "disabled",
-            className
-        );
-
-        return (
+    return (
+        <SemanticRef innerRef={forwardedRef}>
             <SemanticLabel tag circular empty className={classes} {...props} />
-        );
-    };
-
-    return isNil(forwardedRef) ? renderTag() : renderWithRef();
+        </SemanticRef>
+    );
 }
 
 PureTag.propTypes = propTypes;

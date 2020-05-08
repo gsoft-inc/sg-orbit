@@ -97,18 +97,18 @@ function useIconsRenderer({ icons, size }) {
 
 function useLabelRenderer({ label }) {
     return () => {
-        const defaults = {
+        const props = {
             as: "span",
             size: "mini",
             highlight: true
         };
 
         if (isElement(label)) {
-            return cloneElement(label, defaults);
+            return cloneElement(label, props);
         }
 
         return createLabelFromShorthand({
-            ...defaults,
+            ...props,
             ...label
         });
     };

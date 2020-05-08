@@ -8,10 +8,18 @@ import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
-
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const DEFAULT_SIZE = "medium";
+
+const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
+
+const BUTTON_SIZE = {
+    [MINI]: MINI,
+    [TINY]: TINY,
+    [SMALL]: SMALL,
+    [MEDIUM]: MEDIUM,
+    [LARGE]: LARGE
+};
 
 const propTypes = {
     /**
@@ -91,17 +99,9 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
 }
 
 function useButtonRenderer({ button, size }) {
-    const buttonSizes = {
-        [MINI]: MINI,
-        [TINY]: TINY,
-        [SMALL]: SMALL,
-        [MEDIUM]: MEDIUM,
-        [LARGE]: LARGE
-    };
-
     return () => {
-        const defaults = {
-            size: buttonSizes[size],
+        const props = {
+            size: BUTTON_SIZE[size],
             circular: true,
             ghost: true,
             secondary: true,
@@ -109,11 +109,11 @@ function useButtonRenderer({ button, size }) {
         };
 
         if (isElement(button)) {
-            return cloneElement(button, defaults);
+            return cloneElement(button, props);
         }
 
         return createButtonFromShorthand({
-            ...defaults,
+            ...props,
             ...button
         });
     };
@@ -121,17 +121,17 @@ function useButtonRenderer({ button, size }) {
 
 function useTagRenderer({ tag }) {
     return () => {
-        const defaults = {
+        const props = {
             as: "span",
             size: "mini"
         };
 
         if (isElement(tag)) {
-            return cloneElement(tag, defaults);
+            return cloneElement(tag, props);
         }
 
         return createTagFromShorthand({
-            ...defaults,
+            ...props,
             ...tag
         });
     };

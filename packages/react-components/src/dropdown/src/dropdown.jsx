@@ -13,6 +13,11 @@ import { isNil } from "lodash";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
+const SIZE_CLASS = {
+    [SMALL]: "small",
+    [LARGE]: "large"
+};
+
 const propTypes = {
     /**
      * A dropdown can display an icon before it's content.
@@ -181,14 +186,9 @@ function useDropdownRenderer(
     handleChange,
     autofocusProps,
     dropdownComponentRef) {
-    const sizeClasses = {
-        [SMALL]: "small",
-        [LARGE]: "large"
-    };
-
     return () => {
         const classes = mergeClasses(
-            sizeClasses[size],
+            SIZE_CLASS[size],
             !isNil(icon) && "with-icon",
             __dropdownClasses
         );
@@ -288,7 +288,7 @@ export function PureDropdown(props) {
     const dropdownComponentRef = useRef();
     const innerRef = useCombinedRefs(forwardedRef);
 
-    const setFocus = useSetFocus(innerRef);
+    const setFocus = useSetFocus({ search }, innerRef);
     const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
 
     const handleOpen = useHandleOpen({ onOpen }, setIsOpen);

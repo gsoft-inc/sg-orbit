@@ -8,21 +8,21 @@ const SIZES = ["tiny", "small", "medium", "large", "big", "huge", "massive"];
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const DEFAULT_SIZE = "medium";
 
-export function PureIcon({ type: Component, size, className, forwardedRef, ...rest }) {
-    const iconDimensions = {
-        [TINY]: "w4 h4",
-        [SMALL]: "w5 h5",
-        [MEDIUM]: "w6 h6",
-        [LARGE]: "w7 h7",
-        [BIG]: "w8 h8",
-        [HUGE]: "w9 h9",
-        [MASSIVE]: "w10 h10"
-    };
+const DIMENSION_CLASS = {
+    [TINY]: "w4 h4",
+    [SMALL]: "w5 h5",
+    [MEDIUM]: "w6 h6",
+    [LARGE]: "w7 h7",
+    [BIG]: "w8 h8",
+    [HUGE]: "w9 h9",
+    [MASSIVE]: "w10 h10"
+};
 
+export function PureIcon({ type: Component, size, className, forwardedRef, ...rest }) {
     const classes = mergeClasses(
         "icon",
         className,
-        iconDimensions[size]
+        DIMENSION_CLASS[size]
     );
 
     return (

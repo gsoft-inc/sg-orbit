@@ -68,30 +68,22 @@ const defaultProps = {
     ...INPUT_DEFAULT_PROPS
 };
 
-function useRenderer({ icon, loading, forwardedRef, rest } ) {
-    return () => {
-        return (
-            <Input
-                {...rest}
-                type="number"
-                icon={icon}
-                iconPosition={!isNil(icon) || !isNil(loading) ? "left" : undefined}
-                loading={loading}
-                ref={forwardedRef}
-                __componentName="@orbit-ui/react-components/number-input"
-            />
-        );
-    };
-}
-
 export function PureNumberInput(props) {
     const { icon, loading, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/number-input");
 
-    const render = useRenderer({ icon, loading, forwardedRef, rest });
-
-    return render();
+    return (
+        <Input
+            {...rest}
+            type="number"
+            icon={icon}
+            iconPosition={!isNil(icon) || !isNil(loading) ? "left" : undefined}
+            loading={loading}
+            ref={forwardedRef}
+            __componentName="@orbit-ui/react-components/number-input"
+        />
+    );
 }
 
 PureNumberInput.propTypes = propTypes;

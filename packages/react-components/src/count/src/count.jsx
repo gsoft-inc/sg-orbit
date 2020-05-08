@@ -11,7 +11,7 @@ const propTypes = {
     className: string
 };
 
-function useRenderer({ className, children, forwardedRef, rest }) {
+export function PureCount({ className, children, forwardedRef, ...rest }) {
     return () => {
         const classes = mergeClasses(
             "o-ui count",
@@ -28,12 +28,6 @@ function useRenderer({ className, children, forwardedRef, rest }) {
             </span>
         );
     };
-}
-
-export function PureCount({ className, children, forwardedRef, ...rest }) {
-    const render = useRenderer({ className, children, forwardedRef, rest });
-
-    return render();
 }
 
 PureCount.propTypes = propTypes;

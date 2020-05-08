@@ -15,6 +15,12 @@ const DEFAULT_SIZE = "medium";
 
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
+const BUTTON_SIZE = {
+    [SMALL]: TINY,
+    [MEDIUM]: SMALL,
+    [LARGE]: MEDIUM
+};
+
 const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
@@ -102,41 +108,35 @@ function useIconRenderer({ icon, size, loading }) {
 }
 
 function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
-    const buttonSizes = {
-        [SMALL]: TINY,
-        [MEDIUM]: SMALL,
-        [LARGE]: MEDIUM
-    };
-
     return () => {
         if (!isNil(button)) {
             const canRenderButton = !disabled && (!loading || (loading && iconPosition === "left"));
 
             if (canRenderButton) {
-                const defaults = {
-                    size: buttonSizes[size],
+                const props = {
+                    size: BUTTON_SIZE[size],
                     circular: true,
                     ghost: true,
                     secondary: true
                 };
 
-                const getClasses = userClasses => {
+                const getClasses = (...args) => {
                     return mergeClasses(
                         "input-clear-button",
-                        userClasses
+                        ...args
                     );
                 };
 
                 if (isElement(button)) {
                     return cloneElement(button, {
                         className: getClasses(button.props && button.props.className),
-                        ...defaults
+                        ...props
                     });
                 }
 
                 return createButtonFromShorthand({
                     ...button,
-                    ...defaults,
+                    ...props,
                     className: getClasses(button.className)
                 });
             }
