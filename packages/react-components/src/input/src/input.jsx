@@ -198,7 +198,7 @@ export function PureInput(props) {
     useForwardInputApi(forwardedRef, containerRef, inputComponentRef);
 
     const setFocus = useSetFocus(containerRef);
-    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
     const renderIcon = useIconRenderer({ icon, size, loading });
     const renderButton = useButtonRenderer({ iconPosition, button, size, loading, disabled });
