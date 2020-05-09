@@ -8,7 +8,7 @@ import cx from "classnames";
 export class MonkeyPatchSemanticDropdown extends Dropdown {
     static contextType = DropdownContext;
 
-    renderAvatarResult({ text, avatar }) {
+    renderAvatarResult = ({ text, avatar }) => {
         const { inline } = this.props;
         const { size } = this.context;
 
@@ -20,21 +20,27 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
         );
     }
 
-    renderIconsResult({ text, icons, iconsPosition }) {
+    renderIconsResult = ({ text, icons, iconsPosition }) => {
         const { inline } = this.props;
         const { size } = this.context;
 
         let left = null;
         let right = null;
 
+        let renderedIcons = renderIcons(icons, size);
+
+        if (inline) {
+            renderedIcons = (
+                <span className={iconsPosition === "right" ? "fr" : "fl"}>
+                    {renderedIcons}
+                </span>
+            );
+        }
+
         if (iconsPosition === "right") {
-            right = renderIcons(icons, size, {
-                className: inline ? iconsPosition === "right" ? "fr" : "fl" : undefined
-            });
+            right = renderedIcons;
         } else {
-            left = renderIcons(icons, size, {
-                className: inline ? iconsPosition === "right" ? "fr" : "fl" : undefined
-            });
+            left = renderedIcons;
         }
 
         return (
@@ -46,7 +52,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
         );
     }
 
-    renderCustomResult(item) {
+    renderCustomResult = item => {
         const { text, avatar, icons } = item;
 
         if (!isNil(avatar)) {
@@ -77,7 +83,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
 
                 if (!isNil(item)) {
                     if (!search) {
-                        this.renderCustomResult(item);
+                        result = this.renderCustomResult(item);
                     } else {
                         result = item.text;
                     }
@@ -87,7 +93,7 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
 
                 if (!isNil(item)) {
                     if (!search || !focus) {
-                        this.renderCustomResult(item);
+                        result = this.renderCustomResult(item);
                     } else {
                         result = item.text;
                     }
