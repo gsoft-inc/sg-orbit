@@ -1,10 +1,10 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps, mergeClasses } from "../../shared";
-import { MultiSelectClearButton } from "./multi-select-clear-button";
-import { MultiSelectDropdown } from "./multi-select-dropdown";
-import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
-import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
-import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
-import { MultiSelectSelectedItems } from "./multi-select-selected-items";
+import { TagPickerClearButton } from "./tag-picker-clear-button";
+import { TagPickerDropdown } from "./tag-picker-dropdown";
+import { TagPickerDropdownMenu } from "./tag-picker-dropdown-menu";
+import { TagPickerDropdownSearchInput } from "./tag-picker-dropdown-search-input";
+import { TagPickerDropdownTrigger } from "./tag-picker-dropdown-trigger";
+import { TagPickerSelectedItems } from "./tag-picker-selected-items";
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -19,7 +19,7 @@ const ITEM_SHAPE = {
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const GROUP_ERROR_MESSAGE = "MultiSelect - When at least one item has a \"group\" property, all items must have a \"group\" property.";
+const GROUP_ERROR_MESSAGE = "TagPicker - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
 export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
@@ -43,7 +43,7 @@ function computeDerivedState(items, values) {
     };
 }
 
-export class MultiSelect extends AutoControlledPureComponent {
+export class TagPicker extends AutoControlledPureComponent {
     static propTypes = {
         /**
          * All available items.
@@ -77,7 +77,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         /**
          * Called when the dropdown open / close.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {boolean} isVisible - Indicate if the multi-select dropdown is visible.
+         * @param {boolean} isVisible - Indicate if the tag picker dropdown is visible.
          * @param {Object} props - All the props.
          * @returns {void}
          */
@@ -119,15 +119,15 @@ export class MultiSelect extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled multi-select does not allow user interaction.
+         * A disabled tag picker does not allow user interaction.
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close when the multi-select loose focus.
+         * Whether or not the dropdown should close when the tag picker loose focus.
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Whether or not the dropdown should close when a click happens outside the tag picker.
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
@@ -151,14 +151,14 @@ export class MultiSelect extends AutoControlledPureComponent {
     };
 
     static defaultProps = {
-        dropdown: <MultiSelectDropdown />,
+        dropdown: <TagPickerDropdown />,
         onSearch: startsWithSearch,
         closeOnSelect: false,
         addText: "Add",
         noResultsMessage: "No results",
         placeholder: "Search",
-        selectedItemsComponent: <MultiSelectSelectedItems />,
-        clearButton: <MultiSelectClearButton />,
+        selectedItemsComponent: <TagPickerSelectedItems />,
+        clearButton: <TagPickerClearButton />,
         disabled: false,
         size: DEFAULT_SIZE
     };
@@ -166,12 +166,12 @@ export class MultiSelect extends AutoControlledPureComponent {
     static autoControlledProps = ["values", "open"];
 
     // Expose sub-components.
-    static Dropdown = MultiSelectDropdown;
-    static Trigger = MultiSelectDropdownTrigger;
-    static Menu = MultiSelectDropdownMenu;
-    static SearchInput = MultiSelectDropdownSearchInput;
-    static SelectedItems = MultiSelectSelectedItems;
-    static ClearButton = MultiSelectClearButton;
+    static Dropdown = TagPickerDropdown;
+    static Trigger = TagPickerDropdownTrigger;
+    static Menu = TagPickerDropdownMenu;
+    static SearchInput = TagPickerDropdownSearchInput;
+    static SelectedItems = TagPickerSelectedItems;
+    static ClearButton = TagPickerClearButton;
 
     state = {
         values: [],
@@ -196,14 +196,14 @@ export class MultiSelect extends AutoControlledPureComponent {
     static getDerivedStateFromProps(props, state) {
         const { items } = props;
 
-        return getAutoControlledStateFromProps(props, state, MultiSelect.autoControlledProps, ({ values }) => computeDerivedState(items, values));
+        return getAutoControlledStateFromProps(props, state, TagPicker.autoControlledProps, ({ values }) => computeDerivedState(items, values));
     }
 
     handleSearch = (event, query) => {
         const { onSearch } = this.props;
         const { availableItems } = this.state;
 
-        const results = onSearch(event, availableItems, query, this.props);
+        const results = onSearch(event, availableItems, query);
 
         this.setState({ dropdownItems: results });
     };
@@ -243,7 +243,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
+            onVisibilityChange(event, true);
         }
     }
 
@@ -253,7 +253,7 @@ export class MultiSelect extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
+            onVisibilityChange(event, false);
         }
     }
 
@@ -262,7 +262,7 @@ export class MultiSelect extends AutoControlledPureComponent {
 
         this.trySetAutoControlledStateValue({ values: newValues }, () => computeDerivedState(items, newValues));
 
-        onValuesChange(event, newValues, this.props);
+        onValuesChange(event, newValues);
     }
 
     validateGrouping() {

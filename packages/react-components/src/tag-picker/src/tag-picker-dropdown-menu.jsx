@@ -10,7 +10,7 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export class MultiSelectDropdownMenu extends PureComponent {
+export class TagPickerDropdownMenu extends PureComponent {
     static propTypes = {
         /**
          * Items to display.
@@ -20,7 +20,6 @@ export class MultiSelectDropdownMenu extends PureComponent {
          * Called on item click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {{ text: string, value: string }} data - Menu item data.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onItemClick: func,
@@ -49,7 +48,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     handleItemClick = (event, data) => {
         const { onItemClick } = this.props;
 
-        onItemClick(event, { text: data.text, value: data.value }, this.props);
+        onItemClick(event, { text: data.text, value: data.value });
     }
 
     setItemWidth = element => {
@@ -121,7 +120,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
                     selected={isSelected}
                     onClick={this.handleItemClick}
                     style={{ minWidth: `${itemWidth}px` }}
-                    data-testid="multi-select-dropdown-item"
+                    data-testid="tag-picker-dropdown-item"
                 />
             </Ref>
         );
@@ -150,7 +149,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
             return results;
         }
 
-        return <div className="pl5 mt2 mb2" data-testid="multi-select-dropdown-menu-no-results">{noResultsMessage}</div>;
+        return <div className="pl5 mt2 mb2" data-testid="tag-picker-dropdown-menu-no-results">{noResultsMessage}</div>;
     }
 
     render() {
@@ -161,7 +160,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
                 {searchInput}
                 <MonkeyPatchDropdown.Menu
                     scrolling
-                    data-testid="multi-select-dropdown-menu-items"
+                    data-testid="tag-picker-dropdown-menu-items"
                 >
                     {this.renderResults()}
                 </MonkeyPatchDropdown.Menu>

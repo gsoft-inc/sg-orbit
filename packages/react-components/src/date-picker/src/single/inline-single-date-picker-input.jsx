@@ -1,5 +1,5 @@
 import { ArrowIcon32 } from "../../../icons";
-import { KEYS, mergeClasses, withHandlerProxy } from "../../../shared";
+import { KEYS, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
 import { bool, func, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -14,38 +14,30 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onKeyDown: func,
         /**
          * Called on focus.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClear: func,
@@ -89,10 +81,6 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
         }
     }
 
-    handleClick = withHandlerProxy(this, "onClick");
-    handleFocus = withHandlerProxy(this, "onFocus");
-    handleBlur = withHandlerProxy(this, "onBlur");
-
     getValue() {
         const { date, placeholder, dateFormat } = this.props;
 
@@ -120,7 +108,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { open, disabled, className, forwardedRef } = this.props;
+        const { onClick, onFocus, onBlur, open, disabled, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
             "flex items-center outline-0",
@@ -131,10 +119,10 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
 
         return (
             <div
-                onClick={this.handleClick}
+                onClick={onClick}
                 onKeyDown={this.handleKeyDown}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 className={classes}
                 tabIndex={disabled ? "-1" : "0"}
                 disabled={disabled}

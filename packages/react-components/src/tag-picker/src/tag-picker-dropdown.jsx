@@ -1,11 +1,11 @@
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
-import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
-import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
-import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
 import { SIZES } from "./sizes";
+import { TagPickerDropdownMenu } from "./tag-picker-dropdown-menu";
+import { TagPickerDropdownSearchInput } from "./tag-picker-dropdown-search-input";
+import { TagPickerDropdownTrigger } from "./tag-picker-dropdown-trigger";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
@@ -15,7 +15,7 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export class MultiSelectDropdown extends PureComponent {
+export class TagPickerDropdown extends PureComponent {
     static propTypes = {
         /**
          * Array of items.
@@ -25,7 +25,6 @@ export class MultiSelectDropdown extends PureComponent {
          * Called when an item is selected.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Item} item - Selected item.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onItemSelect: func,
@@ -33,21 +32,18 @@ export class MultiSelectDropdown extends PureComponent {
          * Called when the search input change.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string} query - Search query.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onSearch: func,
         /**
          * Called when an open event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onOpen: func,
         /**
          * Called when a close event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClose: func,
@@ -96,11 +92,11 @@ export class MultiSelectDropdown extends PureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close when multi-select loose focus.
+         * Whether or not the dropdown should close when the tag picker loose focus.
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Whether or not the dropdown should close when a click happens outside the tag picker.
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
@@ -112,9 +108,9 @@ export class MultiSelectDropdown extends PureComponent {
 
     static defaultProps = {
         debounceDelay: 200,
-        menu: <MultiSelectDropdownMenu />,
-        trigger: <MultiSelectDropdownTrigger />,
-        searchInput: <MultiSelectDropdownSearchInput />,
+        menu: <TagPickerDropdownMenu />,
+        trigger: <TagPickerDropdownTrigger />,
+        searchInput: <TagPickerDropdownSearchInput />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -145,7 +141,7 @@ export class MultiSelectDropdown extends PureComponent {
         const { items, closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("MultiSelect - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new ArgumentError("TagPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (prevProps.items !== items) {
@@ -261,11 +257,11 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     handleSearchChange = (event, query) => {
-        this.onSearch(event, query, this.props);
+        this.onSearch(event, query);
     };
 
     handleItemClick = (event, item) => {
-        this.selectItem(event, item, this.props);
+        this.selectItem(event, item);
     };
 
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay) : this.props.onSearch;
@@ -281,7 +277,7 @@ export class MultiSelectDropdown extends PureComponent {
 
         this.setKeyboardItem(null, null);
 
-        onOpen(event, this.props);
+        onOpen(event);
     }
 
     close(event) {
@@ -293,7 +289,7 @@ export class MultiSelectDropdown extends PureComponent {
             }
         }, 0);
 
-        onClose(event, this.props);
+        onClose(event);
     }
 
     setKeyboardItem(item, index) {
@@ -311,7 +307,7 @@ export class MultiSelectDropdown extends PureComponent {
         setTimeout(() => {
             const selectedItem = items.find(x => x.value === item.value);
 
-            onItemSelect(event, selectedItem, this.props);
+            onItemSelect(event, selectedItem);
         }, 0);
     }
 

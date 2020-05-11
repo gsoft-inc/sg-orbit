@@ -27,7 +27,7 @@ export class DatePickerButtons extends PureComponent {
         const { canClear, onClear } = this.props;
 
         if (canClear) {
-            onClear(event, this.props);
+            onClear(event);
         }
 
         // Since clearing the date(s) will disabled the "clear" button we move the focus to the "apply" button.
@@ -42,7 +42,7 @@ export class DatePickerButtons extends PureComponent {
         const { canApply, onApply } = this.props;
 
         if (canApply) {
-            onApply(event, this.props);
+            onApply(event);
         }
     };
 

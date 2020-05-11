@@ -1,7 +1,6 @@
 import { AddIcon } from "@react-components/icons";
-import { MultiSelect } from "@react-components/multi-select";
+import { TagPicker, tagPickerItem } from "@react-components/tag-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { multiSelectItem } from "@react-components/multi-select";
 import { noop } from "lodash";
 
 const GROUP_CREATED_VALUE = "group-created";
@@ -11,23 +10,23 @@ const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
 const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
 
 const DEFAULT_ITEMS = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+    tagPickerItem("Created", GROUP_CREATED_VALUE),
+    tagPickerItem("Restored", GROUP_RESTORED_VALUE),
+    tagPickerItem("Deleted", GROUP_DELETED_VALUE),
+    tagPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
+    tagPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
-    multiSelectItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
-    multiSelectItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
-    multiSelectItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
+    tagPickerItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
+    tagPickerItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
+    tagPickerItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
+    tagPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
+    tagPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
 ];
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("MultiSelect"))
+    return storiesOfBuilder(module, createChromaticSection("TagPicker"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -35,8 +34,8 @@ function stories(segment) {
         .build();
 }
 
-function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
-    return <MultiSelect
+function createTagPicker({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
+    return <TagPicker
         items={items}
         onValuesChange={noop}
         {...otherProps}
@@ -45,12 +44,12 @@ function createMultiSelect({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
 
 stories()
     .add("opened", () =>
-        createMultiSelect({
+        createTagPicker({
             open: true
         })
     )
     .add("default opened", () =>
-        createMultiSelect({
+        createTagPicker({
             defaultOpen: true
         })
     )
@@ -58,18 +57,18 @@ stories()
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createMultiSelect({
+                     {createTagPicker({
                          size: "small",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createMultiSelect({
+                     {createTagPicker({
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex">
-                     {createMultiSelect({
+                     {createTagPicker({
                          size: "large",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
@@ -80,20 +79,20 @@ stories()
 stories("/dropdown")
     .add("some items",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultOpen: true
              })
     )
     .add("no items",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  items: [],
                  defaultOpen: true
              })
     )
     .add("categories",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  items: DEFAULT_ITEMS_WITH_CATEGORIES,
                  defaultOpen: true
              })
@@ -102,17 +101,17 @@ stories("/dropdown")
 stories("/selected values")
     .add("no selection",
          () =>
-             createMultiSelect()
+             createTagPicker()
     )
     .add("some values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
              })
     )
     .add("all values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -120,13 +119,13 @@ stories("/selected values")
 stories("/selected values/clear button")
     .add("can clear when all values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     )
     .add("cannot clear when no selection",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: []
              })
     );
@@ -134,13 +133,13 @@ stories("/selected values/clear button")
 stories("/selected values/add button")
     .add("can add when no selection",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: []
              })
     )
     .add("can add when all values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -148,13 +147,13 @@ stories("/selected values/add button")
 stories("/default values")
     .add("some values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
              })
     )
     .add("all values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -162,14 +161,14 @@ stories("/default values")
 stories("/disabled")
     .add("values selected",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE],
                  disabled: true
              })
     )
     .add("no selection",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  disabled: true
              })
     );
@@ -177,13 +176,13 @@ stories("/disabled")
 stories("/customization")
     .add("dropdown",
          () =>
-             createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown className="bg-red border-red" />
+             createTagPicker({
+                 dropdown: <TagPicker.Dropdown className="bg-red border-red" />
              })
     )
     .add("no results message",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  items: [],
                  noResultsMessage: "Custom no results message",
                  defaultOpen: true
@@ -191,70 +190,70 @@ stories("/customization")
     )
     .add("add text",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  addText: "Custom add text"
              })
     )
     .add("trigger", () =>
-        createMultiSelect({
-            dropdown: <MultiSelect.Dropdown trigger={<MultiSelect.Trigger className="bg-red" />} />
+        createTagPicker({
+            dropdown: <TagPicker.Dropdown trigger={<TagPicker.Trigger className="bg-red" />} />
         })
     )
     .add("trigger icon",
          () =>
-             createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
+             createTagPicker({
+                 dropdown: <TagPicker.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
              })
     )
     .add("search input",
          () =>
-             createMultiSelect({
-                 dropdown: <MultiSelect.Dropdown searchInput={<MultiSelect.SearchInput className="bg-red border-red" />} />,
+             createTagPicker({
+                 dropdown: <TagPicker.Dropdown searchInput={<TagPicker.SearchInput className="bg-red border-red" />} />,
                  defaultOpen: true
              })
     )
     .add("placeholder",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  placeholder: "Custom placeholder",
                  defaultOpen: true
              })
     )
     .add("selected items components",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 selectedItemsComponent: <MultiSelect.SelectedItems className="bg-red border-red" />
+                 selectedItemsComponent: <TagPicker.SelectedItems className="bg-red border-red" />
              })
     )
     .add("selected item renderer",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 selectedItemsComponent: <MultiSelect.SelectedItems itemRenderer={item => <div>{item.text}</div>} />
+                 selectedItemsComponent: <TagPicker.SelectedItems itemRenderer={item => <div>{item.text}</div>} />
              })
     )
     .add("clear button",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 clearButton: <MultiSelect.ClearButton className="bg-red" />
+                 clearButton: <TagPicker.ClearButton className="bg-red" />
              })
     )
     .add("clear text",
          () =>
-             createMultiSelect({
+             createTagPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 clearButton: <MultiSelect.ClearButton text="Custom clear text" />
+                 clearButton: <TagPicker.ClearButton text="Custom clear text" />
              })
     )
     .add("styling", () =>
         <div className="flex">
-            {createMultiSelect({
+            {createTagPicker({
                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
                 className: "bg-red mr5"
             })}
-            {createMultiSelect({
+            {createTagPicker({
                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
                 style: { backgroundColor: "red" }
             })}

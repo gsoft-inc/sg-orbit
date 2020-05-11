@@ -3,7 +3,6 @@ import { PureComponent } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import { withHandlerProxy } from "../../../shared";
 
 export class DateRangePickerButtons extends PureComponent {
     static propTypes = {
@@ -18,18 +17,14 @@ export class DateRangePickerButtons extends PureComponent {
         /**
          * Called on clear button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onApply: func,
         /**
          * Whether or not the calendar enforce the selection of of a range of dates.
@@ -52,9 +47,6 @@ export class DateRangePickerButtons extends PureComponent {
          */
         className: string
     };
-
-    handleClear = withHandlerProxy(this, "onClear");
-    handleApply = withHandlerProxy(this, "onApply");
 
     canClear() {
         const { startDate, endDate } = this.props;
@@ -81,14 +73,14 @@ export class DateRangePickerButtons extends PureComponent {
     }
 
     render() {
-        const { allowClear, clearText, applyText, className } = this.props;
+        const { onClear, onApply, allowClear, clearText, applyText, className } = this.props;
 
         return (
             <DatePickerButtons
                 canClear={this.canClear()}
                 canApply={this.canApply()}
-                onClear={this.handleClear}
-                onApply={this.handleApply}
+                onClear={onClear}
+                onApply={onApply}
                 allowClear={allowClear}
                 clearText={clearText}
                 applyText={applyText}

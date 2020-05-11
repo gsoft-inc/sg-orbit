@@ -2,9 +2,8 @@ import { Button } from "../../button";
 import { PureComponent, createRef } from "react";
 import { SIZES } from "./sizes";
 import { func, oneOf, string } from "prop-types";
-import { withHandlerProxy } from "../../shared";
 
-export class MultiSelectClearButton extends PureComponent {
+export class TagPickerClearButton extends PureComponent {
     static propTypes = {
         /**
          * The button text.
@@ -13,10 +12,8 @@ export class MultiSelectClearButton extends PureComponent {
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * A clear button can have different sizes.
@@ -34,20 +31,18 @@ export class MultiSelectClearButton extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleClick = withHandlerProxy(this, "onClick", false);
-
     render() {
-        const { text, className, size } = this.props;
+        const { text, onClick, className, size } = this.props;
 
         return (
             <Button
-                onClick={this.handleClick}
+                onClick={onClick}
                 ghost
                 compact
                 size={size}
                 className={className}
                 ref={this._buttonRef}
-                data-testid="multi-select-clear-button"
+                data-testid="tag-picker-clear-button"
             >
                 {text}
             </Button>

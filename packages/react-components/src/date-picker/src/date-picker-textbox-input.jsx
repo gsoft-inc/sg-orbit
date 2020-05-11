@@ -1,7 +1,7 @@
 import { Button } from "../../button";
 import { CalendarIcon, CloseIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
-import { KEYS, isNullOrEmpty, withHandlerProxy } from "../../shared";
+import { KEYS, isNullOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
 import { TextInput } from "../../text-input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -11,13 +11,9 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
         onClick: func,
-        // eslint-disable-next-line react/no-unused-prop-types
         onKeyDown: func,
-        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
-        // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
-        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         allowClear: bool,
         placeholder: string,
@@ -47,21 +43,17 @@ export class InnerDatePickerTextboxInput extends PureComponent {
 
         if (event.keyCode === KEYS.esc) {
             if (!open) {
-                onClear(event, this.props);
+                onClear(event);
             }
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
     }
 
-    handleFocus = withHandlerProxy(this, "onFocus");
-    handleBlur = withHandlerProxy(this, "onBlur");
-    handleClearButtonClick = withHandlerProxy(this, "onClear");
-
     renderClearButton() {
-        const { allowClear, open } = this.props;
+        const { onClear, allowClear, open } = this.props;
 
         if (!allowClear || this.isPlaceholder() || open) {
             return null;
@@ -70,21 +62,21 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         return (
             <Button
                 icon={<CloseIcon />}
-                onClick={this.handleClearButtonClick}
+                onClick={onClear}
                 data-testid="date-picker-textbox-clear-button"
             />
         );
     }
 
     render() {
-        const { value, onClick, placeholder, size, disabled, fluid, className, forwardedRef } = this.props;
+        const { value, onClick, onFocus, onBlur, placeholder, size, disabled, fluid, className, forwardedRef } = this.props;
 
         return (
             <TextInput
                 onClick={onClick}
                 onKeyDown={this.handleKeyDown}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 value={value}
                 placeholder={placeholder}
                 icon={<CalendarIcon />}

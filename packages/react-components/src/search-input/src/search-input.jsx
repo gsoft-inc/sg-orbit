@@ -38,7 +38,6 @@ export class SearchInput extends AutoControlledPureComponent {
          * Called when the search results open / close.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {boolean} isVisible - Indicate if the search input results are visible.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onVisibilityChange: func,
@@ -47,35 +46,30 @@ export class SearchInput extends AutoControlledPureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Result[]} results - Available results.
          * @param {string} query - Search query that triggered the search.
-         * @param {Object} props - All the props.
          * @returns {Result[]} - Results to display.
          */
         onSearch: func,
         /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClear: func,
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onBlur: func,
         /**
          * Called when a click happens outside the search input.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onOutsideClick: func,
         /**
          * Render a result.
          * @param {Object} result - Result to render.
-         * @param {Object} props - All the props.
          * @returns {ReactElement} - React element to render.
          */
         resultRenderer: func,
@@ -178,7 +172,7 @@ export class SearchInput extends AutoControlledPureComponent {
         const { results, onSearch, minCharacters } = this.props;
 
         if (query.length >= minCharacters) {
-            const newResults = onSearch(event, results, query, this.props);
+            const newResults = onSearch(event, results, query);
 
             this.setState({ visibleResults: newResults });
             this.open(event);
@@ -193,7 +187,7 @@ export class SearchInput extends AutoControlledPureComponent {
 
         this.close(event);
 
-        onValueChange(event, value, this.props);
+        onValueChange(event, value);
     };
 
     handleClear = event => {
@@ -206,7 +200,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onClear)) {
-            onClear(event, this.props);
+            onClear(event);
         }
     };
 
@@ -222,7 +216,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onBlur)) {
-            onBlur(event, this.props);
+            onBlur(event);
         }
     };
 
@@ -235,7 +229,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
     };
 
@@ -247,7 +241,7 @@ export class SearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onOutsideClick)) {
-            onOutsideClick(event, this.props);
+            onOutsideClick(event);
         }
     };
 
@@ -259,7 +253,7 @@ export class SearchInput extends AutoControlledPureComponent {
             this.trySetAutoControlledStateValue({ open: true });
 
             if (!isNil(onVisibilityChange)) {
-                onVisibilityChange(event, true, this.props);
+                onVisibilityChange(event, true);
             }
         }
     }
@@ -272,7 +266,7 @@ export class SearchInput extends AutoControlledPureComponent {
             this.trySetAutoControlledStateValue({ open: false });
 
             if (!isNil(onVisibilityChange)) {
-                onVisibilityChange(event, false, this.props);
+                onVisibilityChange(event, false);
             }
         }
     }

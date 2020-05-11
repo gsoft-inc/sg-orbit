@@ -15,14 +15,12 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * Called when the date is applied.
          * @param {Moment} date - Selected date.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onDateChange: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onApply: func,
@@ -85,7 +83,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
     handleDateChange = date => {
         const { onDateChange } = this.props;
 
-        onDateChange(date, this.props);
+        onDateChange(date);
     };
 
 
@@ -96,13 +94,13 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
     handleClear = () => {
         const { onDateChange } = this.props;
 
-        onDateChange(null, this.props);
+        onDateChange(null);
     };
 
     handleApply = event => {
         const { onApply } = this.props;
 
-        onApply(event, this.props);
+        onApply(event);
     };
 
     renderButtons() {
