@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
 
-export function IconTests({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
+export function IconTestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
     return (
         <div className="flex flex-column">
             <If condition={!isNil(Icon24)}>

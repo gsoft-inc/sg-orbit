@@ -1,4 +1,4 @@
-import { CountriesSearchInput } from "./components";
+import { CountriesSearchInput } from "./countries-search-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 

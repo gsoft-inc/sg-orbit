@@ -1,4 +1,4 @@
-import { ControlledRemoteSearchInput } from "./components";
+import { ControlledRemoteSearchInput } from "./controlled-remote-search-input.sample";
 import { DEFAULT_SIZE, RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@react-components/search-input";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
@@ -254,7 +254,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A remote search input can handle `value` and `open` state in controlled mode.
 
-<FilePreview filePath="/search-input/stories/remote-search-input/components/controlled-remote-search-input">
+<FilePreview filePath="/search-input/stories/remote-search-input/controlled-remote-search-input">
     <ControlledRemoteSearchInput
         onFetchResults={dataFetcher}
         onResults={resultsMapper}
