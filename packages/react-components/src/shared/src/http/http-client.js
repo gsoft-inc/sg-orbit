@@ -1,7 +1,7 @@
 import { fetchWithTimeout } from "./fetch";
 import { isNil, pickBy } from "lodash";
-import { isNotNullOrEmpty } from "../utils/types";
-import { toSearch } from "../utils/url";
+import { isNotNullOrEmpty } from "../types";
+import { toSearch } from "../url";
 
 const DEFAULT_TIMEOUT = 0;
 

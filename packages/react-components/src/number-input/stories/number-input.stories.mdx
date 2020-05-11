@@ -1,7 +1,7 @@
 import { EditIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerNumberInput, NumberInput } from "@react-components/number-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { NumberInput, PureNumberInput } from "@react-components/number-input";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -27,7 +27,7 @@ A number input allow a user to enter and edit a number.
 
 <Props
     componentsDefinitions={[
-        { displayName: "NumberInput", component: PureNumberInput }
+        { displayName: "NumberInput", component: InnerNumberInput }
     ]}
 />
 
@@ -221,11 +221,9 @@ A number input can be transparent.
 
 ## API
 
-A few API functions are available for a number input component. To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the number input component, then call the API function.
+A few [API functions are available for a number input component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the number input component, then call the API function.
 
-### focus
-
-A number input can be focused programmatically.
+Here's an example for the `focus` function:
 
 ```jsx dark
 function MyComponent() {
@@ -235,23 +233,6 @@ function MyComponent() {
         <div onFocus={() => { ref.focus(); }}>
             <NumberInput ref={ref} />
         </div>
-    );
-}
-```
-
-### select
-
-A number input text can be [selected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select) programmatically.
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <NumberInput
-            ref={ref}
-            onFocus={() => { ref.select(); }}
-        />
     );
 }
 ```

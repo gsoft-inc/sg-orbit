@@ -155,7 +155,7 @@ test("when the calendar is closed and a value is selected, clear the value on es
     expect(inputNode).not.toHaveTextContent(formattedDate);
 });
 
-test("when the calendar close, the input should be focused", async () => {
+test("when the calendar close on esc keydown, the input should be focused", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
     await openCalendar(getByTestId);
@@ -166,7 +166,7 @@ test("when the calendar close, the input should be focused", async () => {
 
     expect(inputNode).not.toHaveFocus();
 
-    userEvent.click(document.body);
+    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await waitDelay(50);
 
     expect(inputNode).toHaveFocus();

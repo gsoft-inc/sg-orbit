@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses } from "../../shared";
+import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses, useAutofocus } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { cloneElement, forwardRef, useImperativeHandle, useRef } from "react";
 import { createButtonFromShorthand } from "../../button";
 import { createIconForControl } from "../../icons";
 import { isElement } from "react-is";
@@ -14,6 +14,12 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
+
+const BUTTON_SIZE = {
+    [SMALL]: TINY,
+    [MEDIUM]: SMALL,
+    [LARGE]: MEDIUM
+};
 
 const propTypes = {
     /**
@@ -65,153 +71,148 @@ const defaultProps = {
     __componentName: "@orbit-ui/react-components/input"
 };
 
-function getInputElement(innerRef) {
-    return innerRef.current.querySelector("input");
-}
-
-function focus(innerRef) {
-    if (!isNil(innerRef.current)) {
-        getInputElement(innerRef).focus();
-    }
-}
-
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
-    useEffect(() => {
-        let timeoutId;
-
-        if (autofocus && !disabled && !isNil(autofocusDelay)) {
-            timeoutId = setTimeout(() => {
-                focus(innerRef);
-            }, autofocusDelay);
-        }
-
-        return () => {
-            if (!isNil(timeoutId)) {
-                clearTimeout(timeoutId);
-            }
-        };
-    }, [autofocus, autofocusDelay, disabled, innerRef]);
-}
-
 function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }, componentName) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
         throw new ArgumentError(`${componentName} doesn't support having a button and a right positioned icon at the same time.`);
     }
 }
 
-export function PureInput(props) {
-    const { autofocus, autofocusDelay, className, fluid, icon, iconPosition, button, size, loading, disabled, children, forwardedRef, __componentName, ...rest } = props;
-
-    const SIZES_TO_BUTTON = {
-        [SMALL]: TINY,
-        [MEDIUM]: SMALL,
-        [LARGE]: MEDIUM
+function useSetFocus(containerRef) {
+    return () => {
+        if (!isNil(containerRef.current)) {
+            containerRef.current.querySelector("input").focus();
+        }
     };
+}
 
-    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
-
-    const containerRef = useRef();
-    const inputRef = useRef();
-
+function useForwardInputApi(forwardedRef, containerRef, inputComponentRef) {
     useImperativeHandle(forwardedRef, () => {
+        const apiMethods = ["blur", "focus", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
         const domElement = containerRef.current;
 
-        // This function is part of the component external API.
-        domElement.focus = () => {
-            inputRef.current.focus();
-        };
-
-        // This function is part of the component external API.
-        domElement.select = () => {
-            inputRef.current.select();
-        };
+        // These functions are part of the component external API.
+        apiMethods.forEach(x => {
+            domElement[x] = inputComponentRef.current[x];
+        });
 
         return domElement;
     });
+}
 
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, containerRef);
-
-    const renderIcon = () => {
+function useIconRenderer({ icon, size, loading }) {
+    return () => {
         if (!isNil(icon) && !loading) {
             return createIconForControl(icon, size);
         }
     };
+}
 
-    const renderButton = () => {
+function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
+    return () => {
         if (!isNil(button)) {
             const canRenderButton = !disabled && (!loading || (loading && iconPosition === "left"));
 
             if (canRenderButton) {
-                const defaults = {
-                    size: SIZES_TO_BUTTON[size],
+                const props = {
+                    size: BUTTON_SIZE[size],
                     circular: true,
                     ghost: true,
-                    secondary: true,
-                    type: "button"
+                    secondary: true
                 };
 
-                const getClasses = userClasses => {
+                const getClasses = (...args) => {
                     return mergeClasses(
                         "input-clear-button",
-                        userClasses
+                        ...args
                     );
                 };
 
                 if (isElement(button)) {
                     return cloneElement(button, {
                         className: getClasses(button.props && button.props.className),
-                        ...defaults
+                        ...props
                     });
                 }
 
                 return createButtonFromShorthand({
-                    ...defaults,
                     ...button,
+                    ...props,
                     className: getClasses(button.className)
                 });
             }
         }
     };
+}
 
-    const containerClasses = mergeClasses(
-        "relative outline-0",
-        fluid ? "w-100" : "dib",
-        button && "with-button",
-        className
-    );
-
-    const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
-
-    return (
-        <div
-            ref={containerRef}
-            className={containerClasses}
-            tabIndex={-1}
-            data-testid="input"
-        >
+function useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, icon) {
+    return () => {
+        return (
             <SemanticInput
-                icon={renderIcon()}
+                {...rest}
+                {...autofocusProps}
+                icon={icon}
                 iconPosition={iconPosition}
-                autoFocus={shouldAutofocus}
                 fluid={fluid}
                 size={size}
                 loading={loading}
                 disabled={disabled}
-                ref={inputRef}
-                {...rest}
+                ref={inputComponentRef}
             >
                 {children}
             </SemanticInput>
-            {renderButton()}
-        </div>
-    );
+        );
+    };
 }
 
-PureInput.propTypes = propTypes;
-PureInput.defaultProps = defaultProps;
+function useRenderer({ button, fluid, className }, containerRef, buttonComponent, input) {
+    return () => {
+        const classes = mergeClasses(
+            "relative outline-0",
+            fluid ? "w-100" : "dib",
+            button && "with-button",
+            className
+        );
+
+        return (
+            <div
+                ref={containerRef}
+                className={classes}
+                tabIndex={-1}
+                data-testid="input"
+            >
+                {input}
+                {buttonComponent}
+            </div>
+        );
+    };
+}
+
+export function InnerInput(props) {
+    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, loading, disabled, className, __componentName, forwardedRef, children, ...rest } = props;
+
+    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
+
+    const containerRef = useRef();
+    const inputComponentRef = useRef();
+
+    useForwardInputApi(forwardedRef, containerRef, inputComponentRef);
+
+    const setFocus = useSetFocus(containerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
+    const renderIcon = useIconRenderer({ icon, size, loading });
+    const renderButton = useButtonRenderer({ iconPosition, button, size, loading, disabled });
+    const renderInput = useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderIcon());
+    const render = useRenderer({ button, fluid, className }, containerRef, renderButton(), renderInput() );
+
+    return render();
+}
+
+InnerInput.propTypes = propTypes;
+InnerInput.defaultProps = defaultProps;
 
 export const Input = forwardRef((props, ref) => (
-    <PureInput { ...props } forwardedRef={ref} />
+    <InnerInput { ...props } forwardedRef={ref} />
 ));
 
 if (!isNil(SemanticInput.propTypes)) {

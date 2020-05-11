@@ -1,6 +1,6 @@
-import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, MINI, SMALL, TINY, SemanticRef, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
-import { Ref, Label as SemanticLabel } from "semantic-ui-react";
+import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "../../button";
 import { createCompactIconForControl, createIconForControl } from "../../icons";
@@ -8,10 +8,18 @@ import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
-
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const DEFAULT_SIZE = "medium";
+
+const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
+
+const BUTTON_SIZE = {
+    [MINI]: MINI,
+    [TINY]: TINY,
+    [SMALL]: SMALL,
+    [MEDIUM]: MEDIUM,
+    [LARGE]: LARGE
+};
 
 const propTypes = {
     /**
@@ -90,32 +98,10 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     }
 }
 
-export function PureLabel(props) {
-    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-    throwWhenUnsupportedSizeIsProvided(props);
-
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderLabel()}
-            </Ref>
-        );
-    };
-
-    const renderButton = () => {
-        const SIZES_TO_BUTTON = {
-            [MINI]: MICRO,
-            [TINY]: MINI,
-            [SMALL]: TINY,
-            [MEDIUM]: SMALL,
-            [LARGE]: MEDIUM
-        };
-
-        const defaults = {
-            size: SIZES_TO_BUTTON[size],
+function useButtonRenderer({ button, size }) {
+    return () => {
+        const props = {
+            size: BUTTON_SIZE[size],
             circular: true,
             ghost: true,
             secondary: true,
@@ -123,34 +109,39 @@ export function PureLabel(props) {
         };
 
         if (isElement(button)) {
-            return cloneElement(button, defaults);
+            return cloneElement(button, props);
         }
 
         return createButtonFromShorthand({
-            ...defaults,
+            ...props,
             ...button
         });
     };
+}
 
-    const renderTag = () => {
-        const defaults = {
+function useTagRenderer({ tag }) {
+    return () => {
+        const props = {
             as: "span",
             size: "mini"
         };
 
         if (isElement(tag)) {
-            return cloneElement(tag, defaults);
+            return cloneElement(tag, props);
         }
 
         return createTagFromShorthand({
-            ...defaults,
+            ...props,
             ...tag
         });
     };
+}
 
-    const renderContent = () => {
-        const hasText = Children.count(children) > 0;
+function useContentRenderer({ button, icon, iconPosition, tag, size, children }) {
+    const renderButton = useButtonRenderer({ button, size });
+    const renderTag = useTagRenderer({ tag });
 
+    return () => {
         let left;
         let right;
 
@@ -185,8 +176,10 @@ export function PureLabel(props) {
 
         return <span className="text">{children}</span>;
     };
+}
 
-    const renderLabel = () => {
+function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, content) {
+    return () => {
         const hasText = Children.count(children) > 0;
 
         const classes = mergeClasses(
@@ -203,23 +196,49 @@ export function PureLabel(props) {
         );
 
         return (
-            <SemanticLabel size={size} className={classes} {...rest}>
-                {renderContent()}
+            <SemanticLabel
+                {...rest}
+                size={size}
+                className={classes}
+            >
+                {content}
             </SemanticLabel>
         );
     };
-
-    return isNil(forwardedRef) ? renderLabel() : renderWithRef();
 }
 
-PureLabel.propTypes = propTypes;
-PureLabel.defaultProps = defaultProps;
+function useRenderer({ forwardedRef }, label) {
+    return () => {
+        return (
+            <SemanticRef innerRef={forwardedRef}>
+                {label}
+            </SemanticRef>
+        );
+    };
+}
+
+export function InnerLabel(props) {
+    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedSizeIsProvided(props);
+
+    const renderContent = useContentRenderer({ button, icon, iconPosition, tag, size, children });
+    const renderLabel = useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, renderContent());
+    const render = useRenderer({ forwardedRef }, renderLabel());
+
+    return render();
+}
+
+InnerLabel.propTypes = propTypes;
+InnerLabel.defaultProps = defaultProps;
 
 export const Label = forwardRef((props, ref) => (
-    <PureLabel { ...props } forwardedRef={ref} />
+    <InnerLabel { ...props } forwardedRef={ref} />
 ));
 
-[PureLabel, Label].forEach(x => {
+[InnerLabel, Label].forEach(x => {
     x.Detail = SemanticLabel.Detail;
     x.Group = SemanticLabel.Group;
 });

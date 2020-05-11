@@ -1,14 +1,13 @@
 import { Checkbox } from "../../checkbox";
-import { Ref } from "semantic-ui-react";
+import { SemanticRef } from "../../shared";
 import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the radio should autofocus on render.
@@ -36,44 +35,33 @@ const CHECKBOX_PROP_TYPES = {
     size: oneOf(SIZES)
 };
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the preset will not render properly in the docs.
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
-    size: DEFAULT_SIZE,
-    __componentName: "@orbit-ui/react-components/checkbox"
+    size: DEFAULT_SIZE
 };
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
 
-export function PureRadio(props) {
+export function InnerRadio(props) {
     const { forwardedRef, ...rest } = props;
 
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderRadio()}
-            </Ref>
-        );
-    };
-
-    const renderRadio = () => {
-        return (
+    return (
+        <SemanticRef innerRef={forwardedRef}>
             <Checkbox
                 {...rest}
                 radio
                 __componentName="@orbit-ui/react-components/radio"
                 __unsupportedProps={UNSUPPORTED_PROPS}
             />
-        );
-    };
-
-    return isNil(forwardedRef) ? renderRadio() : renderWithRef();
+        </SemanticRef>
+    );
 }
 
-PureRadio.propTypes = CHECKBOX_PROP_TYPES;
-PureRadio.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerRadio.propTypes = CHECKBOX_PROP_TYPES;
+InnerRadio.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Radio = forwardRef((props, ref) => (
-    <PureRadio { ...props } forwardedRef={ref} />
+    <InnerRadio { ...props } forwardedRef={ref} />
 ));
 

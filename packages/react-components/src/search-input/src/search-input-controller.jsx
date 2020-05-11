@@ -2,9 +2,9 @@ import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledS
 import { Button } from "../../button";
 import { CloseIcon, MagnifierIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
-import { Input } from "../../input";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
+import { TextInput } from "../../text-input";
 import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
@@ -289,7 +289,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { open, loading, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
 
         return (
-            <Input
+            <TextInput
                 onKeyDown={this.handleInputKeyDown}
                 icon={<MagnifierIcon />}
                 iconPosition="left"

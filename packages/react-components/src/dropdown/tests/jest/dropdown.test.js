@@ -69,14 +69,14 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
 test("when delayed autofocus, the dropdown is autofocused after the delay", async () => {
     const { getByTestId } = render(createDropdown({
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getByTestId("dropdown")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getByTestId("dropdown")).toHaveFocus();
 });
 
@@ -84,14 +84,14 @@ test("when delayed autofocus on a disabled dropdown, the dropdown is not autofoc
     const { getByTestId } = render(createDropdown({
         disabled: true,
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getByTestId("dropdown")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
 
@@ -130,4 +130,18 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("dropdown");
+});
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createDropdown({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
 });

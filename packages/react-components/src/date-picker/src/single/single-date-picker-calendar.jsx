@@ -1,12 +1,12 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerSingleDateController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popup";
-import { PureComponent, cloneElement } from "react";
-import { bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
+import { POSITIONS } from "../../../popper";
+import { PureComponent, cloneElement, forwardRef } from "react";
+import { bool, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
-export class SingleDatePickerCalendar extends PureComponent {
+export class InnerSingleDatePickerCalendar extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
@@ -55,13 +55,17 @@ export class SingleDatePickerCalendar extends PureComponent {
          */
         allowClear: bool,
         /**
-         * Additional classes.
+         * @ignore
+         */
+        reactDatesCalendar: node,
+        /**
+         * @ignore
          */
         className: string,
         /**
          * @ignore
          */
-        reactDatesCalendar: node
+        forwardedRef: oneOfType([object, func])
     };
 
     static defaultProps = {
@@ -125,7 +129,7 @@ export class SingleDatePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className, forwardedRef } = this.props;
 
         return (
             <DatePickerCalendar
@@ -138,8 +142,13 @@ export class SingleDatePickerCalendar extends PureComponent {
                 numberOfMonths={numberOfMonths}
                 position={position}
                 className={className}
+                ref={forwardedRef}
                 temporarySingleDatePickerFlag
             />
         );
     }
 }
+
+export const SingleDatePickerCalendar = forwardRef((props, ref) => (
+    <InnerSingleDatePickerCalendar { ...props } forwardedRef={ref} />
+));

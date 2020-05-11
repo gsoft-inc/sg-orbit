@@ -10,7 +10,7 @@ const propTypes = {
 };
 
 export function FoundationFile({ relativeFilePath }) {
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState();
 
     if (isNil(content)) {
         import(/* webpackMode: "eager" */ `!!raw-loader!../../../../../../packages/foundation/src/atoms${relativeFilePath}`)

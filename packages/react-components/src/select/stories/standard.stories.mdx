@@ -1,7 +1,7 @@
 import { GroupIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerSelect, Select, selectItem } from "@react-components/select";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureSelect, Select, selectItem } from "@react-components/select";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -28,8 +28,8 @@ A select can be used to select between choices.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Select", component: PureSelect },
-        { displayName: "Select.Item", component: PureSelect.Item }
+        { displayName: "Select", component: InnerSelect },
+        { displayName: "Select.Item", component: InnerSelect.Item }
     ]}
 />
 
@@ -212,20 +212,6 @@ A select can show that the data contains errors.
             placeholder="Astronaut"
             error
             options={ASTRONAUTS}
-        />
-    </Story>
-</Preview>
-
-### Transparent
-
-A select can be transparent.
-
-<Preview>
-    <Story name="transparent">
-        <Select
-            placeholder="Astronaut"
-            options={ASTRONAUTS}
-            transparent
         />
     </Story>
 </Preview>

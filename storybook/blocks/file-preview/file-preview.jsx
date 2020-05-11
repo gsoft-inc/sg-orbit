@@ -16,7 +16,7 @@ const defaultProps = {
 };
 
 export function FilePreview({ filePath, withSource, children, ...rest }) {
-    const [source, setSource] = useState(null);
+    const [source, setSource] = useState();
 
     if (isNil(source)) {
         import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)
@@ -28,7 +28,7 @@ export function FilePreview({ filePath, withSource, children, ...rest }) {
     }
 
     return (
-        <Preview withSource={{ code: source, ...withSource }} {...rest} >
+        <Preview {...rest} withSource={{ code: source, ...withSource }}>
             {children}
         </Preview>
     );

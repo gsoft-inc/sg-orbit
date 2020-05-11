@@ -1,4 +1,4 @@
 export * from "./orbit-icons";
-export * from "./factories";
+export * from "./shorthands";
 export * from "./sizes";
 export * from "./icon";

@@ -1,7 +1,7 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided, useForwardRef } from "../../shared";
-import { Ref, Checkbox as SemanticCheckbox } from "semantic-ui-react";
+import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useEffect } from "react";
+import { cloneElement, forwardRef, useCallback } from "react";
 import { createCountFromShorthand } from "../../count";
 import { createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
@@ -73,81 +73,63 @@ export const CHECKBOX_DEFAULT_PROPS = {
     __unsupportedProps: UNSUPPORTED_PROPS
 };
 
-function getInputElement(innerRef) {
-    return innerRef.current.querySelector("input");
-}
-
-function focus(innerRef) {
-    if (!isNil(innerRef.current)) {
-        getInputElement(innerRef).focus();
-    }
-}
-
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef) {
-    useEffect(() => {
-        let timeoutId;
-
-        if (autofocus && !disabled && !isNil(autofocusDelay)) {
-            timeoutId = setTimeout(() => {
-                focus(innerRef);
-            }, autofocusDelay);
-        }
-
-        return () => {
-            if (!isNil(timeoutId)) {
-                clearTimeout(timeoutId);
-            }
-        };
-    }, [autofocus, autofocusDelay, disabled, innerRef]);
-}
-
 function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
     if (!isNil(label) && !isNil(count)) {
         throw new ArgumentError(`${componentName} doesn't support having a label and a count at the same time.`);
     }
 }
 
-export function PureCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
+function useSetFocus(checkboxRef) {
+    return useCallback(() => {
+        if (!isNil(checkboxRef.current)) {
+            checkboxRef.current.querySelector("input").focus();
+        }
+    }, [checkboxRef]);
+}
 
-    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
-    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
-
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
-
-    const renderIcons = () => {
+function useIconsRenderer({ icons, size }) {
+    return () => {
         const normalizedIcons = isArray(icons) ? icons : [icons];
 
         return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
     };
+}
 
-    const renderLabel = () => {
-        const defaults = {
+function useLabelRenderer({ label }) {
+    return () => {
+        const props = {
             as: "span",
             size: "mini",
             highlight: true
         };
 
         if (isElement(label)) {
-            return cloneElement(label, defaults);
+            return cloneElement(label, props);
         }
 
         return createLabelFromShorthand({
-            ...defaults,
+            ...props,
             ...label
         });
     };
+}
 
-    const renderCount = () => {
+function useCountRenderer({ count }) {
+    return () => {
         if (isElement(count)) {
             return count;
         }
 
         return createCountFromShorthand(count);
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ text, icons, label, count, size }) {
+    const renderIcons = useIconsRenderer({ icons, size });
+    const renderLabel = useLabelRenderer({ label });
+    const renderCount = useCountRenderer({ count });
+
+    return () => {
         let right;
 
         if (!isNil(icons)) {
@@ -174,34 +156,53 @@ export function PureCheckbox(props) {
             return <label title={text}>{!isNil(text) && <span className="text">{text}</span>}{!isNil(right) && right}</label>;
         }
     };
-
-    const classes = mergeClasses(
-        size && size,
-        !isNil(icons) && "with-icon",
-        !isNil(label) && "with-label",
-        isNil(text) && "without-text",
-        className
-    );
-
-    const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
-
-    return (
-        <Ref innerRef={setInnerRef}>
-            <SemanticCheckbox
-                label={renderContent()}
-                autoFocus={shouldAutofocus}
-                disabled={disabled}
-                className={classes}
-                data-testid="checkbox"
-                {...rest}
-            />
-        </Ref>
-    );
 }
 
-PureCheckbox.propTypes = CHECKBOX_PROP_TYPES;
-PureCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
+function useRenderer({ text, icons, label, size, disabled, className, rest }, autofocusProps, innerRef, content) {
+    return () => {
+        const classes = mergeClasses(
+            size && size,
+            !isNil(icons) && "with-icon",
+            !isNil(label) && "with-label",
+            isNil(text) && "without-text",
+            className
+        );
+
+        return (
+            <SemanticRef innerRef={innerRef}>
+                <SemanticCheckbox
+                    data-testid="checkbox"
+                    {...rest}
+                    {...autofocusProps}
+                    label={content}
+                    disabled={disabled}
+                    className={classes}
+                />
+            </SemanticRef>
+        );
+    };
+}
+
+export function InnerCheckbox(props) {
+    const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
+    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
+
+    const innerRef = useCombinedRefs(forwardedRef);
+
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
+    const renderContent = useContentRenderer({ text, icons, label, count, size });
+    const render = useRenderer({ text, icons, label, size, disabled, className, rest }, autofocusProps, innerRef, renderContent());
+
+    return render();
+}
+
+InnerCheckbox.propTypes = CHECKBOX_PROP_TYPES;
+InnerCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Checkbox = forwardRef((props, ref) => (
-    <PureCheckbox { ...props } forwardedRef={ref} />
+    <InnerCheckbox { ...props } forwardedRef={ref} />
 ));

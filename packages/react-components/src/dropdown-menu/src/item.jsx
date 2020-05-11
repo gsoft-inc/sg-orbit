@@ -38,39 +38,58 @@ const defaultProps = {
     disabled: false
 };
 
-export function DropdownMenuItem(props) {
-    const { text, icon, description, ...rest } = props;
-    const context = useContext(DropdownContext);
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/item");
-
-    const renderText = () => {
+function useTextRenderer({ text }) {
+    return () => {
         if (!isNil(text)) {
             return <span className="text">{text}</span>;
         }
     };
+}
 
-    const renderDescription = () => {
+function useDescriptionRenderer({ description }) {
+    return () => {
         if (!isNil(description)) {
             return <span className="description">{description}</span>;
         }
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ text, icon, description }, size) {
+    const renderText = useTextRenderer({ text });
+    const renderDescription = useDescriptionRenderer({ description });
+
+    return () => {
         let left;
 
         if (!isNil(icon)) {
-            left = createIconForControl(icon, context.size);
+            left = createIconForControl(icon, size);
         }
 
         return <>{!isNil(left) && left}{renderText()}{renderDescription()}</>;
     };
+}
 
-    return (
-        <Dropdown.Item {...rest}>
-            {renderContent()}
-        </Dropdown.Item>
-    );
+function useRenderer({ rest }, content) {
+    return () => {
+        return (
+            <Dropdown.Item {...rest}>
+                {content}
+            </Dropdown.Item>
+        );
+    };
+}
+
+export function DropdownMenuItem(props) {
+    const { text, icon, description, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/item");
+
+    const { size } = useContext(DropdownContext);
+
+    const renderContent = useContentRenderer({ text, icon, description }, size);
+    const render = useRenderer({ rest }, renderContent());
+
+    return render();
 }
 
 DropdownMenuItem.propTypes = propTypes;

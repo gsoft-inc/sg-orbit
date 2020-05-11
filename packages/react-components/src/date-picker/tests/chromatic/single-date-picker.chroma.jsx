@@ -1,3 +1,4 @@
+import { AbsoluteRedBox } from "./components";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@react-components/date-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -14,7 +15,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/single"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "80%", height: "600px" })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
             .build())
@@ -29,6 +30,18 @@ function createSingleDatePicker(props = {}) {
 }
 
 stories()
+    .add("opened", () =>
+        createSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            open: true
+        })
+    )
+    .add("default opened", () =>
+        createSingleDatePicker({
+            initialVisibleMonth: moment(DEFAULT_DATE),
+            defaultOpen: true
+        })
+    )
     .add("fluid",
          () =>
              <div className="flex flex-column">
@@ -793,7 +806,7 @@ stories("/z-index")
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
@@ -807,11 +820,11 @@ stories("/z-index")
                  {createSingleDatePicker({
                      initialVisibleMonth: moment(DEFAULT_DATE),
                      defaultOpen: true,
-                     zIndex: "1"
+                     zIndex: 1
                  })}
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                 <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
+                 <AbsoluteRedBox style={{ zIndex: 2 }} />
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>

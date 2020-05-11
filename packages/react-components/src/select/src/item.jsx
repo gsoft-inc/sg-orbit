@@ -1,10 +1,9 @@
-import { ArgumentError, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { Image as SemanticImage } from "semantic-ui-react";
 import { arrayOf, bool, element, oneOf, oneOfType, shape, string } from "prop-types";
-import { createIconForControl } from "../../icons";
-import { isArray, isNil } from "lodash";
-import { isElement } from "react-is";
+import { isNil } from "lodash";
+import { renderAvatar } from "./render-avatar";
+import { renderIcons } from "./render-icons";
 import { useContext } from "react";
 
 const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
@@ -12,12 +11,6 @@ const UNSUPPORTED_PROPS = ["content", "flag", "icon", "image", "label"];
 const AVATAR_SHAPE = {
     src: string.isRequired,
     alt: string
-};
-
-const SIZES_TO_AVATAR = {
-    [SMALL]: MINI,
-    [MEDIUM]: TINY,
-    [LARGE]: SMALL
 };
 
 const propTypes = {
@@ -56,57 +49,14 @@ const defaultProps = {
     disabled: false
 };
 
-export const renderAvatar = (avatar, size, additionalProps = {}) => {
-    const defaults = {
-        avatar: true,
-        size: !isNil(size) ? SIZES_TO_AVATAR[size] : undefined,
-        ...additionalProps
-    };
-
-    if (!isNil(avatar)) {
-        if (isElement(avatar)) {
-            return (
-                <SemanticImage {...defaults}>
-                    {avatar}
-                </SemanticImage>
-            );
-        }
-
-        return SemanticImage.create({
-            ...avatar,
-            ...defaults
-        });
-    }
-};
-
-export const renderIcons = (icons, size, isInline, iconsPosition) => {
-    const normalizedIcons = isArray(icons) ? icons : [icons];
-
-    if (isInline) {
-        return (
-            <span className={iconsPosition === "right" ? "fr" : "fl"}>
-                {normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}
-            </span>
-        );
-    }
-
-    return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
-};
-
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
     if (!isNil(icons) && iconsPosition === "left" && !isNil(avatar)) {
         throw new ArgumentError("@orbit-ui/react-components/select/item doesn't support having a left positioned icons and an avatar at the same time.");
     }
 }
 
-export function SelectItem(props) {
-    const { text, icons, iconsPosition, avatar, description, ...rest } = props;
-    const context = useContext(DropdownContext);
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-
-    const renderText = hasRightContent => {
+function useTextRenderer({ text }) {
+    return hasRightContent => {
         if (!isNil(text)) {
             const classes = mergeClasses(
                 "text",
@@ -116,37 +66,62 @@ export function SelectItem(props) {
             return <span className={classes}>{text}</span>;
         }
     };
+}
 
-    const renderDescription = () => {
+function useDescriptionRenderer({ description }) {
+    return () => {
         if (!isNil(description)) {
             return <span className="description">{description}</span>;
         }
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ text, icons, iconsPosition, avatar, description }, size) {
+    const renderText = useTextRenderer({ text });
+    const renderDescription = useDescriptionRenderer({ description });
+
+    return () => {
         let left;
         let right;
 
         if (!isNil(icons)) {
             if (iconsPosition === "right") {
-                right = renderIcons(icons, context.size);
+                right = renderIcons(icons, size);
             } else {
-                left = renderIcons(icons, context.size);
+                left = renderIcons(icons, size);
             }
         }
 
         if (!isNil(avatar)) {
-            left = renderAvatar(avatar, context.size);
+            left = renderAvatar(avatar, size);
         }
 
         return <>{!isNil(left) && left}{renderText(!isNil(right))}{!isNil(right) && right}{renderDescription()}</>;
     };
+}
 
-    return (
-        <Dropdown.Item {...rest}>
-            {renderContent()}
-        </Dropdown.Item>
-    );
+function useRenderer({ rest }, content) {
+    return () => {
+        return (
+            <Dropdown.Item {...rest}>
+                {content}
+            </Dropdown.Item>
+        );
+    };
+}
+
+export function SelectItem(props) {
+    const { text, icons, iconsPosition, avatar, description, ...rest } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select/item");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+
+    const { size } = useContext(DropdownContext);
+
+    const renderContent = useContentRenderer({ text, icons, iconsPosition, avatar, description }, size);
+    const render = useRenderer({ rest }, renderContent());
+
+    return render();
 }
 
 SelectItem.propTypes = propTypes;

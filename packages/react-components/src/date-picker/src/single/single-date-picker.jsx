@@ -1,12 +1,12 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "../../../shared";
 import { DatePickerAnchor } from "../date-picker-anchor";
-import { POSITIONS } from "../../../popup";
+import { POSITIONS } from "../../../popper";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
 import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement } from "react";
-import { isNil } from "lodash";
+import { cloneElement, createRef } from "react";
+import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -76,13 +76,13 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     position: oneOf(POSITIONS),
     /**
      * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: ["10px", "-10px"]
+     * Ex: [10, -10]
      */
-    offsets: arrayOf(string),
+    offset: arrayOf(number),
     /**
      * z-index of the calendar.
      */
-    zIndex: string,
+    zIndex: number,
     /**
      * A React component to select a date.
      */
@@ -121,11 +121,11 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     size: oneOf(SIZES),
     /**
-     * Additional classes.
+     * @ignore
      */
     className: string,
     /**
-     * Custom inline style.
+     * @ignore
      */
     style: object
 };
@@ -156,6 +156,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         selectedDate: null,
         open: false
     };
+
+    _inputRef = createRef();
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SingleDatePicker.autoControlledProps, ({ date }) => ({
@@ -193,9 +195,20 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
         this.closeCalendar(event);
         this.trySetAutoControlledStateValue({ date: selectedDate });
+        this.focusInput();
 
         onDateChange(event, selectedDate, this.props);
     };
+
+    focusInput() {
+        setTimeout(() => {
+            if (!isNil(this._inputRef.current)) {
+                if (isFunction(this._inputRef.current.focus)) {
+                    this._inputRef.current.focus();
+                }
+            }
+        }, 0);
+    }
 
     openCalendar(event) {
         const { onVisibilityChange } = this.props;
@@ -219,9 +232,10 @@ export class SingleDatePicker extends AutoControlledPureComponent {
 
     renderInput() {
         const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, size } = this.props;
-        const { selectedDate } = this.state;
+        const { open, selectedDate } = this.state;
 
         return cloneElement(input, {
+            open,
             date: selectedDate,
             onClear: this.handleInputClear,
             allowClear,
@@ -230,7 +244,8 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            size
+            size,
+            ref: this._inputRef
         });
     }
 
@@ -254,7 +269,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offsets, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -263,7 +278,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
                 position={position}
-                offsets={offsets}
+                offset={offset}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

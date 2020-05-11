@@ -58,3 +58,17 @@ test("hoc icon ref is a DOM element", async () => {
     expect(refNode instanceof SVGElement).toBeTruthy();
     expect(refNode.tagName.toUpperCase()).toBe("SVG");
 });
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createIcon({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});

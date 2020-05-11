@@ -73,7 +73,7 @@ window.getComputedStyle(document.documentElement).getPropertyValue("--primary-50
 
 ## Override variables
 
-The foundation CSS variables can be overrided by simply redeclaring the variables in a `:root` CSS class:
+Foundation CSS variables can be overrided by simply redeclaring the variables in a `:root` CSS class:
 
 ```css dark
 :root {
@@ -92,7 +92,7 @@ If you need to use a dynamic value or to scope an update to a specific element y
 </button>
 ```
 
-At last resort, if all the techniques described above doesn't work for you, you can override a variable in JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
+At last resort, you can override a variable in JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
 
 ```javascript dark
 document.body.style.setProperty("--primary-50", "#c63a0c");

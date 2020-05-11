@@ -1,8 +1,8 @@
-import { Ref, TextArea as SemanticTextArea } from "semantic-ui-react";
+import { SemanticRef, mergeClasses, useAutofocus, useCombinedRefs } from "../../shared";
+import { TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useForwardRef } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -74,67 +74,59 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-function focus(textAreaRef) {
-    if (!isNil(textAreaRef.current)) {
-        textAreaRef.current.focus();
-    }
-}
-
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, textAreaRef) {
-    useEffect(() => {
-        let timeoutId;
-
-        if (autofocus && !disabled && !isNil(autofocusDelay)) {
-            timeoutId = setTimeout(() => {
-                focus(textAreaRef);
-            }, autofocusDelay);
+function useSetFocus(textAreaRef) {
+    return () => {
+        if (!isNil(textAreaRef.current)) {
+            textAreaRef.current.focus();
         }
-
-        return () => {
-            if (!isNil(timeoutId)) {
-                clearTimeout(timeoutId);
-            }
-        };
-    }, [autofocus, autofocusDelay, disabled, textAreaRef]);
+    };
 }
 
-export function PureTextArea(props) {
+function useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef) {
+    return () => {
+        const classes = mergeClasses(
+            "ui textarea",
+            error && "error",
+            fluid && "fluid",
+            focused && "focus",
+            transparent && "transparent",
+            resizable && "resizable",
+            size && size,
+            className
+        );
+
+        return (
+            <SemanticRef innerRef={innerRef}>
+                <SemanticTextArea
+                    data-testid="textarea"
+                    {...rest}
+                    {...autofocusProps}
+                    disabled={disabled}
+                    className={classes}
+                >
+                    {children}
+                </SemanticTextArea>
+            </SemanticRef>
+        );
+    };
+}
+
+export function InnerTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
-    const [innerRef, setInnerRef] = useForwardRef(forwardedRef);
-    const shouldAutofocus = autofocus && !disabled && isNil(autofocusDelay);
+    const innerRef = useCombinedRefs(forwardedRef);
 
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, innerRef);
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const classes = mergeClasses(
-        "ui textarea",
-        error && "error",
-        fluid && "fluid",
-        focused && "focus",
-        transparent && "transparent",
-        resizable && "resizable",
-        size && size,
-        className
-    );
+    const render = useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
 
-    return (
-        <Ref innerRef={setInnerRef}>
-            <SemanticTextArea
-                autoFocus={shouldAutofocus}
-                disabled={disabled}
-                className={classes}
-                data-testid="textarea"
-                {...rest}
-            >
-                {children}
-            </SemanticTextArea>
-        </Ref>
-    );
+    return render();
 }
 
-PureTextArea.propTypes = propTypes;
-PureTextArea.defaultProps = defaultProps;
+InnerTextArea.propTypes = propTypes;
+InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
-    <PureTextArea { ...props } forwardedRef={ref} />
+    <InnerTextArea { ...props } forwardedRef={ref} />
 ));

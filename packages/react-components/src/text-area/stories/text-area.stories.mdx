@@ -1,6 +1,6 @@
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerTextArea, TextArea } from "@react-components/text-area";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureTextArea, TextArea } from "@react-components/text-area";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -26,7 +26,7 @@ A text area allow a user to enter and edit an extended text.
 
 <Props
     componentsDefinitions={[
-        { displayName: "TextArea", component: PureTextArea }
+        { displayName: "TextArea", component: InnerTextArea }
     ]}
 />
 
@@ -170,3 +170,21 @@ A textarea can be transparent.
 >
     <RefLogger component={<TextArea />} />
 </Story>
+
+## API
+
+A few [API functions are available for a text area component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text area component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <TextArea ref={ref} />
+        </div>
+    );
+}
+```

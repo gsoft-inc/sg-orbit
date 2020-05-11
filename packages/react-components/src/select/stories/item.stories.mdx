@@ -1,7 +1,7 @@
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
+import { InnerSelect, Select, selectItem } from "@react-components/select";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureSelect, Select, selectItem } from "@react-components/select";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -26,7 +26,7 @@ An item of a select component.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Select.Item", component: PureSelect.Item }
+        { displayName: "Select.Item", component: InnerSelect.Item }
     ]}
 />
 
@@ -170,7 +170,6 @@ A select item can be disabled.
                 JEREMY_HANSEN_ITEM,
                 JENNI_SIDEY_ITEM,
                 ROBERT_THIRKS_ITEM,
-                JULIE_PAYETTE_ITEM,
                 selectItem("Julie Payette", "Julie Payette", { disabled: true })
             ]}
         />

@@ -8,7 +8,7 @@ const propTypes = {
 };
 
 export function InstallDependencies({ packageName }) {
-    const [dependencies, setDependencies] = useState(null);
+    const [dependencies, setDependencies] = useState();
 
     if (isNil(dependencies)) {
         import(/* webpackMode: "eager" */ `@root/packages/${packageName}/package.json`)

@@ -27,6 +27,12 @@ stories()
     .add("opened",
          () =>
              createRemoteSearchInput({
+                 open: true
+             })
+    )
+    .add("default opened",
+         () =>
+             createRemoteSearchInput({
                  defaultOpen: true
              })
     )

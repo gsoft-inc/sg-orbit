@@ -1,0 +1,22 @@
+.boundary {
+    border: 1px solid red;
+    padding: 0 100px;
+    width: 700px;
+    height: 300px;
+    overflow: auto;
+    position: relative;
+}
+
+.boundary:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100px;
+}
+
+.boundary:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 600px;
+}

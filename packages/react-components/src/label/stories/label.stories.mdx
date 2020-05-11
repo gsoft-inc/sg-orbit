@@ -1,11 +1,10 @@
 import { Button } from "@react-components/button";
 import { CheckIcon, CloseIcon, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Label, PureLabel } from "@react-components/label";
+import { InnerLabel, Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Tag } from "@react-components/tag";
-import { logButtonClicked } from "./utils";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -30,7 +29,7 @@ A label displays content classification.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Label", component: PureLabel }
+        { displayName: "Label", component: InnerLabel }
     ]}
 />
 

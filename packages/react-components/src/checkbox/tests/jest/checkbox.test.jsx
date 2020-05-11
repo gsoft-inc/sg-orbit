@@ -41,13 +41,13 @@ test("when autofocus on a disabled checkbox, the checkbox is not autofocused on 
 test("when delayed autofocus, the checkbox is autofocused after the delay", async () => {
     const { getByTestId } = render(createCheckbox({
         autofocus: true,
-        autofocusDelay: 50
+        autofocusDelay: 100
     }));
 
     await wait();
     expect(getInput(getByTestId)).not.toHaveFocus();
 
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
@@ -56,7 +56,7 @@ test("when delayed autofocus on a disabled checkbox, the checkbox is not autofoc
         createCheckbox({
             disabled: true,
             autofocus: true,
-            autofocusDelay: 50
+            autofocusDelay: 100
         })
     );
 
@@ -64,7 +64,7 @@ test("when delayed autofocus on a disabled checkbox, the checkbox is not autofoc
     expect(getInput(getByTestId)).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(55);
+    await waitDelay(110);
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
@@ -102,4 +102,18 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
+});
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createCheckbox({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
 });

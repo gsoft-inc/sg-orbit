@@ -1,40 +1,17 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
 import { PureComponent, forwardRef } from "react";
 import { SIZES } from "../sizes";
-import { bool, func, object, oneOf, string } from "prop-types";
+import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { withHandlerProxy } from "../../../shared";
 
-export class PureSingleDatePickerInput extends PureComponent {
+export class InnerSingleDatePickerInput extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
          */
         date: momentType,
-        /**
-         * Called when an open event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onOpen: func,
-        /**
-         * Called when a close event happens.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onClose: func,
-        /**
-         * Called when the size of the input changed.
-         * @param {{ width: number, height: number }} dimensions - The input dimensions.
-         * @returns {void}
-         */
-        // eslint-disable-next-line react/no-unused-prop-types
-        onSizeChange: func,
         /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -104,18 +81,15 @@ export class PureSingleDatePickerInput extends PureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Additional classes.
+         * @ignore
          */
         className: string,
         /**
          * @ignore
          */
-        __inputRef: object
+        forwardedRef: oneOfType([object, func])
     };
 
-    handleOpen = withHandlerProxy(this, "onOpen", false);
-    handleClose = withHandlerProxy(this, "onClose");
-    handleSizeChange = withHandlerProxy(this, "onSizeChange", false);
     handleClear = withHandlerProxy(this, "onClear", false);
     handleClick = withHandlerProxy(this, "onClick");
     handleKeyDown = withHandlerProxy(this, "onKeyDown");
@@ -133,14 +107,11 @@ export class PureSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, disabled, fluid, open, size, className, __inputRef } = this.props;
+        const { allowClear, placeholder, disabled, fluid, open, size, className, forwardedRef } = this.props;
 
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
-                onOpen={this.handleOpen}
-                onClose={this.handleClose}
-                onSizeChange={this.handleSizeChange}
                 onClear={this.handleClear}
                 onClick={this.handleClick}
                 onKeyDown={this.handleKeyDown}
@@ -153,12 +124,12 @@ export class PureSingleDatePickerInput extends PureComponent {
                 open={open}
                 size={size}
                 className={className}
-                ref={__inputRef}
+                ref={forwardedRef}
             />
         );
     }
 }
 
 export const SingleDatePickerInput = forwardRef((props, ref) => (
-    <PureSingleDatePickerInput { ...props } __inputRef={ref} />
+    <InnerSingleDatePickerInput { ...props } forwardedRef={ref} />
 ));

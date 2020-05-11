@@ -69,23 +69,23 @@ const defaultProps = {
     type: "text"
 };
 
-export function PureTextInput(props) {
+export function InnerTextInput(props) {
     const { forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, COMPONENT_NAME);
 
     return (
         <Input
+            {...rest}
             ref={forwardedRef}
             __componentName={COMPONENT_NAME}
-            {...rest}
         />
     );
 }
 
-PureTextInput.propTypes = propTypes;
-PureTextInput.defaultProps = defaultProps;
+InnerTextInput.propTypes = propTypes;
+InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
-    <PureTextInput { ...props } forwardedRef={ref} />
+    <InnerTextInput { ...props } forwardedRef={ref} />
 ));

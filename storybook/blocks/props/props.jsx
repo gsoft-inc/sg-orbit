@@ -34,7 +34,6 @@ export function Props({ componentsDefinitions }) {
             const id = `prop-tabs-${x.displayName}`;
 
             return <div key={id} id={id} title={x.displayName}>
-                {/* eslint-disable-next-line jsx-control-statements/jsx-use-if-tag */}
                 { ({ active }) => active ? <StorybookProps key={id} of={x.component} /> : null }
             </div>;
         });
