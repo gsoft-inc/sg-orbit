@@ -1,4 +1,4 @@
-import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, SMALL, TINY, mergeClasses } from "../../shared/src";
+import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, SMALL, TINY, mergeClasses } from "../../shared/src";
 import { elementType, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 
@@ -9,6 +9,7 @@ const SIZES = ["tiny", "small", "medium", "large", "big", "huge", "massive"];
 const DEFAULT_SIZE = "medium";
 
 const DIMENSIONS = {
+    [MICRO]: "w3 h3",
     [TINY]: "w4 h4",
     [SMALL]: "w5 h5",
     [MEDIUM]: "w6 h6",

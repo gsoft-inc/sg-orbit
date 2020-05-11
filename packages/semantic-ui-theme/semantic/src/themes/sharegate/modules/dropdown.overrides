@@ -1043,6 +1043,10 @@
     border-color: var(--primary-100);
 }
 
+.ui.active.selection.dropdown.error:focus {
+    border-color: var(--alert-500);
+}
+
 .ui.selection.dropdown:focus {
     box-shadow: none;
 }

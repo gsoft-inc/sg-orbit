@@ -22,8 +22,27 @@ a.ui.button {
     -moz-appearance: none;
 }
 
+/* Micro */
+.ui.micro.buttons .button,
+.ui.micro.buttons .or,
+.ui.micro.button {
+    font-size: 0.75rem;
+    padding: 0.125rem 0 0.125rem;
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo)
+}
+
 /* LAYOUT */
 /* LAYOUT | Sizes */
+/* LAYOUT | Height/Radius | Sizes | Micro */
+.ui.button.micro,
+.ui.button.with-icon.micro,
+.ui.micro.buttons .button,
+.ui.micro.with-icon.buttons .button {
+    min-height: var(--scale-delta);
+    border-radius: calc(var(--scale-delta) / 2);
+}
+
 /* LAYOUT | Height/Radius | Sizes | Tiny */
 .ui.button.tiny,
 .ui.button.with-icon.tiny,
@@ -100,6 +119,14 @@ a.ui.button {
 .ui.button.with-icon.circular.compact,
 .ui.button.with-icon.without-text.circular.compact {
     font-size: @typeScale4;
+}
+
+/* LAYOUT | Circular/micro */
+.ui.button.micro.circular,
+.ui.button.with-icon.micro.circular {
+    font-size: @typeScale9;
+    min-height: var(--scale-delta);
+    min-width: var(--scale-delta);
 }
 
 /* LAYOUT | Circular/Mini */

@@ -11,7 +11,7 @@ import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["mini", "tiny", "small", "medium", "large"];
+const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
