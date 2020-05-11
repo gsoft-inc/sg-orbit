@@ -1,10 +1,10 @@
-import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, SemanticRef, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, MASSIVE, MINI, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
-import { createButtonFromShorthand } from "../../button";
-import { createIconForControl } from "../../icons";
-import { createTagFromShorthand } from "../../tag";
+import { createButton, getContentButtonSize } from "../../button";
+import { createContentIcon, createStandaloneIcon } from "../../icons";
+import { createTag, getTagSize } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
@@ -12,14 +12,6 @@ import { isNil } from "lodash";
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
-
-const BUTTON_SIZE = {
-    [MINI]: MINI,
-    [TINY]: TINY,
-    [SMALL]: SMALL,
-    [MEDIUM]: MEDIUM,
-    [LARGE]: LARGE
-};
 
 const propTypes = {
     /**
@@ -98,10 +90,20 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     }
 }
 
+function hasText(children) {
+    return Children.count(children) > 0;
+}
+
+function useIconRenderer({ icon, size }, isStandalone) {
+    return () => {
+        return !isStandalone ? createContentIcon(icon, size) : createStandaloneIcon(icon, size);
+    };
+}
+
 function useButtonRenderer({ button, size }) {
     return () => {
         const props = {
-            size: BUTTON_SIZE[size],
+            size: getContentButtonSize(size),
             circular: true,
             ghost: true,
             secondary: true,
@@ -112,25 +114,25 @@ function useButtonRenderer({ button, size }) {
             return cloneElement(button, props);
         }
 
-        return createButtonFromShorthand({
+        return createButton({
             ...props,
             ...button
         });
     };
 }
 
-function useTagRenderer({ tag }) {
+function useTagRenderer({ tag, size }) {
     return () => {
         const props = {
             as: "span",
-            size: "mini"
+            size: getTagSize(size)
         };
 
         if (isElement(tag)) {
             return cloneElement(tag, props);
         }
 
-        return createTagFromShorthand({
+        return createTag({
             ...props,
             ...tag
         });
@@ -138,8 +140,9 @@ function useTagRenderer({ tag }) {
 }
 
 function useContentRenderer({ button, icon, iconPosition, tag, size, children }) {
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
     const renderButton = useButtonRenderer({ button, size });
-    const renderTag = useTagRenderer({ tag });
+    const renderTag = useTagRenderer({ tag, size });
 
     return () => {
         let left;
@@ -147,9 +150,9 @@ function useContentRenderer({ button, icon, iconPosition, tag, size, children })
 
         if (!isNil(icon)) {
             if (iconPosition === "right") {
-                right = createIconForControl(icon, size);
+                right = renderIcon();
             } else {
-                left = createIconForControl(icon, size);
+                left = renderIcon();
             }
         }
 
@@ -171,8 +174,6 @@ function useContentRenderer({ button, icon, iconPosition, tag, size, children })
 
 function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, content) {
     return () => {
-        const hasText = Children.count(children) > 0;
-
         const classes = mergeClasses(
             naked && "naked",
             highlight && "highlight",
@@ -182,7 +183,7 @@ function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, hig
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
-            !hasText && "without-text",
+            !hasText(children) && "without-text",
             className
         );
 

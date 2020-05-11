@@ -5,7 +5,7 @@ import { DropdownItem } from "./item";
 import { KEYS, LARGE, SMALL, SemanticRef, mergeClasses, useAutofocus, useCombinedRefs, useDomEventListener } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createIconForControl } from "../../icons";
+import { createContentIcon } from "../../icons";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
 
@@ -228,7 +228,7 @@ function useIconRenderer({ inline, icon, size }) {
 
             return (
                 <div className={classes}>
-                    {createIconForControl(icon, size)}
+                    {createContentIcon(icon, size)}
                 </div>
             );
         }

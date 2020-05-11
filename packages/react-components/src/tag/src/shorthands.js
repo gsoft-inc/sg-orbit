@@ -1,5 +1,5 @@
 import { Tag } from "./tag";
 
-export function createTagFromShorthand(props) {
+export function createTag(props) {
     return <Tag {...props} />;
 }

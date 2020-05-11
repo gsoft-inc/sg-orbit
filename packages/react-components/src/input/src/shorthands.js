@@ -1,5 +1,5 @@
 import { Input } from "./input";
 
-export function createInputFromShorthand(props) {
+export function createInput(props) {
     return <Input {...props} />;
 }

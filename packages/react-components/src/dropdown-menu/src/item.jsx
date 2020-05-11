@@ -1,6 +1,6 @@
 import { Dropdown, DropdownContext } from "../../dropdown";
 import { bool, element, string } from "prop-types";
-import { createIconForControl } from "../../icons";
+import { createContentIcon } from "../../icons";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { useContext } from "react";
@@ -62,7 +62,7 @@ function useContentRenderer({ text, icon, description }, size) {
         let left;
 
         if (!isNil(icon)) {
-            left = createIconForControl(icon, size);
+            left = createContentIcon(icon, size);
         }
 
         return <>{!isNil(left) && left}{renderText()}{renderDescription()}</>;

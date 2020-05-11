@@ -5,7 +5,7 @@ import { PopperButtonTrigger } from "./popper-button-trigger";
 import { PopperTextInputTrigger } from "./popper-text-input-trigger";
 import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from "react";
-import { createPopperFromShorthand } from "./shorthands";
+import { createPopper } from "./shorthands";
 import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 
@@ -425,7 +425,7 @@ function getPopperElement(popper, triggerElement, children) {
             });
         }
 
-        return createPopperFromShorthand({
+        return createPopper({
             ...popper,
             triggerElement,
             content: children

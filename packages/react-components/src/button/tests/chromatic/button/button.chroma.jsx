@@ -2,7 +2,7 @@ import { Button } from "@react-components/button";
 import { Label } from "@react-components/label";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createSharedStories } from "./shared-stories";
+import { createSharedTestSuite } from "./shared-test-suite";
 import { isNil } from "lodash";
 
 import styles from "./styles.module.css";
@@ -17,19 +17,19 @@ function stories(segment) {
         .build();
 }
 
-createSharedStories(<Button />, stories("/standard"));
+createSharedTestSuite(<Button />, stories("/standard"));
 
-createSharedStories(<Button primary />, stories("/primary"));
+createSharedTestSuite(<Button primary />, stories("/primary"));
 
-createSharedStories(<Button secondary />, stories("/secondary"));
+createSharedTestSuite(<Button secondary />, stories("/secondary"));
 
-createSharedStories(<Button positive />, stories("/positive"));
+createSharedTestSuite(<Button positive />, stories("/positive"));
 
-createSharedStories(<Button negative />, stories("/negative"));
+createSharedTestSuite(<Button negative />, stories("/negative"));
 
-createSharedStories(<Button link />, stories("/link"));
+createSharedTestSuite(<Button link />, stories("/link"));
 
-createSharedStories(<Button naked />, stories("/naked"))
+createSharedTestSuite(<Button naked />, stories("/naked"))
     .add("coloured", () =>
         <div className="flex flex-column">
             <div className="flex mb5">

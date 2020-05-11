@@ -14,6 +14,7 @@ stories()
     .add("default", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb5">
+                <Tag className="bg-red mr5" size="micro" />
                 <Tag className="bg-red mr5" size="mini" />
                 <Tag className="bg-red mr5" size="tiny" />
                 <Tag className="bg-red mr5" size="small" />

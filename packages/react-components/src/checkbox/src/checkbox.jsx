@@ -2,9 +2,9 @@ import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsPro
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback } from "react";
-import { createCountFromShorthand } from "../../count";
-import { createIconForControl } from "../../icons";
-import { createLabelFromShorthand } from "../../label";
+import { createContentIcon } from "../../icons";
+import { createCount } from "../../count";
+import { createLabel, getContentLabelSize } from "../../label";
 import { isArray, isNil } from "lodash";
 import { isElement } from "react-is";
 
@@ -91,15 +91,15 @@ function useIconsRenderer({ icons, size }) {
     return () => {
         const normalizedIcons = isArray(icons) ? icons : [icons];
 
-        return <>{normalizedIcons.map((x, index) => createIconForControl(x, size, { key: index }))}</>;
+        return <>{normalizedIcons.map((x, index) => createContentIcon(x, size, { key: index }))}</>;
     };
 }
 
-function useLabelRenderer({ label }) {
+function useLabelRenderer({ label, size }) {
     return () => {
         const props = {
             as: "span",
-            size: "mini",
+            size: getContentLabelSize(size),
             highlight: true
         };
 
@@ -107,7 +107,7 @@ function useLabelRenderer({ label }) {
             return cloneElement(label, props);
         }
 
-        return createLabelFromShorthand({
+        return createLabel({
             ...props,
             ...label
         });
@@ -120,13 +120,13 @@ function useCountRenderer({ count }) {
             return count;
         }
 
-        return createCountFromShorthand(count);
+        return createCount(count);
     };
 }
 
 function useContentRenderer({ text, icons, label, count, size }) {
     const renderIcons = useIconsRenderer({ icons, size });
-    const renderLabel = useLabelRenderer({ label });
+    const renderLabel = useLabelRenderer({ label, size });
     const renderCount = useCountRenderer({ count });
 
     return () => {
