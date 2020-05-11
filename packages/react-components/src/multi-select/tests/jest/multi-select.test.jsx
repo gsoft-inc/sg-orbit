@@ -412,7 +412,7 @@ test("call onValuesChange with the new selected item when an item is selected", 
     userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value], expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value]);
 });
 
 test("call onValuesChange without the removed item when a selected item is removed", async () => {
@@ -427,7 +427,7 @@ test("call onValuesChange without the removed item when a selected item is remov
     userEvent.click(getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`).querySelector("button"));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value], expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value]);
 });
 
 test("call onValuesChange without values when all the selected items are cleared", async () => {
@@ -441,7 +441,7 @@ test("call onValuesChange without values when all the selected items are cleared
     userEvent.click(getByTestId(CLEAR_BUTTON_ID));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [], expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), []);
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with a trigger click", async () => {
@@ -454,7 +454,7 @@ test("call onVisibilityChange when the dropdown menu is opened with a trigger cl
     userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with space keydown", async () => {
@@ -467,7 +467,7 @@ test("call onVisibilityChange when the dropdown menu is opened with space keydow
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with enter keydown", async () => {
@@ -480,7 +480,7 @@ test("call onVisibilityChange when the dropdown menu is opened with enter keydow
     userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with a trigger click", async () => {
@@ -495,7 +495,7 @@ test("call onVisibilityChange when the dropdown menu is closed with a trigger cl
     userEvent.click(getByTestId(TRIGGER_ID));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with esc keydown", async () => {
@@ -510,7 +510,7 @@ test("call onVisibilityChange when the dropdown menu is closed with esc keydown"
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with an outside click", async () => {
@@ -525,7 +525,7 @@ test("call onVisibilityChange when the dropdown menu is closed with an outside c
     userEvent.click(document.body);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed by selecting a value (closeOnSelect)", async () => {
@@ -541,7 +541,7 @@ test("call onVisibilityChange when the dropdown menu is closed by selecting a va
     userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onSearch when the search input change", async () => {
@@ -558,7 +558,7 @@ test("call onSearch when the search input change", async () => {
     userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N");
 });
 
 test("call onSearch with groups when specified", async () => {
@@ -578,7 +578,7 @@ test("call onSearch with groups when specified", async () => {
     userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N");
 });
 
 test("call onSearch with custom object when specified", async () => {
@@ -598,7 +598,7 @@ test("call onSearch with custom object when specified", async () => {
     userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N");
 });
 
 test("results returned by onSearch are shown", async () => {
@@ -639,5 +639,5 @@ test("onSearch is not call with the already selected items", async () => {
     userEvent.type(getSearchInput(getByTestId), "N");
     await waitForDomChange(getByTestId(MENU_ITEMS_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N");
 });

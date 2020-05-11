@@ -22,7 +22,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onSearch: func.isRequired,
         onClear: func,
-        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         onBlur: func,
         onKeyDown: func,

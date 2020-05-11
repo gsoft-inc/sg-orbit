@@ -339,7 +339,7 @@ test("call onValueChange when a result is selected on click", async () => {
     userEvent.click(getAllByTestId(RESULT_ID)[1]);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT);
 });
 
 test("call onValueChange when a result is selected on enter keydown", async () => {
@@ -359,7 +359,7 @@ test("call onValueChange when a result is selected on enter keydown", async () =
     fireEvent.keyDown(container, { key: "Enter", keyCode: 13 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT);
 });
 
 test("call onValueChange when the selected result is cleared", async () => {
@@ -373,7 +373,7 @@ test("call onValueChange when the selected result is cleared", async () => {
     userEvent.click(getByTestId(CLEAR_BUTTON_ID));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), null, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), null);
 });
 
 test("call onVisibilityChange when the dropdown menu is opened by typing a search input", async () => {
@@ -386,7 +386,7 @@ test("call onVisibilityChange when the dropdown menu is opened by typing a searc
     userEvent.type(await getInput(getByTestId), "xyz");
     await waitForElement(() => getResultsMenu(container));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed on outside click", async () => {
@@ -402,7 +402,7 @@ test("call onVisibilityChange when the dropdown menu is closed on outside click"
     userEvent.click(document.body);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed on esc keydown", async () => {
@@ -418,7 +418,7 @@ test("call onVisibilityChange when the dropdown menu is closed on esc keydown", 
     fireEvent.keyDown(await getInput(getByTestId), { key: "Escape", keyCode: 27 });
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed on blur", async () => {
@@ -434,7 +434,7 @@ test("call onVisibilityChange when the dropdown menu is closed on blur", async (
     fireEvent.blur(await getInput(getByTestId));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onVisibilityChange when the dropdown menu is closed on item selection", async () => {
@@ -450,7 +450,7 @@ test("call onVisibilityChange when the dropdown menu is closed on item selection
     userEvent.click(getAllByTestId(RESULT_ID)[0]);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 test("call onSearch when the search input change", async () => {
@@ -465,7 +465,7 @@ test("call onSearch when the search input change", async () => {
     userEvent.type(await getInput(getByTestId), "a");
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_RESULTS, "a", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_RESULTS, "a");
 });
 
 test("call onSearch with custom object when specified", async () => {
@@ -483,7 +483,7 @@ test("call onSearch with custom object when specified", async () => {
     userEvent.type(await getInput(getByTestId), "a");
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [RESULT], "a", expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [RESULT], "a");
 });
 
 test("results returned by onSearch are shown", async () => {
@@ -519,7 +519,7 @@ test("call onBlur when the input blur", async () => {
     fireEvent.blur(await getInput(getByTestId));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });
 
 test("call onClear when the clear button is clicked", async () => {
@@ -533,7 +533,7 @@ test("call onClear when the clear button is clicked", async () => {
     userEvent.click(getByTestId(CLEAR_BUTTON_ID));
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });
 
 test("call onOutsideClick on outside click", async () => {
@@ -549,5 +549,5 @@ test("call onOutsideClick on outside click", async () => {
     userEvent.click(document.body);
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });

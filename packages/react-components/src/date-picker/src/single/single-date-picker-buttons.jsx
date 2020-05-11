@@ -15,14 +15,12 @@ export class SingleDatePickerButtons extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onApply: func,
         /**
          * Whether or not the calendar selected date can be cleared.

@@ -16,35 +16,30 @@ export class InnerSingleDatePickerInput extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onKeyDown: func,
         /**
          * Called on focus.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         /**
          * Whether or not the calendar selected date(s) can be cleared.

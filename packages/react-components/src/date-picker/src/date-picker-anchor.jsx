@@ -11,7 +11,6 @@ export class DatePickerAnchor extends PureComponent {
         position: oneOf(POSITIONS),
         offset: arrayOf(number),
         zIndex: number,
-        // eslint-disable-next-line react/no-unused-prop-types
         onVisibilityChange: func,
         closeOnBlur: bool,
         closeOnOutsideClick: bool,

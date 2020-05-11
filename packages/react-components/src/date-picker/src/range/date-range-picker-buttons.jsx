@@ -19,14 +19,12 @@ export class DateRangePickerButtons extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClear: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onApply: func,
         /**
          * Whether or not the calendar enforce the selection of of a range of dates.

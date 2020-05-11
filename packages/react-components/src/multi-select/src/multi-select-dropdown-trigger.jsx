@@ -17,7 +17,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * Called on keydown
@@ -30,14 +29,12 @@ export class MultiSelectDropdownTrigger extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onFocus: func,
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onBlur: func,
         /**
          * Called when an open event happens.

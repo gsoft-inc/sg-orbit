@@ -14,7 +14,6 @@ export class MultiSelectClearButton extends PureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
          */
-        // eslint-disable-next-line react/no-unused-prop-types
         onClick: func,
         /**
          * A clear button can have different sizes.
