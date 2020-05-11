@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CloseIcon, MagnifierIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
@@ -22,7 +22,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onSearch: func.isRequired,
         onClear: func,
-        onFocus: func,
         onBlur: func,
         onKeyDown: func,
         onOutsideClick: func,
@@ -172,8 +171,6 @@ export class SearchInputController extends AutoControlledPureComponent {
             afterHandlingBlur();
         }
     };
-
-    handleFocus = withHandlerProxy(this, "onFocus");
 
     handleClear = event => {
         const { onClear } = this.props;

@@ -6,7 +6,7 @@ export const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export function multiSelectItem(text, value, group, additionalProps) {
+export function tagPickerItem(text, value, group, additionalProps) {
     if (!isNil(additionalProps)) {
         return {
             text,

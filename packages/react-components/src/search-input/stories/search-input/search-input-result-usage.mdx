@@ -3,7 +3,7 @@ A search input component requires a set of results to display. Those results can
 To create a result, use the `searchInputResult(id, text, additionalProps?)` function:
 
 ```javascript dark
-const georgeResult = multiSelectItem("1", "Neil Armstrong");
+const georgeResult = tagPickerItem("1", "Neil Armstrong");
 ```
 
 <details><summary >specify optional data</summary>
@@ -11,7 +11,7 @@ const georgeResult = multiSelectItem("1", "Neil Armstrong");
 An optional data `obj` can be specified to provide additional information to any callbacks e.g. `onValueChange` or `resultRenderer`:
 
 ```javascript dark
-const georgeResult = multiSelectItem("1", "Neil Armstrong", { backendId: 123 });
+const georgeResult = tagPickerItem("1", "Neil Armstrong", { backendId: 123 });
 ```
 
 Then in any callbacks:

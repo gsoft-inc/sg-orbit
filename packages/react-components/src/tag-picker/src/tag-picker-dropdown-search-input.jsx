@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { TextInput } from "../../text-input";
 import { func, string } from "prop-types";
 
-export class MultiSelectDropdownSearchInput extends PureComponent {
+export class TagPickerDropdownSearchInput extends PureComponent {
     static propTypes = {
         /**
          * Called on text change.
@@ -40,7 +40,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
                 className={className}
                 autofocus
                 autoComplete="off"
-                data-testid="multi-select-dropdown-search-input"
+                data-testid="tag-picker-dropdown-search-input"
             />
         );
     }

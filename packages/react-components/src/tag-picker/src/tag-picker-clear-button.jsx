@@ -3,7 +3,7 @@ import { PureComponent, createRef } from "react";
 import { SIZES } from "./sizes";
 import { func, oneOf, string } from "prop-types";
 
-export class MultiSelectClearButton extends PureComponent {
+export class TagPickerClearButton extends PureComponent {
     static propTypes = {
         /**
          * The button text.
@@ -42,7 +42,7 @@ export class MultiSelectClearButton extends PureComponent {
                 size={size}
                 className={className}
                 ref={this._buttonRef}
-                data-testid="multi-select-clear-button"
+                data-testid="tag-picker-clear-button"
             >
                 {text}
             </Button>

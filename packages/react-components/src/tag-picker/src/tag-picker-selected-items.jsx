@@ -17,14 +17,14 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
             basic
             size={size}
             button={!disabled ? { icon: <CloseIcon />, onClick: onRemove } : undefined}
-            data-testid={`multi-select-selected-item-${item.value}`}
+            data-testid={`tag-picker-selected-item-${item.value}`}
         >
             {item.text}
         </Label>
     );
 }
 
-class MultiSelectSelectedItem extends PureComponent {
+class TagPickerSelectedItem extends PureComponent {
     static propTypes = {
         item: shape(ITEM_SHAPE).isRequired,
         itemRenderer: func,
@@ -56,7 +56,7 @@ class MultiSelectSelectedItem extends PureComponent {
     }
 }
 
-export class MultiSelectSelectedItems extends PureComponent {
+export class TagPickerSelectedItems extends PureComponent {
     static propTypes = {
         /**
          * Items to display.
@@ -105,7 +105,7 @@ export class MultiSelectSelectedItems extends PureComponent {
         const { items, itemRenderer, disabled, size, className } = this.props;
 
         return items.map(x => {
-            return <MultiSelectSelectedItem
+            return <TagPickerSelectedItem
                 item={x}
                 itemRenderer={itemRenderer}
                 onRemove={this.handleRemoveSelectedItem}

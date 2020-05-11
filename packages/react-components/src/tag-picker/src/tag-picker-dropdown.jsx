@@ -1,11 +1,11 @@
 import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
-import { MultiSelectDropdownMenu } from "./multi-select-dropdown-menu";
-import { MultiSelectDropdownSearchInput } from "./multi-select-dropdown-search-input";
-import { MultiSelectDropdownTrigger } from "./multi-select-dropdown-trigger";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
 import { SIZES } from "./sizes";
+import { TagPickerDropdownMenu } from "./tag-picker-dropdown-menu";
+import { TagPickerDropdownSearchInput } from "./tag-picker-dropdown-search-input";
+import { TagPickerDropdownTrigger } from "./tag-picker-dropdown-trigger";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
@@ -15,7 +15,7 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export class MultiSelectDropdown extends PureComponent {
+export class TagPickerDropdown extends PureComponent {
     static propTypes = {
         /**
          * Array of items.
@@ -92,11 +92,11 @@ export class MultiSelectDropdown extends PureComponent {
          */
         disabled: bool,
         /**
-         * Whether or not the dropdown should close when multi-select loose focus.
+         * Whether or not the dropdown should close when the tag picker loose focus.
          */
         closeOnBlur: bool,
         /**
-         * Whether or not the dropdown should close when a click happens outside the multi-select.
+         * Whether or not the dropdown should close when a click happens outside the tag picker.
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
@@ -108,9 +108,9 @@ export class MultiSelectDropdown extends PureComponent {
 
     static defaultProps = {
         debounceDelay: 200,
-        menu: <MultiSelectDropdownMenu />,
-        trigger: <MultiSelectDropdownTrigger />,
-        searchInput: <MultiSelectDropdownSearchInput />,
+        menu: <TagPickerDropdownMenu />,
+        trigger: <TagPickerDropdownTrigger />,
+        searchInput: <TagPickerDropdownSearchInput />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -141,7 +141,7 @@ export class MultiSelectDropdown extends PureComponent {
         const { items, closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("MultiSelect - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new ArgumentError("TagPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (prevProps.items !== items) {

@@ -1,5 +1,5 @@
-import { ControlledMultiSelect } from "./controlled-multi-select.sample";
-import { DEFAULT_SIZE, MultiSelect, multiSelectItem } from "@react-components/multi-select";
+import { ControlledTagPicker } from "./controlled-tag-picker.sample";
+import { DEFAULT_SIZE, TagPicker, tagPickerItem } from "@react-components/tag-picker";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -7,19 +7,18 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { fuzzySearch, logValuesChanged } from "./utils";
 import Imports from "./imports.mdx";
-
-import MultiSelectItemUsage from "./multi-select-item-usage.mdx";
+import TagPickerItemUsage from "./tag-picker-item-usage.mdx";
 
 <Meta
-    title={createComponentSection("MultiSelect")}
+    title={createComponentSection("TagPicker")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/multi-select/src" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tag-picker/src" />)
         .build()}
 />
 
-# MultiSelect
+# TagPicker
 
-A multi-select allow a user to select multiple values from a fixed set of data.
+A tag picker allow a user to filter a set of data by tags.
 
 ## Installation
 
@@ -29,71 +28,71 @@ A multi-select allow a user to select multiple values from a fixed set of data.
 
 <Props
     componentsDefinitions={[
-        { displayName: "MultiSelect", component: MultiSelect },
-        { displayName: "MultiSelect.Dropdown", component: MultiSelect.Dropdown },
-        { displayName: "MultiSelect.Trigger", component: MultiSelect.Trigger },
-        { displayName: "MultiSelect.Menu", component: MultiSelect.Menu },
-        { displayName: "MultiSelect.SearchInput", component: MultiSelect.SearchInput },
-        { displayName: "MultiSelect.SelectedItems", component: MultiSelect.SelectedItems },
-        { displayName: "MultiSelect.ClearButton", component: MultiSelect.ClearButton }
+        { displayName: "TagPicker", component: TagPicker },
+        { displayName: "TagPicker.Dropdown", component: TagPicker.Dropdown },
+        { displayName: "TagPicker.Trigger", component: TagPicker.Trigger },
+        { displayName: "TagPicker.Menu", component: TagPicker.Menu },
+        { displayName: "TagPicker.SearchInput", component: TagPicker.SearchInput },
+        { displayName: "TagPicker.SelectedItems", component: TagPicker.SelectedItems },
+        { displayName: "TagPicker.ClearButton", component: TagPicker.ClearButton }
     ]}
 />
 
 ## Usage
 
-### multiSelectItem
+### tagPickerItem
 
-<MultiSelectItemUsage />
+<TagPickerItemUsage />
 
 ### Constants
 
 The following constants are used in the examples below:
 
 export const DEFAULT_ITEMS = [
-    multiSelectItem("Mercury Program", "mercury"),
-    multiSelectItem("Gemini Program", "gemini"),
-    multiSelectItem("Apollo Program", "apollo"),
-    multiSelectItem("Skylab", "skylab"),
-    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
-    multiSelectItem("Artemis Program", "artemis")
+    tagPickerItem("Mercury Program", "mercury"),
+    tagPickerItem("Gemini Program", "gemini"),
+    tagPickerItem("Apollo Program", "apollo"),
+    tagPickerItem("Skylab", "skylab"),
+    tagPickerItem("Apollo–Soyuz Test Project", "soyuz"),
+    tagPickerItem("Artemis Program", "artemis")
 ];
 
 export const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Mercury Program", "mercury", "1950"),
-    multiSelectItem("Gemini Program", "gemini", "1960"),
-    multiSelectItem("Apollo Program", "apollo", "1970"),
-    multiSelectItem("Skylab", "skylab", "1970"),
-    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
-    multiSelectItem("Artemis Program", "artemis", "2010")
+    tagPickerItem("Mercury Program", "mercury", "1950"),
+    tagPickerItem("Gemini Program", "gemini", "1960"),
+    tagPickerItem("Apollo Program", "apollo", "1970"),
+    tagPickerItem("Skylab", "skylab", "1970"),
+    tagPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    tagPickerItem("Artemis Program", "artemis", "2010")
 ];
 
 ```js dark
 const DEFAULT_ITEMS = [
-    multiSelectItem("Mercury Program", "mercury"),
-    multiSelectItem("Gemini Program", "gemini"),
-    multiSelectItem("Apollo Program", "apollo"),
-    multiSelectItem("Skylab", "skylab"),
-    multiSelectItem("Apollo–Soyuz Test Project", "soyuz"),
-    multiSelectItem("Artemis Program", "artemis")
+    tagPickerItem("Mercury Program", "mercury"),
+    tagPickerItem("Gemini Program", "gemini"),
+    tagPickerItem("Apollo Program", "apollo"),
+    tagPickerItem("Skylab", "skylab"),
+    tagPickerItem("Apollo–Soyuz Test Project", "soyuz"),
+    tagPickerItem("Artemis Program", "artemis")
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    multiSelectItem("Mercury Program", "mercury", "1950"),
-    multiSelectItem("Gemini Program", "gemini", "1960"),
-    multiSelectItem("Apollo Program", "apollo", "1970"),
-    multiSelectItem("Skylab", "skylab", "1970"),
-    multiSelectItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
-    multiSelectItem("Artemis Program", "artemis", "2010")
+    tagPickerItem("Mercury Program", "mercury", "1950"),
+    tagPickerItem("Gemini Program", "gemini", "1960"),
+    tagPickerItem("Apollo Program", "apollo", "1970"),
+    tagPickerItem("Skylab", "skylab", "1970"),
+    tagPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    tagPickerItem("Artemis Program", "artemis", "2010")
 ];
 ```
 
 ### Default
 
-A default multi select.
+A default tag picker.
 
 <Preview>
     <Story name="default">
-        <MultiSelect
+        <TagPicker
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
@@ -109,15 +108,15 @@ A default multi select.
         .excludeFromDocs()
         .build()}
 >
-    <MultiSelect
+    <TagPicker
         items={DEFAULT_ITEMS}
         // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
         defaultValues={["skylab", "gemini"]}
         closeOnSelect={boolean("closeOnSelect", false)}
-        noResultsMessage={text("noResultsMessage", MultiSelect.defaultProps.noResultsMessage)}
-        triggerText={text("triggerText", MultiSelect.defaultProps.triggerText)}
-        placeholder={text("placeholder", MultiSelect.defaultProps.placeholder)}
-        clearText={text("clearText", MultiSelect.defaultProps.clearText)}
+        noResultsMessage={text("noResultsMessage", TagPicker.defaultProps.noResultsMessage)}
+        triggerText={text("triggerText", TagPicker.defaultProps.triggerText)}
+        placeholder={text("placeholder", TagPicker.defaultProps.placeholder)}
+        clearText={text("clearText", TagPicker.defaultProps.clearText)}
         size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -128,11 +127,11 @@ A default multi select.
 
 ### Categories
 
-A multi select can group items under categories.
+A tag picker can group items under categories.
 
 <Preview>
     <Story name="categories">
-        <MultiSelect
+        <TagPicker
             items={DEFAULT_ITEMS_WITH_CATEGORIES}
             onValuesChange={logValuesChanged}
         />
@@ -141,11 +140,11 @@ A multi select can group items under categories.
 
 ### Default values
 
-A multi select can have an initial set of selected items.
+A tag picker can have an initial set of selected items.
 
 <Preview>
     <Story name="default values">
-        <MultiSelect
+        <TagPicker
             defaultValues={["gemini", "skylab"]}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -155,11 +154,11 @@ A multi select can have an initial set of selected items.
 
 ### Close on select
 
-A multi select dropdown can close when an item is selected.
+A tag picker dropdown can close when an item is selected.
 
 <Preview>
     <Story name="close on select">
-        <MultiSelect
+        <TagPicker
             closeOnSelect
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -169,7 +168,7 @@ A multi select dropdown can close when an item is selected.
 
 ### Custom search
 
-A multi select can use a custom search handler.
+A tag picker can use a custom search handler.
 
 The following example use a custom [fuzzy search algorithm](https://en.wikipedia.org/wiki/Approximate_string_matching) based on the [fuse.js](https://fusejs.io/) library:
 
@@ -188,7 +187,7 @@ function fuzzySearch(event, items, query) {
 
 <Preview>
     <Story name="custom search">
-        <MultiSelect
+        <TagPicker
             onSearch={fuzzySearch}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -198,11 +197,11 @@ function fuzzySearch(event, items, query) {
 
 ### Disabled
 
-A multi select can be disabled.
+A tag picker can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <MultiSelect
+        <TagPicker
             disabled
             items={DEFAULT_ITEMS}
             defaultValues={["gemini", "skylab"]}
@@ -216,7 +215,7 @@ A multi select can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <MultiSelect
+    <TagPicker
         items={DEFAULT_ITEMS_WITH_CATEGORIES}
         closeOnBlur={false}
         closeOnOutsideClick
@@ -226,7 +225,7 @@ A multi select can be disabled.
 
 ### Size
 
-A multi select can vary in size.
+A tag picker can vary in size.
 
 Can be set to: `"small"`, `"large"` or omitted.
 
@@ -234,7 +233,7 @@ Can be set to: `"small"`, `"large"` or omitted.
     <Story name="size">
         <div className="flex items-end items-space-between">
             <div className="flex-auto">
-                <MultiSelect
+                <TagPicker
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
@@ -242,14 +241,14 @@ Can be set to: `"small"`, `"large"` or omitted.
                 />
             </div>
             <div className="flex-auto">
-                <MultiSelect
+                <TagPicker
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
             <div className="flex-auto">
-                <MultiSelect
+                <TagPicker
                     size="large"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
@@ -262,10 +261,10 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 ### Controlled
 
-A multi select can handle `values` and `open` state in controlled mode.
+A tag picker can handle `values` and `open` state in controlled mode.
 
-<FilePreview filePath="/multi-select/stories/controlled-multi-select">
-    <ControlledMultiSelect
+<FilePreview filePath="/tag-picker/stories/controlled-tag-picker">
+    <ControlledTagPicker
         items={DEFAULT_ITEMS}
         values={["skylab", "gemini"]}
         onValuesChange={logValuesChanged}
