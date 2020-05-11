@@ -25,7 +25,6 @@ export class MultiSelectDropdown extends PureComponent {
          * Called when an item is selected.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Item} item - Selected item.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onItemSelect: func,
@@ -33,21 +32,18 @@ export class MultiSelectDropdown extends PureComponent {
          * Called when the search input change.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string} query - Search query.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onSearch: func,
         /**
          * Called when an open event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onOpen: func,
         /**
          * Called when a close event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClose: func,
@@ -261,11 +257,11 @@ export class MultiSelectDropdown extends PureComponent {
     }
 
     handleSearchChange = (event, query) => {
-        this.onSearch(event, query, this.props);
+        this.onSearch(event, query);
     };
 
     handleItemClick = (event, item) => {
-        this.selectItem(event, item, this.props);
+        this.selectItem(event, item);
     };
 
     onSearch = this.props.debounceDelay !== 0 ? debounce(this.props.onSearch, this.props.debounceDelay) : this.props.onSearch;
@@ -281,7 +277,7 @@ export class MultiSelectDropdown extends PureComponent {
 
         this.setKeyboardItem(null, null);
 
-        onOpen(event, this.props);
+        onOpen(event);
     }
 
     close(event) {
@@ -293,7 +289,7 @@ export class MultiSelectDropdown extends PureComponent {
             }
         }, 0);
 
-        onClose(event, this.props);
+        onClose(event);
     }
 
     setKeyboardItem(item, index) {
@@ -311,7 +307,7 @@ export class MultiSelectDropdown extends PureComponent {
         setTimeout(() => {
             const selectedItem = items.find(x => x.value === item.value);
 
-            onItemSelect(event, selectedItem, this.props);
+            onItemSelect(event, selectedItem);
         }, 0);
     }
 

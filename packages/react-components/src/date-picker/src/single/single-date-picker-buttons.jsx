@@ -13,7 +13,6 @@ export class SingleDatePickerButtons extends PureComponent {
         /**
          * Called on clear button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -21,7 +20,6 @@ export class SingleDatePickerButtons extends PureComponent {
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types

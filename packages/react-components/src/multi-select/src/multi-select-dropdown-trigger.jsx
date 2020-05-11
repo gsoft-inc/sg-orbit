@@ -1,6 +1,6 @@
 import { AddIcon } from "../../icons";
 import { Button } from "../../button";
-import { KEYS, mergeClasses, withHandlerProxy } from "../../shared";
+import { KEYS, mergeClasses } from "../../shared";
 import { PureComponent, createRef } from "react";
 import { SIZES } from "./sizes";
 import { bool, func, oneOf, string } from "prop-types";
@@ -15,7 +15,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -23,14 +22,12 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         /**
          * Called on keydown
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onKeyDown: func,
         /**
          * Called on focus.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -38,7 +35,6 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -46,14 +42,12 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         /**
          * Called when an open event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onOpen: func,
         /**
          * Called when a close event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClose: func,
@@ -77,21 +71,18 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
     _buttonRef = createRef();
 
-    handleFocus = withHandlerProxy(this, "onFocus");
-    handleBlur = withHandlerProxy(this, "onBlur");
-
     handleClick = event => {
         const { onClick, onOpen, onClose, open, disabled } = this.props;
 
         if (!isNil(onClick)) {
-            onClick(event, this.props);
+            onClick(event);
         }
 
         if (!disabled) {
             if (!open) {
-                onOpen(event, this.props);
+                onOpen(event);
             } else {
-                onClose(event, this.props);
+                onClose(event);
             }
         }
     }
@@ -102,7 +93,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
         const { onKeyDown, onOpen, open, disabled } = this.props;
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
 
         const key = event.keyCode;
@@ -112,7 +103,7 @@ export class MultiSelectDropdownTrigger extends PureComponent {
 
             if (!disabled) {
                 if (!open) {
-                    onOpen(event, this.props);
+                    onOpen(event);
                 }
             }
         }
@@ -128,15 +119,15 @@ export class MultiSelectDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text, disabled, size } = this.props;
+        const { text, onFocus, onBlur, disabled, size } = this.props;
 
         return (
             <div className="mr2 mb2">
                 <Button
                     onClick={this.handleClick}
                     onKeyDown={this.handleKeyDown}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     secondary
                     icon={<AddIcon />}
                     iconPosition="right"

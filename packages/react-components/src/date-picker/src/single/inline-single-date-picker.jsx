@@ -23,7 +23,6 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      * Called when the date is applied.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {Moment} date - Selected date.
-     * @param {Object} props - All the props.
      * @returns {void}
      */
     onDateChange: func.isRequired,
@@ -32,7 +31,6 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      * Called when the calendar open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isVisible - Indicate if the calendar is visible.
-     * @param {Object} props - All the props.
      * @returns {void}
      */
     onVisibilityChange: func,

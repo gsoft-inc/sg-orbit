@@ -15,14 +15,12 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * Called when the date is applied.
          * @param {Moment} date - Selected date.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onDateChange: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onApply: func,

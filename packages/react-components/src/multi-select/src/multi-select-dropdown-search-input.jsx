@@ -9,7 +9,6 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
          * Called on text change.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string} value - New value.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onChange: func,
@@ -26,7 +25,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     handleChange = (event, { value }) => {
         const { onChange } = this.props;
 
-        onChange(event, value, this.props);
+        onChange(event, value);
     };
 
     render() {

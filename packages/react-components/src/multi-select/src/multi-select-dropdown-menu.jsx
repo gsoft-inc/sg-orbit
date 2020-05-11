@@ -20,7 +20,6 @@ export class MultiSelectDropdownMenu extends PureComponent {
          * Called on item click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {{ text: string, value: string }} data - Menu item data.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onItemClick: func,
@@ -49,7 +48,7 @@ export class MultiSelectDropdownMenu extends PureComponent {
     handleItemClick = (event, data) => {
         const { onItemClick } = this.props;
 
-        onItemClick(event, { text: data.text, value: data.value }, this.props);
+        onItemClick(event, { text: data.text, value: data.value });
     }
 
     setItemWidth = element => {

@@ -30,14 +30,12 @@ export class InnerDateRangePickerCalendar extends PureComponent {
          * @param {Moment} startDate - Selected start date.
          * @param {Moment} endDate - Selected end date.
          * @param {string} presetName - Selected preset name.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onDatesChange: func,
         /**
          * Called on apply button click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onApply: func,

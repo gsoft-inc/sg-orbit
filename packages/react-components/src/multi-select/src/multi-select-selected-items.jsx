@@ -37,7 +37,7 @@ class MultiSelectSelectedItem extends PureComponent {
     handleRemove = event => {
         const { item, onRemove } = this.props;
 
-        onRemove(event, item, this.props);
+        onRemove(event, item);
     };
 
     render() {
@@ -98,7 +98,7 @@ export class MultiSelectSelectedItems extends PureComponent {
     handleRemoveSelectedItem = (event, item) => {
         const { onRemoveSelectedItem } = this.props;
 
-        onRemoveSelectedItem(event, item, this.props);
+        onRemoveSelectedItem(event, item);
     };
 
     renderItems() {

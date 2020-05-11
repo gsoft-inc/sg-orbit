@@ -14,7 +14,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -22,7 +21,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * Called on click.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -30,7 +28,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -38,7 +35,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * Called on focus.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
@@ -46,7 +42,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         // eslint-disable-next-line react/no-unused-prop-types
