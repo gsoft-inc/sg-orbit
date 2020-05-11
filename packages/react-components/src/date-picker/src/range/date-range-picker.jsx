@@ -223,7 +223,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ endDate: null });
         this.setState({ selectedStartDate: null, selectedEndDate: null, selectedPresetName: null });
 
-        onDatesChange(event, null, null, null, this.props);
+        onDatesChange(event, null, null, null);
     };
 
     handleCalendarDatesChange = (startDate, endDate, presetName) => {
@@ -239,7 +239,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ endDate: selectedEndDate });
         this.focusInput();
 
-        onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName, this.props);
+        onDatesChange(event, selectedStartDate, selectedEndDate, selectedPresetName);
     };
 
     focusInput() {
@@ -258,7 +258,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
+            onVisibilityChange(event, true);
         }
     }
 
@@ -268,7 +268,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
+            onVisibilityChange(event, false);
         }
     }
 

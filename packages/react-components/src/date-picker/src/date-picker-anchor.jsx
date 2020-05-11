@@ -30,7 +30,7 @@ export class DatePickerAnchor extends PureComponent {
         const { onVisibilityChange } = this.props;
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, visible, this.props);
+            onVisibilityChange(event, visible);
         }
     };
 

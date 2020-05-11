@@ -4,7 +4,6 @@ import { SIZES } from "../sizes";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
-import { withHandlerProxy } from "../../../shared";
 
 export class InnerSingleDatePickerInput extends PureComponent {
     static propTypes = {
@@ -90,12 +89,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
         forwardedRef: oneOfType([object, func])
     };
 
-    handleClear = withHandlerProxy(this, "onClear", false);
-    handleClick = withHandlerProxy(this, "onClick");
-    handleKeyDown = withHandlerProxy(this, "onKeyDown");
-    handleFocus = withHandlerProxy(this, "onFocus");
-    handleBlur = withHandlerProxy(this, "onBlur");
-
     getValue() {
         const { date, dateFormat } = this.props;
 
@@ -107,16 +100,16 @@ export class InnerSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { allowClear, placeholder, disabled, fluid, open, size, className, forwardedRef } = this.props;
+        const { onClear, onClick, onKeyDown, onFocus, onBlur, allowClear, placeholder, disabled, fluid, open, size, className, forwardedRef } = this.props;
 
         return (
             <DatePickerTextboxInput
                 value={this.getValue()}
-                onClear={this.handleClear}
-                onClick={this.handleClick}
-                onKeyDown={this.handleKeyDown}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onClear={onClear}
+                onClick={onClick}
+                onKeyDown={onKeyDown}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 allowClear={allowClear}
                 placeholder={placeholder}
                 disabled={disabled}

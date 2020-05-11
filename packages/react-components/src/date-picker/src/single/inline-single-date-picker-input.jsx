@@ -1,5 +1,5 @@
 import { ArrowIcon32 } from "../../../icons";
-import { KEYS, mergeClasses, withHandlerProxy } from "../../../shared";
+import { KEYS, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
 import { bool, func, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -89,10 +89,6 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
         }
     }
 
-    handleClick = withHandlerProxy(this, "onClick");
-    handleFocus = withHandlerProxy(this, "onFocus");
-    handleBlur = withHandlerProxy(this, "onBlur");
-
     getValue() {
         const { date, placeholder, dateFormat } = this.props;
 
@@ -120,7 +116,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { open, disabled, className, forwardedRef } = this.props;
+        const { onClick, onFocus, onBlur, open, disabled, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
             "flex items-center outline-0",
@@ -131,10 +127,10 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
 
         return (
             <div
-                onClick={this.handleClick}
+                onClick={onClick}
                 onKeyDown={this.handleKeyDown}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 className={classes}
                 tabIndex={disabled ? "-1" : "0"}
                 disabled={disabled}

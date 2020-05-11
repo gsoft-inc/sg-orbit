@@ -47,12 +47,12 @@ export class InnerDatePickerTextboxInput extends PureComponent {
 
         if (event.keyCode === KEYS.esc) {
             if (!open) {
-                onClear(event, this.props);
+                onClear(event);
             }
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
     }
 

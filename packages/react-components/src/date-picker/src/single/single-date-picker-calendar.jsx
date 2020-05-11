@@ -85,7 +85,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
     handleDateChange = date => {
         const { onDateChange } = this.props;
 
-        onDateChange(date, this.props);
+        onDateChange(date);
     };
 
 
@@ -96,13 +96,13 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
     handleClear = () => {
         const { onDateChange } = this.props;
 
-        onDateChange(null, this.props);
+        onDateChange(null);
     };
 
     handleApply = event => {
         const { onApply } = this.props;
 
-        onApply(event, this.props);
+        onApply(event);
     };
 
     renderButtons() {
