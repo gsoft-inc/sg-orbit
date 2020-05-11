@@ -84,7 +84,7 @@ function useRenderer({ forwardedRef, children, rest }) {
     };
 }
 
-export function PureDropdownMenu(props) {
+export function InnerDropdownMenu(props) {
     const { forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
@@ -94,15 +94,15 @@ export function PureDropdownMenu(props) {
     return render();
 }
 
-PureDropdownMenu.propTypes = propTypes;
-PureDropdownMenu.defaultProps = defaultProps;
+InnerDropdownMenu.propTypes = propTypes;
+InnerDropdownMenu.defaultProps = defaultProps;
 
 export const DropdownMenu = forwardRef((props, ref) => (
-    <PureDropdownMenu { ...props } forwardedRef={ref} />
+    <InnerDropdownMenu { ...props } forwardedRef={ref} />
 ));
 
 // DropdownMenu.Menu and DropdownMenu.SearchInput are not supported.
-[PureDropdownMenu, DropdownMenu].forEach(x => {
+[InnerDropdownMenu, DropdownMenu].forEach(x => {
     x.Divider = Dropdown.Divider;
     x.Header = DropdownMenuHeader;
     x.Item = DropdownMenuItem;

@@ -43,7 +43,7 @@ const CHECKBOX_DEFAULT_PROPS = {
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
 
-export function PureRadio(props) {
+export function InnerRadio(props) {
     const { forwardedRef, ...rest } = props;
 
     return (
@@ -58,10 +58,10 @@ export function PureRadio(props) {
     );
 }
 
-PureRadio.propTypes = CHECKBOX_PROP_TYPES;
-PureRadio.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerRadio.propTypes = CHECKBOX_PROP_TYPES;
+InnerRadio.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Radio = forwardRef((props, ref) => (
-    <PureRadio { ...props } forwardedRef={ref} />
+    <InnerRadio { ...props } forwardedRef={ref} />
 ));
 

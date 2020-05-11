@@ -215,7 +215,7 @@ function useRenderer({ size, transparent, inline, forwardedRef, rest }, options)
     };
 }
 
-export function PureSelect(props) {
+export function InnerSelect(props) {
     const { options, actions, size, transparent, inline, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
@@ -232,14 +232,14 @@ export function PureSelect(props) {
     return render();
 }
 
-PureSelect.propTypes = propTypes;
-PureSelect.defaultProps = defaultProps;
+InnerSelect.propTypes = propTypes;
+InnerSelect.defaultProps = defaultProps;
 
 export const Select = forwardRef((props, ref) => (
-    <PureSelect { ...props } forwardedRef={ref} />
+    <InnerSelect { ...props } forwardedRef={ref} />
 ));
 
 // Select.Divider, Select.Header, Select.Menu and Select.SearchInput are not supported.
-[PureSelect, Select].forEach(x => {
+[InnerSelect, Select].forEach(x => {
     x.Item = SelectItem;
 });

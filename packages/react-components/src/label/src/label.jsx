@@ -208,7 +208,7 @@ function useRenderer({ forwardedRef }, label) {
     };
 }
 
-export function PureLabel(props) {
+export function InnerLabel(props) {
     const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
@@ -222,14 +222,14 @@ export function PureLabel(props) {
     return render();
 }
 
-PureLabel.propTypes = propTypes;
-PureLabel.defaultProps = defaultProps;
+InnerLabel.propTypes = propTypes;
+InnerLabel.defaultProps = defaultProps;
 
 export const Label = forwardRef((props, ref) => (
-    <PureLabel { ...props } forwardedRef={ref} />
+    <InnerLabel { ...props } forwardedRef={ref} />
 ));
 
-[PureLabel, Label].forEach(x => {
+[InnerLabel, Label].forEach(x => {
     x.Detail = SemanticLabel.Detail;
     x.Group = SemanticLabel.Group;
 });

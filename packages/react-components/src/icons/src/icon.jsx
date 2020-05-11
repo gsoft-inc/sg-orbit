@@ -18,7 +18,7 @@ const DIMENSION_CLASS = {
     [MASSIVE]: "w10 h10"
 };
 
-export function PureIcon({ type: Component, size, className, forwardedRef, ...rest }) {
+export function InnerIcon({ type: Component, size, className, forwardedRef, ...rest }) {
     const classes = mergeClasses(
         "icon",
         className,
@@ -34,7 +34,7 @@ export function PureIcon({ type: Component, size, className, forwardedRef, ...re
     );
 }
 
-PureIcon.propTypes = {
+InnerIcon.propTypes = {
     /**
      * An icon as a React component.
      */
@@ -49,25 +49,25 @@ PureIcon.propTypes = {
     forwardedRef: oneOfType([object, func])
 };
 
-PureIcon.defaultProps = {
+InnerIcon.defaultProps = {
     size: DEFAULT_SIZE
 };
 
 export const Icon = forwardRef((props, ref) => (
-    <PureIcon { ...props } forwardedRef={ref} />
+    <InnerIcon { ...props } forwardedRef={ref} />
 ));
 
 function createIcon(type) {
     return forwardRef((props, ref) => <Icon type={type} ref={ref} {...props} />);
 }
 
-[PureIcon, Icon].forEach(x => {
+[InnerIcon, Icon].forEach(x => {
     x.create = createIcon;
 });
 
 //////////////////////////////////////////////
 
-export function PureMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
+export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;
 
     if (size === TINY || size === SMALL || size === MEDIUM) {
@@ -84,7 +84,7 @@ export function PureMultiVariantIcon({ type24: Component24, type32: Component32,
     );
 }
 
-PureMultiVariantIcon.propTypes = {
+InnerMultiVariantIcon.propTypes = {
     /**
      * An icon as a React component for the 24px variant.
      */
@@ -99,18 +99,18 @@ PureMultiVariantIcon.propTypes = {
     size: oneOf(SIZES)
 };
 
-PureMultiVariantIcon.defaultProps = {
+InnerMultiVariantIcon.defaultProps = {
     size: DEFAULT_SIZE
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (
-    <PureMultiVariantIcon { ...props } forwardedRef={ref} />
+    <InnerMultiVariantIcon { ...props } forwardedRef={ref} />
 ));
 
 function createMultiVariant(type24, type32) {
     return forwardRef((props, ref) => <MultiVariantIcon type24={type24} type32={type32} ref={ref} {...props} />);
 }
 
-[PureMultiVariantIcon, MultiVariantIcon].forEach(x => {
+[InnerMultiVariantIcon, MultiVariantIcon].forEach(x => {
     x.create = createMultiVariant;
 });

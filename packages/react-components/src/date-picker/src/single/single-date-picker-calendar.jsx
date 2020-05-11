@@ -6,7 +6,7 @@ import { bool, func, node, number, object, oneOf, oneOfType, string } from "prop
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
-export class PureSingleDatePickerCalendar extends PureComponent {
+export class InnerSingleDatePickerCalendar extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
@@ -150,5 +150,5 @@ export class PureSingleDatePickerCalendar extends PureComponent {
 }
 
 export const SingleDatePickerCalendar = forwardRef((props, ref) => (
-    <PureSingleDatePickerCalendar { ...props } forwardedRef={ref} />
+    <InnerSingleDatePickerCalendar { ...props } forwardedRef={ref} />
 ));

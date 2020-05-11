@@ -183,7 +183,7 @@ function useRenderer({ text, icons, label, size, disabled, className, rest }, au
     };
 }
 
-export function PureCheckbox(props) {
+export function InnerCheckbox(props) {
     const { autofocus, autofocusDelay, text, icons, label, count, size, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
@@ -200,9 +200,9 @@ export function PureCheckbox(props) {
     return render();
 }
 
-PureCheckbox.propTypes = CHECKBOX_PROP_TYPES;
-PureCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerCheckbox.propTypes = CHECKBOX_PROP_TYPES;
+InnerCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Checkbox = forwardRef((props, ref) => (
-    <PureCheckbox { ...props } forwardedRef={ref} />
+    <InnerCheckbox { ...props } forwardedRef={ref} />
 ));

@@ -185,7 +185,8 @@ function useDropdownRenderer(
     handleBlur,
     handleChange,
     autofocusProps,
-    dropdownComponentRef) {
+    dropdownComponentRef
+) {
     return () => {
         const classes = mergeClasses(
             SIZE_CLASS[size],
@@ -258,7 +259,7 @@ function useRenderer({ size, fluid, className }, innerRef, dropdown, icon) {
     };
 }
 
-export function PureDropdown(props) {
+export function InnerDropdown(props) {
     const {
         search,
         inline,
@@ -316,14 +317,14 @@ export function PureDropdown(props) {
     return render();
 }
 
-PureDropdown.propTypes = propTypes;
-PureDropdown.defaultProps = defaultProps;
+InnerDropdown.propTypes = propTypes;
+InnerDropdown.defaultProps = defaultProps;
 
 export const Dropdown = forwardRef((props, ref) => (
-    <PureDropdown { ...props } forwardedRef={ref} />
+    <InnerDropdown { ...props } forwardedRef={ref} />
 ));
 
-[PureDropdown, Dropdown].forEach(x => {
+[InnerDropdown, Dropdown].forEach(x => {
     x.Divider = SemanticDropdown.Divider;
     x.Header = SemanticDropdown.Header;
     x.Item = DropdownItem;

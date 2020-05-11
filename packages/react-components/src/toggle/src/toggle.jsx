@@ -43,7 +43,7 @@ const CHECKBOX_DEFAULT_PROPS = {
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "radio", "type"];
 
-export function PureToggle(props) {
+export function InnerToggle(props) {
     const { forwardedRef, ...rest } = props;
 
     return (
@@ -58,9 +58,9 @@ export function PureToggle(props) {
     );
 }
 
-PureToggle.propTypes = CHECKBOX_PROP_TYPES;
-PureToggle.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerToggle.propTypes = CHECKBOX_PROP_TYPES;
+InnerToggle.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Toggle = forwardRef((props, ref) => (
-    <PureToggle { ...props } forwardedRef={ref} />
+    <InnerToggle { ...props } forwardedRef={ref} />
 ));

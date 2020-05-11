@@ -16,7 +16,7 @@ const PHRASES = {
     chooseAvailableEndDate: ({ date }) => `Choose ${date}.`
 };
 
-export class PureDatePickerCalendar extends PureComponent {
+export class InnerDatePickerCalendar extends PureComponent {
     static propTypes = {
         calendar: node.isRequired,
         buttons: node.isRequired,
@@ -179,5 +179,5 @@ export class PureDatePickerCalendar extends PureComponent {
 }
 
 export const DatePickerCalendar = forwardRef((props, ref) => (
-    <PureDatePickerCalendar { ...props } forwardedRef={ref} />
+    <InnerDatePickerCalendar { ...props } forwardedRef={ref} />
 ));

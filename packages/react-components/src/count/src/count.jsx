@@ -11,7 +11,7 @@ const propTypes = {
     className: string
 };
 
-export function PureCount({ className, children, forwardedRef, ...rest }) {
+export function InnerCount({ className, children, forwardedRef, ...rest }) {
     const classes = mergeClasses(
         "o-ui count",
         className
@@ -28,8 +28,8 @@ export function PureCount({ className, children, forwardedRef, ...rest }) {
     );
 }
 
-PureCount.propTypes = propTypes;
+InnerCount.propTypes = propTypes;
 
 export const Count = forwardRef((props, ref) => (
-    <PureCount { ...props } forwardedRef={ref} />
+    <InnerCount { ...props } forwardedRef={ref} />
 ));

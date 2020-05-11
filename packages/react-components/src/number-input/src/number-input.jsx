@@ -68,7 +68,7 @@ const defaultProps = {
     ...INPUT_DEFAULT_PROPS
 };
 
-export function PureNumberInput(props) {
+export function InnerNumberInput(props) {
     const { icon, loading, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/number-input");
@@ -86,9 +86,9 @@ export function PureNumberInput(props) {
     );
 }
 
-PureNumberInput.propTypes = propTypes;
-PureNumberInput.defaultProps = defaultProps;
+InnerNumberInput.propTypes = propTypes;
+InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
-    <PureNumberInput { ...props } forwardedRef={ref} />
+    <InnerNumberInput { ...props } forwardedRef={ref} />
 ));

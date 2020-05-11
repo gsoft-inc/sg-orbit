@@ -28,7 +28,7 @@ const defaultProps = {
     disabled: false
 };
 
-export function PureTag({ forwardedRef, className, disabled, ...props }) {
+export function InnerTag({ forwardedRef, className, disabled, ...props }) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/tag");
 
     const classes = mergeClasses(
@@ -43,10 +43,10 @@ export function PureTag({ forwardedRef, className, disabled, ...props }) {
     );
 }
 
-PureTag.propTypes = propTypes;
-PureTag.defaultProps = defaultProps;
+InnerTag.propTypes = propTypes;
+InnerTag.defaultProps = defaultProps;
 
 export const Tag = forwardRef((props, ref) => (
-    <PureTag { ...props } forwardedRef={ref} />
+    <InnerTag { ...props } forwardedRef={ref} />
 ));
 

@@ -111,7 +111,7 @@ function useRenderer({ size, error, fluid, focused, transparent, resizable, disa
     };
 }
 
-export function PureTextArea(props) {
+export function InnerTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useCombinedRefs(forwardedRef);
@@ -124,9 +124,9 @@ export function PureTextArea(props) {
     return render();
 }
 
-PureTextArea.propTypes = propTypes;
-PureTextArea.defaultProps = defaultProps;
+InnerTextArea.propTypes = propTypes;
+InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
-    <PureTextArea { ...props } forwardedRef={ref} />
+    <InnerTextArea { ...props } forwardedRef={ref} />
 ));

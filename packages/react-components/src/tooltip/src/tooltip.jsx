@@ -23,7 +23,7 @@ const defaultProps = {
     flush: false
 };
 
-export function PureTooltip(props) {
+export function InnerTooltip(props) {
     const { flush, className, forwardedRef, children, ...rest } = props;
 
     const classes = mergeClasses(
@@ -43,14 +43,14 @@ export function PureTooltip(props) {
     );
 }
 
-PureTooltip.propTypes = propTypes;
-PureTooltip.defaultProps = defaultProps;
+InnerTooltip.propTypes = propTypes;
+InnerTooltip.defaultProps = defaultProps;
 
 export const Tooltip = forwardRef((props, ref) => (
-    <PureTooltip { ...props } forwardedRef={ref} />
+    <InnerTooltip { ...props } forwardedRef={ref} />
 ));
 
-[PureTooltip, Tooltip].forEach(x => {
+[InnerTooltip, Tooltip].forEach(x => {
     x.Content = SemanticPopup.Content;
     x.Header = SemanticPopup.Header;
 });

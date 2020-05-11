@@ -188,7 +188,12 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
     };
 }
 
-function useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest }, autofocusProps, innerRef, renderContent) {
+function useRenderer(
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+    autofocusProps,
+    innerRef,
+    renderContent
+) {
     return () => {
         const hasText = Children.count(children) > 0;
 
@@ -223,8 +228,26 @@ function useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag
     };
 }
 
-export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, autofocus, autofocusDelay, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
+export function InnerButton(props) {
+    const {
+        basic,
+        ghost,
+        link,
+        naked,
+        icon,
+        iconPosition,
+        label,
+        tag,
+        autofocus,
+        autofocusDelay,
+        size,
+        loading,
+        disabled,
+        className,
+        forwardedRef,
+        children,
+        ...rest
+    } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -235,20 +258,26 @@ export function PureButton(props) {
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
     const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
-    const render = useRenderer({ basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest }, autofocusProps, innerRef, renderContent);
+
+    const render = useRenderer(
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+        autofocusProps,
+        innerRef,
+        renderContent
+    );
 
     return render();
 }
 
-PureButton.propTypes = propTypes;
-PureButton.defaultProps = defaultProps;
+InnerButton.propTypes = propTypes;
+InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
-    <PureButton { ...props } forwardedRef={ref} />
+    <InnerButton { ...props } forwardedRef={ref} />
 ));
 
 // Button.Or is not supported yet.
-[PureButton, Button].forEach(x => {
+[InnerButton, Button].forEach(x => {
     x.Content = SemanticButton.Content;
     x.Group = SemanticButton.Group;
 });

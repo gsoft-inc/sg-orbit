@@ -187,7 +187,7 @@ function useRenderer({ button, fluid, className }, containerRef, buttonComponent
     };
 }
 
-export function PureInput(props) {
+export function InnerInput(props) {
     const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, loading, disabled, className, __componentName, forwardedRef, children, ...rest } = props;
 
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
@@ -208,11 +208,11 @@ export function PureInput(props) {
     return render();
 }
 
-PureInput.propTypes = propTypes;
-PureInput.defaultProps = defaultProps;
+InnerInput.propTypes = propTypes;
+InnerInput.defaultProps = defaultProps;
 
 export const Input = forwardRef((props, ref) => (
-    <PureInput { ...props } forwardedRef={ref} />
+    <InnerInput { ...props } forwardedRef={ref} />
 ));
 
 if (!isNil(SemanticInput.propTypes)) {
