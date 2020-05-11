@@ -1,5 +1,6 @@
 export * from "./single-date-picker";
-export { PureSingleDatePickerInput } from "./single-date-picker-input";
-export { PureSingleDatePickerCalendar } from "./single-date-picker-calendar";
+export { InnerSingleDatePickerInput } from "./single-date-picker-input";
+export { InnerSingleDatePickerCalendar } from "./single-date-picker-calendar";
+
 export * from "./inline-single-date-picker";
-export { PureInlineSingleDatePickerInput } from "./inline-single-date-picker-input";
+export { InnerInlineSingleDatePickerInput } from "./inline-single-date-picker-input";

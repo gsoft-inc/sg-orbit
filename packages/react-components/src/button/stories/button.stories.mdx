@@ -1,5 +1,5 @@
 import { AddIcon, EditIcon, LightbulbIcon } from "@react-components/icons";
-import { Button, PureButton } from "@react-components/button";
+import { Button, InnerButton } from "@react-components/button";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -30,7 +30,7 @@ A Button indicates a possible user action.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Button", component: PureButton }
+        { displayName: "Button", component: InnerButton }
     ]}
 />
 
@@ -278,12 +278,30 @@ Buttons can exist together as a group.
 </Preview>
 
 <Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Button autofocus>Cutoff</Button>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Button autofocus autofocusDelay={500}>Cutoff</Button>
+</Story>
+
+<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Button >Cutoff</Button>} />
+    <RefLogger component={<Button>Cutoff</Button>} />
 </Story>
 
 ## API

@@ -7,7 +7,7 @@ import { TextInput } from "../../text-input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
-export class PureDatePickerTextboxInput extends PureComponent {
+export class InnerDatePickerTextboxInput extends PureComponent {
     static propTypes = {
         value: string.isRequired,
         onClick: func,
@@ -105,5 +105,5 @@ export class PureDatePickerTextboxInput extends PureComponent {
 }
 
 export const DatePickerTextboxInput = forwardRef((props, ref) => (
-    <PureDatePickerTextboxInput { ...props } forwardedRef={ref} />
+    <InnerDatePickerTextboxInput { ...props } forwardedRef={ref} />
 ));

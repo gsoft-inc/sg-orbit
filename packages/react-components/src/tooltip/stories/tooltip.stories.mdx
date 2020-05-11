@@ -1,9 +1,9 @@
 import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerTooltip, Tooltip } from "@react-components/tooltip";
 import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureTooltip, Tooltip } from "@react-components/tooltip";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -26,7 +26,7 @@ import Imports from "./imports.mdx";
 
 <Props
     componentsDefinitions={[
-        { displayName: "Tooltip", component: PureTooltip }
+        { displayName: "Tooltip", component: InnerTooltip }
     ]}
 />
 

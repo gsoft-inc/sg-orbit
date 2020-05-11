@@ -6,7 +6,7 @@ import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { withHandlerProxy } from "../../../shared";
 
-export class PureDateRangePickerInput extends PureComponent {
+export class InnerDateRangePickerInput extends PureComponent {
     static propTypes = {
         /**
          * A controlled start date value.
@@ -147,5 +147,5 @@ export class PureDateRangePickerInput extends PureComponent {
 }
 
 export const DateRangePickerInput = forwardRef((props, ref) => (
-    <PureDateRangePickerInput { ...props } forwardedRef={ref} />
+    <InnerDateRangePickerInput { ...props } forwardedRef={ref} />
 ));

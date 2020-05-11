@@ -63,3 +63,17 @@ test("can focus the button with the focus api", async () => {
 
     expect(refNode).toHaveFocus();
 });
+
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createButton({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});

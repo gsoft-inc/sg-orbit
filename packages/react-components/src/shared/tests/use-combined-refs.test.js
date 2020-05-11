@@ -107,6 +107,10 @@ test("support current prop when ref changes", () => {
         }
     });
 
+    act(() => {
+        result.current("oh!");
+    });
+
     rerender({
         refs: [ref2, ref3]
     });

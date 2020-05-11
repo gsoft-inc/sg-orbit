@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { DropdownMenu, PureDropdownMenu } from "@react-components/dropdown-menu";
+import { DropdownMenu, InnerDropdownMenu } from "@react-components/dropdown-menu";
 import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -28,9 +28,9 @@ A dropdown menu can be used to offer a list of choices.
 
 <Props
     componentsDefinitions={[
-        { displayName: "DropdownMenu", component: PureDropdownMenu },
-        { displayName: "DropdownMenu.Item", component: PureDropdownMenu.Item },
-        { displayName: "DropdownMenu.Header", component: PureDropdownMenu.Header }
+        { displayName: "DropdownMenu", component: InnerDropdownMenu },
+        { displayName: "DropdownMenu.Item", component: InnerDropdownMenu.Item },
+        { displayName: "DropdownMenu.Header", component: InnerDropdownMenu.Header }
     ]}
 />
 

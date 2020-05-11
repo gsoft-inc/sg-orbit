@@ -120,6 +120,20 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     expect(getInput(getByTestId)).toHaveFocus();
 });
 
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        createInput({
+            ref: handler
+        })
+    );
+
+    await wait();
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
+
 // ***** API *****
 
 test("can focus the input with the focus api", async () => {

@@ -15,7 +15,7 @@ const PRESET_SHAPE = {
     endDate: object.isRequired
 };
 
-export class PureDateRangePickerCalendar extends PureComponent {
+export class InnerDateRangePickerCalendar extends PureComponent {
     static propTypes = {
         /**
          * A controlled start date value.
@@ -225,5 +225,5 @@ export class PureDateRangePickerCalendar extends PureComponent {
 }
 
 export const DateRangePickerCalendar = forwardRef((props, ref) => (
-    <PureDateRangePickerCalendar { ...props } forwardedRef={ref} />
+    <InnerDateRangePickerCalendar { ...props } forwardedRef={ref} />
 ));

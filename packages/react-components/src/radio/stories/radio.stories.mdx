@@ -2,9 +2,9 @@ import { ControlledRadioGroup } from "./components";
 import { Count } from "../../count";
 import { FilePreview, HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { InnerRadio, Radio } from "@react-components/radio";
 import { Label } from "../../label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureRadio, Radio } from "@react-components/radio";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -29,7 +29,7 @@ Radio buttons allow a user to select one option from a set.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Radio", component: PureRadio }
+        { displayName: "Radio", component: InnerRadio }
     ]}
 />
 

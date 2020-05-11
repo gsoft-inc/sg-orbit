@@ -1,8 +1,7 @@
 import { Checkbox } from "../../checkbox";
-import { Ref } from "semantic-ui-react";
+import { SemanticRef } from "../../shared";
 import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -39,40 +38,29 @@ const CHECKBOX_PROP_TYPES = {
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
-    size: DEFAULT_SIZE,
-    __componentName: "@orbit-ui/react-components/checkbox"
+    size: DEFAULT_SIZE
 };
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "radio", "type"];
 
-export function PureToggle(props) {
+export function InnerToggle(props) {
     const { forwardedRef, ...rest } = props;
 
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderToggle()}
-            </Ref>
-        );
-    };
-
-    const renderToggle = () => {
-        return (
+    return (
+        <SemanticRef innerRef={forwardedRef}>
             <Checkbox
                 {...rest}
                 toggle
                 __componentName="@orbit-ui/react-components/toggle"
                 __unsupportedProps={UNSUPPORTED_PROPS}
             />
-        );
-    };
-
-    return isNil(forwardedRef) ? renderToggle() : renderWithRef();
+        </SemanticRef>
+    );
 }
 
-PureToggle.propTypes = CHECKBOX_PROP_TYPES;
-PureToggle.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerToggle.propTypes = CHECKBOX_PROP_TYPES;
+InnerToggle.defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 export const Toggle = forwardRef((props, ref) => (
-    <PureToggle { ...props } forwardedRef={ref} />
+    <InnerToggle { ...props } forwardedRef={ref} />
 ));

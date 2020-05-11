@@ -1,5 +1,5 @@
 import { ControlledDateRangePicker } from "./controlled-date-range-picker.sample";
-import { DEFAULT_DATES_PRESETS, DateRangePicker, PureDateRangePickerCalendar, PureDateRangePickerInput } from "@react-components/date-picker";
+import { DEFAULT_DATES_PRESETS, DateRangePicker, InnerDateRangePickerCalendar, InnerDateRangePickerInput } from "@react-components/date-picker";
 import { DEFAULT_PRESETS_OPTIONS } from "../data";
 import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -33,8 +33,8 @@ A date range picker allow a user to select a date range.
 <Props
     componentsDefinitions={[
         { displayName: "DateRangePicker", component: DateRangePicker },
-        { displayName: "DateRangePicker.Input", component: PureDateRangePickerInput },
-        { displayName: "DateRangePicker.Calendar", component: PureDateRangePickerCalendar },
+        { displayName: "DateRangePicker.Input", component: InnerDateRangePickerInput },
+        { displayName: "DateRangePicker.Calendar", component: InnerDateRangePickerCalendar },
         { displayName: "DateRangePicker.Presets", component: DateRangePicker.Presets },
         { displayName: "DateRangePicker.Buttons", component: DateRangePicker.Buttons }
     ]}

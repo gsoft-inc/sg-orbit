@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
 import { CloseIcon, MagnifierIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerTextInput, TextInput } from "@react-components/text-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PureTextInput, TextInput } from "@react-components/text-input";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -28,7 +28,7 @@ A text input allow a user to enter and edit a text.
 
 <Props
     componentsDefinitions={[
-        { displayName: "TextInput", component: PureTextInput }
+        { displayName: "TextInput", component: InnerTextInput }
     ]}
 />
 

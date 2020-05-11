@@ -38,51 +38,6 @@ function parseInput(input) {
     return result(false, !isNil(input.button), input.button);
 }
 
-function useButtonRenderer({ hasButton, button }) {
-    const buttonRef = useRef();
-    const ref = useCombinedRefs(hasButton && !isNil(button.ref) ? button.ref : undefined);
-
-    const renderer = () => {
-        if (isReactElement(button)) {
-            return cloneElement(button, {
-                ...button.props,
-                ref
-            });
-        }
-
-        return {
-            ...button,
-            ref
-        };
-    };
-
-    return [renderer, buttonRef];
-}
-
-function useTriggerRenderer({ input, isElement, hasButton }, buttonRenderer) {
-    return () => {
-        if (isElement) {
-            if (hasButton) {
-                return cloneElement(input, {
-                    ...input.props,
-                    button: buttonRenderer()
-                });
-            }
-
-            return input;
-        }
-
-        if (hasButton) {
-            return createInputFromShorthand({
-                ...input,
-                button: buttonRenderer()
-            });
-        }
-
-        return createInputFromShorthand(input);
-    };
-}
-
 function useHandleClick(onClick, buttonRef) {
     return useCallback(event => {
         let canPropagate = true;
@@ -99,22 +54,74 @@ function useHandleClick(onClick, buttonRef) {
     }, [buttonRef, onClick]);
 }
 
+function useButtonRenderer({ hasButton, button }, buttonRef) {
+    const ref = useCombinedRefs(buttonRef, hasButton && !isNil(button.ref) ? button.ref : undefined);
+
+    return () => {
+        if (isReactElement(button)) {
+            return cloneElement(button, {
+                ...button.props,
+                ref
+            });
+        }
+
+        return {
+            ...button,
+            ref
+        };
+    };
+}
+
+function useTriggerRenderer({ input, isElement, hasButton }, button) {
+    return () => {
+        if (isElement) {
+            if (hasButton) {
+                return cloneElement(input, {
+                    ...input.props,
+                    button: button
+                });
+            }
+
+            return input;
+        }
+
+        if (hasButton) {
+            return createInputFromShorthand({
+                ...input,
+                button: button
+            });
+        }
+
+        return createInputFromShorthand(input);
+    };
+}
+
+function useRenderer({ forwardedRef, rest }, handleClick, trigger) {
+    return () => {
+        return (
+            <PopperTrigger
+                {...rest}
+                trigger={trigger}
+                toggleHandler="onClick"
+                onClick={handleClick}
+                ref={forwardedRef}
+            />
+        );
+    };
+}
+
 export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...rest }) {
+    const buttonRef = useRef();
+
     const parsingResult = parseInput(input);
 
-    const [buttonRenderer, buttonRef] = useButtonRenderer(parsingResult);
-    const triggerRenderer = useTriggerRenderer(parsingResult, buttonRenderer);
     const handleClick = useHandleClick(onClick, buttonRef);
 
-    return (
-        <PopperTrigger
-            {...rest}
-            trigger={triggerRenderer()}
-            toggleHandler="onClick"
-            onClick={handleClick}
-            ref={forwardedRef}
-        />
-    );
+    const renderButton = useButtonRenderer(parsingResult, buttonRef);
+    const renderTrigger = useTriggerRenderer(parsingResult, renderButton());
+    const render = useRenderer({ forwardedRef, rest }, handleClick, renderTrigger());
+
+    return render();
 }
 
 InnerPopperTextInputTrigger.propTypes = propTypes;

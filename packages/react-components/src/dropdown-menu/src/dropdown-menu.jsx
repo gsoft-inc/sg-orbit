@@ -61,40 +61,48 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-export function PureDropdownMenu(props) {
+function useRenderer({ forwardedRef, children, rest }) {
+    return () => {
+        const hasChildren = Children.count(children) > 0;
+
+        return (
+            <Dropdown
+                {...rest}
+                ref={forwardedRef}
+                __dropdownClasses="dropdown-menu"
+            >
+                <Choose>
+                    <When condition={hasChildren}>
+                        <Dropdown.Menu>{children}</Dropdown.Menu>
+                    </When>
+                    <Otherwise>
+                        {children}
+                    </Otherwise>
+                </Choose>
+            </Dropdown>
+        );
+    };
+}
+
+export function InnerDropdownMenu(props) {
     const { forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
-    const hasChildren = Children.count(children) > 0;
+    const render = useRenderer({ forwardedRef, children, rest });
 
-    return (
-        <Dropdown
-            {...rest}
-            ref={forwardedRef}
-            __dropdownClasses="dropdown-menu"
-        >
-            <Choose>
-                <When condition={hasChildren}>
-                    <Dropdown.Menu>{children}</Dropdown.Menu>
-                </When>
-                <Otherwise>
-                    {children}
-                </Otherwise>
-            </Choose>
-        </Dropdown>
-    );
+    return render();
 }
 
-PureDropdownMenu.propTypes = propTypes;
-PureDropdownMenu.defaultProps = defaultProps;
+InnerDropdownMenu.propTypes = propTypes;
+InnerDropdownMenu.defaultProps = defaultProps;
 
 export const DropdownMenu = forwardRef((props, ref) => (
-    <PureDropdownMenu { ...props } forwardedRef={ref} />
+    <InnerDropdownMenu { ...props } forwardedRef={ref} />
 ));
 
 // DropdownMenu.Menu and DropdownMenu.SearchInput are not supported.
-[PureDropdownMenu, DropdownMenu].forEach(x => {
+[InnerDropdownMenu, DropdownMenu].forEach(x => {
     x.Divider = Dropdown.Divider;
     x.Header = DropdownMenuHeader;
     x.Item = DropdownMenuItem;

@@ -6,7 +6,7 @@ import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import { withHandlerProxy } from "../../../shared";
 
-export class PureSingleDatePickerInput extends PureComponent {
+export class InnerSingleDatePickerInput extends PureComponent {
     static propTypes = {
         /**
          * A controlled date value.
@@ -131,5 +131,5 @@ export class PureSingleDatePickerInput extends PureComponent {
 }
 
 export const SingleDatePickerInput = forwardRef((props, ref) => (
-    <PureSingleDatePickerInput { ...props } forwardedRef={ref} />
+    <InnerSingleDatePickerInput { ...props } forwardedRef={ref} />
 ));

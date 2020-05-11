@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
-import { Children, cloneElement, forwardRef } from "react";
-import { Ref, Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
+import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { Children, cloneElement, forwardRef, useCallback } from "react";
+import { Button as SemanticButton } from "semantic-ui-react";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createIconForControl } from "../../icons";
 import { createLabelFromShorthand } from "../../label";
 import { createTagFromShorthand } from "../../tag";
@@ -45,6 +45,14 @@ const propTypes = {
      * A button can be colorless. Use this variant if you need to customize the button.
      */
     naked: bool,
+    /**
+     * Whether or not the checkbox should autofocus on render.
+     */
+    autofocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autofocusDelay: number,
     /**
      * An input can vary in sizes.
      */
@@ -92,22 +100,23 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-export function PureButton(props) {
-    const { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, forwardedRef, children, ...rest } = props;
+function useSetFocus(buttonRef) {
+    return useCallback(() => {
+        if (!isNil(buttonRef.current)) {
+            buttonRef.current.focus();
+        }
+    }, [buttonRef]);
+}
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-
-    const renderWithRef = () => {
-        return (
-            <Ref innerRef={forwardedRef}>
-                {renderButton()}
-            </Ref>
-        );
+function useIconRenderer({ icon, size }) {
+    return () => {
+        return createIconForControl(icon, size);
     };
+}
 
-    const renderLabel = () => {
-        const defaults = {
+function useLabelRenderer({ label, disabled }) {
+    return () => {
+        const props = {
             as: "span",
             size: "mini",
             highlight: true,
@@ -115,42 +124,50 @@ export function PureButton(props) {
         };
 
         if (isElement(label)) {
-            return cloneElement(label, defaults);
+            return cloneElement(label, props);
         }
 
         return createLabelFromShorthand({
-            ...defaults,
+            ...props,
             ...label
         });
     };
+}
 
-    const renderTag = () => {
-        const defaults = {
+function useTagRenderer({ tag, disabled }) {
+    return () => {
+        const props = {
             as: "span",
             size: "mini",
             disabled: disabled
         };
 
         if (isElement(tag)) {
-            return cloneElement(tag, defaults);
+            return cloneElement(tag, props);
         }
 
         return createTagFromShorthand({
-            ...defaults,
+            ...props,
             ...tag
         });
     };
+}
 
-    const renderContent = () => {
+function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
+    const renderIcon = useIconRenderer({ icon, size });
+    const renderLabel = useLabelRenderer({ label, disabled });
+    const renderTag = useTagRenderer({ tag, disabled });
+
+    return () => {
         if (!loading) {
             let left;
             let right;
 
             if (!isNil(icon)) {
                 if (iconPosition === "right") {
-                    right = createIconForControl(icon, size);
+                    right = renderIcon();
                 } else {
-                    left = createIconForControl(icon, size);
+                    left = renderIcon();
                 }
             }
 
@@ -169,8 +186,15 @@ export function PureButton(props) {
 
         return children;
     };
+}
 
-    const renderButton = () => {
+function useRenderer(
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+    autofocusProps,
+    innerRef,
+    renderContent
+) {
+    return () => {
         const hasText = Children.count(children) > 0;
 
         const classes = mergeClasses(
@@ -186,32 +210,74 @@ export function PureButton(props) {
         );
 
         return (
-            <SemanticButton
-                data-testid="button"
-                {...rest}
-                basic={basic}
-                size={size}
-                loading={loading}
-                disabled={disabled}
-                className={classes}
-            >
-                {renderContent()}
-            </SemanticButton>
+            <SemanticRef innerRef={innerRef}>
+                <SemanticButton
+                    data-testid="button"
+                    {...rest}
+                    {...autofocusProps}
+                    basic={basic}
+                    size={size}
+                    loading={loading}
+                    disabled={disabled}
+                    className={classes}
+                >
+                    {renderContent()}
+                </SemanticButton>
+            </SemanticRef>
         );
     };
-
-    return isNil(forwardedRef) ? renderButton() : renderWithRef();
 }
 
-PureButton.propTypes = propTypes;
-PureButton.defaultProps = defaultProps;
+export function InnerButton(props) {
+    const {
+        basic,
+        ghost,
+        link,
+        naked,
+        icon,
+        iconPosition,
+        label,
+        tag,
+        autofocus,
+        autofocusDelay,
+        size,
+        loading,
+        disabled,
+        className,
+        forwardedRef,
+        children,
+        ...rest
+    } = props;
+
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+
+    const innerRef = useCombinedRefs(forwardedRef);
+
+    const setFocus = useSetFocus(innerRef);
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
+    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
+
+    const render = useRenderer(
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+        autofocusProps,
+        innerRef,
+        renderContent
+    );
+
+    return render();
+}
+
+InnerButton.propTypes = propTypes;
+InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
-    <PureButton { ...props } forwardedRef={ref} />
+    <InnerButton { ...props } forwardedRef={ref} />
 ));
 
 // Button.Or is not supported yet.
-[PureButton, Button].forEach(x => {
+[InnerButton, Button].forEach(x => {
     x.Content = SemanticButton.Content;
     x.Group = SemanticButton.Group;
 });

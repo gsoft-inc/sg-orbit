@@ -4,7 +4,7 @@ import { bool } from "prop-types";
 import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
 
-function PureRedBox({ forwardedRef, ...rest }) {
+function InnerRedBox({ forwardedRef, ...rest }) {
     return (
         <div
             className="w12 h12 bg-red"
@@ -17,10 +17,10 @@ function PureRedBox({ forwardedRef, ...rest }) {
 }
 
 export const RedBox = forwardRef((props, ref) => (
-    <PureRedBox { ...props } forwardedRef={ref} />
+    <InnerRedBox { ...props } forwardedRef={ref} />
 ));
 
-function PureRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
+function InnerRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
     const [triggerElement, setTriggerElement] = useState();
     const [isVisible, setVisibility] = useState(defaultShow);
 
@@ -48,7 +48,7 @@ function PureRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
 }
 
 export const RedBoxPopper = forwardRef((props, ref) => (
-    <PureRedBoxPopper { ...props } forwardedRef={ref} />
+    <InnerRedBoxPopper { ...props } forwardedRef={ref} />
 ));
 
 RedBoxPopper.propTypes = {
