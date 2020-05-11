@@ -1,5 +1,5 @@
 import { ControlledRemoteSearchInput } from "./controlled-remote-search-input.sample";
-import { DEFAULT_SIZE, RemoteSearchInput, searchInputResult, useDefaultResultsFetcher } from "@react-components/search-input";
+import { DEFAULT_SIZE, RemoteSearchInput, searchInputResult, withDefaultResultsFetcher } from "@react-components/search-input";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -57,7 +57,7 @@ export const API_REQUEST_OPTIONS = {
     }
 };
 
-export const dataFetcher = useDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS });
+export const dataFetcher = withDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix", { requestOptions: API_REQUEST_OPTIONS });
 
 export const resultsMapper = response => {
     return response.data.map(x => searchInputResult(x.code, x.name));
@@ -68,7 +68,7 @@ export const resultsMapper = response => {
 The following constants are used in the examples below:
 
 ```javascript dark
-const dataFetcher = useDefaultResultsFetcher(
+const dataFetcher = withDefaultResultsFetcher(
     "https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5",
     "namePrefix",
     { requestOptions: API_REQUEST_OPTIONS }
