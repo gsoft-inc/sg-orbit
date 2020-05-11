@@ -1,9 +1,9 @@
-import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, MINI, SMALL, TINY, SemanticRef, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { ArgumentError, BIG, HUGE, LARGE, MASSIVE, MEDIUM, MINI, SMALL, SemanticRef, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { createButtonFromShorthand } from "../../button";
-import { createCompactIconForControl, createIconForControl } from "../../icons";
+import { createIconForControl } from "../../icons";
 import { createTagFromShorthand } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
@@ -146,19 +146,10 @@ function useContentRenderer({ button, icon, iconPosition, tag, size, children })
         let right;
 
         if (!isNil(icon)) {
-            if (iconPosition === "right" && hasText) {
+            if (iconPosition === "right") {
                 right = createIconForControl(icon, size);
-            }
-            else if (iconPosition === "right") {
-                right = createCompactIconForControl(icon, size);
-            }
-            else {
-                if (hasText) {
-                    left = createIconForControl(icon, size);
-                }
-                else {
-                    left = createCompactIconForControl(icon, size);
-                }
+            } else {
+                left = createIconForControl(icon, size);
             }
         }
 
@@ -171,10 +162,10 @@ function useContentRenderer({ button, icon, iconPosition, tag, size, children })
         }
 
         if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}<span className="text">{children}</span>{!isNil(right) && right}</>;
+            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
         }
 
-        return <span className="text">{children}</span>;
+        return children;
     };
 }
 
