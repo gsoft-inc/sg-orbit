@@ -1,4 +1,4 @@
-import { AbsoluteRedBox } from "./components";
+import { AbsoluteRedBox } from "./absolute-red-box";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@react-components/date-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";

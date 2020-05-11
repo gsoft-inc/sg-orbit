@@ -9,7 +9,6 @@ export * from "./types";
 export * from "./promises";
 export * from "./defer";
 export * from "./keyboards";
-export * from "./handlers";
 export * from "./styles";
 export * from "./semantic-ui";
 export * from "./ref";

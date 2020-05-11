@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses, withHandlerProxy } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CloseIcon, MagnifierIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
@@ -22,8 +22,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         onValueChange: func.isRequired,
         onSearch: func.isRequired,
         onClear: func,
-        // eslint-disable-next-line react/no-unused-prop-types
-        onFocus: func,
         onBlur: func,
         onKeyDown: func,
         onOutsideClick: func,
@@ -125,14 +123,14 @@ export class SearchInputController extends AutoControlledPureComponent {
             this.setState({ query: selectedResult.text });
         }
 
-        onValueChange(event, selectedResult, this.props);
+        onValueChange(event, selectedResult);
     };
 
     handleSearchChange = (event, data) => {
         this.setState({ query: data.value });
 
         if (!isNil(this.onSearch)) {
-            this.onSearch(event, data.value, this.props);
+            this.onSearch(event, data.value);
         }
     };
 
@@ -145,7 +143,7 @@ export class SearchInputController extends AutoControlledPureComponent {
             }
 
             if (!isNil(onBlur)) {
-                onBlur(event, this.props);
+                onBlur(event);
             }
         };
 
@@ -174,15 +172,13 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
     };
 
-    handleFocus = withHandlerProxy(this, "onFocus");
-
     handleClear = event => {
         const { onClear } = this.props;
 
         this.clear(event);
 
         if (!isNil(onClear)) {
-            onClear(event, this.props);
+            onClear(event);
         }
     };
 
@@ -199,7 +195,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
     };
 
@@ -229,7 +225,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         if (!isNil(onOutsideClick)) {
             if (!isNil(this._containerRef.current) && !this._containerRef.current.contains(event.target)) {
-                onOutsideClick(event, this.props);
+                onOutsideClick(event);
             }
         }
     };
@@ -251,7 +247,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         if (!isNil(value)) {
             this.trySetAutoControlledStateValue({ value: null });
 
-            onValueChange(event, null, this.props);
+            onValueChange(event, null);
         }
     }
 
@@ -267,7 +263,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         const data = JSON.parse(result.description);
 
-        return resultRenderer(data, this.props);
+        return resultRenderer(data);
     };
 
     renderClearButton() {

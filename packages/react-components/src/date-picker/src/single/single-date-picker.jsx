@@ -26,7 +26,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      * Called when the date is applied.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {Moment} date - Selected date.
-     * @param {Object} props - All the props.
      * @returns {void}
      */
     onDateChange: func.isRequired,
@@ -34,7 +33,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      * Called when the calendar open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isVisible - Indicate if the calendar is visible.
-     * @param {Object} props - All the props.
      * @returns {void}
      */
     onVisibilityChange: func,
@@ -182,7 +180,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ date: null });
         this.setState({ selectedDate: null });
 
-        onDateChange(event, null, this.props);
+        onDateChange(event, null);
     };
 
     handleCalendarDateChange = date => {
@@ -197,7 +195,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ date: selectedDate });
         this.focusInput();
 
-        onDateChange(event, selectedDate, this.props);
+        onDateChange(event, selectedDate);
     };
 
     focusInput() {
@@ -216,7 +214,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
+            onVisibilityChange(event, true);
         }
     }
 
@@ -226,7 +224,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
+            onVisibilityChange(event, false);
         }
     }
 

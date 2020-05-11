@@ -1,9 +1,9 @@
-A multi select component requires a set of items to display. Those items can be specified with the `items` property.
+A tag picker component requires a set of items to display. Those items can be specified with the `items` property.
 
-To create an item, use the `multiSelectItem(text, value, category?, additionalProps?)` function:
+To create an item, use the `tagPickerItem(text, value, category?, additionalProps?)` function:
 
 ```javascript dark
-const apollo = multiSelectItem("Apollo Program", "apollo");
+const apollo = tagPickerItem("Apollo Program", "apollo");
 ```
 
 <details><summary >optional category</summary>
@@ -11,8 +11,8 @@ const apollo = multiSelectItem("Apollo Program", "apollo");
 An optional `category` can be specified to group a set of items under a labelled category:
 
 ```javascript dark
-const apollo = multiSelectItem("Apollo Program", "apollo", "1970");
-const skylab = multiSelectItem("Skylab", "skylab", "1970");
+const apollo = tagPickerItem("Apollo Program", "apollo", "1970");
+const skylab = tagPickerItem("Skylab", "skylab", "1970");
 ```
 </details>
 
@@ -21,13 +21,13 @@ const skylab = multiSelectItem("Skylab", "skylab", "1970");
 Additional properties can be specified to provide additional information to any callbacks e.g. `onValuesChange` or `itemRenderer`.
 
 ```javascript dark
-const apollo = multiSelectItem("Apollo Program", "apollo", null, { backendId: 123 });
+const apollo = tagPickerItem("Apollo Program", "apollo", null, { backendId: 123 });
 ```
 
 Then in any callbacks:
 
 ```jsx dark
-<MultiSelect
+<TagPicker
     items={[groupCreated]}
     onValuesChange={(event, values) => {
         values.forEach(x => console.log(x.backendId));
@@ -38,10 +38,10 @@ Then in any callbacks:
 Or in a custom result renderer:
 
 ```jsx dark
-<MultiSelect
+<TagPicker
     items={[groupCreated]}
     selectedItemsComponent={
-        <MultiSelect.SelectedItems
+        <TagPicker.SelectedItems
             itemRenderer={({ text, value, group, backendId }) => {
                 return <div>{backendId}</div>
             }}

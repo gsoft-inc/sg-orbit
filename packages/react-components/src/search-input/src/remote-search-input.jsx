@@ -47,8 +47,8 @@ function defaultResultsFetcher(event, url, data, options) {
  * @param {Object} [options.requestOptions.*] - Any fetch API options: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  * @returns {Function} - The fetcher instance
  */
-export function useDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
-    ensure(url, "url", "useDefaultResultsFetcher").isNotNullOrEmpty();
+export function withDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
+    ensure(url, "url", "withDefaultResultsFetcher").isNotNullOrEmpty();
 
     return (event, query) => {
         const data = {
@@ -78,7 +78,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Called when the value change.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Object} value - Selected value.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onValueChange: func.isRequired,
@@ -86,7 +85,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Called when a fetch event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string} query - Search query that triggered the search.
-         * @param {Object} props - All the props.
          * @returns {Promise} - Promise resolved with the results to display or reject if the HTTP call fail.
          */
         onFetchResults: func.isRequired,
@@ -94,35 +92,30 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Called after a fetch.
          * @param {Result[]} results - Results returned by the fetch call.
          * @param {string} query - Search query that triggered the search.
-         * @param {Object} props - All the props.
          * @returns {Result[]} - Results to display.
          */
         onResults: func,
         /**
          * Called when a clear event happens.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onClear: func,
         /**
          * Called on blur.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onBlur: func,
         /**
          * Called when a click happens outside the search input.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onOutsideClick: func,
         /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onKeyDown: func,
@@ -130,14 +123,12 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Called when the search results open / close.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {boolean} isVisible - Indicate if the search input results are visible.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onVisibilityChange: func,
         /**
          * Render a result.
          * @param {Object} result - Result to render.
-         * @param {Object} props - All the props.
          * @returns {ReactElement} - React element to render.
          */
         resultRenderer: func,
@@ -259,7 +250,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
 
         this.close(event);
 
-        onValueChange(event, value, this.props);
+        onValueChange(event, value);
     };
 
     handleClear = event => {
@@ -273,7 +264,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onClear)) {
-            onClear(event, this.props);
+            onClear(event);
         }
     };
 
@@ -291,7 +282,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onBlur)) {
-            onBlur(event, this.props);
+            onBlur(event);
         }
     };
 
@@ -305,7 +296,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onOutsideClick)) {
-            onOutsideClick(event, this.props);
+            onOutsideClick(event);
         }
     };
 
@@ -318,7 +309,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         }
 
         if (!isNil(onKeyDown)) {
-            onKeyDown(event, this.props);
+            onKeyDown(event);
         }
     };
 
@@ -343,7 +334,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                     let results = await this.fetch(event, query);
 
                     if (!isNil(onResults)) {
-                        results = onResults(results, query, this.props);
+                        results = onResults(results, query);
 
                         if (!isArray(results)) {
                             throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
@@ -373,7 +364,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     fetch(event, query) {
         const { onFetchResults } = this.props;
 
-        const promise = onFetchResults(event, query, this.props);
+        const promise = onFetchResults(event, query);
 
         if (!isPromise(promise)) {
             throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
@@ -396,7 +387,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: true });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true, this.props);
+            onVisibilityChange(event, true);
         }
     }
 
@@ -406,7 +397,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         this.trySetAutoControlledStateValue({ open: false });
 
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false, this.props);
+            onVisibilityChange(event, false);
         }
     }
 

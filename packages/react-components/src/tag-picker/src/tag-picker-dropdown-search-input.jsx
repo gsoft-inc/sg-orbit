@@ -3,13 +3,12 @@ import { PureComponent } from "react";
 import { TextInput } from "../../text-input";
 import { func, string } from "prop-types";
 
-export class MultiSelectDropdownSearchInput extends PureComponent {
+export class TagPickerDropdownSearchInput extends PureComponent {
     static propTypes = {
         /**
          * Called on text change.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string} value - New value.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onChange: func,
@@ -26,7 +25,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
     handleChange = (event, { value }) => {
         const { onChange } = this.props;
 
-        onChange(event, value, this.props);
+        onChange(event, value);
     };
 
     render() {
@@ -41,7 +40,7 @@ export class MultiSelectDropdownSearchInput extends PureComponent {
                 className={className}
                 autofocus
                 autoComplete="off"
-                data-testid="multi-select-dropdown-search-input"
+                data-testid="tag-picker-dropdown-search-input"
             />
         );
     }

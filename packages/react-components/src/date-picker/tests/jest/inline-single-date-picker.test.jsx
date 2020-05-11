@@ -212,7 +212,7 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the calendar is opened with space keydown", async () => {
@@ -226,7 +226,7 @@ test("call onVisibilityChange when the calendar is opened with space keydown", a
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the calendar is opened with enter keydown", async () => {
@@ -240,7 +240,7 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
 
     await waitForElement(() => getByTestId(CALENDAR_ID));
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onVisibilityChange when the calendar close on blur", async () => {
@@ -255,5 +255,5 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
     getByTestId(INPUT_ID).blur();
     await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false, expect.anything());
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
