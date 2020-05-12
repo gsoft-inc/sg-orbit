@@ -273,16 +273,6 @@ export function InnerButton(props) {
 InnerButton.propTypes = propTypes;
 InnerButton.defaultProps = defaultProps;
 
-export function Test() {
-    return (
-        <div>Yo</div>
-    );
-}
-
-Test.propTypes = {
-    foo: "bar"
-};
-
 export const Button = forwardRef((props, ref) => (
     <InnerButton { ...props } forwardedRef={ref} />
 ));

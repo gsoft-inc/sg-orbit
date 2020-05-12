@@ -69,6 +69,7 @@ const defaultProps = {
     iconPosition: "left",
     highlight: false,
     disabled: false,
+    // eslint-disable-next-line react/default-props-match-prop-types
     size: DEFAULT_SIZE
 };
 
