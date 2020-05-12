@@ -76,7 +76,7 @@ function ensureAutoControlledPropsHasNotChanged(newProps, lastProps) {
  *      return getAutoControlledStateFromProps(
  *          props,
  *          state,
- *          TagPicker.autoControlledProps,
+ *          TagsPicker.autoControlledProps,
  *          ({ values }) => computeDerivedState(items, values));
  * }
  */
