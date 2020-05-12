@@ -10,7 +10,7 @@ export * from "./toggle";
 export * from "./radio";
 export * from "./label";
 export * from "./tag";
-export * from "./tag-picker";
+export * from "./tags-picker";
 export * from "./popper";
 export * from "./tooltip";
 export * from "./search-input";

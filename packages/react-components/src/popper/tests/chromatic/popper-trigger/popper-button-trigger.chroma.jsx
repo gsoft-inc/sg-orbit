@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { PopperTrigger } from "@react-components/popper";
-import { RedBox } from "./components";
+import { RedBox } from "./red-box";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {

@@ -720,7 +720,7 @@ stories("/disabled")
     );
 
 stories("/customization")
-    .add("input",
+    .add("input component",
          () =>
              createSingleDatePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),
