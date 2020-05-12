@@ -121,7 +121,8 @@ export function InnerTextArea(props) {
 
     const render = useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerTextArea.propTypes = propTypes;

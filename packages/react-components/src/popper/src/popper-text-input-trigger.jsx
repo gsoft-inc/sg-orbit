@@ -121,7 +121,8 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
     const renderTrigger = useTriggerRenderer(parsingResult, renderButton());
     const render = useRenderer({ forwardedRef, rest }, handleClick, renderTrigger());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopperTextInputTrigger.propTypes = propTypes;

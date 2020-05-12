@@ -205,7 +205,8 @@ export function InnerInput(props) {
     const renderInput = useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderIcon());
     const render = useRenderer({ button, fluid, className }, containerRef, renderButton(), renderInput() );
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerInput.propTypes = propTypes;

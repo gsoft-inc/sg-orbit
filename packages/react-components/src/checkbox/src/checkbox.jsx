@@ -197,7 +197,8 @@ export function InnerCheckbox(props) {
     const renderContent = useContentRenderer({ text, icons, label, count, size });
     const render = useRenderer({ text, icons, label, size, disabled, className, rest }, autofocusProps, innerRef, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerCheckbox.propTypes = CHECKBOX_PROP_TYPES;

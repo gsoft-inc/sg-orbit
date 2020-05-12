@@ -314,7 +314,8 @@ export function InnerDropdown(props) {
     const renderIcon = useIconRenderer({ inline, icon, size });
     const render = useRenderer({ size, fluid, className }, innerRef, renderDropdown(), renderIcon());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerDropdown.propTypes = propTypes;

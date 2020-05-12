@@ -63,7 +63,8 @@ export function DropdownMenuHeader(props) {
     const renderContent = useContentRenderer({ text, icon, children }, size);
     const render = useRenderer({ rest }, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 DropdownMenuHeader.propTypes = propTypes;

@@ -91,7 +91,8 @@ export function InnerDropdownMenu(props) {
 
     const render = useRenderer({ forwardedRef, children, rest });
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerDropdownMenu.propTypes = propTypes;

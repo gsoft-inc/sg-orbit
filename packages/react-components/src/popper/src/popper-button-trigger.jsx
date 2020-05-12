@@ -38,7 +38,8 @@ export function InnerPopperButtonTrigger({ button, forwardedRef, ...rest }) {
     const renderButton = useButtonRenderer({ button });
     const render = useRenderer({ forwardedRef, rest }, renderButton());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopperButtonTrigger.propTypes = propTypes;

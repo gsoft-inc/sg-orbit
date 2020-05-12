@@ -250,7 +250,8 @@ export function InnerPopper({
     const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper);
     const render = useRenderer({ disabled, noPortal, portalElement }, renderPopper());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopper.propTypes = propTypes;

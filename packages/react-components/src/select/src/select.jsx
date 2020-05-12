@@ -229,7 +229,8 @@ export function InnerSelect(props) {
     const renderOptions = useOptionsRenderer({ options, actions });
     const render = useRenderer({ size, transparent, inline, forwardedRef, rest }, renderOptions());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerSelect.propTypes = propTypes;

@@ -121,7 +121,8 @@ export function SelectItem(props) {
     const renderContent = useContentRenderer({ text, icons, iconsPosition, avatar, description }, size);
     const render = useRenderer({ rest }, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 SelectItem.propTypes = propTypes;

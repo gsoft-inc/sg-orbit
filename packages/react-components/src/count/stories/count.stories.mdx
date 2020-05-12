@@ -1,5 +1,5 @@
-import { Count, InnerCount } from "@react-components/count";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Count } from "@react-components/count";
+import { InstallReactComponents, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { text as textKnob, withKnobs } from "@storybook/addon-knobs";
@@ -19,14 +19,6 @@ Associate a quantity with a text or a component.
 ## Installation
 
 <InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Count", component: InnerCount }
-    ]}
-/>
 
 ## Usage
 

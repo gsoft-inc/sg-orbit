@@ -266,11 +266,22 @@ export function InnerButton(props) {
         renderContent
     );
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerButton.propTypes = propTypes;
 InnerButton.defaultProps = defaultProps;
+
+export function Test() {
+    return (
+        <div>Yo</div>
+    );
+}
+
+Test.propTypes = {
+    foo: "bar"
+};
 
 export const Button = forwardRef((props, ref) => (
     <InnerButton { ...props } forwardedRef={ref} />

@@ -564,7 +564,8 @@ export function InnerPopperTrigger(props) {
 
     const render = useRenderer({ fluid, disabled, className, rest }, handleContainerFocus, handleContainerBlur, containerRef, renderTrigger(), renderPopper());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopperTrigger.propTypes = propTypes;

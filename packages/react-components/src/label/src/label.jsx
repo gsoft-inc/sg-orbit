@@ -219,7 +219,8 @@ export function InnerLabel(props) {
     const renderLabel = useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, renderContent());
     const render = useRenderer({ forwardedRef }, renderLabel());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerLabel.propTypes = propTypes;
