@@ -1,4 +1,5 @@
-import { RedBoxPopper, RedBoxPopperWithBoundary } from "./components";
+import { RedBoxPopper } from "./red-box-popper";
+import { RedBoxPopperWithBoundary } from "./red-box-with-boundary";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
