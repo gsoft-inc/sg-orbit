@@ -132,6 +132,11 @@
     font-size: var(--type-scale-9);
 }
 
+.ui.label.micro:not(.circular) {
+    min-height: 16px;
+    font-size: var(--type-scale-9);
+}
+
 /* Circular Labels */
 .ui.circular.mini.labels .label,
 .ui.circular.mini.label {
@@ -193,6 +198,14 @@
 .ui.circular.empty.labels .label,
 .ui.circular.empty.label {
     padding: 0!important;
+}
+
+/* circluar empty font size */
+.ui.empty.circular.labels .label.micro,
+.ui.empty.circular.label.micro {
+    font-size: 0.5rem;
+    min-width: 0em;
+    min-height: 0em;
 }
 
 /* circluar empty font size */

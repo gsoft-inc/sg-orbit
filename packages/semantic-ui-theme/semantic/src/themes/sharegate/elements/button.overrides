@@ -22,16 +22,6 @@ a.ui.button {
     -moz-appearance: none;
 }
 
-/* Micro */
-.ui.micro.buttons .button,
-.ui.micro.buttons .or,
-.ui.micro.button {
-    font-size: 0.75rem;
-    padding: 0.125rem 0 0.125rem;
-    padding-left: var(--scale-bravo);
-    padding-right: var(--scale-bravo)
-}
-
 /* LAYOUT */
 /* LAYOUT | Sizes */
 /* LAYOUT | Height/Radius | Sizes | Micro */
@@ -41,6 +31,35 @@ a.ui.button {
 .ui.micro.with-icon.buttons .button {
     min-height: var(--scale-delta);
     border-radius: calc(var(--scale-delta) / 2);
+}
+
+/* Micro */
+.ui.micro.buttons .button,
+.ui.micro.buttons .or,
+.ui.micro.button {
+    font-size: 0.625rem;
+    padding: 0.125rem 0 0.125rem;
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo)
+}
+
+/* LAYOUT | Height/Radius | Sizes | Mini */
+.ui.button.mini,
+.ui.button.with-icon.mini,
+.ui.mini.buttons .button,
+.ui.mini.with-icon.buttons .button {
+    min-height: var(--scale-echo);
+    border-radius: calc(var(--scale-echo) / 2);
+}
+
+/* Mini */
+.ui.mini.buttons .button,
+.ui.mini.buttons .or,
+.ui.mini.button {
+    font-size: 0.75rem;
+    padding: 0.125rem 0 0.125rem;
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo)
 }
 
 /* LAYOUT | Height/Radius | Sizes | Tiny */
@@ -670,6 +689,10 @@ a.ui.button {
 .ui.button.with-label .label,
 .ui.buttons.with-label .label {
     margin-left: var(--scale-bravo);
+}
+
+.ui.button .ui.label.micro:not(.circular) {
+    padding: 0 0.75em;
 }
 
 .ui.button .ui.label.mini:not(.circular) {
