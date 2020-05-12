@@ -1,4 +1,4 @@
-import { waitForElement } from "@testing-library/dom";
+import { waitFor } from "@testing-library/dom";
 import userEvent from "@utils/user-event";
 
 export const INPUT_CLEAR_BUTTON_ID = "date-picker-textbox-clear-button";
@@ -16,7 +16,5 @@ export function getInput(getByTestId) {
 export async function openCalendar(getByTestId) {
     userEvent.click(getInput(getByTestId));
 
-    const calendarNode = await waitForElement(() => getByTestId(CALENDAR_ID));
-
-    return calendarNode;
+    return await waitFor(() => getByTestId(CALENDAR_ID));
 }
