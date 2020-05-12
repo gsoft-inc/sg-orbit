@@ -40,8 +40,7 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
         autofocusDelay: 100
     }));
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    expect(getInput(getByTestId)).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
@@ -72,7 +71,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    expect(ref.current).not.toBeNull();
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
 });
@@ -88,7 +88,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    expect(refNode).not.toBeNull();
+    await waitFor(() => expect(refNode).not.toBeNull());
+
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
 });

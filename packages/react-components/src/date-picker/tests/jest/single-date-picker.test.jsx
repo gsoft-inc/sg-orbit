@@ -110,7 +110,9 @@ test("when disabled, dont open the calendar on input click", async () => {
 
     userEvent.click(getInput(getByTestId));
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on space keydown", async () => {
@@ -120,7 +122,9 @@ test("when disabled, dont open the calendar on space keydown", async () => {
 
     fireEvent.keyDown(getInput(getByTestId), { key: " ", keyCode: 32 });
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on enter keydown", async () => {
@@ -130,7 +134,9 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
 
     fireEvent.keyDown(getInput(getByTestId), { key: "Enter", keyCode: 13 });
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("clear the date on input clear button click", async () => {
@@ -435,7 +441,7 @@ test("call onVisibilityChange when the calendar is closed with esc keydown", asy
     // I shouldn't need this but the test fail otherwise.
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the calendar close on blur", async () => {
@@ -452,7 +458,7 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
     // I shouldn't need this but the test fail otherwise.
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the date is applied", async () => {
@@ -473,5 +479,5 @@ test("call onVisibilityChange when the date is applied", async () => {
     // I shouldn't need this but the test fail otherwise.
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });

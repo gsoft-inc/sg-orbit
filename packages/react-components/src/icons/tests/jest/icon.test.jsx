@@ -1,6 +1,6 @@
 import { AzureIcon32 } from "./assets";
 import { Icon } from "@react-components/icons";
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 
 function createIcon(props = {}) {
     return <Icon
@@ -14,7 +14,7 @@ function createIcon(props = {}) {
 test("has \"icon\" class", async () => {
     const { container } = render(createIcon());
 
-    expect(container.querySelector("svg.icon")).not.toBeNull();
+    await waitFor(() => expect(container.querySelector("svg.icon")).not.toBeNull());
 });
 
 // ***** Refs *****
@@ -30,7 +30,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    expect(refNode).not.toBeNull();
+    await waitFor(() => expect(refNode).not.toBeNull());
+
     expect(refNode instanceof SVGElement).toBeTruthy();
     expect(refNode.tagName.toUpperCase()).toBe("SVG");
 });
@@ -48,7 +49,8 @@ test("hoc icon ref is a DOM element", async () => {
         />
     );
 
-    expect(refNode).not.toBeNull();
+    await waitFor(() => expect(refNode).not.toBeNull());
+
     expect(refNode instanceof SVGElement).toBeTruthy();
     expect(refNode.tagName.toUpperCase()).toBe("SVG");
 });
@@ -62,5 +64,5 @@ test("set ref once", async () => {
         })
     );
 
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

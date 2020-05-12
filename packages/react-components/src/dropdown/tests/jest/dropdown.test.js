@@ -66,10 +66,9 @@ test("when delayed autofocus, the dropdown is autofocused after the delay", asyn
         autofocusDelay: 100
     }));
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    expect(getByTestId("dropdown")).not.toHaveFocus();
 
-    expect(getByTestId("dropdown")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled dropdown, the dropdown is not autofocused after the delay", async () => {
@@ -96,7 +95,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    expect(ref.current).not.toBeNull();
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
 });
@@ -112,7 +112,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    expect(refNode).not.toBeNull();
+    await waitFor(() => expect(refNode).not.toBeNull());
+
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("dropdown");
@@ -127,5 +128,5 @@ test("set ref once", async () => {
         })
     );
 
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

@@ -1,6 +1,6 @@
 import { Count } from "@react-components/count";
 import { createRef } from "react";
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 
 function createCount(props) {
     return <Count {...props}>6</Count>;
@@ -17,7 +17,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    expect(ref.current).not.toBeNull();
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("SPAN");
 });
@@ -33,7 +34,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    expect(refNode).not.toBeNull();
+    await waitFor(() => expect(refNode).not.toBeNull());
+
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("SPAN");
 });
@@ -47,5 +49,5 @@ test("set ref once", async () => {
         })
     );
 
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

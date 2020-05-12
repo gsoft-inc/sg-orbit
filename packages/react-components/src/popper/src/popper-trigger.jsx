@@ -301,6 +301,7 @@ function useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopp
 
         if (isVisible) {
             if (hideOnBlur) {
+                // The event must be persisted since it's used later in a setTimeout.
                 event.persist();
 
                 // Using a focus / unfocus flag was not the preferred way to prevent the popper from hiding on blur when the new focused item was inside the popper.

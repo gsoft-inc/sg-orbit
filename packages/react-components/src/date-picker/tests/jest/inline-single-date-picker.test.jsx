@@ -2,6 +2,7 @@ import { CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, DATE_FORMAT } from "./shared";
 import { InlineSingleDatePicker } from "@react-components/date-picker";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
+import { waitDelay } from "@utils/wait-for";
 import moment from "moment";
 import userEvent from "@utils/user-event";
 
@@ -100,7 +101,9 @@ test("when disabled, dont open the calendar on input click", async () => {
 
     userEvent.click(getByTestId(INPUT_ID));
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on space keydown", async () => {
@@ -110,7 +113,9 @@ test("when disabled, dont open the calendar on space keydown", async () => {
 
     fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when disabled, dont open the calendar on enter keydown", async () => {
@@ -120,7 +125,9 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
 
     fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
@@ -240,5 +247,5 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
     // I shouldn't need this but the test fail otherwise.
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });

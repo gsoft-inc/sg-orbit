@@ -122,7 +122,9 @@ test("when disabled, dont open the calendar on input click", async () => {
 
     userEvent.click(getInput(getByTestId));
 
-    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeNull());
+    await waitDelay(5);
+
+    expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
 
 test("clear the date on input clear button click", async () => {

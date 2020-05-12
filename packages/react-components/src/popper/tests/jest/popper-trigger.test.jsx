@@ -1,7 +1,8 @@
 import { Button } from "@react-components/button";
 import { PopperTrigger } from "@react-components/popper";
-import { act, fireEvent, render, wait, waitForElement } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/wait-for";
 import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "button";
@@ -23,9 +24,7 @@ function createPopperTrigger(popperProps = {}, triggerProps = {}) {
 async function showPopper(getByTestId) {
     userEvent.click(getByTestId(TRIGGER_ID));
 
-    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
-
-    return popperNode;
+    return await waitFor(() => getByTestId(POPPER_ID));
 }
 
 // ***** Behaviors *****
@@ -35,9 +34,7 @@ test("show the popper on trigger toggle", async () => {
 
     userEvent.click(getByTestId(TRIGGER_ID));
 
-    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(popperNode).toBeInTheDocument();
+    await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
 test("show the popper on spacebar keydown", async () => {
@@ -45,9 +42,7 @@ test("show the popper on spacebar keydown", async () => {
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
 
-    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(popperNode).toBeInTheDocument();
+    await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
 test("show the popper on enter", async () => {
@@ -55,9 +50,7 @@ test("show the popper on enter", async () => {
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
 
-    const popperNode = await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(popperNode).toBeInTheDocument();
+    await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
 test("when showOnSpacebar is false, dont show the popper on spacebar keydown", async () => {
@@ -66,6 +59,8 @@ test("when showOnSpacebar is false, dont show the popper on spacebar keydown", a
     }));
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+
+    await waitDelay(5);
 
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
@@ -77,6 +72,8 @@ test("when showOnEnter is false, dont show the popper on enter keydown", async (
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 13 });
 
+    await waitDelay(5);
+
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
 
@@ -87,7 +84,7 @@ test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
 
     await showPopper(getByTestId);
 
-    expect(getByTestId(TRIGGER_ID)).toHaveFocus();
+    await waitFor(() => expect(getByTestId(TRIGGER_ID)).toHaveFocus());
 });
 
 test("when focusPopperOnShow is true, focus the first popper focusable element on show", async () => {
@@ -97,7 +94,7 @@ test("when focusPopperOnShow is true, focus the first popper focusable element o
 
     await showPopper(getByTestId);
 
-    expect(getByTestId(POPPER_FOCUSABLE_ELEMENT_ID)).toHaveFocus();
+    await waitFor(() => expect(getByTestId(POPPER_FOCUSABLE_ELEMENT_ID)).toHaveFocus());
 });
 
 test("when disabled, dont show the popper on trigger toggle", async () => {
@@ -106,7 +103,8 @@ test("when disabled, dont show the popper on trigger toggle", async () => {
     }));
 
     userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
+
+    await waitDelay(5);
 
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
@@ -117,9 +115,8 @@ test("hide the popper on esc keydown", async () => {
     const popperNode = await showPopper(getByTestId);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
 
-    expect(popperNode).not.toBeInTheDocument();
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
 
 test("hide the popper on outside click", async () => {
@@ -128,9 +125,8 @@ test("hide the popper on outside click", async () => {
     const popperNode = await showPopper(getByTestId);
 
     userEvent.click(document.body);
-    await wait();
 
-    expect(popperNode).not.toBeInTheDocument();
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
 
 test("hide the popper on trigger toggle", async () => {
@@ -139,9 +135,8 @@ test("hide the popper on trigger toggle", async () => {
     const popperNode = await showPopper(getByTestId);
 
     userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
 
-    expect(popperNode).not.toBeInTheDocument();
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
 
 test("hide the popper on blur", async () => {
@@ -150,9 +145,8 @@ test("hide the popper on blur", async () => {
     const popperNode = await showPopper(getByTestId);
 
     getByTestId(TRIGGER_ID).blur();
-    await wait();
 
-    expect(popperNode).not.toBeInTheDocument();
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
 
 test("when the popper hide on esc keydown, the trigger should be focused", async () => {
@@ -164,12 +158,11 @@ test("when the popper hide on esc keydown, the trigger should be focused", async
 
     const triggerNode = getByTestId(TRIGGER_ID);
 
-    expect(triggerNode).not.toHaveFocus();
+    await waitFor(() => expect(triggerNode).not.toHaveFocus());
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
 
-    expect(triggerNode).toHaveFocus();
+    await waitFor(() => expect(triggerNode).toHaveFocus());
 });
 
 test("when hideOnBlur is false, dont hide the popper on blur", async () => {
@@ -180,12 +173,10 @@ test("when hideOnBlur is false, dont hide the popper on blur", async () => {
     const popperNode = await showPopper(getByTestId);
 
     userEvent.click(document.body);
-    await wait();
 
     getByTestId(POPPER_FOCUSABLE_ELEMENT_ID).focus();
-    await wait();
 
-    expect(popperNode).toBeInTheDocument();
+    await waitFor(() => expect(popperNode).toBeInTheDocument());
 });
 
 test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper on outside click", async () => {
@@ -197,7 +188,8 @@ test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper o
     const popperNode = await showPopper(getByTestId);
 
     act(() => userEvent.click(document.body));
-    await wait();
+
+    await waitDelay(5);
 
     expect(popperNode).not.toBeInTheDocument();
 });
@@ -210,9 +202,8 @@ test("when hideOnEscape is false, dont hide the popper on escape keydown", async
     const popperNode = await showPopper(getByTestId);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
 
-    expect(popperNode).toBeInTheDocument();
+    await waitFor(() => expect(popperNode).toBeInTheDocument());
 });
 
 test("when focusTriggerOnEscape is false, dont focus the trigger on escape keydown", async () => {
@@ -225,7 +216,8 @@ test("when focusTriggerOnEscape is false, dont focus the trigger on escape keydo
     getByTestId(POPPER_FOCUSABLE_ELEMENT_ID).focus();
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
+
+    await waitDelay(5);
 
     expect(getByTestId(TRIGGER_ID)).not.toHaveFocus();
 });
@@ -242,9 +234,8 @@ test("consumer can set is own toggle handler", async () => {
     );
 
     userEvent.click(getByTestId("button"));
-    await wait();
 
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onVisibilityChange when the popper is showed with a trigger toggle", async () => {
@@ -256,9 +247,7 @@ test("call onVisibilityChange when the popper is showed with a trigger toggle", 
 
     userEvent.click(getByTestId(TRIGGER_ID));
 
-    await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the popper is showed with space keydown", async () => {
@@ -270,9 +259,7 @@ test("call onVisibilityChange when the popper is showed with space keydown", asy
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
 
-    await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the popper is showed with enter keydown", async () => {
@@ -284,9 +271,7 @@ test("call onVisibilityChange when the popper is showed with enter keydown", asy
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
 
-    await waitForElement(() => getByTestId(POPPER_ID));
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the popper is hidden with an outside click", async () => {
@@ -296,12 +281,14 @@ test("call onVisibilityChange when the popper is hidden with an outside click", 
         onVisibilityChange: handler
     }));
 
-    await showPopper(getByTestId);
+    const popperNode = await showPopper(getByTestId);
 
     userEvent.click(document.body);
-    await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    // I shouldn't need this but the test fail otherwise.
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the popper is hidden with esc keydown", async () => {
@@ -311,12 +298,14 @@ test("call onVisibilityChange when the popper is hidden with esc keydown", async
         onVisibilityChange: handler
     }));
 
-    await showPopper(getByTestId);
+    const popperNode = await showPopper(getByTestId);
 
     fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    // I shouldn't need this but the test fail otherwise.
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the popper hide on blur", async () => {
@@ -326,12 +315,14 @@ test("call onVisibilityChange when the popper hide on blur", async () => {
         onVisibilityChange: handler
     }));
 
-    await showPopper(getByTestId);
+    const popperNode = await showPopper(getByTestId);
 
     getByTestId(TRIGGER_ID).blur();
-    await wait();
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    // I shouldn't need this but the test fail otherwise.
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("spread additional props on the root element", async () => {
@@ -343,8 +334,6 @@ test("spread additional props on the root element", async () => {
             "data-extra-props-test": "works"
         })
     );
-
-    await wait();
 
     expect(ref.current.getAttribute("data-extra-props-test")).toBe("works");
 });
@@ -360,9 +349,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
     expect(ref.current.getAttribute("data-testid")).toBe("popper-trigger");
@@ -379,9 +367,8 @@ test("using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("popper-trigger");
