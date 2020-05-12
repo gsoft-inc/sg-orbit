@@ -2,7 +2,7 @@ import { CALENDAR_APPLY_BUTTON_ID, CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, INPUT_
 import { DATE_FORMAT, openCalendar } from "./shared";
 import { PureComponent, createRef } from "react";
 import { SingleDatePicker } from "@react-components/date-picker";
-import { fireEvent, render, wait, waitFor, waitForElement } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { isNil, noop } from "lodash";
 import { waitDelay } from "@utils/wait-for";
 import moment from "moment";

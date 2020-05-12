@@ -1,6 +1,6 @@
 import { Label } from "@react-components/label";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 function createLabel(props = {}) {
     return <Label
@@ -19,8 +19,6 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
-
     expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
@@ -37,8 +35,6 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
-
     expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
@@ -52,8 +48,6 @@ test("set ref once", async () => {
             ref: handler
         })
     );
-
-    await wait();
 
     expect(handler).toHaveBeenCalledTimes(1);
 });

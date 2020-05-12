@@ -1,6 +1,6 @@
 import { Input } from "@react-components/input";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-for";
 
 function createInput(props = {}) {
@@ -22,9 +22,7 @@ test("when autofocus is true, the input is autofocused on render", async () => {
         autofocus: true
     }));
 
-    await wait();
-
-    expect(getInput(getByTestId)).toHaveFocus();
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when autofocus on a disabled input, the input is not autofocused on render", async () => {
@@ -33,9 +31,7 @@ test("when autofocus on a disabled input, the input is not autofocused on render
         autofocus: true
     }));
 
-    await wait();
-
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 });
 
 test("when delayed autofocus, the input is autofocused after the delay", async () => {
@@ -44,11 +40,10 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
         autofocusDelay: 100
     }));
 
-    await wait();
-    expect(getInput(getByTestId)).not.toHaveFocus();
-
+    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
     await waitDelay(110);
-    expect(getInput(getByTestId)).toHaveFocus();
+
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled input, the input is not autofocused after the delay", async () => {
@@ -60,12 +55,10 @@ test("when delayed autofocus on a disabled input, the input is not autofocused a
         })
     );
 
-    await wait();
-    expect(getInput(getByTestId)).not.toHaveFocus();
-
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
     await waitDelay(110);
-    expect(getInput(getByTestId)).not.toHaveFocus();
+
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 });
 
 // ***** Refs *****
@@ -78,8 +71,6 @@ test("ref is a DOM element", async () => {
             ref
         })
     );
-
-    await wait();
 
     expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
@@ -97,8 +88,6 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
-
     expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
@@ -113,11 +102,10 @@ test("when a function ref is provided, delayed autofocus works", async () => {
         }
     }));
 
-    await wait();
-    expect(getInput(getByTestId)).not.toHaveFocus();
-
+    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
     await waitDelay(110);
-    expect(getInput(getByTestId)).toHaveFocus();
+
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("set ref once", async () => {
@@ -129,9 +117,7 @@ test("set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** API *****
@@ -147,11 +133,9 @@ test("can focus the input with the focus api", async () => {
         })
     );
 
-    await wait();
-
     refNode.focus();
 
-    expect(getInput(getByTestId)).toHaveFocus();
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("can select the input text with the select api", async () => {
@@ -166,10 +150,8 @@ test("can select the input text with the select api", async () => {
         })
     );
 
-    await wait();
-
     refNode.select();
 
-    expect(getInput(getByTestId).selectionStart).toBe(0);
-    expect(getInput(getByTestId).selectionEnd).toBe(5);
+    await waitFor(() => expect(getInput(getByTestId).selectionStart).toBe(0));
+    await waitFor(() => expect(getInput(getByTestId).selectionEnd).toBe(5));
 });
