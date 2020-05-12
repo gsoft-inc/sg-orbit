@@ -10,7 +10,7 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export class TagPickerDropdownMenu extends PureComponent {
+export class TagsPickerDropdownMenu extends PureComponent {
     static propTypes = {
         /**
          * Items to display.
@@ -120,7 +120,7 @@ export class TagPickerDropdownMenu extends PureComponent {
                     selected={isSelected}
                     onClick={this.handleItemClick}
                     style={{ minWidth: `${itemWidth}px` }}
-                    data-testid="tag-picker-dropdown-item"
+                    data-testid="tags-picker-dropdown-item"
                 />
             </Ref>
         );
@@ -149,7 +149,7 @@ export class TagPickerDropdownMenu extends PureComponent {
             return results;
         }
 
-        return <div className="pl5 mt2 mb2" data-testid="tag-picker-dropdown-menu-no-results">{noResultsMessage}</div>;
+        return <div className="pl5 mt2 mb2" data-testid="tags-picker-dropdown-menu-no-results">{noResultsMessage}</div>;
     }
 
     render() {
@@ -160,7 +160,7 @@ export class TagPickerDropdownMenu extends PureComponent {
                 {searchInput}
                 <MonkeyPatchDropdown.Menu
                     scrolling
-                    data-testid="tag-picker-dropdown-menu-items"
+                    data-testid="tags-picker-dropdown-menu-items"
                 >
                     {this.renderResults()}
                 </MonkeyPatchDropdown.Menu>

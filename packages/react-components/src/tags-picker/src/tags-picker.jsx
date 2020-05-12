@@ -1,10 +1,10 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps, mergeClasses } from "../../shared";
-import { TagPickerClearButton } from "./tag-picker-clear-button";
-import { TagPickerDropdown } from "./tag-picker-dropdown";
-import { TagPickerDropdownMenu } from "./tag-picker-dropdown-menu";
-import { TagPickerDropdownSearchInput } from "./tag-picker-dropdown-search-input";
-import { TagPickerDropdownTrigger } from "./tag-picker-dropdown-trigger";
-import { TagPickerSelectedItems } from "./tag-picker-selected-items";
+import { TagsPickerClearButton } from "./tags-picker-clear-button";
+import { TagsPickerDropdown } from "./tags-picker-dropdown";
+import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
+import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
+import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
+import { TagsPickerSelectedItems } from "./tags-picker-selected-items";
 import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
@@ -19,7 +19,7 @@ const ITEM_SHAPE = {
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const GROUP_ERROR_MESSAGE = "TagPicker - When at least one item has a \"group\" property, all items must have a \"group\" property.";
+const GROUP_ERROR_MESSAGE = "TagsPicker - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
 export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
@@ -43,7 +43,7 @@ function computeDerivedState(items, values) {
     };
 }
 
-export class TagPicker extends AutoControlledPureComponent {
+export class TagsPicker extends AutoControlledPureComponent {
     static propTypes = {
         /**
          * All available items.
@@ -61,7 +61,6 @@ export class TagPicker extends AutoControlledPureComponent {
          * Called when a value is selected / removed.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {string[]} values - Selected values.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onValuesChange: func.isRequired,
@@ -70,7 +69,6 @@ export class TagPicker extends AutoControlledPureComponent {
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {Item[]} items - Available items.
          * @param {string} query - Search query.
-         * @param {Object} props - All the props.
          * @returns {Item[]} - Items to display.
          */
         onSearch: func,
@@ -78,7 +76,6 @@ export class TagPicker extends AutoControlledPureComponent {
          * Called when the dropdown open / close.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @param {boolean} isVisible - Indicate if the tag picker dropdown is visible.
-         * @param {Object} props - All the props.
          * @returns {void}
          */
         onVisibilityChange: func,
@@ -151,14 +148,14 @@ export class TagPicker extends AutoControlledPureComponent {
     };
 
     static defaultProps = {
-        dropdown: <TagPickerDropdown />,
+        dropdown: <TagsPickerDropdown />,
         onSearch: startsWithSearch,
         closeOnSelect: false,
         addText: "Add",
         noResultsMessage: "No results",
         placeholder: "Search",
-        selectedItemsComponent: <TagPickerSelectedItems />,
-        clearButton: <TagPickerClearButton />,
+        selectedItemsComponent: <TagsPickerSelectedItems />,
+        clearButton: <TagsPickerClearButton />,
         disabled: false,
         size: DEFAULT_SIZE
     };
@@ -166,12 +163,12 @@ export class TagPicker extends AutoControlledPureComponent {
     static autoControlledProps = ["values", "open"];
 
     // Expose sub-components.
-    static Dropdown = TagPickerDropdown;
-    static Trigger = TagPickerDropdownTrigger;
-    static Menu = TagPickerDropdownMenu;
-    static SearchInput = TagPickerDropdownSearchInput;
-    static SelectedItems = TagPickerSelectedItems;
-    static ClearButton = TagPickerClearButton;
+    static Dropdown = TagsPickerDropdown;
+    static Trigger = TagsPickerDropdownTrigger;
+    static Menu = TagsPickerDropdownMenu;
+    static SearchInput = TagsPickerDropdownSearchInput;
+    static SelectedItems = TagsPickerSelectedItems;
+    static ClearButton = TagsPickerClearButton;
 
     state = {
         values: [],
@@ -196,7 +193,7 @@ export class TagPicker extends AutoControlledPureComponent {
     static getDerivedStateFromProps(props, state) {
         const { items } = props;
 
-        return getAutoControlledStateFromProps(props, state, TagPicker.autoControlledProps, ({ values }) => computeDerivedState(items, values));
+        return getAutoControlledStateFromProps(props, state, TagsPicker.autoControlledProps, ({ values }) => computeDerivedState(items, values));
     }
 
     handleSearch = (event, query) => {

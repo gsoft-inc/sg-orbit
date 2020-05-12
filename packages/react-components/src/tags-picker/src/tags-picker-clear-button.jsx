@@ -3,7 +3,7 @@ import { PureComponent, createRef } from "react";
 import { SIZES } from "./sizes";
 import { func, oneOf, string } from "prop-types";
 
-export class TagPickerClearButton extends PureComponent {
+export class TagsPickerClearButton extends PureComponent {
     static propTypes = {
         /**
          * The button text.
@@ -42,7 +42,7 @@ export class TagPickerClearButton extends PureComponent {
                 size={size}
                 className={className}
                 ref={this._buttonRef}
-                data-testid="tag-picker-clear-button"
+                data-testid="tags-picker-clear-button"
             >
                 {text}
             </Button>

@@ -3,9 +3,9 @@ import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
 import { SIZES } from "./sizes";
-import { TagPickerDropdownMenu } from "./tag-picker-dropdown-menu";
-import { TagPickerDropdownSearchInput } from "./tag-picker-dropdown-search-input";
-import { TagPickerDropdownTrigger } from "./tag-picker-dropdown-trigger";
+import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
+import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
+import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 
@@ -15,7 +15,7 @@ const ITEM_SHAPE = {
     value: string.isRequired
 };
 
-export class TagPickerDropdown extends PureComponent {
+export class TagsPickerDropdown extends PureComponent {
     static propTypes = {
         /**
          * Array of items.
@@ -108,9 +108,9 @@ export class TagPickerDropdown extends PureComponent {
 
     static defaultProps = {
         debounceDelay: 200,
-        menu: <TagPickerDropdownMenu />,
-        trigger: <TagPickerDropdownTrigger />,
-        searchInput: <TagPickerDropdownSearchInput />,
+        menu: <TagsPickerDropdownMenu />,
+        trigger: <TagsPickerDropdownTrigger />,
+        searchInput: <TagsPickerDropdownSearchInput />,
         closeOnBlur: true,
         closeOnOutsideClick: false
     };
@@ -141,7 +141,7 @@ export class TagPickerDropdown extends PureComponent {
         const { items, closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("TagPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new ArgumentError("TagsPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (prevProps.items !== items) {

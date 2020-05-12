@@ -6,7 +6,7 @@ import { SIZES } from "./sizes";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
-export class TagPickerDropdownTrigger extends PureComponent {
+export class TagsPickerDropdownTrigger extends PureComponent {
     static propTypes = {
         /**
          * The trigger text.
@@ -133,7 +133,7 @@ export class TagPickerDropdownTrigger extends PureComponent {
                     disabled={disabled}
                     tabIndex={disabled ? "-1" : "0"}
                     ref={this._buttonRef}
-                    data-testid="tag-picker-dropdown-trigger"
+                    data-testid="tags-picker-dropdown-trigger"
                 >
                     {text}
                 </Button>

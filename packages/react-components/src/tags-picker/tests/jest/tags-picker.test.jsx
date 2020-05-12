@@ -1,15 +1,15 @@
-import { TagPicker, tagPickerItem } from "@react-components/tag-picker";
+import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
 import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@utils/user-event";
 
-const TRIGGER_ID = "tag-picker-dropdown-trigger";
-const SEARCH_INPUT_ID = "tag-picker-dropdown-search-input";
-const MENU_ITEMS_ID = "tag-picker-dropdown-menu-items";
-const MENU_ITEM_ID = "tag-picker-dropdown-item";
-const NO_RESULTS_ID = "tag-picker-dropdown-menu-no-results";
-const SELECTED_ITEM_ID = "tag-picker-selected-item";
-const CLEAR_BUTTON_ID = "tag-picker-clear-button";
+const TRIGGER_ID = "tags-picker-dropdown-trigger";
+const SEARCH_INPUT_ID = "tags-picker-dropdown-search-input";
+const MENU_ITEMS_ID = "tags-picker-dropdown-menu-items";
+const MENU_ITEM_ID = "tags-picker-dropdown-item";
+const NO_RESULTS_ID = "tags-picker-dropdown-menu-no-results";
+const SELECTED_ITEM_ID = "tags-picker-selected-item";
+const CLEAR_BUTTON_ID = "tags-picker-clear-button";
 
 const GROUP_CREATED_VALUE = "group-created";
 const GROUP_RESTORED_VALUE = "group-restored";
@@ -18,15 +18,15 @@ const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
 const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
 
 const DEFAULT_ITEMS = [
-    tagPickerItem("Created", GROUP_CREATED_VALUE),
-    tagPickerItem("Restored", GROUP_RESTORED_VALUE),
-    tagPickerItem("Deleted", GROUP_DELETED_VALUE),
-    tagPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
-    tagPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+    tagsPickerItem("Created", GROUP_CREATED_VALUE),
+    tagsPickerItem("Restored", GROUP_RESTORED_VALUE),
+    tagsPickerItem("Deleted", GROUP_DELETED_VALUE),
+    tagsPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
+    tagsPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
 ];
 
-function createTagPicker({ items = DEFAULT_ITEMS, onValuesChange = noop, ...otherProps } = {}) {
-    return <TagPicker
+function createTagsPicker({ items = DEFAULT_ITEMS, onValuesChange = noop, ...otherProps } = {}) {
+    return <TagsPicker
         items={items}
         onValuesChange={onValuesChange}
         {...otherProps}
@@ -54,7 +54,7 @@ function getSearchInput(getByTestId) {
 // ***** Behaviors *****
 
 test("open the dropdown menu on trigger click", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     userEvent.click(getByTestId(TRIGGER_ID));
 
@@ -64,7 +64,7 @@ test("open the dropdown menu on trigger click", async () => {
 });
 
 test("open the dropdown menu on space keydown", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
 
@@ -74,7 +74,7 @@ test("open the dropdown menu on space keydown", async () => {
 });
 
 test("open the dropdown menu on enter keydown", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
 
@@ -84,7 +84,7 @@ test("open the dropdown menu on enter keydown", async () => {
 });
 
 test("close the dropdown menu on esc keydown", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -95,7 +95,7 @@ test("close the dropdown menu on esc keydown", async () => {
 });
 
 test("close the dropdown menu on outside click", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -106,7 +106,7 @@ test("close the dropdown menu on outside click", async () => {
 });
 
 test("close the dropdown menu on focusout", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         defaultValues: [GROUP_CREATED_VALUE]
     }));
 
@@ -119,7 +119,7 @@ test("close the dropdown menu on focusout", async () => {
 });
 
 test("close the dropdown menu on trigger click", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -130,7 +130,7 @@ test("close the dropdown menu on trigger click", async () => {
 });
 
 test("when disabled, dont open the dropdown menu on trigger click", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         disabled: true
     }));
 
@@ -141,7 +141,7 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
 });
 
 test("search input is focused on open", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -151,7 +151,7 @@ test("search input is focused on open", async () => {
 });
 
 test("can navigate through the dropdown menu item with arrows keydown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
     await waitForElement(() => getSearchInput(getByTestId));
@@ -166,7 +166,7 @@ test("can navigate through the dropdown menu item with arrows keydown", async ()
 });
 
 test("dont close the dropdown menu on search input click", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         orbitId: "I AM 1"
     }));
 
@@ -179,7 +179,7 @@ test("dont close the dropdown menu on search input click", async () => {
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item click", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         orbitId: "I AM 2"
     }));
 
@@ -192,7 +192,7 @@ test("when closeOnSelect is false, dont close the dropdown menu on item click", 
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item enter keydown", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -204,7 +204,7 @@ test("when closeOnSelect is false, dont close the dropdown menu on item enter ke
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item click", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         closeOnSelect: true
     }));
 
@@ -217,7 +217,7 @@ test("when closeOnSelect is true, close the dropdown menu on item click", async 
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item enter keydown", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         closeOnSelect: true
     }));
 
@@ -231,7 +231,7 @@ test("when closeOnSelect is true, close the dropdown menu on item enter keydown"
 });
 
 test("without a search input, all the dropdown menu items are displayed", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -239,7 +239,7 @@ test("without a search input, all the dropdown menu items are displayed", async 
 });
 
 test("typing a search input filter out the available dropdown menu items", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -252,7 +252,7 @@ test("typing a search input filter out the available dropdown menu items", async
 });
 
 test("search input is case insensitive", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -265,7 +265,7 @@ test("search input is case insensitive", async () => {
 });
 
 test("when no items match the search input, empty results is shown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -278,7 +278,7 @@ test("when no items match the search input, empty results is shown", async () =>
 });
 
 test("selecting a dropdown menu item add a new selected item", async () => {
-    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 
@@ -293,7 +293,7 @@ test("selecting a dropdown menu item add a new selected item", async () => {
 });
 
 test("selecting a dropdown menu item remove the item from the dropdown menu items", async () => {
-    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagPicker());
+    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagsPicker());
 
     expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
 
@@ -306,7 +306,7 @@ test("selecting a dropdown menu item remove the item from the dropdown menu item
 });
 
 test("when the dropdown menu close, focus the trigger", async () => {
-    const { getByTestId, container } = render(createTagPicker());
+    const { getByTestId, container } = render(createTagsPicker());
 
     await openDropdownMenu(getByTestId, container);
 
@@ -317,7 +317,7 @@ test("when the dropdown menu close, focus the trigger", async () => {
 });
 
 test("selected item is removed on remove button click", async () => {
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
@@ -330,7 +330,7 @@ test("selected item is removed on remove button click", async () => {
 });
 
 test("when removed, the item is available again in the dropdown menu items", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
@@ -348,7 +348,7 @@ test("when removed, the item is available again in the dropdown menu items", asy
 });
 
 test("remove all the selected items on clear all button click", async () => {
-    const { getByTestId, queryAllByTestId } = render(createTagPicker({
+    const { getByTestId, queryAllByTestId } = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
@@ -361,7 +361,7 @@ test("remove all the selected items on clear all button click", async () => {
 });
 
 test("clicking on the document body will not focus the trigger button", async () => {
-    const { getByTestId } = render(createTagPicker());
+    const { getByTestId } = render(createTagsPicker());
 
     userEvent.click(document.body);
     await wait();
@@ -370,7 +370,7 @@ test("clicking on the document body will not focus the trigger button", async ()
 });
 
 test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         closeOnBlur: false
     }));
 
@@ -383,7 +383,7 @@ test("when closeOnBlur is false, dont close the dropdown menu on blur", async ()
 });
 
 test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         closeOnBlur: false,
         closeOnOutsideClick: true
     }));
@@ -402,7 +402,7 @@ test("call onValuesChange with the new selected item when an item is selected", 
     const handler = jest.fn();
     const defaultValues = [DEFAULT_ITEMS[4].value];
 
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         defaultValues: defaultValues,
         onValuesChange: handler
     }));
@@ -419,7 +419,7 @@ test("call onValuesChange without the removed item when a selected item is remov
     const handler = jest.fn();
     const defaultValues = [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[1].value, DEFAULT_ITEMS[2].value];
 
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         defaultValues: defaultValues,
         onValuesChange: handler
     }));
@@ -433,7 +433,7 @@ test("call onValuesChange without the removed item when a selected item is remov
 test("call onValuesChange without values when all the selected items are cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value),
         onValuesChange: handler
     }));
@@ -447,7 +447,7 @@ test("call onValuesChange without values when all the selected items are cleared
 test("call onVisibilityChange when the dropdown menu is opened with a trigger click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -460,7 +460,7 @@ test("call onVisibilityChange when the dropdown menu is opened with a trigger cl
 test("call onVisibilityChange when the dropdown menu is opened with space keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -473,7 +473,7 @@ test("call onVisibilityChange when the dropdown menu is opened with space keydow
 test("call onVisibilityChange when the dropdown menu is opened with enter keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createTagPicker({
+    const { getByTestId } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -486,7 +486,7 @@ test("call onVisibilityChange when the dropdown menu is opened with enter keydow
 test("call onVisibilityChange when the dropdown menu is closed with a trigger click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -501,7 +501,7 @@ test("call onVisibilityChange when the dropdown menu is closed with a trigger cl
 test("call onVisibilityChange when the dropdown menu is closed with esc keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -516,7 +516,7 @@ test("call onVisibilityChange when the dropdown menu is closed with esc keydown"
 test("call onVisibilityChange when the dropdown menu is closed with an outside click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
@@ -531,7 +531,7 @@ test("call onVisibilityChange when the dropdown menu is closed with an outside c
 test("call onVisibilityChange when the dropdown menu is closed by selecting a value (closeOnSelect)", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         closeOnSelect: true,
         onVisibilityChange: handler
     }));
@@ -549,7 +549,7 @@ test("call onSearch when the search input change", async () => {
         return [];
     });
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         onSearch: handler
     }));
 
@@ -566,9 +566,9 @@ test("call onSearch with groups when specified", async () => {
         return [];
     });
 
-    const item = tagPickerItem("Created", GROUP_CREATED_VALUE, "group 1");
+    const item = tagsPickerItem("Created", GROUP_CREATED_VALUE, "group 1");
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         items: [item],
         onSearch: handler
     }));
@@ -586,9 +586,9 @@ test("call onSearch with custom object when specified", async () => {
         return [];
     });
 
-    const item = tagPickerItem("Created", GROUP_CREATED_VALUE, null, { foo: "bar" });
+    const item = tagsPickerItem("Created", GROUP_CREATED_VALUE, null, { foo: "bar" });
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         items: [item],
         onSearch: handler
     }));
@@ -608,7 +608,7 @@ test("results returned by onSearch are shown", async () => {
         return results;
     });
 
-    const { getByTestId, getAllByTestId, container } = render(createTagPicker({
+    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
         onSearch: handler
     }));
 
@@ -629,7 +629,7 @@ test("onSearch is not call with the already selected items", async () => {
         return [];
     });
 
-    const { getByTestId, container } = render(createTagPicker({
+    const { getByTestId, container } = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value).filter(x => x !== DEFAULT_ITEMS[0].value),
         onSearch: handler
     }));

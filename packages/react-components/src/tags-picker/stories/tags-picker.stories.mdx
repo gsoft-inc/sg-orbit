@@ -1,5 +1,5 @@
-import { ControlledTagPicker } from "./controlled-tag-picker.sample";
-import { DEFAULT_SIZE, TagPicker, tagPickerItem } from "@react-components/tag-picker";
+import { ControlledTagsPicker } from "./controlled-tags-picker.sample";
+import { DEFAULT_SIZE, TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -7,18 +7,18 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { fuzzySearch, logValuesChanged } from "./utils";
 import Imports from "./imports.mdx";
-import TagPickerItemUsage from "./tag-picker-item-usage.mdx";
+import TagsPickerItemUsage from "./tags-picker-item-usage.mdx";
 
 <Meta
-    title={createComponentSection("TagPicker")}
+    title={createComponentSection("TagsPicker")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tag-picker/src" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tags-picker/src" />)
         .build()}
 />
 
-# TagPicker
+# TagsPicker
 
-A tag picker allow a user to filter a set of data by tags.
+A tags picker allow a user to filter a set of data by tags.
 
 ## Installation
 
@@ -28,61 +28,61 @@ A tag picker allow a user to filter a set of data by tags.
 
 <Props
     componentsDefinitions={[
-        { displayName: "TagPicker", component: TagPicker },
-        { displayName: "TagPicker.Dropdown", component: TagPicker.Dropdown },
-        { displayName: "TagPicker.Trigger", component: TagPicker.Trigger },
-        { displayName: "TagPicker.Menu", component: TagPicker.Menu },
-        { displayName: "TagPicker.SearchInput", component: TagPicker.SearchInput },
-        { displayName: "TagPicker.SelectedItems", component: TagPicker.SelectedItems },
-        { displayName: "TagPicker.ClearButton", component: TagPicker.ClearButton }
+        { displayName: "TagsPicker", component: TagsPicker },
+        { displayName: "TagsPicker.Dropdown", component: TagsPicker.Dropdown },
+        { displayName: "TagsPicker.Trigger", component: TagsPicker.Trigger },
+        { displayName: "TagsPicker.Menu", component: TagsPicker.Menu },
+        { displayName: "TagsPicker.SearchInput", component: TagsPicker.SearchInput },
+        { displayName: "TagsPicker.SelectedItems", component: TagsPicker.SelectedItems },
+        { displayName: "TagsPicker.ClearButton", component: TagsPicker.ClearButton }
     ]}
 />
 
 ## Usage
 
-### tagPickerItem
+### tagsPickerItem
 
-<TagPickerItemUsage />
+<TagsPickerItemUsage />
 
 ### Constants
 
 The following constants are used in the examples below:
 
 export const DEFAULT_ITEMS = [
-    tagPickerItem("Mercury Program", "mercury"),
-    tagPickerItem("Gemini Program", "gemini"),
-    tagPickerItem("Apollo Program", "apollo"),
-    tagPickerItem("Skylab", "skylab"),
-    tagPickerItem("Apollo–Soyuz Test Project", "soyuz"),
-    tagPickerItem("Artemis Program", "artemis")
+    tagsPickerItem("Mercury Program", "mercury"),
+    tagsPickerItem("Gemini Program", "gemini"),
+    tagsPickerItem("Apollo Program", "apollo"),
+    tagsPickerItem("Skylab", "skylab"),
+    tagsPickerItem("Apollo–Soyuz Test Project", "soyuz"),
+    tagsPickerItem("Artemis Program", "artemis")
 ];
 
 export const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    tagPickerItem("Mercury Program", "mercury", "1950"),
-    tagPickerItem("Gemini Program", "gemini", "1960"),
-    tagPickerItem("Apollo Program", "apollo", "1970"),
-    tagPickerItem("Skylab", "skylab", "1970"),
-    tagPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
-    tagPickerItem("Artemis Program", "artemis", "2010")
+    tagsPickerItem("Mercury Program", "mercury", "1950"),
+    tagsPickerItem("Gemini Program", "gemini", "1960"),
+    tagsPickerItem("Apollo Program", "apollo", "1970"),
+    tagsPickerItem("Skylab", "skylab", "1970"),
+    tagsPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    tagsPickerItem("Artemis Program", "artemis", "2010")
 ];
 
 ```js dark
 const DEFAULT_ITEMS = [
-    tagPickerItem("Mercury Program", "mercury"),
-    tagPickerItem("Gemini Program", "gemini"),
-    tagPickerItem("Apollo Program", "apollo"),
-    tagPickerItem("Skylab", "skylab"),
-    tagPickerItem("Apollo–Soyuz Test Project", "soyuz"),
-    tagPickerItem("Artemis Program", "artemis")
+    tagsPickerItem("Mercury Program", "mercury"),
+    tagsPickerItem("Gemini Program", "gemini"),
+    tagsPickerItem("Apollo Program", "apollo"),
+    tagsPickerItem("Skylab", "skylab"),
+    tagsPickerItem("Apollo–Soyuz Test Project", "soyuz"),
+    tagsPickerItem("Artemis Program", "artemis")
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    tagPickerItem("Mercury Program", "mercury", "1950"),
-    tagPickerItem("Gemini Program", "gemini", "1960"),
-    tagPickerItem("Apollo Program", "apollo", "1970"),
-    tagPickerItem("Skylab", "skylab", "1970"),
-    tagPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
-    tagPickerItem("Artemis Program", "artemis", "2010")
+    tagsPickerItem("Mercury Program", "mercury", "1950"),
+    tagsPickerItem("Gemini Program", "gemini", "1960"),
+    tagsPickerItem("Apollo Program", "apollo", "1970"),
+    tagsPickerItem("Skylab", "skylab", "1970"),
+    tagsPickerItem("Apollo–Soyuz Test Project", "soyuz", "1970"),
+    tagsPickerItem("Artemis Program", "artemis", "2010")
 ];
 ```
 
@@ -92,7 +92,7 @@ A default tag picker.
 
 <Preview>
     <Story name="default">
-        <TagPicker
+        <TagsPicker
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
         />
@@ -108,15 +108,15 @@ A default tag picker.
         .excludeFromDocs()
         .build()}
 >
-    <TagPicker
+    <TagsPicker
         items={DEFAULT_ITEMS}
         // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
         defaultValues={["skylab", "gemini"]}
         closeOnSelect={boolean("closeOnSelect", false)}
-        noResultsMessage={text("noResultsMessage", TagPicker.defaultProps.noResultsMessage)}
-        triggerText={text("triggerText", TagPicker.defaultProps.triggerText)}
-        placeholder={text("placeholder", TagPicker.defaultProps.placeholder)}
-        clearText={text("clearText", TagPicker.defaultProps.clearText)}
+        noResultsMessage={text("noResultsMessage", TagsPicker.defaultProps.noResultsMessage)}
+        triggerText={text("triggerText", TagsPicker.defaultProps.triggerText)}
+        placeholder={text("placeholder", TagsPicker.defaultProps.placeholder)}
+        clearText={text("clearText", TagsPicker.defaultProps.clearText)}
         size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
         disabled={boolean("disabled", false)}
         closeOnBlur={boolean("closeOnBlur", true)}
@@ -131,7 +131,7 @@ A tag picker can group items under categories.
 
 <Preview>
     <Story name="categories">
-        <TagPicker
+        <TagsPicker
             items={DEFAULT_ITEMS_WITH_CATEGORIES}
             onValuesChange={logValuesChanged}
         />
@@ -144,7 +144,7 @@ A tag picker can have an initial set of selected items.
 
 <Preview>
     <Story name="default values">
-        <TagPicker
+        <TagsPicker
             defaultValues={["gemini", "skylab"]}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -158,7 +158,7 @@ A tag picker dropdown can close when an item is selected.
 
 <Preview>
     <Story name="close on select">
-        <TagPicker
+        <TagsPicker
             closeOnSelect
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -187,7 +187,7 @@ function fuzzySearch(event, items, query) {
 
 <Preview>
     <Story name="custom search">
-        <TagPicker
+        <TagsPicker
             onSearch={fuzzySearch}
             items={DEFAULT_ITEMS}
             onValuesChange={logValuesChanged}
@@ -201,7 +201,7 @@ A tag picker can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <TagPicker
+        <TagsPicker
             disabled
             items={DEFAULT_ITEMS}
             defaultValues={["gemini", "skylab"]}
@@ -215,7 +215,7 @@ A tag picker can be disabled.
         .excludeFromDocs()
         .build()}
 >
-    <TagPicker
+    <TagsPicker
         items={DEFAULT_ITEMS_WITH_CATEGORIES}
         closeOnBlur={false}
         closeOnOutsideClick
@@ -233,7 +233,7 @@ Can be set to: `"small"`, `"large"` or omitted.
     <Story name="size">
         <div className="flex items-end items-space-between">
             <div className="flex-auto">
-                <TagPicker
+                <TagsPicker
                     size="small"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
@@ -241,14 +241,14 @@ Can be set to: `"small"`, `"large"` or omitted.
                 />
             </div>
             <div className="flex-auto">
-                <TagPicker
+                <TagsPicker
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
                     onValuesChange={logValuesChanged}
                 />
             </div>
             <div className="flex-auto">
-                <TagPicker
+                <TagsPicker
                     size="large"
                     items={DEFAULT_ITEMS_WITH_CATEGORIES}
                     defaultValues={["gemini"]}
@@ -263,8 +263,8 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 A tag picker can handle `values` and `open` state in controlled mode.
 
-<FilePreview filePath="/tag-picker/stories/controlled-tag-picker">
-    <ControlledTagPicker
+<FilePreview filePath="/tags-picker/stories/controlled-tags-picker">
+    <ControlledTagsPicker
         items={DEFAULT_ITEMS}
         values={["skylab", "gemini"]}
         onValuesChange={logValuesChanged}

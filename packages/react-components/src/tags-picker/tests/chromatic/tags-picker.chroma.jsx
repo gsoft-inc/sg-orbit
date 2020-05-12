@@ -1,5 +1,5 @@
 import { AddIcon } from "@react-components/icons";
-import { TagPicker, tagPickerItem } from "@react-components/tag-picker";
+import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
@@ -10,23 +10,23 @@ const GROUP_NAME_CHANGED_VALUE = "group-name-changed";
 const GROUP_PRIVACY_CHANGED_VALUE = "group-privacy-changed";
 
 const DEFAULT_ITEMS = [
-    tagPickerItem("Created", GROUP_CREATED_VALUE),
-    tagPickerItem("Restored", GROUP_RESTORED_VALUE),
-    tagPickerItem("Deleted", GROUP_DELETED_VALUE),
-    tagPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
-    tagPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
+    tagsPickerItem("Created", GROUP_CREATED_VALUE),
+    tagsPickerItem("Restored", GROUP_RESTORED_VALUE),
+    tagsPickerItem("Deleted", GROUP_DELETED_VALUE),
+    tagsPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE),
+    tagsPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE)
 ];
 
 const DEFAULT_ITEMS_WITH_CATEGORIES = [
-    tagPickerItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
-    tagPickerItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
-    tagPickerItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
-    tagPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
-    tagPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
+    tagsPickerItem("Created", GROUP_CREATED_VALUE, "Group Lifecycle"),
+    tagsPickerItem("Restored", GROUP_RESTORED_VALUE, "Group Lifecycle"),
+    tagsPickerItem("Deleted", GROUP_DELETED_VALUE, "Collaboration"),
+    tagsPickerItem("Name Changed", GROUP_NAME_CHANGED_VALUE, "Collaboration"),
+    tagsPickerItem("Privacy Changed", GROUP_PRIVACY_CHANGED_VALUE, "Others")
 ];
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("TagPicker"))
+    return storiesOfBuilder(module, createChromaticSection("TagsPicker"))
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -34,8 +34,8 @@ function stories(segment) {
         .build();
 }
 
-function createTagPicker({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
-    return <TagPicker
+function createTagsPicker({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
+    return <TagsPicker
         items={items}
         onValuesChange={noop}
         {...otherProps}
@@ -44,12 +44,12 @@ function createTagPicker({ items = DEFAULT_ITEMS, ...otherProps } = {}) {
 
 stories()
     .add("opened", () =>
-        createTagPicker({
+        createTagsPicker({
             open: true
         })
     )
     .add("default opened", () =>
-        createTagPicker({
+        createTagsPicker({
             defaultOpen: true
         })
     )
@@ -57,18 +57,18 @@ stories()
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createTagPicker({
+                     {createTagsPicker({
                          size: "small",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     {createTagPicker({
+                     {createTagsPicker({
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
                  <div className="flex">
-                     {createTagPicker({
+                     {createTagsPicker({
                          size: "large",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
@@ -79,20 +79,20 @@ stories()
 stories("/dropdown")
     .add("some items",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultOpen: true
              })
     )
     .add("no items",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  items: [],
                  defaultOpen: true
              })
     )
     .add("categories",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  items: DEFAULT_ITEMS_WITH_CATEGORIES,
                  defaultOpen: true
              })
@@ -101,17 +101,17 @@ stories("/dropdown")
 stories("/selected values")
     .add("no selection",
          () =>
-             createTagPicker()
+             createTagsPicker()
     )
     .add("some values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
              })
     )
     .add("all values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -119,13 +119,13 @@ stories("/selected values")
 stories("/selected values/clear button")
     .add("can clear when all values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     )
     .add("cannot clear when no selection",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: []
              })
     );
@@ -133,13 +133,13 @@ stories("/selected values/clear button")
 stories("/selected values/add button")
     .add("can add when no selection",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: []
              })
     )
     .add("can add when all values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  values: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -147,13 +147,13 @@ stories("/selected values/add button")
 stories("/default values")
     .add("some values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
              })
     )
     .add("all values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: DEFAULT_ITEMS.map(x => x.value)
              })
     );
@@ -161,14 +161,14 @@ stories("/default values")
 stories("/disabled")
     .add("values selected",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_RESTORED_VALUE, GROUP_NAME_CHANGED_VALUE],
                  disabled: true
              })
     )
     .add("no selection",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  disabled: true
              })
     );
@@ -176,13 +176,13 @@ stories("/disabled")
 stories("/customization")
     .add("dropdown",
          () =>
-             createTagPicker({
-                 dropdown: <TagPicker.Dropdown className="bg-red border-red" />
+             createTagsPicker({
+                 dropdown: <TagsPicker.Dropdown className="bg-red border-red" />
              })
     )
     .add("no results message",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  items: [],
                  noResultsMessage: "Custom no results message",
                  defaultOpen: true
@@ -190,70 +190,70 @@ stories("/customization")
     )
     .add("add text",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  addText: "Custom add text"
              })
     )
     .add("trigger", () =>
-        createTagPicker({
-            dropdown: <TagPicker.Dropdown trigger={<TagPicker.Trigger className="bg-red" />} />
+        createTagsPicker({
+            dropdown: <TagsPicker.Dropdown trigger={<TagsPicker.Trigger className="bg-red" />} />
         })
     )
     .add("trigger icon",
          () =>
-             createTagPicker({
-                 dropdown: <TagPicker.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
+             createTagsPicker({
+                 dropdown: <TagsPicker.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
              })
     )
     .add("search input",
          () =>
-             createTagPicker({
-                 dropdown: <TagPicker.Dropdown searchInput={<TagPicker.SearchInput className="bg-red border-red" />} />,
+             createTagsPicker({
+                 dropdown: <TagsPicker.Dropdown searchInput={<TagsPicker.SearchInput className="bg-red border-red" />} />,
                  defaultOpen: true
              })
     )
     .add("placeholder",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  placeholder: "Custom placeholder",
                  defaultOpen: true
              })
     )
     .add("selected items components",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 selectedItemsComponent: <TagPicker.SelectedItems className="bg-red border-red" />
+                 selectedItemsComponent: <TagsPicker.SelectedItems className="bg-red border-red" />
              })
     )
     .add("selected item renderer",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 selectedItemsComponent: <TagPicker.SelectedItems itemRenderer={item => <div>{item.text}</div>} />
+                 selectedItemsComponent: <TagsPicker.SelectedItems itemRenderer={item => <div>{item.text}</div>} />
              })
     )
     .add("clear button",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 clearButton: <TagPicker.ClearButton className="bg-red" />
+                 clearButton: <TagsPicker.ClearButton className="bg-red" />
              })
     )
     .add("clear text",
          () =>
-             createTagPicker({
+             createTagsPicker({
                  defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
-                 clearButton: <TagPicker.ClearButton text="Custom clear text" />
+                 clearButton: <TagsPicker.ClearButton text="Custom clear text" />
              })
     )
     .add("styling", () =>
         <div className="flex">
-            {createTagPicker({
+            {createTagsPicker({
                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
                 className: "bg-red mr5"
             })}
-            {createTagPicker({
+            {createTagsPicker({
                 defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE],
                 style: { backgroundColor: "red" }
             })}

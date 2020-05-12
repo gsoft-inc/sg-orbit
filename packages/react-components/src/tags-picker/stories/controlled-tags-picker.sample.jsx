@@ -1,9 +1,9 @@
-import { ITEM_SHAPE, TagPicker } from "@react-components/tag-picker";
+import { ITEM_SHAPE, TagsPicker } from "@react-components/tags-picker";
 import { PureComponent } from "react";
 import { arrayOf, bool, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
-export class ControlledTagPicker extends PureComponent {
+export class ControlledTagsPicker extends PureComponent {
     static propTypes = {
         items: arrayOf(shape(ITEM_SHAPE)).isRequired,
         values: arrayOf(string),
@@ -49,7 +49,7 @@ export class ControlledTagPicker extends PureComponent {
                     </div>
                 </div>
 
-                <TagPicker
+                <TagsPicker
                     items={items}
                     values={values}
                     open={open}
