@@ -1,7 +1,7 @@
 import { TextInput } from "@react-components/text-input";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 
 function createTextInput(props = {}) {
     return <TextInput
@@ -54,7 +54,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createTextInput({
         autofocus: true,
-        autofocusDelay: 100,
+        autofocusDelay: 50,
         ref: () => {
             // don't need to hold a ref..
         }
@@ -63,7 +63,7 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getTextInput(getByTestId)).not.toHaveFocus();
 
-    await waitDelay(110);
+    await waitDelay(60);
     expect(getTextInput(getByTestId)).toHaveFocus();
 });
 

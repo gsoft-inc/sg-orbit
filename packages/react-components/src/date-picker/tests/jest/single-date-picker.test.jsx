@@ -4,7 +4,7 @@ import { PureComponent, createRef } from "react";
 import { SingleDatePicker } from "@react-components/date-picker";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { isNil, noop } from "lodash";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 import moment from "moment";
 import userEvent from "@utils/user-event";
 

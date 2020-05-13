@@ -1,7 +1,7 @@
 import { Input } from "@react-components/input";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 
 function createInput(props = {}) {
     return <Input
@@ -37,8 +37,11 @@ test("when autofocus on a disabled input, the input is not autofocused on render
 test("when delayed autofocus, the input is autofocused after the delay", async () => {
     const { getByTestId } = render(createInput({
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
+
+    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    await waitDelay(0);
 
     expect(getInput(getByTestId)).not.toHaveFocus();
 
@@ -50,12 +53,11 @@ test("when delayed autofocus on a disabled input, the input is not autofocused a
         createInput({
             disabled: true,
             autofocus: true,
-            autofocusDelay: 100
+            autofocusDelay: 50
         })
     );
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    await waitDelay(60);
 
     await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 });
@@ -97,14 +99,13 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createInput({
         autofocus: true,
-        autofocusDelay: 100,
+        autofocusDelay: 50,
         ref: () => {
             // don't need to hold a ref..
         }
     }));
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    await waitDelay(60);
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });

@@ -1,7 +1,7 @@
 import { NumberInput } from "@react-components/number-input";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 
 function createNumberInput(props = {}) {
     return <NumberInput
@@ -52,14 +52,13 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createNumberInput({
         autofocus: true,
-        autofocusDelay: 100,
+        autofocusDelay: 50,
         ref: () => {
             // don't need to hold a ref..
         }
     }));
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    await waitDelay(60);
 
     await waitFor(() => expect(getNumberInput(getByTestId)).toHaveFocus());
 });

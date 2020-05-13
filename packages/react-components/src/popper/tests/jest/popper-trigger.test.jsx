@@ -2,7 +2,7 @@ import { Button } from "@react-components/button";
 import { PopperTrigger } from "@react-components/popper";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "button";

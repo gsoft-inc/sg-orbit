@@ -1,9 +1,9 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
-import { act, render, wait, waitFor } from "@testing-library/react";
 import { createRef, forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { waitDelay } from "@utils/wait-for";
+import { render, waitFor } from "@testing-library/react";
+import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";

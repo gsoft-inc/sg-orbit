@@ -1,7 +1,7 @@
 import { TextArea } from "@react-components/text-area";
 import { createRef } from "react";
 import { render, wait } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 
 function createTextArea(props = {}) {
     return <TextArea
@@ -35,14 +35,13 @@ test("when autofocus on a disabled textarea, the textarea is not autofocused on 
 test("when delayed autofocus, the textarea is autofocused after the delay", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    await waitDelay(60);
     expect(getByTestId("textarea")).toHaveFocus();
 });
 
@@ -50,14 +49,14 @@ test("when delayed autofocus on a disabled textarea, the textarea is not autofoc
     const { getByTestId } = render(createTextArea({
         disabled: true,
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
     // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
+    await waitDelay(60);
     expect(getByTestId("textarea")).not.toHaveFocus();
 });
 
@@ -100,7 +99,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 100,
+        autofocusDelay: 50,
         ref: () => {
             // don't need to hold a ref..
         }
@@ -109,7 +108,7 @@ test("when a function ref is provided, delayed autofocus works", async () => {
     await wait();
     expect(getByTestId("textarea")).not.toHaveFocus();
 
-    await waitDelay(110);
+    await waitDelay(60);
     expect(getByTestId("textarea")).toHaveFocus();
 });
 

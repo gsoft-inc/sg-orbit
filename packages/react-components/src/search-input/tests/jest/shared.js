@@ -1,4 +1,6 @@
 import { searchInputResult } from "@react-components/search-input";
+import { waitFor } from "@testing-library/react";
+import userEvent from "@utils/user-event";
 
 export const RESULT_ID = "search-input-result";
 export const CLEAR_BUTTON_ID = "search-input-clear-button";
@@ -37,4 +39,30 @@ export function getResultsMenu(container) {
 
 export function getNoResults(container) {
     return container.querySelector("div.message.empty");
+}
+
+export async function search(text, { getByTestId, getAllByTestId, queryAllByTestId, container }) {
+    const inputNode = await getInput(getByTestId);
+
+    userEvent.type(inputNode, text);
+
+    await waitFor(() => getResultsMenu(container));
+
+    return {
+        inputNode,
+        queries: {
+            getResultsMenu: () => {
+                return getResultsMenu(container);
+            },
+            getNoResults: () => {
+                return getNoResults(container);
+            },
+            getResults: () => {
+                return getAllByTestId(RESULT_ID);
+            },
+            queryResults: () => {
+                return queryAllByTestId(RESULT_ID);
+            }
+        }
+    };
 }
