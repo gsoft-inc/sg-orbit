@@ -4,14 +4,12 @@ import {
     CLEAR_BUTTON_ID,
     DEFAULT_RESULTS,
     NUMBER_OF_RESULTS_BEGINNING_WITH_A,
-    RESULT_ID,
     getInput,
-    getNoResults,
     getResultsMenu,
     search
 } from "./shared";
 import { SearchInput, searchInputResult } from "@react-components/search-input";
-import { fireEvent, render, wait, waitFor, waitForElement } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
 import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
