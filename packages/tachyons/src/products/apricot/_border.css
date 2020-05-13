@@ -38,52 +38,82 @@
     border-color: var(--apricot-900);
 }
 
-.hover-b--apricot-50:hover,
-.hover-b--apricot-50:focus {
+.hover-b--apricot-50:hover {
     border-color: var(--apricot-50);
 }
 
-.hover-b--apricot-100:hover,
-.hover-b--apricot-100:focus {
+.hover-b--apricot-100:hover {
     border-color: var(--apricot-100);
 }
 
-.hover-b--apricot-200:hover,
-.hover-b--apricot-200:focus {
+.hover-b--apricot-200:hover {
     border-color: var(--apricot-200);
 }
 
-.hover-b--apricot-300:hover,
-.hover-b--apricot-300:focus {
+.hover-b--apricot-300:hover {
     border-color: var(--apricot-300);
 }
 
-.hover-b--apricot-400:hover,
-.hover-b--apricot-400:focus {
+.hover-b--apricot-400:hover {
     border-color: var(--apricot-400);
 }
 
-.hover-b--apricot-500:hover,
-.hover-b--apricot-500:focus {
+.hover-b--apricot-500:hover {
     border-color: var(--apricot-500);
 }
 
-.hover-b--apricot-600:hover,
-.hover-b--apricot-600:focus {
+.hover-b--apricot-600:hover {
     border-color: var(--apricot-600);
 }
 
-.hover-b--apricot-700:hover,
-.hover-b--apricot-700:focus {
+.hover-b--apricot-700:hover {
     border-color: var(--apricot-700);
 }
 
-.hover-b--apricot-800:hover,
-.hover-b--apricot-800:focus {
+.hover-b--apricot-800:hover {
     border-color: var(--apricot-800);
 }
 
-.hover-b--apricot-900:hover,
-.hover-b--apricot-900:focus {
+.hover-b--apricot-900:hover {
+    border-color: var(--apricot-900);
+}
+
+.focus-b--apricot-50:focus {
+    border-color: var(--apricot-50);
+}
+
+.focus-b--apricot-100:focus {
+    border-color: var(--apricot-100);
+}
+
+.focus-b--apricot-200:focus {
+    border-color: var(--apricot-200);
+}
+
+.focus-b--apricot-300:focus {
+    border-color: var(--apricot-300);
+}
+
+.focus-b--apricot-400:focus {
+    border-color: var(--apricot-400);
+}
+
+.focus-b--apricot-500:focus {
+    border-color: var(--apricot-500);
+}
+
+.focus-b--apricot-600:focus {
+    border-color: var(--apricot-600);
+}
+
+.focus-b--apricot-700:focus {
+    border-color: var(--apricot-700);
+}
+
+.focus-b--apricot-800:focus {
+    border-color: var(--apricot-800);
+}
+
+.focus-b--apricot-900:focus {
     border-color: var(--apricot-900);
 }

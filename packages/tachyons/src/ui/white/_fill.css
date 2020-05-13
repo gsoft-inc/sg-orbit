@@ -2,7 +2,10 @@
     fill: var(--white);
 }
 
-.hover-fill-white:hover,
-.hover-fill-white:focus {
+.hover-fill-white:hover {
+    fill: var(--white);
+}
+
+.focus-fill-white:focus {
     fill: var(--white);
 }

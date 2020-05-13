@@ -94,7 +94,7 @@ export class DatePickerButtons extends PureComponent {
         const { className } = this.props;
 
         const classes = mergeClasses(
-            "flex ph6 pb6",
+            "flex ph6 pb6 pt1",
             className
         );
 

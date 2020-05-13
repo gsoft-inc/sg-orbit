@@ -38,52 +38,82 @@
     fill: var(--alert-900);
 }
 
-.hover-fill-alert-50:hover,
-.hover-fill-alert-50:focus {
+.hover-fill-alert-50:hover {
     fill: var(--alert-50);
 }
 
-.hover-fill-alert-100:hover,
-.hover-fill-alert-100:focus {
+.hover-fill-alert-100:hover {
     fill: var(--alert-100);
 }
 
-.hover-fill-alert-200:hover,
-.hover-fill-alert-200:focus {
+.hover-fill-alert-200:hover {
     fill: var(--alert-200);
 }
 
-.hover-fill-alert-300:hover,
-.hover-fill-alert-300:focus {
+.hover-fill-alert-300:hover {
     fill: var(--alert-300);
 }
 
-.hover-fill-alert-400:hover,
-.hover-fill-alert-400:focus {
+.hover-fill-alert-400:hover {
     fill: var(--alert-400);
 }
 
-.hover-fill-alert-500:hover,
-.hover-fill-alert-500:focus {
+.hover-fill-alert-500:hover {
     fill: var(--alert-500);
 }
 
-.hover-fill-alert-600:hover,
-.hover-fill-alert-600:focus {
+.hover-fill-alert-600:hover {
     fill: var(--alert-600);
 }
 
-.hover-fill-alert-700:hover,
-.hover-fill-alert-700:focus {
+.hover-fill-alert-700:hover {
     fill: var(--alert-700);
 }
 
-.hover-fill-alert-800:hover,
-.hover-fill-alert-800:focus {
+.hover-fill-alert-800:hover {
     fill: var(--alert-800);
 }
 
-.hover-fill-alert-900:hover,
-.hover-fill-alert-900:focus {
+.hover-fill-alert-900:hover {
+    fill: var(--alert-900);
+}
+
+.focus-fill-alert-50:focus {
+    fill: var(--alert-50);
+}
+
+.focus-fill-alert-100:focus {
+    fill: var(--alert-100);
+}
+
+.focus-fill-alert-200:focus {
+    fill: var(--alert-200);
+}
+
+.focus-fill-alert-300:focus {
+    fill: var(--alert-300);
+}
+
+.focus-fill-alert-400:focus {
+    fill: var(--alert-400);
+}
+
+.focus-fill-alert-500:focus {
+    fill: var(--alert-500);
+}
+
+.focus-fill-alert-600:focus {
+    fill: var(--alert-600);
+}
+
+.focus-fill-alert-700:focus {
+    fill: var(--alert-700);
+}
+
+.focus-fill-alert-800:focus {
+    fill: var(--alert-800);
+}
+
+.focus-fill-alert-900:focus {
     fill: var(--alert-900);
 }

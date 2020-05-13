@@ -38,52 +38,82 @@
     fill: var(--success-900);
 }
 
-.hover-fill-success-50:hover,
-.hover-fill-success-50:focus {
+.hover-fill-success-50:hover {
     fill: var(--success-50);
 }
 
-.hover-fill-success-100:hover,
-.hover-fill-success-100:focus {
+.hover-fill-success-100:hover {
     fill: var(--success-100);
 }
 
-.hover-fill-success-200:hover,
-.hover-fill-success-200:focus {
+.hover-fill-success-200:hover {
     fill: var(--success-200);
 }
 
-.hover-fill-success-300:hover,
-.hover-fill-success-300:focus {
+.hover-fill-success-300:hover {
     fill: var(--success-300);
 }
 
-.hover-fill-success-400:hover,
-.hover-fill-success-400:focus {
+.hover-fill-success-400:hover {
     fill: var(--success-400);
 }
 
-.hover-fill-success-500:hover,
-.hover-fill-success-500:focus {
+.hover-fill-success-500:hover {
     fill: var(--success-500);
 }
 
-.hover-fill-success-600:hover,
-.hover-fill-success-600:focus {
+.hover-fill-success-600:hover {
     fill: var(--success-600);
 }
 
-.hover-fill-success-700:hover,
-.hover-fill-success-700:focus {
+.hover-fill-success-700:hover {
     fill: var(--success-700);
 }
 
-.hover-fill-success-800:hover,
-.hover-fill-success-800:focus {
+.hover-fill-success-800:hover {
     fill: var(--success-800);
 }
 
-.hover-fill-success-900:hover,
-.hover-fill-success-900:focus {
+.hover-fill-success-900:hover {
+    fill: var(--success-900);
+}
+
+.focus-fill-success-50:focus {
+    fill: var(--success-50);
+}
+
+.focus-fill-success-100:focus {
+    fill: var(--success-100);
+}
+
+.focus-fill-success-200:focus {
+    fill: var(--success-200);
+}
+
+.focus-fill-success-300:focus {
+    fill: var(--success-300);
+}
+
+.focus-fill-success-400:focus {
+    fill: var(--success-400);
+}
+
+.focus-fill-success-500:focus {
+    fill: var(--success-500);
+}
+
+.focus-fill-success-600:focus {
+    fill: var(--success-600);
+}
+
+.focus-fill-success-700:focus {
+    fill: var(--success-700);
+}
+
+.focus-fill-success-800:focus {
+    fill: var(--success-800);
+}
+
+.focus-fill-success-900:focus {
     fill: var(--success-900);
 }

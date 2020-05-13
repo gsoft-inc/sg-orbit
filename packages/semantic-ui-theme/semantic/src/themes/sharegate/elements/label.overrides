@@ -641,3 +641,4 @@
 .ui.label.compact.large.with-button {
     padding-right: calc(var(--scale-foxtrot) / 4);
 }
+

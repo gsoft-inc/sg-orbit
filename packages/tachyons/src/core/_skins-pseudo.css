@@ -1,29 +1,48 @@
-.hover-color-transparent:hover,
-.hover-transparent-color:focus {
+.hover-color-transparent:hover {
     color: transparent;
 }
 
-.hover-color-inherit:hover,
-.hover-color-inherit:focus {
+.hover-color-inherit:hover {
     color: inherit;
 }
 
-.hover-bg-transparent:hover,
-.hover-bg-transparent:focus {
+.hover-bg-transparent:hover {
     background-color: var(--transparent);
 }
 
-.hover-bg-inherit:hover,
-.hover-bg-inherit:focus {
+.hover-bg-inherit:hover {
     background-color: inherit;
 }
 
-.hover-fill-inherit:hover,
-.hover-fill-inherit:focus {
+.hover-fill-inherit:hover {
     fill: inherit;
 }
 
-.hover-fill-current-color:hover,
-.hover-fill-current-color:focus {
+.hover-fill-current-color:hover {
     fill: currentColor;
 }
+
+.focus-color-transparent:focus {
+    color: transparent;
+}
+
+.focus-color-inherit:focus {
+    color: inherit;
+}
+
+.focus-bg-transparent:focus {
+    background-color: var(--transparent);
+}
+
+.focus-bg-inherit:focus {
+    background-color: inherit;
+}
+
+.focus-fill-inherit:focus {
+    fill: inherit;
+}
+
+.focus-fill-current-color:focus {
+    fill: currentColor;
+}
+

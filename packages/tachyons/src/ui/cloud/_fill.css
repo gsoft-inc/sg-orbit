@@ -38,52 +38,82 @@
     fill: var(--cloud-900);
 }
 
-.hover-fill-cloud-50:hover,
-.hover-fill-cloud-50:focus {
+.hover-fill-cloud-50:hover {
     fill: var(--cloud-50);
 }
 
-.hover-fill-cloud-100:hover,
-.hover-fill-cloud-100:focus {
+.hover-fill-cloud-100:hover {
     fill: var(--cloud-100);
 }
 
-.hover-fill-cloud-200:hover,
-.hover-fill-cloud-200:focus {
+.hover-fill-cloud-200:hover {
     fill: var(--cloud-200);
 }
 
-.hover-fill-cloud-300:hover,
-.hover-fill-cloud-300:focus {
+.hover-fill-cloud-300:hover {
     fill: var(--cloud-300);
 }
 
-.hover-fill-cloud-400:hover,
-.hover-fill-cloud-400:focus {
+.hover-fill-cloud-400:hover {
     fill: var(--cloud-400);
 }
 
-.hover-fill-cloud-500:hover,
-.hover-fill-cloud-500:focus {
+.hover-fill-cloud-500:hover {
     fill: var(--cloud-500);
 }
 
-.hover-fill-cloud-600:hover,
-.hover-fill-cloud-600:focus {
+.hover-fill-cloud-600:hover {
     fill: var(--cloud-600);
 }
 
-.hover-fill-cloud-700:hover,
-.hover-fill-cloud-700:focus {
+.hover-fill-cloud-700:hover {
     fill: var(--cloud-700);
 }
 
-.hover-fill-cloud-800:hover,
-.hover-fill-cloud-800:focus {
+.hover-fill-cloud-800:hover {
     fill: var(--cloud-800);
 }
 
-.hover-fill-cloud-900:hover,
-.hover-fill-cloud-900:focus {
+.hover-fill-cloud-900:hover {
+    fill: var(--cloud-900);
+}
+
+.focus-fill-cloud-50:focus {
+    fill: var(--cloud-50);
+}
+
+.focus-fill-cloud-100:focus {
+    fill: var(--cloud-100);
+}
+
+.focus-fill-cloud-200:focus {
+    fill: var(--cloud-200);
+}
+
+.focus-fill-cloud-300:focus {
+    fill: var(--cloud-300);
+}
+
+.focus-fill-cloud-400:focus {
+    fill: var(--cloud-400);
+}
+
+.focus-fill-cloud-500:focus {
+    fill: var(--cloud-500);
+}
+
+.focus-fill-cloud-600:focus {
+    fill: var(--cloud-600);
+}
+
+.focus-fill-cloud-700:focus {
+    fill: var(--cloud-700);
+}
+
+.focus-fill-cloud-800:focus {
+    fill: var(--cloud-800);
+}
+
+.focus-fill-cloud-900:focus {
     fill: var(--cloud-900);
 }

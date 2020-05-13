@@ -2,7 +2,10 @@
     color: var(--white);
 }
 
-.hover-white:hover,
-.hover-white:focus {
+.hover-white:hover {
+    color: var(--white);
+}
+
+.focus-white:focus {
     color: var(--white);
 }

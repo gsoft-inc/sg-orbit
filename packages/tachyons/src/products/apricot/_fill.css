@@ -38,52 +38,82 @@
     fill: var(--apricot-900);
 }
 
-.hover-fill-apricot-50:hover,
-.hover-fill-apricot-50:focus {
+.hover-fill-apricot-50:hover {
     fill: var(--apricot-50);
 }
 
-.hover-fill-apricot-100:hover,
-.hover-fill-apricot-100:focus {
+.hover-fill-apricot-100:hover {
     fill: var(--apricot-100);
 }
 
-.hover-fill-apricot-200:hover,
-.hover-fill-apricot-200:focus {
+.hover-fill-apricot-200:hover {
     fill: var(--apricot-200);
 }
 
-.hover-fill-apricot-300:hover,
-.hover-fill-apricot-300:focus {
+.hover-fill-apricot-300:hover {
     fill: var(--apricot-300);
 }
 
-.hover-fill-apricot-400:hover,
-.hover-fill-apricot-400:focus {
+.hover-fill-apricot-400:hover {
     fill: var(--apricot-400);
 }
 
-.hover-fill-apricot-500:hover,
-.hover-fill-apricot-500:focus {
+.hover-fill-apricot-500:hover {
     fill: var(--apricot-500);
 }
 
-.hover-fill-apricot-600:hover,
-.hover-fill-apricot-600:focus {
+.hover-fill-apricot-600:hover {
     fill: var(--apricot-600);
 }
 
-.hover-fill-apricot-700:hover,
-.hover-fill-apricot-700:focus {
+.hover-fill-apricot-700:hover {
     fill: var(--apricot-700);
 }
 
-.hover-fill-apricot-800:hover,
-.hover-fill-apricot-800:focus {
+.hover-fill-apricot-800:hover {
     fill: var(--apricot-800);
 }
 
-.hover-fill-apricot-900:hover,
-.hover-fill-apricot-900:focus {
+.hover-fill-apricot-900:hover {
+    fill: var(--apricot-900);
+}
+
+.focus-fill-apricot-50:focus {
+    fill: var(--apricot-50);
+}
+
+.focus-fill-apricot-100:focus {
+    fill: var(--apricot-100);
+}
+
+.focus-fill-apricot-200:focus {
+    fill: var(--apricot-200);
+}
+
+.focus-fill-apricot-300:focus {
+    fill: var(--apricot-300);
+}
+
+.focus-fill-apricot-400:focus {
+    fill: var(--apricot-400);
+}
+
+.focus-fill-apricot-500:focus {
+    fill: var(--apricot-500);
+}
+
+.focus-fill-apricot-600:focus {
+    fill: var(--apricot-600);
+}
+
+.focus-fill-apricot-700:focus {
+    fill: var(--apricot-700);
+}
+
+.focus-fill-apricot-800:focus {
+    fill: var(--apricot-800);
+}
+
+.focus-fill-apricot-900:focus {
     fill: var(--apricot-900);
 }

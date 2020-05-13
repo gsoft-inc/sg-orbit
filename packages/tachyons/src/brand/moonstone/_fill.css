@@ -38,52 +38,82 @@
     fill: var(--moonstone-900);
 }
 
-.hover-fill-moonstone-50:hover,
-.hover-fill-moonstone-50:focus {
+.hover-fill-moonstone-50:hover {
     fill: var(--moonstone-50);
 }
 
-.hover-fill-moonstone-100:hover,
-.hover-fill-moonstone-100:focus {
+.hover-fill-moonstone-100:hover {
     fill: var(--moonstone-100);
 }
 
-.hover-fill-moonstone-200:hover,
-.hover-fill-moonstone-200:focus {
+.hover-fill-moonstone-200:hover {
     fill: var(--moonstone-200);
 }
 
-.hover-fill-moonstone-300:hover,
-.hover-fill-moonstone-300:focus {
+.hover-fill-moonstone-300:hover {
     fill: var(--moonstone-300);
 }
 
-.hover-fill-moonstone-400:hover,
-.hover-fill-moonstone-400:focus {
+.hover-fill-moonstone-400:hover {
     fill: var(--moonstone-400);
 }
 
-.hover-fill-moonstone-500:hover,
-.hover-fill-moonstone-500:focus {
+.hover-fill-moonstone-500:hover {
     fill: var(--moonstone-500);
 }
 
-.hover-fill-moonstone-600:hover,
-.hover-fill-moonstone-600:focus {
+.hover-fill-moonstone-600:hover {
     fill: var(--moonstone-600);
 }
 
-.hover-fill-moonstone-700:hover,
-.hover-fill-moonstone-700:focus {
+.hover-fill-moonstone-700:hover {
     fill: var(--moonstone-700);
 }
 
-.hover-fill-moonstone-800:hover,
-.hover-fill-moonstone-800:focus {
+.hover-fill-moonstone-800:hover {
     fill: var(--moonstone-800);
 }
 
-.hover-fill-moonstone-900:hover,
-.hover-fill-moonstone-900:focus {
+.hover-fill-moonstone-900:hover {
+    fill: var(--moonstone-900);
+}
+
+.focus-fill-moonstone-50:focus {
+    fill: var(--moonstone-50);
+}
+
+.focus-fill-moonstone-100:focus {
+    fill: var(--moonstone-100);
+}
+
+.focus-fill-moonstone-200:focus {
+    fill: var(--moonstone-200);
+}
+
+.focus-fill-moonstone-300:focus {
+    fill: var(--moonstone-300);
+}
+
+.focus-fill-moonstone-400:focus {
+    fill: var(--moonstone-400);
+}
+
+.focus-fill-moonstone-500:focus {
+    fill: var(--moonstone-500);
+}
+
+.focus-fill-moonstone-600:focus {
+    fill: var(--moonstone-600);
+}
+
+.focus-fill-moonstone-700:focus {
+    fill: var(--moonstone-700);
+}
+
+.focus-fill-moonstone-800:focus {
+    fill: var(--moonstone-800);
+}
+
+.focus-fill-moonstone-900:focus {
     fill: var(--moonstone-900);
 }

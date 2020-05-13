@@ -281,8 +281,6 @@ a.ui.button {
 }
 
 .ui.button:focus,
-.ui.button:active,
-.ui.button.active,
 .ui.buttons .button:focus, {
     box-shadow: 0px 0px 0px 2px var(--primary-200) !important;
 }

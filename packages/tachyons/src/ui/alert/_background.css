@@ -38,52 +38,83 @@
     background-color: var(--alert-900);
 }
 
-.hover-bg-alert-50:hover,
-.hover-bg-alert-50:focus {
+.hover-bg-alert-50:hover {
     background-color: var(--alert-50);
 }
 
-.hover-bg-alert-100:hover,
-.hover-bg-alert-100:focus {
+.hover-bg-alert-100:hover {
     background-color: var(--alert-100);
 }
 
-.hover-bg-alert-200:hover,
-.hover-bg-alert-200:focus {
+.hover-bg-alert-200:hover {
     background-color: var(--alert-200);
 }
 
-.hover-bg-alert-300:hover,
-.hover-bg-alert-300:focus {
+.hover-bg-alert-300:hover {
     background-color: var(--alert-300);
 }
 
-.hover-bg-alert-400:hover,
-.hover-bg-alert-400:focus {
+.hover-bg-alert-400:hover {
     background-color: var(--alert-400);
 }
 
-.hover-bg-alert-500:hover,
-.hover-bg-alert-500:focus {
+.hover-bg-alert-500:hover {
     background-color: var(--alert-500);
 }
 
-.hover-bg-alert-600:hover,
-.hover-bg-alert-600:focus {
+.hover-bg-alert-600:hover {
     background-color: var(--alert-600);
 }
 
-.hover-bg-alert-700:hover,
-.hover-bg-alert-700:focus {
+.hover-bg-alert-700:hover {
     background-color: var(--alert-700);
 }
 
-.hover-bg-alert-800:hover,
-.hover-bg-alert-800:focus {
+.hover-bg-alert-800:hover {
     background-color: var(--alert-800);
 }
 
-.hover-bg-alert-900:hover,
-.hover-bg-alert-900:focus {
+.hover-bg-alert-900:hover {
     background-color: var(--alert-900);
 }
+
+.focus-bg-alert-50:focus {
+    background-color: var(--alert-50);
+}
+
+.focus-bg-alert-100:focus {
+    background-color: var(--alert-100);
+}
+
+.focus-bg-alert-200:focus {
+    background-color: var(--alert-200);
+}
+
+.focus-bg-alert-300:focus {
+    background-color: var(--alert-300);
+}
+
+.focus-bg-alert-400:focus {
+    background-color: var(--alert-400);
+}
+
+.focus-bg-alert-500:focus {
+    background-color: var(--alert-500);
+}
+
+.focus-bg-alert-600:focus {
+    background-color: var(--alert-600);
+}
+
+.focus-bg-alert-700:focus {
+    background-color: var(--alert-700);
+}
+
+.focus-bg-alert-800:focus {
+    background-color: var(--alert-800);
+}
+
+.focus-bg-alert-900:focus {
+    background-color: var(--alert-900);
+}
+
