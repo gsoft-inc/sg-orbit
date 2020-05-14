@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
 
 function createButton(props = {}) {
     return <Button
@@ -19,9 +19,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("BUTTON");
 });
@@ -37,9 +36,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("BUTTON");
 });
@@ -57,11 +55,11 @@ test("can focus the button with the focus api", async () => {
         })
     );
 
-    await wait();
+    act(() => {
+        refNode.focus();
+    });
 
-    refNode.focus();
-
-    expect(refNode).toHaveFocus();
+    await waitFor(() => expect(refNode).toHaveFocus());
 });
 
 test("set ref once", async () => {
@@ -73,7 +71,5 @@ test("set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

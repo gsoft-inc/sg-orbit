@@ -1,6 +1,6 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
 import { MultiVariantIcon } from "@react-components/icons";
-import { render, wait } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 function createIcon(props = {}) {
     return <MultiVariantIcon
@@ -12,8 +12,6 @@ function createIcon(props = {}) {
 
 test("has \"icon\" class", async () => {
     const { container } = render(createIcon());
-
-    await wait();
 
     expect(container.querySelector("svg.icon")).not.toBeNull();
 });
@@ -30,8 +28,6 @@ test("ref is a DOM element", async () => {
             }
         })
     );
-
-    await wait();
 
     expect(refNode).not.toBeNull();
     expect(refNode instanceof SVGElement).toBeTruthy();
@@ -50,8 +46,6 @@ test("hoc icon ref is a DOM element", async () => {
             }}
         />
     );
-
-    await wait();
 
     expect(refNode).not.toBeNull();
     expect(refNode instanceof SVGElement).toBeTruthy();

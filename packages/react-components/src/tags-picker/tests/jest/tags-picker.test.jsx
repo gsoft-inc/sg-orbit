@@ -1,11 +1,10 @@
 import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
-import { fireEvent, render, wait, waitForDomChange, waitForElement } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
 import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "tags-picker-dropdown-trigger";
 const SEARCH_INPUT_ID = "tags-picker-dropdown-search-input";
-const MENU_ITEMS_ID = "tags-picker-dropdown-menu-items";
 const MENU_ITEM_ID = "tags-picker-dropdown-item";
 const NO_RESULTS_ID = "tags-picker-dropdown-menu-no-results";
 const SELECTED_ITEM_ID = "tags-picker-selected-item";
@@ -29,16 +28,34 @@ function createTagsPicker({ items = DEFAULT_ITEMS, onValuesChange = noop, ...oth
     return <TagsPicker
         items={items}
         onValuesChange={onValuesChange}
+        dropdown={<TagsPicker.Dropdown debounceDelay={0} />}
         {...otherProps}
     />;
 }
 
-async function openDropdownMenu(getByTestId, container) {
-    userEvent.click(getByTestId(TRIGGER_ID));
+async function openDropdownMenu({ getByTestId, getAllByTestId, container } ) {
+    const triggerNode = await getByTestId(TRIGGER_ID);
 
-    const menuNode = await waitForElement(() => getDropdownMenu(container));
+    act(() => {
+        userEvent.click(triggerNode);
+    });
 
-    return menuNode;
+    await waitFor(() => getDropdownMenu(container));
+
+    return {
+        triggerNode,
+        queries: {
+            getDropdownMenu: () => {
+                return getDropdownMenu(container);
+            },
+            getSearchInput: () => {
+                return getSearchInput(getByTestId);
+            },
+            getMenuItems: () => {
+                return getAllByTestId(MENU_ITEM_ID);
+            }
+        }
+    };
 }
 
 function getDropdownMenu(container) {
@@ -51,82 +68,100 @@ function getSearchInput(getByTestId) {
     return searchInputNode.querySelector("input");
 }
 
+function getSelectedItems(queryAllByTestId) {
+    return queryAllByTestId(SELECTED_ITEM_ID, { exact: false });
+}
+
+function getSelectedItem(itemValue, getByTestId) {
+    return getByTestId(`${SELECTED_ITEM_ID}-${itemValue}`);
+}
+
 // ***** Behaviors *****
 
 test("open the dropdown menu on trigger click", async () => {
     const { getByTestId, container } = render(createTagsPicker());
 
-    userEvent.click(getByTestId(TRIGGER_ID));
+    act(() => {
+        userEvent.click(getByTestId(TRIGGER_ID));
+    });
 
-    const menuNode = await waitForElement(() => getDropdownMenu(container));
+    const menuNode = await waitFor(() => getDropdownMenu(container));
 
-    expect(menuNode).toBeInTheDocument();
+    await waitFor(() => expect(menuNode).toBeInTheDocument());
 });
 
 test("open the dropdown menu on space keydown", async () => {
     const { getByTestId, container } = render(createTagsPicker());
 
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+    act(() => {
+        fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+    });
 
-    const menuNode = await waitForElement(() => getDropdownMenu(container));
+    const menuNode = await waitFor(() => getDropdownMenu(container));
 
-    expect(menuNode).toBeInTheDocument();
+    await waitFor(() => expect(menuNode).toBeInTheDocument());
 });
 
 test("open the dropdown menu on enter keydown", async () => {
     const { getByTestId, container } = render(createTagsPicker());
 
-    userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    act(() => {
+        userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    });
 
-    const menuNode = await waitForElement(() => getDropdownMenu(container));
+    const menuNode = await waitFor(() => getDropdownMenu(container));
 
-    expect(menuNode).toBeInTheDocument();
+    await waitFor(() => expect(menuNode).toBeInTheDocument());
 });
 
 test("close the dropdown menu on esc keydown", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("close the dropdown menu on outside click", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(document.body);
-    await wait();
+    act(() => {
+        userEvent.click(document.body);
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("close the dropdown menu on focusout", async () => {
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         defaultValues: [GROUP_CREATED_VALUE]
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    fireEvent.focusOut(getSearchInput(getByTestId));
-    await wait();
+    act(() => {
+        fireEvent.focusOut(queries.getSearchInput());
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("close the dropdown menu on trigger click", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { triggerNode, queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
+    act(() => {
+        userEvent.click(triggerNode);
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("when disabled, dont open the dropdown menu on trigger click", async () => {
@@ -134,186 +169,206 @@ test("when disabled, dont open the dropdown menu on trigger click", async () => 
         disabled: true
     }));
 
-    userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
+    act(() => {
+        userEvent.click(getByTestId(TRIGGER_ID));
+    });
 
     expect(getDropdownMenu(container)).toBeNull();
 });
 
 test("search input is focused on open", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    const searchInputNode = await waitForElement(() => getSearchInput(getByTestId));
-
-    expect(searchInputNode).toHaveFocus();
+    await waitFor(() => expect(queries.getSearchInput()).toHaveFocus());
 });
 
 test("can navigate through the dropdown menu item with arrows keydown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
-    await waitForElement(() => getSearchInput(getByTestId));
+    const { container } = renderResult;
+
+    const { queries } = await openDropdownMenu(renderResult);
 
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
     fireEvent.keyDown(container, { key: "ArrowUp", keyCode: 38 });
-    await wait();
 
-    expect(getAllByTestId(MENU_ITEM_ID)[1]).toHaveClass("selected");
+    await waitFor(() => expect(queries.getMenuItems()[1]).toHaveClass("selected"));
 });
 
 test("dont close the dropdown menu on search input click", async () => {
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         orbitId: "I AM 1"
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getSearchInput(getByTestId));
-    await wait();
+    act(() => {
+        userEvent.click(queries.getSearchInput());
+    });
 
-    expect(getDropdownMenu(container)).toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).toBeInTheDocument());
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item click", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         orbitId: "I AM 2"
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
-    await wait();
+    act(() => {
+        userEvent.click(queries.getMenuItems()[0]);
+    });
 
-    expect(getDropdownMenu(container)).toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).toBeInTheDocument());
 });
 
 test("when closeOnSelect is false, dont close the dropdown menu on item enter keydown", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
+    });
 
-    expect(getDropdownMenu(container)).toBeInTheDocument();
+    act(() => {
+        fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
+    });
+
+    await waitFor(() => expect(queries.getDropdownMenu()).toBeInTheDocument());
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item click", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         closeOnSelect: true
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
-    await wait();
+    act(() => {
+        userEvent.click(queries.getMenuItems()[0]);
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("when closeOnSelect is true, close the dropdown menu on item enter keydown", async () => {
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         closeOnSelect: true
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    act(() => {
+        fireEvent.keyDown(document, { key: "Enter", keyCode: 13 });
+    });
+
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
 test("without a search input, all the dropdown menu items are displayed", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(DEFAULT_ITEMS.length));
 });
 
 test("typing a search input filter out the available dropdown menu items", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(DEFAULT_ITEMS.length));
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(1));
 });
 
 test("search input is case insensitive", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(DEFAULT_ITEMS.length));
 
-    userEvent.type(getSearchInput(getByTestId), "n");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "n");
+    });
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(1);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(1));
 });
 
 test("when no items match the search input, empty results is shown", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { getByTestId } = renderResult;
 
-    expect(getAllByTestId(MENU_ITEM_ID).length).toBe(DEFAULT_ITEMS.length);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "abc");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(DEFAULT_ITEMS.length));
 
-    expect(getByTestId(NO_RESULTS_ID)).toBeInTheDocument();
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "abc");
+    });
+
+    await waitFor(() => expect(getByTestId(NO_RESULTS_ID)).toBeInTheDocument());
 });
 
 test("selecting a dropdown menu item add a new selected item", async () => {
-    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
+    const { queryAllByTestId, getByTestId } = renderResult;
 
-    await openDropdownMenu(getByTestId, container);
+    await waitFor(() => expect(getSelectedItems(queryAllByTestId).length).toBe(0));
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
-    await wait();
+    const { queries } = await openDropdownMenu(renderResult);
 
-    const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${DEFAULT_ITEMS[0].value}`);
+    act(() => {
+        userEvent.click(queries.getMenuItems()[0]);
+    });
 
-    expect(selectedItem).toBeInTheDocument();
+    await waitFor(() => expect(getSelectedItem(DEFAULT_ITEMS[0].value, getByTestId)).toBeInTheDocument());
 });
 
 test("selecting a dropdown menu item remove the item from the dropdown menu items", async () => {
-    const { getByTestId, queryAllByTestId, getAllByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
+    const { queryAllByTestId } = renderResult;
 
-    await openDropdownMenu(getByTestId, container);
+    await waitFor(() => expect(getSelectedItems(queryAllByTestId).length).toBe(0));
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[0]);
-    await wait();
+    const { queries } = await openDropdownMenu(renderResult);
 
-    expect(getAllByTestId(MENU_ITEM_ID)[0].querySelector("span")).not.toHaveTextContent(DEFAULT_ITEMS[0].text);
+    act(() => {
+        userEvent.click(queries.getMenuItems()[0]);
+    });
+
+    await waitFor(() => expect(queries.getMenuItems()[0].querySelector("span")).not.toHaveTextContent(DEFAULT_ITEMS[0].text));
 });
 
 test("when the dropdown menu close, focus the trigger", async () => {
-    const { getByTestId, container } = render(createTagsPicker());
+    const renderResult = render(createTagsPicker());
 
-    await openDropdownMenu(getByTestId, container);
+    const { triggerNode } = await openDropdownMenu(renderResult);
 
-    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    });
 
-    expect(getByTestId(TRIGGER_ID)).toHaveFocus();
+    await waitFor(() => expect(triggerNode).toHaveFocus());
 });
 
 test("selected item is removed on remove button click", async () => {
@@ -321,30 +376,30 @@ test("selected item is removed on remove button click", async () => {
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
-    const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`);
+    const selectedItem = getSelectedItem(GROUP_RESTORED_VALUE, getByTestId);
 
-    userEvent.click(selectedItem.querySelector("button"));
-    await wait();
+    act(() => {
+        userEvent.click(selectedItem.querySelector("button"));
+    });
 
-    expect(selectedItem).not.toBeInTheDocument();
+    await waitFor(() => expect(selectedItem).not.toBeInTheDocument());
 });
 
 test("when removed, the item is available again in the dropdown menu items", async () => {
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
-    const selectedItem = getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`);
+    const { getByTestId } = renderResult;
 
-    userEvent.click(selectedItem.querySelector("button"));
-    await wait();
+    act(() => {
+        userEvent.click(getSelectedItem(GROUP_RESTORED_VALUE, getByTestId).querySelector("button"));
+    });
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
-
-    expect(menuItemsNodes.length).toBe(1);
-    expect(menuItemsNodes[0].querySelector("span")).toHaveTextContent(DEFAULT_ITEMS[1].text);
+    await waitFor(() => expect(queries.getMenuItems().length).toBe(1));
+    await waitFor(() => expect(queries.getMenuItems()[0].querySelector("span")).toHaveTextContent(DEFAULT_ITEMS[1].text));
 });
 
 test("remove all the selected items on clear all button click", async () => {
@@ -352,67 +407,72 @@ test("remove all the selected items on clear all button click", async () => {
         defaultValues: DEFAULT_ITEMS.map(x => x.value)
     }));
 
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(DEFAULT_ITEMS.length);
+    await waitFor(() => expect(getSelectedItems(queryAllByTestId).length).toBe(DEFAULT_ITEMS.length));
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
-    await wait();
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
-    expect(queryAllByTestId(SELECTED_ITEM_ID, { exact: false }).length).toBe(0);
+    await waitFor(() => expect(getSelectedItems(queryAllByTestId).length).toBe(0));
 });
 
 test("clicking on the document body will not focus the trigger button", async () => {
     const { getByTestId } = render(createTagsPicker());
 
-    userEvent.click(document.body);
-    await wait();
+    act(() => {
+        userEvent.click(document.body);
+    });
 
-    expect(getByTestId(TRIGGER_ID)).not.toHaveFocus();
+    await waitFor(() => expect(getByTestId(TRIGGER_ID)).not.toHaveFocus());
 });
 
 test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         closeOnBlur: false
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(document.body);
-    await wait();
+    act(() => {
+        userEvent.click(document.body);
+    });
 
-    expect(getDropdownMenu(container)).toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).toBeInTheDocument());
 });
 
 test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         closeOnBlur: false,
         closeOnOutsideClick: true
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(document.body);
-    await wait();
+    act(() => {
+        userEvent.click(document.body);
+    });
 
-    expect(getDropdownMenu(container)).not.toBeInTheDocument();
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 });
 
-// ***** API *****
+// // ***** API *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
     const handler = jest.fn();
     const defaultValues = [DEFAULT_ITEMS[4].value];
 
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         defaultValues: defaultValues,
         onValuesChange: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
-    await wait();
+    act(() => {
+        userEvent.click(queries.getMenuItems()[1]);
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value]);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [...defaultValues, DEFAULT_ITEMS[1].value]));
 });
 
 test("call onValuesChange without the removed item when a selected item is removed", async () => {
@@ -424,10 +484,11 @@ test("call onValuesChange without the removed item when a selected item is remov
         onValuesChange: handler
     }));
 
-    userEvent.click(getByTestId(`${SELECTED_ITEM_ID}-${GROUP_RESTORED_VALUE}`).querySelector("button"));
-    await wait();
+    act(() => {
+        userEvent.click(getSelectedItem(GROUP_RESTORED_VALUE, getByTestId).querySelector("button"));
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value]);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0].value, DEFAULT_ITEMS[2].value]));
 });
 
 test("call onValuesChange without values when all the selected items are cleared", async () => {
@@ -438,10 +499,11 @@ test("call onValuesChange without values when all the selected items are cleared
         onValuesChange: handler
     }));
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
-    await wait();
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), []);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), []));
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with a trigger click", async () => {
@@ -451,10 +513,11 @@ test("call onVisibilityChange when the dropdown menu is opened with a trigger cl
         onVisibilityChange: handler
     }));
 
-    userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
+    act(() => {
+        userEvent.click(getByTestId(TRIGGER_ID));
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with space keydown", async () => {
@@ -464,10 +527,11 @@ test("call onVisibilityChange when the dropdown menu is opened with space keydow
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the dropdown menu is opened with enter keydown", async () => {
@@ -477,53 +541,60 @@ test("call onVisibilityChange when the dropdown menu is opened with enter keydow
         onVisibilityChange: handler
     }));
 
-    userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
-    await wait();
+    act(() => {
+        userEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with a trigger click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { triggerNode } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getByTestId(TRIGGER_ID));
-    await wait();
+    act(() => {
+        userEvent.click(triggerNode);
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with esc keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    await openDropdownMenu(renderResult);
 
-    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
-    await wait();
+    act(() => {
+        fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onVisibilityChange when the dropdown menu is closed with an outside click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         onVisibilityChange: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(document.body);
-    await wait();
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    // I shouldn't need this but the test fail otherwise.
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
@@ -531,17 +602,18 @@ test("call onVisibilityChange when the dropdown menu is closed with an outside c
 test("call onVisibilityChange when the dropdown menu is closed by selecting a value (closeOnSelect)", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         closeOnSelect: true,
         onVisibilityChange: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.click(getAllByTestId(MENU_ITEM_ID)[1]);
-    await wait();
+    act(() => {
+        userEvent.click(queries.getMenuItems()[1]);
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onSearch when the search input change", async () => {
@@ -549,16 +621,17 @@ test("call onSearch when the search input change", async () => {
         return [];
     });
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         onSearch: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), DEFAULT_ITEMS, "N"));
 });
 
 test("call onSearch with groups when specified", async () => {
@@ -568,17 +641,18 @@ test("call onSearch with groups when specified", async () => {
 
     const item = tagsPickerItem("Created", GROUP_CREATED_VALUE, "group 1");
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         items: [item],
         onSearch: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N"));
 });
 
 test("call onSearch with custom object when specified", async () => {
@@ -588,17 +662,18 @@ test("call onSearch with custom object when specified", async () => {
 
     const item = tagsPickerItem("Created", GROUP_CREATED_VALUE, null, { foo: "bar" });
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         items: [item],
         onSearch: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [item], "N"));
 });
 
 test("results returned by onSearch are shown", async () => {
@@ -608,16 +683,17 @@ test("results returned by onSearch are shown", async () => {
         return results;
     });
 
-    const { getByTestId, getAllByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         onSearch: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    const menuItemsNodes = getAllByTestId(MENU_ITEM_ID);
+    const menuItemsNodes = queries.getMenuItems();
 
     expect(menuItemsNodes.length).toBe(2);
     expect(menuItemsNodes[0].querySelector("span")).toHaveTextContent(results[0].text);
@@ -629,15 +705,16 @@ test("onSearch is not call with the already selected items", async () => {
         return [];
     });
 
-    const { getByTestId, container } = render(createTagsPicker({
+    const renderResult = render(createTagsPicker({
         defaultValues: DEFAULT_ITEMS.map(x => x.value).filter(x => x !== DEFAULT_ITEMS[0].value),
         onSearch: handler
     }));
 
-    await openDropdownMenu(getByTestId, container);
+    const { queries } = await openDropdownMenu(renderResult);
 
-    userEvent.type(getSearchInput(getByTestId), "N");
-    await waitForDomChange(getByTestId(MENU_ITEMS_ID));
+    act(() => {
+        userEvent.type(queries.getSearchInput(), "N");
+    });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [DEFAULT_ITEMS[0]], "N"));
 });

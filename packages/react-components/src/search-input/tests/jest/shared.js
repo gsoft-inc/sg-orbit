@@ -1,4 +1,6 @@
+import { act, waitFor } from "@testing-library/react";
 import { searchInputResult } from "@react-components/search-input";
+import userEvent from "@utils/user-event";
 
 export const RESULT_ID = "search-input-result";
 export const CLEAR_BUTTON_ID = "search-input-clear-button";
@@ -25,8 +27,8 @@ export const DEFAULT_RESULTS = [
 
 export const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
 
-export async function getInput(getByTestId) {
-    const textboxNode = await getByTestId("search-input-textbox");
+export function getInput(getByTestId) {
+    const textboxNode = getByTestId("search-input-textbox");
 
     return textboxNode.querySelector("input");
 }
@@ -37,4 +39,32 @@ export function getResultsMenu(container) {
 
 export function getNoResults(container) {
     return container.querySelector("div.message.empty");
+}
+
+export async function search(text, { getByTestId, getAllByTestId, queryAllByTestId, container }) {
+    const inputNode = getInput(getByTestId);
+
+    act(() => {
+        userEvent.type(inputNode, text);
+    });
+
+    await waitFor(() => getResultsMenu(container));
+
+    return {
+        inputNode,
+        queries: {
+            getResultsMenu: () => {
+                return getResultsMenu(container);
+            },
+            getNoResults: () => {
+                return getNoResults(container);
+            },
+            getResults: () => {
+                return getAllByTestId(RESULT_ID);
+            },
+            queryResults: () => {
+                return queryAllByTestId(RESULT_ID);
+            }
+        }
+    };
 }

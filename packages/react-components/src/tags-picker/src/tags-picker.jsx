@@ -178,8 +178,12 @@ export class TagsPicker extends AutoControlledPureComponent {
         open: false
     };
 
+    _isMount = false;
+
     componentDidMount() {
         this.validateGrouping();
+
+        this._isMount = true;
     }
 
     componentDidUpdate(prevProps) {
@@ -188,6 +192,10 @@ export class TagsPicker extends AutoControlledPureComponent {
         if (prevProps.items !== items) {
             this.validateGrouping();
         }
+    }
+
+    componentWillUnmount() {
+        this._isMount = false;
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -257,7 +265,10 @@ export class TagsPicker extends AutoControlledPureComponent {
     setValues(event, newValues) {
         const { items, onValuesChange } = this.props;
 
-        this.trySetAutoControlledStateValue({ values: newValues }, () => computeDerivedState(items, newValues));
+        // Not proud of this hotfix. While running the Jest state a setState occurs once the component is unmounted. Can't find why.
+        if (this._isMount) {
+            this.trySetAutoControlledStateValue({ values: newValues }, () => computeDerivedState(items, newValues));
+        }
 
         onValuesChange(event, newValues);
     }

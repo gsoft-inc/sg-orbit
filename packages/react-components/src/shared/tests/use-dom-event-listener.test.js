@@ -1,7 +1,7 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { createRef } from "react";
 import { fireEvent } from "@testing-library/dom";
-import { render, wait } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { useDomEventListener } from "@react-components/shared";
 
 function createButton() {
@@ -121,8 +121,6 @@ test("target can be a React ref", () => {
             <button type="button" ref={buttonRef}>Cutoff</button>
         </div>
     );
-
-    wait();
 
     renderHook(() => useDomEventListener("click", handler, true, { target: divRef }));
 

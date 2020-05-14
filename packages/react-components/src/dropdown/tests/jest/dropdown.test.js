@@ -1,7 +1,7 @@
 import { Dropdown } from "@react-components/dropdown";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { render, waitFor } from "@testing-library/react";
+import { waitDelay } from "@utils/wait-delay";
 
 const GENDERS = [
     {
@@ -28,9 +28,7 @@ test("when autofocus is true, the dropdown is autofocused on render", async () =
         autofocus: true
     }));
 
-    await waitDelay(25);
-
-    expect(getByTestId("dropdown")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when autofocus is true, the inline dropdown is autofocused on render", async () => {
@@ -39,9 +37,7 @@ test("when autofocus is true, the inline dropdown is autofocused on render", asy
         inline: true
     }));
 
-    await waitDelay(25);
-
-    expect(getByTestId("dropdown")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when autofocus is true, the searchable dropdown is autofocused on render", async () => {
@@ -50,9 +46,7 @@ test("when autofocus is true, the searchable dropdown is autofocused on render",
         search: true
     }));
 
-    await waitDelay(25);
-
-    expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus());
 });
 
 test("when autofocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
@@ -61,7 +55,7 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
         autofocus: true
     }));
 
-    await waitDelay(25);
+    await waitDelay(5);
 
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
@@ -69,29 +63,25 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
 test("when delayed autofocus, the dropdown is autofocused after the delay", async () => {
     const { getByTestId } = render(createDropdown({
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
-    await wait();
+    await waitDelay(5);
+
     expect(getByTestId("dropdown")).not.toHaveFocus();
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
-    expect(getByTestId("dropdown")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled dropdown, the dropdown is not autofocused after the delay", async () => {
     const { getByTestId } = render(createDropdown({
         disabled: true,
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
-    await wait();
-    expect(getByTestId("dropdown")).not.toHaveFocus();
+    await waitDelay(60);
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
 
@@ -106,9 +96,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
 });
@@ -124,9 +113,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("dropdown");
@@ -141,7 +129,5 @@ test("set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { render, wait } from "@testing-library/react";
 import userEvent from "@utils/user-event";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";
@@ -45,8 +45,9 @@ test("don't toggle popper when disabled", async () => {
         })
     );
 
-    userEvent.click(getByTestId("button"));
-    await wait();
+    act(() => {
+        userEvent.click(getByTestId("button"));
+    });
 
     expect(queryByTestId(POPPER_WRAPPER_ID)).not.toBeInTheDocument();
 });
@@ -63,9 +64,7 @@ test("spread additional props on the root element", async () => {
         })
     );
 
-    await wait();
-
-    expect(ref.current.getAttribute("data-extra-props-test")).toBe("works");
+    await waitFor(() => expect(ref.current.getAttribute("data-extra-props-test")).toBe("works"));
 });
 
 // ***** Refs *****
@@ -79,9 +78,8 @@ test("when wrapped, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
     expect(ref.current.getAttribute("data-testid")).toBe(POPPER_WRAPPER_ID);
@@ -98,9 +96,8 @@ test("when wrapped, using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe(POPPER_WRAPPER_ID);
@@ -115,9 +112,7 @@ test("when wrapped, set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("when not wrapped, ref is a DOM element", async () => {
@@ -130,9 +125,8 @@ test("when not wrapped, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
     expect(ref.current.getAttribute("data-testid")).not.toBe(POPPER_WRAPPER_ID);
@@ -150,9 +144,8 @@ test("when not wrapped and using a callback ref, ref is a DOM element", async ()
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).not.toBe(POPPER_WRAPPER_ID);
@@ -168,7 +161,5 @@ test("when not wrapped, set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
