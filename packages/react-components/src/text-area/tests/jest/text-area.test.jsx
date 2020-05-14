@@ -1,6 +1,6 @@
 import { TextArea } from "@react-components/text-area";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-delay";
 
 function createTextArea(props = {}) {
@@ -127,7 +127,10 @@ test("can focus the text area with the focus api", async () => {
         })
     );
 
-    refNode.focus();
+    act(() => {
+        refNode.focus();
+    });
+
 
     await waitFor(() => expect(getByTestId("textarea")).toHaveFocus());
 });
@@ -144,7 +147,9 @@ test("can select the text area text with the select api", async () => {
         })
     );
 
-    refNode.select();
+    act(() => {
+        refNode.select();
+    });
 
     await waitFor(() => expect(getByTestId("textarea").selectionStart).toBe(0));
     await waitFor(() => expect(getByTestId("textarea").selectionEnd).toBe(5));

@@ -1,5 +1,5 @@
+import { act, waitFor } from "@testing-library/react";
 import { searchInputResult } from "@react-components/search-input";
-import { waitFor } from "@testing-library/react";
 import userEvent from "@utils/user-event";
 
 export const RESULT_ID = "search-input-result";
@@ -27,8 +27,8 @@ export const DEFAULT_RESULTS = [
 
 export const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
 
-export async function getInput(getByTestId) {
-    const textboxNode = await getByTestId("search-input-textbox");
+export function getInput(getByTestId) {
+    const textboxNode = getByTestId("search-input-textbox");
 
     return textboxNode.querySelector("input");
 }
@@ -42,9 +42,11 @@ export function getNoResults(container) {
 }
 
 export async function search(text, { getByTestId, getAllByTestId, queryAllByTestId, container }) {
-    const inputNode = await getInput(getByTestId);
+    const inputNode = getInput(getByTestId);
 
-    userEvent.type(inputNode, text);
+    act(() => {
+        userEvent.type(inputNode, text);
+    });
 
     await waitFor(() => getResultsMenu(container));
 

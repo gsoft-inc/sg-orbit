@@ -1,6 +1,6 @@
 import { Input } from "@react-components/input";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-delay";
 
 function createInput(props = {}) {
@@ -135,7 +135,9 @@ test("can focus the input with the focus api", async () => {
         })
     );
 
-    refNode.focus();
+    act(() => {
+        refNode.focus();
+    });
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
@@ -152,7 +154,9 @@ test("can select the input text with the select api", async () => {
         })
     );
 
-    refNode.select();
+    act(() => {
+        refNode.select();
+    });
 
     await waitFor(() => expect(getInput(getByTestId).selectionStart).toBe(0));
     await waitFor(() => expect(getInput(getByTestId).selectionEnd).toBe(5));

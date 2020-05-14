@@ -9,7 +9,7 @@ import {
     search
 } from "./shared";
 import { RemoteSearchInput } from "@react-components/search-input";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
 import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
@@ -32,6 +32,7 @@ function createRemoteSearchInput({ onFetchResults = withResults(), onValueChange
     return <RemoteSearchInput
         onFetchResults={onFetchResults}
         onValueChange={onValueChange}
+        debounceDelay={0}
         {...otherProps}
     />;
 }
@@ -64,10 +65,21 @@ test("can navigate through the results with arrows keydown", async () => {
 
     await waitFor(() => expect(queries.getResults().length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A));
 
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "ArrowUp", keyCode: 38 });
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowUp", keyCode: 38 });
+    });
 
     await waitFor(() => expect(queries.getResults()[1].parentNode).toHaveClass("active"));
 });
@@ -79,7 +91,9 @@ test("can select a result on click", async () => {
 
     await waitFor(() => expect(queries.getResults().length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A));
 
-    userEvent.click(queries.getResults()[1]);
+    act(() => {
+        userEvent.click(queries.getResults()[1]);
+    });
 
     await waitFor(() => expect(inputNode).toHaveValue(ALEXANDRE_VALUE));
 });
@@ -93,9 +107,17 @@ test("can select a result on enter keydown", async () => {
 
     await waitFor(() => expect(queries.getResults().length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A));
 
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(queries.getResults()[1], { key: "Enter", keyCode: 13 });
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(queries.getResults()[1], { key: "Enter", keyCode: 13 });
+    });
 
     await waitFor(() => expect(inputNode).toHaveValue(ALEXANDRE_VALUE));
 });
@@ -107,7 +129,9 @@ test("when a result is selected, the dropdown menu close", async () => {
 
     await waitFor(() => expect(queries.getResults().length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A));
 
-    userEvent.click(queries.getResults()[1]);
+    act(() => {
+        userEvent.click(queries.getResults()[1]);
+    });
 
     await waitFor(() => expect(queries.getResultsMenu()).not.toBeInTheDocument());
 });
@@ -117,9 +141,11 @@ test("close the dropdown menu on outside click", async () => {
         defaultOpen: true
     }));
 
-    await waitFor(async () => expect(await getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(getResultsMenu(container)).not.toBeInTheDocument());
 });
@@ -129,11 +155,13 @@ test("close the dropdown menu on blur", async () => {
         defaultOpen: true
     }));
 
-    await waitFor(async () => expect(await getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 
-    fireEvent.blur(await getInput(getByTestId));
+    act(() => {
+        fireEvent.blur(getInput(getByTestId));
+    });
 
-    await waitFor(async () => expect(getResultsMenu(container)).not.toBeInTheDocument());
+    await waitFor(() => expect(getResultsMenu(container)).not.toBeInTheDocument());
 });
 
 test("close the dropdown menu on esc keydown", async () => {
@@ -143,7 +171,9 @@ test("close the dropdown menu on esc keydown", async () => {
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
 
-    fireEvent.keyDown(await getInput(getByTestId), { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId), { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(getResultsMenu(container)).not.toBeInTheDocument());
 });
@@ -153,7 +183,9 @@ test("when no result is selected, on blur should clear the search input", async 
 
     const { inputNode } = await search("a", renderResult);
 
-    fireEvent.blur(inputNode);
+    act(() => {
+        fireEvent.blur(inputNode);
+    });
 
     await waitFor(() => expect(inputNode).toHaveValue(""));
 });
@@ -165,7 +197,9 @@ test("when a result is selected, on blur shouldn't clear the search input", asyn
 
     await waitFor(() => expect(queries.getResults().length).toBe(NUMBER_OF_RESULTS_BEGINNING_WITH_A));
 
-    userEvent.click(queries.getResults()[0]);
+    act(() => {
+        userEvent.click(queries.getResults()[0]);
+    });
 
     await waitFor(() => expect(inputNode).not.toHaveValue(""));
 });
@@ -175,8 +209,13 @@ test("selected result is cleared on 2x esc keydown", async () => {
 
     const { inputNode } = await search("a", renderResult);
 
-    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
-    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(inputNode).toHaveValue(""));
 });
@@ -186,9 +225,11 @@ test("selected result is cleared on clear button click", async () => {
         defaultValue: ALEXANDRE_VALUE
     }));
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
-    await waitFor(async () => expect(await getInput(getByTestId)).toHaveValue(""));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(""));
 });
 
 test("dropdown menu is closed on clear button click", async () => {
@@ -199,7 +240,9 @@ test("dropdown menu is closed on clear button click", async () => {
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
     await waitFor(() => expect(getResultsMenu(container)).not.toBeInTheDocument());
 });
@@ -213,7 +256,7 @@ test("when autofocus is true, the input is focused on render", async () => {
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
 
-    await waitFor(async () => expect(await getInput(getByTestId)).toHaveFocus());
+    await waitFor(async () => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when delayed autofocus, the input is focused after the delay", async () => {
@@ -225,12 +268,12 @@ test("when delayed autofocus, the input is focused after the delay", async () =>
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
 
-    expect(await getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId)).not.toHaveFocus();
 
     // Fixme: this delay shouldn't be needed, waitFor should be enough.
     await waitDelay(60);
 
-    await waitFor(async () => expect(await getInput(getByTestId)).toHaveFocus());
+    await waitFor(async () => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when disabled, dont open the dropdown menu on textbox click", async () => {
@@ -238,7 +281,9 @@ test("when disabled, dont open the dropdown menu on textbox click", async () => 
         disabled: true
     }));
 
-    userEvent.click(await getInput(getByTestId));
+    act(() => {
+        userEvent.click(getInput(getByTestId));
+    });
 
     expect(getResultsMenu(container)).toBeNull();
 });
@@ -250,7 +295,9 @@ test("when closeOnSelect is true, clear the search input on item select", async 
 
     const { inputNode, queries } = await search("a", renderResult);
 
-    userEvent.click(queries.getResults()[0]);
+    act(() => {
+        userEvent.click(queries.getResults()[0]);
+    });
 
     await waitFor(() => expect(inputNode).toHaveTextContent(""));
 });
@@ -264,7 +311,9 @@ test("wait until specified minCharacters count typed before filtering and showin
 
     const { getByTestId, container } = renderResult;
 
-    userEvent.type(await getInput(getByTestId), ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    act(() => {
+        userEvent.type(getInput(getByTestId), ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    });
 
     expect(getResultsMenu(container)).not.toBeInTheDocument();
 
@@ -284,12 +333,23 @@ test("dont make any remote calls until the minCharacters count has been reached"
         onFetchResults: handler
     }));
 
-    const inputNode = await getInput(getByTestId);
+    const inputNode = getInput(getByTestId);
 
-    userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -3));
-    userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -2));
-    userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
-    userEvent.type(inputNode, ALEXANDRE_VALUE);
+    act(() => {
+        userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -3));
+    });
+
+    act(() => {
+        userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -2));
+    });
+
+    act(() => {
+        userEvent.type(inputNode, ALEXANDRE_VALUE.substring(0, MINIMUM_CHARACTERS -1));
+    });
+
+    act(() => {
+        userEvent.type(inputNode, ALEXANDRE_VALUE);
+    });
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -332,7 +392,9 @@ test("when closeOnBlur is false, dont close the dropdown menu on blur", async ()
 
     const { queries } = await search("a", renderResult);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     expect(queries.getResultsMenu()).toBeInTheDocument();
 });
@@ -345,7 +407,9 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropd
 
     const { queries } = await search("a", renderResult);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(queries.getResultsMenu()).not.toBeInTheDocument());
 });
@@ -361,7 +425,9 @@ test("call onValueChange when a result is selected on click", async () => {
 
     const { queries } = await search("a", renderResult);
 
-    userEvent.click(queries.queryResults()[1]);
+    act(() => {
+        userEvent.click(queries.queryResults()[1]);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT));
 });
@@ -377,9 +443,17 @@ test("call onValueChange when a result is selected on enter keydown", async () =
 
     await search("a", renderResult);
 
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
-    fireEvent.keyDown(container, { key: "Enter", keyCode: 13 });
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "ArrowDown", keyCode: 40 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(container, { key: "Enter", keyCode: 13 });
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ALEXANDRE_RESULT));
 });
@@ -392,7 +466,9 @@ test("call onValueChange when the selected result is cleared", async () => {
         onValueChange: handler
     }));
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), null));
 });
@@ -419,7 +495,9 @@ test("call onVisibilityChange when the dropdown menu is closed on outside click"
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
@@ -434,7 +512,9 @@ test("call onVisibilityChange when the dropdown menu is closed on esc keydown", 
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
 
-    fireEvent.keyDown(await getInput(getByTestId), { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId), { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
@@ -449,7 +529,9 @@ test("call onVisibilityChange when the dropdown menu is closed on blur", async (
 
     await waitFor(() => expect(getResultsMenu(container)).toBeInTheDocument());
 
-    fireEvent.blur(await getInput(getByTestId));
+    act(() => {
+        fireEvent.blur(getInput(getByTestId));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
@@ -463,7 +545,9 @@ test("call onVisibilityChange when the dropdown menu is closed on item selection
 
     const { queries } = await search("a", renderResult);
 
-    userEvent.click(queries.getResults()[0]);
+    act(() => {
+        userEvent.click(queries.getResults()[0]);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
@@ -519,7 +603,9 @@ test("call onBlur when the input blur", async () => {
         autofocusDelay: 0
     }));
 
-    fireEvent.blur(await getInput(getByTestId));
+    act(() => {
+        fireEvent.blur(getInput(getByTestId));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
@@ -531,11 +617,19 @@ test("call onKeyDown when any keys down on the input", async () => {
         onKeyDown: handler
     }));
 
-    const inputNode = await getInput(getByTestId);
+    const inputNode = getInput(getByTestId);
 
-    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
-    fireEvent.keyDown(inputNode, { key: "Enter", keyCode: 13 });
-    fireEvent.keyDown(inputNode, { key: " ", keyCode: 32 });
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: "Enter", keyCode: 13 });
+    });
+
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: " ", keyCode: 32 });
+    });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));
 });
@@ -548,7 +642,9 @@ test("call onClear when the clear button is clicked", async () => {
         onClear: handler
     }));
 
-    userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
@@ -562,7 +658,9 @@ test("call onOutsideClick on outside click", async () => {
 
     await search("a", renderResult);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });

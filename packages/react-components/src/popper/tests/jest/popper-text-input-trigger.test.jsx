@@ -2,8 +2,8 @@ import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
 import { TextInput } from "@react-components/text-input";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
 import userEvent from "@utils/user-event";
 
 const POPPER_ID = "popper-wrapper";
@@ -30,7 +30,9 @@ function getInput(getByTestId) {
 test("show the popper on input click", async () => {
     const { getByTestId } = render(createPopperTrigger());
 
-    userEvent.click(getInput(getByTestId));
+    act(() => {
+        userEvent.click(getInput(getByTestId));
+    });
 
     await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
@@ -40,11 +42,15 @@ test("hide the popper on input click", async () => {
 
     const inputNode = getInput(getByTestId);
 
-    userEvent.click(inputNode);
+    act(() => {
+        userEvent.click(inputNode);
+    });
 
     const popperNode = await waitFor(() => getByTestId(POPPER_ID));
 
-    userEvent.click(inputNode);
+    act(() => {
+        userEvent.click(inputNode);
+    });
 
     await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
@@ -57,11 +63,15 @@ test("dont close the popper on input clear button click", async () => {
         />
     }));
 
-    userEvent.click(getInput(getByTestId));
+    act(() => {
+        userEvent.click(getInput(getByTestId));
+    });
 
     const popperNode = await waitFor(() => getByTestId(POPPER_ID));
 
-    userEvent.click(getByTestId("clear-button"));
+    act(() => {
+        userEvent.click(getByTestId("clear-button"));
+    });
 
     await waitFor(() => expect(popperNode).toBeInTheDocument());
 });

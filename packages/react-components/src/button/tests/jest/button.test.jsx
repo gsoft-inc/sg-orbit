@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
 
 function createButton(props = {}) {
     return <Button
@@ -55,7 +55,9 @@ test("can focus the button with the focus api", async () => {
         })
     );
 
-    refNode.focus();
+    act(() => {
+        refNode.focus();
+    });
 
     await waitFor(() => expect(refNode).toHaveFocus());
 });

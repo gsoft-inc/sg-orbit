@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
@@ -46,9 +46,9 @@ test("don't toggle popper when disabled", async () => {
         })
     );
 
-    userEvent.click(getByTestId("button"));
-
-    await waitDelay(5);
+    act(() => {
+        userEvent.click(getByTestId("button"));
+    });
 
     expect(queryByTestId(POPPER_WRAPPER_ID)).not.toBeInTheDocument();
 });

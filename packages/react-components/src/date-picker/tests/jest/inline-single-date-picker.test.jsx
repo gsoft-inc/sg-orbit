@@ -1,6 +1,6 @@
 import { CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, DATE_FORMAT } from "./shared";
 import { InlineSingleDatePicker } from "@react-components/date-picker";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
 import { waitDelay } from "@utils/wait-delay";
 import moment from "moment";
@@ -33,7 +33,9 @@ function createInlineSingleDatePicker(props) {
 test("open the calendar on input click", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    userEvent.click(getByTestId(INPUT_ID));
+    act(() => {
+        userEvent.click(getByTestId(INPUT_ID));
+    });
 
     await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
@@ -41,7 +43,9 @@ test("open the calendar on input click", async () => {
 test("open the calendar on space keydown", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    });
 
     await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
@@ -49,7 +53,9 @@ test("open the calendar on space keydown", async () => {
 test("open the calendar on enter keydown", async () => {
     const { getByTestId } = render(createInlineSingleDatePicker());
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    });
 
     await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
@@ -59,7 +65,9 @@ test("close the calendar on esc keydown", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 });
@@ -69,7 +77,9 @@ test("close the calendar on outside click", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 });
@@ -79,7 +89,9 @@ test("close the calendar on input click", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    userEvent.click(getByTestId(INPUT_ID));
+    act(() => {
+        userEvent.click(getByTestId(INPUT_ID));
+    });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 });
@@ -89,7 +101,9 @@ test("close the calendar on blur", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    getByTestId(INPUT_ID).blur();
+    act(() => {
+        getByTestId(INPUT_ID).blur();
+    });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 });
@@ -99,9 +113,9 @@ test("when disabled, dont open the calendar on input click", async () => {
         disabled: true
     }));
 
-    userEvent.click(getByTestId(INPUT_ID));
-
-    await waitDelay(5);
+    act(() => {
+        userEvent.click(getByTestId(INPUT_ID));
+    });
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
@@ -111,9 +125,9 @@ test("when disabled, dont open the calendar on space keydown", async () => {
         disabled: true
     }));
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
-
-    await waitDelay(5);
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    });
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
@@ -123,9 +137,9 @@ test("when disabled, dont open the calendar on enter keydown", async () => {
         disabled: true
     }));
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
-
-    await waitDelay(5);
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    });
 
     expect(queryByTestId(CALENDAR_ID)).toBeNull();
 });
@@ -140,7 +154,9 @@ test("when the calendar is closed and a value is selected, clear the value on es
 
     await waitFor(() => expect(inputNode).toHaveTextContent(formattedDate));
 
-    fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(inputNode).not.toHaveTextContent(formattedDate));
 });
@@ -150,13 +166,17 @@ test("when the calendar close on esc keydown, the input should be focused", asyn
 
     await openCalendar(getByTestId);
 
-    getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
+    act(() => {
+        getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
+    });
 
     const inputNode = getByTestId(INPUT_ID);
 
     await waitFor(() => expect(inputNode).not.toHaveFocus());
 
-    fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    act(() => {
+        fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
+    });
 
     await waitFor(() => expect(inputNode).toHaveFocus());
 });
@@ -168,7 +188,9 @@ test("when closeOnBlur is false, dont close the calendar on blur", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(calendarNode).toBeInTheDocument());
 });
@@ -181,7 +203,9 @@ test("when closeOnBlur is false and closeOnOutsideClick is true, close the calen
 
     const calendarNode = await openCalendar(getByTestId);
 
-    userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
 });
@@ -195,10 +219,9 @@ test("call onVisibilityChange when the calendar is opened with an input click", 
         onVisibilityChange: handler
     }));
 
-    userEvent.click(getByTestId(INPUT_ID));
-
-    // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    act(() => {
+        userEvent.click(getByTestId(INPUT_ID));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
@@ -210,10 +233,9 @@ test("call onVisibilityChange when the calendar is opened with space keydown", a
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
-
-    // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: " ", keyCode: 32 });
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
@@ -225,10 +247,9 @@ test("call onVisibilityChange when the calendar is opened with enter keydown", a
         onVisibilityChange: handler
     }));
 
-    fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
-
-    // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    act(() => {
+        fireEvent.keyDown(getByTestId(INPUT_ID), { key: "Enter", keyCode: 13 });
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
@@ -242,7 +263,9 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    getByTestId(INPUT_ID).blur();
+    act(() => {
+        getByTestId(INPUT_ID).blur();
+    });
 
     // I shouldn't need this but the test fail otherwise.
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
