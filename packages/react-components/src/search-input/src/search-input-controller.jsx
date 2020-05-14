@@ -307,7 +307,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { transformedResults, query } = this.state;
 
         const searchClasses = mergeClasses(
-            "outline-0",
+            "outline-none",
             className
         );
 

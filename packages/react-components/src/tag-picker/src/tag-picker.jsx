@@ -344,7 +344,7 @@ export class TagPicker extends AutoControlledPureComponent {
         const { className, style } = this.props;
 
         const classes = mergeClasses(
-            "flex flex-wrap outline-0",
+            "flex flex-wrap outline-none",
             className
         );
 

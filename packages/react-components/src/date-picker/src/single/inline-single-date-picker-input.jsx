@@ -111,9 +111,9 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
         const { onClick, onFocus, onBlur, open, disabled, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
-            "flex items-center outline-0",
+            "flex items-center outline-none",
             open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
-            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 pointer" : "cloud-200 hover-b--transparent",
+            !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 focus-bg-primary-50 br1 pointer" : "marine-200 bg-cloud-50 br1 hover-b--transparent",
             className
         );
 
@@ -129,7 +129,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
                 ref={forwardedRef}
                 data-testid="inline-single-date-picker-input"
             >
-                <span className="fw5">{this.getValue()}</span>
+                <span className="fw4">{this.getValue()}</span>
                 <span className="flex">{this.renderIcon()}</span>
             </div>
         );

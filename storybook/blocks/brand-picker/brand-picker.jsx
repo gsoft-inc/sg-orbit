@@ -32,7 +32,7 @@ export function BrandPicker() {
 
                 return (
                     <li key={x.id} className={spacing}>
-                        <span onClick={() => handleSelectBrand(x)} className={`ba bw1 ${currentBrandClasses} hover-bg-${x.id}-700 hover-white pv1 ph2 fw5 br-pill pointer`}>
+                        <span onClick={() => handleSelectBrand(x)} className={`ba bw1 ${currentBrandClasses} hover-bg-${x.id}-700 focus-bg-${x.id}-700 hover-white focus-white focus-outline focus-b--${x.id}-700 pv1 ph2 fw5 br-pill pointer`}>
                             {x.displayName}
                         </span>
                     </li>

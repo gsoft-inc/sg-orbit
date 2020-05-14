@@ -666,6 +666,10 @@
     background-color: var(--marine-500);
 }
 
+.ui.selection.dropdown:hover:focus {
+    border-color: @selectionHoverBorderColor;
+}
+
 /*******************************
     No Icon
 *******************************/
@@ -1192,7 +1196,7 @@
 }
 
 .ui.dropdown.selection.transparent {
-    padding-left: 0;
+    padding-left: 2px;
 }
 
 .ui.selection.active.dropdown.transparent {
@@ -1202,6 +1206,7 @@
 .ui.selection.dropdown.transparent .menu {
     border-top-width: 1px !important;
     border-radius: var(--scale-alpha);
+    margin-top: 2px;
 }
 
 .ui.selection.dropdown.upward.transparent .menu {

@@ -38,52 +38,82 @@
     background-color: var(--overcast-900);
 }
 
-.hover-bg-overcast-50:hover,
-.hover-bg-overcast-50:focus {
+.hover-bg-overcast-50:hover {
     background-color: var(--overcast-50);
 }
 
-.hover-bg-overcast-100:hover,
-.hover-bg-overcast-100:focus {
+.hover-bg-overcast-100:hover {
     background-color: var(--overcast-100);
 }
 
-.hover-bg-overcast-200:hover,
-.hover-bg-overcast-200:focus {
+.hover-bg-overcast-200:hover {
     background-color: var(--overcast-200);
 }
 
-.hover-bg-overcast-300:hover,
-.hover-bg-overcast-300:focus {
+.hover-bg-overcast-300:hover {
     background-color: var(--overcast-300);
 }
 
-.hover-bg-overcast-400:hover,
-.hover-bg-overcast-400:focus {
+.hover-bg-overcast-400:hover {
     background-color: var(--overcast-400);
 }
 
-.hover-bg-overcast-500:hover,
-.hover-bg-overcast-500:focus {
+.hover-bg-overcast-500:hover {
     background-color: var(--overcast-500);
 }
 
-.hover-bg-overcast-600:hover,
-.hover-bg-overcast-600:focus {
+.hover-bg-overcast-600:hover {
     background-color: var(--overcast-600);
 }
 
-.hover-bg-overcast-700:hover,
-.hover-bg-overcast-700:focus {
+.hover-bg-overcast-700:hover {
     background-color: var(--overcast-700);
 }
 
-.hover-bg-overcast-800:hover,
-.hover-bg-overcast-800:focus {
+.hover-bg-overcast-800:hover {
     background-color: var(--overcast-800);
 }
 
-.hover-bg-overcast-900:hover,
-.hover-bg-overcast-900:focus {
+.hover-bg-overcast-900:hover {
+    background-color: var(--overcast-900);
+}
+
+.focus-bg-overcast-50:focus {
+    background-color: var(--overcast-50);
+}
+
+.focus-bg-overcast-100:focus {
+    background-color: var(--overcast-100);
+}
+
+.focus-bg-overcast-200:focus {
+    background-color: var(--overcast-200);
+}
+
+.focus-bg-overcast-300:focus {
+    background-color: var(--overcast-300);
+}
+
+.focus-bg-overcast-400:focus {
+    background-color: var(--overcast-400);
+}
+
+.focus-bg-overcast-500:focus {
+    background-color: var(--overcast-500);
+}
+
+.focus-bg-overcast-600:focus {
+    background-color: var(--overcast-600);
+}
+
+.focus-bg-overcast-700:focus {
+    background-color: var(--overcast-700);
+}
+
+.focus-bg-overcast-800:focus {
+    background-color: var(--overcast-800);
+}
+
+.focus-bg-overcast-900:focus {
     background-color: var(--overcast-900);
 }

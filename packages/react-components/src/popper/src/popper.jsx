@@ -162,7 +162,7 @@ function usePopperInstance(position, triggerElement, pinned, offset, popperModif
 function useWrapperRenderer({ className, rest }) {
     return popper => {
         const classes = mergeClasses(
-            "outline-0",
+            "outline-none",
             className
         );
 
