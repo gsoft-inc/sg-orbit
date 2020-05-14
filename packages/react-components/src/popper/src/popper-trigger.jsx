@@ -152,7 +152,7 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
-     * The popper component.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the popper.
      */
     popper: oneOfType([element, object])
 };

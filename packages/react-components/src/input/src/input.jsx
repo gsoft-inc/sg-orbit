@@ -31,7 +31,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * A React component displayed before or after the prompt based on "iconPosition".
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
     /**
@@ -39,7 +39,7 @@ const propTypes = {
      */
     iconPosition: oneOf(["left"]),
     /**
-     * An input can contain a button.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
      */
     button: oneOfType([element, object]),
     /**

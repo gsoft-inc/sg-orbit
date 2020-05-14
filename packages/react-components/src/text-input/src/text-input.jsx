@@ -21,7 +21,7 @@ const INPUT_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * A React component displayed before or after the prompt based on "iconPosition".
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
     /**
@@ -29,7 +29,7 @@ const INPUT_PROP_TYPES = {
      */
     iconPosition: oneOf(["left"]),
     /**
-     * An input can contain a button.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
      */
     button: oneOfType([element, object]),
     /**
@@ -44,6 +44,10 @@ const INPUT_PROP_TYPES = {
      * Additional style to render on the wrapper element.
      */
     wrapperStyle: object,
+    /**
+     * @ignore
+     */
+    disabled: bool,
     /**
      * @ignore
      */

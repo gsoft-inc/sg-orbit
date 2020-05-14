@@ -3,7 +3,7 @@ import { DayPickerRangeController } from "../react-dates-wrapper";
 import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement, forwardRef } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -66,7 +66,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
         /**
          * A React component to list and select a preset.
          */
-        presetsComponent: node,
+        presetsComponent: element,
         /**
          * Array of pre-determined dates range displayed to the left of the calendar.
          */
@@ -74,7 +74,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
         /**
          * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
-        buttons: node,
+        buttons: element,
         /**
          * Whether or not the calendar selected date(s) can be cleared.
          */
@@ -90,7 +90,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: node
+        reactDatesCalendar: element
     };
 
     static defaultProps = {

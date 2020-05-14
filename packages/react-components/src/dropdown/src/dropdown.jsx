@@ -20,7 +20,7 @@ const SIZE_CLASS = {
 
 const propTypes = {
     /**
-     * A dropdown can display an icon before it's content.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story before the content.
      */
     icon: element,
     /**

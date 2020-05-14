@@ -2,7 +2,7 @@ import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerSingleDateController } from "../react-dates-wrapper";
 import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement, forwardRef } from "react";
-import { bool, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -47,7 +47,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
-        buttons: node,
+        buttons: element,
         /**
          * Whether or not the calendar selected date can be cleared.
          */
@@ -55,7 +55,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: node,
+        reactDatesCalendar: element,
         /**
          * @ignore
          */

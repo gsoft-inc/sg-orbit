@@ -5,7 +5,7 @@ import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
 import { POSITIONS } from "../../../popper";
-import { arrayOf, bool, func, node, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -84,7 +84,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * A React component that display the currently applied date(s) and open the calendar.
          */
-        input: node,
+        input: element,
         /**
          * The placeholder text.
          */
@@ -113,11 +113,11 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * A React component to select a date.
          */
-        calendar: node,
+        calendar: element,
         /**
          * A React component to list and select a preset.
          */
-        presetsComponent: node,
+        presetsComponent: element,
         /**
          * Array of pre-determined dates range displayed to the left of the calendar.
          */
@@ -125,7 +125,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
-        buttons: node,
+        buttons: element,
         /**
          * A controlled open value that determined whether or not the calendar is displayed.
          */

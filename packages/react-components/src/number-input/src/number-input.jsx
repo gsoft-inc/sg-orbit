@@ -21,9 +21,13 @@ const INPUT_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * A React component displayed before or after the prompt based on "iconPosition".
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
+    /**
+     * An icon can appear on the left or right.
+     */
+    iconPosition: oneOf(["left"]),
     /**
      * An input can vary in sizes.
      */
@@ -36,6 +40,10 @@ const INPUT_PROP_TYPES = {
      * Additional style to render on the wrapper element.
      */
     wrapperStyle: object,
+    /**
+     * @ignore
+     */
+    disabled: bool,
     /**
      * @ignore
      */

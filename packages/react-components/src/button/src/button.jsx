@@ -26,7 +26,7 @@ const propTypes = {
      */
     link: bool,
     /**
-     * A button can contain an icon.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
     /**
@@ -34,11 +34,11 @@ const propTypes = {
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * A button can contain a label.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [label](/?path=/docs/components-label--default-story).
      */
     label: oneOfType([element, object]),
     /**
-     * A button can contain a tag.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [tag](/?path=/docs/components-tag--default-story).
      */
     tag: oneOfType([element, object]),
     /**
