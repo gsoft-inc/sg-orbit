@@ -67,11 +67,11 @@ const propTypes = {
      */
     transparent: bool,
     /**
-     * Additional CSS classes to render on the dropdown wrapper element.
+     * Additional CSS classes to render on the wrapper element.
      */
     wrapperClassName: string,
     /**
-     * Additional style to render on the dropdown wrapper element.
+     * Additional style to render on the wrapper element.
      */
     wrapperStyle: object,
     /**

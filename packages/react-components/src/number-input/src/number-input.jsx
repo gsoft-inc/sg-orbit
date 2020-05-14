@@ -1,5 +1,5 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -28,6 +28,14 @@ const INPUT_PROP_TYPES = {
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
+    /**
+     * Additional CSS classes to render on the wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the wrapper element.
+     */
+    wrapperStyle: object,
     /**
      * @ignore
      */

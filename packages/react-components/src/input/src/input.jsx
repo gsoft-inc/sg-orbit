@@ -47,9 +47,13 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
-     * @ignore
+     * Additional CSS classes to render on the wrapper element.
      */
-    className: string,
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the wrapper element.
+     */
+    wrapperStyle: object,
     /**
      * @ignore
      */
@@ -164,19 +168,20 @@ function useInputRenderer({ fluid, iconPosition, size, loading, disabled, childr
     };
 }
 
-function useRenderer({ button, fluid, className }, containerRef, buttonComponent, input) {
+function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containerRef, buttonComponent, input) {
     return () => {
         const classes = mergeClasses(
             "relative outline-0",
             fluid ? "w-100" : "dib",
             button && "with-button",
-            className
+            wrapperClassName
         );
 
         return (
             <div
                 ref={containerRef}
                 className={classes}
+                style={wrapperStyle}
                 tabIndex={-1}
                 data-testid="input"
             >
@@ -188,7 +193,7 @@ function useRenderer({ button, fluid, className }, containerRef, buttonComponent
 }
 
 export function InnerInput(props) {
-    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, loading, disabled, className, __componentName, forwardedRef, children, ...rest } = props;
+    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, loading, disabled, wrapperClassName, wrapperStyle, __componentName, forwardedRef, children, ...rest } = props;
 
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
@@ -203,7 +208,7 @@ export function InnerInput(props) {
     const renderIcon = useIconRenderer({ icon, size, loading });
     const renderButton = useButtonRenderer({ iconPosition, button, size, loading, disabled });
     const renderInput = useInputRenderer({ fluid, iconPosition, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderIcon());
-    const render = useRenderer({ button, fluid, className }, containerRef, renderButton(), renderInput() );
+    const render = useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containerRef, renderButton(), renderInput() );
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

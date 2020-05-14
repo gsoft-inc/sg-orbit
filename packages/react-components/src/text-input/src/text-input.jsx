@@ -37,6 +37,14 @@ const INPUT_PROP_TYPES = {
      */
     size: oneOf(SIZES),
     /**
+     * Additional CSS classes to render on the wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the wrapper element.
+     */
+    wrapperStyle: object,
+    /**
      * @ignore
      */
     forwardedRef: oneOfType([object, func])
