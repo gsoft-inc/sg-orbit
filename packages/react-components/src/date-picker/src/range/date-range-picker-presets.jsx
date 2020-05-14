@@ -42,7 +42,7 @@ class Preset extends PureComponent {
             <li className="flex justify-center pa1 mb2 lh1">
                 <Choose>
                     <When condition={isBlocked}>
-                        <span className="f7 cloud-400 outline-none">{preset.text}</span>
+                        <span className="f7 cloud-400 outline-0">{preset.text}</span>
                     </When>
                     <Otherwise>
                         <Button

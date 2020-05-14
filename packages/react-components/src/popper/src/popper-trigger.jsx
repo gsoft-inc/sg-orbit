@@ -472,7 +472,7 @@ function usePopperRenderer(
 function useRenderer({ fluid, disabled, className, rest }, handleContainerFocus, handleContainerBlur, containerRef, trigger, popper) {
     return () => {
         const classes = mergeClasses(
-            "outline-none",
+            "outline-0",
             !fluid && "dib",
             className
         );

@@ -239,7 +239,7 @@ function useRenderer({ size, fluid, className }, innerRef, dropdown, icon) {
     return () => {
         const classes = mergeClasses(
             fluid ? "w-100" : "dib",
-            "relative outline-none",
+            "relative outline-0",
             className
         );
 

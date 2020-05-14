@@ -161,7 +161,7 @@ function useInputRenderer({ fluid, iconPosition, size, loading, disabled, childr
 function useRenderer({ button, fluid, className }, containerRef, buttonComponent, input) {
     return () => {
         const classes = mergeClasses(
-            "relative outline-none",
+            "relative outline-0",
             fluid ? "w-100" : "dib",
             button && "with-button",
             className
