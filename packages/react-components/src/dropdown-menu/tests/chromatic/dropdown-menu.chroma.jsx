@@ -295,6 +295,28 @@ stories()
                 })}
             </div>
         </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            {createDropdownMenu({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createDropdownMenu({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createDropdownMenu({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createDropdownMenu({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
+        </div>
     );
 
 stories("/item")

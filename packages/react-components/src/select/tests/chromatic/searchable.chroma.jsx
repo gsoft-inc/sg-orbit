@@ -247,6 +247,28 @@ stories()
             </div>
         </div>
     )
+    .add("styling", () =>
+        <div className="flex">
+            {createSearchableSelect({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createSearchableSelect({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createSearchableSelect({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createSearchableSelect({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
+        </div>
+    )
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>

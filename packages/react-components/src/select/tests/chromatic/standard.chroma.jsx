@@ -300,6 +300,28 @@ stories()
             </div>
         </div>
     )
+    .add("styling", () =>
+        <div className="flex">
+            {createSelect({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createSelect({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createSelect({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createSelect({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
+        </div>
+    )
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -518,16 +540,6 @@ stories()
                     defaultOpen: true
                 })}
             </div>
-        </div>
-    )
-    .add("styling", () =>
-        <div className="flex">
-            {createSelect({
-                className: "border-red mr5"
-            })}
-            {createSelect({
-                style: { border: "1px solid red" }
-            })}
         </div>
     );
 

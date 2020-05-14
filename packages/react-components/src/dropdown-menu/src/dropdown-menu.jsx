@@ -2,8 +2,8 @@ import { Children, forwardRef } from "react";
 import { Dropdown } from "../../dropdown";
 import { DropdownMenuHeader } from "./header";
 import { DropdownMenuItem } from "./item";
-import { func, object, oneOf, oneOfType } from "prop-types";
-import { throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { func, object, oneOf, oneOfType, string } from "prop-types";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -52,6 +52,18 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
+     * Additional CSS classes to render on the dropdown wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the dropdown wrapper element.
+     */
+    wrapperStyle: object,
+    /**
+     * @ignore
+     */
+    className: string,
+    /**
      * @ignore
      */
     forwardedRef: oneOfType([object, func])
@@ -61,15 +73,20 @@ const defaultProps = {
     size: DEFAULT_SIZE
 };
 
-function useRenderer({ forwardedRef, children, rest }) {
+function useRenderer({ className, forwardedRef, children, rest }) {
     return () => {
         const hasChildren = Children.count(children) > 0;
+
+        const classes = mergeClasses(
+            "dropdown-menu",
+            className
+        );
 
         return (
             <Dropdown
                 {...rest}
+                className={classes}
                 ref={forwardedRef}
-                __dropdownClasses="dropdown-menu"
             >
                 <Choose>
                     <When condition={hasChildren}>
@@ -85,11 +102,11 @@ function useRenderer({ forwardedRef, children, rest }) {
 }
 
 export function InnerDropdownMenu(props) {
-    const { forwardedRef, children, ...rest } = props;
+    const { className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
-    const render = useRenderer({ forwardedRef, children, rest });
+    const render = useRenderer({ className, forwardedRef, children, rest });
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

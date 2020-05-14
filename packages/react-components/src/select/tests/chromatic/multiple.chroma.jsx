@@ -30,7 +30,7 @@ stories()
     .add("default", () =>
         <div className="flex">
             {createMultipleSelect({
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createMultipleSelect({
                 defaultOpen: true
@@ -41,11 +41,11 @@ stories()
         <div className="flex">
             {createMultipleSelect({
                 defaultValue: ["Female"],
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createMultipleSelect({
                 defaultValue: ["Female", "Male"],
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createMultipleSelect({
                 defaultValue: ["Female"],
@@ -58,12 +58,12 @@ stories()
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 {createMultipleSelect({
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -72,11 +72,11 @@ stories()
             </div>
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 {createMultipleSelect({
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     defaultOpen: true
@@ -85,12 +85,12 @@ stories()
             <div className="flex">
                 {createMultipleSelect({
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -104,7 +104,7 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createMultipleSelect({
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     fluid: true,
@@ -130,12 +130,12 @@ stories()
         <div className="flex">
             {createMultipleSelect({
                 disabled: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createMultipleSelect({
                 disabled: true,
                 defaultValue: ["Female", "Male"],
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
         </div>
     )
@@ -143,11 +143,11 @@ stories()
         <div className="flex">
             {createMultipleSelect({
                 error: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createMultipleSelect({
                 error: true,
-                className: "mr5",
+                wrapperClassName: "mr5",
                 defaultOpen: true
             })}
         </div>
@@ -158,13 +158,13 @@ stories()
                 {createMultipleSelect({
                     loading: true,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
                     defaultValue: ["Female"],
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
@@ -175,12 +175,12 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createMultipleSelect({
                     loading: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
@@ -191,13 +191,13 @@ stories()
                 {createMultipleSelect({
                     loading: true,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
                     defaultValue: ["Female"],
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     loading: true,
@@ -213,19 +213,19 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -236,17 +236,17 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -257,19 +257,19 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -285,19 +285,19 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -308,17 +308,17 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -329,19 +329,19 @@ stories()
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: ["Male"],
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     icon: <MagnifierIcon />,
@@ -357,13 +357,13 @@ stories()
                 {createMultipleSelect({
                     search: true,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
                     size: "small",
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
@@ -374,12 +374,12 @@ stories()
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 {createMultipleSelect({
                     search: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
@@ -390,13 +390,13 @@ stories()
                 {createMultipleSelect({
                     search: true,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
                     size: "large",
                     defaultValue: ["Female", "Male"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     search: true,
@@ -412,6 +412,28 @@ stories()
             </div>
         </div>
     )
+    .add("styling", () =>
+        <div className="flex">
+            {createMultipleSelect({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createMultipleSelect({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createMultipleSelect({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createMultipleSelect({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
+        </div>
+    )
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -421,7 +443,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -430,7 +452,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -439,7 +461,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -448,7 +470,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     options: [
@@ -456,7 +478,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     options: [
@@ -464,7 +486,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -474,7 +496,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -483,7 +505,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -492,7 +514,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
         </div>
@@ -506,7 +528,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -515,7 +537,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -524,7 +546,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "small",
@@ -533,7 +555,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -542,7 +564,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     options: [
@@ -550,7 +572,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     options: [
@@ -558,7 +580,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     options: [
@@ -566,7 +588,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -576,7 +598,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -585,7 +607,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -594,7 +616,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: ["Female"],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createMultipleSelect({
                     size: "large",
@@ -603,7 +625,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
         </div>

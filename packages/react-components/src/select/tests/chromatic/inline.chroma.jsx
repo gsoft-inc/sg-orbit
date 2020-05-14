@@ -45,7 +45,7 @@ stories()
     .add("default", () =>
         <div className="flex">
             {createInlineSelect({
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createInlineSelect({
                 defaultOpen: true
@@ -56,7 +56,7 @@ stories()
         <div className="flex">
             {createInlineSelect({
                 defaultValue: "Female",
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createInlineSelect({
                 defaultValue: "Female",
@@ -106,7 +106,7 @@ stories()
         <div className="flex">
             {createInlineSelect({
                 error: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createInlineSelect({
                 error: true,
@@ -153,6 +153,28 @@ stories()
             <div className="f1">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et lacus at euismod {createInlineSelect()}elementum viverra maximus.
             </div>
+        </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            {createInlineSelect({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createInlineSelect({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createInlineSelect({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createInlineSelect({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
         </div>
     )
     .add("item avatar", () =>
