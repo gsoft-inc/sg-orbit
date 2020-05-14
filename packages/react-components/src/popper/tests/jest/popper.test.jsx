@@ -3,7 +3,6 @@ import { Popper } from "@react-components/popper";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";

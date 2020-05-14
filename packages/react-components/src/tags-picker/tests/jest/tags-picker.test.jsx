@@ -1,15 +1,10 @@
 import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
-import { act, fireEvent, render, waitFor, waitForDomChange } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
-import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
-
-// TODO:
-// - open comme le "search"
 
 const TRIGGER_ID = "tags-picker-dropdown-trigger";
 const SEARCH_INPUT_ID = "tags-picker-dropdown-search-input";
-const MENU_ITEMS_ID = "tags-picker-dropdown-menu-items";
 const MENU_ITEM_ID = "tags-picker-dropdown-item";
 const NO_RESULTS_ID = "tags-picker-dropdown-menu-no-results";
 const SELECTED_ITEM_ID = "tags-picker-selected-item";
