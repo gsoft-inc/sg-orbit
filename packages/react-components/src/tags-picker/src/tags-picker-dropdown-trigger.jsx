@@ -68,26 +68,30 @@ export class TagsPickerDropdownTrigger extends PureComponent {
 
     _buttonRef = createRef();
 
+    toggle(event) {
+        const { onOpen, onClose, open } = this.props;
+
+        if (!open) {
+            onOpen(event);
+        } else {
+            onClose(event);
+        }
+    }
+
     handleClick = event => {
-        const { onClick, onOpen, onClose, open, disabled } = this.props;
+        const { onClick, disabled } = this.props;
 
         if (!isNil(onClick)) {
             onClick(event);
         }
 
         if (!disabled) {
-            if (!open) {
-                onOpen(event);
-            } else {
-                onClose(event);
-            }
+            this.toggle(event);
         }
     }
 
-    // Since the trigger is a button, when the user press enter on the button, a click event is generated.
-    // Therefore, we dont need to support enter here.
     handleKeyDown = event => {
-        const { onKeyDown, onOpen, open, disabled } = this.props;
+        const { onClose, onKeyDown, open, disabled } = this.props;
 
         if (!isNil(onKeyDown)) {
             onKeyDown(event);
@@ -99,9 +103,13 @@ export class TagsPickerDropdownTrigger extends PureComponent {
             event.preventDefault();
 
             if (!disabled) {
-                if (!open) {
-                    onOpen(event);
-                }
+                this.toggle(event);
+            }
+        } else if (key === KEYS.enter) {
+            // Since the trigger is a button, when the user press enter on the button, a click event is generated.
+            // Therefore, we dont need to onOpen here.
+            if (open) {
+                onClose(event);
             }
         }
     }

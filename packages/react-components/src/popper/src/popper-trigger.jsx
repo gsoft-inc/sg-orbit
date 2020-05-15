@@ -208,6 +208,16 @@ function useHidePopper({ onVisibilityChange }, setIsVisible) {
     }, [onVisibilityChange, setIsVisible]);
 }
 
+function useTogglePopper(isVisible, showPopper, hidePopper) {
+    return useCallback(event => {
+        if (isVisible) {
+            hidePopper(event);
+        } else {
+            showPopper(event);
+        }
+    }, [isVisible, showPopper, hidePopper]);
+}
+
 function useSetFocusTrigger(triggerElement) {
     return useCallback(() => {
         setTimeout(() => {
@@ -254,19 +264,15 @@ function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopper
     }, [focusTriggerOnShow, focusPopperOnShow, isVisible, setFocusTrigger, setFocusPopper]);
 }
 
-function useHandleTriggerToggle({ disabled }, isVisible, showPopper, hidePopper) {
+function useHandleTriggerToggle({ disabled }, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
-            if (isVisible) {
-                hidePopper(event);
-            } else {
-                showPopper(event);
-            }
+            togglePopper(event);
         }
-    }, [disabled, isVisible, showPopper, hidePopper]);
+    }, [disabled, togglePopper]);
 }
 
-function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, showPopper) {
+function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
             const key = event.keyCode;
@@ -274,16 +280,16 @@ function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, show
             if (key === KEYS.space) {
                 if (showOnSpacebar) {
                     event.preventDefault();
-                    showPopper(event);
+                    togglePopper(event);
                 }
             } else if (key === KEYS.enter) {
                 if (showOnEnter) {
                     event.preventDefault();
-                    showPopper(event);
+                    togglePopper(event);
                 }
             }
         }
-    }, [disabled, showOnSpacebar, showOnEnter, showPopper]);
+    }, [disabled, showOnSpacebar, showOnEnter, togglePopper]);
 }
 
 function useHandleContainerFocus(hasFocusRef) {
@@ -324,20 +330,18 @@ function useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopp
     }, [hideOnBlur, isVisible, hasFocusRef, hidePopper]);
 }
 
-function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hasFocusRef, hidePopper, setFocusTrigger) {
+function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger) {
     const handler = useCallback(event => {
-        if (hasFocusRef.current) {
-            if (event.keyCode === KEYS.esc) {
-                if (hideOnEscape) {
-                    hidePopper(event);
+        if (event.keyCode === KEYS.esc) {
+            if (hideOnEscape) {
+                hidePopper(event);
 
-                    if (focusTriggerOnEscape) {
-                        setFocusTrigger();
-                    }
+                if (focusTriggerOnEscape) {
+                    setFocusTrigger();
                 }
             }
         }
-    }, [hideOnEscape, focusTriggerOnEscape, hasFocusRef, hidePopper, setFocusTrigger]);
+    }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
 
     useDomEventListener("keydown", handler, isVisible);
 }
@@ -543,15 +547,16 @@ export function InnerPopperTrigger(props) {
     const setFocusPopper = useSetFocusPopper(popperElement);
     const showPopper = useShowPopper({ onVisibilityChange }, setIsVisible);
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
+    const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
     useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopperOnShow }, isVisible, setFocusTrigger, setFocusPopper);
 
-    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, isVisible, showPopper, hidePopper);
-    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, showPopper);
+    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, togglePopper);
+    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper);
     const handleContainerFocus = useHandleContainerFocus(hasFocusRef);
     const handleContainerBlur = useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopper);
 
-    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hasFocusRef, hidePopper, setFocusTrigger);
+    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger);
     useHandleDocumentBlur(isVisible, hasFocusRef, containerRef, setFocusPopper);
     useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper);
 
