@@ -1241,7 +1241,7 @@
     min-height: auto;
 }
 
-/* Size Icon */
+/* Size Icon Clear */
 .ui.dropdown.selection.transparent.small > .dropdown.icon.clear {
     mask-size: var(--scale-charlie) var(--scale-charlie)!important;
 }
@@ -1252,6 +1252,44 @@
 
 .ui.dropdown.selection.transparent.large > .dropdown.icon.clear {
     mask-size: var(--scale-delta) var(--scale-delta)!important;
+}
+
+/* Size Avatar Selected */
+/* Med */
+.ui.dropdown.selection.transparent .text .avatar {
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+}
+
+/* Small */
+.ui.dropdown.selection.transparent .text .avatar.mini {
+    width: var(--scale-charlie);
+    height: var(--scale-charlie);
+}
+
+/* Large */
+.ui.dropdown.selection.transparent.large .text .avatar.small {
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+}
+
+/* Size Icon Selected */
+/* Med */
+.ui.dropdown.selection.transparent .text .icon {
+    width: var(--scale-delta)!important;
+    height: var(--scale-delta)!important;
+}
+
+/* Small */
+.ui.dropdown.selection.transparent.small .text .icon {
+    width: var(--scale-charlie)!important;
+    height: var(--scale-charlie)!important;
+}
+
+/* Large */
+.ui.dropdown.selection.transparent.large .text .icon {
+    width: var(--scale-delta)!important;
+    height: var(--scale-delta)!important;
 }
 
 /* Size Loading */
