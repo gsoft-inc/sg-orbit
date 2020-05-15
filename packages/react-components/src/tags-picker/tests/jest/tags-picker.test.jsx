@@ -90,7 +90,7 @@ test("open the dropdown menu on trigger click", async () => {
     await waitFor(() => expect(menuNode).toBeInTheDocument());
 });
 
-test("open the dropdown menu on space keydown", async () => {
+test("open the dropdown menu on trigger space keydown", async () => {
     const { getByTestId, container } = render(createTagsPicker());
 
     act(() => {
@@ -102,7 +102,7 @@ test("open the dropdown menu on space keydown", async () => {
     await waitFor(() => expect(menuNode).toBeInTheDocument());
 });
 
-test("open the dropdown menu on enter keydown", async () => {
+test("open the dropdown menu on trigger enter keydown", async () => {
     const { getByTestId, container } = render(createTagsPicker());
 
     act(() => {
@@ -159,6 +159,30 @@ test("close the dropdown menu on trigger click", async () => {
 
     act(() => {
         userEvent.click(triggerNode);
+    });
+
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
+});
+
+test("close the dropdown menu on trigger spacebar keydown", async () => {
+    const renderResult = render(createTagsPicker());
+
+    const { triggerNode, queries } = await openDropdownMenu(renderResult);
+
+    act(() => {
+        userEvent.keyDown(triggerNode, { key: "Enter", keyCode: 32 });
+    });
+
+    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
+});
+
+test("close the dropdown menu on trigger enter keydown", async () => {
+    const renderResult = render(createTagsPicker());
+
+    const { triggerNode, queries } = await openDropdownMenu(renderResult);
+
+    act(() => {
+        userEvent.keyDown(triggerNode, { key: "Enter", keyCode: 13 });
     });
 
     await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
