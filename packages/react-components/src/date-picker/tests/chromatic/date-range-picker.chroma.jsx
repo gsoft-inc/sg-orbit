@@ -1082,7 +1082,7 @@ stories("/disabled")
     );
 
 stories("/customization")
-    .add("input",
+    .add("input component",
          () =>
              createDateRangePicker({
                  initialVisibleMonth: moment(DEFAULT_DATE),

@@ -1,6 +1,6 @@
 import { Select } from "@react-components/select";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 
 const GENDERS = [
     {
@@ -33,9 +33,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
 });
@@ -51,9 +50,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
     expect(refNode.getAttribute("data-testid")).toBe("dropdown");
@@ -68,7 +66,5 @@ test("set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

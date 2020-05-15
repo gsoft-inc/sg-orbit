@@ -152,7 +152,7 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
-     * The popper component.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the popper.
      */
     popper: oneOfType([element, object])
 };
@@ -301,6 +301,7 @@ function useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopp
 
         if (isVisible) {
             if (hideOnBlur) {
+                // The event must be persisted since it's used later in a setTimeout.
                 event.persist();
 
                 // Using a focus / unfocus flag was not the preferred way to prevent the popper from hiding on blur when the new focused item was inside the popper.
@@ -564,7 +565,8 @@ export function InnerPopperTrigger(props) {
 
     const render = useRenderer({ fluid, disabled, className, rest }, handleContainerFocus, handleContainerBlur, containerRef, renderTrigger(), renderPopper());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopperTrigger.propTypes = propTypes;

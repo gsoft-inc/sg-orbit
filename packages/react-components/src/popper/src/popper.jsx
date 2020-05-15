@@ -181,7 +181,7 @@ function useWrapperRenderer({ className, rest }) {
 
 function usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper) {
     return () => {
-        // This condition is a kind of a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
+        // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
         // popper is shown.
         if (show) {
             const popper = Children.only(children);
@@ -250,7 +250,8 @@ export function InnerPopper({
     const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper);
     const render = useRenderer({ disabled, noPortal, portalElement }, renderPopper());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopper.propTypes = propTypes;

@@ -27,11 +27,11 @@ const propTypes = {
      */
     description: string,
     /**
-     * An item can display an avatar before it's content.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an avatar before the text.
      */
     avatar: oneOfType([element, shape(AVATAR_SHAPE)]),
     /**
-     * An item can display icons.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for [icons](/?path=/docs/components-icon--default-story).
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
@@ -121,7 +121,8 @@ export function SelectItem(props) {
     const renderContent = useContentRenderer({ text, icons, iconsPosition, avatar, description }, size);
     const render = useRenderer({ rest }, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 SelectItem.propTypes = propTypes;

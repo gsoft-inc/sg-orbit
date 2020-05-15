@@ -4,10 +4,11 @@ import { CloseIcon, MagnifierIcon } from "../../icons";
 import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
-import { TextInput } from "../../text-input";
-import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
-import { createRef } from "react";
+import { TextInput, createTextInput } from "../../text-input";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { cloneElement, createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
+import { isElement } from "react-is";
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -37,6 +38,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocusDelay: number,
         fluid: bool,
         size: oneOf(SIZES),
+        input: oneOfType([element, object]),
         className: string,
         style: object
     };
@@ -52,7 +54,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocus: false,
         autofocusDelay: 50,
         size: DEFAULT_SIZE,
-        fluid: false
+        fluid: false,
+        input: <TextInput />
     };
 
     static autoControlledProps = ["value"];
@@ -282,24 +285,31 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     renderInput = () => {
-        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid } = this.props;
+        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid, input } = this.props;
 
-        return (
-            <TextInput
-                onKeyDown={this.handleInputKeyDown}
-                icon={<MagnifierIcon />}
-                iconPosition="left"
-                button={this.renderClearButton()}
-                loading={loading && !disabled}
-                autofocus={open || autofocus}
-                autofocusDelay={open ? undefined : autofocusDelay}
-                disabled={disabled}
-                size={size}
-                fluid={fluid}
-                ref={this._inputRef}
-                data-testid="search-input-textbox"
-            />
-        );
+        const props = {
+            onKeyDown: this.handleInputKeyDown,
+            icon: <MagnifierIcon />,
+            iconPosition: "left",
+            button: this.renderClearButton(),
+            loading: loading && !disabled,
+            autofocus: open || autofocus,
+            autofocusDelay: open ? undefined : autofocusDelay,
+            disabled: disabled,
+            size: size,
+            fluid: fluid,
+            ref: this._inputRef,
+            "data-testid": "search-input-textbox"
+        };
+
+        if (isElement(input)) {
+            return cloneElement(input, props);
+        }
+
+        return createTextInput({
+            ...props,
+            ...input
+        });
     }
 
     render() {

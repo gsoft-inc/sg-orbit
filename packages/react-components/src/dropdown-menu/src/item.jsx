@@ -5,7 +5,7 @@ import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { useContext } from "react";
 
-const UNSUPPORTED_PROPS = ["content", "flag", "image", "label"];
+const UNSUPPORTED_PROPS = ["flag", "image", "label"];
 
 const propTypes = {
     /**
@@ -25,7 +25,7 @@ const propTypes = {
      */
     description: string,
     /**
-     * An item can display an icon before his text.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
      */
     icon: element,
     /**
@@ -38,10 +38,12 @@ const defaultProps = {
     disabled: false
 };
 
-function useTextRenderer({ text }) {
+function useTextRenderer({ text, content, children }) {
     return () => {
-        if (!isNil(text)) {
-            return <span className="text">{text}</span>;
+        const value = text || content || children;
+
+        if (!isNil(value)) {
+            return <span className="text">{value}</span>;
         }
     };
 }
@@ -54,8 +56,8 @@ function useDescriptionRenderer({ description }) {
     };
 }
 
-function useContentRenderer({ text, icon, description }, size) {
-    const renderText = useTextRenderer({ text });
+function useContentRenderer({ text, icon, description, content, children }, size) {
+    const renderText = useTextRenderer({ text, content, children });
     const renderDescription = useDescriptionRenderer({ description });
 
     return () => {
@@ -72,7 +74,7 @@ function useContentRenderer({ text, icon, description }, size) {
 function useRenderer({ rest }, content) {
     return () => {
         return (
-            <Dropdown.Item {...rest}>
+            <Dropdown.Item tabIndex-="0" {...rest}>
                 {content}
             </Dropdown.Item>
         );
@@ -80,16 +82,17 @@ function useRenderer({ rest }, content) {
 }
 
 export function DropdownMenuItem(props) {
-    const { text, icon, description, ...rest } = props;
+    const { text, icon, description, content, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/item");
 
     const { size } = useContext(DropdownContext);
 
-    const renderContent = useContentRenderer({ text, icon, description }, size);
+    const renderContent = useContentRenderer({ text, icon, description, content, children }, size);
     const render = useRenderer({ rest }, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 DropdownMenuItem.propTypes = propTypes;

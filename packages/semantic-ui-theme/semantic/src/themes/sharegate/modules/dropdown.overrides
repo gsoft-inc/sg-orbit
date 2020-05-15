@@ -17,6 +17,19 @@
     align-items: center;
 }
 
+/* Size */
+.ui.dropdown-menu {
+    min-height: 20px;
+}
+
+.ui.dropdown-menu.small {
+    min-height: 16px;
+}
+
+.ui.dropdown-menu.large {
+    min-height: 24px;
+}
+
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
     min-height: var(--scale-hotel);
@@ -328,7 +341,7 @@
 .ui.dropdown.selection .menu .selected.item {
     background-color: @cloud50;
     position: relative;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* STATE | Error | Dropdown | Selected Item */
@@ -1230,66 +1243,68 @@
 /* Size */
 .ui.dropdown.selection.small.transparent {
     height: auto;
+    min-height: var(--scale-delta);
 }
 
 .ui.dropdown.selection.large.transparent {
     height: auto;
+    min-height: var(--scale-foxtrot);
 }
 
 .ui.dropdown.selection.transparent {
     height: auto;
-    min-height: auto;
+    min-height: var(--scale-echo);
 }
 
 /* Size Icon Clear */
 .ui.dropdown.selection.transparent.small > .dropdown.icon.clear {
-    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
+    mask-size: var(--scale-delta) var(--scale-delta)!important;
 }
 
 .ui.dropdown.selection.transparent > .dropdown.icon.clear {
-    mask-size: var(--scale-delta) var(--scale-delta)!important;
+    mask-size: var(--scale-foxtrot) var(--scale-foxtrot)!important;
 }
 
 .ui.dropdown.selection.transparent.large > .dropdown.icon.clear {
-    mask-size: var(--scale-delta) var(--scale-delta)!important;
+    mask-size: var(--scale-golf) var(--scale-golf)!important;
 }
 
 /* Size Avatar Selected */
 /* Med */
 .ui.dropdown.selection.transparent .text .avatar {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
 /* Small */
 .ui.dropdown.selection.transparent .text .avatar.mini {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--scale-delta);
+    height: var(--scale-delta);
 }
 
 /* Large */
 .ui.dropdown.selection.transparent.large .text .avatar.small {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
 }
 
 /* Size Icon Selected */
 /* Med */
 .ui.dropdown.selection.transparent .text .icon {
-    width: var(--scale-delta)!important;
-    height: var(--scale-delta)!important;
+    width: var(--scale-echo)!important;
+    height: var(--scale-echo)!important;
 }
 
 /* Small */
 .ui.dropdown.selection.transparent.small .text .icon {
-    width: var(--scale-charlie)!important;
-    height: var(--scale-charlie)!important;
+    width: var(--scale-delta)!important;
+    height: var(--scale-delta)!important;
 }
 
 /* Large */
 .ui.dropdown.selection.transparent.large .text .icon {
-    width: var(--scale-delta)!important;
-    height: var(--scale-delta)!important;
+    width: var(--scale-foxtrot)!important;
+    height: var(--scale-foxtrot)!important;
 }
 
 /* Size Loading */

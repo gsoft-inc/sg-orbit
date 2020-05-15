@@ -20,7 +20,7 @@ const SIZE_CLASS = {
 
 const propTypes = {
     /**
-     * A dropdown can display an icon before it's content.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story before the content.
      */
     icon: element,
     /**
@@ -35,6 +35,14 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autofocusDelay: number,
+    /**
+     * Additional CSS classes to render on the dropdown wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the dropdown wrapper element.
+     */
+    wrapperStyle: object,
     /**
      * @ignore
      */
@@ -83,10 +91,6 @@ const propTypes = {
      * @ignore
      */
     forwardedRef: oneOfType([object, func]),
-    /**
-     * @ignore
-     */
-    __dropdownClasses: string,
     /**
      * @ignore
      */
@@ -178,7 +182,7 @@ function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownCo
 }
 
 function useDropdownRenderer(
-    { search, inline, icon, size, fluid, trigger, disabled, __dropdownClasses, __semanticDropdown: ConcreteSemanticDropdown, rest },
+    { search, inline, icon, size, fluid, trigger, disabled, className, __semanticDropdown: ConcreteSemanticDropdown, rest },
     handleOpen,
     handleClose,
     handleFocus,
@@ -191,7 +195,7 @@ function useDropdownRenderer(
         const classes = mergeClasses(
             SIZE_CLASS[size],
             !isNil(icon) && "with-icon",
-            __dropdownClasses
+            className
         );
 
         return (
@@ -235,17 +239,18 @@ function useIconRenderer({ inline, icon, size }) {
     };
 }
 
-function useRenderer({ size, fluid, className }, innerRef, dropdown, icon) {
+function useRenderer({ size, fluid, wrapperClassName, wrapperStyle }, innerRef, dropdown, icon) {
     return () => {
         const classes = mergeClasses(
             fluid ? "w-100" : "dib",
             "relative outline-0",
-            className
+            wrapperClassName
         );
 
         return (
             <div
                 className={classes}
+                style={wrapperStyle}
                 tabIndex={-1}
             >
                 <SemanticRef innerRef={innerRef}>
@@ -271,13 +276,14 @@ export function InnerDropdown(props) {
         trigger,
         disabled,
         className,
+        wrapperClassName,
+        wrapperStyle,
         forwardedRef,
         onOpen,
         onClose,
         onFocus,
         onBlur,
         onChange,
-        __dropdownClasses,
         __semanticDropdown,
         ...rest
     } = props;
@@ -301,7 +307,7 @@ export function InnerDropdown(props) {
     useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
 
     const renderDropdown = useDropdownRenderer(
-        { search, inline, icon, size, fluid, trigger, disabled, __dropdownClasses, __semanticDropdown, rest },
+        { search, inline, icon, size, fluid, trigger, disabled, className, __semanticDropdown, rest },
         handleOpen,
         handleClose,
         handleFocus,
@@ -312,9 +318,10 @@ export function InnerDropdown(props) {
     );
 
     const renderIcon = useIconRenderer({ inline, icon, size });
-    const render = useRenderer({ size, fluid, className }, innerRef, renderDropdown(), renderIcon());
+    const render = useRenderer({ size, fluid, wrapperClassName, wrapperStyle }, innerRef, renderDropdown(), renderIcon());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerDropdown.propTypes = propTypes;

@@ -10,7 +10,7 @@ const UNSUPPORTED_PROPS = ["content"];
 
 const propTypes = {
     /**
-     * An item can display an icon after his text.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
      */
     icon: element
 };
@@ -63,7 +63,8 @@ export function DropdownMenuHeader(props) {
     const renderContent = useContentRenderer({ text, icon, children }, size);
     const render = useRenderer({ rest }, renderContent());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 DropdownMenuHeader.propTypes = propTypes;

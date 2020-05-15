@@ -1,7 +1,7 @@
 import { TextArea } from "@react-components/text-area";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, wait } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-for";
+import { waitDelay } from "@utils/wait-delay";
 
 function createTextArea(props = {}) {
     return <TextArea
@@ -16,9 +16,7 @@ test("when autofocus is true, the textarea is autofocused on render", async () =
         autofocus: true
     }));
 
-    await wait();
-
-    expect(getByTestId("textarea")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("textarea")).toHaveFocus());
 });
 
 test("when autofocus on a disabled textarea, the textarea is not autofocused on render", async () => {
@@ -27,38 +25,33 @@ test("when autofocus on a disabled textarea, the textarea is not autofocused on 
         autofocus: true
     }));
 
-    await wait();
-
     expect(getByTestId("textarea")).not.toHaveFocus();
 });
 
 test("when delayed autofocus, the textarea is autofocused after the delay", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
-    await wait();
+    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    await waitDelay(0);
+
     expect(getByTestId("textarea")).not.toHaveFocus();
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
-    expect(getByTestId("textarea")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("textarea")).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled textarea, the textarea is not autofocused after the delay", async () => {
     const { getByTestId } = render(createTextArea({
         disabled: true,
         autofocus: true,
-        autofocusDelay: 100
+        autofocusDelay: 50
     }));
 
-    await wait();
-    expect(getByTestId("textarea")).not.toHaveFocus();
+    await waitDelay(60);
 
-    // Cannot use testing-library "wait" utility function because the callback is fire on the next tick and it resolve to true which make it a valid expectation.
-    await waitDelay(110);
-    expect(getByTestId("textarea")).not.toHaveFocus();
+    await waitFor(() => expect(getByTestId("textarea")).not.toHaveFocus());
 });
 
 // ***** Refs *****
@@ -72,9 +65,8 @@ test("ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current).not.toBeNull();
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("TEXTAREA");
 });
@@ -90,9 +82,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         })
     );
 
-    await wait();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode).not.toBeNull();
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("TEXTAREA");
 });
@@ -100,17 +91,15 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("when a function ref is provided, delayed autofocus works", async () => {
     const { getByTestId } = render(createTextArea({
         autofocus: true,
-        autofocusDelay: 100,
+        autofocusDelay: 50,
         ref: () => {
             // don't need to hold a ref..
         }
     }));
 
-    await wait();
-    expect(getByTestId("textarea")).not.toHaveFocus();
+    await waitDelay(60);
 
-    await waitDelay(110);
-    expect(getByTestId("textarea")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("textarea")).toHaveFocus());
 });
 
 test("set ref once", async () => {
@@ -122,9 +111,7 @@ test("set ref once", async () => {
         })
     );
 
-    await wait();
-
-    expect(handler).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** API *****
@@ -140,11 +127,12 @@ test("can focus the text area with the focus api", async () => {
         })
     );
 
-    await wait();
+    act(() => {
+        refNode.focus();
+    });
 
-    refNode.focus();
 
-    expect(getByTestId("textarea")).toHaveFocus();
+    await waitFor(() => expect(getByTestId("textarea")).toHaveFocus());
 });
 
 test("can select the text area text with the select api", async () => {
@@ -159,10 +147,10 @@ test("can select the text area text with the select api", async () => {
         })
     );
 
-    await wait();
+    act(() => {
+        refNode.select();
+    });
 
-    refNode.select();
-
-    expect(getByTestId("textarea").selectionStart).toBe(0);
-    expect(getByTestId("textarea").selectionEnd).toBe(5);
+    await waitFor(() => expect(getByTestId("textarea").selectionStart).toBe(0));
+    await waitFor(() => expect(getByTestId("textarea").selectionEnd).toBe(5));
 });

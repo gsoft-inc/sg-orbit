@@ -1,6 +1,6 @@
 import { PopperTrigger } from "./popper-trigger";
 import { cloneElement, forwardRef, useCallback, useRef } from "react";
-import { createInput } from "../../input";
+import { createTextInput } from "../../text-input";
 import { element, func, object, oneOfType } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { isElement as isReactElement } from "react-is";
@@ -86,13 +86,13 @@ function useTriggerRenderer({ input, isElement, hasButton }, button) {
         }
 
         if (hasButton) {
-            return createInput({
+            return createTextInput({
                 ...input,
                 button: button
             });
         }
 
-        return createInput(input);
+        return createTextInput(input);
     };
 }
 
@@ -121,7 +121,8 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
     const renderTrigger = useTriggerRenderer(parsingResult, renderButton());
     const render = useRenderer({ forwardedRef, rest }, handleClick, renderTrigger());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 InnerPopperTextInputTrigger.propTypes = propTypes;

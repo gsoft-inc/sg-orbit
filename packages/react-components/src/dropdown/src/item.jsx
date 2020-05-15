@@ -36,7 +36,8 @@ export function DropdownItem(props) {
     const renderIcon = useIconRenderer({ icon, size });
     const render = useRenderer({ rest }, renderIcon());
 
-    return render();
+    // Without a fragment, react-docgen doesn't work.
+    return <>{render()}</>;
 }
 
 DropdownItem.propTypes = propTypes;

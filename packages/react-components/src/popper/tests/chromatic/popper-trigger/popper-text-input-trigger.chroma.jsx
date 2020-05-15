@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
-import { RedBox } from "./components";
+import { RedBox } from "./red-box";
 import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
