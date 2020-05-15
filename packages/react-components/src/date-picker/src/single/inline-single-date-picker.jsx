@@ -5,7 +5,7 @@ import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
-import { arrayOf, bool, func, node, number, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -57,7 +57,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * A React component that display the currently applied date and open the calendar.
      */
-    input: node,
+    input: element,
     /**
      * The placeholder text.
      */
@@ -82,11 +82,11 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * A React component to select a date.
      */
-    calendar: node,
+    calendar: element,
     /**
      * A React component displayed under the calendar to `clear` and `apply` the date(s).
      */
-    buttons: node,
+    buttons: element,
     /**
      * A controlled open value that determined whether or not the calendar is displayed.
      */

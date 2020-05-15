@@ -1,13 +1,13 @@
 import { POSITIONS, PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
-import { arrayOf, bool, func, node, number, object, oneOf, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
         open: bool.isRequired,
-        input: node.isRequired,
-        calendar: node.isRequired,
+        input: element.isRequired,
+        calendar: element.isRequired,
         position: oneOf(POSITIONS),
         offset: arrayOf(number),
         zIndex: number,

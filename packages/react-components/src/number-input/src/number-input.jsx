@@ -1,5 +1,5 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, func, number, object, oneOf, oneOfType } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -21,13 +21,29 @@ const INPUT_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * A React component displayed before or after the prompt based on "iconPosition".
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
+    /**
+     * An icon can appear on the left or right.
+     */
+    iconPosition: oneOf(["left"]),
     /**
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
+    /**
+     * Additional CSS classes to render on the wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the wrapper element.
+     */
+    wrapperStyle: object,
+    /**
+     * @ignore
+     */
+    disabled: bool,
     /**
      * @ignore
      */

@@ -6,8 +6,9 @@ import { SIZES } from "./sizes";
 import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
-import { arrayOf, bool, func, node, number, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
+import { isElement } from "react-is";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -62,7 +63,7 @@ export class TagsPickerDropdown extends PureComponent {
         /**
          * A React component that open the dropdown.
          */
-        trigger: node,
+        trigger: element,
         /**
          * The trigger text.
          */
@@ -74,11 +75,11 @@ export class TagsPickerDropdown extends PureComponent {
         /**
          * A React component to display the items.
          */
-        menu: node,
+        menu: element,
         /**
-         * A React component to enter a query.
+         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
          */
-        searchInput: node,
+        searchInput: oneOfType([element, object]),
         /**
          * The search input placeholder text.
          */
@@ -227,7 +228,7 @@ export class TagsPickerDropdown extends PureComponent {
         this._hasFocus = false;
 
         if (closeOnBlur) {
-        // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
             setTimeout(() => {
                 if (!this._hasFocus) {
                     this.close(event);
@@ -328,11 +329,16 @@ export class TagsPickerDropdown extends PureComponent {
     renderSearchInput = () => {
         const { searchInput, placeholder } = this.props;
 
-        return cloneElement(searchInput, {
-            key: "search-input",
+        const props = {
             onChange: this.handleSearchChange,
             placeholder
-        });
+        };
+
+        if (isElement(searchInput)) {
+            return cloneElement(searchInput, props);
+        }
+
+        return <TagsPickerDropdownSearchInput { ...props } { ...searchInput } />;
     };
 
     renderMenu = () => {

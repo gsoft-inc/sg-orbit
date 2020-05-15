@@ -67,6 +67,14 @@ const propTypes = {
      */
     transparent: bool,
     /**
+     * Additional CSS classes to render on the wrapper element.
+     */
+    wrapperClassName: string,
+    /**
+     * Additional style to render on the wrapper element.
+     */
+    wrapperStyle: object,
+    /**
      * @ignore
      */
     inline: bool,
@@ -189,12 +197,13 @@ function useOptionsRenderer({ options, actions }) {
     };
 }
 
-function useRenderer({ size, transparent, inline, forwardedRef, rest }, options) {
+function useRenderer({ size, transparent, inline, className, forwardedRef, rest }, options) {
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 
     return () => {
         const classes = mergeClasses(
-            transparent && "transparent"
+            transparent && "transparent",
+            className
         );
 
         return (
@@ -207,8 +216,8 @@ function useRenderer({ size, transparent, inline, forwardedRef, rest }, options)
                 inline={inline}
                 size={size}
                 renderLabel={renderMultipleValuesLabel}
+                className={classes}
                 ref={forwardedRef}
-                __dropdownClasses={classes}
                 __semanticDropdown={MonkeyPatchSemanticDropdown}
             />
         );
@@ -216,7 +225,7 @@ function useRenderer({ size, transparent, inline, forwardedRef, rest }, options)
 }
 
 export function InnerSelect(props) {
-    const { options, actions, size, transparent, inline, forwardedRef, ...rest } = props;
+    const { options, actions, size, transparent, inline, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -227,7 +236,7 @@ export function InnerSelect(props) {
     delete props["children"];
 
     const renderOptions = useOptionsRenderer({ options, actions });
-    const render = useRenderer({ size, transparent, inline, forwardedRef, rest }, renderOptions());
+    const render = useRenderer({ size, transparent, inline, className, forwardedRef, rest }, renderOptions());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

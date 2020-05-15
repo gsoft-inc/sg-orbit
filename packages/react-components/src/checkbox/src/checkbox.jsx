@@ -28,15 +28,15 @@ export const CHECKBOX_PROP_TYPES = {
      */
     text: string,
     /**
-     * A checkbox can display icons.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display [icons](/?path=/docs/components-icon--default-story) after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * A label displayed after the checkbox text.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [label](/?path=/docs/components-label--default-story) after the text.
      */
     label: oneOfType([element, object]),
     /**
-     * A count displayed after the checkbox text.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
      */
     count: oneOfType([element, object]),
     /**

@@ -10,7 +10,7 @@ import {
     httpGet
 } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
-import { bool, func, number, object, oneOf, string } from "prop-types";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -193,6 +193,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Whether or not the search input take up the width of its container.
          */
         fluid: bool,
+        /**
+         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         */
+        input: oneOfType([element, object]),
         /**
          * @ignore
          */
@@ -418,7 +422,24 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className, style } = this.props;
+        const {
+            value,
+            defaultValue,
+            resultRenderer,
+            clearOnSelect,
+            noResultsMessage,
+            minCharacters,
+            placeholder,
+            disabled,
+            autofocus,
+            autofocusDelay,
+            size,
+            fluid,
+            input,
+            className,
+            style
+        } = this.props;
+
         const { open, isLoading, results } = this.state;
 
         return (
@@ -445,6 +466,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 autofocusDelay={autofocusDelay}
                 size={size}
                 fluid={fluid}
+                input={input}
                 className={className}
                 style={style}
             />

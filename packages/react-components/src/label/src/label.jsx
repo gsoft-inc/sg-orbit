@@ -27,23 +27,23 @@ const propTypes = {
      */
     naked: bool,
     /**
-     * A label can contain a button.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the text.
      */
     button: oneOfType([element, object]),
     /**
-     * A label can contain an icon.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
      */
     icon: element,
-    /**
-     * A label can be compact.
-     */
-    compact: bool,
     /**
      * An icon can appear on the left or right.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * A label can contain a tag.
+     * A label can be compact.
+     */
+    compact: bool,
+    /**
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [tag](/?path=/docs/components-tag--default-story) before the text.
      */
     tag: oneOfType([element, object]),
     /**

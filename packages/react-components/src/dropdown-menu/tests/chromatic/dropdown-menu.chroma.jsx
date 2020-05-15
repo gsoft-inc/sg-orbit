@@ -43,7 +43,7 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createDropdownMenu({
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     size: "small",
@@ -52,7 +52,7 @@ stories()
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     defaultOpen: true
@@ -61,7 +61,7 @@ stories()
             <div className="flex">
                 {createDropdownMenu({
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     size: "large",
@@ -146,7 +146,7 @@ stories()
                 {createDropdownMenu({
                     icon: <FileIcon />,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     icon: <FileIcon />,
@@ -157,7 +157,7 @@ stories()
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     icon: <FileIcon />,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     icon: <FileIcon />,
@@ -168,7 +168,7 @@ stories()
                 {createDropdownMenu({
                     icon: <FileIcon />,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
                     icon: <FileIcon />,
@@ -294,6 +294,28 @@ stories()
                     defaultOpen: true
                 })}
             </div>
+        </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            {createDropdownMenu({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createDropdownMenu({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createDropdownMenu({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createDropdownMenu({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
         </div>
     );
 

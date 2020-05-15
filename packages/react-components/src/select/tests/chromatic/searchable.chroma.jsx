@@ -29,7 +29,7 @@ stories()
     .add("default", () =>
         <div className="flex">
             {createSearchableSelect({
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createSearchableSelect({
                 defaultOpen: true
@@ -40,12 +40,12 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSearchableSelect({
-                    className: "mr5",
+                    wrapperClassName: "mr5",
                     size: "small"
                 })}
                 {createSearchableSelect({
                     defaultValue: "Male",
-                    className: "mr5",
+                    wrapperClassName: "mr5",
                     size: "small"
                 })}
                 {createSearchableSelect({
@@ -55,11 +55,11 @@ stories()
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSearchableSelect({
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     defaultValue: "Male",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     defaultOpen: true
@@ -67,12 +67,12 @@ stories()
             </div>
             <div className="flex">
                 {createSearchableSelect({
-                    className: "mr5",
+                    wrapperClassName: "mr5",
                     size: "large"
                 })}
                 {createSearchableSelect({
                     defaultValue: "Male",
-                    className: "mr5",
+                    wrapperClassName: "mr5",
                     size: "large"
                 })}
                 {createSearchableSelect({
@@ -84,7 +84,7 @@ stories()
     )
     .add("disabled", () =>
         createSearchableSelect({
-            className: "mr5",
+            wrapperClassName: "mr5",
             disabled: true
         })
     )
@@ -92,11 +92,11 @@ stories()
         <div className="flex">
             {createSearchableSelect({
                 error: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createSearchableSelect({
                 error: true,
-                className: "mr5",
+                wrapperClassName: "mr5",
                 defaultOpen: true
             })}
         </div>
@@ -107,13 +107,13 @@ stories()
                 {createSearchableSelect({
                     loading: true,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
                     defaultValue: "Female",
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
@@ -124,12 +124,12 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSearchableSelect({
                     loading: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
@@ -140,13 +140,13 @@ stories()
                 {createSearchableSelect({
                     loading: true,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
                     defaultValue: "Female",
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     loading: true,
@@ -163,12 +163,12 @@ stories()
                     clearable: true,
                     defaultValue: "Male",
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     clearable: true,
                     defaultValue: "Male",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     clearable: true,
@@ -192,13 +192,13 @@ stories()
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: "Male",
                     size: "small",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
@@ -209,12 +209,12 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: "Male",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
@@ -225,13 +225,13 @@ stories()
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
                     defaultValue: "Male",
                     size: "large",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     icon: <MagnifierIcon />,
@@ -247,6 +247,28 @@ stories()
             </div>
         </div>
     )
+    .add("styling", () =>
+        <div className="flex">
+            {createSearchableSelect({
+                wrapperClassName: "border-red mr5"
+            })}
+            {createSearchableSelect({
+                wrapperClassName: "mr5",
+                wrapperStyle: {
+                    border: "1px solid red"
+                }
+            })}
+            {createSearchableSelect({
+                wrapperClassName: "mr5",
+                className: "border-red"
+            })}
+            {createSearchableSelect({
+                style: {
+                    border: "1px solid red"
+                }
+            })}
+        </div>
+    )
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -256,7 +278,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "small",
@@ -265,7 +287,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "small",
@@ -274,7 +296,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -283,7 +305,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     options: [
@@ -291,7 +313,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     options: [
@@ -299,7 +321,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -309,7 +331,7 @@ stories()
                         { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "large",
@@ -318,7 +340,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "large",
@@ -327,7 +349,7 @@ stories()
                         { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
         </div>
@@ -341,7 +363,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "small",
@@ -350,7 +372,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "small",
@@ -359,7 +381,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "small",
@@ -368,7 +390,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -377,7 +399,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     options: [
@@ -385,7 +407,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     options: [
@@ -393,7 +415,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     options: [
@@ -401,7 +423,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
@@ -411,7 +433,7 @@ stories()
                         { ...MALE, icons: <CalendarIcon /> },
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "large",
@@ -420,7 +442,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "large",
@@ -429,7 +451,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
                     ],
                     defaultValue: "Female",
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSearchableSelect({
                     size: "large",
@@ -438,7 +460,7 @@ stories()
                         { ...FEMALE, icons: <CalendarIcon /> }
                     ],
                     defaultOpen: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
             </div>
         </div>

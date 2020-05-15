@@ -1,7 +1,7 @@
 import { MagnifierIcon } from "../../icons";
 import { PureComponent } from "react";
 import { TextInput } from "../../text-input";
-import { func, string } from "prop-types";
+import { func } from "prop-types";
 
 export class TagsPickerDropdownSearchInput extends PureComponent {
     static propTypes = {
@@ -11,15 +11,7 @@ export class TagsPickerDropdownSearchInput extends PureComponent {
          * @param {string} value - New value.
          * @returns {void}
          */
-        onChange: func,
-        /**
-         * The placeholder text.
-         */
-        placeholder: string,
-        /**
-         * @ignore
-         */
-        className: string
+        onChange: func
     };
 
     handleChange = (event, { value }) => {
@@ -29,15 +21,12 @@ export class TagsPickerDropdownSearchInput extends PureComponent {
     };
 
     render() {
-        const { placeholder, className } = this.props;
-
         return (
             <TextInput
+                {...this.props}
                 onChange={this.handleChange}
-                placeholder={placeholder}
                 icon={<MagnifierIcon className="fill-marine-500" />}
                 iconPosition="left"
-                className={className}
                 autofocus
                 autoComplete="off"
                 data-testid="tags-picker-dropdown-search-input"

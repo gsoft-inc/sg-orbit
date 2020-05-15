@@ -6,7 +6,7 @@ import { ArgumentError, mergeClasses } from "../../shared";
 import { ArrowIcon } from "../../icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement, forwardRef } from "react";
-import { bool, func, node, number, object, oneOfType, string } from "prop-types";
+import { bool, element, func, number, object, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -18,9 +18,9 @@ const PHRASES = {
 
 export class InnerDatePickerCalendar extends PureComponent {
     static propTypes = {
-        calendar: node.isRequired,
-        buttons: node.isRequired,
-        leftContent: node,
+        calendar: element.isRequired,
+        buttons: element.isRequired,
+        leftContent: element,
         minDate: momentType,
         maxDate: momentType,
         initialDate: momentType.isRequired,

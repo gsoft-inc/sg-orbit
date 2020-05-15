@@ -1,6 +1,6 @@
 import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
-import { arrayOf, bool, func, number, object, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -130,6 +130,10 @@ export class SearchInput extends AutoControlledPureComponent {
          * Whether or not the search input take up the width of its container.
          */
         fluid: bool,
+        /**
+         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         */
+        input: oneOfType([element, object]),
         /**
          * @ignore
          */
@@ -272,7 +276,25 @@ export class SearchInput extends AutoControlledPureComponent {
     }
 
     render() {
-        const { value, defaultValue, resultRenderer, clearOnSelect, noResultsMessage, minCharacters, debounceDelay, placeholder, disabled, autofocus, autofocusDelay, size, fluid, className, style } = this.props;
+        const {
+            value,
+            defaultValue,
+            resultRenderer,
+            clearOnSelect,
+            noResultsMessage,
+            minCharacters,
+            debounceDelay,
+            placeholder,
+            disabled,
+            autofocus,
+            autofocusDelay,
+            size,
+            fluid,
+            input,
+            className,
+            style
+        } = this.props;
+
         const { open, visibleResults } = this.state;
 
         return (
@@ -298,6 +320,7 @@ export class SearchInput extends AutoControlledPureComponent {
                 autofocusDelay={autofocusDelay}
                 size={size}
                 fluid={fluid}
+                input={input}
                 className={className}
                 style={style}
             />

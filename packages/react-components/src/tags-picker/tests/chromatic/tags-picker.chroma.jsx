@@ -205,10 +205,17 @@ stories("/customization")
                  dropdown: <TagsPicker.Dropdown triggerIcon={<AddIcon className="fill-red" />} />
              })
     )
-    .add("search input",
+    .add("search input element",
          () =>
              createTagsPicker({
-                 dropdown: <TagsPicker.Dropdown searchInput={<TagsPicker.SearchInput className="bg-red border-red" />} />,
+                 dropdown: <TagsPicker.Dropdown searchInput={<TagsPicker.SearchInput className="border-red" />} />,
+                 defaultOpen: true
+             })
+    )
+    .add("search input object",
+         () =>
+             createTagsPicker({
+                 dropdown: <TagsPicker.Dropdown searchInput={{ className: "border-red" }} />,
                  defaultOpen: true
              })
     )

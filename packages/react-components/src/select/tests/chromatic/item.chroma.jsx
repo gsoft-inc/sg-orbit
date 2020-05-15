@@ -154,7 +154,7 @@ stories()
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
                     size: "small",
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
@@ -166,7 +166,7 @@ stories()
                 {createSelect({
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
@@ -178,7 +178,7 @@ stories()
                     options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
                     size: "large",
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
@@ -202,14 +202,14 @@ stories()
                     size: "small",
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
                     size: "small",
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
@@ -223,13 +223,13 @@ stories()
                     options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
@@ -243,14 +243,14 @@ stories()
                     size: "large",
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
                     size: "large",
                     open: true,
                     fluid: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
@@ -274,7 +274,7 @@ stories()
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
                     size: "small",
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
@@ -286,7 +286,7 @@ stories()
                 {createSelect({
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
@@ -298,7 +298,7 @@ stories()
                     options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
                     size: "large",
                     open: true,
-                    className: "mr5"
+                    wrapperClassName: "mr5"
                 })}
                 {createSelect({
                     options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
@@ -322,7 +322,7 @@ stories()
                     createFemale({ text: "Super long text that will not fit without overflowing" })
                 ],
                 defaultOpen: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createSelect({
                 options: [
@@ -341,7 +341,7 @@ stories()
                     createFemale({ text: "Super long text that will not fit without overflowing", className: "bg-red" })
                 ],
                 defaultOpen: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
             {createSelect({
                 options: [
@@ -349,7 +349,7 @@ stories()
                     createFemale({ text: "Super long text that will not fit without overflowing", style: { background: "red" } })
                 ],
                 defaultOpen: true,
-                className: "mr5"
+                wrapperClassName: "mr5"
             })}
         </div>
     );

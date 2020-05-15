@@ -15,7 +15,7 @@ function stories(segment) {
 stories("/sub components")
     .add("default", () =>
         <div className="flex">
-            <DropdownMenu text="File" className="mr5">
+            <DropdownMenu text="File" wrapperClassName="mr5">
                 <DropdownMenu.Item text="New" />
                 <DropdownMenu.Item text="Open..." />
                 <DropdownMenu.Item text="Save as..." />
