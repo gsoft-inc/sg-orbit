@@ -1,6 +1,6 @@
 import { PopperTrigger } from "./popper-trigger";
 import { cloneElement, forwardRef, useCallback, useRef } from "react";
-import { createInputFromShorthand } from "../../input";
+import { createTextInput } from "../../text-input";
 import { element, func, object, oneOfType } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { isElement as isReactElement } from "react-is";
@@ -86,13 +86,13 @@ function useTriggerRenderer({ input, isElement, hasButton }, button) {
         }
 
         if (hasButton) {
-            return createInputFromShorthand({
+            return createTextInput({
                 ...input,
                 button: button
             });
         }
 
-        return createInputFromShorthand(input);
+        return createTextInput(input);
     };
 }
 

@@ -1,5 +1,6 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
 import { SearchInputController } from "@react-components/search-input";
+import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
@@ -311,6 +312,18 @@ stories("/default value/opened")
     );
 
 stories("/customization")
+    .add("input",
+         () =>
+             <div className="flex">
+                 {createSearchInputController({
+                     input: <TextInput className="border-red" />,
+                     className: "mr5"
+                 })}
+                 {createSearchInputController({
+                     input: { className: "border-red" }
+                 })}
+             </div>
+    )
     .add("no results message",
          () =>
              createSearchInputController({

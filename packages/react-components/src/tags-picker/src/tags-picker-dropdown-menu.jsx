@@ -1,7 +1,7 @@
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent } from "react";
 import { Ref } from "semantic-ui-react";
-import { arrayOf, func, node, shape, string } from "prop-types";
+import { arrayOf, element, func, object, oneOfType, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -24,9 +24,9 @@ export class TagsPickerDropdownMenu extends PureComponent {
          */
         onItemClick: func,
         /**
-         * A React component to enter a search input.
+         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
          */
-        searchInput: node,
+        searchInput: oneOfType([element, object]),
         /**
          * Message to display when there are no items matching the search input.
          */
@@ -51,9 +51,9 @@ export class TagsPickerDropdownMenu extends PureComponent {
         onItemClick(event, { text: data.text, value: data.value });
     }
 
-    setItemWidth = element => {
-        if (!isNil(element)) {
-            this.setState({ itemWidth: element.getBoundingClientRect().width });
+    setItemWidth = node => {
+        if (!isNil(node)) {
+            this.setState({ itemWidth: node.getBoundingClientRect().width });
         }
     };
 

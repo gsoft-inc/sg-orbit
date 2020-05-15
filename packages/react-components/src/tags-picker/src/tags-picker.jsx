@@ -5,7 +5,7 @@ import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { TagsPickerSelectedItems } from "./tags-picker-selected-items";
-import { arrayOf, bool, func, node, object, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, object, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
@@ -82,7 +82,7 @@ export class TagsPicker extends AutoControlledPureComponent {
         /**
          * A React component to select an item.
          */
-        dropdown: node,
+        dropdown: element,
         /**
          * Whether or not the dropdown should close when an item is selected.
          */
@@ -102,11 +102,11 @@ export class TagsPicker extends AutoControlledPureComponent {
         /**
          * A React component to display the selected values.
          */
-        selectedItemsComponent: node,
+        selectedItemsComponent: element,
         /**
          * A React component to clear the selected values.
          */
-        clearButton: node,
+        clearButton: element,
         /**
          * A controlled open value that determined whether or not the dropdown is displayed.
          */
