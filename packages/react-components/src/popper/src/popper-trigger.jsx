@@ -324,20 +324,18 @@ function useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopp
     }, [hideOnBlur, isVisible, hasFocusRef, hidePopper]);
 }
 
-function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hasFocusRef, hidePopper, setFocusTrigger) {
+function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger) {
     const handler = useCallback(event => {
-        if (hasFocusRef.current) {
-            if (event.keyCode === KEYS.esc) {
-                if (hideOnEscape) {
-                    hidePopper(event);
+        if (event.keyCode === KEYS.esc) {
+            if (hideOnEscape) {
+                hidePopper(event);
 
-                    if (focusTriggerOnEscape) {
-                        setFocusTrigger();
-                    }
+                if (focusTriggerOnEscape) {
+                    setFocusTrigger();
                 }
             }
         }
-    }, [hideOnEscape, focusTriggerOnEscape, hasFocusRef, hidePopper, setFocusTrigger]);
+    }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
 
     useDomEventListener("keydown", handler, isVisible);
 }
@@ -551,7 +549,7 @@ export function InnerPopperTrigger(props) {
     const handleContainerFocus = useHandleContainerFocus(hasFocusRef);
     const handleContainerBlur = useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopper);
 
-    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hasFocusRef, hidePopper, setFocusTrigger);
+    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger);
     useHandleDocumentBlur(isVisible, hasFocusRef, containerRef, setFocusPopper);
     useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper);
 

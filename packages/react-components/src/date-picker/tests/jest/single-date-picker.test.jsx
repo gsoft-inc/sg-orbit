@@ -111,7 +111,7 @@ test("close the calendar on blur", async () => {
     const calendarNode = await openCalendar(getByTestId);
 
     act(() => {
-        getInput(getByTestId).blur();
+        document.activeElement.blur();
     });
 
     await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
@@ -304,7 +304,7 @@ test("when closeOnBlur is false, dont close the calendar on blur", async () => {
     const calendarNode = await openCalendar(getByTestId);
 
     act(() => {
-        userEvent.click(document.body);
+        document.activeElement.blur();
     });
 
     getByTestId(CALENDAR_APPLY_BUTTON_ID).focus();
@@ -493,7 +493,7 @@ test("call onVisibilityChange when the calendar close on blur", async () => {
     const calendarNode = await openCalendar(getByTestId);
 
     act(() => {
-        getInput(getByTestId).blur();
+        document.activeElement.blur();
     });
 
     // I shouldn't need this but the test fail otherwise.
