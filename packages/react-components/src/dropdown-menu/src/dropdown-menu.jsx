@@ -90,7 +90,7 @@ function useRenderer({ className, forwardedRef, children, rest }) {
             >
                 <Choose>
                     <When condition={hasChildren}>
-                        <Dropdown.Menu tabindex="0">{children}</Dropdown.Menu>
+                        <Dropdown.Menu>{children}</Dropdown.Menu>
                     </When>
                     <Otherwise>
                         {children}

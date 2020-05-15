@@ -74,7 +74,7 @@ function useContentRenderer({ text, icon, description, content, children }, size
 function useRenderer({ rest }, content) {
     return () => {
         return (
-            <Dropdown.Item tabIndex-="0" {...rest}>
+            <Dropdown.Item {...rest}>
                 {content}
             </Dropdown.Item>
         );
