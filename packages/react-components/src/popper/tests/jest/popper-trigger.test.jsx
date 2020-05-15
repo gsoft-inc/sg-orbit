@@ -52,7 +52,7 @@ test("show the popper on trigger toggle", async () => {
     await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
-test("show the popper on spacebar keydown", async () => {
+test("show the popper on trigger spacebar keydown", async () => {
     const { getByTestId } = render(createPopperTrigger());
 
     act(() => {
@@ -62,7 +62,7 @@ test("show the popper on spacebar keydown", async () => {
     await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
-test("show the popper on enter", async () => {
+test("show the popper on trigger enter keydown", async () => {
     const { getByTestId } = render(createPopperTrigger());
 
     act(() => {
@@ -72,7 +72,7 @@ test("show the popper on enter", async () => {
     await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
-test("when showOnSpacebar is false, dont show the popper on spacebar keydown", async () => {
+test("when showOnSpacebar is false, dont show the popper on trigger spacebar keydown", async () => {
     const { getByTestId, queryByTestId } = render(createPopperTrigger({
         showOnSpacebar: false
     }));
@@ -84,7 +84,7 @@ test("when showOnSpacebar is false, dont show the popper on spacebar keydown", a
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
 
-test("when showOnEnter is false, dont show the popper on enter keydown", async () => {
+test("when showOnEnter is false, dont show the popper on trigger enter keydown", async () => {
     const { getByTestId, queryByTestId } = render(createPopperTrigger({
         showOnEnter: false
     }));
@@ -152,13 +152,37 @@ test("hide the popper on outside click", async () => {
     await waitFor(() => expect(popperNode).not.toBeInTheDocument());
 });
 
-test("hide the popper on trigger toggle", async () => {
+test("hide the popper on trigger mouse click", async () => {
     const renderResult = render(createPopperTrigger());
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
 
     act(() => {
         userEvent.click(triggerNode);
+    });
+
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
+});
+
+test("hide the popper on trigger spacebar keydown", async () => {
+    const renderResult = render(createPopperTrigger());
+
+    const { triggerNode, popperNode } = await showPopper(renderResult);
+
+    act(() => {
+        fireEvent.keyDown(triggerNode, { key: " ", keyCode: 32 });
+    });
+
+    await waitFor(() => expect(popperNode).not.toBeInTheDocument());
+});
+
+test("hide the popper on trigger enter keydown", async () => {
+    const renderResult = render(createPopperTrigger());
+
+    const { triggerNode, popperNode } = await showPopper(renderResult);
+
+    act(() => {
+        fireEvent.keyDown(triggerNode, { key: " ", keyCode: 13 });
     });
 
     await waitFor(() => expect(popperNode).not.toBeInTheDocument());

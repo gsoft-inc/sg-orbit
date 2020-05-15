@@ -208,6 +208,16 @@ function useHidePopper({ onVisibilityChange }, setIsVisible) {
     }, [onVisibilityChange, setIsVisible]);
 }
 
+function useTogglePopper(isVisible, showPopper, hidePopper) {
+    return useCallback(event => {
+        if (isVisible) {
+            hidePopper(event);
+        } else {
+            showPopper(event);
+        }
+    }, [isVisible, showPopper, hidePopper]);
+}
+
 function useSetFocusTrigger(triggerElement) {
     return useCallback(() => {
         setTimeout(() => {
@@ -254,19 +264,15 @@ function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopper
     }, [focusTriggerOnShow, focusPopperOnShow, isVisible, setFocusTrigger, setFocusPopper]);
 }
 
-function useHandleTriggerToggle({ disabled }, isVisible, showPopper, hidePopper) {
+function useHandleTriggerToggle({ disabled }, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
-            if (isVisible) {
-                hidePopper(event);
-            } else {
-                showPopper(event);
-            }
+            togglePopper(event);
         }
-    }, [disabled, isVisible, showPopper, hidePopper]);
+    }, [disabled, togglePopper]);
 }
 
-function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, showPopper) {
+function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
             const key = event.keyCode;
@@ -274,16 +280,16 @@ function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, show
             if (key === KEYS.space) {
                 if (showOnSpacebar) {
                     event.preventDefault();
-                    showPopper(event);
+                    togglePopper(event);
                 }
             } else if (key === KEYS.enter) {
                 if (showOnEnter) {
                     event.preventDefault();
-                    showPopper(event);
+                    togglePopper(event);
                 }
             }
         }
-    }, [disabled, showOnSpacebar, showOnEnter, showPopper]);
+    }, [disabled, showOnSpacebar, showOnEnter, togglePopper]);
 }
 
 function useHandleContainerFocus(hasFocusRef) {
@@ -541,11 +547,12 @@ export function InnerPopperTrigger(props) {
     const setFocusPopper = useSetFocusPopper(popperElement);
     const showPopper = useShowPopper({ onVisibilityChange }, setIsVisible);
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
+    const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
     useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopperOnShow }, isVisible, setFocusTrigger, setFocusPopper);
 
-    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, isVisible, showPopper, hidePopper);
-    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, showPopper);
+    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, togglePopper);
+    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper);
     const handleContainerFocus = useHandleContainerFocus(hasFocusRef);
     const handleContainerBlur = useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopper);
 
