@@ -38,52 +38,82 @@
     border-color: var(--moonstone-900);
 }
 
-.hover-b--moonstone-50:hover,
-.hover-b--moonstone-50:focus {
+.hover-b--moonstone-50:hover {
     border-color: var(--moonstone-50);
 }
 
-.hover-b--moonstone-100:hover,
-.hover-b--moonstone-100:focus {
+.hover-b--moonstone-100:hover {
     border-color: var(--moonstone-100);
 }
 
-.hover-b--moonstone-200:hover,
-.hover-b--moonstone-200:focus {
+.hover-b--moonstone-200:hover {
     border-color: var(--moonstone-200);
 }
 
-.hover-b--moonstone-300:hover,
-.hover-b--moonstone-300:focus {
+.hover-b--moonstone-300:hover {
     border-color: var(--moonstone-300);
 }
 
-.hover-b--moonstone-400:hover,
-.hover-b--moonstone-400:focus {
+.hover-b--moonstone-400:hover {
     border-color: var(--moonstone-400);
 }
 
-.hover-b--moonstone-500:hover,
-.hover-b--moonstone-500:focus {
+.hover-b--moonstone-500:hover {
     border-color: var(--moonstone-500);
 }
 
-.hover-b--moonstone-600:hover,
-.hover-b--moonstone-600:focus {
+.hover-b--moonstone-600:hover {
     border-color: var(--moonstone-600);
 }
 
-.hover-b--moonstone-700:hover,
-.hover-b--moonstone-700:focus {
+.hover-b--moonstone-700:hover {
     border-color: var(--moonstone-700);
 }
 
-.hover-b--moonstone-800:hover,
-.hover-b--moonstone-800:focus {
+.hover-b--moonstone-800:hover {
     border-color: var(--moonstone-800);
 }
 
-.hover-b--moonstone-900:hover,
-.hover-b--moonstone-900:focus {
+.hover-b--moonstone-900:hover {
+    border-color: var(--moonstone-900);
+}
+
+.focus-b--moonstone-50:focus {
+    border-color: var(--moonstone-50);
+}
+
+.focus-b--moonstone-100:focus {
+    border-color: var(--moonstone-100);
+}
+
+.focus-b--moonstone-200:focus {
+    border-color: var(--moonstone-200);
+}
+
+.focus-b--moonstone-300:focus {
+    border-color: var(--moonstone-300);
+}
+
+.focus-b--moonstone-400:focus {
+    border-color: var(--moonstone-400);
+}
+
+.focus-b--moonstone-500:focus {
+    border-color: var(--moonstone-500);
+}
+
+.focus-b--moonstone-600:focus {
+    border-color: var(--moonstone-600);
+}
+
+.focus-b--moonstone-700:focus {
+    border-color: var(--moonstone-700);
+}
+
+.focus-b--moonstone-800:focus {
+    border-color: var(--moonstone-800);
+}
+
+.focus-b--moonstone-900:focus {
     border-color: var(--moonstone-900);
 }

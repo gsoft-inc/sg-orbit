@@ -3,7 +3,7 @@ import { CloseIcon, LightbulbIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createSharedStories } from "./shared-stories";
+import { createSharedTestSuite } from "./shared-test-suite";
 import { isNil } from "lodash";
 
 function stories(segment) {
@@ -16,11 +16,11 @@ function stories(segment) {
         .build();
 }
 
-createSharedStories(<Label />, stories("/standard"));
+createSharedTestSuite(<Label />, stories("/standard"));
 
-createSharedStories(<Label basic />, stories("/basic"));
+createSharedTestSuite(<Label basic />, stories("/basic"));
 
-createSharedStories(<Label naked />, stories("/naked"))
+createSharedTestSuite(<Label naked />, stories("/naked"))
     .add("coloured", () =>
         <div className="flex flex-column items-start">
             <Label

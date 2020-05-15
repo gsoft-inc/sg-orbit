@@ -1,5 +1,5 @@
 import { PopperTrigger } from "./popper-trigger";
-import { createButtonFromShorthand } from "../../button";
+import { createButton } from "../../button";
 import { element, object, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 import { isElement } from "react-is";
@@ -17,7 +17,7 @@ function useButtonRenderer({ button }) {
             return button;
         }
 
-        return createButtonFromShorthand(button);
+        return createButton(button);
     };
 }
 

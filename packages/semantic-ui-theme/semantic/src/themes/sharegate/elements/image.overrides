@@ -43,6 +43,16 @@
     height: @miniWidth;
 }
 
+.ui.avatar.micro.images .image,
+.ui.avatar.micro.images img,
+.ui.avatar.micro.images svg,
+.ui.avatar.micro.image img,
+.ui.avatar.micro.image svg,
+.ui.avatar.micro.image {
+    width: var(--scale-charlie);
+    height: var(--scale-charlie);
+}
+
 .ui.avatar.image {
     line-height: 1;
 }

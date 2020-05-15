@@ -1,5 +1,5 @@
 import { Popper } from "./popper";
 
-export function createPopperFromShorthand({ content, ...props }) {
+export function createPopper({ content, ...props }) {
     return <Popper children={content} {...props} />;
 }

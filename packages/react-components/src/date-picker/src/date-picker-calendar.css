@@ -94,8 +94,13 @@
     outline: none !important;
 }
 
-.o-ui.calendar .DayPickerNavigation_button:focus {
+.o-ui.calendar .DayPickerNavigation_button > div {
+    border-radius: var(--scale-alpha);
+}
+
+.o-ui.calendar .DayPickerNavigation_button > div:focus {
     outline: none !important;
+    box-shadow: 0 0 0 2px var(--primary-200) !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar:hover,

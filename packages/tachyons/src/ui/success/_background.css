@@ -38,52 +38,82 @@
     background-color: var(--success-900);
 }
 
-.hover-bg-success-50:hover,
-.hover-bg-success-50:focus {
+.hover-bg-success-50:hover {
     background-color: var(--success-50);
 }
 
-.hover-bg-success-100:hover,
-.hover-bg-success-100:focus {
+.hover-bg-success-100:hover {
     background-color: var(--success-100);
 }
 
-.hover-bg-success-200:hover,
-.hover-bg-success-200:focus {
+.hover-bg-success-200:hover {
     background-color: var(--success-200);
 }
 
-.hover-bg-success-300:hover,
-.hover-bg-success-300:focus {
+.hover-bg-success-300:hover {
     background-color: var(--success-300);
 }
 
-.hover-bg-success-400:hover,
-.hover-bg-success-400:focus {
+.hover-bg-success-400:hover {
     background-color: var(--success-400);
 }
 
-.hover-bg-success-500:hover,
-.hover-bg-success-500:focus {
+.hover-bg-success-500:hover {
     background-color: var(--success-500);
 }
 
-.hover-bg-success-600:hover,
-.hover-bg-success-600:focus {
+.hover-bg-success-600:hover {
     background-color: var(--success-600);
 }
 
-.hover-bg-success-700:hover,
-.hover-bg-success-700:focus {
+.hover-bg-success-700:hover {
     background-color: var(--success-700);
 }
 
-.hover-bg-success-800:hover,
-.hover-bg-success-800:focus {
+.hover-bg-success-800:hover {
     background-color: var(--success-800);
 }
 
-.hover-bg-success-900:hover,
-.hover-bg-success-900:focus {
+.hover-bg-success-900:hover {
+    background-color: var(--success-900);
+}
+
+.focus-bg-success-50:focus {
+    background-color: var(--success-50);
+}
+
+.focus-bg-success-100:focus {
+    background-color: var(--success-100);
+}
+
+.focus-bg-success-200:focus {
+    background-color: var(--success-200);
+}
+
+.focus-bg-success-300:focus {
+    background-color: var(--success-300);
+}
+
+.focus-bg-success-400:focus {
+    background-color: var(--success-400);
+}
+
+.focus-bg-success-500:focus {
+    background-color: var(--success-500);
+}
+
+.focus-bg-success-600:focus {
+    background-color: var(--success-600);
+}
+
+.focus-bg-success-700:focus {
+    background-color: var(--success-700);
+}
+
+.focus-bg-success-800:focus {
+    background-color: var(--success-800);
+}
+
+.focus-bg-success-900:focus {
     background-color: var(--success-900);
 }

@@ -38,52 +38,82 @@
     background-color: var(--marine-900);
 }
 
-.hover-bg-marine-50:hover,
-.hover-bg-marine-50:focus {
+.hover-bg-marine-50:hover {
     background-color: var(--marine-50);
 }
 
-.hover-bg-marine-100:hover,
-.hover-bg-marine-100:focus {
+.hover-bg-marine-100:hover {
     background-color: var(--marine-100);
 }
 
-.hover-bg-marine-200:hover,
-.hover-bg-marine-200:focus {
+.hover-bg-marine-200:hover {
     background-color: var(--marine-200);
 }
 
-.hover-bg-marine-300:hover,
-.hover-bg-marine-300:focus {
+.hover-bg-marine-300:hover {
     background-color: var(--marine-300);
 }
 
-.hover-bg-marine-400:hover,
-.hover-bg-marine-400:focus {
+.hover-bg-marine-400:hover {
     background-color: var(--marine-400);
 }
 
-.hover-bg-marine-500:hover,
-.hover-bg-marine-500:focus {
+.hover-bg-marine-500:hover {
     background-color: var(--marine-500);
 }
 
-.hover-bg-marine-600:hover,
-.hover-bg-marine-600:focus {
+.hover-bg-marine-600:hover {
     background-color: var(--marine-600);
 }
 
-.hover-bg-marine-700:hover,
-.hover-bg-marine-700:focus {
+.hover-bg-marine-700:hover {
     background-color: var(--marine-700);
 }
 
-.hover-bg-marine-800:hover,
-.hover-bg-marine-800:focus {
+.hover-bg-marine-800:hover {
     background-color: var(--marine-800);
 }
 
-.hover-bg-marine-900:hover,
-.hover-bg-marine-900:focus {
+.hover-bg-marine-900:hover {
+    background-color: var(--marine-900);
+}
+
+.focus-bg-marine-50:focus {
+    background-color: var(--marine-50);
+}
+
+.focus-bg-marine-100:focus {
+    background-color: var(--marine-100);
+}
+
+.focus-bg-marine-200:focus {
+    background-color: var(--marine-200);
+}
+
+.focus-bg-marine-300:focus {
+    background-color: var(--marine-300);
+}
+
+.focus-bg-marine-400:focus {
+    background-color: var(--marine-400);
+}
+
+.focus-bg-marine-500:focus {
+    background-color: var(--marine-500);
+}
+
+.focus-bg-marine-600:focus {
+    background-color: var(--marine-600);
+}
+
+.focus-bg-marine-700:focus {
+    background-color: var(--marine-700);
+}
+
+.focus-bg-marine-800:focus {
+    background-color: var(--marine-800);
+}
+
+.focus-bg-marine-900:focus {
     background-color: var(--marine-900);
 }

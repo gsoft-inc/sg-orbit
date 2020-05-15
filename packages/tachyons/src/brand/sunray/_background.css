@@ -38,52 +38,82 @@
     background-color: var(--sunray-900);
 }
 
-.hover-bg-sunray-50:hover,
-.hover-bg-sunray-50:focus {
+.hover-bg-sunray-50:hover {
     background-color: var(--sunray-50);
 }
 
-.hover-bg-sunray-100:hover,
-.hover-bg-sunray-100:focus {
+.hover-bg-sunray-100:hover {
     background-color: var(--sunray-100);
 }
 
-.hover-bg-sunray-200:hover,
-.hover-bg-sunray-200:focus {
+.hover-bg-sunray-200:hover {
     background-color: var(--sunray-200);
 }
 
-.hover-bg-sunray-300:hover,
-.hover-bg-sunray-300:focus {
+.hover-bg-sunray-300:hover {
     background-color: var(--sunray-300);
 }
 
-.hover-bg-sunray-400:hover,
-.hover-bg-sunray-400:focus {
+.hover-bg-sunray-400:hover {
     background-color: var(--sunray-400);
 }
 
-.hover-bg-sunray-500:hover,
-.hover-bg-sunray-500:focus {
+.hover-bg-sunray-500:hover {
     background-color: var(--sunray-500);
 }
 
-.hover-bg-sunray-600:hover,
-.hover-bg-sunray-600:focus {
+.hover-bg-sunray-600:hover {
     background-color: var(--sunray-600);
 }
 
-.hover-bg-sunray-700:hover,
-.hover-bg-sunray-700:focus {
+.hover-bg-sunray-700:hover {
     background-color: var(--sunray-700);
 }
 
-.hover-bg-sunray-800:hover,
-.hover-bg-sunray-800:focus {
+.hover-bg-sunray-800:hover {
     background-color: var(--sunray-800);
 }
 
-.hover-bg-sunray-900:hover,
-.hover-bg-sunray-900:focus {
+.hover-bg-sunray-900:hover {
+    background-color: var(--sunray-900);
+}
+
+.focus-bg-sunray-50:focus {
+    background-color: var(--sunray-50);
+}
+
+.focus-bg-sunray-100:focus {
+    background-color: var(--sunray-100);
+}
+
+.focus-bg-sunray-200:focus {
+    background-color: var(--sunray-200);
+}
+
+.focus-bg-sunray-300:focus {
+    background-color: var(--sunray-300);
+}
+
+.focus-bg-sunray-400:focus {
+    background-color: var(--sunray-400);
+}
+
+.focus-bg-sunray-500:focus {
+    background-color: var(--sunray-500);
+}
+
+.focus-bg-sunray-600:focus {
+    background-color: var(--sunray-600);
+}
+
+.focus-bg-sunray-700:focus {
+    background-color: var(--sunray-700);
+}
+
+.focus-bg-sunray-800:focus {
+    background-color: var(--sunray-800);
+}
+
+.focus-bg-sunray-900:focus {
     background-color: var(--sunray-900);
 }

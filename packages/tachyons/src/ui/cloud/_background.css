@@ -38,52 +38,82 @@
     background-color: var(--cloud-900);
 }
 
-.hover-bg-cloud-50:hover,
-.hover-bg-cloud-50:focus {
+.hover-bg-cloud-50:hover {
     background-color: var(--cloud-50);
 }
 
-.hover-bg-cloud-100:hover,
-.hover-bg-cloud-100:focus {
+.hover-bg-cloud-100:hover {
     background-color: var(--cloud-100);
 }
 
-.hover-bg-cloud-200:hover,
-.hover-bg-cloud-200:focus {
+.hover-bg-cloud-200:hover {
     background-color: var(--cloud-200);
 }
 
-.hover-bg-cloud-300:hover,
-.hover-bg-cloud-300:focus {
+.hover-bg-cloud-300:hover {
     background-color: var(--cloud-300);
 }
 
-.hover-bg-cloud-400:hover,
-.hover-bg-cloud-400:focus {
+.hover-bg-cloud-400:hover {
     background-color: var(--cloud-400);
 }
 
-.hover-bg-cloud-500:hover,
-.hover-bg-cloud-500:focus {
+.hover-bg-cloud-500:hover {
     background-color: var(--cloud-500);
 }
 
-.hover-bg-cloud-600:hover,
-.hover-bg-cloud-600:focus {
+.hover-bg-cloud-600:hover {
     background-color: var(--cloud-600);
 }
 
-.hover-bg-cloud-700:hover,
-.hover-bg-cloud-700:focus {
+.hover-bg-cloud-700:hover {
     background-color: var(--cloud-700);
 }
 
-.hover-bg-cloud-800:hover,
-.hover-bg-cloud-800:focus {
+.hover-bg-cloud-800:hover {
     background-color: var(--cloud-800);
 }
 
-.hover-bg-cloud-900:hover,
-.hover-bg-cloud-900:focus {
+.hover-bg-cloud-900:hover {
+    background-color: var(--cloud-900);
+}
+
+.focus-bg-cloud-50:focus {
+    background-color: var(--cloud-50);
+}
+
+.focus-bg-cloud-100:focus {
+    background-color: var(--cloud-100);
+}
+
+.focus-bg-cloud-200:focus {
+    background-color: var(--cloud-200);
+}
+
+.focus-bg-cloud-300:focus {
+    background-color: var(--cloud-300);
+}
+
+.focus-bg-cloud-400:focus {
+    background-color: var(--cloud-400);
+}
+
+.focus-bg-cloud-500:focus {
+    background-color: var(--cloud-500);
+}
+
+.focus-bg-cloud-600:focus {
+    background-color: var(--cloud-600);
+}
+
+.focus-bg-cloud-700:focus {
+    background-color: var(--cloud-700);
+}
+
+.focus-bg-cloud-800:focus {
+    background-color: var(--cloud-800);
+}
+
+.focus-bg-cloud-900:focus {
     background-color: var(--cloud-900);
 }

@@ -43,7 +43,7 @@ const ACTION_SHAPE = {
     className: string
 };
 
-const LABEL_SIZE = {
+const MULTIPLE_VALUES_LABEL_SIZE = {
     [SMALL]: MINI,
     [MEDIUM]: TINY,
     [LARGE]: SMALL
@@ -160,7 +160,7 @@ function useMultipleValuesLabelRenderer({ size }) {
             <Label
                 {...rest}
                 content={content}
-                size={LABEL_SIZE[size]}
+                size={MULTIPLE_VALUES_LABEL_SIZE[size]}
                 className={classes}
             />
         );

@@ -38,52 +38,82 @@
     border-color: var(--overcast-900);
 }
 
-.hover-b--overcast-50:hover,
-.hover-b--overcast-50:focus {
+.hover-b--overcast-50:hover {
     border-color: var(--overcast-50);
 }
 
-.hover-b--overcast-100:hover,
-.hover-b--overcast-100:focus {
+.hover-b--overcast-100:hover {
     border-color: var(--overcast-100);
 }
 
-.hover-b--overcast-200:hover,
-.hover-b--overcast-200:focus {
+.hover-b--overcast-200:hover {
     border-color: var(--overcast-200);
 }
 
-.hover-b--overcast-300:hover,
-.hover-b--overcast-300:focus {
+.hover-b--overcast-300:hover {
     border-color: var(--overcast-300);
 }
 
-.hover-b--overcast-400:hover,
-.hover-b--overcast-400:focus {
+.hover-b--overcast-400:hover {
     border-color: var(--overcast-400);
 }
 
-.hover-b--overcast-500:hover,
-.hover-b--overcast-500:focus {
+.hover-b--overcast-500:hover {
     border-color: var(--overcast-500);
 }
 
-.hover-b--overcast-600:hover,
-.hover-b--overcast-600:focus {
+.hover-b--overcast-600:hover {
     border-color: var(--overcast-600);
 }
 
-.hover-b--overcast-700:hover,
-.hover-b--overcast-700:focus {
+.hover-b--overcast-700:hover {
     border-color: var(--overcast-700);
 }
 
-.hover-b--overcast-800:hover,
-.hover-b--overcast-800:focus {
+.hover-b--overcast-800:hover {
     border-color: var(--overcast-800);
 }
 
-.hover-b--overcast-900:hover,
-.hover-b--overcast-900:focus {
+.hover-b--overcast-900:hover {
+    border-color: var(--overcast-900);
+}
+
+.focus-b--overcast-50:focus {
+    border-color: var(--overcast-50);
+}
+
+.focus-b--overcast-100:focus {
+    border-color: var(--overcast-100);
+}
+
+.focus-b--overcast-200:focus {
+    border-color: var(--overcast-200);
+}
+
+.focus-b--overcast-300:focus {
+    border-color: var(--overcast-300);
+}
+
+.focus-b--overcast-400:focus {
+    border-color: var(--overcast-400);
+}
+
+.focus-b--overcast-500:focus {
+    border-color: var(--overcast-500);
+}
+
+.focus-b--overcast-600:focus {
+    border-color: var(--overcast-600);
+}
+
+.focus-b--overcast-700:focus {
+    border-color: var(--overcast-700);
+}
+
+.focus-b--overcast-800:focus {
+    border-color: var(--overcast-800);
+}
+
+.focus-b--overcast-900:focus {
     border-color: var(--overcast-900);
 }

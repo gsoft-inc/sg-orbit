@@ -1,9 +1,15 @@
-.hover-b--transparent:hover,
-.hover-b--transparent:focus {
+.hover-b--transparent:hover{
     border-color: var(--transparent);
 }
 
-.hover-b--inherit:hover,
-.hover-b--inherit:focus {
+.hover-b--inherit:hover {
+    border-color: inherit;
+}
+
+.focus-b--transparent:focus {
+    border-color: var(--transparent);
+}
+
+.focus-b--inherit:focus {
     border-color: inherit;
 }

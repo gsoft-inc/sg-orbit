@@ -1,6 +1,6 @@
 import { DropdownContext } from "./context";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { createIconForControl } from "../../icons";
+import { createContentIcon } from "../../icons";
 import { element } from "prop-types";
 import { isNil } from "lodash";
 import { useContext } from "react";
@@ -12,7 +12,7 @@ const propTypes = {
 function useIconRenderer({ icon, size }) {
     return () => {
         if (!isNil(icon)) {
-            return createIconForControl(icon, size);
+            return createContentIcon(icon, size);
         }
     };
 }

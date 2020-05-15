@@ -1,11 +1,11 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, LARGE, MEDIUM, SMALL, TINY, mergeClasses, useAutofocus } from "../../shared";
+import { ArgumentError, mergeClasses, useAutofocus } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useImperativeHandle, useRef } from "react";
-import { createButtonFromShorthand } from "../../button";
-import { createIconForControl } from "../../icons";
+import { createButton, getContentButtonSize } from "../../button";
+import { createContentIcon } from "../../icons";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
@@ -14,12 +14,6 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
-
-const BUTTON_SIZE = {
-    [SMALL]: TINY,
-    [MEDIUM]: SMALL,
-    [LARGE]: MEDIUM
-};
 
 const propTypes = {
     /**
@@ -106,7 +100,7 @@ function useForwardInputApi(forwardedRef, containerRef, inputComponentRef) {
 function useIconRenderer({ icon, size, loading }) {
     return () => {
         if (!isNil(icon) && !loading) {
-            return createIconForControl(icon, size);
+            return createContentIcon(icon, size);
         }
     };
 }
@@ -118,7 +112,7 @@ function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
 
             if (canRenderButton) {
                 const props = {
-                    size: BUTTON_SIZE[size],
+                    size: getContentButtonSize(size),
                     circular: true,
                     ghost: true,
                     secondary: true
@@ -138,7 +132,7 @@ function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
                     });
                 }
 
-                return createButtonFromShorthand({
+                return createButton({
                     ...button,
                     ...props,
                     className: getClasses(button.className)

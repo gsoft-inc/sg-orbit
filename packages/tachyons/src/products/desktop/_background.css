@@ -38,52 +38,82 @@
     background-color: var(--desktop-900);
 }
 
-.hover-bg-desktop-50:hover,
-.hover-bg-desktop-50:focus {
+.hover-bg-desktop-50:hover {
     background-color: var(--desktop-50);
 }
 
-.hover-bg-desktop-100:hover,
-.hover-bg-desktop-100:focus {
+.hover-bg-desktop-100:hover {
     background-color: var(--desktop-100);
 }
 
-.hover-bg-desktop-200:hover,
-.hover-bg-desktop-200:focus {
+.hover-bg-desktop-200:hover {
     background-color: var(--desktop-200);
 }
 
-.hover-bg-desktop-300:hover,
-.hover-bg-desktop-300:focus {
+.hover-bg-desktop-300:hover {
     background-color: var(--desktop-300);
 }
 
-.hover-bg-desktop-400:hover,
-.hover-bg-desktop-400:focus {
+.hover-bg-desktop-400:hover {
     background-color: var(--desktop-400);
 }
 
-.hover-bg-desktop-500:hover,
-.hover-bg-desktop-500:focus {
+.hover-bg-desktop-500:hover {
     background-color: var(--desktop-500);
 }
 
-.hover-bg-desktop-600:hover,
-.hover-bg-desktop-600:focus {
+.hover-bg-desktop-600:hover {
     background-color: var(--desktop-600);
 }
 
-.hover-bg-desktop-700:hover,
-.hover-bg-desktop-700:focus {
+.hover-bg-desktop-700:hover {
     background-color: var(--desktop-700);
 }
 
-.hover-bg-desktop-800:hover,
-.hover-bg-desktop-800:focus {
+.hover-bg-desktop-800:hover {
     background-color: var(--desktop-800);
 }
 
-.hover-bg-desktop-900:hover,
-.hover-bg-desktop-900:focus {
+.hover-bg-desktop-900:hover {
+    background-color: var(--desktop-900);
+}
+
+.focus-bg-desktop-50:focus {
+    background-color: var(--desktop-50);
+}
+
+.focus-bg-desktop-100:focus {
+    background-color: var(--desktop-100);
+}
+
+.focus-bg-desktop-200:focus {
+    background-color: var(--desktop-200);
+}
+
+.focus-bg-desktop-300:focus {
+    background-color: var(--desktop-300);
+}
+
+.focus-bg-desktop-400:focus {
+    background-color: var(--desktop-400);
+}
+
+.focus-bg-desktop-500:focus {
+    background-color: var(--desktop-500);
+}
+
+.focus-bg-desktop-600:focus {
+    background-color: var(--desktop-600);
+}
+
+.focus-bg-desktop-700:focus {
+    background-color: var(--desktop-700);
+}
+
+.focus-bg-desktop-800:focus {
+    background-color: var(--desktop-800);
+}
+
+.focus-bg-desktop-900:focus {
     background-color: var(--desktop-900);
 }

@@ -4,14 +4,14 @@ import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsPro
 import { Children, cloneElement, forwardRef, useCallback } from "react";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createIconForControl } from "../../icons";
-import { createLabelFromShorthand } from "../../label";
-import { createTagFromShorthand } from "../../tag";
+import { createContentIcon, createStandaloneIcon } from "../../icons";
+import { createLabel, getContentLabelSize } from "../../label";
+import { createTag, getTagSize } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["mini", "tiny", "small", "medium", "large"];
+const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -100,6 +100,10 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
+function hasText(children) {
+    return Children.count(children) > 0;
+}
+
 function useSetFocus(buttonRef) {
     return useCallback(() => {
         if (!isNil(buttonRef.current)) {
@@ -108,17 +112,17 @@ function useSetFocus(buttonRef) {
     }, [buttonRef]);
 }
 
-function useIconRenderer({ icon, size }) {
+function useIconRenderer({ icon, size }, isStandalone) {
     return () => {
-        return createIconForControl(icon, size);
+        return !isStandalone ? createContentIcon(icon, size) : createStandaloneIcon(icon, size);
     };
 }
 
-function useLabelRenderer({ label, disabled }) {
+function useLabelRenderer({ label, size, disabled }) {
     return () => {
         const props = {
             as: "span",
-            size: "mini",
+            size: getContentLabelSize(size),
             highlight: true,
             disabled: disabled
         };
@@ -127,18 +131,18 @@ function useLabelRenderer({ label, disabled }) {
             return cloneElement(label, props);
         }
 
-        return createLabelFromShorthand({
+        return createLabel({
             ...props,
             ...label
         });
     };
 }
 
-function useTagRenderer({ tag, disabled }) {
+function useTagRenderer({ tag, size, disabled }) {
     return () => {
         const props = {
             as: "span",
-            size: "mini",
+            size: getTagSize(size),
             disabled: disabled
         };
 
@@ -146,7 +150,7 @@ function useTagRenderer({ tag, disabled }) {
             return cloneElement(tag, props);
         }
 
-        return createTagFromShorthand({
+        return createTag({
             ...props,
             ...tag
         });
@@ -154,9 +158,9 @@ function useTagRenderer({ tag, disabled }) {
 }
 
 function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
-    const renderIcon = useIconRenderer({ icon, size });
-    const renderLabel = useLabelRenderer({ label, disabled });
-    const renderTag = useTagRenderer({ tag, disabled });
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
+    const renderLabel = useLabelRenderer({ label, size, disabled });
+    const renderTag = useTagRenderer({ tag, size, disabled });
 
     return () => {
         if (!loading) {
@@ -195,8 +199,6 @@ function useRenderer(
     renderContent
 ) {
     return () => {
-        const hasText = Children.count(children) > 0;
-
         const classes = mergeClasses(
             naked && "naked",
             ghost && "ghost",
@@ -205,7 +207,7 @@ function useRenderer(
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
             !isNil(tag) && "with-tag",
-            !hasText && "without-text",
+            !hasText(children) && "without-text",
             className
         );
 

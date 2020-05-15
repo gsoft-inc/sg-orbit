@@ -38,52 +38,82 @@
     fill: var(--primary-900);
 }
 
-.hover-fill-primary-50:hover,
-.hover-fill-primary-50:focus {
+.hover-fill-primary-50:hover {
     fill: var(--primary-50);
 }
 
-.hover-fill-primary-100:hover,
-.hover-fill-primary-100:focus {
+.hover-fill-primary-100:hover {
     fill: var(--primary-100);
 }
 
-.hover-fill-primary-200:hover,
-.hover-fill-primary-200:focus {
+.hover-fill-primary-200:hover {
     fill: var(--primary-200);
 }
 
-.hover-fill-primary-300:hover,
-.hover-fill-primary-300:focus {
+.hover-fill-primary-300:hover {
     fill: var(--primary-300);
 }
 
-.hover-fill-primary-400:hover,
-.hover-fill-primary-400:focus {
+.hover-fill-primary-400:hover {
     fill: var(--primary-400);
 }
 
-.hover-fill-primary-500:hover,
-.hover-fill-primary-500:focus {
+.hover-fill-primary-500:hover {
     fill: var(--primary-500);
 }
 
-.hover-fill-primary-600:hover,
-.hover-fill-primary-600:focus {
+.hover-fill-primary-600:hover {
     fill: var(--primary-600);
 }
 
-.hover-fill-primary-700:hover,
-.hover-fill-primary-700:focus {
+.hover-fill-primary-700:hover {
     fill: var(--primary-700);
 }
 
-.hover-fill-primary-800:hover,
-.hover-fill-primary-800:focus {
+.hover-fill-primary-800:hover {
     fill: var(--primary-800);
 }
 
-.hover-fill-primary-900:hover,
-.hover-fill-primary-900:focus {
+.hover-fill-primary-900:hover {
+    fill: var(--primary-900);
+}
+
+.focus-fill-primary-50:focus {
+    fill: var(--primary-50);
+}
+
+.focus-fill-primary-100:focus {
+    fill: var(--primary-100);
+}
+
+.focus-fill-primary-200:focus {
+    fill: var(--primary-200);
+}
+
+.focus-fill-primary-300:focus {
+    fill: var(--primary-300);
+}
+
+.focus-fill-primary-400:focus {
+    fill: var(--primary-400);
+}
+
+.focus-fill-primary-500:focus {
+    fill: var(--primary-500);
+}
+
+.focus-fill-primary-600:focus {
+    fill: var(--primary-600);
+}
+
+.focus-fill-primary-700:focus {
+    fill: var(--primary-700);
+}
+
+.focus-fill-primary-800:focus {
+    fill: var(--primary-800);
+}
+
+.focus-fill-primary-900:focus {
     fill: var(--primary-900);
 }

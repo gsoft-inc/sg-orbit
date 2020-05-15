@@ -2,7 +2,10 @@
     border-color: var(--white);
 }
 
-.hover-b--white:hover,
-.hover-b--white:focus {
+.hover-b--white:hover {
+    border-color: var(--white);
+}
+
+.focus-b--white:focus {
     border-color: var(--white);
 }

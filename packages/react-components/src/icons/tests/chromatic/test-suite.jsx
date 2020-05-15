@@ -1,10 +1,12 @@
 import { isNil } from "lodash";
 
-export function IconTestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
+export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
     return (
         <div className="flex flex-column">
             <If condition={!isNil(Icon24)}>
                 <div className="flex items-end">
+                    <Icon24 size="micro" />
+                    <Icon24 size="mini" />
                     <Icon24 size="tiny" />
                     <Icon24 size="small" />
                     <Icon24 />
@@ -18,6 +20,8 @@ export function IconTestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: Multi
             </If>
             <If condition={!isNil(Icon32)}>
                 <div className="flex items-end">
+                    <Icon32 size="micro" />
+                    <Icon32 size="mini" />
                     <Icon32 size="tiny" />
                     <Icon32 size="small" />
                     <Icon32 />
@@ -30,6 +34,8 @@ export function IconTestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: Multi
                 </div>
             </If>
             <div className="flex items-end">
+                <MultiIcon size="micro" />
+                <MultiIcon size="mini" />
                 <MultiIcon size="tiny" />
                 <MultiIcon size="small" />
                 <MultiIcon />

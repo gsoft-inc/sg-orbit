@@ -1,27 +1,22 @@
-.hover-shadow-100:hover,
-.hover-shadow-100:focus {
+.hover-shadow-100:hover {
     box-shadow: var(--shadow-100);
 }
 
-.hover-shadow-200:hover,
-.hover-shadow-200:focus {
+.hover-shadow-200:hover {
     box-shadow: var(--shadow-200);
 }
 
 @media (--breakpoint-not-small) {
-    .hover-shadow-100-ns:hover,
-    .hover-shadow-100-ns:focus {
+    .hover-shadow-100-ns:hover {
         box-shadow: var(--shadow-100);
     }
-    .hover-shadow-200-ns:hover,
-    .hover-shadow-200-ns:focus {
+    .hover-shadow-200-ns:hover {
         box-shadow: var(--shadow-200);
     }
 }
 
 @media (--breakpoint-medium) {
-    .hover-shadow-100-m:hover,
-    .hover-shadow-100-m:focus {
+    .hover-shadow-100-m:hover {
         box-shadow: var(--shadow-100);
     }
     .hover-shadow-200-m:hover,
@@ -31,12 +26,46 @@
 }
 
 @media (--breakpoint-large) {
-    .hover-shadow-100-l:hover,
-    .hover-shadow-100-l:focus {
+    .hover-shadow-100-l:hover {
         box-shadow: var(--shadow-100);
     }
-    .hover-shadow-200-l:hover,
-    .hover-shadow-200-l:focus {
+    .hover-shadow-200-l:hover{
+        box-shadow: var(--shadow-200);
+    }
+}
+
+.focus-shadow-100:focus {
+    box-shadow: var(--shadow-100);
+}
+
+.focus-shadow-200:focus {
+    box-shadow: var(--shadow-200);
+}
+
+@media (--breakpoint-not-small) {
+    .focus-shadow-100-ns:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .focus-shadow-200-ns:focus {
+        box-shadow: var(--shadow-200);
+    }
+}
+
+@media (--breakpoint-medium) {
+    .focus-shadow-100-m:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .focus-shadow-200-m:focus,
+    .focus-shadow-200-m:focus {
+        box-shadow: var(--shadow-200);
+    }
+}
+
+@media (--breakpoint-large) {
+    .focus-shadow-100-l:focus {
+        box-shadow: var(--shadow-100);
+    }
+    .focus-shadow-200-l:focus{
         box-shadow: var(--shadow-200);
     }
 }

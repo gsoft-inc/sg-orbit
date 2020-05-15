@@ -34,7 +34,7 @@ class Preset extends PureComponent {
         const { preset, isSelected, isBlocked } = this.props;
 
         const classes = mergeClasses(
-            "pa1",
+            "ma1",
             isSelected && "primary-500"
         );
 

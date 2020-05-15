@@ -1,3 +1,4 @@
+export const MICRO = "micro";
 export const MINI = "mini";
 export const TINY = "tiny";
 export const SMALL = "small";

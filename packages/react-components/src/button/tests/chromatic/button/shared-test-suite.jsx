@@ -13,18 +13,24 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb5">
+                <Button size="micro" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
+                <Button size="mini" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
                 <Button size="tiny" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
                 <Button size="small" icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon />} element={button} className="mr5">Button</Button>
                 <Button size="large" icon={<SignoutIcon />} element={button}>Button</Button>
             </div>
             <div className="flex items-end mb5">
+                <Button size="micro" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                <Button size="mini" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button size="tiny" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button size="small" icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button size="large" icon={<SignoutIcon />} iconPosition="right" element={button}>Button</Button>
             </div>
             <div className="flex items-end mb5">
+                <Button size="micro" icon={<SignoutIcon />} element={button} className="mr5" />
+                <Button size="mini" icon={<SignoutIcon />} element={button} className="mr5" />
                 <Button size="tiny" icon={<SignoutIcon />} element={button} className="mr5" />
                 <Button size="small" icon={<SignoutIcon />} element={button} className="mr5" />
                 <Button icon={<SignoutIcon />} element={button} className="mr5" />
@@ -53,6 +59,8 @@ function Loadings({ element, ...rest }) {
                 <Button icon={<SignoutIcon />} iconPosition="right" loading element={button}>AA</Button>
             </div>
             <div className="flex items-end mb5">
+                <Button size="micro" loading element={button} className="mr5">Aa</Button>
+                <Button size="mini" loading element={button} className="mr5">Aa</Button>
                 <Button size="tiny" loading element={button} className="mr5">Aa</Button>
                 <Button size="small" loading element={button} className="mr5">Aa</Button>
                 <Button loading element={button} className="mr5">Aa</Button>
@@ -68,6 +76,8 @@ function Labels({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb5">
+                <Button size="micro" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                <Button size="mini" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button size="tiny" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button size="small" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button label={<Label>6</Label>} element={button} className="mr5">Button</Button>
@@ -90,6 +100,8 @@ function Tags({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb5">
+                <Button size="micro" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                <Button size="mini" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button size="tiny" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button size="small" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
@@ -105,7 +117,7 @@ function Tags({ element, ...rest }) {
     );
 }
 
-export function createSharedStories(button, stories) {
+export function createSharedTestSuite(button, stories) {
     return stories
         .add("default", () =>
             <div className="flex">
@@ -118,6 +130,8 @@ export function createSharedStories(button, stories) {
                         <Button style={{ backgroundColor: "red" }} element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
+                        <Button size="micro" element={button} className="mr5">Button</Button>
+                        <Button size="mini" element={button} className="mr5">Button</Button>
                         <Button size="tiny" element={button} className="mr5">Button</Button>
                         <Button size="small" element={button} className="mr5">Button</Button>
                         <Button element={button} className="mr5">Button</Button>
@@ -142,6 +156,8 @@ export function createSharedStories(button, stories) {
                         <Button className="bg-red" ghost element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
+                        <Button size="micro" ghost element={button} className="mr5">Button</Button>
+                        <Button size="mini" ghost element={button} className="mr5">Button</Button>
                         <Button size="tiny" ghost element={button} className="mr5">Button</Button>
                         <Button size="small" ghost element={button} className="mr5">Button</Button>
                         <Button ghost element={button} className="mr5">Button</Button>
@@ -166,6 +182,8 @@ export function createSharedStories(button, stories) {
                         <Button className="bg-red" basic element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
+                        <Button size="micro" basic element={button} className="mr5">Button</Button>
+                        <Button size="mini" basic element={button} className="mr5">Button</Button>
                         <Button size="tiny" basic element={button} className="mr5">Button</Button>
                         <Button size="small" basic element={button} className="mr5">Button</Button>
                         <Button basic element={button} className="mr5">Button</Button>
@@ -190,6 +208,8 @@ export function createSharedStories(button, stories) {
                         <Button className="bg-red" compact element={button}>Button</Button>
                     </div>
                     <div className="flex items-end mb5">
+                        <Button size="micro" compact element={button} className="mr5">Button</Button>
+                        <Button size="mini" compact element={button} className="mr5">Button</Button>
                         <Button size="tiny" compact element={button} className="mr5">Button</Button>
                         <Button size="small" compact element={button} className="mr5">Button</Button>
                         <Button compact element={button} className="mr5">Button</Button>
@@ -213,18 +233,32 @@ export function createSharedStories(button, stories) {
                     <Button className="bg-red" circular element={button}>Aa</Button>
                 </div>
                 <div className="flex items-end mb5">
+                    <Button size="micro" circular element={button} className="mr5">Aa</Button>
+                    <Button size="mini" circular element={button} className="mr5">Aa</Button>
                     <Button size="tiny" circular element={button} className="mr5">Aa</Button>
                     <Button size="small" circular element={button} className="mr5">Aa</Button>
                     <Button circular element={button} className="mr5">Aa</Button>
                     <Button size="large" circular element={button}>Aa</Button>
                 </div>
                 <div className="flex items-end mb5">
+                    <Button size="micro" circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="mini" circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="tiny" circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="small" circular compact element={button} className="mr5">Aa</Button>
+                    <Button circular compact element={button} className="mr5">Aa</Button>
+                    <Button size="large" circular compact element={button}>Aa</Button>
+                </div>
+                <div className="flex items-end mb5">
+                    <Button size="micro" icon={<SignoutIcon />} circular element={button} className="mr5" />
+                    <Button size="mini" icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button size="tiny" icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button size="small" icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon />} circular element={button} className="mr5" />
                     <Button size="large" icon={<SignoutIcon />} circular element={button} />
                 </div>
                 <div className="flex items-end mb5">
+                    <Button size="micro" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
+                    <Button size="mini" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
                     <Button size="tiny" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
                     <Button size="small" icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon />} iconPosition="right" circular element={button} className="mr5" />

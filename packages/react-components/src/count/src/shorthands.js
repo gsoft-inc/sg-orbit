@@ -1,5 +1,5 @@
 import { Count } from "./count";
 
-export function createCountFromShorthand({ content, ...props }) {
+export function createCount({ content, ...props }) {
     return <Count {...props}>{content}</Count>;
 }

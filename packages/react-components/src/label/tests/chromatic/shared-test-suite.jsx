@@ -7,7 +7,7 @@ function Label({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createSharedStories(label, stories) {
+export function createSharedTestSuite(label, stories) {
     return stories
         .add("default", () =>
             <div className="flex flex-column">
@@ -18,6 +18,7 @@ export function createSharedStories(label, stories) {
                     <Label style={{ backgroundColor: "red" }} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" element={label} className="mr5">Notification Sent</Label>
@@ -25,6 +26,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
@@ -32,6 +34,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" icon={<LightbulbIcon />} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
@@ -39,6 +42,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" icon={<LightbulbIcon />} iconPosition="right" element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" icon={<LightbulbIcon />} element={label} className="mr5" />
                     <Label size="mini" icon={<LightbulbIcon />} element={label} className="mr5" />
                     <Label size="tiny" icon={<LightbulbIcon />} element={label} className="mr5" />
                     <Label size="small" icon={<LightbulbIcon />} element={label} className="mr5" />
@@ -49,6 +53,7 @@ export function createSharedStories(label, stories) {
                     <Label icon={<LightbulbIcon className="fill-red" />} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" tag={<Tag className="bg-red" />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" tag={<Tag className="bg-red" />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" tag={<Tag className="bg-red" />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" tag={<Tag className="bg-red" />} element={label} className="mr5">Notification Sent</Label>
@@ -56,6 +61,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" tag={<Tag className="bg-red" />} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label} className="mr5">Notification Sent</Label>
@@ -63,6 +69,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
@@ -70,6 +77,7 @@ export function createSharedStories(label, stories) {
                     <Label size="large" button={<Button icon={<CloseIcon />} />} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
+                    <Label size="micro" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="mini" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="tiny" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
                     <Label size="small" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
