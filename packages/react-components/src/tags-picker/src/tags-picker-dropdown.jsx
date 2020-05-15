@@ -331,14 +331,14 @@ export class TagsPickerDropdown extends PureComponent {
 
         const props = {
             onChange: this.handleSearchChange,
-            placeholder: placeholder
+            placeholder
         };
 
         if (isElement(searchInput)) {
             return cloneElement(searchInput, props);
         }
 
-        return <TagsPickerDropdownSearchInput {...searchInput} />;
+        return <TagsPickerDropdownSearchInput { ...props } { ...searchInput } />;
     };
 
     renderMenu = () => {
