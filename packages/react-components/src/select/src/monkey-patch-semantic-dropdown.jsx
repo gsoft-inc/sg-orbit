@@ -14,7 +14,8 @@ export class MonkeyPatchSemanticDropdown extends Dropdown {
 
         return (
             <>
-                {renderAvatar(avatar, !inline ? size : undefined, { inline })}
+                {/* {renderAvatar(avatar, !inline ? size : undefined, { inline })} */}
+                {renderAvatar(avatar, !inline ? size : undefined)}
                 {text}
             </>
         );
