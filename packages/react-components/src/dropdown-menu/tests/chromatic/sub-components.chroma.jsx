@@ -153,4 +153,18 @@ stories("/sub components")
                 <DropdownMenu.Item text="Publish To Web" />
             </DropdownMenu>
         </div>
+    )
+    .add("item children", () =>
+        <DropdownMenu text="File" defaultOpen>
+            <DropdownMenu.Item>New</DropdownMenu.Item>
+            <DropdownMenu.Item>Open...</DropdownMenu.Item>
+            <DropdownMenu.Item>Save as...</DropdownMenu.Item>
+        </DropdownMenu>
+    )
+    .add("item content", () =>
+        <DropdownMenu text="File" defaultOpen>
+            <DropdownMenu.Item content="New" />
+            <DropdownMenu.Item content="Open..." />
+            <DropdownMenu.Item content="Save as..." />
+        </DropdownMenu>
     );
