@@ -306,9 +306,21 @@
 }
 
 /* CONTENT | Item | With link */
-.ui.dropdown .item a {
+.ui.dropdown .menu > a.item {
     font-weight: 400;
-    color: @marine500;
+    color: @primary500;
+}
+
+.ui.dropdown .menu > a.item:hover {
+    color: @primary500;
+}
+
+.ui.dropdown .menu > a.item:hover .text {
+    text-decoration: underline;
+}
+
+.ui.dropdown .menu > a.item .icon {
+    fill: @primary500;
 }
 
 .ui.dropdown .item a:hover,
