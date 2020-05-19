@@ -319,6 +319,10 @@
     text-decoration: underline;
 }
 
+.ui.dropdown .menu > a.item.disabled:hover .text {
+    text-decoration: initial;
+}
+
 .ui.dropdown .menu > a.item .icon {
     fill: @primary500;
 }
