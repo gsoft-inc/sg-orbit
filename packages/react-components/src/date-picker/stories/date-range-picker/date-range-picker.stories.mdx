@@ -97,18 +97,18 @@ A default set of ranges is available through the `DEFAULT_DATES_PRESETS`:
 
 ```js dark
 const DEFAULT_DATES_PRESETS = [
-    toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day")),
-    toPreset("Last month", moment().subtract(1, "months"), moment().startOf("day")),
-    toPreset("Last 3 months", moment().subtract(3, "months"), moment().startOf("day")),
-    toPreset("Last 6 months", moment().subtract(6, "months"), moment().startOf("day")),
-    toPreset("Last 12 months", moment().subtract(12, "months"), moment().startOf("day"))
+    preset("Last week", moment().subtract(1, "week"), moment().startOf("day")),
+    preset("Last month", moment().subtract(1, "months"), moment().startOf("day")),
+    preset("Last 3 months", moment().subtract(3, "months"), moment().startOf("day")),
+    preset("Last 6 months", moment().subtract(6, "months"), moment().startOf("day")),
+    preset("Last 12 months", moment().subtract(12, "months"), moment().startOf("day"))
 ];
 ```
 
-If you need to create your own presets, use the `toPreset(text, startDate, endDate)` function:
+If you need to create your own presets, use the `preset(text, startDate, endDate)` function:
 
 ```js dark
-const LAST_WEEK_PRESET = toPreset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
+const LAST_WEEK_PRESET = preset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
 ```
 
 Here's an example with `DEFAULT_DATES_PRESETS`:

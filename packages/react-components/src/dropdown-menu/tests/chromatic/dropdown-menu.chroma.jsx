@@ -1,19 +1,28 @@
 import { AddIcon, EditIcon, FileIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
-import { DropdownMenu } from "@react-components/dropdown-menu";
+import { DropdownMenu, dropdownMenuButtonItem, dropdownMenuLinkItem } from "@react-components/dropdown-menu";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { isNil } from "lodash";
+import { isNil, noop } from "lodash";
 
 const createNewItem = (props = {}) => {
-    return { key: "New", text: "New", value: "New", ...props };
+    return dropdownMenuLinkItem("New", "https://www.sharegate.com", {
+        target: "_blank",
+        ...props
+    });
 };
 
 const createOpenItem = (props = {}) => {
-    return { key: "Open...", text: "Open...", value: "Open...", ...props };
+    return dropdownMenuLinkItem("Open...", "https://www.sharegate.com", {
+        target: "_blank",
+        ...props
+    });
 };
 
 const createRenameItem = (props = {}) => {
-    return { key: "Rename...", text: "Rename...", value: "Rename...", ...props };
+    return dropdownMenuLinkItem("Rename...", "https://www.sharegate.com", {
+        target: "_blank",
+        ...props
+    });
 };
 
 const ACTIONS = [createNewItem(), createOpenItem(), createRenameItem()];
@@ -47,7 +56,8 @@ stories()
                 })}
                 {createDropdownMenu({
                     size: "small",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
@@ -55,7 +65,8 @@ stories()
                     wrapperClassName: "mr5"
                 })}
                 {createDropdownMenu({
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex">
@@ -65,7 +76,8 @@ stories()
                 })}
                 {createDropdownMenu({
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -81,17 +93,20 @@ stories()
                     trigger: <AddIcon />,
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <AddIcon />,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <AddIcon />,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
@@ -103,17 +118,20 @@ stories()
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex">
@@ -125,20 +143,28 @@ stories()
                     trigger: <Button>Open</Button>,
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     trigger: <Button>Open</Button>,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
+    )
+    .add("focus first item on open", () =>
+        createDropdownMenu({
+            defaultOpen: true
+        })
     )
     .add("icon", () =>
         <div className="flex flex-column">
@@ -151,7 +177,8 @@ stories()
                 {createDropdownMenu({
                     icon: <FileIcon />,
                     size: "small",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
@@ -161,7 +188,8 @@ stories()
                 })}
                 {createDropdownMenu({
                     icon: <FileIcon />,
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex">
@@ -173,7 +201,8 @@ stories()
                 {createDropdownMenu({
                     icon: <FileIcon />,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -182,19 +211,20 @@ stories()
         createDropdownMenu({
             scrolling: true,
             options: [
-                { key: "1", text: "1", value: "1" },
-                { key: "2", text: "2", value: "2" },
-                { key: "3", text: "3", value: "3" },
-                { key: "4", text: "4", value: "4" },
-                { key: "5", text: "5", value: "5" },
-                { key: "6", text: "6", value: "6" },
-                { key: "7", text: "7", value: "7" },
-                { key: "8", text: "8", value: "8" },
-                { key: "9", text: "9", value: "9" },
-                { key: "10", text: "10", value: "10" },
-                { key: "11", text: "11", value: "11" }
+                dropdownMenuLinkItem("1", "1"),
+                dropdownMenuLinkItem("2", "2"),
+                dropdownMenuLinkItem("3", "3"),
+                dropdownMenuLinkItem("4", "4"),
+                dropdownMenuLinkItem("5", "5"),
+                dropdownMenuLinkItem("6", "6"),
+                dropdownMenuLinkItem("7", "7"),
+                dropdownMenuLinkItem("8", "8"),
+                dropdownMenuLinkItem("9", "9"),
+                dropdownMenuLinkItem("10", "10"),
+                dropdownMenuLinkItem("11", "11")
             ],
-            defaultOpen: true
+            defaultOpen: true,
+            focusFirstItemOnOpen: false
         })
     )
     .add("direction", () =>
@@ -204,17 +234,20 @@ stories()
                     direction: "left",
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "150px" }
                 })}
                 {createDropdownMenu({
                     direction: "left",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "200px" }
                 })}
                 {createDropdownMenu({
                     direction: "left",
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex flex-column">
@@ -222,17 +255,20 @@ stories()
                     direction: "right",
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "150px" }
                 })}
                 {createDropdownMenu({
                     direction: "right",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "200px" }
                 })}
                 {createDropdownMenu({
                     direction: "right",
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -244,17 +280,20 @@ stories()
                     upward: true,
                     size: "small",
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     upward: true,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
                     upward: true,
                     size: "large",
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -281,17 +320,20 @@ stories()
                     size: "small",
                     fluid: true,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "200px" }
                 })}
                 {createDropdownMenu({
                     fluid: true,
                     defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginBottom: "200px" }
                 })}
                 {createDropdownMenu({
                     size: "large",
                     fluid: true,
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -325,18 +367,21 @@ stories("/item")
             <div style={{ marginBottom: "150px" }}>
                 {createDropdownMenu({
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div>
                 {createDropdownMenu({
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -347,20 +392,23 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -371,20 +419,23 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -395,20 +446,23 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
@@ -419,84 +473,97 @@ stories("/item")
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div>
                 {createDropdownMenu({
                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon />, disabled: true })],
-                    defaultOpen: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>
     )
-    .add("link", () =>
+    .add("button", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
+                    options: [dropdownMenuButtonItem("New", () => { console.log("Clicked"); }), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
                     size: "small",
-                    open: true,
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
                     size: "small",
-                    open: true,
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
                     size: "small",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
-                    open: true,
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
-                    open: true,
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
-                    open: true
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
             <div className="flex">
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank" })],
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
                     size: "large",
-                    open: true,
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", icon: <EditIcon /> })],
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
                     size: "large",
-                    open: true,
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    options: [createNewItem(), createOpenItem(), createRenameItem({ as: "a", href: "https://www.google.com", target: "_blank", disabled: true })],
+                    options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
                     size: "large",
-                    open: true
+                    defaultOpen: true,
+                    focusFirstItemOnOpen: false
                 })}
             </div>
         </div>

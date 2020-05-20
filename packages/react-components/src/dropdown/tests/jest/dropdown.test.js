@@ -117,7 +117,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
-    expect(refNode.getAttribute("data-testid")).toBe("dropdown");
+    expect(refNode.getAttribute("data-testid")).toBe("dropdown-wrapper");
 });
 
 test("set ref once", async () => {

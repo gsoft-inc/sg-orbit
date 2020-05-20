@@ -2,11 +2,11 @@ import "./item-factory";
 
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
-import { KEYS, LARGE, SMALL, SemanticRef, mergeClasses, useAutofocus, useCombinedRefs, useDomEventListener } from "../../shared";
+import { LARGE, SMALL, SemanticRef, mergeClasses, useAutofocus } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createContentIcon } from "../../icons";
-import { forwardRef, useCallback, useRef, useState } from "react";
+import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -54,22 +54,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    onOpen: func,
-    /**
-     * @ignore
-     */
-    onClose: func,
-    /**
-     * @ignore
-     */
-    onFocus: func,
-    /**
-     * @ignore
-     */
-    onBlur: func,
-    /**
-     * @ignore
-     */
     onChange: func,
     /**
      * @ignore
@@ -94,6 +78,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    __dropdownComponentRef: object,
+    /**
+     * @ignore
+     */
     __semanticDropdown: elementType
 };
 
@@ -115,81 +103,10 @@ function useSetFocus({ search }, dropdownRef) {
     }, [search, dropdownRef]);
 }
 
-function useHandleOpen({ onOpen }, setIsOpen) {
-    return useCallback((...args) => {
-        setIsOpen(true);
-
-        if (!isNil(onOpen)) {
-            onOpen(...args);
-        }
-    }, [onOpen, setIsOpen]);
-}
-
-function useHandleClose({ onClose }, setIsOpen) {
-    return useCallback((...args) => {
-        setIsOpen(false);
-
-        if (!isNil(onClose)) {
-            onClose(...args);
-        }
-    }, [onClose, setIsOpen]);
-}
-
-function useHandleFocus({ onFocus }, setIsFocus) {
-    return useCallback((...args) => {
-        setIsFocus(true);
-
-        if (!isNil(onFocus)) {
-            onFocus(...args);
-        }
-    }, [onFocus, setIsFocus]);
-}
-
-function useHandleBlur({ onBlur }, setIsFocus) {
-    return useCallback((...args) => {
-        setIsFocus(false);
-
-        if (!isNil(onBlur)) {
-            onBlur(...args);
-        }
-    }, [onBlur, setIsFocus]);
-}
-
-function useHandleChange({ onChange }, hasValueChangeRef) {
-    return useCallback((...args) => {
-        hasValueChangeRef.current = true;
-
-        if (!isNil(onChange)) {
-            onChange(...args);
-        }
-    }, [onChange, hasValueChangeRef]);
-}
-
-function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
-    const handleDocumentKeyDown = useCallback(() => {
-        const key = event.keyCode;
-
-        if (key === KEYS.enter) {
-            if (!hasValueChangeRef.current) {
-                dropdownComponentRef.current.open(event);
-            }
-
-            hasValueChangeRef.current = false;
-        }
-    }, [hasValueChangeRef, dropdownComponentRef]);
-
-    useDomEventListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
-}
-
 function useDropdownRenderer(
-    { search, inline, icon, size, fluid, trigger, disabled, className, __semanticDropdown: ConcreteSemanticDropdown, rest },
-    handleOpen,
-    handleClose,
-    handleFocus,
-    handleBlur,
-    handleChange,
-    autofocusProps,
-    dropdownComponentRef
+    { search, inline, icon, size, fluid, trigger, disabled, className, __dropdownComponentRef, __semanticDropdown: ConcreteSemanticDropdown, rest },
+    dropdownInnerRef,
+    autofocusProps
 ) {
     return () => {
         const classes = mergeClasses(
@@ -199,25 +116,22 @@ function useDropdownRenderer(
         );
 
         return (
-            <ConcreteSemanticDropdown
-                data-testid="dropdown"
-                {...rest}
-                {...autofocusProps}
-                onOpen={handleOpen}
-                onClose={handleClose}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                inline={inline}
-                search={search}
-                openOnFocus={false}
-                fluid={fluid}
-                trigger={trigger}
-                icon={isNil(trigger) ? undefined : null }
-                disabled={disabled}
-                className={classes}
-                ref={dropdownComponentRef}
-            />
+            <SemanticRef innerRef={dropdownInnerRef}>
+                <ConcreteSemanticDropdown
+                    data-testid="dropdown"
+                    {...rest}
+                    {...autofocusProps}
+                    inline={inline}
+                    search={search}
+                    openOnFocus={false}
+                    fluid={fluid}
+                    trigger={trigger}
+                    icon={isNil(trigger) ? undefined : null }
+                    disabled={disabled}
+                    className={classes}
+                    ref={__dropdownComponentRef}
+                />
+            </SemanticRef>
         );
     };
 }
@@ -239,7 +153,7 @@ function useIconRenderer({ inline, icon, size }) {
     };
 }
 
-function useRenderer({ size, fluid, wrapperClassName, wrapperStyle }, innerRef, dropdown, icon) {
+function useRenderer({ size, fluid, wrapperClassName, wrapperStyle, forwardedRef }, dropdown, icon) {
     return () => {
         const classes = mergeClasses(
             fluid ? "w-100" : "dib",
@@ -251,13 +165,13 @@ function useRenderer({ size, fluid, wrapperClassName, wrapperStyle }, innerRef, 
             <div
                 className={classes}
                 style={wrapperStyle}
-                tabIndex={-1}
+                tabIndex="-1"
+                ref={forwardedRef}
+                data-testid="dropdown-wrapper"
             >
-                <SemanticRef innerRef={innerRef}>
-                    <DropdownContext.Provider value={{ size }}>
-                        {dropdown}
-                    </DropdownContext.Provider>
-                </SemanticRef>
+                <DropdownContext.Provider value={{ size }}>
+                    {dropdown}
+                </DropdownContext.Provider>
                 {icon}
             </div>
         );
@@ -279,46 +193,23 @@ export function InnerDropdown(props) {
         wrapperClassName,
         wrapperStyle,
         forwardedRef,
-        onOpen,
-        onClose,
-        onFocus,
-        onBlur,
-        onChange,
+        __dropdownComponentRef,
         __semanticDropdown,
         ...rest
     } = props;
+    const dropdownInnerRef = useRef();
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
-
-    const hasValueChangeRef = useRef(false);
-    const dropdownComponentRef = useRef();
-    const innerRef = useCombinedRefs(forwardedRef);
-
-    const setFocus = useSetFocus({ search }, innerRef);
+    const setFocus = useSetFocus({ search }, dropdownInnerRef);
     const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
 
-    const handleOpen = useHandleOpen({ onOpen }, setIsOpen);
-    const handleClose = useHandleClose({ onClose }, setIsOpen);
-    const handleFocus = useHandleFocus({ onFocus }, setIsFocus);
-    const handleBlur = useHandleBlur({ onBlur }, setIsFocus);
-    const handleChange = useHandleChange({ onChange }, hasValueChangeRef);
-
-    useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
-
     const renderDropdown = useDropdownRenderer(
-        { search, inline, icon, size, fluid, trigger, disabled, className, __semanticDropdown, rest },
-        handleOpen,
-        handleClose,
-        handleFocus,
-        handleBlur,
-        handleChange,
-        autofocusProps,
-        dropdownComponentRef
+        { search, inline, icon, size, fluid, trigger, disabled, className, __dropdownComponentRef, __semanticDropdown, rest },
+        dropdownInnerRef,
+        autofocusProps
     );
 
     const renderIcon = useIconRenderer({ inline, icon, size });
-    const render = useRenderer({ size, fluid, wrapperClassName, wrapperStyle }, innerRef, renderDropdown(), renderIcon());
+    const render = useRenderer({ size, fluid, wrapperClassName, wrapperStyle, forwardedRef }, renderDropdown(), renderIcon());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;
@@ -328,7 +219,7 @@ InnerDropdown.propTypes = propTypes;
 InnerDropdown.defaultProps = defaultProps;
 
 export const Dropdown = forwardRef((props, ref) => (
-    <InnerDropdown { ...props } forwardedRef={ref} />
+    <InnerDropdown {...props} forwardedRef={ref} />
 ));
 
 [InnerDropdown, Dropdown].forEach(x => {

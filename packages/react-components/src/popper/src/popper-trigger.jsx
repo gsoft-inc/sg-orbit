@@ -137,7 +137,7 @@ const propTypes = {
     /**
      * Whether or not to focus the first focusable element of the popper on show.
      */
-    focusPopperOnShow: bool,
+    focusFirstElementOnShow: bool,
     /**
      * Whether or not the popper should hide on escape keydown.
      */
@@ -164,7 +164,7 @@ const defaultProps = {
     showOnEnter: true,
     focusTriggerOnShow: false,
     focusTriggerOnEscape: true,
-    focusPopperOnShow: false,
+    focusFirstElementOnShow: false,
     hideOnEscape: true,
     hideOnBlur: true,
     hideOnOutsideClick: false
@@ -172,19 +172,19 @@ const defaultProps = {
 
 /////////////////
 
-function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusPopperOnShow }) {
+function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnShow }) {
     useEffect(() => {
         if (hideOnBlur && hideOnOutsideClick) {
             throw new ArgumentError("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
         }
 
-        if (focusTriggerOnShow && focusPopperOnShow) {
-            throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusPopperOnShow\" props cannot be both \"true\".");
+        if (focusTriggerOnShow && focusFirstElementOnShow) {
+            throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnShow\" props cannot be both \"true\".");
         }
-    }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusPopperOnShow]);
+    }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnShow]);
 }
 
-function findFirstFocusableElement(container) {
+function getFirstFocusableElement(container) {
     return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
@@ -234,7 +234,7 @@ function useSetFocusPopper(popperElement) {
     return useCallback(onCannotFocus => {
         setTimeout(() => {
             if (!isNil(popperElement)) {
-                const focusableElement = findFirstFocusableElement(popperElement);
+                const focusableElement = getFirstFocusableElement(popperElement);
 
                 if (!isNil(focusableElement)) {
                     if (isFunction(focusableElement.focus)) {
@@ -250,18 +250,18 @@ function useSetFocusPopper(popperElement) {
     }, [popperElement]);
 }
 
-function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopperOnShow }, isVisible, setFocusTrigger, setFocusPopper) {
+function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow }, isVisible, setFocusTrigger, setFocusPopper) {
     useEffect(() => {
         if (focusTriggerOnShow) {
             if (isVisible) {
                 setFocusTrigger();
             }
-        } else if (focusPopperOnShow) {
+        } else if (focusFirstElementOnShow) {
             if (isVisible) {
                 setFocusPopper();
             }
         }
-    }, [focusTriggerOnShow, focusPopperOnShow, isVisible, setFocusTrigger, setFocusPopper]);
+    }, [focusTriggerOnShow, focusFirstElementOnShow, isVisible, setFocusTrigger, setFocusPopper]);
 }
 
 function useHandleTriggerToggle({ disabled }, togglePopper) {
@@ -312,7 +312,7 @@ function useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopp
 
                 // Using a focus / unfocus flag was not the preferred way to prevent the popper from hiding on blur when the new focused item was inside the popper.
                 // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
-                // with document.activeElement. This was working well in browsers.
+                // document.activeElement. This was working well in browsers.
                 //
                 // However, our interaction tests rely on jsdom and jsdom support for document.activementElement is not reliable (in fact, it doesn't have the same behavior
                 // as browsers).
@@ -524,7 +524,7 @@ export function InnerPopperTrigger(props) {
         showOnEnter,
         focusTriggerOnShow,
         focusTriggerOnEscape,
-        focusPopperOnShow,
+        focusFirstElementOnShow,
         hideOnEscape,
         hideOnBlur,
         hideOnOutsideClick,
@@ -549,7 +549,7 @@ export function InnerPopperTrigger(props) {
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
     const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
-    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusPopperOnShow }, isVisible, setFocusTrigger, setFocusPopper);
+    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow }, isVisible, setFocusTrigger, setFocusPopper);
 
     const handleTriggerToggle = useHandleTriggerToggle({ disabled }, togglePopper);
     const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper);

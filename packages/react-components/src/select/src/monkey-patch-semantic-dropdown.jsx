@@ -1,12 +1,23 @@
-import { Dropdown } from "semantic-ui-react";
-import { DropdownContext } from "../../dropdown";
+import { BaseMonkeyPatchSemanticDropdown, DropdownContext } from "../../dropdown";
+import { KEYS } from "../../shared";
 import { isNil } from "lodash";
 import { renderAvatar } from "./render-avatar";
 import { renderIcons } from "./render-icons";
 import cx from "classnames";
 
-export class MonkeyPatchSemanticDropdown extends Dropdown {
+export class MonkeyPatchSemanticDropdown extends BaseMonkeyPatchSemanticDropdown {
     static contextType = DropdownContext;
+
+    openOnSpace = event => {
+        const key = event.keyCode;
+
+        // HACK: don't open dropdown on spacebar keydown since the Select component will take care of it.
+        if (key === KEYS.space) {
+            event.preventDefault();
+
+            this.open(event);
+        }
+    }
 
     renderAvatarResult = ({ text, avatar }) => {
         const { inline } = this.props;

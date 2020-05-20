@@ -176,7 +176,7 @@ function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containe
                 ref={containerRef}
                 className={classes}
                 style={wrapperStyle}
-                tabIndex={-1}
+                tabIndex="-1"
                 data-testid="input"
             >
                 {input}

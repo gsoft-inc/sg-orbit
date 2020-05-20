@@ -128,6 +128,17 @@ export function SelectItem(props) {
 SelectItem.propTypes = propTypes;
 SelectItem.defaultProps = defaultProps;
 
+// ***** API *****
+
 export function createSelectItem(props) {
     return <SelectItem {...props} />;
+}
+
+export function selectItem(text, value, props = {}) {
+    return {
+        text,
+        value,
+        key: value,
+        ...props
+    };
 }

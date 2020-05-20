@@ -4,5 +4,7 @@ export const KEYS = {
     esc: 27,
     space: 32,
     up: 38,
-    down: 40
+    down: 40,
+    left: 37,
+    right: 39
 };

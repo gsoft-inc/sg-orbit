@@ -149,7 +149,7 @@ test("can listen to multiple events on the same target element", () => {
     expect(mouseOverHandler).toHaveBeenCalled();
 });
 
-test("doesn't call handler when active is false", () => {
+test("doesn't call handler when not active", () => {
     const handler = jest.fn();
 
     renderHook(() => useDomEventListener("click", handler, false));
@@ -161,4 +161,56 @@ test("doesn't call handler when active is false", () => {
     });
 
     expect(handler).not.toHaveBeenCalled();
+});
+
+test("doesn't call handler after transitioning from active to inactive", () => {
+    const handler = jest.fn();
+
+    const { rerender } = renderHook(({ active }) => useDomEventListener("click", handler, active), {
+        initialProps: {
+            active: true
+        }
+    });
+
+    const button = appendButton();
+
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    rerender({
+        active: false
+    });
+
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    expect(handler).toHaveBeenCalledTimes(1);
+});
+
+test("call handler after transitioning from inactive to active", () => {
+    const handler = jest.fn();
+
+    const { rerender } = renderHook(({ active }) => useDomEventListener("click", handler, active), {
+        initialProps: {
+            active: false
+        }
+    });
+
+    const button = appendButton();
+
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    rerender({
+        active: true
+    });
+
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    expect(handler).toHaveBeenCalledTimes(1);
 });

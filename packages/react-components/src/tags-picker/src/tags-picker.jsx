@@ -360,7 +360,7 @@ export class TagsPicker extends AutoControlledPureComponent {
             <div
                 className={classes}
                 style={style}
-                tabIndex={-1}
+                tabIndex="-1"
             >
                 {this.renderDropDown()}
                 {this.renderSelectedItems()}
