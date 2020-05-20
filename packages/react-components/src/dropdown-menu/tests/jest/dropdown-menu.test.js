@@ -54,6 +54,7 @@ test("open the dropdown menu on enter keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
+// eslint-disable-next-line jest/no-commented-out-tests
 // test("close the dropdown menu on spacebar keydown", async () => {
 //     const { getByTestId, container } = render(createDropdownMenu());
 
@@ -76,6 +77,7 @@ test("open the dropdown menu on enter keydown", async () => {
 //     await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
 // });
 
+// eslint-disable-next-line jest/no-commented-out-tests
 // test("close the dropdown menu on enter keydown", async () => {
 //     const { getByTestId, container } = render(createDropdownMenu());
 

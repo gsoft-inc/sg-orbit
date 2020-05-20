@@ -1,6 +1,5 @@
 import { DropdownMenuItem } from "./item";
 import { func } from "prop-types";
-import { isNil } from "lodash";
 
 const propTypes = {
     onClick: func.isRequired
