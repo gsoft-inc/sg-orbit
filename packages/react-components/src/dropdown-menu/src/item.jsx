@@ -38,12 +38,16 @@ const defaultProps = {
     disabled: false
 };
 
+function getText(text, content, children) {
+    return text || content || children;
+}
+
 function useTextRenderer({ text, content, children }) {
     return () => {
-        const value = text || content || children;
+        const textValue = getText(text, content, children);
 
-        if (!isNil(value)) {
-            return <span className="text">{value}</span>;
+        if (!isNil(textValue)) {
+            return <span className="text">{textValue}</span>;
         }
     };
 }
@@ -71,11 +75,11 @@ function useContentRenderer({ text, icon, description, content, children }, size
     };
 }
 
-function useRenderer({ rest }, content) {
+function useRenderer({ rest }, customContent) {
     return () => {
         return (
-            <Dropdown.Item {...rest}>
-                {content}
+            <Dropdown.Item {...rest} tabIndex="-1">
+                {customContent}
             </Dropdown.Item>
         );
     };

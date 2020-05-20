@@ -1,17 +1,17 @@
 import { AbsoluteRedBox } from "./absolute-red-box";
 import { DEFAULT_DATE } from "./data";
-import { DateRangePicker, toPreset } from "@react-components/date-picker";
+import { DateRangePicker, preset } from "@react-components/date-picker";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { getMonthFirstDay, getMonthLastDay, getNextMonthLastDay, getPreviousMonthFirstDay } from "./utils";
 import { noop } from "lodash";
 import { toStoryValuesPresets } from "@react-components/date-picker/stories/utils";
 import moment from "moment";
 
-export const LAST_WEEK_PRESET = toPreset("Last week", moment(DEFAULT_DATE).subtract(1, "week"), moment(DEFAULT_DATE).startOf("day"));
-export const LAST_MONTH_PRESET = toPreset("Last month", moment(DEFAULT_DATE).subtract(1, "months"), moment(DEFAULT_DATE).startOf("day"));
-export const LAST_3_MONTHS_PRESET = toPreset("Last 3 months", moment(DEFAULT_DATE).subtract(3, "months"), moment(DEFAULT_DATE).startOf("day"));
-export const LAST_6_MONTHS_PRESET = toPreset("Last 6 months", moment(DEFAULT_DATE).subtract(6, "months"), moment(DEFAULT_DATE).startOf("day"));
-export const LAST_12_MONTHS_PRESET = toPreset("Last 12 months", moment(DEFAULT_DATE).subtract(12, "months"), moment(DEFAULT_DATE).startOf("day"));
+export const LAST_WEEK_PRESET = preset("Last week", moment(DEFAULT_DATE).subtract(1, "week"), moment(DEFAULT_DATE).startOf("day"));
+export const LAST_MONTH_PRESET = preset("Last month", moment(DEFAULT_DATE).subtract(1, "months"), moment(DEFAULT_DATE).startOf("day"));
+export const LAST_3_MONTHS_PRESET = preset("Last 3 months", moment(DEFAULT_DATE).subtract(3, "months"), moment(DEFAULT_DATE).startOf("day"));
+export const LAST_6_MONTHS_PRESET = preset("Last 6 months", moment(DEFAULT_DATE).subtract(6, "months"), moment(DEFAULT_DATE).startOf("day"));
+export const LAST_12_MONTHS_PRESET = preset("Last 12 months", moment(DEFAULT_DATE).subtract(12, "months"), moment(DEFAULT_DATE).startOf("day"));
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/range"))

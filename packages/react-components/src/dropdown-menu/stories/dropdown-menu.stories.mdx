@@ -4,6 +4,7 @@ import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-comp
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { noop } from "lodash";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -29,25 +30,44 @@ A dropdown menu can be used to offer a list of choices.
 <Props
     componentsDefinitions={[
         { displayName: "DropdownMenu", component: InnerDropdownMenu },
-        { displayName: "DropdownMenu.Item", component: InnerDropdownMenu.Item },
+        { displayName: "DropdownMenu.LinkItem", component: InnerDropdownMenu.LinkItem },
+        { displayName: "DropdownMenu.ButtonItem", component: InnerDropdownMenu.ButtonItem },
         { displayName: "DropdownMenu.Header", component: InnerDropdownMenu.Header }
     ]}
 />
 
 ## Usage
 
-### Default
+A dropdown menu item can either be a [link](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) or a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button).
 
-A default dropdown menu.
+### Button
+
+A dropdown menu item can be a button.
 
 <Preview>
-    <Story name="default">
+    <Story name="button">
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
+        </DropdownMenu>
+    </Story>
+</Preview>
+
+### Link
+
+A dropdown menu item can be a link.
+
+<Preview>
+    <Story name="link">
+        <DropdownMenu text="Task">
+            <DropdownMenu.LinkItem href="https://www.sharegate.com" target="_blank">Launch...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem href="https://www.sharegate.com" target="_blank">Eject...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem href="https://www.sharegate.com" target="_blank">Land...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem href="https://www.sharegate.com" target="_blank">Help</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem href="https://www.sharegate.com" target="_blank">Exit</DropdownMenu.LinkItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -59,11 +79,11 @@ A dropdown menu can have an icon.
 <Preview>
     <Story name="icon">
         <DropdownMenu text="Task" icon={<FolderIcon />}>
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -75,11 +95,11 @@ A dropdown menu can have a custom trigger.
 <Preview>
     <Story name="trigger">
         <DropdownMenu trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}>
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -92,11 +112,11 @@ A dropdown menu can have an header.
     <Story name="header">
         <DropdownMenu text="Task">
             <DropdownMenu.Header text="Quick actions" />
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -108,12 +128,12 @@ A dropdown menu items can be divided.
 <Preview>
     <Story name="divider">
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
             <DropdownMenu.Divider />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -127,29 +147,29 @@ A dropdown menu can vary in size.
         <div className="flex">
             <div className="mr12">
                 <DropdownMenu text="Task" size="small">
-                    <DropdownMenu.Item text="Launch..." />
-                    <DropdownMenu.Item text="Eject..." />
-                    <DropdownMenu.Item text="Land..." />
-                    <DropdownMenu.Item text="Help" />
-                    <DropdownMenu.Item text="Exit" />
+                    <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
                 </DropdownMenu>
             </div>
             <div className="mr12">
                 <DropdownMenu text="Task">
-                    <DropdownMenu.Item text="Launch..." />
-                    <DropdownMenu.Item text="Eject..." />
-                    <DropdownMenu.Item text="Land..." />
-                    <DropdownMenu.Item text="Help" />
-                    <DropdownMenu.Item text="Exit" />
+                    <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
                 </DropdownMenu>
             </div>
             <div>
                 <DropdownMenu text="Task" size="large">
-                    <DropdownMenu.Item text="Launch..." />
-                    <DropdownMenu.Item text="Eject..." />
-                    <DropdownMenu.Item text="Land..." />
-                    <DropdownMenu.Item text="Help" />
-                    <DropdownMenu.Item text="Exit" />
+                    <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
                 </DropdownMenu>
             </div>
         </div>
@@ -165,20 +185,20 @@ A dropdown menu can open to the `left` or to the `right`.
         <div className="flex">
             <div className="mr12">
                 <DropdownMenu text="Left" direction="left">
-                    <DropdownMenu.Item text="Launch..." />
-                    <DropdownMenu.Item text="Eject..." />
-                    <DropdownMenu.Item text="Land..." />
-                    <DropdownMenu.Item text="Help" />
-                    <DropdownMenu.Item text="Exit" />
+                    <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
                 </DropdownMenu>
             </div>
             <div>
                 <DropdownMenu text="Right" direction="right">
-                    <DropdownMenu.Item text="Launch..." />
-                    <DropdownMenu.Item text="Eject..." />
-                    <DropdownMenu.Item text="Land..." />
-                    <DropdownMenu.Item text="Help" />
-                    <DropdownMenu.Item text="Exit" />
+                    <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+                    <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
                 </DropdownMenu>
             </div>
         </div>
@@ -192,11 +212,11 @@ A dropdown menu can open upward.
 <Preview>
     <Story name="upward">
         <DropdownMenu text="Task" upward>
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -210,11 +230,11 @@ A dropdown menu item can have a description.
 <Preview>
     <Story name="item description">
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." description="ctrl + l" />
-            <DropdownMenu.Item text="Eject..." description="ctrl + e" />
-            <DropdownMenu.Item text="Land..." description="ctrl + shift + l" />
-            <DropdownMenu.Item text="Help" description="ctrl + h" />
-            <DropdownMenu.Item text="Exit" description="ctrl + alt + del" />
+            <DropdownMenu.ButtonItem description="ctrl + l" onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem description="ctrl + e" onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem description="ctrl + shift + l" onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem description="ctrl + h" onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem description="ctrl + alt + del" onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -226,27 +246,11 @@ A dropdown menu item can have an icon.
 <Preview>
     <Story name="item icon">
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item icon={<HelpIcon />} text="Help" />
-            <DropdownMenu.Item icon={<SignoutIcon />} text="Exit" />
-        </DropdownMenu>
-    </Story>
-</Preview>
-
-### Link
-
-A dropdown menu item can have a link.
-
-<Preview>
-    <Story name="item link">
-        <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item as="a" text="Help" href="https://www.google.com" target="_blank" icon={<HelpIcon />} />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem icon={<HelpIcon />} onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem icon={<SignoutIcon />} onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -258,11 +262,11 @@ A dropdown menu can be disabled.
 <Preview>
     <Story name="item disabled">
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." disabled />
-            <DropdownMenu.Item text="Land..." disabled />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem disabled onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem disabled onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     </Story>
 </Preview>
@@ -275,11 +279,11 @@ A dropdown menu can be disabled.
 >
     <RefLogger component={
         <DropdownMenu text="Task">
-            <DropdownMenu.Item text="Launch..." />
-            <DropdownMenu.Item text="Eject..." />
-            <DropdownMenu.Item text="Land..." />
-            <DropdownMenu.Item text="Help" />
-            <DropdownMenu.Item text="Exit" />
+            <DropdownMenu.ButtonItem onClick={noop}>Launch...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Eject...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Land...</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Help</DropdownMenu.ButtonItem>
+            <DropdownMenu.ButtonItem onClick={noop}>Exit</DropdownMenu.ButtonItem>
         </DropdownMenu>
     }
     />
