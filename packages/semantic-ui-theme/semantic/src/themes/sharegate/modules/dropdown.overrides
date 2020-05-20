@@ -209,7 +209,11 @@
 }
 
 .ui.dropdown .menu > .item.selected {
-    background-color: var(--cloud-50);
+    background-color: var(--primary-50);
+}
+
+.ui.dropdown .menu .active.item {
+    background-color: var(--primary-500);
 }
 
 /* CONTENT | Item | SIZE | Small */
@@ -355,9 +359,8 @@
 /* STATE | Dropdown | Selected Item */
 .ui.dropdown.selection.selected,
 .ui.dropdown.selection .menu .selected.item {
-    background-color: @cloud50;
+    background-color: @primary50;
     position: relative;
-    font-weight: 500;
 }
 
 /* STATE | Error | Dropdown | Selected Item */
@@ -370,7 +373,14 @@
 /* STATE | Selected | Checked */
 .ui.dropdown.selection[aria-checked="true"],
 .ui.dropdown.selection .menu [aria-checked="true"].item {
-    background: @cloud50;
+    background: @primary500;
+    color: var(--white);
+    font-weight: 400;
+}
+
+.ui.dropdown.inline .menu [aria-checked="true"].item {
+    background: @primary500;
+    color: var(--white);
     font-weight: 400;
 }
 
@@ -399,7 +409,7 @@
 /* STATE | Error | Selected | Checked */
 .ui.dropdown.error.selection[aria-checked="true"],
 .ui.dropdown.error.selection .menu [aria-checked="true"].item {
-    background: @alert50;
+    background: @alert500;
 }
 
 .ui.dropdown.error[aria-checked="true"]::before,
@@ -542,6 +552,11 @@
     margin: 0;
 }
 
+/* SKIN | Icon - Arrow Upward */
+.ui.dropdown.upward > .dropdown.icon {
+    transform: rotate(270deg) translatez(0);
+}
+
 .ui.dropdown.small > .dropdown.icon {
     mask-size: var(--scale-delta) var(--scale-delta)!important;
 }
@@ -569,6 +584,10 @@
     margin: 0;
 }
 
+.ui.dropdown.selection.upward > .dropdown.icon {
+    transform: translateY(-50%) rotate(270deg) translatez(0);
+}
+
 .ui.dropdown.selection.small > .dropdown.icon {
     right: calc(var(--scale-delta) / 2);
 }
@@ -593,6 +612,10 @@
 /* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Hover/Focus */
 .ui.dropdown.transparent:focus .text {
     color: var(--marine-500);
+}
+
+.ui.dropdown.transparent:focus .active .text {
+    color: var(--white);
 }
 
 /* LAYOUT | Select */
