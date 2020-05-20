@@ -28,7 +28,7 @@ function getDropdownMenu(container) {
 
 // ***** Behaviors *****
 
-test("open the dropdown menu on spacebar keydown", async () => {
+test("open the select on spacebar keydown", async () => {
     const { getByTestId, container } = render(createSelect());
 
     const dropdownNode = getByTestId("dropdown");
@@ -44,7 +44,7 @@ test("open the dropdown menu on spacebar keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
-test("open the dropdown menu on enter keydown", async () => {
+test("open the select on enter keydown", async () => {
     const { getByTestId, container } = render(createSelect());
 
     const dropdownNode = getByTestId("dropdown");
@@ -60,7 +60,7 @@ test("open the dropdown menu on enter keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
-test("close the dropdown menu on spacebar keydown", async () => {
+test("close the select on spacebar keydown", async () => {
     const { getByTestId, container } = render(createSelect());
 
     const dropdownNode = getByTestId("dropdown");
@@ -82,7 +82,7 @@ test("close the dropdown menu on spacebar keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
 });
 
-test("close the dropdown menu on enter keydown", async () => {
+test("close the select on enter keydown", async () => {
     const { getByTestId, container } = render(createSelect());
 
     const dropdownNode = getByTestId("dropdown");
@@ -104,7 +104,7 @@ test("close the dropdown menu on enter keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
 });
 
-test("can open the dropdown menu on enter keydown after closing on blur", async () => {
+test("can open the select on enter keydown after closing on blur", async () => {
     const { getByTestId, container } = render(createSelect());
 
     const dropdownNode = getByTestId("dropdown");
