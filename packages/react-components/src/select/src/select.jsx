@@ -224,13 +224,13 @@ function useMultipleValuesLabelRenderer({ size }) {
 }
 
 function useActionRenderer() {
-    return ({ content, key, className, ...otherProps }, index) => {
+    return ({ content, key, className, ...props }, index) => {
         const classes = mergeClasses(
             className,
             "action bg-white o-100"
         );
 
-        return { ...otherProps, content, className: classes, disabled: true, key: key || index };
+        return { ...props, content, className: classes, disabled: true, key: key || index };
     };
 }
 

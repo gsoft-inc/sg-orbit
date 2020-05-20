@@ -134,19 +134,11 @@ export function createSelectItem(props) {
     return <SelectItem {...props} />;
 }
 
-export function selectItem(text, value, additionalProps) {
-    if (!isNil(additionalProps)) {
-        return {
-            text,
-            value,
-            key: value,
-            ...additionalProps
-        };
-    }
-
+export function selectItem(text, value, props = {}) {
     return {
         text,
         value,
-        key: value
+        key: value,
+        ...props
     };
 }

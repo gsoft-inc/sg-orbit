@@ -16,26 +16,16 @@ DropdownMenuLinkItem.propTypes = propTypes;
 
 // ***** API *****
 
-function createItem(text, href) {
+export function dropdownMenuLinkItem(text, href, props = {}) {
+    const { target, rel } = props;
+
     return {
         as: "a",
         text,
         href,
         tabIndex: "-1",
-        key: text
+        key: text,
+        rel: isNil(rel) && !isNil(target) ? "noopener noreferrer" : undefined,
+        ...props
     };
-}
-
-export function dropdownMenuLinkItem(text, href, additionalProps) {
-    if (!isNil(additionalProps)) {
-        const { target, rel } = additionalProps;
-
-        return {
-            ...createItem(text, href, target),
-            rel: isNil(rel) && !isNil(target) ? "noreferrer" : undefined,
-            ...additionalProps
-        };
-    }
-
-    return createItem(text, href);
 }

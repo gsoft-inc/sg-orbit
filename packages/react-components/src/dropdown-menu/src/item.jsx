@@ -75,11 +75,11 @@ function useContentRenderer({ text, icon, description, content, children }, size
     };
 }
 
-function useRenderer({ rest }, customContent) {
+function useRenderer({ rest }, renderedContent) {
     return () => {
         return (
             <Dropdown.Item {...rest} tabIndex="-1">
-                {customContent}
+                {renderedContent}
             </Dropdown.Item>
         );
     };

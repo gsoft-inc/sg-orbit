@@ -14,23 +14,13 @@ DropdownMenuButtonItem.propTypes = propTypes;
 
 // ***** API *****
 
-function createItem(text, onClick) {
+export function dropdownMenuButtonItem(text, onClick, props = {}) {
     return {
         as: "button",
         text,
         onClick,
         tabIndex: "-1",
-        key: text
+        key: text,
+        ...props
     };
-}
-
-export function dropdownMenuButtonItem(text, onClick, additionalProps) {
-    if (!isNil(additionalProps)) {
-        return {
-            ...createItem(text, onClick),
-            ...additionalProps
-        };
-    }
-
-    return createItem(text, onClick);
 }
