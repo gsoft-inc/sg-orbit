@@ -70,7 +70,8 @@
     box-shadow: @inputErrorBoxShadow;
 }
 
-.ui.form .field.error .textarea:focus {
+.ui.form .field.error .textarea:focus,
+.ui.form .field.error .textarea.focus {
     background: @inputErrorFocusBackground;
     border-color: @inputErrorFocusBorder;
     color: @inputErrorFocusColor;

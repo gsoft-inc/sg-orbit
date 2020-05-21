@@ -90,7 +90,8 @@
 
 /* SKIN | STATE | Hover | With Icon Item */
 .ui.inline.dropdown:hover .icon,
-.ui.inline.dropdown:focus .icon {
+.ui.inline.dropdown:focus .icon,
+.ui.inline.dropdown.focus .icon {
     fill: var(--marine-500);
 }
 
@@ -148,7 +149,8 @@
 }
 
 /* LAYOUT | Inline | Text | STATE | Hover/Focus */
-.ui.dropdown.inline:focus {
+.ui.dropdown.inline:focus,
+.ui.dropdown.inline.focus {
     color: @marine500;
     background-color: var(--primary-50) !important;
     border-radius: 2px;
@@ -157,11 +159,14 @@
 .ui.dropdown.inline:hover > .default.text,
 .ui.dropdown.inline:hover > .text,
 .ui.dropdown.inline:focus > .default.text,
-.ui.dropdown.inline:focus > .text {
+.ui.dropdown.inline:focus > .text,
+.ui.dropdown.inline.focus > .default.text,
+.ui.dropdown.inline.focus > .text {
     color: @marine500;
 }
 
-.ui.dropdown.dropdown-menu:focus {
+.ui.dropdown.dropdown-menu:focus,
+.ui.dropdown.dropdown-menu.focus {
     background-color: var(--primary-50)!important;
     border-radius: 2px;
 }
@@ -299,7 +304,8 @@
 }
 
 .ui.dropdown .item.action a:hover,
-.ui.dropdown .item.action a:focus {
+.ui.dropdown .item.action a:focus,
+.ui.dropdown .item.action a.focus {
     color: @primary500;
     font-weight: 400;
     text-decoration: underline;
@@ -312,7 +318,8 @@
 }
 
 .ui.dropdown .item a:hover,
-.ui.dropdown .item a:focus {
+.ui.dropdown .item a:focus,
+.ui.dropdown .item a.focus {
     font-weight: 400;
     text-decoration: underline;
 }
@@ -323,7 +330,7 @@
     color: @marine600;
 }
 
-/* STATE | Hover/Focus | Content | In Select */
+/* STATE | Hover | Content | In Select */
 .ui.multiple.dropdown > .label:hover {
     background-color: @cloud50;
 }
@@ -570,12 +577,14 @@
 
 /* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Hover/Focus */
 .ui.dropdown.selection:hover .dropdown.icon,
-.ui.dropdown.selection:focus .dropdown.icon {
+.ui.dropdown.selection:focus .dropdown.icon ,
+.ui.dropdown.selection.focus .dropdown.icon {
     background-color: @marine500;
 }
 
-/* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Hover/Focus */
-.ui.dropdown.transparent:focus .text {
+/* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Focus */
+.ui.dropdown.transparent:focus .text,
+.ui.dropdown.transparent.focus .text {
     color: var(--marine-500);
 }
 
@@ -601,12 +610,14 @@
 
 /* LAYOUT | Inline | STATE | Hover/Focus */
 .ui.dropdown.inline:hover > .dropdown.icon,
-.ui.dropdown.inline:focus > .dropdown.icon {
+.ui.dropdown.inline:focus > .dropdown.icon,
+.ui.dropdown.inline.focus > .dropdown.icon {
     background-color: @marine500;
 }
 
 .ui.dropdown.inline:hover + .dropdown-icon > .icon,
-.ui.dropdown.inline:focus + .dropdown-icon > .icon {
+.ui.dropdown.inline:focus + .dropdown-icon > .icon,
+.ui.dropdown.inline.focus + .dropdown-icon > .icon {
     fill: @marine500;
 }
 
@@ -625,12 +636,15 @@
 .ui.dropdown.inline.error:hover > .default.text,
 .ui.dropdown.inline.error:hover > .text,
 .ui.dropdown.inline.error:focus > .default.text,
-.ui.dropdown.inline.error:focus > .text {
+.ui.dropdown.inline.error:focus > .text,
+.ui.dropdown.inline.error.focus > .default.text,
+.ui.dropdown.inline.error.focus > .text {
     color: @alert500;
 }
 
 .ui.dropdown.inline.error:hover > .dropdown.icon,
-.ui.dropdown.inline.error:focus > .dropdown.icon {
+.ui.dropdown.inline.error:focus > .dropdown.icon ,
+.ui.dropdown.inline.error.focus > .dropdown.icon {
     background-color: @alert500;
 }
 
@@ -680,11 +694,13 @@
 
 /* Highlight clear icon when hovering itself */
 .ui.selection.dropdown:hover  > .clear.icon:hover,
-.ui.selection.dropdown:hover  > .clear.icon:focus {
+.ui.selection.dropdown:hover  > .clear.icon:focus,
+.ui.selection.dropdown:hover  > .clear.icon.focus {
     background-color: var(--marine-500);
 }
 
-.ui.selection.dropdown:hover:focus {
+.ui.selection.dropdown:hover:focus,
+.ui.selection.dropdown.focus:hover {
     border-color: @selectionHoverBorderColor;
 }
 
@@ -858,6 +874,7 @@
 }
 
 .ui.active.selection.dropdown.visible:focus,
+.ui.active.selection.dropdown.visible.focus,
 .ui.active.selection.dropdown.visible:focus-within {
     box-shadow: none;
 }
@@ -1152,12 +1169,14 @@
     z-index: 12;
 }
 
-.ui.active.selection.dropdown:focus {
+.ui.active.selection.dropdown:focus,
+.ui.active.selection.dropdown.focus {
     border-color: var(--primary-100);
     box-shadow: 0px 0px 0px 2px var(--primary-200);
 }
 
-.ui.selection.dropdown.transparent:focus {
+.ui.selection.dropdown.transparent:focus,
+.ui.selection.dropdown.transparent.focus {
     box-shadow: none;
     border: none;
     background-color: var(--primary-50);
@@ -1168,11 +1187,13 @@
     color: var(--marine-500);
 }
 
-.ui.active.selection.dropdown.error:focus {
+.ui.active.selection.dropdown.error:focus,
+.ui.active.selection.dropdown.error.focus {
     border-color: var(--alert-500);
 }
 
-.ui.selection.dropdown:focus {
+.ui.selection.dropdown:focus,
+.ui.selection.dropdown.focus {
     box-shadow: 0px 0px 0px 2px var(--primary-200);
     border: 1px solid var(--cloud-200);
 }
