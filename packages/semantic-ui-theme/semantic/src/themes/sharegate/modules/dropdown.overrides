@@ -177,6 +177,12 @@
     line-height: var(--scale-hotel);
 }
 
+.ui.dropdown button.item {
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+}
+
 .ui.dropdown .menu > .item span.text,
 .ui.dropdown .menu > .item span.description {
     display: inline-block;
@@ -348,6 +354,11 @@
     background-color: @cloud50;
 }
 
+
+/* STATE | Select | Selected Item */
+.ui.dropdown a.item.selected span.text {
+    color: var(--primary-500);
+}
 
 /* STATE | Select | Selected Item */
 .ui.dropdown.selected,
