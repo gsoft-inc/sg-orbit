@@ -49,7 +49,7 @@ function stories(segment) {
 stories()
     .add("text", () =>
         <div className="flex">
-            <div className="flex flex-column">
+            <div className="flex flex-column" style={{ marginRight: "300px" }}>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     {createDropdownMenu({
                         size: "small",
@@ -95,24 +95,24 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
-                    trigger: <AddIcon />,
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     style: { marginRight: "150px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <AddIcon />,
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     size: "small",
                     defaultOpen: true,
                     focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <AddIcon />,
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     defaultOpen: true,
                     focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <AddIcon />,
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
                     size: "large",
                     defaultOpen: true,
                     focusFirstItemOnOpen: false
@@ -120,24 +120,24 @@ stories()
             </div>
             <div className="flex" style={{ marginBottom: "200px" }}>
                 {createDropdownMenu({
-                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    trigger: <Button>Open</Button>,
                     style: { marginRight: "150px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    trigger: <Button>Open</Button>,
                     size: "small",
                     defaultOpen: true,
                     focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    trigger: <Button>Open</Button>,
                     defaultOpen: true,
                     focusFirstItemOnOpen: false,
                     style: { marginRight: "200px" }
                 })}
                 {createDropdownMenu({
-                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    trigger: <Button>Open</Button>,
                     size: "large",
                     defaultOpen: true,
                     focusFirstItemOnOpen: false
@@ -145,27 +145,8 @@ stories()
             </div>
             <div className="flex">
                 {createDropdownMenu({
-                    trigger: <Button>Open</Button>,
-                    style: { marginRight: "150px" }
-                })}
-                {createDropdownMenu({
-                    trigger: <Button>Open</Button>,
-                    size: "small",
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false,
-                    style: { marginRight: "200px" }
-                })}
-                {createDropdownMenu({
-                    trigger: <Button>Open</Button>,
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false,
-                    style: { marginRight: "200px" }
-                })}
-                {createDropdownMenu({
-                    trigger: <Button>Open</Button>,
-                    size: "large",
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    focus: true
                 })}
             </div>
         </div>

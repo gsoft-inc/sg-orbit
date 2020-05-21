@@ -38,7 +38,7 @@ export class InnerDateRangePickerInput extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the input should appear as focused.
+         * Whether or not the input appear as focused.
          */
         focus: bool,
         /**

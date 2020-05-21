@@ -143,7 +143,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * Whether or not the date picker should appear as focused.
+         * Whether or not the date picker appear as focused.
          */
         focus: bool,
         /**

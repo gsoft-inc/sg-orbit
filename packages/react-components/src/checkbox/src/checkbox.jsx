@@ -40,7 +40,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     count: oneOfType([element, object]),
     /**
-     * Whether or not the checkbox should appear as focused.
+     * Whether or not the checkbox appear as focused.
      */
     focus: bool,
     /**

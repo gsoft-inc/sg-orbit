@@ -1,4 +1,4 @@
-import { Children, forwardRef, useCallback, useRef, useState } from "react";
+import { Children, cloneElement, forwardRef, useCallback, useRef, useState } from "react";
 import { Dropdown } from "../../dropdown";
 import { DropdownMenuButtonItem } from "./button-item";
 import { DropdownMenuHeader } from "./header";
@@ -72,6 +72,10 @@ const propTypes = {
      */
     focusFirstItemOnOpen: bool,
     /**
+     * Whether or not the dropdown menu appear as focused.
+     */
+    focus: bool,
+    /**
      * @ignore
      */
     trigger: element,
@@ -103,7 +107,8 @@ const propTypes = {
 
 const defaultProps = {
     size: DEFAULT_SIZE,
-    focusFirstItemOnOpen: true
+    focusFirstItemOnOpen: true,
+    focus: false
 };
 
 function useHandleOpen({ focusFirstItemOnOpen, onOpen }, setIsOpen, dropdownRef) {
@@ -160,9 +165,7 @@ function useHandleBlur({ onBlur }, setIsFocus) {
 
 function useHandleDocumentKeyDown({ trigger }, isOpen, isFocus, dropdownComponentRef) {
     const handleDocumentKeyDown = useCallback(event => {
-        const key = event.keyCode;
-
-        if (key === KEYS.enter) {
+        if (event.keyCode === KEYS.enter) {
             if (!isOpen) {
                 dropdownComponentRef.current.open(event);
             }
@@ -172,14 +175,27 @@ function useHandleDocumentKeyDown({ trigger }, isOpen, isFocus, dropdownComponen
     useDomEventListener("keydown", handleDocumentKeyDown, isNil(trigger) && isFocus);
 }
 
+function useTriggerRenderer({ trigger, focus }) {
+    return useCallback(() => {
+        if (!isNil(trigger)) {
+            return cloneElement(trigger, {
+                focus
+            });
+        }
+
+        return trigger;
+    }, [trigger, focus]);
+}
+
 function useRenderer(
-    { trigger, className, forwardedRef, children, rest },
+    { focus, className, forwardedRef, children, rest },
     handleOpen,
     handleClose,
     handleFocus,
     handleBlur,
     dropdownRef,
-    dropdownComponentRef
+    dropdownComponentRef,
+    trigger
 ) {
     const ref = useCombinedRefs(forwardedRef, dropdownRef);
 
@@ -188,6 +204,7 @@ function useRenderer(
 
         const classes = mergeClasses(
             "dropdown-menu",
+            isNil(trigger) && focus && "focus",
             className
         );
 
@@ -223,7 +240,7 @@ function useRenderer(
 }
 
 export function InnerDropdownMenu(props) {
-    const { trigger, focusFirstItemOnOpen, onOpen, onClose, onFocus, onBlur, className, forwardedRef, children, ...rest } = props;
+    const { trigger, focusFirstItemOnOpen, focus, onOpen, onClose, onFocus, onBlur, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
@@ -240,14 +257,17 @@ export function InnerDropdownMenu(props) {
 
     useHandleDocumentKeyDown({ trigger }, isOpen, isFocus, dropdownComponentRef);
 
+    const renderTrigger = useTriggerRenderer({ trigger, focus });
+
     const render = useRenderer(
-        { trigger, className, forwardedRef, children, rest },
+        { focus, className, forwardedRef, children, rest },
         handleOpen,
         handleClose,
         handleFocus,
         handleBlur,
         dropdownRef,
-        dropdownComponentRef
+        dropdownComponentRef,
+        renderTrigger()
     );
 
     // Without a fragment, react-docgen doesn't work.

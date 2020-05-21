@@ -33,7 +33,7 @@ const INPUT_PROP_TYPES = {
      */
     button: oneOfType([element, object]),
     /**
-     * Whether or not the input should appear as focused.
+     * Whether or not the input appear as focused.
      */
     focus: bool,
     /**
