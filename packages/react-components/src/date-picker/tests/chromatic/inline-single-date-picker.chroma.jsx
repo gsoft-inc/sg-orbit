@@ -36,9 +36,13 @@ stories()
             defaultOpen: true
         })
     )
-    .add("closed",
-         () =>
-             createInlineSingleDatePicker()
+    .add("closed", () =>
+        createInlineSingleDatePicker()
+    )
+    .add("focused", () =>
+        createInlineSingleDatePicker({
+            focus: true
+        })
     );
 
 stories("/selected date/closed")

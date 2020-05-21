@@ -58,6 +58,10 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
          */
         open: bool,
         /**
+         * Whether or not the input should appear as focused.
+         */
+        focus: bool,
+        /**
          * @ignore
          */
         className: string,
@@ -108,11 +112,12 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     }
 
     render() {
-        const { onClick, onFocus, onBlur, open, disabled, className, forwardedRef } = this.props;
+        const { onClick, onFocus, onBlur, open, focus, disabled, className, forwardedRef } = this.props;
 
         const classes = mergeClasses(
             "flex items-center outline-0",
             open ? "bb bw1 b--primary-500" : "bw0 b--transparent",
+            focus && "bg-primary-50",
             !disabled ? "primary-500 bb bw1 b--transparent hover-b--primary-500 focus-bg-primary-50 br1 pointer" : "marine-200 bg-cloud-50 br1 hover-b--transparent",
             className
         );

@@ -38,6 +38,10 @@ export class InnerDateRangePickerInput extends PureComponent {
          */
         open: bool,
         /**
+         * Whether or not the input should appear as focused.
+         */
+        focus: bool,
+        /**
         * A date picker can have different sizes.
         */
         size: oneOf(SIZES),
@@ -66,7 +70,7 @@ export class InnerDateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { onClear, onClick, onKeyDown, onFocus, onBlur, allowClear, placeholder, disabled, fluid, open, size, className, forwardedRef, ...rest } = this.props;
+        const { onClear, onClick, onKeyDown, onFocus, onBlur, allowClear, placeholder, disabled, fluid, open, focus, size, className, forwardedRef, ...rest } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -82,6 +86,7 @@ export class InnerDateRangePickerInput extends PureComponent {
                 disabled={disabled}
                 fluid={fluid}
                 open={open}
+                focus={focus}
                 size={size}
                 className={className}
                 ref={forwardedRef}
