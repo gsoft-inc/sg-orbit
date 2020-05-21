@@ -48,37 +48,46 @@ function stories(segment) {
 
 stories()
     .add("text", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createDropdownMenu({
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createDropdownMenu({
-                    size: "small",
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false
-                })}
+        <div className="flex">
+            <div className="flex flex-column">
+                <div className="flex" style={{ marginBottom: "150px" }}>
+                    {createDropdownMenu({
+                        size: "small",
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        size: "small",
+                        defaultOpen: true,
+                        focusFirstItemOnOpen: false
+                    })}
+                </div>
+                <div className="flex" style={{ marginBottom: "200px" }}>
+                    {createDropdownMenu({
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        defaultOpen: true,
+                        focusFirstItemOnOpen: false
+                    })}
+                </div>
+                <div className="flex">
+                    {createDropdownMenu({
+                        size: "large",
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        size: "large",
+                        defaultOpen: true,
+                        focusFirstItemOnOpen: false
+                    })}
+                </div>
             </div>
-            <div className="flex" style={{ marginBottom: "200px" }}>
-                {createDropdownMenu({
-                    wrapperClassName: "mr5"
-                })}
-                {createDropdownMenu({
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false
-                })}
-            </div>
-            <div className="flex">
-                {createDropdownMenu({
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createDropdownMenu({
-                    size: "large",
-                    defaultOpen: true,
-                    focusFirstItemOnOpen: false
-                })}
+            <div className="flex flex-column">
+                <div className="flex">
+                    {createDropdownMenu({
+                        focus: true
+                    })}
+                </div>
             </div>
         </div>
     )
