@@ -47,17 +47,21 @@
 
 /* STATE | Focus */
 .ui.checkbox input:focus ~ .box:before,
-.ui.checkbox input:focus ~ label:before {
+.ui.checkbox input:focus ~ label:before,
+.ui.checkbox.focus input ~ .box:before,
+.ui.checkbox.focus input ~ label:before {
     box-shadow: 0px 0px 0px 2px var(--primary-100);
     border: 1px solid var(--marine-100);
 }
 
 /* STATE | Focus | Hover */
-.ui.checkbox input:focus ~ label:hover::before {
+.ui.checkbox input:focus ~ label:hover::before,
+.ui.checkbox.focus input ~ label:hover::before {
     border: 1px solid var(--marine-300);
 }
 
-.ui.checkbox input:checked:focus ~ label:hover::before {
+.ui.checkbox input:checked:focus ~ label:hover::before,
+.ui.checkbox.focus input:checked ~ label:hover::before {
     border: 1px solid var(--primary-900);
 }
 
@@ -69,12 +73,16 @@
 .ui.checkbox input:checked ~ .box:before,
 .ui.checkbox input:checked ~ label:before,
 .ui.checkbox input:checked:focus ~ .box:before,
-.ui.checkbox input:checked:focus ~ label:before {
+.ui.checkbox input:checked:focus ~ label:before,
+.ui.checkbox.focus input:checked ~ .box:before,
+.ui.checkbox.focus input:checked ~ label:before {
     background: @primary500;
 }
 
 .ui.checkbox input:checked:focus ~ .box:before,
-.ui.checkbox input:checked:focus ~ label:before {
+.ui.checkbox input:checked:focus ~ label:before,
+.ui.checkbox.focus input:checked ~ .box:before,
+.ui.checkbox.focus input:checked ~ label:before {
     border-color: var(--primary-500);
 }
 
@@ -83,14 +91,18 @@
 }
 
 .ui.checkbox input:checked:focus ~ .box:before,
-.ui.checkbox input:checked:focus ~ label:before {
+.ui.checkbox input:checked:focus ~ label:before,
+.ui.checkbox.focus input:checked ~ .box:before,
+.ui.checkbox.focus input:checked ~ label:before {
     border-color: var(--primary-500);
 }
 
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+.ui.checkbox:not(.radio):not(.toggle) input:checked:focus ~ label:after,
+.ui.checkbox:not(.radio):not(.toggle).focus input:checked ~ .box:after,
+.ui.checkbox:not(.radio):not(.toggle).focus input:checked ~ label:after {
     position: absolute;
     top: 50%;
     left: 0px;
@@ -125,7 +137,9 @@
 .ui.checkbox.fitted:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox.fitted:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox.fitted:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+.ui.checkbox.fitted:not(.radio):not(.toggle) input:checked:focus ~ label:after,
+.ui.checkbox.focus.fitted:not(.radio):not(.toggle) input:checked ~ .box:after,
+.ui.checkbox.focus.fitted:not(.radio):not(.toggle) input:checked ~ label:after{
     top: 0;
     transform: none;
 }
@@ -210,22 +224,30 @@
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after,
+.ui.checkbox.indeterminate.focus:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate.focus:not(.radio):not(.toggle) input:disabled ~ label::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ .box::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled ~ label::after,
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ .box::after,
-.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after {
+.ui.checkbox.indeterminate:not(.radio):not(.toggle) input:disabled:focus ~ label::after,
+.ui.checkbox.indeterminate.focus:not(.radio):not(.toggle) input:disabled ~ .box::after,
+.ui.checkbox.indeterminate.focus:not(.radio):not(.toggle) input:disabled ~ label::after {
     background-color: @primary100;
 }
 
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
-.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before {
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before,
+.ui.checkbox.focus input:not([type=radio]):indeterminate ~ .box:before,
+.ui.checkbox.focus input:not([type=radio]):indeterminate ~ label:before {
     background: @white;
 }
 
 .ui.checkbox input:not([type=radio]):indeterminate ~ .box:hover:before,
 .ui.checkbox input:not([type=radio]):indeterminate ~ label:hover:before
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:hover:before,
-.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:hover:before {
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:hover:before,
+.ui.checkbox.focus input:not([type=radio]):indeterminate ~ .box:hover:before,
+.ui.checkbox.focus input:not([type=radio]):indeterminate ~ label:hover:before {
     border-color: var(--marine-700)!important;
 }
 
@@ -249,23 +271,31 @@
 
 /* toggle Focus */
 .ui.toggle.checkbox input:focus:hover ~ .box:before,
-.ui.toggle.checkbox input:focus:hover ~ label:before {
+.ui.toggle.checkbox input:focus:hover ~ label:before,
+.ui.toggle.checkbox.focus input:hover ~ .box:before,
+.ui.toggle.checkbox.focus input:hover ~ label:before {
     border: 1px solid var(--cloud-500);
 }
 
 .ui.toggle.checkbox input:focus ~ .box:before,
-.ui.toggle.checkbox input:focus ~ label:before {
+.ui.toggle.checkbox input:focus ~ label:before,
+.ui.toggle.checkbox.focus input ~ .box:before,
+.ui.toggle.checkbox.focus input ~ label:before {
     border: 1px solid var(--cloud-200);
 }
 
 /* toggle Focus Checked */
 .ui.toggle.checkbox input:checked:focus ~ .box:before,
-.ui.toggle.checkbox input:checked:focus ~ label:before {
+.ui.toggle.checkbox input:checked:focus ~ label:before,
+.ui.toggle.checkbox.focus input:checked ~ .box:before,
+.ui.toggle.checkbox.focus input:checked ~ label:before {
     border: 1px solid var(--primary-900);
 }
 
 .ui.toggle.checkbox input:checked:focus ~ .box::before,
-.ui.toggle.checkbox input:checked:focus ~ label::before {
+.ui.toggle.checkbox input:checked:focus ~ label::before,
+.ui.toggle.checkbox.focus input:checked ~ .box::before,
+.ui.toggle.checkbox.focus input:checked ~ label::before {
     border: 1px solid var(--primary-500);
 }
 
@@ -355,16 +385,20 @@
 .ui.checkbox.toggle input:checked ~ .box:before,
 .ui.checkbox.toggle input:checked ~ label:before,
 .ui.checkbox.toggle input:checked:focus ~ .box:before,
-.ui.checkbox.toggle input:checked:focus ~ label:before {
+.ui.checkbox.toggle input:checked:focus ~ label:before,
+.ui.checkbox.toggle.focus input:checked ~ .box:before,
+.ui.checkbox.toggle.focus input:checked ~ label:before {
     background-image: none;
 }
 
 .ui.toggle.disabled label::before,
 .ui.toggle.disabled label:hover::before,
 .ui.toggle.disabled label:focus::before,
+.ui.toggle.disabled.focus label::before,
 .ui.toggle.disabled label:active::before,
 .ui.toggle.disabled label:checked::before,
-.ui.toggle.disabled.checkbox input:focus ~ label:before {
+.ui.toggle.disabled.checkbox input:focus ~ label:before,
+.ui.toggle.disabled.checkbox.focus input ~ label:before {
     background: var(--cloud-50);
     border: none!important;
 }
@@ -372,9 +406,11 @@
 .ui.ui.toggle.checked.disabled label::before,
 .ui.ui.toggle.checked.disabled label:hover::before,
 .ui.ui.toggle.checked.disabled label:focus::before,
+.ui.ui.toggle.checked.disabled.focus label::before,
 .ui.ui.toggle.checked.disabled label:active::before,
 .ui.ui.toggle.checked.disabled label:checked::before,
-.ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before {
+.ui.ui.toggle.checked.disabled.checkbox input:focus ~ label:before,
+.ui.ui.toggle.checked.disabled.checkbox.focus input ~ label:before {
     background: @primary100!important;
 }
 
@@ -462,7 +498,9 @@
 }
 
 .ui.slider.checkbox input:focus ~ .box:before,
-.ui.slider.checkbox input:focus ~ label:before {
+.ui.slider.checkbox input:focus ~ label:before,
+.ui.slider.checkbox.focus input ~ .box:before,
+.ui.slider.checkbox.focus input ~ label:before {
     background-color: @primary500;
 }
 
@@ -586,6 +624,8 @@
 
 .ui.checkbox.read-only input:focus ~ .box:before,
 .ui.checkbox.read-only input:focus ~ label:before,
+.ui.checkbox.read-only.focus input ~ .box:before,
+.ui.checkbox.read-only.focus input ~ label:before,
 .ui.checkbox.read-only input:hover ~ .box:before,
 .ui.checkbox.read-only input:hover ~ label:before {
     border: 1px solid var(--marine-100);
@@ -597,7 +637,9 @@
 }
 
 .ui.checkbox.read-only input:checked:focus ~ .box:before,
-.ui.checkbox.read-only input:checked:focus ~ label:before {
+.ui.checkbox.read-only input:checked:focus ~ label:before,
+.ui.checkbox.read-only.focus input:checked ~ .box:before,
+.ui.checkbox.read-only.focus input:checked ~ label:before {
     border: 1px solid var(--primary-500);
 }
 
@@ -616,7 +658,9 @@
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+.ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after,
+.ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ .box:after,
+.ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ label:after {
     width: var(--scale-delta);
     height: var(--scale-delta);
     mask-size: var(--scale-delta) var(--scale-delta);
@@ -638,7 +682,9 @@
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+.ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ label:after,
+.ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ .box:after,
+.ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ label:after {
     width: var(--scale-delta);
     height: var(--scale-delta);
     mask-size: var(--scale-delta) var(--scale-delta);
@@ -660,7 +706,9 @@
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ .box:after,
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ label:after,
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ .box:after,
-.ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ label:after {
+.ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ label:after,
+.ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ .box:after,
+.ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ label:after {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
     mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
