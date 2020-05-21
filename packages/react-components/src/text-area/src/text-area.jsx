@@ -38,9 +38,9 @@ const propTypes = {
      */
     error: bool,
     /**
-     * Whether or not a user is currently interacting with the textarea.
+     * Whether or not the select appear as focused.
      */
-    focused: bool,
+    focus: bool,
     /**
      * Whether or not the textarea is transparent.
      */
@@ -67,7 +67,7 @@ const defaultProps = {
     autofocus: false,
     error: false,
     fluid: false,
-    focused: false,
+    focus: false,
     transparent: false,
     resizable: false,
     disabled: false,
@@ -82,13 +82,13 @@ function useSetFocus(textAreaRef) {
     };
 }
 
-function useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef) {
+function useRenderer({ size, error, fluid, focus, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef) {
     return () => {
         const classes = mergeClasses(
             "ui textarea",
             error && "error",
             fluid && "fluid",
-            focused && "focus",
+            focus && "focus",
             transparent && "transparent",
             resizable && "resizable",
             size && size,

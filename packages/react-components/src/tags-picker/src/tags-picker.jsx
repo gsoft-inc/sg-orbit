@@ -116,6 +116,10 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
+         * Whether or not the tags picker appear as focused.
+         */
+        focus: bool,
+        /**
          * A disabled tag picker does not allow user interaction.
          */
         disabled: bool,
@@ -156,6 +160,7 @@ export class TagsPicker extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <TagsPickerSelectedItems />,
         clearButton: <TagsPickerClearButton />,
+        focus: false,
         disabled: false,
         size: DEFAULT_SIZE
     };
@@ -298,7 +303,7 @@ export class TagsPicker extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, focus, disabled, closeOnBlur, closeOnOutsideClick, size } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -314,6 +319,7 @@ export class TagsPicker extends AutoControlledPureComponent {
             triggerText: addText,
             triggerSize: size,
             open,
+            focus,
             disabled,
             closeOnBlur,
             closeOnOutsideClick

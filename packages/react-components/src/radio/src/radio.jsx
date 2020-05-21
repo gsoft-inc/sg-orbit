@@ -10,7 +10,7 @@ const DEFAULT_SIZE = "medium";
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 export const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the radio should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -34,7 +34,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     count: oneOfType([element, object]),
     /**
-     * Whether or not the checkbox appear as focused.
+     * Whether or not the radio appear as focused.
      */
     focus: bool,
     /**

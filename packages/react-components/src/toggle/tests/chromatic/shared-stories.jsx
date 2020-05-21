@@ -22,15 +22,14 @@ function Icons({ element, ...rest }) {
                 <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Toggle focus icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle disabled icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Toggle readOnly icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
+                <Toggle disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
+                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
+                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={radio} />
             </div>
         </>
     );
@@ -47,6 +46,7 @@ function Labels({ element, ...rest }) {
                 <Toggle label={<Label>6</Label>} size="large" element={radio} />
             </div>
             <div className="flex">
+                <Toggle focus label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle disabled label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle readOnly label={<Label>6</Label>} element={radio} />
             </div>
@@ -61,6 +61,7 @@ export function createSharedStories(checkbox, stories) {
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
                         <Toggle text="Milky Way" element={checkbox} className="mr5" />
+                        <Toggle focus text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle disabled text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle readOnly text="Milky Way" element={checkbox} />
                     </div>
@@ -79,6 +80,7 @@ export function createSharedStories(checkbox, stories) {
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
                         <Toggle element={checkbox} className="mr5" />
+                        <Toggle focus element={checkbox} className="mr5" />
                         <Toggle disabled element={checkbox} className="mr5" />
                         <Toggle readOnly element={checkbox} />
                     </div>

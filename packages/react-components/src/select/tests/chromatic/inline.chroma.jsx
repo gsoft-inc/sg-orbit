@@ -78,6 +78,11 @@ stories()
             </div>
         </div>
     )
+    .add("focused", () =>
+        createInlineSelect({
+            focus: true
+        })
+    )
     .add("disabled", () =>
         createInlineSelect({
             disabled: true

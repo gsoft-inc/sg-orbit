@@ -75,6 +75,10 @@ const propTypes = {
      */
     wrapperStyle: object,
     /**
+     * Whether or not the select appear as focused.
+     */
+    focus: bool,
+    /**
      * @ignore
      */
     inline: bool,
@@ -111,6 +115,7 @@ const propTypes = {
 const defaultProps = {
     size: DEFAULT_SIZE,
     transparent: false,
+    focus: false,
     inline: false,
     multiple: false
 };
@@ -284,7 +289,7 @@ function useOptionsRenderer({ options, actions }) {
 }
 
 function useRenderer(
-    { size, transparent, inline, className, forwardedRef, rest },
+    { size, transparent, inline, focus, className, forwardedRef, rest },
     handleOpen,
     handleClose,
     handleFocus,
@@ -298,6 +303,7 @@ function useRenderer(
     return () => {
         const classes = mergeClasses(
             transparent && "transparent",
+            focus && "focus",
             className
         );
 
@@ -326,7 +332,7 @@ function useRenderer(
 }
 
 export function InnerSelect(props) {
-    const { options, actions, size, transparent, inline, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
+    const { options, actions, size, transparent, inline, focus, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -353,7 +359,7 @@ export function InnerSelect(props) {
     const renderOptions = useOptionsRenderer({ options, actions });
 
     const render = useRenderer(
-        { size, transparent, inline, className, forwardedRef, rest },
+        { size, transparent, inline, focus, className, forwardedRef, rest },
         handleOpen,
         handleClose,
         handleFocus,

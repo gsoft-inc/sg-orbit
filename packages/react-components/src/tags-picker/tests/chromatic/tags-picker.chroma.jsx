@@ -74,6 +74,12 @@ stories()
                      })}
                  </div>
              </div>
+    )
+    .add("focused",
+         () =>
+             createTagsPicker({
+                 focus: true
+             })
     );
 
 stories("/dropdown")
