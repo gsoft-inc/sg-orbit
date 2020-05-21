@@ -1373,7 +1373,7 @@ a.ui.button {
 .ui.buttons.basic.secondary .button.with-icon:hover .icon,
 .ui.buttons.basic.secondary .button.with-icon.active .icon,
 .ui.buttons.basic.secondary .button.with-icon:focus .icon,
-.ui.buttons.basic.secondary .button.with-icon.focus .icon
+.ui.buttons.basic.secondary .button.with-icon.focus .icon {
     color: @marine900 !important;
 }
 
