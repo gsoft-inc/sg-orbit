@@ -40,11 +40,11 @@ export const CHECKBOX_PROP_TYPES = {
      */
     count: oneOfType([element, object]),
     /**
-     * A button can appear as focused.
-     */
+         * Whether or not the input should appear as focused.
+         */
     focus: bool,
     /**
-     * An input can vary in sizes.
+     * A checkbox can vary in sizes.
      */
     size: oneOf(SIZES),
     /**
@@ -71,6 +71,7 @@ export const CHECKBOX_PROP_TYPES = {
 
 export const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
+    focus: false,
     size: DEFAULT_SIZE,
     disabled: false,
     __componentName: "@orbit-ui/react-components/checkbox",

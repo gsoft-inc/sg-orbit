@@ -54,7 +54,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * A button can appear as focused.
+     * Whether or not the button should appear as focused.
      */
     focus: bool,
     /**
@@ -88,6 +88,7 @@ const defaultProps = {
     link: false,
     iconPosition: "left",
     naked: false,
+    focus: false,
     size: DEFAULT_SIZE,
     type: "button",
     loading: false,

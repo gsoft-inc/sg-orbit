@@ -143,6 +143,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
+         * Whether or not the input should appear as focused.
+         */
+        focus: bool,
+        /**
          * Whether or not the calendar should close when the date picker loose focus.
          */
         closeOnBlur: bool,
@@ -273,7 +277,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, focus, size } = this.props;
         const { open, selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -287,6 +291,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
+            focus,
             size,
             ref: this._inputRef
         });

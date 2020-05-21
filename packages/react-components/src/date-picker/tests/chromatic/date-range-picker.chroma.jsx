@@ -71,37 +71,42 @@ stories()
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          size: "small",
                          className: "mr5"
                      })}
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          size: "small",
                          defaultStartDate: moment(DEFAULT_DATE),
                          defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
                      })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          className: "mr5"
                      })}
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          defaultStartDate: moment(DEFAULT_DATE),
                          defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
                      })}
                  </div>
                  <div className="flex">
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          size: "large",
                          className: "mr5"
                      })}
-                     { createDateRangePicker({
+                     {createDateRangePicker({
                          size: "large",
                          defaultStartDate: moment(DEFAULT_DATE),
                          defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
                      })}
                  </div>
              </div>
+    )
+    .add("focused", () =>
+        createDateRangePicker({
+            focus: true
+        })
     );
 
 stories("/number of visible months")
