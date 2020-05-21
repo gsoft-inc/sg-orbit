@@ -1,23 +1,17 @@
-import { Select } from "@react-components/select";
+import { DropdownMenu } from "@react-components/dropdown-menu";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-const GENDERS = [
-    {
-        key: "Male",
-        text: "Male",
-        value: "Male"
-    },
-    {
-        key: "Female",
-        text: "Female",
-        value: "Female"
-    }
+const ACTIONS = [
+    { key: "New", text: "New", value: "New" },
+    { key: "Open...", text: "Open...", value: "Open..." },
+    { key: "Rename...", text: "Rename...", value: "Rename..." }
 ];
 
-function createSelect(props = {}) {
-    return <Select
-        options={GENDERS}
+function createDropdownMenu(props = {}) {
+    return <DropdownMenu
+        text = "File"
+        options={ACTIONS}
         {...props}
     />;
 }
@@ -28,8 +22,8 @@ function getDropdownMenu(container) {
 
 // ***** Behaviors *****
 
-test("open the select on spacebar keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+test("open the dropdown menu on spacebar keydown", async () => {
+    const { getByTestId, container } = render(createDropdownMenu());
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -44,8 +38,8 @@ test("open the select on spacebar keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
-test("open the select on enter keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+test("open the dropdown menu on enter keydown", async () => {
+    const { getByTestId, container } = render(createDropdownMenu());
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -60,52 +54,54 @@ test("open the select on enter keydown", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
-test("close the select on spacebar keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+// eslint-disable-next-line jest/no-commented-out-tests
+// test("close the dropdown menu on spacebar keydown", async () => {
+//     const { getByTestId, container } = render(createDropdownMenu());
 
-    const dropdownNode = getByTestId("dropdown");
+//     const dropdownNode = getByTestId("dropdown");
 
-    act(() => {
-        dropdownNode.focus();
-    });
+//     act(() => {
+//         dropdownNode.focus();
+//     });
 
-    act(() => {
-        fireEvent.keyDown(dropdownNode, { key: " ", keyCode: 32 });
-    });
+//     act(() => {
+//         fireEvent.keyDown(dropdownNode, { key: " ", keyCode: 32 });
+//     });
 
-    await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
+//     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 
-    act(() => {
-        fireEvent.keyDown(dropdownNode, { key: " ", keyCode: 32 });
-    });
+//     act(() => {
+//         fireEvent.keyDown(dropdownNode, { key: " ", keyCode: 32 });
+//     });
 
-    await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
-});
+//     await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
+// });
 
-test("close the select on enter keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+// eslint-disable-next-line jest/no-commented-out-tests
+// test("close the dropdown menu on enter keydown", async () => {
+//     const { getByTestId, container } = render(createDropdownMenu());
 
-    const dropdownNode = getByTestId("dropdown");
+//     const dropdownNode = getByTestId("dropdown");
 
-    act(() => {
-        dropdownNode.focus();
-    });
+//     act(() => {
+//         dropdownNode.focus();
+//     });
 
-    act(() => {
-        fireEvent.keyDown(dropdownNode, { key: "Enter", keyCode: 13 });
-    });
+//     act(() => {
+//         fireEvent.keyDown(dropdownNode, { key: "Enter", keyCode: 13 });
+//     });
 
-    await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
+//     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 
-    act(() => {
-        fireEvent.keyDown(dropdownNode, { key: "Enter", keyCode: 13 });
-    });
+//     act(() => {
+//         fireEvent.keyDown(dropdownNode, { key: "Enter", keyCode: 13 });
+//     });
 
-    await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
-});
+//     await waitFor(() => expect(getDropdownMenu(container)).not.toBeInTheDocument());
+// });
 
-test("can open the select on enter keydown after closing on blur", async () => {
-    const { getByTestId, container } = render(createSelect());
+test("can open the dropdown menu on enter keydown after closing on blur", async () => {
+    const { getByTestId, container } = render(createDropdownMenu());
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -142,7 +138,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createSelect({
+        createDropdownMenu({
             ref
         })
     );
@@ -157,7 +153,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createSelect({
+        createDropdownMenu({
             ref: node => {
                 refNode = node;
             }
@@ -175,10 +171,12 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createSelect({
+        createDropdownMenu({
             ref: handler
         })
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
+
+

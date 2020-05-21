@@ -100,8 +100,12 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-function hasText(children) {
-    return Children.count(children) > 0;
+function hasText(content, children) {
+    return !isNil(content) || Children.count(children) > 0;
+}
+
+function getText(content, children) {
+    return content || children;
 }
 
 function useSetFocus(buttonRef) {
@@ -157,8 +161,8 @@ function useTagRenderer({ tag, size, disabled }) {
     };
 }
 
-function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
+function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children }) {
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(content, children));
     const renderLabel = useLabelRenderer({ label, size, disabled });
     const renderTag = useTagRenderer({ tag, size, disabled });
 
@@ -184,16 +188,16 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
             }
 
             if (!isNil(left) || !isNil(right)) {
-                return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+                return <>{!isNil(left) && left}{getText(content, children)}{!isNil(right) && right}</>;
             }
         }
 
-        return children;
+        return getText(content, children);
     };
 }
 
 function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
     autofocusProps,
     innerRef,
     renderContent
@@ -207,7 +211,7 @@ function useRenderer(
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
             !isNil(tag) && "with-tag",
-            !hasText(children) && "without-text",
+            !hasText(content, children) && "without-text",
             className
         );
 
@@ -247,6 +251,7 @@ export function InnerButton(props) {
         disabled,
         className,
         forwardedRef,
+        content,
         children,
         ...rest
     } = props;
@@ -259,10 +264,10 @@ export function InnerButton(props) {
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
+    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children });
 
     const render = useRenderer(
-        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, children, rest },
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
         autofocusProps,
         innerRef,
         renderContent

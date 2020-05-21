@@ -19,7 +19,6 @@ const GENDERS = [MALE, FEMALE];
 function createMultipleSelect({ options = GENDERS, ...otherProps } = {}) {
     return <Select
         placeholder="Gender"
-        search
         multiple
         options={options}
         {...otherProps}

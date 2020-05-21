@@ -1,2 +1,2 @@
 export * from "./select";
-export * from "./items";
+export { selectItem } from "./item";

@@ -106,9 +106,9 @@ test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
     await waitFor(() => expect(triggerNode).toHaveFocus());
 });
 
-test("when focusPopperOnShow is true, focus the first popper focusable element on show", async () => {
+test("when focusFirstElementOnShow is true, focus the first popper focusable element on show", async () => {
     const renderResult = render(createPopperTrigger({
-        focusPopperOnShow: true
+        focusFirstElementOnShow: true
     }));
 
     const { queries } = await showPopper(renderResult);

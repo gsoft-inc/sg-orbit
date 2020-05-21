@@ -47,7 +47,7 @@ stories()
     .add("focus popper on show", () =>
         createPopperTrigger({
             defaultShow: true,
-            focusPopperOnShow: true
+            focusFirstElementOnShow: true
         })
     )
     .add("disabled", () =>
