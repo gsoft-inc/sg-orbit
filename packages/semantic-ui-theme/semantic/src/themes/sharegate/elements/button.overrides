@@ -216,6 +216,7 @@ a.ui.button {
 /* LAYOUT | Naked | STATE | Pseudo */
 .ui.button.naked:hover,
 .ui.button.naked:focus,
+.ui.button.naked.focus,
 .ui.button.naked.active {
     background-color: @transparent;
     color: initial;
@@ -225,6 +226,7 @@ a.ui.button {
 /* LAYOUT | Naked/Ghost | STATE | Pseudo */
 .ui.button.naked.ghost:hover,
 .ui.button.naked.ghost:focus,
+.ui.button.naked.ghost.focus,
 .ui.button.naked.ghost.active {
     background-color: @transparent;
     color: initial;
@@ -281,27 +283,31 @@ a.ui.button {
 }
 
 .ui.button:focus,
-.ui.buttons .button:focus, {
+.ui.button.focus,
+.ui.buttons .button:focus,
+.ui.buttons .button.focus, {
     box-shadow: 0px 0px 0px 2px var(--primary-200) !important;
 }
 
-.ui.button:focus {
+.ui.button:focus,
+.ui.button.focus {
     background-color: var(--marine-500);
 }
 
 .ui.button:focus:active,
-.ui.button:focus.active,
-.ui.button:focus:hover {
+.ui.button.focus:active,
+.ui.button:focus:hover,
+.ui.button.focus:hover {
     background-color: var(--marine-900);
 }
 
 .ui.button.primary:focus:active,
-.ui.button.primary:focus.active,
-.ui.button.primary:focus:hover {
+.ui.button.primary.focus:active,
+.ui.button.primary:focus:hover,
+.ui.button.primary.focus:hover {
     background-color: var(--primary-900);
 }
 
-.ui.button.naked.active,
 .ui.button.naked:active {
     box-shadow: none;
 }
@@ -309,8 +315,8 @@ a.ui.button {
 /* STATE | Active | SKIN | Basic */
 .ui.button.basic:hover,
 .ui.button.basic.active,
-.ui.button.basic:active,
-.ui.button.basic:focus:hover {
+.ui.button.basic:focus:hover,
+.ui.button.basic.focus:hover {
     background-color: @white!important;
     color: @marine900!important;
 }
@@ -326,11 +332,12 @@ a.ui.button {
 }
 
 .ui.button.basic.active:focus,
-.ui.button.basic:active:focus {
+.ui.button.basic.active.focus {
     box-shadow: 0px 0px 0px 1px var(--cloud-900) inset, 0px 0px 0px 2px var(--primary-200) !important;
 }
 
-.ui.button.basic:focus:hover {
+.ui.button.basic:focus:hover,
+.ui.button.basic.focus:hover {
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset, 0px 0px 0px 2px var(--primary-200)!important;
 }
 
@@ -342,20 +349,22 @@ a.ui.button {
 
 /* SKIN | Negative */
 .ui.button.negative:hover:focus,
-.ui.buttons.negative .button:hover:focus {
+.ui.button.negative:hover.focus,
+.ui.buttons.negative .button:hover:focus,
+.ui.buttons.negative .button:hover.focus {
     background-color: var(--alert-900);
 }
 
 /* SKIN | Negative | Focus */
 .ui.basic.negative.buttons .button:focus,
-.ui.basic.negative.button:focus {
+.ui.basic.negative.buttons .button.focus,
+.ui.basic.negative.button:focus,
+.ui.basic.negative.button.focus {
     box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColor inset, 0px 0px 0px 2px var(--primary-200) !important;
     color: var(--alert-500) !important;
 }
 
 /* SKIN | Negative | Active + Hover */
-.ui.basic.negative.buttons .button:active:hover,
-.ui.basic.negative.button:active:hover,
 .ui.basic.negative.buttons .button.active:hover,
 .ui.basic.negative.button.active:hover {
     box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColor inset, 0px 0px 0px 2px var(--primary-200) !important;
@@ -364,55 +373,66 @@ a.ui.button {
 
 /* SKIN | Positive */
 .ui.button.positive:hover:focus,
-.ui.buttons.positive .button:hover:focus {
+.ui.button.positive:hover.focus,
+.ui.buttons.positive .button:hover:focus,
+.ui.buttons.positive .button:hover.focus {
     background-color: var(--success-900);
 }
 
 /* SKIN | Positive | STATE | Active */
-.ui.button.positive:active,
-.ui.buttons.positive .button:active,
 .ui.button.positive.active,
 .ui.buttons.positive .button.active {
     background-color: var(--success-900);
 }
 
-.ui.button.basic:focus {
+.ui.button.basic:focus,
+.ui.button.basic.focus {
     background-color: var(--white)!important;
     color: var(--marine-500)!important;
 }
 
-.ui.button.primary.basic:focus:hover {
+.ui.button.primary.basic:focus:hover,
+.ui.button.primary.basic.focus:hover {
     color: var(--primary-900)!important;
     box-shadow: 0px 0px 0px 1px var(--primary-900) inset, 0px 0px 0px 2px var(--primary-200)!important;
 }
 
-.ui.button.primary.basic:focus {
+.ui.button.primary.basic:focus,
+.ui.button.primary.basic.focus {
     background-color: var(--white)!important;
     color: var(--primary-500)!important;
 }
 
-.ui.button.secondary.basic:focus:hover {
+.ui.button.secondary.basic:focus:hover,
+.ui.button.secondary.basic.focus:hover {
     color: var(-marine--900)!important;
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset, 0px 0px 0px 2px var(--primary-200)!important;
 }
 
-.ui.button.secondary.basic:focus {
+.ui.button.secondary.basic:focus,
+.ui.button.secondary.basic.focus {
     background-color: var(--white)!important;
     color: var(--marine-500)!important;
 }
 
 .ui.secondary.buttons .button:focus,
-.ui.secondary.button:focus  {
+.ui.secondary.buttons .button.focus,
+.ui.secondary.button:focus,
+.ui.secondary.button.focus {
     background-color: var(--cloud-100);
 }
 
 .ui.secondary.buttons .button:focus:hover,
-.ui.secondary.button:focus:hover  {
+.ui.secondary.buttons .button.focus:hover,
+.ui.secondary.button:focus:hover,
+.ui.secondary.button.focus:hover {
     background-color: @secondaryColorFocus;
 }
 
 .ui.primary.buttons .button:focus:hover,
-.ui.primary.button:focus:hover {
+.ui.primary.buttons .button.focus:hover,
+.ui.primary.button:focus:hover,
+.ui.primary.button.focus:hover {
     background-color: var(--primary-900);
 }
 
@@ -433,7 +453,8 @@ a.ui.button {
 /* STATE | Active | SKIN | Naked/Basic */
 .ui.button.basic.naked:hover,
 .ui.button.basic.naked.active,
-.ui.button.basic.naked:focus {
+.ui.button.basic.naked:focus,
+.ui.button.basic.naked.focus {
     background-color: @transparent!important;
     box-shadow: 0px 0px 0px @basicBorderSize transparent inset!important;
     color: initial!important;
@@ -792,13 +813,17 @@ a.ui.button {
 
 /* SKIN | Ghost | State | Focus */
 .ui.ghost.button:focus,
-.ui.ghost.buttons .button:focus {
+.ui.ghost.button.focus,
+.ui.ghost.buttons .button:focus,
+.ui.ghost.buttons .button.focus {
     background-color: transparent;
 }
 
 /* SKIN | Ghost | State | Focus + Hover */
 .ui.ghost.button:focus:hover,
-.ui.ghost.buttons .button:focus:hover {
+.ui.ghost.button.focus:hover,
+.ui.ghost.buttons .button:focus:hover,
+.ui.ghost.buttons .button.focus:hover {
     background-color: var(--cloud-50);
 }
 
@@ -822,7 +847,9 @@ a.ui.button {
 .ui.basic.secondary.button:hover,
 .ui.basic.secondary.buttons .button:hover,
 .ui.basic.secondary.button:focus,
+.ui.basic.secondary.button.focus,
 .ui.basic.secondary.buttons .button:focus,
+.ui.basic.secondary.buttons .button.focus,
 .ui.basic.secondary.button.active,
 .ui.basic.secondary.buttons.active .button {
     background-color: @white!important;
@@ -831,17 +858,23 @@ a.ui.button {
 }
 
 .ui.basic.secondary.button:focus,
-.ui.basic.secondary.buttons .button:focus{
+.ui.basic.secondary.button.focus,
+.ui.basic.secondary.buttons .button:focus,
+.ui.basic.secondary.buttons .button.focus {
     color: var(--marine-500)!important;
 }
 
 .ui.basic.secondary.buttons .button:focus,
-.ui.basic.secondary.button:focus {
+.ui.basic.secondary.buttons .button.focus,
+.ui.basic.secondary.button:focus,
+.ui.basic.secondary.button.focus {
     box-shadow: 0px 0px 0px 1px var(--cloud-200) inset, 0px 0px 0px 2px var(--primary-200) !important;
 }
 
 .ui.basic.secondary.buttons .button:focus:hover,
-.ui.basic.secondary.button:focus:hover {
+.ui.basic.secondary.buttons .button.focus:hover,
+.ui.basic.secondary.button:focus:hover,
+.ui.basic.secondary.button.focus:hover {
     color: var(--marine-900)!important;
 }
 
@@ -851,6 +884,7 @@ a.ui.button {
 .ui.button:disabled,
 .ui.disabled.button:hover,
 .ui.disabled.button:focus,
+.ui.disabled.button.focus,
 .ui.disabled.button.active {
     background-color: var(--cloud-50);
     color: @cloud400;
@@ -992,7 +1026,9 @@ a.ui.button {
 .ui.basic.positive.buttons .button:hover,
 .ui.basic.positive.button:hover,
 .ui.basic.positive.buttons .button:focus,
-.ui.basic.positive.active.button:focus {
+.ui.basic.positive.buttons .button.focus,
+.ui.basic.positive.active.button:focus,
+.ui.basic.positive.active.button.focus {
     background-color: @white!important;
 }
 
@@ -1002,7 +1038,9 @@ a.ui.button {
 .ui.basic.negative.buttons .button:hover,
 .ui.basic.negative.button:hover,
 .ui.basic.negative.buttons .button:focus,
-.ui.basic.negative.active.button:focus {
+.ui.basic.negative.buttons .button.focus,
+.ui.basic.negative.active.button:focus,
+.ui.basic.negative.active.button.focus {
     background-color: @white!important;
 }
 
@@ -1222,6 +1260,7 @@ a.ui.button {
 /* CONTENT | Icon | STATE | Active | SKIN | Default */
 .ui.button.with-icon:hover .icon,
 .ui.button.with-icon:focus .icon,
+.ui.button.with-icon.focus .icon,
 .ui.button.with-icon.active .icon {
     fill: @white;
 }
@@ -1229,9 +1268,11 @@ a.ui.button {
 /* CONTENT | Icon/Group | STATE | Active | SKIN | Basic */
 .ui.button.basic.with-icon:hover .icon,
 .ui.button.basic.with-icon:focus .icon,
+.ui.button.basic.with-icon.focus .icon,
 .ui.button.basic.with-icon.active .icon,
 .ui.buttons.basic .button.with-icon:hover .icon,
 .ui.buttons.basic .button.with-icon:focus .icon,
+.ui.buttons.basic .button.with-icon.focus .icon,
 .ui.buttons.basic .button.with-icon.active .icon {
     fill: @marine900;
 }
@@ -1240,9 +1281,11 @@ a.ui.button {
 .ui.button.with-icon.ghost.positive.active .icon,
 .ui.button.with-icon.ghost.positive:hover .icon,
 .ui.button.with-icon.ghost.positive:focus .icon,
+.ui.button.with-icon.ghost.positive.focus .icon,
 .ui.buttons.ghost.positive .button.with-icon.active .icon,
 .ui.buttons.ghost.positive .button.with-icon:hover .icon,
-.ui.buttons.ghost.positive .button.with-icon:focus .icon {
+.ui.buttons.ghost.positive .button.with-icon:focus .icon,
+.ui.buttons.ghost.positive .button.with-icon.focus .icon {
     fill: @success500;
 }
 
@@ -1250,9 +1293,11 @@ a.ui.button {
 .ui.button.with-icon.ghost.negative.active .icon,
 .ui.button.with-icon.ghost.negative:hover .icon,
 .ui.button.with-icon.ghost.negative:focus .icon,
+.ui.button.with-icon.ghost.negative.focus .icon,
 .ui.buttons.ghost.negative .button.with-icon.active .icon,
 .ui.buttons.ghost.negative .button.with-icon:hover .icon,
-.ui.buttons.ghost.negative .button.with-icon:focus .icon {
+.ui.buttons.ghost.negative .button.with-icon:focus .icon,
+.ui.buttons.ghost.negative .button.with-icon.focus .icon,
     fill: @alert900;
 }
 
@@ -1260,9 +1305,11 @@ a.ui.button {
 .ui.button.with-icon.basic.positive.active .icon,
 .ui.button.with-icon.basic.positive:hover .icon,
 .ui.button.with-icon.basic.positive:focus .icon,
+.ui.button.with-icon.basic.positive.focus .icon,
 .ui.buttons.basic.positive .button.with-icon.active .icon,
 .ui.buttons.basic.positive .button.with-icon:hover .icon,
-.ui.buttons.basic.positive .button.with-icon:focus .icon {
+.ui.buttons.basic.positive .button.with-icon:focus .icon,
+.ui.buttons.basic.positive .button.with-icon.focus .icon {
     fill: @success900;
 }
 
@@ -1281,12 +1328,16 @@ a.ui.button {
 }
 
 .ui.button.with-icon.basic.primary:focus .icon,
-.ui.buttons.basic.primary .button.with-icon:focus .icon {
+.ui.button.with-icon.basic.primary.focus .icon,
+.ui.buttons.basic.primary .button.with-icon:focus .icon,
+.ui.buttons.basic.primary .button.with-icon.focus .icon {
     fill: @primary500;
 }
 
 .ui.button.with-icon.basic.primary:focus:hover .icon,
-.ui.buttons.basic.primary .button.with-icon:focus:hover .icon {
+.ui.button.with-icon.basic.primary.focus:hover .icon,
+.ui.buttons.basic.primary .button.with-icon:focus:hover .icon,
+.ui.buttons.basic.primary .button.with-icon.focus:hover .icon {
     fill: @primary900;
 }
 
@@ -1294,9 +1345,11 @@ a.ui.button {
 .ui.button.with-icon.secondary:hover .icon,
 .ui.button.with-icon.secondary.active .icon,
 .ui.button.with-icon.secondary:focus .icon,
+.ui.button.with-icon.secondary.focus .icon,
 .ui.buttons.secondary .button.with-icon:hover .icon,
 .ui.buttons.secondary .button.with-icon.active .icon,
-.ui.buttons.secondary .button.with-icon:focus .icon {
+.ui.buttons.secondary .button.with-icon:focus .icon,
+.ui.buttons.secondary .button.with-icon.focus .icon {
     fill: @marine900;
 }
 
@@ -1304,23 +1357,33 @@ a.ui.button {
 .ui.button.with-icon.basic.secondary:hover .icon,
 .ui.button.with-icon.basic.secondary.active .icon,
 .ui.button.with-icon.basic.secondary:focus .icon,
+.ui.button.with-icon.basic.secondary.focus .icon,
 .ui.buttons.basic.secondary .button.with-icon:hover .icon,
 .ui.buttons.basic.secondary .button.with-icon.active .icon,
-.ui.buttons.basic.secondary .button.with-icon:focus .icon {
+.ui.buttons.basic.secondary .button.with-icon:focus .icon,
+.ui.buttons.basic.secondary .button.with-icon.focus .icon {
     color: @marine900 !important;
 }
 
 .ui.secondary.buttons .active.button:focus,
+.ui.secondary.buttons .active.button.focus,
 .ui.secondary.buttons .active.button:active:focus,
+.ui.secondary.buttons .active.button:active.focus,
 .ui.secondary.active.button:focus,
-.ui.secondary.button .active.button:active:focus {
+.ui.secondary.active.button.focus,
+.ui.secondary.button .active.button:active:focus,
+.ui.secondary.button .active.button:active.focus {
     background-color: @secondaryColorActive;
 }
 
 .ui.positive.buttons .active.button:focus,
+.ui.positive.buttons .active.button.focus,
 .ui.positive.buttons .active.button:active:focus,
+.ui.positive.buttons .active.button:active.focus,
 .ui.positive.active.button:focus,
-.ui.positive.button .active.button:active:focus {
+.ui.positive.active.button.focus,
+.ui.positive.button .active.button:active:focus,
+.ui.positive.button .active.button:active.focus {
     background-color: @positiveColorActive;
 }
 
@@ -1334,13 +1397,17 @@ a.ui.button {
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
 .ui.button.with-icon.ghost:focus:hover .icon,
-.ui.buttons.ghost .button.with-icon:focus:hover .icon {
+.ui.button.with-icon.ghost.focus:hover .icon,
+.ui.buttons.ghost .button.with-icon:focus:hover .icon,
+.ui.buttons.ghost .button.with-icon.focus:hover .icon {
     fill: @marine600;
 }
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
 .ui.button.with-icon.ghost:focus .icon,
-.ui.buttons.ghost .button.with-icon:focus .icon {
+.ui.button.with-icon.ghost.focus .icon,
+.ui.buttons.ghost .button.with-icon:focus .icon,
+.ui.buttons.ghost .button.with-icon.focus .icon {
     fill: @marine300;
 }
 
@@ -1348,9 +1415,11 @@ a.ui.button {
 .ui.button.with-icon.ghost.primary:hover .icon,
 .ui.button.with-icon.ghost.primary.active .icon,
 .ui.button.with-icon.ghost.primary:focus .icon,
+.ui.button.with-icon.ghost.primary.focus .icon,
 .ui.buttons.ghost.primary .button.with-icon:hover .icon,
 .ui.buttons.ghost.primary .button.with-icon.active .icon,
-.ui.buttons.ghost.primary .button.with-icon:focus .icon  {
+.ui.buttons.ghost.primary .button.with-icon:focus .icon,
+.ui.buttons.ghost.primary .button.with-icon.focus .icon {
     fill: @primary500;
 }
 
@@ -1358,9 +1427,11 @@ a.ui.button {
 .ui.button.with-icon.ghost.negative:hover .icon,
 .ui.button.with-icon.ghost.negative.active .icon,
 .ui.button.with-icon.ghost.negative:focus .icon,
+.ui.button.with-icon.ghost.negative.focus .icon,
 .ui.buttons.ghost.negative .button.with-icon:hover .icon,
 .ui.buttons.ghost.negative .button.with-icon.active .icon,
-.ui.buttons.ghost.negative .button.with-icon:focus .icon  {
+.ui.buttons.ghost.negative .button.with-icon:focus .icon,
+.ui.buttons.ghost.negative .button.with-icon.focus .icon {
     fill: @alert500;
 }
 
@@ -1368,15 +1439,18 @@ a.ui.button {
 .ui.button.with-icon.negative.basic:hover .icon,
 .ui.button.with-icon.negative.basic.active .icon,
 .ui.button.with-icon.negative.basic:focus .icon,
+.ui.button.with-icon.negative.basic.focus .icon,
 .ui.buttons.negative.basic .button.with-icon:hover .icon,
 .ui.buttons.negative.basic .button.with-icon.active .icon,
-.ui.buttons.negative.basic .button.with-icon:focus .icon  {
+.ui.buttons.negative.basic .button.with-icon:focus .icon,
+.ui.buttons.negative.basic .button.with-icon.focus .icon {
     fill: @alert900;
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Naked */
 .ui.button.naked:hover .icon,
 .ui.button.naked:focus .icon,
+.ui.button.naked.focus .icon,
 .ui.button.naked.active .icon {
     fill: initial;
 }
@@ -1396,19 +1470,23 @@ a.ui.button {
 }
 
 .ui.basic.buttons .button:hover,
-.ui.basic.buttons .button:focus {
+.ui.basic.buttons .button:focus,
+.ui.basic.buttons .button.focus {
     box-shadow: none;
     border: 1px solid @marine500;
     background-color: @white!important;
     color: @marine900!important;
 }
 
-.ui.basic.button:focus {
+.ui.basic.button:focus,
+.ui.basic.button.focus {
     box-shadow: 0px 0px 0px 1px var(--cloud-200) inset, 0px 0px 0px 2px var(--primary-200) !important;
 }
 
 .ui.basic.primary.buttons .button:focus,
-.ui.basic.primary.button:focus {
+.ui.basic.primary.buttons .button.focus,
+.ui.basic.primary.button:focus,
+.ui.basic.primary.button.focus {
     box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColor inset, 0px 0px 0px 2px var(--primary-200) !important;
 }
 
@@ -1423,12 +1501,14 @@ a.ui.button {
 
 /* change style on hover/focus */
 .ui.buttons.basic .button:hover:first-child,
-.ui.buttons.basic .button:focus:first-child {
+.ui.buttons.basic .button:focus:first-child,
+.ui.buttons.basic .button.focus:first-child {
     border-left: 1px solid @marine500;
 }
 
 .ui.buttons.basic .button:hover:last-child,
-.ui.buttons.basic .button:focus:last-child {
+.ui.buttons.basic .button:focus:last-child,
+.ui.buttons.basic .button.focus:last-child {
     border-right: 1px solid @marine500;
 }
 
@@ -1517,6 +1597,7 @@ a.ui.button {
 
 /* SKIN | Link | STATE | Active */
 .ui.button.link:focus,
+.ui.button.link.focus,
 .ui.button.link:hover,
 .ui.button.link:active {
     text-decoration: underline;
@@ -1530,45 +1611,48 @@ a.ui.button {
     text-decoration: underline;
 }
 
-.ui.button.link:focus {
+.ui.button.link:focus,
+.ui.button.link.focus {
     background-color: var(--primary-50);
     text-decoration: none;
     box-shadow: none!important;
 }
 
-.ui.button.link.basic:focus {
+.ui.button.link.basic:focus,
+.ui.button.link.basic.focus {
     box-shadow: none!important;
 }
 
-.ui.button.link:active:hover,
 .ui.button.link.active:hover {
     color: var(--primary-900);
     background: none;
     text-decoration: underline;
 }
 
-.ui.button.link:active:focus,
-.ui.button.link.active:focus {
+.ui.button.link.active:focus,
+.ui.button.link.active.focus {
     color: var(--primary-900);
     background-color: var(--primary-50);
     text-decoration: underline;
 }
 
-.ui.button.link:focus:hover {
+.ui.button.link:focus:hover,
+.ui.button.link.focus:hover {
     text-decoration: underline;
     background: var(--primary-50);
 }
 
-.ui.button.link:active:hover,
 .ui.button.link.active:hover {
     text-decoration: underline;
 }
 
-.ui.button.link:active:hover:focus {
+.ui.button.link:active:hover:focus,
+.ui.button.link:active:hover.focus {
     background: var(--primary-50);
 }
 
-.ui.button.link.basic:focus:hover {
+.ui.button.link.basic:focus:hover,
+.ui.button.link.basic.focus:hover {
     text-decoration: underline;
     box-shadow: none!important;
     background: var(--marine-50) !important;
@@ -1580,12 +1664,12 @@ a.ui.button {
     box-shadow: none !important;
 }
 
-.ui.button.link.basic.active,
 .ui.button.link.basic:active {
     color: var(--marine-900)!important;
 }
 
-.ui.button.link.basic:focus {
+.ui.button.link.basic:focus,
+.ui.button.link.basic.focus {
     background-color: var(--marine-50)!important;
 }
 

@@ -107,7 +107,7 @@ function Tags({ element, ...rest }) {
                 <Button tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button size="large" tag={<Tag className="bg-red" />} element={button}>Button</Button>
             </div>
-            <div className="flex">
+            <div className="flex mb5">
                 <Button active tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button disabled tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
@@ -143,6 +143,9 @@ export function createSharedTestSuite(button, stories) {
                 </div>
                 <div className="flex flex-column">
                     <Tags element={button} />
+                    <div className="flex">
+                        <Button focus element={button}>Button</Button>
+                    </div>
                 </div>
             </div>
         )

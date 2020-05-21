@@ -26,6 +26,10 @@ const propTypes = {
      */
     link: bool,
     /**
+     * A button can appear as focused.
+     */
+    focus: bool,
+    /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
      */
     icon: element,
@@ -54,7 +58,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * An input can vary in sizes.
+     * A button can vary in sizes.
      */
     size: oneOf(SIZES),
     /**
@@ -197,13 +201,14 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
 }
 
 function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
+    { basic, ghost, link, focus, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
     autofocusProps,
     innerRef,
     renderContent
 ) {
     return () => {
         const classes = mergeClasses(
+            focus && "focus",
             naked && "naked",
             ghost && "ghost",
             link && "link",
