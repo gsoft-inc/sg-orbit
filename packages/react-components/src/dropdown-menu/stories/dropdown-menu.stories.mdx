@@ -2,6 +2,7 @@ import { Button } from "@react-components/button";
 import { DropdownMenu, InnerDropdownMenu } from "@react-components/dropdown-menu";
 import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Link } from "./custom-link.jsx";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { noop } from "lodash";
@@ -72,6 +73,22 @@ A dropdown menu item can be a link.
     </Story>
 </Preview>
 
+### Custom link component
+
+A dropdown menu item can be a custom component like a [React Router Link component](https://reacttraining.com/react-router/web/api/Link).
+
+<Preview>
+    <Story name="link component">
+        <DropdownMenu text="Task">
+            <DropdownMenu.LinkItem as={Link} href="https://www.sharegate.com" target="_blank">Launch...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem as={Link} href="https://www.sharegate.com" target="_blank">Eject...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem as={Link} href="https://www.sharegate.com" target="_blank">Land...</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem as={Link} href="https://www.sharegate.com" target="_blank">Help</DropdownMenu.LinkItem>
+            <DropdownMenu.LinkItem as={Link} href="https://www.sharegate.com" target="_blank">Exit</DropdownMenu.LinkItem>
+        </DropdownMenu>
+    </Story>
+</Preview>
+
 ### Icon
 
 A dropdown menu can have an icon.
@@ -90,7 +107,7 @@ A dropdown menu can have an icon.
 
 ### Trigger
 
-A dropdown menu can have a custom trigger.
+A dropdown menu can have a custom trigger. The trigger must be able to [receive focus](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard) to allow keyboard navigation.
 
 <Preview>
     <Story name="trigger">

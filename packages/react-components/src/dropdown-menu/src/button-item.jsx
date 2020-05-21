@@ -1,15 +1,27 @@
 import { DropdownMenuItem } from "./item";
-import { func } from "prop-types";
+import { elementType, func, oneOfType, string } from "prop-types";
 
 const propTypes = {
-    onClick: func.isRequired
+    /**
+     * Called when a click event happens.
+     */
+    onClick: func.isRequired,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
 };
 
-export function DropdownMenuButtonItem(props) {
-    return <DropdownMenuItem {...props} as="button" />;
+const defaultProps = {
+    as: "button"
+};
+
+export function DropdownMenuButtonItem({ as, ...props }) {
+    return <DropdownMenuItem {...props} as={as} />;
 }
 
 DropdownMenuButtonItem.propTypes = propTypes;
+DropdownMenuButtonItem.defaultProps = defaultProps;
 
 // ***** API *****
 
