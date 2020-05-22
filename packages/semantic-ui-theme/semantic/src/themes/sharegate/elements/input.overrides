@@ -19,12 +19,14 @@
 }
 
 .ui.input.transparent > input:active,
+.ui.input.transparent.active > input,
 .ui.input.down.transparent > input {
     border: 1px solid var(--marine-500);
 }
 
 /* STATE | Active */
 .ui.input > input:active,
+.ui.input.active > input,
 .ui.input.down input {
     border-color: var(--marine-500);
     background: var(--white);
@@ -32,6 +34,7 @@
 
 /* STATE | Active | Error */
 .ui.input.error > input:active,
+.ui.input.error.active > input,
 .ui.input.error.down input {
     border-color: var(--alert-900);
 }
@@ -135,6 +138,7 @@
     display: block;
     width: 100%;
 }
+
 .ui.fluid.input > input {
     width: 100% !important;
 }

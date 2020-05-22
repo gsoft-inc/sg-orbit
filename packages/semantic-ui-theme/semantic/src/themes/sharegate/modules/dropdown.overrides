@@ -90,6 +90,7 @@
 
 /* SKIN | STATE | Hover | With Icon Item */
 .ui.inline.dropdown:hover .icon,
+.ui.inline.dropdown.hover .icon,
 .ui.inline.dropdown:focus .icon,
 .ui.inline.dropdown.focus .icon {
     fill: var(--marine-500);
@@ -158,6 +159,8 @@
 
 .ui.dropdown.inline:hover > .default.text,
 .ui.dropdown.inline:hover > .text,
+.ui.dropdown.inline.hover > .default.text,
+.ui.dropdown.inline.hover > .text,
 .ui.dropdown.inline:focus > .default.text,
 .ui.dropdown.inline:focus > .text,
 .ui.dropdown.inline.focus > .default.text,
@@ -305,7 +308,8 @@
 
 .ui.dropdown .item.action a:hover,
 .ui.dropdown .item.action a:focus,
-.ui.dropdown .item.action a.focus {
+.ui.dropdown .item.action a.focus,
+.ui.dropdown .item.action a.hover {
     color: @primary500;
     font-weight: 400;
     text-decoration: underline;
@@ -319,7 +323,8 @@
 
 .ui.dropdown .item a:hover,
 .ui.dropdown .item a:focus,
-.ui.dropdown .item a.focus {
+.ui.dropdown .item a.focus,
+.ui.dropdown .item a.hover {
     font-weight: 400;
     text-decoration: underline;
 }
@@ -331,7 +336,8 @@
 }
 
 /* STATE | Hover | Content | In Select */
-.ui.multiple.dropdown > .label:hover {
+.ui.multiple.dropdown > .label:hover ,
+.ui.multiple.dropdown > .label.hover {
     background-color: @cloud50;
 }
 
@@ -578,7 +584,8 @@
 /* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Hover/Focus */
 .ui.dropdown.selection:hover .dropdown.icon,
 .ui.dropdown.selection:focus .dropdown.icon ,
-.ui.dropdown.selection.focus .dropdown.icon {
+.ui.dropdown.selection.focus .dropdown.icon,
+.ui.dropdown.selection.hover .dropdown.icon {
     background-color: @marine500;
 }
 
@@ -611,13 +618,15 @@
 /* LAYOUT | Inline | STATE | Hover/Focus */
 .ui.dropdown.inline:hover > .dropdown.icon,
 .ui.dropdown.inline:focus > .dropdown.icon,
-.ui.dropdown.inline.focus > .dropdown.icon {
+.ui.dropdown.inline.focus > .dropdown.icon,
+.ui.dropdown.inline.hover > .dropdown.icon {
     background-color: @marine500;
 }
 
 .ui.dropdown.inline:hover + .dropdown-icon > .icon,
 .ui.dropdown.inline:focus + .dropdown-icon > .icon,
-.ui.dropdown.inline.focus + .dropdown-icon > .icon {
+.ui.dropdown.inline.focus + .dropdown-icon > .icon,
+.ui.dropdown.inline.hover + .dropdown-icon > .icon {
     fill: @marine500;
 }
 
@@ -635,6 +644,8 @@
 /* keep everything red when error */
 .ui.dropdown.inline.error:hover > .default.text,
 .ui.dropdown.inline.error:hover > .text,
+.ui.dropdown.inline.error.hover > .default.text,
+.ui.dropdown.inline.error.hover > .text,
 .ui.dropdown.inline.error:focus > .default.text,
 .ui.dropdown.inline.error:focus > .text,
 .ui.dropdown.inline.error.focus > .default.text,
@@ -644,7 +655,8 @@
 
 .ui.dropdown.inline.error:hover > .dropdown.icon,
 .ui.dropdown.inline.error:focus > .dropdown.icon ,
-.ui.dropdown.inline.error.focus > .dropdown.icon {
+.ui.dropdown.inline.error.focus > .dropdown.icon,
+.ui.dropdown.inline.error.hover > .dropdown.icon {
     background-color: @alert500;
 }
 
@@ -695,12 +707,13 @@
 /* Highlight clear icon when hovering itself */
 .ui.selection.dropdown:hover  > .clear.icon:hover,
 .ui.selection.dropdown:hover  > .clear.icon:focus,
-.ui.selection.dropdown:hover  > .clear.icon.focus {
+.ui.selection.dropdown.hover  > .clear.icon.hover,
+.ui.selection.dropdown.hover  > .clear.icon.focus, {
     background-color: var(--marine-500);
 }
 
 .ui.selection.dropdown:hover:focus,
-.ui.selection.dropdown.focus:hover {
+.ui.selection.dropdown.focus.hover {
     border-color: @selectionHoverBorderColor;
 }
 
@@ -1146,7 +1159,8 @@
     mask-size: var(--scale-echo) var(--scale-echo)!important;
 }
 
-.ui.multiple.dropdown .label > .delete.icon:hover {
+.ui.multiple.dropdown .label > .delete.icon:hover,
+.ui.multiple.dropdown .label > .delete.icon.hover {
     background-color: @marine600;
 }
 
@@ -1183,7 +1197,8 @@
     border-radius: 2px;
 }
 
-.ui.selection.dropdown.transparent:hover > .text {
+.ui.selection.dropdown.transparent:hover > .text,
+.ui.selection.dropdown.transparent.hover > .text {
     color: var(--marine-500);
 }
 
@@ -1224,7 +1239,8 @@
     border: 1px solid @cloud100;
 }
 
-.ui.selection.active.dropdown.error:hover .menu {
+.ui.selection.active.dropdown.error:hover .menu,
+.ui.selection.active.dropdown.error.hover .menu {
     border-color: @alert500;
 }
 
