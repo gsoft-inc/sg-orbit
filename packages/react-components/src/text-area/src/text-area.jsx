@@ -48,7 +48,15 @@ const propTypes = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
     /**
      * @ignore
      */
@@ -80,13 +88,15 @@ function useSetFocus(textAreaRef) {
     };
 }
 
-function useRenderer({ size, error, fluid, focus, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef) {
+function useRenderer({ size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, rest }, autofocusProps, innerRef) {
     return () => {
         const classes = mergeClasses(
             "ui textarea",
             error && "error",
             fluid && "fluid",
+            active && "active",
             focus && "focus",
+            hover && "hover",
             transparent && "transparent",
             resizable && "resizable",
             size && size,
@@ -110,14 +120,14 @@ function useRenderer({ size, error, fluid, focus, transparent, resizable, disabl
 }
 
 export function InnerTextArea(props) {
-    const { autofocus, autofocusDelay, size, error, fluid, focus, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useCombinedRefs(forwardedRef);
 
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const render = useRenderer({ size, error, fluid, focus, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
+    const render = useRenderer({ size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, rest }, autofocusProps, innerRef);
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

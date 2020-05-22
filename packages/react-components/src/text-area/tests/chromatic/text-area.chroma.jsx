@@ -27,8 +27,13 @@ stories()
     .add("error", () =>
         <TextArea error placeholder="Tell us more" />
     )
-    .add("focus", () =>
-        <TextArea focus placeholder="Tell us more" />
+    .add("interaction states", () =>
+        <div className="flex">
+            <TextArea active placeholder="Tell us more" className="mr5" />
+            <TextArea focus placeholder="Tell us more" className="mr5" />
+            <TextArea hover placeholder="Tell us more" className="mr5" />
+            <TextArea focus hover placeholder="Tell us more" />
+        </div>
     )
     .add("transparent", () =>
         <TextArea transparent placeholder="Tell us more" />

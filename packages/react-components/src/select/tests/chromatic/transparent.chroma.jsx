@@ -122,10 +122,25 @@ stories()
             </div>
         </div>
     )
-    .add("focus", () =>
-        createTransparentSelect({
-            focus: true
-        })
+    .add("interaction states", () =>
+        <div className="flex">
+            {createTransparentSelect({
+                active: true,
+                wrapperClassName: "mr5"
+            })}
+            {createTransparentSelect({
+                focus: true,
+                wrapperClassName: "mr5"
+            })}
+            {createTransparentSelect({
+                hover: true,
+                wrapperClassName: "mr5"
+            })}
+            {createTransparentSelect({
+                focus: true,
+                hover: true
+            })}
+        </div>
     )
     .add("disabled", () =>
         <div className="flex">

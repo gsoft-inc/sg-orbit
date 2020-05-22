@@ -85,7 +85,20 @@ stories()
             <div className="flex flex-column">
                 <div className="flex">
                     {createDropdownMenu({
-                        focus: true
+                        active: true,
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        focus: true,
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        hover: true,
+                        wrapperClassName: "mr5"
+                    })}
+                    {createDropdownMenu({
+                        focus: true,
+                        hover: true
                     })}
                 </div>
             </div>
@@ -146,7 +159,23 @@ stories()
             <div className="flex">
                 {createDropdownMenu({
                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-                    focus: true
+                    active: true,
+                    wrapperClassName: "mr5"
+                })}
+                {createDropdownMenu({
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    focus: true,
+                    wrapperClassName: "mr5"
+                })}
+                {createDropdownMenu({
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    hover: true,
+                    wrapperClassName: "mr5"
+                })}
+                {createDropdownMenu({
+                    trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
+                    focus: true,
+                    hover: true
                 })}
             </div>
         </div>

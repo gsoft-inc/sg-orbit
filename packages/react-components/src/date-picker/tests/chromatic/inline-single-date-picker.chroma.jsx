@@ -38,11 +38,6 @@ stories()
     )
     .add("closed", () =>
         createInlineSingleDatePicker()
-    )
-    .add("focus", () =>
-        createInlineSingleDatePicker({
-            focus: true
-        })
     );
 
 stories("/selected date/closed")

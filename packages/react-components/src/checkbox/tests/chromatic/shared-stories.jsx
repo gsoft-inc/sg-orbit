@@ -26,6 +26,7 @@ function Icons({ element, ...rest }) {
                 <Checkbox active icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox focus icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox hover icons={<CommunicationIcon />} element={checkbox} className="mr5" />
+                <Checkbox focus hover icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox readOnly icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox disabled icons={<CommunicationIcon />} element={checkbox} className="mr5" />
             </div>
@@ -57,6 +58,7 @@ function Labels({ element, ...rest }) {
                 <Checkbox active label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox focus label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox hover label={<Label>6</Label>} element={checkbox} className="mr5" />
+                <Checkbox focus hover label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox disabled label={<Label>6</Label>} element={checkbox} className="mr5" />
                 <Checkbox readOnly label={<Label>6</Label>} element={checkbox} />
             </div>
@@ -78,6 +80,7 @@ function Counts({ element, ...rest }) {
                 <Checkbox active count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox focus count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox hover count={<Count>6</Count>} element={checkbox} className="mr5" />
+                <Checkbox focus hover count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox disabled count={<Count>6</Count>} element={checkbox} className="mr5" />
                 <Checkbox readOnly count={<Count>6</Count>} element={checkbox} />
             </div>
@@ -94,6 +97,7 @@ export function createSharedStories(checkbox, stories) {
                     <Checkbox active text="Milky Way" element={checkbox} className="mr5" />
                     <Checkbox focus text="Milky Way" element={checkbox} className="mr5" />
                     <Checkbox hover text="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox focus hover text="Milky Way" element={checkbox} className="mr5" />
                     <Checkbox disabled text="Milky Way" element={checkbox} className="mr5" />
                     <Checkbox readOnly text="Milky Way" element={checkbox} />
                 </div>
@@ -114,6 +118,7 @@ export function createSharedStories(checkbox, stories) {
                     <Checkbox active element={checkbox} className="mr5" />
                     <Checkbox focus element={checkbox} className="mr5" />
                     <Checkbox hover element={checkbox} className="mr5" />
+                    <Checkbox focus hover element={checkbox} className="mr5" />
                     <Checkbox disabled element={checkbox} className="mr5" />
                     <Checkbox readOnly element={checkbox} />
                 </div>

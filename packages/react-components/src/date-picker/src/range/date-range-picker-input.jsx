@@ -44,7 +44,15 @@ export class InnerDateRangePickerInput extends PureComponent {
         /**
          * @ignore
          */
+        active: bool,
+        /**
+         * @ignore
+         */
         focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
         /**
          * @ignore
          */
@@ -70,7 +78,7 @@ export class InnerDateRangePickerInput extends PureComponent {
     }
 
     render() {
-        const { onClear, onClick, onKeyDown, onFocus, onBlur, allowClear, placeholder, disabled, fluid, open, focus, size, className, forwardedRef, ...rest } = this.props;
+        const { onClear, onClick, onKeyDown, onFocus, onBlur, allowClear, placeholder, disabled, fluid, open, size, active, focus, hover, className, forwardedRef, ...rest } = this.props;
 
         return (
             <DatePickerTextboxInput
@@ -86,8 +94,10 @@ export class InnerDateRangePickerInput extends PureComponent {
                 disabled={disabled}
                 fluid={fluid}
                 open={open}
-                focus={focus}
                 size={size}
+                active={active}
+                focus={focus}
+                hover={hover}
                 className={className}
                 ref={forwardedRef}
             />

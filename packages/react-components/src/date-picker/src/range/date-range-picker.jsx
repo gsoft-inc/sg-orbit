@@ -158,7 +158,15 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * @ignore
          */
+        active: bool,
+        /**
+         * @ignore
+         */
         focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
         /**
          * @ignore
          */
@@ -277,7 +285,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, focus, size } = this.props;
+        const { input, allowClear, placeholder, rangeFormat, dateFormat, disabled, fluid, size, active, focus, hover } = this.props;
         const { open, selectedStartDate, selectedEndDate } = this.state;
 
         return cloneElement(input, {
@@ -291,8 +299,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            focus,
             size,
+            active,
+            focus,
+            hover,
             ref: this._inputRef
         });
     }

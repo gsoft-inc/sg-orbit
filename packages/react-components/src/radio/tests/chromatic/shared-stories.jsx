@@ -23,7 +23,10 @@ function Icons({ element, ...rest }) {
                 <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
             </div>
             <div className="flex mb8">
+                <Radio active icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Radio focus icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio hover icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio focus hover icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Radio readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Radio disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
             </div>
@@ -47,7 +50,10 @@ function Labels({ element, ...rest }) {
                 <Radio label={<Label>6</Label>} size="large" element={radio} />
             </div>
             <div className="flex mb8">
+                <Radio active label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio focus label={<Label>6</Label>} element={radio} className="mr5" />
+                <Radio hover label={<Label>6</Label>} element={radio} className="mr5" />
+                <Radio focus hover label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio disabled label={<Label>6</Label>} element={radio} className="mr5" />
                 <Radio readOnly label={<Label>6</Label>} element={radio} />
             </div>
@@ -66,7 +72,10 @@ function Counts({ element, ...rest }) {
                 <Radio count={<Count>6</Count>} size="large" element={radio} />
             </div>
             <div className="flex mb8">
+                <Radio active count={<Count>6</Count>} element={radio} className="mr5" />
                 <Radio focus count={<Count>6</Count>} element={radio} className="mr5" />
+                <Radio hover count={<Count>6</Count>} element={radio} className="mr5" />
+                <Radio focus hover count={<Count>6</Count>} element={radio} className="mr5" />
                 <Radio disabled count={<Count>6</Count>} element={radio} className="mr5" />
                 <Radio readOnly count={<Count>6</Count>} element={radio} />
             </div>
@@ -81,7 +90,10 @@ export function createSharedStories(radio, stories) {
                 <div className="flex flex-column">
                     <div className="flex mb8">
                         <Radio text="Milky Way" element={radio} className="mr5" />
+                        <Radio active text="Milky Way" element={radio} className="mr5" />
                         <Radio focus text="Milky Way" element={radio} className="mr5" />
+                        <Radio hover text="Milky Way" element={radio} className="mr5" />
+                        <Radio focus hover text="Milky Way" element={radio} className="mr5" />
                         <Radio disabled text="Milky Way" element={radio} className="mr5" />
                         <Radio readOnly text="Milky Way" element={radio} />
                     </div>
@@ -101,7 +113,10 @@ export function createSharedStories(radio, stories) {
                 <div className="flex flex-column">
                     <div className="flex mb8">
                         <Radio element={radio} className="mr5" />
+                        <Radio active element={radio} className="mr5" />
                         <Radio focus element={radio} className="mr5" />
+                        <Radio hover element={radio} className="mr5" />
+                        <Radio focus hover element={radio} className="mr5" />
                         <Radio disabled element={radio} className="mr5" />
                         <Radio readOnly element={radio} />
                     </div>

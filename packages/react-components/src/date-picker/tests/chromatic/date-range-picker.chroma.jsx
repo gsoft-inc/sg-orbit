@@ -103,10 +103,25 @@ stories()
                  </div>
              </div>
     )
-    .add("focus", () =>
-        createDateRangePicker({
-            focus: true
-        })
+    .add("interaction states", () =>
+        <div className="flex">
+            {createDateRangePicker({
+                active: true,
+                className: "mr5"
+            })}
+            {createDateRangePicker({
+                focus: true,
+                className: "mr5"
+            })}
+            {createDateRangePicker({
+                hover: true,
+                className: "mr5"
+            })}
+            {createDateRangePicker({
+                focus: true,
+                hover: true
+            })}
+        </div>
     );
 
 stories("/number of visible months")

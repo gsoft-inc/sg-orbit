@@ -89,10 +89,6 @@ export class TagsPickerDropdown extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the dropdown appear as focused.
-         */
-        focus: bool,
-        /**
          * A disabled dropdown does not allow user interaction.
          */
         disabled: bool,
@@ -105,6 +101,18 @@ export class TagsPickerDropdown extends PureComponent {
          * Requires `closeOnBlur` to be `false`.
          */
         closeOnOutsideClick: bool,
+        /**
+         * @ignore
+         */
+        active: bool,
+        /**
+         * @ignore
+         */
+        focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
         /**
          * @ignore
          */
@@ -317,16 +325,18 @@ export class TagsPickerDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, open, focus, disabled, triggerSize } = this.props;
+        const { trigger, triggerText, open, disabled, triggerSize, active, focus, hover } = this.props;
 
         return cloneElement(trigger, {
             onOpen: this.handleTriggerOpen,
             onClose: this.handleTriggerClose,
             text: triggerText,
             open,
-            focus,
             disabled,
             size: triggerSize,
+            active,
+            focus,
+            hover,
             ref: this._triggerRef
         });
     };

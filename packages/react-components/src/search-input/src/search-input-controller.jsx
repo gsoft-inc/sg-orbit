@@ -37,9 +37,11 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocus: bool,
         autofocusDelay: number,
         fluid: bool,
-        focus: bool,
         size: oneOf(SIZES),
         input: oneOfType([element, object]),
+        active: bool,
+        focus: bool,
+        hover: bool,
         className: string,
         style: object
     };
@@ -281,7 +283,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     renderInput = () => {
-        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid, focus, input } = this.props;
+        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid, input, active, focus, hover } = this.props;
 
         const props = {
             onKeyDown: this.handleInputKeyDown,
@@ -294,7 +296,9 @@ export class SearchInputController extends AutoControlledPureComponent {
             disabled,
             size,
             fluid,
+            active,
             focus,
+            hover,
             ref: this._inputRef,
             "data-testid": "search-input-textbox"
         };

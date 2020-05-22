@@ -121,7 +121,15 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
     /**
      * @ignore
      */
@@ -233,7 +241,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     renderInput() {
-        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, focus, size } = this.props;
+        const { input, allowClear, numberOfMonths, placeholder, dateFormat, disabled, fluid, active, focus, hover, size } = this.props;
         const { open, selectedDate } = this.state;
 
         return cloneElement(input, {
@@ -246,8 +254,10 @@ export class SingleDatePicker extends AutoControlledPureComponent {
             dateFormat,
             disabled,
             fluid,
-            focus,
             size,
+            active,
+            focus,
+            hover,
             ref: this._inputRef
         });
     }

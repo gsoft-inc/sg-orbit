@@ -55,11 +55,26 @@ stories()
                  </div>
              </div>
     )
-    .add("focus",
+    .add("interaction states",
          () =>
-             createSearchInputController({
-                 focus: true
-             })
+             <div className="flex">
+                 {createSearchInputController({
+                     active: true,
+                     className: "mr5"
+                 })}
+                 {createSearchInputController({
+                     focus: true,
+                     className: "mr5"
+                 })}
+                 {createSearchInputController({
+                     hover: true,
+                     className: "mr5"
+                 })}
+                 {createSearchInputController({
+                     focus: true,
+                     hover: true
+                 })}
+             </div>
     )
     .add("size",
          () =>

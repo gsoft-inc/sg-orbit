@@ -90,10 +90,25 @@ stories()
                  </div>
              </div>
     )
-    .add("focus", () =>
-        createSingleDatePicker({
-            focus: true
-        })
+    .add("interaction states", () =>
+        <div className="flex">
+            {createSingleDatePicker({
+                active: true,
+                className: "mr5"
+            })}
+            {createSingleDatePicker({
+                focus: true,
+                className: "mr5"
+            })}
+            {createSingleDatePicker({
+                hover: true,
+                className: "mr5"
+            })}
+            {createSingleDatePicker({
+                focus: true,
+                hover: true
+            })}
+        </div>
     );
 
 stories("/number of visible months")

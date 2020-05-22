@@ -77,7 +77,15 @@ const propTypes = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
     /**
      * @ignore
      */
@@ -114,9 +122,7 @@ const propTypes = {
 
 const defaultProps = {
     size: DEFAULT_SIZE,
-    transparent: false,
-    inline: false,
-    multiple: false
+    transparent: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
@@ -286,7 +292,7 @@ function useOptionsRenderer({ options, actions }) {
 }
 
 function useRenderer(
-    { size, transparent, inline, focus, className, forwardedRef, rest },
+    { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
     handleOpen,
     handleClose,
     handleFocus,
@@ -300,7 +306,9 @@ function useRenderer(
     return () => {
         const classes = mergeClasses(
             transparent && "transparent",
+            active && "active",
             focus && "focus",
+            hover && "hover",
             className
         );
 
@@ -329,7 +337,7 @@ function useRenderer(
 }
 
 export function InnerSelect(props) {
-    const { options, actions, size, transparent, inline, focus, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
+    const { options, actions, size, transparent, inline, active, focus, hover, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -356,7 +364,7 @@ export function InnerSelect(props) {
     const renderOptions = useOptionsRenderer({ options, actions });
 
     const render = useRenderer(
-        { size, transparent, inline, focus, className, forwardedRef, rest },
+        { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
         handleOpen,
         handleClose,
         handleFocus,

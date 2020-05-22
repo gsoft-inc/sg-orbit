@@ -74,7 +74,15 @@ const propTypes = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
     /**
      * @ignore
      */
@@ -187,7 +195,7 @@ function useTriggerRenderer({ trigger, focus }) {
 }
 
 function useRenderer(
-    { focus, className, forwardedRef, children, rest },
+    { active, focus, hover, className, forwardedRef, children, rest },
     handleOpen,
     handleClose,
     handleFocus,
@@ -203,7 +211,9 @@ function useRenderer(
 
         const classes = mergeClasses(
             "dropdown-menu",
+            isNil(trigger) && active && "active",
             isNil(trigger) && focus && "focus",
+            isNil(trigger) && hover && "hover",
             className
         );
 
@@ -239,7 +249,7 @@ function useRenderer(
 }
 
 export function InnerDropdownMenu(props) {
-    const { trigger, focusFirstItemOnOpen, focus, onOpen, onClose, onFocus, onBlur, className, forwardedRef, children, ...rest } = props;
+    const { trigger, focusFirstItemOnOpen, active, focus, hover, onOpen, onClose, onFocus, onBlur, className, forwardedRef, children, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu");
 
@@ -259,7 +269,7 @@ export function InnerDropdownMenu(props) {
     const renderTrigger = useTriggerRenderer({ trigger, focus });
 
     const render = useRenderer(
-        { focus, className, forwardedRef, children, rest },
+        { active, focus, hover, className, forwardedRef, children, rest },
         handleOpen,
         handleClose,
         handleFocus,

@@ -43,19 +43,7 @@ const INPUT_PROP_TYPES = {
     /**
      * Additional style to render on the wrapper element.
      */
-    wrapperStyle: object,
-    /**
-     * @ignore
-     */
-    focus: bool,
-    /**
-     * @ignore
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    wrapperStyle: object
 };
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.

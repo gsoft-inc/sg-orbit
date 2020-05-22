@@ -22,7 +22,10 @@ function Icons({ element, ...rest }) {
                 <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
             </div>
             <div className="flex items-end mb8">
+                <Toggle active icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle focus icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Toggle hover icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Toggle focus hover icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
                 <Toggle disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
             </div>
@@ -46,7 +49,10 @@ function Labels({ element, ...rest }) {
                 <Toggle label={<Label>6</Label>} size="large" element={radio} />
             </div>
             <div className="flex">
+                <Toggle active label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle focus label={<Label>6</Label>} element={radio} className="mr5" />
+                <Toggle hover label={<Label>6</Label>} element={radio} className="mr5" />
+                <Toggle focus hover label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle disabled label={<Label>6</Label>} element={radio} className="mr5" />
                 <Toggle readOnly label={<Label>6</Label>} element={radio} />
             </div>
@@ -61,7 +67,10 @@ export function createSharedStories(checkbox, stories) {
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
                         <Toggle text="Milky Way" element={checkbox} className="mr5" />
+                        <Toggle active text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle focus text="Milky Way" element={checkbox} className="mr5" />
+                        <Toggle hover text="Milky Way" element={checkbox} className="mr5" />
+                        <Toggle focus hover text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle disabled text="Milky Way" element={checkbox} className="mr5" />
                         <Toggle readOnly text="Milky Way" element={checkbox} />
                     </div>
@@ -80,7 +89,10 @@ export function createSharedStories(checkbox, stories) {
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
                         <Toggle element={checkbox} className="mr5" />
+                        <Toggle active element={checkbox} className="mr5" />
                         <Toggle focus element={checkbox} className="mr5" />
+                        <Toggle hover element={checkbox} className="mr5" />
+                        <Toggle focus hover element={checkbox} className="mr5" />
                         <Toggle disabled element={checkbox} className="mr5" />
                         <Toggle readOnly element={checkbox} />
                     </div>

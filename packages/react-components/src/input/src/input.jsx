@@ -51,7 +51,19 @@ const propTypes = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
+    /**
+     * @ignore
+     */
+    loading: bool,
     /**
      * @ignore
      */
@@ -145,7 +157,7 @@ function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
     };
 }
 
-function useInputRenderer({ fluid, iconPosition, focus, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, icon) {
+function useInputRenderer({ fluid, iconPosition, size, active, focus, hover, loading, disabled, children, rest }, autofocusProps, inputComponentRef, icon) {
     return () => {
         return (
             <SemanticInput
@@ -154,7 +166,9 @@ function useInputRenderer({ fluid, iconPosition, focus, size, loading, disabled,
                 icon={icon}
                 iconPosition={iconPosition}
                 fluid={fluid}
+                active={active}
                 focus={focus}
+                hover={hover}
                 size={size}
                 loading={loading}
                 disabled={disabled}
@@ -191,7 +205,7 @@ function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containe
 }
 
 export function InnerInput(props) {
-    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, focus, size, loading, disabled, wrapperClassName, wrapperStyle, __componentName, forwardedRef, children, ...rest } = props;
+    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, active, focus, hover, loading, disabled, wrapperClassName, wrapperStyle, __componentName, forwardedRef, children, ...rest } = props;
 
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
@@ -205,7 +219,14 @@ export function InnerInput(props) {
 
     const renderIcon = useIconRenderer({ icon, size, loading });
     const renderButton = useButtonRenderer({ iconPosition, button, size, loading, disabled });
-    const renderInput = useInputRenderer({ fluid, iconPosition, focus, size, loading, disabled, children, rest }, autofocusProps, inputComponentRef, renderIcon());
+
+    const renderInput = useInputRenderer(
+        { fluid, iconPosition, size, active, focus, hover, loading, disabled, children, rest },
+        autofocusProps,
+        inputComponentRef,
+        renderIcon()
+    );
+
     const render = useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containerRef, renderButton(), renderInput() );
 
     // Without a fragment, react-docgen doesn't work.

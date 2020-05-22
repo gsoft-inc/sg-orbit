@@ -57,8 +57,13 @@ stories()
             </div>
         </div>
     )
-    .add("focus", () =>
-        <Input focus placeholder="Where to?" />
+    .add("interaction states", () =>
+        <div className="flex">
+            <Input active placeholder="Where to?" wrapperClassName="mr5" />
+            <Input focus placeholder="Where to?" wrapperClassName="mr5" />
+            <Input hover placeholder="Where to?" wrapperClassName="mr5" />
+            <Input focus hover placeholder="Where to?" />
+        </div>
     )
     .add("disabled", () =>
         <Input disabled placeholder="Where to?" />
