@@ -55,7 +55,7 @@ stories()
                  </div>
              </div>
     )
-    .add("focused",
+    .add("focus",
          () =>
              createSearchInputController({
                  focus: true

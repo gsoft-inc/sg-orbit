@@ -68,6 +68,10 @@ const propTypes = {
     /**
      * @ignore
      */
+    hover: bool,
+    /**
+     * @ignore
+     */
     loading: bool,
     /**
      * @ignore
@@ -199,7 +203,7 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
 }
 
 function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, focus, size, loading, disabled, className, content, children, rest },
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
     autofocusProps,
     innerRef,
     renderContent
@@ -210,6 +214,7 @@ function useRenderer(
             ghost && "ghost",
             link && "link",
             focus && "focus",
+            hover && "hover",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
@@ -249,8 +254,9 @@ export function InnerButton(props) {
         tag,
         autofocus,
         autofocusDelay,
-        focus,
         size,
+        focus,
+        hover,
         loading,
         disabled,
         className,
@@ -271,7 +277,7 @@ export function InnerButton(props) {
     const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children });
 
     const render = useRenderer(
-        { basic, ghost, link, naked, icon, iconPosition, label, tag, focus, size, loading, disabled, className, content, children, rest },
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
         autofocusProps,
         innerRef,
         renderContent

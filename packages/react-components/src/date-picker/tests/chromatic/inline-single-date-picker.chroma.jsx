@@ -39,7 +39,7 @@ stories()
     .add("closed", () =>
         createInlineSingleDatePicker()
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createInlineSingleDatePicker({
             focus: true
         })

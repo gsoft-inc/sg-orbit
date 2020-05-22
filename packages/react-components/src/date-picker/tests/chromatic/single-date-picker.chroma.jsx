@@ -90,7 +90,7 @@ stories()
                  </div>
              </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createSingleDatePicker({
             focus: true
         })

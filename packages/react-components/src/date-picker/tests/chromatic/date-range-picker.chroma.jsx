@@ -103,7 +103,7 @@ stories()
                  </div>
              </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createDateRangePicker({
             focus: true
         })

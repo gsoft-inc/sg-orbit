@@ -82,7 +82,7 @@ stories()
             </div>
         </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createSearchableSelect({
             focus: true
         })

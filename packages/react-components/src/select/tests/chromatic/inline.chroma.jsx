@@ -78,7 +78,7 @@ stories()
             </div>
         </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createInlineSelect({
             focus: true
         })

@@ -46,7 +46,15 @@ export const CHECKBOX_PROP_TYPES = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
     focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
     /**
      * @ignore
      */
@@ -161,10 +169,12 @@ function useContentRenderer({ text, icons, label, count, size }) {
     };
 }
 
-function useRenderer({ text, icons, label, focus, size, disabled, className, rest }, autofocusProps, innerRef, content) {
+function useRenderer({ text, icons, label, size, active, focus, hover, disabled, className, rest }, autofocusProps, innerRef, content) {
     return () => {
         const classes = mergeClasses(
+            active && "active",
             focus && "focus",
+            hover && "hover",
             size && size,
             !isNil(icons) && "with-icon",
             !isNil(label) && "with-label",
@@ -188,7 +198,7 @@ function useRenderer({ text, icons, label, focus, size, disabled, className, res
 }
 
 export function InnerCheckbox(props) {
-    const { autofocus, autofocusDelay, text, icons, label, count, focus, size, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
+    const { autofocus, autofocusDelay, text, icons, label, count, size, active, focus, hover, disabled, className, forwardedRef, __unsupportedProps, __componentName, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
@@ -199,7 +209,7 @@ export function InnerCheckbox(props) {
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
     const renderContent = useContentRenderer({ text, icons, label, count, size });
-    const render = useRenderer({ text, icons, label, focus, size, disabled, className, rest }, autofocusProps, innerRef, renderContent());
+    const render = useRenderer({ text, icons, label, size, active, focus, hover, disabled, className, rest }, autofocusProps, innerRef, renderContent());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

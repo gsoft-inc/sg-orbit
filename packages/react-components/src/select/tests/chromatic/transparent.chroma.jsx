@@ -122,7 +122,7 @@ stories()
             </div>
         </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createTransparentSelect({
             focus: true
         })
