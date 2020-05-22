@@ -74,6 +74,27 @@ stories()
                      })}
                  </div>
              </div>
+    )
+    .add("interaction states",
+         () =>
+             <div className="flex">
+                 {createTagsPicker({
+                     active: true,
+                     className: "mr5"
+                 })}
+                 {createTagsPicker({
+                     focus: true,
+                     className: "mr5"
+                 })}
+                 {createTagsPicker({
+                     hover: true,
+                     className: "mr5"
+                 })}
+                 {createTagsPicker({
+                     focus: true,
+                     hover: true
+                 })}
+             </div>
     );
 
 stories("/dropdown")

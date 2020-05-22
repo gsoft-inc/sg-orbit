@@ -64,6 +64,14 @@ const propTypes = {
     /**
      * @ignore
      */
+    focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
+    /**
+     * @ignore
+     */
     loading: bool,
     /**
      * @ignore
@@ -85,9 +93,7 @@ const defaultProps = {
     iconPosition: "left",
     naked: false,
     size: DEFAULT_SIZE,
-    type: "button",
-    loading: false,
-    disabled: false
+    type: "button"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
@@ -197,7 +203,7 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
 }
 
 function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
     autofocusProps,
     innerRef,
     renderContent
@@ -207,6 +213,8 @@ function useRenderer(
             naked && "naked",
             ghost && "ghost",
             link && "link",
+            focus && "focus",
+            hover && "hover",
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
@@ -247,6 +255,8 @@ export function InnerButton(props) {
         autofocus,
         autofocusDelay,
         size,
+        focus,
+        hover,
         loading,
         disabled,
         className,
@@ -267,7 +277,7 @@ export function InnerButton(props) {
     const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children });
 
     const render = useRenderer(
-        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, loading, disabled, className, content, children, rest },
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
         autofocusProps,
         innerRef,
         renderContent

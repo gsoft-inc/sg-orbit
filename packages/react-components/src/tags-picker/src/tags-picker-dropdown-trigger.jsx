@@ -63,6 +63,18 @@ export class TagsPickerDropdownTrigger extends PureComponent {
         /**
          * @ignore
          */
+        active: bool,
+        /**
+         * @ignore
+         */
+        focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
+        /**
+         * @ignore
+         */
         className: string
     };
 
@@ -124,7 +136,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text, onFocus, onBlur, disabled, size } = this.props;
+        const { text, onFocus, onBlur, disabled, size, active, focus, hover } = this.props;
 
         return (
             <div className="mr2 mb2">
@@ -139,6 +151,9 @@ export class TagsPickerDropdownTrigger extends PureComponent {
                     size={size}
                     className={this.getClasses()}
                     disabled={disabled}
+                    active={active}
+                    focus={focus}
+                    hover={hover}
                     tabIndex={disabled ? "-1" : "0"}
                     ref={this._buttonRef}
                     data-testid="tags-picker-dropdown-trigger"

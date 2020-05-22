@@ -104,6 +104,18 @@ export class TagsPickerDropdown extends PureComponent {
         /**
          * @ignore
          */
+        active: bool,
+        /**
+         * @ignore
+         */
+        focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
+        /**
+         * @ignore
+         */
         className: string
     };
 
@@ -313,7 +325,7 @@ export class TagsPickerDropdown extends PureComponent {
     }
 
     renderTrigger = () => {
-        const { trigger, triggerText, open, disabled, triggerSize } = this.props;
+        const { trigger, triggerText, open, disabled, triggerSize, active, focus, hover } = this.props;
 
         return cloneElement(trigger, {
             onOpen: this.handleTriggerOpen,
@@ -322,6 +334,9 @@ export class TagsPickerDropdown extends PureComponent {
             open,
             disabled,
             size: triggerSize,
+            active,
+            focus,
+            hover,
             ref: this._triggerRef
         });
     };

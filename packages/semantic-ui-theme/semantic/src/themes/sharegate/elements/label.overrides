@@ -30,7 +30,8 @@
 
 /* Button */
 /* STATE | Focus */
-.ui.label .input > input:focus {
+.ui.label .input > input:focus,
+.ui.label .input > input.focus {
     box-shadow: 0px 0px 0px 2px var(--primary-100);
 }
 

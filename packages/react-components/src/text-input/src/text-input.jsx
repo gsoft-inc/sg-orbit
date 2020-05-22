@@ -1,5 +1,5 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
@@ -43,15 +43,7 @@ const INPUT_PROP_TYPES = {
     /**
      * Additional style to render on the wrapper element.
      */
-    wrapperStyle: object,
-    /**
-     * @ignore
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    wrapperStyle: object
 };
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.

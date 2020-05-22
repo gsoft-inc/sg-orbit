@@ -5,7 +5,7 @@ import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { SelectItem, createSelectItem } from "./item";
 import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
-import { isArray, isNil, noop } from "lodash";
+import { isArray, isNil } from "lodash";
 import { renderAvatar } from "./render-avatar";
 import { renderIcons } from "./render-icons";
 
@@ -77,6 +77,18 @@ const propTypes = {
     /**
      * @ignore
      */
+    active: bool,
+    /**
+     * @ignore
+     */
+    focus: bool,
+    /**
+     * @ignore
+     */
+    hover: bool,
+    /**
+     * @ignore
+     */
     inline: bool,
     /**
      * @ignore
@@ -85,14 +97,32 @@ const propTypes = {
     /**
      * @ignore
      */
+    onOpen: func,
+    /**
+     * @ignore
+     */
+    onClose: func,
+    /**
+     * @ignore
+     */
+    onFocus: func,
+    /**
+     * @ignore
+     */
+    onBlur: func,
+    /**
+     * @ignore
+     */
+    onChange: func,
+    /**
+     * @ignore
+     */
     forwardedRef: oneOfType([object, func])
 };
 
 const defaultProps = {
     size: DEFAULT_SIZE,
-    transparent: false,
-    inline: false,
-    multiple: false
+    transparent: false
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
@@ -153,20 +183,28 @@ function useHandleBlur({ onBlur }, setIsFocus) {
     }, [onBlur, setIsFocus]);
 }
 
-function useHandleDocumentKeyDown(isOpen, isFocus, dropdownComponentRef) {
-    const handleDocumentKeyDown = useCallback(event => {
-        const key = event.keyCode;
+function useHandleChange({ onChange }, hasValueChangeRef) {
+    return useCallback((...args) => {
+        hasValueChangeRef.current = true;
 
-        if (key === KEYS.enter || key === KEYS.space) {
-            if (!isOpen) {
-                dropdownComponentRef.current.open(event);
-            } else {
-                dropdownComponentRef.current.close(event, noop);
-            }
+        if (!isNil(onChange)) {
+            onChange(...args);
         }
-    }, [isOpen, dropdownComponentRef]);
+    }, [onChange, hasValueChangeRef]);
+}
 
-    useDomEventListener("keydown", handleDocumentKeyDown, isFocus);
+function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
+    const handleDocumentKeyDown = useCallback(event => {
+        if (event.keyCode === KEYS.enter) {
+            if (!hasValueChangeRef.current) {
+                dropdownComponentRef.current.open(event);
+            }
+
+            hasValueChangeRef.current = false;
+        }
+    }, [hasValueChangeRef, dropdownComponentRef]);
+
+    useDomEventListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
 }
 
 function useMultipleValuesLabelRenderer({ size }) {
@@ -254,11 +292,12 @@ function useOptionsRenderer({ options, actions }) {
 }
 
 function useRenderer(
-    { size, transparent, inline, className, forwardedRef, rest },
+    { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
     handleOpen,
     handleClose,
     handleFocus,
     handleBlur,
+    handleChange,
     dropdownComponentRef,
     options
 ) {
@@ -267,6 +306,9 @@ function useRenderer(
     return () => {
         const classes = mergeClasses(
             transparent && "transparent",
+            active && "active",
+            focus && "focus",
+            hover && "hover",
             className
         );
 
@@ -276,7 +318,6 @@ function useRenderer(
                 options={options}
                 selectOnBlur={false}
                 selectOnNavigation={false}
-                closeOnChange={false}
                 selection={!inline}
                 inline={inline}
                 size={size}
@@ -285,6 +326,7 @@ function useRenderer(
                 onClose={handleClose}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onChange={handleChange}
                 className={classes}
                 ref={forwardedRef}
                 __dropdownComponentRef={dropdownComponentRef}
@@ -295,7 +337,7 @@ function useRenderer(
 }
 
 export function InnerSelect(props) {
-    const { options, actions, size, transparent, inline, onOpen, onClose, onFocus, onBlur, className, forwardedRef, ...rest } = props;
+    const { options, actions, size, transparent, inline, active, focus, hover, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -304,6 +346,7 @@ export function InnerSelect(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
+    const hasValueChangeRef = useRef(false);
     const dropdownComponentRef = useRef();
 
     // A select doesn't support children.
@@ -314,17 +357,19 @@ export function InnerSelect(props) {
     const handleClose = useHandleClose({ onClose }, setIsOpen);
     const handleFocus = useHandleFocus({ onFocus }, setIsFocus);
     const handleBlur = useHandleBlur({ onBlur }, setIsFocus);
+    const handleChange = useHandleChange({ onChange }, hasValueChangeRef);
 
-    useHandleDocumentKeyDown(isOpen, isFocus, dropdownComponentRef);
+    useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
 
     const renderOptions = useOptionsRenderer({ options, actions });
 
     const render = useRenderer(
-        { size, transparent, inline, className, forwardedRef, rest },
+        { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
         handleOpen,
         handleClose,
         handleFocus,
         handleBlur,
+        handleChange,
         dropdownComponentRef,
         renderOptions()
     );

@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-foreign-prop-types */
+
 import { ArgumentError, BIG, HUGE, MASSIVE, MINI, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
 import { Label as SemanticLabel } from "semantic-ui-react";
@@ -9,6 +11,7 @@ import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["micro", "mini","tiny","small","medium","large","big","huge","massive"];
 const DEFAULT_SIZE = "medium";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
@@ -42,6 +45,10 @@ const propTypes = {
      * Whether to add emphasis on the label text or not.
      */
     highlight: bool,
+    /**
+     * A label can vary in sizes.
+     */
+    size: oneOf(SIZES),
     /**
      * A label can have a disabled look.
      */
@@ -240,4 +247,8 @@ export const Label = forwardRef((props, ref) => (
     x.Detail = SemanticLabel.Detail;
     x.Group = SemanticLabel.Group;
 });
+
+if (!isNil(SemanticLabel.propTypes)) {
+    SemanticLabel.propTypes.size = oneOf(SIZES);
+}
 

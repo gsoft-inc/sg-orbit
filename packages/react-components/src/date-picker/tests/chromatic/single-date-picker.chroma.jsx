@@ -61,34 +61,57 @@ stories()
          () =>
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          size: "small",
                          className: "mr5"
                      })}
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          size: "small",
                          defaultDate: moment(DEFAULT_DATE)
                      })}
                  </div>
                  <div className="flex" style={{ marginBottom: "150px" }}>
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          className: "mr5"
                      })}
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          defaultDate: moment(DEFAULT_DATE)
                      })}
                  </div>
                  <div className="flex">
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          size: "large",
                          className: "mr5"
                      })}
-                     { createSingleDatePicker({
+                     {createSingleDatePicker({
                          size: "large",
                          defaultDate: moment(DEFAULT_DATE)
                      })}
                  </div>
              </div>
+    )
+    .add("interaction states", () =>
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                {createSingleDatePicker({
+                    active: true,
+                    className: "mr5"
+                })}
+                {createSingleDatePicker({
+                    focus: true
+                })}
+            </div>
+            <div className="flex">
+                {createSingleDatePicker({
+                    hover: true,
+                    className: "mr5"
+                })}
+                {createSingleDatePicker({
+                    focus: true,
+                    hover: true
+                })}
+            </div>
+        </div>
     );
 
 stories("/number of visible months")

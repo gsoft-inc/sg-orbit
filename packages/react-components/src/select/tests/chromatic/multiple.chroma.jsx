@@ -125,6 +125,26 @@ stories()
             </div>
         </div>
     )
+    .add("interaction states", () =>
+        <div className="flex">
+            {createMultipleSelect({
+                active: true,
+                wrapperClassName: "mr5"
+            })}
+            {createMultipleSelect({
+                focus: true,
+                wrapperClassName: "mr5"
+            })}
+            {createMultipleSelect({
+                hover: true,
+                wrapperClassName: "mr5"
+            })}
+            {createMultipleSelect({
+                focus: true,
+                hover: true
+            })}
+        </div>
+    )
     .add("disabled", () =>
         <div className="flex">
             {createMultipleSelect({

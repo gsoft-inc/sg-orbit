@@ -20,6 +20,9 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         disabled: bool,
         fluid: bool,
         open: bool,
+        active: bool,
+        focus: bool,
+        hover: bool,
         size: oneOf(SIZES),
         className: string,
         forwardedRef: oneOfType([object, func])
@@ -28,7 +31,6 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        disabled: false,
         size: DEFAULT_SIZE
     };
 
@@ -69,7 +71,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     }
 
     render() {
-        const { value, onClick, onFocus, onBlur, placeholder, size, disabled, fluid, className, forwardedRef } = this.props;
+        const { value, onClick, onFocus, onBlur, placeholder, size, disabled, fluid, active, focus, hover, className, forwardedRef } = this.props;
 
         return (
             <TextInput
@@ -85,6 +87,9 @@ export class InnerDatePickerTextboxInput extends PureComponent {
                 size={size}
                 disabled={disabled}
                 fluid={fluid}
+                active={active}
+                focus={focus}
+                hover={hover}
                 readOnly
                 tabIndex={disabled ? "-1" : "0"}
                 autoComplete="off"

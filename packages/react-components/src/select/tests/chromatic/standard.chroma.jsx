@@ -121,6 +121,26 @@ stories()
             </div>
         </div>
     )
+    .add("interaction states", () =>
+        <div className="flex">
+            {createSelect({
+                active: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSelect({
+                focus: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSelect({
+                hover: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSelect({
+                focus: true,
+                hover: true
+            })}
+        </div>
+    )
     .add("disabled", () =>
         <div className="flex">
             {createSelect({

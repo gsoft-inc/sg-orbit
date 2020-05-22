@@ -82,6 +82,26 @@ stories()
             </div>
         </div>
     )
+    .add("interaction states", () =>
+        <div className="flex">
+            {createSearchableSelect({
+                active: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSearchableSelect({
+                focus: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSearchableSelect({
+                hover: true,
+                wrapperClassName: "mr5"
+            })}
+            {createSearchableSelect({
+                focus: true,
+                hover: true
+            })}
+        </div>
+    )
     .add("disabled", () =>
         createSearchableSelect({
             wrapperClassName: "mr5",

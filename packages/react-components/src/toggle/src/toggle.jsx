@@ -8,7 +8,7 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-const CHECKBOX_PROP_TYPES = {
+export const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the toggle should autofocus on render.
      */
@@ -18,19 +18,23 @@ const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the toggle.
+     * The text associated to the checkbox.
      */
     text: string,
     /**
-     * A toggle can display icons.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display [icons](/?path=/docs/components-icon--default-story) after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * A label displayed after the toggle text.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [label](/?path=/docs/components-label--default-story) after the text.
      */
     label: oneOfType([element, object]),
     /**
-     * An input can vary in sizes.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
+     */
+    count: oneOfType([element, object]),
+    /**
+     * A toggle can vary in sizes.
      */
     size: oneOf(SIZES)
 };

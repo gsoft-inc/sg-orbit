@@ -135,6 +135,18 @@ export class TagsPicker extends AutoControlledPureComponent {
         /**
          * @ignore
          */
+        active: bool,
+        /**
+         * @ignore
+         */
+        focus: bool,
+        /**
+         * @ignore
+         */
+        hover: bool,
+        /**
+         * @ignore
+         */
         className: string,
         /**
          * @ignore
@@ -298,7 +310,7 @@ export class TagsPicker extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size, active, focus, hover } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -316,7 +328,10 @@ export class TagsPicker extends AutoControlledPureComponent {
             open,
             disabled,
             closeOnBlur,
-            closeOnOutsideClick
+            closeOnOutsideClick,
+            active,
+            focus,
+            hover
         });
     };
 
