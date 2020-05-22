@@ -54,10 +54,6 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * Whether or not the button appear as focused.
-     */
-    focus: bool,
-    /**
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
@@ -65,6 +61,10 @@ const propTypes = {
      * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
+    /**
+     * @ignore
+     */
+    focus: bool,
     /**
      * @ignore
      */
@@ -88,11 +88,8 @@ const defaultProps = {
     link: false,
     iconPosition: "left",
     naked: false,
-    focus: false,
     size: DEFAULT_SIZE,
-    type: "button",
-    loading: false,
-    disabled: false
+    type: "button"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {

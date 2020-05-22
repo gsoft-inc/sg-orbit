@@ -53,10 +53,6 @@ export class TagsPickerDropdownTrigger extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the trigger appear as focused.
-         */
-        focus: bool,
-        /**
          * A disabled trigger does not allow user interaction.
          */
         disabled: bool,
@@ -64,6 +60,10 @@ export class TagsPickerDropdownTrigger extends PureComponent {
          * A dropdown trigger can have different sizes.
          */
         size: oneOf(SIZES),
+        /**
+         * @ignore
+         */
+        focus: bool,
         /**
          * @ignore
          */

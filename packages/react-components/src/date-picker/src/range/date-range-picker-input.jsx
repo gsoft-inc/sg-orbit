@@ -38,13 +38,13 @@ export class InnerDateRangePickerInput extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the input appear as focused.
-         */
-        focus: bool,
-        /**
         * A date picker can have different sizes.
         */
         size: oneOf(SIZES),
+        /**
+         * @ignore
+         */
+        focus: bool,
         /**
          * @ignore
          */

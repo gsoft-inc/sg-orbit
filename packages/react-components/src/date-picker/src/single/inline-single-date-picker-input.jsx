@@ -58,7 +58,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the input appear as focused.
+         * @ignore
          */
         focus: bool,
         /**

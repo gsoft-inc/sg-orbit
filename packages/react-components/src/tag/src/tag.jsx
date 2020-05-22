@@ -24,8 +24,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    size: DEFAULT_SIZE,
-    disabled: false
+    size: DEFAULT_SIZE
 };
 
 export function InnerTag({ forwardedRef, className, disabled, ...props }) {

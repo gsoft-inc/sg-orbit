@@ -75,7 +75,7 @@ const propTypes = {
      */
     wrapperStyle: object,
     /**
-     * Whether or not the select appear as focused.
+     * @ignore
      */
     focus: bool,
     /**
@@ -115,7 +115,6 @@ const propTypes = {
 const defaultProps = {
     size: DEFAULT_SIZE,
     transparent: false,
-    focus: false,
     inline: false,
     multiple: false
 };

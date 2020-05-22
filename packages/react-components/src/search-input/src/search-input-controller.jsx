@@ -46,17 +46,11 @@ export class SearchInputController extends AutoControlledPureComponent {
 
     static defaultProps = {
         resultRenderer: defaultResultRenderer,
-        clearOnSelect: false,
         minCharacters: 1,
         placeholder: "Search",
         debounceDelay: 200,
-        loading: false,
-        disabled: false,
-        autofocus: false,
         autofocusDelay: 50,
         size: DEFAULT_SIZE,
-        fluid: false,
-        focus: false,
         input: <TextInput />
     };
 

@@ -38,10 +38,6 @@ const propTypes = {
      */
     error: bool,
     /**
-     * Whether or not the select appear as focused.
-     */
-    focus: bool,
-    /**
      * Whether or not the textarea is transparent.
      */
     transparent: bool,
@@ -49,6 +45,10 @@ const propTypes = {
      * Whether or not the textarea is resizable.
      */
     resizable: bool,
+    /**
+     * @ignore
+     */
+    focus: bool,
     /**
      * @ignore
      */
@@ -67,10 +67,8 @@ const defaultProps = {
     autofocus: false,
     error: false,
     fluid: false,
-    focus: false,
     transparent: false,
     resizable: false,
-    disabled: false,
     size: DEFAULT_SIZE
 };
 
