@@ -91,23 +91,27 @@ stories()
              </div>
     )
     .add("interaction states", () =>
-        <div className="flex">
-            {createSingleDatePicker({
-                active: true,
-                className: "mr5"
-            })}
-            {createSingleDatePicker({
-                focus: true,
-                className: "mr5"
-            })}
-            {createSingleDatePicker({
-                hover: true,
-                className: "mr5"
-            })}
-            {createSingleDatePicker({
-                focus: true,
-                hover: true
-            })}
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                {createSingleDatePicker({
+                    active: true,
+                    className: "mr5"
+                })}
+                {createSingleDatePicker({
+                    focus: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex">
+                {createSingleDatePicker({
+                    hover: true,
+                    className: "mr5"
+                })}
+                {createSingleDatePicker({
+                    focus: true,
+                    hover: true
+                })}
+            </div>
         </div>
     );
 

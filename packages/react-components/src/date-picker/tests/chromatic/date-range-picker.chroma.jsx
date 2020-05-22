@@ -17,7 +17,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/range"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "95%", height: "600px" })
+            .canvasLayout({ width: "90%", height: "600px" })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
             .build())
@@ -104,23 +104,27 @@ stories()
              </div>
     )
     .add("interaction states", () =>
-        <div className="flex">
-            {createDateRangePicker({
-                active: true,
-                className: "mr5"
-            })}
-            {createDateRangePicker({
-                focus: true,
-                className: "mr5"
-            })}
-            {createDateRangePicker({
-                hover: true,
-                className: "mr5"
-            })}
-            {createDateRangePicker({
-                focus: true,
-                hover: true
-            })}
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                {createDateRangePicker({
+                    active: true,
+                    className: "mr5"
+                })}
+                {createDateRangePicker({
+                    focus: true,
+                    className: "mr5"
+                })}
+            </div>
+            <div className="flex">
+                {createDateRangePicker({
+                    hover: true,
+                    className: "mr5"
+                })}
+                {createDateRangePicker({
+                    focus: true,
+                    hover: true
+                })}
+            </div>
         </div>
     );
 
