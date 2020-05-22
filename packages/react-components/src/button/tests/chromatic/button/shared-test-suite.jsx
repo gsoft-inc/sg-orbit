@@ -95,6 +95,8 @@ function Labels({ element, ...rest }) {
                 <Button hover label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button focus hover label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button disabled label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+            </div>
+            <div className="flex mb5">
                 <Button icon={<SignoutIcon />} label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button label={<Label className="bg-red">6</Label>} element={button} className="mr5">Button</Button>
                 <Button label={<Label>6</Label>} loading element={button}>Button</Button>
@@ -122,6 +124,8 @@ function Tags({ element, ...rest }) {
                 <Button hover tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button focus hover tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button disabled tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+            </div>
+            <div className="flex mb5">
                 <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button tag={<Tag className="bg-red" />} loading element={button}>Button</Button>
             </div>
