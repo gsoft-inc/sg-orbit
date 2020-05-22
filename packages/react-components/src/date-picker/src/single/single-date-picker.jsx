@@ -115,7 +115,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     fluid: bool,
     /**
-     * Whether or not the input should appear as focused.
+     * Whether or not the date picker appear as focused.
      */
     focus: bool,
     /**

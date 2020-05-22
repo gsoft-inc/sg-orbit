@@ -109,7 +109,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     disabled: bool,
     /**
-     * Whether or not the input should appear as focused.
+     * Whether or not the input appear as focused.
      */
     focus: bool,
     /**

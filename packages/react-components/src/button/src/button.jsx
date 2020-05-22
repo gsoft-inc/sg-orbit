@@ -54,7 +54,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * Whether or not the button should appear as focused.
+     * Whether or not the button appear as focused.
      */
     focus: bool,
     /**

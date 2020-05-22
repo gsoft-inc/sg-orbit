@@ -82,6 +82,11 @@ stories()
             </div>
         </div>
     )
+    .add("focused", () =>
+        createSearchableSelect({
+            focus: true
+        })
+    )
     .add("disabled", () =>
         createSearchableSelect({
             wrapperClassName: "mr5",

@@ -125,6 +125,11 @@ stories()
             </div>
         </div>
     )
+    .add("focused", () =>
+        createMultipleSelect({
+            focus: true
+        })
+    )
     .add("disabled", () =>
         <div className="flex">
             {createMultipleSelect({

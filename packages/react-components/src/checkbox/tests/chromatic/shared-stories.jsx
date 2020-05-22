@@ -23,10 +23,9 @@ function Icons({ element, ...rest }) {
                 <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={checkbox} />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox disabled icons={<CommunicationIcon />} element={checkbox} className="mr5" />
+                <Checkbox focus icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox readOnly icons={<CommunicationIcon />} element={checkbox} className="mr5" />
                 <Checkbox disabled icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox readOnly icons={<CommunicationIcon />} element={checkbox} className="mr5" />
             </div>
             <div className="flex items-end mb8">
                 <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />

@@ -8,7 +8,7 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-const CHECKBOX_PROP_TYPES = {
+export const CHECKBOX_PROP_TYPES = {
     /**
      * Whether or not the radio should autofocus on render.
      */
@@ -18,7 +18,7 @@ const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the radio.
+     * The text associated to the checkbox.
      */
     text: string,
     /**
@@ -30,7 +30,15 @@ const CHECKBOX_PROP_TYPES = {
      */
     label: oneOfType([element, object]),
     /**
-     * An input can vary in sizes.
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
+     */
+    count: oneOfType([element, object]),
+    /**
+     * Whether or not the radio appear as focused.
+     */
+    focus: bool,
+    /**
+     * A checkbox can vary in sizes.
      */
     size: oneOf(SIZES)
 };
@@ -38,6 +46,7 @@ const CHECKBOX_PROP_TYPES = {
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
+    focus: false,
     size: DEFAULT_SIZE
 };
 

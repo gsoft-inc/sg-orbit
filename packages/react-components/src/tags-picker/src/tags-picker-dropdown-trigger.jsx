@@ -53,6 +53,10 @@ export class TagsPickerDropdownTrigger extends PureComponent {
          */
         open: bool,
         /**
+         * Whether or not the trigger appear as focused.
+         */
+        focus: bool,
+        /**
          * A disabled trigger does not allow user interaction.
          */
         disabled: bool,
@@ -124,7 +128,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
     }
 
     render() {
-        const { text, onFocus, onBlur, disabled, size } = this.props;
+        const { text, focus, onFocus, onBlur, disabled, size } = this.props;
 
         return (
             <div className="mr2 mb2">
@@ -134,6 +138,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     secondary
+                    focus={focus}
                     icon={<AddIcon />}
                     iconPosition="right"
                     size={size}

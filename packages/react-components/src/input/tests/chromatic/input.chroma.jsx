@@ -57,7 +57,7 @@ stories()
             </div>
         </div>
     )
-    .add("focus", () =>
+    .add("focused", () =>
         <Input focus placeholder="Where to?" />
     )
     .add("disabled", () =>

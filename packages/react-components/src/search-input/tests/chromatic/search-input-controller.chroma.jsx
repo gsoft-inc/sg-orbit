@@ -55,6 +55,12 @@ stories()
                  </div>
              </div>
     )
+    .add("focused",
+         () =>
+             createSearchInputController({
+                 focus: true
+             })
+    )
     .add("size",
          () =>
              <div className="flex flex-column">
