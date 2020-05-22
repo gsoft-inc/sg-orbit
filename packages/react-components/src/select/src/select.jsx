@@ -3,7 +3,7 @@ import { Dropdown } from "../../dropdown";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { SelectItem, createSelectItem } from "./item";
-import { any, arrayOf, bool, element, func, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { any, arrayOf, bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isArray, isNil } from "lodash";
 import { renderAvatar } from "./render-avatar";
