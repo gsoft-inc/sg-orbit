@@ -38,11 +38,6 @@ const UNSUPPORTED_PROPS = [
     "wrapSelection"
 ];
 
-const ACTION_SHAPE = {
-    content: element,
-    className: string
-};
-
 const MULTIPLE_VALUES_LABEL_SIZE = {
     [SMALL]: MINI,
     [MEDIUM]: TINY,
@@ -54,10 +49,6 @@ const propTypes = {
      * An array of items object shorthands.
      */
     options: arrayOf(any).isRequired,
-    /**
-     * A select can have a list of actions after his items.
-     */
-    actions: arrayOf(shape(ACTION_SHAPE)),
     /**
      * A select can vary in size.
      */
@@ -261,20 +252,7 @@ function useMultipleValuesLabelRenderer({ size }) {
     };
 }
 
-function useActionRenderer() {
-    return ({ content, key, className, ...props }, index) => {
-        const classes = mergeClasses(
-            className,
-            "action bg-white o-100"
-        );
-
-        return { ...props, content, className: classes, disabled: true, key: key || index };
-    };
-}
-
-function useOptionsRenderer({ options, actions }) {
-    const renderAction = useActionRenderer();
-
+function useOptionsRenderer({ options }) {
     return () => {
         const selectOptions = options.map(x => {
             return {
@@ -282,10 +260,6 @@ function useOptionsRenderer({ options, actions }) {
                 factory: createSelectItem
             };
         });
-
-        if (!isNil(actions)) {
-            return [...selectOptions, ...actions.map(renderAction)];
-        }
 
         return selectOptions;
     };
@@ -337,7 +311,7 @@ function useRenderer(
 }
 
 export function InnerSelect(props) {
-    const { options, actions, size, transparent, inline, active, focus, hover, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
+    const { options, size, transparent, inline, active, focus, hover, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
@@ -361,7 +335,7 @@ export function InnerSelect(props) {
 
     useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
 
-    const renderOptions = useOptionsRenderer({ options, actions });
+    const renderOptions = useOptionsRenderer({ options });
 
     const render = useRenderer(
         { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },

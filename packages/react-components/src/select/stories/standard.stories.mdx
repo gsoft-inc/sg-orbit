@@ -216,22 +216,6 @@ A select can show that the data contains errors.
     </Story>
 </Preview>
 
-### Actions
-
-A select can contains non selectable items acting as actions.
-
-Actions must be specified as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) having the following format: `{ content, className? ... }`.
-
-<Preview>
-    <Story name="actions">
-        <Select
-            placeholder="Astronaut"
-            options={ASTRONAUTS}
-            actions={[{ content: <a href="https://en.wikipedia.org/wiki/Canadian_Astronaut_Corps" target="_blank" rel="noopener noreferrer">View on Wikipedia</a> }]}
-        />
-    </Story>
-</Preview>
-
 ### Upward
 
 A select can be open it's menu upward.
