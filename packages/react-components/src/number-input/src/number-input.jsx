@@ -1,5 +1,5 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, number, object, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
