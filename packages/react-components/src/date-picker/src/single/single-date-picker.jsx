@@ -115,13 +115,13 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     fluid: bool,
     /**
-     * Whether or not the date picker appear as focused.
-     */
-    focus: bool,
-    /**
      * A date picker can vary in sizes.
      */
     size: oneOf(SIZES),
+    /**
+     * @ignore
+     */
+    focus: bool,
     /**
      * @ignore
      */

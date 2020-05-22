@@ -34,10 +34,6 @@ export const CHECKBOX_PROP_TYPES = {
      */
     count: oneOfType([element, object]),
     /**
-     * Whether or not the radio appear as focused.
-     */
-    focus: bool,
-    /**
      * A toggle can vary in sizes.
      */
     size: oneOf(SIZES)
@@ -46,7 +42,6 @@ export const CHECKBOX_PROP_TYPES = {
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const CHECKBOX_DEFAULT_PROPS = {
     autofocus: false,
-    focus: false,
     size: DEFAULT_SIZE
 };
 

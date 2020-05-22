@@ -75,7 +75,7 @@ stories()
                  </div>
              </div>
     )
-    .add("focused",
+    .add("focus",
          () =>
              createTagsPicker({
                  focus: true

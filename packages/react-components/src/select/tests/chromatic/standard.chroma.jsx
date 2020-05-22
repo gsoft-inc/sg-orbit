@@ -121,7 +121,7 @@ stories()
             </div>
         </div>
     )
-    .add("focused", () =>
+    .add("focus", () =>
         createSelect({
             focus: true
         })

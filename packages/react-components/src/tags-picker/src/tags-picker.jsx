@@ -116,10 +116,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether or not the tags picker appear as focused.
-         */
-        focus: bool,
-        /**
          * A disabled tag picker does not allow user interaction.
          */
         disabled: bool,
@@ -136,6 +132,10 @@ export class TagsPicker extends AutoControlledPureComponent {
          * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
+        /**
+         * @ignore
+         */
+        focus: bool,
         /**
          * @ignore
          */

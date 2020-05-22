@@ -39,6 +39,7 @@ function Icons({ element, ...rest }) {
             <div className="flex mb5">
                 <Button icon={<SignoutIcon />} active element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon />} focus element={button} className="mr5">Button</Button>
+                <Button icon={<SignoutIcon />} hover element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon />} disabled element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon className="fill-red" />} element={button}>Button</Button>
             </div>
@@ -55,6 +56,7 @@ function Loadings({ element, ...rest }) {
                 <Button loading element={button} className="mr5">AA</Button>
                 <Button active loading element={button} className="mr5">AA</Button>
                 <Button focus loading element={button} className="mr5">AA</Button>
+                <Button hover loading element={button} className="mr5">AA</Button>
                 <Button disabled loading element={button} className="mr5">AA</Button>
                 <Button loading element={button} className="mr5" />
                 <Button icon={<SignoutIcon />} loading element={button} className="mr5">AA</Button>
@@ -88,6 +90,7 @@ function Labels({ element, ...rest }) {
             <div className="flex mb5">
                 <Button active label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button focus label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                <Button hover label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button disabled label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button icon={<SignoutIcon />} label={<Label>6</Label>} element={button} className="mr5">Button</Button>
                 <Button label={<Label className="bg-red">6</Label>} element={button} className="mr5">Button</Button>
@@ -113,6 +116,7 @@ function Tags({ element, ...rest }) {
             <div className="flex mb5">
                 <Button active tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button focus tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                <Button hover tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button disabled tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
                 <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
                 <Button tag={<Tag className="bg-red" />} loading element={button}>Button</Button>
@@ -130,6 +134,7 @@ export function createSharedTestSuite(button, stories) {
                         <Button element={button} className="mr5">Button</Button>
                         <Button active element={button} className="mr5">Button</Button>
                         <Button focus element={button} className="mr5">Button</Button>
+                        <Button hover element={button} className="mr5">Button</Button>
                         <Button disabled element={button} className="mr5">Button</Button>
                         <Button className="bg-red mr5" element={button}>Button</Button>
                         <Button style={{ backgroundColor: "red" }} element={button}>Button</Button>
@@ -158,6 +163,7 @@ export function createSharedTestSuite(button, stories) {
                         <Button ghost element={button} className="mr5">Button</Button>
                         <Button active ghost element={button} className="mr5">Button</Button>
                         <Button focus ghost element={button} className="mr5">Button</Button>
+                        <Button hover ghost element={button} className="mr5">Button</Button>
                         <Button disabled ghost element={button} className="mr5">Button</Button>
                         <Button className="bg-red" ghost element={button}>Button</Button>
                     </div>
@@ -185,6 +191,7 @@ export function createSharedTestSuite(button, stories) {
                         <Button basic element={button} className="mr5">Button</Button>
                         <Button active basic element={button} className="mr5">Button</Button>
                         <Button focus basic element={button} className="mr5">Button</Button>
+                        <Button hover basic element={button} className="mr5">Button</Button>
                         <Button disabled basic element={button} className="mr5">Button</Button>
                         <Button className="bg-red" basic element={button}>Button</Button>
                     </div>
@@ -212,6 +219,7 @@ export function createSharedTestSuite(button, stories) {
                         <Button compact element={button} className="mr5">Button</Button>
                         <Button active compact element={button} className="mr5">Button</Button>
                         <Button focus compact element={button} className="mr5">Button</Button>
+                        <Button hover compact element={button} className="mr5">Button</Button>
                         <Button disabled compact element={button} className="mr5">Button</Button>
                         <Button className="bg-red" compact element={button}>Button</Button>
                     </div>
@@ -238,6 +246,7 @@ export function createSharedTestSuite(button, stories) {
                     <Button circular element={button} className="mr5">Aa</Button>
                     <Button active circular element={button} className="mr5">Aa</Button>
                     <Button focus circular element={button} className="mr5">Aa</Button>
+                    <Button hover circular element={button} className="mr5">Aa</Button>
                     <Button disabled circular element={button} className="mr5">Aa</Button>
                     <Button className="bg-red" circular element={button}>Aa</Button>
                 </div>
@@ -276,6 +285,7 @@ export function createSharedTestSuite(button, stories) {
                 <div className="flex mb5">
                     <Button icon={<SignoutIcon />} active circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon />} focus circular element={button} className="mr5" />
+                    <Button icon={<SignoutIcon />} hover circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon />} disabled circular element={button} className="mr5" />
                     <Button icon={<SignoutIcon className="fill-red" />} circular element={button} />
                 </div>

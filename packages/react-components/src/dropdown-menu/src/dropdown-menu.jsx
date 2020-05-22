@@ -72,7 +72,7 @@ const propTypes = {
      */
     focusFirstItemOnOpen: bool,
     /**
-     * Whether or not the dropdown menu appear as focused.
+     * @ignore
      */
     focus: bool,
     /**
@@ -107,8 +107,7 @@ const propTypes = {
 
 const defaultProps = {
     size: DEFAULT_SIZE,
-    focusFirstItemOnOpen: true,
-    focus: false
+    focusFirstItemOnOpen: true
 };
 
 function useHandleOpen({ focusFirstItemOnOpen, onOpen }, setIsOpen, dropdownRef) {

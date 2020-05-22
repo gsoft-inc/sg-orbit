@@ -27,7 +27,7 @@ stories()
     .add("error", () =>
         <TextArea error placeholder="Tell us more" />
     )
-    .add("focused", () =>
+    .add("focus", () =>
         <TextArea focus placeholder="Tell us more" />
     )
     .add("transparent", () =>

@@ -38,10 +38,6 @@ const propTypes = {
      */
     error: bool,
     /**
-     * Whether or not the select appear as focused.
-     */
-    focus: bool,
-    /**
      * Whether or not the textarea is transparent.
      */
     transparent: bool,
@@ -49,6 +45,10 @@ const propTypes = {
      * Whether or not the textarea is resizable.
      */
     resizable: bool,
+    /**
+     * @ignore
+     */
+    focus: bool,
     /**
      * @ignore
      */
@@ -67,10 +67,8 @@ const defaultProps = {
     autofocus: false,
     error: false,
     fluid: false,
-    focus: false,
     transparent: false,
     resizable: false,
-    disabled: false,
     size: DEFAULT_SIZE
 };
 
@@ -112,14 +110,14 @@ function useRenderer({ size, error, fluid, focus, transparent, resizable, disabl
 }
 
 export function InnerTextArea(props) {
-    const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, size, error, fluid, focus, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useCombinedRefs(forwardedRef);
 
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const render = useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
+    const render = useRenderer({ size, error, fluid, focus, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

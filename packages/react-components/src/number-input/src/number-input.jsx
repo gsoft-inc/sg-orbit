@@ -29,10 +29,6 @@ const INPUT_PROP_TYPES = {
      */
     iconPosition: oneOf(["left"]),
     /**
-     * Whether or not the input appear as focused.
-     */
-    focus: bool,
-    /**
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
@@ -57,7 +53,6 @@ const INPUT_PROP_TYPES = {
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_DEFAULT_PROPS = {
     autofocus: false,
-    focus: false,
     size: DEFAULT_SIZE
 };
 

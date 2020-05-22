@@ -37,10 +37,6 @@ const propTypes = {
      */
     button: oneOfType([element, object]),
     /**
-     * Whether or not the input appear as focused.
-     */
-    focus: bool,
-    /**
      * An input can vary in sizes.
      */
     size: oneOf(SIZES),
@@ -52,6 +48,10 @@ const propTypes = {
      * Additional style to render on the wrapper element.
      */
     wrapperStyle: object,
+    /**
+     * @ignore
+     */
+    focus: bool,
     /**
      * @ignore
      */
@@ -68,9 +68,7 @@ const propTypes = {
 
 const defaultProps = {
     autofocus: false,
-    focus: false,
     size: DEFAULT_SIZE,
-    disabled: false,
     __componentName: "@orbit-ui/react-components/input"
 };
 

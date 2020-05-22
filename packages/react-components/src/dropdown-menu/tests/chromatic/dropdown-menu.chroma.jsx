@@ -1,6 +1,6 @@
-import { AddIcon, EditIcon, FileIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { DropdownMenu, dropdownMenuButtonItem, dropdownMenuLinkItem } from "@react-components/dropdown-menu";
+import { EditIcon, FileIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { isNil, noop } from "lodash";
 

@@ -143,10 +143,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * Whether or not the date picker appear as focused.
-         */
-        focus: bool,
-        /**
          * Whether or not the calendar should close when the date picker loose focus.
          */
         closeOnBlur: bool,
@@ -159,6 +155,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          * A date picker can vary in sizes.
          */
         size: oneOf(SIZES),
+        /**
+         * @ignore
+         */
+        focus: bool,
         /**
          * @ignore
          */

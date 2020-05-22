@@ -29,8 +29,6 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        focus: false,
-        disabled: false,
         size: DEFAULT_SIZE
     };
 

@@ -75,7 +75,7 @@ const propTypes = {
      */
     wrapperStyle: object,
     /**
-     * Whether or not the select appear as focused.
+     * @ignore
      */
     focus: bool,
     /**
@@ -115,7 +115,6 @@ const propTypes = {
 const defaultProps = {
     size: DEFAULT_SIZE,
     transparent: false,
-    focus: false,
     inline: false,
     multiple: false
 };
@@ -189,10 +188,8 @@ function useHandleChange({ onChange }, hasValueChangeRef) {
 }
 
 function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
-    const handleDocumentKeyDown = useCallback(() => {
-        const key = event.keyCode;
-
-        if (key === KEYS.enter) {
+    const handleDocumentKeyDown = useCallback(event => {
+        if (event.keyCode === KEYS.enter) {
             if (!hasValueChangeRef.current) {
                 dropdownComponentRef.current.open(event);
             }

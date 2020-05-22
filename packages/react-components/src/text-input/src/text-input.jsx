@@ -47,6 +47,10 @@ const INPUT_PROP_TYPES = {
     /**
      * @ignore
      */
+    focus: bool,
+    /**
+     * @ignore
+     */
     disabled: bool,
     /**
      * @ignore
