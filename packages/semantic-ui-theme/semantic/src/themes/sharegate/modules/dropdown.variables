@@ -104,7 +104,7 @@
 /* Derived */
 
 /* Hover */
-@hoveredItemBackground: @cloud50;
+@hoveredItemBackground: @primary50;
 
 /* Focus */
 
