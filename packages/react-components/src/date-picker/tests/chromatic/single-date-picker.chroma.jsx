@@ -98,8 +98,7 @@ stories()
                     className: "mr5"
                 })}
                 {createSingleDatePicker({
-                    focus: true,
-                    className: "mr5"
+                    focus: true
                 })}
             </div>
             <div className="flex">

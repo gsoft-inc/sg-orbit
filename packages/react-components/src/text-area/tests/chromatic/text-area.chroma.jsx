@@ -5,6 +5,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("TextArea"))
         .segment(segment)
         .parameters(paramsBuilder()
+            .canvasLayout({ width: "80%" })
             .chromaticDelay(100)
             .build())
         .build();
@@ -27,11 +28,15 @@ stories()
         <TextArea error placeholder="Tell us more" />
     )
     .add("interaction states", () =>
-        <div className="flex">
-            <TextArea active placeholder="Tell us more" className="mr5" />
-            <TextArea focus placeholder="Tell us more" className="mr5" />
-            <TextArea hover placeholder="Tell us more" className="mr5" />
-            <TextArea focus hover placeholder="Tell us more" />
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                <TextArea active placeholder="Tell us more" className="mr5" />
+                <TextArea focus placeholder="Tell us more" />
+            </div>
+            <div className="flex">
+                <TextArea hover placeholder="Tell us more" className="mr5" />
+                <TextArea focus hover placeholder="Tell us more" />
+            </div>
         </div>
     )
     .add("transparent", () =>

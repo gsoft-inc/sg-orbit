@@ -17,7 +17,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("DatePicker/range"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "90%", height: "600px" })
+            .canvasLayout({ width: "80%", height: "600px" })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
             .build())
@@ -111,8 +111,7 @@ stories()
                     className: "mr5"
                 })}
                 {createDateRangePicker({
-                    focus: true,
-                    className: "mr5"
+                    focus: true
                 })}
             </div>
             <div className="flex">
