@@ -189,10 +189,8 @@ function useHandleChange({ onChange }, hasValueChangeRef) {
 }
 
 function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
-    const handleDocumentKeyDown = useCallback(() => {
-        const key = event.keyCode;
-
-        if (key === KEYS.enter) {
+    const handleDocumentKeyDown = useCallback(event => {
+        if (event.keyCode === KEYS.enter) {
             if (!hasValueChangeRef.current) {
                 dropdownComponentRef.current.open(event);
             }

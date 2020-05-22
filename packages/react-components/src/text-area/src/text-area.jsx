@@ -112,14 +112,14 @@ function useRenderer({ size, error, fluid, focus, transparent, resizable, disabl
 }
 
 export function InnerTextArea(props) {
-    const { autofocus, autofocusDelay, size, error, fluid, focused, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
+    const { autofocus, autofocusDelay, size, error, fluid, focus, transparent, resizable, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useCombinedRefs(forwardedRef);
 
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const render = useRenderer({ size, error, fluid, focused, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
+    const render = useRenderer({ size, error, fluid, focus, transparent, resizable, disabled, className, children, rest }, autofocusProps, innerRef);
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;
