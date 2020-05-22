@@ -537,28 +537,4 @@ stories()
                 })}
             </div>
         </div>
-    )
-    .add("item actions", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createTransparentSelect({
-                    size: "small",
-                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createTransparentSelect({
-                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
-                    defaultOpen: true
-                })}
-            </div>
-            <div className="flex">
-                {createTransparentSelect({
-                    size: "large",
-                    actions: [{ content: <a href="https://www.google.com">Google</a> }],
-                    defaultOpen: true
-                })}
-            </div>
-        </div>
     );
