@@ -54,6 +54,12 @@
     border: 1px solid var(--marine-100);
 }
 
+/* radio fix */
+.ui.radio.checkbox.focus input:checked ~ .box:before,
+.ui.radio.checkbox.focus input:checked ~ label:before {
+  background-color: @radioActiveFocusBackground;
+}
+
 /* STATE | Focus | Hover */
 .ui.checkbox input:focus ~ label:hover::before,
 .ui.checkbox.focus input ~ label:hover::before {
