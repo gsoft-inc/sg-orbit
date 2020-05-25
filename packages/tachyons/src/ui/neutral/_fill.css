@@ -1,0 +1,119 @@
+.fill-neutral-50 {
+    fill: var(--neutral-50);
+}
+
+.fill-neutral-100 {
+    fill: var(--neutral-100);
+}
+
+.fill-neutral-200 {
+    fill: var(--neutral-200);
+}
+
+.fill-neutral-300 {
+    fill: var(--neutral-300);
+}
+
+.fill-neutral-400 {
+    fill: var(--neutral-400);
+}
+
+.fill-neutral-500 {
+    fill: var(--neutral-500);
+}
+
+.fill-neutral-600 {
+    fill: var(--neutral-600);
+}
+
+.fill-neutral-700 {
+    fill: var(--neutral-700);
+}
+
+.fill-neutral-800 {
+    fill: var(--neutral-800);
+}
+
+.fill-neutral-900 {
+    fill: var(--neutral-900);
+}
+
+.hover-fill-neutral-50:hover {
+    fill: var(--neutral-50);
+}
+
+.hover-fill-neutral-100:hover {
+    fill: var(--neutral-100);
+}
+
+.hover-fill-neutral-200:hover {
+    fill: var(--neutral-200);
+}
+
+.hover-fill-neutral-300:hover {
+    fill: var(--neutral-300);
+}
+
+.hover-fill-neutral-400:hover {
+    fill: var(--neutral-400);
+}
+
+.hover-fill-neutral-500:hover {
+    fill: var(--neutral-500);
+}
+
+.hover-fill-neutral-600:hover {
+    fill: var(--neutral-600);
+}
+
+.hover-fill-neutral-700:hover {
+    fill: var(--neutral-700);
+}
+
+.hover-fill-neutral-800:hover {
+    fill: var(--neutral-800);
+}
+
+.hover-fill-neutral-900:hover {
+    fill: var(--neutral-900);
+}
+
+.focus-fill-neutral-50:focus {
+    fill: var(--neutral-50);
+}
+
+.focus-fill-neutral-100:focus {
+    fill: var(--neutral-100);
+}
+
+.focus-fill-neutral-200:focus {
+    fill: var(--neutral-200);
+}
+
+.focus-fill-neutral-300:focus {
+    fill: var(--neutral-300);
+}
+
+.focus-fill-neutral-400:focus {
+    fill: var(--neutral-400);
+}
+
+.focus-fill-neutral-500:focus {
+    fill: var(--neutral-500);
+}
+
+.focus-fill-neutral-600:focus {
+    fill: var(--neutral-600);
+}
+
+.focus-fill-neutral-700:focus {
+    fill: var(--neutral-700);
+}
+
+.focus-fill-neutral-800:focus {
+    fill: var(--neutral-800);
+}
+
+.focus-fill-neutral-900:focus {
+    fill: var(--neutral-900);
+}
