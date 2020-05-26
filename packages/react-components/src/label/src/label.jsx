@@ -48,26 +48,13 @@ const propTypes = {
     /**
      * A label can vary in sizes.
      */
-    size: oneOf(SIZES),
-    /**
-     * A label can have a disabled look.
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    size: oneOf(SIZES)
 };
 
 const defaultProps = {
     naked: false,
     iconPosition: "left",
     highlight: false,
-    disabled: false,
     // eslint-disable-next-line react/default-props-match-prop-types
     size: DEFAULT_SIZE
 };

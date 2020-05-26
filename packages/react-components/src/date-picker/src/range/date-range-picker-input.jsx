@@ -52,11 +52,7 @@ export class InnerDateRangePickerInput extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        hover: bool
     };
 
     static defaultProps = {

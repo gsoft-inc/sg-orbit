@@ -116,10 +116,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled tag picker does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the dropdown should close when the tag picker loose focus.
          */
         closeOnBlur: bool,
@@ -145,14 +141,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         hover: bool,
         /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object,
-        /**
          * Used by interaction tests.
          * @ignore
          */
@@ -168,7 +156,6 @@ export class TagsPicker extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <TagsPickerSelectedItems />,
         clearButton: <TagsPickerClearButton />,
-        disabled: false,
         size: DEFAULT_SIZE
     };
 

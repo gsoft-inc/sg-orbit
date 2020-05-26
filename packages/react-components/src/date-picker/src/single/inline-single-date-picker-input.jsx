@@ -50,21 +50,9 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A disabled input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the date picker is opened.
          */
-        open: bool,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        open: bool
     };
 
     handleKeyDown = event => {

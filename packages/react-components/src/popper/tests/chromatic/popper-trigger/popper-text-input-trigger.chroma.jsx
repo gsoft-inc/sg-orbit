@@ -44,12 +44,6 @@ stories()
             focusTriggerOnShow: true
         })
     )
-    .add("focus popper on show", () =>
-        createPopperTrigger({
-            defaultShow: true,
-            focusFirstElementOnShow: true
-        })
-    )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>

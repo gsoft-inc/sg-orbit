@@ -42,7 +42,18 @@ export const CHECKBOX_PROP_TYPES = {
     /**
      * A checkbox can vary in sizes.
      */
-    size: oneOf(SIZES),
+    size: oneOf(SIZES)
+};
+
+export const CHECKBOX_DEFAULT_PROPS = {
+    autofocus: false,
+    size: DEFAULT_SIZE,
+    __componentName: "@orbit-ui/react-components/checkbox",
+    __unsupportedProps: UNSUPPORTED_PROPS
+};
+
+const propTypes = {
+    ...CHECKBOX_PROP_TYPES,
     /**
      * @ignore
      */
@@ -58,18 +69,6 @@ export const CHECKBOX_PROP_TYPES = {
     /**
      * @ignore
      */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func]),
-    /**
-     * @ignore
-     */
     __componentName: string,
     /**
      * @ignore
@@ -77,12 +76,7 @@ export const CHECKBOX_PROP_TYPES = {
     __unsupportedProps: arrayOf(string)
 };
 
-export const CHECKBOX_DEFAULT_PROPS = {
-    autofocus: false,
-    size: DEFAULT_SIZE,
-    __componentName: "@orbit-ui/react-components/checkbox",
-    __unsupportedProps: UNSUPPORTED_PROPS
-};
+const defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
     if (!isNil(label) && !isNil(count)) {
@@ -215,8 +209,8 @@ export function InnerCheckbox(props) {
     return <>{render()}</>;
 }
 
-InnerCheckbox.propTypes = CHECKBOX_PROP_TYPES;
-InnerCheckbox.defaultProps = CHECKBOX_DEFAULT_PROPS;
+InnerCheckbox.propTypes = propTypes;
+InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox { ...props } forwardedRef={ref} />

@@ -165,10 +165,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled search input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the search input should autofocus on render.
          */
         autofocus: bool,
@@ -196,15 +192,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         /**
          * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
          */
-        input: oneOfType([element, object]),
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object
+        input: oneOfType([element, object])
     };
 
     static defaultProps = {

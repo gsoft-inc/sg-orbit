@@ -72,19 +72,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    loading: bool,
-    /**
-     * @ignore
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    loading: bool
 };
 
 const defaultProps = {

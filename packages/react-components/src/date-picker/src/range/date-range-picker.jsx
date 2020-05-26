@@ -4,7 +4,6 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
-import { POSITIONS } from "../../../popper";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isFunction, isNil } from "lodash";
@@ -98,14 +97,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         dateFormat: string,
         /**
-         * The position of the calendar relative to the input.
+         * Whether or not the calendar will open upward.
          */
-        position: oneOf(POSITIONS),
-        /**
-         * An array containing an horizontal and vertical offsets for the calendar position.
-         * Ex: `[10, -10]`
-         */
-        offset: arrayOf(number),
+        upward: bool,
         /**
          * z-index of the calendar.
          */
@@ -135,10 +129,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled date picker does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the date picker take up the width of its container.
          */
         fluid: bool,
@@ -166,15 +156,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object
+        hover: bool
     };
 
     static defaultProps = {
@@ -187,7 +169,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         buttons: <DateRangePickerButtons />,
-        disabled: false,
         fluid: false
     };
 
@@ -331,7 +312,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { upward, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -339,8 +320,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 open={open}
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
-                position={position}
-                offset={offset}
+                upward={upward}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

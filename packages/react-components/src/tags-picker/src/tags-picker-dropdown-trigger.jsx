@@ -53,10 +53,6 @@ export class TagsPickerDropdownTrigger extends PureComponent {
          */
         open: bool,
         /**
-         * A disabled trigger does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * A dropdown trigger can have different sizes.
          */
         size: oneOf(SIZES),
@@ -71,11 +67,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string
+        hover: bool
     };
 
     _buttonRef = createRef();

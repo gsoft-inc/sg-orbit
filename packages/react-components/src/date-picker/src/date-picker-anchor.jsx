@@ -1,6 +1,6 @@
-import { POSITIONS, PopperTrigger } from "../../popper";
+import { PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
-import { arrayOf, bool, element, func, number, object, oneOf, string } from "prop-types";
+import { bool, element, func, number, object, string } from "prop-types";
 import { isNil } from "lodash";
 
 export class DatePickerAnchor extends PureComponent {
@@ -8,8 +8,7 @@ export class DatePickerAnchor extends PureComponent {
         open: bool.isRequired,
         input: element.isRequired,
         calendar: element.isRequired,
-        position: oneOf(POSITIONS),
-        offset: arrayOf(number),
+        upward: bool,
         zIndex: number,
         onVisibilityChange: func,
         closeOnBlur: bool,
@@ -20,8 +19,6 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     static defaultProps = {
-        position: "bottom-start",
-        offset: [0, 10],
         zIndex: 2
     };
 
@@ -34,18 +31,18 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offset, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
+        const { open, input, calendar, upward, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
 
         return (
             <PopperTrigger.TextInput
                 show={open}
                 input={input}
-                position={position}
-                offset={offset}
+                position={upward ? "top-start" : "bottom-start"}
+                offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
-                focusFirstElementOnShow
+                focusFirstElementOnKeyboardShow
                 disabled={disabled}
                 fluid={fluid}
                 zIndex={zIndex}

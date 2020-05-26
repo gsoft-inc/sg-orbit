@@ -66,18 +66,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func]),
-    /**
-     * @ignore
-     */
     __dropdownComponentRef: object,
     /**
      * @ignore

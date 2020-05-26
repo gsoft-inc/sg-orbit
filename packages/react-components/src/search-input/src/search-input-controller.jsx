@@ -33,7 +33,6 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: string,
         debounceDelay: number,
         loading: bool,
-        disabled: bool,
         autofocus: bool,
         autofocusDelay: number,
         fluid: bool,

@@ -55,15 +55,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: element,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        reactDatesCalendar: element
     };
 
     static defaultProps = {

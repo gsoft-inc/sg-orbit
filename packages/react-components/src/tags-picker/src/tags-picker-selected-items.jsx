@@ -29,7 +29,6 @@ class TagsPickerSelectedItem extends PureComponent {
         item: shape(ITEM_SHAPE).isRequired,
         itemRenderer: func,
         onRemove: func.isRequired,
-        disabled: bool,
         size: oneOf(SIZES),
         className: string
     };
@@ -78,17 +77,9 @@ export class TagsPickerSelectedItems extends PureComponent {
          */
         onRemoveSelectedItem: func,
         /**
-         * A disabled selected items does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * A selected item can have different sizes.
          */
-        size: oneOf(SIZES),
-        /**
-         * @ignore
-         */
-        className: string
+        size: oneOf(SIZES)
     };
 
     static defaultProps ={

@@ -54,10 +54,6 @@ export class InnerSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A disabled input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the date picker take up the width of its container.
          */
         fluid: bool,
@@ -80,15 +76,7 @@ export class InnerSingleDatePickerInput extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        hover: bool
     };
 
     getValue() {

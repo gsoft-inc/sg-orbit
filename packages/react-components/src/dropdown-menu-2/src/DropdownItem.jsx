@@ -1,9 +1,10 @@
-import { Dropdown, DropdownContext } from "../../dropdown";
-import { bool, element, string } from "prop-types";
+import { DropdownContext } from "./context";
+import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { createContentIcon } from "../../icons";
+import { element, string } from "prop-types";
+import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
-import { useContext } from "react";
 
 const UNSUPPORTED_PROPS = ["flag", "image", "label"];
 
@@ -67,28 +68,34 @@ function useContentRenderer({ text, icon, description, content, children }, size
     };
 }
 
-function useRenderer({ rest }, renderedContent) {
+function useRenderer({ forwardedRef, rest }, renderedContent) {
     return () => {
         return (
-            <Dropdown.Item {...rest} tabIndex="-1">
+            <SemanticDropdown.Item {...rest} tabIndex="-1" ref={forwardedRef}>
                 {renderedContent}
-            </Dropdown.Item>
+            </SemanticDropdown.Item>
         );
     };
 }
 
-export function DropdownMenuItem(props) {
-    const { text, icon, description, content, children, ...rest } = props;
+export function InnerDropdownItem(props) {
+    const { text, icon, description, content, children, forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/dropdown-menu/item");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
 
     const { size } = useContext(DropdownContext);
 
     const renderContent = useContentRenderer({ text, icon, description, content, children }, size);
-    const render = useRenderer({ rest }, renderContent());
+    const render = useRenderer({ forwardedRef, rest }, renderContent());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;
 }
 
-DropdownMenuItem.propTypes = propTypes;
+InnerDropdownItem.propTypes = propTypes;
+
+export const DropdownItem = forwardRef((props, ref) => (
+    <InnerDropdownItem {...props} forwardedRef={ref} />
+));
+
+DropdownItem.name = "DropdownItem";

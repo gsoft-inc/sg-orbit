@@ -1,0 +1,56 @@
+import { Button } from "@react-components/button";
+import { Dropdown, InnerDropdown } from "@react-components/dropdown-menu-2";
+import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Link } from "./custom-link.jsx";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { noop } from "lodash";
+import Imports from "./imports.mdx";
+
+<Meta
+    title={createComponentSection("DropdownMenu2")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# DropdownMenu
+
+A dropdown menu can be used to offer a list of choices.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Dropdown", component: InnerDropdown },
+        { displayName: "Dropdown.LinkItem", component: InnerDropdown.LinkItem },
+        { displayName: "Dropdown.ButtonItem", component: InnerDropdown.ButtonItem },
+        { displayName: "Dropdown.Item", component: InnerDropdown.Item },
+        { displayName: "Dropdown.Header", component: InnerDropdown.Header }
+    ]}
+/>
+
+## Usage
+
+A dropdown menu item can either be a [link](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) or a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button).
+
+<Preview>
+    <Story name="dont close on blur">
+        <Dropdown
+            trigger={<Button>Task</Button>}
+            closeOnBlur={false}
+        >
+            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>

@@ -67,14 +67,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func]),
-    /**
-     * @ignore
-     */
     __componentName: string
 };
 

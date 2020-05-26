@@ -18,11 +18,7 @@ export class TagsPickerClearButton extends PureComponent {
         /**
          * A clear button can have different sizes.
          */
-        size: oneOf(SIZES),
-        /**
-         * @ignore
-         */
-        className: string
+        size: oneOf(SIZES)
     };
 
     static defaultProps = {

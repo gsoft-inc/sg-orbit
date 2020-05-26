@@ -17,7 +17,6 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         onClear: func,
         allowClear: bool,
         placeholder: string,
-        disabled: bool,
         fluid: bool,
         open: bool,
         active: bool,

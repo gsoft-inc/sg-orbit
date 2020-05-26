@@ -82,14 +82,6 @@ export class InnerDateRangePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func]),
-        /**
-         * @ignore
-         */
         reactDatesCalendar: element
     };
 

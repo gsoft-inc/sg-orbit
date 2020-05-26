@@ -12,15 +12,7 @@ const propTypes = {
     /**
      * A tag can vary in sizes.
      */
-    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"]),
-    /**
-     * A tag can have a disabled look.
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"])
 };
 
 const defaultProps = {

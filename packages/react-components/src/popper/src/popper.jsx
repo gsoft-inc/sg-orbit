@@ -2,7 +2,7 @@ import "./popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
 import { POSITIONS } from "./positions";
-import { array, arrayOf, bool, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { isFunction, isNil, merge } from "lodash";
 import { mergeClasses, useCombinedRefs, useResizeObserver } from "../../shared";
@@ -31,10 +31,6 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     offset: arrayOf(number),
     /**
-     * A disabled popper only renders its trigger.
-     */
-    disabled: bool,
-    /**
      * An array of modifiers passed directly to [Popper.js](https://popper.js.org) modifiers. For more info, view [Popper.js modifiers documentation](https://popper.js.org/docs/v2/modifiers).
      */
     popperModifiers: array,
@@ -53,30 +49,13 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    animate: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    style: object,
-    /**
-     * @ignore
-     */
-    children: node,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    animate: bool
 };
 
 export const SHARED_POPPER_DEFAULT_PROPS = {
     position: "bottom",
     pinned: false,
     noWrap: false,
-    disabled: false,
     noPortal: false,
     animate: true
 };

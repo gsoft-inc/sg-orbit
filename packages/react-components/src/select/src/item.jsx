@@ -37,16 +37,11 @@ const propTypes = {
     /**
      * Icons can appear on the left or right of the item content.
      */
-    iconsPosition: oneOf(["left", "right"]),
-    /**
-     * A disabled item cannot be selected.
-     */
-    disabled: bool
+    iconsPosition: oneOf(["left", "right"])
 };
 
 const defaultProps = {
-    iconsPosition: "left",
-    disabled: false
+    iconsPosition: "left"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {

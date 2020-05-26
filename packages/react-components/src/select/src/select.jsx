@@ -104,11 +104,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    onChange: func,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    onChange: func
 };
 
 const defaultProps = {

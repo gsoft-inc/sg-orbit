@@ -60,14 +60,6 @@ const propTypes = {
      */
     size: oneOf(SIZES),
     /**
-     * Additional CSS classes to render on the dropdown wrapper element.
-     */
-    wrapperClassName: string,
-    /**
-     * Additional style to render on the dropdown wrapper element.
-     */
-    wrapperStyle: object,
-    /**
      * Whether or not to focus the first item when the dropdown opens.
      */
     focusFirstItemOnOpen: bool,

@@ -1,10 +1,9 @@
 import { AutoControlledPureComponent, getAutoControlledStateFromProps } from "../../../shared";
 import { DatePickerAnchor } from "../date-picker-anchor";
-import { POSITIONS } from "../../../popper";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
 import { SingleDatePickerInput } from "./single-date-picker-input";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
@@ -69,14 +68,9 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     dateFormat: string,
     /**
-     * A position for the calendar.
+     * Whether or not the calendar will open upward.
      */
-    position: oneOf(POSITIONS),
-    /**
-     * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: [10, -10]
-     */
-    offset: arrayOf(number),
+    upward: bool,
     /**
      * z-index of the calendar.
      */
@@ -107,10 +101,6 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     closeOnOutsideClick: bool,
     /**
-     * A disabled date picker does not allow user interaction.
-     */
-    disabled: bool,
-    /**
      * Whether or not the date picker take up the width of its container.
      */
     fluid: bool,
@@ -129,15 +119,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**
      * @ignore
      */
-    hover: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    style: object
+    hover: bool
 };
 
 export class SingleDatePicker extends AutoControlledPureComponent {
@@ -150,7 +132,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
         numberOfMonths: 1,
         calendar: <SingleDatePickerCalendar />,
         buttons: <SingleDatePickerButtons />,
-        disabled: false,
         fluid: false
     };
 
@@ -282,7 +263,7 @@ export class SingleDatePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -290,8 +271,6 @@ export class SingleDatePicker extends AutoControlledPureComponent {
                 open={open}
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
-                position={position}
-                offset={offset}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

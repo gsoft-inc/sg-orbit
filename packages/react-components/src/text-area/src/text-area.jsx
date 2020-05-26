@@ -56,19 +56,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    hover: bool,
-    /**
-     * @ignore
-     */
-    disabled: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    hover: bool
 };
 
 const defaultProps = {

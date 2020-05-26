@@ -89,11 +89,7 @@ export class DateRangePickerPresets extends PureComponent {
         /**
          * Array of pre-determined dates range.
          */
-        presets: arrayOf(shape(PRESET_SHAPE)),
-        /**
-         * @ignore
-         */
-        className: string
+        presets: arrayOf(shape(PRESET_SHAPE))
     };
 
     isDayBlocked = day => {

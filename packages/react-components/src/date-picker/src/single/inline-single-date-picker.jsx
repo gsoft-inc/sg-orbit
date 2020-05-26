@@ -67,14 +67,9 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     dateFormat: string,
     /**
-     * A position for the calendar.
+     * Whether or not the calendar will open upward.
      */
-    position: oneOf(POSITIONS),
-    /**
-     * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: [10, -10]
-     */
-    offset: arrayOf(number),
+    upward: bool,
     /**
      * z-index of the calendar.
      */
@@ -105,10 +100,6 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     closeOnOutsideClick: bool,
     /**
-     * A disabled date picker does not allow user interaction.
-     */
-    disabled: bool,
-    /**
      * Whether or not the input appear as focused.
      */
     focus: bool,
@@ -124,8 +115,7 @@ const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
     dateFormat: "MMM Do YYYY",
     numberOfMonths: 1,
     calendar: <SingleDatePickerCalendar />,
-    buttons: <SingleDatePickerButtons />,
-    disabled: false
+    buttons: <SingleDatePickerButtons />
 };
 
 export class InlineSingleDatePicker extends PureComponent {

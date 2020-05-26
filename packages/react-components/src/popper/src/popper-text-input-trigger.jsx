@@ -14,11 +14,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    onClick: func,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    onClick: func
 };
 
 function parseInput(input) {

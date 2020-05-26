@@ -89,10 +89,6 @@ export class TagsPickerDropdown extends PureComponent {
          */
         open: bool,
         /**
-         * A disabled dropdown does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the dropdown should close when the tag picker loose focus.
          */
         closeOnBlur: bool,
@@ -112,11 +108,7 @@ export class TagsPickerDropdown extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string
+        hover: bool
     };
 
     static defaultProps = {

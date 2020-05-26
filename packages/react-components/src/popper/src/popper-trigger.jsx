@@ -35,10 +35,6 @@ const SHARED_POPPER_PROP_TYPES = {
      */
     offset: arrayOf(number),
     /**
-     * A disabled popper only renders its trigger.
-     */
-    disabled: bool,
-    /**
      * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For more info, view [PopperJs modifiers documentation](https://popper.js.org/docs/v2/modifiers).
      */
     popperModifiers: array,
@@ -57,23 +53,7 @@ const SHARED_POPPER_PROP_TYPES = {
     /**
      * Whether or not to animate the popper element when opening / closing.
      */
-    animate: bool,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    style: object,
-    /**
-     * @ignore
-     */
-    children: node.isRequired,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    animate: bool
 };
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -81,7 +61,6 @@ const SHARED_POPPER_DEFAULT_PROPS = {
     position: "bottom",
     pinned: false,
     noWrap: false,
-    disabled: false,
     noPortal: false,
     animate: true
 };
@@ -104,6 +83,11 @@ const propTypes = {
      */
     toggleHandler: string.isRequired,
     /**
+     * The [key codes](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) that toggle the popper visibility.
+     * Ex. 13 for Enter
+     */
+    toggleKeyCodes: arrayOf(number),
+    /**
      * Called when the popup open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isVisible - Indicate if the popup is visible.
@@ -119,14 +103,6 @@ const propTypes = {
      */
     zIndex: number,
     /**
-     * Whether or not to show the popper on spacebar keydown.
-     */
-    showOnSpacebar: bool,
-    /**
-     * Whether or not to show the popper on enter keydown.
-     */
-    showOnEnter: bool,
-    /**
      * Whether or not to focus the trigger when the popper is made visible. When `true`, the trigger must expose a `focus` function in order to work.
      */
     focusTriggerOnShow: bool,
@@ -135,9 +111,9 @@ const propTypes = {
      */
     focusTriggerOnEscape: bool,
     /**
-     * Whether or not to focus the first focusable element of the popper on show.
+     * Whether or not to focus the first element of the popper when the popper is shown on keydown.
      */
-    focusFirstElementOnShow: bool,
+    focusFirstElementOnKeyboardShow: bool,
     /**
      * Whether or not the popper should hide on escape keydown.
      */
@@ -159,12 +135,11 @@ const propTypes = {
 
 const defaultProps = {
     ...SHARED_POPPER_DEFAULT_PROPS,
+    toggleKeyCodes: [KEYS.space, KEYS.enter],
     fluid: false,
-    showOnSpacebar: true,
-    showOnEnter: true,
     focusTriggerOnShow: false,
     focusTriggerOnEscape: true,
-    focusFirstElementOnShow: false,
+    focusFirstElementOnKeyboardShow: false,
     hideOnEscape: true,
     hideOnBlur: true,
     hideOnOutsideClick: false
@@ -172,16 +147,16 @@ const defaultProps = {
 
 /////////////////
 
-function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnShow }) {
+function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     useEffect(() => {
         if (hideOnBlur && hideOnOutsideClick) {
             throw new ArgumentError("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
         }
 
-        if (focusTriggerOnShow && focusFirstElementOnShow) {
-            throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnShow\" props cannot be both \"true\".");
+        if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
+            throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
         }
-    }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnShow]);
+    }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow]);
 }
 
 function getFirstFocusableElement(container) {
@@ -250,46 +225,50 @@ function useSetFocusPopper(popperElement) {
     }, [popperElement]);
 }
 
-function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow }, isVisible, setFocusTrigger, setFocusPopper) {
+function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, isKeyboardTransitionToVisibleRef, setFocusTrigger, setFocusPopper) {
     useEffect(() => {
-        if (focusTriggerOnShow) {
-            if (isVisible) {
+        if (isVisible) {
+            if (focusTriggerOnShow) {
                 setFocusTrigger();
             }
-        } else if (focusFirstElementOnShow) {
-            if (isVisible) {
-                setFocusPopper();
+
+            if (focusFirstElementOnKeyboardShow) {
+                if (isKeyboardTransitionToVisibleRef.current) {
+                    setFocusPopper();
+                }
             }
         }
-    }, [focusTriggerOnShow, focusFirstElementOnShow, isVisible, setFocusTrigger, setFocusPopper]);
+    }, [focusTriggerOnShow, focusFirstElementOnKeyboardShow, isVisible, isKeyboardTransitionToVisibleRef, setFocusTrigger, setFocusPopper]);
 }
 
-function useHandleTriggerToggle({ disabled }, togglePopper) {
+function useHandleTriggerToggle({ disabled }, isKeyboardTransitionToVisibleRef, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
+            isKeyboardTransitionToVisibleRef.current = false;
             togglePopper(event);
         }
-    }, [disabled, togglePopper]);
+    }, [disabled, isKeyboardTransitionToVisibleRef, togglePopper]);
 }
 
-function useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper) {
+function useHandleTriggerKeyDown({ disabled, toggleKeyCodes }, isVisible, isKeyboardTransitionToVisibleRef, togglePopper) {
     return useCallback(event => {
         if (!disabled) {
-            const key = event.keyCode;
+            if (toggleKeyCodes.includes(event.keyCode)) {
+                event.preventDefault();
 
-            if (key === KEYS.space) {
-                if (showOnSpacebar) {
-                    event.preventDefault();
-                    togglePopper(event);
-                }
-            } else if (key === KEYS.enter) {
-                if (showOnEnter) {
-                    event.preventDefault();
-                    togglePopper(event);
-                }
+                isKeyboardTransitionToVisibleRef.current = true;
+                togglePopper(event);
             }
         }
-    }, [disabled, showOnSpacebar, showOnEnter, togglePopper]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        disabled,
+        // Using a stringify version of toggleKeyCodes since an array value is usually different on every render.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        JSON.stringify(toggleKeyCodes),
+        isVisible,
+        togglePopper
+    ]);
 }
 
 function useHandleContainerFocus(hasFocusRef) {
@@ -507,6 +486,7 @@ export function InnerPopperTrigger(props) {
         defaultShow,
         trigger,
         toggleHandler,
+        toggleKeyCodes,
         onVisibilityChange,
         fluid,
         zIndex,
@@ -520,11 +500,9 @@ export function InnerPopperTrigger(props) {
         portalContainerElement,
         noPortal,
         animate,
-        showOnSpacebar,
-        showOnEnter,
         focusTriggerOnShow,
         focusTriggerOnEscape,
-        focusFirstElementOnShow,
+        focusFirstElementOnKeyboardShow,
         hideOnEscape,
         hideOnBlur,
         hideOnOutsideClick,
@@ -541,6 +519,7 @@ export function InnerPopperTrigger(props) {
     const [popperElement, setPopperElement] = useState();
 
     const hasFocusRef = useRef();
+    const isKeyboardTransitionToVisibleRef = useRef(false);
     const containerRef = useCombinedRefs(forwardedRef);
 
     const setFocusTrigger = useSetFocusTrigger(triggerElement);
@@ -549,10 +528,10 @@ export function InnerPopperTrigger(props) {
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
     const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
-    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow }, isVisible, setFocusTrigger, setFocusPopper);
+    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, isKeyboardTransitionToVisibleRef, setFocusTrigger, setFocusPopper);
 
-    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, togglePopper);
-    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, showOnSpacebar, showOnEnter }, togglePopper);
+    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, isKeyboardTransitionToVisibleRef, togglePopper);
+    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, toggleKeyCodes }, isVisible, isKeyboardTransitionToVisibleRef, togglePopper);
     const handleContainerFocus = useHandleContainerFocus(hasFocusRef);
     const handleContainerBlur = useHandleContainerBlur({ hideOnBlur }, isVisible, hasFocusRef, hidePopper);
 

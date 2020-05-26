@@ -1,6 +1,6 @@
 import { Popup as SemanticPopup } from "semantic-ui-react";
 import { SemanticRef, mergeClasses } from "../../shared";
-import { any, bool, func, object, oneOfType, string } from "prop-types";
+import { any, bool } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -8,15 +8,7 @@ const propTypes = {
     /**
      * @ignore
      */
-    trigger: any.isRequired,
-    /**
-     * @ignore
-     */
-    className: string,
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
+    trigger: any.isRequired
 };
 
 const defaultProps = {
