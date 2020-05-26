@@ -1,11 +1,11 @@
-/* 
- * PRIMARY 
+/*
+ * PRIMARY
  */
 @import "../../src/primary/_background.css";
 @import "../../src/primary/_text.css";
 @import "../../src/primary/_fill.css";
 
-/* 
+/*
  * APRICOT
  */
 @import "../../src/products/apricot/_background.css";
@@ -47,12 +47,20 @@
 @import "../../src/brand/marine/_text.css";
 @import "../../src/brand/marine/_fill.css";
 
-/* 
+/*
  * CLOUD
  */
 @import "../../src/ui/cloud/_background.css";
 @import "../../src/ui/cloud/_text.css";
 @import "../../src/ui/cloud/_fill.css";
+
+/*
+ * NEUTRAL
+ */
+@import "../../src/ui/neutral/_background.css";
+@import "../../src/ui/neutral/_text.css";
+@import "../../src/ui/neutral/_fill.css";
+
 
 /*
  * ALERT
