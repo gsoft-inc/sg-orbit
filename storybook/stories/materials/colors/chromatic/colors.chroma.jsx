@@ -108,5 +108,17 @@ stories()
                      <div className="pa4 bg-cloud-800" />
                      <div className="pa4 bg-cloud-900" />
                  </div>
+                 <div className="flex items-center">
+                     <div className="pa4 bg-neutral-50" />
+                     <div className="pa4 bg-neutral-100" />
+                     <div className="pa4 bg-neutral-200" />
+                     <div className="pa4 bg-neutral-300" />
+                     <div className="pa4 bg-neutral-400" />
+                     <div className="pa4 bg-neutral-500" />
+                     <div className="pa4 bg-neutral-600" />
+                     <div className="pa4 bg-neutral-700" />
+                     <div className="pa4 bg-neutral-800" />
+                     <div className="pa4 bg-neutral-900" />
+                 </div>
              </div>
     );
