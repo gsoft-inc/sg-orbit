@@ -17,8 +17,14 @@ const defaultProps = {
     as: "button"
 };
 
-export function InnerDropdownButtonItem({ as, ...props }) {
-    return <DropdownItem {...props} as={as} />;
+export function InnerDropdownButtonItem({ as, forwardedRef, ...rest }) {
+    return (
+        <DropdownItem
+            {...rest}
+            as={as}
+            ref={forwardedRef}
+        />
+    );
 }
 
 InnerDropdownButtonItem.propTypes = propTypes;

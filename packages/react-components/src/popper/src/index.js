@@ -4,3 +4,4 @@ export { InnerPopperButtonTrigger } from "./popper-button-trigger";
 export { InnerPopperTextInputTrigger } from "./popper-text-input-trigger";
 export * from "./positions";
 export * from "./shorthands";
+export * from "./use-popper-trigger";

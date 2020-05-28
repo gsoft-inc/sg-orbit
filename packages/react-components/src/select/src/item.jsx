@@ -1,6 +1,6 @@
 import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { arrayOf, bool, element, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, element, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { renderAvatar } from "./render-avatar";
 import { renderIcons } from "./render-icons";

@@ -25,8 +25,14 @@ const defaultProps = {
     as: "a"
 };
 
-export function InnerDropdownLinkItem({ as, ...props }) {
-    return <DropdownItem {...props} as={as} />;
+export function InnerDropdownLinkItem({ as, forwardedRef, ...rest }) {
+    return (
+        <DropdownItem
+            {...rest}
+            as={as}
+            ref={forwardedRef}
+        />
+    );
 }
 
 InnerDropdownLinkItem.propTypes = propTypes;

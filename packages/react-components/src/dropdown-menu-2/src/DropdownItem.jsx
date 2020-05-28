@@ -1,10 +1,10 @@
 import { DropdownContext } from "./context";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
+import { SemanticRef, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { createContentIcon } from "../../icons";
 import { element, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 const UNSUPPORTED_PROPS = ["flag", "image", "label"];
 
@@ -68,12 +68,14 @@ function useContentRenderer({ text, icon, description, content, children }, size
     };
 }
 
-function useRenderer({ forwardedRef, rest }, renderedContent) {
+function useRenderer({ forwardedRef, rest }, content) {
     return () => {
         return (
-            <SemanticDropdown.Item {...rest} tabIndex="-1" ref={forwardedRef}>
-                {renderedContent}
-            </SemanticDropdown.Item>
+            <SemanticRef innerRef={forwardedRef}>
+                <SemanticDropdown.Item {...rest} tabIndex="-1">
+                    {content}
+                </SemanticDropdown.Item>
+            </SemanticRef>
         );
     };
 }

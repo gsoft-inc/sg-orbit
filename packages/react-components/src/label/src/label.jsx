@@ -85,12 +85,12 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     }
 }
 
-function hasText(content, children) {
-    return !isNil(content) || Children.count(children) > 0;
+function hasText(children) {
+    return Children.count(children) > 0;
 }
 
-function getText(content, children) {
-    return content || children;
+function getText(children) {
+    return children;
 }
 
 function useIconRenderer({ icon, size }, isStandalone) {
@@ -138,8 +138,8 @@ function useTagRenderer({ tag, size }) {
     };
 }
 
-function useContentRenderer({ button, icon, iconPosition, tag, size, content, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(content, children));
+function useContentRenderer({ button, icon, iconPosition, tag, size, children }) {
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
     const renderButton = useButtonRenderer({ button, size });
     const renderTag = useTagRenderer({ tag, size });
 
@@ -164,14 +164,14 @@ function useContentRenderer({ button, icon, iconPosition, tag, size, content, ch
         }
 
         if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{getText(content, children)}{!isNil(right) && right}</>;
+            return <>{!isNil(left) && left}{getText(children)}{!isNil(right) && right}</>;
         }
 
-        return getText(content, children);
+        return getText(children);
     };
 }
 
-function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, content, children, rest }, renderedContent) {
+function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, content) {
     return () => {
         const classes = mergeClasses(
             naked && "naked",
@@ -182,7 +182,7 @@ function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, hig
             !isNil(icon) && "with-icon",
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(tag) && "with-tag",
-            !hasText(content, children) && "without-text",
+            !hasText(children) && "without-text",
             className
         );
 
@@ -192,7 +192,7 @@ function useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, hig
                 size={size}
                 className={classes}
             >
-                {renderedContent}
+                {content}
             </SemanticLabel>
         );
     };
@@ -209,14 +209,14 @@ function useRenderer({ forwardedRef }, label) {
 }
 
 export function InnerLabel(props) {
-    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, content, children, forwardedRef, ...rest } = props;
+    const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenUnsupportedSizeIsProvided(props);
 
-    const renderContent = useContentRenderer({ button, icon, iconPosition, tag, size, content, children });
-    const renderLabel = useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, content, children, rest }, renderContent());
+    const renderContent = useContentRenderer({ button, icon, iconPosition, tag, size, children });
+    const renderLabel = useLabelRenderer({ naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, rest }, renderContent());
     const render = useRenderer({ forwardedRef }, renderLabel());
 
     // Without a fragment, react-docgen doesn't work.

@@ -2,7 +2,7 @@ import { ArgumentError, ArgumentNullError } from "./throwable-errors";
 import { IS_PRODUCTION } from "./env";
 import { forOwn, isArray, isFunction, isInteger, isNil, isObject, isPlainObject, isString } from "lodash";
 import { isNullOrEmpty } from "./types";
-import { template } from "./strings";
+import { template } from "./string";
 
 const ASSERTION_DEFINITIONS = {
     /**

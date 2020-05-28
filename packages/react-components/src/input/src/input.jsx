@@ -82,18 +82,18 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
     }
 }
 
-function useSetFocus(containerRef) {
+function useSetFocus(wrapperRef) {
     return () => {
-        if (!isNil(containerRef.current)) {
-            containerRef.current.querySelector("input").focus();
+        if (!isNil(wrapperRef.current)) {
+            wrapperRef.current.querySelector("input").focus();
         }
     };
 }
 
-function useForwardInputApi(forwardedRef, containerRef, inputComponentRef) {
+function useForwardApi(forwardedRef, wrapperRef, inputComponentRef) {
     useImperativeHandle(forwardedRef, () => {
         const apiMethods = ["blur", "focus", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
-        const domElement = containerRef.current;
+        const domElement = wrapperRef.current;
 
         // These functions are part of the component external API.
         apiMethods.forEach(x => {
@@ -172,7 +172,7 @@ function useInputRenderer({ fluid, iconPosition, size, active, focus, hover, loa
     };
 }
 
-function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containerRef, buttonComponent, input) {
+function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, wrapperRef, buttonComponent, input) {
     return () => {
         const classes = mergeClasses(
             "relative outline-0",
@@ -183,7 +183,7 @@ function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containe
 
         return (
             <div
-                ref={containerRef}
+                ref={wrapperRef}
                 className={classes}
                 style={wrapperStyle}
                 tabIndex="-1"
@@ -197,16 +197,35 @@ function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containe
 }
 
 export function InnerInput(props) {
-    const { autofocus, autofocusDelay, fluid, icon, iconPosition, button, size, active, focus, hover, loading, disabled, wrapperClassName, wrapperStyle, __componentName, forwardedRef, children, ...rest } = props;
+    const {
+        autofocus,
+        autofocusDelay,
+        fluid,
+        icon,
+        iconPosition,
+        button,
+        size,
+        active,
+        focus,
+        hover,
+        loading,
+        disabled,
+        wrapperClassName,
+        wrapperStyle,
+        __componentName,
+        forwardedRef,
+        children,
+        ...rest
+    } = props;
 
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
-    const containerRef = useRef();
+    const wrapperRef = useRef();
     const inputComponentRef = useRef();
 
-    useForwardInputApi(forwardedRef, containerRef, inputComponentRef);
+    useForwardApi(forwardedRef, wrapperRef, inputComponentRef);
 
-    const setFocus = useSetFocus(containerRef);
+    const setFocus = useSetFocus(wrapperRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
     const renderIcon = useIconRenderer({ icon, size, loading });
@@ -219,7 +238,7 @@ export function InnerInput(props) {
         renderIcon()
     );
 
-    const render = useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, containerRef, renderButton(), renderInput() );
+    const render = useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, wrapperRef, renderButton(), renderInput() );
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

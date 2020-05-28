@@ -94,12 +94,12 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-function hasText(content, children) {
-    return !isNil(content) || Children.count(children) > 0;
+function hasText(children) {
+    return Children.count(children) > 0;
 }
 
-function getText(content, children) {
-    return content || children;
+function getText(children) {
+    return children;
 }
 
 function useSetFocus(buttonRef) {
@@ -155,8 +155,8 @@ function useTagRenderer({ tag, size, disabled }) {
     };
 }
 
-function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(content, children));
+function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
     const renderLabel = useLabelRenderer({ label, size, disabled });
     const renderTag = useTagRenderer({ tag, size, disabled });
 
@@ -182,19 +182,19 @@ function useContentRenderer({ icon, iconPosition, label, tag, size, loading, dis
             }
 
             if (!isNil(left) || !isNil(right)) {
-                return <>{!isNil(left) && left}{getText(content, children)}{!isNil(right) && right}</>;
+                return <>{!isNil(left) && left}{getText(children)}{!isNil(right) && right}</>;
             }
         }
 
-        return getText(content, children);
+        return getText(children);
     };
 }
 
 function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
+    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, children, rest },
     autofocusProps,
     innerRef,
-    renderContent
+    content
 ) {
     return () => {
         const classes = mergeClasses(
@@ -207,7 +207,7 @@ function useRenderer(
             !isNil(icon) && iconPosition === "right" && "with-icon-right",
             !isNil(label) && "with-label",
             !isNil(tag) && "with-tag",
-            !hasText(content, children) && "without-text",
+            !hasText(children) && "without-text",
             className
         );
 
@@ -223,7 +223,7 @@ function useRenderer(
                     disabled={disabled}
                     className={classes}
                 >
-                    {renderContent()}
+                    {content}
                 </SemanticButton>
             </SemanticRef>
         );
@@ -249,7 +249,6 @@ export function InnerButton(props) {
         disabled,
         className,
         forwardedRef,
-        content,
         children,
         ...rest
     } = props;
@@ -262,13 +261,13 @@ export function InnerButton(props) {
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, content, children });
+    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
 
     const render = useRenderer(
-        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, content, children, rest },
+        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, children, rest },
         autofocusProps,
         innerRef,
-        renderContent
+        renderContent()
     );
 
     // Without a fragment, react-docgen doesn't work.
