@@ -169,8 +169,6 @@ function useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElement
 // - hide on blur
 function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper) {
     return useCallback(event => {
-        console.log("** useHandleWrapperBlur: ", event);
-
         if (!disabled) {
             // This is a fix to prevent the popper from closing when the dev tools opens. Opening the dev tools will cause a blur event since the popper
             // loose the focus in favor of the dev tools. Since this is the dev tools who receive the focused, no elements of the popper will be focused on
@@ -229,19 +227,20 @@ function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisi
 
 // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
 // More info at: https://allyjs.io/tutorials/mutating-active-element.html
-function useHandleDocumentBlur(isVisible, hasFocusRef, wrapperRef, setFocusPopper) {
+function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper) {
     const handler = useCallback(() => {
         if (hasFocusRef.current) {
             setTimeout(() => {
                 // Chrome and Edge move the focus to the body when the active element becomes disabled.
-                // Could improve the code by keeping a ref on the last active element and only focus the wrapper if the last active element is disabled.
-                // See "lastFocusRef" in https://github.com/react-bootstrap/react-overlays/blob/master/src/Modal.tsx
                 if (document.activeElement.nodeName === "BODY") {
-                    setFocusPopper(() => {
-                        if (!isNil(wrapperRef.current)) {
-                            wrapperRef.current.focus();
-                        }
-                    });
+                    if (activeElementRef.current.disabled) {
+                        setFocusPopper(() => {
+                            if (!isNil(wrapperRef.current)) {
+                                wrapperRef.current.focus();
+                            }
+                        });
+                    }
+
                 } else {
                     // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a blur event when another element is focused.
                     // That's an ugly hack to fix this.
@@ -444,7 +443,7 @@ export function usePopperTrigger(props) {
     const handleWrapperBlur = useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper);
 
     useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger);
-    useHandleDocumentBlur(isVisible, hasFocusRef, wrapperRef, setFocusPopper);
+    useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper);
     useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper);
 
     const renderTrigger = useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement);
