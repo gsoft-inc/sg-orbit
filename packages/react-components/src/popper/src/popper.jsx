@@ -138,7 +138,7 @@ function usePopperInstance(position, triggerElement, pinned, offset, popperModif
     return [styles.popper, attributes.popper];
 }
 
-function useWrapperRenderer({ className, rest }) {
+function useWrapperRenderer({ className }) {
     return popper => {
         const classes = mergeClasses(
             "outline-0",
@@ -149,7 +149,6 @@ function useWrapperRenderer({ className, rest }) {
             <div
                 data-testid="popper-wrapper"
                 tabIndex="-1"
-                {...rest}
                 className={classes}
             >
                 {popper}
@@ -158,14 +157,15 @@ function useWrapperRenderer({ className, rest }) {
     };
 }
 
-function usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper) {
+function usePopperRenderer({ show, noWrap, animate, style, children, rest }, popperStyles, popperAttributes, popperRef, renderWrapper) {
     return () => {
-        // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being show, he will remain "hidden" event when
-        // popper is shown.
+        // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being shown, he will remain "hidden"
+        // even when the popper is visible.
         if (show) {
             const popper = Children.only(children);
 
             return cloneElement(!noWrap ? renderWrapper(popper) : popper, {
+                ...rest,
                 style: {
                     ...style,
                     ...popperStyles,
@@ -225,8 +225,8 @@ export function InnerPopper({
 
     const [popperStyles, popperAttributes] = usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement);
 
-    const renderWrapper = useWrapperRenderer({ className, rest });
-    const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children }, popperStyles, popperAttributes, popperRef, renderWrapper);
+    const renderWrapper = useWrapperRenderer({ className });
+    const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children, rest }, popperStyles, popperAttributes, popperRef, renderWrapper);
     const render = useRenderer({ disabled, noPortal, portalElement }, renderPopper());
 
     // Without a fragment, react-docgen doesn't work.

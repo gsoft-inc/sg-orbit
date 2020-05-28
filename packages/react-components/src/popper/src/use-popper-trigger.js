@@ -83,7 +83,7 @@ function useSetFocusPopper(popperElement) {
     }, [popperElement]);
 }
 
-function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastSourceEventRef, setFocusTrigger, setFocusPopper) {
+function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper) {
     useEffect(() => {
         if (isVisible) {
             if (focusTriggerOnShow) {
@@ -91,32 +91,32 @@ function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstE
             }
 
             if (focusFirstElementOnKeyboardShow) {
-                const type = lastSourceEventRef.current;
+                const type = lastTriggerEventRef.current;
 
                 if (!isNil(type) && /^key.+$/.test(type)) {
                     setFocusPopper();
                 }
             }
         }
-    }, [focusTriggerOnShow, focusFirstElementOnKeyboardShow, isVisible, lastSourceEventRef, setFocusTrigger, setFocusPopper]);
+    }, [focusTriggerOnShow, focusFirstElementOnKeyboardShow, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper]);
 }
 
-function useHandleTriggerToggle({ disabled }, lastSourceEventRef, togglePopper) {
+function useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper) {
     return useCallback(event => {
-        if (!disabled) {
-            lastSourceEventRef.current = event.type;
+        lastTriggerEventRef.current = event.type;
 
+        if (!disabled) {
             togglePopper(event);
         }
-    }, [disabled, lastSourceEventRef, togglePopper]);
+    }, [disabled, lastTriggerEventRef, togglePopper]);
 }
 
-function useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastSourceEventRef, showPopper, togglePopper) {
+function useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastTriggerEventRef, showPopper, togglePopper) {
     // Using a stringify version of showOnKeys since an array value is usually different on every render.
     const additionalKeys = JSON.stringify(showOnKeys || []);
 
     return useCallback(event => {
-        lastSourceEventRef.current = event.type;
+        lastTriggerEventRef.current = event.type;
 
         if (!disabled) {
             const key = event.keyCode;
@@ -145,56 +145,74 @@ function useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, sh
         toggleOnEnter,
         additionalKeys,
         isVisible,
-        lastSourceEventRef,
+        lastTriggerEventRef,
         showPopper,
         togglePopper
     ]);
 }
 
-function useHandleWrapperFocus(hasFocusRef, lastSourceEventRef) {
+function useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElementRef) {
     return useCallback(event => {
-        hasFocusRef.current = true;
-        lastSourceEventRef.current = event.type;
-    }, [hasFocusRef, lastSourceEventRef]);
+        if (!disabled) {
+            hasFocusRef.current = true;
+            activeElementRef.current = document.activeElement;
+        }
+
+        if (!isNil(onFocus)) {
+            onFocus(event);
+        }
+    }, [disabled, onFocus, hasFocusRef, activeElementRef]);
 }
 
 // Hiding the popper on blur will:
 // - hide on outside click
 // - hide on blur
-function useHandleWrapperBlur({ hideOnBlur }, isVisible, hasFocusRef, lastSourceEventRef, hidePopper) {
+function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper) {
     return useCallback(event => {
-        hasFocusRef.current = false;
-        lastSourceEventRef.current = event.type;
+        console.log("** useHandleWrapperBlur: ", event);
 
-        if (isVisible) {
-            if (hideOnBlur) {
-                // The event must be persisted since it's used later in a setTimeout.
-                event.persist();
+        if (!disabled) {
+            // This is a fix to prevent the popper from closing when the dev tools opens. Opening the dev tools will cause a blur event since the popper
+            // loose the focus in favor of the dev tools. Since this is the dev tools who receive the focused, no elements of the popper will be focused on
+            // the next tick which will cause the popper to close.
+            // To prevent the popper from closing we leverage the fact that opening the dev tools doesn't update document.activeElement.
+            if (activeElementRef.current !== document.activeElement) {
+                hasFocusRef.current = false;
 
-                // Using a focus / unfocus flag was not the preferred way to prevent the popper from hiding on blur when the new focused item was inside the popper.
-                // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
-                // document.activeElement. This was working well in browsers.
-                //
-                // However, our interaction tests rely on jsdom and jsdom support for document.activementElement is not reliable (in fact, it doesn't have the same behavior
-                // as browsers).
-                //
-                // The fallback is to use this hasFocus flag. The idea is that when the blur event pop, we wait for a tick (with a setTimeout) and if hasFocus is false
-                // after that tick, it means that the new focused element is not inside the popper and we can safely hide the popper.The check has to be delayed since between
-                // leaving the old element and entering the new element the active element will always be the document/body itself.
-                setTimeout(() => {
-                    if (!hasFocusRef.current) {
-                        hidePopper(event);
+                if (isVisible) {
+                    if (hideOnBlur) {
+                        // The event must be persisted since it's used later in a setTimeout.
+                        event.persist();
+
+                        // Using a focus / unfocus flag was not the preferred way to prevent the popper from hiding on blur when the new focused item was inside the popper.
+                        // The first attempt has been to use a setTimeout in pair with the document.activeElement. The setTimeout ensured that the new focused element was set to
+                        // document.activeElement. This was working well in browsers.
+                        //
+                        // However, our interaction tests rely on jsdom and jsdom support for document.activementElement is not reliable (in fact, it doesn't have the same behavior
+                        // as browsers).
+                        //
+                        // The fallback is to use this hasFocus flag. The idea is that when the blur event pop, we wait for a tick (with a setTimeout) and if hasFocus is false
+                        // after that tick, it means that the new focused element is not inside the popper and we can safely hide the popper.The check has to be delayed since between
+                        // leaving the old element and entering the new element the active element will always be the document/body itself.
+                        setTimeout(() => {
+                            if (!hasFocusRef.current) {
+                                hidePopper(event);
+                            }
+                        }, 0);
                     }
-                }, 0);
+                }
+
+                if (!isNil(onBlur)) {
+                    onBlur(event);
+                }
             }
         }
-    }, [hideOnBlur, isVisible, hasFocusRef, lastSourceEventRef, hidePopper]);
+
+    }, [disabled, hideOnBlur, onBlur, isVisible, hasFocusRef, activeElementRef, hidePopper]);
 }
 
-function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, lastSourceEventRef, hidePopper, setFocusTrigger) {
+function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger) {
     const handler = useCallback(event => {
-        lastSourceEventRef.current = event.type;
-
         if (event.keyCode === KEYS.esc) {
             if (hideOnEscape) {
                 hidePopper(event);
@@ -204,23 +222,23 @@ function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisi
                 }
             }
         }
-    }, [hideOnEscape, focusTriggerOnEscape, lastSourceEventRef, hidePopper, setFocusTrigger]);
+    }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
 
     useDomEventListener("keydown", handler, isVisible);
 }
 
 // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
 // More info at: https://allyjs.io/tutorials/mutating-active-element.html
-function useHandleDocumentBlur(isVisible, hasFocusRef, lastSourceEventRef, wrapperRef, setFocusPopper) {
-    const handler = useCallback(event => {
-        lastSourceEventRef.current = event.type;
-
+function useHandleDocumentBlur(isVisible, hasFocusRef, wrapperRef, setFocusPopper) {
+    const handler = useCallback(() => {
         if (hasFocusRef.current) {
             setTimeout(() => {
+                // Chrome and Edge move the focus to the body when the active element becomes disabled.
+                // Could improve the code by keeping a ref on the last active element and only focus the wrapper if the last active element is disabled.
+                // See "lastFocusRef" in https://github.com/react-bootstrap/react-overlays/blob/master/src/Modal.tsx
                 if (document.activeElement.nodeName === "BODY") {
                     setFocusPopper(() => {
                         if (!isNil(wrapperRef.current)) {
-                            // Chrome, Edge
                             wrapperRef.current.focus();
                         }
                     });
@@ -239,21 +257,19 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, lastSourceEventRef, wrapp
                 }
             }, 0);
         }
-    }, [hasFocusRef, lastSourceEventRef, wrapperRef, setFocusPopper]);
+    }, [hasFocusRef, wrapperRef, setFocusPopper]);
 
     useDomEventListener("blur", handler, isVisible, { capture: true });
 }
 
-function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, lastSourceEventRef, triggerElement, popperElement, hidePopper) {
+function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper) {
     const handler = useCallback(event => {
-        lastSourceEventRef.current = event.type;
-
         if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
             if (hideOnOutsideClick) {
                 hidePopper(event);
             }
         }
-    }, [hideOnOutsideClick, lastSourceEventRef, triggerElement, popperElement, hidePopper]);
+    }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
 
     useDomEventListener("click", handler, isVisible);
 }
@@ -341,7 +357,7 @@ function usePopperRenderer(
     };
 }
 
-function useRenderer({ fluid, disabled, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, trigger, renderPopper) {
+function useRenderer({ fluid, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, trigger, renderPopper) {
     return content => {
         const classes = mergeClasses(
             "outline-0",
@@ -356,8 +372,8 @@ function useRenderer({ fluid, disabled, className, rest }, handleWrapperFocus, h
                 {...rest}
                 // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
                 // For more info: https://github.com/facebook/react/issues/6410
-                onFocus={!disabled ? handleWrapperFocus : undefined}
-                onBlur={!disabled ? handleWrapperBlur : undefined}
+                onFocus={handleWrapperFocus}
+                onBlur={handleWrapperBlur}
                 className={classes}
                 ref={wrapperRef}
             >
@@ -375,6 +391,8 @@ export function usePopperTrigger(props) {
         trigger,
         toggleHandler,
         onVisibilityChange,
+        onFocus,
+        onBlur,
         fluid,
         zIndex,
         position,
@@ -408,7 +426,8 @@ export function usePopperTrigger(props) {
     const [popperElement, setPopperElement] = useState();
 
     const hasFocusRef = useRef();
-    const lastSourceEventRef = useRef(null);
+    const activeElementRef = useRef();
+    const lastTriggerEventRef = useRef();
     const wrapperRef = useCombinedRefs(forwardedRef);
 
     const setFocusTrigger = useSetFocusTrigger(triggerElement);
@@ -417,16 +436,16 @@ export function usePopperTrigger(props) {
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
     const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
-    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastSourceEventRef, setFocusTrigger, setFocusPopper);
+    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper);
 
-    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, lastSourceEventRef, togglePopper);
-    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastSourceEventRef, showPopper, togglePopper);
-    const handleWrapperFocus = useHandleWrapperFocus(hasFocusRef, lastSourceEventRef);
-    const handleWrapperBlur = useHandleWrapperBlur({ hideOnBlur }, isVisible, hasFocusRef, lastSourceEventRef, hidePopper);
+    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper);
+    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastTriggerEventRef, showPopper, togglePopper);
+    const handleWrapperFocus = useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElementRef);
+    const handleWrapperBlur = useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper);
 
-    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, lastSourceEventRef, hidePopper, setFocusTrigger);
-    useHandleDocumentBlur(isVisible, hasFocusRef, lastSourceEventRef, wrapperRef, setFocusPopper);
-    useHandleDocumentClick({ hideOnOutsideClick }, isVisible, lastSourceEventRef, triggerElement, popperElement, hidePopper);
+    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger);
+    useHandleDocumentBlur(isVisible, hasFocusRef, wrapperRef, setFocusPopper);
+    useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper);
 
     const renderTrigger = useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement);
 
@@ -436,7 +455,7 @@ export function usePopperTrigger(props) {
         triggerElement,
         setPopperElement);
 
-    const render = useRenderer({ fluid, disabled, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, renderTrigger(), renderPopper);
+    const render = useRenderer({ fluid, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, renderTrigger(), renderPopper);
 
     return {
         renderPopper: render,

@@ -12,6 +12,9 @@ import { cloneElement, forwardRef, useCallback, useEffect, useState } from "reac
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
 
+// DOCS:
+// - Write a custom trigger to get "upward" & "open". Component type must be "DropdownTrigger".
+
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
