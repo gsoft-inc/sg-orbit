@@ -3,7 +3,7 @@ import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 import { isPlainObject } from "lodash";
 
-export function createShorthand(ElementType) {
+export function createShorthandFactory(ElementType) {
     return (shorthand, props, customFactory) => {
         if (isElement(shorthand)) {
             return cloneElement(shorthand, props);

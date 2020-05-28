@@ -14,4 +14,4 @@ export * from "./resize-observer";
 export * from "./size";
 export * from "./semantic-ui";
 export * from "./use-autofocus";
-export * from "./create-shorthand";
+export * from "./create-shorthand-factory";

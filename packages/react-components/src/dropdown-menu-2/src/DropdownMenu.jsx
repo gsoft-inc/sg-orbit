@@ -1,9 +1,9 @@
 import { Children, cloneElement, createRef, forwardRef, useCallback, useState } from "react";
 import { DropdownItem } from "./DropdownItem";
-import { KEYS, SemanticRef, createShorthand, mergeClasses, useDomEventListener } from "../../shared";
+import { KEYS, SemanticRef, createShorthandFactory, mergeClasses, useDomEventListener } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { bool, func } from "prop-types";
-import { isNil } from "lodash";
+import { isFunction, isNil } from "lodash";
 
 const propTypes = {
     open: bool,
@@ -180,4 +180,4 @@ export const DropdownMenu = forwardRef((props, ref) => (
     <InnerDropdownMenu {...props} forwardedRef={ref} />
 ));
 
-export const createDropdownMenu = createShorthand(DropdownMenu);
+export const createDropdownMenu = createShorthandFactory(DropdownMenu);
