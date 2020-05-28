@@ -1,11 +1,9 @@
-import { ArgumentError } from "../../../shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
-import { POSITIONS } from "../../../popper";
 import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
-import { arrayOf, bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -136,7 +134,7 @@ export class InlineSingleDatePicker extends PureComponent {
         const { size, ...rest } = this.props;
 
         if (!isNil(size)) {
-            throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
+            throw new Error(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
         }
 
         return <SingleDatePicker {...rest} />;

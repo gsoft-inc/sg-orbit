@@ -1,12 +1,12 @@
-import { LARGE, MEDIUM, MICRO, MINI, SMALL, TINY } from "../../shared";
+import { SIZE } from "../../shared";
 
 const LABEL_SIZE = {
-    [MICRO]: MICRO,
-    [MINI]: MICRO,
-    [TINY]: MICRO,
-    [SMALL]: MINI,
-    [MEDIUM]: MINI,
-    [LARGE]: TINY
+    [SIZE.micro]: SIZE.micro,
+    [SIZE.mini]: SIZE.micro,
+    [SIZE.tiny]: SIZE.micro,
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.mini,
+    [SIZE.large]: SIZE.tiny
 };
 
 export function getContentLabelSize(size) {

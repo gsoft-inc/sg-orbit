@@ -1,15 +1,6 @@
-import { isFunction, isNil } from "lodash";
+import { assignRef } from "./assign-ref";
+import { isNil } from "lodash";
 import { useCallback } from "react";
-
-export function assignRef(ref, node) {
-    if (!isNil(ref)) {
-        if (isFunction(ref)) {
-            ref(node);
-        } else {
-            ref.current = node;
-        }
-    }
-}
 
 /**
  * @param {...Function|Object} refs - Refs to combine.

@@ -1,9 +1,7 @@
 import { ControlledSearchInput } from "./controlled-search-input.sample";
-import { DEFAULT_SIZE, SearchInput, SearchInputController, searchInputResult } from "@react-components/search-input";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
+import { SearchInput, searchInputResult } from "@react-components/search-input";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { logValueChanged } from "../utils";
 import Imports from "./imports.mdx";
@@ -75,31 +73,6 @@ A default search input with a set of results.
         />
     </Story>
 </Preview>
-
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <SearchInput
-        results={DEFAULT_RESULTS}
-        defaultValue={text("defaultValue")}
-        debounceDelay={number("debounceDelay", SearchInput.defaultProps.debounceDelay)}
-        minCharacters={number("minCharacters", SearchInput.defaultProps.minCharacters)}
-        noResultsMessage={text("noResultsMessage")}
-        placeholder={text("placeholder", SearchInputController.defaultProps.placeholder)}
-        fluid={boolean("fluid", false)}
-        disabled={boolean("disabled", false)}
-        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
-        closeOnBlur={boolean("closeOnBlur", true)}
-        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-        onValueChange={logValueChanged}
-    />
-</Story>
 
 ### Selected value
 

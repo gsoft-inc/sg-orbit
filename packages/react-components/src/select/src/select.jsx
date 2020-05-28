@@ -1,9 +1,9 @@
-import { ArgumentError, KEYS, LARGE, MEDIUM, MINI, SMALL, TINY, mergeClasses, throwWhenUnsupportedPropIsProvided, useDomEventListener } from "../../shared";
 import { Dropdown } from "../../dropdown";
+import { KEYS, SIZE, mergeClasses, throwWhenUnsupportedPropIsProvided, useDomEventListener } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { SelectItem, createSelectItem } from "./item";
-import { any, arrayOf, bool, func, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, func, object, oneOf, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isArray, isNil } from "lodash";
 import { renderAvatar } from "./render-avatar";
@@ -39,9 +39,9 @@ const UNSUPPORTED_PROPS = [
 ];
 
 const MULTIPLE_VALUES_LABEL_SIZE = {
-    [SMALL]: MINI,
-    [MEDIUM]: TINY,
-    [LARGE]: SMALL
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
 };
 
 const propTypes = {
@@ -114,18 +114,18 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
     if (inline && size !== DEFAULT_SIZE) {
-        throw new ArgumentError("@orbit-ui/react-components/select you cannot specify a size for an inline select.");
+        throw new Error("@orbit-ui/react-components/select you cannot specify a size for an inline select.");
     }
 }
 
 function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value }) {
     if (multiple) {
         if (!isNil(defaultValue) && !isArray(defaultValue)) {
-            throw new ArgumentError("@orbit-ui/react-components/select defaultValues must be an array when multiple is true.");
+            throw new Error("@orbit-ui/react-components/select defaultValues must be an array when multiple is true.");
         }
 
         if (!isNil(value) && !isArray(value)) {
-            throw new ArgumentError("@orbit-ui/react-components/select values must be an array when multiple is true.");
+            throw new Error("@orbit-ui/react-components/select values must be an array when multiple is true.");
         }
     }
 }

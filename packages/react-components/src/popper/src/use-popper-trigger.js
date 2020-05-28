@@ -1,4 +1,4 @@
-import { ArgumentError, KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
+import { KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
 import { Popper } from "./popper";
 import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
 import { createPopper } from "./shorthands";
@@ -8,11 +8,11 @@ import { isFunction, isNil } from "lodash";
 function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     useEffect(() => {
         if (hideOnBlur && hideOnOutsideClick) {
-            throw new ArgumentError("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
+            throw new Error("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
-            throw new ArgumentError("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
+            throw new Error("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
         }
     }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow]);
 }

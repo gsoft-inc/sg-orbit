@@ -55,7 +55,6 @@ import { createComponentSection } from "@utils";
 The component stories must provide:
 
 - A story named *default* that render the component default state.
-- A story named *knobs* with pre-configured [knobs](https://github.com/storybookjs/storybook/tree/next/addons/knobs). 
 
 The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/src/*/stories/**.stories.mdx`.
 

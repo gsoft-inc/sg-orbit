@@ -2,9 +2,9 @@ import "./item-factory";
 
 import { DropdownContext } from "./context";
 import { DropdownItem } from "./item";
-import { LARGE, SMALL, SemanticRef, mergeClasses, useAutofocus } from "../../shared";
+import { SIZE, SemanticRef, mergeClasses, useAutofocus } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, string } from "prop-types";
 import { createContentIcon } from "../../icons";
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
@@ -14,8 +14,8 @@ const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
 const SIZE_CLASS = {
-    [SMALL]: "small",
-    [LARGE]: "large"
+    [SIZE.small]: "small",
+    [SIZE.large]: "large"
 };
 
 const propTypes = {

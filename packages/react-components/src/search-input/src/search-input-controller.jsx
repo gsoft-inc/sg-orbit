@@ -1,7 +1,6 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, getAutoControlledStateFromProps, isNullOrEmpty, mergeClasses } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, SIZE, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CloseIcon, MagnifierIcon } from "../../icons";
-import { DEFAULT_SIZE, SIZES } from "./sizes";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
 import { TextInput, createTextInput } from "../../text-input";
@@ -36,7 +35,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocus: bool,
         autofocusDelay: number,
         fluid: bool,
-        size: oneOf(SIZES),
+        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
         input: oneOfType([element, object]),
         active: bool,
         focus: bool,
@@ -51,7 +50,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         autofocusDelay: 50,
-        size: DEFAULT_SIZE,
+        size: SIZE.medium,
         input: <TextInput />
     };
 
@@ -153,7 +152,7 @@ export class SearchInputController extends AutoControlledPureComponent {
                 const { value, query } = this.state;
 
                 if (isNil(value)) {
-                    if (!isNullOrEmpty(query)) {
+                    if (!isNilOrEmpty(query)) {
                         // When the user modified the query but didn't select any result and we dont know of any selected result, clear everything.
                         this.trySetAutoControlledStateValue({ value: null });
                         this.setState({ query: "" });
@@ -204,7 +203,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { query } = this.state;
 
         if (!loading) {
-            if (isNullOrEmpty(query)) {
+            if (isNilOrEmpty(query)) {
                 this.clear(event);
             }
         }
@@ -240,7 +239,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onValueChange } = this.props;
         const { value, query } = this.state;
 
-        if (!isNullOrEmpty(query)) {
+        if (!isNilOrEmpty(query)) {
             this.setState({ query: "" });
         }
 

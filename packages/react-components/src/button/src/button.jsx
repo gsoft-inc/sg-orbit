@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
 import { Children, cloneElement, forwardRef, useCallback } from "react";
 import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
 import { createContentIcon, createStandaloneIcon } from "../../icons";
 import { createLabel, getContentLabelSize } from "../../label";
 import { createTag, getTagSize } from "../../tag";
@@ -86,11 +86,11 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
     if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
+        throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new ArgumentError("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
+        throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
     }
 }
 

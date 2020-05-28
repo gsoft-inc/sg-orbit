@@ -1,6 +1,6 @@
-import { ArgumentError, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback } from "react";
 import { createContentIcon } from "../../icons";
 import { createCount } from "../../count";
@@ -80,7 +80,7 @@ const defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
     if (!isNil(label) && !isNil(count)) {
-        throw new ArgumentError(`${componentName} doesn't support having a label and a count at the same time.`);
+        throw new Error(`${componentName} doesn't support having a label and a count at the same time.`);
     }
 }
 

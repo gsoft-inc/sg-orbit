@@ -1,7 +1,7 @@
-import { ArgumentError, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Dropdown, DropdownContext } from "../../dropdown";
 import { arrayOf, element, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
+import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { renderAvatar } from "./render-avatar";
 import { renderIcons } from "./render-icons";
 import { useContext } from "react";
@@ -46,7 +46,7 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
     if (!isNil(icons) && iconsPosition === "left" && !isNil(avatar)) {
-        throw new ArgumentError("@orbit-ui/react-components/select/item doesn't support having a left positioned icons and an avatar at the same time.");
+        throw new Error("@orbit-ui/react-components/select/item doesn't support having a left positioned icons and an avatar at the same time.");
     }
 }
 

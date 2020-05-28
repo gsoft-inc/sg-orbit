@@ -1,13 +1,9 @@
 import { ControlledDateRangePicker } from "./controlled-date-range-picker.sample";
 import { DEFAULT_DATES_PRESETS, DateRangePicker, InnerDateRangePickerCalendar, InnerDateRangePickerInput } from "@react-components/date-picker";
-import { DEFAULT_PRESETS_OPTIONS } from "../data";
-import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
-import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "../utils";
+import { logDatesChanged, toStoryValuesPresets } from "../utils";
 import Imports from "./imports.mdx";
 import MomentUsage from "../moment-usage.mdx";
 import moment from "moment";
@@ -57,37 +53,6 @@ A default date range picker.
         />
     </Story>
 </Preview>
-
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <DateRangePicker
-        defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
-        defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
-        allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
-        allowClear={boolean("allowClear", true)}
-        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
-        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-        placeholder={text("placeholder")}
-        rangeFormat={text("rangeFormat")}
-        dateFormat={text("dateFormat")}
-        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
-        position={select("position", { "top-start": "top-start", "top-end": "top-end", "bottom": "bottom", "bottom-start": "bottom-start", "bottom-end": "bottom-end", "right": "right", "right-start": "right-start", "right-end": "right-end", "left": "left", "left-start": "left-start", "left-end": "left-end" }, "bottom-start")}
-        presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
-        disabled={boolean("disabled", false)}
-        fluid={boolean("fluid", false)}
-        closeOnBlur={boolean("closeOnBlur", true)}
-        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-        className={text("className")}
-        onDatesChange={logDatesChanged}
-    />
-</Story>
 
 ### Dates presets
 

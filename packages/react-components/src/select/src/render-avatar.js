@@ -1,12 +1,12 @@
-import { LARGE, MEDIUM, MINI, SMALL, TINY } from "../../shared";
+import { SIZE } from "../../shared";
 import { Image as SemanticImage } from "semantic-ui-react";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 const AVATAR_SIZE = {
-    [SMALL]: MINI,
-    [MEDIUM]: TINY,
-    [LARGE]: SMALL
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
 };
 
 export function renderAvatar(avatar, size) {

@@ -1,7 +1,6 @@
 import { IS_PRODUCTION } from "../env";
 import { PureComponent } from "react";
 import { difference, isFunction, isNil, isUndefined } from "lodash";
-import { ensure } from "../contracts";
 
 /*
  * How to develop an auto controlled component to support "controlled" and "uncontrolled" values properties.
@@ -81,10 +80,10 @@ function ensureAutoControlledPropsHasNotChanged(newProps, lastProps) {
  * }
  */
 export function getAutoControlledStateFromProps(props, state, autoControlledProps, getDerivedStateFromProps) {
-    ensure(props, "props", `${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
-    ensure(state, "state", `${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
-    ensure(autoControlledProps, `autoControlledProps", "${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
-    ensure(getDerivedStateFromProps, `getDerivedStateFromProps", "${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isFunction();
+    // ensure(props, "props", `${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
+    // ensure(state, "state", `${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
+    // ensure(autoControlledProps, `autoControlledProps", "${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isNotNull();
+    // ensure(getDerivedStateFromProps, `getDerivedStateFromProps", "${AutoControlledPureComponent.name}.getDerivedAutoControlledStateFromProps`).isFunction();
 
     const lastAutoControlledProps = getStateAutoControlledProps(state);
     const isInitialState = isUndefined(lastAutoControlledProps);
@@ -205,7 +204,7 @@ export class AutoControlledPureComponent extends PureComponent {
 
         const { [AUTO_CONTROLLED_PROPS_NAME]: autoControlledProps } = this.state;
 
-        ensure(maybeState, "maybeState", `${name}.trySetAutoControlledStateValue`).isNotNull();
+        // ensure(maybeState, "maybeState", `${name}.trySetAutoControlledStateValue`).isNotNull();
 
         if (isUndefined(autoControlledProps)) {
             throw new Error(

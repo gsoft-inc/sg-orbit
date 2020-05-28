@@ -1,5 +1,4 @@
 import { IS_PRODUCTION } from "../env";
-import { ensure } from "../contracts";
 import { isFunction, isUndefined } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -76,7 +75,7 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
  */
 function useSetAutoControlledState(currentState, setState, isControlled, onChange) {
     return useCallback(maybeState => {
-        ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
+        // ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
 
         if (!isControlled) {
             if (maybeState !== currentState) {

@@ -2,7 +2,6 @@ import { Count } from "@react-components/count";
 import { InstallReactComponents, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { text as textKnob, withKnobs } from "@storybook/addon-knobs";
 import Imports from "./imports.mdx";
 
 <Meta
@@ -33,18 +32,6 @@ A default count.
         <Count>6</Count>
     </Story>
 </Preview>
-
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <Count className={textKnob("className")}>6</Count>
-</Story>
 
 ### With a text
 

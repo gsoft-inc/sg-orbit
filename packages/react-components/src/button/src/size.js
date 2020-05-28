@@ -1,12 +1,12 @@
-import { LARGE, MEDIUM, MICRO, MINI, SMALL, TINY } from "../../shared";
+import { SIZE } from "../../shared";
 
 const BUTTON_SIZE = {
-    [MICRO]: MICRO,
-    [MINI]: MICRO,
-    [TINY]: MICRO,
-    [SMALL]: MINI,
-    [MEDIUM]: TINY,
-    [LARGE]: SMALL
+    [SIZE.micro]: SIZE.micro,
+    [SIZE.mini]: SIZE.micro,
+    [SIZE.tiny]: SIZE.micro,
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
 };
 
 export function getContentButtonSize(size) {

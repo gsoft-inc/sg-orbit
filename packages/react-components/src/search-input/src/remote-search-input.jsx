@@ -1,11 +1,8 @@
 import {
-    ArgumentError,
     AutoControlledPureComponent,
-    InvalidOperationError,
     KEYS,
     cancellablePromise,
     defer,
-    ensure,
     getAutoControlledStateFromProps,
     httpGet
 } from "../../shared";
@@ -23,12 +20,12 @@ function defaultResultsFetcher(event, url, data, options) {
                 if (response.ok) {
                     resolve(response.json());
                 } else {
-                    reject(new InvalidOperationError(`Remote Search Input - The request failed with response: "${response.statusText}"`));
+                    reject(new Error(`Remote Search Input - The request failed with response: "${response.statusText}"`));
                 }
             })
             .catch(error => {
                 if (error.isTimeout) {
-                    reject(new InvalidOperationError("Remote Search Input - The request timed out."));
+                    reject(new Error("Remote Search Input - The request timed out."));
                 } else {
                     reject(error);
                 }
@@ -48,7 +45,7 @@ function defaultResultsFetcher(event, url, data, options) {
  * @returns {Function} - The fetcher instance
  */
 export function withDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
-    ensure(url, "url", "withDefaultResultsFetcher").isNotNullOrEmpty();
+    // ensure(url, "url", "withDefaultResultsFetcher").isNotNullOrEmpty();
 
     return (event, query) => {
         const data = {
@@ -221,7 +218,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         const { closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("RemoteSearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new Error("RemoteSearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
     }
 
@@ -329,7 +326,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                         results = onResults(results, query);
 
                         if (!isArray(results)) {
-                            throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
+                            throw new Error("Remote Search Input - onResults expect a return value of type array.");
                         }
                     }
 
@@ -359,7 +356,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         const promise = onFetchResults(event, query);
 
         if (!isPromise(promise)) {
-            throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
+            throw new Error("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
         }
 
         this._fetchResultsPromise = cancellablePromise(promise);

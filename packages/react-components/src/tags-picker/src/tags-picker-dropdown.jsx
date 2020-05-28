@@ -1,14 +1,16 @@
-import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "../../shared";
+import { DOMEventListener, KEYS, SIZE, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
-import { SIZES } from "./sizes";
 import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 import { isElement } from "react-is";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -146,7 +148,7 @@ export class TagsPickerDropdown extends PureComponent {
         const { items, closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("TagsPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new Error("TagsPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
 
         if (prevProps.items !== items) {

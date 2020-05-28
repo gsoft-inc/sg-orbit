@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, BIG, HUGE, MASSIVE, MINI, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Children, cloneElement, forwardRef } from "react";
+import { SIZE, SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Label as SemanticLabel } from "semantic-ui-react";
-import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, object, oneOf, oneOfType } from "prop-types";
 import { createButton, getContentButtonSize } from "../../button";
 import { createContentIcon, createStandaloneIcon } from "../../icons";
 import { createTag, getTagSize } from "../../tag";
@@ -61,26 +61,26 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, compact, circular, tag, icon, iconPosition }) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a button and a right positioned icon at the same time.");
+        throw new Error("@orbit-ui/react-components/label doesn't support having a button and a right positioned icon at the same time.");
     }
 
     if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new ArgumentError("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
+        throw new Error("@orbit-ui/react-components/label doesn't support having a tag and a left positioned icon at the same time.");
     }
 
     if (compact && circular) {
-        throw new ArgumentError("@orbit-ui/react-components/label doesn't support being circular and compact at the same time.");
+        throw new Error("@orbit-ui/react-components/label doesn't support being circular and compact at the same time.");
     }
 }
 
 function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     if (circular) {
-        if (size === MINI) {
-            throw new ArgumentError(`@orbit-ui/react-components/label doesn't support "${MINI}" size when "circular".`);
+        if (size === SIZE.mini) {
+            throw new Error(`@orbit-ui/react-components/label doesn't support "${SIZE.mini}" size when "circular".`);
         }
     } else {
-        if (size === BIG || size === HUGE || size === MASSIVE) {
-            throw new ArgumentError(`@orbit-ui/react-components/label doesn't support "${BIG}", "${HUGE}" or "${MASSIVE}" sizes.`);
+        if (size === SIZE.big || size === SIZE.huge || size === SIZE.massive) {
+            throw new Error(`@orbit-ui/react-components/label doesn't support "${SIZE.big}", "${SIZE.huge}" or "${SIZE.massive}" sizes.`);
         }
     }
 }

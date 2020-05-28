@@ -1,28 +1,28 @@
-import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, MINI, SMALL, TINY } from "../../shared";
+import { SIZE } from "../../shared";
 import { cloneElement } from "react";
 
 export const DEFAULT_SIZE = {
-    [MICRO]: MINI,
-    [MINI]: MINI,
-    [TINY]: MINI,
-    [SMALL]: TINY,
-    [MEDIUM]: SMALL,
-    [LARGE]: MEDIUM,
-    [BIG]: LARGE,
-    [HUGE]: BIG,
-    [MASSIVE]: HUGE
+    [SIZE.micro]: SIZE.micro,
+    [SIZE.mini]: SIZE.mini,
+    [SIZE.tiny]: SIZE.mini,
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium,
+    [SIZE.big]: SIZE.large,
+    [SIZE.huge]: SIZE.big,
+    [SIZE.massive]: SIZE.huge
 };
 
 export const STANDALONE_SIZE = {
-    [MICRO]: MICRO,
-    [MINI]: MINI,
-    [TINY]: TINY,
-    [SMALL]: SMALL,
-    [MEDIUM]: MEDIUM,
-    [LARGE]: LARGE,
-    [BIG]: BIG,
-    [HUGE]: HUGE,
-    [MASSIVE]: MASSIVE
+    [SIZE.micro]: SIZE.micro,
+    [SIZE.mini]: SIZE.mini,
+    [SIZE.tiny]: SIZE.tiny,
+    [SIZE.small]: SIZE.small,
+    [SIZE.medium]: SIZE.medium,
+    [SIZE.large]: SIZE.large,
+    [SIZE.big]: SIZE.big,
+    [SIZE.huge]: SIZE.huge,
+    [SIZE.massive]: SIZE.massive
 };
 
 export function createContentIcon(icon, size, props = {}) {

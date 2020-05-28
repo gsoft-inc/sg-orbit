@@ -1,4 +1,4 @@
-import { BIG, HUGE, LARGE, MASSIVE, MEDIUM, MICRO, MINI, SMALL, TINY, mergeClasses } from "../../shared";
+import { SIZE, mergeClasses } from "../../shared";
 import { elementType, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 
@@ -9,15 +9,15 @@ const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge
 const DEFAULT_SIZE = "medium";
 
 const DIMENSION_CLASS = {
-    [MICRO]: "w2 h2",
-    [MINI]: "w3 h3",
-    [TINY]: "w4 h4",
-    [SMALL]: "w5 h5",
-    [MEDIUM]: "w6 h6",
-    [LARGE]: "w7 h7",
-    [BIG]: "w8 h8",
-    [HUGE]: "w9 h9",
-    [MASSIVE]: "w10 h10"
+    [SIZE.micro]: "w2 h2",
+    [SIZE.mini]: "w3 h3",
+    [SIZE.tiny]: "w4 h4",
+    [SIZE.small]: "w5 h5",
+    [SIZE.medium]: "w6 h6",
+    [SIZE.large]: "w7 h7",
+    [SIZE.big]: "w8 h8",
+    [SIZE.huge]: "w9 h9",
+    [SIZE.massive]: "w10 h10"
 };
 
 export function InnerIcon({ type: Component, size, className, forwardedRef, ...rest }) {
@@ -72,7 +72,7 @@ function createIcon(type) {
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;
 
-    if (size === TINY || size === SMALL || size === MEDIUM) {
+    if (size === SIZE.tiny || size === SIZE.small || size === SIZE.medium) {
         type = Component24;
     }
 

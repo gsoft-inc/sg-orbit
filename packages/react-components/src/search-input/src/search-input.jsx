@@ -1,4 +1,4 @@
-import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
@@ -154,7 +154,7 @@ export class SearchInput extends AutoControlledPureComponent {
         const { closeOnBlur, closeOnOutsideClick } = this.props;
 
         if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("SearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
+            throw new Error("SearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
         }
     }
 

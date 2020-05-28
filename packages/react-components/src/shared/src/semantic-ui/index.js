@@ -1,2 +1,2 @@
-export * from "./unsupported-semantic-prop-error";
+export * from "./throw-when-unsupported-prop-is-provided";
 export * from "./semantic-ref";

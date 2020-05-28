@@ -5,7 +5,7 @@ import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { TagsPickerSelectedItems } from "./tags-picker-selected-items";
-import { arrayOf, bool, element, func, object, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 

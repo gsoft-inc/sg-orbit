@@ -1,13 +1,13 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { ArgumentError, mergeClasses, useAutofocus } from "../../shared";
 import { Input as SemanticInput } from "semantic-ui-react";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useImperativeHandle, useRef } from "react";
 import { createButton, getContentButtonSize } from "../../button";
 import { createContentIcon } from "../../icons";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
+import { mergeClasses, useAutofocus } from "../../shared";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -78,7 +78,7 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }, componentName) {
     if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new ArgumentError(`${componentName} doesn't support having a button and a right positioned icon at the same time.`);
+        throw new Error(`${componentName} doesn't support having a button and a right positioned icon at the same time.`);
     }
 }
 
