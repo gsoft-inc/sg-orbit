@@ -1,6 +1,6 @@
 import { AddIcon } from "../../icons";
 import { Button } from "../../button";
-import { KEYS, SIZE, mergeClasses } from "../../shared";
+import { KEYS, mergeClasses } from "../../shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";

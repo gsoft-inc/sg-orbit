@@ -2,7 +2,7 @@ import { Button } from "@react-components/button";
 import { VerticalDotsIcon } from "@react-components/icons";
 import { forwardRef } from "react";
 
-export const AdvancedTrigger = forwardRef(({ open, size, onClick }, ref) => {
+export const CustomTrigger = forwardRef(({ open, size, onClick }, ref) => {
     return (
         <Button
             size={size}
@@ -16,4 +16,4 @@ export const AdvancedTrigger = forwardRef(({ open, size, onClick }, ref) => {
     );
 });
 
-AdvancedTrigger.name = "DropdownTrigger";
+CustomTrigger.name = "DropdownTrigger";

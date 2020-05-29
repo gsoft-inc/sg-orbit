@@ -1,12 +1,14 @@
-import { AdvancedTrigger } from "./AdvancedTrigger.sample.jsx";
 import { Button } from "@react-components/button";
 import { CustomLink } from "./CustomLink.sample.jsx";
-import { Details, FileSource, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { CustomTrigger } from "./CustomTrigger.sample.jsx";
 import { Dropdown, InnerDropdown, InnerDropdownButtonItem, InnerDropdownHeader, InnerDropdownItem, InnerDropdownLinkItem, InnerDropdownMenu } from "@react-components/dropdown-menu-2";
 import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { logClicked } from "./utils";
+import CustomLinkBlock from "./CustomLinkBlock.mdx";
+import CustomTriggerBlock from "./CustomTriggerBlock.mdx";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -88,9 +90,7 @@ A dropdown link item can be a custom component like a [React Router Link](https:
     </Story>
 </Preview>
 
-<Details title="Custom link implementation">
-    <FileSource filePath="/dropdown-menu-2/stories/CustomLink" format={false} />
-</Details>
+<CustomLinkBlock />
 
 ### Icon
 
@@ -132,7 +132,7 @@ To have access to those properties you can write a custom trigger component havi
 
 <Preview>
     <Story name="advanced trigger">
-        <Dropdown trigger={<AdvancedTrigger />}>
+        <Dropdown trigger={<CustomTrigger />}>
             <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
             <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
             <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
@@ -142,9 +142,7 @@ To have access to those properties you can write a custom trigger component havi
     </Story>
 </Preview>
 
-<Details title="Custom trigger implementation">
-    <FileSource filePath="/dropdown-menu-2/stories/AdvancedTrigger" format={false} />
-</Details>
+<CustomTriggerBlock />
 
 ### Header
 
