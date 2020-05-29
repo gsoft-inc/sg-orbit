@@ -1,6 +1,5 @@
 import { DatePickerTextboxInput } from "../date-picker-textbox-input";
 import { PureComponent, forwardRef } from "react";
-import { SIZE } from "../../../shared";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";

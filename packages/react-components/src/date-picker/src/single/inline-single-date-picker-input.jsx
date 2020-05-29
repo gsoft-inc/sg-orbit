@@ -1,7 +1,7 @@
 import { ArrowIcon32 } from "../../../icons";
 import { KEYS, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
-import { bool, func, object, oneOfType, string } from "prop-types";
+import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 

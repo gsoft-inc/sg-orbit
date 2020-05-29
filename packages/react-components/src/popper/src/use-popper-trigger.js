@@ -256,7 +256,7 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapper
                 }
             }, 0);
         }
-    }, [hasFocusRef, wrapperRef, setFocusPopper]);
+    }, [hasFocusRef, activeElementRef, wrapperRef, setFocusPopper]);
 
     useDomEventListener("blur", handler, isVisible, { capture: true });
 }

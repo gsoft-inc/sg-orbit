@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { CloseIcon } from "@react-components/icons";
 import { ControlledPopper } from "./controlled-popper.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-components/popper"
@@ -38,19 +39,19 @@ A popper can be used to display some content on top of another.
 
 ## Usage
 
-This popper component is an abstraction on top of [Popper.js](https://popper.js.org/) that aims to *simplify usage* and provide *default behaviors* specifics to Orbit UI. All [Popper.js](https://popper.js.org/) features
+This popper component is an abstraction of [Popper.js](https://popper.js.org/) that aims to *simplify usage* and provide *default behaviors* specifics to Orbit UI. All [Popper.js](https://popper.js.org/) features
 can still be customized by specifying the `popperModifiers` and `popperOptions` props.
 
-Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction for [Popper.js](https://popper.js.org/) and a `<PopperTrigger />` component which is a wrapper on top
-of `<Popper />` that adds *show/hide* behaviors specifics to Orbit UI.
+Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction of [Popper.js](https://popper.js.org/) and a `<PopperTrigger />` component which is a wrapper on top
+of `<Popper />` adding *show / hide* behaviors specifics to Orbit UI.
 
 We do recommend using `<PopperTrigger />` whenever you can.
 
-### Trigger
+### Trigger rules
 
-A valid popper trigger must follow a few rules:
+A trigger is a component that toggle the popper visibility. To be valid, it must follow a few rules:
 
-- accept an handler prop matching the specified `toggleHandler` prop, e.g. `onClick`.
+- accept a prop matching the specified `toggleHandler` prop, e.g. `onClick`.
 - accept a `ref` prop and assign it to it's root element.
 - when  `focusTriggerOnShow` or `focusTriggerOnHide` are `true`, the trigger ref must also expose a `focus` function.
 
@@ -60,11 +61,13 @@ A valid popper trigger must follow a few rules:
 
 ### Adapters
 
-A popper offer adapters specialized for different kind of triggers. Use them whenever you can, they will save you time and simplify your code. The available adapters are for [button](#button-adapter) and [text input](#text-input-adapter).
+Some type of triggers requires extra work to be fully integrated with a popper. Adapters are meant to abstract this complexity. Use them whenever you can, they will save you time and simplify your code.
+
+Orbit UI currently comes with adapters for [button](#button-adapter) and [text input](#text-input-adapter) triggers.
 
 ### This is not a tooltip
 
-A popper is not meant to be used as a tooltip but rather as a low level component to build something more complex like a [date picker](?path=/docs/components-datepicker-range--default-story). A tooltip is
+A popper is not meant to be used as a tooltip but rather as a low level component to build something more complex like a [date picker](?path=/docs/components-datepicker-range--default-story) or a [dropdown](?path=/docs/components-dropdown--button). A tooltip is
 a specialization of a popper, if you need a component that behave like a tooltip, use the [tooltip](?path=/docs/components-tooltip--default-story) component instead.
 
 ### Default
@@ -182,6 +185,8 @@ A popper can be rendered without an additional element around it's popper elemen
 
 ### Without an adapter
 
+A default popper requires a `trigger` and a `toggleHandler`. The `trigger` can be wathever you want as long as it follow the [trigger rules](#trigger-rules).
+
 <Preview>
     <Story name="without an adapter">
         <PopperTrigger
@@ -195,6 +200,8 @@ A popper can be rendered without an additional element around it's popper elemen
 
 ### Button adapter
 
+A popper can use a button adapter for an easy integration with a button trigger.
+
 <Preview>
     <Story name="button adapter">
         <PopperTrigger.Button button={<Button>Toggle</Button>}>
@@ -205,51 +212,15 @@ A popper can be rendered without an additional element around it's popper elemen
 
 ### Text input adapter
 
+A popper can use a text input adapter for an easy integration with a text input trigger.
+
 <Preview>
     <Story name="text input adapter">
-        <PopperTrigger.TextInput input={<TextInput placeholder="Toggle" readOnly />}>
+        <PopperTrigger.TextInput input={<TextInput placeholder="Toggle" readOnly button={<Button icon={<CloseIcon />} />} />}>
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
         </PopperTrigger.TextInput>
     </Story>
 </Preview>
-
-<Story
-    name="dont hide on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <PopperTrigger.Button
-        button={<Button>Toggle</Button>}
-        hideOnBlur={false}
-        hideOnOutsideClick
-    >
-        <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-    </PopperTrigger.Button>
-</Story>
-
-<Story
-    name="z-index"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div>
-        <PopperTrigger.Button
-            button={<Button>Toggle</Button>}
-        >
-            <div className="bg-white">A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.</div>
-        </PopperTrigger.Button>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-    </div>
-</Story>
 
 ### Controlled
 

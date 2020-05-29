@@ -1,7 +1,6 @@
-import { Children } from "react";
 import { Dropdown, DropdownContext } from "../../dropdown";
+import { any, element } from "prop-types";
 import { createContentIcon } from "../../icons";
-import { element } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -12,27 +11,23 @@ const propTypes = {
     /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
      */
-    icon: element
+    icon: element,
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
-function useTextRenderer({ text }) {
+function useTextRenderer({ children }) {
     return () => {
-        if (!isNil(text)) {
-            return <span className="text">{text}</span>;
-        }
+        return <span className="text">{children}</span>;
     };
 }
 
-function useContentRenderer({ text, icon, children }, size) {
-    const renderText = useTextRenderer({ text });
+function useContentRenderer({ icon, children }, size) {
+    const renderText = useTextRenderer({ children });
 
     return () => {
-        const hasChildren = Children.count(children) > 0;
-
-        if (hasChildren) {
-            return children;
-        }
-
         let left;
 
         if (!isNil(icon)) {
@@ -54,13 +49,13 @@ function useRenderer({ forwardedRef, rest }, content) {
 }
 
 export function InnerDropdownHeader(props) {
-    const { text, icon, children, forwardedRef, ...rest } = props;
+    const { icon, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownHeader");
 
     const { size } = useContext(DropdownContext);
 
-    const renderContent = useContentRenderer({ text, icon, children }, size);
+    const renderContent = useContentRenderer({ icon, children }, size);
     const render = useRenderer({ rest, forwardedRef }, renderContent());
 
     // Without a fragment, react-docgen doesn't work.

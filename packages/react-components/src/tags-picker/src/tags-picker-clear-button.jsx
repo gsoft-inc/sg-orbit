@@ -1,6 +1,5 @@
 import { Button } from "../../button";
 import { PureComponent, createRef } from "react";
-import { SIZE } from "../../shared";
 import { func, oneOf, string } from "prop-types";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.

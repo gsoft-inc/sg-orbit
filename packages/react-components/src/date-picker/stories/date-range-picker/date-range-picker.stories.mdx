@@ -258,41 +258,6 @@ The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-st
     </Story>
 </Preview>
 
-<Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <DateRangePicker
-        presets={DEFAULT_DATES_PRESETS}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onDatesChange={logDatesChanged}
-    />
-</Story>
-
-<Story
-    name="z-index"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div>
-        <DateRangePicker
-            onDatesChange={logDatesChanged}
-        />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-    </div>
-</Story>
-
 ### Controlled
 
 A date range picker can handle `startDate`, `endDate` and `open` state in controlled mode.

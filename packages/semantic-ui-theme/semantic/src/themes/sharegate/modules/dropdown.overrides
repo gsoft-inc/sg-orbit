@@ -12,13 +12,24 @@
     min-width: 175px;
 }
 
-.ui.dropdown-menu {
-    display: flex;
-    align-items: center;
+/* TEMP HACKS BY PAT */
+.ui.dropdown.dropdown-menu {
+    cursor: none !important;
+    display: block !important;
+}
+.ui.dropdown.dropdown-menu .menu {
+    position: static !important;
+    left: initial !important;
+    top: initial !important;
 }
 
+/*.ui.dropdown-menu {
+    display: flex;
+    align-items: center;
+}*/
+
 /* Size */
-.ui.dropdown-menu {
+/*.ui.dropdown-menu {
     min-height: 20px;
 }
 
@@ -28,7 +39,7 @@
 
 .ui.dropdown-menu.large {
     min-height: 24px;
-}
+}*/
 
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
@@ -449,9 +460,9 @@
     Menu
 *******************************/
 /* Layout | Position */
-.ui.dropdown .visible.menu.transition {
+/*.ui.dropdown .visible.menu.transition {
     margin-top: var(--scale-bravo);
-}
+}*/
 
 .ui.upward.dropdown.selection > .menu {
     border-radius: @upwardMenuBorderRadius;
@@ -1299,7 +1310,7 @@
 }
 
 /* LAYOUT | Dropdown Menu | With Icon */
-.ui.dropdown-menu.with-icon {
+/*.ui.dropdown-menu.with-icon {
     padding-left: var(--scale-foxtrot);
 }
 
@@ -1313,7 +1324,7 @@
 
 .ui.dropdown-menu.with-icon + .ui.dropdown-icon {
     left: 0;
-}
+}*/
 
 /* TRANSPARENT */
 .ui.dropdown.transparent {

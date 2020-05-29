@@ -1,7 +1,7 @@
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
-import { bool, func, object, oneOf, oneOfType } from "prop-types";
 import { forwardRef } from "react";
+import { oneOf } from "prop-types";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "circular", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon", "tag"];
 

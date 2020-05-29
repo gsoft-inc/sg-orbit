@@ -2,13 +2,15 @@ import { Children, cloneElement, createRef, forwardRef, useCallback, useState } 
 import { DropdownItem } from "./DropdownItem";
 import { KEYS, SemanticRef, createShorthandFactory, mergeClasses, useDomEventListener } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func } from "prop-types";
+import { bool, func, object, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
     open: bool,
     onKeyDown: func,
-    onSelectItem: func
+    onSelectItem: func,
+    wrapperClassName: string,
+    wrapperStyle: object
 };
 
 function parseChildren(children) {
@@ -127,33 +129,42 @@ function useItemsRenderer(parsedChildren, keyboardIndex, handleItemClick) {
     };
 }
 
-function useRenderer({ className, forwardedRef, rest }, items) {
+function useMenuRenderer({ forwardedRef, rest }, items) {
+    return () => {
+        return (
+            <SemanticRef innerRef={forwardedRef}>
+                <SemanticDropdown.Menu
+                    {...rest}
+                    open
+                    tabIndex="-1"
+                >
+                    {items}
+                </SemanticDropdown.Menu>
+            </SemanticRef>
+        );
+    };
+}
+
+function useRenderer({ wrapperClassName, wrapperStyle }, menu) {
     return () => {
         const classes = mergeClasses(
             "ui dropdown dropdown-menu",
-            className
+            wrapperClassName
         );
 
         return (
             <div
-                {...rest}
                 className={classes}
+                style={wrapperStyle}
                 tabIndex="-1"
             >
-                <SemanticRef innerRef={forwardedRef}>
-                    <SemanticDropdown.Menu
-                        open
-                        tabIndex="-1"
-                    >
-                        {items}
-                    </SemanticDropdown.Menu>
-                </SemanticRef>
+                {menu}
             </div>
         );
     };
 }
 
-export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, className, children, forwardedRef, ...rest }) {
+export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
     const [keyboardIndex, setKeyboardIndex] = useState(0);
 
     const parsedChildren = parseChildren(children);
@@ -168,7 +179,8 @@ export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, className, ch
     useHandleDocumentKeyDown({ open, onKeyDown }, handleDocumentEnter, handleDocumentUpArrow, handleDocumentDownArrow);
 
     const renderItems = useItemsRenderer(parsedChildren, keyboardIndex, handleItemClick);
-    const render = useRenderer({ className, forwardedRef, rest }, renderItems());
+    const renderMenu = useMenuRenderer({ forwardedRef, rest }, renderItems());
+    const render = useRenderer({ wrapperClassName, wrapperStyle }, renderMenu());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

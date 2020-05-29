@@ -72,37 +72,3 @@ An inlined single date picker can be disabled.
         />
     </Story>
 </Preview>
-
-<Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <InlineSingleDatePicker
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onDateChange={logDateChanged}
-    />
-</Story>
-
-<Story
-    name="z-index"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div>
-        <InlineSingleDatePicker
-            onDateChange={logDateChanged}
-        />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-    </div>
-</Story>

@@ -1,4 +1,4 @@
-import { DOMEventListener, KEYS, SIZE, mergeClasses } from "../../shared";
+import { DOMEventListener, KEYS, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";

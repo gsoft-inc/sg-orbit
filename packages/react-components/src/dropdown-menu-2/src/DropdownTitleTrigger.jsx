@@ -20,6 +20,7 @@ const defaultProps = {
 
 export function InnerDropdownTitleTrigger({
     title,
+    icon,
     // eslint-disable-next-line no-unused-vars
     open,
     upward,
@@ -36,7 +37,7 @@ export function InnerDropdownTitleTrigger({
     delete rest["open"];
 
     const classes = mergeClasses(
-        "title",
+        "title-trigger",
         fluid && "fluid",
         active && "active",
         focus && "focus",
@@ -50,6 +51,7 @@ export function InnerDropdownTitleTrigger({
             className={classes}
             ref={forwardedRef}
         >
+            {icon}
             {title}
             <ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />
         </Element>

@@ -1,6 +1,6 @@
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { bool, element, string } from "prop-types";
 import { createContentIcon } from "../../icons";
+import { element, string } from "prop-types";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { useContext } from "react";
