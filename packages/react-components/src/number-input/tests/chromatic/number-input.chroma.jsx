@@ -1,4 +1,5 @@
-import { EditIcon } from "@react-components/icons";
+import { Button } from "@react-components/button";
+import { CloseIcon, EditIcon } from "@react-components/icons";
 import { NumberInput } from "@react-components/number-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -26,8 +27,18 @@ stories()
         <NumberInput defaultValue={10.999} />
     )
     .add("icon", () =>
-        <NumberInput icon={<EditIcon />} />
+        <div className="flex flex-column">
+            <NumberInput icon={<EditIcon />} />
+            <NumberInput icon={<EditIcon />} iconPosition="left" />
+        </div>
+    )
+    .add("button", () =>
+        <NumberInput button={<Button icon={<CloseIcon />} />} />
     )
     .add("loading", () =>
-        <NumberInput loading />
+        <div className="flex flex-column">
+            <NumberInput loading />
+            <NumberInput loading icon={<EditIcon />} />
+            <NumberInput loading icon={<EditIcon />} iconPosition="left" />
+        </div>
     );
