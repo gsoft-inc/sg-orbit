@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
-import { bool, element, func, number, oneOfType, string } from "prop-types";
+import { bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -68,6 +68,14 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      * Whether or not the calendar will open upward.
      */
     upward: bool,
+    /**
+     * A calendar can open to the left or to the right.
+     */
+    direction: oneOf(["left", "right"]),
+    /**
+     * Disables automatic repositioning of the calendar, it will always be placed according to upward and direction values.
+     */
+    pinned: bool,
     /**
      * z-index of the calendar.
      */

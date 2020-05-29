@@ -15,3 +15,4 @@ export * from "./size";
 export * from "./semantic-ui";
 export * from "./use-autofocus";
 export * from "./create-shorthand-factory";
+export * from "./resolve-popper-position";

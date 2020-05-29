@@ -101,6 +101,14 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         upward: bool,
         /**
+         * A calendar can open to the left or to the right.
+         */
+        direction: oneOf(["left", "right"]),
+        /**
+         * Disables automatic repositioning of the calendar, it will always be placed according to upward and direction values.
+         */
+        pinned: bool,
+        /**
          * z-index of the calendar.
          */
         zIndex: number,
@@ -312,7 +320,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { upward, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { upward, direction, pinned, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -321,6 +329,8 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
                 upward={upward}
+                direction={direction}
+                pinned={pinned}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}

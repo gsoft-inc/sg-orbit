@@ -204,7 +204,7 @@ A date range picker can be disabled.
     <Story name="disabled">
         <DateRangePicker
             disabled
-            onDatesChange={logDatesChanged}
+            onDateChange={logDatesChanged}
         />
     </Story>
 </Preview>
@@ -238,21 +238,53 @@ Can be set to: `"small"`, `"large"` or omitted.
     </Story>
 </Preview>
 
-### Position
+### Upward
 
-A date range picker calendar can be anchored at different positions.
-
-The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
+A date range picker prefered vertical opening position can be upward.
 
 <Preview>
     <Story
-        name="position"
+        name="upward"
         parameters={paramsBuilder()
             .canvasLayout({ marginTop: "400px" })
             .build()}
     >
         <DateRangePicker
-            position="top-start"
+            upward
+            onDatesChange={logDatesChanged}
+        />
+    </Story>
+</Preview>
+
+### Direction
+
+A date range picker prefered horizontal opening position can be `"left"` or `"right"`.
+
+<Preview>
+    <Story name="direction">
+        <div className="flex items-space-between">
+            <DateRangePicker
+                direction="left"
+                onDatesChange={logDatesChanged}
+            />
+            <DateRangePicker
+                direction="right"
+                onDatesChange={logDatesChanged}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Pinned
+
+A date range picker opening position can be forced even if there isn't enough space.
+
+<Preview>
+    <Story name="pinned">
+        <DateRangePicker
+            upward
+            direction="left"
+            pinned
             onDatesChange={logDatesChanged}
         />
     </Story>

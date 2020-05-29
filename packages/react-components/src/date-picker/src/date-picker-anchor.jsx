@@ -2,6 +2,7 @@ import { PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
 import { bool, element, func, number, object, string } from "prop-types";
 import { isNil } from "lodash";
+import { resolvePopperPosition } from "../../shared";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
@@ -9,6 +10,8 @@ export class DatePickerAnchor extends PureComponent {
         input: element.isRequired,
         calendar: element.isRequired,
         upward: bool,
+        direction: ["left", "right"],
+        pinned: bool,
         zIndex: number,
         onVisibilityChange: func,
         closeOnBlur: bool,
@@ -19,6 +22,9 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     static defaultProps = {
+        upward: false,
+        direction: "right",
+        pinned: false,
         zIndex: 2
     };
 
@@ -31,13 +37,14 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, upward, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
+        const { open, input, calendar, upward, direction, pinned, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
 
         return (
             <PopperTrigger.TextInput
                 show={open}
                 input={input}
-                position={upward ? "top-start" : "bottom-start"}
+                position={resolvePopperPosition(upward, direction)}
+                pinned={pinned}
                 offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}

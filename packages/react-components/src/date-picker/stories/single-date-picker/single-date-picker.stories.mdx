@@ -185,22 +185,57 @@ Can be set to: `"small"`, `"large"` or omitted.
     </Story>
 </Preview>
 
-### Position
+### Upward
 
-A single date picker calendar can be anchored at different positions.
-
-The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
+A single date picker prefered vertical opening position can be upward.
 
 <Preview>
     <Story
-        name="position"
+        name="upward"
         parameters={paramsBuilder()
             .canvasLayout({ marginTop: "400px" })
             .build()}
     >
         <SingleDatePicker
-            position="top-start"
-            onDateChange={logDateChanged}
+            upward
+            pinned
+            onDatesChange={logDateChanged}
+        />
+    </Story>
+</Preview>
+
+### Direction
+
+A single date picker prefered horizontal opening position can be `"left"` or `"right"`.
+
+<Preview>
+    <Story name="direction">
+        <div className="flex items-space-between">
+            <SingleDatePicker
+                direction="left"
+                pinned
+                onDatesChange={logDateChanged}
+            />
+            <SingleDatePicker
+                direction="right"
+                pinned
+                onDatesChange={logDateChanged}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Pinned
+
+A single date picker opening position can be forced even if there isn't enough space.
+
+<Preview>
+    <Story name="pinned">
+        <SingleDatePicker
+            upward={false}
+            direction="left"
+            pinned
+            onDatesChange={logDateChanged}
         />
     </Story>
 </Preview>

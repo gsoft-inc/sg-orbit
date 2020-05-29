@@ -1,12 +1,12 @@
+import { AdvancedTrigger } from "./AdvancedTrigger.sample.jsx";
 import { Button } from "@react-components/button";
 import { CustomLink } from "./CustomLink.sample.jsx";
-import { CustomTrigger } from "./CustomTrigger.sample.jsx";
 import { Details, FileSource, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Dropdown, InnerDropdown, InnerDropdownButtonItem, InnerDropdownHeader, InnerDropdownItem, InnerDropdownLinkItem, InnerDropdownMenu } from "@react-components/dropdown-menu-2";
 import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { noop } from "lodash";
+import { logClicked } from "./utils";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -47,11 +47,11 @@ A dropdown can contains button items.
 <Preview>
     <Story name="button">
         <Dropdown title="Task">
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -99,11 +99,11 @@ A dropdown default trigger can have an icon.
 <Preview>
     <Story name="icon">
         <Dropdown title="Task" icon={<FolderIcon />}>
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -115,11 +115,11 @@ A dropdown can have a custom trigger. The trigger must be able to [receive focus
 <Preview>
     <Story name="trigger">
         <Dropdown trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}>
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -132,18 +132,18 @@ To have access to those properties you can write a custom trigger component havi
 
 <Preview>
     <Story name="advanced trigger">
-        <Dropdown trigger={<CustomTrigger />}>
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+        <Dropdown trigger={<AdvancedTrigger />}>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
 
 <Details title="custom trigger component">
-    <FileSource filePath="/dropdown-menu-2/stories/CustomTrigger" format={false} />
+    <FileSource filePath="/dropdown-menu-2/stories/AdvancedTrigger" format={false} />
 </Details>
 
 ### Header
@@ -154,11 +154,11 @@ A dropdown can have an header.
     <Story name="header">
         <Dropdown title="Task">
             <Dropdown.Header>Quick Actions</Dropdown.Header>
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -170,12 +170,12 @@ A dropdown items can be divided.
 <Preview>
     <Story name="divider">
         <Dropdown title="Task">
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
             <Dropdown.Divider />
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -189,29 +189,29 @@ A dropdown can vary in size.
         <div className="flex">
             <div className="mr12">
                 <Dropdown title="Task" size="small">
-                    <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
                 </Dropdown>
             </div>
             <div className="mr12">
                 <Dropdown title="Task">
-                    <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
                 </Dropdown>
             </div>
             <div>
                 <Dropdown title="Task" size="large">
-                    <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
                 </Dropdown>
             </div>
         </div>
@@ -227,20 +227,20 @@ A dropdown can open to the `left` or to the `right`.
         <div className="flex">
             <div className="mr12">
                 <Dropdown title="Left" direction="left">
-                    <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
                 </Dropdown>
             </div>
             <div>
                 <Dropdown title="Right" direction="right">
-                    <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-                    <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
                 </Dropdown>
             </div>
         </div>
@@ -254,11 +254,11 @@ A dropdown can open upward.
 <Preview>
     <Story name="upward">
         <Dropdown title="Task" upward>
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -272,11 +272,11 @@ A dropdown item can have a description.
 <Preview>
     <Story name="item description">
         <Dropdown title="Task">
-            <Dropdown.ButtonItem description="ctrl + l" onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem description="ctrl + e" onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem description="ctrl + shift + l" onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem description="ctrl + h" onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem description="ctrl + alt + del" onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + l" onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + e" onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + shift + l" onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + h" onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + alt + del" onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -288,11 +288,11 @@ A dropdown item can have an icon.
 <Preview>
     <Story name="item icon">
         <Dropdown title="Task">
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem icon={<HelpIcon />} onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem icon={<SignoutIcon />} onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem icon={<HelpIcon />} onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem icon={<SignoutIcon />} onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -304,11 +304,11 @@ A dropdown item can be disabled.
 <Preview>
     <Story name="item disabled">
         <Dropdown title="Task">
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem disabled onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem disabled onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem disabled onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem disabled onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     </Story>
 </Preview>
@@ -325,11 +325,11 @@ A popper can handle `open` state in controlled mode.
 >
     <RefLogger component={
         <Dropdown title="Task">
-            <Dropdown.ButtonItem onClick={noop}>Launch...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Eject...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Land...</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Help</Dropdown.ButtonItem>
-            <Dropdown.ButtonItem onClick={noop}>Exit</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
         </Dropdown>
     }
     />

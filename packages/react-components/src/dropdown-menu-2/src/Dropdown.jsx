@@ -6,14 +6,11 @@ import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS } from "../../shared";
+import { KEYS, resolvePopperPosition } from "../../shared";
 import { bool, element, func, number, oneOf, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
-
-// DOCS:
-// - Write a custom trigger to get "upward" & "open". Component type must be "DropdownTrigger".
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -31,8 +28,9 @@ const propTypes = {
     size: oneOf(SIZES),
     upward: bool,
     direction: oneOf(["left", "right"]),
-    fluid: bool,
+    pinned: bool,
     zIndex: number,
+    fluid: bool,
     /**
      * Whether or not the menu should close when the dropdown menu loose focus.
      */
@@ -61,12 +59,14 @@ const propTypes = {
 
 const defaultProps = {
     size: DEFAULT_SIZE,
-    direction: "right"
+    upward: false,
+    direction: "right",
+    pinned: false
 };
 
 const UnwrappedTriggerAdapter = forwardRef(({ children, ...rest }, ref) => {
     // Don't pass dropdown trigger specific props down.
-    ["open", "upward"].forEach(x => {
+    ["open", "upward", "direction"].forEach(x => {
         delete rest[x];
     });
 
@@ -161,21 +161,17 @@ function useMenuRenderer({ menu, children, forwardedRef, rest }, isOpen, handleM
     };
 }
 
-function resolvePopperPosition(upward, direction) {
-    return `${upward ? "top" : "bottom"}-${direction === "left" ? "end" : "start"}`;
-}
-
-function usePopper({ open, defaultOpen, upward, direction, fluid, zIndex, closeOnBlur, closeOnOutsideClick }, handleVisibilityChange, trigger) {
-
+function usePopper({ open, defaultOpen, upward, direction, pinned, zIndex, fluid, closeOnBlur, closeOnOutsideClick }, handleVisibilityChange, trigger) {
     const { renderPopper, hidePopper, focusTrigger } = usePopperTrigger({
         show: open,
         defaultShow: defaultOpen,
         trigger,
         toggleHandler: "onClick",
         position: resolvePopperPosition(upward, direction),
+        pinned,
         offset: [0, 10],
-        fluid,
         zIndex,
+        fluid,
         showOnKeys: [upward ? KEYS.up : KEYS.down],
         hideOnBlur: closeOnBlur,
         hideOnOutsideClick: closeOnOutsideClick,
@@ -210,8 +206,9 @@ export function InnerDropdown(props) {
         size,
         upward,
         direction,
-        fluid,
+        pinned,
         zIndex,
+        fluid,
         closeOnBlur,
         closeOnOutsideClick,
         onOpen,
@@ -233,7 +230,7 @@ export function InnerDropdown(props) {
     const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover }, isOpen);
 
     const { renderPopper, closePopper, focusTrigger } = usePopper(
-        { open, defaultOpen, upward, direction, fluid, zIndex, closeOnBlur, closeOnOutsideClick },
+        { open, defaultOpen, upward, direction, pinned, zIndex, fluid, closeOnBlur, closeOnOutsideClick },
         handleVisibilityChange,
         renderTrigger()
     );
