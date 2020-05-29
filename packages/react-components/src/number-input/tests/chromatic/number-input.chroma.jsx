@@ -27,8 +27,8 @@ stories()
         <NumberInput defaultValue={10.999} />
     )
     .add("icon", () =>
-        <div className="flex flex-column">
-            <NumberInput icon={<EditIcon />} />
+        <div className="flex">
+            <NumberInput icon={<EditIcon />} className="mr5" />
             <NumberInput icon={<EditIcon />} iconPosition="left" />
         </div>
     )
@@ -36,9 +36,9 @@ stories()
         <NumberInput button={<Button icon={<CloseIcon />} />} />
     )
     .add("loading", () =>
-        <div className="flex flex-column">
-            <NumberInput loading />
-            <NumberInput loading icon={<EditIcon />} />
-            <NumberInput loading icon={<EditIcon />} iconPosition="left" />
+        <div className="flex">
+            <NumberInput loading className="mr5" />
+            <NumberInput loading icon={<EditIcon />} className="mr5" />
+            <NumberInput loading icon={<EditIcon />} iconPosition="left" className="mr5" />
         </div>
     );
