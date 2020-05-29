@@ -90,7 +90,7 @@ export function InnerNumberInput(props) {
             {...rest}
             type="number"
             icon={icon}
-            iconPosition={!isNil(icon) || !isNil(loading) ? iconPosition : "undefined"}
+            iconPosition={!isNil(icon) || !isNil(loading) ? iconPosition : undefined}
             loading={loading}
             ref={forwardedRef}
             __componentName="@orbit-ui/react-components/number-input"
