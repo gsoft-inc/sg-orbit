@@ -24,6 +24,8 @@ export function InnerDropdownTitleTrigger({
     // eslint-disable-next-line no-unused-vars
     open,
     upward,
+    // eslint-disable-next-line no-unused-vars
+    direction,
     size,
     as: Element,
     fluid,

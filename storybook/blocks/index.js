@@ -17,3 +17,4 @@ export * from "./install-dependencies";
 export * from "./import-tachyons";
 export * from "./react-components-layout";
 export * from "./install-react-components";
+export * from "./details";

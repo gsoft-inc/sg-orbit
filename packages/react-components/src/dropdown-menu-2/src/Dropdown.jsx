@@ -127,13 +127,14 @@ function resolveTrigger(title, icon, trigger) {
     throw new Error("Dropdown - \"title\" or \"trigger\" cannot be both undefined.");
 }
 
-function useTriggerRenderer({ title, icon, trigger, size, upward, fluid, active, focus, hover }, isOpen) {
+function useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover }, isOpen) {
     return () => {
         const triggerComponent = resolveTrigger(title, icon, trigger);
 
         return cloneElement(triggerComponent, {
             open: isOpen,
             upward,
+            direction,
             size,
             fluid,
             active,
@@ -229,7 +230,7 @@ export function InnerDropdown(props) {
 
     const handleVisibilityChange = useHandleVisibilityChange({ onOpen, onClose }, setIsOpen);
 
-    const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, fluid, active, focus, hover }, isOpen);
+    const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover }, isOpen);
 
     const { renderPopper, closePopper, focusTrigger } = usePopper(
         { open, defaultOpen, upward, direction, fluid, zIndex, closeOnBlur, closeOnOutsideClick },
