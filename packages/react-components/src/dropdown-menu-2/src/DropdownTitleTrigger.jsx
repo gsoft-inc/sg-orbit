@@ -39,7 +39,7 @@ export function InnerDropdownTitleTrigger({
     delete rest["open"];
 
     const classes = mergeClasses(
-        "title-trigger",
+        "o-ui title-trigger",
         fluid && "fluid",
         active && "active",
         focus && "focus",

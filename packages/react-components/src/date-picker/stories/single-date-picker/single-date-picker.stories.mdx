@@ -198,7 +198,6 @@ A single date picker prefered vertical opening position can be upward.
     >
         <SingleDatePicker
             upward
-            pinned
             onDatesChange={logDateChanged}
         />
     </Story>
@@ -213,12 +212,10 @@ A single date picker prefered horizontal opening position can be `"left"` or `"r
         <div className="flex items-space-between">
             <SingleDatePicker
                 direction="left"
-                pinned
                 onDatesChange={logDateChanged}
             />
             <SingleDatePicker
                 direction="right"
-                pinned
                 onDatesChange={logDateChanged}
             />
         </div>
@@ -232,9 +229,8 @@ A single date picker opening position can be forced even if there isn't enough s
 <Preview>
     <Story name="pinned">
         <SingleDatePicker
-            upward={false}
-            direction="left"
             pinned
+            upward={false}
             onDatesChange={logDateChanged}
         />
     </Story>

@@ -88,7 +88,7 @@ A dropdown link item can be a custom component like a [React Router Link](https:
     </Story>
 </Preview>
 
-<Details title="custom link component">
+<Details title="Custom link implementation">
     <FileSource filePath="/dropdown-menu-2/stories/CustomLink" format={false} />
 </Details>
 
@@ -142,7 +142,7 @@ To have access to those properties you can write a custom trigger component havi
     </Story>
 </Preview>
 
-<Details title="custom trigger component">
+<Details title="Custom trigger implementation">
     <FileSource filePath="/dropdown-menu-2/stories/AdvancedTrigger" format={false} />
 </Details>
 
@@ -218,9 +218,25 @@ A dropdown can vary in size.
     </Story>
 </Preview>
 
+### Upward
+
+A dropdown prefered vertical opening position can be upward.
+
+<Preview>
+    <Story name="upward">
+        <Dropdown title="Task" upward>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
 ### Direction
 
-A dropdown can open to the `left` or to the `right`.
+A dropdown prefered horizontal opening position can be `"left"` or `"right"`.
 
 <Preview>
     <Story name="direction">
@@ -247,13 +263,13 @@ A dropdown can open to the `left` or to the `right`.
     </Story>
 </Preview>
 
-### Upward
+### Pinned
 
-A dropdown can open upward.
+A dropdown opening position can be forced even if there isn't enough space.
 
 <Preview>
-    <Story name="upward">
-        <Dropdown title="Task" upward>
+    <Story name="pinned">
+        <Dropdown title="Right" pinned upward={false}>
             <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
             <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
             <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
