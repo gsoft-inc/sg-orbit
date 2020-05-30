@@ -1,16 +1,16 @@
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
-import { ControlledPopper } from "./controlled-popper.sample";
+import { ControlledPopper } from "./ControlledPopper.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-components/popper"
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PinnedPlayground } from "./pinned-playground";
-import { PopperElement } from "./popper-element.sample";
+import { PinnedPlayground } from "./PinnedPlayground";
+import { PopperElement } from "./PopperElement.sample";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { TextInput } from "@react-components/text-input";
-import CustomTrigger from "./custom-trigger.mdx";
-import Imports from "./imports.mdx";
-import NoWrapPopperElement from "./no-wrap-popper-element.mdx";
+import CustomTrigger from "./CustomTrigger.mdx";
+import Imports from "./Imports.mdx";
+import NoWrapPopperElement from "./NoWrapPopperElement.mdx";
 
 <Meta
     title={createComponentSection("Popper")}
@@ -226,7 +226,7 @@ A popper can use a text input adapter for an easy integration with a text input 
 
 A popper can handle `show` state in controlled mode.
 
-<FilePreview filePath="/popper/stories/controlled-popper">
+<FilePreview filePath="/popper/stories/ControlledPopper">
     <ControlledPopper />
 </FilePreview>
 

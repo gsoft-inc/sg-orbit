@@ -13,6 +13,7 @@ const propTypes = {
     wrapperStyle: object
 };
 
+// TODO: Do it with a DOM selector instead? This way, it would allow nested components
 function parseChildren(children) {
     const elements = [];
     const asArray = Children.toArray(children);

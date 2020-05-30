@@ -1,11 +1,11 @@
-import "./popper.css";
+import "./Popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
 import { POSITIONS } from "./positions";
 import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
 import { createPortal } from "react-dom";
+import { createShorthandFactory, mergeClasses, useCombinedRefs, useResizeObserver } from "../../shared";
 import { isFunction, isNil, merge } from "lodash";
-import { mergeClasses, useCombinedRefs, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
 export const SHARED_POPPER_PROP_TYPES = {
@@ -54,9 +54,6 @@ export const SHARED_POPPER_PROP_TYPES = {
 
 export const SHARED_POPPER_DEFAULT_PROPS = {
     position: "bottom",
-    pinned: false,
-    noWrap: false,
-    noPortal: false,
     animate: true
 };
 
@@ -69,7 +66,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    show: false,
     ...SHARED_POPPER_DEFAULT_PROPS
 };
 
@@ -239,3 +235,5 @@ InnerPopper.defaultProps = defaultProps;
 export const Popper = forwardRef((props, ref) => (
     <InnerPopper { ...props } forwardedRef={ref} />
 ));
+
+export const createPopper = createShorthandFactory(Popper);

@@ -1,5 +1,5 @@
-import { Boundary } from "./boundary";
 import { Children, cloneElement, useState } from "react";
+import { PopperBoundary } from "./PopperBoundary";
 import { Toggle } from "@react-components/toggle";
 
 export function PinnedPlayground({ children }) {
@@ -12,9 +12,7 @@ export function PinnedPlayground({ children }) {
 
     return (
         <div>
-            <Boundary>
-                {popper}
-            </Boundary>
+            <PopperBoundary>{popper}</PopperBoundary>
             <div className="mt4">
                 <Toggle text="Pinned" checked={isPinned} onChange={() => { setIsPinned(!isPinned); }} />
             </div>

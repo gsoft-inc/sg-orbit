@@ -12,12 +12,12 @@ export function ControlledPopper() {
     return (
         <>
             <div className="mb6">
-                <span className="dib fw6" style={labelStyle}>open:</span> {isVisible ? "true" : "false"}
+                <span className="dib fw6" style={labelStyle}>visible:</span> {isVisible ? "true" : "false"}
             </div>
             <PopperTrigger.Button
                 button={<Button>Toggle</Button>}
                 show={isVisible}
-                onVisibilityChange={() => { setIsVisible(!isVisible); }}
+                onVisibilityChange={() => { setIsVisible(x => !x); }}
             >
                 <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
             </PopperTrigger.Button>

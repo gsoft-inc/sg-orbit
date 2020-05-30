@@ -1,6 +1,6 @@
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { any, element } from "prop-types";
 import { createContentIcon } from "../../icons";
+import { element } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -11,11 +11,7 @@ const propTypes = {
     /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
      */
-    icon: element,
-    /**
-     * @ignore
-     */
-    children: any.isRequired
+    icon: element
 };
 
 function useTextRenderer({ children }) {

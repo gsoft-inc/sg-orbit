@@ -49,7 +49,6 @@ export class DatePickerAnchor extends PureComponent {
                 onVisibilityChange={this.handleVisibilityChange}
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
-                focusFirstElementOnKeyboardShow
                 disabled={disabled}
                 fluid={fluid}
                 zIndex={zIndex}

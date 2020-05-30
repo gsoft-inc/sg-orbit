@@ -1,8 +1,8 @@
-import styles from "./boundary.module.css";
+import styles from "./PopperBoundary.module.css";
 
 import { Children, cloneElement, useState } from "react";
 
-export function Boundary({ children }) {
+export function PopperBoundary({ children }) {
     const [boundaryElement, setBoundaryElement] = useState();
 
     const popper = cloneElement(Children.only(children), {

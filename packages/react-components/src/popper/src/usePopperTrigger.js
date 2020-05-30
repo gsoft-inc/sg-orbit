@@ -1,16 +1,10 @@
 import { KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
-import { Popper } from "./popper";
+import { Popper, createPopper } from "./Popper";
 import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
-import { createPopper } from "./shorthands";
-import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 
 function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     useEffect(() => {
-        if (hideOnBlur && hideOnOutsideClick) {
-            throw new Error("PopperTrigger - \"hideOnBlur\" and \"hideOnOutsideClick\" props cannot be both \"true\".");
-        }
-
         if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
             throw new Error("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
         }
@@ -83,14 +77,16 @@ function useSetFocusPopper(popperElement) {
     }, [popperElement]);
 }
 
-function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper) {
+function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper) {
     useEffect(() => {
         if (isVisible) {
             if (focusTriggerOnShow) {
                 setFocusTrigger();
             }
-
-            if (focusFirstElementOnKeyboardShow) {
+            else if (focusFirstElementOnShow) {
+                setFocusPopper();
+            }
+            else if (focusFirstElementOnKeyboardShow) {
                 const type = lastTriggerEventRef.current;
 
                 if (!isNil(type) && /^key.+$/.test(type)) {
@@ -305,13 +301,6 @@ function useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerT
 
 function getPopperElement(popper, triggerElement, content) {
     if (!isNil(popper)) {
-        if (isElement(popper)) {
-            return cloneElement(popper, {
-                triggerElement,
-                children: content
-            });
-        }
-
         return createPopper({
             ...popper,
             triggerElement,
@@ -406,13 +395,14 @@ export function usePopperTrigger(props) {
         animate,
         focusTriggerOnShow,
         focusTriggerOnEscape = true,
-        focusFirstElementOnKeyboardShow,
+        focusFirstElementOnShow = true,
+        focusFirstElementOnKeyboardShow = true,
         toggleOnSpacebar = true,
         toggleOnEnter = true,
         showOnKeys,
         hideOnEscape = true,
         hideOnBlur = true,
-        hideOnOutsideClick = false,
+        hideOnOutsideClick = true,
         disabled,
         className,
         forwardedRef,
@@ -435,7 +425,7 @@ export function usePopperTrigger(props) {
     const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
     const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
 
-    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper);
+    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper);
 
     const handleTriggerToggle = useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper);
     const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastTriggerEventRef, showPopper, togglePopper);

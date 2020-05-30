@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unused-prop-types */
 
 import { POSITIONS } from "./positions";
-import { PopperButtonTrigger } from "./popper-button-trigger";
-import { PopperTextInputTrigger } from "./popper-text-input-trigger";
+import { PopperButtonTrigger } from "./PopperButtonTrigger";
+import { PopperTextInputTrigger } from "./PopperTextInputTrigger";
 import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { usePopperTrigger } from "./use-popper-trigger";
+import { usePopperTrigger } from "./usePopperTrigger";
+
+// TO TEST:
+// - focusFirstElementOnKeyboardShow
 
 /////////////////
 
@@ -57,9 +60,6 @@ const SHARED_POPPER_PROP_TYPES = {
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SHARED_POPPER_DEFAULT_PROPS = {
     position: "bottom",
-    pinned: false,
-    noWrap: false,
-    noPortal: false,
     animate: true
 };
 
@@ -104,6 +104,10 @@ const propTypes = {
      */
     focusTriggerOnEscape: bool,
     /**
+     * Whether or not to focus the first element of the popper when the popper is shown.
+     */
+    focusFirstElementOnShow: bool,
+    /**
      * Whether or not to focus the first element of the popper when the popper is shown on keydown.
      */
     focusFirstElementOnKeyboardShow: bool,
@@ -143,15 +147,13 @@ const propTypes = {
 
 const defaultProps = {
     ...SHARED_POPPER_DEFAULT_PROPS,
-    fluid: false,
-    focusTriggerOnShow: false,
     focusTriggerOnEscape: true,
-    focusFirstElementOnKeyboardShow: false,
+    focusFirstElementOnKeyboardShow: true,
     toggleOnSpacebar: true,
     toggleOnEnter: true,
     hideOnEscape: true,
     hideOnBlur: true,
-    hideOnOutsideClick: false
+    hideOnOutsideClick: true
 };
 
 export function InnerPopperTrigger({ children, ...props }) {

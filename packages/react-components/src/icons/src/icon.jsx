@@ -1,14 +1,10 @@
 import { SIZE, mergeClasses } from "../../shared";
-import { elementType, func, object, oneOf, oneOfType } from "prop-types";
+import { elementType, oneOf } from "prop-types";
 import { forwardRef } from "react";
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const DEFAULT_SIZE = "medium";
-
-const DIMENSION_CLASS = {
+const DIMENSION_CSS_CLASSES = {
     [SIZE.micro]: "w2 h2",
     [SIZE.mini]: "w3 h3",
     [SIZE.tiny]: "w4 h4",
@@ -20,15 +16,15 @@ const DIMENSION_CLASS = {
     [SIZE.massive]: "w10 h10"
 };
 
-export function InnerIcon({ type: Component, size, className, forwardedRef, ...rest }) {
+export function InnerIcon({ type: ComponentType, size, className, forwardedRef, ...rest }) {
     const classes = mergeClasses(
         "icon",
         className,
-        DIMENSION_CLASS[size]
+        DIMENSION_CSS_CLASSES[size || SIZE.medium]
     );
 
     return (
-        <Component
+        <ComponentType
             {...rest}
             className={classes}
             ref={forwardedRef}
@@ -44,15 +40,7 @@ InnerIcon.propTypes = {
     /**
      * An icon can vary in size.
      */
-    size: oneOf(SIZES),
-    /**
-     * @ignore
-     */
-    forwardedRef: oneOfType([object, func])
-};
-
-InnerIcon.defaultProps = {
-    size: DEFAULT_SIZE
+    size: oneOf(SIZES)
 };
 
 export const Icon = forwardRef((props, ref) => (
@@ -99,10 +87,6 @@ InnerMultiVariantIcon.propTypes = {
      * An icon can vary in size.
      */
     size: oneOf(SIZES)
-};
-
-InnerMultiVariantIcon.defaultProps = {
-    size: DEFAULT_SIZE
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (

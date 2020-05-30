@@ -3,7 +3,7 @@ import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 import { isPlainObject } from "lodash";
 
-export function createShorthandFactory(ElementType) {
+export function createShorthandFactory(ComponentType) {
     return (shorthand, props, customFactory) => {
         if (isElement(shorthand)) {
             return cloneElement(shorthand, props);
@@ -12,7 +12,7 @@ export function createShorthandFactory(ElementType) {
         if (isPlainObject(shorthand)) {
             const { content, ...rest } = shorthand;
 
-            return <ElementType {...rest} {...props} children={!isNil(content) ? content : undefined} />;
+            return <ComponentType {...rest} {...props} children={!isNil(content) ? content : undefined} />;
         }
 
         if (isFunction(customFactory)) {
@@ -23,6 +23,6 @@ export function createShorthandFactory(ElementType) {
             }
         }
 
-        throw new Error(`createShorthand - Cannot create an instance of ${ElementType} from shorthand. Unknown format: "${shorthand}".`);
+        throw new Error(`createShorthand - Cannot create an instance of ${ComponentType} from shorthand. Unknown format: "${shorthand}".`);
     };
 }

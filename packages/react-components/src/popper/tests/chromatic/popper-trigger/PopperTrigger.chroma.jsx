@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Popper, PopperTrigger } from "@react-components/popper";
-import { RedBox } from "./red-box";
+import { RedBox } from "./RedBox";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -16,12 +16,12 @@ function stories(segment) {
         .build();
 }
 
-function createPopperTrigger(props = {}) {
+function RedBoxPopper(props) {
     return (
         <PopperTrigger
+            {...props}
             trigger={<Button fluid>Open</Button>}
             toggleHandler="onClick"
-            {...props}
         >
             <RedBox />
         </PopperTrigger>
@@ -30,78 +30,48 @@ function createPopperTrigger(props = {}) {
 
 stories()
     .add("default", () =>
-        createPopperTrigger()
+        <RedBoxPopper />
     )
     .add("show", () =>
-        createPopperTrigger({
-            show: true
-        })
-    )
-    .add("hide", () =>
-        createPopperTrigger({
-            show: false
-        })
+        <RedBoxPopper show />
     )
     .add("default show", () =>
-        createPopperTrigger({
-            defaultShow: true
-        })
+        <RedBoxPopper defaultShow />
     )
     .add("focus trigger on show", () =>
-        createPopperTrigger({
-            defaultShow: true,
-            focusTriggerOnShow: true
-        })
+        <RedBoxPopper show focusTriggerOnShow />
     )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({
-                    disabled: true
-                })}
+                <RedBoxPopper disabled />
             </div>
             <div>
-                {createPopperTrigger({
-                    disabled: true,
-                    defaultShow: true
-                })}
+                <RedBoxPopper disabled show />
             </div>
         </div>
-    ).add("multiple popper in the same page", () =>
+    ).add("multiple popper visible on the same page", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({
-                    defaultShow: true
-                })}
+                <RedBoxPopper show />
             </div>
             <div>
-                {createPopperTrigger({
-                    defaultShow: true
-                })}
+                <RedBoxPopper show />
             </div>
         </div>
     )
     .add("styling", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({
-                    className: "border-blue",
-                    defaultShow: true
-                })}
+                <RedBoxPopper show className="border-blue" />
             </div>
             <div>
-                {createPopperTrigger({
-                    style: { border: "1px solid blue" },
-                    defaultShow: true
-                })}
+                <RedBoxPopper show style={{ border: "1px solid blue" }} />
             </div>
         </div>
     )
     .add("custom popper component", () =>
-        createPopperTrigger({
-            popper: <Popper className="border-blue" />,
-            defaultShow: true
-        })
+        <RedBoxPopper show popper={<Popper className="border-blue" />} />
     );
 
 

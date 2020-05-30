@@ -1,6 +1,6 @@
-import styles from "./red-box-with-boundary.module.css";
+import styles from "./RedBoxPopperWithBoundary.css";
 
-import { RedBoxPopper } from "./red-box-popper";
+import { RedBoxPopper } from "./RedBoxPopper";
 import { array, bool, number } from "prop-types";
 import { isNil, merge } from "lodash";
 import { useLayoutEffect, useState } from "react";
@@ -13,9 +13,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    scrollTop: 0,
-    setPreventOverflowBoundaryElement: false,
-    setFlipBoundaryElement: false
+    scrollTop: 0
 };
 
 function setModifierBoundaryElement(name, boundaryElement, modifiers) {

@@ -21,22 +21,17 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    as: "a"
-};
-
 export function InnerDropdownLinkItem({ as, forwardedRef, ...rest }) {
     return (
         <DropdownItem
             {...rest}
-            as={as}
+            as={as || "a"}
             ref={forwardedRef}
         />
     );
 }
 
 InnerDropdownLinkItem.propTypes = propTypes;
-InnerDropdownLinkItem.defaultProps = defaultProps;
 
 export const DropdownLinkItem = forwardRef((props, ref) => (
     <InnerDropdownLinkItem {...props} forwardedRef={ref} />

@@ -1,26 +1,21 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
-import { bool } from "prop-types";
 import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
 
-function InnerRedBox({ forwardedRef, ...rest }) {
+export const RedBox = forwardRef((props, ref) => {
     return (
         <div
+            {...props}
             className="w12 h12 bg-red"
             tabIndex="0"
-            ref={forwardedRef}
-            {...rest}
+            ref={ref}
         >
         </div>
     );
-}
+});
 
-export const RedBox = forwardRef((props, ref) => (
-    <InnerRedBox { ...props } forwardedRef={ref} />
-));
-
-function InnerRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
+export const RedBoxPopper = forwardRef(({ defaultShow, ...rest }, ref) => {
     const [triggerElement, setTriggerElement] = useState();
     const [isVisible, setVisibility] = useState(defaultShow);
 
@@ -37,7 +32,7 @@ function InnerRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
                 <Popper
                     show={isVisible}
                     triggerElement={triggerElement}
-                    ref={forwardedRef}
+                    ref={ref}
                     {...rest}
                 >
                     <RedBox />
@@ -45,18 +40,6 @@ function InnerRedBoxPopper({ defaultShow, forwardedRef, ...rest }) {
             </If>
         </>
     );
-}
-
-export const RedBoxPopper = forwardRef((props, ref) => (
-    <InnerRedBoxPopper { ...props } forwardedRef={ref} />
-));
-
-RedBoxPopper.propTypes = {
-    defaultShow: bool
-};
-
-RedBoxPopper.defaultProps = {
-    defaultShow: false
-};
+});
 
 

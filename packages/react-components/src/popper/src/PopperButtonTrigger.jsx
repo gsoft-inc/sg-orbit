@@ -1,4 +1,4 @@
-import { PopperTrigger } from "./popper-trigger";
+import { PopperTrigger } from "./PopperTrigger";
 import { createButton } from "../../button";
 import { element, object, oneOfType } from "prop-types";
 import { forwardRef } from "react";

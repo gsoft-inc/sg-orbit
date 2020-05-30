@@ -1,13 +1,13 @@
 import { Button } from "@react-components/button";
-import { CustomLink } from "./CustomLink.sample.jsx";
+import { ControlledDropdown } from "./ControlledDropdown.sample";
+import { CustomLink } from "./CustomLink.jsx";
 import { CustomTrigger } from "./CustomTrigger.sample.jsx";
 import { Dropdown, InnerDropdown, InnerDropdownButtonItem, InnerDropdownHeader, InnerDropdownItem, InnerDropdownLinkItem, InnerDropdownMenu } from "@react-components/dropdown-menu-2";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { logClicked } from "./utils";
-import CustomLinkBlock from "./CustomLinkBlock.mdx";
 import CustomTriggerBlock from "./CustomTriggerBlock.mdx";
 import Imports from "./Imports.mdx";
 
@@ -89,8 +89,6 @@ A dropdown link item can be a custom component like a [React Router Link](https:
         </Dropdown>
     </Story>
 </Preview>
-
-<CustomLinkBlock />
 
 ### Icon
 
@@ -277,6 +275,14 @@ A dropdown opening position can be forced even if there isn't enough space.
     </Story>
 </Preview>
 
+### Controlled
+
+A dropdown can handle `open` state in controlled mode.
+
+<FilePreview filePath="/dropdown-menu-2/stories/ControlledDropdown">
+    <ControlledDropdown />
+</FilePreview>
+
 ## Item
 
 ### Description
@@ -326,10 +332,6 @@ A dropdown item can be disabled.
         </Dropdown>
     </Story>
 </Preview>
-
-### Controlled
-
-A popper can handle `open` state in controlled mode.
 
 <Story
     name="ref"

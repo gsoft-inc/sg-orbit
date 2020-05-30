@@ -1,7 +1,7 @@
-import { PopperTrigger } from "./popper-trigger";
+import { PopperTrigger } from "./PopperTrigger";
 import { cloneElement, forwardRef, useCallback, useRef } from "react";
 import { createTextInput } from "../../text-input";
-import { element, func, object, oneOfType } from "prop-types";
+import { element, object, oneOfType } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { isElement as isReactElement } from "react-is";
 import { useCombinedRefs } from "../../shared";
@@ -10,11 +10,7 @@ const propTypes = {
     /**
      * The text input trigger.
      */
-    input: oneOfType([element, object]).isRequired,
-    /**
-     * @ignore
-     */
-    onClick: func
+    input: oneOfType([element, object]).isRequired
 };
 
 function parseInput(input) {

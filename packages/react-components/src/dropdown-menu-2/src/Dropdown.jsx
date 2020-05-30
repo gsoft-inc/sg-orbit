@@ -12,10 +12,6 @@ import { cloneElement, forwardRef, useCallback, useEffect, useState } from "reac
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
-
 const propTypes = {
     open: bool,
     defaultOpen: bool,
@@ -23,9 +19,9 @@ const propTypes = {
     icon: element,
     trigger: element,
     /**
-     * A dropdown menu can vary in size.
+     * A dropdown can vary in size.
      */
-    size: oneOf(SIZES),
+    size: oneOf(["small", "medium", "large"]),
     upward: bool,
     direction: oneOf(["left", "right"]),
     pinned: bool,
@@ -36,32 +32,16 @@ const propTypes = {
      */
     closeOnBlur: bool,
     /**
-     * Whether or not the menu should close when a click happens outside the dropdown menu.
+     * Whether or not the menu should close when a click happens outside the dropdown.
      * Requires `closeOnBlur` to be false.
      */
     closeOnOutsideClick: bool,
-    onOpen: func,
-    onClose: func,
-    menu: element,
-    /**
-     * @ignore
-     */
-    active: bool,
-    /**
-     * @ignore
-     */
-    focus: bool,
-    /**
-     * @ignore
-     */
-    hover: bool
+    onVisibilityChange: func,
+    menu: element
 };
 
 const defaultProps = {
-    size: DEFAULT_SIZE,
-    upward: false,
-    direction: "right",
-    pinned: false
+    direction: "right"
 };
 
 const UnwrappedTriggerAdapter = forwardRef(({ children, ...rest }, ref) => {
@@ -85,20 +65,14 @@ function useThrowWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
     }, [title, trigger]);
 }
 
-function useHandleVisibilityChange({ onOpen, onClose }, setIsOpen) {
+function useHandleVisibilityChange({ onVisibilityChange }, setIsOpen) {
     return useCallback((event, isVisible) => {
-        if (isVisible) {
-            if (!isNil(onOpen)) {
-                onOpen(event);
-            }
-        } else {
-            if (!isNil(onClose)) {
-                onClose(event);
-            }
-        }
-
         setIsOpen(isVisible);
-    }, [onOpen, onClose, setIsOpen]);
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, isVisible);
+        }
+    }, [onVisibilityChange, setIsOpen]);
 }
 
 function useHandleMenuSelectItem(closePopper, focusTrigger) {
@@ -127,11 +101,12 @@ function resolveTrigger(title, icon, trigger) {
     throw new Error("Dropdown - \"title\" or \"trigger\" cannot be both undefined.");
 }
 
-function useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover }, isOpen) {
+function useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover, rest }, isOpen) {
     return () => {
         const triggerComponent = resolveTrigger(title, icon, trigger);
 
         return cloneElement(triggerComponent, {
+            ...rest,
             open: isOpen,
             upward,
             direction,
@@ -175,7 +150,6 @@ function usePopper({ open, defaultOpen, upward, direction, pinned, zIndex, fluid
         showOnKeys: [upward ? KEYS.up : KEYS.down],
         hideOnBlur: closeOnBlur,
         hideOnOutsideClick: closeOnOutsideClick,
-        focusFirstElementOnKeyboardShow: true,
         onVisibilityChange: handleVisibilityChange
     });
 
@@ -211,8 +185,7 @@ export function InnerDropdown(props) {
         fluid,
         closeOnBlur,
         closeOnOutsideClick,
-        onOpen,
-        onClose,
+        onVisibilityChange,
         active,
         focus,
         hover,
@@ -225,9 +198,9 @@ export function InnerDropdown(props) {
 
     const [isOpen, setIsOpen] = useState();
 
-    const handleVisibilityChange = useHandleVisibilityChange({ onOpen, onClose }, setIsOpen);
+    const handleVisibilityChange = useHandleVisibilityChange({ onVisibilityChange }, setIsOpen);
 
-    const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover }, isOpen);
+    const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover, rest }, isOpen);
 
     const { renderPopper, closePopper, focusTrigger } = usePopper(
         { open, defaultOpen, upward, direction, pinned, zIndex, fluid, closeOnBlur, closeOnOutsideClick },
@@ -237,7 +210,7 @@ export function InnerDropdown(props) {
 
     const handleMenuSelectItem = useHandleMenuSelectItem(closePopper, focusTrigger);
 
-    const renderMenu = useMenuRenderer({ menu, children, forwardedRef, rest }, isOpen, handleMenuSelectItem);
+    const renderMenu = useMenuRenderer({ menu, children, forwardedRef }, isOpen, handleMenuSelectItem);
     const render = useRenderer(size, renderPopper(renderMenu()));
 
     // Without a fragment, react-docgen doesn't work.
