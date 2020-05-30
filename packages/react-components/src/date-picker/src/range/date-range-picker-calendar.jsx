@@ -1,9 +1,8 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerRangeController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement, forwardRef } from "react";
 import { START_DATE } from "react-dates/constants";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, object, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
@@ -59,10 +58,6 @@ export class InnerDateRangePickerCalendar extends PureComponent {
          * The number of months displayed simultaneously in the calendar.
          */
         numberOfMonths: number,
-        /**
-         * A position for the calendar.
-         */
-        position: oneOf(POSITIONS),
         /**
          * A React component to list and select a preset.
          */
@@ -194,7 +189,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className, forwardedRef } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, className, forwardedRef } = this.props;
 
         return (
             <DatePickerCalendar
@@ -206,7 +201,6 @@ export class InnerDateRangePickerCalendar extends PureComponent {
                 initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
                 numberOfMonths={numberOfMonths}
-                position={position}
                 className={className}
                 ref={forwardedRef}
             />

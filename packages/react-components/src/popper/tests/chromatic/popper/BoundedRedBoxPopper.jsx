@@ -1,4 +1,4 @@
-import styles from "./RedBoxPopperWithBoundary.css";
+import styles from "./BoundedRedBoxPopper.module.css";
 
 import { RedBoxPopper } from "./RedBoxPopper";
 import { array, bool, number } from "prop-types";
@@ -33,7 +33,7 @@ function setModifierBoundaryElement(name, boundaryElement, modifiers) {
     }
 }
 
-export function RedBoxPopperWithBoundary({ scrollTop, modifiers, setPreventOverflowBoundaryElement, setFlipBoundaryElement, ...rest }) {
+export function BoundedRedBoxPopper({ scrollTop, modifiers, setPreventOverflowBoundaryElement, setFlipBoundaryElement, ...rest }) {
     const [boundaryElement, setBoundaryElement] = useState();
 
     useLayoutEffect(() => {
@@ -59,7 +59,7 @@ export function RedBoxPopperWithBoundary({ scrollTop, modifiers, setPreventOverf
     return (
         <div className={styles.boundary} ref={setBoundaryElement}>
             <RedBoxPopper
-                defaultShow
+                show
                 popperModifiers={createModifiers()}
                 {...rest}
             />
@@ -67,5 +67,5 @@ export function RedBoxPopperWithBoundary({ scrollTop, modifiers, setPreventOverf
     );
 }
 
-RedBoxPopperWithBoundary.propTypes = propTypes;
-RedBoxPopperWithBoundary.defaultProps = defaultProps;
+BoundedRedBoxPopper.propTypes = propTypes;
+BoundedRedBoxPopper.defaultProps = defaultProps;

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
 
-import { POSITIONS } from "./positions";
 import { PopperButtonTrigger } from "./PopperButtonTrigger";
 import { PopperTextInputTrigger } from "./PopperTextInputTrigger";
 import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
@@ -21,7 +20,23 @@ const SHARED_POPPER_PROP_TYPES = {
     /**
      * Position of the popper element.
      */
-    position: oneOf(POSITIONS),
+    position: oneOf([
+        "auto",
+        "auto-start",
+        "auto-end",
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end"
+    ]),
     /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */
@@ -148,7 +163,6 @@ const propTypes = {
 const defaultProps = {
     ...SHARED_POPPER_DEFAULT_PROPS,
     focusTriggerOnEscape: true,
-    focusFirstElementOnKeyboardShow: true,
     toggleOnSpacebar: true,
     toggleOnEnter: true,
     hideOnEscape: true,

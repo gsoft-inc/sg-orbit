@@ -38,9 +38,14 @@ stories()
             show: true
         })
     )
+    .add("default show", () =>
+        createPopperTrigger({
+            defaultShow: true
+        })
+    )
     .add("focus trigger on show", () =>
         createPopperTrigger({
-            defaultShow: true,
+            show: true,
             focusTriggerOnShow: true
         })
     )
@@ -54,7 +59,7 @@ stories()
             <div>
                 {createPopperTrigger({
                     disabled: true,
-                    defaultShow: true
+                    show: true
                 })}
             </div>
         </div>
@@ -78,7 +83,7 @@ stories()
             </div>
             <div>
                 {createPopperTrigger({
-                    defaultShow: true
+                    show: true
                 }, {
                     readOnly: true
                 })}

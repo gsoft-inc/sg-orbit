@@ -1,17 +1,39 @@
 import { Button } from "@react-components/button";
+import { CustomTrigger } from "./CustomTrigger";
 import { Dropdown } from "@react-components/dropdown-menu-2";
-import { EditIcon, FileIcon, VerticalDotsIcon } from "@react-components/icons";
+import { EditIcon, FileIcon, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { isNil, noop } from "lodash";
+import { noop } from "lodash";
 
-// TODO:
-// - Advanced trigger
-// - Customization / Menu
-// - Disabled
-// - Readonly
+function SimpleDropdown({
+    title = "File",
+    header,
+    ...rest
+}) {
+    return (
+        <Dropdown
+            {...rest}
+            title={title}
+        >
+            {header && header}
+            <Dropdown.Item>New</Dropdown.Item>
+            <Dropdown.Item>Open...</Dropdown.Item>
+            <Dropdown.Item>Save as...</Dropdown.Item>
+        </Dropdown>
+    );
+}
 
+function TriggerLessDropdown(props) {
+    return (
+        <Dropdown {...props}>
+            <Dropdown.Item>New</Dropdown.Item>
+            <Dropdown.Item>Open...</Dropdown.Item>
+            <Dropdown.Item>Save as...</Dropdown.Item>
+        </Dropdown>
+    );
+}
 
-function TitleDropdown({
+function DividedDropdown({
     title = "File",
     ...rest
 }) {
@@ -22,20 +44,12 @@ function TitleDropdown({
         >
             <Dropdown.Item>New</Dropdown.Item>
             <Dropdown.Item>Open...</Dropdown.Item>
+            <Dropdown.Divider />
             <Dropdown.Item>Save as...</Dropdown.Item>
+            <Dropdown.Item>Rename</Dropdown.Item>
         </Dropdown>
     );
 }
-
-// function createDropdownMenu({ title = "File", trigger, children = DEFAULT_ITEMS, ...props } = {}) {
-//     return (
-//         <DropdownMenu
-//             title={isNil(trigger) ? title : undefined}
-//             trigger={trigger}
-//             {...props}
-//         />
-//     );
-// }
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Dropdown-2"))
@@ -48,35 +62,38 @@ function stories(segment) {
 }
 
 stories()
+    .add("default", () =>
+        <SimpleDropdown />
+    )
     .add("open", () =>
-        <TitleDropdown open />
+        <SimpleDropdown open />
     )
     .add("default open", () =>
-        <TitleDropdown defaultOpen />
+        <SimpleDropdown defaultOpen />
     )
-    .add("title", () =>
+    .add("title trigger", () =>
         <div className="flex">
             <div className="flex flex-column" style={{ marginRight: "300px" }}>
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <TitleDropdown
+                    <SimpleDropdown
                         size="small"
                         className="mr5"
                     />
-                    <TitleDropdown
+                    <SimpleDropdown
                         size="small"
                         open
                     />
                 </div>
                 <div className="flex" style={{ marginBottom: "200px" }}>
-                    <TitleDropdown className="mr5" />
-                    <TitleDropdown defaultOpen />
+                    <SimpleDropdown className="mr5" />
+                    <SimpleDropdown open />
                 </div>
                 <div className="flex">
-                    <TitleDropdown
+                    <SimpleDropdown
                         size="large"
                         className="mr5"
                     />
-                    <TitleDropdown
+                    <SimpleDropdown
                         size="large"
                         open
                     />
@@ -84,506 +101,547 @@ stories()
             </div>
             <div className="flex flex-column">
                 <div className="flex">
-                    <TitleDropdown
+                    <SimpleDropdown
                         active
                         className="mr5"
                     />
-                    <TitleDropdown
+                    <SimpleDropdown
                         focus
                         className="mr5"
                     />
-                    <TitleDropdown
+                    <SimpleDropdown
                         hover
                         className="mr5"
                     />
-                    <TitleDropdown
+                    <SimpleDropdown
                         focus
                         hover
                     />
                 </div>
             </div>
         </div>
+    )
+    .add("title trigger icon", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    size="small"
+                    className="mr5"
+                />
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    size="small"
+                    open
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    className="mr5"
+                />
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    open
+                />
+            </div>
+            <div className="flex">
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    size="large"
+                    className="mr5"
+                />
+                <SimpleDropdown
+                    icon={<FileIcon />}
+                    size="large"
+                    open
+                />
+            </div>
+        </div>
+    )
+    .add("unwrapped trigger", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    style={{ marginRight: "150px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    size="small"
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    size="large"
+                    open
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                <TriggerLessDropdown
+                    trigger={<Button>Open</Button>}
+                    style={{ marginRight: "150px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button>Open</Button>}
+                    size="small"
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button>Open</Button>}
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <TriggerLessDropdown
+                    trigger={<Button>Open</Button>}
+                    size="large"
+                    open
+                />
+            </div>
+            <div className="flex">
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    active
+                    className="mr5"
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    focus
+                    className="mr5"
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    hover
+                    className="mr5"
+                />
+                <TriggerLessDropdown
+                    trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}
+                    focus
+                    hover
+                />
+            </div>
+        </div>
+    )
+    .add("advanced trigger", () =>
+        <div className="flex">
+            <TriggerLessDropdown
+                trigger={<CustomTrigger />}
+                style={{ marginRight: "200px" }}
+            />
+            <TriggerLessDropdown
+                trigger={<CustomTrigger />}
+                open
+            />
+        </div>
+    )
+    .add("scrolling", () =>
+        <Dropdown
+            title="Task"
+            scrolling
+            open
+        >
+            <Dropdown.Item>1</Dropdown.Item>
+            <Dropdown.Item>2</Dropdown.Item>
+            <Dropdown.Item>3</Dropdown.Item>
+            <Dropdown.Item>4</Dropdown.Item>
+            <Dropdown.Item>5</Dropdown.Item>
+            <Dropdown.Item>6</Dropdown.Item>
+            <Dropdown.Item>7</Dropdown.Item>
+            <Dropdown.Item>8</Dropdown.Item>
+            <Dropdown.Item>9</Dropdown.Item>
+            <Dropdown.Item>10</Dropdown.Item>
+            <Dropdown.Item>11</Dropdown.Item>
+        </Dropdown>
+    )
+    .add("upward", () =>
+        <div className="flex flex-column">
+            <div style={{ marginTop: "150px" }}>
+                <SimpleDropdown
+                    upward
+                    size="small"
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <SimpleDropdown
+                    upward
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <SimpleDropdown
+                    upward
+                    size="large"
+                    open
+                />
+            </div>
+        </div>
+    )
+    .add("direction", () =>
+        <div className="flex">
+            <div className="flex flex-column mr12">
+                <SimpleDropdown
+                    direction="left"
+                    size="small"
+                    open
+                    style={{ marginBottom: "150px" }}
+                />
+                <SimpleDropdown
+                    direction="left"
+                    open
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    direction="left"
+                    size="large"
+                    open
+                />
+            </div>
+            <div className="flex flex-column">
+                <SimpleDropdown
+                    direction="right"
+                    size="small"
+                    open
+                    style={{ marginBottom: "150px" }}
+                />
+                <SimpleDropdown
+                    direction="right"
+                    open
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    direction="right"
+                    size="large"
+                    open
+                />
+            </div>
+        </div>
+    )
+    .add("fluid", () =>
+        <div className="flex">
+            <div className="flex flex-column w-50 mr12">
+                <SimpleDropdown
+                    size="small"
+                    fluid
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    fluid
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    size="large"
+                    fluid
+                />
+            </div>
+            <div className="flex flex-column w-50">
+                <SimpleDropdown
+                    size="small"
+                    fluid
+                    open
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    fluid
+                    open
+                    style={{ marginBottom: "200px" }}
+                />
+                <SimpleDropdown
+                    size="large"
+                    fluid
+                    open
+                />
+            </div>
+        </div>
+    )
+    .add("header", () =>
+        <div className="flex flex-column">
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                <SimpleDropdown
+                    header={<Dropdown.Header>Quick Actions</Dropdown.Header>}
+                    open
+                    size="small"
+                    style={{ marginRight: "200px" }}
+                />
+                <SimpleDropdown
+                    header={<Dropdown.Header icon={<LightbulbIcon />}>Quick Actions</Dropdown.Header>}
+                    open
+                    size="small"
+                />
+            </div>
+            <div className="flex" style={{ marginBottom: "200px" }}>
+                <SimpleDropdown
+                    header={<Dropdown.Header>Quick Actions</Dropdown.Header>}
+                    open
+                    style={{ marginRight: "200px" }}
+                />
+                <SimpleDropdown
+                    header={<Dropdown.Header icon={<LightbulbIcon />}>Quick Actions</Dropdown.Header>}
+                    open
+                />
+            </div>
+            <div className="flex">
+                <SimpleDropdown
+                    header={<Dropdown.Header>Quick Actions</Dropdown.Header>}
+                    open
+                    size="large"
+                    style={{ marginRight: "200px" }}
+                />
+                <SimpleDropdown
+                    header={<Dropdown.Header icon={<LightbulbIcon />}>Quick Actions</Dropdown.Header>}
+                    open
+                    size="large"
+                />
+            </div>
+        </div>
+    )
+    .add("divider", () =>
+        <div className="flex">
+            <DividedDropdown
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            />
+            <DividedDropdown
+                open
+                style={{ marginRight: "200px" }}
+            />
+            <DividedDropdown
+                size="large"
+                open
+                style={{ marginRight: "200px" }}
+            />
+        </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            <SimpleDropdown
+                className="border-red mr5"
+            />
+            <SimpleDropdown
+                style={{
+                    border: "1px solid red"
+                }}
+            />
+        </div>
+    )
+    .add("custom menu component", () =>
+        <div className="flex">
+            <SimpleDropdown
+                menu={<Dropdown.Menu className="border-red" />}
+                open
+                style={{ marginRight: "200px" }}
+            />
+            <SimpleDropdown
+                menu={{ className: "border-red" }}
+                open
+            />
+        </div>
+    )
+    .add("item active", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item active>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item active>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item active>Save as...</Dropdown.Item>
+            </Dropdown>
+        </div>
+    )
+    .add("item disabled", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item disabled>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item disabled>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item disabled>Save as...</Dropdown.Item>
+            </Dropdown>
+        </div>
+    )
+    .add("item description", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
+            </Dropdown>
+        </div>
+    )
+    .add("item icon", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item icon={<EditIcon />} disabled>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </Dropdown>
+        </div>
+    )
+    .add("item button", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+            >
+                <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
+            </Dropdown>
+        </div>
+    )
+    .add("item link", () =>
+        <div className="flex">
+            <Dropdown
+                title="Task"
+                size="small"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">New</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Open...</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Save as...</Dropdown.LinkItem>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                open
+                style={{ marginRight: "200px" }}
+            >
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">New</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Open...</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Save as...</Dropdown.LinkItem>
+            </Dropdown>
+            <Dropdown
+                title="Task"
+                size="large"
+                open
+            >
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">New</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Open...</Dropdown.LinkItem>
+                <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Save as...</Dropdown.LinkItem>
+            </Dropdown>
+        </div>
     );
-//     .add("trigger", () =>
-//         <div className="flex flex-column">
-//             <div className="flex" style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     style: { marginRight: "150px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex" style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     trigger: <Button>Open</Button>,
-//                     style: { marginRight: "150px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button>Open</Button>,
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button>Open</Button>,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button>Open</Button>,
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex">
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     active: true,
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     focus: true,
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     hover: true,
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     trigger: <Button circular secondary icon={<VerticalDotsIcon />} />,
-//                     focus: true,
-//                     hover: true
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     // .add("focus first item on open", () =>
-//     //     createDropdownMenu({
-//     //         defaultOpen: true
-//     //     })
-//     // )
-//     .add("icon", () =>
-//         <div className="flex flex-column">
-//             <div className="flex" style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     size: "small",
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex" style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex">
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     size: "large",
-//                     wrapperClassName: "mr5"
-//                 })}
-//                 {createDropdownMenu({
-//                     icon: <FileIcon />,
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("scrolling", () =>
-//         createDropdownMenu({
-//             scrolling: true,
-//             options: [
-//                 dropdownMenuLinkItem("1", "1"),
-//                 dropdownMenuLinkItem("2", "2"),
-//                 dropdownMenuLinkItem("3", "3"),
-//                 dropdownMenuLinkItem("4", "4"),
-//                 dropdownMenuLinkItem("5", "5"),
-//                 dropdownMenuLinkItem("6", "6"),
-//                 dropdownMenuLinkItem("7", "7"),
-//                 dropdownMenuLinkItem("8", "8"),
-//                 dropdownMenuLinkItem("9", "9"),
-//                 dropdownMenuLinkItem("10", "10"),
-//                 dropdownMenuLinkItem("11", "11")
-//             ],
-//             defaultOpen: true,
-//             focusFirstItemOnOpen: false
-//         })
-//     )
-//     .add("upward", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginTop: "150px" }}>
-//                 {createDropdownMenu({
-//                     upward: true,
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     upward: true,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     upward: true,
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("direction", () =>
-//         <div className="flex">
-//             <div className="flex flex-column mr12">
-//                 {createDropdownMenu({
-//                     direction: "left",
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "150px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     direction: "left",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     direction: "left",
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex flex-column">
-//                 {createDropdownMenu({
-//                     direction: "right",
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "150px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     direction: "right",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     direction: "right",
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("fluid", () =>
-//         <div className="flex">
-//             <div className="flex flex-column w-50 mr12">
-//                 {createDropdownMenu({
-//                     size: "small",
-//                     fluid: true,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     fluid: true,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     size: "large",
-//                     fluid: true
-//                 })}
-//             </div>
-//             <div className="flex flex-column w-50">
-//                 {createDropdownMenu({
-//                     size: "small",
-//                     fluid: true,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     fluid: true,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginBottom: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     size: "large",
-//                     fluid: true,
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("styling", () =>
-//         <div className="flex">
-//             {createDropdownMenu({
-//                 wrapperClassName: "border-red mr5"
-//             })}
-//             {createDropdownMenu({
-//                 wrapperClassName: "mr5",
-//                 wrapperStyle: {
-//                     border: "1px solid red"
-//                 }
-//             })}
-//             {createDropdownMenu({
-//                 wrapperClassName: "mr5",
-//                 className: "border-red"
-//             })}
-//             {createDropdownMenu({
-//                 style: {
-//                     border: "1px solid red"
-//                 }
-//             })}
-//         </div>
-//     );
-
-// stories("/item")
-//     .add("default", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div>
-//                 {createDropdownMenu({
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("active", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ active: true })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("disabled", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ disabled: true })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("description", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ description: "To infinite and beyond!" })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("icon", () =>
-//         <div className="flex flex-column">
-//             <div style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon /> })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div>
-//                 {createDropdownMenu({
-//                     options: [createNewItem(), createOpenItem(), createRenameItem({ icon: <EditIcon />, disabled: true })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     )
-//     .add("button", () =>
-//         <div className="flex flex-column">
-//             <div className="flex" style={{ marginBottom: "150px" }}>
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", () => { console.log("Clicked"); }), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
-//                     size: "small",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex" style={{ marginBottom: "200px" }}>
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//             <div className="flex">
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop)],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { icon: <EditIcon /> })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false,
-//                     style: { marginRight: "200px" }
-//                 })}
-//                 {createDropdownMenu({
-//                     options: [dropdownMenuButtonItem("New", noop), dropdownMenuButtonItem("Open...", noop), dropdownMenuButtonItem("Rename...", noop, { disabled: true })],
-//                     size: "large",
-//                     defaultOpen: true,
-//                     focusFirstItemOnOpen: false
-//                 })}
-//             </div>
-//         </div>
-//     );

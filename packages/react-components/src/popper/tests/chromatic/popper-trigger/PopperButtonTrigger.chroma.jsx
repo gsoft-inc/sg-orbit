@@ -36,19 +36,9 @@ stories()
             show: true
         })
     )
-    .add("hide", () =>
-        createPopperTrigger({
-            show: false
-        })
-    )
     .add("default show", () =>
         createPopperTrigger({
             defaultShow: true
-        })
-    )
-    .add("default hide", () =>
-        createPopperTrigger({
-            defaultShow: false
         })
     )
     .add("shorthand button", () =>
@@ -59,10 +49,10 @@ stories()
     .add("fluid button", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({ fluid: true }, { fluid: true })}
+                {createPopperTrigger({ fluid: true })}
             </div>
             <div>
-                {createPopperTrigger({ fluid: true, defaultShow: true }, { fluid: true })}
+                {createPopperTrigger({ fluid: true, show: true })}
             </div>
         </div>
     );

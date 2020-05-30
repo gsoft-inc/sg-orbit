@@ -1,19 +1,24 @@
 import { Children, cloneElement, createRef, forwardRef, useCallback, useState } from "react";
 import { DropdownItem } from "./DropdownItem";
-import { KEYS, SemanticRef, createShorthandFactory, mergeClasses, useDomEventListener } from "../../shared";
+import { KEYS, SIZE, SemanticRef, createShorthandFactory, mergeClasses, useDomEventListener } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func, object, string } from "prop-types";
+import { bool, func, object, oneOf, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+
+const SIZE_CSS_CLASS = {
+    [SIZE.small]: "small",
+    [SIZE.large]: "large"
+};
 
 const propTypes = {
     open: bool,
     onKeyDown: func,
     onSelectItem: func,
+    size: oneOf(["small", "large"]),
     wrapperClassName: string,
     wrapperStyle: object
 };
 
-// TODO: Do it with a DOM selector instead? This way, it would allow nested components
 function parseChildren(children) {
     const elements = [];
     const asArray = Children.toArray(children);
@@ -146,13 +151,16 @@ function useMenuRenderer({ forwardedRef, rest }, items) {
     };
 }
 
-function useRenderer({ wrapperClassName, wrapperStyle }, menu) {
+function useRenderer({ size, scrolling, wrapperClassName, wrapperStyle }, menu) {
     return () => {
         const classes = mergeClasses(
             "ui dropdown dropdown-menu",
+            size && SIZE_CSS_CLASS[size],
+            scrolling && "scrolling",
             wrapperClassName
         );
 
+        // This div element is only rendered for compatibility with SUI theme. We should remove it later.
         return (
             <div
                 className={classes}
@@ -165,7 +173,7 @@ function useRenderer({ wrapperClassName, wrapperStyle }, menu) {
     };
 }
 
-export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
+export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, size, scrolling, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
     const [keyboardIndex, setKeyboardIndex] = useState(0);
 
     const parsedChildren = parseChildren(children);
@@ -181,7 +189,7 @@ export function InnerDropdownMenu({ open, onKeyDown, onSelectItem, wrapperClassN
 
     const renderItems = useItemsRenderer(parsedChildren, keyboardIndex, handleItemClick);
     const renderMenu = useMenuRenderer({ forwardedRef, rest }, renderItems());
-    const render = useRenderer({ wrapperClassName, wrapperStyle }, renderMenu());
+    const render = useRenderer({ size, scrolling, wrapperClassName, wrapperStyle }, renderMenu());
 
     // Without a fragment, react-docgen doesn't work.
     return <>{render()}</>;

@@ -1,7 +1,6 @@
 import "./Popper.css";
 
 import { Children, cloneElement, forwardRef, useCallback, useState } from "react";
-import { POSITIONS } from "./positions";
 import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { createShorthandFactory, mergeClasses, useCombinedRefs, useResizeObserver } from "../../shared";
@@ -16,7 +15,23 @@ export const SHARED_POPPER_PROP_TYPES = {
     /**
      * Position of the popper element.
      */
-    position: oneOf(POSITIONS),
+    position: oneOf([
+        "auto",
+        "auto-start",
+        "auto-end",
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end"
+    ]),
     /**
      * Disables automatic repositioning of the component, it will always be placed according to the position value.
      */

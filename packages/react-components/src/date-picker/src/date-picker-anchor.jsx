@@ -47,6 +47,7 @@ export class DatePickerAnchor extends PureComponent {
                 pinned={pinned}
                 offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
+                focusFirstElementOnKeyboardShow
                 hideOnBlur={closeOnBlur}
                 hideOnOutsideClick={closeOnOutsideClick}
                 disabled={disabled}

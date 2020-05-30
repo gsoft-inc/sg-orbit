@@ -21,12 +21,16 @@ const propTypes = {
     /**
      * A dropdown can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["small", "large"]),
     upward: bool,
     direction: oneOf(["left", "right"]),
     pinned: bool,
     zIndex: number,
     fluid: bool,
+    /**
+     * A dropdown can have its menu scroll.
+     */
+    scrolling: bool,
     /**
      * Whether or not the menu should close when the dropdown menu loose focus.
      */
@@ -119,12 +123,15 @@ function useTriggerRenderer({ title, icon, trigger, size, upward, direction, flu
     };
 }
 
-function useMenuRenderer({ menu, children, forwardedRef, rest }, isOpen, handleMenuSelectItem) {
+function useMenuRenderer({ size, scrolling, menu, children, forwardedRef, rest }, isOpen, handleMenuSelectItem) {
     return () => {
         const props = {
             ...rest,
             open: isOpen,
             onSelectItem: handleMenuSelectItem,
+            size,
+            scrolling,
+            children,
             ref: forwardedRef
         };
 
@@ -148,6 +155,7 @@ function usePopper({ open, defaultOpen, upward, direction, pinned, zIndex, fluid
         zIndex,
         fluid,
         showOnKeys: [upward ? KEYS.up : KEYS.down],
+        focusFirstElementOnKeyboardShow: true,
         hideOnBlur: closeOnBlur,
         hideOnOutsideClick: closeOnOutsideClick,
         onVisibilityChange: handleVisibilityChange
@@ -183,6 +191,7 @@ export function InnerDropdown(props) {
         pinned,
         zIndex,
         fluid,
+        scrolling,
         closeOnBlur,
         closeOnOutsideClick,
         onVisibilityChange,
@@ -210,7 +219,7 @@ export function InnerDropdown(props) {
 
     const handleMenuSelectItem = useHandleMenuSelectItem(closePopper, focusTrigger);
 
-    const renderMenu = useMenuRenderer({ menu, children, forwardedRef }, isOpen, handleMenuSelectItem);
+    const renderMenu = useMenuRenderer({ size, scrolling, menu, children, forwardedRef }, isOpen, handleMenuSelectItem);
     const render = useRenderer(size, renderPopper(renderMenu()));
 
     // Without a fragment, react-docgen doesn't work.

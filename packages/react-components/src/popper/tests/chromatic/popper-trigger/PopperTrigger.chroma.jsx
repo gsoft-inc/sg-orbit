@@ -39,7 +39,10 @@ stories()
         <RedBoxPopper defaultShow />
     )
     .add("focus trigger on show", () =>
-        <RedBoxPopper show focusTriggerOnShow />
+        <RedBoxPopper
+            show
+            focusTriggerOnShow
+        />
     )
     .add("disabled", () =>
         <div className="flex flex-column">
@@ -47,7 +50,10 @@ stories()
                 <RedBoxPopper disabled />
             </div>
             <div>
-                <RedBoxPopper disabled show />
+                <RedBoxPopper
+                    disabled
+                    show
+                />
             </div>
         </div>
     ).add("multiple popper visible on the same page", () =>
@@ -63,15 +69,34 @@ stories()
     .add("styling", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper show className="border-blue" />
+                <RedBoxPopper
+                    show
+                    className="border-blue"
+                />
             </div>
             <div>
-                <RedBoxPopper show style={{ border: "1px solid blue" }} />
+                <RedBoxPopper
+                    show
+                    style={{ border: "1px solid blue" }}
+                />
             </div>
         </div>
     )
     .add("custom popper component", () =>
-        <RedBoxPopper show popper={<Popper className="border-blue" />} />
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper
+                    show
+                    popper={<Popper className="border-blue" />}
+                />
+            </div>
+            <div>
+                <RedBoxPopper
+                    show
+                    popper={{ className: "border-blue" }}
+                />
+            </div>
+        </div>
     );
 
 

@@ -10,9 +10,14 @@ export function createShorthandFactory(ComponentType) {
         }
 
         if (isPlainObject(shorthand)) {
+            const { children } = props;
             const { content, ...rest } = shorthand;
 
-            return <ComponentType {...rest} {...props} children={!isNil(content) ? content : undefined} />;
+            return <ComponentType
+                {...rest}
+                {...props}
+                children={!isNil(content) ? content : children}
+            />;
         }
 
         if (isFunction(customFactory)) {

@@ -94,7 +94,7 @@ function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstE
                 }
             }
         }
-    }, [focusTriggerOnShow, focusFirstElementOnKeyboardShow, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper]);
+    }, [focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper]);
 }
 
 function useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper) {
@@ -301,10 +301,9 @@ function useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerT
 
 function getPopperElement(popper, triggerElement, content) {
     if (!isNil(popper)) {
-        return createPopper({
-            ...popper,
+        return createPopper(popper, {
             triggerElement,
-            content: content
+            children: content
         });
     }
 
@@ -395,8 +394,8 @@ export function usePopperTrigger(props) {
         animate,
         focusTriggerOnShow,
         focusTriggerOnEscape = true,
-        focusFirstElementOnShow = true,
-        focusFirstElementOnKeyboardShow = true,
+        focusFirstElementOnShow,
+        focusFirstElementOnKeyboardShow,
         toggleOnSpacebar = true,
         toggleOnEnter = true,
         showOnKeys,
