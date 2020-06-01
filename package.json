@@ -141,6 +141,9 @@
         "tachyons-modules": "1.1.10",
         "watch": "1.0.2"
     },
+    "resolutions": {
+        "@babel/parser": "7.7.5"
+    },
     "engines": {
         "node": ">=12"
     }

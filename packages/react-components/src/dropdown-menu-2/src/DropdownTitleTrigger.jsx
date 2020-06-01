@@ -1,17 +1,11 @@
 import { ArrowIcon } from "../../icons";
-import { bool, elementType, oneOfType, string } from "prop-types";
-import { classes } from "../../shared";
-import { forwardRef } from "react";
+import { DropdownContext } from "./DropdownContext";
+import { elementType, oneOfType, string } from "prop-types";
+import { forwardRef, useContext } from "react";
+import { mergeClasses } from "../../shared";
 
 const propTypes = {
-    title: string,
-    upward: bool,
-    size: string,
-    as: oneOfType([string, elementType]),
-    fluid: bool,
-    active: bool,
-    focus: bool,
-    hover: bool
+    as: oneOfType([string, elementType])
 };
 
 const defaultProps = {
@@ -19,29 +13,26 @@ const defaultProps = {
 };
 
 export function InnerDropdownTitleTrigger({
-    title,
-    icon,
-    // eslint-disable-next-line no-unused-vars
-    open,
-    upward,
-    // eslint-disable-next-line no-unused-vars
-    direction,
-    size,
     as: Element,
-    fluid,
-    active,
-    focus,
-    hover,
     className,
     forwardedRef,
     ...rest
 }) {
-    delete rest["open"];
+    const {
+        icon,
+        title,
+        upward,
+        size,
+        fluid,
+        active,
+        focus,
+        hover
+    } = useContext(DropdownContext);
 
     return (
         <Element
             {...rest}
-            className={classes(
+            className={mergeClasses(
                 "o-ui title-trigger",
                 fluid && "fluid",
                 active && "active",
@@ -64,5 +55,3 @@ InnerDropdownTitleTrigger.defaultProps = defaultProps;
 export const DropdownTitleTrigger = forwardRef((props, ref) => (
     <InnerDropdownTitleTrigger {...props} forwardedRef={ref} />
 ));
-
-DropdownTitleTrigger.name = "DrodownTrigger";

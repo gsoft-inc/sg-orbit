@@ -6,3 +6,5 @@ export * from "./DropdownItem";
 export * from "./DropdownLinkItem";
 export * from "./DropdownMenu";
 export * from "./DropdownTitleTrigger";
+export * from "./DropdownContext";
+export * from "./DropdownMenuContext";

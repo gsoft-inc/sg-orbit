@@ -1,14 +1,14 @@
 import { DropdownButtonItem } from "./DropdownButtonItem";
-import { DropdownContext } from "./context";
+import { DropdownContext } from "./DropdownContext";
 import { DropdownDivider } from "./DropdownDivider";
 import { DropdownHeader } from "./DropdownHeader";
 import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS, resolvePopperPosition } from "../../shared";
-import { bool, element, func, number, oneOf, string } from "prop-types";
-import { cloneElement, forwardRef, useCallback, useEffect, useState } from "react";
+import { KEYS, resolvePopperPosition, useEventCallback } from "../../shared";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cloneElement, forwardRef, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
 
@@ -40,146 +40,35 @@ const propTypes = {
      * Requires `closeOnBlur` to be false.
      */
     closeOnOutsideClick: bool,
-    closeOnItemClick: bool,
     onVisibilityChange: func,
-    menu: element
+    menu: oneOfType([element, object])
 };
 
 const defaultProps = {
-    closeOnItemClick: true,
     direction: "right"
 };
 
-const UnwrappedTriggerAdapter = forwardRef(({ children, ...rest }, ref) => {
-    // Don't pass dropdown trigger specific props down.
-    ["open", "upward", "direction"].forEach(x => {
-        delete rest[x];
-    });
+function useDropdownTrigger(title, icon, trigger, size, rest) {
+    const triggerComponent = !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
 
-
-    return cloneElement(children, {
+    return cloneElement(triggerComponent, {
         ...rest,
+        size
+    });
+}
+
+function useDropdownMenu(menu, handleSelectItem, children, ref) {
+    const props = {
+        onSelectItem: handleSelectItem,
+        children,
         ref
-    });
-});
+    };
 
-function useThrowWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
-    useEffect(() => {
-        if (!isNil(title) && !isNil(trigger)) {
-            throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
-        }
-    }, [title, trigger]);
-}
-
-function useHandleVisibilityChange({ onVisibilityChange }, setIsOpen) {
-    return useCallback((event, isVisible) => {
-        setIsOpen(isVisible);
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, isVisible);
-        }
-    }, [onVisibilityChange, setIsOpen]);
-}
-
-function useHandleItemClick({ closeOnItemClick }, closePopper, focusTrigger) {
-    return useCallback(event => {
-        if (closeOnItemClick) {
-            // HACK: anchors were not activated on enter keydown, delaying close fix it.
-            setTimeout(() => {
-                closePopper(event);
-                focusTrigger();
-            }, 0);
-        }
-    }, [closeOnItemClick, closePopper, focusTrigger]);
-}
-
-function resolveTrigger(title, icon, trigger) {
-    if (!isNil(title)) {
-        return <DropdownTitleTrigger title={title} icon={icon} />;
+    if (!isNil(menu)) {
+        return createDropdownMenu(menu, props);
     }
 
-    if (!isNil(trigger)) {
-        if (!isNil(trigger.type) && trigger.type.name === "DropdownTrigger") {
-            return trigger;
-        }
-
-        return <UnwrappedTriggerAdapter>{trigger}</UnwrappedTriggerAdapter>;
-    }
-
-    throw new Error("Dropdown - \"title\" or \"trigger\" cannot be both undefined.");
-}
-
-function useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover, rest }, isOpen) {
-    return () => {
-        const triggerComponent = resolveTrigger(title, icon, trigger);
-
-        return cloneElement(triggerComponent, {
-            ...rest,
-            open: isOpen,
-            upward,
-            direction,
-            size,
-            fluid,
-            active,
-            focus,
-            hover
-        });
-    };
-}
-
-function useMenuRenderer({ size, scrolling, menu, children, forwardedRef, rest }, isOpen, handleItemClick) {
-    return () => {
-        const props = {
-            ...rest,
-            open: isOpen,
-            onItemClick: handleItemClick,
-            size,
-            scrolling,
-            children,
-            ref: forwardedRef
-        };
-
-        if (!isNil(menu)) {
-            return createDropdownMenu(menu, props);
-        }
-
-        return <DropdownMenu {...props}>{children}</DropdownMenu>;
-    };
-}
-
-function usePopper({ open, defaultOpen, upward, direction, pinned, zIndex, fluid, closeOnBlur, closeOnOutsideClick }, handleVisibilityChange, trigger) {
-    const { renderPopper, hidePopper, focusTrigger } = usePopperTrigger({
-        show: open,
-        defaultShow: defaultOpen,
-        trigger,
-        toggleHandler: "onClick",
-        position: resolvePopperPosition(upward, direction),
-        pinned,
-        offset: [0, 10],
-        zIndex,
-        fluid,
-        showOnKeys: [upward ? KEYS.up : KEYS.down],
-        focusFirstElementOnKeyboardShow: true,
-        hideOnBlur: closeOnBlur,
-        hideOnOutsideClick: closeOnOutsideClick,
-        onVisibilityChange: handleVisibilityChange
-    });
-
-    return {
-        renderPopper,
-        closePopper: hidePopper,
-        focusTrigger
-    };
-}
-
-function useRenderer(size, popper) {
-    return () => {
-        return (
-            <DropdownContext.Provider value={{ size }}>
-                {popper}
-            </DropdownContext.Provider>
-        );
-    };
+    return <DropdownMenu {...props}>{children}</DropdownMenu>;
 }
 
 export function InnerDropdown(props) {
@@ -198,7 +87,6 @@ export function InnerDropdown(props) {
         scrolling,
         closeOnBlur,
         closeOnOutsideClick,
-        closeOnItemClick,
         onVisibilityChange,
         active,
         focus,
@@ -208,27 +96,75 @@ export function InnerDropdown(props) {
         forwardedRef,
         ...rest
     } = props;
-    useThrowWhenMutuallyExclusivePropsAreProvided(props);
+    useEffect(() => {
+        if (!isNil(title) && !isNil(trigger)) {
+            throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
+        }
+    }, [title, trigger]);
 
     const [isOpen, setIsOpen] = useState();
 
-    const handleVisibilityChange = useHandleVisibilityChange({ onVisibilityChange }, setIsOpen);
+    const handleVisibilityChange = useEventCallback((event, isVisible) => {
+        setIsOpen(isVisible);
 
-    const renderTrigger = useTriggerRenderer({ title, icon, trigger, size, upward, direction, fluid, active, focus, hover, rest }, isOpen);
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, isVisible);
+        }
+    });
 
-    const { renderPopper, closePopper, focusTrigger } = usePopper(
-        { open, defaultOpen, upward, direction, pinned, zIndex, fluid, closeOnBlur, closeOnOutsideClick },
-        handleVisibilityChange,
-        renderTrigger()
+    const dropdownTrigger = useDropdownTrigger(title, icon, trigger, size, rest);
+
+    const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
+        show: open,
+        defaultShow: defaultOpen,
+        trigger: dropdownTrigger,
+        toggleHandler: "onClick",
+        position: resolvePopperPosition(upward, direction),
+        pinned,
+        offset: [0, 10],
+        zIndex,
+        fluid,
+        showOnKeys: [upward ? KEYS.up : KEYS.down],
+        focusFirstElementOnKeyboardShow: true,
+        hideOnBlur: closeOnBlur,
+        hideOnOutsideClick: closeOnOutsideClick,
+        onVisibilityChange: handleVisibilityChange
+    });
+
+    const handleSelectItem = useEventCallback(event => {
+        // HACK: anchors were not activated on enter keydown, delaying close fix it.
+        setTimeout(() => {
+            closePopper(event);
+            focusTrigger();
+        }, 0);
+    });
+
+    const dropdownMenu = useDropdownMenu(menu, handleSelectItem, children, forwardedRef);
+
+    const context = {
+        isOpen,
+        title,
+        icon,
+        trigger,
+        size,
+        upward,
+        direction,
+        pinned,
+        zIndex,
+        fluid,
+        scrolling,
+        closeOnBlur,
+        closeOnOutsideClick,
+        active,
+        focus,
+        hover
+    };
+
+    return (
+        <DropdownContext.Provider value={context}>
+            {renderPopper(dropdownMenu)}
+        </DropdownContext.Provider>
     );
-
-    const handleItemClick = useHandleItemClick({ closeOnItemClick }, closePopper, focusTrigger);
-
-    const renderMenu = useMenuRenderer({ size, scrolling, menu, children, forwardedRef }, isOpen, handleItemClick);
-    const render = useRenderer(size, renderPopper(renderMenu()));
-
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
 }
 
 InnerDropdown.propTypes = propTypes;

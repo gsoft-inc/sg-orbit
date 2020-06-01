@@ -1,7 +1,9 @@
-import { KEYS, SIZE, SemanticRef, classes, createShorthandFactory, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
+import { DropdownContext } from "./DropdownContext";
+import { DropdownMenuContext } from "./DropdownMenuContext";
+import { KEYS, SIZE, SemanticRef, createShorthandFactory, mergeClasses, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func, object, oneOf, string } from "prop-types";
-import { forwardRef, useEffect, useMemo, useState } from "react";
+import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
+import { func, object, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 
 const SIZE_CSS_CLASS = {
@@ -10,23 +12,21 @@ const SIZE_CSS_CLASS = {
 };
 
 const propTypes = {
-    open: bool,
     onKeyDown: func,
-    onItemClick: func,
-    size: oneOf(["small", "large"]),
+    onSelectItem: func,
     wrapperClassName: string,
     wrapperStyle: object
 };
 
-export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrolling, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
+export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
+    const { isOpen, size, scrolling } = useContext(DropdownContext);
+
     const [keyboardIndex, setKeyboardIndex] = useState(0);
     const [menuElement, setMenuElement] = useState();
 
     const menuRef = useCombinedRefs(setMenuElement, forwardedRef);
 
-    const itemElements = useMemo(() => {
-        return !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [];
-    }, [menuElement]);
+    const itemElements = useMemo(() => !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [], [menuElement]);
 
     const setKeyboardItem = useStaticCallback(newIndex => {
         const selectedItem = itemElements[newIndex];
@@ -39,8 +39,8 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
     });
 
     const handleDocumentEnter = useEventCallback(event => {
-        if (!isNil(onItemClick)) {
-            onItemClick(event);
+        if (!isNil(onSelectItem)) {
+            onSelectItem(event);
         }
     });
 
@@ -82,11 +82,11 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
         }
     });
 
-    useDocumentListener("keydown", handleDocumentKeyDown, open);
+    useDocumentListener("keydown", handleDocumentKeyDown, isOpen);
 
     const handleItemClick = useEventCallback(event => {
-        if (!isNil(onItemClick)) {
-            onItemClick(event);
+        if (!isNil(onSelectItem)) {
+            onSelectItem(event);
         }
     });
 
@@ -94,21 +94,14 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
     useEffect(() => {
         itemElements.forEach((x, index) => {
             x.classList.toggle("selected", keyboardIndex === index);
-            x.addEventListener("click", handleItemClick);
         });
-
-        return () => {
-            itemElements.forEach(x => {
-                x.removeEventListener("click", handleItemClick);
-            });
-        };
-    }, [itemElements, keyboardIndex, handleItemClick]);
+    }, [itemElements, keyboardIndex]);
 
     return (
         // This div element is rendered for compatibility with SUI theme.
         // We should remove it once we don't depend on SUI.
         <div
-            className={classes(
+            className={mergeClasses(
                 "ui dropdown dropdown-menu",
                 size && SIZE_CSS_CLASS[size],
                 scrolling && "scrolling",
@@ -117,15 +110,20 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
             style={wrapperStyle}
             tabIndex="-1"
         >
-            <SemanticRef innerRef={menuRef}>
-                <SemanticDropdown.Menu
-                    {...rest}
-                    open
-                    tabIndex="-1"
-                >
-                    {children}
-                </SemanticDropdown.Menu>
-            </SemanticRef>
+            <DropdownMenuContext.Provider value={{
+                onItemClick: handleItemClick
+            }}
+            >
+                <SemanticRef innerRef={menuRef}>
+                    <SemanticDropdown.Menu
+                        {...rest}
+                        open
+                        tabIndex="-1"
+                    >
+                        {children}
+                    </SemanticDropdown.Menu>
+                </SemanticRef>
+            </DropdownMenuContext.Provider>
         </div>
     );
 }

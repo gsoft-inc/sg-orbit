@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
-import { Dropdown } from "@react-components/dropdown-menu-2";
+import { Dropdown, DropdownContext } from "@react-components/dropdown-menu-2";
 import { EditIcon, FileIcon, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
 
 function stories(segment) {
@@ -61,20 +61,20 @@ function DividedDropdown({
     );
 }
 
-const CustomTrigger = forwardRef(({ open, ...rest }, ref) => {
+const CustomTrigger = forwardRef((props, ref) => {
+    const { isOpen } = useContext(DropdownContext);
+
     return (
         <Button
-            {...rest}
+            {...props}
             circular
-            primary={open}
-            secondary={!open}
+            primary={isOpen}
+            secondary={!isOpen}
             icon={<VerticalDotsIcon />}
             ref={ref}
         />
     );
 });
-
-CustomTrigger.name = "DropdownTrigger";
 
 stories()
     .add("default", () =>

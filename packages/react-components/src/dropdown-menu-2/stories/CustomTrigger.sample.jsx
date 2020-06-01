@@ -1,19 +1,20 @@
 import { Button } from "@react-components/button";
+import { DropdownContext } from "@react-components/dropdown-menu-2";
 import { VerticalDotsIcon } from "@react-components/icons";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 
-export const CustomTrigger = forwardRef(({ open, size, onClick }, ref) => {
+export const CustomTrigger = forwardRef(({ onClick }, ref) => {
+    const { isOpen, size } = useContext(DropdownContext);
+
     return (
         <Button
             size={size}
             circular
-            primary={open}
-            secondary={!open}
+            primary={isOpen}
+            secondary={!isOpen}
             icon={<VerticalDotsIcon />}
             onClick={onClick}
             ref={ref}
         />
     );
 });
-
-CustomTrigger.name = "DropdownTrigger";
