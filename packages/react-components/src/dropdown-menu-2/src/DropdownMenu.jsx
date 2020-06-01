@@ -12,19 +12,13 @@ const SIZE_CSS_CLASS = {
 };
 
 const propTypes = {
-    onKeyDown: func,
     onSelectItem: func,
     wrapperClassName: string,
     wrapperStyle: object
 };
 
-export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
-    const { isOpen, size, scrolling } = useContext(DropdownContext);
-
+function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
     const [keyboardIndex, setKeyboardIndex] = useState(0);
-    const [menuElement, setMenuElement] = useState();
-
-    const menuRef = useCombinedRefs(setMenuElement, forwardedRef);
 
     const itemElements = useMemo(() => !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [], [menuElement]);
 
@@ -76,26 +70,32 @@ export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, w
                 handleDocumentDownArrow(event);
                 break;
         }
-
-        if (!isNil(onKeyDown)) {
-            onKeyDown(event);
-        }
     });
 
     useDocumentListener("keydown", handleDocumentKeyDown, isOpen);
+
+    // Bypassing React with direct DOM manipulation to support custom sub components for items.
+    useEffect(() => {
+        itemElements.forEach((x, index) => {
+            x.classList.toggle("selected", keyboardIndex === index);
+        });
+    }, [itemElements, keyboardIndex]);
+}
+
+export function InnerDropdownMenu({ onSelectItem, wrapperClassName, wrapperStyle, children, forwardedRef, ...rest }) {
+    const { isOpen, size, scrolling } = useContext(DropdownContext);
+
+    const [menuElement, setMenuElement] = useState();
+
+    const menuRef = useCombinedRefs(setMenuElement, forwardedRef);
+
+    useKeyboardNavigation(menuElement, isOpen, onSelectItem);
 
     const handleItemClick = useEventCallback(event => {
         if (!isNil(onSelectItem)) {
             onSelectItem(event);
         }
     });
-
-    // Manipulating items with DOM to support custom sub components for items.
-    useEffect(() => {
-        itemElements.forEach((x, index) => {
-            x.classList.toggle("selected", keyboardIndex === index);
-        });
-    }, [itemElements, keyboardIndex]);
 
     return (
         // This div element is rendered for compatibility with SUI theme.
@@ -110,9 +110,10 @@ export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, w
             style={wrapperStyle}
             tabIndex="-1"
         >
-            <DropdownMenuContext.Provider value={{
-                onItemClick: handleItemClick
-            }}
+            <DropdownMenuContext.Provider
+                value={{
+                    onItemClick: handleItemClick
+                }}
             >
                 <SemanticRef innerRef={menuRef}>
                     <SemanticDropdown.Menu
