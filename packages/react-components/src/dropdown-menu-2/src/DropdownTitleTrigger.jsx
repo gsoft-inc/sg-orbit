@@ -18,16 +18,7 @@ export function InnerDropdownTitleTrigger({
     forwardedRef,
     ...rest
 }) {
-    const {
-        icon,
-        title,
-        upward,
-        size,
-        fluid,
-        active,
-        focus,
-        hover
-    } = useContext(DropdownContext);
+    const { icon, title, upward, size, fluid, active, focus, hover } = useContext(DropdownContext);
 
     return (
         <Element
