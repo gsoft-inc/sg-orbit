@@ -4,7 +4,7 @@ import { DropdownMenuButtonItem } from "./button-item";
 import { DropdownMenuHeader } from "./header";
 import { DropdownMenuItem } from "./item";
 import { DropdownMenuLinkItem } from "./link-item";
-import { KEYS, mergeClasses, throwWhenUnsupportedPropIsProvided, useCombinedRefs, useDomEventListener } from "../../shared";
+import { KEYS, mergeClasses, throwWhenUnsupportedPropIsProvided, useCombinedRefs, useDocumentListener } from "../../shared";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -171,7 +171,7 @@ function useHandleDocumentKeyDown({ trigger }, isOpen, isFocus, dropdownComponen
         }
     }, [isOpen, dropdownComponentRef]);
 
-    useDomEventListener("keydown", handleDocumentKeyDown, isNil(trigger) && isFocus);
+    useDocumentListener("keydown", handleDocumentKeyDown, isNil(trigger) && isFocus);
 }
 
 function useTriggerRenderer({ trigger, focus }) {

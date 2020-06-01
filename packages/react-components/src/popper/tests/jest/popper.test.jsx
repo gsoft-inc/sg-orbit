@@ -7,7 +7,7 @@ import userEvent from "@utils/user-event";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";
 
-function InnerDummyPopper({ forwardedRef, ...rest }) {
+const DummyPopper = forwardRef((props, ref) => {
     const [triggerElement, setTriggerElement] = useState();
 
     return (
@@ -15,22 +15,18 @@ function InnerDummyPopper({ forwardedRef, ...rest }) {
             <Button ref={setTriggerElement}>Open</Button>
             <If condition={!isNil(triggerElement)}>
                 <Popper
+                    {...props}
                     show
                     animate={false}
                     triggerElement={triggerElement}
-                    ref={forwardedRef}
-                    {...rest}
+                    ref={ref}
                 >
                     <div>Popper</div>
                 </Popper>
             </If>
         </>
     );
-}
-
-const DummyPopper = forwardRef((props, ref) => (
-    <InnerDummyPopper { ...props } forwardedRef={ref} />
-));
+});
 
 function createPopper(props = {}) {
     return <DummyPopper {...props} />;

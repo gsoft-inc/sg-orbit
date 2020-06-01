@@ -1,6 +1,10 @@
-import { BoundedRedBoxPopper } from "./BoundedRedBoxPopper";
-import { RedBoxPopper } from "./RedBoxPopper";
+import styles from "./Popper.chroma.module.css";
+
+import { Button } from "@react-components/button";
+import { Popper } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { forwardRef, useLayoutEffect, useState } from "react";
+import { isNil, merge } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popper/popper"))
@@ -13,6 +17,102 @@ function stories(segment) {
                 .build()
         )
         .build();
+}
+
+const RedBox = forwardRef((props, ref) => {
+    return (
+        <div
+            {...props}
+            className="w12 h12 bg-red"
+            tabIndex="0"
+            ref={ref}
+        >
+        </div>
+    );
+});
+
+const RedBoxPopper = forwardRef(({ defaultShow, ...rest }, ref) => {
+    const [triggerElement, setTriggerElement] = useState();
+    const [isVisible, setVisibility] = useState(defaultShow);
+
+    return (
+        <>
+            <Button
+                fluid
+                onClick={() => setVisibility(!isVisible)}
+                ref={setTriggerElement}
+            >
+                Open
+            </Button>
+            <If condition={!isNil(triggerElement)}>
+                <Popper
+                    show={isVisible}
+                    triggerElement={triggerElement}
+                    ref={ref}
+                    {...rest}
+                >
+                    <RedBox />
+                </Popper>
+            </If>
+        </>
+    );
+});
+
+function BoundedRedBoxPopper({
+    scrollTop = 0,
+    modifiers,
+    setPreventOverflowBoundaryElement,
+    setFlipBoundaryElement,
+    ...rest }
+) {
+    const [boundaryElement, setBoundaryElement] = useState();
+
+    const setModifierBoundaryElement = name => {
+        const modifier = modifiers.find(x => x.name === name);
+
+        if (!isNil(modifier)) {
+            modifier.options = merge(modifier.options || {}, {
+                boundary: boundaryElement
+            });
+        } else {
+            modifiers.push({
+                name,
+                options: {
+                    boundary: boundaryElement
+                }
+            });
+        }
+    };
+
+    useLayoutEffect(() => {
+        if (!isNil(boundaryElement)) {
+            boundaryElement.scrollTop = scrollTop;
+        }
+    }, [boundaryElement, scrollTop]);
+
+    const createModifiers = () => {
+        const mergedModifiers = modifiers || [];
+
+        if (setPreventOverflowBoundaryElement) {
+            setModifierBoundaryElement("preventOverflow", boundaryElement, mergedModifiers);
+        }
+
+        if (setFlipBoundaryElement) {
+            setModifierBoundaryElement("flip", boundaryElement, mergedModifiers);
+        }
+
+        return mergedModifiers;
+    };
+
+    return (
+        <div className={styles.boundary} ref={setBoundaryElement}>
+            <RedBoxPopper
+                show
+                popperModifiers={createModifiers()}
+                {...rest}
+            />
+        </div>
+    );
 }
 
 stories()

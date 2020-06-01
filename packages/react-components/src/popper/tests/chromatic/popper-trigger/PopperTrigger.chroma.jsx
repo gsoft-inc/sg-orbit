@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { Popper, PopperTrigger } from "@react-components/popper";
-import { RedBox } from "./RedBox";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { forwardRef } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popper/trigger"))
@@ -15,6 +15,18 @@ function stories(segment) {
         )
         .build();
 }
+
+const RedBox = forwardRef((props, ref) => {
+    return (
+        <div
+            {...props}
+            className="w12 h12 pa2 bg-red"
+            ref={ref}
+        >
+            <a href="https://en.wikipedia.org/wiki/David_Saint-Jacques" target="__blank">David Saint-Jacques</a>
+        </div>
+    );
+});
 
 function RedBoxPopper(props) {
     return (

@@ -27,9 +27,9 @@ function notifyStateChanged(newState, isInitialState, handler) {
 function useComputeInitialState(controlledValue, initialValue, defaultValue) {
     const result = (state, isControlled, isInitialState = false) => ({ state, isControlled, isInitialState });
 
-    const hasComputed = useRef(false);
+    const hasComputedRef = useRef(false);
 
-    if (hasComputed.current) {
+    if (hasComputedRef.current) {
         return result(null, null);
     }
 
@@ -45,7 +45,7 @@ function useComputeInitialState(controlledValue, initialValue, defaultValue) {
         isControlled = true;
     }
 
-    hasComputed.current = true;
+    hasComputedRef.current = true;
 
     return result(state, isControlled, true);
 }
@@ -112,8 +112,6 @@ export function useAutoControlledState(controlledValue, initialValue, defaultVal
     validatePrerequisites(controlledValue, initialValue);
 
     const { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
-
-    // console.log("** useComputeInitialState, ", " initialState: ", initialState, " isControlledProp: ", isControlledProp, " isInitialState: ", isInitialState);
 
     const [state, setState] = useState(initialState);
     const [isControlled] = useState(isControlledProp);

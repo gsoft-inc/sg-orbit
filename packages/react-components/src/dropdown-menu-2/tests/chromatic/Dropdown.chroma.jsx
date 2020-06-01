@@ -1,9 +1,19 @@
 import { Button } from "@react-components/button";
-import { CustomTrigger } from "./CustomTrigger";
 import { Dropdown } from "@react-components/dropdown-menu-2";
 import { EditIcon, FileIcon, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { forwardRef } from "react";
 import { noop } from "lodash";
+
+function stories(segment) {
+    return storiesOfBuilder(module, createChromaticSection("Dropdown-2"))
+        .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .canvasLayout({ width: "80%" })
+            .build())
+        .build();
+}
 
 function SimpleDropdown({
     title = "File",
@@ -51,15 +61,20 @@ function DividedDropdown({
     );
 }
 
-function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Dropdown-2"))
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .canvasLayout({ width: "80%" })
-            .build())
-        .build();
-}
+const CustomTrigger = forwardRef(({ open, ...rest }, ref) => {
+    return (
+        <Button
+            {...rest}
+            circular
+            primary={open}
+            secondary={!open}
+            icon={<VerticalDotsIcon />}
+            ref={ref}
+        />
+    );
+});
+
+CustomTrigger.name = "DropdownTrigger";
 
 stories()
     .add("default", () =>
@@ -159,7 +174,7 @@ stories()
             </div>
         </div>
     )
-    .add("unwrapped trigger", () =>
+    .add("basic trigger", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "200px" }}>
                 <TriggerLessDropdown

@@ -40,11 +40,13 @@ const propTypes = {
      * Requires `closeOnBlur` to be false.
      */
     closeOnOutsideClick: bool,
+    closeOnItemClick: bool,
     onVisibilityChange: func,
     menu: element
 };
 
 const defaultProps = {
+    closeOnItemClick: true,
     direction: "right"
 };
 
@@ -79,14 +81,16 @@ function useHandleVisibilityChange({ onVisibilityChange }, setIsOpen) {
     }, [onVisibilityChange, setIsOpen]);
 }
 
-function useHandleMenuSelectItem(closePopper, focusTrigger) {
+function useHandleItemClick({ closeOnItemClick }, closePopper, focusTrigger) {
     return useCallback(event => {
-        // HACK: anchors were not activated on enter keydown, delaying close fix it.
-        setTimeout(() => {
-            closePopper(event);
-            focusTrigger();
-        }, 0);
-    }, [closePopper, focusTrigger]);
+        if (closeOnItemClick) {
+            // HACK: anchors were not activated on enter keydown, delaying close fix it.
+            setTimeout(() => {
+                closePopper(event);
+                focusTrigger();
+            }, 0);
+        }
+    }, [closeOnItemClick, closePopper, focusTrigger]);
 }
 
 function resolveTrigger(title, icon, trigger) {
@@ -123,12 +127,12 @@ function useTriggerRenderer({ title, icon, trigger, size, upward, direction, flu
     };
 }
 
-function useMenuRenderer({ size, scrolling, menu, children, forwardedRef, rest }, isOpen, handleMenuSelectItem) {
+function useMenuRenderer({ size, scrolling, menu, children, forwardedRef, rest }, isOpen, handleItemClick) {
     return () => {
         const props = {
             ...rest,
             open: isOpen,
-            onSelectItem: handleMenuSelectItem,
+            onItemClick: handleItemClick,
             size,
             scrolling,
             children,
@@ -194,6 +198,7 @@ export function InnerDropdown(props) {
         scrolling,
         closeOnBlur,
         closeOnOutsideClick,
+        closeOnItemClick,
         onVisibilityChange,
         active,
         focus,
@@ -217,9 +222,9 @@ export function InnerDropdown(props) {
         renderTrigger()
     );
 
-    const handleMenuSelectItem = useHandleMenuSelectItem(closePopper, focusTrigger);
+    const handleItemClick = useHandleItemClick({ closeOnItemClick }, closePopper, focusTrigger);
 
-    const renderMenu = useMenuRenderer({ size, scrolling, menu, children, forwardedRef }, isOpen, handleMenuSelectItem);
+    const renderMenu = useMenuRenderer({ size, scrolling, menu, children, forwardedRef }, isOpen, handleItemClick);
     const render = useRenderer(size, renderPopper(renderMenu()));
 
     // Without a fragment, react-docgen doesn't work.

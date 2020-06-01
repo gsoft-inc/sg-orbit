@@ -1,5 +1,5 @@
 import { Dropdown } from "../../dropdown";
-import { KEYS, SIZE, mergeClasses, throwWhenUnsupportedPropIsProvided, useDomEventListener } from "../../shared";
+import { KEYS, SIZE, mergeClasses, throwWhenUnsupportedPropIsProvided, useDocumentListener } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { SelectItem, createSelectItem } from "./item";
@@ -191,7 +191,7 @@ function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownCo
         }
     }, [hasValueChangeRef, dropdownComponentRef]);
 
-    useDomEventListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
+    useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
 }
 
 function useMultipleValuesLabelRenderer({ size }) {

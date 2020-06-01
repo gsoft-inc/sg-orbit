@@ -1,4 +1,4 @@
-import { KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDomEventListener } from "../../shared";
+import { KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDocumentListener } from "../../shared";
 import { Popper, createPopper } from "./Popper";
 import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
 import { isFunction, isNil } from "lodash";
@@ -218,7 +218,7 @@ function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisi
         }
     }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
 
-    useDomEventListener("keydown", handler, isVisible);
+    useDocumentListener("keydown", handler, isVisible);
 }
 
 // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
@@ -254,7 +254,7 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapper
         }
     }, [hasFocusRef, activeElementRef, wrapperRef, setFocusPopper]);
 
-    useDomEventListener("blur", handler, isVisible, { capture: true });
+    useDocumentListener("blur", handler, isVisible, true);
 }
 
 function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper) {
@@ -266,7 +266,7 @@ function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElemen
         }
     }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
 
-    useDomEventListener("click", handler, isVisible);
+    useDocumentListener("click", handler, isVisible);
 }
 
 // Ensure the original handler is called if provided by the consumer.

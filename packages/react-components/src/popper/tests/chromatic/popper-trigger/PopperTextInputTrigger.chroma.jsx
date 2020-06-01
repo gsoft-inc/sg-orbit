@@ -1,9 +1,9 @@
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
-import { RedBox } from "./RedBox";
 import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { forwardRef } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popper/text input trigger"))
@@ -18,10 +18,22 @@ function stories(segment) {
         .build();
 }
 
+const RedBox = forwardRef((props, ref) => {
+    return (
+        <div
+            {...props}
+            className="w12 h12 pa2 bg-red"
+            ref={ref}
+        >
+            <a href="https://en.wikipedia.org/wiki/David_Saint-Jacques" target="__blank">David Saint-Jacques</a>
+        </div>
+    );
+});
+
 function createPopperTrigger(popperProps = {}, inputProps = {}) {
     return (
         <PopperTrigger.TextInput
-            input={<TextInput {...inputProps} placeholder="Pick a date" />}
+            input={<TextInput {...inputProps} placeholder="Click me" />}
             {...popperProps}
         >
             <RedBox />

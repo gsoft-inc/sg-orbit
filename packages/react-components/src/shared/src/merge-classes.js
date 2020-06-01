@@ -1,3 +1,6 @@
-export function mergeClasses(...classes) {
-    return classes.filter(Boolean).join(" ");
+export function mergeClasses(...candidates) {
+    return candidates.filter(Boolean).join(" ");
 }
+
+// Temporary conveninent alias.
+export const classes = mergeClasses;
