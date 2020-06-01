@@ -7,7 +7,7 @@ import userEvent from "@utils/user-event";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";
 
-const DummyPopper = forwardRef((props, ref) => {
+const SimplePopper = forwardRef((props, ref) => {
     const [triggerElement, setTriggerElement] = useState();
 
     return (
@@ -21,7 +21,7 @@ const DummyPopper = forwardRef((props, ref) => {
                     triggerElement={triggerElement}
                     ref={ref}
                 >
-                    <div>Popper</div>
+                    <div>Click me</div>
                 </Popper>
             </If>
         </>
@@ -29,7 +29,7 @@ const DummyPopper = forwardRef((props, ref) => {
 });
 
 function createPopper(props = {}) {
-    return <DummyPopper {...props} />;
+    return <SimplePopper {...props} />;
 }
 
 // ***** Behaviors *****

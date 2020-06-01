@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { KEYS } from "@react-components/shared";
 import { PopperTrigger } from "@react-components/popper";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -18,6 +19,13 @@ function createPopperTrigger(popperProps = {}, triggerProps = {}) {
             <div><a href="https://www.google.com" data-testid={POPPER_FOCUSABLE_ELEMENT_ID}>Focus element in popper</a></div>
         </PopperTrigger>
     );
+}
+
+function focusAnotherElement() {
+    const focusableElement = document.createElement("input");
+    document.body.appendChild(focusableElement);
+
+    userEvent.click(focusableElement);
 }
 
 async function showPopper({ getByTestId }) {
@@ -72,9 +80,21 @@ test("show the popper on trigger enter keydown", async () => {
     await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
 });
 
-test("when showOnSpacebar is false, dont show the popper on trigger spacebar keydown", async () => {
+test("show the popper on trigger custom keys keydown", async () => {
+    const { getByTestId } = render(createPopperTrigger({
+        showOnKeys: [KEYS.down]
+    }));
+
+    act(() => {
+        fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
+    });
+
+    await waitFor(() => expect(getByTestId(POPPER_ID)).toBeInTheDocument());
+});
+
+test("when toggleOnSpacebar is false, dont show the popper on trigger spacebar keydown", async () => {
     const { getByTestId, queryByTestId } = render(createPopperTrigger({
-        showOnSpacebar: false
+        toggleOnSpacebar: false
     }));
 
     act(() => {
@@ -84,9 +104,9 @@ test("when showOnSpacebar is false, dont show the popper on trigger spacebar key
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
 
-test("when showOnEnter is false, dont show the popper on trigger enter keydown", async () => {
+test("when toggleOnEnter is false, dont show the popper on trigger enter keydown", async () => {
     const { getByTestId, queryByTestId } = render(createPopperTrigger({
-        showOnEnter: false
+        toggleOnEnter: false
     }));
 
     act(() => {
@@ -116,6 +136,32 @@ test("when focusFirstElementOnShow is true, focus the first popper focusable ele
     await waitFor(() => expect(queries.getPopperFocusableElement()).toHaveFocus());
 });
 
+test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, dont focus the first popper focusable element on mouse show", async () => {
+    const { getByTestId } = render(createPopperTrigger({
+        focusFirstElementOnShow: false,
+        focusFirstElementOnKeyboardShow: true
+    }));
+
+    act(() => {
+        userEvent.click(getByTestId(TRIGGER_ID));
+    });
+
+    await waitFor(() => expect(getByTestId(POPPER_FOCUSABLE_ELEMENT_ID)).not.toHaveFocus());
+});
+
+test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, focus the first popper focusable element on keyboard show", async () => {
+    const { getByTestId } = render(createPopperTrigger({
+        focusFirstElementOnShow: false,
+        focusFirstElementOnKeyboardShow: true
+    }));
+
+    act(() => {
+        fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 13 });
+    });
+
+    await waitFor(() => expect(getByTestId(POPPER_FOCUSABLE_ELEMENT_ID)).toHaveFocus());
+});
+
 test("when disabled, dont show the popper on trigger toggle", async () => {
     const { getByTestId, queryByTestId } = render(createPopperTrigger({
         disabled: true
@@ -123,6 +169,43 @@ test("when disabled, dont show the popper on trigger toggle", async () => {
 
     act(() => {
         userEvent.click(getByTestId(TRIGGER_ID));
+    });
+
+    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
+});
+
+test("when disabled, dont show the popper on trigger enter keydown", async () => {
+    const { queryByTestId } = render(createPopperTrigger({
+        disabled: true
+    }));
+
+    act(() => {
+        fireEvent.keyDown(document, { key: "Enter", keyCode: 10 });
+    });
+
+    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
+});
+
+test("when disabled, dont show the popper on trigger space keydown", async () => {
+    const { queryByTestId } = render(createPopperTrigger({
+        disabled: true
+    }));
+
+    act(() => {
+        fireEvent.keyDown(document, { key: " ", keyCode: 32 });
+    });
+
+    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
+});
+
+test("when disabled, dont show the popper on trigger custom keydown", async () => {
+    const { queryByTestId } = render(createPopperTrigger({
+        disabled: true,
+        showOnKeys: [KEYS.down]
+    }));
+
+    act(() => {
+        fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
     });
 
     expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
@@ -191,10 +274,10 @@ test("hide the popper on trigger enter keydown", async () => {
 test("hide the popper on blur", async () => {
     const renderResult = render(createPopperTrigger());
 
-    const { triggerNode, popperNode } = await showPopper(renderResult);
+    const { popperNode } = await showPopper(renderResult);
 
     act(() => {
-        triggerNode.blur();
+        focusAnotherElement();
     });
 
     await waitFor(() => expect(popperNode).not.toBeInTheDocument());
@@ -218,18 +301,17 @@ test("when the popper hide on esc keydown, the trigger should be focused", async
     await waitFor(() => expect(triggerNode).toHaveFocus());
 });
 
-test("when hideOnBlur is false, dont hide the popper on blur", async () => {
+test("when hideOnBlur is false and hideOnOutsideClick is false, dont hide the popper on blur", async () => {
     const renderResult = render(createPopperTrigger({
-        hideOnBlur: false
+        hideOnBlur: false,
+        hideOnOutsideClick: false
     }));
 
     const { popperNode } = await showPopper(renderResult);
 
     act(() => {
-        userEvent.click(document.body);
+        focusAnotherElement();
     });
-
-    // queries.getPopperFocusableElement().focus();
 
     await waitFor(() => expect(popperNode).toBeInTheDocument());
 });
@@ -386,10 +468,10 @@ test("call onVisibilityChange when the popper hide on blur", async () => {
         onVisibilityChange: handler
     }));
 
-    const { triggerNode, popperNode } = await showPopper(renderResult);
+    const { popperNode } = await showPopper(renderResult);
 
     act(() => {
-        triggerNode.blur();
+        focusAnotherElement();
     });
 
     // I shouldn't need this but the test fail otherwise.

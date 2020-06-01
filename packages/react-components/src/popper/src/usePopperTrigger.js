@@ -160,9 +160,9 @@ function useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElement
     }, [disabled, onFocus, hasFocusRef, activeElementRef]);
 }
 
-// Hiding the popper on blur will:
-// - hide on outside click
-// - hide on blur
+// // Hiding the popper on blur will:
+// // - hide on outside click
+// // - hide on blur
 function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper) {
     return useCallback(event => {
         if (!disabled) {
