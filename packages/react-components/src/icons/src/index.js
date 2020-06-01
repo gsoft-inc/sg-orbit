@@ -1,6 +1,8 @@
 import { Icon, MultiVariantIcon } from "./Icon";
 
 export * from "./Icon";
+export * from "./ContentIcon";
+export * from "./StandaloneIcon";
 export * from "./createContentIcon";
 export * from "./createStandaloneIcon";
 

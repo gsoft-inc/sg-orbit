@@ -24,12 +24,12 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
 
     const menuRef = useCombinedRefs(setMenuElement, forwardedRef);
 
-    const itemsElements = useMemo(() => {
+    const itemElements = useMemo(() => {
         return !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [];
     }, [menuElement]);
 
     const setKeyboardItem = useStaticCallback(newIndex => {
-        const selectedItem = itemsElements[newIndex];
+        const selectedItem = itemElements[newIndex];
 
         if (isFunction(selectedItem.focus)) {
             selectedItem.focus();
@@ -45,18 +45,18 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
     });
 
     const handleDocumentUpArrow = useEventCallback(() => {
-        if (itemsElements.length > 0) {
+        if (itemElements.length > 0) {
             if (keyboardIndex > 0) {
                 setKeyboardItem(keyboardIndex - 1);
             } else {
-                setKeyboardItem(itemsElements.length - 1);
+                setKeyboardItem(itemElements.length - 1);
             }
         }
     });
 
     const handleDocumentDownArrow = useEventCallback(() => {
-        if (itemsElements.length > 0) {
-            if (keyboardIndex < itemsElements.length - 1) {
+        if (itemElements.length > 0) {
+            if (keyboardIndex < itemElements.length - 1) {
                 setKeyboardItem(keyboardIndex + 1);
             } else {
                 setKeyboardItem(0);
@@ -92,17 +92,17 @@ export function InnerDropdownMenu({ open, onKeyDown, onItemClick, size, scrollin
 
     // Manipulating items with DOM to support custom sub components for items.
     useEffect(() => {
-        itemsElements.forEach((x, index) => {
+        itemElements.forEach((x, index) => {
             x.classList.toggle("selected", keyboardIndex === index);
             x.addEventListener("click", handleItemClick);
         });
 
         return () => {
-            itemsElements.forEach(x => {
+            itemElements.forEach(x => {
                 x.removeEventListener("click", handleItemClick);
             });
         };
-    }, [itemsElements, keyboardIndex, handleItemClick]);
+    }, [itemElements, keyboardIndex, handleItemClick]);
 
     return (
         // This div element is rendered for compatibility with SUI theme.

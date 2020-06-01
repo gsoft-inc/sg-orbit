@@ -1,7 +1,7 @@
 import { ArrowIcon } from "../../icons";
 import { bool, elementType, oneOfType, string } from "prop-types";
+import { classes } from "../../shared";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
 
 const propTypes = {
     title: string,
@@ -38,19 +38,17 @@ export function InnerDropdownTitleTrigger({
 }) {
     delete rest["open"];
 
-    const classes = mergeClasses(
-        "o-ui title-trigger",
-        fluid && "fluid",
-        active && "active",
-        focus && "focus",
-        hover && "hover",
-        className
-    );
-
     return (
         <Element
             {...rest}
-            className={classes}
+            className={classes(
+                "o-ui title-trigger",
+                fluid && "fluid",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                className
+            )}
             ref={forwardedRef}
         >
             {icon}

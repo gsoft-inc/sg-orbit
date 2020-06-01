@@ -28,11 +28,14 @@ const RedBox = forwardRef((props, ref) => {
     );
 });
 
-function createPopperTrigger(props = {}) {
+function RedBoxPopper({
+    button = <Button fluid>Click me</Button>,
+    ...rest
+}) {
     return (
         <PopperTrigger.Button
-            button={<Button fluid>Click me</Button>}
-            {...props}
+            button={button}
+            {...rest}
         >
             <RedBox />
         </PopperTrigger.Button>
@@ -41,30 +44,34 @@ function createPopperTrigger(props = {}) {
 
 stories()
     .add("default", () =>
-        createPopperTrigger()
+        <RedBoxPopper />
     )
     .add("show", () =>
-        createPopperTrigger({
-            show: true
-        })
+        <RedBoxPopper show />
     )
     .add("default show", () =>
-        createPopperTrigger({
-            defaultShow: true
-        })
+        <RedBoxPopper defaultShow />
+    )
+    .add("disabled", () =>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper disabled />
+            </div>
+            <div>
+                <RedBoxPopper disabled show />
+            </div>
+        </div>
     )
     .add("shorthand button", () =>
-        <PopperTrigger.Button button={{ content: "Open", fluid: true }}>
-            <RedBox />
-        </PopperTrigger.Button>
+        <RedBoxPopper button={{ content: "Click me", fluid: true }} />
     )
     .add("fluid button", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({ fluid: true })}
+                <RedBoxPopper fluid />
             </div>
             <div>
-                {createPopperTrigger({ fluid: true, show: true })}
+                <RedBoxPopper fluid show />
             </div>
         </div>
     );

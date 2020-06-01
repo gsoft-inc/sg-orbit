@@ -1,5 +1,5 @@
+import { ContentIcon } from "../../icons";
 import { Dropdown, DropdownContext } from "../../dropdown";
-import { createContentIcon } from "../../icons";
 import { element } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
@@ -14,34 +14,25 @@ const propTypes = {
     icon: element
 };
 
-function useTextRenderer({ children }) {
-    return () => {
-        return <span className="text">{children}</span>;
-    };
+function Text({ children }) {
+    return <span className="text">{children}</span>;
 }
 
-function useContentRenderer({ icon, children }, size) {
-    const renderText = useTextRenderer({ children });
+function Content({ icon, children }) {
+    const { size } = useContext(DropdownContext);
 
-    return () => {
-        let left;
+    let left;
 
-        if (!isNil(icon)) {
-            left = createContentIcon(icon, size);
-        }
+    if (!isNil(icon)) {
+        left = <ContentIcon icon={icon} size={size} />;
+    }
 
-        return <>{!isNil(left) && left}{renderText()}</>;
-    };
-}
-
-function useRenderer({ forwardedRef, rest }, content) {
-    return () => {
-        return (
-            <Dropdown.Header {...rest} ref={forwardedRef}>
-                {content}
-            </Dropdown.Header>
-        );
-    };
+    return (
+        <>
+            {!isNil(left) && left}
+            <Text>{children}</Text>
+        </>
+    );
 }
 
 export function InnerDropdownHeader(props) {
@@ -49,13 +40,13 @@ export function InnerDropdownHeader(props) {
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownHeader");
 
-    const { size } = useContext(DropdownContext);
-
-    const renderContent = useContentRenderer({ icon, children }, size);
-    const render = useRenderer({ rest, forwardedRef }, renderContent());
-
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
+    return (
+        <Dropdown.Header {...rest} ref={forwardedRef}>
+            <Content icon={icon}>
+                {children}
+            </Content>
+        </Dropdown.Header>
+    );
 }
 
 InnerDropdownHeader.propTypes = propTypes;

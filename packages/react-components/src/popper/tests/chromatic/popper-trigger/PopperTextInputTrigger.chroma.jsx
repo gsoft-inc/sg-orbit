@@ -30,11 +30,14 @@ const RedBox = forwardRef((props, ref) => {
     );
 });
 
-function createPopperTrigger(popperProps = {}, inputProps = {}) {
+function RedBoxPopper({
+    input = <TextInput fluid placeholder="Click me" />,
+    ...rest
+}) {
     return (
         <PopperTrigger.TextInput
-            input={<TextInput {...inputProps} placeholder="Click me" />}
-            {...popperProps}
+            input={input}
+            {...rest}
         >
             <RedBox />
         </PopperTrigger.TextInput>
@@ -43,95 +46,60 @@ function createPopperTrigger(popperProps = {}, inputProps = {}) {
 
 stories()
     .add("default", () =>
-        createPopperTrigger()
+        <RedBoxPopper />
     )
     .add("show", () =>
-        createPopperTrigger({
-            show: true
-        })
+        <RedBoxPopper show />
     )
     .add("default show", () =>
-        createPopperTrigger({
-            defaultShow: true
-        })
+        <RedBoxPopper defaultShow />
     )
     .add("focus trigger on show", () =>
-        createPopperTrigger({
-            show: true,
-            focusTriggerOnShow: true
-        })
+        <RedBoxPopper show focusTriggerOnShow />
+    )
+    .add("focus first element on show", () =>
+        <RedBoxPopper show focusFirstElementOnKeyboardShow />
     )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({
-                    disabled: true
-                })}
+                <RedBoxPopper disabled />
             </div>
             <div>
-                {createPopperTrigger({
-                    disabled: true,
-                    show: true
-                })}
+                <RedBoxPopper disabled show />
             </div>
         </div>
+    )
+    .add("shorthand input", () =>
+        <RedBoxPopper input={{ placeholder: "Pick a date", fluid: true }} />
     )
     .add("fluid input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({ fluid: true }, { fluid: true })}
+                <RedBoxPopper fluid />
             </div>
             <div>
-                {createPopperTrigger({ fluid: true }, { fluid: true })}
+                <RedBoxPopper fluid show />
             </div>
         </div>
     )
     .add("readonly input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    readOnly: true
-                })}
+                <RedBoxPopper input={{ readOnly: true }} />
             </div>
             <div>
-                {createPopperTrigger({
-                    show: true
-                }, {
-                    readOnly: true
-                })}
+                <RedBoxPopper input={{ readOnly: true }} show />
             </div>
         </div>
-    )
-    .add("shorthand input", () =>
-        <PopperTrigger.TextInput input={{ placeholder: "Pick a date" }}>
-            <RedBox />
-        </PopperTrigger.TextInput>
     )
     .add("clearable input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    button: <Button icon={<CloseIcon />} />
-                })}
-            </div>
-            <div style={{ marginBottom: "100px" }}>
-                {createPopperTrigger({}, {
-                    button: {
-                        icon: <CloseIcon />
-                    }
-                })}
+                <RedBoxPopper input={{ button: <Button icon={<CloseIcon />} /> }} />
             </div>
             <div>
-                <PopperTrigger.TextInput
-                    input={{
-                        placeholder: "Pick a date",
-                        button: {
-                            icon: <CloseIcon />
-                        }
-                    }}
-                >
-                    <RedBox />
-                </PopperTrigger.TextInput>
+                <RedBoxPopper input={{ placeholder: "Pick a date", button: <Button icon={<CloseIcon />} /> }} />
             </div>
         </div>
     );
