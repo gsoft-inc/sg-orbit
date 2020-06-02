@@ -224,36 +224,34 @@ function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisi
 // More info at: https://allyjs.io/tutorials/mutating-active-element.html
 function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper) {
     const handler = useCallback(() => {
-        if (hasFocusRef.current) {
-            setTimeout(() => {
-                // Chrome and Edge move the focus to the body when the active element becomes disabled.
-                if (document.activeElement.nodeName === "BODY") {
-                    if (activeElementRef.current.disabled) {
+        setTimeout(() => {
+            // Chrome and Edge move the focus to the body when the active element becomes disabled.
+            if (document.activeElement.nodeName === "BODY") {
+                if (activeElementRef.current.disabled) {
+                    setFocusPopper(() => {
+                        if (!isNil(wrapperRef.current)) {
+                            wrapperRef.current.focus();
+                        }
+                    });
+                }
+
+            } else {
+                // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a blur event when another element is focused.
+                // That's an ugly hack to fix this.
+                setTimeout(() => {
+                    if (document.activeElement.disabled) {
                         setFocusPopper(() => {
                             if (!isNil(wrapperRef.current)) {
                                 wrapperRef.current.focus();
                             }
                         });
                     }
+                }, 100);
+            }
+        }, 0);
+    }, [activeElementRef, wrapperRef, setFocusPopper]);
 
-                } else {
-                    // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a blur event when another element is focused.
-                    // That's an ugly hack to fix this.
-                    setTimeout(() => {
-                        if (document.activeElement.disabled) {
-                            setFocusPopper(() => {
-                                if (!isNil(wrapperRef.current)) {
-                                    wrapperRef.current.focus();
-                                }
-                            });
-                        }
-                    }, 100);
-                }
-            }, 0);
-        }
-    }, [hasFocusRef, activeElementRef, wrapperRef, setFocusPopper]);
-
-    useDocumentListener("blur", handler, isVisible, true);
+    useDocumentListener("blur", handler, isVisible && hasFocusRef.current, true);
 }
 
 function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper) {
@@ -288,6 +286,7 @@ function useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerT
     return () => {
         if (!disabled) {
             return cloneElement(trigger, {
+                // TODO: disabled here might not be a good idea since if there was an original handler it would not be called.
                 [toggleHandler]: !disabled ? getToggleHandler(trigger, toggleHandler, handleTriggerToggle) : undefined,
                 onKeyDown: !disabled ? handleTriggerKeyDown : undefined,
                 ref: ref

@@ -5,8 +5,8 @@ import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Tag } from "@react-components/tag";
-import CustomColorHover from "./custom-color-hover.mdx";
-import Imports from "./imports.mdx";
+import CustomColorHover from "./CustomColorHover.mdx";
+import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Button")}
@@ -217,6 +217,8 @@ Or look like a link:
     <Story name="link">
         <div className="flex items-lot-of-space-between">
             <Button link>Cutoff</Button>
+            <Button link primary>Cutoff</Button>
+            <Button link secondary>Cutoff</Button>
             <Button link basic>Cutoff</Button>
         </div>
     </Story>

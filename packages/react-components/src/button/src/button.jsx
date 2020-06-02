@@ -1,19 +1,16 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Children, cloneElement, forwardRef, useCallback } from "react";
+import { Children, cloneElement, forwardRef, useEffect } from "react";
+import { ContentIcon, StandaloneIcon } from "../../icons";
 import { Button as SemanticButton } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs, useStaticCallback } from "../../shared";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
-import { createContentIcon, createStandaloneIcon } from "../../icons";
 import { createLabel, getContentLabelSize } from "../../label";
 import { createTag, getTagSize } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
-
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
 
 const propTypes = {
@@ -60,174 +57,100 @@ const propTypes = {
     /**
      * The button type.
      */
-    type: oneOf(["button", "submit", "reset"]),
-    /**
-     * @ignore
-     */
-    focus: bool,
-    /**
-     * @ignore
-     */
-    hover: bool,
-    /**
-     * @ignore
-     */
-    loading: bool
+    type: oneOf(["button", "submit", "reset"])
 };
 
 const defaultProps = {
-    ghost: false,
-    link: false,
     iconPosition: "left",
-    naked: false,
-    size: DEFAULT_SIZE,
     type: "button"
 };
-
-function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
-    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
-    }
-
-    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
-    }
-}
 
 function hasText(children) {
     return Children.count(children) > 0;
 }
 
-function getText(children) {
+function Icon({ shorthand, size, standalone }) {
+    return standalone ? <ContentIcon icon={shorthand} size={size} /> : <StandaloneIcon icon={shorthand} size={size} />;
+}
+
+// TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
+function Label({ shorthand, size, disabled }) {
+    const props = {
+        as: "span",
+        size: getContentLabelSize(size),
+        highlight: true,
+        disabled: disabled
+    };
+
+    if (isElement(shorthand)) {
+        return cloneElement(shorthand, props);
+    }
+
+    return createLabel({
+        ...props,
+        ...shorthand
+    });
+}
+
+// TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
+function Tag({ shorthand, size, disabled }) {
+    const props = {
+        as: "span",
+        size: getTagSize(size),
+        disabled: disabled
+    };
+
+    if (isElement(shorthand)) {
+        return cloneElement(shorthand, props);
+    }
+
+    return createTag({
+        ...props,
+        ...shorthand
+    });
+}
+
+function Content({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
+    if (!loading) {
+        let left;
+        let right;
+
+        if (!isNil(icon)) {
+            const component = <Icon shorthand={icon} size={size} standalone={hasText(children)} />;
+
+            if (iconPosition === "right") {
+                right = component;
+            } else {
+                left = component;
+            }
+        }
+
+        if (!isNil(label)) {
+            right = <Label shorthand={label} size={size} disabled={disabled} />;
+        }
+
+        if (!isNil(tag)) {
+            left = <Tag shorthand={tag} size={size} disabled={disabled} />;
+        }
+
+        if (!isNil(left) || !isNil(right)) {
+            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+        }
+    }
+
     return children;
 }
 
-function useSetFocus(buttonRef) {
-    return useCallback(() => {
-        if (!isNil(buttonRef.current)) {
-            buttonRef.current.focus();
-        }
-    }, [buttonRef]);
-}
-
-function useIconRenderer({ icon, size }, isStandalone) {
-    return () => {
-        return !isStandalone ? createContentIcon(icon, size) : createStandaloneIcon(icon, size);
-    };
-}
-
-function useLabelRenderer({ label, size, disabled }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getContentLabelSize(size),
-            highlight: true,
-            disabled: disabled
-        };
-
-        if (isElement(label)) {
-            return cloneElement(label, props);
+function useThrowWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
+    useEffect(() => {
+        if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
+            throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
         }
 
-        return createLabel({
-            ...props,
-            ...label
-        });
-    };
-}
-
-function useTagRenderer({ tag, size, disabled }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getTagSize(size),
-            disabled: disabled
-        };
-
-        if (isElement(tag)) {
-            return cloneElement(tag, props);
+        if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
+            throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
         }
-
-        return createTag({
-            ...props,
-            ...tag
-        });
-    };
-}
-
-function useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-    const renderLabel = useLabelRenderer({ label, size, disabled });
-    const renderTag = useTagRenderer({ tag, size, disabled });
-
-    return () => {
-        if (!loading) {
-            let left;
-            let right;
-
-            if (!isNil(icon)) {
-                if (iconPosition === "right") {
-                    right = renderIcon();
-                } else {
-                    left = renderIcon();
-                }
-            }
-
-            if (!isNil(label)) {
-                right = renderLabel();
-            }
-
-            if (!isNil(tag)) {
-                left = renderTag();
-            }
-
-            if (!isNil(left) || !isNil(right)) {
-                return <>{!isNil(left) && left}{getText(children)}{!isNil(right) && right}</>;
-            }
-        }
-
-        return getText(children);
-    };
-}
-
-function useRenderer(
-    { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, children, rest },
-    autofocusProps,
-    innerRef,
-    content
-) {
-    return () => {
-        const classes = mergeClasses(
-            naked && "naked",
-            ghost && "ghost",
-            link && "link",
-            focus && "focus",
-            hover && "hover",
-            !isNil(icon) && "with-icon",
-            !isNil(icon) && iconPosition === "right" && "with-icon-right",
-            !isNil(label) && "with-label",
-            !isNil(tag) && "with-tag",
-            !hasText(children) && "without-text",
-            className
-        );
-
-        return (
-            <SemanticRef innerRef={innerRef}>
-                <SemanticButton
-                    data-testid="button"
-                    {...rest}
-                    {...autofocusProps}
-                    basic={basic}
-                    size={size}
-                    loading={loading}
-                    disabled={disabled}
-                    className={classes}
-                >
-                    {content}
-                </SemanticButton>
-            </SemanticRef>
-        );
-    };
+    }, [label, tag, icon, iconPosition]);
 }
 
 export function InnerButton(props) {
@@ -252,26 +175,57 @@ export function InnerButton(props) {
         children,
         ...rest
     } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/button");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Button");
+    useThrowWhenMutuallyExclusivePropsAreProvided(props);
 
     const innerRef = useCombinedRefs(forwardedRef);
 
-    const setFocus = useSetFocus(innerRef);
+    const setFocus = useStaticCallback(() => {
+        if (!isNil(innerRef.current)) {
+            innerRef.current.focus();
+        }
+    });
+
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const renderContent = useContentRenderer({ icon, iconPosition, label, tag, size, loading, disabled, children });
-
-    const render = useRenderer(
-        { basic, ghost, link, naked, icon, iconPosition, label, tag, size, focus, hover, loading, disabled, className, children, rest },
-        autofocusProps,
-        innerRef,
-        renderContent()
+    return (
+        <SemanticRef innerRef={innerRef}>
+            <SemanticButton
+                data-testid="button"
+                {...rest}
+                {...autofocusProps}
+                basic={basic}
+                size={size}
+                loading={loading}
+                disabled={disabled}
+                className={mergeClasses(
+                    naked && "naked",
+                    ghost && "ghost",
+                    link && "link",
+                    focus && "focus",
+                    hover && "hover",
+                    !isNil(icon) && "with-icon",
+                    !isNil(icon) && iconPosition === "right" && "with-icon-right",
+                    !isNil(label) && "with-label",
+                    !isNil(tag) && "with-tag",
+                    !hasText(children) && "without-text",
+                    className)
+                }
+            >
+                <Content
+                    icon={icon}
+                    iconPosition={iconPosition}
+                    label={label}
+                    tag={tag}
+                    size={size}
+                    loading={loading}
+                    disabled={disabled}
+                >
+                    {children}
+                </Content>
+            </SemanticButton>
+        </SemanticRef>
     );
-
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
 }
 
 InnerButton.propTypes = propTypes;
@@ -289,4 +243,13 @@ export const Button = forwardRef((props, ref) => (
 
 if (!isNil(SemanticButton.propTypes)) {
     SemanticButton.propTypes.size = oneOf(SIZES);
+}
+
+// TODO: remove once `createEmbeddedButton` is used everywhere.
+export function createButton({ content, ...props }) {
+    if (!isNil(content)) {
+        return <Button {...props}>{content}</Button>;
+    }
+
+    return <Button {...props} />;
 }

@@ -1,10 +1,10 @@
-import { ArrowIcon } from "../../icons";
+import { ArrowIcon, ContentIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 
-const SIZE_CSS_CLASS = {
+const SIZE_CLASS = {
     [SIZE.small]: "small",
     [SIZE.large]: "large"
 };
@@ -40,7 +40,7 @@ export function InnerDropdownTitleTrigger({
             {...rest}
             className={mergeClasses(
                 "o-ui title-trigger",
-                size && SIZE_CSS_CLASS[size],
+                size && SIZE_CLASS[size],
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
@@ -49,9 +49,9 @@ export function InnerDropdownTitleTrigger({
             )}
             ref={forwardedRef}
         >
-            {icon}
+            <ContentIcon icon={icon} size={size} />
             {title}
-            <ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />
+            <ContentIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
         </Element>
     );
 }
