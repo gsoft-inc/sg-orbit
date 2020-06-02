@@ -2,24 +2,31 @@ import { Button } from "@react-components/button";
 import { KEYS } from "@react-components/shared";
 import { PopperTrigger } from "@react-components/popper";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import userEvent from "@utils/user-event";
 
 const TRIGGER_ID = "button";
 const POPPER_ID = "popper-wrapper";
 const POPPER_FOCUSABLE_ELEMENT_ID = "popper-focusable-element";
 
-function createPopperTrigger(popperProps = {}, triggerProps = {}) {
+const SimplePopperTrigger = forwardRef(({
+    trigger = <Button>Click me</Button>,
+    toggleHandler = "onClick",
+    ...rest
+}, ref) => {
     return (
         <PopperTrigger
-            trigger={<Button {...triggerProps} />}
-            toggleHandler="onClick"
-            {...popperProps}
+            {...rest}
+            trigger={trigger}
+            toggleHandler={toggleHandler}
+            ref={ref}
         >
-            <div><a href="https://www.google.com" data-testid={POPPER_FOCUSABLE_ELEMENT_ID}>Focus element in popper</a></div>
+            <div>
+                <a href="https://www.sharegate.com" data-testid={POPPER_FOCUSABLE_ELEMENT_ID}>Popper</a>
+            </div>
         </PopperTrigger>
     );
-}
+});
 
 function focusAnotherElement() {
     const focusableElement = document.createElement("input");
@@ -51,7 +58,9 @@ async function showPopper({ getByTestId }) {
 // ***** Behaviors *****
 
 test("show the popper on trigger toggle", async () => {
-    const { getByTestId } = render(createPopperTrigger());
+    const { getByTestId } = render(
+        <SimplePopperTrigger />
+    );
 
     act(() => {
         userEvent.click(getByTestId(TRIGGER_ID));
@@ -61,7 +70,9 @@ test("show the popper on trigger toggle", async () => {
 });
 
 test("show the popper on trigger spacebar keydown", async () => {
-    const { getByTestId } = render(createPopperTrigger());
+    const { getByTestId } = render(
+        <SimplePopperTrigger />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
@@ -71,7 +82,9 @@ test("show the popper on trigger spacebar keydown", async () => {
 });
 
 test("show the popper on trigger enter keydown", async () => {
-    const { getByTestId } = render(createPopperTrigger());
+    const { getByTestId } = render(
+        <SimplePopperTrigger />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
@@ -81,9 +94,9 @@ test("show the popper on trigger enter keydown", async () => {
 });
 
 test("show the popper on trigger custom keys keydown", async () => {
-    const { getByTestId } = render(createPopperTrigger({
-        showOnKeys: [KEYS.down]
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger showOnKeys={[KEYS.down]} />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "ArrowDown", keyCode: 40 });
@@ -93,9 +106,9 @@ test("show the popper on trigger custom keys keydown", async () => {
 });
 
 test("when toggleOnSpacebar is false, dont show the popper on trigger spacebar keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createPopperTrigger({
-        toggleOnSpacebar: false
-    }));
+    const { getByTestId, queryByTestId } = render(
+        <SimplePopperTrigger toggleOnSpacebar={false} />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
@@ -105,9 +118,9 @@ test("when toggleOnSpacebar is false, dont show the popper on trigger spacebar k
 });
 
 test("when toggleOnEnter is false, dont show the popper on trigger enter keydown", async () => {
-    const { getByTestId, queryByTestId } = render(createPopperTrigger({
-        toggleOnEnter: false
-    }));
+    const { getByTestId, queryByTestId } = render(
+        <SimplePopperTrigger toggleOnEnter={false} />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 13 });
@@ -117,9 +130,9 @@ test("when toggleOnEnter is false, dont show the popper on trigger enter keydown
 });
 
 test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
-    const renderResult = render(createPopperTrigger({
-        focusTriggerOnShow: true
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger focusTriggerOnShow />
+    );
 
     const { triggerNode } = await showPopper(renderResult);
 
@@ -127,9 +140,9 @@ test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
 });
 
 test("when focusFirstElementOnShow is true, focus the first popper focusable element on show", async () => {
-    const renderResult = render(createPopperTrigger({
-        focusFirstElementOnShow: true
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger focusFirstElementOnShow />
+    );
 
     const { queries } = await showPopper(renderResult);
 
@@ -137,10 +150,12 @@ test("when focusFirstElementOnShow is true, focus the first popper focusable ele
 });
 
 test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, dont focus the first popper focusable element on mouse show", async () => {
-    const { getByTestId } = render(createPopperTrigger({
-        focusFirstElementOnShow: false,
-        focusFirstElementOnKeyboardShow: true
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            focusFirstElementOnShow={false}
+            focusFirstElementOnKeyboardShow
+        />
+    );
 
     act(() => {
         userEvent.click(getByTestId(TRIGGER_ID));
@@ -150,10 +165,12 @@ test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow 
 });
 
 test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, focus the first popper focusable element on keyboard show", async () => {
-    const { getByTestId } = render(createPopperTrigger({
-        focusFirstElementOnShow: false,
-        focusFirstElementOnKeyboardShow: true
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            focusFirstElementOnShow={false}
+            focusFirstElementOnKeyboardShow
+        />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 13 });
@@ -163,9 +180,9 @@ test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow 
 });
 
 test("when disabled, dont show the popper on trigger toggle", async () => {
-    const { getByTestId, queryByTestId } = render(createPopperTrigger({
-        disabled: true
-    }));
+    const { getByTestId, queryByTestId } = render(
+        <SimplePopperTrigger disabled />
+    );
 
     act(() => {
         userEvent.click(getByTestId(TRIGGER_ID));
@@ -175,9 +192,9 @@ test("when disabled, dont show the popper on trigger toggle", async () => {
 });
 
 test("when disabled, dont show the popper on trigger enter keydown", async () => {
-    const { queryByTestId } = render(createPopperTrigger({
-        disabled: true
-    }));
+    const { queryByTestId } = render(
+        <SimplePopperTrigger disabled />
+    );
 
     act(() => {
         fireEvent.keyDown(document, { key: "Enter", keyCode: 10 });
@@ -187,9 +204,9 @@ test("when disabled, dont show the popper on trigger enter keydown", async () =>
 });
 
 test("when disabled, dont show the popper on trigger space keydown", async () => {
-    const { queryByTestId } = render(createPopperTrigger({
-        disabled: true
-    }));
+    const { queryByTestId } = render(
+        <SimplePopperTrigger disabled />
+    );
 
     act(() => {
         fireEvent.keyDown(document, { key: " ", keyCode: 32 });
@@ -199,10 +216,12 @@ test("when disabled, dont show the popper on trigger space keydown", async () =>
 });
 
 test("when disabled, dont show the popper on trigger custom keydown", async () => {
-    const { queryByTestId } = render(createPopperTrigger({
-        disabled: true,
-        showOnKeys: [KEYS.down]
-    }));
+    const { queryByTestId } = render(
+        <SimplePopperTrigger
+            disabled
+            showOnKeys={[KEYS.down]}
+        />
+    );
 
     act(() => {
         fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
@@ -212,7 +231,9 @@ test("when disabled, dont show the popper on trigger custom keydown", async () =
 });
 
 test("hide the popper on esc keydown", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -224,7 +245,9 @@ test("hide the popper on esc keydown", async () => {
 });
 
 test("hide the popper on outside click", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -236,7 +259,9 @@ test("hide the popper on outside click", async () => {
 });
 
 test("hide the popper on trigger mouse click", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
 
@@ -248,7 +273,9 @@ test("hide the popper on trigger mouse click", async () => {
 });
 
 test("hide the popper on trigger spacebar keydown", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
 
@@ -260,7 +287,9 @@ test("hide the popper on trigger spacebar keydown", async () => {
 });
 
 test("hide the popper on trigger enter keydown", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
 
@@ -272,7 +301,9 @@ test("hide the popper on trigger enter keydown", async () => {
 });
 
 test("hide the popper on blur", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -284,7 +315,9 @@ test("hide the popper on blur", async () => {
 });
 
 test("when the popper hide on esc keydown, the trigger should be focused", async () => {
-    const renderResult = render(createPopperTrigger());
+    const renderResult = render(
+        <SimplePopperTrigger />
+    );
 
     const { triggerNode, queries } = await showPopper(renderResult);
 
@@ -302,10 +335,12 @@ test("when the popper hide on esc keydown, the trigger should be focused", async
 });
 
 test("when hideOnBlur is false and hideOnOutsideClick is false, dont hide the popper on blur", async () => {
-    const renderResult = render(createPopperTrigger({
-        hideOnBlur: false,
-        hideOnOutsideClick: false
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            hideOnBlur={false}
+            hideOnOutsideClick={false}
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -317,10 +352,12 @@ test("when hideOnBlur is false and hideOnOutsideClick is false, dont hide the po
 });
 
 test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper on outside click", async () => {
-    const renderResult = render(createPopperTrigger({
-        hideOnBlur: false,
-        hideOnOutsideClick: true
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            hideOnBlur={false}
+            hideOnOutsideClick
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -332,9 +369,11 @@ test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper o
 });
 
 test("when hideOnEscape is false, dont hide the popper on escape keydown", async () => {
-    const renderResult = render(createPopperTrigger({
-        hideOnEscape: false
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            hideOnEscape={false}
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -346,9 +385,11 @@ test("when hideOnEscape is false, dont hide the popper on escape keydown", async
 });
 
 test("when focusTriggerOnEscape is false, dont focus the trigger on escape keydown", async () => {
-    const renderResult = render(createPopperTrigger({
-        focusTriggerOnEscape: false
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            focusTriggerOnEscape={false}
+        />
+    );
 
     const { triggerNode, queries } = await showPopper(renderResult);
 
@@ -369,9 +410,9 @@ test("consumer can set is own toggle handler", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        createPopperTrigger({}, {
-            onClick: handler
-        })
+        <SimplePopperTrigger
+            onClick={handler}
+        />
     );
 
     act(() => {
@@ -384,9 +425,11 @@ test("consumer can set is own toggle handler", async () => {
 test("call onVisibilityChange when the popper is showed with a trigger toggle", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     act(() => {
         userEvent.click(getByTestId(TRIGGER_ID));
@@ -398,9 +441,11 @@ test("call onVisibilityChange when the popper is showed with a trigger toggle", 
 test("call onVisibilityChange when the popper is showed with space keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: " ", keyCode: 32 });
@@ -412,9 +457,11 @@ test("call onVisibilityChange when the popper is showed with space keydown", asy
 test("call onVisibilityChange when the popper is showed with enter keydown", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     act(() => {
         fireEvent.keyDown(getByTestId(TRIGGER_ID), { key: "Enter", keyCode: 13 });
@@ -426,9 +473,11 @@ test("call onVisibilityChange when the popper is showed with enter keydown", asy
 test("call onVisibilityChange when the popper is hidden with an outside click", async () => {
     const handler = jest.fn();
 
-    const renderResult = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -445,9 +494,11 @@ test("call onVisibilityChange when the popper is hidden with an outside click", 
 test("call onVisibilityChange when the popper is hidden with esc keydown", async () => {
     const handler = jest.fn();
 
-    const renderResult = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -464,9 +515,11 @@ test("call onVisibilityChange when the popper is hidden with esc keydown", async
 test("call onVisibilityChange when the popper hide on blur", async () => {
     const handler = jest.fn();
 
-    const renderResult = render(createPopperTrigger({
-        onVisibilityChange: handler
-    }));
+    const renderResult = render(
+        <SimplePopperTrigger
+            onVisibilityChange={handler}
+        />
+    );
 
     const { popperNode } = await showPopper(renderResult);
 
@@ -484,10 +537,10 @@ test("spread additional props on the root element", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({
-            ref,
-            "data-extra-props-test": "works"
-        })
+        <SimplePopperTrigger
+            ref={ref}
+            data-extra-props-test="works"
+        />
     );
 
     expect(ref.current.getAttribute("data-extra-props-test")).toBe("works");
@@ -499,9 +552,9 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({
-            ref
-        })
+        <SimplePopperTrigger
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -515,11 +568,11 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createPopperTrigger({
-            ref: node => {
+        <SimplePopperTrigger
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());

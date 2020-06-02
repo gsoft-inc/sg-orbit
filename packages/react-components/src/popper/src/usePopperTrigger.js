@@ -195,13 +195,12 @@ function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFo
                         }, 0);
                     }
                 }
-
-                if (!isNil(onBlur)) {
-                    onBlur(event);
-                }
             }
         }
 
+        if (!isNil(onBlur)) {
+            onBlur(event);
+        }
     }, [disabled, hideOnBlur, onBlur, isVisible, hasFocusRef, activeElementRef, hidePopper]);
 }
 

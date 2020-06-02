@@ -21,24 +21,18 @@ const SimplePopper = forwardRef((props, ref) => {
                     triggerElement={triggerElement}
                     ref={ref}
                 >
-                    <div>Click me</div>
+                    <div>Popper</div>
                 </Popper>
             </If>
         </>
     );
 });
 
-function createPopper(props = {}) {
-    return <SimplePopper {...props} />;
-}
-
 // ***** Behaviors *****
 
 test("don't toggle popper when disabled", async () => {
     const { getByTestId, queryByTestId } = render(
-        createPopper({
-            disabled: true
-        })
+        <SimplePopper disabled />
     );
 
     act(() => {
@@ -54,10 +48,10 @@ test("spread additional props on the root element", async () => {
     const ref = createRef();
 
     render(
-        createPopper({
-            ref,
-            "data-extra-props-test": "works"
-        })
+        <SimplePopper
+            ref={ref}
+            data-extra-props-test="works"
+        />
     );
 
     await waitFor(() => expect(ref.current.getAttribute("data-extra-props-test")).toBe("works"));
@@ -69,9 +63,9 @@ test("when wrapped, ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createPopper({
-            ref
-        })
+        <SimplePopper
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -85,11 +79,11 @@ test("when wrapped, using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createPopper({
-            ref: node => {
+        <SimplePopper
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -103,9 +97,9 @@ test("when wrapped, set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createPopper({
-            ref: handler
-        })
+        <SimplePopper
+            ref={handler}
+        />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -115,10 +109,10 @@ test("when not wrapped, ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createPopper({
-            noWrap: true,
-            ref
-        })
+        <SimplePopper
+            noWrap
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -132,12 +126,12 @@ test("when not wrapped and using a callback ref, ref is a DOM element", async ()
     let refNode = null;
 
     render(
-        createPopper({
-            noWrap: true,
-            ref: node => {
+        <SimplePopper
+            noWrap
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -151,10 +145,10 @@ test("when not wrapped, set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createPopper({
-            noWrap: true,
-            ref: handler
-        })
+        <SimplePopper
+            noWrap
+            ref={handler}
+        />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
