@@ -1,3 +1,4 @@
+import "./DropdownMenu.css";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { KEYS, SIZE, SemanticRef, createShorthandFactory, mergeClasses, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
@@ -100,16 +101,7 @@ export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, w
     return (
         // This div element is rendered for compatibility with SUI theme.
         // We should remove it once we don't depend on SUI.
-        <div
-            className={mergeClasses(
-                "ui dropdown dropdown-menu",
-                size && SIZE_CSS_CLASS[size],
-                scrolling && "scrolling",
-                wrapperClassName
-            )}
-            style={wrapperStyle}
-            tabIndex="-1"
-        >
+        <>
             <DropdownMenuContext.Provider value={{
                 onItemClick: handleItemClick
             }}
@@ -124,7 +116,7 @@ export function InnerDropdownMenu({ onKeyDown, onSelectItem, wrapperClassName, w
                     </SemanticDropdown.Menu>
                 </SemanticRef>
             </DropdownMenuContext.Provider>
-        </div>
+        </>
     );
 }
 

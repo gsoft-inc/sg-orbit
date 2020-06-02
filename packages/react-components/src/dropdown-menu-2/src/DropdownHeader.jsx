@@ -1,3 +1,4 @@
+import "./DropdownHeader.css";
 import { ContentIcon } from "../../icons";
 import { Dropdown, DropdownContext } from "../../dropdown";
 import { element } from "prop-types";

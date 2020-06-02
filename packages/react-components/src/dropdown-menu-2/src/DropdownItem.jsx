@@ -1,3 +1,4 @@
+import "./DropdownItem.css";
 import { ContentIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
@@ -82,7 +83,7 @@ export function InnerDropdownItem(props) {
 
     return (
         <SemanticRef innerRef={forwardedRef}>
-            <SemanticDropdown.Item {...rest} onClick={handleClick} tabIndex="-1">
+            <SemanticDropdown.Item {...rest} onClick={handleClick} tabIndex="-1" className="dropdown-item">
                 <Content text={text} icon={icon} description={description}>
                     {children}
                 </Content>
