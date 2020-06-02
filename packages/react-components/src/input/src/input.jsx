@@ -51,22 +51,6 @@ const propTypes = {
     /**
      * @ignore
      */
-    active: bool,
-    /**
-     * @ignore
-     */
-    focus: bool,
-    /**
-     * @ignore
-     */
-    hover: bool,
-    /**
-     * @ignore
-     */
-    loading: bool,
-    /**
-     * @ignore
-     */
     __componentName: string
 };
 
@@ -149,8 +133,14 @@ function useButtonRenderer({ iconPosition, button, size, loading, disabled }) {
     };
 }
 
-function useInputRenderer({ fluid, iconPosition, size, active, focus, hover, loading, disabled, children, rest }, autofocusProps, inputComponentRef, icon) {
+function useInputRenderer({ fluid, iconPosition, size, active, focus, hover, loading, disabled, className, children, rest }, autofocusProps, inputComponentRef, icon) {
     return () => {
+        const classes = mergeClasses(
+            active && "active",
+            hover && "hover",
+            className
+        );
+
         return (
             <SemanticInput
                 {...rest}
@@ -158,12 +148,11 @@ function useInputRenderer({ fluid, iconPosition, size, active, focus, hover, loa
                 icon={icon}
                 iconPosition={iconPosition}
                 fluid={fluid}
-                active={active}
                 focus={focus}
-                hover={hover}
                 size={size}
                 loading={loading}
                 disabled={disabled}
+                className={classes}
                 ref={inputComponentRef}
             >
                 {children}
@@ -176,8 +165,8 @@ function useRenderer({ button, fluid, wrapperClassName, wrapperStyle }, wrapperR
     return () => {
         const classes = mergeClasses(
             "relative outline-0",
-            fluid ? "w-100" : "dib",
             button && "with-button",
+            fluid ? "w-100" : "dib",
             wrapperClassName
         );
 

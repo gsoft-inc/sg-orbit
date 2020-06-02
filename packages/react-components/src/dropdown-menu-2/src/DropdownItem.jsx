@@ -2,7 +2,7 @@ import { ContentIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { SemanticRef, throwWhenUnsupportedPropIsProvided, useEventCallback } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useEventCallback } from "../../shared";
 import { element, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
@@ -67,7 +67,7 @@ function Content({ text, icon, description, children }) {
 }
 
 export function InnerDropdownItem(props) {
-    const { text, icon, description, onClick, children, forwardedRef, ...rest } = props;
+    const { text, icon, description, onClick, focus, hover, children, forwardedRef, ...rest } = props;
     const { onItemClick } = useContext(DropdownMenuContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
@@ -82,7 +82,15 @@ export function InnerDropdownItem(props) {
 
     return (
         <SemanticRef innerRef={forwardedRef}>
-            <SemanticDropdown.Item {...rest} onClick={handleClick} tabIndex="-1">
+            <SemanticDropdown.Item
+                {...rest}
+                className={mergeClasses(
+                    focus && "focus",
+                    hover && "hover"
+                )}
+                onClick={handleClick}
+                tabIndex="-1"
+            >
                 <Content text={text} icon={icon} description={description}>
                     {children}
                 </Content>
