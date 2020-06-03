@@ -49,6 +49,12 @@ const defaultProps = {
     direction: "right"
 };
 
+function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
+    if (!isNil(title) && !isNil(trigger)) {
+        throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
+    }
+}
+
 function useDropdownTrigger(title, icon, trigger, size, rest) {
     const triggerComponent = !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
 
@@ -96,11 +102,7 @@ export function InnerDropdown(props) {
         forwardedRef,
         ...rest
     } = props;
-    useEffect(() => {
-        if (!isNil(title) && !isNil(trigger)) {
-            throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
-        }
-    }, [title, trigger]);
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const [isOpen, setIsOpen] = useState();
 

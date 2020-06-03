@@ -33,22 +33,14 @@ const propTypes = {
 };
 
 function Text({ children }) {
-    if (!isNil(children)) {
-        return <span className="text">{children}</span>;
-    }
-
-    return null;
+    return <span className="text">{children}</span>;
 }
 
 function Description({ children }) {
-    if (!isNil(children)) {
-        return <span className="description">{children}</span>;
-    }
-
-    return null;
+    return <span className="description">{children}</span>;
 }
 
-function Content({ text, icon, description, children }) {
+function Content({ text: legacyText, icon, description, children }) {
     const { size } = useContext(DropdownContext);
 
     let left;
@@ -57,11 +49,13 @@ function Content({ text, icon, description, children }) {
         left = <EmbeddedIcon icon={icon} size={size} />;
     }
 
+    const text = legacyText || children;
+
     return (
         <>
             {!isNil(left) && left}
-            <Text>{text || children}</Text>
-            <Description>{description}</Description>
+            {!isNil(text) && <Text>{text}</Text>}
+            {!isNil(description) && <Description>{description}</Description>}
         </>
     );
 }

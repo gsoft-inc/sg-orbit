@@ -71,81 +71,100 @@ const propTypes = {
 };
 
 const defaultProps = {
+    iconPosition: "left",
     type: "button"
 };
+
+function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
+    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a label and a right positioned icon at the same time.");
+    }
+
+    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a tag and a left positioned icon at the same time.");
+    }
+}
 
 function hasText(children) {
     return Children.count(children) > 0;
 }
 
-function Icon({ shorthand, size, standalone }) {
-    const Component = standalone ? StandaloneIcon : EmbeddedIcon;
+function useIconRenderer(icon, size, isStandalone) {
+    return () => {
+        const Component = isStandalone ? StandaloneIcon : EmbeddedIcon;
 
-    return (
-        <Component
-            icon={shorthand}
-            size={size}
-        />
-    );
+        return (
+            <Component
+                icon={icon}
+                size={size}
+            />
+        );
+    };
 }
 
 // TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
-function Label({ shorthand, size, disabled }) {
-    const props = {
-        as: "span",
-        size: getContentLabelSize(size || SIZE.medium),
-        highlight: true,
-        disabled: disabled
+function useLabelRenderer(label, size, disabled) {
+    return () => {
+        const props = {
+            as: "span",
+            size: getContentLabelSize(size || SIZE.medium),
+            highlight: true,
+            disabled: disabled
+        };
+
+        if (isElement(label)) {
+            return cloneElement(label, props);
+        }
+
+        return createLabel({
+            ...props,
+            ...label
+        });
     };
-
-    if (isElement(shorthand)) {
-        return cloneElement(shorthand, props);
-    }
-
-    return createLabel({
-        ...props,
-        ...shorthand
-    });
 }
 
 // TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
-function Tag({ shorthand, size, disabled }) {
-    const props = {
-        as: "span",
-        size: getTagSize(size || SIZE.medium),
-        disabled: disabled
+function useTagRenderer(tag, size, disabled) {
+    return () => {
+        const props = {
+            as: "span",
+            size: getTagSize(size || SIZE.medium),
+            disabled: disabled
+        };
+
+        if (isElement(tag)) {
+            return cloneElement(tag, props);
+        }
+
+        return createTag({
+            ...props,
+            ...tag
+        });
     };
-
-    if (isElement(shorthand)) {
-        return cloneElement(shorthand, props);
-    }
-
-    return createTag({
-        ...props,
-        ...shorthand
-    });
 }
 
 function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
+    const renderIcon = useIconRenderer(icon, size, !hasText(children));
+    const renderLabel = useLabelRenderer(label, size, disabled);
+    const renderTag = useTagRenderer(tag, size, disabled);
+
     let left;
     let right;
 
     if (!isNil(icon)) {
-        const component = <Icon shorthand={icon} size={size} standalone={!hasText(children)} />;
-
         if (iconPosition === "right") {
-            right = component;
+            right = renderIcon();
         } else {
-            left = component;
+            left = renderIcon();
         }
     }
 
     if (!isNil(label)) {
-        right = <Label shorthand={label} size={size} disabled={disabled} />;
+        right = renderLabel();
     }
 
     if (!isNil(tag)) {
-        left = <Tag shorthand={tag} size={size} disabled={disabled} />;
+        left = renderTag();
     }
 
     if (!isNil(left) || !isNil(right)) {
@@ -153,16 +172,6 @@ function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
     }
 
     return children;
-}
-
-function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
-    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
-    }
-
-    if (!isNil(tag) && !isNil(icon) && iconPosition !== "right") {
-        throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
-    }
 }
 
 export function InnerButton(props) {
@@ -225,14 +234,7 @@ export function InnerButton(props) {
                 }
             >
                 <If condition={!loading}>
-                    <Content
-                        icon={icon}
-                        iconPosition={iconPosition}
-                        label={label}
-                        tag={tag}
-                        size={size}
-                        disabled={disabled}
-                    >
+                    <Content icon={icon} iconPosition={iconPosition} label={label} tag={tag} size={size} disabled={disabled}>
                         {children}
                     </Content>
                 </If>

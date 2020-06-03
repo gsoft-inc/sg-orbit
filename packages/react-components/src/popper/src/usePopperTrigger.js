@@ -202,7 +202,7 @@ function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFo
     }, [disabled, hideOnBlur, onBlur, isVisible, hasFocusRef, activeElementRef, hidePopper]);
 }
 
-function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger) {
+function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape, disabled }, isVisible, hidePopper, setFocusTrigger) {
     const handler = useCallback(event => {
         if (event.keyCode === KEYS.esc) {
             if (hideOnEscape) {
@@ -215,7 +215,7 @@ function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisi
         }
     }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
 
-    useDocumentListener("keydown", handler, isVisible);
+    useDocumentListener("keydown", handler, isVisible && !disabled);
 }
 
 // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
@@ -225,7 +225,7 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapper
         setTimeout(() => {
             // Chrome and Edge move the focus to the body when the active element becomes disabled.
             if (document.activeElement.nodeName === "BODY") {
-                if (activeElementRef.current.disabled) {
+                if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
                     setFocusPopper(() => {
                         if (!isNil(wrapperRef.current)) {
                             wrapperRef.current.focus();
@@ -252,7 +252,7 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapper
     useDocumentListener("blur", handler, isVisible && hasFocusRef.current, true);
 }
 
-function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper) {
+function useHandleDocumentClick({ hideOnOutsideClick, disabled }, isVisible, triggerElement, popperElement, hidePopper) {
     const handler = useCallback(event => {
         if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
             if (hideOnOutsideClick) {
@@ -261,7 +261,9 @@ function useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElemen
         }
     }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
 
-    useDocumentListener("click", handler, isVisible);
+    console.log(isVisible);
+
+    useDocumentListener("click", handler, isVisible && !disabled);
 }
 
 // Ensure the original handler is called if provided by the consumer.
@@ -431,9 +433,9 @@ export function usePopperTrigger(props) {
     const handleWrapperFocus = useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElementRef);
     const handleWrapperBlur = useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper);
 
-    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape }, isVisible, hidePopper, setFocusTrigger);
+    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape, disabled }, isVisible, hidePopper, setFocusTrigger);
     useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper);
-    useHandleDocumentClick({ hideOnOutsideClick }, isVisible, triggerElement, popperElement, hidePopper);
+    useHandleDocumentClick({ hideOnOutsideClick, disabled }, isVisible, triggerElement, popperElement, hidePopper);
 
     const renderTrigger = useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement);
 

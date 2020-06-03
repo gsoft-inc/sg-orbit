@@ -12,7 +12,7 @@ import { isNil } from "lodash";
 export const INPUT_SIZES = ["small", "medium", "large"];
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
-const propTypes = {
+const INPUT_PROP_TYPES = {
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -44,34 +44,46 @@ const propTypes = {
     /**
      * Additional style to render on the wrapper element.
      */
-    wrapperStyle: object,
+    wrapperStyle: object
+};
+
+export const INPUT_DEFAULT_PROPS = {
+    iconPosition: "right"
+};
+
+const propTypes = {
+    ...INPUT_PROP_TYPES,
     /**
      * @ignore
      */
     __componentName: string
 };
 
-function Button({ shorthand, size }) {
-    const props = {
-        size,
-        circular: true,
-        ghost: true,
-        secondary: true,
-        className: mergeClasses(
-            "input-clear-button",
-            isElement(shorthand)
-                ? shorthand.props && shorthand.props.className
-                : shorthand.className
-        )
-    };
-
-    return createEmbeddedButton(shorthand, props);
-}
+const defaultProps = INPUT_DEFAULT_PROPS;
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }, componentName) {
-    if (!isNil(button) && !isNil(icon) && iconPosition !== "left") {
+    if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
         throw new Error(`${componentName} doesn't support having a button and a right positioned icon at the same time.`);
     }
+}
+
+function useButtonRenderer(button, size) {
+    return () => {
+        const className = isElement(button)
+            ? !isNil(button.props) && button.props.className
+            : button.className;
+
+        return createEmbeddedButton(button, {
+            size,
+            circular: true,
+            ghost: true,
+            secondary: true,
+            className: mergeClasses(
+                "input-clear-button",
+                className
+            )
+        });
+    };
 }
 
 export function InnerInput(props) {
@@ -120,10 +132,10 @@ export function InnerInput(props) {
         return domElement;
     });
 
-    // Loader currently use the same position as icon.
-    const hasRightPositionedLoader = loading && iconPosition !== "left";
     const canRenderIcon = !isNil(icon) && !loading;
-    const canRenderButton = !isNil(button) && !disabled && !hasRightPositionedLoader;
+    const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");
+
+    const renderButton = useButtonRenderer(button, size);
 
     return (
         <div
@@ -142,7 +154,7 @@ export function InnerInput(props) {
                 {...rest}
                 {...autofocusProps}
                 icon={canRenderIcon ? <EmbeddedIcon icon={icon} size={size} /> : undefined}
-                iconPosition={iconPosition}
+                iconPosition={iconPosition === "left" ? "left" : undefined}
                 fluid={fluid}
                 focus={focus}
                 size={size}
@@ -155,14 +167,13 @@ export function InnerInput(props) {
                 )}
                 ref={inputComponentRef}
             />
-            <If condition={canRenderButton}>
-                <Button shorthand={button} size={size} />
-            </If>
+            {canRenderButton && renderButton()}
         </div>
     );
 }
 
 InnerInput.propTypes = propTypes;
+InnerInput.defaultProps = defaultProps;
 
 export const Input = forwardRef((props, ref) => (
     <InnerInput { ...props } forwardedRef={ref} />

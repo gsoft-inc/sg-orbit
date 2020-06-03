@@ -21,6 +21,23 @@ const defaultProps = {
     as: "button"
 };
 
+function Text({ children }) {
+    return <span className="text">{children}</span>;
+}
+
+function Arrow({ upward, size }) {
+    const icon = (
+        <ArrowIcon
+            className={mergeClasses(
+                "arrow",
+                upward && "upward"
+            )}
+        />
+    );
+
+    return <EmbeddedIcon icon={icon} size={size} />;
+}
+
 export function InnerDropdownTitleTrigger({
     title,
     icon,
@@ -51,8 +68,8 @@ export function InnerDropdownTitleTrigger({
             ref={forwardedRef}
         >
             {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
-            <span className="text">{title}</span>
-            <EmbeddedIcon icon={<ArrowIcon className={`arrow ${upward ? "upward" : ""}`} />} size={size} />
+            <Text>{title}</Text>
+            <Arrow upward={upward} size={size} />
         </Element>
     );
 }
