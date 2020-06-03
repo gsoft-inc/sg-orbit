@@ -153,6 +153,14 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
+     * Additional CSS classes to render on the popper wrapper element.
+     */
+    popperClassName: string,
+    /**
+     * Additional style to render on the dropdown wrapper element.
+     */
+    popperStyle: object,
+    /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the popper.
      */
     popper: oneOfType([element, object])
@@ -170,8 +178,8 @@ const defaultProps = {
     hideOnOutsideClick: true
 };
 
-export function InnerPopperTrigger({ children, ...props }) {
-    const { renderPopper } = usePopperTrigger(props);
+export function InnerPopperTrigger({ children, ...rest }) {
+    const { renderPopper } = usePopperTrigger(rest);
 
     // Without a fragment, react-docgen doesn't work.
     return <>{renderPopper(children)}</>;

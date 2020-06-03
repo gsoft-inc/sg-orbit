@@ -41,7 +41,7 @@ export function InnerDropdownTitleTrigger({
         <Element
             {...rest}
             className={mergeClasses(
-                "o-ui title-trigger",
+                "o-ui dropdown-title-trigger",
                 size && SIZE_CLASS[size],
                 fluid && "fluid",
                 active && "active",
