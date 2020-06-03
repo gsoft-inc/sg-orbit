@@ -52,7 +52,7 @@ const propTypes = {
 };
 
 function Button({ shorthand, size }) {
-    return createEmbeddedButton(shorthand, {
+    const props = {
         size,
         circular: true,
         ghost: true,
@@ -63,7 +63,9 @@ function Button({ shorthand, size }) {
                 ? shorthand.props && shorthand.props.className
                 : shorthand.className
         )
-    });
+    };
+
+    return createEmbeddedButton(shorthand, props);
 }
 
 function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition }, componentName) {

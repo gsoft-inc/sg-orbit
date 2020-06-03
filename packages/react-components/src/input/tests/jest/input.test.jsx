@@ -3,16 +3,8 @@ import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/wait-delay";
 
-function createInput(props = {}) {
-    return <Input
-        {...props}
-    />;
-}
-
 function getInput(getByTestId) {
-    const searchInputNode = getByTestId("input");
-
-    return searchInputNode.querySelector("input");
+    return getByTestId("input").querySelector("input");
 }
 
 // ***** Behaviors *****

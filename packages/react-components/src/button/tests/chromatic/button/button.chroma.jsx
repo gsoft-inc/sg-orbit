@@ -27,7 +27,16 @@ createTestSuite(<Button positive />, stories("/positive"));
 
 createTestSuite(<Button negative />, stories("/negative"));
 
-createTestSuite(<Button link />, stories("/link"));
+createTestSuite(<Button link />, stories("/link"))
+    .add("secondary", () =>
+        <div className="flex">
+            <Button link secondary className="mr5">Button</Button>
+            <Button link secondary active className="mr5">Button</Button>
+            <Button link secondary focus className="mr5">Button</Button>
+            <Button link secondary hover className="mr5">Button</Button>
+            <Button link secondary focus hover>Button</Button>
+        </div>
+    );
 
 createTestSuite(<Button naked />, stories("/naked"))
     .add("coloured", () =>

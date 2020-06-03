@@ -3,6 +3,7 @@ import { DropdownContext } from "./DropdownContext";
 import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
+import { isNil } from "lodash";
 
 const SIZE_CLASS = {
     [SIZE.small]: "small",
@@ -49,7 +50,7 @@ export function InnerDropdownTitleTrigger({
             )}
             ref={forwardedRef}
         >
-            <EmbeddedIcon icon={icon} size={size} />
+            {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
             {title}
             <EmbeddedIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
         </Element>
