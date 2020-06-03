@@ -1,6 +1,6 @@
 import { PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
-import { bool, element, func, number, object, string } from "prop-types";
+import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolvePopperPosition } from "../../shared";
 
@@ -10,7 +10,7 @@ export class DatePickerAnchor extends PureComponent {
         input: element.isRequired,
         calendar: element.isRequired,
         upward: bool,
-        direction: ["left", "right"],
+        direction: oneOf(["left", "right"]),
         pinned: bool,
         zIndex: number,
         onVisibilityChange: func,

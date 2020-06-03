@@ -1,13 +1,9 @@
 import "./DropdownButtonItem.css";
 import { DropdownItem } from "./DropdownItem";
-import { elementType, func, oneOfType, string } from "prop-types";
+import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
-    /**
-     * Called when a click event happens.
-     */
-    onClick: func.isRequired,
     /**
      * An HTML element type or a custom React element type to render as.
      */

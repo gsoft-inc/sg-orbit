@@ -57,8 +57,10 @@ function useDropdownTrigger(title, icon, trigger, size, rest) {
     });
 }
 
-function useDropdownMenu(menu, handleSelectItem, children, ref) {
+function useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, ref) {
     const props = {
+        scrolling,
+        fluid,
         onSelectItem: handleSelectItem,
         children,
         ref
@@ -88,9 +90,6 @@ export function InnerDropdown(props) {
         closeOnBlur,
         closeOnOutsideClick,
         onVisibilityChange,
-        active,
-        focus,
-        hover,
         menu,
         children,
         forwardedRef,
@@ -139,29 +138,17 @@ export function InnerDropdown(props) {
         }, 0);
     });
 
-    const dropdownMenu = useDropdownMenu(menu, handleSelectItem, children, forwardedRef);
-
-    const context = {
-        isOpen,
-        title,
-        icon,
-        trigger,
-        size,
-        upward,
-        direction,
-        pinned,
-        zIndex,
-        fluid,
-        scrolling,
-        closeOnBlur,
-        closeOnOutsideClick,
-        active,
-        focus,
-        hover
-    };
+    const dropdownMenu = useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, forwardedRef);
 
     return (
-        <DropdownContext.Provider value={context}>
+        <DropdownContext.Provider
+            value={{
+                isOpen,
+                size,
+                upward,
+                direction
+            }}
+        >
             {renderPopper(dropdownMenu)}
         </DropdownContext.Provider>
     );

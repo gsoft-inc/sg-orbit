@@ -1,0 +1,26 @@
+.menu {
+    border: 1px solid var(--cloud-100);
+    border-radius: var(--scale-alpha);
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: 175px;
+    transition: opacity 0.3s ease;
+    z-index: 11;
+    padding: 0;
+    background: #FFFFFF;
+    font-size: 1em;
+    text-shadow: none;
+    text-align: left;
+    box-shadow: var(--shadow-100);
+    will-change: transform, opacity;
+    outline: none;
+}
+
+.menu.scrolling {
+    max-height: 24rem;
+    overflow-y: scroll;
+}
+
+.menu.fluid {
+    width: 100%;
+}

@@ -3,32 +3,36 @@ import { CloseIcon } from "@react-components/icons";
 import { PopperTrigger } from "@react-components/popper";
 import { TextInput } from "@react-components/text-input";
 import { act, render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import userEvent from "@utils/user-event";
 
 const POPPER_ID = "popper-wrapper";
 
-function createPopperTrigger(popperProps = {}, inputProps = {}) {
+const SimplePopperTrigger = forwardRef(({
+    input = <TextInput />,
+    ...rest
+}, ref) => {
     return (
         <PopperTrigger.TextInput
-            input={<TextInput {...inputProps} placeholder="Pick a date" fluid />}
-            {...popperProps}
+            {...rest}
+            input={input}
+            ref={ref}
         >
             <div>Popper</div>
         </PopperTrigger.TextInput>
     );
-}
+});
 
 function getInput(getByTestId) {
-    const searchInputNode = getByTestId("input");
-
-    return searchInputNode.querySelector("input");
+    return getByTestId("input").querySelector("input");
 }
 
 // ***** Behaviors *****
 
 test("show the popper on input click", async () => {
-    const { getByTestId } = render(createPopperTrigger());
+    const { getByTestId } = render(
+        <SimplePopperTrigger />
+    );
 
     act(() => {
         userEvent.click(getInput(getByTestId));
@@ -38,7 +42,9 @@ test("show the popper on input click", async () => {
 });
 
 test("hide the popper on input click", async () => {
-    const { getByTestId } = render(createPopperTrigger());
+    const { getByTestId } = render(
+        <SimplePopperTrigger />
+    );
 
     const inputNode = getInput(getByTestId);
 
@@ -56,12 +62,20 @@ test("hide the popper on input click", async () => {
 });
 
 test("dont close the popper on input clear button click", async () => {
-    const { getByTestId } = render(createPopperTrigger({}, {
-        button: <Button
-            icon={<CloseIcon />}
-            data-testid="clear-button"
+    const { getByTestId } = render(
+        <SimplePopperTrigger
+            input={
+                <TextInput
+                    button={
+                        <Button
+                            icon={<CloseIcon />}
+                            data-testid="clear-button"
+                        />
+                    }
+                />
+            }
         />
-    }));
+    );
 
     act(() => {
         userEvent.click(getInput(getByTestId));
@@ -82,9 +96,9 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({
-            ref
-        })
+        <SimplePopperTrigger
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -98,11 +112,11 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createPopperTrigger({
-            ref: node => {
+        <SimplePopperTrigger
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -116,9 +130,9 @@ test("can assign a ref to a text input", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({}, {
-            ref
-        })
+        <SimplePopperTrigger
+            input={<TextInput ref={ref} />}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -132,10 +146,14 @@ test("can assign a ref to a text input having a button", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({}, {
-            button: <Button icon={<CloseIcon />} />,
-            ref
-        })
+        <SimplePopperTrigger
+            input={
+                <TextInput
+                    button={<Button icon={<CloseIcon />} />}
+                    ref={ref}
+                />
+            }
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -149,12 +167,13 @@ test("can assign a ref to a text input button", async () => {
     const ref = createRef();
 
     render(
-        createPopperTrigger({}, {
-            button: <Button
-                icon={<CloseIcon />}
-                ref={ref}
-            />
-        })
+        <SimplePopperTrigger
+            input={
+                <TextInput
+                    button={<Button icon={<CloseIcon />} ref={ref} />}
+                />
+            }
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());

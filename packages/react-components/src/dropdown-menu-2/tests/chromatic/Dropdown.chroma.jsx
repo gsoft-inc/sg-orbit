@@ -433,6 +433,21 @@ stories()
             />
         </div>
     )
+    .add("interaction states", () =>
+        <div className="flex flex-column">
+            <div className="flex mb5">
+                <SimpleDropdown active className="mr5" />
+                <SimpleDropdown focus />
+            </div>
+            <div className="flex">
+                <SimpleDropdown hover className="mr5" />
+                <SimpleDropdown focus hover />
+            </div>
+        </div>
+    )
+    .add("disabled", () =>
+        <SimpleDropdown disabled />
+    )
     .add("styling", () =>
         <div className="flex">
             <SimpleDropdown
@@ -458,70 +473,30 @@ stories()
             />
         </div>
     )
-    .add("item active", () =>
+    .add("item interaction states", () =>
         <div className="flex">
             <Dropdown
                 title="Task"
-                size="small"
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item active>Save as...</Dropdown.Item>
-            </Dropdown>
-            <Dropdown
-                title="Task"
-                open
-                style={{ marginRight: "200px" }}
-            >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item active>Save as...</Dropdown.Item>
-            </Dropdown>
-            <Dropdown
-                title="Task"
-                size="large"
-                open
-            >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item active>Save as...</Dropdown.Item>
+                <Dropdown.Item active>New</Dropdown.Item>
+                <Dropdown.Item focus>Open...</Dropdown.Item>
+                <Dropdown.Item hover>Save as...</Dropdown.Item>
+                <Dropdown.Item focus hover>Rename</Dropdown.Item>
             </Dropdown>
         </div>
     )
     .add("item disabled", () =>
-        <div className="flex">
-            <Dropdown
-                title="Task"
-                size="small"
-                open
-                style={{ marginRight: "200px" }}
-            >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item disabled>Save as...</Dropdown.Item>
-            </Dropdown>
-            <Dropdown
-                title="Task"
-                open
-                style={{ marginRight: "200px" }}
-            >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item disabled>Save as...</Dropdown.Item>
-            </Dropdown>
-            <Dropdown
-                title="Task"
-                size="large"
-                open
-                style={{ marginRight: "200px" }}
-            >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item>Open...</Dropdown.Item>
-                <Dropdown.Item disabled>Save as...</Dropdown.Item>
-            </Dropdown>
-        </div>
+        <Dropdown
+            title="Task"
+            open
+            style={{ marginRight: "200px" }}
+        >
+            <Dropdown.Item>New</Dropdown.Item>
+            <Dropdown.Item>Open...</Dropdown.Item>
+            <Dropdown.Item disabled>Save as...</Dropdown.Item>
+        </Dropdown>
     )
     .add("item description", () =>
         <div className="flex">
