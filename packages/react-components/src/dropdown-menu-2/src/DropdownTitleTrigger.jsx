@@ -1,4 +1,3 @@
-import "./DropdownButtonTrigger.css";
 import { ArrowIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { SIZE, mergeClasses } from "../../shared";
@@ -53,7 +52,7 @@ export function InnerDropdownTitleTrigger({
         >
             {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
             <span className="text">{title}</span>
-            <EmbeddedIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
+            <EmbeddedIcon icon={<ArrowIcon className={`arrow ${upward ? "upward" : ""}`} />} size={size} />
         </Element>
     );
 }

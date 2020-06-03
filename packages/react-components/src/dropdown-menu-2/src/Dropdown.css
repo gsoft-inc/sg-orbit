@@ -1,0 +1,218 @@
+/* Main Dropdown */
+.o-ui.dropdown {
+    border: none;
+}
+
+/* Dropdown Menu */
+.o-ui.dropdown .menu {
+    border: 1px solid var(--cloud-100);
+    border-radius: var(--scale-alpha);
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: 175px;
+    transition: opacity 0.3s ease;
+    z-index: 11;
+    padding: 0;
+    background: #FFFFFF;
+    font-size: 1em;
+    text-shadow: none;
+    text-align: left;
+    box-shadow: var(--shadow-100);
+    will-change: transform, opacity;
+    outline: none;
+}
+
+/* Dropdown Menu | Trigger */
+.o-ui.dropdown-title-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--type-scale-7);
+    line-height: 1;
+    transition: background-color .2s ease-in;
+}
+
+/* Dropdown Menu | Trigger | Disabled */
+.o-ui.dropdown-title-trigger[disabled] {
+    color: var(--marine-200);
+}
+
+/* Dropdown Menu | Trigger | Icon | Disabled */
+.o-ui.dropdown-title-trigger[disabled] .icon {
+    fill: var(--marine-200);
+}
+
+/* Dropdown Menu | Trigger | Small */
+.o-ui.dropdown-title-trigger.small {
+    font-size: var(--type-scale-8);
+}
+
+/* Dropdown Menu | Trigger | Large */
+.o-ui.dropdown-title-trigger.large {
+    font-size: var(--type-scale-6);
+}
+
+/* Dropdown Menu | Trigger | Text */
+.o-ui.dropdown-title-trigger .text {
+    margin-right: var(--scale-alpha);
+}
+
+/* Dropdown Menu | Trigger | Icon */
+.o-ui.dropdown-title-trigger:focus,
+.o-ui.dropdown-title-trigger.focus {
+    background-color: var(--primary-50);
+    outline: none;
+    border-radius: 2px;
+}
+
+/* Dropdown Menu | Trigger | Focus */
+.o-ui.dropdown-title-trigger .icon {
+    margin-right: var(--scale-alpha);
+}
+
+/* Dropdown Menu | Trigger | Arrow */
+.o-ui.dropdown-title-trigger .icon.arrow {
+    transform: rotate(90deg);
+    margin-right: 0;
+}
+
+/* Dropdown Menu | Trigger | Arrow Upward */
+.o-ui.dropdown-title-trigger .icon.arrow.upward {
+    transform: rotate(-90deg);
+}
+
+/* Dropdown Menu | Header */
+.o-ui.dropdown .menu .header {
+    font-size: var(--type-scale-8);
+    letter-spacing: -0.25px;
+    display: flex;
+    align-items: center;
+    color: var(--marine-900);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 1rem 0 0.5rem 0;
+    padding: 0 1rem;
+}
+
+/* Dropdown Menu | Header | Text */
+.o-ui.dropdown .menu .header .text {
+    line-height: 1;
+}
+
+/* Dropdown Menu | Header | Icon */
+.o-ui.dropdown .menu .header .icon {
+    margin-right: var(--scale-alpha);
+}
+
+/* Dropdown Menu | Item */
+.o-ui.dropdown .menu .item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: medium;
+    height: auto;
+    text-align: left;
+    line-height: 1;
+    color: var(--marine-500);
+    font-size: 1rem;
+    text-transform: none;
+    font-weight: 400;
+    box-shadow: none;
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+    min-height: 2.5rem;
+    transition: background-color .2s ease-in;
+}
+
+/* Dropdown Menu | Item | Small */
+.o-ui.dropdown .menu.small .item {
+    min-height: 2rem;
+    font-size: var(--type-scale-8);
+}
+
+/* Dropdown Menu | Item | Large */
+.o-ui.dropdown .menu.large .item {
+    min-height: 3rem;
+    font-size: var(--type-scale-6);
+}
+
+/* Dropdown Menu | Item as a link */
+.o-ui.dropdown .menu a.item .text {
+    color: var(--primary-500);
+    border-bottom: 1px solid var(--transparent);
+    transition: border-bottom .3s ease-in;
+}
+
+/* Dropdown Menu | Item | Text | Disabled */
+.o-ui.dropdown .menu .item.disabled .text {
+    color: var(--cloud-200);
+}
+
+/* Dropdown Menu | Item as a link | State | Selected */
+.o-ui.dropdown .menu a.item.selected .text {
+    border-bottom: 1px solid var(--primary-500);
+}
+
+/* Dropdown Menu | Item as a link | State | Hover */
+.o-ui.dropdown .menu a.item:hover .text {
+    border-bottom: 1px solid var(--primary-500);
+}
+
+/* Dropdown Menu | Item | Hover */
+.o-ui.dropdown .menu .item:hover,
+.o-ui.dropdown .menu .item.hover {
+    background: var(--primary-50);
+    z-index: 13;
+}
+
+/* Dropdown Menu | Item | Selected */
+.o-ui.dropdown .menu .item.selected {
+    outline: none;
+    background-color: var(--primary-50);
+}
+
+/* Dropdown Menu | Item | Disabled */
+.o-ui.dropdown .menu .item.disabled {
+    background-color: var(--cloud-50);
+    border-color: var(--cloud-50);
+    cursor: default;
+}
+
+/* Dropdown Menu | Item | Description  */
+.o-ui.dropdown .menu .item .description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 0 var(--scale-bravo);
+    color: var(--cloud-300);
+}
+
+/* Dropdown Menu | Item | Icon  */
+.o-ui.dropdown .menu .item .icon {
+    margin-right: var(--scale-alpha);
+}
+
+/* Dropdown Menu | Scrolling */
+.o-ui.dropdown .menu.scrolling {
+    max-height: 24rem;
+}
+
+/* Dropdown Menu | Fluid */
+.o-ui.dropdown .menu.fluid {
+    width: 100%;
+}
+
+/* Dropdown Divider */
+.o-ui.dropdown .divider {
+    border-top: 1px solid var(--cloud-100);
+    height: 0;
+}

@@ -85,7 +85,6 @@ export function InnerDropdownItem(props) {
             <SemanticDropdown.Item
                 {...rest}
                 className={mergeClasses(
-                    "dropdown-item",
                     focus && "focus",
                     hover && "hover"
                 )}
