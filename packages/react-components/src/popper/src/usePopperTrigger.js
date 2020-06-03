@@ -3,12 +3,10 @@ import { Popper, createPopper } from "./Popper";
 import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
 import { isFunction, isNil } from "lodash";
 
-function useThrowWhenMutuallyExclusivePropsAreProvided({ hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
-    useEffect(() => {
-        if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
-            throw new Error("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
-        }
-    }, [hideOnBlur, hideOnOutsideClick, focusTriggerOnShow, focusFirstElementOnKeyboardShow]);
+function throwWhenMutuallyExclusivePropsAreProvided({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
+    if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
+        throw new Error("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
+    }
 }
 
 function getFirstFocusableElement(container) {
@@ -405,7 +403,7 @@ export function usePopperTrigger(props) {
         forwardedRef,
         ...rest
     } = props;
-    useThrowWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
     const [triggerElement, setTriggerElement] = useState();

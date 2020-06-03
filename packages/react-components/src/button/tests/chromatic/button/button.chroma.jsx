@@ -76,9 +76,6 @@ stories()
                 <Button fluid>Button</Button>
             </div>
         </div>
-    )
-    .add("content prop", () =>
-        <Button content="Button"></Button>
     );
 
 stories("/label")

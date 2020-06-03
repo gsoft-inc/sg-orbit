@@ -1,5 +1,5 @@
-import { ContentIcon } from "../../icons";
 import { Dropdown, DropdownContext } from "../../dropdown";
+import { EmbeddedIcon } from "../../icons";
 import { element } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
@@ -24,7 +24,7 @@ function Content({ icon, children }) {
     let left;
 
     if (!isNil(icon)) {
-        left = <ContentIcon icon={icon} size={size} />;
+        left = <EmbeddedIcon icon={icon} size={size} />;
     }
 
     return (

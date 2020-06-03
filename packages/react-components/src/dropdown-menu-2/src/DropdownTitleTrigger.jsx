@@ -1,4 +1,4 @@
-import { ArrowIcon, ContentIcon } from "../../icons";
+import { ArrowIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
@@ -49,9 +49,9 @@ export function InnerDropdownTitleTrigger({
             )}
             ref={forwardedRef}
         >
-            <ContentIcon icon={icon} size={size} />
+            <EmbeddedIcon icon={icon} size={size} />
             {title}
-            <ContentIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
+            <EmbeddedIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
         </Element>
     );
 }

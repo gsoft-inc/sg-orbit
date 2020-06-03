@@ -1,9 +1,19 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Children, cloneElement, forwardRef, useEffect } from "react";
-import { ContentIcon, StandaloneIcon } from "../../icons";
+import { Children, cloneElement, forwardRef } from "react";
+import { EmbeddedIcon, StandaloneIcon } from "../../icons";
+import {
+    SIZE,
+    SemanticRef,
+    createShorthandFactory,
+    createShorthandFactoryForEmbedded,
+    mergeClasses,
+    throwWhenUnsupportedPropIsProvided,
+    useAutofocus,
+    useCombinedRefs,
+    useStaticCallback
+} from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs, useStaticCallback } from "../../shared";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
 import { createLabel, getContentLabelSize } from "../../label";
 import { createTag, getTagSize } from "../../tag";
@@ -61,7 +71,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    iconPosition: "left",
     type: "button"
 };
 
@@ -70,14 +79,21 @@ function hasText(children) {
 }
 
 function Icon({ shorthand, size, standalone }) {
-    return standalone ? <ContentIcon icon={shorthand} size={size} /> : <StandaloneIcon icon={shorthand} size={size} />;
+    const Component = standalone ? StandaloneIcon : EmbeddedIcon;
+
+    return (
+        <Component
+            icon={shorthand}
+            size={size}
+        />
+    );
 }
 
 // TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
 function Label({ shorthand, size, disabled }) {
     const props = {
         as: "span",
-        size: getContentLabelSize(size),
+        size: getContentLabelSize(size || SIZE.medium),
         highlight: true,
         disabled: disabled
     };
@@ -96,7 +112,7 @@ function Label({ shorthand, size, disabled }) {
 function Tag({ shorthand, size, disabled }) {
     const props = {
         as: "span",
-        size: getTagSize(size),
+        size: getTagSize(size || SIZE.medium),
         disabled: disabled
     };
 
@@ -110,47 +126,43 @@ function Tag({ shorthand, size, disabled }) {
     });
 }
 
-function Content({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
-    if (!loading) {
-        let left;
-        let right;
+function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
+    let left;
+    let right;
 
-        if (!isNil(icon)) {
-            const component = <Icon shorthand={icon} size={size} standalone={hasText(children)} />;
+    if (!isNil(icon)) {
+        const component = <Icon shorthand={icon} size={size} standalone={!hasText(children)} />;
 
-            if (iconPosition === "right") {
-                right = component;
-            } else {
-                left = component;
-            }
+        if (iconPosition === "right") {
+            right = component;
+        } else {
+            left = component;
         }
+    }
 
-        if (!isNil(label)) {
-            right = <Label shorthand={label} size={size} disabled={disabled} />;
-        }
+    if (!isNil(label)) {
+        right = <Label shorthand={label} size={size} disabled={disabled} />;
+    }
 
-        if (!isNil(tag)) {
-            left = <Tag shorthand={tag} size={size} disabled={disabled} />;
-        }
+    if (!isNil(tag)) {
+        left = <Tag shorthand={tag} size={size} disabled={disabled} />;
+    }
 
-        if (!isNil(left) || !isNil(right)) {
-            return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
-        }
+    if (!isNil(left) || !isNil(right)) {
+        return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
     }
 
     return children;
 }
 
-function useThrowWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
-    useEffect(() => {
-        if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-            throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
-        }
+function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
+    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
+        throw new Error("@orbit-ui/react-components/button doesn't support having a label and a right positioned icon at the same time.");
+    }
 
-        if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-            throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
-        }
-    }, [label, tag, icon, iconPosition]);
+    if (!isNil(tag) && !isNil(icon) && iconPosition !== "right") {
+        throw new Error("@orbit-ui/react-components/button doesn't support having a tag and a left positioned icon at the same time.");
+    }
 }
 
 export function InnerButton(props) {
@@ -176,7 +188,7 @@ export function InnerButton(props) {
         ...rest
     } = props;
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Button");
-    useThrowWhenMutuallyExclusivePropsAreProvided(props);
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const innerRef = useCombinedRefs(forwardedRef);
 
@@ -212,17 +224,18 @@ export function InnerButton(props) {
                     className)
                 }
             >
-                <Content
-                    icon={icon}
-                    iconPosition={iconPosition}
-                    label={label}
-                    tag={tag}
-                    size={size}
-                    loading={loading}
-                    disabled={disabled}
-                >
-                    {children}
-                </Content>
+                <If condition={!loading}>
+                    <Content
+                        icon={icon}
+                        iconPosition={iconPosition}
+                        label={label}
+                        tag={tag}
+                        size={size}
+                        disabled={disabled}
+                    >
+                        {children}
+                    </Content>
+                </If>
             </SemanticButton>
         </SemanticRef>
     );
@@ -245,11 +258,17 @@ if (!isNil(SemanticButton.propTypes)) {
     SemanticButton.propTypes.size = oneOf(SIZES);
 }
 
-// TODO: remove once `createEmbeddedButton` is used everywhere.
-export function createButton({ content, ...props }) {
-    if (!isNil(content)) {
-        return <Button {...props}>{content}</Button>;
-    }
+export const createButton = createShorthandFactory(Button);
 
-    return <Button {...props} />;
-}
+export const createEmbeddedButton = createShorthandFactoryForEmbedded(createButton, {
+    [SIZE.micro]: SIZE.micro,
+    [SIZE.mini]: SIZE.micro,
+    [SIZE.tiny]: SIZE.micro,
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
+});
+
+
+
+
