@@ -261,8 +261,6 @@ function useHandleDocumentClick({ hideOnOutsideClick, disabled }, isVisible, tri
         }
     }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
 
-    console.log(isVisible);
-
     useDocumentListener("click", handler, isVisible && !disabled);
 }
 

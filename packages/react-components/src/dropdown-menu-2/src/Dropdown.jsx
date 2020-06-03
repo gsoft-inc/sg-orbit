@@ -9,7 +9,7 @@ import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
 import { KEYS, resolvePopperPosition, useEventCallback } from "../../shared";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useEffect, useState } from "react";
+import { cloneElement, forwardRef, useState } from "react";
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
 
@@ -55,12 +55,13 @@ function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
     }
 }
 
-function useDropdownTrigger(title, icon, trigger, size, rest) {
+function useDropdownTrigger(title, icon, trigger, size, fluid, rest) {
     const triggerComponent = !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
 
     return cloneElement(triggerComponent, {
         ...rest,
-        size
+        size,
+        fluid
     });
 }
 
@@ -114,7 +115,7 @@ export function InnerDropdown(props) {
         }
     });
 
-    const dropdownTrigger = useDropdownTrigger(title, icon, trigger, size, rest);
+    const dropdownTrigger = useDropdownTrigger(title, icon, trigger, size, fluid, rest);
 
     const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
         show: open,
