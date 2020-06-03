@@ -41,6 +41,11 @@ const INPUT_PROP_TYPES = {
     wrapperStyle: object
 };
 
+// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
+const INPUT_DEFAULT_PROPS = {
+    iconPosition: "right"
+};
+
 const propTypes = {
     ...INPUT_PROP_TYPES,
     /**
@@ -58,6 +63,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    ...INPUT_DEFAULT_PROPS,
     type: "text"
 };
 

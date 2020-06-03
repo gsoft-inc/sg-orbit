@@ -220,6 +220,13 @@ stories()
                     open
                 />
             </div>
+            <div className="w-100" style={{ marginBottom: "50px" }}>
+                <TriggerLessDropdown
+                    trigger={<Button>Open</Button>}
+                    fluid
+                    className="mr5"
+                />
+            </div>
             <div className="flex">
                 <TriggerLessDropdown
                     trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}

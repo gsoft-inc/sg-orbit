@@ -1,14 +1,9 @@
 import { ArrowIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
-import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
+import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
-
-const SIZE_CLASS = {
-    [SIZE.small]: "small",
-    [SIZE.large]: "large"
-};
 
 const propTypes = {
     icon: element,
@@ -20,6 +15,23 @@ const propTypes = {
 const defaultProps = {
     as: "button"
 };
+
+function Text({ children }) {
+    return <span className="text">{children}</span>;
+}
+
+function Arrow({ upward, size }) {
+    const icon = (
+        <ArrowIcon
+            className={mergeClasses(
+                "arrow",
+                upward && "upward"
+            )}
+        />
+    );
+
+    return <EmbeddedIcon icon={icon} size={size} />;
+}
 
 export function InnerDropdownTitleTrigger({
     title,
@@ -41,18 +53,18 @@ export function InnerDropdownTitleTrigger({
             {...rest}
             className={mergeClasses(
                 "o-ui dropdown-title-trigger",
-                size && SIZE_CLASS[size],
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                getSizeClass(size),
                 className
             )}
             ref={forwardedRef}
         >
             {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
-            <span className="text">{title}</span>
-            <EmbeddedIcon icon={<ArrowIcon className={`arrow ${upward ? "upward" : ""}`} />} size={size} />
+            <Text>{title}</Text>
+            <Arrow upward={upward} size={size} />
         </Element>
     );
 }
