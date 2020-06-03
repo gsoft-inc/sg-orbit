@@ -38,6 +38,7 @@
 /* Dropdown Menu | Trigger | Fluid */
 .o-ui.dropdown-title-trigger.fluid {
     width: 100%;
+    justify-content: space-between;
 }
 
 /* Dropdown Menu | Trigger | Disabled */
