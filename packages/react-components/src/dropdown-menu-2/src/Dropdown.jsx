@@ -127,7 +127,8 @@ export function InnerDropdown(props) {
         focusFirstElementOnKeyboardShow: true,
         hideOnBlur: closeOnBlur,
         hideOnOutsideClick: closeOnOutsideClick,
-        onVisibilityChange: handleVisibilityChange
+        onVisibilityChange: handleVisibilityChange,
+        popperClassName: "o-ui dropdown"
     });
 
     const handleSelectItem = useEventCallback(event => {

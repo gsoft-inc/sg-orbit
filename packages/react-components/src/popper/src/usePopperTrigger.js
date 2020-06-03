@@ -307,7 +307,7 @@ function getPopperElement(popper, triggerElement, content) {
 }
 
 function usePopperRenderer(
-    { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate },
+    { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate, popperClassName, popperStyle },
     isVisible,
     triggerElement,
     setPopperElement
@@ -318,7 +318,8 @@ function usePopperRenderer(
 
             const styles = {
                 ...(element.style || {}),
-                zIndex
+                zIndex,
+                ...(popperStyle || {})
             };
 
             return cloneElement(element, {
@@ -333,6 +334,7 @@ function usePopperRenderer(
                 portalContainerElement,
                 noPortal,
                 animate,
+                className: popperClassName,
                 style: styles,
                 ref: setPopperElement
             });
@@ -400,6 +402,8 @@ export function usePopperTrigger(props) {
         hideOnOutsideClick = true,
         disabled,
         className,
+        popperClassName,
+        popperStyle,
         forwardedRef,
         ...rest
     } = props;
@@ -434,7 +438,7 @@ export function usePopperTrigger(props) {
     const renderTrigger = useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement);
 
     const renderPopper = usePopperRenderer(
-        { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate },
+        { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate, popperClassName, popperStyle },
         isVisible,
         triggerElement,
         setPopperElement);

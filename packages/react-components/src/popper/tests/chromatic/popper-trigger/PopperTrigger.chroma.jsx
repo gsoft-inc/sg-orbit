@@ -79,18 +79,34 @@ stories()
         </div>
     )
     .add("styling", () =>
-        <div className="flex flex-column">
-            <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper
-                    show
-                    className="border-blue"
-                />
+        <div>
+            <div className="flex" style={{ marginBottom: "100px" }}>
+                <div style={{ marginRight: "100px" }}>
+                    <RedBoxPopper
+                        show
+                        className="border-blue"
+                    />
+                </div>
+                <div>
+                    <RedBoxPopper
+                        show
+                        style={{ border: "1px solid blue" }}
+                    />
+                </div>
             </div>
-            <div>
-                <RedBoxPopper
-                    show
-                    style={{ border: "1px solid blue" }}
-                />
+            <div className="flex">
+                <div style={{ marginRight: "100px" }}>
+                    <RedBoxPopper
+                        show
+                        popperClassName="border-blue"
+                    />
+                </div>
+                <div>
+                    <RedBoxPopper
+                        show
+                        popperStyle={{ border: "1px solid blue" }}
+                    />
+                </div>
             </div>
         </div>
     )
