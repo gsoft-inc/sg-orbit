@@ -1,5 +1,5 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, number, object, oneOf, string } from "prop-types";
+import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -8,7 +8,7 @@ import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 const SIZES = ["small", "medium", "large"];
 const DEFAULT_SIZE = "medium";
 
-const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "button", "iconsPosition", "type"];
+const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "iconsPosition", "type"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
@@ -28,6 +28,10 @@ const INPUT_PROP_TYPES = {
      * An icon can appear on the left or right.
      */
     iconPosition: oneOf(["left"]),
+    /**
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
+     */
+    button: oneOfType([element, object]),
     /**
      * An input can vary in sizes.
      */
@@ -77,7 +81,7 @@ const defaultProps = {
 };
 
 export function InnerNumberInput(props) {
-    const { icon, loading, forwardedRef, ...rest } = props;
+    const { icon, iconPosition, loading, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/number-input");
 
@@ -86,7 +90,7 @@ export function InnerNumberInput(props) {
             {...rest}
             type="number"
             icon={icon}
-            iconPosition={!isNil(icon) || !isNil(loading) ? "left" : undefined}
+            iconPosition={!isNil(icon) || !isNil(loading) ? iconPosition : undefined}
             loading={loading}
             ref={forwardedRef}
             __componentName="@orbit-ui/react-components/number-input"
