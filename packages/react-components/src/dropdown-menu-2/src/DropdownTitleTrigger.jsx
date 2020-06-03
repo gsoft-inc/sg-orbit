@@ -1,14 +1,9 @@
 import { ArrowIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
-import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
+import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
-
-const SIZE_CLASS = {
-    [SIZE.small]: "small",
-    [SIZE.large]: "large"
-};
 
 const propTypes = {
     icon: element,
@@ -58,11 +53,11 @@ export function InnerDropdownTitleTrigger({
             {...rest}
             className={mergeClasses(
                 "o-ui dropdown-title-trigger",
-                size && SIZE_CLASS[size],
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                getSizeClass(size),
                 className
             )}
             ref={forwardedRef}
