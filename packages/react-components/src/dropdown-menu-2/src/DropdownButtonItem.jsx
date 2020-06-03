@@ -1,4 +1,3 @@
-import "./DropdownButtonItem.css";
 import { DropdownItem } from "./DropdownItem";
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";

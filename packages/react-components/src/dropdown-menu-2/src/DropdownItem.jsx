@@ -1,4 +1,3 @@
-import "./DropdownItem.css";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";

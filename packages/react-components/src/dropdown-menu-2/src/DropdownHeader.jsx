@@ -1,4 +1,3 @@
-import "./DropdownHeader.css";
 import { Dropdown, DropdownContext } from "../../dropdown";
 import { EmbeddedIcon } from "../../icons";
 import { element } from "prop-types";
