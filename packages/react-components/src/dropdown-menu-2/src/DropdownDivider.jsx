@@ -1,3 +1,4 @@
+import "./DropdownDivider.css";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { forwardRef } from "react";
 

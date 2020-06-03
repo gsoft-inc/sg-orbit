@@ -1,3 +1,4 @@
+import "./DropdownButtonItem.css";
 import { DropdownItem } from "./DropdownItem";
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -13,6 +14,7 @@ export function InnerDropdownButtonItem({ as, forwardedRef, ...rest }) {
     return (
         <DropdownItem
             {...rest}
+            className="dropdown-button-item"
             as={as || "button"}
             ref={forwardedRef}
         />

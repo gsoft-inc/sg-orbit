@@ -1,3 +1,4 @@
+import "./DropdownItem.css";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
@@ -85,6 +86,7 @@ export function InnerDropdownItem(props) {
             <SemanticDropdown.Item
                 {...rest}
                 className={mergeClasses(
+                    "dropdown-item",
                     focus && "focus",
                     hover && "hover"
                 )}

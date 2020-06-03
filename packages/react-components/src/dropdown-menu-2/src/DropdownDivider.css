@@ -1,0 +1,4 @@
+.divider {
+    border-top: 1px solid var(--cloud-100);
+    height: 0;
+}

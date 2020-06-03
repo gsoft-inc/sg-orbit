@@ -57,9 +57,10 @@ function useDropdownTrigger(title, icon, trigger, size, rest) {
     });
 }
 
-function useDropdownMenu(scrolling, menu, handleSelectItem, children, ref) {
+function useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, ref) {
     const props = {
         scrolling,
+        fluid,
         onSelectItem: handleSelectItem,
         children,
         ref
@@ -137,7 +138,7 @@ export function InnerDropdown(props) {
         }, 0);
     });
 
-    const dropdownMenu = useDropdownMenu(scrolling, menu, handleSelectItem, children, forwardedRef);
+    const dropdownMenu = useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, forwardedRef);
 
     return (
         <DropdownContext.Provider
