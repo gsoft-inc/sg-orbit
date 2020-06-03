@@ -119,7 +119,7 @@ function Groups({ element, ...rest }) {
     );
 }
 
-export function createSharedStories(group, stories) {
+export function createTestSuite(group, stories) {
     return stories
         .add("default", () =>
             <Groups element={group} />

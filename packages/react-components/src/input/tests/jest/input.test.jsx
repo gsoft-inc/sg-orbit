@@ -18,27 +18,31 @@ function getInput(getByTestId) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the input is autofocused on render", async () => {
-    const { getByTestId } = render(createInput({
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <Input autofocus />
+    );
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when autofocus on a disabled input, the input is not autofocused on render", async () => {
-    const { getByTestId } = render(createInput({
-        disabled: true,
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <Input
+            disabled
+            autofocus
+        />
+    );
 
     await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 });
 
 test("when delayed autofocus, the input is autofocused after the delay", async () => {
-    const { getByTestId } = render(createInput({
-        autofocus: true,
-        autofocusDelay: 50
-    }));
+    const { getByTestId } = render(
+        <Input
+            autofocus
+            autofocusDelay={50}
+        />
+    );
 
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
@@ -50,11 +54,11 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
 
 test("when delayed autofocus on a disabled input, the input is not autofocused after the delay", async () => {
     const { getByTestId } = render(
-        createInput({
-            disabled: true,
-            autofocus: true,
-            autofocusDelay: 50
-        })
+        <Input
+            disabled
+            autofocus
+            autofocusDelay={50}
+        />
     );
 
     await waitDelay(60);
@@ -68,9 +72,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createInput({
-            ref
-        })
+        <Input ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -83,11 +85,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createInput({
-            ref: node => {
+        <Input
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -97,13 +99,15 @@ test("when using a callback ref, ref is a DOM element", async () => {
 });
 
 test("when a function ref is provided, delayed autofocus works", async () => {
-    const { getByTestId } = render(createInput({
-        autofocus: true,
-        autofocusDelay: 50,
-        ref: () => {
-            // don't need to hold a ref..
-        }
-    }));
+    const { getByTestId } = render(
+        <Input
+            autofocus
+            autofocusDelay={50}
+            ref={() => {
+                // don't need to hold a ref..
+            }}
+        />
+    );
 
     await waitDelay(60);
 
@@ -114,9 +118,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createInput({
-            ref: handler
-        })
+        <Input ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -128,11 +130,11 @@ test("can focus the input with the focus api", async () => {
     let refNode = null;
 
     const { getByTestId } = render(
-        createInput({
-            ref: node => {
+        <Input
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     act(() => {
@@ -146,12 +148,12 @@ test("can select the input text with the select api", async () => {
     let refNode = null;
 
     const { getByTestId } = render(
-        createInput({
-            value: "Orbit",
-            ref: node => {
+        <Input
+            value="Orbit"
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     act(() => {

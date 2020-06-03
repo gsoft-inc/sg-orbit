@@ -1,7 +1,7 @@
 import { SIZE } from "../../shared";
 import { cloneElement } from "react";
 
-const ADJUSTED_SIZE = {
+const SIZE_WHEN_EMBED = {
     [SIZE.micro]: SIZE.micro,
     [SIZE.mini]: SIZE.mini,
     [SIZE.tiny]: SIZE.mini,
@@ -13,9 +13,9 @@ const ADJUSTED_SIZE = {
     [SIZE.massive]: SIZE.huge
 };
 
-export function ContentIcon({ icon, size, ...rest }) {
+export function EmbeddedIcon({ icon, size, ...rest }) {
     return cloneElement(icon, {
-        size: ADJUSTED_SIZE[size || SIZE.medium],
+        size: SIZE_WHEN_EMBED[size || SIZE.medium],
         ...rest
     });
 }

@@ -1,11 +1,11 @@
 import "./DropdownButtonTrigger.css";
-import { ArrowIcon } from "../../icons";
+import { ArrowIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { SIZE, mergeClasses } from "../../shared";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 
-const SIZE_CSS_CLASS = {
+const SIZE_CLASS = {
     [SIZE.small]: "small",
     [SIZE.large]: "large"
 };
@@ -41,7 +41,7 @@ export function InnerDropdownTitleTrigger({
             {...rest}
             className={mergeClasses(
                 "o-ui title-trigger",
-                size && SIZE_CSS_CLASS[size],
+                size && SIZE_CLASS[size],
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
@@ -50,9 +50,9 @@ export function InnerDropdownTitleTrigger({
             )}
             ref={forwardedRef}
         >
-            {icon}
+            <EmbeddedIcon icon={icon} size={size} />
             <span className="text">{title}</span>
-            <ArrowIcon size={size} className={upward ? "rotate-270" : "rotate-90"} />
+            <EmbeddedIcon icon={<ArrowIcon className={upward ? "rotate-270" : "rotate-90"} />} size={size} />
         </Element>
     );
 }

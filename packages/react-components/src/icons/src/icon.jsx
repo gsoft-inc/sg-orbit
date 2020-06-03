@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
 
-const DIMENSION_CSS_CLASSES = {
+const DIMENSION_CLASSES = {
     [SIZE.micro]: "w2 h2",
     [SIZE.mini]: "w3 h3",
     [SIZE.tiny]: "w4 h4",
@@ -20,7 +20,7 @@ export function InnerIcon({ type: ComponentType, size, className, forwardedRef, 
     const classes = mergeClasses(
         "icon",
         className,
-        DIMENSION_CSS_CLASSES[size || SIZE.medium]
+        DIMENSION_CLASSES[size || SIZE.medium]
     );
 
     return (

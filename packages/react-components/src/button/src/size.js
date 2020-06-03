@@ -9,6 +9,7 @@ const BUTTON_SIZE = {
     [SIZE.large]: SIZE.small
 };
 
+// TODO: Remove once `createEmbeddedButton` is used everywhere.
 export function getContentButtonSize(size) {
-    return BUTTON_SIZE[size];
+    return BUTTON_SIZE[size || SIZE.medium];
 }

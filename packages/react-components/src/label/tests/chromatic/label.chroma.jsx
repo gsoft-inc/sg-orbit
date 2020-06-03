@@ -44,11 +44,6 @@ createSharedTestSuite(<Label naked />, stories("/naked"))
         </div>
     );
 
-stories()
-    .add("content prop", () =>
-        <Label content="Notification Sent" />
-    );
-
 stories("/compact")
     .add("default", () =>
         <div className="flex flex-column">

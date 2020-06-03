@@ -1,2 +1,1 @@
-export * from "./input";
-export * from "./shorthands";
+export * from "./Input";

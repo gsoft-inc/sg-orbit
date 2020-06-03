@@ -1,3 +1,2 @@
-export * from "./button";
-export * from "./shorthands";
+export * from "./Button";
 export * from "./size";

@@ -2,7 +2,6 @@ import { PopperTrigger } from "./PopperTrigger";
 import { createButton } from "../../button";
 import { element, object, oneOfType } from "prop-types";
 import { forwardRef } from "react";
-import { isElement } from "react-is";
 
 const propTypes = {
     /**
@@ -11,35 +10,17 @@ const propTypes = {
     button: oneOfType([element, object]).isRequired
 };
 
-function useButtonRenderer({ button }) {
-    return () => {
-        if (isElement(button)) {
-            return button;
-        }
-
-        return createButton(button);
-    };
-}
-
-function useRenderer({ forwardedRef, rest }, button) {
-    return () => {
-        return (
-            <PopperTrigger
-                {...rest}
-                trigger={button}
-                toggleHandler="onClick"
-                ref={forwardedRef}
-            />
-        );
-    };
-}
-
 export function InnerPopperButtonTrigger({ button, forwardedRef, ...rest }) {
-    const renderButton = useButtonRenderer({ button });
-    const render = useRenderer({ forwardedRef, rest }, renderButton());
+    const trigger = createButton(button);
 
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
+    return (
+        <PopperTrigger
+            {...rest}
+            trigger={trigger}
+            toggleHandler="onClick"
+            ref={forwardedRef}
+        />
+    );
 }
 
 InnerPopperButtonTrigger.propTypes = propTypes;

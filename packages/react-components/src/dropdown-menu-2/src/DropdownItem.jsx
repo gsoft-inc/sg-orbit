@@ -1,7 +1,7 @@
 import "./DropdownItem.css";
-import { ContentIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
+import { EmbeddedIcon } from "../../icons";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useEventCallback } from "../../shared";
 import { element, string } from "prop-types";
@@ -55,7 +55,7 @@ function Content({ text, icon, description, children }) {
     let left;
 
     if (!isNil(icon)) {
-        left = <ContentIcon icon={icon} size={size} />;
+        left = <EmbeddedIcon icon={icon} size={size} />;
     }
 
     return (

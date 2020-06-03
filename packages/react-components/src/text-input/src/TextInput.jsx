@@ -1,13 +1,8 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
 import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
+import { createShorthandFactory, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { forwardRef } from "react";
-import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
-
-const COMPONENT_NAME = "@orbit-ui/react-components/text-input";
 const UNSUPPORTED_PROPS = INPUT_UNSUPPORTED_PROPS;
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
@@ -27,7 +22,7 @@ const INPUT_PROP_TYPES = {
     /**
      * An icon can appear on the left or right.
      */
-    iconPosition: oneOf(["left"]),
+    iconPosition: oneOf(["left", "right"]),
     /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
      */
@@ -35,7 +30,7 @@ const INPUT_PROP_TYPES = {
     /**
      * An input can vary in sizes.
      */
-    size: oneOf(SIZES),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * Additional CSS classes to render on the wrapper element.
      */
@@ -46,13 +41,8 @@ const INPUT_PROP_TYPES = {
     wrapperStyle: object
 };
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
-const INPUT_DEFAULT_PROPS = {
-    autofocus: false,
-    size: DEFAULT_SIZE
-};
-
 const propTypes = {
+    ...INPUT_PROP_TYPES,
     /**
      * The value of the input.
      */
@@ -61,7 +51,6 @@ const propTypes = {
      * The default value of the input.
      */
     defaultValue: string,
-    ...INPUT_PROP_TYPES,
     /**
      * The [type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) of the input.
      */
@@ -69,20 +58,19 @@ const propTypes = {
 };
 
 const defaultProps = {
-    ...INPUT_DEFAULT_PROPS,
     type: "text"
 };
 
 export function InnerTextInput(props) {
     const { forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, COMPONENT_NAME);
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/TextInput");
 
     return (
         <Input
             {...rest}
             ref={forwardedRef}
-            __componentName={COMPONENT_NAME}
+            __componentName="@orbit-ui/react-components/TextInput"
         />
     );
 }
@@ -93,3 +81,5 @@ InnerTextInput.defaultProps = defaultProps;
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput { ...props } forwardedRef={ref} />
 ));
+
+export const createTextInput = createShorthandFactory(TextInput);

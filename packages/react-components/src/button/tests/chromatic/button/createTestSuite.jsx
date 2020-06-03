@@ -133,7 +133,7 @@ function Tags({ element, ...rest }) {
     );
 }
 
-export function createSharedTestSuite(button, stories) {
+export function createTestSuite(button, stories) {
     return stories
         .add("default", () =>
             <div className="flex">

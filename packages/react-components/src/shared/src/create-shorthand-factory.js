@@ -1,10 +1,11 @@
+import { SIZE } from "./size";
 import { cloneElement } from "react";
 import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
 import { isPlainObject } from "lodash";
 
-export function createShorthandFactory(ComponentType) {
-    return (shorthand, props, customFactory) => {
+export function createShorthandFactory(ComponentType, customFactory) {
+    return (shorthand, props) => {
         if (isElement(shorthand)) {
             return cloneElement(shorthand, props);
         }
@@ -28,6 +29,17 @@ export function createShorthandFactory(ComponentType) {
             }
         }
 
-        throw new Error(`createShorthand - Cannot create an instance of ${ComponentType} from shorthand. Unknown format: "${shorthand}".`);
+        throw new Error(`Cannot create an instance of ${ComponentType} from shorthand. Unknown format: "${shorthand}".`);
+    };
+}
+
+export function createShorthandFactoryForEmbedded(shorthandFactory, sizeChart) {
+    return (shorthand, props, ...rest) => {
+        const newProps = {
+            ...props,
+            size: sizeChart[props.size || SIZE.medium]
+        };
+
+        return shorthandFactory(shorthand, newProps, ...rest);
     };
 }

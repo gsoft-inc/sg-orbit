@@ -5,8 +5,8 @@ import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Tag } from "@react-components/tag";
-import CustomColorHover from "./custom-color-hover.mdx";
-import Imports from "./imports.mdx";
+import CustomColorHover from "./CustomColorHover.mdx";
+import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Button")}
@@ -217,6 +217,8 @@ Or look like a link:
     <Story name="link">
         <div className="flex items-lot-of-space-between">
             <Button link>Cutoff</Button>
+            <Button link primary>Cutoff</Button>
+            <Button link secondary>Cutoff</Button>
             <Button link basic>Cutoff</Button>
         </div>
     </Story>
@@ -296,7 +298,7 @@ Buttons can exist together as a group.
 
 ## API
 
-A few [API functions are available for a button component](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement#Methods). To use an API, first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the button component, then call the API function.
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the button component, then call the API function.
 
 Here's an example for the `focus` function:
 
