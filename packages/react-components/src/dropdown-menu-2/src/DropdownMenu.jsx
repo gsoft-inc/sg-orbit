@@ -1,15 +1,10 @@
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
-import { KEYS, SIZE, SemanticRef, createShorthandFactory, mergeClasses, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
+import { KEYS, SemanticRef, createShorthandFactory, getSizeClass, mergeClasses, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { bool, func } from "prop-types";
 import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";
-
-const SIZE_CSS_CLASS = {
-    [SIZE.small]: "small",
-    [SIZE.large]: "large"
-};
 
 const propTypes = {
     scrolling: bool,
@@ -109,7 +104,7 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, children, fo
                     className={mergeClasses(
                         scrolling && "scrolling",
                         fluid && "fluid",
-                        size && SIZE_CSS_CLASS[size]
+                        getSizeClass(size)
                     )}
                     open
                     tabIndex="-1"
