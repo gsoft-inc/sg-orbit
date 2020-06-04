@@ -7,40 +7,6 @@
     line-height: 1;
 }
 
-/* LAYOUT | Dropdown Menu */
-.ui.dropdown-menu .menu {
-    min-width: 175px;
-}
-
-/* TEMP HACKS BY PAT */
-.ui.dropdown.dropdown-menu {
-    cursor: none !important;
-    display: block !important;
-}
-.ui.dropdown.dropdown-menu .menu {
-    position: static !important;
-    left: initial !important;
-    top: initial !important;
-}
-
-/*.ui.dropdown-menu {
-    display: flex;
-    align-items: center;
-}*/
-
-/* Size */
-/*.ui.dropdown-menu {
-    min-height: 20px;
-}
-
-.ui.dropdown-menu.small {
-    min-height: 16px;
-}
-
-.ui.dropdown-menu.large {
-    min-height: 24px;
-}*/
-
 /* LAYOUT | Selection  */
 .ui.dropdown.selection {
     min-height: var(--scale-hotel);
@@ -179,12 +145,6 @@
     color: @marine500;
 }
 
-.ui.dropdown.dropdown-menu:focus,
-.ui.dropdown.dropdown-menu.focus {
-    background-color: var(--primary-50)!important;
-    border-radius: 2px;
-}
-
 /*******************************
     Item
 *******************************/
@@ -200,14 +160,6 @@
     width: 100%;
     background-color: transparent;
     outline: 0;
-}
-
-.ui.dropdown .menu > .item span.text,
-.ui.dropdown .menu > .item span.description {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .ui.selection.dropdown .menu > .item {
@@ -550,28 +502,9 @@
     line-height: 1;
 }
 
-.ui.dropdown-menu .menu > .header {
-    font-size: var(--type-scale-8);
-    letter-spacing: -0.25px;
-    display: flex;
-    align-items: center;
-    color: var(--marine-900);
-}
-
 /* Icon */
 .ui.dropdown .menu > .header .icon {
     margin-right: var(--scale-alpha);
-}
-
-/* Small */
-.ui.dropdown-menu.small .menu > .header {
-    font-size: var(--type-scale-9);
-}
-
-/* Large */
-.ui.dropdown-menu.large .menu > .header {
-    font-size: var(--type-scale-7);
-    padding: 0 var(--scale-foxtrot);
 }
 
 /* LAYOUT | DIVIDER */
@@ -1308,23 +1241,6 @@
 .ui.selection.active.dropdown.error.hover .menu {
     border-color: @alert500;
 }
-
-/* LAYOUT | Dropdown Menu | With Icon */
-/*.ui.dropdown-menu.with-icon {
-    padding-left: var(--scale-foxtrot);
-}
-
-.ui.dropdown-menu.with-icon.small {
-    padding-left: var(--scale-echo);
-}
-
-.ui.dropdown-menu.with-icon.large {
-    padding-left: var(--scale-golf);
-}
-
-.ui.dropdown-menu.with-icon + .ui.dropdown-icon {
-    left: 0;
-}*/
 
 /* TRANSPARENT */
 .ui.dropdown.transparent {
