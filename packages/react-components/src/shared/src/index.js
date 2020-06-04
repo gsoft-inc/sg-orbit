@@ -21,3 +21,4 @@ export * from "./use-committed-ref";
 export * from "./use-event-callback";
 export * from "./use-static-callback";
 export * from "./get-size-class";
+export * from "./create-chained-function";
