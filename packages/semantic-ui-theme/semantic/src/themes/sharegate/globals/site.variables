@@ -450,7 +450,7 @@
 
 /* Negative */
 @negativeColor           : @alert500;
-@negativeBackgroundColor : transparent;
+@negativeBackgroundColor : var(--white);
 @negativeBorderColor     : @alert500;
 @negativeHeaderColor     : @alert900;
 @negativeTextColor       : @textColor;
