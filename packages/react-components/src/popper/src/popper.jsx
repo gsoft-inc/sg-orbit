@@ -159,7 +159,7 @@ function usePopperRenderer({ show, noWrap, animate, style, children, rest }, pop
                 ...style,
                 ...popperStyles,
                 display: show ? "block" : "none",
-                animation: animate ? "ou-popper-fade-in 0.3s" : undefined
+                animation: animate ? "o-ui-popper-fade-in 0.3s" : undefined
             },
             ...popperAttributes,
             ref: popperRef

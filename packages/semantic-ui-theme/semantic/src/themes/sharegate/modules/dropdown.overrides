@@ -322,7 +322,7 @@
 /* STATE | Active | Content | In Select */
 .ui.multiple.dropdown > .active.label {
     background-color: @cloud50;
-    color: @marine600;
+    color: @marine500;
 }
 
 /* STATE | Hover | Content | In Select */
@@ -1160,7 +1160,7 @@
 
 .ui.multiple.dropdown .label > .delete.icon:hover,
 .ui.multiple.dropdown .label > .delete.icon.hover {
-    background-color: @marine600;
+    background-color: @marine500;
 }
 
 /* CONTENT | Multiple | Label | Delete icon | STATE | Disabled */

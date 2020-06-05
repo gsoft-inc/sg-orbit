@@ -43,6 +43,17 @@ a.ui.button {
     padding-right: var(--scale-bravo)
 }
 
+/* Micro | With Icon  */
+.ui.micro.buttons .button.with-icon,
+.ui.micro.button.with-icon {
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo);
+}
+
+.ui.micro.with-icon.without-text.button {
+    padding-left: var(--scale-bravo);
+}
+
 /* LAYOUT | Height/Radius | Sizes | Mini */
 .ui.button.mini,
 .ui.button.with-icon.mini,
@@ -60,6 +71,15 @@ a.ui.button {
     padding: 0.125rem 0 0.125rem;
     padding-left: var(--scale-bravo);
     padding-right: var(--scale-bravo)
+}
+
+.ui.button.mini.with-icon-right {
+    padding-right: var(--scale-bravo);
+}
+
+.ui.mini.with-icon.without-text.button,
+.ui.mini.with-icon.button {
+    padding-left: var(--scale-bravo);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Tiny */
@@ -758,7 +778,7 @@ a.ui.button {
 .ui.buttons.ghost .button {
     background-color: @transparent;
     border: none;
-    color: @marine600;
+    color: @marine500;
 }
 
 /* SKIN | Ghost | STATE | Disabled */
@@ -774,7 +794,7 @@ a.ui.button {
 .ui.ghost.button:active,
 .ui.buttons.ghost .button:active {
     background-color: var(--cloud-50);
-    color: var(--marine-600);
+    color: var(--marine-500);
 }
 
 /* SKIN | Ghost | Primary */
@@ -1075,13 +1095,13 @@ a.ui.button {
 /* CONTENT | Icon | SKIN | Secondary */
 .ui.button.with-icon.secondary .icon,
 .ui.buttons.secondary .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Basic */
 .ui.button.basic.with-icon .icon,
 .ui.buttons.basic .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Positive */
@@ -1131,7 +1151,7 @@ a.ui.button {
 /* CONTENT | Icon | SKIN | Ghost */
 .ui.button.with-icon.ghost .icon,
 .ui.buttons.ghost .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Ghost/Positive */
@@ -1430,7 +1450,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.active .icon,
 .ui.buttons.ghost .button.with-icon:hover .icon,
 .ui.buttons.ghost .button.with-icon.active .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
@@ -1438,7 +1458,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.focus.hover .icon,
 .ui.buttons.ghost .button.with-icon:focus:hover .icon,
 .ui.buttons.ghost .button.with-icon.focus.hover .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
@@ -1663,8 +1683,8 @@ a.ui.button {
     box-shadow: none!important;
 }
 
-.ui.button.link.basic:focus,
-.ui.button.link.basic.focus {
+.ui.button.link.secondary:focus,
+.ui.button.link.secondary.focus {
     box-shadow: none!important;
 }
 
@@ -1701,16 +1721,16 @@ a.ui.button {
     background: var(--primary-50);
 }
 
-.ui.button.link.basic:focus:hover,
-.ui.button.link.basic.focus.hover {
+.ui.button.link.secondary:focus:hover,
+.ui.button.link.secondary.focus.hover {
     text-decoration: underline;
     box-shadow: none!important;
     background: var(--marine-50) !important;
 }
 
-/* SKIN | Link | Basic */
-.ui.button.link.basic {
-    color: var(--marine-500);
+/* SKIN | Link | Secondary */
+.ui.button.link.secondary {
+    color: var(--marine-300);
     box-shadow: none !important;
 }
 

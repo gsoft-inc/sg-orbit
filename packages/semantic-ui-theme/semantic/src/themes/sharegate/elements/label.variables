@@ -20,7 +20,7 @@
 --------------------*/
 
 @backgroundColor: @cloud50;
-@color: @marine600;
+@color: @marine500;
 @basicBorder: @basicBorderWidth solid @borderColor;
 @mini: 6px;
 @tagCircleColor: initial;
