@@ -80,7 +80,8 @@ export function InnerDropdown(props) {
         onVisibilityChange,
         menu,
         children,
-        forwardedRef
+        forwardedRef,
+        ...rest
     } = props;
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
@@ -96,7 +97,8 @@ export function InnerDropdown(props) {
 
     const dropdownTrigger = cloneElement(resolveTrigger(title, icon, trigger), {
         size,
-        fluid
+        fluid,
+        ...rest
     });
 
     const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
@@ -163,6 +165,7 @@ export const Dropdown = forwardRef((props, ref) => (
     x.ButtonItem = DropdownButtonItem;
     x.Header = DropdownHeader;
     x.Divider = DropdownDivider;
+    x.DropdownTitleTrigger = DropdownTitleTrigger;
 });
 
 
