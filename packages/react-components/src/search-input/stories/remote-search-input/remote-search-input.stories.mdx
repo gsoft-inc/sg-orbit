@@ -157,22 +157,6 @@ A remote search input can take the width of its container.
 </Preview>
 
 <Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RemoteSearchInput
-        onFetchResults={dataFetcher}
-        onResults={resultsMapper}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onValueChange={logValueChanged}
-        placeholder="Type a country name"
-    />
-</Story>
-
-<Story
     name="failing fetch"
     parameters={paramsBuilder()
         .excludeFromDocs()

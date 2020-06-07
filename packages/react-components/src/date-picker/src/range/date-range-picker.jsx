@@ -141,15 +141,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * Whether or not the calendar should close when the date picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the calendar should close when a click happens outside the date picker.
-         * Requires `closeOnBlur` to be false.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * A date picker can vary in sizes.
          */
         size: oneOf(SIZES),
@@ -320,7 +311,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { upward, direction, pinned, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -334,8 +325,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
-                closeOnBlur={closeOnBlur}
-                closeOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
                 className={className}
                 style={style}

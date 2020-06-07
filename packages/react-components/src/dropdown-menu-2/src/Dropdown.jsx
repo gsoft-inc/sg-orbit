@@ -8,41 +8,71 @@ import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS, resolvePopperPosition, useEventCallback } from "../../shared";
+import { KEYS, augmentElement, resolvePopperPosition, useEventCallback } from "../../shared";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useState } from "react";
+import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
 import { usePopperTrigger } from "../../popper";
 
 const propTypes = {
+    /**
+     * A controlled open value that determined whether or not the menu is displayed.
+     */
     open: bool,
+    /**
+     * The initial value of open.
+     */
     defaultOpen: bool,
+    /**
+     * The default trigger text.
+     */
     title: string,
+    /**
+     * The default trigger icon.
+     */
     icon: element,
+    /**
+     * A custom element to trigger the visibility of the menu. When specified, will have precedence over the the title prop.
+     */
     trigger: element,
     /**
      * A dropdown can vary in size.
      */
     size: oneOf(["small", "large"]),
+    /**
+     * A dropdown menu can open upward.
+     */
     upward: bool,
+    /**
+     * A dropdown menu can open to the left or to the right.
+     */
     direction: oneOf(["left", "right"]),
+    /**
+     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
+     */
     pinned: bool,
+    /**
+     * z-index of the dropdown menu.
+     */
     zIndex: number,
+    /**
+     * Whether or not the trigger will be rendered as fluid.
+     */
     fluid: bool,
     /**
      * A dropdown can have its menu scroll.
      */
     scrolling: bool,
     /**
-     * Whether or not the menu should close when the dropdown menu loose focus.
+     * Called when the dropdown open / close.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {boolean} isVisible - Indicate if the dropdown menu is visible.
+     * @returns {void}
      */
-    closeOnBlur: bool,
-    /**
-     * Whether or not the menu should close when a click happens outside the dropdown.
-     * Requires `closeOnBlur` to be false.
-     */
-    closeOnOutsideClick: bool,
     onVisibilityChange: func,
+    /**
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the dropdown menu.
+     */
     menu: oneOfType([element, object])
 };
 
@@ -75,10 +105,11 @@ export function InnerDropdown(props) {
         zIndex,
         fluid,
         scrolling,
-        closeOnBlur,
-        closeOnOutsideClick,
         onVisibilityChange,
         menu,
+        active,
+        focus,
+        hover,
         children,
         forwardedRef,
         ...rest
@@ -95,9 +126,13 @@ export function InnerDropdown(props) {
         }
     });
 
-    const dropdownTrigger = cloneElement(resolveTrigger(title, icon, trigger), {
+    const dropdownTrigger = augmentElement(resolveTrigger(title, icon, trigger), {
         size,
         fluid,
+        active,
+        focus,
+        hover,
+        // Speading on the trigger for convenience since a basic dropdown trigger is made of a "title" prop.
         ...rest
     });
 
@@ -113,8 +148,6 @@ export function InnerDropdown(props) {
         fluid,
         showOnKeys: [upward ? KEYS.up : KEYS.down],
         focusFirstElementOnKeyboardShow: true,
-        hideOnBlur: closeOnBlur,
-        hideOnOutsideClick: closeOnOutsideClick,
         onVisibilityChange: handleVisibilityChange,
         popper: {
             className: "o-ui dropdown"

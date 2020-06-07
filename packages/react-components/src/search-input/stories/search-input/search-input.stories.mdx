@@ -130,20 +130,6 @@ A search input can take the width of its container.
     </Story>
 </Preview>
 
-<Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <SearchInput
-        results={DEFAULT_RESULTS}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onValueChange={logValueChanged}
-    />
-</Story>
-
 ### Size
 
 A search input can vary in size.

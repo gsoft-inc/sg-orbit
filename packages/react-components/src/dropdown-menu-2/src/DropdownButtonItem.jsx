@@ -25,5 +25,3 @@ InnerDropdownButtonItem.propTypes = propTypes;
 export const DropdownButtonItem = forwardRef((props, ref) => (
     <InnerDropdownButtonItem {...props} forwardedRef={ref} />
 ));
-
-DropdownButtonItem.name = "DropdownItem";

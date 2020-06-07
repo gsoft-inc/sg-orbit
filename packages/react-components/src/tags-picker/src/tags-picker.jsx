@@ -116,15 +116,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether or not the dropdown should close when the tag picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the dropdown should close when a click happens outside the tag picker.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
@@ -297,7 +288,7 @@ export class TagsPicker extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size, active, focus, hover } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, size, active, focus, hover } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -314,8 +305,6 @@ export class TagsPicker extends AutoControlledPureComponent {
             triggerSize: size,
             open,
             disabled,
-            closeOnBlur,
-            closeOnOutsideClick,
             active,
             focus,
             hover

@@ -91,15 +91,6 @@ export class TagsPickerDropdown extends PureComponent {
          */
         open: bool,
         /**
-         * Whether or not the dropdown should close when the tag picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the dropdown should close when a click happens outside the tag picker.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * @ignore
          */
         active: bool,
@@ -117,9 +108,7 @@ export class TagsPickerDropdown extends PureComponent {
         debounceDelay: 200,
         menu: <TagsPickerDropdownMenu />,
         trigger: <TagsPickerDropdownTrigger />,
-        searchInput: <TagsPickerDropdownSearchInput />,
-        closeOnBlur: true,
-        closeOnOutsideClick: false
+        searchInput: <TagsPickerDropdownSearchInput />
     };
 
     state = {
@@ -145,11 +134,7 @@ export class TagsPickerDropdown extends PureComponent {
     _hasFocus = false;
 
     componentDidUpdate(prevProps) {
-        const { items, closeOnBlur, closeOnOutsideClick } = this.props;
-
-        if (closeOnBlur && closeOnOutsideClick) {
-            throw new Error("TagsPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
-        }
+        const { items } = this.props;
 
         if (prevProps.items !== items) {
             this.setKeyboardItem(null, null);
@@ -229,28 +214,20 @@ export class TagsPickerDropdown extends PureComponent {
     // - close on outside click
     // - close on blur
     handleDropdownFocusOut = event => {
-        const { closeOnBlur } = this.props;
-
         this._hasFocus = false;
 
-        if (closeOnBlur) {
-            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-            setTimeout(() => {
-                if (!this._hasFocus) {
-                    this.close(event);
-                }
-            }, 0);
-        }
+        // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+        setTimeout(() => {
+            if (!this._hasFocus) {
+                this.close(event);
+            }
+        }, 0);
     };
 
     handleDocumentClick = event => {
-        const { closeOnOutsideClick } = this.props;
-
-        if (closeOnOutsideClick) {
-            if (this._dropdownRef.current) {
-                if (!this._dropdownRef.current.contains(event.target)) {
-                    this.close(event);
-                }
+        if (this._dropdownRef.current) {
+            if (!this._dropdownRef.current.contains(event.target)) {
+                this.close(event);
             }
         }
     };

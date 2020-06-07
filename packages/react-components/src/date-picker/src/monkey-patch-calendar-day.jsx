@@ -30,7 +30,7 @@ PureCalendarDay.prototype.componentDidUpdate = function(prevProps) {
 // Monkey patch fixes:
 //
 // The original react-dates CalendarDay component force a blur on a calendar day mouseUp which break the standard focus / blur event flow and prevent
-// us from properly implement a "closeOnBlur" feature for the date pickers (the "closeOnBlur" code is part of the popup component).
+// us from properly implement a "closeOnBlur" feature for the date pickers (the "closeOnBlur" code is part of the popper component).
 // Removing the blur on mouseUp from the CalendarDay component doesn't seem to have any bad side effects and fix our problem.
 PureCalendarDay.prototype.render = function() {
     const {

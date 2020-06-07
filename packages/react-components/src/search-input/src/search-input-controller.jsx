@@ -176,6 +176,8 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         this.clear(event);
 
+        this._inputRef.current.focus();
+
         if (!isNil(onClear)) {
             onClear(event);
         }

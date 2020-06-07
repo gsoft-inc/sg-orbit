@@ -37,5 +37,3 @@ export const DropdownLinkItem = forwardRef((props, ref) => (
     <InnerDropdownLinkItem {...props} forwardedRef={ref} />
 ));
 
-DropdownLinkItem.name = "DropdownItem";
-

@@ -34,7 +34,7 @@ const SHARED_POPPER_PROP_TYPES = {
         "left-end"
     ]),
     /**
-     * Disables automatic repositioning of the component, it will always be placed according to the position value.
+     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
      */
     pinned: bool,
     /**
@@ -145,7 +145,6 @@ const propTypes = {
     hideOnBlur: bool,
     /**
      * Whether or not the popper should hide when a click happens outside.
-     * Requires `hideOnBlur` to be `false`.
      */
     hideOnOutsideClick: bool,
     /**

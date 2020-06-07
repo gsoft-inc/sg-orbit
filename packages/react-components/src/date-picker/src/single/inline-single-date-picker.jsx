@@ -97,15 +97,6 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     defaultOpen: bool,
     /**
-     * Whether or not the calendar should close when the date picker loose focus.
-     */
-    closeOnBlur: bool,
-    /**
-     * Whether or not the calendar should close when a click happens outside the date picker.
-     * Requires `closeOnBlur` to be `false`.
-     */
-    closeOnOutsideClick: bool,
-    /**
      * Whether or not the input appear as focused.
      */
     focus: bool,

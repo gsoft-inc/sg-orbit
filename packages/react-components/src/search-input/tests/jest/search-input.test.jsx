@@ -228,6 +228,19 @@ test("selected result is cleared on clear button click", async () => {
     await waitFor(() => expect(getInput(getByTestId)).toHaveValue(""));
 });
 
+
+test("input is focused on clear button click", async () => {
+    const { getByTestId } = render(createSearchInput({
+        defaultValue: ALEXANDRE_VALUE
+    }));
+
+    act(() => {
+        userEvent.click(getByTestId(CLEAR_BUTTON_ID));
+    });
+
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
+});
+
 test("dropdown menu is closed on clear button click", async () => {
     const renderResult = render(createSearchInput({
         defaultValue: ALEXANDRE_VALUE
@@ -315,35 +328,6 @@ test("wait until specified minCharacters count typed before filtering and showin
 
     await waitFor(() => expect(queries.getResults().length).toBe(1));
     await waitFor(() => expect(queries.getResults()[0]).toHaveTextContent(ALEXANDRE_VALUE));
-});
-
-test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
-    const renderResult = render(createSearchInput({
-        closeOnBlur: false
-    }));
-
-    const { queries } = await search("a", renderResult);
-
-    act(() => {
-        userEvent.click(document.body);
-    });
-
-    expect(queries.getResultsMenu()).toBeInTheDocument();
-});
-
-test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
-    const renderResult = render(createSearchInput({
-        closeOnBlur: false,
-        closeOnOutsideClick: true
-    }));
-
-    const { queries } = await search("a", renderResult);
-
-    act(() => {
-        userEvent.click(document.body);
-    });
-
-    await waitFor(() => expect(queries.getResultsMenu()).not.toBeInTheDocument());
 });
 
 // // ***** API *****
@@ -585,22 +569,6 @@ test("call onClear when the clear button is clicked", async () => {
 
     act(() => {
         userEvent.click(getByTestId(CLEAR_BUTTON_ID));
-    });
-
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
-});
-
-test("call onOutsideClick on outside click", async () => {
-    const handler = jest.fn();
-
-    const renderResult = render(createSearchInput({
-        onOutsideClick: handler
-    }));
-
-    await search("a", renderResult);
-
-    act(() => {
-        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));

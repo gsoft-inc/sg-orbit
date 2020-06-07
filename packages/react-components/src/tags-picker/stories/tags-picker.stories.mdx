@@ -182,19 +182,6 @@ A tag picker can be disabled.
     </Story>
 </Preview>
 
-<Story name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <TagsPicker
-        items={DEFAULT_ITEMS_WITH_CATEGORIES}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onValuesChange={logValuesChanged}
-    />
-</Story>
-
 ### Size
 
 A tag picker can vary in size.

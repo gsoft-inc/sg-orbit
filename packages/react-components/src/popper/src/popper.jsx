@@ -9,7 +9,7 @@ import { usePopper } from "react-popper";
 
 export const SHARED_POPPER_PROP_TYPES = {
     /**
-     * Wether to show the popper element or not.
+     * A controlled show value that determined whether or not the popper is displayed.
      */
     show: bool,
     /**
@@ -33,7 +33,7 @@ export const SHARED_POPPER_PROP_TYPES = {
         "left-end"
     ]),
     /**
-     * Disables automatic repositioning of the component, it will always be placed according to the position value.
+     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
      */
     pinned: bool,
     /**

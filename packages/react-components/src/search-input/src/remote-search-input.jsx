@@ -105,12 +105,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         onBlur: func,
         /**
-         * Called when a click happens outside the search input.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @returns {void}
-         */
-        onOutsideClick: func,
-        /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
@@ -170,15 +164,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         autofocusDelay: number,
         /**
-         * Whether or not the search results should close when the search input loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the search results should close when a click happens outside the search input.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
@@ -195,9 +180,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200,
-        closeOnBlur: true,
-        closeOnOutsideClick: false
+        debounceDelay: 200
     };
 
     static autoControlledProps = ["open"];
@@ -212,14 +195,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, RemoteSearchInput.autoControlledProps);
-    }
-
-    componentDidUpdate() {
-        const { closeOnBlur, closeOnOutsideClick } = this.props;
-
-        if (closeOnBlur && closeOnOutsideClick) {
-            throw new Error("RemoteSearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
-        }
     }
 
     componentWillUnmount() {
@@ -243,14 +218,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleClear = event => {
-        const { onClear, closeOnBlur } = this.props;
+        const { onClear } = this.props;
 
         this.cancelFetch();
         this.hideLoading();
 
-        if (!closeOnBlur) {
-            this.close(event);
-        }
+        // if (!closeOnBlur) {
+        //     this.close(event);
+        // }
 
         if (!isNil(onClear)) {
             onClear(event);
@@ -262,13 +237,11 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     // - close on blur
     // - close on value select
     handleBlur = event => {
-        const { onBlur, closeOnBlur } = this.props;
+        const { onBlur } = this.props;
 
-        if (closeOnBlur) {
-            this.cancelFetch();
-            this.hideLoading();
-            this.close(event);
-        }
+        this.cancelFetch();
+        this.hideLoading();
+        this.close(event);
 
         if (!isNil(onBlur)) {
             onBlur(event);
@@ -276,17 +249,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick } = this.props;
+        this.cancelFetch();
+        this.hideLoading();
 
-        if (closeOnOutsideClick) {
-            this.cancelFetch();
-            this.hideLoading();
-            this.close(event);
-        }
-
-        if (!isNil(onOutsideClick)) {
-            onOutsideClick(event);
-        }
+        this.close(event);
     };
 
     handleKeyDown = event => {
