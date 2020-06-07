@@ -4,8 +4,8 @@ import { EmbeddedIcon } from "../../icons";
 import { Input as SemanticInput } from "semantic-ui-react";
 import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createEmbeddedButton } from "../../button";
-import { createShorthandFactory, mergeClasses, useAutofocus, useStaticCallback } from "../../shared";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { createShorthandFactory, mergeClasses, useAutofocus } from "../../shared";
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
 
@@ -69,6 +69,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 
 function useButtonRenderer(button, size) {
     return () => {
+        // TODO: shouldn't need to do this anymore since update to createShorthandFactory
         const className = isElement(button)
             ? !isNil(button.props) && button.props.className
             : button.className;
@@ -112,11 +113,11 @@ export function InnerInput(props) {
     const wrapperRef = useRef();
     const inputComponentRef = useRef();
 
-    const setFocus = useStaticCallback(() => {
+    const setFocus = useCallback(() => {
         if (!isNil(wrapperRef.current)) {
             wrapperRef.current.querySelector("input").focus();
         }
-    });
+    }, [wrapperRef]);
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 

@@ -1,15 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
 
+import { Popper } from "./Popper";
 import { PopperButtonTrigger } from "./PopperButtonTrigger";
 import { PopperTextInputTrigger } from "./PopperTextInputTrigger";
 import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { usePopperTrigger } from "./usePopperTrigger";
-
-// TO TEST:
-// - focusFirstElementOnKeyboardShow
-
-/////////////////
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SHARED_POPPER_PROP_TYPES = {
@@ -153,14 +149,6 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
-     * Additional CSS classes to render on the popper wrapper element.
-     */
-    popperClassName: string,
-    /**
-     * Additional style to render on the dropdown wrapper element.
-     */
-    popperStyle: object,
-    /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the popper.
      */
     popper: oneOfType([element, object])
@@ -175,7 +163,8 @@ const defaultProps = {
     toggleOnEnter: true,
     hideOnEscape: true,
     hideOnBlur: true,
-    hideOnOutsideClick: true
+    hideOnOutsideClick: true,
+    popper: Popper
 };
 
 export function InnerPopperTrigger({ children, ...rest }) {

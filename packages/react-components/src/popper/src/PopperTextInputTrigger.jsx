@@ -1,10 +1,10 @@
 import { PopperTrigger } from "./PopperTrigger";
-import { cloneElement, forwardRef, useRef } from "react";
+import { augmentElementProps, useEventCallback } from "../../shared";
 import { createTextInput } from "../../text-input";
 import { element, object, oneOfType } from "prop-types";
+import { forwardRef, useRef } from "react";
 import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
-import { useCombinedRefs, useEventCallback } from "../../shared";
 
 const propTypes = {
     /**
@@ -13,36 +13,14 @@ const propTypes = {
     input: oneOfType([element, object]).isRequired
 };
 
-function extendInputButton(button, ref) {
-    if (isElement(button)) {
-        return cloneElement(button, {
-            ...button.props,
-            ref
-        });
-    }
-
-    return {
-        ...button,
-        ref
-    };
-}
-
-function useExtendedInputButton(input, buttonRef) {
-    const button = isElement(input) ? input.props.button : input.button;
-    const hasButton = !isNil(button);
-
-    const ref = useCombinedRefs(buttonRef, hasButton && !isNil(button.ref) ? button.ref : undefined);
-
-    if (hasButton) {
-        return extendInputButton(button, ref);
-    }
-}
-
 function useInput(input, buttonRef) {
-    const button = useExtendedInputButton(input, buttonRef);
+    const button = isElement(input) ? input.props.button : input.button;
+    const augmentedButton = isNil(button) ? button : augmentElementProps(button, {
+        ref: buttonRef
+    });
 
     return createTextInput(input, {
-        button
+        button: augmentedButton
     });
 }
 

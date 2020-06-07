@@ -2,12 +2,6 @@ import { Button } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-function createButton(props = {}) {
-    return <Button
-        {...props}
-    />;
-}
-
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

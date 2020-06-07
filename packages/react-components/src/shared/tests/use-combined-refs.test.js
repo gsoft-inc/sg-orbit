@@ -1,11 +1,11 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { createRef } from "react";
-import { useCombinedRefs } from "@react-components/shared";
+import { useMergedRefs } from "@react-components/shared";
 
 test("when having a single ref, assign the ref on change", () => {
     const ref = jest.fn();
 
-    const { result } = renderHook(() => useCombinedRefs(ref));
+    const { result } = renderHook(() => useMergedRefs(ref));
 
     act(() => {
         result.current("hey!");
@@ -18,7 +18,7 @@ test("when having multiple refs, assign the ref on change", () => {
     const ref1 = jest.fn();
     const ref2 = jest.fn();
 
-    const { result } = renderHook(() => useCombinedRefs(ref1, ref2));
+    const { result } = renderHook(() => useMergedRefs(ref1, ref2));
 
     act(() => {
         result.current("hey!");
@@ -32,7 +32,7 @@ test("can assign to a callback ref", () => {
     let value1;
     let value2;
 
-    const { result } = renderHook(() => useCombinedRefs(
+    const { result } = renderHook(() => useMergedRefs(
         x => { value1 = x; },
         x => { value2 = x; }
     ));
@@ -49,7 +49,7 @@ test("can assign to an object ref", () => {
     const ref1 = createRef();
     const ref2 = createRef();
 
-    const { result } = renderHook(() => useCombinedRefs(ref1, ref2));
+    const { result } = renderHook(() => useMergedRefs(ref1, ref2));
 
     act(() => {
         result.current("hey!");
@@ -64,7 +64,7 @@ test("assign to new ref when ref changes", () => {
     const ref2 = jest.fn();
     const ref3 = jest.fn();
 
-    const { result, rerender } = renderHook(({ refs }) => useCombinedRefs(...refs), {
+    const { result, rerender } = renderHook(({ refs }) => useMergedRefs(...refs), {
         initialProps: {
             refs: [ref1, ref2]
         }
@@ -87,7 +87,7 @@ test("support current prop", () => {
     const ref1 = jest.fn();
     const ref2 = jest.fn();
 
-    const { result } = renderHook(() => useCombinedRefs(ref1, ref2));
+    const { result } = renderHook(() => useMergedRefs(ref1, ref2));
 
     act(() => {
         result.current("hey!");
@@ -101,7 +101,7 @@ test("support current prop when ref changes", () => {
     const ref2 = jest.fn();
     const ref3 = jest.fn();
 
-    const { result, rerender } = renderHook(({ refs }) => useCombinedRefs(...refs), {
+    const { result, rerender } = renderHook(({ refs }) => useMergedRefs(...refs), {
         initialProps: {
             refs: [ref1, ref2]
         }

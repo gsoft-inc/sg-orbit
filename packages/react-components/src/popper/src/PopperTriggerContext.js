@@ -1,5 +1,6 @@
 import { createContext } from "react";
 
-// show - isVisible
+// isVisible
+// position
 
-export const PopperContext = createContext({});
+export const PopperTriggerContext = createContext({});

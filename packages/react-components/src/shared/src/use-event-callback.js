@@ -1,7 +1,15 @@
 // Copied from https://github.com/react-restart/hooks/blob/master/src/useEventCallback.ts
 
-import { useStaticCallback } from "./use-static-callback";
+import { isNil } from "lodash";
+import { useCallback } from "react";
+import { useCommittedRef } from "./use-committed-ref";
 
 export function useEventCallback(callback) {
-    return useStaticCallback(callback);
+    const ref = useCommittedRef(callback);
+
+    return useCallback((...args) => {
+        if (!isNil(ref.current)) {
+            ref.current(...args);
+        }
+    }, [ref]);
 }

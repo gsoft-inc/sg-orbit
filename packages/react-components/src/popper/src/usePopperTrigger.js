@@ -1,7 +1,17 @@
-import { KEYS, mergeClasses, useAutoControlledState, useCombinedRefs, useDocumentListener } from "../../shared";
+import {
+    KEYS,
+    augmentElement,
+    createChainedFunction,
+    mergeClasses,
+    useAutoControlledState,
+    useDocumentListener,
+    useEventCallback,
+    useMergedRefs
+} from "../../shared";
 import { Popper, createPopper } from "./Popper";
-import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
+import { PopperTriggerContext } from "./PopperTriggerContext";
 import { isFunction, isNil } from "lodash";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function throwWhenMutuallyExclusivePropsAreProvided({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
@@ -13,156 +23,21 @@ function getFirstFocusableElement(container) {
     return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
-function useShowPopper({ onVisibilityChange }, setIsVisible) {
-    return useCallback(event => {
-        setIsVisible(true);
+function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, containerRef) {
+    const hasFocusRef = useRef();
+    const activeElementRef = useRef();
 
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, true);
-        }
-    }, [onVisibilityChange, setIsVisible]);
-}
-
-function useHidePopper({ onVisibilityChange }, setIsVisible) {
-    return useCallback(event => {
-        setIsVisible(false);
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false);
-        }
-    }, [onVisibilityChange, setIsVisible]);
-}
-
-function useTogglePopper(isVisible, showPopper, hidePopper) {
-    return useCallback(event => {
-        if (isVisible) {
-            hidePopper(event);
-        } else {
-            showPopper(event);
-        }
-    }, [isVisible, showPopper, hidePopper]);
-}
-
-function useSetFocusTrigger(triggerElement) {
-    return useCallback(() => {
-        setTimeout(() => {
-            if (!isNil(triggerElement)) {
-                if (isFunction(triggerElement.focus)) {
-                    triggerElement.focus();
-                }
-            }
-        }, 0);
-    }, [triggerElement]);
-}
-
-function useSetFocusPopper(popperElement) {
-    return useCallback(onCannotFocus => {
-        setTimeout(() => {
-            if (!isNil(popperElement)) {
-                const focusableElement = getFirstFocusableElement(popperElement);
-
-                if (!isNil(focusableElement)) {
-                    if (isFunction(focusableElement.focus)) {
-                        focusableElement.focus();
-                    }
-                } else {
-                    if (isFunction(onCannotFocus)) {
-                        onCannotFocus();
-                    }
-                }
-            }
-        }, 0);
-    }, [popperElement]);
-}
-
-function useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper) {
-    useEffect(() => {
-        if (isVisible) {
-            if (focusTriggerOnShow) {
-                setFocusTrigger();
-            }
-            else if (focusFirstElementOnShow) {
-                setFocusPopper();
-            }
-            else if (focusFirstElementOnKeyboardShow) {
-                const type = lastTriggerEventRef.current;
-
-                if (!isNil(type) && /^key.+$/.test(type)) {
-                    setFocusPopper();
-                }
-            }
-        }
-    }, [focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper]);
-}
-
-function useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper) {
-    return useCallback(event => {
-        lastTriggerEventRef.current = event.type;
-
-        if (!disabled) {
-            togglePopper(event);
-        }
-    }, [disabled, lastTriggerEventRef, togglePopper]);
-}
-
-function useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastTriggerEventRef, showPopper, togglePopper) {
-    // Using a stringify version of showOnKeys since an array value is usually different on every render.
-    const additionalKeys = JSON.stringify(showOnKeys || []);
-
-    return useCallback(event => {
-        lastTriggerEventRef.current = event.type;
-
-        if (!disabled) {
-            const key = event.keyCode;
-
-            if (key === KEYS.space) {
-                if (toggleOnSpacebar) {
-                    event.preventDefault();
-                    togglePopper(event);
-                }
-            } else if (key === KEYS.enter) {
-                if (toggleOnEnter) {
-                    event.preventDefault();
-                    togglePopper(event);
-                }
-            } else if (!isNil(showOnKeys)) {
-                if (showOnKeys.includes(key)) {
-                    event.preventDefault();
-                    showPopper(event);
-                }
-            }
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [
-        disabled,
-        toggleOnSpacebar,
-        toggleOnEnter,
-        additionalKeys,
-        isVisible,
-        lastTriggerEventRef,
-        showPopper,
-        togglePopper
-    ]);
-}
-
-function useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElementRef) {
-    return useCallback(event => {
+    const handleContainerFocus = useEventCallback(() => {
         if (!disabled) {
             hasFocusRef.current = true;
             activeElementRef.current = document.activeElement;
         }
+    });
 
-        if (!isNil(onFocus)) {
-            onFocus(event);
-        }
-    }, [disabled, onFocus, hasFocusRef, activeElementRef]);
-}
-
-// // Hiding the popper on blur will:
-// // - hide on outside click
-// // - hide on blur
-function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper) {
-    return useCallback(event => {
+    // Hiding the popper on blur will:
+    // - hide on outside click
+    // - hide on blur
+    const handleContainerBlur = useEventCallback(event => {
         if (!disabled) {
             // This is a fix to prevent the popper from closing when the dev tools opens. Opening the dev tools will cause a blur event since the popper
             // loose the focus in favor of the dev tools. Since this is the dev tools who receive the focused, no elements of the popper will be focused on
@@ -195,40 +70,18 @@ function useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFo
                 }
             }
         }
+    });
 
-        if (!isNil(onBlur)) {
-            onBlur(event);
-        }
-    }, [disabled, hideOnBlur, onBlur, isVisible, hasFocusRef, activeElementRef, hidePopper]);
-}
-
-function useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape, disabled }, isVisible, hidePopper, setFocusTrigger) {
-    const handler = useCallback(event => {
-        if (event.keyCode === KEYS.esc) {
-            if (hideOnEscape) {
-                hidePopper(event);
-
-                if (focusTriggerOnEscape) {
-                    setFocusTrigger();
-                }
-            }
-        }
-    }, [hideOnEscape, focusTriggerOnEscape, hidePopper, setFocusTrigger]);
-
-    useDocumentListener("keydown", handler, isVisible && !disabled);
-}
-
-// This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
-// More info at: https://allyjs.io/tutorials/mutating-active-element.html
-function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper) {
-    const handler = useCallback(() => {
+    // This code aims to solve a bug where no blur event will happen when the focused element becomes disable and that element lose the focus.
+    // More info at: https://allyjs.io/tutorials/mutating-active-element.html
+    const handleDocumentBlur = useEventCallback(() => {
         setTimeout(() => {
             // Chrome and Edge move the focus to the body when the active element becomes disabled.
             if (document.activeElement.nodeName === "BODY") {
                 if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
                     setFocusPopper(() => {
-                        if (!isNil(wrapperRef.current)) {
-                            wrapperRef.current.focus();
+                        if (!isNil(containerRef.current)) {
+                            containerRef.current.focus();
                         }
                     });
                 }
@@ -239,134 +92,22 @@ function useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapper
                 setTimeout(() => {
                     if (document.activeElement.disabled) {
                         setFocusPopper(() => {
-                            if (!isNil(wrapperRef.current)) {
-                                wrapperRef.current.focus();
+                            if (!isNil(containerRef.current)) {
+                                containerRef.current.focus();
                             }
                         });
                     }
                 }, 100);
             }
         }, 0);
-    }, [activeElementRef, wrapperRef, setFocusPopper]);
+    });
 
-    useDocumentListener("blur", handler, isVisible && hasFocusRef.current, true);
-}
+    useDocumentListener("blur", handleDocumentBlur, isVisible && hasFocusRef.current, true);
 
-function useHandleDocumentClick({ hideOnOutsideClick, disabled }, isVisible, triggerElement, popperElement, hidePopper) {
-    const handler = useCallback(event => {
-        if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
-            if (hideOnOutsideClick) {
-                hidePopper(event);
-            }
-        }
-    }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
-
-    useDocumentListener("click", handler, isVisible && !disabled);
-}
-
-// Ensure the original handler is called if provided by the consumer.
-function getToggleHandler(trigger, handlerName, handler) {
-    if (!isNil(trigger.props[handlerName])) {
-        return event => {
-            handler(event);
-
-            // Call the original handler.
-            trigger.props[handlerName](event);
-        };
-    }
-
-    return handler;
-}
-
-function useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement) {
-    const ref = useCombinedRefs(setTriggerElement, !isNil(trigger.ref) ? trigger.ref : undefined);
-
-    return () => {
-        if (!disabled) {
-            return cloneElement(trigger, {
-                // TODO: disabled here might not be a good idea since if there was an original handler it would not be called.
-                [toggleHandler]: !disabled ? getToggleHandler(trigger, toggleHandler, handleTriggerToggle) : undefined,
-                onKeyDown: !disabled ? handleTriggerKeyDown : undefined,
-                ref: ref
-            });
-        }
-
-        return trigger;
-    };
-}
-
-function getPopperElement(popper, triggerElement, content) {
-    if (!isNil(popper)) {
-        return createPopper(popper, {
-            triggerElement,
-            children: content
-        });
-    }
-
-    return <Popper triggerElement={triggerElement} children={content} />;
-}
-
-function usePopperRenderer(
-    { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate, popperClassName, popperStyle },
-    isVisible,
-    triggerElement,
-    setPopperElement
-) {
-    return content => {
-        if (!isNil(triggerElement)) {
-            const element = getPopperElement(popper, triggerElement, content);
-
-            const styles = {
-                ...(element.style || {}),
-                zIndex,
-                ...(popperStyle || {})
-            };
-
-            return cloneElement(element, {
-                show: isVisible,
-                position,
-                pinned,
-                noWrap,
-                offset,
-                disabled,
-                popperModifiers,
-                popperOptions,
-                portalContainerElement,
-                noPortal,
-                animate,
-                className: popperClassName,
-                style: styles,
-                ref: setPopperElement
-            });
-        }
-    };
-}
-
-function useRenderer({ fluid, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, trigger, renderPopper) {
-    return content => {
-        const classes = mergeClasses(
-            "outline-0",
-            !fluid && "dib",
-            className
-        );
-
-        return (
-            <div
-                data-testid="popper-trigger"
-                tabIndex="-1"
-                {...rest}
-                // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
-                // For more info: https://github.com/facebook/react/issues/6410
-                onFocus={handleWrapperFocus}
-                onBlur={handleWrapperBlur}
-                className={classes}
-                ref={wrapperRef}
-            >
-                {trigger}
-                {renderPopper(content)}
-            </div>
-        );
-    };
+    return [
+        handleContainerFocus,
+        handleContainerBlur
+    ];
 }
 
 export function usePopperTrigger(props) {
@@ -384,7 +125,7 @@ export function usePopperTrigger(props) {
         pinned,
         noWrap,
         offset,
-        popper,
+        popper = Popper,
         popperModifiers,
         popperOptions,
         portalContainerElement,
@@ -402,8 +143,6 @@ export function usePopperTrigger(props) {
         hideOnOutsideClick = true,
         disabled,
         className,
-        popperClassName,
-        popperStyle,
         forwardedRef,
         ...rest
     } = props;
@@ -413,37 +152,218 @@ export function usePopperTrigger(props) {
     const [triggerElement, setTriggerElement] = useState();
     const [popperElement, setPopperElement] = useState();
 
-    const hasFocusRef = useRef();
-    const activeElementRef = useRef();
     const lastTriggerEventRef = useRef();
-    const wrapperRef = useCombinedRefs(forwardedRef);
+    const wrapperRef = useMergedRefs(forwardedRef);
 
-    const setFocusTrigger = useSetFocusTrigger(triggerElement);
-    const setFocusPopper = useSetFocusPopper(popperElement);
-    const showPopper = useShowPopper({ onVisibilityChange }, setIsVisible);
-    const hidePopper = useHidePopper({ onVisibilityChange }, setIsVisible);
-    const togglePopper = useTogglePopper(isVisible, showPopper, hidePopper);
+    const setFocusTrigger = useCallback(() => {
+        setTimeout(() => {
+            if (!isNil(triggerElement)) {
+                if (isFunction(triggerElement.focus)) {
+                    triggerElement.focus();
+                }
+            }
+        }, 0);
+    }, [triggerElement]);
 
-    useSetFocusWhenTransitioningToVisible({ focusTriggerOnShow, focusFirstElementOnShow, focusFirstElementOnKeyboardShow }, isVisible, lastTriggerEventRef, setFocusTrigger, setFocusPopper);
+    const setFocusPopper = useCallback(onCannotFocus => {
+        setTimeout(() => {
+            if (!isNil(popperElement)) {
+                const focusableElement = getFirstFocusableElement(popperElement);
 
-    const handleTriggerToggle = useHandleTriggerToggle({ disabled }, lastTriggerEventRef, togglePopper);
-    const handleTriggerKeyDown = useHandleTriggerKeyDown({ disabled, toggleOnSpacebar, toggleOnEnter, showOnKeys }, isVisible, lastTriggerEventRef, showPopper, togglePopper);
-    const handleWrapperFocus = useHandleWrapperFocus({ disabled, onFocus }, hasFocusRef, activeElementRef);
-    const handleWrapperBlur = useHandleWrapperBlur({ disabled, hideOnBlur, onBlur }, isVisible, hasFocusRef, activeElementRef, hidePopper);
+                if (!isNil(focusableElement)) {
+                    if (isFunction(focusableElement.focus)) {
+                        focusableElement.focus();
+                    }
+                } else {
+                    if (isFunction(onCannotFocus)) {
+                        onCannotFocus();
+                    }
+                }
+            }
+        }, 0);
+    }, [popperElement]);
 
-    useHandleDocumentKeyDown({ hideOnEscape, focusTriggerOnEscape, disabled }, isVisible, hidePopper, setFocusTrigger);
-    useHandleDocumentBlur(isVisible, hasFocusRef, activeElementRef, wrapperRef, setFocusPopper);
-    useHandleDocumentClick({ hideOnOutsideClick, disabled }, isVisible, triggerElement, popperElement, hidePopper);
+    const showPopper = useCallback(event => {
+        setIsVisible(true);
 
-    const renderTrigger = useTriggerRenderer({ trigger, toggleHandler, disabled }, handleTriggerToggle, handleTriggerKeyDown, setTriggerElement);
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, true);
+        }
+    }, [onVisibilityChange, setIsVisible]);
 
-    const renderPopper = usePopperRenderer(
-        { zIndex, position, pinned, noWrap, offset, disabled, popper, popperModifiers, popperOptions, portalContainerElement, noPortal, animate, popperClassName, popperStyle },
-        isVisible,
-        triggerElement,
-        setPopperElement);
+    const hidePopper = useCallback(event => {
+        setIsVisible(false);
 
-    const render = useRenderer({ fluid, className, rest }, handleWrapperFocus, handleWrapperBlur, wrapperRef, renderTrigger(), renderPopper);
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, false);
+        }
+    }, [onVisibilityChange, setIsVisible]);
+
+    const togglePopper = useCallback(event => {
+        if (isVisible) {
+            hidePopper(event);
+        } else {
+            showPopper(event);
+        }
+    }, [isVisible, showPopper, hidePopper]);
+
+    const [handleFocus, handleBlur] = useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, wrapperRef);
+
+    const handleTriggerToggle = useEventCallback(event => {
+        lastTriggerEventRef.current = event.type;
+
+        if (!disabled) {
+            togglePopper(event);
+        }
+    });
+
+    const handleTriggerKeyDown = useEventCallback(event => {
+        lastTriggerEventRef.current = event.type;
+
+        if (!disabled) {
+            const key = event.keyCode;
+
+            switch (key) {
+                case KEYS.space:
+                    if (toggleOnSpacebar) {
+                        event.preventDefault();
+                        togglePopper(event);
+                    }
+                    break;
+                case KEYS.enter:
+                    if (toggleOnEnter) {
+                        event.preventDefault();
+                        togglePopper(event);
+                    }
+                    break;
+                default:
+                    if (!isNil(showOnKeys)) {
+                        if (showOnKeys.includes(key)) {
+                            event.preventDefault();
+                            showPopper(event);
+                        }
+                    }
+                    break;
+            }
+        }
+    });
+
+    const handleDocumentKeyDown = useEventCallback(event => {
+        if (event.keyCode === KEYS.esc) {
+            if (hideOnEscape) {
+                hidePopper(event);
+
+                if (focusTriggerOnEscape) {
+                    setFocusTrigger();
+                }
+            }
+        }
+    });
+
+    useDocumentListener("keydown", handleDocumentKeyDown, isVisible && !disabled);
+
+    const handleDocumentClick = useEventCallback(event => {
+        if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
+            if (hideOnOutsideClick) {
+                hidePopper(event);
+            }
+        }
+    }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
+
+    useDocumentListener("click", handleDocumentClick, isVisible && !disabled);
+
+    useEffect(() => {
+        if (isVisible) {
+            if (focusTriggerOnShow) {
+                setFocusTrigger();
+            }
+        }
+    }, [isVisible, focusTriggerOnShow, setFocusTrigger]);
+
+    useEffect(() => {
+        if (isVisible) {
+            if (focusFirstElementOnShow) {
+                setFocusPopper();
+            }
+        }
+    }, [isVisible, focusFirstElementOnShow, setFocusPopper]);
+
+    useEffect(() => {
+        if (isVisible) {
+            if (focusFirstElementOnKeyboardShow) {
+                const type = lastTriggerEventRef.current;
+
+                if (!isNil(type) && /^key.+$/.test(type)) {
+                    setFocusPopper();
+                }
+            }
+        }
+    }, [isVisible, focusFirstElementOnKeyboardShow, setFocusPopper, lastTriggerEventRef]);
+
+    const renderPopper = content => {
+        if (!isNil(triggerElement)) {
+            return createPopper(popper, {
+                show: isVisible,
+                triggerElement,
+                position,
+                pinned,
+                noWrap,
+                offset,
+                disabled,
+                popperModifiers,
+                popperOptions,
+                portalContainerElement,
+                noPortal,
+                animate,
+                style: {
+                    zIndex
+                },
+                children: content,
+                ref: setPopperElement
+            });
+        }
+    };
+
+    const renderTrigger = () => {
+        return augmentElement(trigger, {
+            [toggleHandler]: handleTriggerToggle,
+            onKeyDown: handleTriggerKeyDown,
+            ref: setTriggerElement
+        });
+    };
+
+    const handleWrapperFocus = useEventCallback(createChainedFunction(handleFocus, onFocus));
+    const handleWrapperBlur = useEventCallback(createChainedFunction(handleBlur, onBlur));
+
+    const render = content => {
+        return (
+            <PopperTriggerContext.Provider
+                value={{
+                    isVisible,
+                    position
+                }}
+            >
+                <div
+                    data-testid="popper-trigger"
+                    tabIndex="-1"
+                    {...rest}
+                    // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
+                    // For more info: https://github.com/facebook/react/issues/6410
+                    onFocus={handleWrapperFocus}
+                    onBlur={handleWrapperBlur}
+                    className={mergeClasses(
+                        "outline-0",
+                        !fluid && "dib",
+                        className
+                    )}
+                    ref={wrapperRef}
+                >
+                    {renderTrigger()}
+                    {renderPopper(content)}
+                </div>
+            </PopperTriggerContext.Provider>
+        );
+    };
 
     return {
         renderPopper: render,

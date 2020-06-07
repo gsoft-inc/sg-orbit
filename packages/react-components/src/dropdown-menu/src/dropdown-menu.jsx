@@ -4,7 +4,7 @@ import { DropdownMenuButtonItem } from "./button-item";
 import { DropdownMenuHeader } from "./header";
 import { DropdownMenuItem } from "./item";
 import { DropdownMenuLinkItem } from "./link-item";
-import { KEYS, mergeClasses, throwWhenUnsupportedPropIsProvided, useCombinedRefs, useDocumentListener } from "../../shared";
+import { KEYS, mergeClasses, throwWhenUnsupportedPropIsProvided, useDocumentListener, useMergedRefs } from "../../shared";
 import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
 import { bool, element, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -196,7 +196,7 @@ function useRenderer(
     dropdownComponentRef,
     trigger
 ) {
-    const ref = useCombinedRefs(forwardedRef, dropdownRef);
+    const ref = useMergedRefs(forwardedRef, dropdownRef);
 
     return () => {
         const hasChildren = Children.count(children) > 0;

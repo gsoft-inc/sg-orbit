@@ -1,6 +1,6 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, cloneElement, forwardRef, useCallback } from "react";
 import { EmbeddedIcon, StandaloneIcon } from "../../icons";
 import {
     SIZE,
@@ -10,8 +10,7 @@ import {
     mergeClasses,
     throwWhenUnsupportedPropIsProvided,
     useAutofocus,
-    useCombinedRefs,
-    useStaticCallback
+    useMergedRefs
 } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
@@ -199,13 +198,13 @@ export function InnerButton(props) {
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Button");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
-    const innerRef = useCombinedRefs(forwardedRef);
+    const innerRef = useMergedRefs(forwardedRef);
 
-    const setFocus = useStaticCallback(() => {
+    const setFocus = useCallback(() => {
         if (!isNil(innerRef.current)) {
             innerRef.current.focus();
         }
-    });
+    }, [innerRef]);
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 

@@ -1,9 +1,9 @@
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
-import { KEYS, SemanticRef, createShorthandFactory, getSizeClass, mergeClasses, useCombinedRefs, useDocumentListener, useEventCallback, useStaticCallback } from "../../shared";
+import { KEYS, SemanticRef, createShorthandFactory, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { bool, func } from "prop-types";
-import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
+import { forwardRef, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -15,9 +15,12 @@ const propTypes = {
 function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
     const [keyboardIndex, setKeyboardIndex] = useState(0);
 
-    const itemElements = useMemo(() => !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [], [menuElement]);
+    const itemElements = useMemo(
+        () => !isNil(menuElement) ? menuElement.querySelectorAll(".item") : [],
+        [menuElement]
+    );
 
-    const setKeyboardItem = useStaticCallback(newIndex => {
+    const setKeyboardItem = useCallback(newIndex => {
         const selectedItem = itemElements[newIndex];
 
         if (isFunction(selectedItem.focus)) {
@@ -25,7 +28,7 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
         }
 
         setKeyboardIndex(newIndex);
-    });
+    }, [itemElements]);
 
     const handleDocumentEnter = useEventCallback(event => {
         if (!isNil(onSelectItem)) {
@@ -82,7 +85,7 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, children, fo
 
     const [menuElement, setMenuElement] = useState();
 
-    const menuRef = useCombinedRefs(setMenuElement, forwardedRef);
+    const menuRef = useMergedRefs(setMenuElement, forwardedRef);
 
     useKeyboardNavigation(menuElement, isOpen, onSelectItem);
 

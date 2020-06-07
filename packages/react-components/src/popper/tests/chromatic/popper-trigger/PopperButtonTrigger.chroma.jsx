@@ -55,9 +55,6 @@ stories()
     .add("focus trigger on show", () =>
         <RedBoxPopper show focusTriggerOnShow />
     )
-    .add("focus first element on show", () =>
-        <RedBoxPopper show focusFirstElementOnShow />
-    )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>

@@ -1,5 +1,5 @@
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useCombinedRefs } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
 import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cloneElement, forwardRef, useCallback } from "react";
 import { createContentIcon } from "../../icons";
@@ -197,7 +197,7 @@ export function InnerCheckbox(props) {
     throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
     throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
-    const innerRef = useCombinedRefs(forwardedRef);
+    const innerRef = useMergedRefs(forwardedRef);
 
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);

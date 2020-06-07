@@ -1,4 +1,5 @@
 import "./Dropdown.css";
+
 import { DropdownButtonItem } from "./DropdownButtonItem";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownDivider } from "./DropdownDivider";
@@ -46,7 +47,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    direction: "right"
+    direction: "right",
+    menu: DropdownMenu
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
@@ -55,30 +57,8 @@ function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
     }
 }
 
-function useDropdownTrigger(title, icon, trigger, size, fluid, rest) {
-    const triggerComponent = !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
-
-    return cloneElement(triggerComponent, {
-        ...rest,
-        size,
-        fluid
-    });
-}
-
-function useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, ref) {
-    const props = {
-        scrolling,
-        fluid,
-        onSelectItem: handleSelectItem,
-        children,
-        ref
-    };
-
-    if (!isNil(menu)) {
-        return createDropdownMenu(menu, props);
-    }
-
-    return <DropdownMenu {...props}>{children}</DropdownMenu>;
+function resolveTrigger(title, icon, trigger) {
+    return !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
 }
 
 export function InnerDropdown(props) {
@@ -100,8 +80,7 @@ export function InnerDropdown(props) {
         onVisibilityChange,
         menu,
         children,
-        forwardedRef,
-        ...rest
+        forwardedRef
     } = props;
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
@@ -115,7 +94,10 @@ export function InnerDropdown(props) {
         }
     });
 
-    const dropdownTrigger = useDropdownTrigger(title, icon, trigger, size, fluid, rest);
+    const dropdownTrigger = cloneElement(resolveTrigger(title, icon, trigger), {
+        size,
+        fluid
+    });
 
     const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
         show: open,
@@ -132,7 +114,9 @@ export function InnerDropdown(props) {
         hideOnBlur: closeOnBlur,
         hideOnOutsideClick: closeOnOutsideClick,
         onVisibilityChange: handleVisibilityChange,
-        popperClassName: "o-ui dropdown"
+        popper: {
+            className: "o-ui dropdown"
+        }
     });
 
     const handleSelectItem = useEventCallback(event => {
@@ -143,7 +127,13 @@ export function InnerDropdown(props) {
         }, 0);
     });
 
-    const dropdownMenu = useDropdownMenu(scrolling, fluid, menu, handleSelectItem, children, forwardedRef);
+    const dropdownMenu = createDropdownMenu(menu, {
+        scrolling,
+        fluid,
+        onSelectItem: handleSelectItem,
+        children,
+        ref: forwardedRef
+    });
 
     return (
         <DropdownContext.Provider

@@ -1,9 +1,9 @@
 import "./Popper.css";
 
-import { Children, cloneElement, forwardRef, useState } from "react";
+import { Children, forwardRef, useState } from "react";
 import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
+import { augmentElement, createShorthandFactory, mergeClasses, useEventCallback, useMergedRefs, useResizeObserver } from "../../shared";
 import { createPortal } from "react-dom";
-import { createShorthandFactory, mergeClasses, useCombinedRefs, useEventCallback, useResizeObserver } from "../../shared";
 import { isFunction, isNil, merge } from "lodash";
 import { usePopper } from "react-popper";
 
@@ -125,16 +125,6 @@ function createPopperModifiers(pinned, offset, popperModifiers) {
     return mergedModifiers;
 }
 
-function useHandlePopperElementResize(updatePopper, popperElement) {
-    const handlePopperElementResize = useEventCallback(() => {
-        if (isFunction(updatePopper)) {
-            updatePopper();
-        }
-    });
-
-    useResizeObserver(popperElement, handlePopperElementResize);
-}
-
 function usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement) {
     const modifiers = createPopperModifiers(pinned, offset, popperModifiers);
 
@@ -144,27 +134,15 @@ function usePopperInstance(position, triggerElement, pinned, offset, popperModif
         ...(popperOptions || {})
     });
 
-    useHandlePopperElementResize(updatePopper, popperElement);
+    const handlePopperElementResize = useEventCallback(() => {
+        if (isFunction(updatePopper)) {
+            updatePopper();
+        }
+    });
+
+    useResizeObserver(popperElement, handlePopperElementResize);
 
     return [styles.popper, attributes.popper];
-}
-
-function usePopperRenderer({ show, noWrap, animate, style, children, rest }, popperStyles, popperAttributes, popperRef, wrapPopper) {
-    return () => {
-        const popper = Children.only(children);
-
-        return cloneElement(!noWrap ? wrapPopper(popper) : popper, {
-            ...rest,
-            style: {
-                ...style,
-                ...popperStyles,
-                display: show ? "block" : "none",
-                animation: animate ? "ou-popper-fade-in 0.3s" : undefined
-            },
-            ...popperAttributes,
-            ref: popperRef
-        });
-    };
 }
 
 export function InnerPopper({
@@ -188,13 +166,18 @@ export function InnerPopper({
 }) {
     const [popperElement, setPopperElement] = useState();
 
-    const popperRef = useCombinedRefs(forwardedRef, setPopperElement);
+    const popperRef = useMergedRefs(forwardedRef, setPopperElement);
 
     const [popperStyles, popperAttributes] = usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement);
+
+    if (disabled) {
+        return null;
+    }
 
     const wrapPopper = popper => {
         return (
             <div
+                {...rest}
                 className={mergeClasses(
                     "outline-0",
                     className
@@ -207,11 +190,20 @@ export function InnerPopper({
         );
     };
 
-    const renderPopper = usePopperRenderer({ show, noWrap, animate, style, children, rest }, popperStyles, popperAttributes, popperRef, wrapPopper);
+    const renderPopper = () => {
+        const popper = Children.only(children);
 
-    if (disabled) {
-        return null;
-    }
+        return augmentElement(!noWrap ? wrapPopper(popper) : popper, {
+            style: {
+                ...style,
+                ...popperStyles,
+                display: show ? "block" : "none",
+                animation: animate ? "ou-popper-fade-in 0.3s" : undefined
+            },
+            ...popperAttributes,
+            ref: popperRef
+        });
+    };
 
     // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being shown, he will remain "hidden"
     // even when the popper is visible.

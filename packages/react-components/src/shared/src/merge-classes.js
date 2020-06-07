@@ -1,3 +1,3 @@
-export function mergeClasses(...candidates) {
-    return candidates.filter(Boolean).join(" ");
+export function mergeClasses(...values) {
+    return values.filter(Boolean).join(" ");
 }

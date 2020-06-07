@@ -56,6 +56,12 @@ stories()
             focusTriggerOnShow
         />
     )
+    .add("focus first element on show", () =>
+        <RedBoxPopper
+            show
+            focusFirstElementOnShow
+        />
+    )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
@@ -79,34 +85,18 @@ stories()
         </div>
     )
     .add("styling", () =>
-        <div>
-            <div className="flex" style={{ marginBottom: "100px" }}>
-                <div style={{ marginRight: "100px" }}>
-                    <RedBoxPopper
-                        show
-                        className="border-blue"
-                    />
-                </div>
-                <div>
-                    <RedBoxPopper
-                        show
-                        style={{ border: "1px solid blue" }}
-                    />
-                </div>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper
+                    show
+                    className="border-blue"
+                />
             </div>
-            <div className="flex">
-                <div style={{ marginRight: "100px" }}>
-                    <RedBoxPopper
-                        show
-                        popperClassName="border-blue"
-                    />
-                </div>
-                <div>
-                    <RedBoxPopper
-                        show
-                        popperStyle={{ border: "1px solid blue" }}
-                    />
-                </div>
+            <div>
+                <RedBoxPopper
+                    show
+                    style={{ border: "1px solid blue" }}
+                />
             </div>
         </div>
     )

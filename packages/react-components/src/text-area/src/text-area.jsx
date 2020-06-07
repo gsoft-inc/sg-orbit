@@ -1,4 +1,4 @@
-import { SemanticRef, mergeClasses, useAutofocus, useCombinedRefs } from "../../shared";
+import { SemanticRef, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
 import { TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, number, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
@@ -110,7 +110,7 @@ function useRenderer({ size, error, fluid, transparent, resizable, active, focus
 export function InnerTextArea(props) {
     const { autofocus, autofocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
 
-    const innerRef = useCombinedRefs(forwardedRef);
+    const innerRef = useMergedRefs(forwardedRef);
 
     const setFocus = useSetFocus(innerRef);
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);

@@ -4,7 +4,8 @@ import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useLayoutEffect, useState } from "react";
-import { isNil, merge } from "lodash";
+import { isNil } from "lodash";
+import { useAutoControlledState } from "@react-components/shared";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Popper/popper"))
@@ -31,15 +32,15 @@ const RedBox = forwardRef((props, ref) => {
     );
 });
 
-const RedBoxPopper = forwardRef(({ defaultShow, ...rest }, ref) => {
+const RedBoxPopper = forwardRef(({ show, defaultShow, ...rest }, ref) => {
     const [triggerElement, setTriggerElement] = useState();
-    const [isVisible, setVisibility] = useState(defaultShow);
+    const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
 
     return (
         <>
             <Button
                 fluid
-                onClick={() => setVisibility(!isVisible)}
+                onClick={() => setIsVisible(!isVisible)}
                 ref={setTriggerElement}
             >
                 Open
@@ -60,28 +61,19 @@ const RedBoxPopper = forwardRef(({ defaultShow, ...rest }, ref) => {
 
 function BoundedRedBoxPopper({
     scrollTop = 0,
-    modifiers,
     setPreventOverflowBoundaryElement,
     setFlipBoundaryElement,
     ...rest }
 ) {
     const [boundaryElement, setBoundaryElement] = useState();
 
-    const setModifierBoundaryElement = name => {
-        const modifier = modifiers.find(x => x.name === name);
-
-        if (!isNil(modifier)) {
-            modifier.options = merge(modifier.options || {}, {
+    const createModifier = name => {
+        return {
+            name,
+            options: {
                 boundary: boundaryElement
-            });
-        } else {
-            modifiers.push({
-                name,
-                options: {
-                    boundary: boundaryElement
-                }
-            });
-        }
+            }
+        };
     };
 
     useLayoutEffect(() => {
@@ -91,17 +83,17 @@ function BoundedRedBoxPopper({
     }, [boundaryElement, scrollTop]);
 
     const createModifiers = () => {
-        const mergedModifiers = modifiers || [];
+        const modifiers = [];
 
         if (setPreventOverflowBoundaryElement) {
-            setModifierBoundaryElement("preventOverflow", boundaryElement, mergedModifiers);
+            modifiers.push(createModifier("preventOverflow"));
         }
 
         if (setFlipBoundaryElement) {
-            setModifierBoundaryElement("flip", boundaryElement, mergedModifiers);
+            modifiers.push(createModifier("flip"));
         }
 
-        return mergedModifiers;
+        return modifiers;
     };
 
     return (
@@ -327,12 +319,6 @@ stories()
     )
     .add("disabled", () =>
         <RedBoxPopper disabled />
-    )
-    .add("without animation", () =>
-        <RedBoxPopper
-            show
-            animate={false}
-        />
     );
 
 stories("/offsets/bottom")
