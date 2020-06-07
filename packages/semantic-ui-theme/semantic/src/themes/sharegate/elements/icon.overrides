@@ -164,7 +164,7 @@ i.icon.close {
 }
 
 /* States */
-.ui.loading i.icon {
+.ui.loading i.icon:not(.delete) {
     background: none!important;
     mask: none!important;
 }

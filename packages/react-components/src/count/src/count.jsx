@@ -1,18 +1,16 @@
-import "./count.css";
+import "./Count.css";
 
+import { createShorthandFactory, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
 
 export function InnerCount({ className, children, forwardedRef, ...rest }) {
-    const classes = mergeClasses(
-        "o-ui count",
-        className
-    );
-
     return (
         <span
             {...rest}
-            className={classes}
+            className={mergeClasses(
+                "o-ui count",
+                className
+            )}
             ref={forwardedRef}
         >
             {children}
@@ -23,3 +21,5 @@ export function InnerCount({ className, children, forwardedRef, ...rest }) {
 export const Count = forwardRef((props, ref) => (
     <InnerCount { ...props } forwardedRef={ref} />
 ));
+
+export const createCount = createShorthandFactory(Count);

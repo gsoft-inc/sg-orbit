@@ -93,7 +93,7 @@
 /* Inverted */
 @invertedBorderSize: 0;
 @invertedTextColor: @marine500;
-@invertedTextHoverColor: @marine600;
+@invertedTextHoverColor: @marine900;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
@@ -140,7 +140,7 @@
 /* Ordinality */
 
 @primaryTextColor: @white;
-@secondaryTextColor: @marine600;
+@secondaryTextColor: @marine500;
 @secondaryColorFocus: @cloud200;
 @positiveTextColor: @white;
 @negativeTextColor: @white;
