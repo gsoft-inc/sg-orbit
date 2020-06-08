@@ -1,206 +1,187 @@
-import "./item-factory";
+import "./Dropdown.css";
 
-import { DropdownContext } from "./context";
-import { DropdownItem } from "./item";
-import { SIZE, SemanticRef, mergeClasses, useAutofocus } from "../../shared";
-import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, string } from "prop-types";
-import { createContentIcon } from "../../icons";
-import { forwardRef, useCallback, useRef } from "react";
+import { DropdownButtonItem } from "./DropdownButtonItem";
+import { DropdownContext } from "./DropdownContext";
+import { DropdownDivider } from "./DropdownDivider";
+import { DropdownHeader } from "./DropdownHeader";
+import { DropdownItem } from "./DropdownItem";
+import { DropdownLinkItem } from "./DropdownLinkItem";
+import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
+import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
+import { KEYS, augmentElement, resolvePopperPosition, useEventCallback } from "../../shared";
+import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
-
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
-
-const SIZE_CLASS = {
-    [SIZE.small]: "small",
-    [SIZE.large]: "large"
-};
+import { usePopperTrigger } from "../../popper";
 
 const propTypes = {
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story before the content.
+     * A controlled open value that determined whether or not the menu is displayed.
+     */
+    open: bool,
+    /**
+     * The initial value of open.
+     */
+    defaultOpen: bool,
+    /**
+     * The default trigger text.
+     */
+    title: string,
+    /**
+     * The default trigger icon.
      */
     icon: element,
     /**
-     * A dropdown can vary in sizes.
+     * A custom element to trigger the visibility of the menu. When specified, will have precedence over the the title prop.
      */
-    size: oneOf(SIZES),
+    trigger: element,
     /**
-     * Whether or not the dropdown should autofocus on render.
+     * A dropdown can vary in size.
      */
-    autofocus: bool,
+    size: oneOf(["small", "large"]),
     /**
-     * Delay before trying to autofocus.
+     * A dropdown menu can open upward.
      */
-    autofocusDelay: number,
+    upward: bool,
     /**
-     * Additional CSS classes to render on the dropdown wrapper element.
+     * A dropdown menu can open to the left or to the right.
      */
-    wrapperClassName: string,
+    direction: oneOf(["left", "right"]),
     /**
-     * Additional style to render on the dropdown wrapper element.
+     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
      */
-    wrapperStyle: object,
+    pinned: bool,
     /**
-     * @ignore
+     * z-index of the dropdown menu.
      */
-    search: bool,
+    zIndex: number,
     /**
-     * @ignore
-     */
-    inline: bool,
-    /**
-     * @ignore
-     */
-    onChange: func,
-    /**
-     * @ignore
-     */
-    options: arrayOf(any),
-    /**
-     * @ignore
+     * Whether or not the trigger will be rendered as fluid.
      */
     fluid: bool,
     /**
-     * @ignore
+     * A dropdown can have its menu scroll.
      */
-    __dropdownComponentRef: object,
+    scrolling: bool,
     /**
-     * @ignore
+     * Called when the dropdown open / close.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {boolean} isVisible - Indicate if the dropdown menu is visible.
+     * @returns {void}
      */
-    __semanticDropdown: elementType
+    onVisibilityChange: func,
+    /**
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the dropdown menu.
+     */
+    menu: oneOfType([element, object])
 };
 
 const defaultProps = {
-    autofocus: false,
-    size: DEFAULT_SIZE,
-    __semanticDropdown: SemanticDropdown
+    direction: "right",
+    menu: DropdownMenu
 };
 
-function useSetFocus({ search }, dropdownRef) {
-    return useCallback(() => {
-        if (!isNil(dropdownRef.current)) {
-            if (search) {
-                dropdownRef.current.querySelector("input.search").focus();
-            } else {
-                dropdownRef.current.focus();
-            }
-        }
-    }, [search, dropdownRef]);
+function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
+    if (!isNil(title) && !isNil(trigger)) {
+        throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
+    }
 }
 
-function useDropdownRenderer(
-    { search, inline, icon, size, fluid, trigger, disabled, className, __dropdownComponentRef, __semanticDropdown: ConcreteSemanticDropdown, rest },
-    dropdownInnerRef,
-    autofocusProps
-) {
-    return () => {
-        const classes = mergeClasses(
-            SIZE_CLASS[size],
-            !isNil(icon) && "with-icon",
-            className
-        );
-
-        return (
-            <SemanticRef innerRef={dropdownInnerRef}>
-                <ConcreteSemanticDropdown
-                    data-testid="dropdown"
-                    {...rest}
-                    {...autofocusProps}
-                    inline={inline}
-                    search={search}
-                    openOnFocus={false}
-                    fluid={fluid}
-                    trigger={trigger}
-                    icon={isNil(trigger) ? undefined : null }
-                    disabled={disabled}
-                    className={classes}
-                    ref={__dropdownComponentRef}
-                />
-            </SemanticRef>
-        );
-    };
-}
-
-function useIconRenderer({ inline, icon, size }) {
-    return () => {
-        if (!isNil(icon)) {
-            const classes = mergeClasses(
-                "ui dropdown-icon flex items-center",
-                inline && "inline"
-            );
-
-            return (
-                <div className={classes}>
-                    {createContentIcon(icon, size)}
-                </div>
-            );
-        }
-    };
-}
-
-function useRenderer({ size, fluid, wrapperClassName, wrapperStyle, forwardedRef }, dropdown, icon) {
-    return () => {
-        const classes = mergeClasses(
-            fluid ? "w-100" : "dib",
-            "relative outline-0",
-            wrapperClassName
-        );
-
-        return (
-            <div
-                className={classes}
-                style={wrapperStyle}
-                tabIndex="-1"
-                ref={forwardedRef}
-                data-testid="dropdown-wrapper"
-            >
-                <DropdownContext.Provider value={{ size }}>
-                    {dropdown}
-                </DropdownContext.Provider>
-                {icon}
-            </div>
-        );
-    };
+function resolveTrigger(title, icon, trigger) {
+    return !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
 }
 
 export function InnerDropdown(props) {
     const {
-        search,
-        inline,
+        open,
+        defaultOpen,
+        title,
         icon,
-        size,
-        autofocus,
-        autofocusDelay,
-        fluid,
         trigger,
-        disabled,
-        className,
-        wrapperClassName,
-        wrapperStyle,
+        size,
+        upward,
+        direction,
+        pinned,
+        zIndex,
+        fluid,
+        scrolling,
+        onVisibilityChange,
+        menu,
+        active,
+        focus,
+        hover,
+        children,
         forwardedRef,
-        __dropdownComponentRef,
-        __semanticDropdown,
         ...rest
     } = props;
-    const dropdownInnerRef = useRef();
+    throwWhenMutuallyExclusivePropsAreProvided(props);
 
-    const setFocus = useSetFocus({ search }, dropdownInnerRef);
-    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+    const [isOpen, setIsOpen] = useState();
 
-    const renderDropdown = useDropdownRenderer(
-        { search, inline, icon, size, fluid, trigger, disabled, className, __dropdownComponentRef, __semanticDropdown, rest },
-        dropdownInnerRef,
-        autofocusProps
+    const handleVisibilityChange = useEventCallback((event, isVisible) => {
+        setIsOpen(isVisible);
+
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, isVisible);
+        }
+    });
+
+    const dropdownTrigger = augmentElement(resolveTrigger(title, icon, trigger), {
+        size,
+        fluid,
+        active,
+        focus,
+        hover,
+        // Speading on the trigger for convenience since a basic dropdown trigger is made of a "title" prop.
+        ...rest
+    });
+
+    const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
+        show: open,
+        defaultShow: defaultOpen,
+        trigger: dropdownTrigger,
+        toggleHandler: "onClick",
+        position: resolvePopperPosition(upward, direction),
+        pinned,
+        offset: [0, 10],
+        zIndex,
+        fluid,
+        showOnKeys: [upward ? KEYS.up : KEYS.down],
+        focusFirstElementOnKeyboardShow: true,
+        onVisibilityChange: handleVisibilityChange,
+        popper: {
+            className: "o-ui dropdown"
+        }
+    });
+
+    const handleSelectItem = useEventCallback(event => {
+        // HACK: anchors were not activated on enter keydown, delaying close fix it.
+        setTimeout(() => {
+            closePopper(event);
+            focusTrigger();
+        }, 0);
+    });
+
+    const dropdownMenu = createDropdownMenu(menu, {
+        scrolling,
+        fluid,
+        onSelectItem: handleSelectItem,
+        children,
+        ref: forwardedRef
+    });
+
+    return (
+        <DropdownContext.Provider
+            value={{
+                isOpen,
+                size,
+                upward,
+                direction
+            }}
+        >
+            {renderPopper(dropdownMenu)}
+        </DropdownContext.Provider>
     );
-
-    const renderIcon = useIconRenderer({ inline, icon, size });
-    const render = useRenderer({ size, fluid, wrapperClassName, wrapperStyle, forwardedRef }, renderDropdown(), renderIcon());
-
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
 }
 
 InnerDropdown.propTypes = propTypes;
@@ -211,9 +192,13 @@ export const Dropdown = forwardRef((props, ref) => (
 ));
 
 [InnerDropdown, Dropdown].forEach(x => {
-    x.Divider = SemanticDropdown.Divider;
-    x.Header = SemanticDropdown.Header;
+    x.Menu = DropdownMenu;
     x.Item = DropdownItem;
-    x.Menu = SemanticDropdown.Menu;
-    x.SearchInput = SemanticDropdown.SearchInput;
+    x.LinkItem = DropdownLinkItem;
+    x.ButtonItem = DropdownButtonItem;
+    x.Header = DropdownHeader;
+    x.Divider = DropdownDivider;
+    x.DropdownTitleTrigger = DropdownTitleTrigger;
 });
+
+

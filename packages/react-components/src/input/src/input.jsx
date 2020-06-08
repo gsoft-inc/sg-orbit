@@ -1,4 +1,3 @@
-
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { EmbeddedIcon } from "../../icons";
@@ -68,26 +67,6 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
     }
 }
 
-function useButtonRenderer(button, size) {
-    return () => {
-        // TODO: shouldn't need to do this anymore since update to createShorthandFactory
-        const className = isElement(button)
-            ? !isNil(button.props) && button.props.className
-            : button.className;
-
-        return createEmbeddedButton(button, {
-            size,
-            circular: true,
-            ghost: true,
-            secondary: true,
-            className: mergeClasses(
-                "input-clear-button",
-                className
-            )
-        });
-    };
-}
-
 export function InnerInput(props) {
     const {
         autofocus,
@@ -137,7 +116,15 @@ export function InnerInput(props) {
     const canRenderIcon = !isNil(icon) && !loading;
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");
 
-    const renderButton = useButtonRenderer(button, size);
+    const renderButton = () => {
+        return createEmbeddedButton(button, {
+            size,
+            circular: true,
+            ghost: true,
+            secondary: true,
+            className: "input-clear-button"
+        });
+    };
 
     return (
         <div

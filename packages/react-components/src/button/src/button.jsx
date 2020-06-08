@@ -88,7 +88,7 @@ function hasText(children) {
     return Children.count(children) > 0;
 }
 
-function useIconRenderer(icon, size, isStandalone) {
+function useIconRenderer({ icon, size }, isStandalone) {
     return () => {
         const Component = isStandalone ? StandaloneIcon : EmbeddedIcon;
 
@@ -102,7 +102,7 @@ function useIconRenderer(icon, size, isStandalone) {
 }
 
 // TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
-function useLabelRenderer(label, size, disabled) {
+function useLabelRenderer({ label, size, disabled }) {
     return () => {
         const props = {
             as: "span",
@@ -123,7 +123,7 @@ function useLabelRenderer(label, size, disabled) {
 }
 
 // TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
-function useTagRenderer(tag, size, disabled) {
+function useTagRenderer({ tag, size, disabled }) {
     return () => {
         const props = {
             as: "span",
@@ -143,9 +143,9 @@ function useTagRenderer(tag, size, disabled) {
 }
 
 function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
-    const renderIcon = useIconRenderer(icon, size, !hasText(children));
-    const renderLabel = useLabelRenderer(label, size, disabled);
-    const renderTag = useTagRenderer(tag, size, disabled);
+    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
+    const renderLabel = useLabelRenderer({ label, size, disabled });
+    const renderTag = useTagRenderer({ tag, size, disabled });
 
     let left;
     let right;
@@ -167,7 +167,13 @@ function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
     }
 
     if (!isNil(left) || !isNil(right)) {
-        return <>{!isNil(left) && left}{children}{!isNil(right) && right}</>;
+        return (
+            <>
+                {!isNil(left) && left}
+                {children}
+                {!isNil(right) && right}
+            </>
+        );
     }
 
     return children;
