@@ -12,6 +12,17 @@
     --cloud-700: #6F778C;
     --cloud-800: #656D82;
     --cloud-900: #525A70;
+    /* Neutral */
+    --neutral-50: #FBFCFC;
+    --neutral-100: #F5F6F7;
+    --neutral-200: #EFF0F3;
+    --neutral-300: #E9EAEE;
+    --neutral-400: #E4E6EA;
+    --neutral-500: #E0E2E7;
+    --neutral-600: #D0D3D8;
+    --neutral-700: #C2C4C9;
+    --neutral-800: #B1B3B8;
+    --neutral-900: #9FA1A6;
     /* Alert */
     --alert-50: #FFE3E8;
     --alert-100: #FEB8C6;
