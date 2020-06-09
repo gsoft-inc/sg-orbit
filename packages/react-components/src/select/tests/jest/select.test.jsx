@@ -1,11 +1,12 @@
 import { Select } from "@react-components/select";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import { waitDelay } from "@utils/wait-delay";
 
-function SimpleSelect(props) {
+const SimpleSelect = forwardRef((props, ref) => {
     return (
         <Select
+            {...props}
             options={[
                 {
                     key: "Male",
@@ -18,10 +19,10 @@ function SimpleSelect(props) {
                     value: "Female"
                 }
             ]}
-            {...props}
+            ref={ref}
         />
     );
-}
+});
 
 function getDropdownMenu(container) {
     return container.querySelector("div.menu.visible");

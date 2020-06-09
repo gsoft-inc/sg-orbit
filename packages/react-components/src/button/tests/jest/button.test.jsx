@@ -8,7 +8,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Button ref={ref} />
+        <Button ref={ref}>Cutoff</Button>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -25,7 +25,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
-        />
+        >Cutoff</Button>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -44,7 +44,7 @@ test("can focus the button with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
-        />
+        >Cutoff</Button>
     );
 
     act(() => {
@@ -58,7 +58,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Button ref={handler} />
+        <Button ref={handler}>Cutoff</Button>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
