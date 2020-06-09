@@ -695,6 +695,16 @@
 .ui.dropdown > .dropdown.icon.clear {
     background-color: @marine100;
     mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask-size: 16px 16px!important;
+}
+
+/* SKIN | CONTENT | Icon - Clear Small */
+.ui.dropdown.small > .dropdown.icon.clear {
+    mask-size: 12px 12px!important;
+}
+
+/* SKIN | CONTENT | Icon - Clear - Large */
+.ui.dropdown.large > .dropdown.icon.clear {
     mask-size: 20px 20px!important;
 }
 
@@ -960,7 +970,7 @@
     height: var(--scale-echo)!important;
 }
 
-.ui.loading.selection.dropdown > i.icon {
+.ui.loading.selection.dropdown.transparent > i.icon {
     height: var(--scale-delta)!important;
     width: var(--scale-delta)!important;
 }
