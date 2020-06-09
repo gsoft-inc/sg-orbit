@@ -1,17 +1,14 @@
-import { Dropdown } from "../../dropdown";
-import { KEYS, SIZE, mergeClasses, throwWhenUnsupportedPropIsProvided, useDocumentListener } from "../../shared";
+import { EmbeddedIcon } from "../../icons";
+import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useDocumentListener, useEventCallback } from "../../shared";
 import { Label } from "semantic-ui-react";
-import { MonkeyPatchSemanticDropdown } from "./monkey-patch-semantic-dropdown";
-import { SelectItem, createSelectItem } from "./item";
-import { any, arrayOf, bool, func, object, oneOf, string } from "prop-types";
+import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
+import { SelectContext } from "./SelectContext";
+import { SelectItem } from "./SelectItem";
+import { any, arrayOf, bool, element, number, object, oneOf, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isArray, isNil } from "lodash";
-import { renderAvatar } from "./render-avatar";
-import { renderIcons } from "./render-icons";
-
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
+import { renderAvatar } from "./renderAvatar";
+import { renderIcons } from "./renderIcons";
 
 const UNSUPPORTED_PROPS = [
     "additionLabel",
@@ -35,16 +32,15 @@ const UNSUPPORTED_PROPS = [
     "selectOnBlur",
     "selectOnNavigation",
     "simple",
+    "trigger",
     "wrapSelection"
 ];
 
-const MULTIPLE_VALUES_LABEL_SIZE = {
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-};
-
 const propTypes = {
+    /**
+     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story before the content.
+     */
+    icon: element,
     /**
      * An array of items object shorthands.
      */
@@ -52,7 +48,15 @@ const propTypes = {
     /**
      * A select can vary in size.
      */
-    size: oneOf(SIZES),
+    size: oneOf(["small", "large"]),
+    /**
+     * Whether or not the dropdown should autofocus on render.
+     */
+    autofocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autofocusDelay: number,
     /**
      * A transparent select has no background.
      */
@@ -64,135 +68,32 @@ const propTypes = {
     /**
      * Additional style to render on the wrapper element.
      */
-    wrapperStyle: object,
-    /**
-     * @ignore
-     */
-    active: bool,
-    /**
-     * @ignore
-     */
-    focus: bool,
-    /**
-     * @ignore
-     */
-    hover: bool,
-    /**
-     * @ignore
-     */
-    inline: bool,
-    /**
-     * @ignore
-     */
-    multiple: bool,
-    /**
-     * @ignore
-     */
-    onOpen: func,
-    /**
-     * @ignore
-     */
-    onClose: func,
-    /**
-     * @ignore
-     */
-    onFocus: func,
-    /**
-     * @ignore
-     */
-    onBlur: func,
-    /**
-     * @ignore
-     */
-    onChange: func
-};
-
-const defaultProps = {
-    size: DEFAULT_SIZE,
-    transparent: false
+    wrapperStyle: object
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
-    if (inline && size !== DEFAULT_SIZE) {
-        throw new Error("@orbit-ui/react-components/select you cannot specify a size for an inline select.");
+    if (inline && !isNil(size)) {
+        throw new Error("@orbit-ui/react-components/Select you cannot specify a size for an inline select.");
     }
 }
 
 function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value }) {
     if (multiple) {
-        if (!isNil(defaultValue) && !isArray(defaultValue)) {
-            throw new Error("@orbit-ui/react-components/select defaultValues must be an array when multiple is true.");
+        if (!isNil(value) && !isArray(value)) {
+            throw new Error("@orbit-ui/react-components/Select value must be an array when multiple is true.");
         }
 
-        if (!isNil(value) && !isArray(value)) {
-            throw new Error("@orbit-ui/react-components/select values must be an array when multiple is true.");
+        if (!isNil(defaultValue) && !isArray(defaultValue)) {
+            throw new Error("@orbit-ui/react-components/Select defaultValue must be an array when multiple is true.");
         }
     }
 }
 
-function useHandleOpen({ onOpen }, setIsOpen) {
-    return useCallback((...args) => {
-        setIsOpen(true);
-
-        if (!isNil(onOpen)) {
-            onOpen(...args);
-        }
-    }, [onOpen, setIsOpen]);
-}
-
-function useHandleClose({ onClose }, setIsOpen) {
-    return useCallback((...args) => {
-        setIsOpen(false);
-
-        if (!isNil(onClose)) {
-            onClose(...args);
-        }
-    }, [onClose, setIsOpen]);
-}
-
-function useHandleFocus({ onFocus }, setIsFocus) {
-    return useCallback((...args) => {
-        setIsFocus(true);
-
-        if (!isNil(onFocus)) {
-            onFocus(...args);
-        }
-    }, [onFocus, setIsFocus]);
-}
-
-function useHandleBlur({ onBlur }, setIsFocus) {
-    return useCallback((...args) => {
-        setIsFocus(false);
-
-        if (!isNil(onBlur)) {
-            onBlur(...args);
-        }
-    }, [onBlur, setIsFocus]);
-}
-
-function useHandleChange({ onChange }, hasValueChangeRef) {
-    return useCallback((...args) => {
-        hasValueChangeRef.current = true;
-
-        if (!isNil(onChange)) {
-            onChange(...args);
-        }
-    }, [onChange, hasValueChangeRef]);
-}
-
-function useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef) {
-    const handleDocumentKeyDown = useCallback(event => {
-        if (event.keyCode === KEYS.enter) {
-            if (!hasValueChangeRef.current) {
-                dropdownComponentRef.current.open(event);
-            }
-
-            hasValueChangeRef.current = false;
-        }
-    }, [hasValueChangeRef, dropdownComponentRef]);
-
-    useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
-}
+const MULTIPLE_VALUES_LABEL_SIZE = {
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
+};
 
 function useMultipleValuesLabelRenderer({ size }) {
     return ({ text, avatar, icons, iconsPosition }, index, { className, ...rest }) => {
@@ -232,84 +133,47 @@ function useMultipleValuesLabelRenderer({ size }) {
             );
         }
 
-        const classes = mergeClasses(
-            additionalClasses,
-            className
-        );
-
         return (
             <Label
                 {...rest}
                 content={content}
-                size={MULTIPLE_VALUES_LABEL_SIZE[size]}
-                className={classes}
-            />
-        );
-    };
-}
-
-function useOptionsRenderer({ options }) {
-    return () => {
-        const selectOptions = options.map(x => {
-            return {
-                ...x,
-                factory: createSelectItem
-            };
-        });
-
-        return selectOptions;
-    };
-}
-
-function useRenderer(
-    { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
-    handleOpen,
-    handleClose,
-    handleFocus,
-    handleBlur,
-    handleChange,
-    dropdownComponentRef,
-    options
-) {
-    const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
-
-    return () => {
-        const classes = mergeClasses(
-            transparent && "transparent",
-            active && "active",
-            focus && "focus",
-            hover && "hover",
-            className
-        );
-
-        return (
-            <Dropdown
-                {...rest}
-                options={options}
-                selectOnBlur={false}
-                selectOnNavigation={false}
-                selection={!inline}
-                inline={inline}
-                size={size}
-                renderLabel={renderMultipleValuesLabel}
-                onOpen={handleOpen}
-                onClose={handleClose}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                className={classes}
-                ref={forwardedRef}
-                __dropdownComponentRef={dropdownComponentRef}
-                __semanticDropdown={MonkeyPatchSemanticDropdown}
+                size={MULTIPLE_VALUES_LABEL_SIZE[size || SIZE.medium]}
+                className={mergeClasses(
+                    additionalClasses,
+                    className
+                )}
             />
         );
     };
 }
 
 export function InnerSelect(props) {
-    const { options, size, transparent, inline, active, focus, hover, onOpen, onClose, onFocus, onBlur, onChange, className, forwardedRef, ...rest } = props;
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/select");
+    const {
+        icon,
+        options,
+        search,
+        inline,
+        transparent,
+        size,
+        autofocus,
+        autofocusDelay,
+        fluid,
+        disabled,
+        onOpen,
+        onClose,
+        onFocus,
+        onBlur,
+        onChange,
+        active,
+        focus,
+        hover,
+        className,
+        wrapperClassName,
+        wrapperStyle,
+        forwardedRef,
+        ...rest
+    } = props;
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Select");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenMultipleAndValuesIsNotAnArray(props);
 
@@ -317,45 +181,177 @@ export function InnerSelect(props) {
     const [isFocus, setIsFocus] = useState(false);
 
     const hasValueChangeRef = useRef(false);
+    const dropdownInnerRef = useRef();
     const dropdownComponentRef = useRef();
 
     // A select doesn't support children.
     // eslint-disable-next-line react/destructuring-assignment
     delete props["children"];
 
-    const handleOpen = useHandleOpen({ onOpen }, setIsOpen);
-    const handleClose = useHandleClose({ onClose }, setIsOpen);
-    const handleFocus = useHandleFocus({ onFocus }, setIsFocus);
-    const handleBlur = useHandleBlur({ onBlur }, setIsFocus);
-    const handleChange = useHandleChange({ onChange }, hasValueChangeRef);
+    const setFocus = useCallback(() => {
+        if (!isNil(dropdownInnerRef.current)) {
+            if (search) {
+                dropdownInnerRef.current.querySelector("input.search").focus();
+            } else {
+                dropdownInnerRef.current.focus();
+            }
+        }
+    }, [search, dropdownInnerRef]);
 
-    useHandleDocumentKeyDown(isOpen, isFocus, hasValueChangeRef, dropdownComponentRef);
+    const handleOpen = useEventCallback((...args) => {
+        setIsOpen(true);
 
-    const renderOptions = useOptionsRenderer({ options });
+        if (!isNil(onOpen)) {
+            onOpen(...args);
+        }
+    });
 
-    const render = useRenderer(
-        { size, transparent, inline, active, focus, hover, className, forwardedRef, rest },
-        handleOpen,
-        handleClose,
-        handleFocus,
-        handleBlur,
-        handleChange,
-        dropdownComponentRef,
-        renderOptions()
+    const handleClose = useEventCallback((...args) => {
+        setIsOpen(false);
+
+        if (!isNil(onClose)) {
+            onClose(...args);
+        }
+    });
+
+    const handleFocus = useEventCallback((...args) => {
+        setIsFocus(true);
+
+        if (!isNil(onFocus)) {
+            onFocus(...args);
+        }
+    });
+
+    const handleBlur = useEventCallback((...args) => {
+        setIsFocus(false);
+
+        if (!isNil(onBlur)) {
+            onBlur(...args);
+        }
+    });
+
+    const handleChange = useEventCallback((...args) => {
+        hasValueChangeRef.current = true;
+
+        if (!isNil(onChange)) {
+            onChange(...args);
+        }
+    });
+
+    const handleDocumentKeyDown = useEventCallback(event => {
+        if (event.keyCode === KEYS.enter) {
+            if (!hasValueChangeRef.current) {
+                dropdownComponentRef.current.open(event);
+            }
+
+            hasValueChangeRef.current = false;
+        }
+    });
+
+    useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
+
+    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+
+    const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
+
+    return (
+        <div
+            className={mergeClasses(
+                fluid ? "w-100" : "dib",
+                "relative outline-0",
+                wrapperClassName
+            )}
+            style={wrapperStyle}
+            tabIndex="-1"
+            ref={forwardedRef}
+            data-testid="dropdown-wrapper"
+        >
+            <SelectContext.Provider value={{ size }}>
+                <SemanticRef innerRef={dropdownInnerRef}>
+                    <MonkeyPatchSemanticDropdown
+                        data-testid="dropdown"
+                        {...rest}
+                        {...autofocusProps}
+                        options={options}
+                        selectOnBlur={false}
+                        selectOnNavigation={false}
+                        openOnFocus={false}
+                        selection={!inline}
+                        inline={inline}
+                        search={search}
+                        size={size}
+                        fluid={fluid}
+                        disabled={disabled}
+                        renderLabel={renderMultipleValuesLabel}
+                        onOpen={handleOpen}
+                        onClose={handleClose}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        className={mergeClasses(
+                            getSizeClass(size),
+                            !isNil(icon) && "with-icon",
+                            transparent && "transparent",
+                            active && "active",
+                            focus && "focus",
+                            hover && "hover",
+                            className
+                        )}
+                        ref={dropdownComponentRef}
+                    />
+                </SemanticRef>
+            </SelectContext.Provider>
+            <If condition={!isNil(icon)}>
+                <div
+                    className={mergeClasses(
+                        "ui dropdown-icon flex items-center",
+                        inline && "inline"
+                    )}
+                >
+                    <EmbeddedIcon icon={icon} size={size} />
+                </div>
+            </If>
+        </div>
     );
 
-    // Without a fragment, react-docgen doesn't work.
-    return <>{render()}</>;
+    // return (
+    //     <Dropdown
+    //         {...rest}
+    //         options={selectOptions}
+    //         selectOnBlur={false}
+    //         selectOnNavigation={false}
+    //         selection={!inline}
+    //         inline={inline}
+    //         size={size}
+    //         renderLabel={renderMultipleValuesLabel}
+    //         onOpen={handleOpen}
+    //         onClose={handleClose}
+    //         onFocus={handleFocus}
+    //         onBlur={handleBlur}
+    //         onChange={handleChange}
+    //         className={mergeClasses(
+    //             transparent && "transparent",
+    //             active && "active",
+    //             focus && "focus",
+    //             hover && "hover",
+    //             className
+    //         )}
+    //         ref={forwardedRef}
+    //         // TODO: remove once merged
+    //         __dropdownComponentRef={dropdownComponentRef}
+    //         // TODO: remove once merged
+    //         __semanticDropdown={MonkeyPatchSemanticDropdown}
+    //     />
+    // );
 }
 
 InnerSelect.propTypes = propTypes;
-InnerSelect.defaultProps = defaultProps;
 
 export const Select = forwardRef((props, ref) => (
     <InnerSelect { ...props } forwardedRef={ref} />
 ));
 
-// Select.Divider, Select.Header, Select.Menu and Select.SearchInput are not supported.
+// Divider, Header, Menu and SearchInput are not supported.
 [InnerSelect, Select].forEach(x => {
     x.Item = SelectItem;
 });

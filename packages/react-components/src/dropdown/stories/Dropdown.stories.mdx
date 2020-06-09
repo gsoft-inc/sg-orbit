@@ -1,0 +1,336 @@
+import { Button } from "@react-components/button";
+import { ControlledDropdown } from "./ControlledDropdown.sample";
+import { CustomLink } from "./CustomLink.jsx";
+import { CustomTrigger } from "./CustomTrigger.sample.jsx";
+import { Dropdown, InnerDropdown, InnerDropdownButtonItem, InnerDropdownHeader, InnerDropdownItem, InnerDropdownLinkItem, InnerDropdownMenu, InnerDropdownTitleTrigger } from "@react-components/dropdown";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { logClicked } from "./utils";
+import CustomTriggerBlock from "./CustomTriggerBlock.mdx";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Dropdown")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/dropdown" />)
+        .build()}
+/>
+
+# Dropdown
+
+A dropdown can be used to offer a list of choices.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Dropdown", component: InnerDropdown },
+        { displayName: "Dropdown.LinkItem", component: InnerDropdownLinkItem },
+        { displayName: "Dropdown.ButtonItem", component: InnerDropdownButtonItem },
+        { displayName: "Dropdown.Item", component: InnerDropdownItem },
+        { displayName: "Dropdown.Header", component: InnerDropdownHeader },
+        { displayName: "Dropdown.Menu", component: InnerDropdownMenu },
+        { displayName: "Dropdown.TitleTrigger", component: InnerDropdownTitleTrigger }
+    ]}
+/>
+
+## Usage
+
+### Button
+
+A dropdown can contains button items.
+
+<Preview>
+    <Story name="button">
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Link
+
+A dropdown can contains link items.
+
+<Preview>
+    <Story name="link">
+        <Dropdown title="Task">
+            <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Launch...</Dropdown.LinkItem>
+            <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Eject...</Dropdown.LinkItem>
+            <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Land...</Dropdown.LinkItem>
+            <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Help</Dropdown.LinkItem>
+            <Dropdown.LinkItem href="https://www.sharegate.com" target="_blank">Exit</Dropdown.LinkItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Custom link component
+
+A dropdown link item can be a custom component like a [React Router Link](https://reacttraining.com/react-router/web/api/Link).
+
+<Preview>
+    <Story name="link component">
+        <Dropdown title="Task">
+            <Dropdown.LinkItem as={CustomLink} href="https://www.sharegate.com" target="_blank">Launch...</Dropdown.LinkItem>
+            <Dropdown.LinkItem as={CustomLink} href="https://www.sharegate.com" target="_blank">Eject...</Dropdown.LinkItem>
+            <Dropdown.LinkItem as={CustomLink} href="https://www.sharegate.com" target="_blank">Land...</Dropdown.LinkItem>
+            <Dropdown.LinkItem as={CustomLink} href="https://www.sharegate.com" target="_blank">Help</Dropdown.LinkItem>
+            <Dropdown.LinkItem as={CustomLink} href="https://www.sharegate.com" target="_blank">Exit</Dropdown.LinkItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Icon
+
+A dropdown default trigger can have an icon.
+
+<Preview>
+    <Story name="icon">
+        <Dropdown title="Task" icon={<FolderIcon />}>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Trigger
+
+A dropdown can have a custom trigger. The trigger must be able to [receive focus](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard) to allow keyboard navigation.
+
+<Preview>
+    <Story name="trigger">
+        <Dropdown trigger={<Button circular secondary icon={<VerticalDotsIcon />} />}>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Custom trigger
+
+A dropdown trigger can use the `DropdownContext` to render differently based on `open`, `size`, `upward` and `direction` props.
+
+<Preview>
+    <Story name="custom trigger">
+        <Dropdown trigger={<CustomTrigger />}>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+<CustomTriggerBlock />
+
+### Header
+
+A dropdown can have an header.
+
+<Preview>
+    <Story name="header">
+        <Dropdown title="Task">
+            <Dropdown.Header>Quick Actions</Dropdown.Header>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Divider
+
+A dropdown items can be divided.
+
+<Preview>
+    <Story name="divider">
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.Divider />
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Size
+
+A dropdown can vary in size.
+
+<Preview>
+    <Story name="size">
+        <div className="flex">
+            <div className="mr12">
+                <Dropdown title="Task" size="small">
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                </Dropdown>
+            </div>
+            <div className="mr12">
+                <Dropdown title="Task">
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                </Dropdown>
+            </div>
+            <div>
+                <Dropdown title="Task" size="large">
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                </Dropdown>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Upward
+
+A dropdown prefered vertical opening position can be upward.
+
+<Preview>
+    <Story name="upward">
+        <Dropdown title="Task" upward>
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Direction
+
+A dropdown prefered horizontal opening position can be `"left"` or `"right"`.
+
+<Preview>
+    <Story name="direction">
+        <div className="flex">
+            <div className="mr12">
+                <Dropdown title="Left" direction="left">
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                </Dropdown>
+            </div>
+            <div>
+                <Dropdown title="Right" direction="right">
+                    <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+                    <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                </Dropdown>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Controlled
+
+A dropdown can handle `open` state in controlled mode.
+
+<FilePreview filePath="/dropdown/stories/ControlledDropdown">
+    <ControlledDropdown />
+</FilePreview>
+
+## Item
+
+### Description
+
+A dropdown item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem description="ctrl + l" onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + e" onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + shift + l" onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + h" onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem description="ctrl + alt + del" onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Icon
+
+A dropdown item can have an icon.
+
+<Preview>
+    <Story name="item icon">
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem icon={<HelpIcon />} onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem icon={<SignoutIcon />} onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+### Disabled
+
+A dropdown item can be disabled.
+
+<Preview>
+    <Story name="item disabled">
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem disabled onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem disabled onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={
+        <Dropdown title="Task">
+            <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Help</Dropdown.ButtonItem>
+            <Dropdown.ButtonItem onClick={logClicked}>Exit</Dropdown.ButtonItem>
+        </Dropdown>
+    }
+    />
+</Story>
+

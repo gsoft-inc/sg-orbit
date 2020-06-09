@@ -47,12 +47,12 @@ export const Icon = forwardRef((props, ref) => (
     <InnerIcon { ...props } forwardedRef={ref} />
 ));
 
-function createIcon(type) {
+function createIconFactory(type) {
     return forwardRef((props, ref) => <Icon type={type} ref={ref} {...props} />);
 }
 
 [InnerIcon, Icon].forEach(x => {
-    x.create = createIcon;
+    x.create = createIconFactory;
 });
 
 //////////////////////////////////////////////
@@ -93,10 +93,10 @@ export const MultiVariantIcon = forwardRef((props, ref) => (
     <InnerMultiVariantIcon { ...props } forwardedRef={ref} />
 ));
 
-function createMultiVariant(type24, type32) {
+function createMultiVariantFactory(type24, type32) {
     return forwardRef((props, ref) => <MultiVariantIcon type24={type24} type32={type32} ref={ref} {...props} />);
 }
 
 [InnerMultiVariantIcon, MultiVariantIcon].forEach(x => {
-    x.create = createMultiVariant;
+    x.create = createMultiVariantFactory;
 });

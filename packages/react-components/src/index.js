@@ -1,6 +1,6 @@
 export * from "./button";
 export * from "./date-picker";
-export * from "./dropdown-menu";
+export * from "./dropdown";
 export * from "./icons";
 export * from "./text-input";
 export * from "./number-input";

@@ -1,46 +1,28 @@
-import { Button } from "@react-components/button";
-import { Dropdown } from "@react-components/dropdown";
+import { DropdownTitleTrigger } from "@react-components/dropdown";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const SimpleDropdown = forwardRef(({
+const SimpleTitleTrigger = forwardRef(({
     title = "File",
     ...rest
 }, ref) => {
     return (
-        <Dropdown
+        <DropdownTitleTrigger
             {...rest}
             title={title}
             ref={ref}
-        >
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
-        </Dropdown>
-    );
-});
-
-const TriggerLessDropdown = forwardRef((props, ref) => {
-    return (
-        <Dropdown
-            {...props}
-            ref={ref}
-        >
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
-        </Dropdown>
+        />
     );
 });
 
 // ***** API *****
 
-test("spread additional props on the trigger element", async () => {
+test("spread additional props on the root element", async () => {
     const ref = createRef();
 
     render(
-        <TriggerLessDropdown
-            trigger={<Button ref={ref}>Click me</Button>}
+        <SimpleTitleTrigger
+            ref={ref}
             data-extra-props-test="works"
         />
     );
@@ -54,43 +36,40 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleDropdown
+        <SimpleTitleTrigger
             ref={ref}
-            open
         />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("BUTTON");
 });
 
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimpleDropdown
+        <SimpleTitleTrigger
             ref={node => {
                 refNode = node;
             }}
-            open
         />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    expect(refNode.tagName).toBe("BUTTON");
 });
 
 test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <SimpleDropdown
+        <SimpleTitleTrigger
             ref={handler}
-            open
         />
     );
 
