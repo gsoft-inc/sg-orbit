@@ -6,7 +6,6 @@ import { bool, element, number, object, oneOf, oneOfType, string } from "prop-ty
 import { createEmbeddedButton } from "../../button";
 import { createShorthandFactory, mergeClasses, useAutofocus } from "../../shared";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { isElement } from "react-is";
 import { isNil } from "lodash";
 
 export const INPUT_SIZES = ["small", "medium", "large"];

@@ -1,13 +1,12 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, forwardRef } from "react";
 import { EmbeddedIcon, StandaloneIcon } from "../../icons";
 import { SIZE, SemanticRef, createShorthandFactory, createShorthandFactoryForEmbedded, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, object, oneOf, oneOfType } from "prop-types";
 import { createEmbeddedButton } from "../../button";
-import { createTag, getTagSize } from "../../tag";
-import { isElement } from "react-is";
+import { createEmbeddedTag } from "../../tag";
 import { isNil } from "lodash";
 
 const SIZES = ["micro", "mini","tiny","small","medium","large","big","huge","massive"];
@@ -95,28 +94,8 @@ function useIconRenderer({ icon, size }, isStandalone) {
     };
 }
 
-// TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
-function useTagRenderer({ tag, size }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getTagSize(size)
-        };
-
-        if (isElement(tag)) {
-            return cloneElement(tag, props);
-        }
-
-        return createTag({
-            ...props,
-            ...tag
-        });
-    };
-}
-
 function Content({ button, icon, iconPosition, tag, size, children }) {
     const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-    const renderTag = useTagRenderer({ tag, size });
 
     let left;
     let right;
@@ -131,6 +110,7 @@ function Content({ button, icon, iconPosition, tag, size, children }) {
 
     if (!isNil(button)) {
         right = createEmbeddedButton(button, {
+            size,
             circular: true,
             ghost: true,
             secondary: true
@@ -138,7 +118,10 @@ function Content({ button, icon, iconPosition, tag, size, children }) {
     }
 
     if (!isNil(tag)) {
-        left = renderTag();
+        left = createEmbeddedTag(tag, {
+            as: "span",
+            size
+        });
     }
 
     if (!isNil(left) || !isNil(right)) {
@@ -151,7 +134,7 @@ function Content({ button, icon, iconPosition, tag, size, children }) {
         );
     }
 
-    return children;
+    return children || null;
 }
 
 export function InnerLabel(props) {

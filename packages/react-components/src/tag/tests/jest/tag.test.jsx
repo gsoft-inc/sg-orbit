@@ -14,9 +14,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createTag({
-            ref
-        })
+        <Tag ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -29,11 +27,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createTag({
-            ref: node => {
+        <Tag
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -46,9 +44,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createTag({
-            ref: handler
-        })
+        <Tag ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
