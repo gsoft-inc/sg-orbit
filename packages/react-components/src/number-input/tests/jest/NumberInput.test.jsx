@@ -21,9 +21,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createNumberInput({
-            ref
-        })
+        <NumberInput ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -36,11 +34,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createNumberInput({
-            ref: node => {
+        <NumberInput
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -50,13 +48,15 @@ test("when using a callback ref, ref is a DOM element", async () => {
 });
 
 test("when a function ref is provided, delayed autofocus works", async () => {
-    const { getByTestId } = render(createNumberInput({
-        autofocus: true,
-        autofocusDelay: 50,
-        ref: () => {
-            // don't need to hold a ref..
-        }
-    }));
+    const { getByTestId } = render(
+        <NumberInput
+            autofocus
+            autofocusDelay={50}
+            ref={() => {
+                // don't need to hold a ref..
+            }}
+        />
+    );
 
     await waitDelay(60);
 
@@ -67,9 +67,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createNumberInput({
-            ref: handler
-        })
+        <NumberInput ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

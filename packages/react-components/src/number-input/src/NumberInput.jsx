@@ -4,11 +4,7 @@ import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
-// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
-
-const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "iconsPosition", "type"];
+const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "type"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
@@ -27,7 +23,7 @@ const INPUT_PROP_TYPES = {
     /**
      * An icon can appear on the left or right.
      */
-    iconPosition: oneOf(["left"]),
+    iconPosition: oneOf(["left", "right"]),
     /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
      */
@@ -35,7 +31,7 @@ const INPUT_PROP_TYPES = {
     /**
      * An input can vary in sizes.
      */
-    size: oneOf(SIZES),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * Additional CSS classes to render on the wrapper element.
      */
@@ -48,11 +44,11 @@ const INPUT_PROP_TYPES = {
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_DEFAULT_PROPS = {
-    autofocus: false,
-    size: DEFAULT_SIZE
+    iconPosition: "right"
 };
 
 const propTypes = {
+    ...INPUT_PROP_TYPES,
     /**
      * The value of the input.
      */
@@ -72,8 +68,7 @@ const propTypes = {
     /**
      * The increment step of the input value.
      */
-    step: number,
-    ...INPUT_PROP_TYPES
+    step: number
 };
 
 const defaultProps = {
@@ -81,19 +76,16 @@ const defaultProps = {
 };
 
 export function InnerNumberInput(props) {
-    const { icon, iconPosition, loading, forwardedRef, ...rest } = props;
+    const { forwardedRef, ...rest } = props;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/number-input");
+    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/NumberInput");
 
     return (
         <Input
             {...rest}
             type="number"
-            icon={icon}
-            iconPosition={!isNil(icon) || !isNil(loading) ? iconPosition : undefined}
-            loading={loading}
             ref={forwardedRef}
-            __componentName="@orbit-ui/react-components/number-input"
+            __componentName="@orbit-ui/react-components/NumberInput"
         />
     );
 }

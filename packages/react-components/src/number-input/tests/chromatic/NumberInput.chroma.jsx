@@ -28,17 +28,37 @@ stories()
     )
     .add("icon", () =>
         <div className="flex">
-            <NumberInput icon={<EditIcon />} className="mr5" />
-            <NumberInput icon={<EditIcon />} iconPosition="left" />
+            <NumberInput
+                icon={<EditIcon />}
+                className="mr5"
+            />
+            <NumberInput
+                icon={<EditIcon />}
+                iconPosition="left"
+            />
         </div>
     )
     .add("button", () =>
-        <NumberInput button={<Button icon={<CloseIcon />} />} />
+        <NumberInput
+            button={<Button icon={<CloseIcon />} />}
+        />
     )
     .add("loading", () =>
         <div className="flex">
-            <NumberInput loading className="mr5" />
-            <NumberInput loading icon={<EditIcon />} className="mr5" />
-            <NumberInput loading icon={<EditIcon />} iconPosition="left" className="mr5" />
+            <NumberInput
+                loading
+                className="mr5"
+            />
+            <NumberInput
+                loading
+                icon={<EditIcon />}
+                className="mr5"
+            />
+            <NumberInput
+                loading
+                icon={<EditIcon />}
+                iconPosition="left"
+                className="mr5"
+            />
         </div>
     );
