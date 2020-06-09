@@ -14,7 +14,7 @@ import {
 } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
-import { createLabel, getContentLabelSize } from "../../label";
+import { createEmbeddedLabel } from "../../label";
 import { createTag, getTagSize } from "../../tag";
 import { isElement } from "react-is";
 import { isNil } from "lodash";
@@ -101,27 +101,6 @@ function useIconRenderer({ icon, size }, isStandalone) {
     };
 }
 
-// TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
-function useLabelRenderer({ label, size, disabled }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getContentLabelSize(size || SIZE.medium),
-            highlight: true,
-            disabled: disabled
-        };
-
-        if (isElement(label)) {
-            return cloneElement(label, props);
-        }
-
-        return createLabel({
-            ...props,
-            ...label
-        });
-    };
-}
-
 // TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
 function useTagRenderer({ tag, size, disabled }) {
     return () => {
@@ -144,7 +123,6 @@ function useTagRenderer({ tag, size, disabled }) {
 
 function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
     const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-    const renderLabel = useLabelRenderer({ label, size, disabled });
     const renderTag = useTagRenderer({ tag, size, disabled });
 
     let left;
@@ -159,7 +137,11 @@ function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
     }
 
     if (!isNil(label)) {
-        right = renderLabel();
+        right = createEmbeddedLabel(label, {
+            as: "span",
+            highlight: true,
+            disabled: disabled
+        });
     }
 
     if (!isNil(tag)) {

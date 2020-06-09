@@ -9,6 +9,7 @@ const LABEL_SIZE = {
     [SIZE.large]: SIZE.tiny
 };
 
+// TODO: Delete once everything merged
 export function getContentLabelSize(size) {
     return LABEL_SIZE[size];
 }

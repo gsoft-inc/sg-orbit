@@ -7,7 +7,7 @@ function Label({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createSharedTestSuite(label, stories) {
+export function createTestSuite(label, stories) {
     return stories
         .add("default", () =>
             <div className="flex flex-column">
