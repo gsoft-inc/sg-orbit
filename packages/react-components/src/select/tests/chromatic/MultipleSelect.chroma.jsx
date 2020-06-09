@@ -14,638 +14,513 @@ function stories(segment) {
 
 const MALE = { key: "Male", text: "Male", value: "Male" };
 const FEMALE = { key: "Female", text: "Female", value: "Female" };
-const GENDERS = [MALE, FEMALE];
 
-function createMultipleSelect({ options = GENDERS, ...otherProps } = {}) {
-    return <Select
-        placeholder="Gender"
-        multiple
-        options={options}
-        {...otherProps}
-    />;
+function MultipleSelect(props) {
+    return (
+        <Select
+            placeholder="Gender"
+            multiple
+            options={[
+                MALE,
+                FEMALE
+            ]}
+            {...props}
+        />
+    );
+}
+
+function AvatarMultipleSelect(props) {
+    return (
+        <Select
+            placeholder="Gender"
+            multiple
+            options={[
+                { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
+                { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
+            ]}
+            {...props}
+        />
+    );
+}
+
+function IconsMultipleSelect({ iconsPosition = "left", ...rest }) {
+    return (
+        <Select
+            placeholder="Gender"
+            multiple
+            options={[
+                { ...MALE, icons: <CalendarIcon />, iconsPosition },
+                { ...FEMALE, icons: <CalendarIcon />, iconsPosition }
+            ]}
+            {...rest}
+        />
+    );
 }
 
 stories()
     .add("default", () =>
-        <div className="flex">
-            {createMultipleSelect({
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                defaultOpen: true
-            })}
-        </div>
+        <MultipleSelect />
+    )
+    .add("open", () =>
+        <MultipleSelect open />
+    )
+    .add("default open", () =>
+        <MultipleSelect defaultOpen />
     )
     .add("selected value", () =>
         <div className="flex">
-            {createMultipleSelect({
-                defaultValue: ["Female"],
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                defaultValue: ["Female", "Male"],
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                defaultValue: ["Female"],
-                defaultOpen: true
-            })}
+            <MultipleSelect
+                defaultValue={["Female"]}
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                defaultValue={["Female", "Male"]}
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                defaultValue={["Female"]}
+                open
+            />
         </div>
     )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    size="small"
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    open
+                />
             </div>
             <div className="flex">
-                {createMultipleSelect({
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    size="large"
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("fluid", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    fluid: true,
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    fluid
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    fluid
+                    defaultOpen
+                />
             </div>
             <div className="flex">
                 <div className="w-30 mr5">
-                    {createMultipleSelect({
-                        fluid: true
-                    })}
+                    <MultipleSelect
+                        fluid
+                    />
                 </div>
                 <div className="w-30">
-                    {createMultipleSelect({
-                        fluid: true,
-                        defaultOpen: true
-                    })}
+                    <MultipleSelect
+                        fluid
+                        defaultOpen
+                    />
                 </div>
             </div>
         </div>
     )
     .add("interaction states", () =>
         <div className="flex">
-            {createMultipleSelect({
-                active: true,
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                focus: true,
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                hover: true,
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                focus: true,
-                hover: true
-            })}
+            <MultipleSelect
+                active
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                focus
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                hover
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                focus
+                hover
+            />
         </div>
     )
     .add("disabled", () =>
         <div className="flex">
-            {createMultipleSelect({
-                disabled: true,
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                disabled: true,
-                defaultValue: ["Female", "Male"],
-                wrapperClassName: "mr5"
-            })}
+            <MultipleSelect
+                disabled
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                disabled
+                defaultValue={["Female", "Male"]}
+                wrapperClassName="mr5"
+            />
         </div>
     )
     .add("error", () =>
         <div className="flex">
-            {createMultipleSelect({
-                error: true,
-                wrapperClassName: "mr5"
-            })}
-            {createMultipleSelect({
-                error: true,
-                wrapperClassName: "mr5",
-                defaultOpen: true
-            })}
+            <MultipleSelect
+                error
+                wrapperClassName="mr5"
+            />
+            <MultipleSelect
+                error
+                wrapperClassName="mr5"
+                open
+            />
         </div>
     )
     .add("loading", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    loading: true,
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    defaultValue: ["Female"],
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    size: "small",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    loading
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    defaultValue={["Female"]}
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    loading: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    loading
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    open
+                />
             </div>
             <div className="flex">
-                {createMultipleSelect({
-                    loading: true,
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    defaultValue: ["Female"],
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    loading: true,
-                    size: "large",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    loading
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    defaultValue={["Female"]}
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    loading
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    search: true
-                })}
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    defaultValue={["Male"]}
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="small"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="small"
+                    search
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    search: true
-                })}
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    defaultValue={["Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    open
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    search
+                />
             </div>
             <div className="flex">
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    search: true
-                })}
-            </div>
-        </div>
-    )
-    .add("icon", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "small",
-                    search: true
-                })}
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    search: true
-                })}
-            </div>
-            <div className="flex">
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    defaultValue: ["Male"],
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    size: "large",
-                    search: true
-                })}
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    defaultValue={["Male"]}
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="large"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    size="large"
+                    search
+                />
             </div>
         </div>
     )
     .add("searchable", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
-                    size: "small",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    size: "small",
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    size: "small",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    search
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    size="small"
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    search
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    open
+                />
             </div>
             <div className="flex" style={{ "marginBottom": "150px" }}>
-                {createMultipleSelect({
-                    search: true,
-                    size: "large",
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    size: "large",
-                    defaultValue: ["Female", "Male"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    search: true,
-                    size: "large",
-                    defaultOpen: true
-                })}
+                <MultipleSelect
+                    search
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    size="large"
+                    defaultValue={["Female", "Male"]}
+                    wrapperClassName="mr5"
+                />
+                <MultipleSelect
+                    search
+                    size="large"
+                    open
+                />
             </div>
             <div className="flex">
-                {createMultipleSelect({
-                    icon: <MagnifierIcon />,
-                    disabled: true
-                })}
+                <MultipleSelect
+                    icon={<MagnifierIcon />}
+                    disabled
+                />
             </div>
         </div>
     )
     .add("styling", () =>
         <div className="flex">
-            {createMultipleSelect({
-                wrapperClassName: "border-red mr5"
-            })}
-            {createMultipleSelect({
-                wrapperClassName: "mr5",
-                wrapperStyle: {
+            <MultipleSelect
+                wrapperClassName="border-red mr5"
+            />
+            <MultipleSelect
+                wrapperClassName="mr5"
+                wrapperStyle={{
                     border: "1px solid red"
-                }
-            })}
-            {createMultipleSelect({
-                wrapperClassName: "mr5",
-                className: "border-red"
-            })}
-            {createMultipleSelect({
-                style: {
+                }}
+            />
+            <MultipleSelect
+                wrapperClassName="mr5"
+                className="border-red"
+            />
+            <MultipleSelect
+                style={{
                     border: "1px solid red"
-                }
-            })}
+                }}
+            />
         </div>
     )
     .add("item avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <AvatarMultipleSelect
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    size="small"
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <AvatarMultipleSelect
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } },
-                        { ...FEMALE, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <AvatarMultipleSelect
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    size="large"
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <AvatarMultipleSelect
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("item icons", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
-                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "small",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <IconsMultipleSelect
+                    size="small"
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="small"
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="small"
+                    defaultValue={["Female"]}
+                    iconsPosition="right"
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="small"
+                    open
+                    wrapperClassName="mr5"
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
-                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <IconsMultipleSelect
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    defaultValue={["Female"]}
+                    iconsPosition="right"
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    open
+                    wrapperClassName="mr5"
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon />, iconsPosition: "right" },
-                        { ...FEMALE, icons: <CalendarIcon />, iconsPosition: "right" }
-                    ],
-                    defaultValue: ["Female"],
-                    wrapperClassName: "mr5"
-                })}
-                {createMultipleSelect({
-                    size: "large",
-                    options: [
-                        { ...MALE, icons: <CalendarIcon /> },
-                        { ...FEMALE, icons: <CalendarIcon /> }
-                    ],
-                    defaultOpen: true,
-                    wrapperClassName: "mr5"
-                })}
+                <IconsMultipleSelect
+                    size="large"
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="large"
+                    defaultValue={["Female"]}
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="large"
+                    defaultValue={["Female"]}
+                    iconsPosition="right"
+                    wrapperClassName="mr5"
+                />
+                <IconsMultipleSelect
+                    size="large"
+                    open
+                    wrapperClassName="mr5"
+                />
             </div>
         </div>
     );

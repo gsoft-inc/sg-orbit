@@ -1,27 +1,28 @@
 import { Select } from "@react-components/select";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import { waitDelay } from "@utils/wait-delay";
 
-const GENDERS = [
-    {
-        key: "Male",
-        text: "Male",
-        value: "Male"
-    },
-    {
-        key: "Female",
-        text: "Female",
-        value: "Female"
-    }
-];
-
-function createSelect(props = {}) {
-    return <Select
-        options={GENDERS}
-        {...props}
-    />;
-}
+const SimpleSelect = forwardRef((props, ref) => {
+    return (
+        <Select
+            {...props}
+            options={[
+                {
+                    key: "Male",
+                    text: "Male",
+                    value: "Male"
+                },
+                {
+                    key: "Female",
+                    text: "Female",
+                    value: "Female"
+                }
+            ]}
+            ref={ref}
+        />
+    );
+});
 
 function getDropdownMenu(container) {
     return container.querySelector("div.menu.visible");
@@ -30,7 +31,7 @@ function getDropdownMenu(container) {
 // ***** Behaviors *****
 
 test("open the select on spacebar keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+    const { getByTestId, container } = render(<SimpleSelect />);
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -46,7 +47,7 @@ test("open the select on spacebar keydown", async () => {
 });
 
 test("open the select on enter keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+    const { getByTestId, container } = render(<SimpleSelect />);
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -62,7 +63,7 @@ test("open the select on enter keydown", async () => {
 });
 
 test("close the select on spacebar keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+    const { getByTestId, container } = render(<SimpleSelect />);
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -84,7 +85,7 @@ test("close the select on spacebar keydown", async () => {
 });
 
 test("close the select on enter keydown", async () => {
-    const { getByTestId, container } = render(createSelect());
+    const { getByTestId, container } = render(<SimpleSelect />);
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -106,7 +107,7 @@ test("close the select on enter keydown", async () => {
 });
 
 test("can open the select on enter keydown after closing on blur", async () => {
-    const { getByTestId, container } = render(createSelect());
+    const { getByTestId, container } = render(<SimpleSelect />);
 
     const dropdownNode = getByTestId("dropdown");
 
@@ -138,36 +139,42 @@ test("can open the select on enter keydown after closing on blur", async () => {
 });
 
 test("when autofocus is true, the dropdown is autofocused on render", async () => {
-    const { getByTestId } = render(createSelect({
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect autofocus />
+    );
 
     await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when autofocus is true, the inline dropdown is autofocused on render", async () => {
-    const { getByTestId } = render(createSelect({
-        autofocus: true,
-        inline: true
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect
+            autofocus
+            inline
+        />
+    );
 
     await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
 test("when autofocus is true, the searchable dropdown is autofocused on render", async () => {
-    const { getByTestId } = render(createSelect({
-        autofocus: true,
-        search: true
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect
+            autofocus
+            search
+        />
+    );
 
     await waitFor(() => expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus());
 });
 
 test("when autofocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
-    const { getByTestId } = render(createSelect({
-        disabled: true,
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect
+            autofocus
+            disabled
+        />
+    );
 
     await waitDelay(5);
 
@@ -175,10 +182,12 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
 });
 
 test("when delayed autofocus, the dropdown is autofocused after the delay", async () => {
-    const { getByTestId } = render(createSelect({
-        autofocus: true,
-        autofocusDelay: 50
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect
+            autofocus
+            autofocusDelay={60}
+        />
+    );
 
     await waitDelay(5);
 
@@ -188,11 +197,13 @@ test("when delayed autofocus, the dropdown is autofocused after the delay", asyn
 });
 
 test("when delayed autofocus on a disabled dropdown, the dropdown is not autofocused after the delay", async () => {
-    const { getByTestId } = render(createSelect({
-        disabled: true,
-        autofocus: true,
-        autofocusDelay: 50
-    }));
+    const { getByTestId } = render(
+        <SimpleSelect
+            autofocus
+            autofocusDelay={60}
+            disabled
+        />
+    );
 
     await waitDelay(60);
 
@@ -205,9 +216,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createSelect({
-            ref
-        })
+        <SimpleSelect ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -220,11 +229,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createSelect({
-            ref: node => {
+        <SimpleSelect
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -238,9 +247,9 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createSelect({
-            ref: handler
-        })
+        <SimpleSelect
+            ref={handler}
+        />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
