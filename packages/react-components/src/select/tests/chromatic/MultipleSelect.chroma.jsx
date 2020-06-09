@@ -417,73 +417,43 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <AvatarMultipleSelect
                     size="small"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
                     size="small"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
                     size="small"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     open
-                    wrapperClassName="mr5"
                 />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <AvatarMultipleSelect
-                    style={{
-                        border: "1px solid red"
-                    }}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    style={{
-                        border: "1px solid red"
-                    }}
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    style={{
-                        border: "1px solid red"
-                    }}
                     open
-                    wrapperClassName="mr5"
                 />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <AvatarMultipleSelect
                     size="large"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
                     size="large"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
                     size="large"
-                    style={{
-                        border: "1px solid red"
-                    }}
                     open
-                    wrapperClassName="mr5"
                 />
             </div>
         </div>
