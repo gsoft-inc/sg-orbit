@@ -1,10 +1,10 @@
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
 import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useCallback } from "react";
 import { createContentIcon } from "../../icons";
 import { createCount } from "../../count";
-import { createLabel, getContentLabelSize } from "../../label";
+import { createEmbeddedLabel } from "../../label";
+import { forwardRef, useCallback } from "react";
 import { isArray, isNil } from "lodash";
 import { isElement } from "react-is";
 
@@ -102,19 +102,10 @@ function useIconsRenderer({ icons, size }) {
 
 function useLabelRenderer({ label, size }) {
     return () => {
-        const props = {
+        return createEmbeddedLabel(label, {
             as: "span",
-            size: getContentLabelSize(size),
+            size,
             highlight: true
-        };
-
-        if (isElement(label)) {
-            return cloneElement(label, props);
-        }
-
-        return createLabel({
-            ...props,
-            ...label
         });
     };
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
-import { Children, cloneElement, forwardRef, useCallback } from "react";
+import { Children, forwardRef, useCallback } from "react";
 import { EmbeddedIcon, StandaloneIcon } from "../../icons";
 import {
     SIZE,
@@ -14,9 +14,8 @@ import {
 } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
-import { createLabel, getContentLabelSize } from "../../label";
-import { createTag, getTagSize } from "../../tag";
-import { isElement } from "react-is";
+import { createEmbeddedLabel } from "../../label";
+import { createEmbeddedTag } from "../../tag";
 import { isNil } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
@@ -101,82 +100,50 @@ function useIconRenderer({ icon, size }, isStandalone) {
     };
 }
 
-// TODO: Change me once EmbeddedLabel exist and Label use `createShorthandFactory`
-function useLabelRenderer({ label, size, disabled }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getContentLabelSize(size || SIZE.medium),
-            highlight: true,
-            disabled: disabled
-        };
-
-        if (isElement(label)) {
-            return cloneElement(label, props);
-        }
-
-        return createLabel({
-            ...props,
-            ...label
-        });
-    };
-}
-
-// TODO: Change me once EmbeddedTag exist and Tag use `createShorthandFactory`
-function useTagRenderer({ tag, size, disabled }) {
-    return () => {
-        const props = {
-            as: "span",
-            size: getTagSize(size || SIZE.medium),
-            disabled: disabled
-        };
-
-        if (isElement(tag)) {
-            return cloneElement(tag, props);
-        }
-
-        return createTag({
-            ...props,
-            ...tag
-        });
-    };
-}
-
-function Content({ icon, iconPosition, label, tag, size, disabled, children }) {
+function Content({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
     const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-    const renderLabel = useLabelRenderer({ label, size, disabled });
-    const renderTag = useTagRenderer({ tag, size, disabled });
 
-    let left;
-    let right;
+    if (!loading) {
+        let left;
+        let right;
 
-    if (!isNil(icon)) {
-        if (iconPosition === "right") {
-            right = renderIcon();
-        } else {
-            left = renderIcon();
+        if (!isNil(icon)) {
+            if (iconPosition === "right") {
+                right = renderIcon();
+            } else {
+                left = renderIcon();
+            }
+        }
+
+        if (!isNil(label)) {
+            right = createEmbeddedLabel(label, {
+                as: "span",
+                size,
+                highlight: true,
+                disabled: disabled
+            });
+        }
+
+        if (!isNil(tag)) {
+            left = createEmbeddedTag(tag, {
+                as: "span",
+                size,
+                disabled: disabled
+            });
+        }
+
+        if (!isNil(left) || !isNil(right)) {
+            return (
+                <>
+                    {!isNil(left) && left}
+                    {children}
+                    {!isNil(right) && right}
+                </>
+            );
         }
     }
 
-    if (!isNil(label)) {
-        right = renderLabel();
-    }
-
-    if (!isNil(tag)) {
-        left = renderTag();
-    }
-
-    if (!isNil(left) || !isNil(right)) {
-        return (
-            <>
-                {!isNil(left) && left}
-                {children}
-                {!isNil(right) && right}
-            </>
-        );
-    }
-
-    return children;
+    return children || null;
 }
 
 export function InnerButton(props) {
@@ -238,11 +205,9 @@ export function InnerButton(props) {
                     className)
                 }
             >
-                <If condition={!loading}>
-                    <Content icon={icon} iconPosition={iconPosition} label={label} tag={tag} size={size} disabled={disabled}>
-                        {children}
-                    </Content>
-                </If>
+                <Content icon={icon} iconPosition={iconPosition} label={label} tag={tag} size={size} loading={loading} disabled={disabled}>
+                    {children}
+                </Content>
             </SemanticButton>
         </SemanticRef>
     );

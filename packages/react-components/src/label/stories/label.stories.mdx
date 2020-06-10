@@ -5,7 +5,7 @@ import { InnerLabel, Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Tag } from "@react-components/tag";
-import Imports from "./imports.mdx";
+import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Label")}
@@ -201,7 +201,7 @@ A naked label can have a custom color.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Label />} />
+    <RefLogger component={<Label>Notification Sent</Label>} />
 </Story>
 
 
