@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     padding: @verticalPadding 0 (@verticalPadding + @shadowOffset);
+    transition: box-shadow .15s ease-in;
 }
 
 /* Reset appaearance when button is used as an anchor */
