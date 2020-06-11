@@ -1,6 +1,6 @@
 import { Toggle } from "@react-components/toggle";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createSharedStories } from "./shared-stories";
+import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Toggle"))
@@ -12,6 +12,6 @@ function stories(segment) {
         .build();
 }
 
-createSharedStories(<Toggle />, stories("/unchecked"));
+createTestSuite(<Toggle />, stories("/unchecked"));
 
-createSharedStories(<Toggle defaultChecked />, stories("/checked"));
+createTestSuite(<Toggle defaultChecked />, stories("/checked"));

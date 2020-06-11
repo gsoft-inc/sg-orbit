@@ -60,7 +60,7 @@ function Labels({ element, ...rest }) {
     );
 }
 
-export function createSharedStories(checkbox, stories) {
+export function createTestSuite(checkbox, stories) {
     return stories
         .add("text", () =>
             <div className="flex">

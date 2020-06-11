@@ -1,6 +1,6 @@
 import { Radio } from "@react-components/radio";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createSharedStories } from "./shared-stories";
+import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Radio"))
@@ -12,6 +12,6 @@ function stories(segment) {
         .build();
 }
 
-createSharedStories(<Radio />, stories("/unchecked"));
+createTestSuite(<Radio />, stories("/unchecked"));
 
-createSharedStories(<Radio defaultChecked />, stories("/checked"));
+createTestSuite(<Radio defaultChecked />, stories("/checked"));

@@ -83,7 +83,7 @@ function Counts({ element, ...rest }) {
     );
 }
 
-export function createSharedStories(radio, stories) {
+export function createTestSuite(radio, stories) {
     return stories
         .add("text", () =>
             <div className="flex">

@@ -23,3 +23,4 @@ export * from "./get-size-class";
 export * from "./create-chained-function";
 export * from "./merge-refs";
 export * from "./augment-element";
+export * from "./concat-markup";

@@ -2,7 +2,7 @@ import { Checkbox } from "@react-components/checkbox";
 import { Count } from "@react-components/count";
 import { Label } from "@react-components/label";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createSharedStories } from "./shared-stories";
+import { createTestSuite } from "./createTestSuite";
 import { isNil } from "lodash";
 
 function stories(segment) {
@@ -15,11 +15,11 @@ function stories(segment) {
         .build();
 }
 
-createSharedStories(<Checkbox />, stories("/unchecked"));
+createTestSuite(<Checkbox />, stories("/unchecked"));
 
-createSharedStories(<Checkbox defaultChecked />, stories("/checked"));
+createTestSuite(<Checkbox defaultChecked />, stories("/checked"));
 
-createSharedStories(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
+createTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
 
 function setRedBackground(element) {
     if (!isNil(element)) {

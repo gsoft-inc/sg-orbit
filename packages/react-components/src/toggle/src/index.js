@@ -1,1 +1,1 @@
-export * from "./toggle";
+export * from "./Toggle";
