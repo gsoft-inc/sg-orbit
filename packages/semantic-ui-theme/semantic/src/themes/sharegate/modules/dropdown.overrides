@@ -129,7 +129,6 @@
 /* LAYOUT | Inline | Text | STATE | Hover/Focus */
 .ui.dropdown.inline:focus,
 .ui.dropdown.inline.focus {
-    color: @marine500;
     background-color: var(--primary-50) !important;
     border-radius: 2px;
 }
@@ -137,11 +136,7 @@
 .ui.dropdown.inline:hover > .default.text,
 .ui.dropdown.inline:hover > .text,
 .ui.dropdown.inline.hover > .default.text,
-.ui.dropdown.inline.hover > .text,
-.ui.dropdown.inline:focus > .default.text,
-.ui.dropdown.inline:focus > .text,
-.ui.dropdown.inline.focus > .default.text,
-.ui.dropdown.inline.focus > .text {
+.ui.dropdown.inline.hover > .text {
     color: @marine500;
 }
 
@@ -160,6 +155,14 @@
     width: 100%;
     background-color: transparent;
     outline: 0;
+}
+
+.ui.dropdown .menu > .item span.text,
+.ui.dropdown .menu > .item span.description {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ui.selection.dropdown .menu > .item {
@@ -239,6 +242,7 @@
     width: 1em;
     height: 1em;
     max-height: none;
+    font-size: inherit;
 }
 
 .ui.dropdown .menu > .item span {
@@ -376,18 +380,26 @@
     font-weight: 400;
 }
 
-.ui.dropdown.selection[aria-checked="true"]::before,
-.ui.dropdown.selection .menu [aria-checked="true"].item::before,
-.ui.dropdown.inline[aria-checked="true"]::before,
-.ui.dropdown.inline .menu [aria-checked="true"].item::before {
+.ui.dropdown.selection::before,
+.ui.dropdown.selection .menu .item::before,
+.ui.dropdown.inline::before,
+.ui.dropdown.inline .menu .item::before {
     position: absolute;
     content: "";
     display: block;
     width: var(--scale-alpha);
     height: 100%;
-    background-color: @primary500;
+    background-color: transparent;
     top: 0;
     left: 0;
+    transition: background-color .15s ease-in;
+}
+
+.ui.dropdown.selection[aria-checked="true"]::before,
+.ui.dropdown.selection .menu [aria-checked="true"].item::before,
+.ui.dropdown.inline[aria-checked="true"]::before,
+.ui.dropdown.inline .menu [aria-checked="true"].item::before {
+    background-color: @primary500;
 }
 
 /* STATE | Selected | Checked | SIZE | Small */
@@ -578,16 +590,8 @@
 
 /* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Hover/Focus */
 .ui.dropdown.selection:hover .dropdown.icon,
-.ui.dropdown.selection:focus .dropdown.icon ,
-.ui.dropdown.selection.focus .dropdown.icon,
 .ui.dropdown.selection.hover .dropdown.icon {
     background-color: @marine500;
-}
-
-/* SKIN | Selection | CONTENT | Icon - Arrow Down | STATE | Focus */
-.ui.dropdown.transparent:focus .text,
-.ui.dropdown.transparent.focus .text {
-    color: var(--marine-500);
 }
 
 .ui.dropdown.transparent:focus .active .text {
@@ -616,8 +620,6 @@
 
 /* LAYOUT | Inline | STATE | Hover/Focus */
 .ui.dropdown.inline:hover > .dropdown.icon,
-.ui.dropdown.inline:focus > .dropdown.icon,
-.ui.dropdown.inline.focus > .dropdown.icon,
 .ui.dropdown.inline.hover > .dropdown.icon {
     background-color: @marine500;
 }
@@ -1089,6 +1091,20 @@
     margin-left: calc(-1 * var(--scale-foxtrot) / 2 - 2px);
 }
 
+/* With Icon */
+.ui.multiple.dropdown.with-icon > .label:first-child {
+    margin-left: calc(-1 * var(--scale-charlie) / 2 - 2px);
+}
+
+.ui.multiple.dropdown.with-icon.small > .label:first-child {
+    margin-left: calc(-1 * var(--scale-bravo) / 2 - 2px);
+}
+
+.ui.multiple.dropdown.with-icon.large > .label:first-child {
+    margin-left: calc(-1 * var(--scale-delta) / 2 - 2px);
+}
+
+
 .ui.multiple.dropdown.transparent > .label:first-child {
     margin-left: 0;
 }
@@ -1134,6 +1150,7 @@
     box-shadow: 0px 0px 1px 0 var(--cloud-400) inset;
     padding-right: var(--scale-delta);
     color: @marine200;
+    background-color: var(--cloud-100);
 }
 
 .ui.multiple.dropdown > .label span {
@@ -1287,15 +1304,15 @@
 
 /* Size Icon Clear */
 .ui.dropdown.selection.transparent.small > .dropdown.icon.clear {
-    mask-size: var(--scale-delta) var(--scale-delta)!important;
+    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
 }
 
 .ui.dropdown.selection.transparent > .dropdown.icon.clear {
-    mask-size: var(--scale-foxtrot) var(--scale-foxtrot)!important;
+    mask-size: var(--scale-delta) var(--scale-delta)!important;
 }
 
 .ui.dropdown.selection.transparent.large > .dropdown.icon.clear {
-    mask-size: var(--scale-golf) var(--scale-golf)!important;
+    mask-size: var(--scale-echo) var(--scale-echo)!important;
 }
 
 /* Size Avatar Selected */
