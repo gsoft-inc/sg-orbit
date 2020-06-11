@@ -112,18 +112,19 @@ export function InnerInput(props) {
         return domElement;
     });
 
-    const canRenderIcon = !isNil(icon) && !loading;
+    const iconMarkup = !isNil(icon) && !loading && (
+        <EmbeddedIcon icon={icon} size={size} />
+    );
+
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");
 
-    const renderButton = () => {
-        return createEmbeddedButton(button, {
-            size,
-            circular: true,
-            ghost: true,
-            secondary: true,
-            className: "input-clear-button"
-        });
-    };
+    const buttonMarkup = canRenderButton && createEmbeddedButton(button, {
+        size,
+        circular: true,
+        ghost: true,
+        secondary: true,
+        className: "input-clear-button"
+    });
 
     return (
         <div
@@ -141,7 +142,7 @@ export function InnerInput(props) {
             <SemanticInput
                 {...rest}
                 {...autofocusProps}
-                icon={canRenderIcon ? <EmbeddedIcon icon={icon} size={size} /> : undefined}
+                icon={iconMarkup || undefined}
                 iconPosition={iconPosition === "left" ? "left" : undefined}
                 fluid={fluid}
                 focus={focus}
@@ -155,7 +156,7 @@ export function InnerInput(props) {
                 )}
                 ref={inputComponentRef}
             />
-            {canRenderButton && renderButton()}
+            {buttonMarkup}
         </div>
     );
 }

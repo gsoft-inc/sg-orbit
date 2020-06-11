@@ -289,12 +289,12 @@ export function InnerSelect(props) {
                         onBlur={handleBlur}
                         onChange={handleChange}
                         className={mergeClasses(
-                            getSizeClass(size),
                             !isNil(icon) && "with-icon",
                             transparent && "transparent",
                             active && "active",
                             focus && "focus",
                             hover && "hover",
+                            getSizeClass(size),
                             className
                         )}
                         ref={dropdownComponentRef}

@@ -1,6 +1,6 @@
 import { EmbeddedIcon } from "../../icons";
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { SemanticRef, concatMarkup, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
 import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createCount } from "../../count";
 import { createEmbeddedLabel } from "../../label";
@@ -87,6 +87,12 @@ export function InnerCheckbox(props) {
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
+    const textMarkup = !isNil(text) && (
+        <span className="text">
+            {text}
+        </span>
+    );
+
     const iconsMarkup = !isNil(icons) && (
         <>
             {(Array.isArray(icons) ? icons : [icons]).map(
@@ -105,16 +111,16 @@ export function InnerCheckbox(props) {
 
     const countMarkup = !isNil(count) && createCount(count);
 
-    const rightMarkup = concatMarkup(iconsMarkup, labelMarkup, countMarkup);
-
-    const textMarkup = !isNil(text) && (
-        <span className="text">{text}</span>
+    const markup = (!isNil(textMarkup) || !isNil(iconsMarkup) || !isNil(labelMarkup) || !isNil(countMarkup)) && (
+        <>
+            {textMarkup}
+            {iconsMarkup}{labelMarkup}{countMarkup}
+        </>
     );
 
-    const content = (!isNil(textMarkup) || !isNil(rightMarkup)) && (
+    const content = markup && (
         <label title={text || ""}>
-            {textMarkup}
-            {rightMarkup}
+            {markup}
         </label>
     );
 

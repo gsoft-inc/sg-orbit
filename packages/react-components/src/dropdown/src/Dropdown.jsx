@@ -132,7 +132,7 @@ export function InnerDropdown(props) {
         active,
         focus,
         hover,
-        // Speading on the trigger for convenience since a basic dropdown trigger is made of a "title" prop.
+        // Spreading on the trigger for convenience since a basic dropdown trigger is rendered by default when a "title" prop is provided.
         ...rest
     });
 

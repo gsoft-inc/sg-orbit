@@ -14,37 +14,16 @@ const propTypes = {
     icon: element
 };
 
-function Text({ children }) {
-    return <span className="text">{children}</span>;
-}
-
-function Content({ icon, children }) {
-    const { size } = useContext(DropdownContext);
-
-    let left;
-
-    if (!isNil(icon)) {
-        left = <EmbeddedIcon icon={icon} size={size} />;
-    }
-
-    return (
-        <>
-            {!isNil(left) && left}
-            <Text>{children}</Text>
-        </>
-    );
-}
-
 export function InnerDropdownHeader(props) {
     const { icon, children, forwardedRef, ...rest } = props;
+    const { size } = useContext(DropdownContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownHeader");
 
     return (
         <Dropdown.Header {...rest} ref={forwardedRef}>
-            <Content icon={icon}>
-                {children}
-            </Content>
+            {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
+            <span className="text">{children}</span>
         </Dropdown.Header>
     );
 }

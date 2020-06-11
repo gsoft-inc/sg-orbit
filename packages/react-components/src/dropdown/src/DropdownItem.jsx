@@ -32,36 +32,9 @@ const propTypes = {
     icon: element
 };
 
-function Text({ children }) {
-    return <span className="text">{children}</span>;
-}
-
-function Description({ children }) {
-    return <span className="description">{children}</span>;
-}
-
-function Content({ text: legacyText, icon, description, children }) {
-    const { size } = useContext(DropdownContext);
-
-    let left;
-
-    if (!isNil(icon)) {
-        left = <EmbeddedIcon icon={icon} size={size} />;
-    }
-
-    const text = legacyText || children;
-
-    return (
-        <>
-            {!isNil(left) && left}
-            {!isNil(text) && <Text>{text}</Text>}
-            {!isNil(description) && <Description>{description}</Description>}
-        </>
-    );
-}
-
 export function InnerDropdownItem(props) {
-    const { text, icon, description, onClick, focus, hover, children, forwardedRef, ...rest } = props;
+    const { text: legacyText, icon, description, onClick, focus, hover, children, forwardedRef, ...rest } = props;
+    const { size } = useContext(DropdownContext);
     const { onItemClick } = useContext(DropdownMenuContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
@@ -74,6 +47,8 @@ export function InnerDropdownItem(props) {
         }
     });
 
+    const text = legacyText || children;
+
     return (
         <SemanticRef innerRef={forwardedRef}>
             <SemanticDropdown.Item
@@ -85,9 +60,9 @@ export function InnerDropdownItem(props) {
                 onClick={handleClick}
                 tabIndex="-1"
             >
-                <Content text={text} icon={icon} description={description}>
-                    {children}
-                </Content>
+                {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
+                {!isNil(text) && <span className="text">{text}</span>}
+                {!isNil(description) && <span className="description">{children}</span>}
             </SemanticDropdown.Item>
         </SemanticRef>
     );
