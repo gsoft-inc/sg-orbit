@@ -300,42 +300,36 @@ export function usePopperTrigger(props) {
         }
     }, [isVisible, focusFirstElementOnKeyboardShow, setFocusPopper, lastTriggerEventRef]);
 
-    const renderPopper = content => {
-        if (!isNil(triggerElement)) {
-            return createPopper(popper, {
-                show: isVisible,
-                triggerElement,
-                position,
-                pinned,
-                noWrap,
-                offset,
-                disabled,
-                popperModifiers,
-                popperOptions,
-                portalContainerElement,
-                noPortal,
-                animate,
-                style: {
-                    zIndex
-                },
-                children: content,
-                ref: setPopperElement
-            });
-        }
-    };
-
-    const renderTrigger = () => {
-        return augmentElement(trigger, {
-            [toggleHandler]: handleTriggerToggle,
-            onKeyDown: handleTriggerKeyDown,
-            ref: setTriggerElement
-        });
-    };
-
     const handleWrapperFocus = useEventCallback(createChainedFunction(handleFocus, onFocus));
     const handleWrapperBlur = useEventCallback(createChainedFunction(handleBlur, onBlur));
 
     const render = content => {
+        const popperMarkup = !isNil(triggerElement) && createPopper(popper, {
+            show: isVisible,
+            triggerElement,
+            position,
+            pinned,
+            noWrap,
+            offset,
+            disabled,
+            popperModifiers,
+            popperOptions,
+            portalContainerElement,
+            noPortal,
+            animate,
+            style: {
+                zIndex
+            },
+            children: content,
+            ref: setPopperElement
+        });
+
+        const triggerMarkup = augmentElement(trigger, {
+            [toggleHandler]: handleTriggerToggle,
+            onKeyDown: handleTriggerKeyDown,
+            ref: setTriggerElement
+        });
+
         return (
             <PopperTriggerContext.Provider
                 value={{
@@ -358,8 +352,8 @@ export function usePopperTrigger(props) {
                     )}
                     ref={wrapperRef}
                 >
-                    {renderTrigger()}
-                    {renderPopper(content)}
+                    {triggerMarkup}
+                    {popperMarkup}
                 </div>
             </PopperTriggerContext.Provider>
         );

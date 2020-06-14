@@ -111,16 +111,10 @@ export function InnerCheckbox(props) {
 
     const countMarkup = !isNil(count) && createCount(count);
 
-    const markup = (!isNil(textMarkup) || !isNil(iconsMarkup) || !isNil(labelMarkup) || !isNil(countMarkup)) && (
-        <>
+    const content = (!isNil(textMarkup) || !isNil(iconsMarkup) || !isNil(labelMarkup) || !isNil(countMarkup)) && (
+        <label title={text || ""}>
             {textMarkup}
             {iconsMarkup}{labelMarkup}{countMarkup}
-        </>
-    );
-
-    const content = markup && (
-        <label title={text || ""}>
-            {markup}
         </label>
     );
 

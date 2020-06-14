@@ -1,5 +1,5 @@
 import { Tooltip } from "@react-components/tooltip";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 function createTooltip(props = {}) {
@@ -11,15 +11,25 @@ function createTooltip(props = {}) {
     />;
 }
 
+const SimpleTooltip = forwardRef((props, ref) => {
+    return (
+        <Tooltip
+            {...props}
+            content="Adds users to your feed"
+            open
+            trigger={<span>Add</span>}
+            ref={ref}
+        />
+    );
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createTooltip({
-            ref
-        })
+        <SimpleTooltip ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -32,11 +42,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createTooltip({
-            ref: node => {
+        <SimpleTooltip
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -49,9 +59,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createTooltip({
-            ref: handler
-        })
+        <SimpleTooltip ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

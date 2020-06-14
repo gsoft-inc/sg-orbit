@@ -97,41 +97,17 @@ const MULTIPLE_VALUES_LABEL_SIZE = {
 
 function useMultipleValuesLabelRenderer({ size }) {
     return ({ text, avatar, icons, iconsPosition }, index, { className, ...rest }) => {
-        let content = text;
-        let additionalClasses = "";
+        const avatarMarkup = !isNil(avatar) && renderAvatar(avatar);
 
-        if (!isNil(avatar)) {
-            content = (
-                <>
-                    {renderAvatar(avatar)}
-                    {text}
-                </>
-            );
+        const iconsMarkup = !isNil(icons) && renderIcons(icons, size);
 
-            additionalClasses = "with-avatar";
-        } else if (!isNil(icons)) {
-            let left = null;
-            let right = null;
-
-            if (iconsPosition === "right") {
-                right = renderIcons(icons, size);
-            } else {
-                left = renderIcons(icons, size);
-            }
-
-            content = (
-                <>
-                    {!isNil(left) && left}
-                    <span className="mr1">{text}</span>
-                    {!isNil(right) && right}
-                </>
-            );
-
-            additionalClasses = mergeClasses(
-                "with-icons",
-                iconsPosition === "right" ? "with-icons-right" : "with-icons-left"
-            );
-        }
+        const content = (
+            <>
+                {iconsPosition === "left" && iconsMarkup}{avatarMarkup}
+                {text}
+                {iconsPosition === "right" && iconsMarkup}
+            </>
+        );
 
         return (
             <Label
@@ -139,7 +115,9 @@ function useMultipleValuesLabelRenderer({ size }) {
                 content={content}
                 size={MULTIPLE_VALUES_LABEL_SIZE[size || SIZE.medium]}
                 className={mergeClasses(
-                    additionalClasses,
+                    !isNil(avatar) && "with-avatar",
+                    !isNil(icons) && iconsPosition === "left" && "with-icons-left",
+                    !isNil(icons) && iconsPosition === "right" && "with-icons-right",
                     className
                 )}
             />

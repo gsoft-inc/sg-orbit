@@ -49,6 +49,26 @@ export function InnerDropdownItem(props) {
 
     const text = legacyText || children;
 
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon icon={icon} size={size} />
+    );
+
+    const textMarkup = !isNil(text) && (
+        <span className="text">{text}</span>
+    );
+
+    const descriptionMarkup = !isNil(description) && (
+        <span className="description">{children}</span>
+    );
+
+    const content = (
+        <>
+            {iconMarkup}
+            {textMarkup}
+            {descriptionMarkup}
+        </>
+    );
+
     return (
         <SemanticRef innerRef={forwardedRef}>
             <SemanticDropdown.Item
@@ -60,9 +80,7 @@ export function InnerDropdownItem(props) {
                 onClick={handleClick}
                 tabIndex="-1"
             >
-                {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
-                {!isNil(text) && <span className="text">{text}</span>}
-                {!isNil(description) && <span className="description">{children}</span>}
+                {content}
             </SemanticDropdown.Item>
         </SemanticRef>
     );
