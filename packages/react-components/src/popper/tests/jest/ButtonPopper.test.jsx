@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { PopperTrigger } from "@react-components/popper";
+import { ButtonPopper } from "@react-components/popper";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef } from "react";
 import userEvent from "@utils/user-event";
@@ -7,18 +7,18 @@ import userEvent from "@utils/user-event";
 const BUTTON_ID = "button";
 const POPPER_ID = "popper-wrapper";
 
-const SimplePopperTrigger = forwardRef(({
+const SimpleButtonPopper = forwardRef(({
     button = <Button>Click me</Button>,
     ...rest
 }, ref) => {
     return (
-        <PopperTrigger.Button
+        <ButtonPopper
             {...rest}
             button={button}
             ref={ref}
         >
             <div>Popper</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     );
 });
 
@@ -26,7 +26,7 @@ const SimplePopperTrigger = forwardRef(({
 
 test("show the popper on button click", async () => {
     const { getByTestId } = render(
-        <SimplePopperTrigger />
+        <SimpleButtonPopper />
     );
 
     act(() => {
@@ -38,7 +38,7 @@ test("show the popper on button click", async () => {
 
 test("hide the popper on button click", async () => {
     const { getByTestId } = render(
-        <SimplePopperTrigger />
+        <SimpleButtonPopper />
     );
 
     act(() => {
@@ -60,7 +60,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger ref={ref} />
+        <SimpleButtonPopper ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -74,7 +74,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimplePopperTrigger
+        <SimpleButtonPopper
             ref={node => {
                 refNode = node;
             }}
@@ -92,7 +92,7 @@ test("can assign a ref to a button", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger
+        <SimpleButtonPopper
             button={<Button ref={ref}>Click me</Button>}
         />
     );

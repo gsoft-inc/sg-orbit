@@ -1,11 +1,9 @@
 /* eslint-disable react/no-unused-prop-types */
 
 import { Popper } from "./Popper";
-import { PopperButtonTrigger } from "./PopperButtonTrigger";
-import { PopperTextInputTrigger } from "./PopperTextInputTrigger";
 import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { usePopperTrigger } from "./usePopperTrigger";
+import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const SHARED_POPPER_PROP_TYPES = {
@@ -166,21 +164,16 @@ const defaultProps = {
     popper: Popper
 };
 
-export function InnerPopperTrigger({ children, ...rest }) {
-    const { renderPopper } = usePopperTrigger(rest);
+export function InnerAutoControlledPopper({ children, ...rest }) {
+    const { renderPopper } = useAutoControlledPopper(rest);
 
     // Without a fragment, react-docgen doesn't work.
     return <>{renderPopper(children)}</>;
 }
 
-InnerPopperTrigger.propTypes = propTypes;
-InnerPopperTrigger.defaultProps = defaultProps;
+InnerAutoControlledPopper.propTypes = propTypes;
+InnerAutoControlledPopper.defaultProps = defaultProps;
 
-export const PopperTrigger = forwardRef((props, ref) => (
-    <InnerPopperTrigger {...props} forwardedRef={ref} />
+export const AutoControlledPopper = forwardRef((props, ref) => (
+    <InnerAutoControlledPopper {...props} forwardedRef={ref} />
 ));
-
-[InnerPopperTrigger, PopperTrigger].forEach(x => {
-    x.Button = PopperButtonTrigger;
-    x.TextInput = PopperTextInputTrigger;
-});

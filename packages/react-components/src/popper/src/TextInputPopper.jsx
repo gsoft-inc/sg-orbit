@@ -1,4 +1,4 @@
-import { PopperTrigger } from "./PopperTrigger";
+import { AutoControlledPopper } from "./AutoControlledPopper";
 import { augmentElementProps, useEventCallback } from "../../shared";
 import { createTextInput } from "../../text-input";
 import { element, object, oneOfType } from "prop-types";
@@ -13,25 +13,14 @@ const propTypes = {
     input: oneOfType([element, object]).isRequired
 };
 
-function useInput(input, buttonRef) {
-    const button = isElement(input) ? input.props.button : input.button;
-    const augmentedButton = isNil(button) ? button : augmentElementProps(button, {
-        ref: buttonRef
-    });
-
-    return createTextInput(input, {
-        button: augmentedButton
-    });
-}
-
-export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...rest }) {
-    const buttonRef = useRef();
+export function InnerTextInputPopper({ input, onClick, forwardedRef, ...rest }) {
+    const inputButtonRef = useRef();
 
     const handleClick = useEventCallback(() => {
         let canPropagate = true;
 
-        if (!isNil(buttonRef.current)) {
-            canPropagate = !buttonRef.current.contains(event.target);
+        if (!isNil(inputButtonRef.current)) {
+            canPropagate = !inputButtonRef.current.contains(event.target);
         }
 
         if (canPropagate) {
@@ -41,10 +30,18 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
         }
     });
 
-    const trigger = useInput(input, buttonRef);
+    const inputButton = isElement(input) ? input.props.button : input.button;
+
+    const augmentedInputButton = isNil(inputButton) ? inputButton : augmentElementProps(inputButton, {
+        ref: inputButtonRef
+    });
+
+    const trigger = createTextInput(input, {
+        button: augmentedInputButton
+    });
 
     return (
-        <PopperTrigger
+        <AutoControlledPopper
             {...rest}
             trigger={trigger}
             toggleHandler="onClick"
@@ -54,8 +51,8 @@ export function InnerPopperTextInputTrigger({ input, onClick, forwardedRef, ...r
     );
 }
 
-InnerPopperTextInputTrigger.propTypes = propTypes;
+InnerTextInputPopper.propTypes = propTypes;
 
-export const PopperTextInputTrigger = forwardRef((props, ref) => (
-    <InnerPopperTextInputTrigger {...props} forwardedRef={ref} />
+export const TextInputPopper = forwardRef((props, ref) => (
+    <InnerTextInputPopper {...props} forwardedRef={ref} />
 ));

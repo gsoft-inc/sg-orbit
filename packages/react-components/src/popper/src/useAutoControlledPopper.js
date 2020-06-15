@@ -1,3 +1,4 @@
+import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import {
     KEYS,
     augmentElement,
@@ -9,13 +10,12 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Popper, createPopper } from "./Popper";
-import { PopperTriggerContext } from "./PopperTriggerContext";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function throwWhenMutuallyExclusivePropsAreProvided({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
-        throw new Error("PopperTrigger - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
+        throw new Error("AutoControlledPopper - \"focusTriggerOnShow\" and \"focusFirstElementOnKeyboardShow\" props cannot be both \"true\".");
     }
 }
 
@@ -110,7 +110,7 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
     ];
 }
 
-export function usePopperTrigger(props) {
+export function useAutoControlledPopper(props) {
     const {
         show,
         defaultShow,
@@ -331,7 +331,7 @@ export function usePopperTrigger(props) {
         });
 
         return (
-            <PopperTriggerContext.Provider
+            <AutoControlledPopperContext.Provider
                 value={{
                     isVisible,
                     position
@@ -355,7 +355,7 @@ export function usePopperTrigger(props) {
                     {triggerMarkup}
                     {popperMarkup}
                 </div>
-            </PopperTriggerContext.Provider>
+            </AutoControlledPopperContext.Provider>
         );
     };
 
