@@ -308,6 +308,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                     }
                 }
             } else {
+                this.hideLoading();
                 this.close(event);
                 this.setState({ results: [] });
             }
