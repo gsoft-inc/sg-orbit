@@ -2,12 +2,6 @@ import { Tag } from "@react-components/tag";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-function createTag(props = {}) {
-    return <Tag
-        {...props}
-    />;
-}
-
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

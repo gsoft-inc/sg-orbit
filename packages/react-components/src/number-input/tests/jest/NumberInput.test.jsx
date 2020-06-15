@@ -3,12 +3,6 @@ import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-delay";
 
-function createNumberInput(props = {}) {
-    return <NumberInput
-        {...props}
-    />;
-}
-
 function getNumberInput(getByTestId) {
     const searchInputNode = getByTestId("input");
 

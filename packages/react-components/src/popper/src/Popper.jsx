@@ -173,7 +173,6 @@ export function InnerPopper({
     if (disabled) {
         return null;
     }
-
     const wrapPopper = popper => {
         return (
             <div
@@ -190,32 +189,28 @@ export function InnerPopper({
         );
     };
 
-    const renderPopper = () => {
-        const popper = Children.only(children);
-
-        return augmentElement(!noWrap ? wrapPopper(popper) : popper, {
-            style: {
-                ...style,
-                ...popperStyles,
-                display: show ? "block" : "none",
-                animation: animate ? "o-ui-popper-fade-in 0.3s" : undefined
-            },
-            ...popperAttributes,
-            ref: popperRef
-        });
-    };
+    const popperContent = Children.only(children);
 
     // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being shown, he will remain "hidden"
     // even when the popper is visible.
-    const popper = show ? renderPopper() : null;
+    const popperMarkup = show && augmentElement(!noWrap ? wrapPopper(popperContent) : popperContent, {
+        style: {
+            ...style,
+            ...popperStyles,
+            display: show ? "block" : "none",
+            animation: animate ? "o-ui-popper-fade-in 0.3s" : undefined
+        },
+        ...popperAttributes,
+        ref: popperRef
+    });
 
     return (
         <Choose>
             <When condition={noPortal}>
-                {popper}
+                {popperMarkup}
             </When>
             <Otherwise>
-                {createPortal(popper, portalElement || window.document.body)}
+                {createPortal(popperMarkup, portalElement || window.document.body)}
             </Otherwise>
         </Choose>
     );

@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Children, forwardRef } from "react";
-import { EmbeddedIcon, StandaloneIcon } from "../../icons";
+import { EmbeddedIcon } from "../../icons";
 import { SIZE, SemanticRef, createShorthandFactory, createShorthandFactoryForEmbedded, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, object, oneOf, oneOfType } from "prop-types";
@@ -77,72 +77,38 @@ function throwWhenUnsupportedSizeIsProvided({ circular, size }) {
     }
 }
 
-function hasText(children) {
-    return Children.count(children) > 0;
-}
-
-function useIconRenderer({ icon, size }, isStandalone) {
-    return () => {
-        const Component = isStandalone ? StandaloneIcon : EmbeddedIcon;
-
-        return (
-            <Component
-                icon={icon}
-                size={size}
-            />
-        );
-    };
-}
-
-function Content({ button, icon, iconPosition, tag, size, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-
-    let left;
-    let right;
-
-    if (!isNil(icon)) {
-        if (iconPosition === "right") {
-            right = renderIcon();
-        } else {
-            left = renderIcon();
-        }
-    }
-
-    if (!isNil(button)) {
-        right = createEmbeddedButton(button, {
-            size,
-            circular: true,
-            ghost: true,
-            secondary: true
-        });
-    }
-
-    if (!isNil(tag)) {
-        left = createEmbeddedTag(tag, {
-            as: "span",
-            size
-        });
-    }
-
-    if (!isNil(left) || !isNil(right)) {
-        return (
-            <>
-                {!isNil(left) && left}
-                {children}
-                {!isNil(right) && right}
-            </>
-        );
-    }
-
-    return children || null;
-}
-
 export function InnerLabel(props) {
     const { naked, button, compact, icon, iconPosition, tag, highlight, disabled, size, className, children, forwardedRef, ...rest } = props;
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Label");
     throwWhenMutuallyExclusivePropsAreProvided(props);
     throwWhenUnsupportedSizeIsProvided(props);
+
+    const hasText = Children.count(children) > 0;
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
+    );
+
+    const buttonMarkup = !isNil(button) && createEmbeddedButton(button, {
+        size,
+        circular: true,
+        ghost: true,
+        secondary: true
+    });
+
+    const tagMarkup = !isNil(tag) && createEmbeddedTag(tag, {
+        as: "span",
+        size
+    });
+
+    const content = (
+        <>
+            {iconPosition === "left" && iconMarkup}{tagMarkup}
+            {children}
+            {iconPosition === "right" && iconMarkup}{buttonMarkup}
+        </>
+    );
 
     return (
         <SemanticRef innerRef={forwardedRef}>
@@ -158,13 +124,11 @@ export function InnerLabel(props) {
                     !isNil(icon) && "with-icon",
                     !isNil(icon) && iconPosition === "right" && "with-icon-right",
                     !isNil(tag) && "with-tag",
-                    !hasText(children) && "without-text",
+                    !hasText && "without-text",
                     className
                 )}
             >
-                <Content button={button} icon={icon} iconPosition={iconPosition} tag={tag} size={size}>
-                    {children}
-                </Content>
+                {content}
             </SemanticLabel>
         </SemanticRef>
     );

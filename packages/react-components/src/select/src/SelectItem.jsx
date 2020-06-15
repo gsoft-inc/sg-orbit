@@ -51,61 +51,49 @@ function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avat
     }
 }
 
-function Text({ hasRightContent, children }) {
-    return (
-        <span
-            className={mergeClasses(
-                "text",
-                hasRightContent && "mr1"
-            )}
-        >
-            {children}
-        </span>
-    );
-}
-
-function Description({ children }) {
-    return <span className="description">{children}</span>;
-}
-
-function Content({ icons, iconsPosition, avatar, description, size, children }) {
-    let left;
-    let right;
-
-    if (!isNil(icons)) {
-        if (iconsPosition === "right") {
-            right = renderIcons(icons, size);
-        } else {
-            left = renderIcons(icons, size);
-        }
-    }
-
-    if (!isNil(avatar)) {
-        left = renderAvatar(avatar, size);
-    }
-
-    return (
-        <>
-            {!isNil(left) && left}
-            {!isNil(children) && <Text hasRightContent={!isNil(right)}>{children}</Text>}
-            {!isNil(right) && right}
-            {!isNil(description) && <Description>{description}</Description>}
-        </>
-    );
-}
-
 export function SelectItem(props) {
-    const { text, icons, iconsPosition, avatar, description, ...rest } = props;
+    const { text, icons, iconsPosition, avatar, description, className, ...rest } = props;
     const { size } = useContext(SelectContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/SelectItem");
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
+    const iconsMarkup = !isNil(icons) && renderIcons(icons, size);
+
+    const avatarMarkup = !isNil(avatar) && renderAvatar(avatar, size);
+
+    const textMarkup = !isNil(text) && (
+        <span className="text">
+            {text}
+        </span>
+    );
+
+    const descriptionMarkup = !isNil(description) && (
+        <span className="description">
+            {description}
+        </span>
+    );
+
+    const content = (
+        <>
+            {iconsPosition === "left" && iconsMarkup}{avatarMarkup}
+            {textMarkup}
+            {iconsPosition === "right" && iconsMarkup}
+            {descriptionMarkup}
+        </>
+    );
+
     return (
-        <SemanticDropdown.Item {...rest}>
-            <Content icons={icons} iconsPosition={iconsPosition} avatar={avatar} description={description} size={size}>
-                {text}
-            </Content>
+        <SemanticDropdown.Item
+            {...rest}
+            className={mergeClasses(
+                !isNil(avatar) && "with-avatar",
+                !isNil(icons) && iconsPosition === "left" && "with-icons-left",
+                !isNil(icons) && iconsPosition === "right" && "with-icons-right",
+                className
+            )}
+        >
+            {content}
         </SemanticDropdown.Item>
     );
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 
 import { Children, forwardRef, useCallback } from "react";
-import { EmbeddedIcon, StandaloneIcon } from "../../icons";
+import { EmbeddedIcon } from "../../icons";
 import {
     SIZE,
     SemanticRef,
@@ -83,69 +83,6 @@ function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosi
     }
 }
 
-function hasText(children) {
-    return Children.count(children) > 0;
-}
-
-function useIconRenderer({ icon, size }, isStandalone) {
-    return () => {
-        const Component = isStandalone ? StandaloneIcon : EmbeddedIcon;
-
-        return (
-            <Component
-                icon={icon}
-                size={size}
-            />
-        );
-    };
-}
-
-function Content({ icon, iconPosition, label, tag, size, loading, disabled, children }) {
-    const renderIcon = useIconRenderer({ icon, size }, !hasText(children));
-
-    if (!loading) {
-        let left;
-        let right;
-
-        if (!isNil(icon)) {
-            if (iconPosition === "right") {
-                right = renderIcon();
-            } else {
-                left = renderIcon();
-            }
-        }
-
-        if (!isNil(label)) {
-            right = createEmbeddedLabel(label, {
-                as: "span",
-                size,
-                highlight: true,
-                disabled: disabled
-            });
-        }
-
-        if (!isNil(tag)) {
-            left = createEmbeddedTag(tag, {
-                as: "span",
-                size,
-                disabled: disabled
-            });
-        }
-
-        if (!isNil(left) || !isNil(right)) {
-            return (
-                <>
-                    {!isNil(left) && left}
-                    {children}
-                    {!isNil(right) && right}
-                </>
-            );
-        }
-    }
-
-    return children || null;
-}
-
 export function InnerButton(props) {
     const {
         basic,
@@ -181,6 +118,33 @@ export function InnerButton(props) {
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
+    const hasText = Children.count(children) > 0;
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
+    );
+
+    const labelMarkup = !isNil(label) && createEmbeddedLabel(label, {
+        as: "span",
+        size,
+        highlight: true,
+        disabled: disabled
+    });
+
+    const tagMarkup = !isNil(tag) && createEmbeddedTag(tag, {
+        as: "span",
+        size,
+        disabled: disabled
+    });
+
+    const content = (
+        <>
+            {iconPosition === "left" && iconMarkup}{tagMarkup}
+            {children}
+            {iconPosition === "right" && iconMarkup}{labelMarkup}
+        </>
+    );
+
     return (
         <SemanticRef innerRef={innerRef}>
             <SemanticButton
@@ -195,19 +159,17 @@ export function InnerButton(props) {
                     naked && "naked",
                     ghost && "ghost",
                     link && "link",
-                    focus && "focus",
-                    hover && "hover",
                     !isNil(icon) && "with-icon",
                     !isNil(icon) && iconPosition === "right" && "with-icon-right",
                     !isNil(label) && "with-label",
                     !isNil(tag) && "with-tag",
-                    !hasText(children) && "without-text",
+                    !hasText && "without-text",
+                    focus && "focus",
+                    hover && "hover",
                     className)
                 }
             >
-                <Content icon={icon} iconPosition={iconPosition} label={label} tag={tag} size={size} loading={loading} disabled={disabled}>
-                    {children}
-                </Content>
+                {content}
             </SemanticButton>
         </SemanticRef>
     );

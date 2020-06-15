@@ -1,8 +1,11 @@
+import { Count } from "@react-components/count";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
+import { InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { InnerToggle, Toggle } from "@react-components/toggle";
+import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import Imports from "./imports.mdx";
+import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Toggle")}
@@ -82,6 +85,39 @@ A toggle doesn't require a text.
 <Preview>
     <Story name="no text">
         <Toggle />
+    </Story>
+</Preview>
+
+### Icons
+
+A toggle can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text. Specify the icons to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icons">
+        <div className="flex items-lot-of-space-between">
+            <Toggle text="Milky Way" icons={<LightbulbIcon />} />
+            <Toggle text="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
+        </div>
+    </Story>
+</Preview>
+
+### Label
+
+A toggle can have a [label](?path=/docs/components-label--default-story) after his text. Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="label">
+        <Toggle text="Milky Way" label={<Label>6</Label>} />
+    </Story>
+</Preview>
+
+### Count
+
+A toggle can have a [count](?path=/story/components-count--default-story) after his text. Specify the count to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="count">
+        <Toggle text="Milky Way" count={<Count>6</Count>} />
     </Story>
 </Preview>
 

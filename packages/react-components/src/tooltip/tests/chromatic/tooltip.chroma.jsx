@@ -16,72 +16,106 @@ function stories(segment) {
         .build();
 }
 
-function createTooltip({ content = "Adds users to your feed", ...otherProps } = {}) {
+function SimpleTooltip(props) {
     return (
         <Tooltip
-            defaultOpen
-            content={content}
+            {...props}
+            content="Adds users to your feed"
             trigger={<Button>Add</Button>}
-            {...otherProps}
+        />
+    );
+}
+
+function WideTooltip({ veryWide, ...rest }) {
+    return (
+        <Tooltip
+            {...rest}
+            wide={veryWide ? "very" : true}
+            content="This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide."
+            trigger={<Button>Add</Button>}
+        />
+    );
+}
+
+function TriggerLessTooltip(props) {
+    return (
+        <Tooltip
+            {...props}
+            content="Adds users to your feed"
         />
     );
 }
 
 stories()
     .add("default", () =>
-        createTooltip()
+        <SimpleTooltip />
+    )
+    .add("open", () =>
+        <SimpleTooltip open />
+    )
+    .add("defaultOpen", () =>
+        <SimpleTooltip defaultOpen />
     )
     .add("basic", () =>
-        createTooltip({
-            basic: true
-        })
+        <SimpleTooltip
+            basic
+            open
+        />
     )
     .add("position", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "top center"
-                    })}
+                    <SimpleTooltip
+                        position="top center"
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "top left"
-                    })}
+                    <SimpleTooltip
+                        position="top left"
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "top right"
-                    })}
+                    <SimpleTooltip
+                        position="top right"
+                        open
+                    />
                 </div>
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "bottom center"
-                    })}
+                    <SimpleTooltip
+                        position="bottom center"
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "bottom left"
-                    })}
+                    <SimpleTooltip
+                        position="bottom left"
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "250px" }}>
-                    {createTooltip({
-                        position: "bottom right"
-                    })}
+                    <SimpleTooltip
+                        position="bottom right"
+                        open
+                    />
                 </div>
             </div>
             <div className="flex">
                 <div style={{ marginRight: "450px" }}>
-                    {createTooltip({
-                        position: "right center"
-                    })}
+                    <SimpleTooltip
+                        position="right center"
+                        open
+                    />
                 </div>
                 <div>
-                    {createTooltip({
-                        position: "left center"
-                    })}
+                    <SimpleTooltip
+                        position="left center"
+                        open
+                    />
                 </div>
             </div>
         </div>
@@ -90,31 +124,36 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        size: "mini"
-                    })}
+                    <SimpleTooltip
+                        size="mini"
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        size: "tiny"
-                    })}
+                    <SimpleTooltip
+                        size="tiny"
+                        open
+                    />
                 </div>
                 <div>
-                    {createTooltip({
-                        size: "small"
-                    })}
+                    <SimpleTooltip
+                        size="small"
+                        open
+                    />
                 </div>
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        size: "large"
-                    })}
+                    <SimpleTooltip
+                        size="large"
+                        open
+                    />
                 </div>
                 <div>
-                    {createTooltip({
-                        size: "huge"
-                    })}
+                    <SimpleTooltip
+                        size="huge"
+                        open
+                    />
                 </div>
             </div>
         </div>
@@ -122,100 +161,115 @@ stories()
     .add("wide", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createTooltip({
-                    wide: true,
-                    content: "This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide."
-                })}
+                <WideTooltip open />
             </div>
             <div>
-                {createTooltip({
-                    wide: "very",
-                    content: "This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide."
-                })}
+                <WideTooltip
+                    veryWide
+                    open
+                />
             </div>
         </div>
     )
     .add("inverted", () =>
-        createTooltip({
-            inverted: true
-        })
+        <SimpleTooltip
+            inverted
+            open
+        />
     )
     .add("flush", () =>
-        createTooltip({
-            flush: true
-        })
+        <SimpleTooltip
+            flush
+            open
+        />
     )
     .add("disabled", () =>
-        createTooltip({
-            disabled: true
-        })
+        <SimpleTooltip
+            disabled
+            open
+        />
     )
     .add("triggers", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Button size="tiny">Add</Button>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Button size="tiny">Add</Button>}
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Button size="small">Add</Button>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Button size="small">Add</Button>}
+                        open
+                    />
+
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip()}
+                    <TriggerLessTooltip
+                        trigger={<Button>Add</Button>}
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Button size="large">Add</Button>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Button size="large">Add</Button>}
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Button circular icon={<AddIcon />} />
-                    })}
-                </div>
-            </div>
-            <div className="flex" style={{ marginBottom: "150px" }}>
-                <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Label>Add</Label>
-                    })}
-                </div>
-                <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Label circular>A</Label>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Button circular icon={<AddIcon />}>Add</Button>}
+                        open
+                    />
                 </div>
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <a href="https://www.google.com">Google</a>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Label>Add</Label>}
+                        open
+                    />
                 </div>
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <span>Span</span>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Label circular>A</Label>}
+                        open
+                    />
+                </div>
+            </div>
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <div style={{ marginRight: "200px" }}>
+                    <TriggerLessTooltip
+                        trigger={<a href="https://www.google.com">Google</a>}
+                        open
+                    />
+                </div>
+                <div style={{ marginRight: "200px" }}>
+                    <TriggerLessTooltip
+                        trigger={<span>Span</span>}
+                        open
+                    />
                 </div>
                 <div>
-                    {createTooltip({
-                        trigger: <div>Div</div>
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<div>Div</div>}
+                        open
+                    />
                 </div>
             </div>
             <div className="flex">
                 <div style={{ marginRight: "200px" }}>
-                    {createTooltip({
-                        trigger: <Input />
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<Input />}
+                        open
+                    />
                 </div>
                 <div>
-                    {createTooltip({
-                        trigger: <TextArea />
-                    })}
+                    <TriggerLessTooltip
+                        trigger={<TextArea />}
+                        open
+                    />
                 </div>
             </div>
         </div>
@@ -223,14 +277,16 @@ stories()
     .add("styling", () =>
         <div className="flex">
             <div style={{ marginRight: "200px" }}>
-                {createTooltip({
-                    className: "bg-red"
-                })}
+                <SimpleTooltip
+                    className="bg-red"
+                    open
+                />
             </div>
             <div>
-                {createTooltip({
-                    style: { backgroundColor: "red" }
-                })}
+                <SimpleTooltip
+                    style={{ backgroundColor: "red" }}
+                    open
+                />
             </div>
         </div>
     );

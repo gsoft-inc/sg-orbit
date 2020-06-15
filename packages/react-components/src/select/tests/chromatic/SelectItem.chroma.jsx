@@ -12,344 +12,339 @@ function stories(segment) {
         .build();
 }
 
-function createMale(props = {}) {
-    return { key: "Male", text: "Male", value: "Male", ...props };
-}
+const MALE_ITEM = {
+    key: "Male",
+    text: "Male",
+    value: "Male"
+};
 
-function createFemale(props = {}) {
-    return { key: "Female", text: "Female", value: "Female", ...props };
-}
+const FEMALE_ITEM = {
+    key: "Female",
+    text: "Female",
+    value: "Female"
+};
 
-const GENDERS = [createMale(), createFemale()];
-
-function createSelect({ options = GENDERS, ...otherProps } = {}) {
-    return <Select
-        options={options}
-        {...otherProps}
-    />;
+function SimpleSelect({ options = [MALE_ITEM, FEMALE_ITEM], ...rest }) {
+    return (
+        <Select
+            {...rest}
+            options={options}
+        />
+    );
 }
 
 stories()
     .add("default", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    size="small"
+                    open
+                />
             </div>
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    open: true
-                })}
+                <SimpleSelect
+                    open
+                />
             </div>
             <div>
-                {createSelect({
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("active", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ active: true })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, active: true }]}
+                    size="small"
+                    open
+                />
             </div>
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ active: true })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, active: true }]}
+                    open
+                />
             </div>
             <div>
-                {createSelect({
-                    options: [createMale(), createFemale({ active: true })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, active: true }]}
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("selected", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ selected: true })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, selected: true }]}
+                    size="small"
+                    open
+                />
             </div>
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ selected: true })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, selected: true }]}
+                    open
+                />
             </div>
             <div>
-                {createSelect({
-                    options: [createMale(), createFemale({ selected: true })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, selected: true }]}
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("disabled", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ disabled: true })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, disabled: true }]}
+                    size="small"
+                    open
+                />
             </div>
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ disabled: true })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, disabled: true }]}
+                    open
+                />
             </div>
             <div>
-                {createSelect({
-                    options: [createMale(), createFemale({ disabled: true })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, disabled: true }]}
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("description", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!" }]}
+                    size="small"
+                    open
+                />
             </div>
             <div style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!" }]}
+                    open
+                />
             </div>
             <div>
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!" })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!" }]}
+                    size="large"
+                    open
+                />
             </div>
         </div>
     )
     .add("icons left", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
-                    size: "small",
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon /> }]}
+                    size="small"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }]}
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon /> }]}
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }]}
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon /> })],
-                    size: "large",
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon /> }]}
+                    size="large"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }]}
+                    size="large"
+                    open
+                />
             </div>
             <div className="flex">
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], disabled: true })],
-                    defaultOpen: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], disabled: true }]}
+                    open
+                />
             </div>
         </div>
     )
     .add("icon right", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
-                    size: "small",
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    size: "small",
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    size: "small",
-                    open: true,
-                    fluid: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon />, iconsPosition: "right" }]}
+                    size="small"
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    size="small"
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    size="small"
+                    fluid
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    open: true,
-                    fluid: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon />, iconsPosition: "right" }]}
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    fluid
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: <CalendarIcon />, iconsPosition: "right" })],
-                    size: "large",
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    size: "large",
-                    open: true,
-                    fluid: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale(), createFemale({ description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" })],
-                    size: "large",
-                    fluid: true,
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon />, iconsPosition: "right" }]}
+                    size="large"
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    size="large"
+                    fluid
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
+                    size="large"
+                    fluid
+                    open
+                />
             </div>
             <div className="flex">
-                {createSelect({
-                    options: [createMale(), createFemale({ icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right", disabled: true })],
-                    defaultOpen: true
-                })}
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], disabled: true, iconsPosition: "right" }]}
+                    size="large"
+                    fluid
+                    open
+                />
             </div>
         </div>
     )
     .add("avatar", () =>
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
-                    size: "small",
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
-                    size: "small",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }, { ...FEMALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }]}
+                    size="small"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> }]}
+                    size="small"
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }, { ...FEMALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }]}
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> }]}
+                    open
+                />
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
-                {createSelect({
-                    options: [createMale({ avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }), createFemale({ avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } })],
-                    size: "large",
-                    open: true,
-                    wrapperClassName: "mr5"
-                })}
-                {createSelect({
-                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> })],
-                    size: "large",
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }, { ...FEMALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }]}
+                    size="large"
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> }]}
+                    size="large"
+                    open
+                />
             </div>
             <div className="flex">
-                {createSelect({
-                    options: [createMale({ avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" />, disabled: true }), createFemale({ avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" />, disabled: true })],
-                    open: true
-                })}
+                <SimpleSelect
+                    options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" />, disabled: true }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" />, disabled: true }]}
+                    open
+                />
             </div>
         </div>
     )
     .add("overflow", () =>
         <div className="flex" style={{ marginBottom: "150px" }}>
-            {createSelect({
-                options: [
-                    createMale(),
-                    createFemale({ text: "Super long text that will not fit without overflowing" })
-                ],
-                defaultOpen: true,
-                wrapperClassName: "mr5"
-            })}
-            {createSelect({
-                options: [
-                    createMale(),
-                    createFemale({ description: "Super long text that will not fit without overflowing" })
-                ],
-                defaultOpen: true
-            })}
+            <SimpleSelect
+                options={[MALE_ITEM, { ...FEMALE_ITEM, text: "Super long text that will not fit without overflowing" }]}
+                open
+                wrapperClassName="mr5"
+            />
+            <SimpleSelect
+                options={[MALE_ITEM, { ...FEMALE_ITEM, description: "Super long text that will not fit without overflowing" }]}
+                open
+            />
         </div>
     )
     .add("styling", () =>
         <div className="flex">
-            {createSelect({
-                options: [
-                    createMale(),
-                    createFemale({ text: "Super long text that will not fit without overflowing", className: "bg-red" })
-                ],
-                defaultOpen: true,
-                wrapperClassName: "mr5"
-            })}
-            {createSelect({
-                options: [
-                    createMale(),
-                    createFemale({ text: "Super long text that will not fit without overflowing", style: { background: "red" } })
-                ],
-                defaultOpen: true,
-                wrapperClassName: "mr5"
-            })}
+            <div className="flex" style={{ marginBottom: "150px" }}>
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, className: "bg-red" }]}
+                    open
+                    wrapperClassName="mr5"
+                />
+                <SimpleSelect
+                    options={[MALE_ITEM, { ...FEMALE_ITEM, style: { background: "red" } }]}
+                    open
+                />
+            </div>
         </div>
     );

@@ -3,12 +3,6 @@ import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/wait-delay";
 
-function createCheckbox(props = {}) {
-    return <Checkbox
-        {...props}
-    />;
-}
-
 function getInput(getByTestId) {
     const searchInputNode = getByTestId("checkbox");
 
@@ -18,27 +12,31 @@ function getInput(getByTestId) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the checkbox is autofocused on render", async () => {
-    const { getByTestId } = render(createCheckbox({
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <Checkbox autofocus />
+    );
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when autofocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
-    const { getByTestId } = render(createCheckbox({
-        disabled: true,
-        autofocus: true
-    }));
+    const { getByTestId } = render(
+        <Checkbox
+            disabled
+            autofocus
+        />
+    );
 
     expect(getInput(getByTestId)).not.toHaveFocus();
 });
 
 test("when delayed autofocus, the checkbox is autofocused after the delay", async () => {
-    const { getByTestId } = render(createCheckbox({
-        autofocus: true,
-        autofocusDelay: 50
-    }));
+    const { getByTestId } = render(
+        <Checkbox
+            autofocus
+            autofocusDelay={50}
+        />
+    );
 
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
@@ -50,11 +48,11 @@ test("when delayed autofocus, the checkbox is autofocused after the delay", asyn
 
 test("when delayed autofocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
     const { getByTestId } = render(
-        createCheckbox({
-            disabled: true,
-            autofocus: true,
-            autofocusDelay: 50
-        })
+        <Checkbox
+            disabled
+            autofocus
+            autofocusDelay={50}
+        />
     );
 
     await waitDelay(60);
@@ -68,9 +66,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        createCheckbox({
-            ref
-        })
+        <Checkbox ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -83,11 +79,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createCheckbox({
-            ref: node => {
+        <Checkbox
+            ref={node => {
                 refNode = node;
-            }
-        })
+            }}
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -100,9 +96,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createCheckbox({
-            ref: handler
-        })
+        <Checkbox ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
