@@ -2,7 +2,7 @@
 
 import { isNil } from "lodash";
 import { useCallback } from "react";
-import { useCommittedRef } from "./use-committed-ref";
+import { useCommittedRef } from "./useCommittedRef";
 
 export function useEventCallback(callback) {
     const ref = useCommittedRef(callback);

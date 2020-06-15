@@ -1,1 +1,1 @@
-export * from "./use-resize-observer";
+export * from "./useResizeObserver";

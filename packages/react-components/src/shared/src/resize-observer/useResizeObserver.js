@@ -1,4 +1,4 @@
-import { ResizeObserver } from "./resize-observer";
+import { ResizeObserver } from "./resizeObserver";
 import { isFunction, isNil } from "lodash";
 import { useLayoutEffect } from "react";
 

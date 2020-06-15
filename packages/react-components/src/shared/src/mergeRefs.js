@@ -1,4 +1,4 @@
-import { assignRef } from "./assign-ref";
+import { assignRef } from "./assignRef";
 import { isNil } from "lodash";
 
 export function mergeRefs(...refs) {

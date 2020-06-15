@@ -1,8 +1,8 @@
 import { cloneElement } from "react";
-import { createChainedFunction } from "./create-chained-function";
+import { createChainedFunction } from "./createChainedFunction";
 import { isFunction, isNil } from "lodash";
-import { mergeClasses } from "./merge-classes";
-import { mergeRefs } from "./merge-refs";
+import { mergeClasses } from "./mergeClasses";
+import { mergeRefs } from "./mergeRefs";
 
 const cache = new WeakMap();
 

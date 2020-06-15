@@ -1,4 +1,4 @@
-import { mergeRefs } from "./merge-refs";
+import { mergeRefs } from "./mergeRefs";
 import { useCallback } from "react";
 
 /**
