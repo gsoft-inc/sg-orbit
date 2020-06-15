@@ -1,5 +1,5 @@
 import { isNil, pickBy } from "lodash";
-import { isNilOrEmpty } from "./is-nil-or-empty";
+import { isNilOrEmpty } from "./isNilOrEmpty";
 
 const DEFAULT_TIMEOUT = 0;
 

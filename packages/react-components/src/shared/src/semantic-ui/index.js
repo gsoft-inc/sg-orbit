@@ -1,2 +1,2 @@
-export * from "./throw-when-unsupported-prop-is-provided";
-export * from "./semantic-ref";
+export * from "./throwWhenUnsupportedPropIsProvided";
+export * from "./SemanticRef";

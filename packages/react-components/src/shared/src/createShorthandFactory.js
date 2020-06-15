@@ -1,8 +1,7 @@
 import { SIZE } from "./size";
-import { augmentElement, augmentElementProps } from "./augment-element";
+import { augmentElement, augmentElementProps } from "./augmentElement";
 import { isElement, isValidElementType } from "react-is";
-import { isFunction, isNil } from "lodash";
-import { isPlainObject } from "lodash";
+import { isFunction, isNil, isPlainObject } from "lodash";
 
 export function createShorthandFactory(ComponentType, customFactory) {
     return (shorthand, props = {}) => {
