@@ -455,7 +455,7 @@ a.ui.button {
 .ui.secondary.buttons .button.focus,
 .ui.secondary.button:focus,
 .ui.secondary.button.focus {
-    background-color: var(--cloud-100);
+    background-color: var(--cloud-500);
 }
 
 .ui.secondary.buttons .button:focus:hover,
@@ -1671,7 +1671,7 @@ a.ui.button {
 /* SKIN | Link | Basic | Hover*/
 .ui.button.link.basic.hover,
 .ui.button.link.basic:hover {
-    box-shadow: none;
+    box-shadow: none!important;
 }
 
 /* SKIN | Link | STATE | Active */
@@ -1733,7 +1733,7 @@ a.ui.button {
 
 /* SKIN | Link | Secondary */
 .ui.button.link.secondary {
-    color: var(--marine-200);
+    color: var(--marine-500);
     box-shadow: none !important;
 }
 

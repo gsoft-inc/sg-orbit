@@ -254,6 +254,25 @@
     margin-left: var(--scale-alpha);
 }
 
+.ui.dropdown .menu > .item.with-icons-right .text {
+    margin-right: var(--scale-alpha);
+}
+
+.ui.selection.dropdown.small .menu > .item.with-avatar,
+.ui.selection.dropdown.small .menu > .item.with-icons-left {
+    padding-left: calc(var(--scale-delta) / 2)!important;
+}
+
+.ui.selection.dropdown .menu > .item.with-avatar,
+.ui.selection.dropdown .menu > .item.with-icons-left {
+    padding-left: calc(var(--scale-echo) / 2)!important;
+}
+
+.ui.selection.dropdown.large .menu > .item.with-avatar,
+.ui.selection.dropdown.large .menu > .item.with-icons-left {
+    padding-left: calc(var(--scale-foxtrot) / 2)!important;
+}
+
 /* SIZE | Small */
 .ui.selection.dropdown.small.with-icon {
     padding-left: var(--scale-golf);

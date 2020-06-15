@@ -595,6 +595,14 @@
     padding-left: calc(var(--scale-foxtrot) / 4);
 }
 
+.ui.label.with-icons-left .icon {
+    margin-right: var(--scale-alpha);
+}
+
+.ui.label.with-icons-right .icon {
+    margin-left: var(--scale-alpha);
+}
+
 /* COMPACT */
 /* Default No icon - No button */
 .ui.label.compact.mini {
