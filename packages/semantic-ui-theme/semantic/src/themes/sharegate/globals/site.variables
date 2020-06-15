@@ -49,7 +49,7 @@
 
 /*-------------- Fallback ---------------*/
 @primaryColor           : @primary500;
-@secondaryColor         : @cloud100;
+@secondaryColor         : @cloud500;
 
 /*--------------
     Page Heading
@@ -886,7 +886,7 @@
 
 /*---  Colors  ---*/
 @primaryColorHover        : var(--primary-900);
-@secondaryColorHover      : var(--cloud-200);
+@secondaryColorHover      : var(--cloud-900);
 @lightPrimaryColorHover   : @lightPrimaryColor;
 @lightSecondaryColorHover : @lightSecondaryColor;
 
@@ -1006,8 +1006,8 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : @primary900;
-@secondaryColorDown      : @cloud200;
+@primaryColorDown        : var(--primary-700);
+@secondaryColorDown      : var(--cloud-700);
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;
 
