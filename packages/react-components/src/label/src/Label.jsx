@@ -7,7 +7,7 @@ import { Label as SemanticLabel } from "semantic-ui-react";
 import { bool, element, object, oneOf, oneOfType } from "prop-types";
 import { createEmbeddedButton } from "../../button";
 import { createEmbeddedTag } from "../../tag";
-import { isNil } from "lodash";
+import { isNil, isString } from "lodash";
 
 const SIZES = ["micro", "mini","tiny","small","medium","large","big","huge","massive"];
 const UNSUPPORTED_PROPS = ["attached", "color", "corner", "empty", "floating", "horizontal", "image", "onRemove", "pointing", "prompt", "removeIcon", "ribbon"];
@@ -150,7 +150,15 @@ if (!isNil(SemanticLabel.propTypes)) {
     SemanticLabel.propTypes.size = oneOf(SIZES);
 }
 
-export const createLabel = createShorthandFactory(Label);
+export const createLabel = createShorthandFactory(Label, (shorthand, props) => {
+    if (isString(shorthand)) {
+        return (
+            <Label {...props}>
+                {shorthand}
+            </Label>
+        );
+    }
+});
 
 export const createEmbeddedLabel = createShorthandFactoryForEmbedded(createLabel, {
     [SIZE.micro]: SIZE.micro,

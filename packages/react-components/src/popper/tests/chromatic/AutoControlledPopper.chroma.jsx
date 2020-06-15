@@ -2,9 +2,10 @@ import { AutoControlledPopper, Popper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/trigger"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/auto controlled"))
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -38,6 +39,12 @@ function RedBoxPopper(props) {
             <RedBox />
         </AutoControlledPopper>
     );
+}
+
+function setBlueBorders(element) {
+    if (!isNil(element)) {
+        element.classList.add("border-blue");
+    }
 }
 
 stories()
@@ -74,7 +81,8 @@ stories()
                 />
             </div>
         </div>
-    ).add("multiple popper visible on the same page", () =>
+    )
+    .add("multiple popper visible on the same page", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
                 <RedBoxPopper show />
@@ -108,10 +116,22 @@ stories()
                     popper={<Popper className="border-blue" />}
                 />
             </div>
-            <div>
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper
+                    show
+                    popper={<Popper ref={setBlueBorders} />}
+                />
+            </div>
+            <div style={{ marginBottom: "100px" }}>
                 <RedBoxPopper
                     show
                     popper={{ className: "border-blue" }}
+                />
+            </div>
+            <div>
+                <RedBoxPopper
+                    show
+                    popper={{ className: "border-blue", ref: setBlueBorders }}
                 />
             </div>
         </div>

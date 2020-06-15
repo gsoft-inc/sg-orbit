@@ -2,15 +2,6 @@ import { Tooltip } from "@react-components/tooltip";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-function createTooltip(props = {}) {
-    return <Tooltip
-        content="Adds users to your feed"
-        open
-        trigger={<span>Add</span>}
-        {...props}
-    />;
-}
-
 const SimpleTooltip = forwardRef((props, ref) => {
     return (
         <Tooltip

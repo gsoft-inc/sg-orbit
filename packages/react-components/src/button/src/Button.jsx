@@ -16,7 +16,7 @@ import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
 import { createEmbeddedLabel } from "../../label";
 import { createEmbeddedTag } from "../../tag";
-import { isNil } from "lodash";
+import { isNil, isString } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -192,7 +192,15 @@ if (!isNil(SemanticButton.propTypes)) {
     SemanticButton.propTypes.size = oneOf(SIZES);
 }
 
-export const createButton = createShorthandFactory(Button);
+export const createButton = createShorthandFactory(Button, (shorthand, props) => {
+    if (isString(shorthand)) {
+        return (
+            <Button {...props}>
+                {shorthand}
+            </Button>
+        );
+    }
+});
 
 export const createEmbeddedButton = createShorthandFactoryForEmbedded(createButton, {
     [SIZE.micro]: SIZE.micro,

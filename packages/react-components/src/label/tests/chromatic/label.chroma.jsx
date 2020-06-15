@@ -1,6 +1,7 @@
 import { Button } from "@react-components/button";
 import { CloseIcon, LightbulbIcon } from "@react-components/icons";
-import { Label } from "@react-components/label";
+import { Label, createEmbeddedLabel, createLabel } from "@react-components/label";
+import { SIZE } from "@react-components/shared";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
@@ -121,26 +122,30 @@ function setRedBackground(element) {
     }
 }
 
-stories("/button")
-    .add("element ref", () =>
-        <Label button={<Button icon={<LightbulbIcon />} className= "bg-red" />} className="mr5">Notification Sent</Label>
-    )
-    .add("object", () =>
+stories("/shorthands")
+    .add("element", () =>
         <div className="flex">
-            <Label button={{ icon: <LightbulbIcon /> }} className="mr5">Notification Sent</Label>
-            <Label button={{ icon: <LightbulbIcon />, className: "bg-red" }} className="mr5">Notification Sent</Label>
-            <Label button={{ icon: <LightbulbIcon />, ref: setRedBackground }}>Notification Sent</Label>
+            {createLabel(<Label className="mr5">Notification Sent</Label>)}
+            {createLabel(<Label ref={setRedBackground} className="mr5">Notification Sent</Label>)}
         </div>
-    );
-
-stories("/tag")
-    .add("element ref", () =>
-        <Label tag={<Tag ref={setRedBackground} />}>Notification Sent</Label>
     )
     .add("object", () =>
         <div className="flex">
-            <Label tag={{ className: "bg-red" }} className="mr5">Notification Sent</Label>
-            <Label tag={{ ref: setRedBackground }}>Notification Sent</Label>
+            {createLabel({ content: "Notification Sent", className: "mr5" })}
+            {createLabel({ content: "Notification Sent", ref: setRedBackground })}
+        </div>
+    )
+    .add("string", () =>
+        createLabel("Notification Sent")
+    )
+    .add("embedded", () =>
+        <div className="flex items-end">
+            {createEmbeddedLabel({ content: "Button", className: "mr5" }, { size: SIZE.micro })}
+            {createEmbeddedLabel({ content: "Button", className: "mr5" }, { size: SIZE.mini })}
+            {createEmbeddedLabel({ content: "Button", className: "mr5" }, { size: SIZE.tiny })}
+            {createEmbeddedLabel({ content: "Button", className: "mr5" }, { size: SIZE.small })}
+            {createEmbeddedLabel({ content: "Button", className: "mr5" })}
+            {createEmbeddedLabel({ content: "Button" }, { size: SIZE.large })}
         </div>
     );
 

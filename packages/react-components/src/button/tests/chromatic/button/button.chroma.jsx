@@ -1,8 +1,7 @@
 import styles from "./Button.chroma.module.css";
 
-import { Button } from "@react-components/button";
-import { Label } from "@react-components/label";
-import { Tag } from "@react-components/tag";
+import { Button, createButton, createEmbeddedButton } from "@react-components/button";
+import { SIZE } from "@react-components/shared";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
 import { isNil } from "lodash";
@@ -69,12 +68,6 @@ createTestSuite(<Button naked />, stories("/naked"))
         </div>
     );
 
-function setRedBackground(element) {
-    if (!isNil(element)) {
-        element.classList.add("bg-red");
-    }
-}
-
 stories()
     .add("fluid", () =>
         <div className="flex flex-column">
@@ -87,26 +80,36 @@ stories()
         </div>
     );
 
-stories("/label")
-    .add("element ref", () =>
-        <Button label={<Label ref={setRedBackground}>6</Label>}>Button</Button>
-    )
-    .add("object", () =>
-        <div className="flex">
-            <Button label={{ content: "6" }} className="mr5">Button</Button>
-            <Button label={{ content: "6", className: "bg-red" }} className="mr5">Button</Button>
-            <Button label={{ content: "6", ref: setRedBackground }}>Button</Button>
-        </div>
-    );
+function setRedBackground(element) {
+    if (!isNil(element)) {
+        element.classList.add("bg-red");
+    }
+}
 
-stories("/tag")
-    .add("element ref", () =>
-        <Button tag={<Tag ref={setRedBackground} />}>Button</Button>
+stories("/shorthands")
+    .add("element", () =>
+        <div className="flex">
+            {createButton(<Button className="mr5">Button</Button>)}
+            {createButton(<Button ref={setRedBackground}>Button</Button>)}
+        </div>
     )
     .add("object", () =>
         <div className="flex">
-            <Button tag={{ className: "bg-red" }} className="mr5">Button</Button>
-            <Button tag={{ ref: setRedBackground }}>Button</Button>
+            {createButton({ content: "Button", className: "mr5" })}
+            {createButton({ content: "Button", ref: setRedBackground })}
+        </div>
+    )
+    .add("string", () =>
+        createButton("Button")
+    )
+    .add("embedded", () =>
+        <div className="flex items-end">
+            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.micro })}
+            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.mini })}
+            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.tiny })}
+            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.small })}
+            {createEmbeddedButton({ content: "Button", className: "mr5" })}
+            {createEmbeddedButton({ content: "Button" }, { size: SIZE.large })}
         </div>
     );
 

@@ -1,6 +1,7 @@
 import { SIZE, SemanticRef, createShorthandFactory, createShorthandFactoryForEmbedded, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { Label as SemanticLabel } from "semantic-ui-react";
 import { forwardRef } from "react";
+import { isString } from "lodash";
 import { oneOf } from "prop-types";
 
 const UNSUPPORTED_PROPS = ["attached", "color", "circular", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon", "tag"];
@@ -37,7 +38,16 @@ export const Tag = forwardRef((props, ref) => (
     <InnerTag { ...props } forwardedRef={ref} />
 ));
 
-export const createTag = createShorthandFactory(Tag);
+export const createTag = createShorthandFactory(Tag, (shorthand, props) => {
+    if (isString(shorthand)) {
+        return (
+            <Tag
+                {...props}
+                className={shorthand}
+            />
+        );
+    }
+});
 
 export const createEmbeddedTag = createShorthandFactoryForEmbedded(createTag, {
     [SIZE.micro]: SIZE.micro,

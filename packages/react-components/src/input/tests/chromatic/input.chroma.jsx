@@ -2,7 +2,6 @@ import { Button } from "@react-components/button";
 import { CloseIcon, MagnifierIcon } from "@react-components/icons";
 import { Input } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { isNil } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Input"))
@@ -137,22 +136,9 @@ stories()
         </div>
     );
 
-function setRedBackground(element) {
-    if (!isNil(element)) {
-        element.classList.add("bg-red");
-    }
-}
-
 stories("/button")
-    .add("element ref", () =>
-        <Input button={<Button icon={<CloseIcon />} ref={setRedBackground} />} />
-    )
-    .add("object", () =>
-        <div className="flex">
-            <Input button={{ icon: <CloseIcon /> }} wrapperClassName="mr5" />
-            <Input button={{ icon: <CloseIcon />, className: "bg-red" }} wrapperClassName="mr5" />
-            <Input button={{ icon: <CloseIcon />, ref: setRedBackground }} />
-        </div>
+    .add("default", () =>
+        <Input button={<Button icon={<CloseIcon />} />} />
     )
     .add("disabled", () =>
         <Input button={<Button icon={<CloseIcon />} />} disabled />

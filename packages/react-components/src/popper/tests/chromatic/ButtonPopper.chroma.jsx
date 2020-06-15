@@ -4,7 +4,7 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { forwardRef } from "react";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/button trigger"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/button"))
         .segment(segment)
         .parameters(
             paramsBuilder()

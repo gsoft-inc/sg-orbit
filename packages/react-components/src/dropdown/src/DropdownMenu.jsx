@@ -80,7 +80,7 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
     }, [itemElements, keyboardIndex]);
 }
 
-export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, children, forwardedRef, ...rest }) {
+export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, className, children, forwardedRef, ...rest }) {
     const { isOpen, size } = useContext(DropdownContext);
 
     const [menuElement, setMenuElement] = useState();
@@ -107,7 +107,8 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, children, fo
                     className={mergeClasses(
                         scrolling && "scrolling",
                         fluid && "fluid",
-                        getSizeClass(size)
+                        getSizeClass(size),
+                        className
                     )}
                     open
                     tabIndex="-1"

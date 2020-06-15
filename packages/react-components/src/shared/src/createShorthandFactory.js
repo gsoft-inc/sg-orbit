@@ -1,16 +1,19 @@
 import { SIZE } from "./size";
 import { augmentElement, augmentElementProps } from "./augmentElement";
 import { isElement, isValidElementType } from "react-is";
-import { isFunction, isNil, isPlainObject } from "lodash";
+import { isFunction, isNil, isPlainObject, isString } from "lodash";
 
 export function createShorthandFactory(ComponentType, customFactory) {
-    return (shorthand, props = {}) => {
+    const factory = (shorthand, props = {}) => {
         if (isNil(shorthand)) {
             return null;
         }
 
         // Handling custom element type for convenience.
-        if (isValidElementType(shorthand)) {
+        if (isValidElementType(shorthand) &&
+            // isValidElementType returns true even if the string is not a valid element type, we choosed to exclude all strings.
+            !isString(shorthand)
+        ) {
             const Type = shorthand;
 
             return <Type {...props} />;
@@ -33,7 +36,7 @@ export function createShorthandFactory(ComponentType, customFactory) {
         }
 
         if (isFunction(customFactory)) {
-            const component = customFactory(shorthand, props);
+            const component = customFactory(shorthand, props, factory);
 
             if (!isNil(component)) {
                 return component;
@@ -42,10 +45,12 @@ export function createShorthandFactory(ComponentType, customFactory) {
 
         throw new Error(`Cannot create an instance of ${ComponentType} from shorthand. Unknown format: "${shorthand}".`);
     };
+
+    return factory;
 }
 
 export function createShorthandFactoryForEmbedded(shorthandFactory, sizeChart) {
-    return (shorthand, props, ...rest) => {
+    return (shorthand, props = {}, ...rest) => {
         const newProps = {
             ...props,
             size: sizeChart[props.size || SIZE.medium]

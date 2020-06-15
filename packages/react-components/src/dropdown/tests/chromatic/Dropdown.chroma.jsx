@@ -3,7 +3,7 @@ import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
-import { noop } from "lodash";
+import { isNil, noop } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Dropdown"))
@@ -59,6 +59,12 @@ function DividedDropdown({
             <Dropdown.Item>Rename</Dropdown.Item>
         </Dropdown>
     );
+}
+
+function setRedBackground(element) {
+    if (!isNil(element)) {
+        element.classList.add("bg-red");
+    }
 }
 
 const CustomTrigger = forwardRef((props, ref) => {
@@ -475,7 +481,17 @@ stories()
                 style={{ marginRight: "200px" }}
             />
             <SimpleDropdown
+                menu={<Dropdown.Menu ref={setRedBackground} />}
+                open
+                style={{ marginRight: "200px" }}
+            />
+            <SimpleDropdown
                 menu={{ className: "border-red" }}
+                open
+                style={{ marginRight: "200px" }}
+            />
+            <SimpleDropdown
+                menu={{ className: "border-red", ref: setRedBackground }}
                 open
             />
         </div>

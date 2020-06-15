@@ -1,5 +1,6 @@
-import { Count } from "@react-components/count";
+import { Count, createCount } from "@react-components/count";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { isNil } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Count"))
@@ -51,4 +52,27 @@ stories()
         <div>
             Orphaned Group <Count className="primary-500">6</Count>
         </div>
+    );
+
+function setRedBackground(element) {
+    if (!isNil(element)) {
+        element.classList.add("bg-red");
+    }
+}
+
+stories("/shorthands")
+    .add("element", () =>
+        <div className="flex">
+            {createCount(<Count className="mr5">6</Count>)}
+            {createCount(<Count ref={setRedBackground}>6</Count>)}
+        </div>
+    )
+    .add("object", () =>
+        <div className="flex">
+            {createCount({ content: "6", className: "mr5" })}
+            {createCount({ content: "6", ref: setRedBackground })}
+        </div>
+    )
+    .add("string", () =>
+        createCount("6")
     );
