@@ -1,5 +1,5 @@
+import { AutoControlledPopper, Popper } from "@react-components/popper";
 import { Button } from "@react-components/button";
-import { Popper, PopperTrigger } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef } from "react";
 
@@ -30,13 +30,13 @@ const RedBox = forwardRef((props, ref) => {
 
 function RedBoxPopper(props) {
     return (
-        <PopperTrigger
+        <AutoControlledPopper
             {...props}
             trigger={<Button fluid>Open</Button>}
             toggleHandler="onClick"
         >
             <RedBox />
-        </PopperTrigger>
+        </AutoControlledPopper>
     );
 }
 

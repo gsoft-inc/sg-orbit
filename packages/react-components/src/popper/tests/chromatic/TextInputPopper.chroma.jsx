@@ -1,10 +1,12 @@
 import { Button } from "@react-components/button";
-import { PopperTrigger } from "@react-components/popper";
+import { CloseIcon } from "@react-components/icons";
+import { TextInput } from "@react-components/text-input";
+import { TextInputPopper } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef } from "react";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/button trigger"))
+    return storiesOfBuilder(module, createChromaticSection("Popper/text input trigger"))
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -29,16 +31,16 @@ const RedBox = forwardRef((props, ref) => {
 });
 
 function RedBoxPopper({
-    button = <Button fluid>Click me</Button>,
+    input = <TextInput fluid placeholder="Click me" />,
     ...rest
 }) {
     return (
-        <PopperTrigger.Button
-            button={button}
+        <TextInputPopper
+            input={input}
             {...rest}
         >
             <RedBox />
-        </PopperTrigger.Button>
+        </TextInputPopper>
     );
 }
 
@@ -53,7 +55,10 @@ stories()
         <RedBoxPopper defaultShow />
     )
     .add("focus trigger on show", () =>
-        <RedBoxPopper show focusTriggerOnShow />
+        <RedBoxPopper
+            show
+            focusTriggerOnShow
+        />
     )
     .add("disabled", () =>
         <div className="flex flex-column">
@@ -65,16 +70,36 @@ stories()
             </div>
         </div>
     )
-    .add("shorthand button", () =>
-        <RedBoxPopper button={{ content: "Click me", fluid: true }} />
+    .add("shorthand input", () =>
+        <RedBoxPopper input={{ placeholder: "Pick a date", fluid: true }} />
     )
-    .add("fluid button", () =>
+    .add("fluid input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
                 <RedBoxPopper fluid />
             </div>
             <div>
                 <RedBoxPopper fluid show />
+            </div>
+        </div>
+    )
+    .add("readonly input", () =>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper input={{ readOnly: true }} />
+            </div>
+            <div>
+                <RedBoxPopper input={{ readOnly: true }} show />
+            </div>
+        </div>
+    )
+    .add("clearable input", () =>
+        <div className="flex flex-column">
+            <div style={{ marginBottom: "100px" }}>
+                <RedBoxPopper input={{ button: <Button icon={<CloseIcon />} /> }} />
+            </div>
+            <div>
+                <RedBoxPopper input={{ placeholder: "Pick a date", button: <Button icon={<CloseIcon />} /> }} />
             </div>
         </div>
     );

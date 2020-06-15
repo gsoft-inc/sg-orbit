@@ -1,8 +1,8 @@
+import { AutoControlledPopper, ButtonPopper, InnerAutoControlledPopper, InnerButtonPopper, InnerPopper, InnerTextInputPopper, TextInputPopper } from "@react-components/popper"
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
 import { ControlledPopper } from "./ControlledPopper.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { InnerPopper, InnerPopperTrigger, PopperTrigger } from "@react-components/popper"
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PinnedPlayground } from "./PinnedPlayground";
 import { PopperElement } from "./PopperElement.sample";
@@ -32,7 +32,9 @@ A popper can be used to display some content on top of another.
 
 <Props
     componentsDefinitions={[
-        { displayName: "PopperTrigger", component: InnerPopperTrigger },
+        { displayName: "AutoControlledPopper", component: InnerAutoControlledPopper },
+        { displayName: "ButtonPopper", component: InnerButtonPopper },
+        { displayName: "TextInputPopper", component: InnerTextInputPopper },
         { displayName: "Popper", component: InnerPopper }
     ]}
 />
@@ -42,10 +44,10 @@ A popper can be used to display some content on top of another.
 This popper component is an abstraction of [Popper.js](https://popper.js.org/) that aims to *simplify usage* and provide *default behaviors* specifics to Orbit UI. All [Popper.js](https://popper.js.org/) features
 can still be customized by specifying the `popperModifiers` and `popperOptions` props.
 
-Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction of [Popper.js](https://popper.js.org/) and a `<PopperTrigger />` component which is a wrapper on top
+Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction of [Popper.js](https://popper.js.org/) and a `<AutoControlledPopper />` component which is a wrapper on top
 of `<Popper />` adding *show / hide* behaviors specifics to Orbit UI.
 
-We do recommend using `<PopperTrigger />` whenever you can.
+We do recommend using `<AutoControlledPopper />` whenever you can.
 
 ### Trigger rules
 
@@ -76,9 +78,9 @@ A default popper.
 
 <Preview>
     <Story name="default">
-        <PopperTrigger.Button button={<Button>Toggle</Button>}>
+        <ButtonPopper button={<Button>Toggle</Button>}>
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -90,12 +92,12 @@ All [Popper.js](https://popper.js.org/) placements are supported: `"top-start"`,
 
 <Preview>
     <Story name="position">
-        <PopperTrigger.Button
+        <ButtonPopper
             button={<Button>Toggle</Button>}
             position="right"
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -105,12 +107,12 @@ A popper can have an horizontal and vertical offset.
 
 <Preview>
     <Story name="offset">
-        <PopperTrigger.Button
+        <ButtonPopper
             button={<Button>Toggle</Button>}
             offset={[0, 15]}
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -120,12 +122,12 @@ A disabled popper will never show.
 
 <Preview>
     <Story name="disabled">
-        <PopperTrigger.Button
+        <ButtonPopper
             button={<Button>Toggle</Button>}
             disabled
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -135,12 +137,12 @@ A popper trigger can be fluid.
 
 <Preview>
     <Story name="fluid">
-        <PopperTrigger.Button
+        <ButtonPopper
             button={<Button fluid>Toggle</Button>}
             fluid
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -151,13 +153,13 @@ A popper automatic repositioning features can be disabled, it will always be pla
 <Preview>
     <Story name="pinned">
         <PinnedPlayground>
-            <PopperTrigger.Button
+            <ButtonPopper
                 button={<Button>Toggle</Button>}
                 pinned
                 position="top"
             >
                 <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-            </PopperTrigger.Button>
+            </ButtonPopper>
         </PinnedPlayground>
     </Story>
 </Preview>
@@ -174,12 +176,12 @@ A popper can be rendered without an additional element around it's popper elemen
 
 <Preview>
     <Story name="no wrap">
-        <PopperTrigger.Button
+        <ButtonPopper
             button={<Button>Toggle</Button>}
             noWrap
         >
             <PopperElement />
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -189,12 +191,12 @@ A default popper requires a `trigger` and a `toggleHandler`. The `trigger` can b
 
 <Preview>
     <Story name="without an adapter">
-        <PopperTrigger
+        <AutoControlledPopper
             trigger={<Button>Toggle</Button>}
             toggleHandler="onClick"
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger>
+        </AutoControlledPopper>
     </Story>
 </Preview>
 
@@ -204,9 +206,9 @@ A popper can use a button adapter for an easy integration with a button trigger.
 
 <Preview>
     <Story name="button adapter">
-        <PopperTrigger.Button button={<Button>Toggle</Button>}>
+        <ButtonPopper button={<Button>Toggle</Button>}>
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.Button>
+        </ButtonPopper>
     </Story>
 </Preview>
 
@@ -216,9 +218,9 @@ A popper can use a text input adapter for an easy integration with a text input 
 
 <Preview>
     <Story name="text input adapter">
-        <PopperTrigger.TextInput input={<TextInput placeholder="Toggle" readOnly button={<Button icon={<CloseIcon />} />} />}>
+        <TextInputPopper input={<TextInput placeholder="Toggle" readOnly button={<Button icon={<CloseIcon />} />} />}>
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger.TextInput>
+        </TextInputPopper>
     </Story>
 </Preview>
 
@@ -237,12 +239,12 @@ A popper can handle `show` state in controlled mode.
         .build()}
 >
     <RefLogger component={
-        <PopperTrigger
+        <AutoControlledPopper
             trigger={<Button>Toggle</Button>}
             toggleHandler="onClick"
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-        </PopperTrigger>
+        </AutoControlledPopper>
     }
     />
 </Story>

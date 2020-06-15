@@ -1,4 +1,4 @@
-import { PopperTrigger } from "./PopperTrigger";
+import { AutoControlledPopper } from "./AutoControlledPopper";
 import { createButton } from "../../button";
 import { element, object, oneOfType } from "prop-types";
 import { forwardRef } from "react";
@@ -10,11 +10,11 @@ const propTypes = {
     button: oneOfType([element, object]).isRequired
 };
 
-export function InnerPopperButtonTrigger({ button, forwardedRef, ...rest }) {
+export function InnerButtonPopper({ button, forwardedRef, ...rest }) {
     const trigger = createButton(button);
 
     return (
-        <PopperTrigger
+        <AutoControlledPopper
             {...rest}
             trigger={trigger}
             toggleHandler="onClick"
@@ -23,8 +23,8 @@ export function InnerPopperButtonTrigger({ button, forwardedRef, ...rest }) {
     );
 }
 
-InnerPopperButtonTrigger.propTypes = propTypes;
+InnerButtonPopper.propTypes = propTypes;
 
-export const PopperButtonTrigger = forwardRef((props, ref) => (
-    <InnerPopperButtonTrigger {...props} forwardedRef={ref} />
+export const ButtonPopper = forwardRef((props, ref) => (
+    <InnerButtonPopper {...props} forwardedRef={ref} />
 ));

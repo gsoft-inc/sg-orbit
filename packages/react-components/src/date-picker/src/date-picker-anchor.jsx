@@ -1,5 +1,5 @@
-import { PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
+import { TextInputPopper } from "../../popper";
 import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolvePopperPosition } from "../../shared";
@@ -38,7 +38,7 @@ export class DatePickerAnchor extends PureComponent {
         const { open, input, calendar, upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
 
         return (
-            <PopperTrigger.TextInput
+            <TextInputPopper
                 show={open}
                 input={input}
                 position={resolvePopperPosition(upward, direction)}
@@ -53,7 +53,7 @@ export class DatePickerAnchor extends PureComponent {
                 style={style}
             >
                 {calendar}
-            </PopperTrigger.TextInput>
+            </TextInputPopper>
         );
     }
 }

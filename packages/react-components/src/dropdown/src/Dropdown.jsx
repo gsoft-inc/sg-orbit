@@ -12,7 +12,7 @@ import { KEYS, augmentElement, resolvePopperPosition, useEventCallback } from ".
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { usePopperTrigger } from "../../popper";
+import { useAutoControlledPopper } from "../../popper";
 
 const propTypes = {
     /**
@@ -136,7 +136,7 @@ export function InnerDropdown(props) {
         ...rest
     });
 
-    const { renderPopper, hidePopper: closePopper, focusTrigger } = usePopperTrigger({
+    const { renderPopper, hidePopper: closePopper, focusTrigger } = useAutoControlledPopper({
         show: open,
         defaultShow: defaultOpen,
         trigger: dropdownTrigger,

@@ -1,25 +1,25 @@
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
-import { PopperTrigger } from "@react-components/popper";
 import { TextInput } from "@react-components/text-input";
+import { TextInputPopper } from "@react-components/popper";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef } from "react";
 import userEvent from "@utils/user-event";
 
 const POPPER_ID = "popper-wrapper";
 
-const SimplePopperTrigger = forwardRef(({
+const SimpleTextInputPopper = forwardRef(({
     input = <TextInput />,
     ...rest
 }, ref) => {
     return (
-        <PopperTrigger.TextInput
+        <TextInputPopper
             {...rest}
             input={input}
             ref={ref}
         >
             <div>Popper</div>
-        </PopperTrigger.TextInput>
+        </TextInputPopper>
     );
 });
 
@@ -31,7 +31,7 @@ function getInput(getByTestId) {
 
 test("show the popper on input click", async () => {
     const { getByTestId } = render(
-        <SimplePopperTrigger />
+        <SimpleTextInputPopper />
     );
 
     act(() => {
@@ -43,7 +43,7 @@ test("show the popper on input click", async () => {
 
 test("hide the popper on input click", async () => {
     const { getByTestId } = render(
-        <SimplePopperTrigger />
+        <SimpleTextInputPopper />
     );
 
     const inputNode = getInput(getByTestId);
@@ -63,7 +63,7 @@ test("hide the popper on input click", async () => {
 
 test("dont close the popper on input clear button click", async () => {
     const { getByTestId } = render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             input={
                 <TextInput
                     button={
@@ -96,7 +96,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             ref={ref}
         />
     );
@@ -112,7 +112,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             ref={node => {
                 refNode = node;
             }}
@@ -130,7 +130,7 @@ test("can assign a ref to a text input", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             input={<TextInput ref={ref} />}
         />
     );
@@ -146,7 +146,7 @@ test("can assign a ref to a text input having a button", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             input={
                 <TextInput
                     button={<Button icon={<CloseIcon />} />}
@@ -167,7 +167,7 @@ test("can assign a ref to a text input button", async () => {
     const ref = createRef();
 
     render(
-        <SimplePopperTrigger
+        <SimpleTextInputPopper
             input={
                 <TextInput
                     button={<Button icon={<CloseIcon />} ref={ref} />}
