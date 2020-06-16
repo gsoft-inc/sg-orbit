@@ -9,8 +9,9 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Dropdown"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(100)
             .canvasLayout({ width: "80%", height: "800px" })
+            .chromaticDelay(100)
+            .chromaticPauseAnimationAtEnd()
             .build())
         .build();
 }
