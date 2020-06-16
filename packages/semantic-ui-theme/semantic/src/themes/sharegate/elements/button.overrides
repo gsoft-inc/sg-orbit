@@ -649,8 +649,9 @@ a.ui.button {
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
 .ui.with-icon.without-text.button.compact,
-.ui.buttons .without-text.button.compact {
+.ui.buttons.compact .without-text.button {
     padding-left: calc(var(--scale-echo) / 2);
+    padding-right: calc(var(--scale-echo) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
