@@ -1,1 +1,1 @@
-export * from "./Tooltip2";
+export * from "./Tooltip";
