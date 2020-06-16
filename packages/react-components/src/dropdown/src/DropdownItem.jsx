@@ -2,7 +2,7 @@ import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useChainedEventCallback, useEventCallback } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useChainedEventCallback } from "../../shared";
 import { element, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
