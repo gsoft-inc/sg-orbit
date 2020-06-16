@@ -41,6 +41,11 @@
     justify-content: space-between;
 }
 
+/* Dropdown Menu | Trigger | Focus */
+.o-ui.dropdown-title-trigger .icon {
+    margin-right: var(--scale-alpha);
+}
+
 /* Dropdown Menu | Trigger | Disabled */
 .o-ui.dropdown-title-trigger[disabled] {
     color: var(--marine-200);
@@ -72,11 +77,6 @@
     background-color: var(--primary-50);
     outline: none;
     border-radius: 2px;
-}
-
-/* Dropdown Menu | Trigger | Focus */
-.o-ui.dropdown-title-trigger .icon {
-    margin-right: var(--scale-alpha);
 }
 
 /* Dropdown Menu | Trigger | Arrow */
