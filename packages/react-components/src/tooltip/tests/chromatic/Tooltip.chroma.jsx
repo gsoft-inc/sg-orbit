@@ -53,7 +53,7 @@ stories()
     .add("open", () =>
         <SimpleTooltip open />
     )
-    .add("defaultOpen", () =>
+    .add("default open", () =>
         <SimpleTooltip defaultOpen />
     )
     .add("basic", () =>

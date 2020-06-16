@@ -65,7 +65,7 @@ stories()
     .add("open", () =>
         <InlineSelect open />
     )
-    .add("defaultOpen", () =>
+    .add("default open", () =>
         <InlineSelect defaultOpen />
     )
     .add("selected value", () =>
