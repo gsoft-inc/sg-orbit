@@ -67,11 +67,11 @@ export function InnerDropdownItem(props) {
         <SemanticRef innerRef={forwardedRef}>
             <SemanticDropdown.Item
                 {...rest}
+                onClick={handleClick}
                 className={mergeClasses(
                     focus && "focus",
                     hover && "hover"
                 )}
-                onClick={handleClick}
                 tabIndex="-1"
             >
                 {content}

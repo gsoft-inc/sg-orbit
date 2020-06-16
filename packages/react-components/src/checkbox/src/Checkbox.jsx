@@ -111,7 +111,7 @@ export function InnerCheckbox(props) {
 
     const countMarkup = !isNil(count) && createCount(count);
 
-    const content = (!isNil(textMarkup) || !isNil(iconsMarkup) || !isNil(labelMarkup) || !isNil(countMarkup)) && (
+    const content = (textMarkup || iconsMarkup || labelMarkup || countMarkup) && (
         <label title={text || ""}>
             {textMarkup}
             {iconsMarkup}{labelMarkup}{countMarkup}
@@ -124,7 +124,7 @@ export function InnerCheckbox(props) {
                 data-testid="checkbox"
                 {...rest}
                 {...autofocusProps}
-                label={content}
+                label={content || undefined}
                 disabled={disabled}
                 className={mergeClasses(
                     active && "active",

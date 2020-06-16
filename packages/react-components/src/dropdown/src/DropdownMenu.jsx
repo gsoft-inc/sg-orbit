@@ -104,13 +104,13 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, className, c
             <SemanticRef innerRef={menuRef}>
                 <SemanticDropdown.Menu
                     {...rest}
+                    open
                     className={mergeClasses(
                         scrolling && "scrolling",
                         fluid && "fluid",
                         getSizeClass(size),
                         className
                     )}
-                    open
                     tabIndex="-1"
                 >
                     {children}

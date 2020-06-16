@@ -45,7 +45,7 @@ export function createTestSuite(select, stories) {
         .add("open", () =>
             <Select element={select} open />
         )
-        .add("defaultOpen", () =>
+        .add("default open", () =>
             <Select element={select} defaultOpen />
         )
         .add("selected value", () =>
