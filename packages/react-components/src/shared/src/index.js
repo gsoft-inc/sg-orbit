@@ -23,3 +23,4 @@ export * from "./getSizeClass";
 export * from "./createChainedFunction";
 export * from "./mergeRefs";
 export * from "./augmentElement";
+export * from "./useChainedEventCallback";

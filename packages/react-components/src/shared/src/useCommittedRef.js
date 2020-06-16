@@ -20,14 +20,3 @@ export function useCommittedRef(value) {
 
     return ref;
 }
-
-export function useSpecialCommittedRef(value) {
-    const ref = useRef(value);
-
-    useEffect(() => {
-        console.log("will update useSpecialCommittedRef ref to new value: ", value);
-        ref.current = value;
-    }, [value]);
-
-    return ref;
-}

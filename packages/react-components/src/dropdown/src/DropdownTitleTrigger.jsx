@@ -31,6 +31,8 @@ export function InnerDropdownTitleTrigger({
 }) {
     const { upward } = useContext(DropdownContext);
 
+    const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
+
     return (
         <Element
             {...rest}
@@ -45,7 +47,7 @@ export function InnerDropdownTitleTrigger({
             )}
             ref={forwardedRef}
         >
-            {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
+            {iconMarkup}
             <span className="text">{title}</span>
             <EmbeddedIcon
                 icon={
