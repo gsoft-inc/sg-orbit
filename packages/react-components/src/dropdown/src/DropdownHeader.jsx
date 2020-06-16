@@ -1,5 +1,6 @@
-import { Dropdown, DropdownContext } from "..";
+import { DropdownContext } from "./DropdownContext";
 import { EmbeddedIcon } from "../../icons";
+import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { element } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
@@ -20,11 +21,13 @@ export function InnerDropdownHeader(props) {
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownHeader");
 
+    const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
+
     return (
-        <Dropdown.Header {...rest} ref={forwardedRef}>
-            {!isNil(icon) && <EmbeddedIcon icon={icon} size={size} />}
+        <SemanticDropdown.Header {...rest} ref={forwardedRef}>
+            {iconMarkup}
             <span className="text">{children}</span>
-        </Dropdown.Header>
+        </SemanticDropdown.Header>
     );
 }
 
