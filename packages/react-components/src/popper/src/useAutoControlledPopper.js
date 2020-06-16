@@ -2,9 +2,9 @@ import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import {
     KEYS,
     augmentElement,
-    createChainedFunction,
     mergeClasses,
     useAutoControlledState,
+    useChainedEventCallback,
     useDocumentListener,
     useEventCallback,
     useMergedRefs
@@ -300,8 +300,8 @@ export function useAutoControlledPopper(props) {
         }
     }, [isVisible, focusFirstElementOnKeyboardShow, setFocusPopper, lastTriggerEventRef]);
 
-    const handleWrapperFocus = useEventCallback(createChainedFunction(handleFocus, onFocus));
-    const handleWrapperBlur = useEventCallback(createChainedFunction(handleBlur, onBlur));
+    const handleWrapperFocus = useChainedEventCallback(handleFocus, onFocus);
+    const handleWrapperBlur = useChainedEventCallback(handleBlur, onBlur);
 
     const render = content => {
         const popperMarkup = !isNil(triggerElement) && createPopper(popper, {

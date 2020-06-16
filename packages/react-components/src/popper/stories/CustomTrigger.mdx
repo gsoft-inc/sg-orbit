@@ -1,14 +1,20 @@
 <details><summary >custom trigger example</summary>
 
 ```jsx dark
-export const Trigger = forwardRef(({ onClick, ...rest }, ref) => (
-    <button
-        {...rest}
-        onClick={onClick}
-        ref={ref}
-    >
-        Toggle
-    </button>
-));
+export const Trigger = forwardRef(({ onClick, ...rest }, ref) => {
+    // Optionally use context values.
+    const { isVisible, position } = useContext(AutoControlledPopperContext);
+
+    return (
+        <button
+            {...rest}
+            onClick={onClick}
+            className={isVisible ? "bg-primary-500" : "bg-secondary-500"}
+            ref={ref}
+        >
+            Toggle
+        </button>
+    );
+});
 ```
 </details>

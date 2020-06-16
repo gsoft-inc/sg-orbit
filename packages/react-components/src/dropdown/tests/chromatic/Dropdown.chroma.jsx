@@ -10,7 +10,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "80%", height: "800px" })
             .build())
         .build();
 }

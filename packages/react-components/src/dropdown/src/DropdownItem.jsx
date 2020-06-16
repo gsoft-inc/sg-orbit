@@ -2,7 +2,7 @@ import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useEventCallback } from "../../shared";
+import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useChainedEventCallback } from "../../shared";
 import { element, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
@@ -39,13 +39,7 @@ export function InnerDropdownItem(props) {
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
 
-    const handleClick = useEventCallback(event => {
-        onItemClick(event);
-
-        if (!isNil(onClick)) {
-            onClick(event);
-        }
-    });
+    const handleClick = useChainedEventCallback(onClick, onItemClick);
 
     const text = legacyText || children;
 

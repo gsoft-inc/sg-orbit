@@ -8,7 +8,7 @@ import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS, augmentElement, resolvePopperPosition, useEventCallback } from "../../shared";
+import { KEYS, augmentElement, resolvePopperPosition, useChainedEventCallback, useEventCallback } from "../../shared";
 import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
@@ -118,12 +118,8 @@ export function InnerDropdown(props) {
 
     const [isOpen, setIsOpen] = useState();
 
-    const handleVisibilityChange = useEventCallback((event, isVisible) => {
+    const handleVisibilityChange = useChainedEventCallback(onVisibilityChange, (event, isVisible) => {
         setIsOpen(isVisible);
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, isVisible);
-        }
     });
 
     const dropdownTrigger = augmentElement(resolveTrigger(title, icon, trigger), {
