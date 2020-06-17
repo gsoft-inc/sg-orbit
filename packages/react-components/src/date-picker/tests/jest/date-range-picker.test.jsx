@@ -86,15 +86,13 @@ test("clear the date on input clear button click", async () => {
         dateFormat: DATE_FORMAT
     }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedRange));
 
     act(() => {
         userEvent.click(getByTestId(INPUT_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedRange));
 });
 
 test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
@@ -110,15 +108,13 @@ test("when the calendar is closed and a value is selected, clear the value on es
         dateFormat: DATE_FORMAT
     }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedRange));
 
     act(() => {
-        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+        fireEvent.keyDown(getInput(getByTestId), { key: "Escape", keyCode: 27 });
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedRange));
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
@@ -161,9 +157,7 @@ test("clear the dates on calendar clear button click", async () => {
         dateFormat: DATE_FORMAT
     }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedRange));
 
     await openCalendar(getByTestId);
 
@@ -171,7 +165,7 @@ test("clear the dates on calendar clear button click", async () => {
         userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedRange));
 });
 
 test("when the dates are cleared on calendar clear button click, the apply button is focused", async () => {
@@ -187,9 +181,7 @@ test("when the dates are cleared on calendar clear button click, the apply butto
         dateFormat: DATE_FORMAT
     }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedRange));
 
     await openCalendar(getByTestId);
 
@@ -209,15 +201,13 @@ test("when the calendar close on esc keydown, the input should be focused", asyn
         getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
     });
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).not.toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 
     act(() => {
         fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     });
 
-    await waitFor(() => expect(inputNode).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when dates are selected and the calendar is closed without applying the selection, clear the dates", async () => {
@@ -240,15 +230,13 @@ test("when dates are selected and the calendar is closed without applying the se
     ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(startDate, endDate);
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedRange));
 
     act(() => {
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedRange));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedRange));
 });
 
 // ***** API *****
@@ -346,13 +334,13 @@ test("call onDatesChange when a preset is applied", async () => {
 
     await openCalendar(getByTestId);
 
-    act(() => {
-        userEvent.click(getByTestId(FIRST_PRESET_ID));
-    });
+    // act(() => {
+    //     userEvent.click(getByTestId(FIRST_PRESET_ID));
+    // });
 
-    act(() => {
-        userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
-    });
+    // act(() => {
+    //     userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    // });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), firstPreset.startDate, firstPreset.endDate, firstPreset.text));
 });

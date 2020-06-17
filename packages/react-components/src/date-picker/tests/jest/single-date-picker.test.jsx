@@ -55,15 +55,13 @@ test("clear the date on input clear button click", async () => {
 
     const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedDate));
 
     act(() => {
         userEvent.click(getByTestId(INPUT_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedDate));
 });
 
 test("when the calendar is closed and a value is selected, clear the value on esc keydown", async () => {
@@ -72,15 +70,13 @@ test("when the calendar is closed and a value is selected, clear the value on es
 
     const { getByTestId } = render(createSingleDatePicker({ defaultDate: date, dateFormat: DATE_FORMAT }));
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedDate));
 
     act(() => {
-        fireEvent.keyDown(inputNode, { key: "Escape", keyCode: 27 });
+        fireEvent.keyDown(getInput(getByTestId), { key: "Escape", keyCode: 27 });
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedDate));
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
@@ -156,15 +152,13 @@ test("when the calendar close on esc keydown, the input should be focused", asyn
 
     getByTestId(CALENDAR_CLEAR_BUTTON_ID).focus();
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).not.toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 
     act(() => {
         fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     });
 
-    await waitFor(() => expect(inputNode).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
 test("when a date is selected and the calendar is closed without applying the selection, clear the date", async () => {
@@ -181,15 +175,13 @@ test("when a date is selected and the calendar is closed without applying the se
 
     ref.current.triggerDateChange(date);
 
-    const inputNode = getInput(getByTestId);
-
-    await waitFor(() => expect(inputNode).toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).toHaveValue(formattedDate));
 
     act(() => {
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(inputNode).not.toHaveValue(formattedDate));
+    await waitFor(() => expect(getInput(getByTestId)).not.toHaveValue(formattedDate));
 });
 
 // ***** API *****
