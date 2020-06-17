@@ -1,15 +1,17 @@
 import { CloseIcon } from "../../icons";
 import { Label } from "../../label";
 import { PureComponent } from "react";
-import { SIZES } from "./sizes";
-import { arrayOf, bool, func, oneOf, shape, string } from "prop-types";
-import { mergeClasses } from "../../shared";
+import { SIZE, mergeClasses } from "../../shared";
+import { arrayOf, func, oneOf, shape, string } from "prop-types";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
     text: string.isRequired,
     value: string.isRequired
 };
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
     return (
@@ -29,8 +31,7 @@ class TagsPickerSelectedItem extends PureComponent {
         item: shape(ITEM_SHAPE).isRequired,
         itemRenderer: func,
         onRemove: func.isRequired,
-        disabled: bool,
-        size: oneOf(SIZES),
+        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
         className: string
     };
 
@@ -78,17 +79,9 @@ export class TagsPickerSelectedItems extends PureComponent {
          */
         onRemoveSelectedItem: func,
         /**
-         * A disabled selected items does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * A selected item can have different sizes.
          */
-        size: oneOf(SIZES),
-        /**
-         * @ignore
-         */
-        className: string
+        size: oneOf(SIZES)
     };
 
     static defaultProps ={

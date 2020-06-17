@@ -1,11 +1,9 @@
 import { InlineSingleDatePicker, InnerInlineSingleDatePickerInput, InnerSingleDatePickerCalendar } from "@react-components/date-picker";
 import { InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { boolean, number, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
-import { logDateChanged, momentKnob } from "../utils";
+import { logDateChanged } from "../utils";
 import Imports from "./imports.mdx";
-import moment from "moment";
 
 <Meta
     title={createComponentSection("DatePicker/single inline")}
@@ -52,32 +50,6 @@ A default inlined single date picker.
     </Story>
 </Preview>
 
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <InlineSingleDatePicker
-        defaultDate={momentKnob("defaultDate", moment().toDate())}
-        allowClear={boolean("allowClear", true)}
-        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
-        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-        numberOfMonths={number("numberOfMonths")}
-        placeholder={text("placeholder")}
-        dateFormat={text("dateFormat")}
-        position={select("position", { "top-start": "top-start", "top-end": "top-end", "bottom": "bottom", "bottom-start": "bottom-start", "bottom-end": "bottom-end", "right": "right", "right-start": "right-start", "right-end": "right-end", "left": "left", "left-start": "left-start", "left-end": "left-end" }, "bottom-start")}
-        disabled={boolean("disabled", false)}
-        closeOnBlur={boolean("closeOnBlur", true)}
-        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-        className={text("className")}
-        onDateChange={logDateChanged}
-    />
-</Story>
-
 ### In a block
 
 An inlined single date picker can be embedded in a block.
@@ -100,37 +72,3 @@ An inlined single date picker can be disabled.
         />
     </Story>
 </Preview>
-
-<Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <InlineSingleDatePicker
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onDateChange={logDateChanged}
-    />
-</Story>
-
-<Story
-    name="z-index"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div>
-        <InlineSingleDatePicker
-            onDateChange={logDateChanged}
-        />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-    </div>
-</Story>

@@ -2,11 +2,11 @@
 
 import styles from "./table.module.css";
 
-import { ArgumentError, mergeClasses } from "@react-components/shared/src";
 import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";
 import { isPlainObject, isString } from "lodash";
+import { mergeClasses } from "@react-components/shared/src";
 
 const MdxTable = components.table;
 
@@ -41,7 +41,7 @@ function ensureRowsValuesMatchColumns(columns, rows) {
 
     rows.forEach((x, index) => {
         if (x.length !== columnsCount) {
-            throw new ArgumentError(`Table row with index ${index} have ${x.length} values when there is ${columnsCount} columns defined.`);
+            throw new Error(`Table row with index ${index} have ${x.length} values when there is ${columnsCount} columns defined.`);
         }
     });
 }

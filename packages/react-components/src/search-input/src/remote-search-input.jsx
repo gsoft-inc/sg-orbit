@@ -1,11 +1,8 @@
 import {
-    ArgumentError,
     AutoControlledPureComponent,
-    InvalidOperationError,
     KEYS,
     cancellablePromise,
     defer,
-    ensure,
     getAutoControlledStateFromProps,
     httpGet
 } from "../../shared";
@@ -23,12 +20,12 @@ function defaultResultsFetcher(event, url, data, options) {
                 if (response.ok) {
                     resolve(response.json());
                 } else {
-                    reject(new InvalidOperationError(`Remote Search Input - The request failed with response: "${response.statusText}"`));
+                    reject(new Error(`Remote Search Input - The request failed with response: "${response.statusText}"`));
                 }
             })
             .catch(error => {
                 if (error.isTimeout) {
-                    reject(new InvalidOperationError("Remote Search Input - The request timed out."));
+                    reject(new Error("Remote Search Input - The request timed out."));
                 } else {
                     reject(error);
                 }
@@ -48,7 +45,7 @@ function defaultResultsFetcher(event, url, data, options) {
  * @returns {Function} - The fetcher instance
  */
 export function withDefaultResultsFetcher(url, queryParameter = "query", { queryData = {}, requestOptions = {} } = {}) {
-    ensure(url, "url", "withDefaultResultsFetcher").isNotNullOrEmpty();
+    // ensure(url, "url", "withDefaultResultsFetcher").isNotNullOrEmpty();
 
     return (event, query) => {
         const data = {
@@ -108,12 +105,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         onBlur: func,
         /**
-         * Called when a click happens outside the search input.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @returns {void}
-         */
-        onOutsideClick: func,
-        /**
          * Called on keydown.
          * @param {SyntheticEvent} event - React's original SyntheticEvent.
          * @returns {void}
@@ -165,10 +156,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled search input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the search input should autofocus on render.
          */
         autofocus: bool,
@@ -176,15 +163,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          * Delay before trying to autofocus.
          */
         autofocusDelay: number,
-        /**
-         * Whether or not the search results should close when the search input loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the search results should close when a click happens outside the search input.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
         /**
          * A remote search input can have different sizes.
          */
@@ -196,23 +174,13 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         /**
          * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
          */
-        input: oneOfType([element, object]),
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object
+        input: oneOfType([element, object])
     };
 
     static defaultProps = {
         loadingDelay: 150,
         minCharacters: 1,
-        debounceDelay: 200,
-        closeOnBlur: true,
-        closeOnOutsideClick: false
+        debounceDelay: 200
     };
 
     static autoControlledProps = ["open"];
@@ -227,14 +195,6 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, RemoteSearchInput.autoControlledProps);
-    }
-
-    componentDidUpdate() {
-        const { closeOnBlur, closeOnOutsideClick } = this.props;
-
-        if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("RemoteSearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
-        }
     }
 
     componentWillUnmount() {
@@ -258,14 +218,14 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleClear = event => {
-        const { onClear, closeOnBlur } = this.props;
+        const { onClear } = this.props;
 
         this.cancelFetch();
         this.hideLoading();
 
-        if (!closeOnBlur) {
-            this.close(event);
-        }
+        // if (!closeOnBlur) {
+        //     this.close(event);
+        // }
 
         if (!isNil(onClear)) {
             onClear(event);
@@ -277,13 +237,11 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     // - close on blur
     // - close on value select
     handleBlur = event => {
-        const { onBlur, closeOnBlur } = this.props;
+        const { onBlur } = this.props;
 
-        if (closeOnBlur) {
-            this.cancelFetch();
-            this.hideLoading();
-            this.close(event);
-        }
+        this.cancelFetch();
+        this.hideLoading();
+        this.close(event);
 
         if (!isNil(onBlur)) {
             onBlur(event);
@@ -291,17 +249,10 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick } = this.props;
+        this.cancelFetch();
+        this.hideLoading();
 
-        if (closeOnOutsideClick) {
-            this.cancelFetch();
-            this.hideLoading();
-            this.close(event);
-        }
-
-        if (!isNil(onOutsideClick)) {
-            onOutsideClick(event);
-        }
+        this.close(event);
     };
 
     handleKeyDown = event => {
@@ -341,7 +292,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                         results = onResults(results, query);
 
                         if (!isArray(results)) {
-                            throw new InvalidOperationError("Remote Search Input - onResults expect a return value of type array.");
+                            throw new Error("Remote Search Input - onResults expect a return value of type array.");
                         }
                     }
 
@@ -357,6 +308,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                     }
                 }
             } else {
+                this.hideLoading();
                 this.close(event);
                 this.setState({ results: [] });
             }
@@ -371,7 +323,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         const promise = onFetchResults(event, query);
 
         if (!isPromise(promise)) {
-            throw new InvalidOperationError("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
+            throw new Error("RemoteSearchInput - onFetchResults expect a return value of type Promise.");
         }
 
         this._fetchResultsPromise = cancellablePromise(promise);

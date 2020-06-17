@@ -1,2 +1,1 @@
-export * from "./text-input";
-export * from "./shorthands";
+export * from "./TextInput";

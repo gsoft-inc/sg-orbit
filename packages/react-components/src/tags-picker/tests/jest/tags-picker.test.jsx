@@ -450,36 +450,7 @@ test("clicking on the document body will not focus the trigger button", async ()
     await waitFor(() => expect(getByTestId(TRIGGER_ID)).not.toHaveFocus());
 });
 
-test("when closeOnBlur is false, dont close the dropdown menu on blur", async () => {
-    const renderResult = render(createTagsPicker({
-        closeOnBlur: false
-    }));
-
-    const { queries } = await openDropdownMenu(renderResult);
-
-    act(() => {
-        userEvent.click(document.body);
-    });
-
-    await waitFor(() => expect(queries.getDropdownMenu()).toBeInTheDocument());
-});
-
-test("when closeOnBlur is false and closeOnOutsideClick is true, close the dropdown menu on outside click", async () => {
-    const renderResult = render(createTagsPicker({
-        closeOnBlur: false,
-        closeOnOutsideClick: true
-    }));
-
-    const { queries } = await openDropdownMenu(renderResult);
-
-    act(() => {
-        userEvent.click(document.body);
-    });
-
-    await waitFor(() => expect(queries.getDropdownMenu()).not.toBeInTheDocument());
-});
-
-// // ***** API *****
+// ***** API *****
 
 test("call onValuesChange with the new selected item when an item is selected", async () => {
     const handler = jest.fn();

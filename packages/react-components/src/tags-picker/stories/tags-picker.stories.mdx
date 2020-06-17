@@ -1,9 +1,7 @@
 import { ControlledTagsPicker } from "./controlled-tags-picker.sample";
-import { DEFAULT_SIZE, TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
 import { createComponentSection, paramsBuilder } from "@utils";
 import { fuzzySearch, logValuesChanged } from "./utils";
 import Imports from "./imports.mdx";
@@ -99,32 +97,6 @@ A default tag picker.
     </Story>
 </Preview>
 
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <TagsPicker
-        items={DEFAULT_ITEMS}
-        // Not sure why, when using a knob, the component doesn't re-render when the knob value change.
-        defaultValues={["skylab", "gemini"]}
-        closeOnSelect={boolean("closeOnSelect", false)}
-        noResultsMessage={text("noResultsMessage", TagsPicker.defaultProps.noResultsMessage)}
-        triggerText={text("triggerText", TagsPicker.defaultProps.triggerText)}
-        placeholder={text("placeholder", TagsPicker.defaultProps.placeholder)}
-        clearText={text("clearText", TagsPicker.defaultProps.clearText)}
-        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
-        disabled={boolean("disabled", false)}
-        closeOnBlur={boolean("closeOnBlur", true)}
-        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-        onValuesChange={logValuesChanged}
-    />
-</Story>
-
 ### Categories
 
 A tag picker can group items under categories.
@@ -209,19 +181,6 @@ A tag picker can be disabled.
         />
     </Story>
 </Preview>
-
-<Story name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <TagsPicker
-        items={DEFAULT_ITEMS_WITH_CATEGORIES}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onValuesChange={logValuesChanged}
-    />
-</Story>
 
 ### Size
 

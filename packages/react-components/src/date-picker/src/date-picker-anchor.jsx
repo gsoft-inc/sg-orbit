@@ -1,27 +1,28 @@
-import { POSITIONS, PopperTrigger } from "../../popper";
 import { PureComponent } from "react";
-import { arrayOf, bool, element, func, number, object, oneOf, string } from "prop-types";
+import { TextInputPopper } from "../../popper";
+import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
+import { resolvePopperPosition } from "../../shared";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
         open: bool.isRequired,
         input: element.isRequired,
         calendar: element.isRequired,
-        position: oneOf(POSITIONS),
-        offset: arrayOf(number),
+        upward: bool,
+        direction: oneOf(["left", "right"]),
+        pinned: bool,
         zIndex: number,
         onVisibilityChange: func,
-        closeOnBlur: bool,
-        closeOnOutsideClick: bool,
         fluid: bool,
         className: string,
         style: object
     };
 
     static defaultProps = {
-        position: "bottom-start",
-        offset: [0, 10],
+        upward: false,
+        direction: "right",
+        pinned: false,
         zIndex: 2
     };
 
@@ -34,18 +35,17 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, position, offset, zIndex, closeOnBlur, closeOnOutsideClick, disabled, fluid, className, style } = this.props;
+        const { open, input, calendar, upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
 
         return (
-            <PopperTrigger.TextInput
+            <TextInputPopper
                 show={open}
                 input={input}
-                position={position}
-                offset={offset}
+                position={resolvePopperPosition(upward, direction)}
+                pinned={pinned}
+                offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
-                hideOnBlur={closeOnBlur}
-                hideOnOutsideClick={closeOnOutsideClick}
-                focusFirstElementOnShow
+                focusFirstElementOnKeyboardShow
                 disabled={disabled}
                 fluid={fluid}
                 zIndex={zIndex}
@@ -53,7 +53,7 @@ export class DatePickerAnchor extends PureComponent {
                 style={style}
             >
                 {calendar}
-            </PopperTrigger.TextInput>
+            </TextInputPopper>
         );
     }
 }

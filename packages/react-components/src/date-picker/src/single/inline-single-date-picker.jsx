@@ -1,11 +1,9 @@
-import { ArgumentError } from "../../../shared";
 import { InlineSingleDatePickerInput } from "./inline-single-date-picker-input";
-import { POSITIONS } from "../../../popper";
 import { PureComponent } from "react";
 import { SingleDatePicker } from "./single-date-picker";
 import { SingleDatePickerButtons } from "./single-date-picker-buttons";
 import { SingleDatePickerCalendar } from "./single-date-picker-calendar";
-import { arrayOf, bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -67,14 +65,17 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     dateFormat: string,
     /**
-     * A position for the calendar.
+     * Whether or not the calendar will open upward.
      */
-    position: oneOf(POSITIONS),
+    upward: bool,
     /**
-     * An array containing an horizontal and vertical offsets for the calendar position.
-     * Ex: [10, -10]
+     * A calendar can open to the left or to the right.
      */
-    offset: arrayOf(number),
+    direction: oneOf(["left", "right"]),
+    /**
+     * Disables automatic repositioning of the calendar, it will always be placed according to upward and direction values.
+     */
+    pinned: bool,
     /**
      * z-index of the calendar.
      */
@@ -96,19 +97,6 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     defaultOpen: bool,
     /**
-     * Whether or not the calendar should close when the date picker loose focus.
-     */
-    closeOnBlur: bool,
-    /**
-     * Whether or not the calendar should close when a click happens outside the date picker.
-     * Requires `closeOnBlur` to be `false`.
-     */
-    closeOnOutsideClick: bool,
-    /**
-     * A disabled date picker does not allow user interaction.
-     */
-    disabled: bool,
-    /**
      * Whether or not the input appear as focused.
      */
     focus: bool,
@@ -124,8 +112,7 @@ const SINGLE_DATE_PICKER_DEFAULT_PROPS = {
     dateFormat: "MMM Do YYYY",
     numberOfMonths: 1,
     calendar: <SingleDatePickerCalendar />,
-    buttons: <SingleDatePickerButtons />,
-    disabled: false
+    buttons: <SingleDatePickerButtons />
 };
 
 export class InlineSingleDatePicker extends PureComponent {
@@ -146,7 +133,7 @@ export class InlineSingleDatePicker extends PureComponent {
         const { size, ...rest } = this.props;
 
         if (!isNil(size)) {
-            throw new ArgumentError(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
+            throw new Error(`${InlineSingleDatePicker.name} doesn't support the "size" prop.`);
         }
 
         return <SingleDatePicker {...rest} />;

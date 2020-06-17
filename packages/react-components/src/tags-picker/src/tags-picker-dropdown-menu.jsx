@@ -34,11 +34,7 @@ export class TagsPickerDropdownMenu extends PureComponent {
         /**
          * A controlled item selected from the keyboard.
          */
-        keyboardItem: shape(ITEM_SHAPE),
-        /**
-         * @ignore
-         */
-        className: string
+        keyboardItem: shape(ITEM_SHAPE)
     };
 
     state = {

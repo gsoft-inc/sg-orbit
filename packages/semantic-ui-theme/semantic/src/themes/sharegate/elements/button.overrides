@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     padding: @verticalPadding 0 (@verticalPadding + @shadowOffset);
+    transition: box-shadow .15s ease-in, background-color .1s linear;
 }
 
 /* Reset appaearance when button is used as an anchor */
@@ -43,6 +44,17 @@ a.ui.button {
     padding-right: var(--scale-bravo)
 }
 
+/* Micro | With Icon  */
+.ui.micro.buttons .button.with-icon,
+.ui.micro.button.with-icon {
+    padding-left: var(--scale-bravo);
+    padding-right: var(--scale-bravo);
+}
+
+.ui.micro.with-icon.without-text.button {
+    padding-left: var(--scale-bravo);
+}
+
 /* LAYOUT | Height/Radius | Sizes | Mini */
 .ui.button.mini,
 .ui.button.with-icon.mini,
@@ -60,6 +72,15 @@ a.ui.button {
     padding: 0.125rem 0 0.125rem;
     padding-left: var(--scale-bravo);
     padding-right: var(--scale-bravo)
+}
+
+.ui.button.mini.with-icon-right {
+    padding-right: var(--scale-bravo);
+}
+
+.ui.mini.with-icon.without-text.button,
+.ui.mini.with-icon.button {
+    padding-left: var(--scale-bravo);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Tiny */
@@ -108,8 +129,8 @@ a.ui.button {
 }
 
 /* LAYOUT | Padding | Sizes | Medium */
-.ui.button.medium,
-.ui.medium.buttons .button {
+.ui.button,
+.ui.buttons .button {
     padding-left: var(--scale-echo);
     padding-right: var(--scale-echo);
 }
@@ -269,8 +290,8 @@ a.ui.button {
 }
 
 /* CONTENT | Compact | Layout | Padding | Sizes | Medium */
-.ui.button.compact.medium,
-.ui.medium.buttons .button.compact {
+.ui.button.compact,
+.ui.buttons .button.compact {
     padding-left: calc(var(--scale-echo) / 2);
     padding-right: calc(var(--scale-echo) / 2);
 }
@@ -301,11 +322,22 @@ a.ui.button {
     background-color: var(--marine-900);
 }
 
+.ui.button.naked:focus:active,
+.ui.button.naked:focus:hover,
+.ui.button.naked.focus.hover,
+.ui.button.naked.focus.active {
+    background-color: var(--transparent);
+}
+
 .ui.button.primary:focus:active,
 .ui.button.primary:focus:hover,
 .ui.button.primary.focus.active,
 .ui.button.primary.focus.hover {
     background-color: var(--primary-900);
+}
+
+.ui.button.primary.focus {
+    background-color: var(--primary-500);
 }
 
 .ui.button.naked:active,
@@ -324,14 +356,18 @@ a.ui.button {
     color: @marine900!important;
 }
 
-.ui.button.basic:active,
-.ui.button.basic.active {
+/* STATE | Hover | SKIN | Basic */
+.ui.button.basic:hover,
+.ui.button.basic:focus:hover,
+.ui.button.basic.hover,
+.ui.button.basic.focus.hover {
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset!important;
 }
 
-.ui.button.basic.link:active,
-.ui.button.basic.link.active {
-    box-shadow: none !important;
+.ui.button.basic:active,
+.ui.button.basic.active {
+    box-shadow: 0px 0px 0px 1px var(--marine-700) inset!important;
+    color: var(--marine-700)!important;
 }
 
 .ui.button.basic:active:focus,
@@ -347,7 +383,7 @@ a.ui.button {
 .ui.button.basic.secondary:active,
 .ui.button.basic.secondary.active {
     box-shadow: 0px 0px 0px 1px var(--marine-900) inset!important;
-    color: @marine900!important;
+    color: var(--marine-900)!important;
 }
 
 /* SKIN | Negative */
@@ -488,8 +524,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon.medium,
-.ui.medium.buttons .button.with-icon {
+.ui.button.with-icon,
+.ui.buttons .button.with-icon {
     padding-left: calc(var(--scale-echo) - 2px);
 }
 
@@ -513,8 +549,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon.compact.medium,
-.ui.medium.buttons .button.with-icon.compact {
+.ui.button.with-icon.compact,
+.ui.buttons .button.with-icon.compact {
     padding-left: calc(var(--scale-echo) / 2);
 }
 
@@ -539,8 +575,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon-right.medium,
-.ui.medium.buttons .button.with-icon-right {
+.ui.button.with-icon-right,
+.ui.buttons .button.with-icon-right {
     padding-left: var(--scale-echo);
     padding-right: calc(var(--scale-echo) - 2px);
 }
@@ -568,8 +604,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon-right.compact.medium,
-.ui.medium.buttons .button.with-icon-right.compact {
+.ui.button.with-icon-right.compact,
+.ui.buttons .button.with-icon-right.compact {
     padding-left: calc(var(--scale-echo) / 2);
     padding-right: calc(var(--scale-echo) / 2 - 2px);
 }
@@ -594,8 +630,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button.medium,
-.ui.medium.buttons .without-text.button {
+.ui.with-icon.without-text.button,
+.ui.buttons .without-text.button {
     padding-left: var(--scale-echo);
 }
 
@@ -619,9 +655,10 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button.medium.compact,
-.ui.medium.buttons .without-text.button.compact {
+.ui.with-icon.without-text.button.compact,
+.ui.buttons.compact .without-text.button {
     padding-left: calc(var(--scale-echo) / 2);
+    padding-right: calc(var(--scale-echo) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
@@ -656,12 +693,6 @@ a.ui.button {
     margin-right: var(--scale-bravo);
 }
 
-/* CONTENT | With Tag | SKIN | Naked */
-.ui.button.with-tag.naked .tag,
-.ui.buttons.with-tag.naked .tag {
-    background-color: @transparent!important;
-}
-
 /* CONTENT | With Tag | Layout | Padding */
 /* CONTENT | With Tag | Layout | Padding | Sizes | Tiny */
 .ui.button.with-tag.tiny,
@@ -676,8 +707,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Tag | Layout | Padding | Sizes | Medium */
-.ui.button.with-tag.medium,
-.ui.medium.buttons .button.with-tag {
+.ui.button.with-tag,
+.ui.buttons .button.with-tag {
     padding-left: calc(var(--scale-echo) - 2px);
 }
 
@@ -701,8 +732,8 @@ a.ui.button {
 }
 
 /* CONTENT | With Tag | Layout | Padding | Sizes | Medium | Compact */
-.ui.button.with-tag.medium.compact,
-.ui.medium.buttons .button.with-tag.compact {
+.ui.button.with-tag.compact,
+.ui.buttons .button.with-tag.compact {
     padding-left: calc(var(--scale-echo) / 2 - 2px);
 }
 
@@ -737,8 +768,8 @@ a.ui.button {
     padding-right: calc(var(--scale-delta) / 2);
 }
 
-.ui.button.with-label.medium,
-.ui.buttons.with-label.medium .button {
+.ui.button.with-label,
+.ui.buttons.with-label .button {
     padding-right: calc(var(--scale-echo) / 2);
 }
 
@@ -758,7 +789,7 @@ a.ui.button {
 .ui.buttons.ghost .button {
     background-color: @transparent;
     border: none;
-    color: @marine600;
+    color: @marine500;
 }
 
 /* SKIN | Ghost | STATE | Disabled */
@@ -774,7 +805,7 @@ a.ui.button {
 .ui.ghost.button:active,
 .ui.buttons.ghost .button:active {
     background-color: var(--cloud-50);
-    color: var(--marine-600);
+    color: var(--marine-500);
 }
 
 /* SKIN | Ghost | Primary */
@@ -854,7 +885,7 @@ a.ui.button {
 /* SKIN | Basic | Secondary */
 .ui.basic.secondary.buttons .button,
 .ui.basic.secondary.button {
-    color: @marine500 !important;
+    color: var(--marine-500) !important;
 }
 
 /* SKIN | Basic/Secondary | State */
@@ -869,7 +900,7 @@ a.ui.button {
 .ui.basic.secondary.button.active,
 .ui.basic.secondary.buttons.active .button {
     background-color: @white!important;
-    color: @marine900!important;
+    color: var(--marine-900)!important;
     box-shadow: 0px 0px 0px 1px var(--cloud-900) inset !important;
 }
 
@@ -904,7 +935,7 @@ a.ui.button {
 .ui.disabled.button.focus,
 .ui.disabled.button.active {
     background-color: var(--cloud-50);
-    color: @cloud400;
+    color: @cloud200;
 }
 
 /* SKIN | STATE | Disabled | LAYOUT | Basic */
@@ -1031,12 +1062,6 @@ a.ui.button {
     color: @negativeDisabled!important;
 }
 
-/* SKIN | Basic/Primary | STATE | Active */
-.ui.basic.primary.buttons .active.button,
-.ui.basic.primary.active.button {
-    background-color: @white!important;
-}
-
 /* SKIN | Basic/Positive | STATE | Active */
 .ui.basic.positive.buttons .active.button,
 .ui.basic.positive.active.button,
@@ -1075,13 +1100,13 @@ a.ui.button {
 /* CONTENT | Icon | SKIN | Secondary */
 .ui.button.with-icon.secondary .icon,
 .ui.buttons.secondary .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Basic */
 .ui.button.basic.with-icon .icon,
 .ui.buttons.basic .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Positive */
@@ -1131,7 +1156,7 @@ a.ui.button {
 /* CONTENT | Icon | SKIN | Ghost */
 .ui.button.with-icon.ghost .icon,
 .ui.buttons.ghost .button.with-icon .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | SKIN | Ghost/Positive */
@@ -1151,13 +1176,13 @@ a.ui.button {
 /* CONTENT | Icon | SKIN | Primary/Ghost */
 .ui.button.with-icon.primary.ghost .icon,
 .ui.buttons.primary.ghost .button.with-icon .icon, {
-    fill: @primary500;
+    fill: var(--primary-500);
 }
 
 /* CONTENT | Icon | SKIN | Primary/Basic */
 .ui.button.with-icon.basic.primary .icon,
 .ui.buttons.basic.primary .button.with-icon .icon {
-    fill: @primary500;
+    fill: var(--primary-500);
 }
 
 /* CONTENT | Icon | SKIN | Naked */
@@ -1171,7 +1196,7 @@ a.ui.button {
 .ui.button.with-icon:disabled .icon,
 .ui.buttons .button.with-icon.disabled .icon,
 .ui.buttons .button.with-icon:disabled .icon {
-    fill: @cloud400;
+    fill: var(--cloud-200);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost */
@@ -1179,7 +1204,7 @@ a.ui.button {
 .ui.button.with-icon.ghost:disabled .icon,
 .ui.buttons.ghost .button.with-icon.disabled .icon,
 .ui.buttons.ghost .button.with-icon:disabled .icon {
-    fill: @cloud400;
+    fill: var(--cloud-200);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Basic */
@@ -1187,7 +1212,7 @@ a.ui.button {
 .ui.button.with-icon.basic:disabled .icon,
 .ui.buttons.basic .button.with-icon:disabled .icon,
 .ui.buttons.basic .button.with-icon.disabled .icon {
-    fill: @cloud400;
+    fill: var(--cloud-200);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Primary */
@@ -1211,7 +1236,7 @@ a.ui.button {
 .ui.button.with-icon.basic.primary:disabled .icon,
 .ui.buttons.basic.primary .button.with-icon.disabled .icon,
 .ui.buttons.basic.primary .button.with-icon:disabled .icon {
-    fill: @primary200;
+    fill: var(--primary-200);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Ghost/Primary */
@@ -1219,7 +1244,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.primary:disabled .icon,
 .ui.buttons.ghost.primary .button.with-icon.disabled .icon,
 .ui.buttons.ghost.primary .button.with-icon:disabled .icon {
-    fill: @primary200;
+    fill: var(--primary-200);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Secondary/Ghost */
@@ -1227,7 +1252,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.secondary:disabled .icon,
 .ui.buttons.ghost.secondary.disabled .button.with-icon .icon,
 .ui.buttons.ghost.secondary:disabled .button.with-icon .icon {
-    fill: @marine100;
+    fill: var(--marine-100);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive */
@@ -1235,7 +1260,7 @@ a.ui.button {
 .ui.button.with-icon.positive:disabled .icon,
 .ui.buttons.positive .button.with-icon.disabled .icon,
 .ui.buttons.positive .button.with-icon:disabled .icon {
-    fill: @white;
+    fill: var(--white);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Positive/Basic */
@@ -1251,7 +1276,7 @@ a.ui.button {
 .ui.button.with-icon.negative:disabled .icon ,
 .ui.buttons.negative .button.with-icon.disabled .icon,
 .ui.buttons.negative .button.with-icon:disabled .icon {
-    fill: @white;
+    fill: var(--white);
 }
 
 /* CONTENT | Icon | STATE | Disabled | SKIN | Negative/Basic */
@@ -1284,7 +1309,7 @@ a.ui.button {
 .ui.button.with-icon:focus .icon,
 .ui.button.with-icon.focus .icon,
 .ui.button.with-icon.active .icon {
-    fill: @white;
+    fill: var(--white);
 }
 
 /* CONTENT | Icon/Group | STATE | Active | SKIN | Basic */
@@ -1298,7 +1323,7 @@ a.ui.button {
 .ui.buttons.basic .button.with-icon:focus .icon,
 .ui.buttons.basic .button.with-icon.focus .icon,
 .ui.buttons.basic .button.with-icon.active .icon {
-    fill: @marine900;
+    fill: var(--marine-900);
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Positive/Ghost */
@@ -1312,7 +1337,7 @@ a.ui.button {
 .ui.buttons.ghost.positive .button.with-icon.hover .icon,
 .ui.buttons.ghost.positive .button.with-icon:focus .icon,
 .ui.buttons.ghost.positive .button.with-icon.focus .icon {
-    fill: @success500;
+    fill: var(--success-500);
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Negative/Ghost */
@@ -1326,7 +1351,7 @@ a.ui.button {
 .ui.buttons.ghost.negative .button.with-icon.hover .icon,
 .ui.buttons.ghost.negative .button.with-icon:focus .icon,
 .ui.buttons.ghost.negative .button.with-icon.focus .icon {
-    fill: @alert900;
+    fill: var(--alert-900);
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Basic */
@@ -1340,7 +1365,7 @@ a.ui.button {
 .ui.buttons.basic.positive .button.with-icon.hover .icon,
 .ui.buttons.basic.positive .button.with-icon:focus .icon,
 .ui.buttons.basic.positive .button.with-icon.focus .icon {
-    fill: @success900;
+    fill: var(--success-900);
 }
 
 /* CONTENT | Icon | STATE | Hover | SKIN | Primary/Basic */
@@ -1348,7 +1373,7 @@ a.ui.button {
 .ui.buttons.basic.primary .button.with-icon:hover .icon,
 .ui.button.with-icon.basic.primary.hover .icon,
 .ui.buttons.basic.primary .button.with-icon.hover .icon {
-    fill: @primary900;
+    fill: var(--pprimary-900);
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Primary/Basic */
@@ -1430,7 +1455,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.active .icon,
 .ui.buttons.ghost .button.with-icon:hover .icon,
 .ui.buttons.ghost .button.with-icon.active .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
@@ -1438,7 +1463,7 @@ a.ui.button {
 .ui.button.with-icon.ghost.focus.hover .icon,
 .ui.buttons.ghost .button.with-icon:focus:hover .icon,
 .ui.buttons.ghost .button.with-icon.focus.hover .icon {
-    fill: @marine600;
+    fill: @marine500;
 }
 
 /* CONTENT | Icon | STATE | Focus | SKIN | Ghost */
@@ -1524,7 +1549,7 @@ a.ui.button {
 
 .ui.basic.button:focus,
 .ui.basic.button.focus {
-    box-shadow: 0px 0px 0px 1px var(--cloud-200) inset, 0px 0px 0px 2px var(--primary-200) !important;
+    box-shadow: 0px 0px 0px 1px var(--marine-500) inset, 0px 0px 0px 2px var(--primary-200) !important;
 }
 
 .ui.basic.primary.buttons .button:focus,
@@ -1632,11 +1657,23 @@ a.ui.button {
 /* SKIN | Link */
 .ui.button.link {
     background: none;
-    color: var(--primary-500);
+    color: var(--marine-500);
     font-weight: 400;
     padding: 0;
     min-height: auto;
     border-radius: 2px;
+}
+
+/* SKIN | Link | Basic */
+.ui.button.link.basic {
+    color: var(--marine-300);
+    box-shadow: none!important;
+}
+
+/* SKIN | Link | Basic | Hover*/
+.ui.button.link.basic.hover,
+.ui.button.link.basic:hover {
+    box-shadow: none!important;
 }
 
 /* SKIN | Link | STATE | Active */
@@ -1650,7 +1687,7 @@ a.ui.button {
 
 .ui.button.link:active,
 .ui.button.link.active {
-    color: var(--primary-900);
+    color: var(--marine-300);
     box-shadow: none;
     background: none;
     text-decoration: underline;
@@ -1658,20 +1695,15 @@ a.ui.button {
 
 .ui.button.link:focus,
 .ui.button.link.focus {
-    background-color: var(--primary-50);
+    background-color: var(--marine-50)!important;
     text-decoration: none;
-    box-shadow: none!important;
-}
-
-.ui.button.link.basic:focus,
-.ui.button.link.basic.focus {
     box-shadow: none!important;
 }
 
 .ui.button.link:active:hover,
 .ui.button.link.active:hover,
 .ui.button.link.active.hover {
-    color: var(--primary-900);
+    color: var(--marine-300);
     background: none;
     text-decoration: underline;
 }
@@ -1680,15 +1712,15 @@ a.ui.button {
 .ui.button.link:active.focus,
 .ui.button.link.active:focus,
 .ui.button.link.active.focus {
-    color: var(--primary-900);
-    background-color: var(--primary-50);
+    color: var(--marine-900);
+    background-color: var(--marine-50);
     text-decoration: underline;
 }
 
 .ui.button.link:focus:hover,
 .ui.button.link.focus.hover {
     text-decoration: underline;
-    background: var(--primary-50);
+    background: var(--marine-50);
 }
 
 .ui.button.link:active:hover,
@@ -1698,34 +1730,75 @@ a.ui.button {
 
 .ui.button.link:active:hover:focus,
 .ui.button.link.active.hover.focus {
-    background: var(--primary-50);
+    background: var(--marine-50);
 }
 
-.ui.button.link.basic:focus:hover,
-.ui.button.link.basic.focus.hover {
+/* SKIN | Link | Secondary */
+.ui.button.link.secondary {
+    color: var(--marine-500);
+    box-shadow: none !important;
+}
+
+.ui.button.link.secondary:focus:hover,
+.ui.button.link.secondary.focus.hover {
     text-decoration: underline;
     box-shadow: none!important;
     background: var(--marine-50) !important;
 }
 
-/* SKIN | Link | Basic */
-.ui.button.link.basic {
-    color: var(--marine-500);
+.ui.button.link.secondary:focus,
+.ui.button.link.secondary.focus {
+    box-shadow: none!important;
+    background-color: var(--cloud-50)!important;
+}
+
+.ui.button.link.secondary:hover,
+.ui.button.link.secondary.hover {
+    background-color: transparent;
+}
+
+.ui.button.link.secondary:active,
+.ui.button.link.secondary.active {
+    color: var(--cloud-300);
+}
+
+/* SKIN | Link | Secondary | Basic */
+.ui.button.link.secondary.basic {
+    color: var(--cloud-300)!important;
+}
+
+/* SKIN | Link | Primary */
+.ui.button.link.primary {
+    color: var(--primary-500);
     box-shadow: none !important;
 }
 
-.ui.button.link.basic.active,
-.ui.button.link.basic:active {
-    color: var(--marine-900)!important;
+.ui.button.link.primary:focus:hover,
+.ui.button.link.primary.focus.hover {
+    text-decoration: underline;
+    box-shadow: none!important;
+    background: var(--primary-50) !important;
 }
 
-.ui.button.link.basic:focus,
-.ui.button.link.basic.focus {
-    background-color: var(--marine-50)!important;
+.ui.button.link.primary:focus,
+.ui.button.link.primary.focus {
+    box-shadow: none!important;
+    background-color: var(--primary-50)!important;
 }
 
-.ui.button.link.basic:active {
-    background-color: var(--white)!important;
+.ui.button.link.primary:active,
+.ui.button.link.primary.active {
+    color: var(--primary-300);
+}
+
+.ui.button.link.primary:hover,
+.ui.button.link.primary.hover {
+    background-color: transparent;
+}
+
+/* SKIN | Link | Primary | Basic */
+.ui.button.link.primary.basic {
+    color: var(--primary-300)!important;
 }
 
 /* Animation */

@@ -2,12 +2,12 @@ import "./date-picker-calendar.css";
 import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
-import { ArgumentError, mergeClasses } from "../../shared";
 import { ArrowIcon } from "../../icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement, forwardRef } from "react";
 import { bool, element, func, number, object, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { mergeClasses } from "../../shared";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -40,7 +40,7 @@ export class InnerDatePickerCalendar extends PureComponent {
 
         if (!isNil(minDate) && !isNil(maxDate)) {
             if (minDate.isSameOrAfter(maxDate)) {
-                throw new ArgumentError("DatePicker - \"minDate\" must be before \"maxDate\".");
+                throw new Error("DatePicker - \"minDate\" must be before \"maxDate\".");
             }
         }
     }

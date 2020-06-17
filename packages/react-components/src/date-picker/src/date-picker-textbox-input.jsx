@@ -1,7 +1,6 @@
 import { Button } from "../../button";
 import { CalendarIcon, CloseIcon } from "../../icons";
-import { DEFAULT_SIZE, SIZES } from "./sizes";
-import { KEYS, isNullOrEmpty } from "../../shared";
+import { KEYS, SIZE, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
 import { TextInput } from "../../text-input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -17,13 +16,12 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         onClear: func,
         allowClear: bool,
         placeholder: string,
-        disabled: bool,
         fluid: bool,
         open: bool,
         active: bool,
         focus: bool,
         hover: bool,
-        size: oneOf(SIZES),
+        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
         className: string,
         forwardedRef: oneOfType([object, func])
     };
@@ -31,13 +29,13 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        size: DEFAULT_SIZE
+        size: SIZE.medium
     };
 
     isPlaceholder() {
         const { value } = this.props;
 
-        return isNullOrEmpty(value);
+        return isNilOrEmpty(value);
     }
 
     handleKeyDown = event => {

@@ -1,7 +1,7 @@
 import { ArrowIcon32 } from "../../../icons";
 import { KEYS, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
-import { bool, func, object, oneOfType, string } from "prop-types";
+import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
@@ -50,21 +50,9 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * A disabled input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the date picker is opened.
          */
-        open: bool,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        open: bool
     };
 
     handleKeyDown = event => {

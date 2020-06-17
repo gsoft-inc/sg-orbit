@@ -67,7 +67,7 @@
 @focusColor: @white;
 
 /* Pressed Down */
-@downBackgroundColor: @marine900;
+@downBackgroundColor: var(--marine-700);
 @downColor: @white;
 
 /* Active */
@@ -93,7 +93,7 @@
 /* Inverted */
 @invertedBorderSize: 0;
 @invertedTextColor: @marine500;
-@invertedTextHoverColor: @marine600;
+@invertedTextHoverColor: @marine900;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
@@ -103,7 +103,7 @@
 @basicFontWeight: @bold;
 @basicTextColor: @marine500;
 @basicBorderSize: 1px;
-@basicBoxShadow: 0px 0px 0px @basicBorderSize @cloud200 inset;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize @marine500 inset;
 
 /* Basic Hover */
 @basicHoverBackground: @marine500!important;
@@ -140,7 +140,7 @@
 /* Ordinality */
 
 @primaryTextColor: @white;
-@secondaryTextColor: @marine600;
+@secondaryTextColor: var(--marine-600);
 @secondaryColorFocus: @cloud200;
 @positiveTextColor: @white;
 @negativeTextColor: @white;

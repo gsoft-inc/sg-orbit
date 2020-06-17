@@ -1,9 +1,9 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@selectedTextColor: @marine600;
-@hoveredItemColor: @marine600;
-@itemColor: @marine600;
+@selectedTextColor: @marine500;
+@hoveredItemColor: @marine500;
+@itemColor: @marine500;
 
 /*******************************
             Dropdown
@@ -78,7 +78,7 @@
 @selectionFocusMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
 @selectionVisibleBoxShadow: @shadow100;
 @selectionVisibleMenuBoxShadow: rgba(130, 138, 158, 0.32) 0px 12px 12px 0px;
-@selectionFocusBorderColor: @marine600;
+@selectionFocusBorderColor: @marine500;
 @selectionFocusBoxShadow: @shadow100;
 @selectionItemDivider: '';
 @itemVerticalPadding: 0.75rem;

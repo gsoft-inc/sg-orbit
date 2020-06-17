@@ -1,14 +1,16 @@
-import { ArgumentError, DOMEventListener, KEYS, mergeClasses } from "../../shared";
+import { DOMEventListener, KEYS, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
-import { SIZES } from "./sizes";
 import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 import { isElement } from "react-is";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -89,19 +91,6 @@ export class TagsPickerDropdown extends PureComponent {
          */
         open: bool,
         /**
-         * A disabled dropdown does not allow user interaction.
-         */
-        disabled: bool,
-        /**
-         * Whether or not the dropdown should close when the tag picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the dropdown should close when a click happens outside the tag picker.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * @ignore
          */
         active: bool,
@@ -112,20 +101,14 @@ export class TagsPickerDropdown extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string
+        hover: bool
     };
 
     static defaultProps = {
         debounceDelay: 200,
         menu: <TagsPickerDropdownMenu />,
         trigger: <TagsPickerDropdownTrigger />,
-        searchInput: <TagsPickerDropdownSearchInput />,
-        closeOnBlur: true,
-        closeOnOutsideClick: false
+        searchInput: <TagsPickerDropdownSearchInput />
     };
 
     state = {
@@ -151,11 +134,7 @@ export class TagsPickerDropdown extends PureComponent {
     _hasFocus = false;
 
     componentDidUpdate(prevProps) {
-        const { items, closeOnBlur, closeOnOutsideClick } = this.props;
-
-        if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("TagsPicker - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
-        }
+        const { items } = this.props;
 
         if (prevProps.items !== items) {
             this.setKeyboardItem(null, null);
@@ -235,28 +214,20 @@ export class TagsPickerDropdown extends PureComponent {
     // - close on outside click
     // - close on blur
     handleDropdownFocusOut = event => {
-        const { closeOnBlur } = this.props;
-
         this._hasFocus = false;
 
-        if (closeOnBlur) {
-            // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
-            setTimeout(() => {
-                if (!this._hasFocus) {
-                    this.close(event);
-                }
-            }, 0);
-        }
+        // The check is delayed because between leaving the old element and entering the new element the active element will always be the document/body itself.
+        setTimeout(() => {
+            if (!this._hasFocus) {
+                this.close(event);
+            }
+        }, 0);
     };
 
     handleDocumentClick = event => {
-        const { closeOnOutsideClick } = this.props;
-
-        if (closeOnOutsideClick) {
-            if (this._dropdownRef.current) {
-                if (!this._dropdownRef.current.contains(event.target)) {
-                    this.close(event);
-                }
+        if (this._dropdownRef.current) {
+            if (!this._dropdownRef.current.contains(event.target)) {
+                this.close(event);
             }
         }
     };

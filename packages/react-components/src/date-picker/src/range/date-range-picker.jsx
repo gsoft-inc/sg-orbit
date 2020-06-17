@@ -4,7 +4,6 @@ import { DateRangePickerButtons } from "./date-range-picker-buttons";
 import { DateRangePickerCalendar } from "./date-range-picker-calendar";
 import { DateRangePickerInput } from "./date-range-picker-input";
 import { DateRangePickerPresets } from "./date-range-picker-presets";
-import { POSITIONS } from "../../../popper";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { cloneElement, createRef } from "react";
 import { isFunction, isNil } from "lodash";
@@ -98,14 +97,17 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         dateFormat: string,
         /**
-         * The position of the calendar relative to the input.
+         * Whether or not the calendar will open upward.
          */
-        position: oneOf(POSITIONS),
+        upward: bool,
         /**
-         * An array containing an horizontal and vertical offsets for the calendar position.
-         * Ex: `[10, -10]`
+         * A calendar can open to the left or to the right.
          */
-        offset: arrayOf(number),
+        direction: oneOf(["left", "right"]),
+        /**
+         * Disables automatic repositioning of the calendar, it will always be placed according to upward and direction values.
+         */
+        pinned: bool,
         /**
          * z-index of the calendar.
          */
@@ -135,22 +137,9 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled date picker does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the date picker take up the width of its container.
          */
         fluid: bool,
-        /**
-         * Whether or not the calendar should close when the date picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the calendar should close when a click happens outside the date picker.
-         * Requires `closeOnBlur` to be false.
-         */
-        closeOnOutsideClick: bool,
         /**
          * A date picker can vary in sizes.
          */
@@ -166,15 +155,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object
+        hover: bool
     };
 
     static defaultProps = {
@@ -187,7 +168,6 @@ export class DateRangePicker extends AutoControlledPureComponent {
         presetsComponent: <DateRangePickerPresets />,
         presets: [],
         buttons: <DateRangePickerButtons />,
-        disabled: false,
         fluid: false
     };
 
@@ -331,7 +311,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { position, offset, zIndex, disabled, closeOnBlur, closeOnOutsideClick, fluid, className, style } = this.props;
+        const { upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -339,13 +319,12 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 open={open}
                 input={this.renderInput()}
                 calendar={this.renderCalendar()}
-                position={position}
-                offset={offset}
+                upward={upward}
+                direction={direction}
+                pinned={pinned}
                 zIndex={zIndex}
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
-                closeOnBlur={closeOnBlur}
-                closeOnOutsideClick={closeOnOutsideClick}
                 fluid={fluid}
                 className={className}
                 style={style}

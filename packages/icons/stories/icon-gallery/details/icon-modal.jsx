@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { CloseIcon } from "@react-components/icons";
 import { IconDetail } from "./icon-detail";
-import { KEYS, useDomEventListener } from "@react-components/shared";
+import { KEYS, useWindowListener } from "@react-components/shared";
 import { Modal } from "semantic-ui-react";
 import { ModalContext } from "./modal-context";
 import { bool, func, string } from "prop-types";
@@ -13,7 +13,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
         }
     };
 
-    useDomEventListener("keydown", handleDocumentKeyDown, open, { target: "window" });
+    useWindowListener("keydown", handleDocumentKeyDown, open);
 
     return (
         <Modal open={open} onClose={onClose} size="small" basic className="bg-white">

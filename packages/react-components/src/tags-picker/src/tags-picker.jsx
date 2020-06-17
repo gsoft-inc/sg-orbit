@@ -5,7 +5,7 @@ import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
 import { TagsPickerSelectedItems } from "./tags-picker-selected-items";
-import { arrayOf, bool, element, func, object, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, oneOf, shape, string } from "prop-types";
 import { cloneElement } from "react";
 import { isNil } from "lodash";
 
@@ -116,19 +116,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled tag picker does not allow user interaction.
-         */
-        disabled: bool,
-        /**
-         * Whether or not the dropdown should close when the tag picker loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the dropdown should close when a click happens outside the tag picker.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
-        /**
          * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
@@ -145,14 +132,6 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         hover: bool,
         /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object,
-        /**
          * Used by interaction tests.
          * @ignore
          */
@@ -168,7 +147,6 @@ export class TagsPicker extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <TagsPickerSelectedItems />,
         clearButton: <TagsPickerClearButton />,
-        disabled: false,
         size: DEFAULT_SIZE
     };
 
@@ -310,7 +288,7 @@ export class TagsPicker extends AutoControlledPureComponent {
     }
 
     renderDropDown = () => {
-        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, closeOnBlur, closeOnOutsideClick, size, active, focus, hover } = this.props;
+        const { closeOnSelect, dropdown, placeholder, noResultsMessage, addText, disabled, size, active, focus, hover } = this.props;
         const { dropdownItems, open } = this.state;
 
         return cloneElement(dropdown, {
@@ -327,8 +305,6 @@ export class TagsPicker extends AutoControlledPureComponent {
             triggerSize: size,
             open,
             disabled,
-            closeOnBlur,
-            closeOnOutsideClick,
             active,
             focus,
             hover

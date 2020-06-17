@@ -1,8 +1,7 @@
 import { DatePickerCalendar } from "../date-picker-calendar";
 import { DayPickerSingleDateController } from "../react-dates-wrapper";
-import { POSITIONS } from "../../../popper";
 import { PureComponent, cloneElement, forwardRef } from "react";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, func, number, oneOfType } from "prop-types";
 import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
@@ -41,10 +40,6 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
          */
         numberOfMonths: number,
         /**
-         * A position for the calendar.
-         */
-        position: oneOf(POSITIONS),
-        /**
          * A React component displayed under the calendar to `clear` and `apply` the date(s).
          */
         buttons: element,
@@ -55,15 +50,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
         /**
          * @ignore
          */
-        reactDatesCalendar: element,
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        forwardedRef: oneOfType([object, func])
+        reactDatesCalendar: element
     };
 
     static defaultProps = {
@@ -127,7 +114,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
     }
 
     render() {
-        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, position, className, forwardedRef } = this.props;
+        const { minDate, maxDate, initialVisibleMonth, numberOfMonths, className, forwardedRef } = this.props;
 
         return (
             <DatePickerCalendar
@@ -138,7 +125,6 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
                 initialDate={this.getInitialDate()}
                 initialVisibleMonth={initialVisibleMonth}
                 numberOfMonths={numberOfMonths}
-                position={position}
                 className={className}
                 ref={forwardedRef}
                 temporarySingleDatePickerFlag

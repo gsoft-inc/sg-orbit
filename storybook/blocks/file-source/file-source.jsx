@@ -1,21 +1,18 @@
 import { Source } from "@storybook/components";
-import { bool, string } from "prop-types";
 import { isNil } from "lodash";
+import { string } from "prop-types";
 import { useState } from "react";
-import dedent from "dedent";
 
 const propTypes = {
     filePath: string.isRequired,
-    language: string,
-    format: bool
+    language: string
 };
 
 const defaultProps = {
-    language: "jsx",
-    format: true
+    language: "jsx"
 };
 
-export function FileSource({ filePath, language, format }) {
+export function FileSource({ filePath, language }) {
     const [source, setSource] = useState();
 
     if (isNil(source)) {
@@ -28,7 +25,7 @@ export function FileSource({ filePath, language, format }) {
     }
 
     return (
-        <Source language={language} dark format={false} code={format ? dedent(source) : source} />
+        <Source language={language} dark format={false} code={source} />
     );
 }
 

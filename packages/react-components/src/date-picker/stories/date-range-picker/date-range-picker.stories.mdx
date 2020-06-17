@@ -1,13 +1,9 @@
 import { ControlledDateRangePicker } from "./controlled-date-range-picker.sample";
 import { DEFAULT_DATES_PRESETS, DateRangePicker, InnerDateRangePickerCalendar, InnerDateRangePickerInput } from "@react-components/date-picker";
-import { DEFAULT_PRESETS_OPTIONS } from "../data";
-import { DEFAULT_SIZE } from "@react-components/date-picker/src/sizes";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { LARGE, MEDIUM, SMALL } from "@react-components/shared";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { createComponentSection, paramsBuilder } from "@utils";
-import { logDatesChanged, momentKnob, presetsKnob, toStoryValuesPresets } from "../utils";
+import { logDatesChanged, toStoryValuesPresets } from "../utils";
 import Imports from "./imports.mdx";
 import MomentUsage from "../moment-usage.mdx";
 import moment from "moment";
@@ -57,37 +53,6 @@ A default date range picker.
         />
     </Story>
 </Preview>
-
-<Story
-    name="knobs"
-    decorators={[withKnobs]}
-    parameters={paramsBuilder()
-        .showPanel()
-        .selectedPanel("Knobs")
-        .excludeFromDocs()
-        .build()}
->
-    <DateRangePicker
-        defaultStartDate={momentKnob("defaultStartDate", moment().toDate())}
-        defaultEndDate={momentKnob("defaultEndDate", moment().add(5, "days").toDate())}
-        allowSingleDateSelection={boolean("allowSingleDateSelection", false)}
-        allowClear={boolean("allowClear", true)}
-        minDate={momentKnob("minDate", moment().subtract(6, "months").toDate())}
-        maxDate={momentKnob("maxDate", moment().add(6, "months").toDate())}
-        placeholder={text("placeholder")}
-        rangeFormat={text("rangeFormat")}
-        dateFormat={text("dateFormat")}
-        size={select("size", { Small: SMALL, Medium: MEDIUM, Large: LARGE }, DEFAULT_SIZE)}
-        position={select("position", { "top-start": "top-start", "top-end": "top-end", "bottom": "bottom", "bottom-start": "bottom-start", "bottom-end": "bottom-end", "right": "right", "right-start": "right-start", "right-end": "right-end", "left": "left", "left-start": "left-start", "left-end": "left-end" }, "bottom-start")}
-        presets={presetsKnob("presets (value separator is ',')", Object.keys(DEFAULT_PRESETS_OPTIONS))}
-        disabled={boolean("disabled", false)}
-        fluid={boolean("fluid", false)}
-        closeOnBlur={boolean("closeOnBlur", true)}
-        closeOnOutsideClick={boolean("closeOnOutsideClick", false)}
-        className={text("className")}
-        onDatesChange={logDatesChanged}
-    />
-</Story>
 
 ### Dates presets
 
@@ -239,7 +204,7 @@ A date range picker can be disabled.
     <Story name="disabled">
         <DateRangePicker
             disabled
-            onDatesChange={logDatesChanged}
+            onDateChange={logDatesChanged}
         />
     </Story>
 </Preview>
@@ -273,60 +238,57 @@ Can be set to: `"small"`, `"large"` or omitted.
     </Story>
 </Preview>
 
-### Position
+### Upward
 
-A date range picker calendar can be anchored at different positions.
-
-The available positions are: `"top-start"`, `"top-end"`, `"bottom"`, `"bottom-start"`, `"bottom-end"`, `"right"`, `"right-start"`, `"right-end"`, `"left"`, `"left-start"` and `"left-end"`.
+A date range picker prefered vertical opening position can be upward.
 
 <Preview>
     <Story
-        name="position"
+        name="upward"
         parameters={paramsBuilder()
             .canvasLayout({ marginTop: "400px" })
             .build()}
     >
         <DateRangePicker
-            position="top-start"
+            upward
             onDatesChange={logDatesChanged}
         />
     </Story>
 </Preview>
 
-<Story
-    name="dont close on blur"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <DateRangePicker
-        presets={DEFAULT_DATES_PRESETS}
-        closeOnBlur={false}
-        closeOnOutsideClick
-        onDatesChange={logDatesChanged}
-    />
-</Story>
+### Direction
 
-<Story
-    name="z-index"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div>
+A date range picker prefered horizontal opening position can be `"left"` or `"right"`.
+
+<Preview>
+    <Story name="direction">
+        <div className="flex items-space-between">
+            <DateRangePicker
+                direction="left"
+                onDatesChange={logDatesChanged}
+            />
+            <DateRangePicker
+                direction="right"
+                onDatesChange={logDatesChanged}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Pinned
+
+A date range picker opening position can be forced even if there isn't enough space.
+
+<Preview>
+    <Story name="pinned">
         <DateRangePicker
+            pinned
+            upward
+            direction="left"
             onDatesChange={logDatesChanged}
         />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <div className="w7 h7 bg-red" style={{ zIndex: 2, position: "relative" }}></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-    </div>
-</Story>
+    </Story>
+</Preview>
 
 ### Controlled
 

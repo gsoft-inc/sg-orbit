@@ -89,7 +89,7 @@
 @focusedFormBorderColor: @cloud200;
 
 /* Used on dropdowns, other larger blocks */
-@focusedFormMutedBorderColor: @marine600; // weird behaviour with dropdown select might me the cause here
+@focusedFormMutedBorderColor: @marine500; // weird behaviour with dropdown select might me the cause here
 
 /*-------------------
         Sizes
@@ -131,7 +131,7 @@
     Links
 --------------------*/
 
-@linkColor           : #4183C4;
+@linkColor           : var(--primary-500);
 @linkUnderline       : none;
 @linkHoverColor      : @linkColor;
 @linkHoverUnderline  : @linkUnderline;
@@ -450,7 +450,7 @@
 
 /* Negative */
 @negativeColor           : @alert500;
-@negativeBackgroundColor : transparent;
+@negativeBackgroundColor : var(--white);
 @negativeBorderColor     : @alert500;
 @negativeHeaderColor     : @alert900;
 @negativeTextColor       : @textColor;
@@ -1006,8 +1006,8 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : @primary900;
-@secondaryColorDown      : @cloud200;
+@primaryColorDown        : var(--primary-700);
+@secondaryColorDown      : var(--cloud-200);
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;
 

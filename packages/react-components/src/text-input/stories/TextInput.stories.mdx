@@ -1,0 +1,252 @@
+import { Button } from "@react-components/button";
+import { CloseIcon, MagnifierIcon } from "@react-components/icons";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerTextInput, TextInput } from "@react-components/text-input";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("TextInput")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/input" />)
+        .build()}
+/>
+
+# TextInput
+
+A text input allow a user to enter and edit a text.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Input" semanticPath="/elements/input" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "TextInput", component: InnerTextInput }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default text input.
+
+<Preview>
+    <Story name="default">
+        <TextInput />
+    </Story>
+</Preview>
+
+### Value
+
+A text input can have a value.
+
+<Preview>
+    <Story name="value">
+        <TextInput defaultValue="Deep space" />
+    </Story>
+</Preview>
+
+### Disabled
+
+A text input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <TextInput disabled placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Readonly
+
+A text input can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <TextInput readOnly value="Deep space" />
+    </Story>
+</Preview>
+
+### Fluid
+
+A text input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <TextInput fluid placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Icon
+
+A text input can be formatted with an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-space-between">
+            <TextInput icon={<MagnifierIcon />} placeholder="Search..." />
+            <TextInput icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="icon & loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <TextInput icon={<MagnifierIcon />} loading />
+</Story>
+
+### Button
+
+A text input can contain a [button](?path=/docs/components-button--default-story). Specify the button to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="button">
+        <TextInput button={<Button icon={<CloseIcon />} />} placeholder="Search..." />
+    </Story>
+</Preview>
+
+<Story
+    name="button & loading"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <TextInput button={<Button icon={<CloseIcon />} />} placeholder="Search..." loading />
+</Story>
+
+### Loading
+
+A text input can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <div className="flex items-space-between">
+            <TextInput loading placeholder="Search..." />
+            <TextInput loading iconPosition="left" placeholder="Search..." />
+        </div>
+    </Story>
+</Preview>
+
+### Size
+
+A text input can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <div className="flex-auto">
+                <TextInput size="small" fluid placeholder="Search..." />
+            </div>
+            <div className="flex-auto">
+                <TextInput fluid placeholder="Search..." />
+            </div>
+            <div className="flex-auto">
+                <TextInput size="large" fluid placeholder="Search..." />
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Password
+
+An input can be formatted to accept a [password](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password).
+
+<Preview>
+    <Story name="password">
+        <TextInput type="password" placeholder="Password" />
+    </Story>
+</Preview>
+
+### Email
+
+An input can be formatted to accept an [email](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email) address.
+
+<Preview>
+    <Story name="email">
+        <TextInput type="email" placeholder="Email" />
+    </Story>
+</Preview>
+
+### Error
+
+A text input field can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <TextInput error placeholder="Search..." />
+    </Story>
+</Preview>
+
+### Transparent
+
+A text input can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextInput transparent placeholder="Search..." />
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextInput autofocus placeholder="Search..." />
+        <TextInput autofocus disabled placeholder="Search..." />
+    </div>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <TextInput autofocus autofocusDelay={500} placeholder="Search..." />
+        <TextInput autofocus disabled autofocusDelay={500} placeholder="Search..." />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<TextInput />} />
+</Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text input component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <TextInput ref={ref} />
+        </div>
+    );
+}
+```

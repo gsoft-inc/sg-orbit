@@ -1,0 +1,321 @@
+import { AddIcon, EditIcon, LightbulbIcon } from "@react-components/icons";
+import { Button, InnerButton } from "@react-components/button";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Label } from "@react-components/label";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Tag } from "@react-components/tag";
+import CustomColorHover from "./CustomColorHover.mdx";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Button")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/elements/button" />)
+        .build()}
+/>
+
+# Button
+
+A Button indicates a possible user action.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<HocWarning componentName="Button" semanticPath="/elements/button" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Button", component: InnerButton }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default button.
+
+<Preview>
+    <Story name="default">
+        <Button>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Compact
+
+A button can reduce its padding to fit into tighter spaces.
+
+<Preview>
+    <Story name="compact">
+        <Button compact>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Disabled
+
+A button can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Button disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Fluid
+
+A button can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Button fluid>To infinity and beyond</Button>
+    </Story>
+</Preview>
+
+### Icon
+
+A button can contain an [icon](?path=/docs/materials-icons--page). Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-space-between">
+            <Button icon={<LightbulbIcon />}>Cutoff</Button>
+            <Button icon={<EditIcon />} iconPosition="right">Cutoff</Button>
+            <Button icon={<AddIcon />}></Button>
+        </div>
+    </Story>
+</Preview>
+
+### Label
+
+A button can contain a [label](?path=/story/components-label-standard--default-story). Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="label">
+        <Button label={<Label>6</Label>}>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Tag
+
+A button can contain a [tag](?path=/docs/components-label-tag--default-story). Specify the tag to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+
+<Preview>
+    <Story name="tag">
+        <Button tag={<Tag className="bg-primary-500" />}>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <Button loading>Loading</Button>
+    </Story>
+</Preview>
+
+### Size
+
+A button can vary in size.
+
+Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Button size="tiny">Cutoff</Button>
+            <Button size="small">Cutoff</Button>
+            <Button >Cutoff</Button>
+            <Button size="large">Cutoff</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Circular
+
+A button can be circular.
+
+<Preview>
+    <Story name="circular">
+        <div className="flex">
+            <div className="flex items-end items-space-between mr4">
+                <Button circular size="tiny">Aa</Button>
+                <Button circular size="small">Aa</Button>
+                <Button circular>Aa</Button>
+                <Button circular size="large">Aa</Button>
+            </div>
+            <div className="flex items-end items-space-between">
+                <Button icon={<AddIcon />} circular size="tiny"></Button>
+                <Button icon={<AddIcon />} circular size="small"></Button>
+                <Button icon={<AddIcon />} circular></Button>
+                <Button icon={<AddIcon />} circular size="large"></Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Emphasis
+
+A button can show different levels of emphasis.
+
+<Preview>
+    <Story name="emphasis">
+        <div className="flex items-space-between">
+            <Button primary>Primary</Button>
+            <Button secondary>Secondary</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Basic
+
+A basic button have a subtle appearance.
+
+<Preview>
+    <Story name="basic">
+        <div className="flex items-space-between">
+            <Button basic>Default</Button>
+            <Button basic primary>Primary</Button>
+            <Button basic secondary>Secondary</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Ghost
+
+A ghost button is similar to a standard button, taking the same space as a standard button but doesn't have an visible background.
+
+<Preview>
+    <Story name="ghost">
+        <div className="flex items-space-between">
+            <Button ghost>Default</Button>
+            <Button ghost primary>Primary</Button>
+            <Button ghost secondary>Secondary</Button>
+        </div>
+    </Story>
+</Preview>
+
+### Link
+
+A button can be rendered as a link:
+
+<Preview>
+    <Story name="as anchor">
+        <Button as="a" href="https://sharegate.com" target="_blank">Cutoff</Button>
+    </Story>
+</Preview>
+
+Or look like a link:
+
+<Preview>
+    <Story name="link">
+        <div className="flex flex-column ">
+            <div className="flex items-lot-of-space-between">
+                <Button link>Cutoff</Button>
+                <Button link primary>Cutoff</Button>
+                <Button link secondary>Cutoff</Button>
+            </div>
+            <div className="flex items-lot-of-space-between mt5">
+                <Button link basic>Cutoff</Button>
+                <Button link basic primary>Cutoff</Button>
+                <Button link basic secondary>Cutoff</Button>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Naked
+
+A button can be colorless. Use this variant if you need to customize the button.
+
+<Preview>
+    <Story name="naked">
+        <Button naked>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Custom color
+
+A naked button can have a custom color.
+
+<Preview>
+    <Story name="custom color">
+        <Button
+            naked
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                boxShadow: "0px 0px 0px 1px #FEE9C3 inset"
+            }}
+        >
+            Cutoff
+        </Button>
+    </Story>
+</Preview>
+
+<CustomColorHover />
+
+### Groups
+
+Buttons can exist together as a group.
+
+<Preview>
+    <Story name="groups">
+        <Button.Group basic widths="3">
+            <Button >All</Button>
+            <Button >Inactive</Button>
+            <Button active>Active</Button>
+        </Button.Group>
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Button autofocus>Cutoff</Button>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Button autofocus autofocusDelay={500}>Cutoff</Button>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Button>Cutoff</Button>} />
+</Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the button component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Button ref={ref} />
+        </div>
+    );
+}
+```

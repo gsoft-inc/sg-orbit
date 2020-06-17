@@ -15,8 +15,6 @@ const propTypes = {
 };
 
 export function Props({ componentsDefinitions }) {
-    console.log(componentsDefinitions[0].component.__docgenInfo);
-
     const [state, setState] = useStorage({ isVisible: false, activeTab: 0 });
 
     if (componentsDefinitions.length === 0) {

@@ -9,7 +9,7 @@ const YEAR_SELECTION_TRANSITION = "year_selection";
 // Monkey patch fixes:
 //
 // The original react date DayPicker component force a blur on the currently active element when a prev or next navigation button is pressed.
-// This break the standard focus / blur event flow and prevent us from properly implement a "closeOnBlur" feature for the date pickers (the "closeOnBlur" code is part of the popup component).
+// This break the standard focus / blur event flow and prevent us from properly implement a "closeOnBlur" feature for the date pickers (the "closeOnBlur" code is part of the popper component).
 // Removing the blur when a prev or next navigation button is pressed from the DayPicker component doesn't seem to have any bad side effects and fix our problem.
 PureDayPicker.prototype.updateStateAfterMonthTransition = function() {
     const {

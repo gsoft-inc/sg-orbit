@@ -65,9 +65,10 @@
 
 .ui.input:not(.disabled) input[disabled] > input::-webkit-input-placeholder,
 .ui.disabled.input input::-webkit-input-placeholder,
-.ui.input:not(.disabled) input[disabled] > input ,
+.ui.input:not(.disabled) input[disabled] > input,
+.ui.input.disabled > input::placeholder,
 .ui.disabled.input input {
-    color: @cloud400;
+    color: @cloud200;
 }
 
 /* Loadings */

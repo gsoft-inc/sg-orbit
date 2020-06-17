@@ -2,9 +2,11 @@ import { AddIcon } from "../../icons";
 import { Button } from "../../button";
 import { KEYS, mergeClasses } from "../../shared";
 import { PureComponent, createRef } from "react";
-import { SIZES } from "./sizes";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
+
+// Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
+const SIZES = ["small", "medium", "large"];
 
 export class TagsPickerDropdownTrigger extends PureComponent {
     static propTypes = {
@@ -53,10 +55,6 @@ export class TagsPickerDropdownTrigger extends PureComponent {
          */
         open: bool,
         /**
-         * A disabled trigger does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * A dropdown trigger can have different sizes.
          */
         size: oneOf(SIZES),
@@ -71,11 +69,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
         /**
          * @ignore
          */
-        hover: bool,
-        /**
-         * @ignore
-         */
-        className: string
+        hover: bool
     };
 
     _buttonRef = createRef();

@@ -55,7 +55,7 @@
 
 .ui.textarea:active,
 .ui.textarea.active {
-    border: 1px solid var(--marine-500);
+    border-color: var(--marine-500);
 }
 
 .ui.textarea.error:active,
@@ -77,7 +77,6 @@
     background: @inputErrorFocusBackground;
     border-color: @inputErrorFocusBorder;
     color: @inputErrorFocusColor;
-
     -webkit-appearance: none;
     box-shadow: @inputErrorFocusBoxShadow;
 }
@@ -86,6 +85,14 @@
 .ui.textarea:disabled,
 .ui.textarea.disabled {
     background-color: @cloud50;
+}
+
+.ui.textarea.active:disabled,
+.ui.textarea:active.disabled
+.ui.textarea.active.disabled,
+.ui.textarea:active:disabled {
+    background-color: @cloud50;
+    border: @textAreaBorder;
 }
 
 .ui.textarea.error {

@@ -1,4 +1,4 @@
-import { ArgumentError, AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
@@ -62,12 +62,6 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         onBlur: func,
         /**
-         * Called when a click happens outside the search input.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @returns {void}
-         */
-        onOutsideClick: func,
-        /**
          * Render a result.
          * @param {Object} result - Result to render.
          * @returns {ReactElement} - React element to render.
@@ -102,10 +96,6 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * A disabled search input does not allow user interaction.
-         */
-        disabled: bool,
-        /**
          * Whether or not the search input should autofocus on render.
          */
         autofocus: bool,
@@ -113,15 +103,6 @@ export class SearchInput extends AutoControlledPureComponent {
          * Delay before trying to autofocus.
          */
         autofocusDelay: number,
-        /**
-         * Whether or not the search results should close when the search input loose focus.
-         */
-        closeOnBlur: bool,
-        /**
-         * Whether or not the search results should close when a click happens outside the search input.
-         * Requires `closeOnBlur` to be `false`.
-         */
-        closeOnOutsideClick: bool,
         /**
          * A search input can have different sizes.
          */
@@ -133,22 +114,12 @@ export class SearchInput extends AutoControlledPureComponent {
         /**
          * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
          */
-        input: oneOfType([element, object]),
-        /**
-         * @ignore
-         */
-        className: string,
-        /**
-         * @ignore
-         */
-        style: object
+        input: oneOfType([element, object])
     };
 
     static defaultProps = {
         onSearch: startsWithSearch,
-        minCharacters: 1,
-        closeOnBlur: true,
-        closeOnOutsideClick: false
+        minCharacters: 1
     };
 
     static autoControlledProps = ["open"];
@@ -160,14 +131,6 @@ export class SearchInput extends AutoControlledPureComponent {
 
     static getDerivedStateFromProps(props, state) {
         return getAutoControlledStateFromProps(props, state, SearchInput.autoControlledProps);
-    }
-
-    componentDidUpdate() {
-        const { closeOnBlur, closeOnOutsideClick } = this.props;
-
-        if (closeOnBlur && closeOnOutsideClick) {
-            throw new ArgumentError("SearchInput - The \"closeOnBlur\" and \"closeOnOutsideClick\" props cannot be both \"true\".");
-        }
     }
 
     // TODO: memoizing search result could greatly improved the performance of this component:
@@ -213,11 +176,9 @@ export class SearchInput extends AutoControlledPureComponent {
     // - close on blur
     // - close on value select
     handleBlur = event => {
-        const { onBlur, closeOnBlur } = this.props;
+        const { onBlur } = this.props;
 
-        if (closeOnBlur) {
-            this.close(event);
-        }
+        this.close(event);
 
         if (!isNil(onBlur)) {
             onBlur(event);
@@ -238,15 +199,7 @@ export class SearchInput extends AutoControlledPureComponent {
     };
 
     handleOutsideClick = event => {
-        const { onOutsideClick, closeOnOutsideClick } = this.props;
-
-        if (closeOnOutsideClick) {
-            this.close(event);
-        }
-
-        if (!isNil(onOutsideClick)) {
-            onOutsideClick(event);
-        }
+        this.close(event);
     };
 
     open(event) {

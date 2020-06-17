@@ -47,7 +47,6 @@ class Preset extends PureComponent {
                     <Otherwise>
                         <Button
                             link
-                            basic
                             onClick={this.handleClick}
                             className={classes}
                             data-testid={`date-range-picker-presets-${preset.text}`}
@@ -89,11 +88,7 @@ export class DateRangePickerPresets extends PureComponent {
         /**
          * Array of pre-determined dates range.
          */
-        presets: arrayOf(shape(PRESET_SHAPE)),
-        /**
-         * @ignore
-         */
-        className: string
+        presets: arrayOf(shape(PRESET_SHAPE))
     };
 
     isDayBlocked = day => {

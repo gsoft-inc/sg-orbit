@@ -12,13 +12,13 @@ import { createGettingStartedSection, paramsBuilder } from "@utils";
 
 # Shorthand Props
 
-Likewise [Semantic UI](https://react.semantic-ui.com/shorthand-props/), Orbit UI try to offer shorthand props when possible.
+Orbit UI components try to offer shorthand props whenever possible.
 
 _A shorthand prop is a configuration style that allow a consumer of a component to easily provide a sub-component to render._ There are several forms of shorthand values that can be provided, but all of them share one common thing - each is eventually evaluated to React Element. Thus, you can think of shorthand values as a recipe to customize rendered React Element.
 
 ### Basic usage
 
-For example, one could specify [an icon for a button](?path=/docs/components-button--icon#icon) with a shorthand:
+The most common usage of a shorthand is to specify an icon. For example, one could specify [an icon for a button](?path=/docs/components-button--icon#icon) with the following shorthand:
 
 ```jsx dark
 <Button icon={<SignoutIcon />}>
@@ -69,4 +69,14 @@ Use this shorthand style to directly provide the component to render. With this 
 <Label tag={<Tag className="bg-marine-500" />}>
     Notification Sent
 </Label>
+```
+
+## String value
+
+Some components props can be reduced to a simple string shorthand. For example, a `<Button />` could render a `label` with the following shorthand:
+
+```jsx dark
+<Button label="6">
+    Click me
+</Button>
 ```
