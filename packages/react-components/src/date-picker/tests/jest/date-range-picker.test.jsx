@@ -377,7 +377,7 @@ test("call onVisibilityChange when the dates are applied", async () => {
     const ref = createRef();
     const handler = jest.fn();
 
-    const { getByTestId } = render(createDateRangePicker({
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
         reactDatesCalendar: <DayPickerRangeControllerMock ref={ref} />,
         onVisibilityChange: handler
     }));
@@ -392,7 +392,7 @@ test("call onVisibilityChange when the dates are applied", async () => {
     });
 
     // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
