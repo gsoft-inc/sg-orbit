@@ -59,17 +59,17 @@ export function createTestSuite(select, stories) {
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <Select element={select} size="small" wrapperClassName="mr5" />
                     <Select element={select} size="small" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} size="small" defaultValue="Female" open />
+                    <Select element={select} size="small" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <Select element={select} wrapperClassName="mr5" />
                     <Select element={select} defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} defaultValue="Female" open />
+                    <Select element={select} open />
                 </div>
                 <div className="flex">
                     <Select element={select} size="large" wrapperClassName="mr5" />
                     <Select element={select} size="large" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} size="large" defaultValue="Female" open />
+                    <Select element={select} size="large" open />
                 </div>
             </div>
         )
