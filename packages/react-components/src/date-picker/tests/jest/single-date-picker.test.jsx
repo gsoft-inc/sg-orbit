@@ -86,13 +86,13 @@ test("when the calendar is closed and a value is selected, clear the value on es
 test("dont close the calendar on calendar clear button click", async () => {
     const { getByTestId } = render(createSingleDatePicker());
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     act(() => {
         userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(calendarNode).toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
@@ -100,13 +100,13 @@ test("when a date is selected, clicking on the calendar apply button close the c
         defaultDate: moment()
     }));
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     act(() => {
         userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     });
 
-    await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 });
 
 test("clear the date on calendar clear button click", async () => {
@@ -277,7 +277,7 @@ test("call onVisibilityChange when the date is applied", async () => {
         onVisibilityChange: handler
     }));
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     ref.current.triggerDateChange(moment());
 
@@ -286,7 +286,7 @@ test("call onVisibilityChange when the date is applied", async () => {
     });
 
     // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });

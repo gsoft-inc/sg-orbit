@@ -124,13 +124,13 @@ test("when the calendar is closed and a value is selected, clear the value on es
 test("dont close the calendar on calendar clear button click", async () => {
     const { getByTestId } = render(createDateRangePicker());
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     act(() => {
         userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(calendarNode).toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("when dates are selected, clicking on the calendar apply button close the calendar", async () => {
@@ -139,13 +139,13 @@ test("when dates are selected, clicking on the calendar apply button close the c
         defaultEndDate: moment()
     }));
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     act(() => {
         userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     });
 
-    await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 });
 
 test("clear the dates on calendar clear button click", async () => {
@@ -382,7 +382,7 @@ test("call onVisibilityChange when the dates are applied", async () => {
         onVisibilityChange: handler
     }));
 
-    const calendarNode = await openCalendar(getByTestId);
+    await openCalendar(getByTestId);
 
     ref.current.triggerFocusChange(END_DATE);
     ref.current.triggerDatesChange(moment(), moment());
@@ -392,7 +392,7 @@ test("call onVisibilityChange when the dates are applied", async () => {
     });
 
     // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(calendarNode).not.toBeInTheDocument());
+    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });

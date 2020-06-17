@@ -18,7 +18,7 @@ export async function openCalendar(getByTestId) {
         userEvent.click(getInput(getByTestId));
     });
 
-    return await waitFor(() => getByTestId(CALENDAR_ID));
+    await waitFor(() => getByTestId(CALENDAR_ID));
 }
 
 // export function getInput() {
