@@ -112,7 +112,9 @@ function fireChangeEvent(event) {
 const userEvent = {
     click(element) {
         const focusedElement = element.ownerDocument.activeElement;
+
         const wasAnotherElementFocused =
+            focusedElement &&
             focusedElement !== element.ownerDocument.body &&
             focusedElement !== element;
 
@@ -137,8 +139,12 @@ const userEvent = {
 
     dblClick(element) {
         const focusedElement = document.activeElement;
+
         const wasAnotherElementFocused =
-            focusedElement !== document.body && focusedElement !== element;
+            focusedElement &&
+            focusedElement !== document.body &&
+            focusedElement !== element;
+
         if (wasAnotherElementFocused) {
             fireEvent.mouseMove(focusedElement);
             fireEvent.mouseLeave(focusedElement);
@@ -159,8 +165,12 @@ const userEvent = {
 
     selectOptions(element, values) {
         const focusedElement = document.activeElement;
+
         const wasAnotherElementFocused =
-            focusedElement !== document.body && focusedElement !== element;
+            focusedElement &&
+            focusedElement !== document.body &&
+            focusedElement !== element;
+
         if (wasAnotherElementFocused) {
             fireEvent.mouseMove(focusedElement);
             fireEvent.mouseLeave(focusedElement);
