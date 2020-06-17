@@ -514,6 +514,7 @@
 /* LAYOUT | Inline Dropdown */
 .ui.dropdown.inline .menu {
     border-radius: var(--scale-alpha);
+    margin-top: var(--scale-bravo);
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -1186,27 +1187,28 @@
     width: var(--scale-delta);
     height: var(--scale-delta);
     margin-top: 1px;
-    margin-left: 4px;
-    mask-size: var(--scale-delta) var(--scale-delta)!important;
+    margin-left: 0.25rem;
+    mask-size: var(--scale-bravo) var(--scale-bravo)!important;
     background-color: var(--marine-300)!important;
+    opacity: 1;
 }
 
 .ui.multiple.dropdown.small .label > .delete.icon {
     margin-top: 0;
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
-    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+    mask-size: var(--scale-bravo) var(--scale-bravo)!important;
 }
 
 .ui.multiple.dropdown.large .label > .delete.icon {
     width: var(--scale-echo);
     height: var(--scale-echo);
-    mask-size: var(--scale-echo) var(--scale-echo)!important;
+    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
 }
 
 .ui.multiple.dropdown .label > .delete.icon:hover,
 .ui.multiple.dropdown .label > .delete.icon.hover {
-    background-color: @marine500;
+    background-color: var(--marine-500)!important;
 }
 
 /* CONTENT | Multiple | Label | Delete icon | STATE | Disabled */

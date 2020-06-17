@@ -288,8 +288,7 @@
 }
 
 /* Naked */
-.ui.label.naked,
-.ui.naked .label {
+.ui.label.naked {
     background-color: @transparent;
 }
 

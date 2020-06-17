@@ -322,6 +322,13 @@ a.ui.button {
     background-color: var(--marine-900);
 }
 
+.ui.button.naked:focus:active,
+.ui.button.naked:focus:hover,
+.ui.button.naked.focus.hover,
+.ui.button.naked.focus.active {
+    background-color: var(--transparent);
+}
+
 .ui.button.primary:focus:active,
 .ui.button.primary:focus:hover,
 .ui.button.primary.focus.active,
@@ -684,12 +691,6 @@ a.ui.button {
 .ui.button.with-tag .tag,
 .ui.buttons.with-tag .tag {
     margin-right: var(--scale-bravo);
-}
-
-/* CONTENT | With Tag | SKIN | Naked */
-.ui.button.with-tag.naked .tag,
-.ui.buttons.with-tag.naked .tag {
-    background-color: @transparent!important;
 }
 
 /* CONTENT | With Tag | Layout | Padding */
