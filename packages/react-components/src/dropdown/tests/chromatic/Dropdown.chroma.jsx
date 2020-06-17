@@ -349,8 +349,12 @@ stories()
                     open
                 />
             </div>
-        </div>
-    )
+        </div>,
+         {
+             ...paramsBuilder()
+                 .canvasLayout({ paddingLeft: "100px" })
+                 .build()
+         })
     .add("fluid", () =>
         <div className="flex">
             <div className="flex flex-column w-50 mr12">

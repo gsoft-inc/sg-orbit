@@ -16,7 +16,7 @@ const EMBED_SIZE = {
 const STANDALONE_SIZE = {
     [SIZE.micro]: SIZE.micro,
     [SIZE.mini]: SIZE.mini,
-    [SIZE.tiny]: SIZE.mini,
+    [SIZE.tiny]: SIZE.tiny,
     [SIZE.small]: SIZE.small,
     [SIZE.medium]: SIZE.medium,
     [SIZE.large]: SIZE.large,
