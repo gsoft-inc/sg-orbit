@@ -291,36 +291,6 @@ export function InnerSelect(props) {
             </If>
         </div>
     );
-
-    // return (
-    //     <Dropdown
-    //         {...rest}
-    //         options={selectOptions}
-    //         selectOnBlur={false}
-    //         selectOnNavigation={false}
-    //         selection={!inline}
-    //         inline={inline}
-    //         size={size}
-    //         renderLabel={renderMultipleValuesLabel}
-    //         onOpen={handleOpen}
-    //         onClose={handleClose}
-    //         onFocus={handleFocus}
-    //         onBlur={handleBlur}
-    //         onChange={handleChange}
-    //         className={mergeClasses(
-    //             transparent && "transparent",
-    //             active && "active",
-    //             focus && "focus",
-    //             hover && "hover",
-    //             className
-    //         )}
-    //         ref={forwardedRef}
-    //         // TODO: remove once merged
-    //         __dropdownComponentRef={dropdownComponentRef}
-    //         // TODO: remove once merged
-    //         __semanticDropdown={MonkeyPatchSemanticDropdown}
-    //     />
-    // );
 }
 
 InnerSelect.propTypes = propTypes;
