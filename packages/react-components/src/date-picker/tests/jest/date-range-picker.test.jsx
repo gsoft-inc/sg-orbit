@@ -52,13 +52,13 @@ function createDateRangePicker({ reactDatesCalendar, onDatesChange = noop, ...ot
 // ***** Behaviors *****
 
 test("open the calendar on input click", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+    const { getByTestId, queryByTestId } = render(createDateRangePicker());
 
     act(() => {
         userEvent.click(getInput(getByTestId));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("when disabled, dont open the calendar on input click", async () => {
@@ -122,7 +122,7 @@ test("when the calendar is closed and a value is selected, clear the value on es
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(createDateRangePicker());
+    const { getByTestId, queryByTestId } = render(createDateRangePicker());
 
     await openCalendar(getByTestId);
 
@@ -130,11 +130,11 @@ test("dont close the calendar on calendar clear button click", async () => {
         userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("when dates are selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(createDateRangePicker({
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
         defaultStartDate: moment(),
         defaultEndDate: moment()
     }));
@@ -145,7 +145,7 @@ test("when dates are selected, clicking on the calendar apply button close the c
         userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 });
 
 test("clear the dates on calendar clear button click", async () => {

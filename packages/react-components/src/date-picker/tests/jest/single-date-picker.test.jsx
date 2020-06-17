@@ -40,13 +40,13 @@ function createSingleDatePicker({ reactDatesCalendar, onDateChange = noop, ...ot
 // ***** Behaviors *****
 
 test("open the calendar on input click", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker());
 
     act(() => {
         userEvent.click(getInput(getByTestId));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("clear the date on input clear button click", async () => {
@@ -84,7 +84,7 @@ test("when the calendar is closed and a value is selected, clear the value on es
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId } = render(createSingleDatePicker());
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker());
 
     await openCalendar(getByTestId);
 
@@ -92,11 +92,11 @@ test("dont close the calendar on calendar clear button click", async () => {
         userEvent.click(getByTestId(CALENDAR_CLEAR_BUTTON_ID));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).toBeInTheDocument());
 });
 
 test("when a date is selected, clicking on the calendar apply button close the calendar", async () => {
-    const { getByTestId } = render(createSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         defaultDate: moment()
     }));
 
@@ -106,7 +106,7 @@ test("when a date is selected, clicking on the calendar apply button close the c
         userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
     });
 
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 });
 
 test("clear the date on calendar clear button click", async () => {
@@ -272,7 +272,7 @@ test("call onVisibilityChange when the date is applied", async () => {
     const ref = createRef();
     const handler = jest.fn();
 
-    const { getByTestId } = render(createSingleDatePicker({
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
         reactDatesCalendar: <DayPickerSingleDateControllerMock ref={ref} />,
         onVisibilityChange: handler
     }));
@@ -286,7 +286,7 @@ test("call onVisibilityChange when the date is applied", async () => {
     });
 
     // I shouldn't need this but the test fail otherwise.
-    await waitFor(() => expect(getByTestId(CALENDAR_ID)).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId(CALENDAR_ID)).not.toBeInTheDocument());
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
