@@ -21,7 +21,7 @@ const STANDALONE_SIZE = {
     [SIZE.medium]: SIZE.medium,
     [SIZE.large]: SIZE.large,
     [SIZE.big]: SIZE.big,
-    [SIZE.huge]: SIZE.hige,
+    [SIZE.huge]: SIZE.huge,
     [SIZE.massive]: SIZE.massive
 };
 
