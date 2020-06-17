@@ -384,13 +384,8 @@ test("call onVisibilityChange when the dates are applied", async () => {
 
     const calendarNode = await openCalendar(getByTestId);
 
-    act(() => {
-        ref.current.triggerFocusChange(END_DATE);
-    });
-
-    act(() => {
-        ref.current.triggerDatesChange(moment(), moment());
-    });
+    ref.current.triggerFocusChange(END_DATE);
+    ref.current.triggerDatesChange(moment(), moment());
 
     act(() => {
         userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
