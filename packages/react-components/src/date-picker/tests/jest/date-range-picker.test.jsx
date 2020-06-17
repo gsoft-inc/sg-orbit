@@ -334,9 +334,9 @@ test("call onDatesChange when a preset is applied", async () => {
 
     await openCalendar(getByTestId);
 
-    // act(() => {
-    //     userEvent.click(getByTestId(FIRST_PRESET_ID));
-    // });
+    act(() => {
+        userEvent.click(getByTestId(FIRST_PRESET_ID));
+    });
 
     // act(() => {
     //     userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
