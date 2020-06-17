@@ -77,7 +77,7 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
     const handleDocumentBlur = useEventCallback(() => {
         setTimeout(() => {
             // Chrome and Edge move the focus to the body when the active element becomes disabled.
-            if (document.activeElement.nodeName === "BODY") {
+            if (!isNil(document.activeElement) && document.activeElement.nodeName === "BODY") {
                 if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
                     setFocusPopper(() => {
                         if (!isNil(containerRef.current)) {
@@ -90,7 +90,7 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
                 // Firefox doesn't switch focus to body, it keeps it on the disabled element and doesn't trigger a blur event when another element is focused.
                 // That's an ugly hack to fix this.
                 setTimeout(() => {
-                    if (document.activeElement.disabled) {
+                    if (!isNil(document.activeElement) && document.activeElement.disabled) {
                         setFocusPopper(() => {
                             if (!isNil(containerRef.current)) {
                                 containerRef.current.focus();
