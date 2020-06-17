@@ -14,6 +14,8 @@ export function getInput(getByTestId) {
 }
 
 export async function openCalendar(getByTestId) {
+    console.log("** will open calendar: ", getInput(getByTestId));
+
     act(() => {
         userEvent.click(getInput(getByTestId));
     });
