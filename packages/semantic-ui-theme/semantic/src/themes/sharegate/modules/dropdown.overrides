@@ -1188,7 +1188,7 @@
     height: var(--scale-delta);
     margin-top: 1px;
     margin-left: 0.25rem;
-    mask-size: var(--scale-bravo) var(--scale-bravo)!important;
+    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
     background-color: var(--marine-300)!important;
     opacity: 1;
 }
