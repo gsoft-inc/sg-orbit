@@ -1203,7 +1203,7 @@
 .ui.multiple.dropdown.large .label > .delete.icon {
     width: var(--scale-echo);
     height: var(--scale-echo);
-    mask-size: var(--scale-charlie) var(--scale-charlie)!important;
+    mask-size: var(--scale-delta) var(--scale-delta)!important;
 }
 
 .ui.multiple.dropdown .label > .delete.icon:hover,
