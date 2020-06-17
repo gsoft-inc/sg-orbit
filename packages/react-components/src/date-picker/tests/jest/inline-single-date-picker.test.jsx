@@ -2,7 +2,6 @@ import { CALENDAR_CLEAR_BUTTON_ID, CALENDAR_ID, DATE_FORMAT } from "./shared";
 import { InlineSingleDatePicker } from "@react-components/date-picker";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { noop } from "lodash";
-import { waitDelay } from "@utils/wait-delay";
 import moment from "moment";
 import userEvent from "@utils/user-event";
 
@@ -81,8 +80,6 @@ test("when the calendar close on esc keydown, the input should be focused", asyn
     act(() => {
         fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     });
-
-    await waitDelay(5);
 
     await waitFor(() => expect(getByTestId(INPUT_ID)).toHaveFocus());
 });

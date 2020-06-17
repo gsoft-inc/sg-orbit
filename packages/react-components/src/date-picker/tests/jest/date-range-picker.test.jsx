@@ -207,8 +207,6 @@ test("when the calendar close on esc keydown, the input should be focused", asyn
         fireEvent.keyDown(document, { key: "Escape", keyCode: 27 });
     });
 
-    await waitDelay(5);
-
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
