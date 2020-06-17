@@ -145,7 +145,7 @@ stories()
     .add("position top-start", () =>
         <RedBoxPopper
             show
-            osition="top-start"
+            position="top-start"
             pinned
         />
     )
