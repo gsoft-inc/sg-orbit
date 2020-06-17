@@ -205,7 +205,7 @@ export const createButton = createShorthandFactory(Button, (shorthand, props) =>
 export const createEmbeddedButton = createShorthandFactoryForEmbedded(createButton, {
     [SIZE.micro]: SIZE.micro,
     [SIZE.mini]: SIZE.micro,
-    [SIZE.tiny]: SIZE.micro,
+    [SIZE.tiny]: SIZE.mini,
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small
