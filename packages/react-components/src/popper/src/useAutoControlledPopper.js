@@ -23,7 +23,8 @@ function getFirstFocusableElement(container) {
     return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
-function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, containerRef) {
+// function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, containerRef) {
+function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper) {
     const hasFocusRef = useRef();
     const activeElementRef = useRef();
 
