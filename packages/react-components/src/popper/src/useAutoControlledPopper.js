@@ -102,7 +102,7 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
         }, 0);
     });
 
-    useDocumentListener("blur", handleDocumentBlur, isVisible && hasFocusRef.current, true);
+    // useDocumentListener("blur", handleDocumentBlur, isVisible && hasFocusRef.current, true);
 
     return [
         handleContainerFocus,
