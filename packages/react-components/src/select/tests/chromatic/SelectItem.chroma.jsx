@@ -266,8 +266,6 @@ stories()
             <div className="flex">
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], disabled: true, iconsPosition: "right" }]}
-                    size="large"
-                    fluid
                     open
                 />
             </div>
