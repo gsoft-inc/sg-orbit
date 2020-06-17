@@ -63,7 +63,7 @@
         "stylelint:pkg": "stylelint \"packages/**/*.css\" --allow-empty-input",
         "stylelint:sb": "stylelint \"storybook/**/*.css\" --allow-empty-input",
         "jest-watch": "yarn jest --watch",
-        "jest-ci": "yarn jest --runInBand",
+        "jest-ci": "yarn jest",
         "jest": "jest --config=jest/jest.config.js",
         "update": "run-s install:pkg install:sb",
         "diff": "lerna changed && lerna diff",
