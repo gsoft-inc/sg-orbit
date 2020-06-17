@@ -338,9 +338,9 @@ test("call onDatesChange when a preset is applied", async () => {
         userEvent.click(getByTestId(FIRST_PRESET_ID));
     });
 
-    // act(() => {
-    //     userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
-    // });
+    act(() => {
+        userEvent.click(getByTestId(CALENDAR_APPLY_BUTTON_ID));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), firstPreset.startDate, firstPreset.endDate, firstPreset.text));
 });
