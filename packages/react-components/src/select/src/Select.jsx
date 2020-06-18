@@ -236,7 +236,8 @@ export function InnerSelect(props) {
         <div
             className={mergeClasses(
                 fluid ? "w-100" : "dib",
-                "relative outline-0 v-top",
+                inline ? "v-middle" : "v-top",
+                "relative outline-0",
                 wrapperClassName
             )}
             style={wrapperStyle}
