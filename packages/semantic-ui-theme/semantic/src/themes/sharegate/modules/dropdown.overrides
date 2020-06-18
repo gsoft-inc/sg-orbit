@@ -1032,11 +1032,6 @@
     margin: 0;
 }
 
-.ui.loading.dropdown.inline > i.icon::before,
-.ui.loading.dropdown.inline > i.icon::after {
-    left: 0.105em;
-}
-
 .ui.loading.dropdown > i.icon::before,{
     width: var(--scale-echo);
     height: var(--scale-echo);
