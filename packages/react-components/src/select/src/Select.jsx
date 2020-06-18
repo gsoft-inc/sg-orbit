@@ -236,6 +236,7 @@ export function InnerSelect(props) {
         <div
             className={mergeClasses(
                 fluid ? "w-100" : "dib",
+                // fixes the weird case where a parent element will be too high when it's children containes an empty inline-block element
                 inline ? "v-middle" : "v-top",
                 "relative outline-0",
                 wrapperClassName
