@@ -151,7 +151,7 @@ export function useAutoControlledPopper(props) {
         }, 0);
     }, [triggerElement]);
 
-    const setFocusPopper = useCallback(onCannotFocus => {
+    const setFocusPopper = useCallback((onCannotFocus, delay = 0) => {
         setTimeout(() => {
             if (!isNil(popperElement)) {
                 const focusableElement = getFirstFocusableElement(popperElement);
@@ -166,7 +166,7 @@ export function useAutoControlledPopper(props) {
                     }
                 }
             }
-        }, 0);
+        }, delay);
     }, [popperElement]);
 
     const showPopper = useCallback(event => {
@@ -280,7 +280,9 @@ export function useAutoControlledPopper(props) {
                 const type = lastTriggerEventRef.current;
 
                 if (!isNil(type) && /^key.+$/.test(type)) {
-                    setFocusPopper();
+                    // HACK: Added a delay of 100ms to prevent an intermittent bug with the date pickers where the keyboard event will propagate to
+                    // the calendar nav button and cause a month transition on render. Doesn't make much sense but it is what it is.
+                    setFocusPopper(null, 100);
                 }
             }
         }

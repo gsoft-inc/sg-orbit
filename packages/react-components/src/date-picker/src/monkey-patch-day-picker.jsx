@@ -36,7 +36,9 @@ PureDayPicker.prototype.updateStateAfterMonthTransition = function() {
     const firstDayOfWeek = this.getFirstDayOfWeek();
     if (monthTransition === PREV_TRANSITION) {
         newMonth.subtract(1, "month");
-        if (onPrevMonthClick) {onPrevMonthClick(newMonth);}
+        if (onPrevMonthClick) {
+            onPrevMonthClick(newMonth);
+        }
         const newInvisibleMonth = newMonth.clone().subtract(1, "month");
         const numberOfWeeks = getNumberOfCalendarMonthWeeks(newInvisibleMonth, firstDayOfWeek);
         this.calendarMonthWeeks = [numberOfWeeks, ...this.calendarMonthWeeks.slice(0, -1)];
@@ -66,4 +68,25 @@ PureDayPicker.prototype.updateStateAfterMonthTransition = function() {
         nextFocusedDate: null,
         focusedDate: newFocusedDate
     });
+};
+
+// Monkey patch fixes:
+//
+// Without this code, "sometimes" when the calendar is opened by an "enter" keydown on the input, a keydown event will also occur
+// on the navigation "prev" button. No clue why? When it happen, the rendered calendar day have a tabindex of -1 which prevent the user
+// from tabbing to the calendar days.
+//
+// This code aims to fix the "enter" keydown ghost event by not calling "onPrevMonthTransition" when the calendar show animation is not completed.
+// NOTE: this hack is not bullet proof, it also happens from time to time. A delay have been added to useAutoControlledPopper to defer by 100ms focusing the first
+// popper element.
+PureDayPicker.prototype.onPrevMonthClick = function(e) {
+    const { hasSetHeight } = this.state;
+
+    if (hasSetHeight) {
+        if (e) {
+            e.preventDefault();
+        }
+
+        this.onPrevMonthTransition();
+    }
 };
