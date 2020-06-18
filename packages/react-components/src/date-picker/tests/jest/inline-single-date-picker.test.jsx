@@ -67,7 +67,9 @@ test("when the calendar is closed and a value is selected, clear the value on es
 });
 
 test("when the calendar close on esc keydown, the input should be focused", async () => {
-    const { getByTestId } = render(createInlineSingleDatePicker());
+    const { getByTestId } = render(createInlineSingleDatePicker({
+        defaultDate: moment()
+    }));
 
     await openCalendar(getByTestId);
 

@@ -76,12 +76,18 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
     // More info at: https://allyjs.io/tutorials/mutating-active-element.html
     const handleDocumentBlur = useEventCallback(() => {
         setTimeout(() => {
-            if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
-                setFocusPopper(() => {
-                    if (!isNil(containerRef.current)) {
-                        containerRef.current.focus();
-                    }
-                });
+            console.log("hey1");
+
+            if (!isNil(document.activeElement) && document.activeElement.nodeName === "BODY") {
+                if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
+                    console.log("hey2");
+
+                    setFocusPopper(() => {
+                        if (!isNil(containerRef.current)) {
+                            containerRef.current.focus();
+                        }
+                    });
+                }
             }
         }, 0);
 
