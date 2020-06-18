@@ -30,14 +30,9 @@ export class DatePickerButtons extends PureComponent {
             onClear(event);
         }
 
-        console.log("** handleClear");
-
         // Since clearing the date(s) will disabled the "clear" button we move the focus to the "apply" button.
         setTimeout(() => {
-            console.log("ho1");
-
             if (!isNil(this._applyRef.current)) {
-                console.log("ho2");
                 this._applyRef.current.focus();
             }
         }, 0);

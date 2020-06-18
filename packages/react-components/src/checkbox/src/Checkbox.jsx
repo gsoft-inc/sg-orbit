@@ -1,7 +1,7 @@
 import { EmbeddedIcon } from "../../icons";
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
-import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createCount } from "../../count";
 import { createEmbeddedLabel } from "../../label";
 import { forwardRef, useCallback } from "react";
@@ -40,13 +40,7 @@ export const CHECKBOX_PROP_TYPES = {
     size: oneOf(["small", "medium", "large"])
 };
 
-export const CHECKBOX_DEFAULT_PROPS = {
-    __componentName: "@orbit-ui/react-components/Checkbox",
-    __unsupportedProps: UNSUPPORTED_PROPS
-};
-
 const propTypes = CHECKBOX_PROP_TYPES;
-const defaultProps = CHECKBOX_DEFAULT_PROPS;
 
 function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
     if (!isNil(label) && !isNil(count)) {
@@ -69,8 +63,8 @@ export function InnerCheckbox(props) {
         disabled,
         className,
         forwardedRef,
-        __unsupportedProps,
-        __componentName,
+        __unsupportedProps = UNSUPPORTED_PROPS,
+        __componentName = "@orbit-ui/react-components/Checkbox",
         ...rest
     } = props;
 
@@ -142,7 +136,6 @@ export function InnerCheckbox(props) {
 }
 
 InnerCheckbox.propTypes = propTypes;
-InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox { ...props } forwardedRef={ref} />

@@ -118,7 +118,10 @@ test("when the calendar is closed and a value is selected, clear the value on es
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId, queryByTestId } = render(createDateRangePicker());
+    const { getByTestId, queryByTestId } = render(createDateRangePicker({
+        defaultStartDate: moment(),
+        defaultEndDate: moment().add(3, "days")
+    }));
 
     await openCalendar(getByTestId);
 
@@ -132,7 +135,7 @@ test("dont close the calendar on calendar clear button click", async () => {
 test("when dates are selected, clicking on the calendar apply button close the calendar", async () => {
     const { getByTestId, queryByTestId } = render(createDateRangePicker({
         defaultStartDate: moment(),
-        defaultEndDate: moment()
+        defaultEndDate: moment().add(3, "days")
     }));
 
     await openCalendar(getByTestId);

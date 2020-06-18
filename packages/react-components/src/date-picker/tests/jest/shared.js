@@ -20,17 +20,3 @@ export async function openCalendar(getByTestId) {
 
     await waitFor(() => getByTestId(CALENDAR_ID));
 }
-
-// export function getInput() {
-//     const searchInputNode = screen.getByTestId("date-picker-textbox-input");
-
-//     return searchInputNode.querySelector("input");
-// }
-
-// export async function openCalendar() {
-//     act(() => {
-//         userEvent.click(getInput());
-//     });
-
-//     return screen.findByTestId(CALENDAR_ID);
-// }

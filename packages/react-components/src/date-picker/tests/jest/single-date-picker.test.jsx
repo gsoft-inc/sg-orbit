@@ -80,7 +80,9 @@ test("when the calendar is closed and a value is selected, clear the value on es
 });
 
 test("dont close the calendar on calendar clear button click", async () => {
-    const { getByTestId, queryByTestId } = render(createSingleDatePicker());
+    const { getByTestId, queryByTestId } = render(createSingleDatePicker({
+        defaultDate: moment()
+    }));
 
     await openCalendar(getByTestId);
 
