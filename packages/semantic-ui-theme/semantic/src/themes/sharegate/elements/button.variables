@@ -140,7 +140,7 @@
 /* Ordinality */
 
 @primaryTextColor: @white;
-@secondaryTextColor: var(--marine-600);
+@secondaryTextColor: var(--marine-500);
 @secondaryColorFocus: @cloud200;
 @positiveTextColor: @white;
 @negativeTextColor: @white;
