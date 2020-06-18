@@ -1,7 +1,7 @@
 import { EmbeddedIcon } from "../../icons";
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
-import { any, arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createCount } from "../../count";
 import { createEmbeddedLabel } from "../../label";
 import { forwardRef, useCallback } from "react";
