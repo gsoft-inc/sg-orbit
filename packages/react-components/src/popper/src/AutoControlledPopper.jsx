@@ -41,7 +41,7 @@ const SHARED_POPPER_PROP_TYPES = {
     noWrap: bool,
     /**
      * Allow to displace the popper element from its trigger element.
-     * Ex: ["10px", "-10px"]
+     * Ex: `["10px", "-10px"]`
      */
     offset: arrayOf(number),
     /**
@@ -122,7 +122,7 @@ const propTypes = {
     focusFirstElementOnKeyboardShow: bool,
     /**
      * Additional [keys](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) to show the popper on keydown.
-     * Ex. [13] for Enter
+     * Ex. `[13]` for Enter
      */
     showOnKeys: arrayOf(number),
     /**

@@ -15,6 +15,7 @@ export class DatePickerAnchor extends PureComponent {
         zIndex: number,
         onVisibilityChange: func,
         fluid: bool,
+        noPortal: bool,
         className: string,
         style: object
     };
@@ -35,7 +36,7 @@ export class DatePickerAnchor extends PureComponent {
     };
 
     render() {
-        const { open, input, calendar, upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
+        const { open, input, calendar, upward, direction, pinned, zIndex, disabled, fluid, noPortal, className, style } = this.props;
 
         return (
             <TextInputPopper
@@ -46,9 +47,10 @@ export class DatePickerAnchor extends PureComponent {
                 offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
                 focusFirstElementOnKeyboardShow
+                zIndex={zIndex}
                 disabled={disabled}
                 fluid={fluid}
-                zIndex={zIndex}
+                noPortal={noPortal}
                 className={className}
                 style={style}
             >

@@ -42,7 +42,7 @@ export const SHARED_POPPER_PROP_TYPES = {
     noWrap: bool,
     /**
      * Allow to displace the popper element from its trigger element.
-     * Ex: [10, -10]
+     * Ex: `[10, -10]`
      */
     offset: arrayOf(number),
     /**

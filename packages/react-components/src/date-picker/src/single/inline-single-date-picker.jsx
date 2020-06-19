@@ -97,7 +97,11 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     defaultOpen: bool,
     /**
-     * Whether or not the input appear as focused.
+     * Whether or not to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
+     */
+    noPortal: bool,
+    /**
+     * @ignore
      */
     focus: bool,
     /**

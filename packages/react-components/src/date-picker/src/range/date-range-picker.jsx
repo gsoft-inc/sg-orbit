@@ -145,6 +145,10 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         size: oneOf(SIZES),
         /**
+         * Whether or not to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
+         */
+        noPortal: bool,
+        /**
          * @ignore
          */
         active: bool,
@@ -311,7 +315,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
     }
 
     render() {
-        const { upward, direction, pinned, zIndex, disabled, fluid, className, style } = this.props;
+        const { upward, direction, pinned, zIndex, disabled, fluid, noPortal, className, style } = this.props;
         const { open } = this.state;
 
         return (
@@ -326,6 +330,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
                 onVisibilityChange={this.handleAnchorVisibilityChange}
                 disabled={disabled}
                 fluid={fluid}
+                noPortal={noPortal}
                 className={className}
                 style={style}
             />

@@ -73,7 +73,11 @@ const propTypes = {
     /**
      * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the dropdown menu.
      */
-    menu: oneOfType([element, object])
+    menu: oneOfType([element, object]),
+    /**
+     * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
+     */
+    noPortal: bool
 };
 
 const defaultProps = {
@@ -107,6 +111,7 @@ export function InnerDropdown(props) {
         scrolling,
         onVisibilityChange,
         menu,
+        noPortal,
         active,
         focus,
         hover,
@@ -145,6 +150,7 @@ export function InnerDropdown(props) {
         showOnKeys: [upward ? KEYS.up : KEYS.down],
         focusFirstElementOnKeyboardShow: true,
         onVisibilityChange: handleVisibilityChange,
+        noPortal,
         popper: {
             className: "o-ui dropdown"
         }
