@@ -34,7 +34,6 @@ function RedBoxPopper(props) {
         <AutoControlledPopper
             {...props}
             trigger={<Button fluid>Open</Button>}
-            toggleHandler="onClick"
         >
             <RedBox />
         </AutoControlledPopper>

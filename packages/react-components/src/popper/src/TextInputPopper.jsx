@@ -44,7 +44,6 @@ export function InnerTextInputPopper({ input, onClick, forwardedRef, ...rest }) 
         <AutoControlledPopper
             {...rest}
             trigger={trigger}
-            toggleHandler="onClick"
             onClick={handleClick}
             ref={forwardedRef}
         />

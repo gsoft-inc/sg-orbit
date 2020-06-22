@@ -17,7 +17,6 @@ export function InnerButtonPopper({ button, forwardedRef, ...rest }) {
         <AutoControlledPopper
             {...rest}
             trigger={trigger}
-            toggleHandler="onClick"
             ref={forwardedRef}
         />
     );

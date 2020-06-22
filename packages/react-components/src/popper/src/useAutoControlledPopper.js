@@ -101,7 +101,6 @@ export function useAutoControlledPopper(props) {
         show,
         defaultShow,
         trigger,
-        toggleHandler,
         onVisibilityChange,
         onFocus,
         onBlur,
@@ -195,7 +194,7 @@ export function useAutoControlledPopper(props) {
 
     const [handleFocus, handleBlur] = useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, wrapperRef);
 
-    const handleTriggerToggle = useEventCallback(event => {
+    const handleTriggerClick = useEventCallback(event => {
         lastTriggerEventRef.current = event.type;
 
         if (!disabled) {
@@ -313,7 +312,7 @@ export function useAutoControlledPopper(props) {
         });
 
         const triggerMarkup = augmentElement(trigger, {
-            [toggleHandler]: handleTriggerToggle,
+            onClick: handleTriggerClick,
             onKeyDown: handleTriggerKeyDown,
             ref: setTriggerElement
         });

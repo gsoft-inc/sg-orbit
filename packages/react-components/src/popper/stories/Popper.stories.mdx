@@ -53,7 +53,7 @@ We do recommend using `<AutoControlledPopper />` (or an [adapter](?path=/docs/co
 
 A trigger is a component that toggle the popper visibility. To be valid, it must follow a few rules:
 
-- accept a prop matching the specified `toggleHandler` prop, e.g. `onClick`.
+- accept an `onClick` prop.
 - accept a `ref` prop and assign it to it's root element.
 - when  `focusTriggerOnShow` or `focusTriggerOnHide` are `true`, the trigger ref must also expose a `focus` function.
 
@@ -187,13 +187,12 @@ A popper can be rendered without an additional element around it's popper elemen
 
 ### Without an adapter
 
-A default popper requires a `trigger` and a `toggleHandler`. The `trigger` can be wathever you want as long as it follow the [trigger rules](#trigger-rules).
+A popper can use wathever trigger you want as long as it follow the [trigger rules](#trigger-rules).
 
 <Preview>
     <Story name="without an adapter">
         <AutoControlledPopper
             trigger={<Button>Toggle</Button>}
-            toggleHandler="onClick"
         >
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
         </AutoControlledPopper>

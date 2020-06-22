@@ -141,7 +141,6 @@ export function InnerDropdown(props) {
         show: open,
         defaultShow: defaultOpen,
         trigger: dropdownTrigger,
-        toggleHandler: "onClick",
         position: resolvePopperPosition(upward, direction),
         pinned,
         offset: [0, 10],
