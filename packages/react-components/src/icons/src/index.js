@@ -11,10 +11,10 @@ function createOrbitMultiVariantIcon(source24, source32) {
     return MultiVariantIcon.create(source24, source32);
 }
 
-import { ReactComponent as InnerAddIcon24 } from "@orbit-ui/icons/dist/icon-add-24.svg";
-import { ReactComponent as InnerAddIcon32 } from "@orbit-ui/icons/dist/icon-add-32.svg";
 import { ReactComponent as InnerAddGuestIcon24 } from "@orbit-ui/icons/dist/icon-add-guest-24.svg";
 import { ReactComponent as InnerAddGuestIcon32 } from "@orbit-ui/icons/dist/icon-add-guest-32.svg";
+import { ReactComponent as InnerAddIcon24 } from "@orbit-ui/icons/dist/icon-add-24.svg";
+import { ReactComponent as InnerAddIcon32 } from "@orbit-ui/icons/dist/icon-add-32.svg";
 import { ReactComponent as InnerAddUserIcon24 } from "@orbit-ui/icons/dist/icon-add-user-24.svg";
 import { ReactComponent as InnerAddUserIcon32 } from "@orbit-ui/icons/dist/icon-add-user-32.svg";
 import { ReactComponent as InnerArrowIcon24 } from "@orbit-ui/icons/dist/icon-arrow-24.svg";
@@ -105,10 +105,10 @@ import { ReactComponent as InnerWarningIcon32 } from "@orbit-ui/icons/dist/icon-
 import { ReactComponent as InnerZipIcon24 } from "@orbit-ui/icons/dist/icon-zip-24.svg";
 import { ReactComponent as InnerZipIcon32 } from "@orbit-ui/icons/dist/icon-zip-32.svg";
 
-export const AddIcon24 = createOrbitIcon(InnerAddIcon24);
-export const AddIcon32 = createOrbitIcon(InnerAddIcon32);
 export const AddGuestIcon24 = createOrbitIcon(InnerAddGuestIcon24);
 export const AddGuestIcon32 = createOrbitIcon(InnerAddGuestIcon32);
+export const AddIcon24 = createOrbitIcon(InnerAddIcon24);
+export const AddIcon32 = createOrbitIcon(InnerAddIcon32);
 export const AddUserIcon24 = createOrbitIcon(InnerAddUserIcon24);
 export const AddUserIcon32 = createOrbitIcon(InnerAddUserIcon32);
 export const ArrowIcon24 = createOrbitIcon(InnerArrowIcon24);
@@ -199,8 +199,8 @@ export const WarningIcon32 = createOrbitIcon(InnerWarningIcon32);
 export const ZipIcon24 = createOrbitIcon(InnerZipIcon24);
 export const ZipIcon32 = createOrbitIcon(InnerZipIcon32);
 
-export const AddIcon = createOrbitMultiVariantIcon(InnerAddIcon24, InnerAddIcon32);
 export const AddGuestIcon = createOrbitMultiVariantIcon(InnerAddGuestIcon24, InnerAddGuestIcon32);
+export const AddIcon = createOrbitMultiVariantIcon(InnerAddIcon24, InnerAddIcon32);
 export const AddUserIcon = createOrbitMultiVariantIcon(InnerAddUserIcon24, InnerAddUserIcon32);
 export const ArrowIcon = createOrbitMultiVariantIcon(InnerArrowIcon24, InnerArrowIcon32);
 export const CalendarIcon = createOrbitMultiVariantIcon(InnerCalendarIcon24, InnerCalendarIcon32);
