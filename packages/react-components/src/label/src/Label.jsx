@@ -124,7 +124,7 @@ export function InnerLabel(props) {
                     !isNil(icon) && "with-icon",
                     !isNil(icon) && iconPosition === "right" && "with-icon-right",
                     !isNil(tag) && "with-tag",
-                    !hasText && "without-text",
+                    !hasText && "fitted",
                     className
                 )}
             >

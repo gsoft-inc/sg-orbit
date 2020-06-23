@@ -127,7 +127,7 @@ export function InnerCheckbox(props) {
                     size && size,
                     !isNil(icons) && "with-icon",
                     !isNil(label) && "with-label",
-                    isNil(text) && "without-text",
+                    isNil(text) && "fitted",
                     className
                 )}
             />

@@ -16,16 +16,16 @@
 }
 
 .ui.radio.checkbox label:after,
-.ui.radio.checkbox.without-text.with-icon label:after  {
+.ui.radio.checkbox.fitted.with-icon label:after  {
     transform: scale(0.5);
     top: auto;
 }
 
-.ui.radio.checkbox.without-text label:after {
+.ui.radio.checkbox.fitted label:after {
     transform: scale(0.5);
 }
 
-.ui.radio.checkbox.without-text.with-label label:after {
+.ui.radio.checkbox.fitted.with-label label:after {
     transform: scale(0.5);
 }
 
@@ -754,11 +754,11 @@
 }
 
 /* Additions */
-.ui.checkbox.without-text .icon {
+.ui.checkbox.fitted .icon {
     margin-left: 0;
 }
 
-.ui.checkbox.without-text.indeterminate.large,
-.ui.checkbox.without-text.indeterminate.large label {
+.ui.checkbox.fitted.indeterminate.large,
+.ui.checkbox.fitted.indeterminate.large label {
     min-height: var(--scale-foxtrot);
 }

@@ -163,7 +163,7 @@ export function InnerButton(props) {
                     !isNil(icon) && iconPosition === "right" && "with-icon-right",
                     !isNil(label) && "with-label",
                     !isNil(tag) && "with-tag",
-                    !hasText && "without-text",
+                    !hasText && "fitted",
                     focus && "focus",
                     hover && "hover",
                     className)

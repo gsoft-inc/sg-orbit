@@ -51,7 +51,7 @@ a.ui.button {
     padding-right: var(--scale-bravo);
 }
 
-.ui.micro.with-icon.without-text.button {
+.ui.micro.with-icon.fitted.button {
     padding-left: var(--scale-bravo);
 }
 
@@ -78,7 +78,7 @@ a.ui.button {
     padding-right: var(--scale-bravo);
 }
 
-.ui.mini.with-icon.without-text.button,
+.ui.mini.with-icon.fitted.button,
 .ui.mini.with-icon.button {
     padding-left: var(--scale-bravo);
 }
@@ -148,7 +148,7 @@ a.ui.button {
 /* LAYOUT | Circular/Default */
 .ui.button.circular,
 .ui.button.with-icon.circular,
-.ui.button.with-icon.without-text.circular {
+.ui.button.with-icon.fitted.circular {
     padding: 0!important;
     font-size: @typeScale6;
     min-height: var(--scale-hotel);
@@ -157,7 +157,7 @@ a.ui.button {
 
 .ui.button.circular.compact,
 .ui.button.with-icon.circular.compact,
-.ui.button.with-icon.without-text.circular.compact {
+.ui.button.with-icon.fitted.circular.compact {
     font-size: @typeScale4;
 }
 
@@ -618,52 +618,52 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
-.ui.with-icon.without-text.button.tiny,
-.ui.tiny.buttons .without-text.button {
+.ui.with-icon.fitted.button.tiny,
+.ui.tiny.buttons .fitted.button {
     padding-left: var(--scale-charlie);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
-.ui.with-icon.without-text.button.small,
-.ui.small.buttons .without-text.button {
+.ui.with-icon.fitted.button.small,
+.ui.small.buttons .fitted.button {
     padding-left: var(--scale-delta);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button,
-.ui.buttons .without-text.button {
+.ui.with-icon.fitted.button,
+.ui.buttons .fitted.button {
     padding-left: var(--scale-echo);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
-.ui.with-icon.without-text.button.large,
-.ui.large.buttons .without-text.button {
+.ui.with-icon.fitted.button.large,
+.ui.large.buttons .fitted.button {
     padding-left: var(--scale-foxtrot);
 }
 
 /* Compact */
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
-.ui.with-icon.without-text.button.tiny.compact,
-.ui.tiny.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.tiny.compact,
+.ui.tiny.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-charlie) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
-.ui.with-icon.without-text.button.small.compact,
-.ui.small.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.small.compact,
+.ui.small.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-delta) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button.compact,
-.ui.buttons.compact .without-text.button {
+.ui.with-icon.fitted.button.compact,
+.ui.buttons.compact .fitted.button {
     padding-left: calc(var(--scale-echo) / 2);
     padding-right: calc(var(--scale-echo) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
-.ui.with-icon.without-text.button.large.compact,
-.ui.large.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.large.compact,
+.ui.large.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-foxtrot) / 2);
 }
 
@@ -683,7 +683,7 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Margin */
-.ui.button:not(.icon).with-icon.without-text > .icon:not(.button):not(.dropdown) {
+.ui.button:not(.icon).with-icon.fitted > .icon:not(.button):not(.dropdown) {
     margin: 0;
 }
 

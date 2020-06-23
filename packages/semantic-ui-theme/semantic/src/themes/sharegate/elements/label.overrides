@@ -61,7 +61,7 @@
 }
 
 /* CONTENT | With Icon - Without text | LAYOUT */
-.ui.label.with-icon.without-text .icon {
+.ui.label.with-icon.fitted .icon {
     margin-right: 0;
 }
 
@@ -417,53 +417,53 @@
 }
 
 /* Default - With icon - Without text  */
-.ui.label.mini.with-icon.without-text {
+.ui.label.mini.with-icon.fitted {
     padding-right: var(--scale-bravo);
     padding-left: var(--scale-bravo);
 }
 
-.ui.label.tiny.with-icon.without-text {
+.ui.label.tiny.with-icon.fitted {
     padding-right: var(--scale-charlie);
     padding-left: var(--scale-charlie);
 }
 
-.ui.label.small.with-icon.without-text {
+.ui.label.small.with-icon.fitted {
     padding-right: var(--scale-delta);
     padding-left: var(--scale-delta);
 }
 
-.ui.label.with-icon.without-text {
+.ui.label.with-icon.fitted {
     padding-right: var(--scale-echo);
     padding-left: var(--scale-echo);
 }
 
-.ui.label.large.with-icon.without-text {
+.ui.label.large.with-icon.fitted {
     padding-right: var(--scale-foxtrot);
     padding-left: var(--scale-foxtrot);
 }
 
 /* Compact - With icon - Without text  */
-.ui.label.mini.compact.with-icon.without-text {
+.ui.label.mini.compact.with-icon.fitted {
     padding-right: calc(var(--scale-bravo) /2);
     padding-left: calc(var(--scale-bravo) /2);
 }
 
-.ui.label.tiny.compact.with-icon.without-text {
+.ui.label.tiny.compact.with-icon.fitted {
     padding-right: calc(var(--scale-charlie) /2);
     padding-left: calc(var(--scale-charlie) /2);
 }
 
-.ui.label.small.compact.with-icon.without-text {
+.ui.label.small.compact.with-icon.fitted {
     padding-right: calc(var(--scale-delta) /2);
     padding-left: calc(var(--scale-delta) /2);
 }
 
-.ui.label.compact.with-icon.without-text {
+.ui.label.compact.with-icon.fitted {
     padding-right: calc(var(--scale-echo) /2);
     padding-left: calc(var(--scale-echo) /2);
 }
 
-.ui.label.large.compact.with-icon.without-text {
+.ui.label.large.compact.with-icon.fitted {
     padding-right: calc(var(--scale-foxtrot) /2);
     padding-left: calc(var(--scale-foxtrot) /2);
 }
