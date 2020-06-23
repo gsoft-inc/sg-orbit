@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CalendarIcon, ImageIcon, SignoutIcon } from "@react-components/icons";
+import { CalendarIcon, PictureIcon, SignoutIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
@@ -87,12 +87,12 @@ function Groups({ element, ...rest }) {
                 <Group element={group} className="mb5">
                     <Button disabled icon={<SignoutIcon />}>One</Button>
                     <Button active icon={<CalendarIcon />}>Two</Button>
-                    <Button icon={<ImageIcon />}>Three</Button>
+                    <Button icon={<PictureIcon />}>Three</Button>
                 </Group>
                 <Group element={group} className="mb5">
                     <Button disabled icon={<SignoutIcon />} />
                     <Button active icon={<CalendarIcon />} />
-                    <Button icon={<ImageIcon />} />
+                    <Button icon={<PictureIcon />} />
                 </Group>
                 <Group element={group} className="mb5">
                     <Button disabled label={<Label>6</Label>}>One</Button>

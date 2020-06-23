@@ -2,6 +2,8 @@ import {
     AddIcon,
     AddIcon24,
     AddIcon32,
+    AddGuestIcon,
+    AddGuestIcon32,
     AddUserIcon,
     AddUserIcon32,
     ArrowIcon,
@@ -13,6 +15,9 @@ import {
     CheckIcon,
     CheckIcon24,
     CheckIcon32,
+    ChevronIcon,
+    ChevronIcon24,
+    ChevronIcon32,
     CircleIcon,
     CircleIcon24,
     CircleIcon32,
@@ -22,25 +27,34 @@ import {
     CloseIcon,
     CloseIcon24,
     CloseIcon32,
+    CollapseIcon,
+    CollapseIcon24,
+    CollapseIcon32,
     CommunicationIcon,
+    CommunicationIcon24,
     CommunicationIcon32,
-    CompareIcon,
-    CompareIcon24,
-    CompareIcon32,
     CsvIcon,
+    CsvIcon24,
     CsvIcon32,
     DoNotDisturbIcon,
+    DoNotDisturbIcon24,
     DoNotDisturbIcon32,
     DownloadIcon,
     DownloadIcon32,
     EditIcon,
     EditIcon32,
+    FilterIcon,
+    FilterIcon24,
+    FilterIcon32,
     FileIcon,
+    FileIcon24,
     FileIcon32,
+    FlagIcon,
+    FlagIcon24,
+    FlagIcon32,
     FolderIcon,
+    FolderIcon24,
     FolderIcon32,
-    GarbageIcon,
-    GarbageIcon32,
     GearIcon,
     GearIcon32,
     GroupIcon,
@@ -50,8 +64,6 @@ import {
     HelpIcon32,
     HorizontalDotsIcon,
     HorizontalDotsIcon32,
-    ImageIcon,
-    ImageIcon32,
     InfoIcon,
     InfoIcon24,
     InfoIcon32,
@@ -67,27 +79,49 @@ import {
     NotificationIcon32,
     PdfIcon,
     PdfIcon32,
+    PictureIcon,
+    PictureIcon24,
+    PictureIcon32,
     PrinterIcon,
     PrinterIcon24,
     PrinterIcon32,
     PrivacyIcon,
     PrivacyIcon24,
     ReminderIcon,
+    ReminderIcon24,
     ReminderIcon32,
+    RemoveGuestIcon,
+    RemoveGuestIcon24,
+    RemoveGuestIcon32,
     RemoveUserIcon,
+    RemoveUserIcon24,
     RemoveUserIcon32,
     SignoutIcon,
     SignoutIcon24,
     SignoutIcon32,
-    SortingIcon,
-    SortingIcon24,
-    SortingIcon32,
+    SlashIcon,
+    SlashIcon24,
+    SlashIcon32,
+    SortIcon,
+    SortIcon24,
+    SortIcon32,
+    SuccessBadgeIcon,
+    SuccessBadgeIcon24,
+    SuccessBadgeIcon32,
+    TrashIcon,
+    TrashIcon24,
+    TrashIcon32,
+    UpDownIcon,
+    UpDownIcon24,
+    UpDownIcon32,
     VariationIcon,
     VariationIcon24,
     VariationIcon32,
     VerticalDotsIcon,
+    VerticalDotsIcon24,
     VerticalDotsIcon32,
     VideoIcon,
+    VideoIcon24,
     VideoIcon32,
     WarningIcon,
     WarningIcon24,
@@ -125,44 +159,52 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 <IconGallery>
     {renderItem("Add", createMultiVariant(<AddIcon />), [createVariant("24x24", <AddIcon24 />, "icon-add-24.svg"), createVariant("32x32", <AddIcon32 />, "icon-add-32.svg")])}
-    {renderItem("AddUser", createMultiVariant(<AddUserIcon />), [createVariant("32x32", <AddUserIcon32 />, "icon-add-user-32.svg")])}
+    {renderItem("AddUser", createMultiVariant(<AddUserIcon />), [createVariant("24x24", <AddUserIcon24 />, "icon-add-user-24.svg"), createVariant("32x32", <AddUserIcon32 />, "icon-add-user-32.svg")])}
+    {renderItem("AddGuest", createMultiVariant(<AddGuestIcon />), [createVariant("24x24", <AddGuestIcon24 />, "icon-add-guest-24.svg"), createVariant("32x32", <AddGuestIcon32 />, "icon-add-guest-32.svg")])}
     {renderItem("Arrow", createMultiVariant(<ArrowIcon />), [createVariant("24x24", <ArrowIcon24 />, "icon-arrow-24.svg"), createVariant("32x32", <ArrowIcon32 />, "icon-arrow-32.svg")])}
     {renderItem("Calendar", createMultiVariant(<CalendarIcon />), [createVariant("24x24", <CalendarIcon24 />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
     {renderItem("Check", createMultiVariant(<CheckIcon />), [createVariant("24x24", <CheckIcon24 />, "icon-check-24.svg"), createVariant("32x32", <CheckIcon32 />, "icon-check-32.svg")])}
+    {renderItem("Chevron", createMultiVariant(<ChevronIcon />), [createVariant("24x24", <ChevronIcon24 />, "icon-chevron-24.svg"), createVariant("32x32", <ChevronIcon32 />, "icon-chevron-32.svg")])}
     {renderItem("Circle", createMultiVariant(<CircleIcon />), [createVariant("24x24", <CircleIcon24 />, "icon-circle-24.svg"), createVariant("32x32", <CircleIcon32 />, "icon-circle-32.svg")])}
     {renderItem("ClearFilter", createMultiVariant(<ClearFilterIcon />), [createVariant("24x24", <ClearFilterIcon24 />, "icon-clearfilter-24.svg"), createVariant("32x32", <ClearFilterIcon32 />, "icon-clearfilter-32.svg")])}
     {renderItem("Close", createMultiVariant(<CloseIcon />), [createVariant("24x24", <CloseIcon24 />, "icon-close-24.svg"), createVariant("32x32", <CloseIcon32 />, "icon-close-32.svg")])}
-    {renderItem("Communication", createMultiVariant(<CommunicationIcon />), [createVariant("32x32", <CommunicationIcon32 />, "icon-communication-32.svg")])}
-    {renderItem("Compare", createMultiVariant(<CompareIcon />), [createVariant("24x24", <CompareIcon24 />, "icon-compare-24.svg"), createVariant("32x32", <CompareIcon32 />, "icon-compare-32.svg")])}
-    {renderItem("Csv", createMultiVariant(<CsvIcon />), [createVariant("32x32", <CsvIcon32 />, "icon-csv-32.svg")])}
-    {renderItem("DoNotDisturb", createMultiVariant(<DoNotDisturbIcon />), [createVariant("32x32", <DoNotDisturbIcon32 />, "icon-do-not-disturb-32.svg")])}
-    {renderItem("Download", createMultiVariant(<DownloadIcon />), [createVariant("32x32", <DownloadIcon32 />, "icon-download-32.svg")])}
-    {renderItem("Edit", createMultiVariant(<EditIcon />), [createVariant("32x32", <EditIcon32 />, "icon-edit-32.svg")])}
+    {renderItem("Collapse", createMultiVariant(<CollapseIcon />), [createVariant("32x32", <CollapseIcon32 />, "icon-collapse-32.svg"), createVariant("24x24", <CollapseIcon24 />, "icon-collapse-24.svg")])}
+    {renderItem("Communication", createMultiVariant(<CommunicationIcon />), [createVariant("32x32", <CommunicationIcon32 />, "icon-communication-32.svg"), createVariant("24x24", <CommunicationIcon24 />, "icon-communication-24.svg")])}
+    {renderItem("Csv", createMultiVariant(<CsvIcon />), [createVariant("24x24", <CsvIcon24 />, "icon-csv-24.svg"), createVariant("32x32", <CsvIcon32 />, "icon-csv-32.svg")])}
+    {renderItem("DoNotDisturb", createMultiVariant(<DoNotDisturbIcon />), [createVariant("24x24", <DoNotDisturbIcon24 />, "icon-do-not-disturb-24.svg"), createVariant("32x32", <DoNotDisturbIcon32 />, "icon-do-not-disturb-32.svg")])}
+    {renderItem("Download", createMultiVariant(<DownloadIcon />), [createVariant("24x24", <DownloadIcon24 />, "icon-download-24.svg"), createVariant("32x32", <DownloadIcon32 />, "icon-download-32.svg")])}
+    {renderItem("Edit", createMultiVariant(<EditIcon />), [createVariant("24x24", <EditIcon24 />, "icon-edit-24.svg"), createVariant("32x32", <EditIcon32 />, "icon-edit-32.svg")])}
     {renderItem("File", createMultiVariant(<FileIcon />), [createVariant("32x32", <FileIcon32 />, "icon-file-32.svg")])}
-    {renderItem("Folder", createMultiVariant(<FolderIcon />), [createVariant("32x32", <FolderIcon32 />, "icon-folder-32.svg")])}
-    {renderItem("Garbage", createMultiVariant(<GarbageIcon />), [createVariant("32x32", <GarbageIcon32 />, "icon-garbage-32.svg")])}
+    {renderItem("Filter", createMultiVariant(<FilterIcon />), [createVariant("24x24", <FilterIcon24 />, "icon-filter-24.svg"), createVariant("32x32", <FilterIcon32 />, "icon-filter-32.svg")])}
+    {renderItem("Flag", createMultiVariant(<FlagIcon />), [createVariant("32x32", <FlagIcon32 />, "icon-flag-32.svg")])}
+    {renderItem("Folder", createMultiVariant(<FolderIcon />), [createVariant("24x24", <FolderIcon24 />, "icon-folder-24.svg"), createVariant("32x32", <FolderIcon32 />, "icon-folder-32.svg")])}
+    {renderItem("Trash", createMultiVariant(<TrashIcon />), [createVariant("32x32", <TrashIcon32 />, "icon-trash-32.svg")])}
     {renderItem("Gear", createMultiVariant(<GearIcon />), [createVariant("32x32", <GearIcon32 />, "icon-gear-32.svg")])}
-    {renderItem("Group", createMultiVariant(<GroupIcon />), [createVariant("32x32", <GroupIcon32 />, "icon-group-32.svg")])}
+    {renderItem("Group", createMultiVariant(<GroupIcon />), [createVariant("24x24", <GroupIcon24 />, "icon-group-24.svg"), createVariant("32x32", <GroupIcon32 />, "icon-group-32.svg")])}
     {renderItem("Help", createMultiVariant(<HelpIcon />), [createVariant("24x24", <HelpIcon24 />, "icon-help-24.svg"), createVariant("32x32", <HelpIcon32 />, "icon-help-32.svg")])}
     {renderItem("HorizontalDots", createMultiVariant(<HorizontalDotsIcon />), [createVariant("32x32", <HorizontalDotsIcon32 />, "icon-horizontaldots-32.svg")])}
-    {renderItem("Image", createMultiVariant(<ImageIcon />), [createVariant("32x32", <ImageIcon32 />, "icon-image-32.svg")])}
     {renderItem("Info", createMultiVariant(<InfoIcon />), [createVariant("24x24", <InfoIcon24 />, "icon-info-24.svg"), createVariant("32x32", <InfoIcon32 />, "icon-info-32.svg")])}
     {renderItem("Lightbulb", createMultiVariant(<LightbulbIcon />), [createVariant("24x24", <LightbulbIcon24 />, "icon-lightbulb-24.svg"), createVariant("32x32", <LightbulbIcon32 />, "icon-lightbulb-32.svg")])}
-    {renderItem("Magnifier", createMultiVariant(<MagnifierIcon />), [createVariant("32x32", <MagnifierIcon32 />, "icon-magnifier-32.svg")])}
-    {renderItem("Music", createMultiVariant(<MusicIcon />), [createVariant("32x32", <MusicIcon32 />, "icon-music-32.svg")])}
+    {renderItem("Magnifier", createMultiVariant(<MagnifierIcon />), [createVariant("24x24", <MagnifierIcon24 />, "icon-magnifier-24.svg"), createVariant("32x32", <MagnifierIcon32 />, "icon-magnifier-32.svg")])}
+    {renderItem("Music", createMultiVariant(<MusicIcon />), [createVariant("24x24", <MusicIcon24 />, "icon-music-24.svg"), createVariant("32x32", <MusicIcon32 />, "icon-music-32.svg")])}
     {renderItem("Notification", createMultiVariant(<NotificationIcon />), [createVariant("24x24", <NotificationIcon24 />, "icon-notification-24.svg"), createVariant("32x32", <NotificationIcon32 />, "icon-notification-32.svg")])}
-    {renderItem("Pdf", createMultiVariant(<PdfIcon />), [createVariant("32x32", <PdfIcon32 />, "icon-pdf-32.svg")])}
+    {renderItem("Pdf", createMultiVariant(<PdfIcon />), [createVariant("24x24", <PdfIcon24 />, "icon-pdf-24.svg"), createVariant("32x32", <PdfIcon32 />, "icon-pdf-32.svg")])}
+    {renderItem("Picture", createMultiVariant(<PictureIcon />), [createVariant("24x24", <PictureIcon24 />, "icon-picture-24.svg"), createVariant("32x32", <PictureIcon32 />, "icon-picture-32.svg")])}
     {renderItem("Printer", createMultiVariant(<PrinterIcon />), [createVariant("24x24", <PrinterIcon24 />, "icon-printer-24.svg"), createVariant("32x32", <PrinterIcon32 />, "icon-printer-32.svg")])}
     {renderItem("Privacy", createMultiVariant(<PrivacyIcon />), [createVariant("24x24", <PrivacyIcon24 />, "icon-privacy-24.svg")])}
     {renderItem("Reminder", createMultiVariant(<ReminderIcon />), [createVariant("32x32", <ReminderIcon32 />, "icon-reminder-32.svg")])}
-    {renderItem("RemoveUser", createMultiVariant(<RemoveUserIcon />), [createVariant("32x32", <RemoveUserIcon32 />, "icon-remove-user-32.svg")])}
+    {renderItem("RemoveGuest", createMultiVariant(<RemoveGuestIcon />), [createVariant("24x24", <RemoveGuestIcon24 />, "icon-remove-guest-24.svg"), createVariant("32x32", <RemoveGuestIcon32 />, "icon-remove-guest-32.svg")])}
+    {renderItem("RemoveUser", createMultiVariant(<RemoveUserIcon />), [createVariant("24x24", <RemoveUserIcon24 />, "icon-remove-user-24.svg"), createVariant("32x32", <RemoveUserIcon32 />, "icon-remove-user-32.svg")])}
     {renderItem("Signout", createMultiVariant(<SignoutIcon />), [createVariant("24x24", <SignoutIcon24 />, "icon-signout-24.svg"), createVariant("32x32", <SignoutIcon32 />, "icon-signout-32.svg")])}
-    {renderItem("Sorting", createMultiVariant(<SortingIcon />), [createVariant("24x24", <SortingIcon24 />, "icon-sorting-24.svg"), createVariant("32x32", <SortingIcon32 />, "icon-sorting-32.svg")])}
+    {renderItem("Slash", createMultiVariant(<SlashIcon />), [createVariant("24x24", <SlashIcon24 />, "icon-slash-24.svg"), createVariant("32x32", <SlashIcon32 />, "icon-slash-32.svg")])}
+    {renderItem("Sort", createMultiVariant(<SortIcon />), [createVariant("24x24", <SortIcon24 />, "icon-sort-24.svg"), createVariant("32x32", <SortIcon32 />, "icon-sort-32.svg")])}
+    {renderItem("SuccessBadge", createMultiVariant(<SuccessBadgeIcon />), [createVariant("24x24", <SuccessBadgeIcon24 />, "icon-success-badge-24.svg"), createVariant("32x32", <SuccessBadgeIcon32 />, "icon-success-badge-32.svg")])}
+    {renderItem("UpDown", createMultiVariant(<UpDownIcon />), [createVariant("24x24", <UpDownIcon24 />, "icon-up-down-24.svg"), createVariant("32x32", <UpDownIcon32 />, "icon-up-down-32.svg")])}
     {renderItem("Variation", createMultiVariant(<VariationIcon />), [createVariant("24x24", <VariationIcon24 />, "icon-variation-24.svg"), createVariant("32x32", <VariationIcon32 />, "icon-variation-32.svg")])}
-    {renderItem("VerticalDots", createMultiVariant(<VerticalDotsIcon />), [createVariant("32x32", <VerticalDotsIcon32 />, "icon-vertical-dots-32.svg")])}
-    {renderItem("Video", createMultiVariant(<VideoIcon />), [createVariant("32x32", <VideoIcon32 />, "icon-video-32.svg")])}
+    {renderItem("VerticalDots", createMultiVariant(<VerticalDotsIcon />), [createVariant("24x24", <VerticalDotsIcon24 />, "icon-vertical-dots-24.svg"), createVariant("32x32", <VerticalDotsIcon32 />, "icon-vertical-dots-32.svg")])}
+    {renderItem("Video", createMultiVariant(<VideoIcon />), [createVariant("24x24", <VideoIcon24 />, "icon-video-24.svg"), createVariant("32x32", <VideoIcon32 />, "icon-video-32.svg")])}
     {renderItem("Warning", createMultiVariant(<WarningIcon />), [createVariant("24x24", <WarningIcon24 />, "icon-warning-24.svg"), createVariant("32x32", <WarningIcon32 />, "icon-warning-32.svg")])}
-    {renderItem("Zip", createMultiVariant(<ZipIcon />), [createVariant("32x32", <ZipIcon32 />, "icon-zip-32.svg")])}
+    {renderItem("Zip", createMultiVariant(<ZipIcon />), [createVariant("24x24", <ZipIcon24 />, "icon-zip-24.svg"), createVariant("32x32", <ZipIcon32 />, "icon-zip-32.svg")])}
 </IconGallery>
 
 ## Dimensions
