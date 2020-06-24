@@ -30,9 +30,9 @@ function Icons({ element, ...rest }) {
                 <Toggle disabled icons={<CommunicationIcon />} element={toggle} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Toggle label={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={toggle} className="mr5" />
-                <Toggle label={<Badge>6</Badge>} icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle label={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={toggle} />
+                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={toggle} />
             </div>
         </>
     );
@@ -54,12 +54,12 @@ function Badges({ element, ...rest }) {
                 <Toggle badge={<Badge inline>6</Badge>} size="large" element={toggle} />
             </div>
             <div className="flex">
-                <Toggle active label={<Badge>6</Badge>} element={toggle} className="mr5" />
-                <Toggle focus label={<Badge>6</Badge>} element={toggle} className="mr5" />
-                <Toggle hover label={<Badge>6</Badge>} element={toggle} className="mr5" />
-                <Toggle focus hover label={<Badge>6</Badge>} element={toggle} className="mr5" />
-                <Toggle disabled label={<Badge>6</Badge>} element={toggle} className="mr5" />
-                <Toggle readOnly label={<Badge>6</Badge>} element={toggle} />
+                <Toggle active badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle focus badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle hover badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle focus hover badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle disabled badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle readOnly badge={<Badge>6</Badge>} element={toggle} />
             </div>
         </>
     );
@@ -67,29 +67,29 @@ function Badges({ element, ...rest }) {
 
 export function createTestSuite(toggle, stories) {
     return stories
-        .add("text", () =>
+        .add("label", () =>
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
-                        <Toggle text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle active text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle focus text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle hover text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle focus hover text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle disabled text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle readOnly text="Milky Way" element={toggle} />
+                        <Toggle label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle active label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle focus label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle hover label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle focus hover label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle disabled label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle readOnly label="Milky Way" element={toggle} />
                     </div>
                     <div className="flex items-end mb8">
-                        <Toggle size="small" text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle text="Milky Way" element={toggle} className="mr5" />
-                        <Toggle size="large" text="Milky Way" element={toggle} />
+                        <Toggle size="small" label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle size="large" label="Milky Way" element={toggle} />
                     </div>
-                    <Icons text="Milky Way" element={toggle} />
-                    <Badges text="Milky Way" element={toggle} />
+                    <Icons label="Milky Way" element={toggle} />
+                    <Badges label="Milky Way" element={toggle} />
                 </div>
             </div>
         )
-        .add("no text", () =>
+        .add("no label", () =>
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
@@ -115,16 +115,16 @@ export function createTestSuite(toggle, stories) {
             <div className="flex">
                 <div className="flex">
                     <div className="flex mw5">
-                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
+                        <Toggle label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} label={<Badge>6</Badge>} className="mr5" />
+                        <Toggle label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} badge={<Badge>6</Badge>} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle badge={<Badge>6</Badge>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
+                        <Toggle badge={<Badge>6</Badge>} icons={[<CommunicationIcon />, <CommunicationIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle count={<Badge inline>6</Badge>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />
+                        <Toggle count={<Badge inline>6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />
                     </div>
                 </div>
             </div>

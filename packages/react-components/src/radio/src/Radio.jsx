@@ -8,7 +8,7 @@ const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "t
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 export const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the radio should autofocus on render.
+     * Whether or not the radio should be autofocus on render.
      */
     autofocus: bool,
     /**
@@ -16,9 +16,9 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the checkbox.
+     * The label associated to the radio.
      */
-    text: string,
+    label: string,
     /**
      * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
      */

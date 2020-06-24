@@ -18,9 +18,9 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the checkbox.
+     * The label associated to the checkbox.
      */
-    text: string,
+    label: string,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) components rendered after the text.
      */
@@ -41,7 +41,7 @@ export function InnerCheckbox(props) {
     const {
         autofocus,
         autofocusDelay,
-        text,
+        label,
         icons,
         badge,
         size,
@@ -68,11 +68,11 @@ export function InnerCheckbox(props) {
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const hasText = !isNil(text);
+    const hasLabel = !isNil(label);
 
-    const textMarkup = hasText && (
-        <span className="text">
-            {text}
+    const labelMarkup = hasLabel && (
+        <span className="label">
+            {label}
         </span>
     );
 
@@ -92,9 +92,9 @@ export function InnerCheckbox(props) {
         disabled
     });
 
-    const content = (textMarkup || iconsMarkup || badgeMarkup) && (
-        <label title={text || ""}>
-            {textMarkup}
+    const content = (labelMarkup || iconsMarkup || badgeMarkup) && (
+        <label title={label || ""}>
+            {labelMarkup}
             {iconsMarkup}{badgeMarkup}
         </label>
     );
@@ -114,7 +114,7 @@ export function InnerCheckbox(props) {
                     size && size,
                     !isNil(icons) && "with-icon",
                     !isNil(badge) && "with-badge",
-                    !hasText && "fitted",
+                    !hasLabel && "fitted",
                     className
                 )}
             />

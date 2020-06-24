@@ -38,13 +38,13 @@ Radio buttons allow a user to select one option from a set.
     This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
 </WarningMessage>
 
-### Text
+### Label
 
-A radio can have a text.
+A radio can have a label.
 
 <Preview>
-    <Story name="text">
-        <Radio text="Mars"/>
+    <Story name="label">
+        <Radio label="Mars"/>
     </Story>
 </Preview>
 
@@ -54,7 +54,7 @@ A radio can be selected.
 
 <Preview>
     <Story name="selected">
-        <Radio defaultChecked text="Mars"/>
+        <Radio defaultChecked label="Mars"/>
     </Story>
 </Preview>
 
@@ -64,7 +64,7 @@ A radio can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Radio disabled text="Mars"/>
+        <Radio disabled label="Mars"/>
     </Story>
 </Preview>
 
@@ -74,16 +74,16 @@ A radio can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Radio readOnly text="Mars" />
+        <Radio readOnly label="Mars" />
     </Story>
 </Preview>
 
-### No text
+### No label
 
-A radio doesn't require a text.
+A radio can be rendered without a label.
 
 <Preview>
-    <Story name="no text">
+    <Story name="no label">
         <Radio />
     </Story>
 </Preview>
@@ -95,8 +95,8 @@ A radio can display a single or multiple [icons](?path=/docs/materials-icons--pa
 <Preview>
     <Story name="icons">
         <div className="flex items-lot-of-space-between">
-            <Radio text="Milky Way" icons={<LightbulbIcon />} />
-            <Radio text="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
+            <Radio label="Milky Way" icons={<LightbulbIcon />} />
+            <Radio label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
         </div>
     </Story>
 </Preview>
@@ -108,8 +108,8 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 <Preview>
     <Story name="badge">
         <div className="flex items-lot-of-space-between">
-            <Radio text="Milky Way" badge={<Badge>6</Badge>} />
-            <Radio text="Milky Way" badge={<Badge inline>6</Badge>} />
+            <Radio label="Milky Way" badge={<Badge>6</Badge>} />
+            <Radio label="Milky Way" badge={<Badge inline>6</Badge>} />
         </div>
     </Story>
 </Preview>
@@ -123,9 +123,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-lot-of-space-between">
-            <Radio size="small" text="Mars" />
-            <Radio text="Mars" />
-            <Radio size="large" text="Mars" />
+            <Radio size="small" label="Mars" />
+            <Radio label="Mars" />
+            <Radio size="large" label="Mars" />
         </div>
     </Story>
 </Preview>
@@ -144,5 +144,5 @@ Radios buttons in a group must be controlled components.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Radio text="Mars" />} />
+    <RefLogger component={<Radio label="Mars" />} />
 </Story>

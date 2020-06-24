@@ -458,7 +458,7 @@
     font-size: var(--type-scale-7);
 }
 
-.ui.checkbox label span.text {
+.ui.checkbox label span.label {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

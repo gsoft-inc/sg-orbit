@@ -75,21 +75,21 @@ export function createTestSuite(checkbox, stories) {
         .add("text", () =>
             <div className="flex flex-column">
                 <div className="flex items-end mb8">
-                    <Checkbox text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox active text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox focus text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox hover text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox focus hover text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox disabled text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox readOnly text="Milky Way" element={checkbox} />
+                    <Checkbox label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox active label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox focus label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox hover label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox focus hover label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox disabled label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox readOnly label="Milky Way" element={checkbox} />
                 </div>
                 <div className="flex items-end mb8">
-                    <Checkbox size="small" text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox text="Milky Way" element={checkbox} className="mr5" />
-                    <Checkbox size="large" text="Milky Way" element={checkbox} />
+                    <Checkbox size="small" label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox label="Milky Way" element={checkbox} className="mr5" />
+                    <Checkbox size="large" label="Milky Way" element={checkbox} />
                 </div>
-                <Icons text="Milky Way" element={checkbox} />
-                <Badges text="Milky Way" element={checkbox} />
+                <Icons label="Milky Way" element={checkbox} />
+                <Badges label="Milky Way" element={checkbox} />
             </div>
         )
         .add("no text", () =>
@@ -115,16 +115,16 @@ export function createTestSuite(checkbox, stories) {
         .add("overflow", () =>
             <div className="flex mb8">
                 <div className="flex items-end mw5">
-                    <Checkbox text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox label="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox badge={<Badge inline>6</Badge>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox badge={<Badge inline>6</Badge>} label="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox badge={<Badge>6</Badge>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox badge={<Badge>6</Badge>} label="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
             </div>
         );

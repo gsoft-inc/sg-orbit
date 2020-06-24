@@ -16,9 +16,9 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the checkbox.
+     * The label associated to the toggle.
      */
-    text: string,
+    label: string,
     /**
      * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
      */
