@@ -34,14 +34,14 @@ export function createTestSuite(tag) {
                 <Tag icon={<LightbulbIcon className="fill-red" />} element={tag}>Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
-                <Tag size="small" dot={<Badge />} element={tag} className="mr5">Notification Sent</Tag>
-                <Tag dot={<Badge />} element={tag} className="mr5">Notification Sent</Tag>
-                <Tag size="large" dot={<Badge />} element={tag}>Notification Sent</Tag>
+                <Tag size="small" dot={<Badge dot />} element={tag} className="mr5">Notification Sent</Tag>
+                <Tag dot={<Badge dot />} element={tag} className="mr5">Notification Sent</Tag>
+                <Tag size="large" dot={<Badge dot />} element={tag}>Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
-                <Tag size="small" dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right" element={tag} className="mr5">Notification Sent</Tag>
-                <Tag dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right" element={tag} className="mr5">Notification Sent</Tag>
-                <Tag size="large" dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right" element={tag}>Notification Sent</Tag>
+                <Tag size="small" dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right" element={tag} className="mr5">Notification Sent</Tag>
+                <Tag dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right" element={tag} className="mr5">Notification Sent</Tag>
+                <Tag size="large" dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right" element={tag}>Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
                 <Tag size="small" button={<Button icon={<CloseIcon />} />} element={tag} className="mr5">Notification Sent</Tag>

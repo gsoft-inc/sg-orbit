@@ -44,14 +44,14 @@ stories()
                 <Tag compact icon={<LightbulbIcon className="fill-red" />}>Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
-                <Tag compact size="small" dot={<Badge />} className="mr5">Notification Sent</Tag>
-                <Tag compact dot={<Badge />} className="mr5">Notification Sent</Tag>
-                <Tag compact size="large" dot={<Badge />}>Notification Sent</Tag>
+                <Tag compact size="small" dot={<Badge dot />} className="mr5">Notification Sent</Tag>
+                <Tag compact dot={<Badge dot />} className="mr5">Notification Sent</Tag>
+                <Tag compact size="large" dot={<Badge dot />}>Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
-                <Tag compact size="small" dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right" className="mr5">Notification Sent</Tag>
-                <Tag compact dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right" className="mr5">Notification Sent</Tag>
-                <Tag compact size="large" dot={<Badge />} icon={<LightbulbIcon />} iconPosition="right">Notification Sent</Tag>
+                <Tag compact size="small" dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right" className="mr5">Notification Sent</Tag>
+                <Tag compact dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right" className="mr5">Notification Sent</Tag>
+                <Tag compact size="large" dot={<Badge dot />} icon={<LightbulbIcon />} iconPosition="right">Notification Sent</Tag>
             </div>
             <div className="flex items-end mb5">
                 <Tag compact size="small" button={<Button icon={<CloseIcon />} />} className="mr5">Notification Sent</Tag>

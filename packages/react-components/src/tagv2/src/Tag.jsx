@@ -18,7 +18,7 @@ const propTypes = {
     /**
      * [Button](/?path=/docs/components-button--default-story) component to display after the text.
      */
-    button: oneOfType([element, object]),
+    button: element,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component to display before or after the text.
      */
@@ -30,7 +30,7 @@ const propTypes = {
     /**
      * Dot variant of a badge to display before the text.
      */
-    dot: oneOfType([element, object]),
+    dot: element,
     /**
      * A tag can vary in sizes.
      */
@@ -77,7 +77,6 @@ export function InnerTag(props) {
     });
 
     const dotMarkup = !isNil(dot) && embedBadge(dot, {
-        dot: true,
         size
     });
 
