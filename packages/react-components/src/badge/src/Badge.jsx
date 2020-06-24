@@ -41,7 +41,7 @@ const defaultProps = {
 
 function throwWhenMutuallyExclusivePropsAreProvided({ dot, max }) {
     if (dot && !isNil(max)) {
-        throw new Error("@orbit-ui/react-components/Badge dot variant doesn't support the \"max\" prop. A dot should only display a single digit number.");
+        throw new Error("@orbit-ui/react-components/Badge doesn't support having a \"max\" value when rendered as a dot. A dot should only display a single digit number.");
     }
 }
 
@@ -53,7 +53,7 @@ function throwWhenEmptyOrMultipleValues({ dot, children }) {
     }
 
     if (childrenCount > 1) {
-        throw new Error(`@orbit-ui/react-components/Badge can contain a number, or a "+" or "-" sign as a single child. You provided ${childrenCount} children.`);
+        throw new Error(`@orbit-ui/react-components/Badge can contain a single child being a number, a "+" sign or a "-" sign. You provided ${childrenCount} children.`);
     }
 }
 

@@ -28,7 +28,7 @@ const propTypes = {
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * Dot variant of a badge to display before the text.
+     * [Dot](/?path=/docs/components-badge--dot) variant of a badge to display on the left of the text.
      */
     dot: element,
     /**
@@ -77,6 +77,7 @@ export function InnerTag(props) {
     });
 
     const dotMarkup = !isNil(dot) && embedBadge(dot, {
+        disabled,
         size
     });
 

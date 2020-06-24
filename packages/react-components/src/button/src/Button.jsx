@@ -13,9 +13,8 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
-import { createEmbeddedLabel } from "../../label";
-import { createEmbeddedTag } from "../../tag";
+import { bool, element, number, oneOf } from "prop-types";
+import { embedBadge } from "../../badge";
 import { isNil, isString } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
@@ -39,13 +38,13 @@ const propTypes = {
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [label](/?path=/docs/components-label--default-story).
+     * [Dot](/?path=/docs/components-badge--dot) variant of a badge to display on the left of the text.
      */
-    label: oneOfType([element, object]),
+    dot: element,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [tag](/?path=/docs/components-tag--default-story).
+     * [Badge](/?path=/docs/components-badge--default-story) to display on the right of the text.
      */
-    tag: oneOfType([element, object]),
+    badge: element,
     /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
@@ -73,13 +72,13 @@ const defaultProps = {
     type: "button"
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
-    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a label and a right positioned icon at the same time.");
+function throwWhenMutuallyExclusivePropsAreProvided({ dot, badge, icon, iconPosition }) {
+    if (!isNil(dot) && !isNil(icon) && iconPosition === "left") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a dot and a left positioned icon at the same time.");
     }
 
-    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a tag and a left positioned icon at the same time.");
+    if (!isNil(badge) && !isNil(icon) && iconPosition === "right") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a badge and a right positioned icon at the same time.");
     }
 }
 
@@ -91,8 +90,8 @@ export function InnerButton(props) {
         naked,
         icon,
         iconPosition,
-        label,
-        tag,
+        dot,
+        badge,
         autofocus,
         autofocusDelay,
         size,
@@ -124,24 +123,22 @@ export function InnerButton(props) {
         <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
     );
 
-    const labelMarkup = !isNil(label) && createEmbeddedLabel(label, {
-        as: "span",
+    const dotMarkup = !isNil(dot) && embedBadge(dot, {
         size,
-        highlight: true,
-        disabled: disabled
+        disabled
     });
 
-    const tagMarkup = !isNil(tag) && createEmbeddedTag(tag, {
-        as: "span",
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
         size,
-        disabled: disabled
+        highlight: true,
+        disabled
     });
 
     const content = (
         <>
-            {iconPosition === "left" && iconMarkup}{tagMarkup}
+            {iconPosition === "left" && iconMarkup}{dotMarkup}
             {children}
-            {iconPosition === "right" && iconMarkup}{labelMarkup}
+            {iconPosition === "right" && iconMarkup}{badgeMarkup}
         </>
     );
 
@@ -160,9 +157,10 @@ export function InnerButton(props) {
                     ghost && "ghost",
                     link && "link",
                     !isNil(icon) && "with-icon",
-                    !isNil(icon) && iconPosition === "right" && "with-icon-right",
-                    !isNil(label) && "with-label",
-                    !isNil(tag) && "with-tag",
+                    !isNil(icon) && iconPosition === "left" && "with-left-icon",
+                    !isNil(icon) && iconPosition === "right" && "with-right-icon",
+                    !isNil(dot) && "with-dot",
+                    !isNil(badge) && "with-badge",
                     !hasText && "fitted",
                     focus && "focus",
                     hover && "hover",

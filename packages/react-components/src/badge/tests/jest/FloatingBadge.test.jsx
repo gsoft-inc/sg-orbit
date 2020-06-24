@@ -1,4 +1,4 @@
-import { FloatingBadge } from "@react-components/badge";
+import { Badge, FloatingBadge } from "@react-components/badge";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
