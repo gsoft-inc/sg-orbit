@@ -30,19 +30,19 @@ const propTypes = {
      */
     link: bool,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component to display on the left or right of the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right of the text.
+     * An icon can appear on the left or right side of the text.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Dot](/?path=/docs/components-badge--dot) variant of a badge to display on the left of the text.
+     * [Dot](/?path=/docs/components-badge--dot) variant of a badge rendered before the text.
      */
     dot: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) to display on the right of the text.
+     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
      */
     badge: element,
     /**

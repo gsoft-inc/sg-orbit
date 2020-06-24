@@ -88,6 +88,14 @@ function Badges({ element, ...rest }) {
                 <Button badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
                 <Button size="large" badge={<Badge>6</Badge>} element={button}>Button</Button>
             </div>
+            <div className="flex items-end mb5">
+                <Button size="micro" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="mini" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="tiny" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="small" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="large" badge={<Badge inline>6</Badge>} element={button}>Button</Button>
+            </div>
             <div className="flex mb5">
                 <Button active badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
                 <Button focus badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>

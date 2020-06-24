@@ -649,12 +649,3 @@
 .ui.label.compact.large.with-button {
     padding-right: calc(var(--scale-foxtrot) / 4);
 }
-
-/* In Button / Loading */
-.ui.loading.button.with-label .label {
-    visibility: hidden;
-}
-
-.ui.loading.button.with-tag .tag.label {
-    visibility: hidden;
-}

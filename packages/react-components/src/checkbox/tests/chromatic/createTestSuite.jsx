@@ -1,6 +1,5 @@
+import { Badge } from "@react-components/badge";
 import { CommunicationIcon } from "@react-components/icons";
-import { Count } from "@react-components/count";
-import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
 function Checkbox({ element, ...rest }) {
@@ -31,58 +30,41 @@ function Icons({ element, ...rest }) {
                 <Checkbox disabled icons={<CommunicationIcon />} element={checkbox} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={checkbox} />
+                <Checkbox badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge>6</Badge>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={checkbox} />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} size="large" element={checkbox} />
+                <Checkbox badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="large" element={checkbox} />
             </div>
         </>
     );
 }
 
-function Labels({ element, ...rest }) {
+function Badges({ element, ...rest }) {
     const checkbox = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex items-end mb8">
-                <Checkbox label={<Label>6</Label>} size="small" element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} size="large" element={checkbox} />
+                <Checkbox badge={<Badge>6</Badge>} size="small" element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge>6</Badge>} size="large" element={checkbox} />
             </div>
-            <div className="flex mb8">
-                <Checkbox active label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox focus label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox hover label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox focus hover label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox disabled label={<Label>6</Label>} element={checkbox} className="mr5" />
-                <Checkbox readOnly label={<Label>6</Label>} element={checkbox} />
-            </div>
-        </>
-    );
-}
-
-function Counts({ element, ...rest }) {
-    const checkbox = cloneElement(element, rest);
-
-    return (
-        <>
             <div className="flex items-end mb8">
-                <Checkbox count={<Count>6</Count>} size="small" element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} size="large" element={checkbox} />
+                <Checkbox badge={<Badge inline>6</Badge>} size="small" element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge inline>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox badge={<Badge inline>6</Badge>} size="large" element={checkbox} />
             </div>
             <div className="flex mb8">
-                <Checkbox active count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox focus count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox hover count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox focus hover count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox disabled count={<Count>6</Count>} element={checkbox} className="mr5" />
-                <Checkbox readOnly count={<Count>6</Count>} element={checkbox} />
+                <Checkbox active badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox focus badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox hover badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox focus hover badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox disabled badge={<Badge>6</Badge>} element={checkbox} className="mr5" />
+                <Checkbox readOnly badge={<Badge>6</Badge>} element={checkbox} />
             </div>
         </>
     );
@@ -107,8 +89,7 @@ export function createTestSuite(checkbox, stories) {
                     <Checkbox size="large" text="Milky Way" element={checkbox} />
                 </div>
                 <Icons text="Milky Way" element={checkbox} />
-                <Labels text="Milky Way" element={checkbox} />
-                <Counts text="Milky Way" element={checkbox} />
+                <Badges text="Milky Way" element={checkbox} />
             </div>
         )
         .add("no text", () =>
@@ -128,8 +109,7 @@ export function createTestSuite(checkbox, stories) {
                     <Checkbox size="large" element={checkbox} />
                 </div>
                 <Icons element={checkbox} />
-                <Labels element={checkbox} />
-                <Counts element={checkbox} />
+                <Badges element={checkbox} />
             </div>
         )
         .add("overflow", () =>
@@ -141,10 +121,10 @@ export function createTestSuite(checkbox, stories) {
                     <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox badge={<Badge inline>6</Badge>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox label={<Label>6</Label>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox badge={<Badge>6</Badge>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
             </div>
         );

@@ -749,14 +749,6 @@ a.ui.button {
     margin-left: var(--scale-bravo);
 }
 
-.ui.button.with-badge .o-ui.badge.pill.micro:not(.circular) {
-    padding: 0 0.75em;
-}
-
-.ui.button.with-badge .o-ui.badge.pill.mini:not(.circular) {
-    padding: 0 0.8125em;
-}
-
 /* CONTENT | With Label | Layout | Padding */
 .ui.button.with-badge.tiny,
 .ui.buttons.with-badge.tiny .button {

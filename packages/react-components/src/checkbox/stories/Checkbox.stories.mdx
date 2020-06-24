@@ -1,8 +1,7 @@
+import { Badge } from "@react-components/badge";
 import { Checkbox, InnerCheckbox } from "@react-components/checkbox";
-import { Count } from "@react-components/count";
 import { HelpIcon, InfoIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -96,7 +95,7 @@ A checkbox doesn't require to have text.
 
 ### Icons
 
-A checkbox can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text. Specify the icons to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A checkbox can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
     <Story name="icons">
@@ -107,23 +106,16 @@ A checkbox can display a single or multiple [icons](?path=/docs/materials-icons-
     </Story>
 </Preview>
 
-### Label
+### Badge
 
-A checkbox can have a [label](?path=/docs/components-label--default-story) after his text. Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
-
-<Preview>
-    <Story name="label">
-        <Checkbox text="Milky Way" label={<Label>6</Label>} />
-    </Story>
-</Preview>
-
-### Count
-
-A checkbox can have a [count](?path=/story/components-count--default-story) after his text. Specify the count to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A checkbox can have a [badge](?path=/docs/components-badge--default-story) after his text.
 
 <Preview>
-    <Story name="count">
-        <Checkbox text="Milky Way" count={<Count>6</Count>} />
+    <Story name="badge">
+        <div className="flex items-lot-of-space-between">
+            <Checkbox text="Milky Way" badge={<Badge>6</Badge>} />
+            <Checkbox text="Milky Way" badge={<Badge inline>6</Badge>} />
+        </div>
     </Story>
 </Preview>
 

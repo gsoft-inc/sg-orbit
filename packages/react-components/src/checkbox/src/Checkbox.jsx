@@ -1,9 +1,8 @@
 import { EmbeddedIcon } from "../../icons";
 import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
 import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
-import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createCount } from "../../count";
-import { createEmbeddedLabel } from "../../label";
+import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
+import { embedBadge } from "../../badge";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 
@@ -23,17 +22,13 @@ export const CHECKBOX_PROP_TYPES = {
      */
     text: string,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display [icons](/?path=/docs/components-icon--default-story) after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) components rendered after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [label](/?path=/docs/components-label--default-story) after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
-    label: oneOfType([element, object]),
-    /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
-     */
-    count: oneOfType([element, object]),
+    badge: element,
     /**
      * A checkbox can vary in sizes.
      */
@@ -42,20 +37,13 @@ export const CHECKBOX_PROP_TYPES = {
 
 const propTypes = CHECKBOX_PROP_TYPES;
 
-function throwWhenMutuallyExclusivePropsAreProvided({ label, count }, componentName) {
-    if (!isNil(label) && !isNil(count)) {
-        throw new Error(`${componentName} doesn't support having a label and a count at the same time.`);
-    }
-}
-
 export function InnerCheckbox(props) {
     const {
         autofocus,
         autofocusDelay,
         text,
         icons,
-        label,
-        count,
+        badge,
         size,
         active,
         focus,
@@ -69,7 +57,6 @@ export function InnerCheckbox(props) {
     } = props;
 
     throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
-    throwWhenMutuallyExclusivePropsAreProvided(props, __componentName);
 
     const innerRef = useMergedRefs(forwardedRef);
 
@@ -81,7 +68,9 @@ export function InnerCheckbox(props) {
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const textMarkup = !isNil(text) && (
+    const hasText = !isNil(text);
+
+    const textMarkup = hasText && (
         <span className="text">
             {text}
         </span>
@@ -97,18 +86,16 @@ export function InnerCheckbox(props) {
         </>
     );
 
-    const labelMarkup = !isNil(label) && createEmbeddedLabel(label, {
-        as: "span",
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
         size,
-        highlight: true
+        highlight: true,
+        disabled
     });
 
-    const countMarkup = !isNil(count) && createCount(count);
-
-    const content = (textMarkup || iconsMarkup || labelMarkup || countMarkup) && (
+    const content = (textMarkup || iconsMarkup || badgeMarkup) && (
         <label title={text || ""}>
             {textMarkup}
-            {iconsMarkup}{labelMarkup}{countMarkup}
+            {iconsMarkup}{badgeMarkup}
         </label>
     );
 
@@ -126,8 +113,8 @@ export function InnerCheckbox(props) {
                     hover && "hover",
                     size && size,
                     !isNil(icons) && "with-icon",
-                    !isNil(label) && "with-label",
-                    isNil(text) && "fitted",
+                    !isNil(badge) && "with-badge",
+                    !hasText && "fitted",
                     className
                 )}
             />

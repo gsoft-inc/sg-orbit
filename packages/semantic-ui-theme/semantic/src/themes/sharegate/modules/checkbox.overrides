@@ -25,7 +25,7 @@
     transform: scale(0.5);
 }
 
-.ui.radio.checkbox.fitted.with-label label:after {
+.ui.radio.checkbox.fitted.with-badge label:after {
     transform: scale(0.5);
 }
 
