@@ -21,17 +21,17 @@ const INPUT_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the value.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right.
+     * An icon can appear on the left or right side of the value.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
+     * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
      */
-    button: oneOfType([element, object]),
+    button: element,
     /**
      * An input can vary in sizes.
      */

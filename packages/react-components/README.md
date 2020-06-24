@@ -184,10 +184,6 @@ If you need to compute a derived state, prefer using `getDerivedStateFromProps` 
 
 _NOTE: since we switched to functional components, this might not apply anymore._
 
-#### Shorthand props
-
-A component prop accepting an Orbit UI element should support [shorthand props](https://orbit.sharegate.design/?path=/docs/getting-started-shorthand-props--page).
-
 #### Event handlers exposed by the component
 
 An event handler prop exposed by a component should always:

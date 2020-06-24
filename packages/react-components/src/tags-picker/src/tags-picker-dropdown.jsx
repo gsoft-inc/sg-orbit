@@ -79,9 +79,9 @@ export class TagsPickerDropdown extends PureComponent {
          */
         menu: element,
         /**
-         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        searchInput: oneOfType([element, object]),
+        searchInput: element,
         /**
          * The search input placeholder text.
          */

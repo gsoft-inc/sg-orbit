@@ -172,9 +172,9 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        input: oneOfType([element, object])
+        input: element
     };
 
     static defaultProps = {

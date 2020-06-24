@@ -71,9 +71,9 @@ const propTypes = {
      */
     onVisibilityChange: func,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the dropdown menu.
+     * Dropdown menu component to render.
      */
-    menu: oneOfType([element, object]),
+    menu: element,
     /**
      * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
      */

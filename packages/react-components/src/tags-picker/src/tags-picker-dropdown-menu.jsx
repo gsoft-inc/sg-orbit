@@ -24,9 +24,9 @@ export class TagsPickerDropdownMenu extends PureComponent {
          */
         onItemClick: func,
         /**
-         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        searchInput: oneOfType([element, object]),
+        searchInput: element,
         /**
          * Message to display when there are no items matching the search input.
          */
