@@ -12,7 +12,7 @@ function stories(segment) {
         .build();
 }
 
-stories("/pipe")
+stories("/pill")
     .add("default", () =>
         <Badge>100</Badge>
     )
@@ -22,14 +22,23 @@ stories("/pipe")
     .add("over max value", () =>
         <Badge max={99}>100</Badge>
     )
+    .add("addition", () =>
+        <Badge>+1</Badge>
+    )
+    .add("removal", () =>
+        <Badge>-1</Badge>
+    )
     .add("highlight", () =>
         <Badge highlight>100</Badge>
     )
-    .add("with text", () =>
-        <div className="flex-column">
-            <div className="mb5">Planets Visited <Badge>2</Badge></div>
-            <div className="f3 mb5">Planets Visited <Badge>2</Badge></div>
-            <div className="f1">Planets Visited <Badge>2</Badge></div>
+    .add("size", () =>
+        <div className="flex items-end">
+            <Badge className="mr5" size="micro">100</Badge>
+            <Badge className="mr5" size="mini">100</Badge>
+            <Badge className="mr5" size="tiny">100</Badge>
+            <Badge className="mr5" size="small">100</Badge>
+            <Badge className="mr5">100</Badge>
+            <Badge size="large">100</Badge>
         </div>
     )
     .add("styling", () =>
@@ -40,7 +49,50 @@ stories("/pipe")
     )
     .add("embedded", () =>
         <div className="flex items-end">
-            {embedBadge(<Badge>100</Badge>)}
+            {embedBadge(<Badge className="mr5">100</Badge>, { size: SIZE.micro })}
+            {embedBadge(<Badge className="mr5">100</Badge>, { size: SIZE.mini })}
+            {embedBadge(<Badge className="mr5">100</Badge>, { size: SIZE.tiny })}
+            {embedBadge(<Badge className="mr5">100</Badge>, { size: SIZE.small })}
+            {embedBadge(<Badge className="mr5">100</Badge>)}
+            {embedBadge(<Badge>100</Badge>, { size: SIZE.large })}
+        </div>
+    );
+
+stories("/inline")
+    .add("default", () =>
+        <Badge inline>100</Badge>
+    )
+    .add("under max value", () =>
+        <Badge max={101} inline>100</Badge>
+    )
+    .add("over max value", () =>
+        <Badge max={99} inline>100</Badge>
+    )
+    .add("addition", () =>
+        <Badge inline>+1</Badge>
+    )
+    .add("removal", () =>
+        <Badge inline>-1</Badge>
+    )
+    .add("highlight", () =>
+        <Badge highlight inline>100</Badge>
+    )
+    .add("with text", () =>
+        <div className="flex-column">
+            <div className="mb5">Planets Visited <Badge inline>2</Badge></div>
+            <div className="f3 mb5">Planets Visited <Badge inline>2</Badge></div>
+            <div className="f1">Planets Visited <Badge inline>2</Badge></div>
+        </div>
+    )
+    .add("styling", () =>
+        <div className="flex">
+            <Badge className="bg-red mr5" inline>100</Badge>
+            <Badge style={{ backgroundColor: "red" }} inline>100</Badge>
+        </div>
+    )
+    .add("embedded", () =>
+        <div className="flex items-end">
+            {embedBadge(<Badge inline>100</Badge>)}
         </div>
     );
 
@@ -91,46 +143,6 @@ stories("/dot")
             {embedBadge(<Badge className="bg-red mr5" dot />, { size: SIZE.small })}
             {embedBadge(<Badge className="bg-red mr5" dot />)}
             {embedBadge(<Badge className="bg-red" dot />, { size: SIZE.large })}
-        </div>
-    );
-
-stories("/pill")
-    .add("default", () =>
-        <Badge pill>100</Badge>
-    )
-    .add("under max value", () =>
-        <Badge max={101} pill>100</Badge>
-    )
-    .add("over max value", () =>
-        <Badge max={99} pill>100</Badge>
-    )
-    .add("highlight", () =>
-        <Badge highlight pill>100</Badge>
-    )
-    .add("size", () =>
-        <div className="flex items-end">
-            <Badge className="mr5" size="micro" pill>100</Badge>
-            <Badge className="mr5" size="mini" pill>100</Badge>
-            <Badge className="mr5" size="tiny" pill>100</Badge>
-            <Badge className="mr5" size="small" pill>100</Badge>
-            <Badge className="mr5" pill>100</Badge>
-            <Badge size="large" pill>100</Badge>
-        </div>
-    )
-    .add("styling", () =>
-        <div className="flex">
-            <Badge className="bg-red mr5" pill>100</Badge>
-            <Badge style={{ backgroundColor: "red" }} pill>100</Badge>
-        </div>
-    )
-    .add("embedded", () =>
-        <div className="flex items-end">
-            {embedBadge(<Badge className="mr5" pill>100</Badge>, { size: SIZE.micro })}
-            {embedBadge(<Badge className="mr5" pill>100</Badge>, { size: SIZE.mini })}
-            {embedBadge(<Badge className="mr5" pill>100</Badge>, { size: SIZE.tiny })}
-            {embedBadge(<Badge className="mr5" pill>100</Badge>, { size: SIZE.small })}
-            {embedBadge(<Badge className="mr5" pill>100</Badge>)}
-            {embedBadge(<Badge pill>100</Badge>, { size: SIZE.large })}
         </div>
     );
 

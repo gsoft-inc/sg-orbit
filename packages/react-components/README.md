@@ -209,7 +209,7 @@ function MyComponent({ onChange }) {
 
 #### Never stop event propagation
 
-A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine wether or not it should handle the event.
+A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine whether or not it should handle the event.
 
 For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
 

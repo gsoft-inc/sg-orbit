@@ -31,11 +31,11 @@ const propTypes = {
      */
     link: bool,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
+     * [Icon](/?path=/docs/components-icon--default-story) component to display on the left or right of the text.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right.
+     * An icon can appear on the left or right of the text.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
@@ -59,7 +59,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * An input can vary in sizes.
+     * A button can vary in sizes.
      */
     size: oneOf(SIZES),
     /**

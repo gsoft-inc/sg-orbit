@@ -20,11 +20,11 @@ const propTypes = {
      */
     button: element,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component to display before or after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component to display on the left or right of the text.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right.
+     * An icon can appear on the left or right of the text.
      */
     iconPosition: oneOf(["left", "right"]),
     /**

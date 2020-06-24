@@ -44,19 +44,19 @@ stories()
     .add("pill", () =>
         <div className="flex flex-column">
             <div className="flex items-end" style={{ marginBottom: "50px" }}>
-                <BadgedRedSquare badge={<Badge pill size={SIZE.small}>5</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill size={SIZE.medium}>5</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill size={SIZE.large}>5</Badge>} />
+                <BadgedRedSquare badge={<Badge size={SIZE.small}>5</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge size={SIZE.medium}>5</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge size={SIZE.large}>5</Badge>} />
             </div>
             <div className="flex items-end" style={{ marginBottom: "50px" }}>
-                <BadgedRedSquare badge={<Badge pill size={SIZE.small}>100</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill size={SIZE.medium}>100</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill size={SIZE.large}>100</Badge>} />
+                <BadgedRedSquare badge={<Badge size={SIZE.small}>100</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge size={SIZE.medium}>100</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge size={SIZE.large}>100</Badge>} />
             </div>
             <div className="flex items-end">
-                <BadgedRedSquare badge={<Badge pill max={99} size={SIZE.small}>100</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill max={99} size={SIZE.medium}>100</Badge>} className="mr10" />
-                <BadgedRedSquare badge={<Badge pill max={99} size={SIZE.large}>100</Badge>} />
+                <BadgedRedSquare badge={<Badge max={99} size={SIZE.small}>100</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge max={99} size={SIZE.medium}>100</Badge>} className="mr10" />
+                <BadgedRedSquare badge={<Badge max={99} size={SIZE.large}>100</Badge>} />
             </div>
         </div>
     );
