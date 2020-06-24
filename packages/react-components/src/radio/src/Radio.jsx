@@ -20,17 +20,13 @@ export const CHECKBOX_PROP_TYPES = {
      */
     text: string,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display [icons](/?path=/docs/components-icon--default-story) after the text.
+     * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [label](/?path=/docs/components-label--default-story) after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
      */
-    label: oneOfType([element, object]),
-    /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
-     */
-    count: oneOfType([element, object]),
+    badge: oneOfType([element, object]),
     /**
      * A radio can vary in sizes.
      */

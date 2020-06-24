@@ -1,7 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { Input } from "@react-components/input";
-import { Label } from "@react-components/label";
 import { TextArea } from "@react-components/text-area";
 import { Tooltip } from "@react-components/tooltip";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -227,13 +226,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Label>Add</Label>}
+                        trigger={<Button>Add</Button>}
                         open
                     />
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Label circular>A</Label>}
+                        trigger={<Button circular>A</Button>}
                         open
                     />
                 </div>

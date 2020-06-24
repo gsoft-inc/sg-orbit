@@ -1,5 +1,4 @@
-import { Label } from "@react-components/label";
-import { Menu, Tab } from "@react-components/tab";
+import { Tab } from "@react-components/tab";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -50,7 +49,7 @@ stories()
                          }
                      ]}
                  />
-                 <Tab
+                 {/* <Tab
                      menu={{ secondary: true, pointing: true }}
                      panes={[
                          {
@@ -69,8 +68,8 @@ stories()
                              render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
                          }
                      ]}
-                 />
-                 <Tab
+                 /> */}
+                 {/* <Tab
                      menu={{ secondary: true, pointing: true }}
                      defaultActiveIndex={1}
                      panes={[
@@ -90,6 +89,6 @@ stories()
                              render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
                          }
                      ]}
-                 />
+                 /> */}
              </>
     );

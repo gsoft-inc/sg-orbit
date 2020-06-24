@@ -1,6 +1,5 @@
+import { Badge } from "@react-components/badge";
 import { CommunicationIcon } from "@react-components/icons";
-import { Count } from "@react-components/count";
-import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
 function Radio({ element, ...rest }) {
@@ -31,53 +30,41 @@ function Icons({ element, ...rest }) {
                 <Radio disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
             </div>
             <div className="flex mb8">
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio label={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
+                <Radio label={<Badge>6</Badge>} icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio label={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={radio} />
+            </div>
+            <div className="flex mb8">
+                <Radio label={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
+                <Radio label={<Badge inline>6</Badge>} icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio label={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="large" element={radio} />
             </div>
         </>
     );
 }
 
-function Labels({ element, ...rest }) {
+function Badges({ element, ...rest }) {
     const radio = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex mb8">
-                <Radio label={<Label>6</Label>} size="small" element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} size="large" element={radio} />
+                <Radio label={<Badge>6</Badge>} size="small" element={radio} className="mr5" />
+                <Radio label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio label={<Badge>6</Badge>} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio active label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio focus label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio hover label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio focus hover label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio disabled label={<Label>6</Label>} element={radio} className="mr5" />
-                <Radio readOnly label={<Label>6</Label>} element={radio} />
-            </div>
-        </>
-    );
-}
-
-function Counts({ element, ...rest }) {
-    const radio = cloneElement(element, rest);
-
-    return (
-        <>
-            <div className="flex items-end mb8">
-                <Radio count={<Count>6</Count>} size="small" element={radio} className="mr5" />
-                <Radio count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio count={<Count>6</Count>} size="large" element={radio} />
+                <Radio label={<Badge inline>6</Badge>} size="small" element={radio} className="mr5" />
+                <Radio label={<Badge inline>6</Badge>} element={radio} className="mr5" />
+                <Radio label={<Badge inline>6</Badge>} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio active count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio focus count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio hover count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio focus hover count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio disabled count={<Count>6</Count>} element={radio} className="mr5" />
-                <Radio readOnly count={<Count>6</Count>} element={radio} />
+                <Radio active label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio focus label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio hover label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio focus hover label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio disabled label={<Badge>6</Badge>} element={radio} className="mr5" />
+                <Radio readOnly label={<Badge>6</Badge>} element={radio} />
             </div>
         </>
     );
@@ -103,8 +90,7 @@ export function createTestSuite(radio, stories) {
                         <Radio size="large" text="Milky Way" element={radio} />
                     </div>
                     <Icons text="Milky Way" element={radio} />
-                    <Labels text="Milky Way" element={radio} />
-                    <Counts text="Milky Way" element={radio} />
+                    <Badges text="Milky Way" element={radio} />
                 </div>
             </div>
         )
@@ -126,8 +112,7 @@ export function createTestSuite(radio, stories) {
                         <Radio size="large" element={radio} />
                     </div>
                     <Icons element={radio} />
-                    <Labels element={radio} />
-                    <Counts text="Milky Way" element={radio} />
+                    <Badges element={radio} />
                 </div>
             </div>
         )
@@ -147,10 +132,10 @@ export function createTestSuite(radio, stories) {
                     <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio label={<Badge>6</Badge>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio count={<Count>6</Count>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio count={<Badge inline>6</Badge>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
             </div>
         );

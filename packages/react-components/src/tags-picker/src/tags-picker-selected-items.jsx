@@ -2,7 +2,7 @@ import { Button } from "../../button";
 import { CloseIcon } from "../../icons";
 import { PureComponent } from "react";
 import { SIZE, mergeClasses } from "../../shared";
-import { Tag } from "../../tagv2";
+import { Tag } from "../../tag";
 import { arrayOf, func, oneOf, shape, string } from "prop-types";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.

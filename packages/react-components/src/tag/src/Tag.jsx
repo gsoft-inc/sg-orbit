@@ -1,60 +1,120 @@
-import { SIZE, SemanticRef, createShorthandFactory, createShorthandFactoryForEmbedded, mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
-import { Label as SemanticLabel } from "semantic-ui-react";
+import { EmbeddedIcon } from "../../icons";
+import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { createEmbeddedButton } from "../../button";
+import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
-import { isString } from "lodash";
-import { oneOf } from "prop-types";
-
-const UNSUPPORTED_PROPS = ["attached", "color", "circular", "corner", "floating", "horizontal", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon", "tag"];
+import { getSizeClass, mergeClasses } from "../../shared";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
+     * A tag can reduce its complexity.
+     */
+    basic: bool,
+    /**
+     * A tag can be compact.
+     */
+    compact: bool,
+    /**
+     * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
+     */
+    button: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
+     */
+    icon: element,
+    /**
+     * An icon can appear on the left or right side of the text.
+     */
+    iconPosition: oneOf(["left", "right"]),
+    /**
+     * [Dot](/?path=/docs/components-badge--dot) variant of a badge rendered before the text.
+     */
+    dot: element,
+    /**
      * A tag can vary in sizes.
      */
-    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"])
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
-export function InnerTag({ forwardedRef, className, disabled, ...props }) {
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Tag");
+const defaultProps = {
+    iconPosition: "left",
+    as: "div"
+};
+
+function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition, dot }) {
+    if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
+        throw new Error("@orbit-ui/react-components/Tag doesn't support having a button and a right positioned icon at the same time.");
+    }
+
+    if (!isNil(dot) && !isNil(icon) && iconPosition === "left") {
+        throw new Error("@orbit-ui/react-components/Tag doesn't support having a dot badge and a left positioned icon at the same time.");
+    }
+}
+
+export function InnerTag(props) {
+    const { basic, compact, button, icon, iconPosition, dot, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
+
+    throwWhenMutuallyExclusivePropsAreProvided(props);
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon icon={icon} size={size} />
+    );
+
+    const buttonMarkup = !isNil(button) && createEmbeddedButton(button, {
+        size,
+        circular: true,
+        ghost: true,
+        secondary: true
+    });
+
+    const dotMarkup = !isNil(dot) && embedBadge(dot, {
+        disabled,
+        size
+    });
+
+    const content = (
+        <>
+            {iconPosition === "left" && iconMarkup}{dotMarkup}
+            {children}
+            {iconPosition === "right" && iconMarkup}{buttonMarkup}
+        </>
+    );
 
     return (
-        <SemanticRef innerRef={forwardedRef}>
-            <SemanticLabel
-                {...props}
-                tag
-                circular
-                empty
-                className={mergeClasses(
-                    disabled && "disabled",
-                    className
-                )}
-            />
-        </SemanticRef>
+        <Element
+            {...rest}
+            className={mergeClasses(
+                "ui label",
+                basic && "basic",
+                compact && "compact",
+                disabled && "disabled",
+                !isNil(button) && "with-button",
+                !isNil(iconMarkup) && iconPosition === "left" && "with-left-icon",
+                !isNil(iconMarkup) && iconPosition === "right" && "with-right-icon",
+                !isNil(dot) && "with-dot",
+                getSizeClass(size),
+                className
+            )}
+            ref={forwardedRef}
+        >
+            {content}
+        </Element>
     );
 }
 
 InnerTag.propTypes = propTypes;
+InnerTag.defaultProps = defaultProps;
 
 export const Tag = forwardRef((props, ref) => (
     <InnerTag { ...props } forwardedRef={ref} />
 ));
-
-export const createTag = createShorthandFactory(Tag, (shorthand, props) => {
-    if (isString(shorthand)) {
-        return (
-            <Tag
-                {...props}
-                className={shorthand}
-            />
-        );
-    }
-});
-
-export const createEmbeddedTag = createShorthandFactoryForEmbedded(createTag, {
-    [SIZE.micro]: SIZE.micro,
-    [SIZE.mini]: SIZE.micro,
-    [SIZE.tiny]: SIZE.micro,
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.mini,
-    [SIZE.large]: SIZE.tiny
-});
 
