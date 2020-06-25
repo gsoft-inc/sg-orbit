@@ -25,10 +25,10 @@ import { ReactComponent as InnerCalendarIcon24 } from "@orbit-ui/icons/dist/icon
 import { ReactComponent as InnerCalendarIcon32 } from "@orbit-ui/icons/dist/icon-calendar-32.svg";
 import { ReactComponent as InnerCarretIcon24 } from "@orbit-ui/icons/dist/icon-carret-24.svg";
 import { ReactComponent as InnerCarretIcon32 } from "@orbit-ui/icons/dist/icon-carret-32.svg";
-import { ReactComponent as InnerCheckIcon24 } from "@orbit-ui/icons/dist/icon-check-24.svg";
-import { ReactComponent as InnerCheckIcon32 } from "@orbit-ui/icons/dist/icon-check-32.svg";
 import { ReactComponent as InnerCheckCircleIcon24 } from "@orbit-ui/icons/dist/icon-check-circle-24.svg";
 import { ReactComponent as InnerCheckCircleIcon32 } from "@orbit-ui/icons/dist/icon-check-circle-32.svg";
+import { ReactComponent as InnerCheckIcon24 } from "@orbit-ui/icons/dist/icon-check-24.svg";
+import { ReactComponent as InnerCheckIcon32 } from "@orbit-ui/icons/dist/icon-check-32.svg";
 import { ReactComponent as InnerChevronIcon24 } from "@orbit-ui/icons/dist/icon-chevron-24.svg";
 import { ReactComponent as InnerChevronIcon32 } from "@orbit-ui/icons/dist/icon-chevron-32.svg";
 import { ReactComponent as InnerCircleIcon24 } from "@orbit-ui/icons/dist/icon-circle-24.svg";
