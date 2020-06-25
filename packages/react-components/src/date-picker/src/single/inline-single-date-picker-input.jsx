@@ -1,4 +1,4 @@
-import { ArrowIcon32 } from "../../../icons";
+import { ChevronIcon32 } from "../../../icons";
 import { KEYS, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
 import { bool, func, string } from "prop-types";
@@ -80,13 +80,13 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     }
 
     renderOpenIcon() {
-        return <ArrowIcon32 className="rotate-270 fill-primary-500" style={{ width: "2em", height: "2em" }} />;
+        return <ChevronIcon32 className="rotate-270 fill-primary-500" style={{ width: "2em", height: "2em" }} />;
     }
 
     renderCloseIcon() {
         const { disabled } = this.props;
 
-        return <ArrowIcon32 className={`rotate-90 ${!disabled ? "fill-primary-500" : "fill-cloud-200"}`} style={{ width: "2em", height: "2em" }} />;
+        return <ChevronIcon32 className={`rotate-90 ${!disabled ? "fill-primary-500" : "fill-cloud-200"}`} style={{ width: "2em", height: "2em" }} />;
     }
 
     renderIcon() {
