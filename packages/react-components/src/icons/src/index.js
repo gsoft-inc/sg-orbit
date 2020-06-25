@@ -19,6 +19,8 @@ import { ReactComponent as InnerAddUserIcon24 } from "@orbit-ui/icons/dist/icon-
 import { ReactComponent as InnerAddUserIcon32 } from "@orbit-ui/icons/dist/icon-add-user-32.svg";
 import { ReactComponent as InnerArrowIcon24 } from "@orbit-ui/icons/dist/icon-arrow-24.svg";
 import { ReactComponent as InnerArrowIcon32 } from "@orbit-ui/icons/dist/icon-arrow-32.svg";
+import { ReactComponent as InnerBellIcon24 } from "@orbit-ui/icons/dist/icon-bell-24.svg";
+import { ReactComponent as InnerBellIcon32 } from "@orbit-ui/icons/dist/icon-bell-32.svg";
 import { ReactComponent as InnerCalendarIcon24 } from "@orbit-ui/icons/dist/icon-calendar-24.svg";
 import { ReactComponent as InnerCalendarIcon32 } from "@orbit-ui/icons/dist/icon-calendar-32.svg";
 import { ReactComponent as InnerCarretIcon24 } from "@orbit-ui/icons/dist/icon-carret-24.svg";
@@ -69,8 +71,6 @@ import { ReactComponent as InnerMagnifierIcon24 } from "@orbit-ui/icons/dist/ico
 import { ReactComponent as InnerMagnifierIcon32 } from "@orbit-ui/icons/dist/icon-magnifier-32.svg";
 import { ReactComponent as InnerMusicIcon24 } from "@orbit-ui/icons/dist/icon-music-24.svg";
 import { ReactComponent as InnerMusicIcon32 } from "@orbit-ui/icons/dist/icon-music-32.svg";
-import { ReactComponent as InnerBellIcon24 } from "@orbit-ui/icons/dist/icon-bell-24.svg";
-import { ReactComponent as InnerBellIcon32 } from "@orbit-ui/icons/dist/icon-bell-32.svg";
 import { ReactComponent as InnerPdfIcon24 } from "@orbit-ui/icons/dist/icon-pdf-24.svg";
 import { ReactComponent as InnerPdfIcon32 } from "@orbit-ui/icons/dist/icon-pdf-32.svg";
 import { ReactComponent as InnerPictureIcon24 } from "@orbit-ui/icons/dist/icon-picture-24.svg";
