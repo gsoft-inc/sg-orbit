@@ -11,9 +11,15 @@ import {
     ArrowIcon,
     ArrowIcon24,
     ArrowIcon32,
+    BellIcon,
+    BellIcon24,
+    BellIcon32,
     CalendarIcon,
     CalendarIcon24,
     CalendarIcon32,
+    CarretIcon,
+    CarretIcon24,
+    CarretIcon32,
     CheckCircleIcon,
     CheckCircleIcon24,
     CheckCircleIcon32,
@@ -85,9 +91,6 @@ import {
     MusicIcon,
     MusicIcon24,
     MusicIcon32,
-    NotificationIcon,
-    NotificationIcon24,
-    NotificationIcon32,
     PdfIcon,
     PdfIcon24,
     PdfIcon32,
@@ -120,9 +123,6 @@ import {
     UpDownIcon,
     UpDownIcon24,
     UpDownIcon32,
-    VariationIcon,
-    VariationIcon24,
-    VariationIcon32,
     VerticalDotsIcon,
     VerticalDotsIcon24,
     VerticalDotsIcon32,
@@ -152,6 +152,7 @@ stories()
     .add("add user", () => <TestSuite icon24={AddUserIcon24} icon32={AddUserIcon32} multiIcon={AddUserIcon} />)
     .add("add guest", () => <TestSuite icon24={AddGuestIcon24} icon32={AddGuestIcon32} multiIcon={AddGuestIcon} />)
     .add("arrow", () => <TestSuite icon24={ArrowIcon24} icon32={ArrowIcon32} multiIcon={ArrowIcon} />)
+    .add("bell", () => <TestSuite icon24={BellIcon24} icon32={BellIcon32} multiIcon={BellIcon} />)
     .add("calendar", () => <TestSuite icon24={CalendarIcon24} icon32={CalendarIcon32} multiIcon={CalendarIcon} />)
     .add("check", () => <TestSuite icon24={CheckIcon24} icon32={CheckIcon32} multiIcon={CheckIcon} />)
     .add("check circle", () => <TestSuite icon24={CheckCircleIcon24} icon32={CheckCircleIcon32} multiIcon={CheckCircleIcon} />)
@@ -177,7 +178,6 @@ stories()
     .add("lightbulb", () => <TestSuite icon24={LightbulbIcon24} icon32={LightbulbIcon32} multiIcon={LightbulbIcon} />)
     .add("magnifier", () => <TestSuite icon24={MagnifierIcon24} icon32={MagnifierIcon32} multiIcon={MagnifierIcon} />)
     .add("music", () => <TestSuite icon24={MusicIcon24} icon32={MusicIcon32} multiIcon={MusicIcon} />)
-    .add("notification", () => <TestSuite icon24={NotificationIcon24} icon32={NotificationIcon32} multiIcon={NotificationIcon} />)
     .add("pdf", () => <TestSuite icon24={PdfIcon24} icon32={PdfIcon32} multiIcon={PdfIcon} />)
     .add("picture", () => <TestSuite icon24={PictureIcon24} icon32={PictureIcon32} multiIcon={PictureIcon} />)
     .add("printer", () => <TestSuite icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
@@ -189,7 +189,7 @@ stories()
     .add("sort", () => <TestSuite icon24={SortIcon24} icon32={SortIcon32} multiIcon={SortIcon} />)
     .add("trash", () => <TestSuite icon24={TrashIcon24} icon32={TrashIcon32} multiIcon={TrashIcon} />)
     .add("up down", () => <TestSuite icon24={UpDownIcon24} icon32={UpDownIcon32} multiIcon={UpDownIcon} />)
-    .add("variation", () => <TestSuite icon24={VariationIcon24} icon32={VariationIcon32} multiIcon={VariationIcon} />)
+    .add("carret", () => <TestSuite icon24={CarretIcon24} icon32={CarretIcon32} multiIcon={CarretIcon} />)
     .add("vertical dots", () => <TestSuite icon24={VerticalDotsIcon24} icon32={VerticalDotsIcon32} multiIcon={VerticalDotsIcon} />)
     .add("video", () => <TestSuite icon24={VideoIcon24} icon32={VideoIcon32} multiIcon={VideoIcon} />)
     .add("warning", () => <TestSuite icon24={WarningIcon24} icon32={WarningIcon32} multiIcon={WarningIcon} />)
