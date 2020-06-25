@@ -44,10 +44,6 @@ export function augmentElementProps(elementProps, newProps) {
 }
 
 export function augmentElement(element, newProps) {
-    if (isNil(element)) {
-        return null;
-    }
-
     const augmentedProps = augmentElementProps({ ...element.props, ref: element.ref }, newProps);
 
     return cloneElement(element, augmentedProps);

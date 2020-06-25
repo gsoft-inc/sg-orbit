@@ -1,17 +1,18 @@
 import { Badge, FloatingBadge } from "@react-components/badge";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-function BadgedRedSquare({ props }) {
+const BadgedRedSquare = forwardRef((props, ref) => {
     return (
         <FloatingBadge
             {...props}
             badge={<Badge dot />}
+            ref={ref}
         >
             <div className="bg-red" style={{ width: "35px", height: "35px" }}></div>
         </FloatingBadge>
     );
-}
+});
 
 // ***** Refs *****
 
@@ -32,7 +33,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Badge
+        <BadgedRedSquare
             ref={node => {
                 refNode = node;
             }}
@@ -49,7 +50,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Badge ref={handler} />
+        <BadgedRedSquare ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

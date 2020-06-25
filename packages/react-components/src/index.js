@@ -17,4 +17,5 @@ export * from "./select";
 export * from "./tab";
 export * from "./message";
 export * from "./badge";
+export * from "./lozenge";
 export * from "./shared";

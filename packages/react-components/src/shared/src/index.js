@@ -14,7 +14,6 @@ export * from "./resize-observer";
 export * from "./size";
 export * from "./semantic-ui";
 export * from "./useAutofocus";
-export * from "./createShorthandFactory";
 export * from "./resolvePopperPosition";
 export * from "./useEventListener";
 export * from "./useCommittedRef";
