@@ -17,6 +17,9 @@ import {
     CheckIcon,
     CheckIcon24,
     CheckIcon32,
+    CheckCircleIcon,
+    CheckCircleIcon24,
+    CheckCircleIcon32,
     ChevronIcon,
     ChevronIcon24,
     ChevronIcon32,
@@ -29,15 +32,15 @@ import {
     CloseIcon,
     CloseIcon24,
     CloseIcon32,
-    CollapseIcon,
-    CollapseIcon24,
-    CollapseIcon32,
     CommunicationIcon,
     CommunicationIcon24,
     CommunicationIcon32,
     CsvIcon,
     CsvIcon24,
     CsvIcon32,
+    DashIcon,
+    DashIcon24,
+    DashIcon32,
     DoNotDisturbIcon,
     DoNotDisturbIcon24,
     DoNotDisturbIcon32,
@@ -111,9 +114,6 @@ import {
     SortIcon,
     SortIcon24,
     SortIcon32,
-    SuccessBadgeIcon,
-    SuccessBadgeIcon24,
-    SuccessBadgeIcon32,
     TrashIcon,
     TrashIcon24,
     TrashIcon32,
@@ -154,13 +154,14 @@ stories()
     .add("arrow", () => <TestSuite icon24={ArrowIcon24} icon32={ArrowIcon32} multiIcon={ArrowIcon} />)
     .add("calendar", () => <TestSuite icon24={CalendarIcon24} icon32={CalendarIcon32} multiIcon={CalendarIcon} />)
     .add("check", () => <TestSuite icon24={CheckIcon24} icon32={CheckIcon32} multiIcon={CheckIcon} />)
+    .add("check circle", () => <TestSuite icon24={CheckCircleIcon24} icon32={CheckCircleIcon32} multiIcon={CheckCircleIcon} />)
     .add("chevron", () => <TestSuite icon24={ChevronIcon24} icon32={ChevronIcon32} multiIcon={ChevronIcon} />)
     .add("circle", () => <TestSuite icon24={CircleIcon24} icon32={CircleIcon32} multiIcon={CircleIcon} />)
     .add("clear", () => <TestSuite icon24={ClearFilterIcon24} icon32={ClearFilterIcon32} multiIcon={ClearFilterIcon} />)
     .add("close", () => <TestSuite icon24={CloseIcon24} icon32={CloseIcon32} multiIcon={CloseIcon} />)
-    .add("collapse", () => <TestSuite icon24={CollapseIcon24} icon32={CollapseIcon32} multiIcon={CollapseIcon} />)
     .add("communication", () => <TestSuite icon24={CommunicationIcon24} icon32={CommunicationIcon32} multiIcon={CommunicationIcon} />)
     .add("csv", () => <TestSuite icon24={CsvIcon24} icon32={CsvIcon32} multiIcon={CsvIcon} />)
+    .add("dash", () => <TestSuite icon24={DashIcon24} icon32={DashIcon32} multiIcon={DashIcon} />)
     .add("do not disturb", () => <TestSuite icon24={DoNotDisturbIcon24} icon32={DoNotDisturbIcon32} multiIcon={DoNotDisturbIcon} />)
     .add("download", () => <TestSuite icon32={DownloadIcon32} multiIcon={DownloadIcon} />)
     .add("edit", () => <TestSuite icon24={EditIcon24} icon32={EditIcon32} multiIcon={EditIcon} />)
@@ -186,7 +187,6 @@ stories()
     .add("remove user", () => <TestSuite icon24={RemoveUserIcon24} icon32={RemoveUserIcon32} multiIcon={RemoveUserIcon} />)
     .add("signout", () => <TestSuite icon24={SignoutIcon24} icon32={SignoutIcon32} multiIcon={SignoutIcon} />)
     .add("sort", () => <TestSuite icon24={SortIcon24} icon32={SortIcon32} multiIcon={SortIcon} />)
-    .add("success badge", () => <TestSuite icon24={SuccessBadgeIcon24} icon32={SuccessBadgeIcon32} multiIcon={SuccessBadgeIcon} />)
     .add("trash", () => <TestSuite icon24={TrashIcon24} icon32={TrashIcon32} multiIcon={TrashIcon} />)
     .add("up down", () => <TestSuite icon24={UpDownIcon24} icon32={UpDownIcon32} multiIcon={UpDownIcon} />)
     .add("variation", () => <TestSuite icon24={VariationIcon24} icon32={VariationIcon32} multiIcon={VariationIcon} />)
