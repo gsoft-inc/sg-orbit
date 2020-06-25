@@ -2,11 +2,11 @@
 
 import { EmbeddedIcon } from "../../icons";
 import { Input as SemanticInput } from "semantic-ui-react";
-import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createEmbeddedButton } from "../../button";
-import { createShorthandFactory, mergeClasses, useAutofocus } from "../../shared";
+import { bool, element, number, object, oneOf, string } from "prop-types";
+import { embedButton } from "../../button";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
+import { mergeClasses, useAutofocus } from "../../shared";
 
 export const INPUT_SIZES = ["small", "medium", "large"];
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
@@ -118,7 +118,7 @@ export function InnerInput(props) {
 
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");
 
-    const buttonMarkup = canRenderButton && createEmbeddedButton(button, {
+    const buttonMarkup = canRenderButton && embedButton(button, {
         size,
         circular: true,
         ghost: true,
@@ -171,5 +171,3 @@ export const Input = forwardRef((props, ref) => (
 if (!isNil(SemanticInput.propTypes)) {
     SemanticInput.propTypes.size = oneOf(INPUT_SIZES);
 }
-
-export const createInput = createShorthandFactory(Input);

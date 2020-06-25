@@ -65,9 +65,6 @@ stories()
             </div>
         </div>
     )
-    .add("shorthand button", () =>
-        <RedBoxPopper button={{ content: "Click me", fluid: true }} />
-    )
     .add("fluid button", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>

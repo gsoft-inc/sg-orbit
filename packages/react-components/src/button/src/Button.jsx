@@ -2,20 +2,11 @@
 
 import { Children, forwardRef, useCallback } from "react";
 import { EmbeddedIcon } from "../../icons";
-import {
-    SIZE,
-    SemanticRef,
-    createShorthandFactory,
-    createShorthandFactoryForEmbedded,
-    mergeClasses,
-    throwWhenUnsupportedPropIsProvided,
-    useAutofocus,
-    useMergedRefs
-} from "../../shared";
+import { SIZE, SemanticRef, createEmbeddableAdapter, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
 import { bool, element, number, oneOf } from "prop-types";
 import { embedBadge } from "../../badge";
-import { isNil, isString } from "lodash";
+import { isNil } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -190,17 +181,7 @@ if (!isNil(SemanticButton.propTypes)) {
     SemanticButton.propTypes.size = oneOf(SIZES);
 }
 
-export const createButton = createShorthandFactory(Button, (shorthand, props) => {
-    if (isString(shorthand)) {
-        return (
-            <Button {...props}>
-                {shorthand}
-            </Button>
-        );
-    }
-});
-
-export const createEmbeddedButton = createShorthandFactoryForEmbedded(createButton, {
+export const embedButton = createEmbeddableAdapter({
     [SIZE.micro]: SIZE.micro,
     [SIZE.mini]: SIZE.micro,
     [SIZE.tiny]: SIZE.micro,

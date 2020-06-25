@@ -490,15 +490,6 @@ stories()
                 open
                 style={{ marginRight: "200px" }}
             />
-            <SimpleDropdown
-                menu={{ className: "border-red" }}
-                open
-                style={{ marginRight: "200px" }}
-            />
-            <SimpleDropdown
-                menu={{ className: "border-red", ref: setRedBackground }}
-                open
-            />
         </div>
     )
     .add("item interaction states", () =>

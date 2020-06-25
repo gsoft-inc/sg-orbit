@@ -7,7 +7,7 @@ import {
     httpGet
 } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { debounce, isArray, isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
@@ -174,7 +174,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         /**
          * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        input: element
+        input: oneOfType([element, elementType])
     };
 
     static defaultProps = {

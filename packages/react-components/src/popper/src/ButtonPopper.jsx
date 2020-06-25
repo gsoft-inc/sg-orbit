@@ -1,22 +1,20 @@
 import { AutoControlledPopper } from "./AutoControlledPopper";
-import { createButton } from "../../button";
-import { element, object, oneOfType } from "prop-types";
+import { element } from "prop-types";
 import { forwardRef } from "react";
+
 
 const propTypes = {
     /**
      * The button trigger.
      */
-    button: oneOfType([element, object]).isRequired
+    button: element.isRequired
 };
 
 export function InnerButtonPopper({ button, forwardedRef, ...rest }) {
-    const trigger = createButton(button);
-
     return (
         <AutoControlledPopper
             {...rest}
-            trigger={trigger}
+            trigger={button}
             ref={forwardedRef}
         />
     );

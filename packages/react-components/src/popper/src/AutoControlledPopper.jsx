@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 
 import { Popper } from "./Popper";
-import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, element, elementType, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
@@ -143,7 +143,7 @@ const propTypes = {
     /**
      * Popper component to render.
      */
-    popper: element
+    popper: oneOfType([element, elementType])
 };
 
 /////////////////

@@ -1,7 +1,6 @@
 import { AutoControlledPopper } from "./AutoControlledPopper";
-import { augmentElementProps, useEventCallback } from "../../shared";
-import { createTextInput } from "../../text-input";
-import { element, object, oneOfType } from "prop-types";
+import { augmentElement, useEventCallback } from "../../shared";
+import { element } from "prop-types";
 import { forwardRef, useRef } from "react";
 import { isElement } from "react-is";
 import { isFunction, isNil } from "lodash";
@@ -10,7 +9,7 @@ const propTypes = {
     /**
      * The text input trigger.
      */
-    input: oneOfType([element, object]).isRequired
+    input: element.isRequired
 };
 
 export function InnerTextInputPopper({ input, onClick, forwardedRef, ...rest }) {
@@ -32,12 +31,10 @@ export function InnerTextInputPopper({ input, onClick, forwardedRef, ...rest }) 
 
     const inputButton = isElement(input) ? input.props.button : input.button;
 
-    const augmentedInputButton = isNil(inputButton) ? inputButton : augmentElementProps(inputButton, {
-        ref: inputButtonRef
-    });
-
-    const trigger = createTextInput(input, {
-        button: augmentedInputButton
+    const trigger = augmentElement(input, {
+        button: isNil(inputButton) ? undefined : augmentElement(inputButton, {
+            ref: inputButtonRef
+        })
     });
 
     return (

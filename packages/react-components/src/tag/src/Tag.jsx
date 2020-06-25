@@ -1,7 +1,7 @@
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
-import { createEmbeddedButton } from "../../button";
 import { embedBadge } from "../../badge";
+import { embedButton } from "../../button";
 import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
@@ -57,7 +57,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 }
 
 export function InnerTag(props) {
-    const { basic, compact, button, icon, iconPosition, dot, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
+    const { basic, button, icon, iconPosition, dot, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
 
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
@@ -65,7 +65,7 @@ export function InnerTag(props) {
         <EmbeddedIcon icon={icon} size={size} />
     );
 
-    const buttonMarkup = !isNil(button) && createEmbeddedButton(button, {
+    const buttonMarkup = !isNil(button) && embedButton(button, {
         size,
         circular: true,
         ghost: true,

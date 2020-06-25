@@ -1,7 +1,7 @@
 import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
-import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createShorthandFactory, throwWhenUnsupportedPropIsProvided } from "../../shared";
+import { bool, element, number, object, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
+import { throwWhenUnsupportedPropIsProvided } from "../../shared";
 
 const UNSUPPORTED_PROPS = INPUT_UNSUPPORTED_PROPS;
 
@@ -87,5 +87,3 @@ InnerTextInput.defaultProps = defaultProps;
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput { ...props } forwardedRef={ref} />
 ));
-
-export const createTextInput = createShorthandFactory(TextInput);

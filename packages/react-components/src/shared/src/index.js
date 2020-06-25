@@ -23,6 +23,5 @@ export * from "./getSizeClass";
 export * from "./createChainedFunction";
 export * from "./mergeRefs";
 export * from "./augmentElement";
-export * from "./createOrAugmentElement";
 export * from "./createEmbeddableAdapter";
 export * from "./useChainedEventCallback";

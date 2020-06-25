@@ -70,9 +70,6 @@ stories()
             </div>
         </div>
     )
-    .add("shorthand input", () =>
-        <RedBoxPopper input={{ placeholder: "Pick a date", fluid: true }} />
-    )
     .add("fluid input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
@@ -86,20 +83,13 @@ stories()
     .add("readonly input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper input={{ readOnly: true }} />
+                <RedBoxPopper input={<TextInput readOnly />} />
             </div>
             <div>
-                <RedBoxPopper input={{ readOnly: true }} show />
+                <RedBoxPopper input={<TextInput readOnly />} show />
             </div>
         </div>
     )
     .add("clearable input", () =>
-        <div className="flex flex-column">
-            <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper input={{ button: <Button icon={<CloseIcon />} /> }} />
-            </div>
-            <div>
-                <RedBoxPopper input={{ placeholder: "Pick a date", button: <Button icon={<CloseIcon />} /> }} />
-            </div>
-        </div>
+        <RedBoxPopper input={<TextInput button={<Button icon={<CloseIcon />} />} />} />
     );

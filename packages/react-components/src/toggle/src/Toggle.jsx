@@ -1,6 +1,6 @@
 import { Checkbox } from "../../checkbox";
 import { SemanticRef } from "../../shared";
-import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "radio", "type"];
@@ -26,7 +26,7 @@ export const CHECKBOX_PROP_TYPES = {
     /**
      * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
      */
-    badge: oneOfType([element, object]),
+    badge: element,
     /**
      * A toggle can vary in sizes.
      */

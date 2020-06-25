@@ -222,5 +222,3 @@ InnerPopper.defaultProps = defaultProps;
 export const Popper = forwardRef((props, ref) => (
     <InnerPopper { ...props } forwardedRef={ref} />
 ));
-
-export const createPopper = createShorthandFactory(Popper);

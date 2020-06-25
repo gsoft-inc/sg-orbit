@@ -2,6 +2,7 @@ import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import {
     KEYS,
     augmentElement,
+    createOrAugmentElement,
     mergeClasses,
     useAutoControlledState,
     useChainedEventCallback,
@@ -9,7 +10,7 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Popper, createPopper } from "./Popper";
+import { Popper } from "./Popper";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -291,7 +292,7 @@ export function useAutoControlledPopper(props) {
     const handleWrapperBlur = useChainedEventCallback(handleBlur, onBlur);
 
     const render = content => {
-        const popperMarkup = !isNil(triggerElement) && createPopper(popper, {
+        const popperMarkup = !isNil(triggerElement) && createOrAugmentElement(popper, {
             show: isVisible,
             triggerElement,
             position,
