@@ -22,7 +22,7 @@ const propTypes = {
      */
     highlight: bool,
     /**
-     * Max count to show.
+     * Maximum value to show. When using a maximum value, the badge value must be numeric.
      */
     max: number,
     /**

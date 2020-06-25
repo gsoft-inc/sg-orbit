@@ -12,10 +12,6 @@ const propTypes = {
      */
     basic: bool,
     /**
-     * A tag can be compact.
-     */
-    compact: bool,
-    /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
      */
     button: element,
@@ -95,7 +91,6 @@ export function InnerTag(props) {
             className={mergeClasses(
                 "ui label",
                 basic && "basic",
-                compact && "compact",
                 disabled && "disabled",
                 !isNil(button) && "with-button",
                 !isNil(iconMarkup) && iconPosition === "left" && "with-left-icon",

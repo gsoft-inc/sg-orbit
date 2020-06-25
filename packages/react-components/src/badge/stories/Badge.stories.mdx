@@ -1,0 +1,177 @@
+import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Square } from "./Square.jsx";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Badge")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/badge" />)
+        .build()}
+/>
+
+# Badge
+
+Badges contain numeric values and indicate a running tally, such as the number of messages or notifications.
+Badges are normally placed after the text of the thing they're quantifying and contain only numbers, a "+" or "-" sign to indicate a quantity greater or lower than the displayed number.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Badge", component: InnerBadge },
+        { displayName: "FloatingBadge", component: InnerFloatingBadge }
+    ]}
+/>
+
+## Usage
+
+### Pill
+
+A default badge is rendered as a pill.
+
+<Preview>
+    <Story name="pill">
+        <Badge>100</Badge>
+    </Story>
+</Preview>
+
+### Maximum value
+
+A badge value can be cap with a maximum value. When a `max` property is specified, the badge value must be numeric.
+
+<Preview>
+    <Story name="max">
+        <Badge max={99}>100</Badge>
+    </Story>
+</Preview>
+
+### Addition
+
+A badge can be used to show an addition of a new feature or thing of interest.
+
+<Preview>
+    <Story name="addition">
+        <Badge>+1</Badge>
+    </Story>
+</Preview>
+
+### Removal
+
+A badge can be used to show that an item have been removed from a list or any other thing of interest.
+
+<Preview>
+    <Story name="removal">
+        <Badge>-1</Badge>
+    </Story>
+</Preview>
+
+### Highlight
+
+A badge can be highlighed to draw attention on his text.
+
+<Preview>
+    <Story name="highlight">
+        <Badge highlight>100</Badge>
+    </Story>
+</Preview>
+
+### Size
+
+A badge can very in size.
+
+Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Badge size="mini">100</Badge>
+            <Badge size="tiny">100</Badge>
+            <Badge size="small">100</Badge>
+            <Badge>100</Badge>
+            <Badge size="large">100</Badge>
+        </div>
+    </Story>
+</Preview>
+
+### Inline
+
+A badge can be rendered as inlined.
+
+<Preview>
+    <Story name="inline">
+        <span>Falcon 9 Successful Launch<Badge inline>30</Badge></span>
+    </Story>
+</Preview>
+
+An inline badge, is not affected by the `size` property. The badge will inherit it's size from his parent font-size.
+
+<Preview>
+    <Story name="inline size">
+        <div className="flex flex-column items-vertical-space-between">
+            <span className="f5">Planets in Milky Way Galaxy<Badge max={40} inline>45</Badge></span>
+            <span className="f4">Planets in Milky Way Galaxy<Badge max={40} inline>45</Badge></span>
+        </div>
+    </Story>
+</Preview>
+
+### Dot
+
+A badge can be rendered as a dot. A dot badge should be empty or contain a single digit numeric value. In this regard, a dot badge doesn't support the `max` property.
+
+<Preview>
+    <Story name="dot">
+        <div className="flex flex-column items-vertical-space-between">
+            <div className="flex items-end items-space-between">
+                <Badge dot size="mini" />
+                <Badge dot size="tiny" />
+                <Badge dot size="small" />
+                <Badge dot />
+                <Badge dot size="large" />
+            </div>
+            <div className="flex items-end items-space-between">
+                <Badge dot size="small">5</Badge>
+                <Badge dot>5</Badge>
+                <Badge dot size="large">5</Badge>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Floating
+
+A badge can float to the top right corner of an element.
+
+<Preview>
+    <Story name="floating">
+        <div className="flex items-lot-of-space-between">
+            <FloatingBadge badge={<Badge dot />}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge dot>5</Badge>}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge max={99}>100</Badge>}>
+                <Square />
+            </FloatingBadge>
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Badge>100</Badge>} />
+</Story>
+
+
