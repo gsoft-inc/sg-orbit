@@ -551,7 +551,7 @@
 /* SKIN | Icon - Arrow Down */
 .ui.dropdown > .dropdown.icon {
     background-color: @marine500;
-    mask: url(~@orbit-ui/icons/dist/icon-arrow-24.svg) center center no-repeat!important;
+    mask: url(~@orbit-ui/icons/dist/icon-chevron-24.svg) center center no-repeat!important;
     mask-size: var(--scale-echo) var(--scale-echo)!important;
     transform: rotate(90deg) translatez(0);
     margin: 0;
