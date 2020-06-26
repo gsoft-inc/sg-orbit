@@ -32,9 +32,6 @@ import {
     DashIcon,
     DashIcon24,
     DashIcon32,
-    DoNotDisturbIcon,
-    DoNotDisturbIcon24,
-    DoNotDisturbIcon32,
     DownloadIcon,
     DownloadIcon32,
     EditIcon,
@@ -94,6 +91,9 @@ import {
     NotificationIcon,
     NotificationIcon24,
     NotificationIcon32,
+    NotificationOffIcon,
+    NotificationOffIcon24,
+    NotificationOffIcon32,
     PdfIcon,
     PdfIcon24,
     PdfIcon32,
@@ -153,7 +153,6 @@ stories()
     .add("cross", () => <TestSuite icon24={CrossIcon24} icon32={CrossIcon32} multiIcon={CrossIcon} />)
     .add("csv", () => <TestSuite icon24={CsvIcon24} icon32={CsvIcon32} multiIcon={CsvIcon} />)
     .add("dash", () => <TestSuite icon24={DashIcon24} icon32={DashIcon32} multiIcon={DashIcon} />)
-    .add("do not disturb", () => <TestSuite icon24={DoNotDisturbIcon24} icon32={DoNotDisturbIcon32} multiIcon={DoNotDisturbIcon} />)
     .add("download", () => <TestSuite icon32={DownloadIcon32} multiIcon={DownloadIcon} />)
     .add("edit", () => <TestSuite icon24={EditIcon24} icon32={EditIcon32} multiIcon={EditIcon} />)
     .add("email", () => <TestSuite icon24={EmailIcon24} icon32={EmailIcon32} multiIcon={EmailIcon} />)
@@ -173,6 +172,7 @@ stories()
     .add("magnifier", () => <TestSuite icon24={MagnifierIcon24} icon32={MagnifierIcon32} multiIcon={MagnifierIcon} />)
     .add("music", () => <TestSuite icon24={MusicIcon24} icon32={MusicIcon32} multiIcon={MusicIcon} />)
     .add("notification", () => <TestSuite icon24={NotificationIcon24} icon32={NotificationIcon32} multiIcon={NotificationIcon} />)
+    .add("notification off", () => <TestSuite icon24={NotificationOffIcon24} icon32={NotificationOffIcon32} multiIcon={NotificationOffIcon} />)
     .add("pdf", () => <TestSuite icon24={PdfIcon24} icon32={PdfIcon32} multiIcon={PdfIcon} />)
     .add("image", () => <TestSuite icon24={ImageIcon24} icon32={ImageIcon32} multiIcon={ImageIcon} />)
     .add("printer", () => <TestSuite icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
