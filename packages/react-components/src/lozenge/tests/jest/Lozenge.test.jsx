@@ -8,7 +8,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Lozenge ref={ref}>100</Lozenge>
+        <Lozenge ref={ref}>New</Lozenge>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -25,7 +25,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
-        >100</Lozenge>
+        >New</Lozenge>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -38,7 +38,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Lozenge ref={handler}>100</Lozenge>
+        <Lozenge ref={handler}>New</Lozenge>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

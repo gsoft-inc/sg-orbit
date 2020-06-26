@@ -30,10 +30,11 @@ const propTypes = {
 };
 
 const defaultProps = {
+    iconPosition: "left",
     as: "span"
 };
 
-export function InnerLozenge({ icon, iconPosition, size, as: ElementType, className, children, forwardedRef }) {
+export function InnerLozenge({ icon, iconPosition, size, as: ElementType, className, children, forwardedRef, ...rest }) {
     const iconMarkup = !isNil(icon) && (
         <EmbeddedIcon icon={icon} size={size} />
     );
@@ -48,8 +49,10 @@ export function InnerLozenge({ icon, iconPosition, size, as: ElementType, classN
 
     return (
         <ElementType
+            {...rest}
             className={mergeClasses(
                 "o-ui lozenge",
+                !isNil(iconMarkup) && "with-icon",
                 getSizeClass(size),
                 className
             )}
