@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon, LightbulbIcon } from "@react-components/icons";
+import { CrossIcon, LightbulbIcon } from "@react-components/icons";
 import { Label, createEmbeddedLabel, createLabel } from "@react-components/label";
 import { SIZE } from "@react-components/shared";
 import { Tag } from "@react-components/tag";
@@ -100,18 +100,18 @@ stories("/compact")
                 <Label compact size="large" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right">Notification Sent</Label>
             </div>
             <div className="flex items-end mb5">
-                <Label compact size="mini" button={<Button icon={<CloseIcon />} />} className="mr5">Notification Sent</Label>
-                <Label compact size="tiny" button={<Button icon={<CloseIcon />} />} className="mr5">Notification Sent</Label>
-                <Label compact size="small" button={<Button icon={<CloseIcon />} />} className="mr5">Notification Sent</Label>
-                <Label compact button={<Button icon={<CloseIcon />} />} className="mr5">Notification Sent</Label>
-                <Label compact size="large" button={<Button icon={<CloseIcon />} />}>Notification Sent</Label>
+                <Label compact size="mini" button={<Button icon={<CrossIcon />} />} className="mr5">Notification Sent</Label>
+                <Label compact size="tiny" button={<Button icon={<CrossIcon />} />} className="mr5">Notification Sent</Label>
+                <Label compact size="small" button={<Button icon={<CrossIcon />} />} className="mr5">Notification Sent</Label>
+                <Label compact button={<Button icon={<CrossIcon />} />} className="mr5">Notification Sent</Label>
+                <Label compact size="large" button={<Button icon={<CrossIcon />} />}>Notification Sent</Label>
             </div>
             <div className="flex items-end mb5">
-                <Label compact size="mini" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
-                <Label compact size="tiny" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
-                <Label compact size="small" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
-                <Label compact button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
-                <Label compact size="large" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />}>Notification Sent</Label>
+                <Label compact size="mini" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
+                <Label compact size="tiny" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
+                <Label compact size="small" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
+                <Label compact button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} className="mr5">Notification Sent</Label>
+                <Label compact size="large" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />}>Notification Sent</Label>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon } from "@react-components/icons";
+import { CrossIcon } from "@react-components/icons";
 import { TextInput } from "@react-components/text-input";
 import { TextInputPopper } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -96,10 +96,10 @@ stories()
     .add("clearable input", () =>
         <div className="flex flex-column">
             <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper input={{ button: <Button icon={<CloseIcon />} /> }} />
+                <RedBoxPopper input={{ button: <Button icon={<CrossIcon />} /> }} />
             </div>
             <div>
-                <RedBoxPopper input={{ placeholder: "Pick a date", button: <Button icon={<CloseIcon />} /> }} />
+                <RedBoxPopper input={{ placeholder: "Pick a date", button: <Button icon={<CrossIcon />} /> }} />
             </div>
         </div>
     );

@@ -716,7 +716,7 @@
 /* SKIN | CONTENT | Icon - Clear */
 .ui.dropdown > .dropdown.icon.clear {
     background-color: @marine100;
-    mask: url(~@orbit-ui/icons/dist/icon-close-24.svg) center center no-repeat!important;
+    mask: url(~@orbit-ui/icons/dist/icon-cross-24.svg) center center no-repeat!important;
     mask-size: 16px 16px!important;
 }
 

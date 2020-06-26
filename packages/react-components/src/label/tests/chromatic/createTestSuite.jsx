@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon, LightbulbIcon } from "@react-components/icons";
+import { CrossIcon, LightbulbIcon } from "@react-components/icons";
 import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
@@ -69,20 +69,20 @@ export function createTestSuite(label, stories) {
                     <Label size="large" tag={<Tag className="bg-red" />} icon={<LightbulbIcon />} iconPosition="right" element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
-                    <Label size="micro" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="mini" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="tiny" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="small" button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
-                    <Label button={<Button icon={<CloseIcon />} />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="large" button={<Button icon={<CloseIcon />} />} element={label}>Notification Sent</Label>
+                    <Label size="micro" button={<Button icon={<CrossIcon />} />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="mini" button={<Button icon={<CrossIcon />} />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="tiny" button={<Button icon={<CrossIcon />} />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="small" button={<Button icon={<CrossIcon />} />} element={label} className="mr5">Notification Sent</Label>
+                    <Label button={<Button icon={<CrossIcon />} />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="large" button={<Button icon={<CrossIcon />} />} element={label}>Notification Sent</Label>
                 </div>
                 <div className="flex items-end mb5">
-                    <Label size="micro" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="mini" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="tiny" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="small" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
-                    <Label button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
-                    <Label size="large" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={label}>Notification Sent</Label>
+                    <Label size="micro" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="mini" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="tiny" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="small" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
+                    <Label button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label} className="mr5">Notification Sent</Label>
+                    <Label size="large" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={label}>Notification Sent</Label>
                 </div>
             </div>
         )

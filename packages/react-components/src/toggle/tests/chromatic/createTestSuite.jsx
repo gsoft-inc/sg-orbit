@@ -1,4 +1,4 @@
-import { CommunicationIcon } from "@react-components/icons";
+import { EmailIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
@@ -12,27 +12,27 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb8">
-                <Toggle icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Toggle icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle icons={<CommunicationIcon />} size="large" element={radio} />
+                <Toggle icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Toggle icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle icons={<EmailIcon />} size="large" element={radio} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="small" element={radio} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} element={radio} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="large" element={radio} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle active icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle focus icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle focus hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Toggle active icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle focus icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle focus hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle readOnly icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle disabled icons={<EmailIcon />} element={radio} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={radio} />
+                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} size="large" element={radio} />
             </div>
         </>
     );
@@ -116,7 +116,7 @@ export function createTestSuite(checkbox, stories) {
                         <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} label={<Label>6</Label>} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                        <Toggle label={<Label>6</Label>} icons={[<EmailIcon />, <EmailIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                     </div>
                 </div>
             </div>
