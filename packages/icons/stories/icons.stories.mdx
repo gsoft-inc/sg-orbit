@@ -19,6 +19,9 @@ import {
     CarretIcon,
     CarretIcon24,
     CarretIcon32,
+    CheckCircleIcon,
+    CheckCircleIcon24,
+    CheckCircleIcon32,
     CheckIcon,
     CheckIcon24,
     CheckIcon32,
@@ -91,6 +94,7 @@ import {
     PrinterIcon32,
     PrivacyIcon,
     PrivacyIcon24,
+    PrivacyIcon32,
     ReminderIcon,
     ReminderIcon24,
     ReminderIcon32,
@@ -109,9 +113,6 @@ import {
     SortIcon,
     SortIcon24,
     SortIcon32,
-    SuccessBadgeIcon,
-    SuccessBadgeIcon24,
-    SuccessBadgeIcon32,
     TrashIcon,
     TrashIcon24,
     TrashIcon32,
@@ -128,6 +129,7 @@ import {
     WarningIcon24,
     WarningIcon32,
     ZipIcon,
+    ZipIcon24,
     ZipIcon32
 } from "@react-components/icons";
 import { CheckeredBackground, ExternalLink } from "@blocks";
@@ -166,6 +168,7 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
     {renderItem("Calendar", createMultiVariant(<CalendarIcon />), [createVariant("24x24", <CalendarIcon24 />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
     {renderItem("Carret", createMultiVariant(<CarretIcon />), [createVariant("24x24", <CarretIcon24 />, "icon-carret-24.svg"), createVariant("32x32", <CarretIcon32 />, "icon-carret-32.svg")])}
     {renderItem("Check", createMultiVariant(<CheckIcon />), [createVariant("24x24", <CheckIcon24 />, "icon-check-24.svg"), createVariant("32x32", <CheckIcon32 />, "icon-check-32.svg")])}
+    {renderItem("CheckCircleIcon", createMultiVariant(<CheckCircleIcon24Icon />), [createVariant("24x24", <CheckCircleIcon32Icon24 />, "icon-check-circle-24.svg"), createVariant("32x32", <CheckCircleIcon32 />, "icon-check-circle-32.svg")])}
     {renderItem("Chevron", createMultiVariant(<ChevronIcon />), [createVariant("24x24", <ChevronIcon24 />, "icon-chevron-24.svg"), createVariant("32x32", <ChevronIcon32 />, "icon-chevron-32.svg")])}
     {renderItem("Circle", createMultiVariant(<CircleIcon />), [createVariant("24x24", <CircleIcon24 />, "icon-circle-24.svg"), createVariant("32x32", <CircleIcon32 />, "icon-circle-32.svg")])}
     {renderItem("ClearFilter", createMultiVariant(<ClearFilterIcon />), [createVariant("24x24", <ClearFilterIcon24 />, "icon-clearfilter-24.svg"), createVariant("32x32", <ClearFilterIcon32 />, "icon-clearfilter-32.svg")])}
@@ -193,14 +196,13 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
     {renderItem("Pdf", createMultiVariant(<PdfIcon />), [createVariant("24x24", <PdfIcon24 />, "icon-pdf-24.svg"), createVariant("32x32", <PdfIcon32 />, "icon-pdf-32.svg")])}
     {renderItem("Picture", createMultiVariant(<PictureIcon />), [createVariant("24x24", <PictureIcon24 />, "icon-picture-24.svg"), createVariant("32x32", <PictureIcon32 />, "icon-picture-32.svg")])}
     {renderItem("Printer", createMultiVariant(<PrinterIcon />), [createVariant("24x24", <PrinterIcon24 />, "icon-printer-24.svg"), createVariant("32x32", <PrinterIcon32 />, "icon-printer-32.svg")])}
-    {renderItem("Privacy", createMultiVariant(<PrivacyIcon />), [createVariant("24x24", <PrivacyIcon24 />, "icon-privacy-24.svg")])}
-    {renderItem("Reminder", createMultiVariant(<ReminderIcon />), [createVariant("32x32", <ReminderIcon32 />, "icon-reminder-32.svg")])}
+    {renderItem("Privacy", createMultiVariant(<PrivacyIcon />), [createVariant("24x24", <PrivacyIcon24 />, "icon-privacy-24.svg"), createVariant("32x32", <PrivacyIcon32 />, "icon-privacy-32.svg")])}
+    {renderItem("Reminder", createMultiVariant(<ReminderIcon />), [createVariant("24x24", <ReminderIcon24 />, "icon-reminder-24.svg"), createVariant("32x32", <ReminderIcon32 />, "icon-reminder-32.svg")])}
     {renderItem("RemoveGuest", createMultiVariant(<RemoveGuestIcon />), [createVariant("24x24", <RemoveGuestIcon24 />, "icon-remove-guest-24.svg"), createVariant("32x32", <RemoveGuestIcon32 />, "icon-remove-guest-32.svg")])}
     {renderItem("RemoveUser", createMultiVariant(<RemoveUserIcon />), [createVariant("24x24", <RemoveUserIcon24 />, "icon-remove-user-24.svg"), createVariant("32x32", <RemoveUserIcon32 />, "icon-remove-user-32.svg")])}
     {renderItem("Signout", createMultiVariant(<SignoutIcon />), [createVariant("24x24", <SignoutIcon24 />, "icon-signout-24.svg"), createVariant("32x32", <SignoutIcon32 />, "icon-signout-32.svg")])}
     {renderItem("Slash", createMultiVariant(<SlashIcon />), [createVariant("24x24", <SlashIcon24 />, "icon-slash-24.svg"), createVariant("32x32", <SlashIcon32 />, "icon-slash-32.svg")])}
     {renderItem("Sort", createMultiVariant(<SortIcon />), [createVariant("24x24", <SortIcon24 />, "icon-sort-24.svg"), createVariant("32x32", <SortIcon32 />, "icon-sort-32.svg")])}
-    {renderItem("SuccessBadge", createMultiVariant(<SuccessBadgeIcon />), [createVariant("24x24", <SuccessBadgeIcon24 />, "icon-success-badge-24.svg"), createVariant("32x32", <SuccessBadgeIcon32 />, "icon-success-badge-32.svg")])}
     {renderItem("UpDown", createMultiVariant(<UpDownIcon />), [createVariant("24x24", <UpDownIcon24 />, "icon-up-down-24.svg"), createVariant("32x32", <UpDownIcon32 />, "icon-up-down-32.svg")])}
     {renderItem("VerticalDots", createMultiVariant(<VerticalDotsIcon />), [createVariant("24x24", <VerticalDotsIcon24 />, "icon-vertical-dots-24.svg"), createVariant("32x32", <VerticalDotsIcon32 />, "icon-vertical-dots-32.svg")])}
     {renderItem("Video", createMultiVariant(<VideoIcon />), [createVariant("24x24", <VideoIcon24 />, "icon-video-24.svg"), createVariant("32x32", <VideoIcon32 />, "icon-video-32.svg")])}

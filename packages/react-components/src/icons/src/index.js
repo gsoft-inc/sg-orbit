@@ -80,6 +80,7 @@ import { ReactComponent as InnerPictureIcon32 } from "@orbit-ui/icons/dist/icon-
 import { ReactComponent as InnerPrinterIcon24 } from "@orbit-ui/icons/dist/icon-printer-24.svg";
 import { ReactComponent as InnerPrinterIcon32 } from "@orbit-ui/icons/dist/icon-printer-32.svg";
 import { ReactComponent as InnerPrivacyIcon24 } from "@orbit-ui/icons/dist/icon-privacy-24.svg";
+import { ReactComponent as InnerPrivacyIcon32 } from "@orbit-ui/icons/dist/icon-privacy-32.svg";
 import { ReactComponent as InnerReminderIcon24 } from "@orbit-ui/icons/dist/icon-reminder-24.svg";
 import { ReactComponent as InnerReminderIcon32 } from "@orbit-ui/icons/dist/icon-reminder-32.svg";
 import { ReactComponent as InnerRemoveGuestIcon24 } from "@orbit-ui/icons/dist/icon-remove-guest-24.svg";
@@ -174,6 +175,7 @@ export const PictureIcon32 = createOrbitIcon(InnerPictureIcon32);
 export const PrinterIcon24 = createOrbitIcon(InnerPrinterIcon24);
 export const PrinterIcon32 = createOrbitIcon(InnerPrinterIcon32);
 export const PrivacyIcon24 = createOrbitIcon(InnerPrivacyIcon24);
+export const PrivacyIcon32 = createOrbitIcon(InnerPrivacyIcon32);
 export const ReminderIcon24 = createOrbitIcon(InnerReminderIcon24);
 export const ReminderIcon32 = createOrbitIcon(InnerReminderIcon32);
 export const RemoveGuestIcon24 = createOrbitIcon(InnerRemoveGuestIcon24);
@@ -233,7 +235,7 @@ export const MusicIcon = createOrbitMultiVariantIcon(InnerMusicIcon24, InnerMusi
 export const PdfIcon = createOrbitMultiVariantIcon(InnerPdfIcon24, InnerPdfIcon32);
 export const PictureIcon = createOrbitMultiVariantIcon(InnerPictureIcon24, InnerPictureIcon32);
 export const PrinterIcon = createOrbitMultiVariantIcon(InnerPrinterIcon24, InnerPrinterIcon32);
-export const PrivacyIcon = createOrbitMultiVariantIcon(InnerPrivacyIcon24, InnerPrivacyIcon24);
+export const PrivacyIcon = createOrbitMultiVariantIcon(InnerPrivacyIcon24, InnerPrivacyIcon32);
 export const ReminderIcon = createOrbitMultiVariantIcon(InnerReminderIcon24, InnerReminderIcon32);
 export const RemoveGuestIcon = createOrbitMultiVariantIcon(InnerRemoveGuestIcon24, InnerRemoveGuestIcon32);
 export const RemoveUserIcon = createOrbitMultiVariantIcon(InnerRemoveUserIcon24, InnerRemoveUserIcon32);
