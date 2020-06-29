@@ -1,4 +1,4 @@
-import { CloseIcon } from "../../icons";
+import { CrossIcon } from "../../icons";
 import { Label } from "../../label";
 import { PureComponent } from "react";
 import { SIZE, mergeClasses } from "../../shared";
@@ -18,7 +18,7 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
         <Label
             basic
             size={size}
-            button={!disabled ? { icon: <CloseIcon />, onClick: onRemove } : undefined}
+            button={!disabled ? { icon: <CrossIcon />, onClick: onRemove } : undefined}
             data-testid={`tags-picker-selected-item-${item.value}`}
         >
             {item.text}

@@ -1,5 +1,5 @@
-import { CommunicationIcon } from "@react-components/icons";
 import { Count } from "@react-components/count";
+import { EmailIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
@@ -13,27 +13,27 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex mb8">
-                <Radio icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Radio icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio icons={<EmailIcon />} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} size="small" element={radio} className="mr5" />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} element={radio} className="mr5" />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio active icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio focus icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio focus hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio active icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio focus icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio focus hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio readOnly icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio disabled icons={<EmailIcon />} element={radio} className="mr5" />
             </div>
             <div className="flex mb8">
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio label={<Label>6</Label>} icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Radio label={<Label>6</Label>} icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio label={<Label>6</Label>} icons={<EmailIcon />} size="large" element={radio} />
             </div>
         </>
     );
@@ -144,10 +144,10 @@ export function createTestSuite(radio, stories) {
                     <Radio text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio icons={[<EmailIcon />, <EmailIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio label={<Label>6</Label>} icons={[<CommunicationIcon />, <CommunicationIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio label={<Label>6</Label>} icons={[<EmailIcon />, <EmailIcon />]} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
                     <Radio count={<Count>6</Count>} text="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />

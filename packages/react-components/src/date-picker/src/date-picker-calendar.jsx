@@ -2,7 +2,7 @@ import "./date-picker-calendar.css";
 import "./monkey-patch-calendar-day";
 import "./monkey-patch-day-picker";
 
-import { ArrowIcon } from "../../icons";
+import { ChevronIcon } from "../../icons";
 import { NAVIGATION_ROLE } from "./element-roles";
 import { PureComponent, cloneElement, forwardRef } from "react";
 import { bool, element, func, number, object, oneOfType, string } from "prop-types";
@@ -127,7 +127,7 @@ export class InnerDatePickerCalendar extends PureComponent {
     renderNavPrev() {
         return (
             <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
-                <ArrowIcon size="large" className="rotate-180 fill-marine-500" />
+                <ChevronIcon size="large" className="rotate-180 fill-marine-500" />
             </div>
         );
     }
@@ -135,7 +135,7 @@ export class InnerDatePickerCalendar extends PureComponent {
     renderNavNext() {
         return (
             <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
-                <ArrowIcon size="large" className="fill-marine-500" />
+                <ChevronIcon size="large" className="fill-marine-500" />
             </div>
         );
     }

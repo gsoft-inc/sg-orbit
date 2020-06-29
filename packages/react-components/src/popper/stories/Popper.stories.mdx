@@ -1,6 +1,6 @@
 import { AutoControlledPopper, ButtonPopper, InnerAutoControlledPopper, InnerButtonPopper, InnerPopper, InnerTextInputPopper, TextInputPopper } from "@react-components/popper"
 import { Button } from "@react-components/button";
-import { CloseIcon } from "@react-components/icons";
+import { CrossIcon } from "@react-components/icons";
 import { ControlledPopper } from "./ControlledPopper.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -218,7 +218,7 @@ A popper can use a text input adapter for an easy integration with a text input 
 
 <Preview>
     <Story name="text input adapter">
-        <TextInputPopper input={<TextInput placeholder="Toggle" readOnly button={<Button icon={<CloseIcon />} />} />}>
+        <TextInputPopper input={<TextInput placeholder="Toggle" readOnly button={<Button icon={<CrossIcon />} />} />}>
             <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
         </TextInputPopper>
     </Story>

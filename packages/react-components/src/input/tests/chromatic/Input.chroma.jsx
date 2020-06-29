@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon, MagnifierIcon } from "@react-components/icons";
+import { CrossIcon, MagnifierIcon } from "@react-components/icons";
 import { Input } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -138,22 +138,22 @@ stories()
 
 stories("/button")
     .add("default", () =>
-        <Input button={<Button icon={<CloseIcon />} />} />
+        <Input button={<Button icon={<CrossIcon />} />} />
     )
     .add("disabled", () =>
-        <Input button={<Button icon={<CloseIcon />} />} disabled />
+        <Input button={<Button icon={<CrossIcon />} />} disabled />
     )
     .add("loading", () =>
         <div className="flex">
-            <Input button={<Button icon={<CloseIcon />} />} loading wrapperClassName="mr5" />
-            <Input icon={<CloseIcon />} loading wrapperClassName="mr5" />
-            <Input icon={<CloseIcon />} loading iconPosition="left" />
+            <Input button={<Button icon={<CrossIcon />} />} loading wrapperClassName="mr5" />
+            <Input icon={<CrossIcon />} loading wrapperClassName="mr5" />
+            <Input icon={<CrossIcon />} loading iconPosition="left" />
         </div>
     )
     .add("size", () =>
         <div className="flex items-end">
-            <Input size="small" button={<Button icon={<CloseIcon />} />} wrapperClassName="mr5" />
-            <Input button={<Button icon={<CloseIcon />} />} wrapperClassName="mr5" />
-            <Input size="large" button={<Button icon={<CloseIcon />} />} />
+            <Input size="small" button={<Button icon={<CrossIcon />} />} wrapperClassName="mr5" />
+            <Input button={<Button icon={<CrossIcon />} />} wrapperClassName="mr5" />
+            <Input size="large" button={<Button icon={<CrossIcon />} />} />
         </div>
     );

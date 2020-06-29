@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, DOMEventListener, KEYS, SIZE, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
-import { CloseIcon, MagnifierIcon } from "../../icons";
+import { CrossIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
 import { TextInput, createTextInput } from "../../text-input";
@@ -274,7 +274,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return (
             <Button
-                icon={<CloseIcon />}
+                icon={<CrossIcon />}
                 onClick={this.handleClear}
                 ref={this._clearButtonRef}
                 data-testid="search-input-clear-button"

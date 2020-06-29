@@ -1,5 +1,5 @@
-import { CommunicationIcon } from "@react-components/icons";
 import { Count } from "@react-components/count";
+import { EmailIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
@@ -13,32 +13,32 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb8">
-                <Checkbox icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
-                <Checkbox icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox icons={<CommunicationIcon />} size="large" element={checkbox} />
+                <Checkbox icons={<EmailIcon />} size="small" element={checkbox} className="mr5" />
+                <Checkbox icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox icons={<EmailIcon />} size="large" element={checkbox} />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={checkbox} className="mr5" />
-                <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} element={checkbox} className="mr5" />
-                <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={checkbox} />
+                <Checkbox icons={[<EmailIcon />, <EmailIcon />]} size="small" element={checkbox} className="mr5" />
+                <Checkbox icons={[<EmailIcon />, <EmailIcon />]} element={checkbox} className="mr5" />
+                <Checkbox icons={[<EmailIcon />, <EmailIcon />]} size="large" element={checkbox} />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox active icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox focus icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox hover icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox focus hover icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox readOnly icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox disabled icons={<CommunicationIcon />} element={checkbox} className="mr5" />
+                <Checkbox active icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox focus icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox hover icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox focus hover icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox readOnly icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox disabled icons={<EmailIcon />} element={checkbox} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox label={<Label>6</Label>} icons={<CommunicationIcon />} size="large" element={checkbox} />
+                <Checkbox label={<Label>6</Label>} icons={<EmailIcon />} size="small" element={checkbox} className="mr5" />
+                <Checkbox label={<Label>6</Label>} icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox label={<Label>6</Label>} icons={<EmailIcon />} size="large" element={checkbox} />
             </div>
             <div className="flex items-end mb8">
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} size="small" element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} element={checkbox} className="mr5" />
-                <Checkbox count={<Count>6</Count>} icons={<CommunicationIcon />} size="large" element={checkbox} />
+                <Checkbox count={<Count>6</Count>} icons={<EmailIcon />} size="small" element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} icons={<EmailIcon />} element={checkbox} className="mr5" />
+                <Checkbox count={<Count>6</Count>} icons={<EmailIcon />} size="large" element={checkbox} />
             </div>
         </>
     );
@@ -138,7 +138,7 @@ export function createTestSuite(checkbox, stories) {
                     <Checkbox text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox icons={[<CommunicationIcon />, <CommunicationIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                    <Checkbox icons={[<EmailIcon />, <EmailIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
                 </div>
                 <div className="flex items-end mw5">
                     <Checkbox count={<Count>6</Count>} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />

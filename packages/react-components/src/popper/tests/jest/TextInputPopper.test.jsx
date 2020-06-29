@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon } from "@react-components/icons";
+import { CrossIcon } from "@react-components/icons";
 import { TextInput } from "@react-components/text-input";
 import { TextInputPopper } from "@react-components/popper";
 import { act, render, waitFor } from "@testing-library/react";
@@ -68,7 +68,7 @@ test("dont close the popper on input clear button click", async () => {
                 <TextInput
                     button={
                         <Button
-                            icon={<CloseIcon />}
+                            icon={<CrossIcon />}
                             data-testid="clear-button"
                         />
                     }
@@ -149,7 +149,7 @@ test("can assign a ref to a text input having a button", async () => {
         <SimpleTextInputPopper
             input={
                 <TextInput
-                    button={<Button icon={<CloseIcon />} />}
+                    button={<Button icon={<CrossIcon />} />}
                     ref={ref}
                 />
             }
@@ -170,7 +170,7 @@ test("can assign a ref to a text input button", async () => {
         <SimpleTextInputPopper
             input={
                 <TextInput
-                    button={<Button icon={<CloseIcon />} ref={ref} />}
+                    button={<Button icon={<CrossIcon />} ref={ref} />}
                 />
             }
         />

@@ -28,7 +28,7 @@ function PreviewSection({ icon }) {
         <CheckeredBackground>
             {cloneElement(icon, { size: "tiny" })}
             {cloneElement(icon, { size: "small" })}
-            {icon}
+            {cloneElement(icon, { size: "medium" })}
             {cloneElement(icon, { size: "large" })}
             {cloneElement(icon, { size: "big" })}
             {cloneElement(icon, { size: "huge" })}
