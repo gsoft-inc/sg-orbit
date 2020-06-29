@@ -1,5 +1,5 @@
-import { EmailIcon } from "@react-components/icons";
 import { Count } from "@react-components/count";
+import { EmailIcon } from "@react-components/icons";
 import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
