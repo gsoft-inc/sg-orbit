@@ -174,8 +174,7 @@ export function InnerDropdown(props) {
             value={{
                 isOpen,
                 size,
-                upward,
-                direction
+                upward
             }}
         >
             {renderPopper(dropdownMenu)}
