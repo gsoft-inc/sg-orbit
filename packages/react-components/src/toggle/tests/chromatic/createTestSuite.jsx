@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { CommunicationIcon } from "@react-components/icons";
+import { EmailIcon } from "@react-components/icons";
 import { cloneElement } from "react";
 
 function Toggle({ element, ...rest }) {
@@ -12,27 +12,27 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex items-end mb8">
-                <Toggle icons={<CommunicationIcon />} size="small" element={toggle} className="mr5" />
-                <Toggle icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle icons={<CommunicationIcon />} size="large" element={toggle} />
+                <Toggle icons={<EmailIcon />} size="small" element={toggle} className="mr5" />
+                <Toggle icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle icons={<EmailIcon />} size="large" element={toggle} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={toggle} className="mr5" />
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} element={toggle} className="mr5" />
-                <Toggle icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={toggle} />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="small" element={toggle} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} element={toggle} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="large" element={toggle} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle active icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle focus icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle hover icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle focus hover icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle readOnly icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle disabled icons={<CommunicationIcon />} element={toggle} className="mr5" />
+                <Toggle active icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle focus icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle hover icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle focus hover icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle readOnly icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle disabled icons={<EmailIcon />} element={toggle} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={toggle} className="mr5" />
-                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} element={toggle} className="mr5" />
-                <Toggle badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={toggle} />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} size="large" element={toggle} />
             </div>
         </>
     );
@@ -121,7 +121,7 @@ export function createTestSuite(toggle, stories) {
                         <Toggle label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} badge={<Badge>6</Badge>} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle badge={<Badge>6</Badge>} icons={[<CommunicationIcon />, <CommunicationIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
+                        <Toggle badge={<Badge>6</Badge>} icons={[<EmailIcon />, <EmailIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
                     </div>
                     <div className="flex mw5">
                         <Toggle count={<Badge inline>6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />

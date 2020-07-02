@@ -1,6 +1,6 @@
 import { Badge } from "@react-components/badge";
 import { Button } from "@react-components/button";
-import { CloseIcon, LightbulbIcon } from "@react-components/icons";
+import { CrossIcon, LightbulbIcon } from "@react-components/icons";
 import { cloneElement } from "react";
 
 function Tag({ element, ...rest }) {
@@ -57,14 +57,14 @@ export function createTestSuite(tag) {
             </div>
             <div className="flex flex-column">
                 <div className="flex items-end mb5">
-                    <Tag size="small" button={<Button icon={<CloseIcon />} />} element={tag} className="mr5">Notification Sent</Tag>
-                    <Tag button={<Button icon={<CloseIcon />} />} element={tag} className="mr5">Notification Sent</Tag>
-                    <Tag size="large" button={<Button icon={<CloseIcon />} />} element={tag}>Notification Sent</Tag>
+                    <Tag size="small" button={<Button icon={<CrossIcon />} />} element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag button={<Button icon={<CrossIcon />} />} element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag size="large" button={<Button icon={<CrossIcon />} />} element={tag}>Notification Sent</Tag>
                 </div>
                 <div className="flex items-end mb5">
-                    <Tag size="small" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
-                    <Tag button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
-                    <Tag size="large" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={tag}>Notification Sent</Tag>
+                    <Tag size="small" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag size="large" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={tag}>Notification Sent</Tag>
                 </div>
                 <div className="flex">
                     <Tag as="a" element={tag} className="mr5">Notification Sent</Tag>

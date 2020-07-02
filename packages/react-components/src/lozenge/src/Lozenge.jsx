@@ -8,13 +8,13 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element,
+    leftIcon: element,
     /**
-     * An icon can appear on the left or right side of the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    iconPosition: oneOf(["left", "right"]),
+    rightIcon: element,
     /**
      * A lozenge can vary in sizes.
      */
@@ -30,20 +30,23 @@ const propTypes = {
 };
 
 const defaultProps = {
-    iconPosition: "left",
     as: "span"
 };
 
-export function InnerLozenge({ icon, iconPosition, size, as: ElementType, className, children, forwardedRef, ...rest }) {
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon icon={icon} size={size} />
+export function InnerLozenge({ leftIcon, rightIcon, size, as: ElementType, className, children, forwardedRef, ...rest }) {
+    const leftIconMarkup = !isNil(leftIcon) && (
+        <EmbeddedIcon icon={leftIcon} size={size} />
+    );
+
+    const rightIconMarkup = !isNil(rightIcon) && (
+        <EmbeddedIcon icon={rightIcon} size={size} />
     );
 
     const content = (
         <>
-            {iconPosition === "left" && iconMarkup}
+            {leftIconMarkup}
             {children}
-            {iconPosition === "right" && iconMarkup}
+            {rightIconMarkup}
         </>
     );
 
@@ -52,7 +55,8 @@ export function InnerLozenge({ icon, iconPosition, size, as: ElementType, classN
             {...rest}
             className={mergeClasses(
                 "o-ui lozenge",
-                !isNil(iconMarkup) && "with-icon",
+                leftIconMarkup && "with-left-icon",
+                rightIconMarkup && "with-right-icon",
                 getSizeClass(size),
                 className
             )}

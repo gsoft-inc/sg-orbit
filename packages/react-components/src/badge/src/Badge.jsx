@@ -6,7 +6,7 @@ import { bool, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
     /**
-     * Variant style to use.
+     * Style to use.
      */
     variant: oneOf(["pill", "inline", "dot", "icon"]),
     /**

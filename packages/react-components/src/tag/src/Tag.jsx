@@ -7,6 +7,9 @@ import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
+    /**
+     * Style to use.
+     */
     variant: oneOf(["solid", "outline", "transparent"]),
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.

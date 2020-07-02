@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { CloseIcon, EditIcon } from "@react-components/icons";
+import { CrossIcon, EditIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerNumberInput, NumberInput } from "@react-components/number-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -135,7 +135,7 @@ A number input can contain a [button](?path=/docs/components-button--default-sto
 
 <Preview>
     <Story name="button">
-        <NumberInput button={<Button icon={<CloseIcon />} />} placeholder="Amount" />
+        <NumberInput button={<Button icon={<CrossIcon />} />} placeholder="Amount" />
     </Story>
 </Preview>
 
@@ -145,7 +145,7 @@ A number input can contain a [button](?path=/docs/components-button--default-sto
         .excludeFromDocs()
         .build()}
 >
-    <NumberInput button={<Button icon={<CloseIcon />} />} placeholder="Amount" loading />
+    <NumberInput button={<Button icon={<CrossIcon />} />} placeholder="Amount" loading />
 </Story>
 
 ### Loading

@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { CommunicationIcon } from "@react-components/icons";
+import { EmailIcon } from "@react-components/icons";
 import { cloneElement } from "react";
 
 function Radio({ element, ...rest }) {
@@ -12,32 +12,32 @@ function Icons({ element, ...rest }) {
     return (
         <>
             <div className="flex mb8">
-                <Radio icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Radio icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio icons={<EmailIcon />} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} size="small" element={radio} className="mr5" />
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} element={radio} className="mr5" />
-                <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} size="large" element={radio} />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} size="small" element={radio} className="mr5" />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} element={radio} className="mr5" />
+                <Radio icons={[<EmailIcon />, <EmailIcon />]} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio active icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio focus icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio focus hover icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio readOnly icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio disabled icons={<CommunicationIcon />} element={radio} className="mr5" />
+                <Radio active icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio focus icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio focus hover icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio readOnly icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio disabled icons={<EmailIcon />} element={radio} className="mr5" />
             </div>
             <div className="flex mb8">
-                <Radio badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio badge={<Badge>6</Badge>} icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio badge={<Badge>6</Badge>} icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio badge={<Badge>6</Badge>} icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Radio badge={<Badge>6</Badge>} icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio badge={<Badge>6</Badge>} icons={<EmailIcon />} size="large" element={radio} />
             </div>
             <div className="flex mb8">
-                <Radio badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="small" element={radio} className="mr5" />
-                <Radio badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} element={radio} className="mr5" />
-                <Radio badge={<Badge inline>6</Badge>} icons={<CommunicationIcon />} size="large" element={radio} />
+                <Radio badge={<Badge inline>6</Badge>} icons={<EmailIcon />} size="small" element={radio} className="mr5" />
+                <Radio badge={<Badge inline>6</Badge>} icons={<EmailIcon />} element={radio} className="mr5" />
+                <Radio badge={<Badge inline>6</Badge>} icons={<EmailIcon />} size="large" element={radio} />
             </div>
         </>
     );
@@ -129,10 +129,10 @@ export function createTestSuite(radio, stories) {
                     <Radio label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio icons={[<CommunicationIcon />, <CommunicationIcon />]} label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio icons={[<EmailIcon />, <EmailIcon />]} label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
-                    <Radio badge={<Badge>6</Badge>} icons={[<CommunicationIcon />, <CommunicationIcon />]} label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
+                    <Radio badge={<Badge>6</Badge>} icons={[<EmailIcon />, <EmailIcon />]} label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />
                 </div>
                 <div className="flex mw5">
                     <Radio badge={<Badge inline>6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={radio} className="mr5" />

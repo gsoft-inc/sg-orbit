@@ -1,4 +1,4 @@
-import { ArrowIcon, EmbeddedIcon } from "../../icons";
+import { ChevronIcon, EmbeddedIcon } from "../../icons";
 import { DropdownContext } from "./DropdownContext";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
@@ -51,7 +51,7 @@ export function InnerDropdownTitleTrigger({
             <span className="text">{title}</span>
             <EmbeddedIcon
                 icon={
-                    <ArrowIcon
+                    <ChevronIcon
                         className={mergeClasses(
                             "arrow",
                             upward && "upward"
