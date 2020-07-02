@@ -1,7 +1,6 @@
 import styles from "./Button.chroma.module.css";
 
 import { Button, embedButton } from "@react-components/button";
-import { SIZE } from "@react-components/shared";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
 
@@ -80,12 +79,12 @@ stories()
     )
     .add("embedded", () =>
         <div className="flex items-end">
-            {embedButton({ content: "Button", className: "mr5" }, { size: SIZE.micro })}
-            {embedButton({ content: "Button", className: "mr5" }, { size: SIZE.mini })}
-            {embedButton({ content: "Button", className: "mr5" }, { size: SIZE.tiny })}
-            {embedButton({ content: "Button", className: "mr5" }, { size: SIZE.small })}
-            {embedButton({ content: "Button", className: "mr5" })}
-            {embedButton({ content: "Button" }, { size: SIZE.large })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "micro" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "mini" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "tiny" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "small" })}
+            {embedButton(<Button className="mr5">Button</Button>)}
+            {embedButton(<Button>Button</Button>, { size: "large" })}
         </div>
     );
 
