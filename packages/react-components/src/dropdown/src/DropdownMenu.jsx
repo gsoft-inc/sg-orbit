@@ -1,15 +1,33 @@
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
-import { KEYS, SemanticRef, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
-import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { bool, func } from "prop-types";
+import { KEYS, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
+import { bool, elementType, func, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
+    /**
+     * Whether or not the menu can scroll.
+     */
     scrolling: bool,
+    /**
+     * Whether or not the menu should take the width of its container.
+     */
     fluid: bool,
-    onSelectItem: func
+    /**
+     * Called when an item is selected.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onSelectItem: func,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
+};
+
+const defaultProps = {
+    as: "div"
 };
 
 function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
@@ -80,7 +98,7 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
     }, [itemElements, keyboardIndex]);
 }
 
-export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, className, children, forwardedRef, ...rest }) {
+export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, as: ElementType, className, children, forwardedRef, ...rest }) {
     const { isOpen, size } = useContext(DropdownContext);
 
     const [menuElement, setMenuElement] = useState();
@@ -101,26 +119,26 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, className, c
                 onItemClick: handleItemClick
             }}
         >
-            <SemanticRef innerRef={menuRef}>
-                <SemanticDropdown.Menu
-                    {...rest}
-                    open
-                    className={mergeClasses(
-                        scrolling && "scrolling",
-                        fluid && "fluid",
-                        getSizeClass(size),
-                        className
-                    )}
-                    tabIndex="-1"
-                >
-                    {children}
-                </SemanticDropdown.Menu>
-            </SemanticRef>
+            <ElementType
+                {...rest}
+                className={mergeClasses(
+                    "menu",
+                    scrolling && "scrolling",
+                    fluid && "fluid",
+                    getSizeClass(size),
+                    className
+                )}
+                tabIndex="-1"
+                ref={menuRef}
+            >
+                {children}
+            </ElementType>
         </DropdownMenuContext.Provider>
     );
 }
 
 InnerDropdownMenu.propTypes = propTypes;
+InnerDropdownMenu.defaultProps = defaultProps;
 
 export const DropdownMenu = forwardRef((props, ref) => (
     <InnerDropdownMenu {...props} forwardedRef={ref} />

@@ -1,13 +1,10 @@
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
-import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useChainedEventCallback } from "../../shared";
-import { element, string } from "prop-types";
+import { element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
-
-const UNSUPPORTED_PROPS = ["flag", "image", "label"];
+import { mergeClasses, useChainedEventCallback } from "../../shared";
 
 const propTypes = {
     /**
@@ -29,15 +26,21 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element
+    icon: element,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
+};
+
+const defaultProps = {
+    as: "div"
 };
 
 export function InnerDropdownItem(props) {
-    const { text: legacyText, icon, description, onClick, focus, hover, children, forwardedRef, ...rest } = props;
+    const { text: legacyText, icon, description, onClick, focus, hover, as: ElementType, children, forwardedRef, ...rest } = props;
     const { size } = useContext(DropdownContext);
     const { onItemClick } = useContext(DropdownMenuContext);
-
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
 
     const handleClick = useChainedEventCallback(onClick, onItemClick);
 
@@ -64,23 +67,25 @@ export function InnerDropdownItem(props) {
     );
 
     return (
-        <SemanticRef innerRef={forwardedRef}>
-            <SemanticDropdown.Item
-                {...rest}
-                onClick={handleClick}
-                className={mergeClasses(
-                    focus && "focus",
-                    hover && "hover"
-                )}
-                tabIndex="-1"
-            >
-                {content}
-            </SemanticDropdown.Item>
-        </SemanticRef>
+        <ElementType
+            {...rest}
+            onClick={handleClick}
+            className={mergeClasses(
+                "item",
+                focus && "focus",
+                hover && "hover"
+            )}
+            tabIndex="-1"
+            ref={forwardedRef}
+        >
+            {content}
+        </ElementType>
     );
+
 }
 
 InnerDropdownItem.propTypes = propTypes;
+InnerDropdownItem.defaultProps = defaultProps;
 
 export const DropdownItem = forwardRef((props, ref) => (
     <InnerDropdownItem {...props} forwardedRef={ref} />

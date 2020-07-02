@@ -1,37 +1,47 @@
 import { DropdownContext } from "./DropdownContext";
 import { EmbeddedIcon } from "../../icons";
-import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { element } from "prop-types";
+import { element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
-import { throwWhenUnsupportedPropIsProvided } from "../../shared";
-
-const UNSUPPORTED_PROPS = ["content"];
+import { mergeClasses } from "../../shared";
 
 const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element
+    icon: element,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
 };
 
-export function InnerDropdownHeader(props) {
-    const { icon, children, forwardedRef, ...rest } = props;
-    const { size } = useContext(DropdownContext);
+const defaultProps = {
+    as: "div"
+};
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownHeader");
+export function InnerDropdownHeader({ icon, as: ElementType, className, children, forwardedRef, ...rest }) {
+    const { size } = useContext(DropdownContext);
 
     const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
 
     return (
-        <SemanticDropdown.Header {...rest} ref={forwardedRef}>
+        <ElementType
+            {...rest}
+            className={mergeClasses(
+                "header",
+                className
+            )}
+            ref={forwardedRef}
+        >
             {iconMarkup}
             <span className="text">{children}</span>
-        </SemanticDropdown.Header>
+        </ElementType>
     );
 }
 
 InnerDropdownHeader.propTypes = propTypes;
+InnerDropdownHeader.defaultProps = defaultProps;
 
 export const DropdownHeader = forwardRef((props, ref) => (
     <InnerDropdownHeader {...props} forwardedRef={ref} />
