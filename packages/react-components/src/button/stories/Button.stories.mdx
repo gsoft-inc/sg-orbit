@@ -89,23 +89,16 @@ A button can contain an [icon](?path=/docs/materials-icons--page).
     </Story>
 </Preview>
 
-### Dot
-
-A button can contain a [dot badge](?path=/docs/components-badge--dot).
-
-<Preview>
-    <Story name="dot">
-        <Button dot={<Badge dot className="bg-primary-500" />}>Cutoff</Button>
-    </Story>
-</Preview>
-
 ### Badge
 
 A button can contain a [badge](?path=/story/components-badge--default-story).
 
 <Preview>
     <Story name="badge">
-        <Button badge={<Badge>6</Badge>}>Cutoff</Button>
+        <div className="flex items-space-between">
+            <Button badgeLeft={<Badge>6</Badge>}>Cutoff</Button>
+            <Button badgeRight={<Badge>6</Badge>}>Cutoff</Button>
+        </div>
     </Story>
 </Preview>
 

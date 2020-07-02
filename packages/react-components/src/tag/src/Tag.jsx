@@ -70,11 +70,13 @@ export function InnerTag(props) {
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
         disabled,
+        highlight: true,
         size
     });
 
     const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
         disabled,
+        highlight: true,
         size
     });
 

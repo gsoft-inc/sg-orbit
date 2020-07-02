@@ -29,13 +29,13 @@ const propTypes = {
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Dot](/?path=/docs/components-badge--dot) variant of a badge rendered before the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
      */
-    dot: element,
+    badgeLeft: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
-    badge: element,
+    badgeRight: element,
     /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
@@ -63,16 +63,6 @@ const defaultProps = {
     type: "button"
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ dot, badge, icon, iconPosition }) {
-    if (!isNil(dot) && !isNil(icon) && iconPosition === "left") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a dot and a left positioned icon at the same time.");
-    }
-
-    if (!isNil(badge) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a badge and a right positioned icon at the same time.");
-    }
-}
-
 export function InnerButton(props) {
     const {
         basic,
@@ -81,8 +71,8 @@ export function InnerButton(props) {
         naked,
         icon,
         iconPosition,
-        dot,
-        badge,
+        badgeLeft,
+        badgeRight,
         autofocus,
         autofocusDelay,
         size,
@@ -96,7 +86,6 @@ export function InnerButton(props) {
         ...rest
     } = props;
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Button");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const innerRef = useMergedRefs(forwardedRef);
 
@@ -114,12 +103,13 @@ export function InnerButton(props) {
         <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
     );
 
-    const dotMarkup = !isNil(dot) && embedBadge(dot, {
+    const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
         size,
+        highlight: true,
         disabled
     });
 
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+    const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
         size,
         highlight: true,
         disabled
@@ -127,9 +117,9 @@ export function InnerButton(props) {
 
     const content = (
         <>
-            {iconPosition === "left" && iconMarkup}{dotMarkup}
+            {iconPosition === "left" && iconMarkup}{badgeLeftMarkup}
             {children}
-            {iconPosition === "right" && iconMarkup}{badgeMarkup}
+            {iconPosition === "right" && iconMarkup}{badgeRightMarkup}
         </>
     );
 
@@ -150,8 +140,8 @@ export function InnerButton(props) {
                     iconMarkup && "with-icon",
                     iconMarkup && iconPosition === "left" && "with-left-icon",
                     iconMarkup && iconPosition === "right" && "with-right-icon",
-                    dotMarkup && "with-dot",
-                    badgeMarkup && "with-badge",
+                    badgeLeftMarkup && "with-left-badge",
+                    badgeRightMarkup && "with-right-badge",
                     !hasText && "fitted",
                     focus && "focus",
                     hover && "hover",
