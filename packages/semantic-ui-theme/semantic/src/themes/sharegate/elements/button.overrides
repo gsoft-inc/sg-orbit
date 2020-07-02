@@ -687,86 +687,85 @@ a.ui.button {
     margin: 0;
 }
 
-/* CONTENT | With Tag | Layout | Margin */
-.ui.button.with-dot .o-ui.badge.dot,
-.ui.buttons.with-dot .o-ui.badge.dot {
+/* CONTENT | With Left Badge | Layout | Margin */
+.ui.button.with-left-badge .o-ui.badge,
+.ui.buttons.with-left-badge .o-ui.badge {
     margin-right: var(--scale-bravo);
 }
 
-/* CONTENT | With Tag | Layout | Padding */
-/* CONTENT | With Tag | Layout | Padding | Sizes | Tiny */
-.ui.button.with-dot.tiny,
-.ui.tiny.buttons .button.with-dot {
+/* CONTENT | With Left Badge | Layout | Padding */
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny */
+.ui.button.with-left-badge.tiny,
+.ui.tiny.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-charlie) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Small */
-.ui.button.with-dot.small,
-.ui.small.buttons .button.with-dot {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Small */
+.ui.button.with-left-badge.small,
+.ui.small.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-delta) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Medium */
-.ui.button.with-dot,
-.ui.buttons .button.with-dot {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium */
+.ui.button.with-left-badge,
+.ui.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-echo) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Large */
-.ui.button.with-dot.large,
-.ui.large.buttons .button.with-dot {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Large */
+.ui.button.with-left-badge.large,
+.ui.large.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-foxtrot) - 2px);
 }
 
 /* Compact */
-/* CONTENT | With Tag | Layout | Padding | Sizes | Tiny | Compact */
-.ui.button.with-dot.tiny.compact,
-.ui.tiny.buttons .button.with-dot.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny | Compact */
+.ui.button.with-left-badge.tiny.compact,
+.ui.tiny.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-charlie) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Small | Compact */
-.ui.button.with-dot.small.compact,
-.ui.small.buttons .button.with-dot.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Small | Compact */
+.ui.button.with-left-badge.small.compact,
+.ui.small.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-delta) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Medium | Compact */
-.ui.button.with-dot.compact,
-.ui.buttons .button.with-dot.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium | Compact */
+.ui.button.with-left-badge.compact,
+.ui.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-echo) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Large | Compact */
-.ui.button.with-dot.large.compact,
-.ui.large.buttons .button.with-dot.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Large | Compact */
+.ui.button.with-left-badge.large.compact,
+.ui.large.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-foxtrot) / 2 - 2px);
 }
 
-/* CONTENT | With Badge | Layout | Margin */
-.ui.button.with-badge .o-ui.badge,
-.ui.buttons.with-badge .o-ui.badge {
+/* CONTENT | With Right Badge | Layout | Margin */
+.ui.button.with-right-badge .o-ui.badge,
+.ui.buttons.with-right-badge .o-ui.badge {
     margin-left: var(--scale-bravo);
 }
 
-/* CONTENT | With Label | Layout | Padding */
-.ui.button.with-badge.tiny,
-.ui.buttons.with-badge.tiny .button {
+.ui.button.with-right-badge.tiny,
+.ui.buttons.with-right-badge.tiny .button {
     padding-right: calc(var(--scale-charlie) / 2);
 }
 
-.ui.button.with-badge.small,
-.ui.buttons.with-badge.small .button {
+.ui.button.with-right-badge.small,
+.ui.buttons.with-right-badge.small .button {
     padding-right: calc(var(--scale-delta) / 2);
 }
 
-.ui.button.with-badge,
-.ui.buttons.with-badge .button {
+.ui.button.with-right-badge,
+.ui.buttons.with-right-badge .button {
     padding-right: calc(var(--scale-echo) / 2);
 }
 
-.ui.button.with-badge.large,
-.ui.buttons.with-badge.large .button {
+.ui.button.with-right-badge.large,
+.ui.buttons.with-right-badge.large .button {
     padding-right: calc(var(--scale-foxtrot) / 2);
 }
 
@@ -1794,11 +1793,11 @@ a.ui.button {
 }
 
 /* In Button / Loading */
-.ui.loading.button.with-badge .o-ui.badge {
+.ui.loading.button.with-right-badge .o-ui.badge {
     visibility: hidden;
 }
 
-.ui.loading.button.with-dot .o-ui.badge {
+.ui.loading.button.with-left-badge .o-ui.badge {
     visibility: hidden;
 }
 
