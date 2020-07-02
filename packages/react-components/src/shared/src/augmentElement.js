@@ -1,6 +1,8 @@
 import { cloneElement } from "react";
 import { createChainedFunction } from "./createChainedFunction";
 import { isFunction, isNil } from "lodash";
+import { isString } from "lodash";
+import { isValidElementType } from "react-is";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./mergeRefs";
 
@@ -42,11 +44,17 @@ export function augmentElementProps(elementProps, newProps) {
 }
 
 export function augmentElement(element, newProps) {
-    if (isNil(element)) {
-        return null;
-    }
-
     const augmentedProps = augmentElementProps({ ...element.props, ref: element.ref }, newProps);
 
     return cloneElement(element, augmentedProps);
+}
+
+export function createOrAugmentElement(element, props = {}) {
+    if (isValidElementType(element) && !isString(element)) {
+        const Type = element;
+
+        return <Type {...props} />;
+    }
+
+    return augmentElement(element, props);
 }

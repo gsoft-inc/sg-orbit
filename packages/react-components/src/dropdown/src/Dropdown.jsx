@@ -6,13 +6,13 @@ import { DropdownDivider } from "./DropdownDivider";
 import { DropdownHeader } from "./DropdownHeader";
 import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
-import { DropdownMenu, createDropdownMenu } from "./DropdownMenu";
+import { DropdownMenu } from "./DropdownMenu";
 import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS, augmentElement, resolvePopperPosition, useChainedEventCallback, useEventCallback } from "../../shared";
-import { bool, element, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { KEYS, augmentElement, createOrAugmentElement, resolvePopperPosition, useChainedEventCallback, useEventCallback } from "../../shared";
+import { Popper, useAutoControlledPopper } from "../../popper";
+import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useState } from "react";
 import { isNil } from "lodash";
-import { useAutoControlledPopper } from "../../popper";
 
 const propTypes = {
     /**
@@ -71,9 +71,9 @@ const propTypes = {
      */
     onVisibilityChange: func,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the dropdown menu.
+     * Dropdown menu component to render.
      */
-    menu: oneOfType([element, object]),
+    menu: oneOfType([element, elementType]),
     /**
      * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
      */
@@ -141,7 +141,6 @@ export function InnerDropdown(props) {
         show: open,
         defaultShow: defaultOpen,
         trigger: dropdownTrigger,
-        toggleHandler: "onClick",
         position: resolvePopperPosition(upward, direction),
         pinned,
         offset: [0, 10],
@@ -151,9 +150,7 @@ export function InnerDropdown(props) {
         focusFirstElementOnKeyboardShow: true,
         onVisibilityChange: handleVisibilityChange,
         noPortal,
-        popper: {
-            className: "o-ui dropdown"
-        }
+        popper: <Popper className="o-ui dropdown" />
     });
 
     const handleSelectItem = useEventCallback(event => {
@@ -164,7 +161,7 @@ export function InnerDropdown(props) {
         }, 0);
     });
 
-    const dropdownMenu = createDropdownMenu(menu, {
+    const dropdownMenu = createOrAugmentElement(menu, {
         scrolling,
         fluid,
         onSelectItem: handleSelectItem,
@@ -177,8 +174,7 @@ export function InnerDropdown(props) {
             value={{
                 isOpen,
                 size,
-                upward,
-                direction
+                upward
             }}
         >
             {renderPopper(dropdownMenu)}

@@ -27,7 +27,7 @@ const propTypes = {
      */
     description: string,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story) before the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
     icon: element
 };

@@ -1,7 +1,6 @@
 import { InstallReactComponents, ReactComponentsLayout } from "@blocks";
-import { Label } from "@react-components/label";
-import { Menu, Tab } from "@react-components/tab";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { Tab } from "@react-components/tab";
 import { createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./imports.mdx";
 
@@ -52,30 +51,7 @@ A default tab.
 
 A tab can include a label to draw attention.
 
-<Preview>
-    <Story name="labelled">
-        <Tab
-            menu={{ secondary: true, pointing: true }}
-            panes={[
-                {
-                    menuItem: { key: "users", content: "Users" },
-                    render: () => <Tab.Pane attached={false}>Tab 1 Content</Tab.Pane>
-                },
-                {
-                    menuItem: (
-                        <Menu.Item key="messages" className="with-label">
-                            Messages
-                            <Label naked className="bg-primary-500" size="mini" highlight>
-                                NEW
-                            </Label>
-                        </Menu.Item>
-                    ),
-                    render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>
-                }
-            ]}
-        />
-    </Story>
-</Preview>
+TODO once Lozenged component exist
 
 ### Spacing
 

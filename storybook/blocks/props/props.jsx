@@ -50,7 +50,7 @@ export function Props({ componentsDefinitions }) {
         <div className={classes}>
             <div className={state.isVisible ? "mb5" : "mb3"}>
                 <Toggle
-                    text={`View component${hasMultipleComponents ? "s" : ""} props`}
+                    label={`View component${hasMultipleComponents ? "s" : ""} props`}
                     checked={state.isVisible}
                     onChange={handleToggleChange}
                 />

@@ -2,7 +2,7 @@ import "./Popper.css";
 
 import { Children, forwardRef, useState } from "react";
 import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
-import { augmentElement, createShorthandFactory, mergeClasses, useEventCallback, useMergedRefs, useResizeObserver } from "../../shared";
+import { augmentElement, mergeClasses, useEventCallback, useMergedRefs, useResizeObserver } from "../../shared";
 import { createPortal } from "react-dom";
 import { isFunction, isNil, merge } from "lodash";
 import { usePopper } from "react-popper";
@@ -222,5 +222,3 @@ InnerPopper.defaultProps = defaultProps;
 export const Popper = forwardRef((props, ref) => (
     <InnerPopper { ...props } forwardedRef={ref} />
 ));
-
-export const createPopper = createShorthandFactory(Popper);

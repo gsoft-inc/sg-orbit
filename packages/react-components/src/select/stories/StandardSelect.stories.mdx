@@ -16,7 +16,7 @@ import Imports from "./Imports.mdx";
 
 # Select
 
-A select can be used to select between choices.
+A select can be used to choose between choices.
 
 ## Installation
 
@@ -37,7 +37,7 @@ A select can be used to select between choices.
 
 ### Items
 
-A select component only accepts items as [object shorthands](?path=/docs/getting-started-shorthand-props--page#object-as-value) through the `options` property. You can't specify `<Select.Item />` as subcomponents.
+A select component only accepts items as plain objects through the `options` property. You can't specify `<Select.Item />` as subcomponents.
 
 To provide a select item as a shorthand object, you can define an object literal having the following format: `{ text, value, ... }`. To avoid redundant keys, use the `selectItem(text, value, additionalProps?)` function.
 
@@ -102,7 +102,7 @@ A select can have an initial value.
 
 ### Icon
 
-A select can display an [icon](?path=/docs/materials-icons--page) before it's content. Specify the icon to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A select can display an [icon](?path=/docs/materials-icons--page) before it's content.
 
 <Preview>
     <Story name="icon">

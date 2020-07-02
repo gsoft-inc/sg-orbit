@@ -338,15 +338,10 @@ stories("/default value/opened")
 stories("/customization")
     .add("input",
          () =>
-             <div className="flex">
-                 {createSearchInputController({
-                     input: <TextInput className="border-red" />,
-                     className: "mr5"
-                 })}
-                 {createSearchInputController({
-                     input: { className: "border-red" }
-                 })}
-             </div>
+         {createSearchInputController({
+             input: <TextInput className="border-red" />,
+             className: "mr5"
+         });}
     )
     .add("no results message",
          () =>

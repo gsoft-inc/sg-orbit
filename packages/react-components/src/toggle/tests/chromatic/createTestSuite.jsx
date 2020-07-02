@@ -1,5 +1,5 @@
+import { Badge } from "@react-components/badge";
 import { EmailIcon } from "@react-components/icons";
-import { Label } from "@react-components/label";
 import { cloneElement } from "react";
 
 function Toggle({ element, ...rest }) {
@@ -7,102 +7,107 @@ function Toggle({ element, ...rest }) {
 }
 
 function Icons({ element, ...rest }) {
-    const radio = cloneElement(element, rest);
+    const toggle = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex items-end mb8">
-                <Toggle icons={<EmailIcon />} size="small" element={radio} className="mr5" />
-                <Toggle icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle icons={<EmailIcon />} size="large" element={radio} />
+                <Toggle icons={<EmailIcon />} size="small" element={toggle} className="mr5" />
+                <Toggle icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle icons={<EmailIcon />} size="large" element={toggle} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="small" element={radio} className="mr5" />
-                <Toggle icons={[<EmailIcon />, <EmailIcon />]} element={radio} className="mr5" />
-                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="large" element={radio} />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="small" element={toggle} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} element={toggle} className="mr5" />
+                <Toggle icons={[<EmailIcon />, <EmailIcon />]} size="large" element={toggle} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle active icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle focus icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle hover icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle focus hover icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle readOnly icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle disabled icons={<EmailIcon />} element={radio} className="mr5" />
+                <Toggle active icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle focus icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle hover icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle focus hover icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle readOnly icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle disabled icons={<EmailIcon />} element={toggle} className="mr5" />
             </div>
             <div className="flex items-end mb8">
-                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} size="small" element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} icons={<EmailIcon />} size="large" element={radio} />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} icons={<EmailIcon />} size="large" element={toggle} />
             </div>
         </>
     );
 }
 
-function Labels({ element, ...rest }) {
-    const radio = cloneElement(element, rest);
+function Badges({ element, ...rest }) {
+    const toggle = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex items-end mb8">
-                <Toggle label={<Label>6</Label>} size="small" element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle label={<Label>6</Label>} size="large" element={radio} />
+                <Toggle badge={<Badge>6</Badge>} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle badge={<Badge>6</Badge>} size="large" element={toggle} />
+            </div>
+            <div className="flex items-end mb8">
+                <Toggle badge={<Badge inline>6</Badge>} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge inline>6</Badge>} element={toggle} className="mr5" />
+                <Toggle badge={<Badge inline>6</Badge>} size="large" element={toggle} />
             </div>
             <div className="flex">
-                <Toggle active label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle focus label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle hover label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle focus hover label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle disabled label={<Label>6</Label>} element={radio} className="mr5" />
-                <Toggle readOnly label={<Label>6</Label>} element={radio} />
+                <Toggle active badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle focus badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle hover badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle focus hover badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle disabled badge={<Badge>6</Badge>} element={toggle} className="mr5" />
+                <Toggle readOnly badge={<Badge>6</Badge>} element={toggle} />
             </div>
         </>
     );
 }
 
-export function createTestSuite(checkbox, stories) {
+export function createTestSuite(toggle, stories) {
     return stories
-        .add("text", () =>
+        .add("label", () =>
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
-                        <Toggle text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle active text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle focus text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle hover text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle focus hover text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle disabled text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle readOnly text="Milky Way" element={checkbox} />
+                        <Toggle label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle active label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle focus label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle hover label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle focus hover label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle disabled label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle readOnly label="Milky Way" element={toggle} />
                     </div>
                     <div className="flex items-end mb8">
-                        <Toggle size="small" text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle text="Milky Way" element={checkbox} className="mr5" />
-                        <Toggle size="large" text="Milky Way" element={checkbox} />
+                        <Toggle size="small" label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle label="Milky Way" element={toggle} className="mr5" />
+                        <Toggle size="large" label="Milky Way" element={toggle} />
                     </div>
-                    <Icons text="Milky Way" element={checkbox} />
-                    <Labels text="Milky Way" element={checkbox} />
+                    <Icons label="Milky Way" element={toggle} />
+                    <Badges label="Milky Way" element={toggle} />
                 </div>
             </div>
         )
-        .add("no text", () =>
+        .add("no label", () =>
             <div className="flex">
                 <div className="flex flex-column">
                     <div className="flex items-end mb8">
-                        <Toggle element={checkbox} className="mr5" />
-                        <Toggle active element={checkbox} className="mr5" />
-                        <Toggle focus element={checkbox} className="mr5" />
-                        <Toggle hover element={checkbox} className="mr5" />
-                        <Toggle focus hover element={checkbox} className="mr5" />
-                        <Toggle disabled element={checkbox} className="mr5" />
-                        <Toggle readOnly element={checkbox} />
+                        <Toggle element={toggle} className="mr5" />
+                        <Toggle active element={toggle} className="mr5" />
+                        <Toggle focus element={toggle} className="mr5" />
+                        <Toggle hover element={toggle} className="mr5" />
+                        <Toggle focus hover element={toggle} className="mr5" />
+                        <Toggle disabled element={toggle} className="mr5" />
+                        <Toggle readOnly element={toggle} />
                     </div>
                     <div className="flex items-end mb8">
-                        <Toggle size="small" element={checkbox} className="mr5" />
-                        <Toggle element={checkbox} className="mr5" />
-                        <Toggle size="large" element={checkbox} />
+                        <Toggle size="small" element={toggle} className="mr5" />
+                        <Toggle element={toggle} className="mr5" />
+                        <Toggle size="large" element={toggle} />
                     </div>
-                    <Icons element={checkbox} />
-                    <Labels element={checkbox} />
+                    <Icons element={toggle} />
+                    <Badges element={toggle} />
                 </div>
             </div>
         )
@@ -110,13 +115,16 @@ export function createTestSuite(checkbox, stories) {
             <div className="flex">
                 <div className="flex">
                     <div className="flex mw5">
-                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                        <Toggle label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} label={<Label>6</Label>} className="mr5" />
+                        <Toggle label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} badge={<Badge>6</Badge>} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle label={<Label>6</Label>} icons={[<EmailIcon />, <EmailIcon />]} text="PA-99-N2 event and possible exoplanet in galaxy" element={checkbox} className="mr5" />
+                        <Toggle badge={<Badge>6</Badge>} icons={[<EmailIcon />, <EmailIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
+                    </div>
+                    <div className="flex mw5">
+                        <Toggle count={<Badge inline>6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />
                     </div>
                 </div>
             </div>

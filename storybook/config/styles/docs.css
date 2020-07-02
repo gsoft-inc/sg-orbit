@@ -184,3 +184,11 @@ details .docblock-source {
 .items-lot-of-space-between > * {
     margin-right: var(--scale-delta) !important;
 }
+
+.items-vertical-space-between > * {
+    margin-bottom: var(--scale-delta) !important;
+}
+
+.items-vertical-space-between > *:last-child {
+    margin-bottom: 0 !important;
+}

@@ -51,7 +51,7 @@ a.ui.button {
     padding-right: var(--scale-bravo);
 }
 
-.ui.micro.with-icon.without-text.button {
+.ui.micro.with-icon.fitted.button {
     padding-left: var(--scale-bravo);
 }
 
@@ -74,11 +74,11 @@ a.ui.button {
     padding-right: var(--scale-bravo)
 }
 
-.ui.button.mini.with-icon-right {
+.ui.button.mini.with-right-icon {
     padding-right: var(--scale-bravo);
 }
 
-.ui.mini.with-icon.without-text.button,
+.ui.mini.with-icon.fitted.button,
 .ui.mini.with-icon.button {
     padding-left: var(--scale-bravo);
 }
@@ -148,7 +148,7 @@ a.ui.button {
 /* LAYOUT | Circular/Default */
 .ui.button.circular,
 .ui.button.with-icon.circular,
-.ui.button.with-icon.without-text.circular {
+.ui.button.with-icon.fitted.circular {
     padding: 0!important;
     font-size: @typeScale6;
     min-height: var(--scale-hotel);
@@ -157,7 +157,7 @@ a.ui.button {
 
 .ui.button.circular.compact,
 .ui.button.with-icon.circular.compact,
-.ui.button.with-icon.without-text.circular.compact {
+.ui.button.with-icon.fitted.circular.compact {
     font-size: @typeScale4;
 }
 
@@ -561,109 +561,109 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon Right | Layout | Padding */
-.ui.button.with-icon-right.tiny,
-.ui.tiny.buttons .button.with-icon-right {
+.ui.button.with-right-icon.tiny,
+.ui.tiny.buttons .button.with-right-icon {
     padding-left: var(--scale-charlie);
     padding-right: calc(var(--scale-charlie) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Small */
-.ui.button.with-icon-right.small,
-.ui.small.buttons .button.with-icon-right {
+.ui.button.with-right-icon.small,
+.ui.small.buttons .button.with-right-icon {
     padding-left: var(--scale-delta);
     padding-right: calc(var(--scale-delta) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon-right,
-.ui.buttons .button.with-icon-right {
+.ui.button.with-right-icon,
+.ui.buttons .button.with-right-icon {
     padding-left: var(--scale-echo);
     padding-right: calc(var(--scale-echo) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Large */
-.ui.button.with-icon-right.large,
-.ui.large.buttons .button.with-icon-right {
+.ui.button.with-right-icon.large,
+.ui.large.buttons .button.with-right-icon {
     padding-left: var(--scale-foxtrot);
     padding-right: calc(var(--scale-foxtrot) - 2px);
 }
 
 /* Compact */
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Tiny */
-.ui.button.with-icon-right.compact.tiny,
-.ui.tiny.buttons .button.with-icon-right.compact {
+.ui.button.with-right-icon.compact.tiny,
+.ui.tiny.buttons .button.with-right-icon.compact {
     padding-left: calc(var(--scale-charlie) / 2);
     padding-right: calc(var(--scale-charlie) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Small */
-.ui.button.with-icon-right.compact.small,
-.ui.small.buttons .button.with-icon-right.compact {
+.ui.button.with-right-icon.compact.small,
+.ui.small.buttons .button.with-right-icon.compact {
     padding-left: calc(var(--scale-delta) / 2);
     padding-right: calc(var(--scale-delta) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
-.ui.button.with-icon-right.compact,
-.ui.buttons .button.with-icon-right.compact {
+.ui.button.with-right-icon.compact,
+.ui.buttons .button.with-right-icon.compact {
     padding-left: calc(var(--scale-echo) / 2);
     padding-right: calc(var(--scale-echo) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Large */
-.ui.button.with-icon-right.compact.large,
-.ui.large.buttons .button.with-icon-right.compact {
+.ui.button.with-right-icon.compact.large,
+.ui.large.buttons .button.with-right-icon.compact {
     padding-left: calc(var(--scale-foxtrot) / 2);
     padding-right: calc(var(--scale-foxtrot) / 2 - 2px);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
-.ui.with-icon.without-text.button.tiny,
-.ui.tiny.buttons .without-text.button {
+.ui.with-icon.fitted.button.tiny,
+.ui.tiny.buttons .fitted.button {
     padding-left: var(--scale-charlie);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
-.ui.with-icon.without-text.button.small,
-.ui.small.buttons .without-text.button {
+.ui.with-icon.fitted.button.small,
+.ui.small.buttons .fitted.button {
     padding-left: var(--scale-delta);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button,
-.ui.buttons .without-text.button {
+.ui.with-icon.fitted.button,
+.ui.buttons .fitted.button {
     padding-left: var(--scale-echo);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
-.ui.with-icon.without-text.button.large,
-.ui.large.buttons .without-text.button {
+.ui.with-icon.fitted.button.large,
+.ui.large.buttons .fitted.button {
     padding-left: var(--scale-foxtrot);
 }
 
 /* Compact */
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
-.ui.with-icon.without-text.button.tiny.compact,
-.ui.tiny.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.tiny.compact,
+.ui.tiny.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-charlie) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
-.ui.with-icon.without-text.button.small.compact,
-.ui.small.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.small.compact,
+.ui.small.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-delta) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
-.ui.with-icon.without-text.button.compact,
-.ui.buttons.compact .without-text.button {
+.ui.with-icon.fitted.button.compact,
+.ui.buttons.compact .fitted.button {
     padding-left: calc(var(--scale-echo) / 2);
     padding-right: calc(var(--scale-echo) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
-.ui.with-icon.without-text.button.large.compact,
-.ui.large.buttons .without-text.button.compact {
+.ui.with-icon.fitted.button.large.compact,
+.ui.large.buttons .fitted.button.compact {
     padding-left: calc(var(--scale-foxtrot) / 2);
 }
 
@@ -673,7 +673,7 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon Right | Layout | Margin */
-.ui.button:not(.icon).with-icon.with-icon-right > .icon:not(.button):not(.dropdown) {
+.ui.button:not(.icon).with-icon.with-right-icon > .icon:not(.button):not(.dropdown) {
     margin: 0 0 0 0.25rem;
 }
 
@@ -683,98 +683,89 @@ a.ui.button {
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Margin */
-.ui.button:not(.icon).with-icon.without-text > .icon:not(.button):not(.dropdown) {
+.ui.button:not(.icon).with-icon.fitted > .icon:not(.button):not(.dropdown) {
     margin: 0;
 }
 
-/* CONTENT | With Tag | Layout | Margin */
-.ui.button.with-tag .tag,
-.ui.buttons.with-tag .tag {
+/* CONTENT | With Left Badge | Layout | Margin */
+.ui.button.with-left-badge .o-ui.badge,
+.ui.buttons.with-left-badge .o-ui.badge {
     margin-right: var(--scale-bravo);
 }
 
-/* CONTENT | With Tag | Layout | Padding */
-/* CONTENT | With Tag | Layout | Padding | Sizes | Tiny */
-.ui.button.with-tag.tiny,
-.ui.tiny.buttons .button.with-tag {
+/* CONTENT | With Left Badge | Layout | Padding */
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny */
+.ui.button.with-left-badge.tiny,
+.ui.tiny.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-charlie) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Small */
-.ui.button.with-tag.small,
-.ui.small.buttons .button.with-tag {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Small */
+.ui.button.with-left-badge.small,
+.ui.small.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-delta) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Medium */
-.ui.button.with-tag,
-.ui.buttons .button.with-tag {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium */
+.ui.button.with-left-badge,
+.ui.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-echo) - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Large */
-.ui.button.with-tag.large,
-.ui.large.buttons .button.with-tag {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Large */
+.ui.button.with-left-badge.large,
+.ui.large.buttons .button.with-left-badge {
     padding-left: calc(var(--scale-foxtrot) - 2px);
 }
 
 /* Compact */
-/* CONTENT | With Tag | Layout | Padding | Sizes | Tiny | Compact */
-.ui.button.with-tag.tiny.compact,
-.ui.tiny.buttons .button.with-tag.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny | Compact */
+.ui.button.with-left-badge.tiny.compact,
+.ui.tiny.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-charlie) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Small | Compact */
-.ui.button.with-tag.small.compact,
-.ui.small.buttons .button.with-tag.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Small | Compact */
+.ui.button.with-left-badge.small.compact,
+.ui.small.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-delta) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Medium | Compact */
-.ui.button.with-tag.compact,
-.ui.buttons .button.with-tag.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium | Compact */
+.ui.button.with-left-badge.compact,
+.ui.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-echo) / 2 - 2px);
 }
 
-/* CONTENT | With Tag | Layout | Padding | Sizes | Large | Compact */
-.ui.button.with-tag.large.compact,
-.ui.large.buttons .button.with-tag.compact {
+/* CONTENT | With Left Badge | Layout | Padding | Sizes | Large | Compact */
+.ui.button.with-left-badge.large.compact,
+.ui.large.buttons .button.with-left-badge.compact {
     padding-left: calc(var(--scale-foxtrot) / 2 - 2px);
 }
 
-/* CONTENT | With Label | Layout | Margin */
-.ui.button.with-label .label,
-.ui.buttons.with-label .label {
+/* CONTENT | With Right Badge | Layout | Margin */
+.ui.button.with-right-badge .o-ui.badge,
+.ui.buttons.with-right-badge .o-ui.badge {
     margin-left: var(--scale-bravo);
 }
 
-.ui.button .ui.label.micro:not(.circular) {
-    padding: 0 0.75em;
-}
-
-.ui.button .ui.label.mini:not(.circular) {
-    padding: 0 0.8125em;
-}
-
-/* CONTENT | With Label | Layout | Padding */
-.ui.button.with-label.tiny,
-.ui.buttons.with-label.tiny .button {
+.ui.button.with-right-badge.tiny,
+.ui.buttons.with-right-badge.tiny .button {
     padding-right: calc(var(--scale-charlie) / 2);
 }
 
-.ui.button.with-label.small,
-.ui.buttons.with-label.small .button {
+.ui.button.with-right-badge.small,
+.ui.buttons.with-right-badge.small .button {
     padding-right: calc(var(--scale-delta) / 2);
 }
 
-.ui.button.with-label,
-.ui.buttons.with-label .button {
+.ui.button.with-right-badge,
+.ui.buttons.with-right-badge .button {
     padding-right: calc(var(--scale-echo) / 2);
 }
 
-.ui.button.with-label.large,
-.ui.buttons.with-label.large .button {
+.ui.button.with-right-badge.large,
+.ui.buttons.with-right-badge.large .button {
     padding-right: calc(var(--scale-foxtrot) / 2);
 }
 
@@ -1799,6 +1790,15 @@ a.ui.button {
 /* SKIN | Link | Primary | Basic */
 .ui.button.link.primary.basic {
     color: var(--primary-300)!important;
+}
+
+/* In Button / Loading */
+.ui.loading.button.with-right-badge .o-ui.badge {
+    visibility: hidden;
+}
+
+.ui.loading.button.with-left-badge .o-ui.badge {
+    visibility: hidden;
 }
 
 /* Animation */

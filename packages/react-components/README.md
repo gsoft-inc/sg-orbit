@@ -184,10 +184,6 @@ If you need to compute a derived state, prefer using `getDerivedStateFromProps` 
 
 _NOTE: since we switched to functional components, this might not apply anymore._
 
-#### Shorthand props
-
-A component prop accepting an Orbit UI element should support [shorthand props](https://orbit.sharegate.design/?path=/docs/getting-started-shorthand-props--page).
-
 #### Event handlers exposed by the component
 
 An event handler prop exposed by a component should always:
@@ -209,7 +205,7 @@ function MyComponent({ onChange }) {
 
 #### Never stop event propagation
 
-A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine wether or not it should handle the event.
+A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine whether or not it should handle the event.
 
 For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
 
