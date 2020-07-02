@@ -1,6 +1,6 @@
 import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -112,9 +112,9 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        input: oneOfType([element, object])
+        input: oneOfType([element, elementType])
     };
 
     static defaultProps = {

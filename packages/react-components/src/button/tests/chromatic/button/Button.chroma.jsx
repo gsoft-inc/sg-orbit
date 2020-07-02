@@ -1,16 +1,14 @@
 import styles from "./Button.chroma.module.css";
 
-import { Button, createButton, createEmbeddedButton } from "@react-components/button";
-import { SIZE } from "@react-components/shared";
+import { Button, embedButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
-import { isNil } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Button"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "95%" })
             .chromaticDelay(100)
             .build())
         .build();
@@ -78,40 +76,18 @@ stories()
                 <Button fluid>Button</Button>
             </div>
         </div>
-    );
-
-function setRedBackground(element) {
-    if (!isNil(element)) {
-        element.classList.add("bg-red");
-    }
-}
-
-stories("/shorthands")
-    .add("element", () =>
-        <div className="flex">
-            {createButton(<Button className="mr5">Button</Button>)}
-            {createButton(<Button ref={setRedBackground}>Button</Button>)}
-        </div>
-    )
-    .add("object", () =>
-        <div className="flex">
-            {createButton({ content: "Button", className: "mr5" })}
-            {createButton({ content: "Button", ref: setRedBackground })}
-        </div>
-    )
-    .add("string", () =>
-        createButton("Button")
     )
     .add("embedded", () =>
         <div className="flex items-end">
-            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.micro })}
-            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.mini })}
-            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.tiny })}
-            {createEmbeddedButton({ content: "Button", className: "mr5" }, { size: SIZE.small })}
-            {createEmbeddedButton({ content: "Button", className: "mr5" })}
-            {createEmbeddedButton({ content: "Button" }, { size: SIZE.large })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "micro" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "mini" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "tiny" })}
+            {embedButton(<Button className="mr5">Button</Button>, { size: "small" })}
+            {embedButton(<Button className="mr5">Button</Button>)}
+            {embedButton(<Button>Button</Button>, { size: "large" })}
         </div>
     );
+
 
 
 

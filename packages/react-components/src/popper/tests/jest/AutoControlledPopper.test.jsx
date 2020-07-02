@@ -11,14 +11,12 @@ const POPPER_FOCUSABLE_ELEMENT_ID = "popper-focusable-element";
 
 const SimpleAutoControlledPopper = forwardRef(({
     trigger = <Button>Click me</Button>,
-    toggleHandler = "onClick",
     ...rest
 }, ref) => {
     return (
         <AutoControlledPopper
             {...rest}
             trigger={trigger}
-            toggleHandler={toggleHandler}
             ref={ref}
         >
             <div>

@@ -38,7 +38,7 @@ const UNSUPPORTED_PROPS = [
 
 const propTypes = {
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an [icon](/?path=/docs/components-icon--default-story before the content.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the content.
      */
     icon: element,
     /**

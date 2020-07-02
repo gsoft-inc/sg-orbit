@@ -28,15 +28,15 @@ const propTypes = {
      */
     description: string,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display an avatar before the text.
+     * Avatar rendered before the text.
      */
     avatar: oneOfType([element, shape(AVATAR_SHAPE)]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for [icons](/?path=/docs/components-icon--default-story).
+     * [Icon](/?path=/docs/components-icon--default-story) components rendered before or after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * Icons can appear on the left or right of the item content.
+     * Icons can appear on the left or right of the text.
      */
     iconsPosition: oneOf(["left", "right"])
 };
@@ -87,9 +87,9 @@ export function SelectItem(props) {
         <SemanticDropdown.Item
             {...rest}
             className={mergeClasses(
-                !isNil(avatar) && "with-avatar",
-                !isNil(icons) && iconsPosition === "left" && "with-icons-left",
-                !isNil(icons) && iconsPosition === "right" && "with-icons-right",
+                avatarMarkup && "with-avatar",
+                iconsMarkup && iconsPosition === "left" && "with-icons-left",
+                iconsMarkup && iconsPosition === "right" && "with-icons-right",
                 className
             )}
         >

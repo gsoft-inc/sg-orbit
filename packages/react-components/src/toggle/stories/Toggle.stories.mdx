@@ -1,8 +1,7 @@
-import { Count } from "@react-components/count";
+import { Badge } from "@react-components/badge";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { InnerToggle, Toggle } from "@react-components/toggle";
-import { Label } from "@react-components/label";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -38,13 +37,13 @@ A toggle offers an on or off choice to a user.
     This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
 </WarningMessage>
 
-### Text
+### Label
 
-A toggle can have a text.
+A toggle can have a label.
 
 <Preview>
-    <Story name="text">
-        <Toggle text="Orion Arm"/>
+    <Story name="label">
+        <Toggle label="Orion Arm"/>
     </Story>
 </Preview>
 
@@ -54,7 +53,7 @@ A toggle can be on.
 
 <Preview>
     <Story name="on">
-        <Toggle defaultChecked text="Orion Arm"/>
+        <Toggle defaultChecked label="Orion Arm"/>
     </Story>
 </Preview>
 
@@ -64,7 +63,7 @@ A toggle can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Toggle disabled text="Orion Arm"/>
+        <Toggle disabled label="Orion Arm"/>
     </Story>
 </Preview>
 
@@ -74,50 +73,43 @@ A toggle can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Toggle readOnly text="Orion Arm" />
+        <Toggle readOnly label="Orion Arm" />
     </Story>
 </Preview>
 
-### No text
+### No label
 
-A toggle doesn't require a text.
+A toggle can be rendered without a label.
 
 <Preview>
-    <Story name="no text">
+    <Story name="no label">
         <Toggle />
     </Story>
 </Preview>
 
 ### Icons
 
-A toggle can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text. Specify the icons to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A toggle can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
     <Story name="icons">
         <div className="flex items-lot-of-space-between">
-            <Toggle text="Milky Way" icons={<LightbulbIcon />} />
-            <Toggle text="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
+            <Toggle label="Milky Way" icons={<LightbulbIcon />} />
+            <Toggle label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
         </div>
     </Story>
 </Preview>
 
-### Label
+### Badge
 
-A toggle can have a [label](?path=/docs/components-label--default-story) after his text. Specify the label to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
-
-<Preview>
-    <Story name="label">
-        <Toggle text="Milky Way" label={<Label>6</Label>} />
-    </Story>
-</Preview>
-
-### Count
-
-A toggle can have a [count](?path=/story/components-count--default-story) after his text. Specify the count to use with a [shorthand value](?path=/docs/getting-started-shorthand-props--page).
+A toggle can have a [badge](?path=/docs/components-badge--default-story) after his text.
 
 <Preview>
-    <Story name="count">
-        <Toggle text="Milky Way" count={<Count>6</Count>} />
+    <Story name="badge">
+        <div className="flex items-lot-of-space-between">
+            <Toggle label="Milky Way" badge={<Badge>6</Badge>} />
+            <Toggle label="Milky Way" badge={<Badge inline>6</Badge>} />
+        </div>
     </Story>
 </Preview>
 
@@ -130,9 +122,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-lot-of-space-between">
-            <Toggle size="small" text="Orion Arm" />
-            <Toggle text="Orion Arm" />
-            <Toggle size="large" text="Orion Arm" />
+            <Toggle size="small" label="Orion Arm" />
+            <Toggle label="Orion Arm" />
+            <Toggle size="large" label="Orion Arm" />
         </div>
     </Story>
 </Preview>
@@ -143,6 +135,6 @@ Can be set to: `"small"`, `"large"` or omitted.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Toggle text="Orion Arm" />} />
+    <RefLogger component={<Toggle label="Orion Arm" />} />
 </Story>
 

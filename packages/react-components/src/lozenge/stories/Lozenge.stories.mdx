@@ -1,0 +1,81 @@
+import { InfoIcon } from "@react-components/icons";
+import { InnerLozenge, Lozenge } from "@react-components/lozenge";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Lozenge")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/lozenge" />)
+        .build()}
+/>
+
+# Lozenge
+
+Lozenges are used to highlight an item's status for quick recognition or to give additional fast short information such as highlighting a new item.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Lozenge", component: InnerLozenge }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default lozenge.
+
+<Preview>
+    <Story name="default">
+        <Lozenge>New</Lozenge>
+    </Story>
+</Preview>
+
+### Icon
+
+A lozenge can contain an [icon](?path=/docs/materials-icons--page).
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-space-between">
+            <Lozenge iconLeft={<InfoIcon />}>New</Lozenge>
+            <Lozenge iconRight={<InfoIcon />}>New</Lozenge>
+        </div>
+    </Story>
+</Preview>
+
+### Size
+
+A lozenge can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Lozenge size="small ">New</Lozenge>
+            <Lozenge>New</Lozenge>
+            <Lozenge size="large">New</Lozenge>
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Lozenge>New</Lozenge>} />
+</Story>
+

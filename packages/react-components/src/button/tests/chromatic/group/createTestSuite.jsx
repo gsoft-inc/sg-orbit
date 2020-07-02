@@ -1,7 +1,6 @@
+import { Badge } from "@react-components/badge";
 import { Button } from "@react-components/button";
 import { CalendarIcon, ImageIcon, SignoutIcon } from "@react-components/icons";
-import { Label } from "@react-components/label";
-import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
 function Group({ element, ...rest }) {
@@ -95,14 +94,14 @@ function Groups({ element, ...rest }) {
                     <Button icon={<ImageIcon />} />
                 </Group>
                 <Group element={group} className="mb5">
-                    <Button disabled label={<Label>6</Label>}>One</Button>
-                    <Button active label={<Label>6</Label>}>Two</Button>
-                    <Button label={<Label>6</Label>}>Tree</Button>
+                    <Button disabled badge={<Badge>6</Badge>}>One</Button>
+                    <Button active badge={<Badge>6</Badge>}>Two</Button>
+                    <Button badge={<Badge>6</Badge>}>Tree</Button>
                 </Group>
                 <Group element={group} className="mb5">
-                    <Button disabled tag={<Tag className="bg-red" />}>One</Button>
-                    <Button active tag={<Tag className="bg-red" />}>Two</Button>
-                    <Button tag={<Tag className="bg-red" />}>Tree</Button>
+                    <Button disabled dot={<Badge dot />}>One</Button>
+                    <Button active dot={<Badge dot />}>Two</Button>
+                    <Button dot={<Badge dot />}>Tree</Button>
                 </Group>
                 <Group element={group} className="bg-red mb5">
                     <Button>One</Button>

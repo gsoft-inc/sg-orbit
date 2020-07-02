@@ -46,8 +46,6 @@
         "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
         "release-pkg": "cross-env NODE_ENV=production run-s build:pkg publish-pkg",
         "release-pkg-alpha": "cross-env NODE_ENV=production run-s build:pkg \"publish-pkg --dist-tag alpha\"",
-        "release-sb": "cross-env NODE_ENV=production run-s build:sb netlify-deploy-sb",
-        "release-docs": "cross-env NODE_ENV=production run-s build:docs netlify-deploy-docs",
         "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
         "setup:pkg": "lerna run setup --parallel",
         "start": "yarn start-pkg",
@@ -68,9 +66,7 @@
         "update": "run-s install:pkg install:sb",
         "diff": "lerna changed && lerna diff",
         "netlify-ci-sb": "yarn bootstrap && yarn build:pkg && yarn build:sb",
-        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs",
-        "netlify-deploy-sb": "cd storybook && yarn netlify-deploy-sb",
-        "netlify-deploy-docs": "cd storybook && yarn netlify-deploy-docs"
+        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs"
     },
     "devDependencies": {
         "@babel/cli": "7.10.1",
