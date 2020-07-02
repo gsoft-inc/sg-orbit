@@ -1,6 +1,6 @@
 import { DropdownContext } from "./DropdownContext";
 import { DropdownMenuContext } from "./DropdownMenuContext";
-import { KEYS, SemanticRef, createShorthandFactory, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
+import { KEYS, SemanticRef, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { bool, func } from "prop-types";
 import { forwardRef, useCallback, useContext, useEffect, useMemo, useState } from "react";

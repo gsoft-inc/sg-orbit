@@ -5,7 +5,7 @@ import { Ref } from "semantic-ui-react";
 import { TagsPickerDropdownMenu } from "./tags-picker-dropdown-menu";
 import { TagsPickerDropdownSearchInput } from "./tags-picker-dropdown-search-input";
 import { TagsPickerDropdownTrigger } from "./tags-picker-dropdown-trigger";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, func, number, oneOf, shape, string } from "prop-types";
 import { debounce, isFunction, isNil } from "lodash";
 import { isElement } from "react-is";
 
