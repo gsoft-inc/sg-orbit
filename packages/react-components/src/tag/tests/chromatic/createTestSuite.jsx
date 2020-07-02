@@ -66,6 +66,10 @@ export function createTestSuite(tag) {
                     <Tag button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
                     <Tag size="large" button={<Button icon={<CloseIcon />} />} icon={<LightbulbIcon />} element={tag}>Notification Sent</Tag>
                 </div>
+                <div className="flex">
+                    <Tag as="a" element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="button" element={tag}>Notification Sent</Tag>
+                </div>
             </div>
         </div>;
 }

@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { embedButton } from "../../button";
 import { forwardRef } from "react";
