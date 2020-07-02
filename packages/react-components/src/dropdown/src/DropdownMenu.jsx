@@ -125,5 +125,3 @@ InnerDropdownMenu.propTypes = propTypes;
 export const DropdownMenu = forwardRef((props, ref) => (
     <InnerDropdownMenu {...props} forwardedRef={ref} />
 ));
-
-export const createDropdownMenu = createShorthandFactory(DropdownMenu);

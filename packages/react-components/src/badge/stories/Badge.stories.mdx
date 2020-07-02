@@ -1,0 +1,165 @@
+import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
+import { InfoIcon } from "@react-components/icons";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Square } from "./Square.jsx";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Badge")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/badge" />)
+        .build()}
+/>
+
+# Badge
+
+Badges contain numeric values and indicate a running tally. A badge is normally placed after the text of the thing it quantify or embedded in another component such as a button or a checkbox.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Badge", component: InnerBadge },
+        { displayName: "FloatingBadge", component: InnerFloatingBadge }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default badge.
+
+<Preview>
+    <Story name="default">
+        <Badge>100</Badge>
+    </Story>
+</Preview>
+
+### Highlight
+
+A badge can draw attention on his text.
+
+<Preview>
+    <Story name="highlight">
+        <Badge highlight>100</Badge>
+    </Story>
+</Preview>
+
+### Size
+
+A badge can vary in size.
+
+Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Badge size="mini">100</Badge>
+            <Badge size="tiny">100</Badge>
+            <Badge size="small">100</Badge>
+            <Badge>100</Badge>
+            <Badge size="large">100</Badge>
+        </div>
+    </Story>
+</Preview>
+
+### Inline
+
+A badge can be rendered as inlined.
+
+<Preview>
+    <Story name="inline">
+        <span>Galaxies<Badge variant="inline">100 billion</Badge></span>
+    </Story>
+</Preview>
+
+An inline badge, is not affected by the `size` property. The badge will inherit it's size from his parent font-size.
+
+<Preview>
+    <Story name="inline size">
+        <div className="flex flex-column items-vertical-space-between">
+            <span className="f5">Galaxies<Badge variant="inline">100+</Badge></span>
+            <span className="f4">Galaxies<Badge variant="inline">100+</Badge></span>
+        </div>
+    </Story>
+</Preview>
+
+### Dot
+
+A badge can be rendered as a dot.
+
+<Preview>
+    <Story name="dot">
+        <div className="flex flex-column items-vertical-space-between">
+            <div className="flex items-end items-space-between">
+                <Badge variant="dot" size="mini" />
+                <Badge variant="dot" size="tiny" />
+                <Badge variant="dot" size="small" />
+                <Badge variant="dot" />
+                <Badge variant="dot" size="large" />
+            </div>
+            <div className="flex items-end items-space-between">
+                <Badge variant="dot" size="small">5</Badge>
+                <Badge variant="dot">5</Badge>
+                <Badge variant="dot" size="large">5</Badge>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### Icon
+
+A badge can be an icon.
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-end items-space-between">
+            <Badge variant="icon" size="tiny"><InfoIcon /></Badge>
+            <Badge variant="icon" size="small"><InfoIcon /></Badge>
+            <Badge variant="icon"><InfoIcon /></Badge>
+            <Badge variant="icon" size="large"><InfoIcon /></Badge>
+        </div>
+    </Story>
+</Preview>
+
+### Floating
+
+A badge can float to the top right corner of an element.
+
+<Preview>
+    <Story name="floating">
+        <div className="flex items-lot-of-space-between">
+            <FloatingBadge badge={<Badge variant="dot" />}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge variant="dot">5</Badge>}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge variant="icon"><InfoIcon /></Badge>}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge>100</Badge>}>
+                <Square />
+            </FloatingBadge>
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger component={<Badge>100</Badge>} />
+</Story>
+
+

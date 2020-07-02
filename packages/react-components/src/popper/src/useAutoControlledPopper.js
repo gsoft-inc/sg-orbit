@@ -2,6 +2,7 @@ import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import {
     KEYS,
     augmentElement,
+    createOrAugmentElement,
     mergeClasses,
     useAutoControlledState,
     useChainedEventCallback,
@@ -9,7 +10,7 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Popper, createPopper } from "./Popper";
+import { Popper } from "./Popper";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -101,7 +102,6 @@ export function useAutoControlledPopper(props) {
         show,
         defaultShow,
         trigger,
-        toggleHandler,
         onVisibilityChange,
         onFocus,
         onBlur,
@@ -195,7 +195,7 @@ export function useAutoControlledPopper(props) {
 
     const [handleFocus, handleBlur] = useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, wrapperRef);
 
-    const handleTriggerToggle = useEventCallback(event => {
+    const handleTriggerClick = useEventCallback(event => {
         lastTriggerEventRef.current = event.type;
 
         if (!disabled) {
@@ -292,7 +292,7 @@ export function useAutoControlledPopper(props) {
     const handleWrapperBlur = useChainedEventCallback(handleBlur, onBlur);
 
     const render = content => {
-        const popperMarkup = !isNil(triggerElement) && createPopper(popper, {
+        const popperMarkup = !isNil(triggerElement) && createOrAugmentElement(popper, {
             show: isVisible,
             triggerElement,
             position,
@@ -313,7 +313,7 @@ export function useAutoControlledPopper(props) {
         });
 
         const triggerMarkup = augmentElement(trigger, {
-            [toggleHandler]: handleTriggerToggle,
+            onClick: handleTriggerClick,
             onKeyDown: handleTriggerKeyDown,
             ref: setTriggerElement
         });

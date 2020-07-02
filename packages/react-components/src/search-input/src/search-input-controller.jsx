@@ -1,13 +1,12 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, SIZE, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, SIZE, createOrAugmentElement, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CloseIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
-import { TextInput, createTextInput } from "../../text-input";
-import { arrayOf, bool, element, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { cloneElement, createRef } from "react";
+import { TextInput } from "../../text-input";
+import { arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
-import { isElement } from "react-is";
 
 function defaultResultRenderer({ text }) {
     return <div data-testid="search-input-result">{text}</div>;
@@ -36,7 +35,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         autofocusDelay: number,
         fluid: bool,
         size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
-        input: oneOfType([element, object]),
+        input: oneOfType([element, elementType]),
         active: bool,
         focus: bool,
         hover: bool,
@@ -285,7 +284,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     renderInput = () => {
         const { open, loading, disabled, autofocus, autofocusDelay, size, fluid, input, active, focus, hover } = this.props;
 
-        const props = {
+        return createOrAugmentElement(input, {
             onKeyDown: this.handleInputKeyDown,
             icon: <MagnifierIcon />,
             iconPosition: "left",
@@ -301,15 +300,6 @@ export class SearchInputController extends AutoControlledPureComponent {
             hover,
             ref: this._inputRef,
             "data-testid": "search-input-textbox"
-        };
-
-        if (isElement(input)) {
-            return cloneElement(input, props);
-        }
-
-        return createTextInput({
-            ...props,
-            ...input
         });
     }
 

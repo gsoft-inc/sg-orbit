@@ -12,9 +12,9 @@ export function ControlledRadioGroup() {
         <>
             <span className="dib mb4">Where are you heading?</span>
             <div className="flex flex-column">
-                <Radio text="Earth" name="checkboxRadioGroup" value="earth" onChange={handleChange} checked={value === "earth"} className="mb2" />
-                <Radio text="Moon" name="checkboxRadioGroup" value="moon" onChange={handleChange} checked={value === "moon"} className="mb2" />
-                <Radio text="Mars" name="checkboxRadioGroup" value="mars" onChange={handleChange} checked={value === "mars"} />
+                <Radio label="Earth" name="checkboxRadioGroup" value="earth" onChange={handleChange} checked={value === "earth"} className="mb2" />
+                <Radio label="Moon" name="checkboxRadioGroup" value="moon" onChange={handleChange} checked={value === "moon"} className="mb2" />
+                <Radio label="Mars" name="checkboxRadioGroup" value="mars" onChange={handleChange} checked={value === "mars"} />
             </div>
         </>
     );

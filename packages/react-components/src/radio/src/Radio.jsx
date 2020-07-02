@@ -1,6 +1,6 @@
 import { Checkbox } from "../../checkbox";
 import { SemanticRef } from "../../shared";
-import { arrayOf, bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
@@ -8,7 +8,7 @@ const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "t
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 export const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the radio should autofocus on render.
+     * Whether or not the radio should be autofocus on render.
      */
     autofocus: bool,
     /**
@@ -16,21 +16,17 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The text associated to the checkbox.
+     * The label associated to the radio.
      */
-    text: string,
+    label: string,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display [icons](/?path=/docs/components-icon--default-story) after the text.
+     * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [label](/?path=/docs/components-label--default-story) after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
      */
-    label: oneOfType([element, object]),
-    /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [count](/?path=/docs/components-count--default-story) after the text.
-     */
-    count: oneOfType([element, object]),
+    badge: element,
     /**
      * A radio can vary in sizes.
      */

@@ -1,6 +1,5 @@
-import { Label } from "@react-components/label";
+import { Badge } from "@react-components/badge";
 import { SignoutIcon } from "@react-components/icons";
-import { Tag } from "@react-components/tag";
 import { cloneElement } from "react";
 
 function Button({ element, ...rest }) {
@@ -76,58 +75,66 @@ function Loadings({ element, ...rest }) {
     );
 }
 
-function Labels({ element, ...rest }) {
+function Badges({ element, ...rest }) {
     const button = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex items-end mb5">
-                <Button size="micro" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button size="mini" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button size="tiny" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button size="small" label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button size="large" label={<Label>6</Label>} element={button}>Button</Button>
+                <Button size="micro" badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="mini" badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="tiny" badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="small" badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="large" badge={<Badge>6</Badge>} element={button}>Button</Button>
+            </div>
+            <div className="flex items-end mb5">
+                <Button size="micro" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="mini" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="tiny" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="small" badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badge={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="large" badge={<Badge inline>6</Badge>} element={button}>Button</Button>
             </div>
             <div className="flex mb5">
-                <Button active label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button focus label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button hover label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button focus hover label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button disabled label={<Label>6</Label>} element={button} className="mr5">Button</Button>
+                <Button active badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button focus badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button hover badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button focus hover badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button disabled badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
             </div>
             <div className="flex mb5">
-                <Button icon={<SignoutIcon />} label={<Label>6</Label>} element={button} className="mr5">Button</Button>
-                <Button label={<Label className="bg-red">6</Label>} element={button} className="mr5">Button</Button>
-                <Button label={<Label>6</Label>} loading element={button}>Button</Button>
+                <Button icon={<SignoutIcon />} badge={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badge={<Badge className="bg-red">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badge={<Badge>6</Badge>} loading element={button}>Button</Button>
             </div>
         </>
     );
 }
 
-function Tags({ element, ...rest }) {
+function Dots({ element, ...rest }) {
     const button = cloneElement(element, rest);
 
     return (
         <>
             <div className="flex items-end mb5">
-                <Button size="micro" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button size="mini" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button size="tiny" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button size="small" tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button size="large" tag={<Tag className="bg-red" />} element={button}>Button</Button>
+                <Button size="micro" dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button size="mini" dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button size="tiny" dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button size="small" dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button size="large" dot={<Badge dot />} element={button}>Button</Button>
             </div>
             <div className="flex mb5">
-                <Button active tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button focus tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button hover tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button focus hover tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
-                <Button disabled tag={<Tag className="bg-red" />} element={button} className="mr5">Button</Button>
+                <Button active dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button focus dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button hover dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button focus hover dot={<Badge dot />} element={button} className="mr5">Button</Button>
+                <Button disabled dot={<Badge dot />} element={button}>Button</Button>
             </div>
             <div className="flex mb5">
-                <Button tag={<Tag className="bg-red" />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
-                <Button tag={<Tag className="bg-red" />} loading element={button}>Button</Button>
+                <Button dot={<Badge dot />} icon={<SignoutIcon />} iconPosition="right" element={button} className="mr5">Button</Button>
+                <Button dot={<Badge dot />} loading element={button}>Button</Button>
             </div>
         </>
     );
@@ -158,10 +165,10 @@ export function createTestSuite(button, stories) {
                     </div>
                     <Icons element={button} />
                     <Loadings element={button} />
-                    <Labels element={button} />
+                    <Badges element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Tags element={button} />
+                    <Dots element={button} />
                 </div>
             </div>
         )
@@ -187,10 +194,10 @@ export function createTestSuite(button, stories) {
                     </div>
                     <Icons ghost element={button} />
                     <Loadings ghost element={button} />
-                    <Labels ghost element={button} />
+                    <Badges ghost element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Tags ghost element={button} />
+                    <Dots ghost element={button} />
                 </div>
             </div>
         )
@@ -216,10 +223,10 @@ export function createTestSuite(button, stories) {
                     </div>
                     <Icons basic element={button} />
                     <Loadings basic element={button} />
-                    <Labels basic element={button} />
+                    <Badges basic element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Tags basic element={button} />
+                    <Dots basic element={button} />
                 </div>
             </div>
         )
@@ -245,10 +252,10 @@ export function createTestSuite(button, stories) {
                     </div>
                     <Icons compact element={button} />
                     <Loadings compact element={button} />
-                    <Labels compact element={button} />
+                    <Badges compact element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Tags compact element={button} />
+                    <Dots compact element={button} />
                 </div>
             </div>
         )

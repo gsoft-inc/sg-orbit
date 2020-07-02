@@ -2,21 +2,11 @@
 
 import { Children, forwardRef, useCallback } from "react";
 import { EmbeddedIcon } from "../../icons";
-import {
-    SIZE,
-    SemanticRef,
-    createShorthandFactory,
-    createShorthandFactoryForEmbedded,
-    mergeClasses,
-    throwWhenUnsupportedPropIsProvided,
-    useAutofocus,
-    useMergedRefs
-} from "../../shared";
+import { SIZE, SemanticRef, createEmbeddableAdapter, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
 import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, number, object, oneOf, oneOfType } from "prop-types";
-import { createEmbeddedLabel } from "../../label";
-import { createEmbeddedTag } from "../../tag";
-import { isNil, isString } from "lodash";
+import { bool, element, number, oneOf } from "prop-types";
+import { embedBadge } from "../../badge";
+import { isNil } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
 const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
@@ -31,21 +21,21 @@ const propTypes = {
      */
     link: bool,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right.
+     * An icon can appear on the left or right side of the text.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [label](/?path=/docs/components-label--default-story).
+     * [Dot](/?path=/docs/components-badge--dot) variant of a badge rendered before the text.
      */
-    label: oneOfType([element, object]),
+    dot: element,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [tag](/?path=/docs/components-tag--default-story).
+     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
      */
-    tag: oneOfType([element, object]),
+    badge: element,
     /**
      * A button can be colorless. Use this variant if you need to customize the button.
      */
@@ -59,7 +49,7 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * An input can vary in sizes.
+     * A button can vary in sizes.
      */
     size: oneOf(SIZES),
     /**
@@ -73,13 +63,13 @@ const defaultProps = {
     type: "button"
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ label, tag, icon, iconPosition }) {
-    if (!isNil(label) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a label and a right positioned icon at the same time.");
+function throwWhenMutuallyExclusivePropsAreProvided({ dot, badge, icon, iconPosition }) {
+    if (!isNil(dot) && !isNil(icon) && iconPosition === "left") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a dot and a left positioned icon at the same time.");
     }
 
-    if (!isNil(tag) && !isNil(icon) && iconPosition === "left") {
-        throw new Error("@orbit-ui/react-components/Button doesn't support having a tag and a left positioned icon at the same time.");
+    if (!isNil(badge) && !isNil(icon) && iconPosition === "right") {
+        throw new Error("@orbit-ui/react-components/Button doesn't support having a badge and a right positioned icon at the same time.");
     }
 }
 
@@ -91,8 +81,8 @@ export function InnerButton(props) {
         naked,
         icon,
         iconPosition,
-        label,
-        tag,
+        dot,
+        badge,
         autofocus,
         autofocusDelay,
         size,
@@ -124,24 +114,22 @@ export function InnerButton(props) {
         <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
     );
 
-    const labelMarkup = !isNil(label) && createEmbeddedLabel(label, {
-        as: "span",
+    const dotMarkup = !isNil(dot) && embedBadge(dot, {
         size,
-        highlight: true,
-        disabled: disabled
+        disabled
     });
 
-    const tagMarkup = !isNil(tag) && createEmbeddedTag(tag, {
-        as: "span",
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
         size,
-        disabled: disabled
+        highlight: true,
+        disabled
     });
 
     const content = (
         <>
-            {iconPosition === "left" && iconMarkup}{tagMarkup}
+            {iconPosition === "left" && iconMarkup}{dotMarkup}
             {children}
-            {iconPosition === "right" && iconMarkup}{labelMarkup}
+            {iconPosition === "right" && iconMarkup}{badgeMarkup}
         </>
     );
 
@@ -159,11 +147,12 @@ export function InnerButton(props) {
                     naked && "naked",
                     ghost && "ghost",
                     link && "link",
-                    !isNil(icon) && "with-icon",
-                    !isNil(icon) && iconPosition === "right" && "with-icon-right",
-                    !isNil(label) && "with-label",
-                    !isNil(tag) && "with-tag",
-                    !hasText && "without-text",
+                    iconMarkup && "with-icon",
+                    iconMarkup && iconPosition === "left" && "with-left-icon",
+                    iconMarkup && iconPosition === "right" && "with-right-icon",
+                    dotMarkup && "with-dot",
+                    badgeMarkup && "with-badge",
+                    !hasText && "fitted",
                     focus && "focus",
                     hover && "hover",
                     className)
@@ -192,17 +181,7 @@ if (!isNil(SemanticButton.propTypes)) {
     SemanticButton.propTypes.size = oneOf(SIZES);
 }
 
-export const createButton = createShorthandFactory(Button, (shorthand, props) => {
-    if (isString(shorthand)) {
-        return (
-            <Button {...props}>
-                {shorthand}
-            </Button>
-        );
-    }
-});
-
-export const createEmbeddedButton = createShorthandFactoryForEmbedded(createButton, {
+export const embedButton = createEmbeddableAdapter({
     [SIZE.micro]: SIZE.micro,
     [SIZE.mini]: SIZE.micro,
     [SIZE.tiny]: SIZE.micro,

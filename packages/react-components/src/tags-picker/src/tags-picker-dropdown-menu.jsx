@@ -1,7 +1,7 @@
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent } from "react";
 import { Ref } from "semantic-ui-react";
-import { arrayOf, element, func, object, oneOfType, shape, string } from "prop-types";
+import { arrayOf, element, elementType, func, object, oneOfType, shape, string } from "prop-types";
 import { groupBy, isNil } from "lodash";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -24,9 +24,9 @@ export class TagsPickerDropdownMenu extends PureComponent {
          */
         onItemClick: func,
         /**
-         * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for a [text input](/?path=/docs/components-textinput--default-story).
+         * [Text input](/?path=/docs/components-textinput--default-story) component to render.
          */
-        searchInput: oneOfType([element, object]),
+        searchInput: oneOfType([element, elementType]),
         /**
          * Message to display when there are no items matching the search input.
          */

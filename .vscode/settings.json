@@ -21,8 +21,9 @@
         ".overrides": "css",
         ".variables": "css"
     },
+    "breadcrumbs.enabled": true,
     "search.exclude": {
         "**/node_modules*": true,
         "**/dist*": true
-    },
+    }
 }

@@ -7,7 +7,6 @@ The following documentation is only for the maintainers of this repository.
 - [Develop a component](#develop-a-component)
 - [Update docs](#update-docs)
 - [Release the packages](#release-the-packages)
-- [Release Storybook](#release-storybook)
 - [Release docs](#release-docs)
 - [Available commands](#commands)
 - [Testing](#testing)
@@ -202,28 +201,6 @@ yarn build:pkg
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
 
-## Release Storybook
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4b420380-aed1-4dc6-b002-6efe7b413025/deploy-status)](https://app.netlify.com/sites/sg-storybook/deploys)
-
-Releasing Storybook website includes a few steps:
-
-1. Build the packages
-2. Build storybook into a static web app
-3. Deploy the static web app to Netlify
-4. Go to https://app.netlify.com/sites/sg-storybook/deploys, select the new build and "Publish deploy"
-
-Before you release, make sure you have access to the GSoft Netlify team.
-
-To release, open a terminal at the root of the workspace and execute the following command:
-
-```bash
-yarn build:pkg
-yarn release-sb
-```
-
-Open a web browser and navigate to https://sg-storybook.netlify.com.
-
 ### Troubleshooting
 
 #### Netlify
@@ -393,14 +370,6 @@ View the section [Release the packages](#release-the-packages).
 ### release-pkg-next
 
 Same as *release-pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
-
-### release-sb
-
-View the section [Release Storybook](#release-storybook).
-
-### release-docs
-
-View the section [Release docs](#release-docs).
 
 ### reset
 

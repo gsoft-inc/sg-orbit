@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 
 import { Popper } from "./Popper";
-import { array, arrayOf, bool, element, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { array, arrayOf, bool, element, elementType, func, instanceOf, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
@@ -85,11 +85,6 @@ const propTypes = {
      */
     trigger: node.isRequired,
     /**
-     * The [event handler](https://reactjs.org/docs/events.html) that toggle the popper visibility.
-     * Ex. "onClick"
-     */
-    toggleHandler: string.isRequired,
-    /**
      * Called when the popup open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isVisible - Indicate if the popup is visible.
@@ -146,9 +141,9 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for the popper.
+     * Popper component to render.
      */
-    popper: oneOfType([element, object])
+    popper: oneOfType([element, elementType])
 };
 
 /////////////////

@@ -9,18 +9,22 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-export function InnerDropdownButtonItem({ as, forwardedRef, ...rest }) {
+const defaultProps = {
+    as: "button"
+};
+
+export function InnerDropdownButtonItem({ forwardedRef, ...rest }) {
     return (
         <DropdownItem
             {...rest}
             className="dropdown-button-item"
-            as={as || "button"}
             ref={forwardedRef}
         />
     );
 }
 
 InnerDropdownButtonItem.propTypes = propTypes;
+InnerDropdownButtonItem.defaultProps = defaultProps;
 
 export const DropdownButtonItem = forwardRef((props, ref) => (
     <InnerDropdownButtonItem {...props} forwardedRef={ref} />

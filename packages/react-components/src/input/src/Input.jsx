@@ -2,11 +2,11 @@
 
 import { EmbeddedIcon } from "../../icons";
 import { Input as SemanticInput } from "semantic-ui-react";
-import { bool, element, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createEmbeddedButton } from "../../button";
-import { createShorthandFactory, mergeClasses, useAutofocus } from "../../shared";
+import { bool, element, number, object, oneOf, string } from "prop-types";
+import { embedButton } from "../../button";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
+import { mergeClasses, useAutofocus } from "../../shared";
 
 export const INPUT_SIZES = ["small", "medium", "large"];
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
@@ -21,17 +21,17 @@ const INPUT_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) for an [icon](/?path=/docs/components-icon--default-story).
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the value.
      */
     icon: element,
     /**
-     * An icon can appear on the left or right.
+     * An icon can appear on the left or right side of the value.
      */
     iconPosition: oneOf(["left", "right"]),
     /**
-     * [Shorthand](/?path=/docs/getting-started-shorthand-props--page) to display a [button](/?path=/docs/components-button--default-story) after the value.
+     * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
      */
-    button: oneOfType([element, object]),
+    button: element,
     /**
      * An input can vary in sizes.
      */
@@ -118,7 +118,7 @@ export function InnerInput(props) {
 
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");
 
-    const buttonMarkup = canRenderButton && createEmbeddedButton(button, {
+    const buttonMarkup = canRenderButton && embedButton(button, {
         size,
         circular: true,
         ghost: true,
@@ -171,5 +171,3 @@ export const Input = forwardRef((props, ref) => (
 if (!isNil(SemanticInput.propTypes)) {
     SemanticInput.propTypes.size = oneOf(INPUT_SIZES);
 }
-
-export const createInput = createShorthandFactory(Input);

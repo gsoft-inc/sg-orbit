@@ -1,7 +1,8 @@
+import { Button } from "../../button";
 import { CloseIcon } from "../../icons";
-import { Label } from "../../label";
 import { PureComponent } from "react";
 import { SIZE, mergeClasses } from "../../shared";
+import { Tag } from "../../tag";
 import { arrayOf, func, oneOf, shape, string } from "prop-types";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
@@ -15,14 +16,14 @@ const SIZES = ["small", "medium", "large"];
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
     return (
-        <Label
+        <Tag
             basic
             size={size}
-            button={!disabled ? { icon: <CloseIcon />, onClick: onRemove } : undefined}
+            button={!disabled ? <Button icon={<CloseIcon />} onClick={onRemove} /> : undefined}
             data-testid={`tags-picker-selected-item-${item.value}`}
         >
             {item.text}
-        </Label>
+        </Tag>
     );
 }
 

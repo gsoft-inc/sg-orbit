@@ -1,5 +1,8 @@
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Badge } from "@react-components/badge";
+import { Button } from "@react-components/button";
+import { CheckIcon, CloseIcon, InfoIcon } from "@react-components/icons";
 import { InnerTag, Tag } from "@react-components/tag";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -8,21 +11,19 @@ import Imports from "./Imports.mdx";
     title={createComponentSection("Tag")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout semanticPath="/elements/label" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tag/src" />)
         .build()}
 />
 
 # Tag
 
-A tag is a small colored dot displayed before the text.
+A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a [TagsPicker](?path=/story/components-tagspicker--default-story).
 
 ## Installation
 
 <InstallReactComponents imports={<Imports />} />
 
 ## Props
-
-<HocWarning componentName="Label" semanticPath="/elements/label" />
 
 <Props
     componentsDefinitions={[
@@ -34,11 +35,57 @@ A tag is a small colored dot displayed before the text.
 
 ### Default
 
-A default tag is colorless. You must a color by specifying a `background-color`.
+A default tag.
 
 <Preview>
     <Story name="default">
-        <Tag className="bg-marine-500" />
+        <Tag>Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Button
+
+A tag can contain a [button](?path=/docs/components-button--default-story).
+
+<Preview>
+    <Story name="button">
+        <Tag button={<Button icon={<CloseIcon />} />}>
+            Falcon 9
+        </Tag>
+    </Story>
+</Preview>
+
+### Icon
+
+A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
+
+<Preview>
+    <Story name="icon">
+        <div className="flex items-space-between">
+            <Tag leftIcon={<InfoIcon />}>
+                Falcon 9
+            </Tag>
+            <Tag rightIcon={<CheckIcon />}>
+                Falcon 9
+            </Tag>
+        </div>
+    </Story>
+</Preview>
+
+### Badge
+
+A tag can contain a left or right [badge](?path=/docs/components-badge--default-story).
+
+<Preview>
+    <Story name="badge">
+        <div className="flex items-space-between">
+            <Tag leftBadge={<Badge variant="dot" className="bg-primary-500" />}>
+                Falcon 9
+            </Tag>
+            <Tag rightBadge={<Badge>6</Badge>}>
+                Falcon 9
+            </Tag>
+        </div>
     </Story>
 </Preview>
 
@@ -46,20 +93,43 @@ A default tag is colorless. You must a color by specifying a `background-color`.
 
 A tag can vary in size.
 
-The available sizes are `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-lot-of-space-between">
-            <Tag size="mini" className="bg-marine-500" />
-            <Tag size="tiny" className="bg-marine-500" />
-            <Tag size="small" className="bg-marine-500" />
-            <Tag size="medium" className="bg-marine-500" />
-            <Tag size="large" className="bg-marine-500" />
-            <Tag size="big" className="bg-marine-500" />
-            <Tag size="huge" className="bg-marine-500" />
-            <Tag size="massive" className="bg-marine-500" />
+        <div className="flex items-end items-space-between">
+            <Tag size="small">Falcon 9</Tag>
+            <Tag>Falcon 9</Tag>
+            <Tag size="large">Falcon 9</Tag>
         </div>
+    </Story>
+</Preview>
+
+### Outline
+
+A tag can have a subtle appearance.
+
+<Preview>
+    <Story name="outline">
+        <Tag variant="outline">Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Custom colors
+
+Custom colors can be applied to a tag.
+
+<Preview>
+    <Story name="custom-color">
+        <Tag
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Falcon 9
+        </Tag>
     </Story>
 </Preview>
 
@@ -69,7 +139,8 @@ The available sizes are `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Tag />} />
+    <RefLogger component={<Tag>Falcon 9</Tag>} />
 </Story>
+
 
 

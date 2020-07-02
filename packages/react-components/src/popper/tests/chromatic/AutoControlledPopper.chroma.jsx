@@ -34,17 +34,10 @@ function RedBoxPopper(props) {
         <AutoControlledPopper
             {...props}
             trigger={<Button fluid>Open</Button>}
-            toggleHandler="onClick"
         >
             <RedBox />
         </AutoControlledPopper>
     );
-}
-
-function setBlueBorders(element) {
-    if (!isNil(element)) {
-        element.classList.add("border-blue");
-    }
 }
 
 stories()
@@ -119,19 +112,15 @@ stories()
             <div style={{ marginBottom: "100px" }}>
                 <RedBoxPopper
                     show
-                    popper={<Popper ref={setBlueBorders} />}
-                />
-            </div>
-            <div style={{ marginBottom: "100px" }}>
-                <RedBoxPopper
-                    show
-                    popper={{ className: "border-blue" }}
-                />
-            </div>
-            <div>
-                <RedBoxPopper
-                    show
-                    popper={{ className: "border-blue", ref: setBlueBorders }}
+                    popper={
+                        <Popper
+                            ref={element => {
+                                if (!isNil(element)) {
+                                    element.classList.add("border-blue");
+                                }
+                            }}
+                        />
+                    }
                 />
             </div>
         </div>

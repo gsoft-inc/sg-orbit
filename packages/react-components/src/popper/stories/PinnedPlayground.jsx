@@ -14,7 +14,7 @@ export function PinnedPlayground({ children }) {
         <div>
             <PopperBoundary>{popper}</PopperBoundary>
             <div className="mt4">
-                <Toggle text="Pinned" checked={isPinned} onChange={() => { setIsPinned(!isPinned); }} />
+                <Toggle label="Pinned" checked={isPinned} onChange={() => { setIsPinned(!isPinned); }} />
             </div>
         </div>
     );
