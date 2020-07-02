@@ -112,8 +112,8 @@ export function InnerCheckbox(props) {
                     focus && "focus",
                     hover && "hover",
                     size && size,
-                    !isNil(icons) && "with-icon",
-                    !isNil(badge) && "with-badge",
+                    iconsMarkup && "with-icon",
+                    badgeMarkup && "with-badge",
                     !hasLabel && "fitted",
                     className
                 )}

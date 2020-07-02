@@ -48,4 +48,10 @@ stories()
                 }}
             >New</Lozenge>
         </div>
+    )
+    .add("as link or button", () =>
+        <div className="flex">
+            <Lozenge as="a" className="mr5">New</Lozenge>
+            <Lozenge as="button">New</Lozenge>
+        </div>
     );

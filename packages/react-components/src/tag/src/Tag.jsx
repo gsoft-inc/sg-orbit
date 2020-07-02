@@ -7,26 +7,27 @@ import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
+    variant: oneOf(["solid", "outline", "transparent"]),
     /**
-     * A tag can reduce its complexity.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    basic: bool,
+    leftIcon: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     */
+    rightIcon: element,
     /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
      */
     button: element,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
      */
-    icon: element,
+    leftBagde: element,
     /**
-     * An icon can appear on the left or right side of the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
-    iconPosition: oneOf(["left", "right"]),
-    /**
-     * [Dot](/?path=/docs/components-badge--dot) variant of a badge rendered before the text.
-     */
-    dot: element,
+    rightBadge: element,
     /**
      * A tag can vary in sizes.
      */
@@ -42,27 +43,19 @@ const propTypes = {
 };
 
 const defaultProps = {
-    iconPosition: "left",
+    variant: "solid",
     as: "div"
 };
 
-function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition, dot }) {
-    if (!isNil(button) && !isNil(icon) && iconPosition === "right") {
-        throw new Error("@orbit-ui/react-components/Tag doesn't support having a button and a right positioned icon at the same time.");
-    }
-
-    if (!isNil(dot) && !isNil(icon) && iconPosition === "left") {
-        throw new Error("@orbit-ui/react-components/Tag doesn't support having a dot badge and a left positioned icon at the same time.");
-    }
-}
-
 export function InnerTag(props) {
-    const { basic, button, icon, iconPosition, dot, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
+    const { variant, leftIcon, rightIcon, button, leftBadge, rightBadge, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
 
-    throwWhenMutuallyExclusivePropsAreProvided(props);
+    const leftIconMarkup = !isNil(leftIcon) && (
+        <EmbeddedIcon icon={leftIcon} size={size} />
+    );
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon icon={icon} size={size} />
+    const rightIconMarkup = !isNil(rightIcon) && (
+        <EmbeddedIcon icon={rightIcon} size={size} />
     );
 
     const buttonMarkup = !isNil(button) && embedButton(button, {
@@ -72,16 +65,21 @@ export function InnerTag(props) {
         secondary: true
     });
 
-    const dotMarkup = !isNil(dot) && embedBadge(dot, {
+    const leftBadgeMarkup = !isNil(leftBadge) && embedBadge(leftBadge, {
+        disabled,
+        size
+    });
+
+    const rightBadgeMarkup = !isNil(rightBadge) && embedBadge(rightBadge, {
         disabled,
         size
     });
 
     const content = (
         <>
-            {iconPosition === "left" && iconMarkup}{dotMarkup}
+            {leftIconMarkup}{leftBadgeMarkup}
             {children}
-            {iconPosition === "right" && iconMarkup}{buttonMarkup}
+            {buttonMarkup}{rightIconMarkup}{rightBadgeMarkup}
         </>
     );
 
@@ -90,12 +88,13 @@ export function InnerTag(props) {
             {...rest}
             className={mergeClasses(
                 "ui label",
-                basic && "basic",
+                variant,
                 disabled && "disabled",
-                !isNil(button) && "with-button",
-                !isNil(iconMarkup) && iconPosition === "left" && "with-left-icon",
-                !isNil(iconMarkup) && iconPosition === "right" && "with-right-icon",
-                !isNil(dot) && "with-dot",
+                buttonMarkup && "with-button",
+                leftIconMarkup && "with-left-icon",
+                rightIconMarkup && "with-right-icon",
+                leftBadgeMarkup && "with-left-badge",
+                rightBadgeMarkup && "with-right-badge",
                 getSizeClass(size),
                 className
             )}

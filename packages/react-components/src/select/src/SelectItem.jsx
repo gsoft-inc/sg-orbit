@@ -87,9 +87,9 @@ export function SelectItem(props) {
         <SemanticDropdown.Item
             {...rest}
             className={mergeClasses(
-                !isNil(avatar) && "with-avatar",
-                !isNil(icons) && iconsPosition === "left" && "with-icons-left",
-                !isNil(icons) && iconsPosition === "right" && "with-icons-right",
+                avatarMarkup && "with-avatar",
+                iconsMarkup && iconsPosition === "left" && "with-icons-left",
+                iconsMarkup && iconsPosition === "right" && "with-icons-right",
                 className
             )}
         >

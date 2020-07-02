@@ -62,37 +62,30 @@ A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Tag icon={<InfoIcon />}>
+            <Tag leftIcon={<InfoIcon />}>
                 Falcon 9
             </Tag>
-            <Tag icon={<CheckIcon />} iconPosition="right">
+            <Tag rightIcon={<CheckIcon />}>
                 Falcon 9
             </Tag>
         </div>
     </Story>
 </Preview>
 
-### Dot
+### Badge
 
-A tag can contain a [dot badge](?path=/docs/components-badge--dot).
+A tag can contain a left or right [badge](?path=/docs/components-badge--default-story).
 
 <Preview>
-    <Story name="dot">
+    <Story name="badge">
         <div className="flex items-space-between">
-            <Tag dot={<Badge dot className="bg-primary-500" />}>
+            <Tag leftBadge={<Badge variant="dot" className="bg-primary-500" />}>
+                Falcon 9
+            </Tag>
+            <Tag rightBadge={<Badge>6</Badge>}>
                 Falcon 9
             </Tag>
         </div>
-    </Story>
-</Preview>
-
-### Basic
-
-A tag can have a subtle appearance.
-
-<Preview>
-    <Story name="basic">
-        <Tag basic>Falcon 9</Tag>
     </Story>
 </Preview>
 
@@ -109,6 +102,16 @@ Can be set to: `"small"`, `"large"` or omitted.
             <Tag>Falcon 9</Tag>
             <Tag size="large">Falcon 9</Tag>
         </div>
+    </Story>
+</Preview>
+
+### Outline
+
+A tag can have a subtle appearance.
+
+<Preview>
+    <Story name="outline">
+        <Tag variant="outline">Falcon 9</Tag>
     </Story>
 </Preview>
 

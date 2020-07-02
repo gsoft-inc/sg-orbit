@@ -1,6 +1,3 @@
-import { Badge } from "@react-components/badge";
-import { Button } from "@react-components/button";
-import { CloseIcon, LightbulbIcon } from "@react-components/icons";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
@@ -16,6 +13,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("standard", createTestSuite(<Tag />))
-    .add("basic", createTestSuite(<Tag basic />));
+    .add("solid", createTestSuite(<Tag />))
+    .add("outline", createTestSuite(<Tag variant="outline" />));
 
