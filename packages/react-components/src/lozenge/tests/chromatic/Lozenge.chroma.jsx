@@ -19,14 +19,14 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb12">
-                <Lozenge size="small" leftIcon={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge leftIcon={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge size="large" leftIcon={<InfoIcon />}>New</Lozenge>
+                <Lozenge size="small" iconLeft={<InfoIcon />} className="mr5">New</Lozenge>
+                <Lozenge iconLeft={<InfoIcon />} className="mr5">New</Lozenge>
+                <Lozenge size="large" iconLeft={<InfoIcon />}>New</Lozenge>
             </div>
             <div className="flex items-end">
-                <Lozenge size="small" rightIcon={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge rightIcon={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge size="large" rightIcon={<InfoIcon />}>New</Lozenge>
+                <Lozenge size="small" iconRight={<InfoIcon />} className="mr5">New</Lozenge>
+                <Lozenge iconRight={<InfoIcon />} className="mr5">New</Lozenge>
+                <Lozenge size="large" iconRight={<InfoIcon />}>New</Lozenge>
             </div>
         </div>
     )

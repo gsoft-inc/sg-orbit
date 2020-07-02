@@ -14,11 +14,11 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    leftIcon: element,
+    iconLeft: element,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    rightIcon: element,
+    iconRight: element,
     /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
      */
@@ -26,11 +26,11 @@ const propTypes = {
     /**
      * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
      */
-    leftBagde: element,
+    badgeLeft: element,
     /**
      * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
-    rightBadge: element,
+    badgeRight: element,
     /**
      * A tag can vary in sizes.
      */
@@ -51,14 +51,14 @@ const defaultProps = {
 };
 
 export function InnerTag(props) {
-    const { variant, leftIcon, rightIcon, button, leftBadge, rightBadge, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
+    const { variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
 
-    const leftIconMarkup = !isNil(leftIcon) && (
-        <EmbeddedIcon icon={leftIcon} size={size} />
+    const iconLeftMarkup = !isNil(iconLeft) && (
+        <EmbeddedIcon icon={iconLeft} size={size} />
     );
 
-    const rightIconMarkup = !isNil(rightIcon) && (
-        <EmbeddedIcon icon={rightIcon} size={size} />
+    const iconRightMarkup = !isNil(iconRight) && (
+        <EmbeddedIcon icon={iconRight} size={size} />
     );
 
     const buttonMarkup = !isNil(button) && embedButton(button, {
@@ -68,21 +68,21 @@ export function InnerTag(props) {
         secondary: true
     });
 
-    const leftBadgeMarkup = !isNil(leftBadge) && embedBadge(leftBadge, {
+    const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
         disabled,
         size
     });
 
-    const rightBadgeMarkup = !isNil(rightBadge) && embedBadge(rightBadge, {
+    const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
         disabled,
         size
     });
 
     const content = (
         <>
-            {leftIconMarkup}{leftBadgeMarkup}
+            {iconLeftMarkup}{badgeLeftMarkup}
             {children}
-            {buttonMarkup}{rightIconMarkup}{rightBadgeMarkup}
+            {buttonMarkup}{iconRightMarkup}{badgeRightMarkup}
         </>
     );
 
@@ -94,10 +94,10 @@ export function InnerTag(props) {
                 variant,
                 disabled && "disabled",
                 buttonMarkup && "with-button",
-                leftIconMarkup && "with-left-icon",
-                rightIconMarkup && "with-right-icon",
-                leftBadgeMarkup && "with-left-badge",
-                rightBadgeMarkup && "with-right-badge",
+                iconLeftMarkup && "with-left-icon",
+                iconRightMarkup && "with-right-icon",
+                badgeLeftMarkup && "with-left-badge",
+                badgeRightMarkup && "with-right-badge",
                 getSizeClass(size),
                 className
             )}
