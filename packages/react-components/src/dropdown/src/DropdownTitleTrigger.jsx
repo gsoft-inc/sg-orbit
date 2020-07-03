@@ -1,7 +1,7 @@
-import { ChevronIcon, EmbeddedIcon } from "../../icons";
-import { DropdownContext } from "./DropdownContext";
+import { DropdownCarret } from "./DropdownCarret";
+import { EmbeddedIcon } from "../../icons";
 import { bool, element, elementType, oneOfType, string } from "prop-types";
-import { forwardRef, useContext } from "react";
+import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
@@ -29,8 +29,6 @@ export function InnerDropdownTitleTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { upward } = useContext(DropdownContext);
-
     const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
 
     return (
@@ -42,6 +40,7 @@ export function InnerDropdownTitleTrigger({
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                iconMarkup && "with-icon",
                 getSizeClass(size),
                 className
             )}
@@ -49,17 +48,7 @@ export function InnerDropdownTitleTrigger({
         >
             {iconMarkup}
             <span className="text">{title}</span>
-            <EmbeddedIcon
-                icon={
-                    <ChevronIcon
-                        className={mergeClasses(
-                            "arrow",
-                            upward && "upward"
-                        )}
-                    />
-                }
-                size={size}
-            />
+            <DropdownCarret />
         </Element>
     );
 }
