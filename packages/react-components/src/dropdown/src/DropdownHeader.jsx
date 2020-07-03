@@ -23,7 +23,9 @@ const defaultProps = {
 export function InnerDropdownHeader({ icon, as: ElementType, className, children, forwardedRef, ...rest }) {
     const { size } = useContext(DropdownContext);
 
-    const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    );
 
     return (
         <ElementType

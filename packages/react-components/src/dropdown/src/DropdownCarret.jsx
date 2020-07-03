@@ -18,17 +18,16 @@ export function InnerDropdownCarret({ iconType: IconType, forwardedRef, ...rest 
     return (
         <EmbeddedIcon
             {...rest}
-            icon={
-                <IconType
-                    className={mergeClasses(
-                        "o-ui dropdown-carret",
-                        upward && "upward"
-                    )}
-                />
-            }
             size={size}
             ref={forwardedRef}
-        />
+        >
+            <IconType
+                className={mergeClasses(
+                    "o-ui dropdown-carret",
+                    upward && "upward"
+                )}
+            />
+        </EmbeddedIcon>
     );
 }
 

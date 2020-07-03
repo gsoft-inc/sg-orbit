@@ -29,7 +29,9 @@ export function InnerDropdownTitleTrigger({
     forwardedRef,
     ...rest
 }) {
-    const iconMarkup = !isNil(icon) && <EmbeddedIcon icon={icon} size={size} />;
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    );
 
     return (
         <Element

@@ -35,11 +35,11 @@ const defaultProps = {
 
 export function InnerLozenge({ iconLeft, iconRight, size, as: ElementType, className, children, forwardedRef, ...rest }) {
     const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon icon={iconLeft} size={size} />
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
 
     const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon icon={iconRight} size={size} />
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const content = (

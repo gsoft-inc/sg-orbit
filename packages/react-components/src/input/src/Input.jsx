@@ -113,7 +113,7 @@ export function InnerInput(props) {
     });
 
     const iconMarkup = !isNil(icon) && !loading && (
-        <EmbeddedIcon icon={icon} size={size} />
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
     );
 
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");

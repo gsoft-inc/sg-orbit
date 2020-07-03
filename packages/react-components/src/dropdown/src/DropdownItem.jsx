@@ -47,7 +47,7 @@ export function InnerDropdownItem(props) {
     const text = legacyText || children;
 
     const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon icon={icon} size={size} />
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
     );
 
     const textMarkup = !isNil(text) && (
