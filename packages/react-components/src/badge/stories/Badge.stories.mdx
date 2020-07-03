@@ -1,5 +1,5 @@
 import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
-import { InfoIcon } from "@react-components/icons";
+import { CheckCircleIcon, InfoIcon } from "@react-components/icons";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -61,12 +61,19 @@ Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-space-between">
-            <Badge size="mini">100</Badge>
-            <Badge size="tiny">100</Badge>
-            <Badge size="small">100</Badge>
-            <Badge>100</Badge>
-            <Badge size="large">100</Badge>
+        <div className="flex flex-column">
+            <div className="flex items-end items-space-between">
+                <Badge size="tiny">5</Badge>
+                <Badge size="small">5</Badge>
+                <Badge>5</Badge>
+                <Badge size="large">5</Badge>
+            </div>
+            <div className="flex items-end items-space-between">
+                <Badge size="tiny">99</Badge>
+                <Badge size="small">99</Badge>
+                <Badge>99</Badge>
+                <Badge size="large">99</Badge>
+            </div>
         </div>
     </Story>
 </Preview>
@@ -106,11 +113,6 @@ A badge can be rendered as a dot.
                 <Badge variant="dot" />
                 <Badge variant="dot" size="large" />
             </div>
-            <div className="flex items-end items-space-between">
-                <Badge variant="dot" size="small">5</Badge>
-                <Badge variant="dot">5</Badge>
-                <Badge variant="dot" size="large">5</Badge>
-            </div>
         </div>
     </Story>
 </Preview>
@@ -140,10 +142,10 @@ A badge can float to the top right corner of an element.
             <FloatingBadge badge={<Badge variant="dot" />}>
                 <Square />
             </FloatingBadge>
-            <FloatingBadge badge={<Badge variant="dot">5</Badge>}>
+            <FloatingBadge badge={<Badge variant="icon"><CheckCircleIcon /></Badge>}>
                 <Square />
             </FloatingBadge>
-            <FloatingBadge badge={<Badge variant="icon"><InfoIcon /></Badge>}>
+            <FloatingBadge badge={<Badge>9</Badge>}>
                 <Square />
             </FloatingBadge>
             <FloatingBadge badge={<Badge>100</Badge>}>

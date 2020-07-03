@@ -2,4 +2,29 @@
     background-color: var(--cloud-50);
     color: var(--marine-500);
     text-transform: uppercase;
+    padding: 0 var(--scale-bravo);
+    border-radius: 4px;
+    font-size: var(--type-scale-8);
+    min-height: var(--scale-echo);
+    line-height: var(--scale-echo);
+}
+
+/* SIZE */
+.o-ui.lozenge.small {
+    font-size: var(--type-scale-9);
+    min-height: var(--scale-delta);
+    line-height: var(--scale-delta);
+}
+
+.o-ui.lozenge.large {
+    font-size: var(--type-scale-7);
+    min-height: var(--scale-foxtrot);
+    line-height: var(--scale-foxtrot);
+}
+
+/* ICON */
+.o-ui.lozenge.with-left-icon,
+.o-ui.lozenge.with-right-icon {
+    display: inline-flex;
+    align-items: center;
 }

@@ -1,3 +1,5 @@
+import "./Tag.css";
+
 import { EmbeddedIcon } from "../../icons";
 import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
@@ -92,7 +94,7 @@ export function InnerTag(props) {
         <Element
             {...rest}
             className={mergeClasses(
-                "ui label",
+                "o-ui tag",
                 variant,
                 disabled && "disabled",
                 buttonMarkup && "with-button",
