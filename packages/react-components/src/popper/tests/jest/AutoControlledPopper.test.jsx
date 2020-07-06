@@ -1,4 +1,4 @@
-import { AutoControlledPopper } from "@react-components/popper";
+import { AutoControlledPopper, Popper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { KEYS } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
@@ -19,9 +19,9 @@ const SimpleAutoControlledPopper = forwardRef(({
             trigger={trigger}
             ref={ref}
         >
-            <div>
+            <Popper>
                 <a href="https://www.sharegate.com" data-testid={POPPER_FOCUSABLE_ELEMENT_ID}>Popper</a>
-            </div>
+            </Popper>
         </AutoControlledPopper>
     );
 });
@@ -175,57 +175,6 @@ test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow 
     });
 
     await waitFor(() => expect(getByTestId(POPPER_FOCUSABLE_ELEMENT_ID)).toHaveFocus());
-});
-
-test("when disabled, dont show the popper on trigger toggle", async () => {
-    const { getByTestId, queryByTestId } = render(
-        <SimpleAutoControlledPopper disabled />
-    );
-
-    act(() => {
-        userEvent.click(getByTestId(TRIGGER_ID));
-    });
-
-    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
-});
-
-test("when disabled, dont show the popper on trigger enter keydown", async () => {
-    const { queryByTestId } = render(
-        <SimpleAutoControlledPopper disabled />
-    );
-
-    act(() => {
-        fireEvent.keyDown(document, { key: "Enter", keyCode: 10 });
-    });
-
-    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
-});
-
-test("when disabled, dont show the popper on trigger space keydown", async () => {
-    const { queryByTestId } = render(
-        <SimpleAutoControlledPopper disabled />
-    );
-
-    act(() => {
-        fireEvent.keyDown(document, { key: " ", keyCode: 32 });
-    });
-
-    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
-});
-
-test("when disabled, dont show the popper on trigger custom keydown", async () => {
-    const { queryByTestId } = render(
-        <SimpleAutoControlledPopper
-            disabled
-            showOnKeys={[KEYS.down]}
-        />
-    );
-
-    act(() => {
-        fireEvent.keyDown(document, { key: "ArrowDown", keyCode: 40 });
-    });
-
-    expect(queryByTestId(POPPER_ID)).not.toBeInTheDocument();
 });
 
 test("hide the popper on esc keydown", async () => {
@@ -559,7 +508,7 @@ test("ref is a DOM element", async () => {
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
-    expect(ref.current.getAttribute("data-testid")).toBe("popper-trigger");
+    expect(ref.current.getAttribute("data-testid")).toBe("auto-controlled-popper");
 });
 
 test("using a callback ref, ref is a DOM element", async () => {
@@ -577,5 +526,5 @@ test("using a callback ref, ref is a DOM element", async () => {
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
-    expect(refNode.getAttribute("data-testid")).toBe("popper-trigger");
+    expect(refNode.getAttribute("data-testid")).toBe("auto-controlled-popper");
 });

@@ -1,83 +1,17 @@
-/* eslint-disable react/no-unused-prop-types */
-
-import { Popper } from "./Popper";
-import { array, arrayOf, bool, element, elementType, func, instanceOf, node, number, object, oneOf, oneOfType } from "prop-types";
-import { forwardRef } from "react";
+import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
+import { any, arrayOf, bool, func, node, number } from "prop-types";
+import { augmentElement, mergeClasses, useChainedEventCallback, useMergedRefs } from "../../shared";
+import { forwardRef, useState } from "react";
+import { isNil } from "lodash";
 import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-const SHARED_POPPER_PROP_TYPES = {
+const propTypes = {
     /**
-     * Wether to show the popper element or not.
+     * A controlled show value that determined whether or not the popper is displayed.
      */
     show: bool,
     /**
-     * Position of the popper element.
-     */
-    position: oneOf([
-        "auto",
-        "auto-start",
-        "auto-end",
-        "top",
-        "top-start",
-        "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "right",
-        "right-start",
-        "right-end",
-        "left",
-        "left-start",
-        "left-end"
-    ]),
-    /**
-     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
-     */
-    pinned: bool,
-    /**
-     * Whether or not to render the popper element in an additional element that will handles [PopperJs](https://popper.js.org) references, attributes and styles.
-     */
-    noWrap: bool,
-    /**
-     * Allow to displace the popper element from its trigger element.
-     * Ex: `["10px", "-10px"]`
-     */
-    offset: arrayOf(number),
-    /**
-     * An array of modifiers passed directly to [PopperJs](https://popper.js.org) modifiers. For more info, view [PopperJs modifiers documentation](https://popper.js.org/docs/v2/modifiers).
-     */
-    popperModifiers: array,
-    /**
-     * A set of options passed directly to [PopperJs](https://popper.js.org). For more info, view [PopperJs options documentation](https://popper.js.org/docs/v2/constructors/#options).
-     */
-    popperOptions: object,
-    /**
-     * A DOM element in which the popper element will appended via a React portal.
-     */
-    portalContainerElement: instanceOf(HTMLElement),
-    /**
-     * Whether or not to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
-     */
-    noPortal: bool,
-    /**
-     * Whether or not to animate the popper element when opening / closing.
-     */
-    animate: bool
-};
-
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-const SHARED_POPPER_DEFAULT_PROPS = {
-    position: "bottom",
-    animate: true
-};
-
-/////////////////
-
-const propTypes = {
-    ...SHARED_POPPER_PROP_TYPES,
-    /**
-     * The initial value of show.
+     * The initial value of show when in auto controlled mode.
      */
     defaultShow: bool,
     /**
@@ -95,10 +29,6 @@ const propTypes = {
      * Whether or not the trigger will be rendered as fluid.
      */
     fluid: bool,
-    /**
-     * z-index of the popper element.
-     */
-    zIndex: number,
     /**
      * Whether or not to focus the trigger when the popper is made visible. When `true`, the trigger must expose a `focus` function in order to work.
      */
@@ -141,29 +71,119 @@ const propTypes = {
      */
     hideOnOutsideClick: bool,
     /**
-     * Popper component to render.
+     * @ignore
      */
-    popper: oneOfType([element, elementType])
+    children: any.isRequired
 };
 
-/////////////////
-
 const defaultProps = {
-    ...SHARED_POPPER_DEFAULT_PROPS,
     focusTriggerOnEscape: true,
     toggleOnSpacebar: true,
     toggleOnEnter: true,
     hideOnEscape: true,
     hideOnBlur: true,
-    hideOnOutsideClick: true,
-    popper: Popper
+    hideOnOutsideClick: true
 };
 
-export function InnerAutoControlledPopper({ children, ...rest }) {
-    const { renderPopper } = useAutoControlledPopper(rest);
+export function InnerAutoControlledPopper({
+    show,
+    defaultShow,
+    trigger,
+    onVisibilityChange,
+    onFocus,
+    onBlur,
+    fluid,
+    position,
+    focusTriggerOnShow,
+    focusTriggerOnEscape,
+    focusFirstElementOnShow,
+    focusFirstElementOnKeyboardShow,
+    toggleOnSpacebar,
+    toggleOnEnter,
+    showOnKeys,
+    hideOnEscape,
+    hideOnBlur,
+    hideOnOutsideClick,
+    disabled,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const [triggerElement, setTriggerElement] = useState();
+    const [popperElement, setPopperElement] = useState();
+    const [wrapperElement, setWrapperElement] = useState();
 
-    // Without a fragment, react-docgen doesn't work.
-    return <>{renderPopper(children)}</>;
+    const wrapperRef = useMergedRefs(setWrapperElement, forwardedRef);
+
+    const {
+        isVisible,
+        onTriggerClick,
+        onTriggerKeyDown,
+        onWrapperFocus,
+        onWrapperBlur
+    } = useAutoControlledPopper({
+        show,
+        defaultShow,
+        triggerElement,
+        popperElement,
+        wrapperElement,
+        onVisibilityChange,
+        focusTriggerOnShow,
+        focusTriggerOnEscape,
+        focusFirstElementOnShow,
+        focusFirstElementOnKeyboardShow,
+        toggleOnSpacebar,
+        toggleOnEnter,
+        showOnKeys,
+        hideOnEscape,
+        hideOnBlur,
+        hideOnOutsideClick,
+        disabled
+    });
+
+    const popperMarkup = !isNil(triggerElement) && augmentElement(children, {
+        show: isVisible,
+        triggerElement,
+        ref: setPopperElement
+    });
+
+    const triggerMarkup = augmentElement(trigger, {
+        onClick: onTriggerClick,
+        onKeyDown: onTriggerKeyDown,
+        ref: setTriggerElement
+    });
+
+    const handleWrapperFocus = useChainedEventCallback(onWrapperFocus, onFocus);
+    const handleWrapperBlur = useChainedEventCallback(onWrapperBlur, onBlur);
+
+    return (
+        <AutoControlledPopperContext.Provider
+            value={{
+                isVisible,
+                position
+            }}
+        >
+            <div
+                data-testid="auto-controlled-popper"
+                tabIndex="-1"
+                {...rest}
+                // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
+                // For more info: https://github.com/facebook/react/issues/6410
+                onFocus={handleWrapperFocus}
+                onBlur={handleWrapperBlur}
+                className={mergeClasses(
+                    "outline-0",
+                    !fluid && "dib",
+                    className
+                )}
+                ref={wrapperRef}
+            >
+                {triggerMarkup}
+                {popperMarkup}
+            </div>
+        </AutoControlledPopperContext.Provider>
+    );
 }
 
 InnerAutoControlledPopper.propTypes = propTypes;

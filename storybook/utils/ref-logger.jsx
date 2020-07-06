@@ -1,19 +1,19 @@
+import { any } from "prop-types";
 import { cloneElement, useCallback } from "react";
-import { element } from "prop-types";
 import { isNil } from "lodash";
 
 const propTypes = {
-    component: element.isRequired
+    children: any.isRequired
 };
 
-export function RefLogger({ component }) {
+export function RefLogger({ children }) {
     const onSetRef = useCallback(node => {
         if (!isNil(node)) {
             console.log(node);
         }
     }, []);
 
-    return cloneElement(component, {
+    return cloneElement(children, {
         ref: onSetRef
     });
 }

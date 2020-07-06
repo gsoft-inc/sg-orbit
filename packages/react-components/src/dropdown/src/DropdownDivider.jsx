@@ -1,9 +1,14 @@
 import { forwardRef } from "react";
+import { mergeClasses } from "../../shared";
 
-export const DropdownDivider = forwardRef((props, ref) => {
+export const DropdownDivider = forwardRef(({ className, ...rest }, ref) => {
     return (
         <div
-            {...props}
+            {...rest}
+            className={mergeClasses(
+                "divider",
+                className
+            )}
             ref={ref}
         />
     );

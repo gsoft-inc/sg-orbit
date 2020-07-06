@@ -1,18 +1,6 @@
-import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
-import {
-    KEYS,
-    augmentElement,
-    createOrAugmentElement,
-    mergeClasses,
-    useAutoControlledState,
-    useChainedEventCallback,
-    useDocumentListener,
-    useEventCallback,
-    useMergedRefs
-} from "../../shared";
-import { Popper } from "./Popper";
+import { KEYS, useAutoControlledState, useDocumentListener, useEventCallback } from "../../shared";
 import { isFunction, isNil } from "lodash";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 function throwWhenMutuallyExclusivePropsAreProvided({ focusTriggerOnShow, focusFirstElementOnKeyboardShow }) {
     if (focusTriggerOnShow && focusFirstElementOnKeyboardShow) {
@@ -24,7 +12,7 @@ function getFirstFocusableElement(container) {
     return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
-function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, containerRef) {
+function useHideOnBlur({ wrapperElement: containerElement, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper) {
     const hasFocusRef = useRef();
     const activeElementRef = useRef();
 
@@ -80,8 +68,8 @@ function useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocus
             if (!isNil(document.activeElement) && document.activeElement.nodeName === "BODY") {
                 if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
                     setFocusPopper(() => {
-                        if (!isNil(containerRef.current)) {
-                            containerRef.current.focus();
+                        if (!isNil(containerElement)) {
+                            containerElement.focus();
                         }
                     });
                 }
@@ -101,22 +89,10 @@ export function useAutoControlledPopper(props) {
     const {
         show,
         defaultShow,
-        trigger,
+        triggerElement,
+        popperElement,
+        wrapperElement,
         onVisibilityChange,
-        onFocus,
-        onBlur,
-        fluid,
-        zIndex,
-        position,
-        pinned,
-        noWrap,
-        offset,
-        popper = Popper,
-        popperModifiers,
-        popperOptions,
-        portalContainerElement,
-        noPortal,
-        animate,
         focusTriggerOnShow,
         focusTriggerOnEscape = true,
         focusFirstElementOnShow,
@@ -127,19 +103,12 @@ export function useAutoControlledPopper(props) {
         hideOnEscape = true,
         hideOnBlur = true,
         hideOnOutsideClick = true,
-        disabled,
-        className,
-        forwardedRef,
-        ...rest
+        disabled
     } = props;
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
     const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
-    const [triggerElement, setTriggerElement] = useState();
-    const [popperElement, setPopperElement] = useState();
-
     const lastTriggerEventRef = useRef();
-    const wrapperRef = useMergedRefs(forwardedRef);
 
     const setFocusTrigger = useCallback(() => {
         setTimeout(() => {
@@ -193,7 +162,7 @@ export function useAutoControlledPopper(props) {
         }
     }, [isVisible, showPopper, hidePopper]);
 
-    const [handleFocus, handleBlur] = useHideOnBlur({ hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper, wrapperRef);
+    const [handleFocus, handleBlur] = useHideOnBlur({ wrapperElement, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper);
 
     const handleTriggerClick = useEventCallback(event => {
         lastTriggerEventRef.current = event.type;
@@ -288,71 +257,16 @@ export function useAutoControlledPopper(props) {
         }
     }, [isVisible, focusFirstElementOnKeyboardShow, setFocusPopper, lastTriggerEventRef]);
 
-    const handleWrapperFocus = useChainedEventCallback(handleFocus, onFocus);
-    const handleWrapperBlur = useChainedEventCallback(handleBlur, onBlur);
-
-    const render = content => {
-        const popperMarkup = !isNil(triggerElement) && createOrAugmentElement(popper, {
-            show: isVisible,
-            triggerElement,
-            position,
-            pinned,
-            noWrap,
-            offset,
-            disabled,
-            popperModifiers,
-            popperOptions,
-            portalContainerElement,
-            noPortal,
-            animate,
-            style: {
-                zIndex
-            },
-            children: content,
-            ref: setPopperElement
-        });
-
-        const triggerMarkup = augmentElement(trigger, {
-            onClick: handleTriggerClick,
-            onKeyDown: handleTriggerKeyDown,
-            ref: setTriggerElement
-        });
-
-        return (
-            <AutoControlledPopperContext.Provider
-                value={{
-                    isVisible,
-                    position
-                }}
-            >
-                <div
-                    data-testid="popper-trigger"
-                    tabIndex="-1"
-                    {...rest}
-                    // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
-                    // For more info: https://github.com/facebook/react/issues/6410
-                    onFocus={handleWrapperFocus}
-                    onBlur={handleWrapperBlur}
-                    className={mergeClasses(
-                        "outline-0",
-                        !fluid && "dib",
-                        className
-                    )}
-                    ref={wrapperRef}
-                >
-                    {triggerMarkup}
-                    {popperMarkup}
-                </div>
-            </AutoControlledPopperContext.Provider>
-        );
-    };
-
     return {
-        renderPopper: render,
-        showPopper,
-        hidePopper,
-        togglePopper,
+        isVisible,
+        show: showPopper,
+        hide: hidePopper,
+        toggle: togglePopper,
         focusTrigger: setFocusTrigger,
-        focusPopper: setFocusPopper
+        focusPopper: setFocusPopper,
+        onTriggerClick: handleTriggerClick,
+        onTriggerKeyDown: handleTriggerKeyDown,
+        onWrapperFocus: handleFocus,
+        onWrapperBlur: handleBlur
     };
 }

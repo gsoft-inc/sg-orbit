@@ -1,29 +1,35 @@
 import { DropdownContext } from "./DropdownContext";
-import { DropdownMenuContext } from "./DropdownMenuContext";
-import { KEYS, getSizeClass, mergeClasses, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
-import { bool, elementType, func, oneOfType, string } from "prop-types";
+import { KEYS, getSizeClass, mergeClasses, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
+import { Popper } from "../../popper";
+import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
     /**
+     * When true, disables automatic repositioning of the dropdown menu, it will always be placed according to the position value.
+     */
+    pinned: bool,
+    /**
+     * z-index of the dropdown menu.
+     */
+    zIndex: number,
+    /**
+     * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
+     */
+    noPortal: bool,
+    /**
      * Whether or not the menu can scroll.
      */
     scrolling: bool,
     /**
-     * Whether or not the menu should take the width of its container.
-     */
-    fluid: bool,
-    /**
-     * Called when an item is selected.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onSelectItem: func,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 const defaultProps = {
@@ -98,31 +104,29 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
     }, [itemElements, keyboardIndex]);
 }
 
-export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, as: ElementType, className, children, forwardedRef, ...rest }) {
-    const { isOpen, size } = useContext(DropdownContext);
-
-    const [menuElement, setMenuElement] = useState();
+export function InnerDropdownMenu({ pinned, zIndex, noPortal, scrolling, onSelectItem, as: ElementType, className, children, forwardedRef, ...rest }) {
+    const { isOpen, fluid, size, upward, direction, triggerElement, menuElement, setMenuElement } = useContext(DropdownContext);
 
     const menuRef = useMergedRefs(setMenuElement, forwardedRef);
 
     useKeyboardNavigation(menuElement, isOpen, onSelectItem);
 
-    const handleItemClick = useEventCallback(event => {
-        if (!isNil(onSelectItem)) {
-            onSelectItem(event);
-        }
-    });
-
     return (
-        <DropdownMenuContext.Provider
-            value={{
-                onItemClick: handleItemClick
-            }}
+        <Popper
+            show={isOpen}
+            triggerElement={triggerElement}
+            position={resolvePopperPosition(upward, direction)}
+            pinned={pinned}
+            offset={[0, 10]}
+            zIndex={zIndex}
+            fluid={fluid}
+            noPortal={noPortal}
+            ref={setMenuElement}
         >
             <ElementType
                 {...rest}
                 className={mergeClasses(
-                    "menu",
+                    "o-ui dropdown-menu",
                     scrolling && "scrolling",
                     fluid && "fluid",
                     getSizeClass(size),
@@ -133,7 +137,7 @@ export function InnerDropdownMenu({ scrolling, fluid, onSelectItem, as: ElementT
             >
                 {children}
             </ElementType>
-        </DropdownMenuContext.Provider>
+        </Popper>
     );
 }
 

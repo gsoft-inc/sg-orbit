@@ -1,4 +1,4 @@
-import { AutoControlledPopper } from "@react-components/popper";
+import { AutoControlledPopper, Popper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { useState } from "react";
 
@@ -19,7 +19,9 @@ export function ControlledPopper() {
                 show={isVisible}
                 onVisibilityChange={() => { setIsVisible(x => !x); }}
             >
-                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+                <Popper>
+                    <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+                </Popper>
             </AutoControlledPopper>
         </>
     );

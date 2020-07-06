@@ -23,7 +23,7 @@ export function InnerDropdownCarret({ iconType: IconType, forwardedRef, ...rest 
         >
             <IconType
                 className={mergeClasses(
-                    "o-ui dropdown-carret",
+                    "carret",
                     upward && "upward"
                 )}
             />

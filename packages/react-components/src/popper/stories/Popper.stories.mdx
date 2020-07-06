@@ -1,11 +1,12 @@
-import { AutoControlledPopper, InnerAutoControlledPopper, InnerPopper } from "@react-components/popper"
+import { AutoControlledPopper, InnerAutoControlledPopper, InnerPopper, Popper } from "@react-components/popper"
 import { Button } from "@react-components/button";
 import { ControlledPopper } from "./ControlledPopper.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { PinnedPlayground } from "./PinnedPlayground";
+import { PinnedPlayground } from "./PinnedPlayground.sample";
 import { PopperElement } from "./PopperElement.sample";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { TextInput } from "@react-components/text-input";
 import CustomTrigger from "./CustomTrigger.mdx";
 import Imports from "./Imports.mdx";
 import NoWrapPopperElement from "./NoWrapPopperElement.mdx";
@@ -40,8 +41,7 @@ A popper can be used to display some content on top of another.
 This popper component is an abstraction of [Popper.js](https://popper.js.org/) that aims to *simplify usage* and provide *default behaviors* specifics to Orbit UI. All [Popper.js](https://popper.js.org/) features
 can still be customized by specifying the `popperModifiers` and `popperOptions` props.
 
-Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction of [Popper.js](https://popper.js.org/) and a `<AutoControlledPopper />` component which is a wrapper on top
-of `<Popper />` adding *show / hide* behaviors specifics to Orbit UI.
+Two components compose a popper, a *controlled component* called `<Popper />` which is a low level abstraction of [Popper.js](https://popper.js.org/) and a `<AutoControlledPopper />` component which adds *show / hide* behaviors specifics to Orbit UI.
 
 We do recommend using `<AutoControlledPopper />` whenever you can.
 
@@ -69,7 +69,9 @@ A default popper.
 <Preview>
     <Story name="default">
         <AutoControlledPopper trigger={<Button>Toggle</Button>}>
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            <Popper>
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
@@ -82,11 +84,10 @@ All [Popper.js](https://popper.js.org/) placements are supported: `"top-start"`,
 
 <Preview>
     <Story name="position">
-        <AutoControlledPopper
-            trigger={<Button>Toggle</Button>}
-            position="right"
-        >
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        <AutoControlledPopper trigger={<Button>Toggle</Button>}>
+            <Popper position="right">
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
@@ -97,41 +98,38 @@ A popper can have an horizontal and vertical offset.
 
 <Preview>
     <Story name="offset">
-        <AutoControlledPopper
-            trigger={<Button>Toggle</Button>}
-            offset={[0, 15]}
-        >
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        <AutoControlledPopper trigger={<Button>Toggle</Button>}>
+            <Popper offset={[0, 15]}>
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
 
 ### Disabled
 
-A disabled popper will never show.
+A popper can be disabled through is trigger.
 
 <Preview>
     <Story name="disabled">
-        <AutoControlledPopper
-            trigger={<Button>Toggle</Button>}
-            disabled
-        >
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        <AutoControlledPopper trigger={<Button disabled>Toggle</Button>}>
+            <Popper>
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
 
 ### Fluid
 
-A popper trigger can be fluid.
+A popper can be fluid.
 
 <Preview>
     <Story name="fluid">
-        <AutoControlledPopper
-            trigger={<Button fluid>Toggle</Button>}
-            fluid
-        >
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+        <AutoControlledPopper trigger={<Button fluid>Toggle</Button>}>
+            <Popper fluid>
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
@@ -140,19 +138,9 @@ A popper trigger can be fluid.
 
 A popper automatic repositioning features can be disabled, it will always be placed according to the position value. Automatic repositioning features are Popper.js [flip](https://popper.js.org/docs/v2/modifiers/flip/) and [prevent overflow](https://popper.js.org/docs/v2/modifiers/prevent-overflow/) features.
 
-<Preview>
-    <Story name="pinned">
-        <PinnedPlayground>
-            <AutoControlledPopper
-                trigger={<Button>Toggle</Button>}
-                pinned
-                position="top"
-            >
-                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-            </AutoControlledPopper>
-        </PinnedPlayground>
-    </Story>
-</Preview>
+<FilePreview filePath="/popper/stories/PinnedPlayground">
+    <PinnedPlayground />
+</FilePreview>
 
 ### No wrap
 
@@ -166,11 +154,10 @@ A popper can be rendered without an additional element around it's popper elemen
 
 <Preview>
     <Story name="no wrap">
-        <AutoControlledPopper
-            trigger={<Button>Toggle</Button>}
-            noWrap
-        >
-            <PopperElement />
+        <AutoControlledPopper trigger={<Button>Toggle</Button>}>
+            <Popper noWrap>
+                <PopperElement />
+            </Popper>
         </AutoControlledPopper>
     </Story>
 </Preview>
@@ -189,13 +176,12 @@ A popper can handle `show` state in controlled mode.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={
-        <AutoControlledPopper
-            trigger={<Button>Toggle</Button>}
-            toggleHandler="onClick"
-        >
-            <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+    <RefLogger>
+        <AutoControlledPopper trigger={<Button>Toggle</Button>}>
+            <Popper>
+                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+            </Popper>
         </AutoControlledPopper>
-    }
+    </RefLogger>
     />
 </Story>

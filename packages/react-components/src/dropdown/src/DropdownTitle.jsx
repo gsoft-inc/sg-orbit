@@ -1,6 +1,6 @@
 import { DropdownContext } from "./DropdownContext";
 import { EmbeddedIcon } from "../../icons";
-import { element, elementType, oneOfType, string } from "prop-types";
+import { any, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
 import { mergeClasses } from "../../shared";
@@ -13,14 +13,18 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 const defaultProps = {
     as: "div"
 };
 
-export function InnerDropdownHeader({ icon, as: ElementType, className, children, forwardedRef, ...rest }) {
+export function InnerDropdownTitle({ icon, as: ElementType, className, children, forwardedRef, ...rest }) {
     const { size } = useContext(DropdownContext);
 
     const iconMarkup = !isNil(icon) && (
@@ -31,7 +35,7 @@ export function InnerDropdownHeader({ icon, as: ElementType, className, children
         <ElementType
             {...rest}
             className={mergeClasses(
-                "header",
+                "title",
                 className
             )}
             ref={forwardedRef}
@@ -42,9 +46,9 @@ export function InnerDropdownHeader({ icon, as: ElementType, className, children
     );
 }
 
-InnerDropdownHeader.propTypes = propTypes;
-InnerDropdownHeader.defaultProps = defaultProps;
+InnerDropdownTitle.propTypes = propTypes;
+InnerDropdownTitle.defaultProps = defaultProps;
 
-export const DropdownHeader = forwardRef((props, ref) => (
-    <InnerDropdownHeader {...props} forwardedRef={ref} />
+export const DropdownTitle = forwardRef((props, ref) => (
+    <InnerDropdownTitle {...props} forwardedRef={ref} />
 ));

@@ -1,5 +1,4 @@
 import { DropdownContext } from "./DropdownContext";
-import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
 import { element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
@@ -39,10 +38,10 @@ const defaultProps = {
 
 export function InnerDropdownItem(props) {
     const { text: legacyText, icon, description, onClick, focus, hover, as: ElementType, children, forwardedRef, ...rest } = props;
-    const { size } = useContext(DropdownContext);
-    const { onItemClick } = useContext(DropdownMenuContext);
 
-    const handleClick = useChainedEventCallback(onClick, onItemClick);
+    const { size, onSelectItem } = useContext(DropdownContext);
+
+    const handleClick = useChainedEventCallback(onClick, onSelectItem);
 
     const text = legacyText || children;
 

@@ -1,6 +1,5 @@
 import { Children, cloneElement } from "react";
 import { SIZE } from "../../shared";
-import { oneOf } from "prop-types";
 
 const EMBED_SIZE = {
     [SIZE.micro]: SIZE.micro,

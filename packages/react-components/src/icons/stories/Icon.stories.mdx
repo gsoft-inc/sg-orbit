@@ -170,7 +170,7 @@ A multi variants icon support the same props as `<Icon />`.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Icon type={AzureIcon32} />} />
+    <RefLogger><Icon type={AzureIcon32} /></RefLogger>
 </Story>
 
 <Story
@@ -179,7 +179,7 @@ A multi variants icon support the same props as `<Icon />`.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<Icon type={AzureIcon32} />} />
+    <RefLogger><Icon type={AzureIcon32} /></RefLogger>
 </Story>
 
 export const HocAzureIcon32 = Icon.create(AzureIcon32);
@@ -190,7 +190,7 @@ export const HocAzureIcon32 = Icon.create(AzureIcon32);
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<HocAzureIcon32 />} />
+    <RefLogger><HocAzureIcon32 /></RefLogger>
 </Story>
 
 export const HocFilterIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32);
@@ -201,5 +201,5 @@ export const HocFilterIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger component={<HocFilterIcon />} />
+    <RefLogger><HocFilterIcon /></RefLogger>
 </Story>

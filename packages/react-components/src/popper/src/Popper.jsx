@@ -7,11 +7,15 @@ import { createPortal } from "react-dom";
 import { isFunction, isNil, merge } from "lodash";
 import { usePopper } from "react-popper";
 
-export const SHARED_POPPER_PROP_TYPES = {
+const propTypes = {
     /**
      * A controlled show value that determined whether or not the popper is displayed.
      */
     show: bool,
+    /**
+     * The popper trigger element.
+     */
+    triggerElement: instanceOf(HTMLElement),
     /**
      * Position of the popper element.
      */
@@ -58,6 +62,10 @@ export const SHARED_POPPER_PROP_TYPES = {
      */
     portalContainerElement: instanceOf(HTMLElement),
     /**
+     * z-index of the popper.
+     */
+    zIndex: number,
+    /**
      * Whether or not to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
      */
     noPortal: bool,
@@ -67,21 +75,9 @@ export const SHARED_POPPER_PROP_TYPES = {
     animate: bool
 };
 
-export const SHARED_POPPER_DEFAULT_PROPS = {
+const defaultProps = {
     position: "bottom",
     animate: true
-};
-
-const propTypes = {
-    ...SHARED_POPPER_PROP_TYPES,
-    /**
-     * The popper trigger element.
-     */
-    triggerElement: instanceOf(HTMLElement)
-};
-
-const defaultProps = {
-    ...SHARED_POPPER_DEFAULT_PROPS
 };
 
 function disableModifier(name, modifiers) {
@@ -152,10 +148,10 @@ export function InnerPopper({
     pinned,
     noWrap,
     offset,
-    disabled,
     popperModifiers,
     popperOptions,
     portalContainerElement: portalElement,
+    zIndex,
     noPortal,
     animate,
     className,
@@ -170,9 +166,6 @@ export function InnerPopper({
 
     const [popperStyles, popperAttributes] = usePopperInstance(position, triggerElement, pinned, offset, popperModifiers, popperOptions, popperElement);
 
-    if (disabled) {
-        return null;
-    }
     const wrapPopper = popper => {
         return (
             <div
@@ -198,7 +191,8 @@ export function InnerPopper({
             ...style,
             ...popperStyles,
             display: show ? "block" : "none",
-            animation: animate ? "o-ui-popper-fade-in 0.3s" : undefined
+            animation: animate ? "o-ui-popper-fade-in 0.3s" : undefined,
+            zIndex: zIndex || 0
         },
         ...popperAttributes,
         ref: popperRef
