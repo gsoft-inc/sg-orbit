@@ -51,7 +51,7 @@ export function InnerBadge(props) {
             )}
             ref={forwardedRef}
         >
-            {content}
+            <span>{content}</span>
         </Element>
     );
 }

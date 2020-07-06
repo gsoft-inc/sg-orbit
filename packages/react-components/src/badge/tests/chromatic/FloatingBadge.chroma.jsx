@@ -39,20 +39,13 @@ stories()
         </div>
     )
     .add("dot", () =>
-        <div className="flex flex-column">
-            <div className="flex items-end" style={{ marginBottom: "50px" }}>
-                <BadgedRedSquare badge={<Badge variant="dot" size="micro" />} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="mini" />} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="tiny" />} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="small" />} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="medium" />} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="large" />} />
-            </div>
-            <div className="flex items-end">
-                <BadgedRedSquare badge={<Badge variant="dot" size="small">5</Badge>} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="medium">5</Badge>} className="mr5" />
-                <BadgedRedSquare badge={<Badge variant="dot" size="large">5</Badge>} />
-            </div>
+        <div className="flex items-end" style={{ marginBottom: "50px" }}>
+            <BadgedRedSquare badge={<Badge variant="dot" size="micro" />} className="mr5" />
+            <BadgedRedSquare badge={<Badge variant="dot" size="mini" />} className="mr5" />
+            <BadgedRedSquare badge={<Badge variant="dot" size="tiny" />} className="mr5" />
+            <BadgedRedSquare badge={<Badge variant="dot" size="small" />} className="mr5" />
+            <BadgedRedSquare badge={<Badge variant="dot" size="medium" />} className="mr5" />
+            <BadgedRedSquare badge={<Badge variant="dot" size="large" />} />
         </div>
     )
     .add("icon", () =>

@@ -22,9 +22,18 @@
     line-height: var(--scale-foxtrot);
 }
 
-/* ICON */
+/* WITH ICON */
 .o-ui.lozenge.with-left-icon,
 .o-ui.lozenge.with-right-icon {
     display: inline-flex;
     align-items: center;
+}
+
+/* WITH ICON LEFT | ICON */
+.o-ui.lozenge.with-left-icon .icon {
+    margin-right: 0.125rem;
+}
+
+.o-ui.lozenge.with-right-icon .icon {
+    margin-left: 0.125rem;
 }

@@ -1,9 +1,8 @@
 /* PILL */
 .o-ui.badge.pill {
     display: inline-flex;
-    align-items: center;
-    background-color: var(--alert-500);
-    color: var(--white);
+    background-color: var(--cloud-200);
+    color: var(--marine-500);
     justify-content: center;
     border-radius: 999px;
     font-size: var(	--type-scale-7);
@@ -11,6 +10,7 @@
     min-height: 1.5rem;
     min-width: 1.5rem;
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
+    align-items: center;
 }
 
 .o-ui.badge.pill.micro {
@@ -27,11 +27,19 @@
     padding: 0 var(--scale-alpha) 0 var(--scale-alpha);
 }
 
+.o-ui.badge.pill.mini span {
+    margin-top: -1px;
+}
+
 .o-ui.badge.pill.tiny {
     min-height: 1rem;
     min-width: 1rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-alpha) 0 var(--scale-alpha);
+}
+
+.o-ui.badge.pill.tiny span {
+    margin-top: -1px;
 }
 
 .o-ui.badge.pill.small {
@@ -62,7 +70,7 @@
     height: 0.5em;
     border-radius: 999px;
     display: inline-block;
-    background-color: var(--alert-500);
+    background-color: var(--cloud-200);
     color: var(--marine-500);
 }
 
@@ -105,6 +113,10 @@
 /* ICON */
 .o-ui.badge.icon {
     display: inline-flex;
+}
+
+.o-ui.badge.icon[disabled] {
+    opacity: 0.4;
 }
 
 /* COMMON */

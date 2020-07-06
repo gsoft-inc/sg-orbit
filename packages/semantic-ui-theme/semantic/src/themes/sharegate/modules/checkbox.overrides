@@ -762,3 +762,8 @@
 .ui.checkbox.fitted.indeterminate.large label {
     min-height: var(--scale-foxtrot);
 }
+
+/* IN CHECKBOX */
+.ui.checkbox.with-badge .badge {
+    margin-left: var(--scale-alpha);
+}

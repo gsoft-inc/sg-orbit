@@ -93,17 +93,8 @@ stories("/dot")
     .add("empty", () =>
         <Badge variant="dot" />
     )
-    .add("with value", () =>
-        <Badge variant="dot">5</Badge>
-    )
-    .add("highlight", () =>
-        <Badge highlight variant="dot">5</Badge>
-    )
     .add("disabled", () =>
-        <div className="flex">
-            <Badge disabled variant="dot" className="mr5" />
-            <Badge disabled variant="dot">5</Badge>
-        </div>
+        <Badge disabled variant="dot" className="mr5" />
     )
     .add("size", () =>
         <div className="flex flex-column">
@@ -114,14 +105,6 @@ stories("/dot")
                 <Badge variant="dot" className="mr5" size="small" />
                 <Badge variant="dot" className="mr5" />
                 <Badge variant="dot" size="large" />
-            </div>
-            <div className="flex items-end">
-                <Badge variant="dot" className="mr5" size="micro">5</Badge>
-                <Badge variant="dot" className="mr5" size="mini">5</Badge>
-                <Badge variant="dot" className="mr5" size="tiny">5</Badge>
-                <Badge variant="dot" className="mr5" size="small">5</Badge>
-                <Badge variant="dot" className="mr5">5</Badge>
-                <Badge variant="dot" size="large">5</Badge>
             </div>
         </div>
     )

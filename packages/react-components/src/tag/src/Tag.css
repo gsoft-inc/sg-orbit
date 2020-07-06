@@ -36,6 +36,11 @@
     padding-right: calc(var(--large-padding) / 2);
 }
 
+/* WITH BUTTON | BUTTON */
+.o-ui.tag.with-button .button {
+    margin-left: 0.25rem;
+}
+
 /* WITH ICON */
 /* WITH ICON | LEFT */
 .o-ui.tag.with-left-icon {
@@ -128,4 +133,9 @@
     border: none;
     color: var(--marine-500);
     box-shadow: 0 0 0 1px var(--cloud-200) inset;
+}
+
+/* AS BUTTON */
+button.o-ui.tag {
+    border: none;
 }
