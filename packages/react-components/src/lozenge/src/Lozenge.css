@@ -29,6 +29,14 @@
     align-items: center;
 }
 
+.o-ui.lozenge.with-left-icon {
+    padding-left: calc(var(--scale-bravo) / 2);
+}
+
+.o-ui.lozenge.with-right-icon {
+    padding-right: calc(var(--scale-bravo) / 2);
+}
+
 /* WITH ICON LEFT | ICON */
 .o-ui.lozenge.with-left-icon .icon {
     margin-right: 0.125rem;
@@ -36,4 +44,9 @@
 
 .o-ui.lozenge.with-right-icon .icon {
     margin-left: 0.125rem;
+}
+
+/* AS BUTTON */
+button.o-ui.lozenge {
+    border: none;
 }
