@@ -174,8 +174,13 @@
     color: var(--cloud-200);
 }
 
-/* Dropdown Menu | Item | Icon  */
-.o-ui.dropdown-menu .item .icon {
+/* Dropdown Menu | Item | Text | Left Icon  */
+.o-ui.dropdown-menu .item.with-left-icon .text {
+    margin-left: var(--scale-alpha);
+}
+
+/* Dropdown Menu | Item | Text | Right Icon  */
+.o-ui.dropdown-menu .item.with-right-icon .text {
     margin-right: var(--scale-alpha);
 }
 

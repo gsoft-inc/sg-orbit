@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
-import { EditIcon, FileIcon, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
+import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
@@ -578,31 +578,35 @@ stories()
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
-                <Dropdown.Item>Save as...</Dropdown.Item>
+                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
-                <Dropdown.Item>Save as...</Dropdown.Item>
+                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
                 size="large"
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item icon={<EditIcon />}>Open...</Dropdown.Item>
-                <Dropdown.Item>Save as...</Dropdown.Item>
+                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown open>
-                <Dropdown.Item>New</Dropdown.Item>
-                <Dropdown.Item icon={<EditIcon />} disabled>Open...</Dropdown.Item>
-                <Dropdown.Item>Save as...</Dropdown.Item>
+                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>} disabled>Open...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<EditIcon />} disabled>Save as...</Dropdown.Item>
+                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
         </div>
     )

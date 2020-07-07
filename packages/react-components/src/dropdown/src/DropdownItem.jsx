@@ -25,7 +25,11 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element,
+    leftIcon: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     */
+    rightIcon: element,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -36,15 +40,19 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerDropdownItem({ text: legacyText, icon, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
+export function InnerDropdownItem({ text: legacyText, leftIcon, rightIcon, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
     const { size, onSelectItem } = useContext(DropdownContext);
 
     const handleClick = useChainedEventCallback(onClick, onSelectItem);
 
     const text = legacyText || children;
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    const leftIconMarkup = !isNil(leftIcon) && (
+        <EmbeddedIcon size={size}>{leftIcon}</EmbeddedIcon>
+    );
+
+    const rightIconMarkup = !isNil(rightIcon) && (
+        <EmbeddedIcon size={size}>{rightIcon}</EmbeddedIcon>
     );
 
     const textMarkup = !isNil(text) && (
@@ -57,8 +65,9 @@ export function InnerDropdownItem({ text: legacyText, icon, description, onClick
 
     const content = (
         <>
-            {iconMarkup}
+            {leftIconMarkup}
             {textMarkup}
+            {rightIconMarkup}
             {descriptionMarkup}
         </>
     );
@@ -71,7 +80,9 @@ export function InnerDropdownItem({ text: legacyText, icon, description, onClick
                 "item",
                 active && "active",
                 focus && "focus",
-                hover && "hover"
+                hover && "hover",
+                leftIconMarkup && "with-left-icon",
+                rightIconMarkup && "with-right-icon"
             )}
             tabIndex="-1"
             ref={forwardedRef}
