@@ -38,7 +38,7 @@
 
 /* WITH BUTTON | BUTTON */
 .o-ui.tag.with-button .button {
-    margin-left: 0.25rem;
+    margin-left: var(--scale-bravo);
 }
 
 /* WITH ICON */
@@ -92,7 +92,7 @@
 
 /* WITH BADGE | LEFT > BADGE */
 .o-ui.tag.with-left-badge .badge {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--scale-bravo);
 }
 
 /* WITH BADGE | RIGHT */
@@ -102,7 +102,7 @@
 
 /* WITH BADGE | RIGHT > BADGE */
 .o-ui.tag.with-right-badge .badge {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--scale-bravo);
 }
 
 /* WITH BADGE | SIZE */

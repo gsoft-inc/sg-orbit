@@ -51,7 +51,7 @@ export function InnerBadge(props) {
             )}
             ref={forwardedRef}
         >
-            <span>{content}</span>
+            {content}
         </Element>
     );
 }
@@ -68,6 +68,6 @@ export const embedBadge = createEmbeddableAdapter({
     [SIZE.mini]: SIZE.micro,
     [SIZE.tiny]: SIZE.micro,
     [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.tiny
 });
