@@ -25,6 +25,7 @@
 /* Dropdown | Title Trigger | Disabled */
 .o-ui.dropdown .title-trigger[disabled] {
     color: var(--marine-200);
+    cursor: default;
 }
 
 /* Dropdown | Title Trigger | Icon | Disabled */
@@ -169,7 +170,7 @@
 }
 
 /* Dropdown Menu | Item | Text | Disabled */
-.o-ui.dropdown-menu .item.disabled .text {
+.o-ui.dropdown-menu .item[disabled] .text {
     color: var(--cloud-200);
 }
 
@@ -179,7 +180,7 @@
 }
 
 /* Dropdown Menu | Item | Icon | Disabled */
-.o-ui.dropdown-menu .item.disabled .icon {
+.o-ui.dropdown-menu .item[disabled] .icon {
     fill: var(--cloud-200);
 }
 
@@ -190,21 +191,11 @@
     transition: border-bottom .15s ease-in;
 }
 
-/* Dropdown Menu | Item as a link External */
-.o-ui.dropdown-menu a[href^="http://"].item .text,
-.o-ui.dropdown-menu a[href^="https://"].item .text {
-    border-bottom: 1px solid var(--transparent);
-}
-
-/* Dropdown Menu | Item as a link | State | Hover */
+/* Dropdown Menu | Item as a link External | State | Hover */
 .o-ui.dropdown-menu a[href^="http://"].item:hover .text,
-.o-ui.dropdown-menu a[href^="https://"].item:hover .text {
-    border-bottom: 1px solid var(--primary-500);
-}
-
-/* Dropdown Menu | Item as a link | State | Selected */
-.o-ui.dropdown-menu a[href^="https://"].item.selected .text,
-.o-ui.dropdown-menu a[href^="http://"].item.selected .text {
+.o-ui.dropdown-menu a[href^="https://"].item:hover .text,
+.o-ui.dropdown-menu a[href^="http://"].item.hover .text,
+.o-ui.dropdown-menu a[href^="https://"].item.hover .text {
     border-bottom: 1px solid var(--primary-500);
 }
 
@@ -222,7 +213,7 @@
 }
 
 /* Dropdown Menu | Item | Disabled */
-.o-ui.dropdown-menu .item.disabled {
+.o-ui.dropdown-menu .item[disabled] {
     background-color: var(--cloud-50);
     border-color: var(--cloud-50);
     cursor: default;

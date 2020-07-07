@@ -36,9 +36,7 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerDropdownItem(props) {
-    const { text: legacyText, icon, description, onClick, focus, hover, as: ElementType, children, forwardedRef, ...rest } = props;
-
+export function InnerDropdownItem({ text: legacyText, icon, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
     const { size, onSelectItem } = useContext(DropdownContext);
 
     const handleClick = useChainedEventCallback(onClick, onSelectItem);
@@ -71,6 +69,7 @@ export function InnerDropdownItem(props) {
             onClick={handleClick}
             className={mergeClasses(
                 "item",
+                active && "active",
                 focus && "focus",
                 hover && "hover"
             )}
