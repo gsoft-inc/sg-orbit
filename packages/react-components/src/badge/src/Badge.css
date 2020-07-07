@@ -111,10 +111,6 @@
 }
 
 /* ICON */
-.o-ui.badge.icon {
-    display: inline-flex;
-}
-
 .o-ui.badge.icon[disabled] {
     opacity: 0.4;
 }
