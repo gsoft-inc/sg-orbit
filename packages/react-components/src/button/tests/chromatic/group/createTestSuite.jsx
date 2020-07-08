@@ -94,14 +94,14 @@ function Groups({ element, ...rest }) {
                     <Button icon={<ImageIcon />} />
                 </Group>
                 <Group element={group} className="mb5">
-                    <Button disabled badge={<Badge>6</Badge>}>One</Button>
-                    <Button active badge={<Badge>6</Badge>}>Two</Button>
-                    <Button badge={<Badge>6</Badge>}>Tree</Button>
+                    <Button disabled badgeRight={<Badge>6</Badge>}>One</Button>
+                    <Button active badgeRight={<Badge>6</Badge>}>Two</Button>
+                    <Button badgeRight={<Badge>6</Badge>}>Tree</Button>
                 </Group>
                 <Group element={group} className="mb5">
-                    <Button disabled dot={<Badge dot />}>One</Button>
-                    <Button active dot={<Badge dot />}>Two</Button>
-                    <Button dot={<Badge dot />}>Tree</Button>
+                    <Button disabled badgeRight={<Badge variant="dot" />}>One</Button>
+                    <Button active badgeRight={<Badge variant="dot" />}>Two</Button>
+                    <Button badgeRight={<Badge variant="dot" />}>Tree</Button>
                 </Group>
                 <Group element={group} className="bg-red mb5">
                     <Button>One</Button>
