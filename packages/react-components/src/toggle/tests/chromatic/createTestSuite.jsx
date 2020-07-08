@@ -49,9 +49,9 @@ function Badges({ element, ...rest }) {
                 <Toggle badge={<Badge>6</Badge>} size="large" element={toggle} />
             </div>
             <div className="flex items-end mb8">
-                <Toggle badge={<Badge inline>6</Badge>} size="small" element={toggle} className="mr5" />
-                <Toggle badge={<Badge inline>6</Badge>} element={toggle} className="mr5" />
-                <Toggle badge={<Badge inline>6</Badge>} size="large" element={toggle} />
+                <Toggle badge={<Badge variant="inline">6</Badge>} size="small" element={toggle} className="mr5" />
+                <Toggle badge={<Badge variant="inline">6</Badge>} element={toggle} className="mr5" />
+                <Toggle badge={<Badge variant="inline">6</Badge>} size="large" element={toggle} />
             </div>
             <div className="flex">
                 <Toggle active badge={<Badge>6</Badge>} element={toggle} className="mr5" />
@@ -124,7 +124,7 @@ export function createTestSuite(toggle, stories) {
                         <Toggle badge={<Badge>6</Badge>} icons={[<EmailIcon />, <EmailIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={toggle} className="mr5" />
                     </div>
                     <div className="flex mw5">
-                        <Toggle count={<Badge inline>6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />
+                        <Toggle count={<Badge variant="inline">6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={toggle} className="mr5" />
                     </div>
                 </div>
             </div>
