@@ -371,7 +371,11 @@
 }
 
 .ui.toggle.checkbox.small .box,
-.ui.toggle.checkbox.small label {
+.ui.toggle.checkbox.small label,
+.ui.toggle.checkbox.small.fitted.with-icon .box,
+.ui.toggle.checkbox.small.fitted.with-icon label,
+.ui.toggle.checkbox.small.fitted.with-badge .box,
+.ui.toggle.checkbox.small.fitted.with-badge label {
     padding-left: 2.25rem!important
 }
 
@@ -392,7 +396,11 @@
 }
 
 .ui.toggle.checkbox.large .box,
-.ui.toggle.checkbox.large label {
+.ui.toggle.checkbox.large label,
+.ui.toggle.checkbox.large.fitted.with-icon .box,
+.ui.toggle.checkbox.large.fitted.with-icon label,
+.ui.toggle.checkbox.large.fitted.with-badge .box,
+.ui.toggle.checkbox.large.fitted.with-badge label {
     padding-left: 3.375rem!important;
 }
 
@@ -443,6 +451,14 @@
 .ui.fitted.checkbox.with-icon .box {
     padding-left: var(--scale-golf)!important;
 }
+
+.ui.fitted.toggle.checkbox.with-badge label,
+.ui.fitted.toggle.checkbox.with-badge .box,
+.ui.fitted.toggle.checkbox.with-icon label,
+.ui.fitted.toggle.checkbox.with-icon .box {
+    padding-left: calc(2.5rem + 4px)!important;
+}
+
 
 /* Making sure the checkbox have the height they deserve */
 .ui.checkbox.large,
