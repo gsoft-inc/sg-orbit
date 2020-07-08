@@ -16,7 +16,7 @@ const propTypes = {
     /**
      * A badge can vary in sizes.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

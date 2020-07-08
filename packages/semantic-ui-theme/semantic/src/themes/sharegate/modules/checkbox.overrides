@@ -449,7 +449,7 @@
 .ui.fitted.checkbox.with-badge .box,
 .ui.fitted.checkbox.with-icon label,
 .ui.fitted.checkbox.with-icon .box {
-    padding-left: var(--scale-golf)!important;
+    padding-left: calc(var(--scale-foxtrot) + var(--scale-alpha))!important;
 }
 
 .ui.fitted.toggle.checkbox.with-badge label,

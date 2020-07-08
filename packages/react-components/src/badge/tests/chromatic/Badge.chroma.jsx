@@ -89,17 +89,12 @@ stories("/inline")
 
 stories("/dot")
     .add("default", () =>
-        <div className="flex flex-column">
-            <div className="flex items-end mb5">
-                <Badge variant="dot" className="mr5" size="tiny">9</Badge>
-                <Badge variant="dot" className="mr5" size="small">9</Badge>
-                <Badge variant="dot" className="mr5">9</Badge>
-                <Badge variant="dot" size="large">9</Badge>
-            </div>
+        <div className="flex items-end mb5">
+            <Badge variant="dot" className="mr5">9</Badge>
         </div>
     )
     .add("empty", () =>
-        <Badge variant="dot" />
+        <Badge variant="dot" className="mr5"/>
     )
     .add("disabled", () =>
         <Badge disabled variant="dot" className="mr5" />
@@ -111,6 +106,12 @@ stories("/dot")
                 <Badge variant="dot" className="mr5" size="small" />
                 <Badge variant="dot" className="mr5" />
                 <Badge variant="dot" size="large" />
+            </div>
+            <div className="flex items-end mb5">
+                <Badge variant="dot" className="mr5" size="tiny">5</Badge>
+                <Badge variant="dot" className="mr5" size="small">5</Badge>
+                <Badge variant="dot" className="mr5">5</Badge>
+                <Badge variant="dot" size="large">5</Badge>
             </div>
         </div>
     )
