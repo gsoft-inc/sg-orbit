@@ -1,4 +1,4 @@
-import { InfoIcon } from "@react-components/icons";
+import { CheckCircleIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -19,14 +19,14 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb12">
-                <Lozenge size="small" iconLeft={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge iconLeft={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge size="large" iconLeft={<InfoIcon />}>New</Lozenge>
+                <Lozenge size="small" iconLeft={<CheckCircleIcon />} className="mr5">New</Lozenge>
+                <Lozenge iconLeft={<CheckCircleIcon />} className="mr5">New</Lozenge>
+                <Lozenge size="large" iconLeft={<CheckCircleIcon />}>New</Lozenge>
             </div>
             <div className="flex items-end">
-                <Lozenge size="small" iconRight={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge iconRight={<InfoIcon />} className="mr5">New</Lozenge>
-                <Lozenge size="large" iconRight={<InfoIcon />}>New</Lozenge>
+                <Lozenge size="small" iconRight={<CheckCircleIcon />} className="mr5">New</Lozenge>
+                <Lozenge iconRight={<CheckCircleIcon />} className="mr5">New</Lozenge>
+                <Lozenge size="large" iconRight={<CheckCircleIcon />}>New</Lozenge>
             </div>
         </div>
     )

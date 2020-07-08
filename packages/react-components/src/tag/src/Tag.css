@@ -85,6 +85,12 @@
 }
 
 /* WITH BADGE */
+/* WITH BADGE | BADGE */
+.o-ui.tag.with-left-badge .badge,
+.o-ui.tag.with-right-badge .badge {
+    background-color: var(--cloud-100);
+}
+
 /* WITH BADGE | LEFT */
 .o-ui.tag.with-left-badge {
     padding-left: calc(var(--default-padding) / 1.5);
@@ -133,6 +139,12 @@
     border: none;
     color: var(--marine-500);
     box-shadow: 0 0 0 1px var(--cloud-200) inset;
+}
+
+/* OUTLINE | WITH TAG */
+.o-ui.tag.outline.with-left-badge .badge,
+.o-ui.tag.outline.with-right-badge .badge {
+    background-color: var(--cloud-50);
 }
 
 /* AS BUTTON */

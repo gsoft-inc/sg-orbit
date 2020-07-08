@@ -16,7 +16,7 @@ const propTypes = {
     /**
      * A badge can vary in sizes.
      */
-    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -45,6 +45,7 @@ export function InnerBadge(props) {
             className={mergeClasses(
                 "o-ui badge",
                 variant,
+                content && "with-content",
                 variant !== "inline" && variant !== "icon" && getSizeClass(size),
                 highlight && "highlight",
                 className
@@ -69,5 +70,5 @@ export const embedBadge = createEmbeddableAdapter({
     [SIZE.tiny]: SIZE.micro,
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.tiny
+    [SIZE.large]: SIZE.small
 });

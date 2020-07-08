@@ -57,7 +57,7 @@ A badge can draw attention on his text.
 
 A badge can vary in size.
 
-Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -107,11 +107,16 @@ A badge can be rendered as a dot.
     <Story name="dot">
         <div className="flex flex-column items-vertical-space-between">
             <div className="flex items-end items-space-between">
-                <Badge variant="dot" size="mini" />
                 <Badge variant="dot" size="tiny" />
                 <Badge variant="dot" size="small" />
                 <Badge variant="dot" />
                 <Badge variant="dot" size="large" />
+            </div>
+            <div className="flex items-end items-space-between">
+                <Badge variant="dot" size="tiny">5</Badge>
+                <Badge variant="dot" size="small">5</Badge>
+                <Badge variant="dot">5</Badge>
+                <Badge variant="dot" size="large">5</Badge>
             </div>
         </div>
     </Story>
@@ -140,6 +145,9 @@ A badge can float to the top right corner of an element.
     <Story name="floating">
         <div className="flex items-lot-of-space-between">
             <FloatingBadge badge={<Badge variant="dot" />}>
+                <Square />
+            </FloatingBadge>
+            <FloatingBadge badge={<Badge variant="dot" size="tiny">5</Badge>}>
                 <Square />
             </FloatingBadge>
             <FloatingBadge badge={<Badge variant="icon"><CheckCircleIcon /></Badge>}>
