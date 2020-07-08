@@ -27,15 +27,18 @@ export function PinnedPlayground() {
     return (
         <>
             <div className={styles.popperBoundary} ref={setBoundaryElement}>
-                <AutoControlledPopper trigger={<Button>Toggle</Button>}>
-                    <Popper
+                <AutoControlledPopper>
+                    <AutoControlledPopper.Trigger as={Button}>
+                        Toggle
+                    </AutoControlledPopper.Trigger>
+                    <AutoControlledPopper.Popper
                         pinned={isPinned}
                         position="top"
                         noPortal
                         popperModifiers={popperModifiers}
                     >
                         <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-                    </Popper>
+                    </AutoControlledPopper.Popper>
                 </AutoControlledPopper>
             </div>
             <div className="mt4">

@@ -121,7 +121,7 @@ export function InnerDropdownMenu({ pinned, zIndex, noPortal, scrolling, onSelec
             zIndex={zIndex}
             fluid={fluid}
             noPortal={noPortal}
-            ref={setMenuElement}
+            ref={menuRef}
         >
             <ElementType
                 {...rest}
@@ -133,7 +133,6 @@ export function InnerDropdownMenu({ pinned, zIndex, noPortal, scrolling, onSelec
                     className
                 )}
                 tabIndex="-1"
-                ref={menuRef}
             >
                 {children}
             </ElementType>

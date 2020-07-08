@@ -1,4 +1,4 @@
-import { DropdownContext } from "./DropdownContext";
+import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { useChainedEventCallback, useMergedRefs } from "../../shared";
@@ -14,8 +14,8 @@ const defaultProps = {
     as: "button"
 };
 
-export function InnerDropdownTrigger({ onClick, onKeyDown, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
-    const { fluid, size, setTriggerElement, onTriggerClick, onTriggerKeyDown } = useContext(DropdownContext);
+export function InnerAutoControlledPopperTrigger({ onClick, onKeyDown, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
+    const { fluid, setTriggerElement, onTriggerClick, onTriggerKeyDown } = useContext(AutoControlledPopperContext);
 
     const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
 
@@ -27,7 +27,6 @@ export function InnerDropdownTrigger({ onClick, onKeyDown, active, focus, hover,
             {...rest}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
-            size={size}
             fluid={fluid}
             active={active}
             focus={focus}
@@ -39,9 +38,9 @@ export function InnerDropdownTrigger({ onClick, onKeyDown, active, focus, hover,
     );
 }
 
-InnerDropdownTrigger.propTypes = propTypes;
-InnerDropdownTrigger.defaultProps = defaultProps;
+InnerAutoControlledPopperTrigger.propTypes = propTypes;
+InnerAutoControlledPopperTrigger.defaultProps = defaultProps;
 
-export const DropdownTrigger = forwardRef((props, ref) => (
-    <InnerDropdownTrigger {...props} forwardedRef={ref} />
+export const AutoControlledPopperTrigger = forwardRef((props, ref) => (
+    <InnerAutoControlledPopperTrigger {...props} forwardedRef={ref} />
 ));

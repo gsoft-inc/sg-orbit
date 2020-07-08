@@ -1,4 +1,4 @@
-import { AutoControlledPopper, Popper } from "@react-components/popper";
+import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { useState } from "react";
 
@@ -15,13 +15,15 @@ export function ControlledPopper() {
                 <span className="dib fw6" style={labelStyle}>visible:</span> {isVisible ? "true" : "false"}
             </div>
             <AutoControlledPopper
-                trigger={<Button>Toggle</Button>}
                 show={isVisible}
                 onVisibilityChange={() => { setIsVisible(x => !x); }}
             >
-                <Popper>
+                <AutoControlledPopper.Trigger as={Button}>
+                    Toggle
+                </AutoControlledPopper.Trigger>
+                <AutoControlledPopper.Popper>
                     <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
-                </Popper>
+                </AutoControlledPopper.Popper>
             </AutoControlledPopper>
         </>
     );

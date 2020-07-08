@@ -25,11 +25,11 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    leftIcon: element,
+    iconLeft: element,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    rightIcon: element,
+    iconRight: element,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -40,19 +40,19 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerDropdownItem({ text: legacyText, leftIcon, rightIcon, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
+export function InnerDropdownItem({ text: legacyText, iconLeft, iconRight, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
     const { size, onSelectItem } = useContext(DropdownContext);
 
     const handleClick = useChainedEventCallback(onClick, onSelectItem);
 
     const text = legacyText || children;
 
-    const leftIconMarkup = !isNil(leftIcon) && (
-        <EmbeddedIcon size={size}>{leftIcon}</EmbeddedIcon>
+    const iconLeftMarkup = !isNil(iconLeft) && (
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
 
-    const rightIconMarkup = !isNil(rightIcon) && (
-        <EmbeddedIcon size={size}>{rightIcon}</EmbeddedIcon>
+    const iconRightMarkup = !isNil(iconRight) && (
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const textMarkup = !isNil(text) && (
@@ -65,9 +65,9 @@ export function InnerDropdownItem({ text: legacyText, leftIcon, rightIcon, descr
 
     const content = (
         <>
-            {leftIconMarkup}
+            {iconLeftMarkup}
             {textMarkup}
-            {rightIconMarkup}
+            {iconRightMarkup}
             {descriptionMarkup}
         </>
     );
@@ -81,8 +81,8 @@ export function InnerDropdownItem({ text: legacyText, leftIcon, rightIcon, descr
                 active && "active",
                 focus && "focus",
                 hover && "hover",
-                leftIconMarkup && "with-left-icon",
-                rightIconMarkup && "with-right-icon"
+                iconLeftMarkup && "with-left-icon",
+                iconRightMarkup && "with-right-icon"
             )}
             tabIndex="-1"
             ref={forwardedRef}

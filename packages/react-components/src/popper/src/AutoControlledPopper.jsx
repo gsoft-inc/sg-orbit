@@ -1,8 +1,9 @@
+import { AutoControlledPopperAdapter } from "./AutoControlledPopperAdapter";
 import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
-import { any, arrayOf, bool, func, node, number } from "prop-types";
-import { augmentElement, mergeClasses, useChainedEventCallback, useMergedRefs } from "../../shared";
+import { AutoControlledPopperTrigger } from "./AutoControlledPopperTrigger";
+import { any, arrayOf, bool, func, number } from "prop-types";
 import { forwardRef, useState } from "react";
-import { isNil } from "lodash";
+import { mergeClasses, useChainedEventCallback, useMergedRefs } from "../../shared";
 import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
 const propTypes = {
@@ -14,10 +15,6 @@ const propTypes = {
      * The initial value of show when in auto controlled mode.
      */
     defaultShow: bool,
-    /**
-     * The popper trigger.
-     */
-    trigger: node.isRequired,
     /**
      * Called when the popup open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -88,12 +85,10 @@ const defaultProps = {
 export function InnerAutoControlledPopper({
     show,
     defaultShow,
-    trigger,
     onVisibilityChange,
     onFocus,
     onBlur,
     fluid,
-    position,
     focusTriggerOnShow,
     focusTriggerOnEscape,
     focusFirstElementOnShow,
@@ -142,18 +137,6 @@ export function InnerAutoControlledPopper({
         disabled
     });
 
-    const popperMarkup = !isNil(triggerElement) && augmentElement(children, {
-        show: isVisible,
-        triggerElement,
-        ref: setPopperElement
-    });
-
-    const triggerMarkup = augmentElement(trigger, {
-        onClick: onTriggerClick,
-        onKeyDown: onTriggerKeyDown,
-        ref: setTriggerElement
-    });
-
     const handleWrapperFocus = useChainedEventCallback(onWrapperFocus, onFocus);
     const handleWrapperBlur = useChainedEventCallback(onWrapperBlur, onBlur);
 
@@ -161,7 +144,13 @@ export function InnerAutoControlledPopper({
         <AutoControlledPopperContext.Provider
             value={{
                 isVisible,
-                position
+                fluid,
+                triggerElement,
+                setTriggerElement,
+                popperElement,
+                setPopperElement,
+                onTriggerClick,
+                onTriggerKeyDown
             }}
         >
             <div
@@ -179,8 +168,7 @@ export function InnerAutoControlledPopper({
                 )}
                 ref={wrapperRef}
             >
-                {triggerMarkup}
-                {popperMarkup}
+                {children}
             </div>
         </AutoControlledPopperContext.Provider>
     );
@@ -192,3 +180,8 @@ InnerAutoControlledPopper.defaultProps = defaultProps;
 export const AutoControlledPopper = forwardRef((props, ref) => (
     <InnerAutoControlledPopper {...props} forwardedRef={ref} />
 ));
+
+[InnerAutoControlledPopper, AutoControlledPopper].forEach(x => {
+    x.Trigger = AutoControlledPopperTrigger;
+    x.Popper = AutoControlledPopperAdapter;
+});

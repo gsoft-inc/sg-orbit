@@ -578,35 +578,35 @@ stories()
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
                 size="large"
                 open
                 style={{ marginRight: "200px" }}
             >
-                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown open>
-                <Dropdown.Item leftIcon={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item leftIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>} disabled>Open...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<EditIcon />} disabled>Save as...</Dropdown.Item>
-                <Dropdown.Item rightIcon={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>} disabled>Open...</Dropdown.Item>
+                <Dropdown.Item iconRight={<EditIcon />} disabled>Save as...</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
         </div>
     )

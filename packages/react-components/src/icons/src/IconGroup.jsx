@@ -1,7 +1,7 @@
 import "./IconGroup.css";
 
 import { Children, cloneElement, forwardRef } from "react";
-import { any, elementType, oneOfType, string } from "prop-types";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { mergeClasses } from "../../shared";
 
 const propTypes = {
@@ -12,7 +12,7 @@ const propTypes = {
     /**
      * Spacing between each icons. Accepts any [spacing variables](?path=/docs/materials-spacing--page#values) without the "--scale-" part e.g. "alpha" for "--scale-alpha".
      */
-    spacing: string,
+    spacing: oneOf(["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo", "lima", "mike"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

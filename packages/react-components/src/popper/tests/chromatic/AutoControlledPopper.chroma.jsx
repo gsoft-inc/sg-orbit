@@ -1,4 +1,4 @@
-import { AutoControlledPopper, Popper } from "@react-components/popper";
+import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef } from "react";
@@ -30,13 +30,11 @@ const RedBox = forwardRef((props, ref) => {
 
 function RedBoxPopper(props) {
     return (
-        <AutoControlledPopper
-            {...props}
-            trigger={<Button fluid>Open</Button>}
-        >
-            <Popper>
+        <AutoControlledPopper {...props}>
+            <AutoControlledPopper.Trigger as={Button}>Open</AutoControlledPopper.Trigger>
+            <AutoControlledPopper.Popper>
                 <RedBox />
-            </Popper>
+            </AutoControlledPopper.Popper>
         </AutoControlledPopper>
     );
 }
@@ -61,6 +59,12 @@ stories()
         <RedBoxPopper
             show
             focusFirstElementOnShow
+        />
+    )
+    .add("fluid", () =>
+        <RedBoxPopper
+            show
+            fluid
         />
     )
     .add("multiple popper visible on the same page", () =>

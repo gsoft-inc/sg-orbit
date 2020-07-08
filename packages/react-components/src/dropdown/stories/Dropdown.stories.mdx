@@ -15,7 +15,7 @@ import {
     InnerDropdownTrigger
 } from "@react-components/dropdown";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { FolderIcon, HelpIcon, SignoutIcon, VerticalDotsIcon } from "@react-components/icons";
+import { FolderIcon, HelpIcon, IconGroup, InfoIcon, SignoutIcon, VerticalDotsIcon, WarningIcon } from "@react-components/icons";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { logClicked } from "./utils";
@@ -361,9 +361,9 @@ A dropdown item can have a description.
     </Story>
 </Preview>
 
-### Icon
+### Icons
 
-A dropdown item can have an icon.
+A tag can contain left or right [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="item icon">
@@ -372,9 +372,9 @@ A dropdown item can have an icon.
             <Dropdown.Menu>
                 <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
-                <Dropdown.ButtonItem onClick={logClicked}>Land...</Dropdown.ButtonItem>
-                <Dropdown.ButtonItem icon={<HelpIcon />} onClick={logClicked}>Help</Dropdown.ButtonItem>
-                <Dropdown.ButtonItem icon={<SignoutIcon />} onClick={logClicked}>Exit</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem iconLeft={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem iconLeft={<HelpIcon />} onClick={logClicked}>Help</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem iconRight={<SignoutIcon />} onClick={logClicked}>Exit</Dropdown.ButtonItem>
             </Dropdown.Menu>
         </Dropdown>
     </Story>
