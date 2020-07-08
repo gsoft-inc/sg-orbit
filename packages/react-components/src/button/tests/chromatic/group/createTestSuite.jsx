@@ -99,9 +99,9 @@ function Groups({ element, ...rest }) {
                     <Button badgeRight={<Badge>6</Badge>}>Tree</Button>
                 </Group>
                 <Group element={group} className="mb5">
-                    <Button disabled badgeRight={<Badge variant="dot" />}>One</Button>
-                    <Button active badgeRight={<Badge variant="dot" />}>Two</Button>
-                    <Button badgeRight={<Badge variant="dot" />}>Tree</Button>
+                    <Button disabled badgeLeft={<Badge variant="dot" />}>One</Button>
+                    <Button active badgeLeft={<Badge variant="dot" />}>Two</Button>
+                    <Button badgeLeft={<Badge variant="dot" />}>Tree</Button>
                 </Group>
                 <Group element={group} className="bg-red mb5">
                     <Button>One</Button>
