@@ -94,7 +94,7 @@ stories("/dot")
         </div>
     )
     .add("empty", () =>
-        <Badge variant="dot" className="mr5"/>
+        <Badge variant="dot" className="mr5" />
     )
     .add("disabled", () =>
         <Badge disabled variant="dot" className="mr5" />
