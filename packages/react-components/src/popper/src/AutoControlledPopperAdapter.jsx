@@ -2,7 +2,6 @@ import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import { Popper } from "./Popper";
 import { array, arrayOf, bool, instanceOf, number, object, oneOf } from "prop-types";
 import { forwardRef, useContext } from "react";
-import { isNil } from "lodash";
 import { useMergedRefs } from "../../shared";
 
 // TODO: Should be a subset of the Popper interface when we switch to TS.
@@ -70,10 +69,6 @@ export function InnerAutoControlledPopperAdapter({ children, forwardedRef, ...re
     const { isVisible, triggerElement, setPopperElement } = useContext(AutoControlledPopperContext);
 
     const popperRef = useMergedRefs(setPopperElement, forwardedRef);
-
-    // if (isNil(triggerElement)) {
-    //     return null;
-    // }
 
     return (
         <Popper

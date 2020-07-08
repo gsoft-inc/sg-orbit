@@ -1,6 +1,6 @@
 import styles from "./PinnedPlayground.module.css";
 
-import { AutoControlledPopper, Popper } from "@react-components/popper";
+import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { Toggle } from "@react-components/toggle";
 import { useState } from "react";
