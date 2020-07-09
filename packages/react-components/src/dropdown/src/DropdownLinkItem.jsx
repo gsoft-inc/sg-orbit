@@ -1,5 +1,5 @@
 import { DropdownItem } from "./DropdownItem";
-import { element, elementType, oneOfType, string } from "prop-types";
+import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {

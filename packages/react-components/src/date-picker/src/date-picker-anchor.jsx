@@ -1,6 +1,6 @@
 import { AutoControlledPopper } from "../../popper";
-import { PureComponent, cloneElement, forwardRef } from "react";
-import { augmentElement, resolvePopperPosition, useMergedRefs } from "../../shared";
+import { PureComponent, forwardRef } from "react";
+import { augmentElement, resolvePopperPosition } from "../../shared";
 import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
