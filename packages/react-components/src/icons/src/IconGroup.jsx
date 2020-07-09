@@ -1,7 +1,7 @@
 import "./IconGroup.css";
 
 import { Children, cloneElement, forwardRef } from "react";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
 import { mergeClasses } from "../../shared";
 
 const propTypes = {

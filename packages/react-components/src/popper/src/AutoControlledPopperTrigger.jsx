@@ -15,9 +15,9 @@ const defaultProps = {
 };
 
 export function InnerAutoControlledPopperTrigger({ onClick, onKeyDown, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
-    const { fluid, setTriggerElement, onTriggerClick, onTriggerKeyDown } = useContext(AutoControlledPopperContext);
+    const { fluid, triggerRef, onTriggerClick, onTriggerKeyDown } = useContext(AutoControlledPopperContext);
 
-    const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
+    const ref = useMergedRefs(triggerRef, forwardedRef);
 
     const handleClick = useChainedEventCallback(onTriggerClick, onClick);
     const handleKeyDown = useChainedEventCallback(onTriggerKeyDown, onKeyDown);
@@ -31,7 +31,7 @@ export function InnerAutoControlledPopperTrigger({ onClick, onKeyDown, active, f
             active={active}
             focus={focus}
             hover={hover}
-            ref={triggerRef}
+            ref={ref}
         >
             {children}
         </ElementType>

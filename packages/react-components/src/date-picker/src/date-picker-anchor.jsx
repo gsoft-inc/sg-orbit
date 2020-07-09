@@ -1,6 +1,6 @@
 import { AutoControlledPopper } from "../../popper";
-import { PureComponent, forwardRef } from "react";
-import { augmentElement, resolvePopperPosition } from "../../shared";
+import { PureComponent, cloneElement, forwardRef } from "react";
+import { augmentElement, resolvePopperPosition, useMergedRefs } from "../../shared";
 import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
@@ -48,9 +48,9 @@ export class DatePickerAnchor extends PureComponent {
                 style={style}
             >
                 <AutoControlledPopper.Trigger
-                    as={forwardRef((props, ref) => {
+                    as={forwardRef((asProps, ref) => {
                         return augmentElement(input, {
-                            ...props,
+                            ...asProps,
                             ref
                         });
                     })}

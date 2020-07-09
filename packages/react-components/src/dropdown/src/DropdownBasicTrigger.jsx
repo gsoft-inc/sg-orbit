@@ -29,14 +29,14 @@ export function InnerDropdownBasicTrigger({ icon, as: ElementType, forwardedRef,
     return (
         <DropdownTrigger
             {...rest}
-            as={forwardRef(({ fluid, size, active, focus, hover, className, children, ...otherProps }, ref) => {
+            as={forwardRef(({ fluid, size, active, focus, hover, className, children, ...asProps }, ref) => {
                 const iconMarkup = !isNil(icon) && (
                     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
                 );
 
                 return (
                     <ElementType
-                        {...otherProps}
+                        {...asProps}
                         className={mergeClasses(
                             "title-trigger",
                             fluid && "fluid",

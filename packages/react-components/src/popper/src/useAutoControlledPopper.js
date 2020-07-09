@@ -12,7 +12,8 @@ function getFirstFocusableElement(container) {
     return container.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])");
 }
 
-function useHideOnBlur({ wrapperElement: containerElement, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper) {
+// function useHideOnBlur({ wrapperElement: containerElement, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper) {
+function useHideOnBlur({ wrapperRef: containerRef, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper) {
     const hasFocusRef = useRef();
     const activeElementRef = useRef();
 
@@ -68,6 +69,8 @@ function useHideOnBlur({ wrapperElement: containerElement, hideOnBlur, disabled 
             if (!isNil(document.activeElement) && document.activeElement.nodeName === "BODY") {
                 if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
                     setFocusPopper(() => {
+                        const containerElement = containerRef.current;
+
                         if (!isNil(containerElement)) {
                             containerElement.focus();
                         }
@@ -89,9 +92,9 @@ export function useAutoControlledPopper(props) {
     const {
         show,
         defaultShow,
-        triggerElement,
-        popperElement,
-        wrapperElement,
+        triggerRef,
+        popperRef,
+        wrapperRef,
         onVisibilityChange,
         focusTriggerOnShow,
         focusTriggerOnEscape = true,
@@ -110,18 +113,22 @@ export function useAutoControlledPopper(props) {
     const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
     const lastTriggerEventRef = useRef();
 
-    const setFocusTrigger = useCallback(() => {
+    const setFocusTrigger = useCallback((delay = 0) => {
         setTimeout(() => {
+            const triggerElement = triggerRef.current;
+
             if (!isNil(triggerElement)) {
                 if (isFunction(triggerElement.focus)) {
                     triggerElement.focus();
                 }
             }
-        }, 0);
-    }, [triggerElement]);
+        }, delay);
+    }, [triggerRef]);
 
     const setFocusPopper = useCallback((onCannotFocus, delay = 0) => {
         setTimeout(() => {
+            const popperElement = popperRef.current;
+
             if (!isNil(popperElement)) {
                 const focusableElement = getFirstFocusableElement(popperElement);
 
@@ -136,7 +143,7 @@ export function useAutoControlledPopper(props) {
                 }
             }
         }, delay);
-    }, [popperElement]);
+    }, [popperRef]);
 
     const showPopper = useCallback(event => {
         setIsVisible(true);
@@ -162,7 +169,7 @@ export function useAutoControlledPopper(props) {
         }
     }, [isVisible, showPopper, hidePopper]);
 
-    const [handleFocus, handleBlur] = useHideOnBlur({ wrapperElement, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper);
+    const [handleFocus, handleBlur] = useHideOnBlur({ wrapperRef, hideOnBlur, disabled }, isVisible, hidePopper, setFocusPopper);
 
     const handleTriggerClick = useEventCallback(event => {
         lastTriggerEventRef.current = event.type;
@@ -218,12 +225,12 @@ export function useAutoControlledPopper(props) {
     useDocumentListener("keydown", handleDocumentKeyDown, isVisible && !disabled);
 
     const handleDocumentClick = useEventCallback(event => {
-        if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
+        if (!triggerRef.current.contains(event.target) && !popperRef.current.contains(event.target)) {
             if (hideOnOutsideClick) {
                 hidePopper(event);
             }
         }
-    }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
+    }, [hideOnOutsideClick, triggerRef, popperRef, hidePopper]);
 
     useDocumentListener("click", handleDocumentClick, isVisible && !disabled);
 

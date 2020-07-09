@@ -1,4 +1,4 @@
-import { AutoControlledPopper, Popper } from "@react-components/popper";
+import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
 import { KEYS } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
@@ -9,19 +9,18 @@ const TRIGGER_ID = "button";
 const POPPER_ID = "popper-wrapper";
 const POPPER_FOCUSABLE_ELEMENT_ID = "popper-focusable-element";
 
-const SimpleAutoControlledPopper = forwardRef(({
-    trigger = <Button>Click me</Button>,
-    ...rest
-}, ref) => {
+const ButtonPopper = forwardRef(({ onClick, ...rest }, ref) => {
     return (
         <AutoControlledPopper
             {...rest}
-            trigger={trigger}
             ref={ref}
         >
-            <Popper>
+            <AutoControlledPopper.Trigger as={Button} onClick={onClick}>
+                Click me
+            </AutoControlledPopper.Trigger>
+            <AutoControlledPopper.Popper>
                 <a href="https://www.sharegate.com" data-testid={POPPER_FOCUSABLE_ELEMENT_ID}>Popper</a>
-            </Popper>
+            </AutoControlledPopper.Popper>
         </AutoControlledPopper>
     );
 });
@@ -57,7 +56,7 @@ async function showPopper({ getByTestId }) {
 
 test("show the popper on trigger toggle", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     act(() => {
@@ -69,7 +68,7 @@ test("show the popper on trigger toggle", async () => {
 
 test("show the popper on trigger spacebar keydown", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     act(() => {
@@ -81,7 +80,7 @@ test("show the popper on trigger spacebar keydown", async () => {
 
 test("show the popper on trigger enter keydown", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     act(() => {
@@ -93,7 +92,7 @@ test("show the popper on trigger enter keydown", async () => {
 
 test("show the popper on trigger custom keys keydown", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper showOnKeys={[KEYS.down]} />
+        <ButtonPopper showOnKeys={[KEYS.down]} />
     );
 
     act(() => {
@@ -105,7 +104,7 @@ test("show the popper on trigger custom keys keydown", async () => {
 
 test("when toggleOnSpacebar is false, dont show the popper on trigger spacebar keydown", async () => {
     const { getByTestId, queryByTestId } = render(
-        <SimpleAutoControlledPopper toggleOnSpacebar={false} />
+        <ButtonPopper toggleOnSpacebar={false} />
     );
 
     act(() => {
@@ -117,7 +116,7 @@ test("when toggleOnSpacebar is false, dont show the popper on trigger spacebar k
 
 test("when toggleOnEnter is false, dont show the popper on trigger enter keydown", async () => {
     const { getByTestId, queryByTestId } = render(
-        <SimpleAutoControlledPopper toggleOnEnter={false} />
+        <ButtonPopper toggleOnEnter={false} />
     );
 
     act(() => {
@@ -129,7 +128,7 @@ test("when toggleOnEnter is false, dont show the popper on trigger enter keydown
 
 test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper focusTriggerOnShow />
+        <ButtonPopper focusTriggerOnShow />
     );
 
     const { triggerNode } = await showPopper(renderResult);
@@ -139,7 +138,7 @@ test("when focusTriggerOnShow is true, focus the trigger on show", async () => {
 
 test("when focusFirstElementOnShow is true, focus the first popper focusable element on show", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper focusFirstElementOnShow />
+        <ButtonPopper focusFirstElementOnShow />
     );
 
     const { queries } = await showPopper(renderResult);
@@ -149,7 +148,7 @@ test("when focusFirstElementOnShow is true, focus the first popper focusable ele
 
 test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, dont focus the first popper focusable element on mouse show", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             focusFirstElementOnShow={false}
             focusFirstElementOnKeyboardShow
         />
@@ -164,7 +163,7 @@ test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow 
 
 test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow is true, focus the first popper focusable element on keyboard show", async () => {
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             focusFirstElementOnShow={false}
             focusFirstElementOnKeyboardShow
         />
@@ -179,7 +178,7 @@ test("when focusFirstElementOnShow is false and focusFirstElementOnKeyboardShow 
 
 test("hide the popper on esc keydown", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { popperNode } = await showPopper(renderResult);
@@ -193,7 +192,7 @@ test("hide the popper on esc keydown", async () => {
 
 test("hide the popper on outside click", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { popperNode } = await showPopper(renderResult);
@@ -207,7 +206,7 @@ test("hide the popper on outside click", async () => {
 
 test("hide the popper on trigger mouse click", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
@@ -221,7 +220,7 @@ test("hide the popper on trigger mouse click", async () => {
 
 test("hide the popper on trigger spacebar keydown", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
@@ -235,7 +234,7 @@ test("hide the popper on trigger spacebar keydown", async () => {
 
 test("hide the popper on trigger enter keydown", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { triggerNode, popperNode } = await showPopper(renderResult);
@@ -249,7 +248,7 @@ test("hide the popper on trigger enter keydown", async () => {
 
 test("hide the popper on blur", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { popperNode } = await showPopper(renderResult);
@@ -263,7 +262,7 @@ test("hide the popper on blur", async () => {
 
 test("when the popper hide on esc keydown, the trigger should be focused", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper />
+        <ButtonPopper />
     );
 
     const { triggerNode, queries } = await showPopper(renderResult);
@@ -283,7 +282,7 @@ test("when the popper hide on esc keydown, the trigger should be focused", async
 
 test("when hideOnBlur is false and hideOnOutsideClick is false, dont hide the popper on blur", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             hideOnBlur={false}
             hideOnOutsideClick={false}
         />
@@ -300,7 +299,7 @@ test("when hideOnBlur is false and hideOnOutsideClick is false, dont hide the po
 
 test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper on outside click", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             hideOnBlur={false}
             hideOnOutsideClick
         />
@@ -317,7 +316,7 @@ test("when hideOnBlur is false and hideOnOutsideClick is true, hide the popper o
 
 test("when hideOnEscape is false, dont hide the popper on escape keydown", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             hideOnEscape={false}
         />
     );
@@ -333,7 +332,7 @@ test("when hideOnEscape is false, dont hide the popper on escape keydown", async
 
 test("when focusTriggerOnEscape is false, dont focus the trigger on escape keydown", async () => {
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             focusTriggerOnEscape={false}
         />
     );
@@ -357,7 +356,7 @@ test("consumer can set is own toggle handler", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onClick={handler}
         />
     );
@@ -373,7 +372,7 @@ test("call onVisibilityChange when the popper is showed with a trigger toggle", 
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -389,7 +388,7 @@ test("call onVisibilityChange when the popper is showed with space keydown", asy
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -405,7 +404,7 @@ test("call onVisibilityChange when the popper is showed with enter keydown", asy
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -421,7 +420,7 @@ test("call onVisibilityChange when the popper is hidden with an outside click", 
     const handler = jest.fn();
 
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -442,7 +441,7 @@ test("call onVisibilityChange when the popper is hidden with esc keydown", async
     const handler = jest.fn();
 
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -463,7 +462,7 @@ test("call onVisibilityChange when the popper hide on blur", async () => {
     const handler = jest.fn();
 
     const renderResult = render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             onVisibilityChange={handler}
         />
     );
@@ -484,7 +483,7 @@ test("spread additional props on the root element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             ref={ref}
             data-extra-props-test="works"
         />
@@ -499,7 +498,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             ref={ref}
         />
     );
@@ -515,7 +514,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimpleAutoControlledPopper
+        <ButtonPopper
             ref={node => {
                 refNode = node;
             }}

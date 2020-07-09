@@ -15,9 +15,9 @@ const defaultProps = {
 };
 
 export function InnerDropdownTrigger({ onClick, onKeyDown, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
-    const { fluid, size, setTriggerElement, onTriggerClick, onTriggerKeyDown } = useContext(DropdownContext);
+    const { fluid, size, triggerRef, onTriggerClick, onTriggerKeyDown } = useContext(DropdownContext);
 
-    const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
+    const ref = useMergedRefs(triggerRef, forwardedRef);
 
     const handleClick = useChainedEventCallback(onTriggerClick, onClick);
     const handleKeyDown = useChainedEventCallback(onTriggerKeyDown, onKeyDown);
@@ -32,7 +32,7 @@ export function InnerDropdownTrigger({ onClick, onKeyDown, active, focus, hover,
             active={active}
             focus={focus}
             hover={hover}
-            ref={triggerRef}
+            ref={ref}
         >
             {children}
         </ElementType>

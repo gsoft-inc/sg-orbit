@@ -10,7 +10,7 @@ test("ref is a DOM element", async () => {
     render(
         <Dropdown.BasicTrigger
             ref={ref}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -28,7 +28,7 @@ test("using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -44,7 +44,7 @@ test("set ref once", async () => {
     render(
         <Dropdown.BasicTrigger
             ref={handler}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

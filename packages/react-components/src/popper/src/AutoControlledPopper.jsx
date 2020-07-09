@@ -2,7 +2,7 @@ import { AutoControlledPopperAdapter } from "./AutoControlledPopperAdapter";
 import { AutoControlledPopperContext } from "./AutoControlledPopperContext";
 import { AutoControlledPopperTrigger } from "./AutoControlledPopperTrigger";
 import { any, arrayOf, bool, func, number } from "prop-types";
-import { forwardRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import { mergeClasses, useChainedEventCallback, useMergedRefs } from "../../shared";
 import { useAutoControlledPopper } from "./useAutoControlledPopper";
 
@@ -105,11 +105,15 @@ export function InnerAutoControlledPopper({
     forwardedRef,
     ...rest
 }) {
+    // Not the preferred solution to have a triggerRef AND a state value for the triggerElement but the date pickers
+    // brokes on the second "click" event when we only use a triggerRef. Might be fixed once the date pickers are refactored.
+    // A previous implementation was relying only on state values but the date pickers were not focused on ESC keydown event
+    // because of a reference mismatch.
     const [triggerElement, setTriggerElement] = useState();
-    const [popperElement, setPopperElement] = useState();
-    const [wrapperElement, setWrapperElement] = useState();
 
-    const wrapperRef = useMergedRefs(setWrapperElement, forwardedRef);
+    const triggerRef = useMergedRefs(setTriggerElement);
+    const popperRef = useRef();
+    const wrapperRef = useMergedRefs(forwardedRef);
 
     const {
         isVisible,
@@ -120,9 +124,9 @@ export function InnerAutoControlledPopper({
     } = useAutoControlledPopper({
         show,
         defaultShow,
-        triggerElement,
-        popperElement,
-        wrapperElement,
+        triggerRef,
+        popperRef,
+        wrapperRef,
         onVisibilityChange,
         focusTriggerOnShow,
         focusTriggerOnEscape,
@@ -145,10 +149,10 @@ export function InnerAutoControlledPopper({
             value={{
                 isVisible,
                 fluid,
+                triggerRef,
+                popperRef,
+                wrapperRef,
                 triggerElement,
-                setTriggerElement,
-                popperElement,
-                setPopperElement,
                 onTriggerClick,
                 onTriggerKeyDown
             }}

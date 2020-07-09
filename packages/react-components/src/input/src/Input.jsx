@@ -106,7 +106,9 @@ export function InnerInput(props) {
         const domElement = wrapperRef.current;
 
         apiMethods.forEach(x => {
-            domElement[x] = inputComponentRef.current[x];
+            domElement[x] = (...args) => {
+                inputComponentRef.current[x](...args);
+            };
         });
 
         return domElement;

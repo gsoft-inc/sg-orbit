@@ -105,23 +105,26 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
 }
 
 export function InnerDropdownMenu({ pinned, zIndex, noPortal, scrolling, onSelectItem, as: ElementType, className, children, forwardedRef, ...rest }) {
-    const { isOpen, fluid, size, upward, direction, triggerElement, menuElement, setMenuElement } = useContext(DropdownContext);
+    const { isOpen, fluid, size, upward, direction, triggerRef, menuRef } = useContext(DropdownContext);
 
-    const menuRef = useMergedRefs(setMenuElement, forwardedRef);
+    // Since the keyboard navigation code is doing direct DOM manipulation the menu must be re-rendered everytime the menu ref change.
+    const [menuElement, setMenuElement] = useState();
+
+    const ref = useMergedRefs(setMenuElement, menuRef, forwardedRef);
 
     useKeyboardNavigation(menuElement, isOpen, onSelectItem);
 
     return (
         <Popper
             show={isOpen}
-            triggerElement={triggerElement}
+            triggerElement={triggerRef.current}
             position={resolvePopperPosition(upward, direction)}
             pinned={pinned}
             offset={[0, 10]}
             zIndex={zIndex}
             fluid={fluid}
             noPortal={noPortal}
-            ref={menuRef}
+            ref={ref}
         >
             <ElementType
                 {...rest}

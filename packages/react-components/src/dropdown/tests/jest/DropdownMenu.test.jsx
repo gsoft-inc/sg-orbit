@@ -2,19 +2,19 @@ import { Dropdown, DropdownMenu } from "@react-components/dropdown";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const BasicDropdownMenu = forwardRef(({
-    ...rest
-}, ref) => {
+const BasicDropdownMenu = forwardRef((props, ref) => {
     return (
-        <DropdownMenu
-            {...rest}
-            ref={ref}
-        >
+        <Dropdown open>
             <Dropdown.BasicTrigger>File</Dropdown.BasicTrigger>
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
-        </DropdownMenu>
+            <DropdownMenu
+                {...props}
+                ref={ref}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </DropdownMenu>
+        </Dropdown>
     );
 });
 

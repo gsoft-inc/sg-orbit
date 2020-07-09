@@ -66,16 +66,16 @@ const propTypes = {
 };
 
 export function InnerAutoControlledPopperAdapter({ children, forwardedRef, ...rest }) {
-    const { isVisible, triggerElement, setPopperElement } = useContext(AutoControlledPopperContext);
+    const { isVisible, triggerElement, popperRef } = useContext(AutoControlledPopperContext);
 
-    const popperRef = useMergedRefs(setPopperElement, forwardedRef);
+    const ref = useMergedRefs(popperRef, forwardedRef);
 
     return (
         <Popper
             {...rest}
             show={isVisible}
             triggerElement={triggerElement}
-            ref={popperRef}
+            ref={ref}
         >
             {children}
         </Popper>

@@ -184,7 +184,7 @@ export function InnerPopper({
 
     const popperContent = Children.only(children);
 
-    // This condition is a fix for "react-dates" calendar. If the calendar is rendered before being shown, he will remain "hidden"
+    // The "show" condition is a fix for "react-dates" calendar. If the calendar is rendered before being shown, he will remain "hidden"
     // even when the popper is visible.
     const popperMarkup = show && augmentElement(!noWrap ? wrapPopper(popperContent) : popperContent, {
         style: {

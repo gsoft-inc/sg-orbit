@@ -12,7 +12,7 @@ import { DropdownTitle } from "./DropdownTitle";
 import { DropdownTrigger } from "./DropdownTrigger";
 import { KEYS, mergeClasses, useChainedEventCallback, useEventCallback, useMergedRefs } from "../../shared";
 import { any, bool, func, oneOf } from "prop-types";
-import { forwardRef, useState } from "react";
+import { forwardRef, useRef } from "react";
 import { useAutoControlledPopper } from "../../popper";
 
 const propTypes = {
@@ -73,11 +73,9 @@ export function InnerDropdown(props) {
         forwardedRef,
         ...rest
     } = props;
-    const [triggerElement, setTriggerElement] = useState();
-    const [menuElement, setMenuElement] = useState();
-    const [wrapperElement, setWrapperElement] = useState();
-
-    const wrapperRef = useMergedRefs(setWrapperElement, forwardedRef);
+    const triggerRef = useRef();
+    const menuRef = useRef();
+    const wrapperRef = useMergedRefs(forwardedRef);
 
     const {
         isVisible,
@@ -91,9 +89,9 @@ export function InnerDropdown(props) {
     } = useAutoControlledPopper({
         show: open,
         defaultShow: defaultOpen,
-        triggerElement,
-        popperElement: menuElement,
-        wrapperElement,
+        triggerRef,
+        popperRef: menuRef,
+        wrapperRef,
         onVisibilityChange,
         focusFirstElementOnKeyboardShow: true,
         showOnKeys: [upward ? KEYS.up : KEYS.down]
@@ -120,10 +118,9 @@ export function InnerDropdown(props) {
                 direction,
                 open: openPopper,
                 close: closePopper,
-                triggerElement,
-                setTriggerElement,
-                menuElement,
-                setMenuElement,
+                triggerRef,
+                menuRef,
+                wrapperRef,
                 onTriggerClick,
                 onTriggerKeyDown,
                 onSelectItem: handleSelectItem
