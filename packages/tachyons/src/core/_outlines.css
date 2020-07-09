@@ -1,6 +1,7 @@
-.outline {
+/* Clash with outline in orbit ui */
+/* .outline {
     box-shadow: 0px 0px 0px 2px var(--primary-200);
-}
+} */
 
 .outline-transparent {
     box-shadow: 0px 0px 0px 2px transparent;

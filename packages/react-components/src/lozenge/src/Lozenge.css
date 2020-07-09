@@ -2,4 +2,52 @@
     background-color: var(--cloud-50);
     color: var(--marine-500);
     text-transform: uppercase;
+    padding: 0 var(--scale-bravo);
+    border-radius: 4px;
+    font-size: var(--type-scale-8);
+    min-height: var(--scale-echo);
+    line-height: var(--scale-echo);
+}
+
+/* SIZE */
+.o-ui.lozenge.small {
+    font-size: var(--type-scale-9);
+    min-height: var(--scale-delta);
+    line-height: var(--scale-delta);
+}
+
+.o-ui.lozenge.large {
+    font-size: var(--type-scale-7);
+    min-height: var(--scale-foxtrot);
+    line-height: var(--scale-foxtrot);
+}
+
+/* WITH ICON */
+.o-ui.lozenge.with-left-icon,
+.o-ui.lozenge.with-right-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.o-ui.lozenge.with-left-icon {
+    padding-left: calc(var(--scale-bravo) / 2);
+}
+
+.o-ui.lozenge.with-right-icon {
+    padding-right: calc(var(--scale-bravo) / 2);
+}
+
+/* WITH ICON LEFT | ICON */
+.o-ui.lozenge.with-left-icon .icon {
+    margin-right: 0.125rem;
+}
+
+/* WITH ICON RIGHT | ICON */
+.o-ui.lozenge.with-right-icon .icon {
+    margin-left: 0.125rem;
+}
+
+/* AS BUTTON */
+button.o-ui.lozenge {
+    border: none;
 }

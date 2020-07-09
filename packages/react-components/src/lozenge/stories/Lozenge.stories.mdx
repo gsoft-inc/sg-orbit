@@ -1,4 +1,4 @@
-import { InfoIcon } from "@react-components/icons";
+import { CheckCircleIcon } from "@react-components/icons";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -48,8 +48,8 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Lozenge iconLeft={<InfoIcon />}>New</Lozenge>
-            <Lozenge iconRight={<InfoIcon />}>New</Lozenge>
+            <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
+            <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
         </div>
     </Story>
 </Preview>
@@ -63,7 +63,7 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-space-between">
-            <Lozenge size="small ">New</Lozenge>
+            <Lozenge size="small">New</Lozenge>
             <Lozenge>New</Lozenge>
             <Lozenge size="large">New</Lozenge>
         </div>

@@ -89,12 +89,12 @@ function Badges({ element, ...rest }) {
                 <Button size="large" badgeRight={<Badge>6</Badge>} element={button}>Button</Button>
             </div>
             <div className="flex items-end mb5">
-                <Button size="micro" badgeRight={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
-                <Button size="mini" badgeRight={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
-                <Button size="tiny" badgeRight={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
-                <Button size="small" badgeRight={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
-                <Button badgeRight={<Badge inline>6</Badge>} element={button} className="mr5">Button</Button>
-                <Button size="large" badgeRight={<Badge inline>6</Badge>} element={button}>Button</Button>
+                <Button size="micro" badgeRight={<Badge variant="inline">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="mini" badgeRight={<Badge variant="inline">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="tiny" badgeRight={<Badge variant="inline">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="small" badgeRight={<Badge variant="inline">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button badgeRight={<Badge variant="inline">6</Badge>} element={button} className="mr5">Button</Button>
+                <Button size="large" badgeRight={<Badge variant="inline">6</Badge>} element={button}>Button</Button>
             </div>
             <div className="flex mb5">
                 <Button active badgeRight={<Badge>6</Badge>} element={button} className="mr5">Button</Button>
@@ -183,7 +183,7 @@ export function createTestSuite(button, stories) {
                     <Loadings ghost element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Badges element={button} />
+                    <Badges ghost element={button} />
                 </div>
             </div>
         )
@@ -211,7 +211,7 @@ export function createTestSuite(button, stories) {
                     <Loadings basic element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Badges element={button} />
+                    <Badges basic element={button} />
                 </div>
             </div>
         )
@@ -239,7 +239,7 @@ export function createTestSuite(button, stories) {
                     <Loadings compact element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Badges element={button} />
+                    <Badges compact element={button} />
                 </div>
             </div>
         )

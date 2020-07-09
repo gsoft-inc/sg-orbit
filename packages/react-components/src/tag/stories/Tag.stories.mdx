@@ -1,6 +1,6 @@
 import { Badge } from "@react-components/badge";
 import { Button } from "@react-components/button";
-import { CheckIcon, CrossIcon, InfoIcon } from "@react-components/icons";
+import { CheckIcon, CrossIcon, CheckCircleIcon } from "@react-components/icons";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -62,7 +62,7 @@ A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
 <Preview>
     <Story name="icon">
         <div className="flex items-space-between">
-            <Tag iconLeft={<InfoIcon />}>
+            <Tag iconLeft={<CheckCircleIcon />}>
                 Falcon 9
             </Tag>
             <Tag iconRight={<CheckIcon />}>
@@ -101,6 +101,9 @@ Can be set to: `"small"`, `"large"` or omitted.
             <Tag size="small">Falcon 9</Tag>
             <Tag>Falcon 9</Tag>
             <Tag size="large">Falcon 9</Tag>
+            <Tag size="small" badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
+            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
+            <Tag size="large" badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
         </div>
     </Story>
 </Preview>

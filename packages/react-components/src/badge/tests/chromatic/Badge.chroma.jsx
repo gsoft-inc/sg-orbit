@@ -30,8 +30,6 @@ stories("/pill")
     )
     .add("size", () =>
         <div className="flex items-end">
-            <Badge className="mr5" size="micro">100</Badge>
-            <Badge className="mr5" size="mini">100</Badge>
             <Badge className="mr5" size="tiny">100</Badge>
             <Badge className="mr5" size="small">100</Badge>
             <Badge className="mr5">100</Badge>
@@ -90,34 +88,26 @@ stories("/inline")
     );
 
 stories("/dot")
+    .add("default", () =>
+        <div className="flex items-end mb5">
+            <Badge variant="dot" className="mr5">9</Badge>
+        </div>
+    )
     .add("empty", () =>
-        <Badge variant="dot" />
-    )
-    .add("with value", () =>
-        <Badge variant="dot">5</Badge>
-    )
-    .add("highlight", () =>
-        <Badge highlight variant="dot">5</Badge>
+        <Badge variant="dot" className="mr5" />
     )
     .add("disabled", () =>
-        <div className="flex">
-            <Badge disabled variant="dot" className="mr5" />
-            <Badge disabled variant="dot">5</Badge>
-        </div>
+        <Badge disabled variant="dot" className="mr5" />
     )
     .add("size", () =>
         <div className="flex flex-column">
             <div className="flex items-end mb5">
-                <Badge variant="dot" className="mr5" size="micro" />
-                <Badge variant="dot" className="mr5" size="mini" />
                 <Badge variant="dot" className="mr5" size="tiny" />
                 <Badge variant="dot" className="mr5" size="small" />
                 <Badge variant="dot" className="mr5" />
                 <Badge variant="dot" size="large" />
             </div>
-            <div className="flex items-end">
-                <Badge variant="dot" className="mr5" size="micro">5</Badge>
-                <Badge variant="dot" className="mr5" size="mini">5</Badge>
+            <div className="flex items-end mb5">
                 <Badge variant="dot" className="mr5" size="tiny">5</Badge>
                 <Badge variant="dot" className="mr5" size="small">5</Badge>
                 <Badge variant="dot" className="mr5">5</Badge>
@@ -133,8 +123,6 @@ stories("/dot")
     )
     .add("embedded", () =>
         <div className="flex items-end">
-            {embedBadge(<Badge variant="dot" className="mr5" />, { size: "mini" })}
-            {embedBadge(<Badge variant="dot" className="mr5" />, { size: "tiny" })}
             {embedBadge(<Badge variant="dot" className="mr5" />, { size: "small" })}
             {embedBadge(<Badge variant="dot" className="mr5" />)}
             {embedBadge(<Badge variant="dot" />, { size: "large" })}

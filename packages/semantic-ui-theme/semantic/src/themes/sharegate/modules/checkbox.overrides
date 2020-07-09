@@ -371,7 +371,11 @@
 }
 
 .ui.toggle.checkbox.small .box,
-.ui.toggle.checkbox.small label {
+.ui.toggle.checkbox.small label,
+.ui.toggle.checkbox.small.fitted.with-icon .box,
+.ui.toggle.checkbox.small.fitted.with-icon label,
+.ui.toggle.checkbox.small.fitted.with-badge .box,
+.ui.toggle.checkbox.small.fitted.with-badge label {
     padding-left: 2.25rem!important
 }
 
@@ -392,7 +396,11 @@
 }
 
 .ui.toggle.checkbox.large .box,
-.ui.toggle.checkbox.large label {
+.ui.toggle.checkbox.large label,
+.ui.toggle.checkbox.large.fitted.with-icon .box,
+.ui.toggle.checkbox.large.fitted.with-icon label,
+.ui.toggle.checkbox.large.fitted.with-badge .box,
+.ui.toggle.checkbox.large.fitted.with-badge label {
     padding-left: 3.375rem!important;
 }
 
@@ -436,6 +444,21 @@
     display: flex;
     align-items: center;
 }
+
+.ui.fitted.checkbox.with-badge label,
+.ui.fitted.checkbox.with-badge .box,
+.ui.fitted.checkbox.with-icon label,
+.ui.fitted.checkbox.with-icon .box {
+    padding-left: calc(var(--scale-foxtrot) + var(--scale-alpha))!important;
+}
+
+.ui.fitted.toggle.checkbox.with-badge label,
+.ui.fitted.toggle.checkbox.with-badge .box,
+.ui.fitted.toggle.checkbox.with-icon label,
+.ui.fitted.toggle.checkbox.with-icon .box {
+    padding-left: calc(2.5rem + 4px)!important;
+}
+
 
 /* Making sure the checkbox have the height they deserve */
 .ui.checkbox.large,
@@ -618,14 +641,13 @@
     top: 50%;
 }
 
-.ui.checkbox label > .icon,
-.ui.checkbox label > .label {
-    margin-left: var(--scale-alpha);
-}
-
 .ui.checkbox label > .icon {
     flex-shrink: 0;
     flex-basis: var(--scale-echo);
+}
+
+.ui.checkbox.with-icon .label {
+    margin-right: var(--scale-alpha);
 }
 
 /* Small */
@@ -693,7 +715,11 @@
 
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.checkbox.small .box,
-.ui.checkbox.small label {
+.ui.checkbox.small label,
+.ui.checkbox.small.fitted.with-icon .box,
+.ui.checkbox.small.fitted.with-icon label,
+.ui.checkbox.small.fitted.with-badge .box,
+.ui.checkbox.small.fitted.with-badge label {
     padding-left: var(--scale-foxtrot)!important;
     min-height: var(--scale-delta);
 }
@@ -717,7 +743,11 @@
 
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.checkbox.large .box,
-.ui.checkbox.large label {
+.ui.checkbox.large label,
+.ui.checkbox.large.fitted.with-icon .box,
+.ui.checkbox.large.fitted.with-icon label,
+.ui.checkbox.large.fitted.with-badge .box,
+.ui.checkbox.large.fitted.with-badge label {
     padding-left: 2rem!important;
     min-height: var(--scale-foxtrot);
 }
@@ -761,4 +791,15 @@
 .ui.checkbox.fitted.indeterminate.large,
 .ui.checkbox.fitted.indeterminate.large label {
     min-height: var(--scale-foxtrot);
+}
+
+/* IN CHECKBOX */
+.ui.checkbox.with-badge .badge {
+    margin-left: var(--scale-bravo);
+}
+
+/* FITTED TOGGLE */
+.ui.fitted.toggle.checkbox.with-badge,
+.ui.fitted.toggle.checkbox.with-icon {
+    width: auto;
 }

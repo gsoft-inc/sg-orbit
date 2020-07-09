@@ -1,45 +1,52 @@
 /* PILL */
 .o-ui.badge.pill {
     display: inline-flex;
-    align-items: center;
     background-color: var(--cloud-50);
     color: var(--marine-500);
+    justify-content: center;
     border-radius: 999px;
     font-size: var(	--type-scale-7);
-    min-height: 40px;
-    padding: 0 var(--scale-echo) 0 var(--scale-echo);
+    line-height: 1;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    padding: 0 var(--scale-charlie) 0 var(--scale-charlie);
+    align-items: center;
 }
 
 .o-ui.badge.pill.micro {
-    min-height: 16px;
+    min-height: 0.75rem;
+    min-width: 0.75rem;
     font-size: var(--type-scale-9);
+    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
 .o-ui.badge.pill.mini {
-    min-height: 20px;
-    padding-left: var(--scale-bravo);
-    padding-right: var(--scale-bravo);
+    min-height: 0.875rem;
+    min-width: 0.875rem;
     font-size: var(--type-scale-9);
+    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
 .o-ui.badge.pill.tiny {
-    min-height: 24px;
-    padding-left: var(--scale-charlie);
-    padding-right: var(--scale-charlie);
+    min-height: 1rem;
+    min-width: 1rem;
     font-size: var(--type-scale-9);
+    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
 .o-ui.badge.pill.small {
-    min-height: 32px;
-    padding-left: var(--scale-delta);
-    padding-right: var(--scale-delta);
+    min-height: 1.25rem;
+    min-width: 1.25rem;
     font-size: var(--type-scale-8);
+    padding: 0 0.625rem 0 0.625rem;
 }
 
 .o-ui.badge.pill.large {
-    min-height: 48px;
-    padding-left: var(--scale-foxtrot);
-    padding-right: var(--scale-foxtrot);
+    font-size: var(--type-scale-6);
+    min-height: 2rem;
+    min-width: 2rem;
+    padding-left: var(--scale-delta);
+    padding-right: var(--scale-delta);
 }
 
 /* INLINE */
@@ -52,11 +59,13 @@
 /* DOT */
 .o-ui.badge.dot {
     font-size: var(--type-scale-4);
-    width: 0.5em;
-    height: 0.5em;
+    min-width: 0.5em;
+    min-height: 0.5em;
     border-radius: 999px;
-    display: inline-block;
-    background-color: var(--cloud-200);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cloud-50);
     color: var(--marine-500);
 }
 
@@ -65,7 +74,7 @@
 }
 
 .o-ui.badge.dot.mini {
-    font-size: var(--type-scale-9);
+    font-size: 0.75rem;
 }
 
 .o-ui.badge.dot.tiny {
@@ -92,7 +101,42 @@
     font-size: var(--type-scale-2);
 }
 
-.o-ui.badge.dot[disabled] {
+/* DOT | WITH CONTENT */
+.o-ui.badge.dot.with-content {
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    font-size: var(--type-scale-7);
+}
+
+.o-ui.badge.dot.tiny.with-content {
+    font-size: var(--type-scale-9);
+    min-height: 1rem;
+    min-width: 1rem;
+}
+
+.o-ui.badge.dot.small.with-content {
+    font-size: var(--type-scale-8);
+    min-height: 1.25rem;
+    min-width: 1.25rem;
+}
+
+.o-ui.badge.dot.large.with-content {
+    font-size: var(--type-scale-6);
+    min-height: 2rem;
+    min-width: 2rem;
+}
+
+.o-ui.badge.dot.massive.with-content {
+    font-size: var(--type-scale-2);
+}
+
+/* DOT | DISABLED */
+.o-ui.badge[disabled] {
+    opacity: 0.4;
+}
+
+/* ICON */
+.o-ui.badge.icon[disabled] {
     opacity: 0.4;
 }
 

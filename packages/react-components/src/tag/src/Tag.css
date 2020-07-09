@@ -1,0 +1,153 @@
+.o-ui.tag {
+    --default-padding: var(--scale-echo);
+    --small-padding: var(--scale-delta);
+    --large-padding: var(--scale-foxtrot);
+    display: inline-flex;
+    line-height: 1;
+    background-color: var(--cloud-50);
+    color: var(--marine-500);
+    border-radius: 999px;
+    min-height: var(--scale-hotel);
+    padding-left: var(--default-padding);
+    padding-right: var(--default-padding);
+    align-items: center;
+}
+
+/* SIZE */
+.o-ui.tag.small {
+    min-height: var(--scale-golf);
+}
+
+.o-ui.tag.large {
+    min-height: var(--scale-india);
+}
+
+/* WITH BUTTON */
+.o-ui.tag.with-button {
+    padding-right: calc(var(--default-padding) / 2);
+}
+
+/* WITH BUTTON | SIZE */
+.o-ui.tag.with-button.small {
+    padding-right: calc(var(--small-padding) / 2);
+}
+
+.o-ui.tag.with-button.large {
+    padding-right: calc(var(--large-padding) / 2);
+}
+
+/* WITH BUTTON | BUTTON */
+.o-ui.tag.with-button .button {
+    margin-left: var(--scale-bravo);
+}
+
+/* WITH ICON */
+/* WITH ICON | LEFT */
+.o-ui.tag.with-left-icon {
+    padding-left: calc(var(--default-padding) / 2);
+}
+
+/* WITH ICON | LEFT > Icon */
+.o-ui.tag.with-left-icon .icon {
+    margin-right: var(--scale-alpha);
+}
+
+/* WITH ICON | RIGHT */
+.o-ui.tag.with-right-icon {
+    padding-right: calc(var(--default-padding) / 2);
+}
+
+/* WITH ICON | RIGHT > Icon */
+.o-ui.tag.with-right-icon .icon {
+    margin-left: var(--scale-alpha);
+}
+
+/* WITH ICON | SIZE */
+/* WITH ICON | LEFT | SMALL */
+.o-ui.tag.small.with-left-icon {
+    padding-left: calc(var(--small-padding) / 2);
+}
+
+/* WITH ICON | LEFT | LARGE */
+.o-ui.tag.large.with-left-icon {
+    padding-right: calc(var(--large-padding) / 2);
+}
+
+/* WITH ICON | SIZE */
+/* WITH ICON | RIGHT | SMALL */
+.o-ui.tag.small.with-right-icon {
+    padding-right: calc(var(--small-padding) / 2);
+}
+
+/* WITH ICON | RIGHT | LARGE */
+.o-ui.tag.large.with-right-icon {
+    padding-right: calc(var(--large-padding) / 2);
+}
+
+/* WITH BADGE */
+/* WITH BADGE | BADGE */
+.o-ui.tag.with-left-badge .badge,
+.o-ui.tag.with-right-badge .badge {
+    background-color: var(--cloud-100);
+}
+
+/* WITH BADGE | LEFT */
+.o-ui.tag.with-left-badge {
+    padding-left: calc(var(--default-padding) / 1.5);
+}
+
+/* WITH BADGE | LEFT > BADGE */
+.o-ui.tag.with-left-badge .badge {
+    margin-right: var(--scale-bravo);
+}
+
+/* WITH BADGE | RIGHT */
+.o-ui.tag.with-right-badge {
+    padding-right: calc(var(--default-padding) / 1.5);
+}
+
+/* WITH BADGE | RIGHT > BADGE */
+.o-ui.tag.with-right-badge .badge {
+    margin-left: var(--scale-bravo);
+}
+
+/* WITH BADGE | SIZE */
+/* WITH BADGE | LEFT | SMALL */
+.o-ui.tag.small.with-left-badge {
+    padding-left: calc(var(--small-padding) / 1.5);
+}
+
+/* WITH BADGE | LEFT | LARGE */
+.o-ui.tag.large.with-left-badge {
+    padding-right: calc(var(--large-padding) / 1.5);
+}
+
+/* WITH BADGE | SIZE */
+/* WITH BADGE | RIGHT | SMALL */
+.o-ui.tag.small.with-right-badge {
+    padding-right: calc(var(--small-padding) / 1.5);
+}
+
+/* WITH BADGE | RIGHT | LARGE */
+.o-ui.tag.large.with-right-badge {
+    padding-right: calc(var(--large-padding) / 1.5);
+}
+
+/* OUTLINE */
+.o-ui.tag.outline {
+    background: none var(--white);
+    border: none;
+    color: var(--marine-500);
+    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+}
+
+/* OUTLINE | WITH TAG */
+.o-ui.tag.outline.with-left-badge .badge,
+.o-ui.tag.outline.with-right-badge .badge {
+    background-color: var(--cloud-50);
+}
+
+/* AS BUTTON */
+button.o-ui.tag {
+    border: none;
+}

@@ -17,7 +17,7 @@ const SIZES = ["small", "medium", "large"];
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
     return (
         <Tag
-            basic
+            variant="outline"
             size={size}
             button={!disabled ? <Button icon={<CrossIcon />} onClick={onRemove} /> : undefined}
             data-testid={`tags-picker-selected-item-${item.value}`}

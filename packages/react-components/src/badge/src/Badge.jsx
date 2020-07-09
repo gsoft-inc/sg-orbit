@@ -45,6 +45,7 @@ export function InnerBadge(props) {
             className={mergeClasses(
                 "o-ui badge",
                 variant,
+                content && "with-content",
                 variant !== "inline" && variant !== "icon" && getSizeClass(size),
                 highlight && "highlight",
                 className
@@ -68,6 +69,6 @@ export const embedBadge = createEmbeddableAdapter({
     [SIZE.mini]: SIZE.micro,
     [SIZE.tiny]: SIZE.micro,
     [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.mini,
-    [SIZE.large]: SIZE.tiny
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
 });
