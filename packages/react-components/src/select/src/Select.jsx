@@ -288,7 +288,7 @@ export function InnerSelect(props) {
                         inline && "inline"
                     )}
                 >
-                    <EmbeddedIcon icon={icon} size={size} />
+                    <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
                 </div>
             </If>
         </div>

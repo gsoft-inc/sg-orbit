@@ -54,11 +54,11 @@ export function InnerTag(props) {
     const { variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
 
     const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon icon={iconLeft} size={size} />
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
 
     const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon icon={iconRight} size={size} />
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const buttonMarkup = !isNil(button) && embedButton(button, {

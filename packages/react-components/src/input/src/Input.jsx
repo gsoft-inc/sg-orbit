@@ -106,14 +106,16 @@ export function InnerInput(props) {
         const domElement = wrapperRef.current;
 
         apiMethods.forEach(x => {
-            domElement[x] = inputComponentRef.current[x];
+            domElement[x] = (...args) => {
+                inputComponentRef.current[x](...args);
+            };
         });
 
         return domElement;
     });
 
     const iconMarkup = !isNil(icon) && !loading && (
-        <EmbeddedIcon icon={icon} size={size} />
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
     );
 
     const canRenderButton = !isNil(button) && !disabled && (!loading || iconPosition === "left");

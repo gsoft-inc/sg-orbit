@@ -1,8 +1,8 @@
 import { AutoControlledPopper } from "../../popper";
-import { PureComponent } from "react";
+import { PureComponent, forwardRef } from "react";
+import { augmentElement, resolvePopperPosition } from "../../shared";
 import { bool, element, func, number, object, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
-import { resolvePopperPosition } from "../../shared";
 
 export class DatePickerAnchor extends PureComponent {
     static propTypes = {
@@ -24,7 +24,7 @@ export class DatePickerAnchor extends PureComponent {
         upward: false,
         direction: "right",
         pinned: false,
-        zIndex: 2
+        zIndex: 3
     };
 
     handleVisibilityChange = (event, visible) => {
@@ -41,20 +41,30 @@ export class DatePickerAnchor extends PureComponent {
         return (
             <AutoControlledPopper
                 show={open}
-                trigger={input}
-                position={resolvePopperPosition(upward, direction)}
-                pinned={pinned}
-                offset={[0, 10]}
                 onVisibilityChange={this.handleVisibilityChange}
                 focusFirstElementOnKeyboardShow
-                zIndex={zIndex}
-                disabled={disabled}
                 fluid={fluid}
-                noPortal={noPortal}
                 className={className}
                 style={style}
             >
-                {calendar}
+                <AutoControlledPopper.Trigger
+                    as={forwardRef((asProps, ref) => {
+                        return augmentElement(input, {
+                            ...asProps,
+                            ref
+                        });
+                    })}
+                    disabled={disabled}
+                />
+                <AutoControlledPopper.Popper
+                    position={resolvePopperPosition(upward, direction)}
+                    pinned={pinned}
+                    offset={[0, 10]}
+                    zIndex={zIndex}
+                    noPortal={noPortal}
+                >
+                    {calendar}
+                </AutoControlledPopper.Popper>
             </AutoControlledPopper>
         );
     }

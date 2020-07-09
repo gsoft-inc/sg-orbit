@@ -15,11 +15,15 @@ export function ControlledPopper() {
                 <span className="dib fw6" style={labelStyle}>visible:</span> {isVisible ? "true" : "false"}
             </div>
             <AutoControlledPopper
-                trigger={<Button>Toggle</Button>}
                 show={isVisible}
                 onVisibilityChange={() => { setIsVisible(x => !x); }}
             >
-                <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+                <AutoControlledPopper.Trigger as={Button}>
+                    Toggle
+                </AutoControlledPopper.Trigger>
+                <AutoControlledPopper.Popper>
+                    <div className="bg-primary-300 white pa2">A comet is an icy, small Solar System body.</div>
+                </AutoControlledPopper.Popper>
             </AutoControlledPopper>
         </>
     );

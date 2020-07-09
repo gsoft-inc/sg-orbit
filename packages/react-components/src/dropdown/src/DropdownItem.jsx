@@ -1,13 +1,9 @@
 import { DropdownContext } from "./DropdownContext";
-import { DropdownMenuContext } from "./DropdownMenuContext";
 import { EmbeddedIcon } from "../../icons";
-import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useChainedEventCallback } from "../../shared";
-import { element, string } from "prop-types";
+import { element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useContext } from "react";
 import { isNil } from "lodash";
-
-const UNSUPPORTED_PROPS = ["flag", "image", "label"];
+import { mergeClasses, useChainedEventCallback } from "../../shared";
 
 const propTypes = {
     /**
@@ -29,22 +25,34 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element
+    iconLeft: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     */
+    iconRight: element,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
 };
 
-export function InnerDropdownItem(props) {
-    const { text: legacyText, icon, description, onClick, focus, hover, children, forwardedRef, ...rest } = props;
-    const { size } = useContext(DropdownContext);
-    const { onItemClick } = useContext(DropdownMenuContext);
+const defaultProps = {
+    as: "div"
+};
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/DropdownItem");
+export function InnerDropdownItem({ text: legacyText, iconLeft, iconRight, description, onClick, active, focus, hover, as: ElementType, children, forwardedRef, ...rest }) {
+    const { size, onSelectItem } = useContext(DropdownContext);
 
-    const handleClick = useChainedEventCallback(onClick, onItemClick);
+    const handleClick = useChainedEventCallback(onClick, onSelectItem);
 
     const text = legacyText || children;
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon icon={icon} size={size} />
+    const iconLeftMarkup = !isNil(iconLeft) && (
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
+    );
+
+    const iconRightMarkup = !isNil(iconRight) && (
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const textMarkup = !isNil(text) && (
@@ -57,30 +65,36 @@ export function InnerDropdownItem(props) {
 
     const content = (
         <>
-            {iconMarkup}
+            {iconLeftMarkup}
             {textMarkup}
+            {iconRightMarkup}
             {descriptionMarkup}
         </>
     );
 
     return (
-        <SemanticRef innerRef={forwardedRef}>
-            <SemanticDropdown.Item
-                {...rest}
-                onClick={handleClick}
-                className={mergeClasses(
-                    focus && "focus",
-                    hover && "hover"
-                )}
-                tabIndex="-1"
-            >
-                {content}
-            </SemanticDropdown.Item>
-        </SemanticRef>
+        <ElementType
+            {...rest}
+            onClick={handleClick}
+            className={mergeClasses(
+                "item",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                iconLeftMarkup && "with-left-icon",
+                iconRightMarkup && "with-right-icon"
+            )}
+            tabIndex="-1"
+            ref={forwardedRef}
+        >
+            {content}
+        </ElementType>
     );
+
 }
 
 InnerDropdownItem.propTypes = propTypes;
+InnerDropdownItem.defaultProps = defaultProps;
 
 export const DropdownItem = forwardRef((props, ref) => (
     <InnerDropdownItem {...props} forwardedRef={ref} />

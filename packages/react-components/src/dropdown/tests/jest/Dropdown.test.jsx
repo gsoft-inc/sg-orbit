@@ -1,51 +1,21 @@
-import { Button } from "@react-components/button";
 import { Dropdown } from "@react-components/dropdown";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const SimpleDropdown = forwardRef(({
-    title = "File",
-    ...rest
-}, ref) => {
-    return (
-        <Dropdown
-            {...rest}
-            title={title}
-            ref={ref}
-        >
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
-        </Dropdown>
-    );
-});
-
-const TriggerLessDropdown = forwardRef((props, ref) => {
+const BasicDropdown = forwardRef((props, ref) => {
     return (
         <Dropdown
             {...props}
             ref={ref}
         >
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
+            <Dropdown.Trigger>File</Dropdown.Trigger>
+            <Dropdown.Menu>
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </Dropdown.Menu>
         </Dropdown>
     );
-});
-
-// ***** API *****
-
-test("spread additional props on the trigger element", async () => {
-    const ref = createRef();
-
-    render(
-        <TriggerLessDropdown
-            trigger={<Button ref={ref}>Click me</Button>}
-            data-extra-props-test="works"
-        />
-    );
-
-    await waitFor(() => expect(ref.current.getAttribute("data-extra-props-test")).toBe("works"));
 });
 
 // ***** Refs *****
@@ -54,7 +24,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleDropdown
+        <BasicDropdown
             ref={ref}
             open
         />
@@ -70,7 +40,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimpleDropdown
+        <BasicDropdown
             ref={node => {
                 refNode = node;
             }}
@@ -88,7 +58,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <SimpleDropdown
+        <BasicDropdown
             ref={handler}
             open
         />

@@ -2,34 +2,20 @@ import { Dropdown, DropdownMenu } from "@react-components/dropdown";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const SimpleDropdownMenu = forwardRef(({
-    ...rest
-}, ref) => {
+const BasicDropdownMenu = forwardRef((props, ref) => {
     return (
-        <DropdownMenu
-            {...rest}
-            ref={ref}
-        >
-            <Dropdown.Item>New</Dropdown.Item>
-            <Dropdown.Item>Open...</Dropdown.Item>
-            <Dropdown.Item>Save as...</Dropdown.Item>
-        </DropdownMenu>
+        <Dropdown open>
+            <Dropdown.BasicTrigger>File</Dropdown.BasicTrigger>
+            <DropdownMenu
+                {...props}
+                ref={ref}
+            >
+                <Dropdown.Item>New</Dropdown.Item>
+                <Dropdown.Item>Open...</Dropdown.Item>
+                <Dropdown.Item>Save as...</Dropdown.Item>
+            </DropdownMenu>
+        </Dropdown>
     );
-});
-
-// ***** API *****
-
-test("spread additional props on the root element", async () => {
-    const ref = createRef();
-
-    render(
-        <SimpleDropdownMenu
-            ref={ref}
-            data-extra-props-test="works"
-        />
-    );
-
-    await waitFor(() => expect(ref.current.getAttribute("data-extra-props-test")).toBe("works"));
 });
 
 // ***** Refs *****
@@ -38,7 +24,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleDropdownMenu
+        <BasicDropdownMenu
             ref={ref}
         />
     );
@@ -53,7 +39,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimpleDropdownMenu
+        <BasicDropdownMenu
             ref={node => {
                 refNode = node;
             }}
@@ -70,7 +56,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <SimpleDropdownMenu
+        <BasicDropdownMenu
             ref={handler}
         />
     );

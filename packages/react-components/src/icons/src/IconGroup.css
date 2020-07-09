@@ -1,0 +1,7 @@
+.o-ui.icon-group .icon {
+    margin-right: var(--spacing);
+}
+
+.o-ui.icon-group .icon:last-child {
+    margin-right: 0;
+}
