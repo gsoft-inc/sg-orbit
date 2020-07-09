@@ -29,10 +29,11 @@ const CustomTrigger = forwardRef((props, ref) => {
     );
 });
 
-function BasicDropdown({ active, focus, hover, disabled, children, ...rest }) {
+function BasicDropdown({ icon, active, focus, hover, disabled, children, ...rest }) {
     return (
         <Dropdown {...rest}>
             <Dropdown.BasicTrigger
+                icon={icon}
                 active={active}
                 focus={focus}
                 hover={hover}
