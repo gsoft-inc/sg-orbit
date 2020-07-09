@@ -1,34 +1,6 @@
-import { DropdownTitleTrigger } from "@react-components/dropdown";
-import { createRef, forwardRef } from "react";
+import { Dropdown } from "@react-components/dropdown";
+import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
-
-const SimpleTitleTrigger = forwardRef(({
-    title = "File",
-    ...rest
-}, ref) => {
-    return (
-        <DropdownTitleTrigger
-            {...rest}
-            title={title}
-            ref={ref}
-        />
-    );
-});
-
-// ***** API *****
-
-test("spread additional props on the root element", async () => {
-    const ref = createRef();
-
-    render(
-        <SimpleTitleTrigger
-            ref={ref}
-            data-extra-props-test="works"
-        />
-    );
-
-    await waitFor(() => expect(ref.current.getAttribute("data-extra-props-test")).toBe("works"));
-});
 
 // ***** Refs *****
 
@@ -36,43 +8,44 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SimpleTitleTrigger
+        <Dropdown.BasicTrigger
             ref={ref}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("BUTTON");
+    expect(ref.current.classList).toContain("title-trigger");
 });
 
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <SimpleTitleTrigger
+        <Dropdown.BasicTrigger
             ref={node => {
                 refNode = node;
             }}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("BUTTON");
+    expect(refNode.classList).toContain("title-trigger");
 });
 
 test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <SimpleTitleTrigger
+        <Dropdown.BasicTrigger
             ref={handler}
-        />
+        >File</Dropdown.BasicTrigger>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
-

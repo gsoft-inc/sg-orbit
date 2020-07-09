@@ -258,8 +258,13 @@ test("dont call onDatesChange when dates are selected", async () => {
 
     await openCalendar(getByTestId);
 
-    ref.current.triggerFocusChange(END_DATE);
-    ref.current.triggerDatesChange(moment(), moment());
+    act(() => {
+        ref.current.triggerFocusChange(END_DATE);
+    });
+
+    act(() => {
+        ref.current.triggerDatesChange(moment(), moment());
+    });
 
     await waitDelay(5);
 

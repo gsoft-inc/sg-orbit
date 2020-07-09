@@ -1,18 +1,19 @@
 import "./Dropdown.css";
 
+import { DropdownBasicTrigger } from "./DropdownBasicTrigger";
 import { DropdownButtonItem } from "./DropdownButtonItem";
+import { DropdownCarret } from "./DropdownCarret";
 import { DropdownContext } from "./DropdownContext";
 import { DropdownDivider } from "./DropdownDivider";
-import { DropdownHeader } from "./DropdownHeader";
 import { DropdownItem } from "./DropdownItem";
 import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu } from "./DropdownMenu";
-import { DropdownTitleTrigger } from "./DropdownTitleTrigger";
-import { KEYS, augmentElement, createOrAugmentElement, resolvePopperPosition, useChainedEventCallback, useEventCallback } from "../../shared";
-import { Popper, useAutoControlledPopper } from "../../popper";
-import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useState } from "react";
-import { isNil } from "lodash";
+import { DropdownTitle } from "./DropdownTitle";
+import { DropdownTrigger } from "./DropdownTrigger";
+import { KEYS, mergeClasses, useChainedEventCallback, useEventCallback, useMergedRefs } from "../../shared";
+import { any, bool, func, oneOf } from "prop-types";
+import { forwardRef, useRef } from "react";
+import { useAutoControlledPopper } from "../../popper";
 
 const propTypes = {
     /**
@@ -23,18 +24,6 @@ const propTypes = {
      * The initial value of open.
      */
     defaultOpen: bool,
-    /**
-     * The default trigger text.
-     */
-    title: string,
-    /**
-     * The default trigger icon.
-     */
-    icon: element,
-    /**
-     * A custom element to trigger the visibility of the menu. When specified, will have precedence over the the title prop.
-     */
-    trigger: element,
     /**
      * A dropdown can vary in size.
      */
@@ -48,21 +37,9 @@ const propTypes = {
      */
     direction: oneOf(["left", "right"]),
     /**
-     * When true, disables automatic repositioning of the component, it will always be placed according to the position value.
-     */
-    pinned: bool,
-    /**
-     * z-index of the dropdown menu.
-     */
-    zIndex: number,
-    /**
      * Whether or not the trigger will be rendered as fluid.
      */
     fluid: bool,
-    /**
-     * A dropdown can have its menu scroll.
-     */
-    scrolling: bool,
     /**
      * Called when the dropdown open / close.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -71,86 +48,53 @@ const propTypes = {
      */
     onVisibilityChange: func,
     /**
-     * Dropdown menu component to render.
+     * @ignore
      */
-    menu: oneOfType([element, elementType]),
-    /**
-     * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
-     */
-    noPortal: bool
+    children: any.isRequired
 };
 
 const defaultProps = {
-    direction: "right",
-    menu: DropdownMenu
+    direction: "right"
 };
-
-function throwWhenMutuallyExclusivePropsAreProvided({ title, trigger }) {
-    if (!isNil(title) && !isNil(trigger)) {
-        throw new Error("Dropdown - \"title\" and \"trigger\" props cannot be both specified.");
-    }
-}
-
-function resolveTrigger(title, icon, trigger) {
-    return !isNil(title) ? <DropdownTitleTrigger title={title} icon={icon} /> : trigger;
-}
 
 export function InnerDropdown(props) {
     const {
         open,
         defaultOpen,
-        title,
-        icon,
-        trigger,
         size,
         upward,
         direction,
-        pinned,
-        zIndex,
         fluid,
-        scrolling,
         onVisibilityChange,
-        menu,
-        noPortal,
-        active,
-        focus,
-        hover,
+        onFocus,
+        onBlur,
+        className,
         children,
         forwardedRef,
         ...rest
     } = props;
-    throwWhenMutuallyExclusivePropsAreProvided(props);
+    const triggerRef = useRef();
+    const menuRef = useRef();
+    const wrapperRef = useMergedRefs(forwardedRef);
 
-    const [isOpen, setIsOpen] = useState();
-
-    const handleVisibilityChange = useChainedEventCallback(onVisibilityChange, (event, isVisible) => {
-        setIsOpen(isVisible);
-    });
-
-    const dropdownTrigger = augmentElement(resolveTrigger(title, icon, trigger), {
-        size,
-        fluid,
-        active,
-        focus,
-        hover,
-        // Spreading on the trigger for convenience since a basic dropdown trigger is rendered by default when a "title" prop is provided.
-        ...rest
-    });
-
-    const { renderPopper, hidePopper: closePopper, focusTrigger } = useAutoControlledPopper({
+    const {
+        isVisible,
+        show: openPopper,
+        hide: closePopper,
+        focusTrigger,
+        onTriggerClick,
+        onTriggerKeyDown,
+        onWrapperFocus,
+        onWrapperBlur
+    } = useAutoControlledPopper({
         show: open,
         defaultShow: defaultOpen,
-        trigger: dropdownTrigger,
-        position: resolvePopperPosition(upward, direction),
-        pinned,
-        offset: [0, 10],
-        zIndex,
-        fluid,
-        showOnKeys: [upward ? KEYS.up : KEYS.down],
+        triggerRef,
+        popperRef: menuRef,
+        wrapperRef,
+        onVisibilityChange,
         focusFirstElementOnKeyboardShow: true,
-        onVisibilityChange: handleVisibilityChange,
-        noPortal,
-        popper: <Popper className="o-ui dropdown" />
+        showOnKeys: [upward ? KEYS.up : KEYS.down]
     });
 
     const handleSelectItem = useEventCallback(event => {
@@ -161,23 +105,45 @@ export function InnerDropdown(props) {
         }, 0);
     });
 
-    const dropdownMenu = createOrAugmentElement(menu, {
-        scrolling,
-        fluid,
-        onSelectItem: handleSelectItem,
-        children,
-        ref: forwardedRef
-    });
+    const handleWrapperFocus = useChainedEventCallback(onWrapperFocus, onFocus);
+    const handleWrapperBlur = useChainedEventCallback(onWrapperBlur, onBlur);
 
     return (
         <DropdownContext.Provider
             value={{
-                isOpen,
+                isOpen: isVisible,
+                fluid,
                 size,
-                upward
+                upward,
+                direction,
+                open: openPopper,
+                close: closePopper,
+                triggerRef,
+                menuRef,
+                wrapperRef,
+                onTriggerClick,
+                onTriggerKeyDown,
+                onSelectItem: handleSelectItem
             }}
         >
-            {renderPopper(dropdownMenu)}
+            <div
+                data-testid="dropdown-wrapper"
+                tabIndex="-1"
+                {...rest}
+                // Can use focus and blur since the React implementation of those events is not standard to the specs and bubbles.
+                // For more info: https://github.com/facebook/react/issues/6410
+                onFocus={handleWrapperFocus}
+                onBlur={handleWrapperBlur}
+                className={mergeClasses(
+                    "o-ui dropdown",
+                    "outline-0",
+                    !fluid && "dib",
+                    className
+                )}
+                ref={wrapperRef}
+            >
+                {children}
+            </div>
         </DropdownContext.Provider>
     );
 }
@@ -190,13 +156,15 @@ export const Dropdown = forwardRef((props, ref) => (
 ));
 
 [InnerDropdown, Dropdown].forEach(x => {
+    x.Trigger = DropdownTrigger;
+    x.BasicTrigger = DropdownBasicTrigger;
     x.Menu = DropdownMenu;
     x.Item = DropdownItem;
     x.LinkItem = DropdownLinkItem;
     x.ButtonItem = DropdownButtonItem;
-    x.Header = DropdownHeader;
+    x.Title = x.Header = DropdownTitle;
     x.Divider = DropdownDivider;
-    x.DropdownTitleTrigger = DropdownTitleTrigger;
+    x.Carret = DropdownCarret;
 });
 
 
