@@ -1,4 +1,4 @@
-import { Tag } from "@react-components/tag";
+import { Dropdown } from "@react-components/dropdown";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -8,7 +8,9 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tag ref={ref}>Falcon 9</Tag>
+        <Dropdown.Item
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -17,15 +19,15 @@ test("ref is a DOM element", async () => {
     expect(ref.current.tagName).toBe("DIV");
 });
 
-test("when using a callback ref, ref is a DOM element", async () => {
+test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Tag
+        <Dropdown.Item
             ref={node => {
                 refNode = node;
             }}
-        >Falcon 9</Tag>
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -38,7 +40,9 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Tag ref={handler}>Falcon 9</Tag>
+        <Dropdown.Item
+            ref={handler}
+        />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

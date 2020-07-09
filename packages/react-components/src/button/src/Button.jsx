@@ -100,7 +100,7 @@ export function InnerButton(props) {
     const hasText = Children.count(children) > 0;
 
     const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon icon={icon} size={size} standalone={!hasText} />
+        <EmbeddedIcon size={size} standalone={!hasText}>{icon}</EmbeddedIcon>
     );
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {

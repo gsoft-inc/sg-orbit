@@ -107,8 +107,8 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
 
         return (
             <div
-                onClick={onClick}
-                onKeyDown={this.handleKeyDown}
+                onClick={!disabled ? onClick : undefined}
+                onKeyDown={!disabled ? this.handleKeyDown : undefined}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 className={classes}

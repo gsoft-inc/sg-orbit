@@ -1,44 +1,54 @@
-import { Tag } from "@react-components/tag";
-import { createRef } from "react";
+import { CheckIcon, IconGroup } from "@react-components/icons";
+import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-// ***** Refs *****
+const Icons = forwardRef((props, ref) => {
+    return (
+        <IconGroup
+            {...props}
+            ref={ref}
+        >
+            <CheckIcon />
+            <CheckIcon />
+        </IconGroup>
+    );
+});
 
 test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tag ref={ref}>Falcon 9</Tag>
+        <Icons ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("SPAN");
 });
 
-test("when using a callback ref, ref is a DOM element", async () => {
+test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Tag
+        <Icons
             ref={node => {
                 refNode = node;
             }}
-        >Falcon 9</Tag>
+        />
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    expect(refNode.tagName).toBe("SPAN");
 });
 
 test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Tag ref={handler}>Falcon 9</Tag>
+        <Icons ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

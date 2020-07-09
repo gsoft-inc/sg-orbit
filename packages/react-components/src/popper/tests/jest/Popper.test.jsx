@@ -1,9 +1,7 @@
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
-import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef, useState } from "react";
-import { isNil } from "lodash";
-import userEvent from "@utils/user-event";
+import { render, waitFor } from "@testing-library/react";
 
 const POPPER_WRAPPER_ID = "popper-wrapper";
 
@@ -13,33 +11,17 @@ const SimplePopper = forwardRef((props, ref) => {
     return (
         <>
             <Button ref={setTriggerElement}>Open</Button>
-            <If condition={!isNil(triggerElement)}>
-                <Popper
-                    {...props}
-                    show
-                    animate={false}
-                    triggerElement={triggerElement}
-                    ref={ref}
-                >
-                    <div>Popper</div>
-                </Popper>
-            </If>
+            <Popper
+                {...props}
+                show
+                animate={false}
+                triggerElement={triggerElement}
+                ref={ref}
+            >
+                <div>Popper</div>
+            </Popper>
         </>
     );
-});
-
-// ***** Behaviors *****
-
-test("don't toggle popper when disabled", async () => {
-    const { getByTestId, queryByTestId } = render(
-        <SimplePopper disabled />
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("button"));
-    });
-
-    expect(queryByTestId(POPPER_WRAPPER_ID)).not.toBeInTheDocument();
 });
 
 // ***** API *****

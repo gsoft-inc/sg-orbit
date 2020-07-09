@@ -316,9 +316,6 @@ stories()
             scrollTop={100}
             pinned
         />
-    )
-    .add("disabled", () =>
-        <RedBoxPopper disabled />
     );
 
 stories("/offsets/bottom")

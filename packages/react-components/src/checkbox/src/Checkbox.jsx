@@ -81,7 +81,7 @@ export function InnerCheckbox(props) {
             {(Array.isArray(icons) ? icons : [icons]).map(
                 (x, index) =>
                     // eslint-disable-next-line react/no-array-index-key
-                    <EmbeddedIcon icon={x} size={size} key={index} />
+                    <EmbeddedIcon size={size} key={index}>{x}</EmbeddedIcon>
             )}
         </>
     );

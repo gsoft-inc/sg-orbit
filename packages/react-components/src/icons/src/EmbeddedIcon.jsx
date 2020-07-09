@@ -1,5 +1,6 @@
+import { Children, cloneElement } from "react";
 import { SIZE } from "../../shared";
-import { cloneElement } from "react";
+import { any, bool, string } from "prop-types";
 
 const EMBED_SIZE = {
     [SIZE.micro]: SIZE.micro,
@@ -25,7 +26,15 @@ const STANDALONE_SIZE = {
     [SIZE.massive]: SIZE.massive
 };
 
-export function EmbeddedIcon({ icon, size, standalone, ...rest }) {
+const propTypes = {
+    size: string,
+    standalone: bool,
+    children: any.isRequired
+};
+
+export function EmbeddedIcon({ size, standalone, children, ...rest }) {
+    const icon = Children.only(children);
+
     const sizeChart = standalone ? STANDALONE_SIZE : EMBED_SIZE;
 
     return cloneElement(icon, {
@@ -33,3 +42,5 @@ export function EmbeddedIcon({ icon, size, standalone, ...rest }) {
         ...rest
     });
 }
+
+EmbeddedIcon.propTypes = propTypes;
