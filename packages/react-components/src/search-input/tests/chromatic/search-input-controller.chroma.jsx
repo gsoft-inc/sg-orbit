@@ -338,10 +338,10 @@ stories("/default value/opened")
 stories("/customization")
     .add("input",
          () =>
-         {createSearchInputController({
-             input: <TextInput className="border-red" />,
-             className: "mr5"
-         });}
+             createSearchInputController({
+                 input: <TextInput className="border-red" />,
+                 className: "mr5"
+             })
     )
     .add("no results message",
          () =>
