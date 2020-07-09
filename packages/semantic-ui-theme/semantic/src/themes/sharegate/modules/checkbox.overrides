@@ -646,6 +646,10 @@
     flex-basis: var(--scale-echo);
 }
 
+.ui.checkbox.with-icon .label {
+    margin-right: var(--scale-alpha);
+}
+
 /* Small */
 .ui.checkbox.small label > .icon {
     flex-basis: var(--scale-delta);
@@ -791,7 +795,7 @@
 
 /* IN CHECKBOX */
 .ui.checkbox.with-badge .badge {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--scale-bravo);
 }
 
 /* FITTED TOGGLE */
