@@ -183,7 +183,7 @@ export function createTestSuite(button, stories) {
                     <Loadings ghost element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Badges element={button} />
+                    <Badges ghost element={button} />
                 </div>
             </div>
         )
@@ -239,7 +239,7 @@ export function createTestSuite(button, stories) {
                     <Loadings compact element={button} />
                 </div>
                 <div className="flex flex-column">
-                    <Badges element={button} />
+                    <Badges compact element={button} />
                 </div>
             </div>
         )
