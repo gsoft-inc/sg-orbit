@@ -1,5 +1,4 @@
-import { AddIcon } from "@react-components/icons";
-import { Button, IconButton, embedButton } from "@react-components/button";
+import { Button, embedButton } from "@react-components/button";
 import { Stack } from "@react-components/stack";
 import { createButtonTestSuite } from "./createButtonTestSuite";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
