@@ -6,7 +6,7 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tag"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
+            .canvasLayout({ width: "95%" })
             .chromaticDelay(100)
             .build())
         .build();

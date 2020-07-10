@@ -52,7 +52,24 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerTag({ variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest }) {
+export function InnerTag({
+    variant,
+    iconLeft,
+    iconRight,
+    button,
+    badgeLeft,
+    badgeRight,
+    disabled,
+    size,
+    active,
+    focus,
+    hover,
+    as: Element,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
@@ -100,6 +117,9 @@ export function InnerTag({ variant, iconLeft, iconRight, button, badgeLeft, badg
                 iconRightMarkup && "with-right-icon",
                 badgeLeftMarkup && "with-left-badge",
                 badgeRightMarkup && "with-right-badge",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
                 getSizeClass(size),
                 className
             )}

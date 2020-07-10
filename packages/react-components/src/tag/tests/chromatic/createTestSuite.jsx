@@ -66,9 +66,20 @@ export function createTestSuite(tag) {
                     <Tag button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={tag} className="mr5">Notification Sent</Tag>
                     <Tag size="large" button={<Button icon={<CrossIcon />} />} icon={<LightbulbIcon />} element={tag}>Notification Sent</Tag>
                 </div>
-                <div className="flex">
+                <div className="flex mb5">
                     <Tag as="a" element={tag} className="mr5">Notification Sent</Tag>
-                    <Tag as="button" element={tag}>Notification Sent</Tag>
+                    <Tag as="a" active element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="a" focus element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="a" hover element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="a" focus hover element={tag}>Notification Sent</Tag>
+
+                </div>
+                <div className="flex">
+                    <Tag as="button" element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="button" active element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="button" focus element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="button" hover element={tag} className="mr5">Notification Sent</Tag>
+                    <Tag as="button" focus hover element={tag}>Notification Sent</Tag>
                 </div>
             </div>
         </div>;
