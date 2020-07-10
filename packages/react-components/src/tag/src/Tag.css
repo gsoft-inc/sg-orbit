@@ -11,6 +11,7 @@
     padding-left: var(--default-padding);
     padding-right: var(--default-padding);
     align-items: center;
+    transition: background-color 0.1s linear;
 }
 
 /* SIZE */
@@ -150,4 +151,48 @@
 /* AS BUTTON */
 button.o-ui.tag {
     border: none;
+}
+
+/* As A / BUTTON | States */
+/* As A / BUTTON | States | HOVER */
+button.o-ui.tag:hover,
+a.o-ui.tag:hover {
+    cursor: pointer;
+    background-color: var(--cloud-100);
+}
+
+/* As A / BUTTON | States | ACTIVE */
+button.o-ui.tag:active,
+a.o-ui.tag:active {
+    background-color: var(--cloud-200);
+}
+
+/* As A / BUTTON | States | FOCUS */
+button.o-ui.tag:focus,
+a.o-ui.tag:focus {
+    box-shadow: 0 0 0 2px var(--primary-200) !important;
+    outline: none;
+}
+
+/* As A / BUTTON | States */
+/* As A / BUTTON | States | HOVER */
+button.o-ui.tag.outline:hover,
+a.o-ui.tag.outline:hover {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-300) inset;
+}
+
+/* As A / BUTTON | States | ACTIVE */
+button.o-ui.tag.outline:active,
+a.o-ui.tag.outline:active {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-500) inset;
+}
+
+/* As A / BUTTON | States | FOCUS */
+button.o-ui.tag.outline:focus,
+a.o-ui.tag.outline:focus {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200) !important;
+    outline: none;
 }
