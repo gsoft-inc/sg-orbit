@@ -35,8 +35,8 @@ stories()
                     <div>Charlie</div>
                 </Stack>
             </div>
-            <div className="h10" fluid>
-                <Stack spacing="golf">
+            <div className="h10">
+                <Stack spacing={10}>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
@@ -68,7 +68,7 @@ stories()
                 </Stack>
             </div>
             <div className="w12">
-                <Stack direction="vertical" spacing="golf" fluid>
+                <Stack direction="vertical" spacing={10}>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>

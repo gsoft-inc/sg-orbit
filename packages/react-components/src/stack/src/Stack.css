@@ -4,11 +4,11 @@
     flex-direction: row;
 }
 
-.o-ui.stack.horizontal * {
+.o-ui.stack.horizontal > * {
     margin-right: var(--spacing);
 }
 
-.o-ui.stack.horizontal *:last-child {
+.o-ui.stack.horizontal > *:last-child {
     margin-right: 0;
 }
 
@@ -18,11 +18,11 @@
     flex-direction: column;
 }
 
-.o-ui.stack.vertical * {
+.o-ui.stack.vertical > * {
     margin-bottom: var(--spacing);
 }
 
-.o-ui.stack.vertical *:last-child {
+.o-ui.stack.vertical > *:last-child {
     margin-bottom: 0;
 }
 

@@ -1,8 +1,10 @@
+import "./Button.css";
+
 import { EmbeddedIcon } from "../../icons";
 import { SIZE, createEmbeddableAdapter, getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
-import { bool, element, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef, useCallback } from "react";
+import { any, bool, element, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
+import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 
 // TODO:
@@ -34,7 +36,7 @@ const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost", "icon", "link"]),
+    variant: oneOf(["solid", "outline", "ghost", "link"]),
     /**
      * Color accent to use.
      */
@@ -78,7 +80,7 @@ const propTypes = {
     /**
      * A button can vary in sizes.
      */
-    size: oneOf(["tiny", "small", "medium", "large"]),
+    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**
      * The button type.
      */
@@ -86,7 +88,11 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 const defaultProps = {
@@ -148,15 +154,13 @@ export function InnerButton({
         disabled
     });
 
-    const content = variant === "icon"
-        ? cloneElement(children, { size })
-        : (
-            <>
-                {iconLeftMarkup}{badgeLeftMarkup}
-                {children}
-                {iconRightMarkup}{badgeRightMarkup}
-            </>
-        );
+    const content = (
+        <>
+            {iconLeftMarkup}{badgeLeftMarkup}
+            {children}
+            {iconRightMarkup}{badgeRightMarkup}
+        </>
+    );
 
     return (
         <ElementType
@@ -195,9 +199,6 @@ export const Button = forwardRef((props, ref) => (
 ));
 
 export const embedButton = createEmbeddableAdapter({
-    [SIZE.micro]: SIZE.micro,
-    [SIZE.mini]: SIZE.micro,
-    [SIZE.tiny]: SIZE.micro,
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small

@@ -4,6 +4,22 @@ import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeClasses } from "../../shared";
 
+const SPACING = [
+    "--scale-alpha",
+    "--scale-bravo",
+    "--scale-charlie",
+    "--scale-delta",
+    "--scale-echo",
+    "--scale-foxtrot",
+    "--scale-golf",
+    "--scale-hotel",
+    "--scale-india",
+    "--scale-juliett",
+    "--scale-kilo",
+    "--scale-lima",
+    "--scale-mike"
+];
+
 const propTypes = {
     /**
      * Determine how the elements are placed in the container.
@@ -18,9 +34,9 @@ const propTypes = {
      */
     justify: oneOf(["start", "end", "center"]),
     /**
-     * Space between each elements. Accepts any [spacing variables](?path=/docs/materials-spacing--page#values) without the "--scale-" part e.g. "alpha" for "--scale-alpha".
+     * Spacing scale between each elements.
      */
-    spacing: oneOf(["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo", "lima", "mike"]),
+    spacing: oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
     /**
      * Whether or not the stack take up the width & height of its container.
      */
@@ -37,9 +53,6 @@ const propTypes = {
 
 const defaultProps = {
     direction: "horizontal",
-    align: "start",
-    justify: "start",
-    spacing: "alpha",
     as: "div"
 };
 
@@ -56,7 +69,7 @@ export function InnerStack({ direction, align, justify, spacing, fluid, as: Elem
                 className
             )}
             style={{
-                "--spacing": `var(--scale-${spacing})`,
+                "--spacing": `var(${SPACING[(spacing || 5) - 1]})`,
                 ...style
             }}
             ref={forwardedRef}

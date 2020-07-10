@@ -4,13 +4,13 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
     /**
-     * Size of the group icons.
+     * Size of the icons.
      */
     size: string,
     /**
-     * Spacing between each icons. Accepts any [spacing variables](?path=/docs/materials-spacing--page#values) without the "--scale-" part e.g. "alpha" for "--scale-alpha".
+     * Spacing scale between each elements.
      */
-    spacing: oneOf(["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo", "lima", "mike"]),
+    spacing: oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

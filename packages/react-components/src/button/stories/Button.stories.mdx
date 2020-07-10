@@ -1,9 +1,10 @@
-import { AddIcon, EditIcon, LightbulbIcon } from "@react-components/icons";
+import { AddIcon, EditIcon, IconGroup, InfoIcon, LightbulbIcon, WarningIcon } from "@react-components/icons";
 import { Badge } from "@react-components/badge";
-import { Button, InnerButton } from "@react-components/button";
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Button, IconButton, InnerButton, InnerIconButton } from "@react-components/button";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/stack";
 import CustomColorHover from "./CustomColorHover.mdx";
 import Imports from "./Imports.mdx";
 
@@ -11,7 +12,7 @@ import Imports from "./Imports.mdx";
     title={createComponentSection("Button")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout semanticPath="/elements/button" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/button/src" />)
         .build()}
 />
 
@@ -25,11 +26,10 @@ A Button indicates a possible user action.
 
 ## Props
 
-<HocWarning componentName="Button" semanticPath="/elements/button" />
-
 <Props
     componentsDefinitions={[
-        { displayName: "Button", component: InnerButton }
+        { displayName: "Button", component: InnerButton },
+        { displayName: "IconButton", component: InnerIconButton }
     ]}
 />
 
@@ -45,13 +45,58 @@ A default button.
     </Story>
 </Preview>
 
-### Compact
+### Icon
 
-A button can reduce its padding to fit into tighter spaces.
+A button can contain left or right [icons](?path=/docs/materials-icons--page).
 
 <Preview>
-    <Story name="compact">
-        <Button compact>Cutoff</Button>
+    <Story name="icon">
+        <Stack>
+            <Button iconLeft={<LightbulbIcon />}>Cutoff</Button>
+            <Button iconLeft={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}>Cutoff</Button>
+            <Button iconRight={<EditIcon />}>Cutoff</Button>
+        </Stack>
+    </Story>
+</Preview>
+
+### Badge
+
+A button can contain a [badge](?path=/story/components-badge--default-story).
+
+<Preview>
+    <Story name="badge">
+        <Stack>
+            <Button badgeLeft={<Badge>6</Badge>}>Cutoff</Button>
+            <Button badgeRight={<Badge>6</Badge>}>Cutoff</Button>
+        </Stack>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <Button loading>Loading</Button>
+    </Story>
+</Preview>
+
+### Size
+
+A button can vary in size.
+
+Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <Stack align="end">
+            <Button size="mini">Cutoff</Button>
+            <Button size="tiny">Cutoff</Button>
+            <Button size="small">Cutoff</Button>
+            <Button >Cutoff</Button>
+            <Button size="large">Cutoff</Button>
+        </Stack>
     </Story>
 </Preview>
 
@@ -75,107 +120,44 @@ A button can take the width of its container.
     </Story>
 </Preview>
 
-### Icon
-
-A button can contain an [icon](?path=/docs/materials-icons--page).
-
-<Preview>
-    <Story name="icon">
-        <div className="flex items-space-between">
-            <Button icon={<LightbulbIcon />}>Cutoff</Button>
-            <Button icon={<EditIcon />} iconPosition="right">Cutoff</Button>
-            <Button icon={<AddIcon />}></Button>
-        </div>
-    </Story>
-</Preview>
-
-### Badge
-
-A button can contain a [badge](?path=/story/components-badge--default-story).
-
-<Preview>
-    <Story name="badge">
-        <div className="flex items-space-between">
-            <Button badgeLeft={<Badge>6</Badge>}>Cutoff</Button>
-            <Button badgeRight={<Badge>6</Badge>}>Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
-### Loading
-
-A button can show a loading indicator.
-
-<Preview>
-    <Story name="loading">
-        <Button loading>Loading</Button>
-    </Story>
-</Preview>
-
-### Size
-
-A button can vary in size.
-
-Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
-
-<Preview>
-    <Story name="size">
-        <div className="flex items-end items-space-between">
-            <Button size="tiny">Cutoff</Button>
-            <Button size="small">Cutoff</Button>
-            <Button >Cutoff</Button>
-            <Button size="large">Cutoff</Button>
-        </div>
-    </Story>
-</Preview>
-
 ### Circular
 
 A button can be circular.
 
 <Preview>
     <Story name="circular">
-        <div className="flex">
-            <div className="flex items-end items-space-between mr4">
-                <Button circular size="tiny">Aa</Button>
-                <Button circular size="small">Aa</Button>
-                <Button circular>Aa</Button>
-                <Button circular size="large">Aa</Button>
-            </div>
-            <div className="flex items-end items-space-between">
-                <Button icon={<AddIcon />} circular size="tiny"></Button>
-                <Button icon={<AddIcon />} circular size="small"></Button>
-                <Button icon={<AddIcon />} circular></Button>
-                <Button icon={<AddIcon />} circular size="large"></Button>
-            </div>
-        </div>
+        <Stack align="end">
+            <Button circular size="small">Aa</Button>
+            <Button circular>Aa</Button>
+            <Button circular size="large">Aa</Button>
+        </Stack>
     </Story>
 </Preview>
 
-### Emphasis
+### Color
 
-A button can show different levels of emphasis.
+A button can use a different color accent.
 
 <Preview>
-    <Story name="emphasis">
-        <div className="flex items-space-between">
-            <Button primary>Primary</Button>
-            <Button secondary>Secondary</Button>
-        </div>
+    <Story name="color">
+        <Stack>
+            <Button color="primary">Primary</Button>
+            <Button color="secondary">Secondary</Button>
+        </Stack>
     </Story>
 </Preview>
 
-### Basic
+### Outline
 
 A basic button have a subtle appearance.
 
 <Preview>
-    <Story name="basic">
-        <div className="flex items-space-between">
-            <Button basic>Default</Button>
-            <Button basic primary>Primary</Button>
-            <Button basic secondary>Secondary</Button>
-        </div>
+    <Story name="outline">
+        <Stack>
+            <Button variant="outline">Default</Button>
+            <Button variant="outline" color="primary">Primary</Button>
+            <Button variant="outline" color="secondary">Secondary</Button>
+        </Stack>
     </Story>
 </Preview>
 
@@ -185,11 +167,11 @@ A ghost button is similar to a standard button, taking the same space as a stand
 
 <Preview>
     <Story name="ghost">
-        <div className="flex items-space-between">
-            <Button ghost>Default</Button>
-            <Button ghost primary>Primary</Button>
-            <Button ghost secondary>Secondary</Button>
-        </div>
+        <Stack>
+            <Button variant="ghost">Default</Button>
+            <Button variant="ghost" color="primary">Primary</Button>
+            <Button variant="ghost" color="secondary">Secondary</Button>
+        </Stack>
     </Story>
 </Preview>
 
@@ -207,39 +189,21 @@ Or look like a link:
 
 <Preview>
     <Story name="link">
-        <div className="flex flex-column ">
-            <div className="flex items-lot-of-space-between">
-                <Button link>Cutoff</Button>
-                <Button link primary>Cutoff</Button>
-                <Button link secondary>Cutoff</Button>
-            </div>
-            <div className="flex items-lot-of-space-between mt5">
-                <Button link basic>Cutoff</Button>
-                <Button link basic primary>Cutoff</Button>
-                <Button link basic secondary>Cutoff</Button>
-            </div>
-        </div>
-    </Story>
-</Preview>
-
-### Naked
-
-A button can be colorless. Use this variant if you need to customize the button.
-
-<Preview>
-    <Story name="naked">
-        <Button naked>Cutoff</Button>
+        <Stack>
+            <Button variant="link">Cutoff</Button>
+            <Button variant="link" color="primary">Cutoff</Button>
+            <Button variant="link" color="secondary">Cutoff</Button>
+        </Stack>
     </Story>
 </Preview>
 
 ### Custom color
 
-A naked button can have a custom color.
+A button can have a custom color.
 
 <Preview>
     <Story name="custom color">
         <Button
-            naked
             style={{
                 backgroundColor: "#FFF6E7",
                 color: "var(--marine-500)",
@@ -253,17 +217,26 @@ A naked button can have a custom color.
 
 <CustomColorHover />
 
-### Groups
-
-Buttons can exist together as a group.
+### Icon Button
 
 <Preview>
-    <Story name="groups">
-        <Button.Group basic widths="3">
-            <Button >All</Button>
-            <Button >Inactive</Button>
-            <Button active>Active</Button>
-        </Button.Group>
+    <Story name="icon button">
+        <Stack>
+            <Stack align="end">
+                <IconButton size="mini"><AddIcon /></IconButton>
+                <IconButton size="tiny"><AddIcon /></IconButton>
+                <IconButton size="small"><AddIcon /></IconButton>
+                <IconButton><AddIcon /></IconButton>
+                <IconButton size="large"><AddIcon /></IconButton>
+            </Stack>
+            <Stack align="end">
+                <IconButton circular size="mini"><AddIcon /></IconButton>
+                <IconButton circular size="tiny"><AddIcon /></IconButton>
+                <IconButton circular size="small"><AddIcon /></IconButton>
+                <IconButton circular><AddIcon /></IconButton>
+                <IconButton circular size="large"><AddIcon /></IconButton>
+            </Stack>
+        </Stack>
     </Story>
 </Preview>
 
