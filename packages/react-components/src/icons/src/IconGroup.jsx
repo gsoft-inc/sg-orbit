@@ -1,8 +1,6 @@
-import "./IconGroup.css";
-
 import { Children, cloneElement, forwardRef } from "react";
+import { Stack } from "../../stack";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { mergeClasses } from "../../shared";
 
 const propTypes = {
     /**
@@ -28,18 +26,10 @@ const defaultProps = {
     as: "span"
 };
 
-export function InnerIconGroup({ size, spacing, as: ElementType, className, style, children, forwardedRef, ...rest }) {
+export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
-        <ElementType
+        <Stack
             {...rest}
-            className={mergeClasses(
-                "o-ui icon-group",
-                className
-            )}
-            style={{
-                "--spacing": `var(--scale-${spacing})`,
-                ...style
-            }}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
@@ -47,8 +37,9 @@ export function InnerIconGroup({ size, spacing, as: ElementType, className, styl
                     size
                 });
             })}
-        </ElementType>
+        </Stack>
     );
+
 }
 
 InnerIconGroup.propTypes = propTypes;

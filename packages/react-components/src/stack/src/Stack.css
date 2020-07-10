@@ -1,0 +1,59 @@
+/* Stack | Horizontal */
+.o-ui.stack.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.o-ui.stack.horizontal * {
+    margin-right: var(--spacing);
+}
+
+.o-ui.stack.horizontal *:last-child {
+    margin-right: 0;
+}
+
+/* Stack | Vertical */
+.o-ui.stack.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-ui.stack.vertical * {
+    margin-bottom: var(--spacing);
+}
+
+.o-ui.stack.vertical *:last-child {
+    margin-bottom: 0;
+}
+
+/* Stack | Align */
+.o-ui.stack.align-start {
+    align-items: flex-start;
+}
+
+.o-ui.stack.align-end {
+    align-items: flex-end;
+}
+
+.o-ui.stack.align-center {
+    align-items: center;
+}
+
+/* Stack | Justify */
+.o-ui.stack.justify-start {
+    justify-content: flex-start;
+}
+
+.o-ui.stack.justify-end {
+    justify-content: flex-end;
+}
+
+.o-ui.stack.justify-center {
+    justify-content: center;
+}
+
+/* Stack | Fluid */
+.o-ui.stack.fluid {
+    width: 100%;
+    height: 100%;
+}

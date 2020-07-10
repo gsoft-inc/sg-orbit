@@ -1,33 +1,52 @@
-/* eslint-disable react/forbid-foreign-prop-types */
-
-import { Children, forwardRef, useCallback } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { SIZE, SemanticRef, createEmbeddableAdapter, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
-import { Button as SemanticButton } from "semantic-ui-react";
-import { bool, element, number, oneOf } from "prop-types";
+import { SIZE, createEmbeddableAdapter, getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
+import { bool, element, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { cloneElement, forwardRef, useCallback } from "react";
 import { embedBadge } from "../../badge";
 import { isNil } from "lodash";
 
-const SIZES = ["micro", "mini", "tiny", "small", "medium", "large"];
-const UNSUPPORTED_PROPS = ["animated", "attached", "color", "labelPosition", "floated", "inverted"];
+// TODO:
+// - compact (TBD)
+
+// - VARIANT icon
+// - Size -> Might be good with "tiny", "small", "medium", "large"
+
+
+// Should we have a separated button icon since they don't have anything in common? IconButton
+// Excepts:
+//  - the variants
+//  - the autofocus
+//  - the loading
+//  - the size
+//  - the type
+//  -> Since a circular button only make sense for an icon button we could remove this variant for default button.
+//  -> Otherwise a variant="icon" button could always be circular and we remove the circular prop. <- FALSE
+
+// -> Button Group? OUT? Probably not
+
+// -> ToggleButton - Used in Apricot groups.
+// -> ToggleButtonGroup -> checkbox / radio (exclusive)
+
+// Docs & Test
+//  - Show support for IconGroup
 
 const propTypes = {
     /**
-     * A ghost button doesn't have a background color until it's hovered.
+     * Style to use.
      */
-    ghost: bool,
+    variant: oneOf(["solid", "outline", "ghost", "icon", "link"]),
     /**
-     * A button can look like a link.
+     * Color accent to use.
      */
-    link: bool,
+    color: oneOf(["primary", "secondary"]),
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    icon: element,
+    iconLeft: element,
     /**
-     * An icon can appear on the left or right side of the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    iconPosition: oneOf(["left", "right"]),
+    iconRight: element,
     /**
      * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
      */
@@ -37,11 +56,7 @@ const propTypes = {
      */
     badgeRight: element,
     /**
-     * A button can be colorless. Use this variant if you need to customize the button.
-     */
-    naked: bool,
-    /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the button should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -49,58 +64,76 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
+     * Whether or not the button take up the width of its container.
+     */
+    fluid: bool,
+    /**
+     * A button can have a circular form.
+     */
+    circular: bool,
+    /**
+     * A button can show a loading indicator.
+     */
+    loading: bool,
+    /**
      * A button can vary in sizes.
      */
-    size: oneOf(SIZES),
+    size: oneOf(["tiny", "small", "medium", "large"]),
     /**
      * The button type.
      */
-    type: oneOf(["button", "submit", "reset"])
+    type: oneOf(["button", "submit", "reset"]),
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
 };
 
 const defaultProps = {
-    iconPosition: "left",
-    type: "button"
+    variant: "solid",
+    type: "button",
+    as: "button"
 };
 
-export function InnerButton(props) {
-    const {
-        basic,
-        ghost,
-        link,
-        naked,
-        icon,
-        iconPosition,
-        badgeLeft,
-        badgeRight,
-        autofocus,
-        autofocusDelay,
-        size,
-        focus,
-        hover,
-        loading,
-        disabled,
-        className,
-        forwardedRef,
-        children,
-        ...rest
-    } = props;
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Button");
-
-    const innerRef = useMergedRefs(forwardedRef);
+export function InnerButton({
+    variant,
+    color,
+    iconLeft,
+    iconRight,
+    badgeLeft,
+    badgeRight,
+    autofocus,
+    autofocusDelay,
+    fluid,
+    circular,
+    loading,
+    size,
+    active,
+    focus,
+    hover,
+    disabled,
+    as: ElementType,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const ref = useMergedRefs(forwardedRef);
 
     const setFocus = useCallback(() => {
-        if (!isNil(innerRef.current)) {
-            innerRef.current.focus();
+        if (!isNil(ref.current)) {
+            ref.current.focus();
         }
-    }, [innerRef]);
+    }, [ref]);
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    const hasText = Children.count(children) > 0;
+    const iconLeftMarkup = !isNil(iconLeft) && (
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
+    );
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size} standalone={!hasText}>{icon}</EmbeddedIcon>
+    const iconRightMarkup = !isNil(iconRight) && (
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
@@ -115,42 +148,42 @@ export function InnerButton(props) {
         disabled
     });
 
-    const content = (
-        <>
-            {iconPosition === "left" && iconMarkup}{badgeLeftMarkup}
-            {children}
-            {iconPosition === "right" && iconMarkup}{badgeRightMarkup}
-        </>
-    );
+    const content = variant === "icon"
+        ? cloneElement(children, { size })
+        : (
+            <>
+                {iconLeftMarkup}{badgeLeftMarkup}
+                {children}
+                {iconRightMarkup}{badgeRightMarkup}
+            </>
+        );
 
     return (
-        <SemanticRef innerRef={innerRef}>
-            <SemanticButton
-                data-testid="button"
-                {...rest}
-                {...autofocusProps}
-                basic={basic}
-                size={size}
-                loading={loading}
-                disabled={disabled}
-                className={mergeClasses(
-                    naked && "naked",
-                    ghost && "ghost",
-                    link && "link",
-                    iconMarkup && "with-icon",
-                    iconMarkup && iconPosition === "left" && "with-left-icon",
-                    iconMarkup && iconPosition === "right" && "with-right-icon",
-                    badgeLeftMarkup && "with-left-badge",
-                    badgeRightMarkup && "with-right-badge",
-                    !hasText && "fitted",
-                    focus && "focus",
-                    hover && "hover",
-                    className)
-                }
-            >
-                {content}
-            </SemanticButton>
-        </SemanticRef>
+        <ElementType
+            data-testid="button"
+            {...rest}
+            {...autofocusProps}
+            className={mergeClasses(
+                variant,
+                color && color,
+                iconLeftMarkup && "with-left-icon",
+                iconRightMarkup && "with-right-icon",
+                badgeLeftMarkup && "with-left-badge",
+                badgeRightMarkup && "with-right-badge",
+                fluid && "fluid",
+                circular && "circular",
+                loading && "loading",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                getSizeClass(size),
+                className)
+            }
+            disabled={disabled}
+            ref={ref}
+        >
+            {content}
+        </ElementType>
     );
 }
 
@@ -160,16 +193,6 @@ InnerButton.defaultProps = defaultProps;
 export const Button = forwardRef((props, ref) => (
     <InnerButton { ...props } forwardedRef={ref} />
 ));
-
-// Button.Or is not supported yet.
-[InnerButton, Button].forEach(x => {
-    x.Content = SemanticButton.Content;
-    x.Group = SemanticButton.Group;
-});
-
-if (!isNil(SemanticButton.propTypes)) {
-    SemanticButton.propTypes.size = oneOf(SIZES);
-}
 
 export const embedButton = createEmbeddableAdapter({
     [SIZE.micro]: SIZE.micro,

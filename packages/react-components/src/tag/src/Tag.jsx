@@ -52,9 +52,7 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerTag(props) {
-    const { variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
-
+export function InnerTag({ variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest }) {
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
