@@ -1,6 +1,6 @@
 import { Badge } from "@react-components/badge";
-import { Button, IconButton } from "@react-components/button";
 import { CheckCircleIcon, CrossIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
+import { IconButton } from "@react-components/button";
 import { Stack } from "@react-components/stack";
 import { cloneElement } from "react";
 
