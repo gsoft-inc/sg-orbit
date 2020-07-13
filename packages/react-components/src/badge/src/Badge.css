@@ -69,6 +69,12 @@
     font-size: var(--type-scale-7);
 }
 
+.o-ui.badge.dot.micro {
+    font-size: 0.5rem;
+    min-width: 0.5em;
+    min-height: 0.5em;
+}
+
 .o-ui.badge.dot.tiny {
     font-size: var(--type-scale-9);
     min-height: 1rem;
@@ -99,12 +105,6 @@
 }
 
 /* DOT | Empty */
-.o-ui.badge.dot.micro {
-    font-size: 0.5rem;
-    min-width: 0.5em;
-    min-height: 0.5em;
-}
-
 .o-ui.badge.dot.empty.mini {
     font-size: 0.75rem;
     min-width: 0.5em;
@@ -155,17 +155,6 @@
 /* BADGE IN TAG | RIGHT > TEXT */
 .o-ui.tag.with-right-badge .text {
     margin-right: var(--scale-bravo);
-}
-
-/* BADGE IN TAG | RIGHT > BADGE */
-.o-ui.tag.with-right-badge .badge:last-child {
-    margin-right: 0;
-}
-
-/* BADGE IN OUTLINE TAG | WITH TAG */
-.o-ui.tag.outline.with-left-badge .badge,
-.o-ui.tag.outline.with-right-badge .badge {
-    background-color: var(--cloud-50);
 }
 
 /* DOT | DISABLED */

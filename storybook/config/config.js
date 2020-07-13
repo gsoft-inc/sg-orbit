@@ -42,6 +42,8 @@ if (!isChromatic) {
     import("@orbit-ui/foundation/dist/apricot.css");
 }
 
+import "@orbit-ui/react-components/dist/index.css";
+
 import "./styles/app.css";
 import "./styles/docs.css";
 import "./styles/stories.css";

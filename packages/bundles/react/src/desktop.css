@@ -1,4 +1,7 @@
-@import "./core.css";
-
+@import "~@orbit-ui/fonts";
+@import "~@orbit-ui/css-normalize";
 @import "~@orbit-ui/foundation/desktop.css";
 @import "~@orbit-ui/tachyons/desktop.css";
+@import "~@orbit-ui/react-components/dist/index.css";
+
+@import "./semantic-ui.css";
