@@ -56,9 +56,8 @@ a.o-ui.tag.outline:focus {
     width: 100%;
 }
 
-/* FLUID | WITH ICON */
-.o-ui.tag.fluid.with-right-icon .icon:last-child {
-    margin-left: auto;
+.o-ui.tag.fluid .text {
+    flex-grow: 1;
 }
 
 /* COMMON */
@@ -113,12 +112,6 @@ a.o-ui.tag:hover {
     padding-right: calc(var(--large-padding) / 1.5);
 }
 
-/* WITH BUTTON | BUTTON | TO MOVE */
-.o-ui.tag.with-button .button,
-.o-ui.tag.with-button button {
-    margin-left: var(--scale-bravo);
-}
-
 /* WITH BADGE */
 /* WITH BADGE | LEFT */
 .o-ui.tag.with-left-badge {
@@ -158,14 +151,19 @@ a.o-ui.tag:hover {
     padding-left: calc(var(--default-padding) / 1.5);
 }
 
-/* WITH ICON | LEFT > Icon */
-.o-ui.tag.with-left-icon .icon {
-    margin-right: var(--scale-alpha);
+/* WITH ICON | LEFT > TEXT */
+.o-ui.tag.with-left-icon .text {
+    margin-left: var(--scale-alpha);
 }
 
 /* WITH ICON | RIGHT */
 .o-ui.tag.with-right-icon {
     padding-right: calc(var(--default-padding) / 1.5);
+}
+
+/* WITH ICON | RIGHT | ICON */
+.o-ui.tag.with-right-icon .icon:last-child {
+    margin-right: 0;
 }
 
 /* WITH ICON | RIGHT | TEXT */

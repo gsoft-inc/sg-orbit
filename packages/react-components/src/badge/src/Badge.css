@@ -99,6 +99,18 @@
 }
 
 /* DOT | Empty */
+.o-ui.badge.dot.micro {
+    font-size: 0.5rem;
+    min-width: 0.5em;
+    min-height: 0.5em;
+}
+
+.o-ui.badge.dot.empty.mini {
+    font-size: 0.75rem;
+    min-width: 0.5em;
+    min-height: 0.5em;
+}
+
 .o-ui.badge.dot.empty.tiny {
     min-width: 0.5em;
     min-height: 0.5em;
@@ -141,25 +153,25 @@
     background-color: var(--cloud-100);
 }
 
-/* BADGE IN TAG | LEFT > BADGE */
-.o-ui.tag.with-left-badge .badge {
+/* BADGE IN TAG | LEFT > TEXT */
+.o-ui.tag.with-left-badge .text {
+    margin-left: var(--scale-bravo);
+}
+
+/* BADGE IN TAG | RIGHT > TEXT */
+.o-ui.tag.with-right-badge .text {
     margin-right: var(--scale-bravo);
 }
 
 /* BADGE IN TAG | RIGHT > BADGE */
-.o-ui.tag.with-right-badge .badge {
-    margin-left: var(--scale-bravo);
+.o-ui.tag.with-right-badge .badge:last-child {
+    margin-right: 0;
 }
 
 /* BADGE IN OUTLINE TAG | WITH TAG */
 .o-ui.tag.outline.with-left-badge .badge,
 .o-ui.tag.outline.with-right-badge .badge {
     background-color: var(--cloud-50);
-}
-
-/* BADGE IN FLUID TAG | BADGE */
-.o-ui.tag.with-right-badge.fluid .badge:last-child {
-    margin-left: auto;
 }
 
 /* DOT | DISABLED */
