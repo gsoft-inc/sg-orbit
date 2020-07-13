@@ -163,11 +163,6 @@ a.o-ui.tag:hover {
     padding-right: calc(var(--default-padding) / 2);
 }
 
-/* WITH ICON | RIGHT > Icon */
-.o-ui.tag.with-right-icon .icon {
-    margin-left: var(--scale-alpha);
-}
-
 /* WITH ICON | SIZE */
 /* WITH ICON | LEFT | SMALL */
 .o-ui.tag.small.with-left-icon {
