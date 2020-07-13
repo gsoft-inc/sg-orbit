@@ -148,6 +148,11 @@
     background-color: var(--cloud-50);
 }
 
+/* FLUID */
+.o-ui.tag.fluid {
+    width: 100%;
+}
+
 /* AS BUTTON */
 button.o-ui.tag {
     border: none;

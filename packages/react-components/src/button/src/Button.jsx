@@ -168,6 +168,7 @@ export function InnerButton({
             {...rest}
             {...autofocusProps}
             className={mergeClasses(
+                "o-ui button",
                 variant,
                 color && color,
                 iconLeftMarkup && "with-left-icon",
