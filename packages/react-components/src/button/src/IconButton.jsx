@@ -1,6 +1,7 @@
-import { Button } from "./Button";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { cloneElement, forwardRef } from "react";
+import { forwardRef, useCallback } from "react";
+import { getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -51,16 +52,58 @@ const defaultProps = {
     as: "button"
 };
 
-export function InnerIconButton({ size, children, forwardedRef, ...rest }) {
+export function InnerIconButton({
+    variant,
+    color,
+    autofocus,
+    autofocusDelay,
+    fluid,
+    circular,
+    loading,
+    size,
+    active,
+    focus,
+    hover,
+    disabled,
+    as: ElementType,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const ref = useMergedRefs(forwardedRef);
+
+    const setFocus = useCallback(() => {
+        if (!isNil(ref.current)) {
+            ref.current.focus();
+        }
+    }, [ref]);
+
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
     return (
-        <Button
+        <ElementType
+            data-testid="icon-button"
             {...rest}
-            ref={forwardedRef}
+            {...autofocusProps}
+            className={mergeClasses(
+                "o-ui button icon",
+                variant,
+                color && color,
+                fluid && "fluid",
+                circular && "circular",
+                loading && "loading",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                getSizeClass(size),
+                className
+            )}
+            disabled={disabled}
+            ref={ref}
         >
-            {cloneElement(children, {
-                size
-            })}
-        </Button>
+            {children}
+        </ElementType>
     );
 }
 

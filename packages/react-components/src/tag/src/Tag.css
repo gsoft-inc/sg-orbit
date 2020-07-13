@@ -51,6 +51,11 @@ a.o-ui.tag.outline:focus {
     box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200) !important;
 }
 
+/* FLUID */
+.o-ui.tag.fluid {
+    width: 100%;
+}
+
 /* COMMON */
 .o-ui.tag {
     --default-padding: var(--scale-echo);

@@ -1,6 +1,6 @@
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createTestSuite } from "./createTestSuite";
+import { createTestSuite } from "./createTestSuite2";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tag"))
@@ -12,7 +12,7 @@ function stories(segment) {
         .build();
 }
 
-stories()
-    .add("solid", createTestSuite(<Tag />))
-    .add("outline", createTestSuite(<Tag variant="outline" />));
+createTestSuite(<Tag variant="solid" />, stories("/solid"));
+
+createTestSuite(<Tag variant="outline" />, stories("/outline"));
 

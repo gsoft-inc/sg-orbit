@@ -1,7 +1,7 @@
 import "./Tag.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { embedButton } from "../../button";
 import { forwardRef } from "react";
@@ -12,7 +12,7 @@ const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["solid", "outline", "transparent"]),
+    variant: oneOf(["solid", "outline"]),
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
@@ -33,6 +33,10 @@ const propTypes = {
      * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
     badgeRight: element,
+    /**
+     * Whether or not the tag take up the width of its container.
+     */
+    fluid: bool,
     /**
      * A tag can vary in sizes.
      */
@@ -60,6 +64,7 @@ export function InnerTag({
     badgeLeft,
     badgeRight,
     disabled,
+    fluid,
     size,
     active,
     focus,
@@ -70,6 +75,10 @@ export function InnerTag({
     forwardedRef,
     ...rest
 }) {
+    const textMarkup = (
+        <span className="text">{children}</span>
+    );
+
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
@@ -100,7 +109,7 @@ export function InnerTag({
     const content = (
         <>
             {iconLeftMarkup}{badgeLeftMarkup}
-            {children}
+            {textMarkup}
             {buttonMarkup}{iconRightMarkup}{badgeRightMarkup}
         </>
     );
@@ -117,6 +126,7 @@ export function InnerTag({
                 iconRightMarkup && "with-right-icon",
                 badgeLeftMarkup && "with-left-badge",
                 badgeRightMarkup && "with-right-badge",
+                fluid && "fluid",
                 active && "active",
                 focus && "focus",
                 hover && "hover",

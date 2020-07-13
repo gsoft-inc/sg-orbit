@@ -66,8 +66,9 @@ A button can contain a [badge](?path=/story/components-badge--default-story).
 <Preview>
     <Story name="badge">
         <Stack>
-            <Button badgeLeft={<Badge>6</Badge>}>Cutoff</Button>
+            <Button badgeLeft={<Badge variant="dot" />}>Cutoff</Button>
             <Button badgeRight={<Badge>6</Badge>}>Cutoff</Button>
+            <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>6</Badge>}>Cutoff</Button>
         </Stack>
     </Story>
 </Preview>
@@ -217,7 +218,7 @@ A button can have a custom color.
 
 <CustomColorHover />
 
-### Icon Button
+### Icon button
 
 <Preview>
     <Story name="icon button">

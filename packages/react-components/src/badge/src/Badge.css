@@ -157,12 +157,12 @@
     opacity: 0.4;
 }
 
-/* ICON */
+/* ICON | DISABLED */
 .o-ui.badge.icon[disabled] {
     opacity: 0.4;
 }
 
-/* COMMON */
+/* HIGHLIGHT */
 .o-ui.badge.highlight {
     font-weight: 500;
 }
