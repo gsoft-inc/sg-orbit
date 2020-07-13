@@ -22,7 +22,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    spacing: "alpha",
+    spacing: 1,
     as: "span"
 };
 
