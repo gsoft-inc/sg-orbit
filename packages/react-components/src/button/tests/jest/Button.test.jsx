@@ -86,6 +86,16 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("BUTTON");
 });
 
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    render(
+        <Button ref={handler}>Cutoff</Button>
+    );
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
 // ***** API *****
 
 test("can focus the button with the focus api", async () => {
@@ -104,14 +114,4 @@ test("can focus the button with the focus api", async () => {
     });
 
     await waitFor(() => expect(refNode).toHaveFocus());
-});
-
-test("set ref once", async () => {
-    const handler = jest.fn();
-
-    render(
-        <Button ref={handler}>Cutoff</Button>
-    );
-
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
