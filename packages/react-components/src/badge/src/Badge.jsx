@@ -45,7 +45,7 @@ export function InnerBadge(props) {
             className={mergeClasses(
                 "o-ui badge",
                 variant,
-                content && "with-content",
+                !content && "empty",
                 variant !== "inline" && variant !== "icon" && getSizeClass(size),
                 highlight && "highlight",
                 className

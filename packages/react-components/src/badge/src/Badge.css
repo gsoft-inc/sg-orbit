@@ -1,7 +1,7 @@
 /* PILL */
 .o-ui.badge.pill {
     display: inline-flex;
-    background-color: var(--cloud-50);
+    background-color: var(--cloud-100);
     color: var(--marine-500);
     justify-content: center;
     border-radius: 999px;
@@ -58,92 +58,108 @@
 
 /* DOT */
 .o-ui.badge.dot {
-    font-size: var(--type-scale-4);
-    min-width: 0.5em;
-    min-height: 0.5em;
     border-radius: 999px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cloud-50);
+    background-color: var(--cloud-100);
     color: var(--marine-500);
-}
-
-.o-ui.badge.dot.micro {
-    font-size: 0.5rem;
-}
-
-.o-ui.badge.dot.mini {
-    font-size: 0.75rem;
-}
-
-.o-ui.badge.dot.tiny {
+    min-height: 1.5rem;
+    min-width: 1.5rem;
     font-size: var(--type-scale-7);
 }
 
+.o-ui.badge.dot.tiny {
+    font-size: var(--type-scale-9);
+    min-height: 1rem;
+    min-width: 1rem;
+}
+
 .o-ui.badge.dot.small {
-    font-size: var(--type-scale-5);
+    font-size: var(--type-scale-8);
+    min-height: 1.25rem;
+    min-width: 1.25rem;
 }
 
 .o-ui.badge.dot.large {
-    font-size: 1.75rem;
-}
-
-.o-ui.badge.dot.big {
-    font-size: var(--type-scale-3);
-}
-
-.o-ui.badge.dot.huge {
-    font-size: 2.25rem;
+    font-size: var(--type-scale-6);
+    min-height: 2rem;
+    min-width: 2rem;
 }
 
 .o-ui.badge.dot.massive {
     font-size: var(--type-scale-2);
 }
 
-/* DOT | WITH CONTENT */
-.o-ui.badge.dot.with-content {
-    min-height: 1.5rem;
-    min-width: 1.5rem;
+/* DOT | Empty */
+.o-ui.badge.dot.empty {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--type-scale-4);
+}
+
+/* DOT | Empty */
+.o-ui.badge.dot.micro {
+    font-size: 0.5rem;
+    min-width: 0.5em;
+    min-height: 0.5em;
+}
+
+.o-ui.badge.dot.empty.mini {
+    font-size: 0.75rem;
+    min-width: 0.5em;
+    min-height: 0.5em;
+}
+
+.o-ui.badge.dot.empty.tiny {
+    min-width: 0.5em;
+    min-height: 0.5em;
     font-size: var(--type-scale-7);
 }
 
-.o-ui.badge.dot.tiny.with-content {
-    font-size: var(--type-scale-9);
-    min-height: 1rem;
-    min-width: 1rem;
+.o-ui.badge.dot.empty.small {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--type-scale-5);
 }
 
-.o-ui.badge.dot.small.with-content {
-    font-size: var(--type-scale-8);
-    min-height: 1.25rem;
-    min-width: 1.25rem;
+.o-ui.badge.dot.empty.large {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: 1.75rem;
 }
 
-.o-ui.badge.dot.large.with-content {
-    font-size: var(--type-scale-6);
-    min-height: 2rem;
-    min-width: 2rem;
+.o-ui.badge.dot.empty.big {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--type-scale-3);
 }
 
-.o-ui.badge.dot.massive.with-content {
+.o-ui.badge.dot.empty.huge {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: 2.25rem;
+}
+
+.o-ui.badge.dot.empty.massive {
+    min-width: 0.5em;
+    min-height: 0.5em;
     font-size: var(--type-scale-2);
 }
 
-/* BADGE IN TAG | BADGE */
-.o-ui.tag.with-left-badge .badge,
-.o-ui.tag.with-right-badge .badge {
-    background-color: var(--cloud-100);
+/* BADGE IN TAG | LEFT > TEXT */
+.o-ui.tag.with-left-badge .text {
+    margin-left: var(--scale-bravo);
 }
 
-/* BADGE IN TAG | LEFT > BADGE */
-.o-ui.tag.with-left-badge .badge {
+/* BADGE IN TAG | RIGHT > TEXT */
+.o-ui.tag.with-right-badge .text {
     margin-right: var(--scale-bravo);
 }
 
 /* BADGE IN TAG | RIGHT > BADGE */
-.o-ui.tag.with-right-badge .badge {
-    margin-left: var(--scale-bravo);
+.o-ui.tag.with-right-badge .badge:last-child {
+    margin-right: 0;
 }
 
 /* BADGE IN OUTLINE TAG | WITH TAG */
