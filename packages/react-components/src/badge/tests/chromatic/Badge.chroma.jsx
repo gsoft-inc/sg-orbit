@@ -1,5 +1,6 @@
 import { Badge, embedBadge } from "@react-components/badge";
 import { CheckIcon } from "@react-components/icons";
+import { Stack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -14,7 +15,12 @@ function stories(segment) {
 
 stories("/pill")
     .add("default", () =>
-        <Badge>100</Badge>
+        <Stack align="end">
+            <Badge size="tiny">100</Badge>
+            <Badge size="small">100</Badge>
+            <Badge>100</Badge>
+            <Badge size="large">100</Badge>
+        </Stack>
     )
     .add("addition", () =>
         <Badge>+1</Badge>
@@ -28,33 +34,29 @@ stories("/pill")
     .add("disabled", () =>
         <Badge disabled>100</Badge>
     )
-    .add("size", () =>
-        <div className="flex items-end">
-            <Badge className="mr5" size="tiny">100</Badge>
-            <Badge className="mr5" size="small">100</Badge>
-            <Badge className="mr5">100</Badge>
-            <Badge size="large">100</Badge>
-        </div>
-    )
     .add("styling", () =>
-        <div className="flex">
-            <Badge className="bg-red mr5">100</Badge>
+        <Stack>
+            <Badge className="bg-red">100</Badge>
             <Badge style={{ backgroundColor: "red" }}>100</Badge>
-        </div>
+        </Stack>
     )
     .add("embedded", () =>
-        <div className="flex items-end">
+        <Stack align="end">
             {embedBadge(<Badge className="mr5">100</Badge>, { size: "mini" })}
             {embedBadge(<Badge className="mr5">100</Badge>, { size: "tiny" })}
             {embedBadge(<Badge className="mr5">100</Badge>, { size: "small" })}
             {embedBadge(<Badge className="mr5">100</Badge>)}
             {embedBadge(<Badge>100</Badge>, { size: "large" })}
-        </div>
+        </Stack>
     );
 
 stories("/inline")
     .add("default", () =>
-        <Badge variant="inline">100</Badge>
+        <Stack direction="vertical">
+            <div>Planets Visited <Badge variant="inline">2</Badge></div>
+            <div className="f3">Planets Visited <Badge variant="inline">2</Badge></div>
+            <div className="f1">Planets Visited <Badge variant="inline">2</Badge></div>
+        </Stack>
     )
     .add("addition", () =>
         <Badge variant="inline">+1</Badge>
@@ -68,70 +70,58 @@ stories("/inline")
     .add("disabled", () =>
         <Badge disabled variant="inline">100</Badge>
     )
-    .add("with text", () =>
-        <div className="flex-column">
-            <div className="mb5">Planets Visited <Badge variant="inline">2</Badge></div>
-            <div className="f3 mb5">Planets Visited <Badge variant="inline">2</Badge></div>
-            <div className="f1">Planets Visited <Badge variant="inline">2</Badge></div>
-        </div>
-    )
     .add("styling", () =>
-        <div className="flex">
-            <Badge className="bg-red mr5" variant="inline">100</Badge>
+        <Stack>
+            <Badge className="bg-red" variant="inline">100</Badge>
             <Badge style={{ backgroundColor: "red" }} variant="inline">100</Badge>
-        </div>
+        </Stack>
     )
     .add("embedded", () =>
-        <div className="flex items-end">
-            {embedBadge(<Badge variant="inline">100</Badge>)}
-        </div>
+        embedBadge(<Badge variant="inline">100</Badge>)
     );
 
 stories("/dot")
     .add("default", () =>
-        <div className="flex items-end mb5">
-            <Badge variant="dot" className="mr5">9</Badge>
-        </div>
+        <Stack align="end">
+            <Badge variant="dot" size="tiny">5</Badge>
+            <Badge variant="dot" size="small">5</Badge>
+            <Badge variant="dot">5</Badge>
+            <Badge variant="dot" size="large">5</Badge>
+        </Stack>
     )
     .add("empty", () =>
-        <Badge variant="dot" className="mr5" />
+        <Stack align="end">
+            <Badge variant="dot"size="tiny" />
+            <Badge variant="dot"size="small" />
+            <Badge variant="dot" />
+            <Badge variant="dot" size="large" />
+        </Stack>
     )
     .add("disabled", () =>
-        <Badge disabled variant="dot" className="mr5" />
-    )
-    .add("size", () =>
-        <div className="flex flex-column">
-            <div className="flex items-end mb5">
-                <Badge variant="dot" className="mr5" size="tiny" />
-                <Badge variant="dot" className="mr5" size="small" />
-                <Badge variant="dot" className="mr5" />
-                <Badge variant="dot" size="large" />
-            </div>
-            <div className="flex items-end mb5">
-                <Badge variant="dot" className="mr5" size="tiny">5</Badge>
-                <Badge variant="dot" className="mr5" size="small">5</Badge>
-                <Badge variant="dot" className="mr5">5</Badge>
-                <Badge variant="dot" size="large">5</Badge>
-            </div>
-        </div>
+        <Badge disabled variant="dot" />
     )
     .add("styling", () =>
-        <div className="flex">
-            <Badge variant="dot" className="bg-red mr5" />
+        <Stack>
+            <Badge variant="dot" className="bg-red" />
             <Badge variant="dot" style={{ backgroundColor: "red" }} />
-        </div>
+        </Stack>
     )
     .add("embedded", () =>
-        <div className="flex items-end">
-            {embedBadge(<Badge variant="dot" className="mr5" />, { size: "small" })}
-            {embedBadge(<Badge variant="dot" className="mr5" />)}
+        <Stack align="end">
+            {embedBadge(<Badge variant="dot" />, { size: "small" })}
+            {embedBadge(<Badge variant="dot" />)}
             {embedBadge(<Badge variant="dot" />, { size: "large" })}
-        </div>
+        </Stack>
     );
 
 stories("/icon")
     .add("default", () =>
-        <Badge variant="icon"><CheckIcon /></Badge>
+        <Stack align="end">
+            <Badge variant="icon" size="tiny"><CheckIcon /></Badge>
+            <Badge variant="icon" size="small"><CheckIcon /></Badge>
+            <Badge variant="icon"><CheckIcon /></Badge>
+            <Badge variant="icon" size="large"><CheckIcon /></Badge>
+        </Stack>
     )
     .add("highlight", () =>
         <Badge highlight variant="icon"><CheckIcon /></Badge>
@@ -139,17 +129,9 @@ stories("/icon")
     .add("disabled", () =>
         <Badge disabled variant="icon"><CheckIcon /></Badge>
     )
-    .add("size", () =>
-        <div className="flex items-end">
-            <Badge variant="icon" className="mr5" size="tiny"><CheckIcon /></Badge>
-            <Badge variant="icon" className="mr5" size="small"><CheckIcon /></Badge>
-            <Badge variant="icon" className="mr5"><CheckIcon /></Badge>
-            <Badge variant="icon" size="large"><CheckIcon /></Badge>
-        </div>
-    )
     .add("styling", () =>
-        <div className="flex">
-            <Badge className="bg-red mr5" variant="icon"><CheckIcon /></Badge>
+        <Stack>
+            <Badge className="bg-red" variant="icon"><CheckIcon /></Badge>
             <Badge style={{ backgroundColor: "red" }} variant="icon"><CheckIcon /></Badge>
-        </div>
+        </Stack>
     );

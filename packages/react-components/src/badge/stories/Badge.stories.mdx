@@ -1,9 +1,10 @@
 import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
-import { CheckCircleIcon, InfoIcon } from "@react-components/icons";
+import { CheckCircleIcon } from "@react-components/icons";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Square } from "./Square.jsx";
+import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -61,20 +62,20 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex flex-column">
-            <div className="flex items-end items-space-between">
+        <Stack direction="vertical">
+            <Stack align="end">
                 <Badge size="tiny">5</Badge>
                 <Badge size="small">5</Badge>
                 <Badge>5</Badge>
                 <Badge size="large">5</Badge>
-            </div>
-            <div className="flex items-end items-space-between">
+            </Stack>
+            <Stack align="end">
                 <Badge size="tiny">99</Badge>
                 <Badge size="small">99</Badge>
                 <Badge>99</Badge>
                 <Badge size="large">99</Badge>
-            </div>
-        </div>
+            </Stack>
+        </Stack>
     </Story>
 </Preview>
 
@@ -92,10 +93,10 @@ An inline badge, is not affected by the `size` property. The badge will inherit 
 
 <Preview>
     <Story name="inline size">
-        <div className="flex flex-column items-vertical-space-between">
+        <Stack direction="vertical">
             <span className="f5">Galaxies<Badge variant="inline">100+</Badge></span>
             <span className="f4">Galaxies<Badge variant="inline">100+</Badge></span>
-        </div>
+        </Stack>
     </Story>
 </Preview>
 
@@ -105,20 +106,20 @@ A badge can be rendered as a dot. A single digit is supported.
 
 <Preview>
     <Story name="dot">
-        <div className="flex flex-column items-vertical-space-between">
-            <div className="flex items-end items-space-between">
+        <Stack direction="vertical">
+            <Stack align="end">
                 <Badge variant="dot" size="tiny" />
                 <Badge variant="dot" size="small" />
                 <Badge variant="dot" />
                 <Badge variant="dot" size="large" />
-            </div>
-            <div className="flex items-end items-space-between">
+            </Stack>
+            <Stack align="end">
                 <Badge variant="dot" size="tiny">5</Badge>
                 <Badge variant="dot" size="small">5</Badge>
                 <Badge variant="dot">5</Badge>
                 <Badge variant="dot" size="large">5</Badge>
-            </div>
-        </div>
+            </Stack>
+        </Stack>
     </Story>
 </Preview>
 
@@ -128,12 +129,12 @@ A badge can be an icon.
 
 <Preview>
     <Story name="icon">
-        <div className="flex items-end items-space-between">
-            <Badge variant="icon" size="tiny"><InfoIcon /></Badge>
-            <Badge variant="icon" size="small"><InfoIcon /></Badge>
-            <Badge variant="icon"><InfoIcon /></Badge>
-            <Badge variant="icon" size="large"><InfoIcon /></Badge>
-        </div>
+        <Stack align="end">
+            <Badge variant="icon" size="tiny"><CheckCircleIcon /></Badge>
+            <Badge variant="icon" size="small"><CheckCircleIcon /></Badge>
+            <Badge variant="icon"><CheckCircleIcon /></Badge>
+            <Badge variant="icon" size="large"><CheckCircleIcon /></Badge>
+        </Stack>
     </Story>
 </Preview>
 
@@ -143,7 +144,7 @@ A badge can float to the top right corner of an element.
 
 <Preview>
     <Story name="floating">
-        <div className="flex items-lot-of-space-between">
+        <Stack>
             <FloatingBadge badge={<Badge variant="dot" />}>
                 <Square />
             </FloatingBadge>
@@ -159,7 +160,7 @@ A badge can float to the top right corner of an element.
             <FloatingBadge badge={<Badge>100</Badge>}>
                 <Square />
             </FloatingBadge>
-        </div>
+        </Stack>
     </Story>
 </Preview>
 
