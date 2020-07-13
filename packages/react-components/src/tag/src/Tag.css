@@ -1,26 +1,95 @@
+/* SOLID */
+.o-ui.tag.solid {
+    background-color: var(--cloud-50);
+}
+
+/* AS BUTTON */
+/* As <a> / BUTTON | States */
+/* As <a> / BUTTON | States | HOVER */
+button.o-ui.tag.solid:hover,
+a.o-ui.tag.solid:hover {
+    background-color: var(--cloud-100);
+}
+
+/* As <a> / BUTTON | States | ACTIVE */
+button.o-ui.tag.solid:active,
+a.o-ui.tag.solid:active {
+    background-color: var(--cloud-200);
+}
+
+/* As <a> / BUTTON | States | FOCUS */
+button.o-ui.tag.solid:focus,
+a.o-ui.tag.solid:focus {
+    box-shadow: 0 0 0 2px var(--primary-200) !important;
+}
+
+/* OUTLINE */
+.o-ui.tag.outline {
+    background-color: var(--white);
+    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+}
+
+/* As <a> / BUTTON | States */
+/* As <a> / BUTTON | States | HOVER */
+button.o-ui.tag.outline:hover,
+a.o-ui.tag.outline:hover {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-300) inset;
+}
+
+/* As <a> / BUTTON | States | ACTIVE */
+button.o-ui.tag.outline:active,
+a.o-ui.tag.outline:active {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-500) inset;
+}
+
+/* As <a> / BUTTON | States | FOCUS */
+button.o-ui.tag.outline:focus,
+a.o-ui.tag.outline:focus {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200) !important;
+}
+
+/* FLUID */
+.o-ui.tag.fluid {
+    width: 100%;
+}
+
+/* COMMON */
 .o-ui.tag {
     --default-padding: var(--scale-echo);
     --small-padding: var(--scale-delta);
     --large-padding: var(--scale-foxtrot);
+    border: none;
     display: inline-flex;
     line-height: 1;
-    background-color: var(--cloud-50);
     color: var(--marine-500);
     border-radius: 999px;
     min-height: var(--scale-hotel);
-    padding-left: var(--default-padding);
-    padding-right: var(--default-padding);
+    padding: 0 var(--default-padding);
     align-items: center;
     transition: background-color 0.1s linear;
 }
 
-/* SIZE */
-.o-ui.tag.small {
-    min-height: var(--scale-golf);
+/* As <a> / BUTTON | States */
+/* As <a> / BUTTON | States | HOVER */
+button.o-ui.tag:hover,
+a.o-ui.tag:hover {
+    background-color: var(--cloud-100);
 }
 
+/* SIZE */
+/* SIZE | SMALL */
+.o-ui.tag.small {
+    min-height: var(--scale-golf);
+    padding: 0 var(--small-padding);
+}
+
+/* SIZE | LARGE */
 .o-ui.tag.large {
     min-height: var(--scale-india);
+    padding: 0 var(--large-padding);
 }
 
 /* WITH BUTTON */
@@ -29,17 +98,53 @@
 }
 
 /* WITH BUTTON | SIZE */
+/* WITH BUTTON | SIZE | SMALL */
 .o-ui.tag.with-button.small {
     padding-right: calc(var(--small-padding) / 2);
 }
 
+/* WITH BUTTON | SIZE | LARGE */
 .o-ui.tag.with-button.large {
     padding-right: calc(var(--large-padding) / 2);
 }
 
-/* WITH BUTTON | BUTTON */
-.o-ui.tag.with-button .button {
+/* WITH BUTTON | BUTTON | TO MOVE */
+.o-ui.tag.with-button .button,
+.o-ui.tag.with-button button {
     margin-left: var(--scale-bravo);
+}
+
+/* WITH BADGE */
+/* WITH BADGE | LEFT */
+.o-ui.tag.with-left-badge {
+    padding-left: calc(var(--default-padding) / 1.5);
+}
+
+/* WITH BADGE | RIGHT */
+.o-ui.tag.with-right-badge {
+    padding-right: calc(var(--default-padding) / 1.5);
+}
+
+/* WITH BADGE | SIZE */
+/* WITH BADGE | LEFT | SMALL */
+.o-ui.tag.small.with-left-badge {
+    padding-left: calc(var(--small-padding) / 1.5);
+}
+
+/* WITH BADGE | LEFT | LARGE */
+.o-ui.tag.large.with-left-badge {
+    padding-left: calc(var(--large-padding) / 1.5);
+}
+
+/* WITH BADGE | SIZE */
+/* WITH BADGE | RIGHT | SMALL */
+.o-ui.tag.small.with-right-badge {
+    padding-right: calc(var(--small-padding) / 1.5);
+}
+
+/* WITH BADGE | RIGHT | LARGE */
+.o-ui.tag.large.with-right-badge {
+    padding-right: calc(var(--large-padding) / 1.5);
 }
 
 /* WITH ICON */
@@ -56,11 +161,6 @@
 /* WITH ICON | RIGHT */
 .o-ui.tag.with-right-icon {
     padding-right: calc(var(--default-padding) / 2);
-}
-
-/* WITH ICON | RIGHT > Icon */
-.o-ui.tag.with-right-icon .icon {
-    margin-left: var(--scale-alpha);
 }
 
 /* WITH ICON | SIZE */
@@ -83,121 +183,4 @@
 /* WITH ICON | RIGHT | LARGE */
 .o-ui.tag.large.with-right-icon {
     padding-right: calc(var(--large-padding) / 2);
-}
-
-/* WITH BADGE */
-/* WITH BADGE | BADGE */
-.o-ui.tag.with-left-badge .badge,
-.o-ui.tag.with-right-badge .badge {
-    background-color: var(--cloud-100);
-}
-
-/* WITH BADGE | LEFT */
-.o-ui.tag.with-left-badge {
-    padding-left: calc(var(--default-padding) / 1.5);
-}
-
-/* WITH BADGE | LEFT > BADGE */
-.o-ui.tag.with-left-badge .badge {
-    margin-right: var(--scale-bravo);
-}
-
-/* WITH BADGE | RIGHT */
-.o-ui.tag.with-right-badge {
-    padding-right: calc(var(--default-padding) / 1.5);
-}
-
-/* WITH BADGE | RIGHT > BADGE */
-.o-ui.tag.with-right-badge .badge {
-    margin-left: var(--scale-bravo);
-}
-
-/* WITH BADGE | SIZE */
-/* WITH BADGE | LEFT | SMALL */
-.o-ui.tag.small.with-left-badge {
-    padding-left: calc(var(--small-padding) / 1.5);
-}
-
-/* WITH BADGE | LEFT | LARGE */
-.o-ui.tag.large.with-left-badge {
-    padding-right: calc(var(--large-padding) / 1.5);
-}
-
-/* WITH BADGE | SIZE */
-/* WITH BADGE | RIGHT | SMALL */
-.o-ui.tag.small.with-right-badge {
-    padding-right: calc(var(--small-padding) / 1.5);
-}
-
-/* WITH BADGE | RIGHT | LARGE */
-.o-ui.tag.large.with-right-badge {
-    padding-right: calc(var(--large-padding) / 1.5);
-}
-
-/* OUTLINE */
-.o-ui.tag.outline {
-    background: none var(--white);
-    border: none;
-    color: var(--marine-500);
-    box-shadow: 0 0 0 1px var(--cloud-200) inset;
-}
-
-/* OUTLINE | WITH TAG */
-.o-ui.tag.outline.with-left-badge .badge,
-.o-ui.tag.outline.with-right-badge .badge {
-    background-color: var(--cloud-50);
-}
-
-/* FLUID */
-.o-ui.tag.fluid {
-    width: 100%;
-}
-
-/* AS BUTTON */
-button.o-ui.tag {
-    border: none;
-}
-
-/* As A / BUTTON | States */
-/* As A / BUTTON | States | HOVER */
-button.o-ui.tag:hover,
-a.o-ui.tag:hover {
-    cursor: pointer;
-    background-color: var(--cloud-100);
-}
-
-/* As A / BUTTON | States | ACTIVE */
-button.o-ui.tag:active,
-a.o-ui.tag:active {
-    background-color: var(--cloud-200);
-}
-
-/* As A / BUTTON | States | FOCUS */
-button.o-ui.tag:focus,
-a.o-ui.tag:focus {
-    box-shadow: 0 0 0 2px var(--primary-200) !important;
-    outline: none;
-}
-
-/* As A / BUTTON | States */
-/* As A / BUTTON | States | HOVER */
-button.o-ui.tag.outline:hover,
-a.o-ui.tag.outline:hover {
-    background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-300) inset;
-}
-
-/* As A / BUTTON | States | ACTIVE */
-button.o-ui.tag.outline:active,
-a.o-ui.tag.outline:active {
-    background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-500) inset;
-}
-
-/* As A / BUTTON | States | FOCUS */
-button.o-ui.tag.outline:focus,
-a.o-ui.tag.outline:focus {
-    background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200) !important;
-    outline: none;
 }
