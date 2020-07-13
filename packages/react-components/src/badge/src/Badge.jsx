@@ -14,7 +14,7 @@ const propTypes = {
      */
     highlight: bool,
     /**
-     * A badge can vary in sizes.
+     * A badge can vary in size.
      */
     size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
     /**

@@ -104,7 +104,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     fluid: bool,
     /**
-     * A date picker can vary in sizes.
+     * A date picker can vary in size.
      */
     size: oneOf(SIZES),
     /**

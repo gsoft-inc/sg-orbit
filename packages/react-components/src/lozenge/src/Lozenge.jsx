@@ -16,7 +16,7 @@ const propTypes = {
      */
     iconRight: element,
     /**
-     * A lozenge can vary in sizes.
+     * A lozenge can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**

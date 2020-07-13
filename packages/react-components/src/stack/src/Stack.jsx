@@ -22,15 +22,15 @@ const SPACING = [
 
 const propTypes = {
     /**
-     * Determine how the elements are placed in the container.
+     * How the elements are placed in the container.
      */
     direction: oneOf(["horizontal", "vertical"]),
     /**
-     * Determine how the elements are aligned in the container along the main axis (view flexbox align-items).
+     * How the elements are aligned in the container along the main axis (view flexbox align-items).
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * Determine how the elements are aligned in the container along the cross axis (view flexbox justify-content).
+     * How the elements are aligned in the container along the cross axis (view flexbox justify-content).
      */
     justify: oneOf(["start", "end", "center"]),
     /**

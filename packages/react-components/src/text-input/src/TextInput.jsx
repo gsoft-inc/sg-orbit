@@ -28,7 +28,7 @@ const INPUT_PROP_TYPES = {
      */
     button: element,
     /**
-     * An input can vary in sizes.
+     * An input can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**

@@ -1,6 +1,6 @@
 import { AddIcon, EditIcon, IconGroup, InfoIcon, LightbulbIcon, WarningIcon } from "@react-components/icons";
 import { Badge } from "@react-components/badge";
-import { Button, IconButton, InnerButton, InnerIconButton } from "@react-components/button";
+import { Button, ButtonGroup, IconButton, InnerButton, InnerButtonGroup, InnerIconButton } from "@react-components/button";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -29,7 +29,8 @@ A Button indicates a possible user action.
 <Props
     componentsDefinitions={[
         { displayName: "Button", component: InnerButton },
-        { displayName: "IconButton", component: InnerIconButton }
+        { displayName: "IconButton", component: InnerIconButton },
+        { displayName: "ButtonGroup", component: InnerButtonGroup }
     ]}
 />
 
@@ -220,6 +221,8 @@ A button can have a custom color.
 
 ### Icon button
 
+A button content can be a single icon.
+
 <Preview>
     <Story name="icon button">
         <Stack spacing={12}>
@@ -238,6 +241,22 @@ A button can have a custom color.
                 <IconButton circular size="large"><AddIcon /></IconButton>
             </Stack>
         </Stack>
+    </Story>
+</Preview>
+
+### Button Group
+
+Related buttons can be group together.
+
+<Preview>
+    <Story name="button group">
+        <ButtonGroup>
+            <Button variant="outline">Any</Button>
+            <Button variant="outline" circular>1</Button>
+            <Button variant="outline" circular>2</Button>
+            <Button variant="outline" circular>3</Button>
+            <Button variant="outline" circular>4+</Button>
+        </ButtonGroup>
     </Story>
 </Preview>
 

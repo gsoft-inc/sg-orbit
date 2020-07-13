@@ -141,7 +141,7 @@ export class DateRangePicker extends AutoControlledPureComponent {
          */
         fluid: bool,
         /**
-         * A date picker can vary in sizes.
+         * A date picker can vary in size.
          */
         size: oneOf(SIZES),
         /**

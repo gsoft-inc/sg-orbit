@@ -28,7 +28,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     badge: element,
     /**
-     * A radio can vary in sizes.
+     * A radio can vary in size.
      */
     size: oneOf(["small", "medium", "large"])
 };

@@ -16,9 +16,9 @@ stories()
         <div className="flex flex-column">
             <div className="h10">
                 <Stack fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
+                    <div className="bg-primary-500">Alpha</div>
+                    <div className="bg-primary-500">Bravo</div>
+                    <div className="bg-primary-500">Charlie</div>
                 </Stack>
             </div>
             <div className="h10">
@@ -48,9 +48,9 @@ stories()
         <div className="flex" style={{ height: "300px" }}>
             <div className="w12 mr8">
                 <Stack direction="vertical" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
+                    <div className="bg-primary-500">Alpha</div>
+                    <div className="bg-primary-500">Bravo</div>
+                    <div className="bg-primary-500">Charlie</div>
                 </Stack>
             </div>
             <div className="w12 mr8">

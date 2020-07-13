@@ -38,7 +38,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * A tag can vary in sizes.
+     * A tag can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**

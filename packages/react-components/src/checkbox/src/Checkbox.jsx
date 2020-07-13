@@ -30,7 +30,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     badge: element,
     /**
-     * A checkbox can vary in sizes.
+     * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"])
 };

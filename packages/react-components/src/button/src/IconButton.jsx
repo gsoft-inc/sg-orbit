@@ -29,7 +29,7 @@ const propTypes = {
      */
     loading: bool,
     /**
-     * A button can vary in sizes.
+     * A button can vary in size.
      */
     size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**

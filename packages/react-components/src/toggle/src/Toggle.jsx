@@ -28,7 +28,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     badge: element,
     /**
-     * A toggle can vary in sizes.
+     * A toggle can vary in size.
      */
     size: oneOf(["small", "medium", "large"])
 };
