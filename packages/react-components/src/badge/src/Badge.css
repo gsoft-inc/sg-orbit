@@ -1,7 +1,7 @@
 /* PILL */
 .o-ui.badge.pill {
     display: inline-flex;
-    background-color: var(--cloud-50);
+    background-color: var(--cloud-100);
     color: var(--marine-500);
     justify-content: center;
     border-radius: 999px;
@@ -62,7 +62,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cloud-50);
+    background-color: var(--cloud-100);
     color: var(--marine-500);
     min-height: 1.5rem;
     min-width: 1.5rem;
@@ -145,12 +145,6 @@
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-2);
-}
-
-/* BADGE IN TAG | BADGE */
-.o-ui.tag.with-left-badge .badge,
-.o-ui.tag.with-right-badge .badge {
-    background-color: var(--cloud-100);
 }
 
 /* BADGE IN TAG | LEFT > TEXT */
