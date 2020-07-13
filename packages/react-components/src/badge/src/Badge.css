@@ -98,6 +98,7 @@
     font-size: var(--type-scale-4);
 }
 
+/* DOT | Empty */
 .o-ui.badge.dot.empty.tiny {
     min-width: 0.5em;
     min-height: 0.5em;
@@ -154,6 +155,11 @@
 .o-ui.tag.outline.with-left-badge .badge,
 .o-ui.tag.outline.with-right-badge .badge {
     background-color: var(--cloud-50);
+}
+
+/* BADGE IN FLUID TAG | BADGE */
+.o-ui.tag.with-right-badge.fluid .badge:last-child {
+    margin-left: auto;
 }
 
 /* DOT | DISABLED */

@@ -56,6 +56,11 @@ a.o-ui.tag.outline:focus {
     width: 100%;
 }
 
+/* FLUID | WITH ICON */
+.o-ui.tag.fluid.with-right-icon .icon:last-child {
+    margin-left: auto;
+}
+
 /* COMMON */
 .o-ui.tag {
     --default-padding: var(--scale-echo);
