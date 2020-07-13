@@ -53,8 +53,8 @@ A button can contain left or right [icons](?path=/docs/materials-icons--page).
     <Story name="icon">
         <Stack>
             <Button iconLeft={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconLeft={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}>Cutoff</Button>
             <Button iconRight={<EditIcon />}>Cutoff</Button>
+            <Button iconRight={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}>Cutoff</Button>
         </Stack>
     </Story>
 </Preview>
@@ -222,7 +222,7 @@ A button can have a custom color.
 
 <Preview>
     <Story name="icon button">
-        <Stack>
+        <Stack spacing={12}>
             <Stack align="end">
                 <IconButton size="mini"><AddIcon /></IconButton>
                 <IconButton size="tiny"><AddIcon /></IconButton>

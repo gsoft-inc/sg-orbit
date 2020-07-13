@@ -120,7 +120,6 @@ export function InnerTag({
             className={mergeClasses(
                 "o-ui tag",
                 variant,
-                disabled && "disabled",
                 buttonMarkup && "with-button",
                 iconLeftMarkup && "with-left-icon",
                 iconRightMarkup && "with-right-icon",
@@ -133,6 +132,7 @@ export function InnerTag({
                 getSizeClass(size),
                 className
             )}
+            disabled={disabled}
             ref={forwardedRef}
         >
             {content}
