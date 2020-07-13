@@ -130,6 +130,28 @@
     font-size: var(--type-scale-2);
 }
 
+/* BADGE IN TAG | BADGE */
+.o-ui.tag.with-left-badge .badge,
+.o-ui.tag.with-right-badge .badge {
+    background-color: var(--cloud-100);
+}
+
+/* BADGE IN TAG | LEFT > BADGE */
+.o-ui.tag.with-left-badge .badge {
+    margin-right: var(--scale-bravo);
+}
+
+/* BADGE IN TAG | RIGHT > BADGE */
+.o-ui.tag.with-right-badge .badge {
+    margin-left: var(--scale-bravo);
+}
+
+/* BADGE IN OUTLINE TAG | WITH TAG */
+.o-ui.tag.outline.with-left-badge .badge,
+.o-ui.tag.outline.with-right-badge .badge {
+    background-color: var(--cloud-50);
+}
+
 /* DOT | DISABLED */
 .o-ui.badge[disabled] {
     opacity: 0.4;
