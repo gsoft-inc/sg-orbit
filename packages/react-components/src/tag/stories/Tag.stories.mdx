@@ -86,6 +86,9 @@ A tag can contain a left or right [badge](?path=/docs/components-badge--default-
             <Tag badgeRight={<Badge>6</Badge>}>
                 Falcon 9
             </Tag>
+            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />} badgeRight={<Badge>6</Badge>}>
+                Falcon 9
+            </Tag>
         </Stack>
     </Story>
 </Preview>
@@ -112,11 +115,7 @@ A tag can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Stack align="end">
-            <Tag size="small">Falcon 9</Tag>
-            <Tag>Falcon 9</Tag>
-            <Tag size="large">Falcon 9</Tag>
-        </Stack>
+        <Tag fluid>Falcon 9</Tag>
     </Story>
 </Preview>
 

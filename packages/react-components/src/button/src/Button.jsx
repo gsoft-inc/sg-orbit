@@ -134,6 +134,10 @@ export function InnerButton({
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
+    const textMarkup = (
+        <span className="text">{children}</span>
+    );
+
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
@@ -157,7 +161,7 @@ export function InnerButton({
     const content = (
         <>
             {iconLeftMarkup}{badgeLeftMarkup}
-            {children}
+            {textMarkup}
             {iconRightMarkup}{badgeRightMarkup}
         </>
     );
