@@ -1,6 +1,6 @@
 import { SelectContext } from "./SelectContext";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
-import { arrayOf, element, oneOf, oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, element, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
 import { renderAvatar } from "./renderAvatar";
@@ -22,7 +22,7 @@ const propTypes = {
     /**
      * The item value.
      */
-    value: string,
+    value: oneOfType([bool, number, string]),
     /**
      * A description to display with less emphasize.
      */
