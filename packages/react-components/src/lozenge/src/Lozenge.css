@@ -38,16 +38,11 @@
 }
 
 /* WITH ICON LEFT | ICON */
-.o-ui.lozenge.with-left-icon .icon {
-    margin-right: 0.125rem;
-}
-
-/* WITH ICON RIGHT | ICON */
-.o-ui.lozenge.with-right-icon .icon {
+.o-ui.lozenge.with-left-icon .text {
     margin-left: 0.125rem;
 }
 
-/* AS BUTTON */
-button.o-ui.lozenge {
-    border: none;
+/* WITH ICON RIGHT | ICON */
+.o-ui.lozenge.with-right-icon .text {
+    margin-right: 0.125rem;
 }

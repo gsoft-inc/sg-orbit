@@ -1,5 +1,6 @@
 import { CheckCircleIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
+import { Stack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -17,41 +18,33 @@ stories()
         <Lozenge>New</Lozenge>
     )
     .add("icon", () =>
-        <div className="flex flex-column">
-            <div className="flex items-end mb12">
-                <Lozenge size="small" iconLeft={<CheckCircleIcon />} className="mr5">New</Lozenge>
-                <Lozenge iconLeft={<CheckCircleIcon />} className="mr5">New</Lozenge>
+        <Stack direction="vertical">
+            <Stack align="end">
+                <Lozenge size="small" iconLeft={<CheckCircleIcon />}>New</Lozenge>
+                <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge size="large" iconLeft={<CheckCircleIcon />}>New</Lozenge>
-            </div>
-            <div className="flex items-end">
-                <Lozenge size="small" iconRight={<CheckCircleIcon />} className="mr5">New</Lozenge>
-                <Lozenge iconRight={<CheckCircleIcon />} className="mr5">New</Lozenge>
+            </Stack>
+            <Stack align="end">
+                <Lozenge size="small" iconRight={<CheckCircleIcon />}>New</Lozenge>
+                <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge size="large" iconRight={<CheckCircleIcon />}>New</Lozenge>
-            </div>
-        </div>
+            </Stack>
+        </Stack>
     )
     .add("size", () =>
-        <div className="flex items-end">
-            <Lozenge size="small" className="mr5">New</Lozenge>
-            <Lozenge className="mr5">New</Lozenge>
+        <Stack align="end">
+            <Lozenge size="small">New</Lozenge>
+            <Lozenge>New</Lozenge>
             <Lozenge size="large">New</Lozenge>
-        </div>
+        </Stack>
     )
     .add("styling", () =>
-        <div className="flex">
-            <Lozenge
-                className="border-red mr5"
-            >New</Lozenge>
+        <Stack>
+            <Lozenge className="border-red">New</Lozenge>
             <Lozenge
                 style={{
                     border: "1px solid red"
                 }}
             >New</Lozenge>
-        </div>
-    )
-    .add("as link or button", () =>
-        <div className="flex">
-            <Lozenge as="a" className="mr5">New</Lozenge>
-            <Lozenge as="button">New</Lozenge>
-        </div>
+        </Stack>
     );
