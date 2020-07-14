@@ -1,4 +1,4 @@
-import { Toggle } from "@react-components/toggle";
+import { Toggle as Switch } from "@react-components/switch";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -8,7 +8,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Toggle ref={ref} />
+        <Switch ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -21,7 +21,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Toggle
+        <Switch
             ref={node => {
                 refNode = node;
             }}
@@ -38,7 +38,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Toggle ref={handler} />
+        <Switch ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

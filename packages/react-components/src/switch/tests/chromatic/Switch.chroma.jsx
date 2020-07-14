@@ -1,9 +1,9 @@
-import { Toggle } from "@react-components/toggle";
+import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Toggle"))
+    return storiesOfBuilder(module, createChromaticSection("Switch"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
@@ -12,6 +12,6 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Toggle />, stories("/unchecked"));
+createTestSuite(<Switch />, stories("/unchecked"));
 
-createTestSuite(<Toggle defaultChecked />, stories("/checked"));
+createTestSuite(<Switch defaultChecked />, stories("/checked"));

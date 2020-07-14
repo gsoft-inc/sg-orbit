@@ -1,8 +1,8 @@
 import styles from "./props.module.css";
 
 import { Props as StorybookProps } from "@storybook/addon-docs/blocks";
+import { Switch } from "@react-components/switch";
 import { Tabs } from "@storybook/components";
-import { Toggle } from "@react-components/toggle";
 import { any, arrayOf, shape, string } from "prop-types";
 import { mergeClasses } from "@react-components/shared";
 import { useStorage } from "./use-storage";
@@ -49,7 +49,7 @@ export function Props({ componentsDefinitions }) {
     return (
         <div className={classes}>
             <div className={state.isVisible ? "mb5" : "mb3"}>
-                <Toggle
+                <Switch
                     label={`View component${hasMultipleComponents ? "s" : ""} props`}
                     checked={state.isVisible}
                     onChange={handleToggleChange}
