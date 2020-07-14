@@ -5,6 +5,7 @@ const SIZE_CLASS = {
     [SIZE.mini]: "mini",
     [SIZE.tiny]: "tiny",
     [SIZE.small]: "small",
+    [SIZE.medium]: "medium",
     [SIZE.large]: "large",
     [SIZE.big]: "big",
     [SIZE.huge]: "huge",
@@ -12,5 +13,5 @@ const SIZE_CLASS = {
 };
 
 export function getSizeClass(size) {
-    return SIZE_CLASS[size];
+    return SIZE_CLASS[size || SIZE.medium];
 }
