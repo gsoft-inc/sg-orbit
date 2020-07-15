@@ -6,7 +6,7 @@ export * from "./text-input";
 export * from "./number-input";
 export * from "./text-area";
 export * from "./checkbox";
-export * from "./toggle";
+export * from "./switch";
 export * from "./radio";
 export * from "./tag";
 export * from "./tags-picker";

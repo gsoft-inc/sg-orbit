@@ -1,4 +1,4 @@
-import { Button } from "@react-components/button";
+import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -16,16 +16,18 @@ function stories(segment) {
         .build();
 }
 
-const CustomTrigger = forwardRef((props, ref) => {
+const CustomTrigger = forwardRef(({ children, ...rest }, ref) => {
     const { isOpen } = useContext(DropdownContext);
 
     return (
         <Button
-            {...props}
+            {...rest}
             primary={isOpen}
             secondary={!isOpen}
             ref={ref}
-        />
+        >
+            {children}
+        </Button>
     );
 });
 
@@ -78,14 +80,15 @@ function CircularButtonDropdown({ active, focus, hover, ...rest }) {
     return (
         <Dropdown {...rest}>
             <Dropdown.Trigger
-                as={Button}
+                as={IconButton}
                 circular
                 secondary
-                icon={<VerticalDotsIcon />}
                 active={active}
                 focus={focus}
                 hover={hover}
-            />
+            >
+                <VerticalDotsIcon />
+            </Dropdown.Trigger>
             <Dropdown.Menu>
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -98,7 +101,9 @@ function CircularButtonDropdown({ active, focus, hover, ...rest }) {
 function CustomTriggerDropdown(props) {
     return (
         <Dropdown {...props}>
-            <Dropdown.Trigger as={CustomTrigger} circular icon={<VerticalDotsIcon />} />
+            <Dropdown.Trigger as={CustomTrigger} circular>
+                <VerticalDotsIcon />
+            </Dropdown.Trigger>
             <Dropdown.Menu>
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -270,8 +275,8 @@ stories()
     )
     .add("advanced trigger", () =>
         <div className="flex">
-            <CustomTriggerDropdown style={{ marginRight: "200px" }} />
-            <CustomTriggerDropdown open />
+            <CustomTriggerDropdown style={{ marginRight: "200px" }}>Task</CustomTriggerDropdown>
+            <CustomTriggerDropdown open>Task</CustomTriggerDropdown>
         </div>
     )
     .add("scrolling", () =>

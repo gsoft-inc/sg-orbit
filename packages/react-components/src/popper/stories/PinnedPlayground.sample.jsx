@@ -2,7 +2,7 @@ import styles from "./PinnedPlayground.module.css";
 
 import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
-import { Toggle } from "@react-components/toggle";
+import { Switch } from "@react-components/switch";
 import { useState } from "react";
 
 export function PinnedPlayground() {
@@ -42,7 +42,7 @@ export function PinnedPlayground() {
                 </AutoControlledPopper>
             </div>
             <div className="mt4">
-                <Toggle label="Pinned" checked={isPinned} onChange={() => { setIsPinned(!isPinned); }} />
+                <Switch label="Pinned" checked={isPinned} onChange={() => { setIsPinned(!isPinned); }} />
             </div>
         </>
     );

@@ -1,10 +1,26 @@
-import { AddIcon, EditIcon, IconGroup, InfoIcon, LightbulbIcon, WarningIcon } from "@react-components/icons";
+import { AddIcon, CheckIcon, EditIcon, IconGroup, InfoIcon, LightbulbIcon, NotificationIcon, NotificationOffIcon, WarningIcon } from "@react-components/icons";
 import { Badge } from "@react-components/badge";
-import { Button, ButtonGroup, IconButton, InnerButton, InnerButtonGroup, InnerIconButton } from "@react-components/button";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import {
+    Button,
+    ButtonGroup,
+    IconButton,
+    InnerButton,
+    InnerButtonGroup,
+    InnerIconButton,
+    InnerToggleButton,
+    InnerToggleButtonGroup,
+    InnerToggleIconButton,
+    ToggleButton,
+    ToggleButtonGroup,
+    ToggleIconButton
+} from "@react-components/button";
+import { ControlledToggleButton } from "./ControlledToggleButton.sample";
+import { ControlledToggleButtonGroup } from "./ControlledToggleButtonGroup.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Stack } from "@react-components/stack";
+import { logToggleChange } from "./utils";
 import CustomColorHover from "./CustomColorHover.mdx";
 import Imports from "./Imports.mdx";
 
@@ -30,7 +46,10 @@ A Button indicates a possible user action.
     componentsDefinitions={[
         { displayName: "Button", component: InnerButton },
         { displayName: "IconButton", component: InnerIconButton },
-        { displayName: "ButtonGroup", component: InnerButtonGroup }
+        { displayName: "ButtonGroup", component: InnerButtonGroup },
+        { displayName: "ToggleButton", component: InnerToggleButton },
+        { displayName: "ToggleIconButton", component: InnerToggleIconButton },
+        { displayName: "ToggleButtonGroup", component: InnerToggleButtonGroup }
     ]}
 />
 
@@ -244,14 +263,14 @@ A button content can be a single icon.
     </Story>
 </Preview>
 
-### Button Group
+## Button Group
 
 Related buttons can be group together.
 
 <Preview>
     <Story name="button group">
         <ButtonGroup>
-            <Button variant="outline">Any</Button>
+            <Button variant="outline">None</Button>
             <Button variant="outline" circular>1</Button>
             <Button variant="outline" circular>2</Button>
             <Button variant="outline" circular>3</Button>
@@ -260,14 +279,122 @@ Related buttons can be group together.
     </Story>
 </Preview>
 
-<Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Button autofocus>Cutoff</Button>
-</Story>
+## Toggle Button
+
+Offer a similar experience as a checkbox or radio with the appearance of a button.
+
+<Preview>
+    <Story name="toggle button">
+        <Stack>
+            <ToggleButton value="isActive" variant="outline" color="primary" size="mini" onChange={logToggleChange}>On</ToggleButton>
+            <ToggleButton value="isActive" variant="outline" color="primary" size="tiny" onChange={logToggleChange}>On</ToggleButton>
+            <ToggleButton value="isActive" variant="outline" color="primary" size="small" onChange={logToggleChange}>On</ToggleButton>
+            <ToggleButton value="isActive" variant="outline" color="primary" onChange={logToggleChange}>On</ToggleButton>
+            <ToggleButton value="isActive" variant="outline" color="primary" size="large" onChange={logToggleChange}>On</ToggleButton>
+        </Stack>
+    </Story>
+</Preview>
+
+### Icon Button
+
+A toggle button content can be a single icon.
+
+<Preview>
+    <Story name="toggle icon button">
+        <Stack>
+            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="mini" onChange={logToggleChange}>
+                <CheckIcon />
+            </ToggleIconButton>
+            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="tiny" onChange={logToggleChange}>
+                <CheckIcon />
+            </ToggleIconButton>
+            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="small" onChange={logToggleChange}>
+                <CheckIcon />
+            </ToggleIconButton>
+            <ToggleIconButton value="isActive" variant="outline" color="primary" circular onChange={logToggleChange}>
+                <CheckIcon />
+            </ToggleIconButton>
+            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="large" onChange={logToggleChange}>
+                <CheckIcon />
+            </ToggleIconButton>
+        </Stack>
+    </Story>
+</Preview>
+
+### Render props
+
+A toggle button can update is content with a render props based on the selected state value.
+
+<Preview>
+    <Story name="toggle icon render props">
+        <ToggleButton
+            value="isActive"
+            onChange={logToggleChange}
+        >
+            {
+                ({ isSelected }) => {
+                    return isSelected ? "On" : "Off"
+                }
+            }
+        </ToggleButton>
+    </Story>
+</Preview>
+
+### Controlled
+
+A toggle button can handle `selected` state in controlled mode.
+
+<FilePreview filePath="/button/stories/ControlledToggleButton">
+    <ControlledToggleButton />
+</FilePreview>
+
+## Toggle Button Group
+
+Related toggle button can be group together and allow exclusive or multiple selection.
+
+### Multiple selection
+
+A toggle button group can allow multiple options to be selected.
+
+<Preview>
+    <Story name="toggle button group multiple">
+        <ToggleButtonGroup onChange={logToggleChange}>
+            <ToggleButton value="none" variant="outline">None</ToggleButton>
+            <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
+            <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
+            <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
+        </ToggleButtonGroup>
+    </Story>
+</Preview>
+
+### Exclusive selection
+
+A toggle button group can enforce the selection of a single option.
+
+<Preview>
+    <Story name="toggle button group exclusive">
+        <ToggleButtonGroup
+            exclusive
+            onChange={logToggleChange}
+        >
+            <ToggleIconButton value="on" variant="outline" circular>
+                <NotificationIcon />
+            </ToggleIconButton>
+            <ToggleIconButton value="off" variant="outline" circular>
+                <NotificationOffIcon />
+            </ToggleIconButton>
+        </ToggleButtonGroup>
+    </Story>
+</Preview>
+
+### Controlled
+
+A toggle button group can handle `value` state in controlled mode.
+
+<FilePreview filePath="/button/stories/ControlledToggleButtonGroup">
+    <ControlledToggleButtonGroup />
+</FilePreview>
 
 <Story
     name="autofocus delay"
@@ -275,7 +402,12 @@ Related buttons can be group together.
         .excludeFromDocs()
         .build()}
 >
-    <Button autofocus autofocusDelay={500}>Cutoff</Button>
+    <Button
+        autofocus
+        autofocusDelay={500}
+    >
+        Cutoff
+    </Button>
 </Story>
 
 <Story
@@ -284,7 +416,9 @@ Related buttons can be group together.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Button>Cutoff</Button></RefLogger>
+    <RefLogger>
+        <Button>Cutoff</Button>
+    </RefLogger>
 </Story>
 
 ## API

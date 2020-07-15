@@ -1,21 +1,21 @@
 import { Badge } from "@react-components/badge";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
 import { InfoIcon, LightbulbIcon } from "@react-components/icons";
-import { InnerToggle, Toggle } from "@react-components/toggle";
+import { InnerSwitch, Switch } from "@react-components/switch";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
 
 <Meta
-    title={createComponentSection("Toggle")}
+    title={createComponentSection("Switch")}
     parameters={paramsBuilder()
         .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
         .build()}
 />
 
-# Toggle
+# Switch
 
-A toggle offers an on or off choice to a user.
+A switch offers an on or off choice to a user.
 
 ## Installation
 
@@ -27,7 +27,7 @@ A toggle offers an on or off choice to a user.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Toggle", component: InnerToggle }
+        { displayName: "Switch", component: InnerSwitch }
     ]}
 />
 
@@ -39,92 +39,92 @@ A toggle offers an on or off choice to a user.
 
 ### Label
 
-A toggle can have a label.
+A switch can have a label.
 
 <Preview>
     <Story name="label">
-        <Toggle label="Orion Arm"/>
+        <Switch label="Orion Arm"/>
     </Story>
 </Preview>
 
 ### On
 
-A toggle can be on.
+A switch can be on.
 
 <Preview>
     <Story name="on">
-        <Toggle defaultChecked label="Orion Arm"/>
+        <Switch defaultChecked label="Orion Arm"/>
     </Story>
 </Preview>
 
 ### Disabled
 
-A toggle can be disabled.
+A switch can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Toggle disabled label="Orion Arm"/>
+        <Switch disabled label="Orion Arm"/>
     </Story>
 </Preview>
 
 ### Readonly
 
-A toggle can be readonly.
+A switch can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Toggle readOnly label="Orion Arm" />
+        <Switch readOnly label="Orion Arm" />
     </Story>
 </Preview>
 
 ### No label
 
-A toggle can be rendered without a label.
+A switch can be rendered without a label.
 
 <Preview>
     <Story name="no label">
-        <Toggle />
+        <Switch />
     </Story>
 </Preview>
 
 ### Icons
 
-A toggle can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
+A switch can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
     <Story name="icons">
         <div className="flex items-lot-of-space-between">
-            <Toggle label="Milky Way" icons={<LightbulbIcon />} />
-            <Toggle label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
+            <Switch label="Milky Way" icons={<LightbulbIcon />} />
+            <Switch label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
         </div>
     </Story>
 </Preview>
 
 ### Badge
 
-A toggle can have a [badge](?path=/docs/components-badge--default-story) after his text.
+A switch can have a [badge](?path=/docs/components-badge--default-story) after his text.
 
 <Preview>
     <Story name="badge">
         <div className="flex items-lot-of-space-between">
-            <Toggle label="Milky Way" badge={<Badge>6</Badge>} />
-            <Toggle label="Milky Way" badge={<Badge inline>6</Badge>} />
+            <Switch label="Milky Way" badge={<Badge>6</Badge>} />
+            <Switch label="Milky Way" badge={<Badge inline>6</Badge>} />
         </div>
     </Story>
 </Preview>
 
 ### Size
 
-A toggle can vary in size.
+A switch can vary in size.
 
 Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
         <div className="flex items-end items-lot-of-space-between">
-            <Toggle size="small" label="Orion Arm" />
-            <Toggle label="Orion Arm" />
-            <Toggle size="large" label="Orion Arm" />
+            <Switch size="small" label="Orion Arm" />
+            <Switch label="Orion Arm" />
+            <Switch size="large" label="Orion Arm" />
         </div>
     </Story>
 </Preview>
@@ -135,6 +135,8 @@ Can be set to: `"small"`, `"large"` or omitted.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Toggle label="Orion Arm" /></RefLogger>
+    <RefLogger>
+        <Switch label="Orion Arm" />
+    </RefLogger>
 </Story>
 

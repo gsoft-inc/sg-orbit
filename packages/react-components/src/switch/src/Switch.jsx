@@ -8,7 +8,7 @@ const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "r
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 export const CHECKBOX_PROP_TYPES = {
     /**
-     * Whether or not the toggle should autofocus on render.
+     * Whether or not the switch should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -16,7 +16,7 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The label associated to the toggle.
+     * The label associated to the switch.
      */
     label: string,
     /**
@@ -28,12 +28,12 @@ export const CHECKBOX_PROP_TYPES = {
      */
     badge: element,
     /**
-     * A toggle can vary in size.
+     * A switch can vary in size.
      */
     size: oneOf(["small", "medium", "large"])
 };
 
-export function InnerToggle(props) {
+export function InnerSwitch(props) {
     const { forwardedRef, ...rest } = props;
 
     return (
@@ -41,15 +41,18 @@ export function InnerToggle(props) {
             <Checkbox
                 {...rest}
                 toggle
-                __componentName="@orbit-ui/react-components/Toggle"
+                __componentName="@orbit-ui/react-components/Switch"
                 __unsupportedProps={UNSUPPORTED_PROPS}
             />
         </SemanticRef>
     );
 }
 
-InnerToggle.propTypes = CHECKBOX_PROP_TYPES;
+InnerSwitch.propTypes = CHECKBOX_PROP_TYPES;
 
-export const Toggle = forwardRef((props, ref) => (
-    <InnerToggle { ...props } forwardedRef={ref} />
+export const Switch = forwardRef((props, ref) => (
+    <InnerSwitch { ...props } forwardedRef={ref} />
 ));
+
+// For backward compatibility.
+export const Toggle = Switch;

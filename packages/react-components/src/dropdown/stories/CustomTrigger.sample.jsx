@@ -8,8 +8,7 @@ export const CustomTrigger = forwardRef(({ children, ...rest }, ref) => {
     return (
         <Button
             {...rest}
-            primary={isOpen}
-            secondary={!isOpen}
+            color={isOpen ? "primary" : "secondary"}
             ref={ref}
         >
             {children}

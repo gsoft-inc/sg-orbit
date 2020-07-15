@@ -3,6 +3,7 @@ import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -47,10 +48,10 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <div className="flex items-space-between">
+        <Stack>
             <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
             <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
-        </div>
+        </Stack>
     </Story>
 </Preview>
 
@@ -62,11 +63,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-space-between">
+        <Stack align="end">
             <Lozenge size="small">New</Lozenge>
             <Lozenge>New</Lozenge>
             <Lozenge size="large">New</Lozenge>
-        </div>
+        </Stack>
     </Story>
 </Preview>
 
@@ -76,6 +77,8 @@ Can be set to: `"small"`, `"large"` or omitted.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Lozenge>New</Lozenge></RefLogger>
+    <RefLogger>
+        <Lozenge>New</Lozenge>
+    </RefLogger>
 </Story>
 
