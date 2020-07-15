@@ -16,6 +16,7 @@ export function ControlledToggleButton() {
             <ToggleButton
                 selected={isSelected}
                 value="isActive"
+                color={isSelected ? "primary" : undefined}
                 onChange={() => { setIsSelected(x => !x); }}
             >
                 {isSelected ? "On" : "Off"}

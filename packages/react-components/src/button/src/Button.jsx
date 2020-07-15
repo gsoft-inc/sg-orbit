@@ -7,31 +7,6 @@ import { embedBadge } from "../../badge";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 
-// TODO:
-// - compact (TBD)
-
-// - VARIANT icon
-// - Size -> Might be good with "tiny", "small", "medium", "large"
-
-
-// Should we have a separated button icon since they don't have anything in common? IconButton
-// Excepts:
-//  - the variants
-//  - the autofocus
-//  - the loading
-//  - the size
-//  - the type
-//  -> Since a circular button only make sense for an icon button we could remove this variant for default button.
-//  -> Otherwise a variant="icon" button could always be circular and we remove the circular prop. <- FALSE
-
-// -> Button Group? OUT? Probably not
-
-// -> ToggleButton - Used in Apricot groups.
-// -> ToggleButtonGroup -> checkbox / radio (exclusive)
-
-// Docs & Test
-//  - Show support for IconGroup
-
 const propTypes = {
     /**
      * Style to use.

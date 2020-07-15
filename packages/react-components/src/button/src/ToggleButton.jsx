@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
-import { useAutoControlledState, useChainedEventCallback, useEventCallback } from "../../shared";
+import { useAutoControlledState, useChainedEventCallback } from "../../shared";
 
 const propTypes = {
     /**
@@ -10,7 +10,7 @@ const propTypes = {
      */
     selected: bool,
     /**
-     * The initial value of the selected state value.
+     * The initial value of `selected`.
      */
     defaultSelected: bool,
     /**
@@ -68,15 +68,13 @@ export function InnerToggleButton(props) {
 
     const [isSelected, setSelected] = useAutoControlledState(selected, defaultSelected, false);
 
-    const handleToggleSelect = useEventCallback(event => {
+    const handleClick = useChainedEventCallback(onClick, event => {
         setSelected(!isSelected);
 
         if (!isNil(onChange)) {
             onChange(event, { value, isSelected: !isSelected });
         }
     });
-
-    const handleClick = useChainedEventCallback(handleToggleSelect, onClick);
 
     const content = isFunction(children)
         ? children({ isSelected }, props)
