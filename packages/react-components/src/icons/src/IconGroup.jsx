@@ -1,16 +1,12 @@
 import { Children, cloneElement, forwardRef } from "react";
 import { Stack } from "../../stack";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, elementType, oneOfType, string } from "prop-types";
 
 const propTypes = {
     /**
      * Size of the icons.
      */
     size: string,
-    /**
-     * Spacing scale between each elements.
-     */
-    spacing: oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -22,7 +18,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    spacing: 1,
     as: "span"
 };
 
@@ -30,6 +25,7 @@ export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
         <Stack
             {...rest}
+            spacing={1}
             ref={forwardedRef}
         >
             {Children.map(children, x => {

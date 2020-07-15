@@ -33,25 +33,6 @@ stories()
             </ButtonGroup>
         </Stack>
     )
-    .add("circular outline", () =>
-        <Stack direction="vertical">
-            <ButtonGroup size="small">
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-            </ButtonGroup>
-            <ButtonGroup>
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-            </ButtonGroup>
-            <ButtonGroup size="large">
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-                <Button variant="outline" circular>Cutoff</Button>
-            </ButtonGroup>
-        </Stack>
-    )
     .add("icon button", () =>
         <Stack direction="vertical">
             <ButtonGroup size="small">

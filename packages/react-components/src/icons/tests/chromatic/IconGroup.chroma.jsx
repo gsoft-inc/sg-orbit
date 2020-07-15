@@ -1,4 +1,5 @@
 import { EditIcon, IconGroup } from "@react-components/icons";
+import { Stack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
@@ -24,14 +25,11 @@ stories()
         <Icons />
     )
     .add("size", () =>
-        <div className="flex flex-column">
-            <Icons size="small" className="mb5" />
-            <Icons className="mb5" />
+        <Stack direction="vertical">
+            <Icons size="small" />
+            <Icons />
             <Icons size="large" />
-        </div>
+        </Stack>
 
-    )
-    .add("custom spacing", () =>
-        <Icons spacing="hotel" />
     );
 

@@ -18,12 +18,12 @@ const propTypes = {
 };
 
 const defaultProps = {
-    as: "div"
+    as: Stack
 };
 
-export function InnerButtonGroup({ size, children, forwardedRef, ...rest }) {
+export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef, ...rest }) {
     return (
-        <Stack
+        <ElementType
             {...rest}
             spacing={2}
             ref={forwardedRef}
@@ -33,7 +33,7 @@ export function InnerButtonGroup({ size, children, forwardedRef, ...rest }) {
                     size
                 });
             })}
-        </Stack>
+        </ElementType>
     );
 }
 

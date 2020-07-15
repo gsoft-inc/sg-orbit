@@ -8,7 +8,7 @@ import { isNil } from "lodash";
 import { useAutoControlledState } from "@react-components/shared";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/popper"))
+    return storiesOfBuilder(module, createChromaticSection("Popper"))
         .segment(segment)
         .parameters(
             paramsBuilder()

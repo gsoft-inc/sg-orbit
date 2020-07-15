@@ -27,7 +27,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

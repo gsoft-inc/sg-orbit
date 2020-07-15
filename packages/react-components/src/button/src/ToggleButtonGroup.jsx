@@ -39,7 +39,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    as: "div"
+    as: ButtonGroup
 };
 
 function arrayToggleValue(array, value) {
@@ -67,7 +67,7 @@ function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
     });
 }
 
-export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, children, forwardedRef, ...rest }) {
+export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, as: ElementType, children, forwardedRef, ...rest }) {
     const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue);
 
     const normalizedValues = isNil(selectedValue) ? [] : [].concat(selectedValue);
@@ -85,7 +85,7 @@ export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusiv
     });
 
     return (
-        <ButtonGroup
+        <ElementType
             {...rest}
             ref={forwardedRef}
         >
@@ -99,7 +99,7 @@ export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusiv
                     </ToggleButtonGroupItem>
                 );
             })}
-        </ButtonGroup>
+        </ElementType>
     );
 }
 
