@@ -8,8 +8,6 @@ export function ControlledToggleButtonGroup() {
         width: "80px"
     };
 
-    console.log(value);
-
     return (
         <>
             <div className="mb6">

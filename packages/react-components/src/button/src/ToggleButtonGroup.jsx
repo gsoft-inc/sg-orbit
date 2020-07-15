@@ -42,6 +42,19 @@ const defaultProps = {
     as: "div"
 };
 
+function arrayToggleValue(array, value) {
+    const index = array.indexOf(value);
+
+    if (index !== -1) {
+        const newArray = [...array];
+        newArray.splice(index, 1);
+
+        return newArray;
+    }
+
+    return [...array, value];
+}
+
 function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
     const handleChange = useChainedEventCallback(children.props.onChange, (event, data) => {
         onChange(event, data);
@@ -57,25 +70,10 @@ function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
 export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, children, forwardedRef, ...rest }) {
     const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue);
 
-    const normalizedValues = isNil(selectedValue)
-        ? []
-        : [].concat(selectedValue);
+    const normalizedValues = isNil(selectedValue) ? [] : [].concat(selectedValue);
 
     const handleChange = useEventCallback((event, { value: toggledValue }) => {
-        let newSelectedValue;
-
-        if (exclusive) {
-            newSelectedValue = toggledValue;
-        } else {
-            const index = normalizedValues.indexOf(toggledValue);
-
-            if (index !== -1) {
-                newSelectedValue = [...normalizedValues];
-                newSelectedValue.splice(index, 1);
-            } else {
-                newSelectedValue = [...normalizedValues, toggledValue];
-            }
-        }
+        const newSelectedValue = exclusive ? toggledValue : arrayToggleValue(normalizedValues, toggledValue);
 
         if (newSelectedValue !== selectedValue) {
             setSelectedValue(newSelectedValue);
