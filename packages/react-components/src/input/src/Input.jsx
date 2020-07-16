@@ -123,8 +123,8 @@ export function InnerInput(props) {
     const buttonMarkup = canRenderButton && embedButton(button, {
         size,
         circular: true,
-        ghost: true,
-        secondary: true,
+        variant: "ghost",
+        color: "secondary",
         className: "input-clear-button"
     });
 

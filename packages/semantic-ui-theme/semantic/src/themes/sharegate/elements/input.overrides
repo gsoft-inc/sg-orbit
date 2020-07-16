@@ -145,7 +145,7 @@
 }
 
 /* Clear button */
-.ui.input-clear-button {
+.o-ui.input-clear-button {
     position: absolute;
     top: 50%;
     right: calc(var(--scale-hotel) / 2);

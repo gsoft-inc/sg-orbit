@@ -1,4 +1,4 @@
-import { Button } from "../../button";
+import { IconButton } from "../../button";
 import { CalendarIcon, CrossIcon } from "../../icons";
 import { KEYS, SIZE, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
@@ -60,12 +60,12 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         }
 
         return (
-            <Button
+            <IconButton
                 onClick={onClear}
                 data-testid="date-picker-textbox-clear-button"
             >
                 <CrossIcon />
-            </Button>
+            </IconButton>
         );
     }
 
