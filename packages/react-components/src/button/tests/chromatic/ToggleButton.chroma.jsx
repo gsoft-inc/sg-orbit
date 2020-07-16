@@ -46,6 +46,12 @@ stories()
                 <ToggleButton disabled variant="outline" circular value="any">Aa</ToggleButton>
             </Stack>
         </Stack>
+    )
+    .add("selected", () =>
+        <Stack>
+            <ToggleButton selected value="any">Cutoff</ToggleButton>
+            <ToggleButton defaultSelected value="any">Cutoff</ToggleButton>
+        </Stack>
     );
 
 

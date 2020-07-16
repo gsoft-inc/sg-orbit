@@ -1,6 +1,7 @@
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, forwardRef } from "react";
 import { Stack } from "@react-components/stack";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement } from "../../shared";
 
 const propTypes = {
     /**
@@ -29,7 +30,7 @@ export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef
             ref={forwardedRef}
         >
             {Children.map(children, x => {
-                return cloneElement(x, {
+                return augmentElement(x, {
                     size
                 });
             })}

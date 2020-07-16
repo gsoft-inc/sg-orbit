@@ -36,19 +36,19 @@ stories()
     .add("icon button", () =>
         <Stack direction="vertical">
             <ToggleButtonGroup size="small">
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="1"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="2"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="3"><AddIcon /></ToggleIconButton>
             </ToggleButtonGroup>
             <ToggleButtonGroup>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="1"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="2"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="3"><AddIcon /></ToggleIconButton>
             </ToggleButtonGroup>
             <ToggleButtonGroup size="large">
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="1"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="2"><AddIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" circular value="3"><AddIcon /></ToggleIconButton>
             </ToggleButtonGroup>
         </Stack>
     )
@@ -69,11 +69,21 @@ stories()
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
                 <ToggleButton variant="outline" circular value="3">3</ToggleButton>
             </ToggleButtonGroup>
+            <ToggleButtonGroup defaultValue={["2"]}>
+                <ToggleButton variant="outline" circular value="1">1</ToggleButton>
+                <ToggleButton variant="outline" circular value="2">2</ToggleButton>
+                <ToggleButton variant="outline" circular value="3">3</ToggleButton>
+            </ToggleButtonGroup>
         </Stack>
     )
     .add("exclusive selection", () =>
         <Stack direction="vertical">
             <ToggleButtonGroup value="2">
+                <ToggleButton variant="outline" circular value="1">1</ToggleButton>
+                <ToggleButton variant="outline" circular value="2">2</ToggleButton>
+                <ToggleButton variant="outline" circular value="3">3</ToggleButton>
+            </ToggleButtonGroup>
+            <ToggleButtonGroup defaultValue="2">
                 <ToggleButton variant="outline" circular value="1">1</ToggleButton>
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
                 <ToggleButton variant="outline" circular value="3">3</ToggleButton>

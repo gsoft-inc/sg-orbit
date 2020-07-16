@@ -1,6 +1,6 @@
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
 import { forwardRef, useCallback } from "react";
-import { getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -81,6 +81,10 @@ export function InnerIconButton({
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
+    const content = augmentElement(children, {
+        size
+    });
+
     return (
         <ElementType
             data-testid="icon-button"
@@ -102,7 +106,7 @@ export function InnerIconButton({
             disabled={disabled}
             ref={ref}
         >
-            {children}
+            {content}
         </ElementType>
     );
 }

@@ -1,8 +1,8 @@
 import { ButtonGroup } from "./ButtonGroup";
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, useAutoControlledState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { useAutoControlledState, useChainedEventCallback, useEventCallback } from "../../shared";
 
 const propTypes = {
     /**
@@ -14,9 +14,9 @@ const propTypes = {
      */
     defaultValue: any,
     /**
-     * Called when the button selection state change.
+     * Called when any of the buttons selection state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {{value: any, isSelected: bool}} data - Event data.
+     * @param {any} selectedValue - The selected button values. When `exclusive` is `true` this is a single value; when `false` an array of selected values. If no value is selected and `exclusive` is `true` the value is null; when false an empty array.
      * @returns {void}
      */
     onChange: func,
@@ -43,6 +43,10 @@ const defaultProps = {
 };
 
 function arrayToggleValue(array, value) {
+    if (isNil(array)) {
+        return [value];
+    }
+
     const index = array.indexOf(value);
 
     if (index !== -1) {
@@ -56,11 +60,11 @@ function arrayToggleValue(array, value) {
 }
 
 function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
-    const handleChange = useChainedEventCallback(children.props.onChange, (event, data) => {
+    const handleChange = useEventCallback((event, data) => {
         onChange(event, data);
     });
 
-    return cloneElement(children, {
+    return augmentElement(children, {
         ...rest,
         selected,
         onChange: handleChange
@@ -68,21 +72,25 @@ function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
 }
 
 export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, as: ElementType, children, forwardedRef, ...rest }) {
-    const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue);
-
-    const normalizedValues = isNil(selectedValue) ? [] : [].concat(selectedValue);
+    const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue, exclusive ? null : []);
 
     const handleChange = useEventCallback((event, { value: toggledValue }) => {
-        const newSelectedValue = exclusive ? toggledValue : arrayToggleValue(normalizedValues, toggledValue);
+        let newSelectedValue;
 
-        if (newSelectedValue !== selectedValue) {
-            setSelectedValue(newSelectedValue);
+        if (exclusive) {
+            newSelectedValue = toggledValue === selectedValue ? null : toggledValue;
+        } else {
+            newSelectedValue = arrayToggleValue(selectedValue, toggledValue);
+        }
 
-            if (!isNil(onChange)) {
-                onChange(event, newSelectedValue);
-            }
+        setSelectedValue(newSelectedValue);
+
+        if (!isNil(onChange)) {
+            onChange(event, newSelectedValue);
         }
     });
+
+    const normalizedValues = useMemo(() => isNil(selectedValue) ? [] : [].concat(selectedValue), [selectedValue]);
 
     return (
         <ElementType
