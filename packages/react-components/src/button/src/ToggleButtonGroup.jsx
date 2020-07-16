@@ -1,7 +1,7 @@
 import { ButtonGroup } from "./ButtonGroup";
 import { Children, forwardRef, useMemo } from "react";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, useAutoControlledState, useChainedEventCallback, useEventCallback } from "../../shared";
+import { augmentElement, useAutoControlledState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -43,6 +43,10 @@ const defaultProps = {
 };
 
 function arrayToggleValue(array, value) {
+    if (isNil(array)) {
+        return [value];
+    }
+
     const index = array.indexOf(value);
 
     if (index !== -1) {
@@ -68,21 +72,25 @@ function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
 }
 
 export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, as: ElementType, children, forwardedRef, ...rest }) {
-    const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue);
-
-    const normalizedValues = useMemo(() => isNil(selectedValue) ? [] : [].concat(selectedValue), [selectedValue]);
+    const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue, exclusive ? null : []);
 
     const handleChange = useEventCallback((event, { value: toggledValue }) => {
-        const newSelectedValue = exclusive ? toggledValue : arrayToggleValue(normalizedValues, toggledValue);
+        let newSelectedValue;
 
-        if (newSelectedValue !== selectedValue) {
-            setSelectedValue(newSelectedValue);
+        if (exclusive) {
+            newSelectedValue = toggledValue === selectedValue ? null : toggledValue;
+        } else {
+            newSelectedValue = arrayToggleValue(selectedValue, toggledValue);
+        }
 
-            if (!isNil(onChange)) {
-                onChange(event, newSelectedValue);
-            }
+        setSelectedValue(newSelectedValue);
+
+        if (!isNil(onChange)) {
+            onChange(event, newSelectedValue);
         }
     });
+
+    const normalizedValues = useMemo(() => isNil(selectedValue) ? [] : [].concat(selectedValue), [selectedValue]);
 
     return (
         <ElementType

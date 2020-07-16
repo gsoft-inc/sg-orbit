@@ -2,7 +2,7 @@ import { ToggleButton, ToggleButtonGroup } from "@react-components/button";
 import { useState } from "react";
 
 export function ControlledToggleButtonGroup() {
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState([]);
 
     const labelStyle = {
         width: "80px"

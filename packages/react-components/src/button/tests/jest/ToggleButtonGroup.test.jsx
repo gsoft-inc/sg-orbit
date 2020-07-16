@@ -16,6 +16,138 @@ const Group = forwardRef((props, ref) => {
     );
 });
 
+// ***** API *****
+
+describe("multiple selection", () => {
+    test("call onChange when a single button is selected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group onChange={handler} />
+        );
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]);
+    });
+
+    test("call onChange when multiple buttons are selected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group onChange={handler} />
+        );
+
+        const buttons = getAllByTestId("toggle-button");
+
+        act(() => {
+            userEvent.click(buttons[0]);
+        });
+
+        act(() => {
+            userEvent.click(buttons[2]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1", "3"]);
+    });
+
+    test("call onChange when a button is unselected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group onChange={handler} />
+        );
+
+        const buttons = getAllByTestId("toggle-button");
+
+        act(() => {
+            userEvent.click(buttons[0]);
+        });
+
+        act(() => {
+            userEvent.click(buttons[2]);
+        });
+
+        act(() => {
+            userEvent.click(buttons[0]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["3"]);
+    });
+
+    test("pass an empty array when no button are selected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group onChange={handler} />
+        );
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), []);
+    });
+});
+
+describe("exclusive selection", () => {
+    test("call onChange when a button is selected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group exclusive onChange={handler} />
+        );
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1");
+    });
+
+    test("call onChange when a new button is selected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group exclusive onChange={handler} />
+        );
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[2]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), "3");
+    });
+
+    test("pass null when a button is unselected", async () => {
+        const handler = jest.fn();
+
+        const { getAllByTestId } = render(
+            <Group exclusive onChange={handler} />
+        );
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        act(() => {
+            userEvent.click(getAllByTestId("toggle-button")[0]);
+        });
+
+        expect(handler).toHaveBeenLastCalledWith(expect.anything(), null);
+    });
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
