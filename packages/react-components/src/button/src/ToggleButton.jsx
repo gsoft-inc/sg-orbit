@@ -66,10 +66,10 @@ const defaultProps = {
 export function InnerToggleButton(props) {
     const { selected, defaultSelected, value, onChange, onClick, active, as: ElementType, children, forwardedRef, ...rest } = props;
 
-    const [isSelected, setSelected] = useAutoControlledState(selected, defaultSelected, false);
+    const [isSelected, setIsSelected] = useAutoControlledState(selected, defaultSelected, false);
 
     const handleClick = useChainedEventCallback(onClick, event => {
-        setSelected(!isSelected);
+        setIsSelected(!isSelected);
 
         if (!isNil(onChange)) {
             onChange(event, { value, isSelected: !isSelected });
@@ -82,6 +82,7 @@ export function InnerToggleButton(props) {
 
     return (
         <ElementType
+            data-testid="toggle-button"
             {...rest}
             onClick={handleClick}
             active={active || isSelected}

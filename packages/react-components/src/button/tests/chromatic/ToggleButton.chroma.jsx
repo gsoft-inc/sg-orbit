@@ -15,7 +15,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack direction="vertical">
-            <Stack>
+            <Stack align="end">
                 <ToggleButton size="small" value="any">Cutoff</ToggleButton>
                 <ToggleButton value="any">Cutoff</ToggleButton>
                 <ToggleButton size="large" value="any">Cutoff</ToggleButton>
@@ -32,7 +32,7 @@ stories()
     )
     .add("circular outline", () =>
         <Stack direction="vertical">
-            <Stack>
+            <Stack align="end">
                 <ToggleButton size="small" variant="outline" circular value="any">Cutoff</ToggleButton>
                 <ToggleButton variant="outline" circular value="any">Cutoff</ToggleButton>
                 <ToggleButton size="large" variant="outline" circular value="any">Cutoff</ToggleButton>
@@ -45,6 +45,12 @@ stories()
                 <ToggleButton focus hover variant="outline" circular value="any">Cutoff</ToggleButton>
                 <ToggleButton disabled variant="outline" circular value="any">Cutoff</ToggleButton>
             </Stack>
+        </Stack>
+    )
+    .add("selected", () =>
+        <Stack>
+            <ToggleButton selected value="any">Cutoff</ToggleButton>
+            <ToggleButton defaultSelected value="any">Cutoff</ToggleButton>
         </Stack>
     );
 
