@@ -1,6 +1,6 @@
 .o-ui.lozenge {
     background-color: var(--cloud-50);
-    color: var(--marine-500);
+    color: var(--marine-900);
     text-transform: uppercase;
     padding: 0 var(--scale-bravo);
     border-radius: 4px;

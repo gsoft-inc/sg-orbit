@@ -2,7 +2,7 @@
 .o-ui.badge.pill {
     display: inline-flex;
     background-color: var(--cloud-100);
-    color: var(--marine-500);
+    color: var(--marine-900);
     justify-content: center;
     border-radius: 999px;
     font-size: var(	--type-scale-7);
@@ -63,7 +63,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--cloud-100);
-    color: var(--marine-500);
+    color: var(--marine-900);
     min-height: 1.5rem;
     min-width: 1.5rem;
     font-size: var(--type-scale-7);

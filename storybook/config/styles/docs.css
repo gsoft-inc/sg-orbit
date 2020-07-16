@@ -155,7 +155,7 @@ strong {
 /* stylelint-disable-next-line no-descending-specificity*/
 .docblock-propstable-head th {
     font-weight: 600 !important;
-    color: var(--marine-500) !important;
+    color: var(--marine-900) !important;
 }
 
 .docblock-source {

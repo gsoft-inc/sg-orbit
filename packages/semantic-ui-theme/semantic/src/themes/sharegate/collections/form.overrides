@@ -55,7 +55,7 @@
 
 .ui.textarea:active,
 .ui.textarea.active {
-    border-color: var(--marine-500);
+    border-color: var(--marine-900);
 }
 
 .ui.textarea.error:active,

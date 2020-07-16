@@ -68,7 +68,7 @@ a.o-ui.tag.outline:focus {
     border: none;
     display: inline-flex;
     line-height: 1;
-    color: var(--marine-500);
+    color: var(--marine-900);
     border-radius: 999px;
     min-height: var(--scale-hotel);
     padding: 0 var(--default-padding);

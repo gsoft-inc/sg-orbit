@@ -107,7 +107,7 @@ a.o-ui.button.solid {
 /* BUTTON | SOLID | SECONDARY */
 .o-ui.button.solid.secondary {
     background-color: var(--cloud-100);
-    color: var(--marine-500);
+    color: var(--marine-900);
 }
 
 /* BUTTON | OUTLINE */
@@ -228,7 +228,7 @@ a.o-ui.button.outline {
 .o-ui.button.link {
     border: none;
     background-color: var(--transparent);
-    color: var(--marine-500);
+    color: var(--marine-900);
 }
 
 /* BUTTON | LINK | STATE | HOVER */
@@ -292,6 +292,7 @@ a.o-ui.button.outline {
     padding: 0 var(--padding-default);
     min-height: var(--height-default);
     border-radius: calc(var(--height-default) / 2);
+    color: var(--marine-500);
 }
 
 /* BUTTON | GHOST | HOVER */
