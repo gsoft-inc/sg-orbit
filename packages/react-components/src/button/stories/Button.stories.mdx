@@ -107,13 +107,11 @@ A button can show a loading indicator.
 
 A button can vary in size.
 
-Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
         <Stack align="end">
-            <Button size="mini">Cutoff</Button>
-            <Button size="tiny">Cutoff</Button>
             <Button size="small">Cutoff</Button>
             <Button >Cutoff</Button>
             <Button size="large">Cutoff</Button>
@@ -285,9 +283,7 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
 
 <Preview>
     <Story name="toggle button">
-        <Stack>
-            <ToggleButton value="isActive" variant="outline" color="primary" size="mini" onChange={logToggleChange}>On</ToggleButton>
-            <ToggleButton value="isActive" variant="outline" color="primary" size="tiny" onChange={logToggleChange}>On</ToggleButton>
+        <Stack align="end">
             <ToggleButton value="isActive" variant="outline" color="primary" size="small" onChange={logToggleChange}>On</ToggleButton>
             <ToggleButton value="isActive" variant="outline" color="primary" onChange={logToggleChange}>On</ToggleButton>
             <ToggleButton value="isActive" variant="outline" color="primary" size="large" onChange={logToggleChange}>On</ToggleButton>
@@ -301,13 +297,7 @@ A toggle button content can be a single icon.
 
 <Preview>
     <Story name="toggle icon button">
-        <Stack>
-            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="mini" onChange={logToggleChange}>
-                <CheckIcon />
-            </ToggleIconButton>
-            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="tiny" onChange={logToggleChange}>
-                <CheckIcon />
-            </ToggleIconButton>
+        <Stack align="end">
             <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="small" onChange={logToggleChange}>
                 <CheckIcon />
             </ToggleIconButton>

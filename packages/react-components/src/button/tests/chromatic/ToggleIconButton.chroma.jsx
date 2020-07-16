@@ -16,12 +16,12 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack direction="vertical">
-            <Stack>
+            <Stack align="end">
                 <ToggleIconButton size="small" value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton size="large" value="any"><VerticalDotsIcon /></ToggleIconButton>
             </Stack>
-            <Stack>
+            <Stack align="end">
                 <ToggleIconButton selected value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton active value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton focus value="any"><VerticalDotsIcon /></ToggleIconButton>
@@ -33,12 +33,12 @@ stories()
     )
     .add("circular outline", () =>
         <Stack direction="vertical">
-            <Stack>
+            <Stack align="end">
                 <ToggleIconButton size="small" variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton size="large" variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>
             </Stack>
-            <Stack>
+            <Stack align="end">
                 <ToggleIconButton selected variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton active variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>
                 <ToggleIconButton focus variant="outline" circular value="any"><VerticalDotsIcon /></ToggleIconButton>

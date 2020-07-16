@@ -30,6 +30,14 @@
     background-color: var(--marine-700);
 }
 
+/* BUTTON | SOLID | STATE | DISABLED | HOVER */
+.o-ui.button.solid[disabled]:hover,
+.o-ui.button.solid.disabled:hover,
+.o-ui.button.solid[disabled].hover,
+.o-ui.button.solid.disabled.hover {
+    background-color: var(--marine-500);
+}
+
 /* BUTTON | SOLID | STATE | FOCUS */
 .o-ui.button.solid:focus,
 .o-ui.button.solid.focus {
@@ -42,7 +50,14 @@
     background-color: var(--marine-900);
 }
 
-/* BUTTON | SOLID | ICON */
+/* BUTTON | SOLID | STATE | DISABLED | ACTIVE */
+.o-ui.button.solid:active[disabled],
+.o-ui.button.solid.active[disabled],
+.o-ui.button.solid:active.disabled,
+.o-ui.button.solid.active:disabled {
+    background-color: var(--marine-500);
+}
+
 .o-ui.button.solid .icon {
     fill: var(--white);
 }
@@ -137,8 +152,33 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | ACTIVE */
 .o-ui.button.outline:active,
 .o-ui.button.outline.active {
-    box-shadow: 0 0 0 1px var(--marine-900) inset;
-    color: var(--marine-900);
+    box-shadow: 0 0 0 1px var(--marine-500) inset;
+    color: var(--white);
+    background-color: var(--marine-500);
+}
+
+/* BUTTON | OUTLINE | ACTIVE | FOCUS */
+.o-ui.button.outline.focus:active,
+.o-ui.button.outline.focus.active,
+.o-ui.button.outline:focus:active,
+.o-ui.button.outline:focus.active {
+    box-shadow: 0 0 0 1px var(--marine-500) inset, var(--outline);
+}
+
+/* BUTTON | OUTLINE | ACTIVE | ICON */
+.o-ui.button.outline:active .icon,
+.o-ui.button.outline.active .icon {
+    fill: var(--white);
+}
+
+/* BUTTON | OUTLINE | ACTIVE | DISABLED */
+.o-ui.button.outline[disabled]:active,
+.o-ui.button.outline[disabled].active,
+.o-ui.button.outline.disabled:active,
+.o-ui.button.outline.disabled.active {
+    box-shadow: 0 0 0 1px var(--marine-500) inset;
+    color: var(--marine-500);
+    background-color: var(--white);
 }
 
 /* BUTTON | OUTLINE | PRIMARY */
@@ -163,8 +203,18 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | PRIMARY | ACTIVE */
 .o-ui.button.outline.primary:active,
 .o-ui.button.outline.primary.active {
-    box-shadow: 0 0 0 1px var(--primary-900) inset;
-    color: var(--primary-900);
+    box-shadow: 0 0 0 1px var(--primary-500) inset;
+    color: var(--white);
+    background-color: var(--primary-500);
+}
+
+/* BUTTON | OUTLINE | PRIMARY | ICON */
+.o-ui.button.outline.primary .icon {
+    fill: var(--primary-500);
+}
+
+.o-ui.button.outline.primary.active .icon {
+    fill: var(--white);
 }
 
 /* BUTTON | OUTLINE | SECONDARY */
@@ -312,6 +362,35 @@ a.o-ui.button.outline {
 .o-ui.button.ghost:active,
 .o-ui.button.ghost.active {
     color: var(--marine-900);
+}
+
+/* BUTTON | SOLID | SIZES */
+.o-ui.button.ghost.mini {
+    padding: 0 var(--padding-mini);
+    min-height: var(--height-mini);
+    border-radius: calc(var(--height-mini) / 2);
+    font-size: var(--type-scale-9);
+}
+
+.o-ui.button.ghost.tiny {
+    padding: 0 var(--padding-tiny);
+    min-height: var(--height-tiny);
+    border-radius: calc(var(--height-tiny) / 2);
+    font-size: var(--type-scale-8);
+}
+
+.o-ui.button.ghost.small {
+    padding: 0 var(--padding-small);
+    min-height: var(--height-small);
+    border-radius: calc(var(--height-small) / 2);
+    font-size: var(--type-scale-7);
+}
+
+.o-ui.button.ghost.large {
+    padding: 0 var(--padding-large);
+    min-height: var(--height-large);
+    border-radius: calc(var(--height-large) / 2);
+    font-size: var(--type-scale-5);
 }
 
 /* BUTTON | GHOST | PRIMARY */
@@ -467,7 +546,11 @@ a.o-ui.button.outline {
     cursor: pointer;
     outline: none;
     font-weight: 400;
-    transition: all .2s linear;
+    transition: all .12s ease-in;
+}
+
+.o-ui.button .icon {
+    transition: all .12s ease-in;
 }
 
 /* BUTTON | CONTENT */

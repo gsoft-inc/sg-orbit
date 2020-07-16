@@ -20,7 +20,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
             <Modal.Header>
                 <div className="flex items-center">
                     <span className="flex-grow-1 marine-900">{iconDisplayName}</span>
-                    <Button ghost secondary circular icon={<CrossIcon />} size="small" onClick={onClose} />
+                    <Button variant="ghost secondary" circular icon={<CrossIcon />} size="small" onClick={onClose} />
                 </div>
             </Modal.Header>
             <Modal.Content>

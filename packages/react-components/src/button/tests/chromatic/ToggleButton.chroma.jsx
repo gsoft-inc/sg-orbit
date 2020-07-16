@@ -15,12 +15,12 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack direction="vertical">
-            <Stack>
+            <Stack align="end">
                 <ToggleButton size="small" value="any">Cutoff</ToggleButton>
                 <ToggleButton value="any">Cutoff</ToggleButton>
                 <ToggleButton size="large" value="any">Cutoff</ToggleButton>
             </Stack>
-            <Stack>
+            <Stack align="end">
                 <ToggleButton selected value="any">Cutoff</ToggleButton>
                 <ToggleButton active value="any">Cutoff</ToggleButton>
                 <ToggleButton focus value="any">Cutoff</ToggleButton>
@@ -32,18 +32,18 @@ stories()
     )
     .add("circular outline", () =>
         <Stack direction="vertical">
-            <Stack>
-                <ToggleButton size="small" variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton size="large" variant="outline" circular value="any">Cutoff</ToggleButton>
+            <Stack align="end">
+                <ToggleButton size="small" variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton size="large" variant="outline" circular value="any">Aa</ToggleButton>
             </Stack>
-            <Stack>
-                <ToggleButton selected variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton active variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton focus variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton hover variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton focus hover variant="outline" circular value="any">Cutoff</ToggleButton>
-                <ToggleButton disabled variant="outline" circular value="any">Cutoff</ToggleButton>
+            <Stack align="end">
+                <ToggleButton selected variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton active variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton focus variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton hover variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton focus hover variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton disabled variant="outline" circular value="any">Aa</ToggleButton>
             </Stack>
         </Stack>
     );

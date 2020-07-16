@@ -61,10 +61,11 @@ export class InnerDatePickerTextboxInput extends PureComponent {
 
         return (
             <Button
-                icon={<CrossIcon />}
                 onClick={onClear}
                 data-testid="date-picker-textbox-clear-button"
-            />
+            >
+                <CrossIcon />
+            </Button>
         );
     }
 
