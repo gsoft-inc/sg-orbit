@@ -1,27 +1,17 @@
 /* Stack | Horizontal */
 .o-ui.stack.horizontal {
+    --spacing: 10rem;
     display: flex;
     flex-direction: row;
 }
 
-.o-ui.stack.horizontal > * {
+.o-ui.stack.horizontal > *:not(:last-child) {
     margin-right: var(--spacing);
 }
 
-.o-ui.stack.horizontal > *:last-child {
-    margin-right: 0;
-}
-
-/* Stack | Horizontal | Wrap */
-.o-ui.stack.horizontal.wrap {
-    flex-wrap: wrap;
-    margin: calc(-1 * var(--spacing)) 0 0 calc(-1 * var(--spacing));
-    width: calc(100% + var(--spacing));
-}
-
-.o-ui.stack.horizontal.wrap > * {
-    margin: var(--spacing) 0 0 var(--spacing);
-}
+/* .o-ui.stack.horizontal > * + * {
+    margin-right: var(--spacing);
+}*/
 
 /* Stack | Vertical */
 .o-ui.stack.vertical {

@@ -1,8 +1,9 @@
 import "./Stack.css";
 
+import { Children, forwardRef, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { isNil, isString } from "lodash";
+import { mergeClasses, useMergedRefs } from "../../shared";
 
 const SPACING = [
     "--scale-alpha",
@@ -36,7 +37,10 @@ const propTypes = {
     /**
      * Spacing scale between each elements.
      */
-    spacing: oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
+    spacing: oneOfType([
+        oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
+        string
+    ]),
     /**
      * Whether or not the stack take up the width & height of its container.
      */
@@ -57,6 +61,19 @@ const defaultProps = {
 };
 
 export function InnerStack({ direction, align, justify, spacing, fluid, as: ElementType, className, style, children, forwardedRef, ...rest }) {
+    const [element, setElement] = useState();
+
+    const ref = useMergedRefs(setElement, forwardedRef);
+
+    const hasNestedStack = !isNil(element) ? !isNil(ref.current.querySelector(":scope > .o-ui.stack")) : false;
+
+    // When having a nested stack, we wrap the stack items into a DIV to prevent overriding the parent --spacing variable value with the item --spacing value.
+    const items = !hasNestedStack ? children : Children.map(children, x => {
+        return (
+            <div className="item">{x}</div>
+        );
+    });
+
     return (
         <ElementType
             {...rest}
@@ -69,12 +86,12 @@ export function InnerStack({ direction, align, justify, spacing, fluid, as: Elem
                 className
             )}
             style={{
-                "--spacing": `var(${SPACING[(spacing || 5) - 1]})`,
+                "--spacing": isString(spacing) ? spacing : `var(${SPACING[(spacing || 5) - 1]})`,
                 ...style
             }}
-            ref={forwardedRef}
+            ref={ref}
         >
-            {children}
+            {items}
         </ElementType>
     );
 }

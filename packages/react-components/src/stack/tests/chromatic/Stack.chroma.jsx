@@ -42,6 +42,13 @@ stories()
                     <div>Charlie</div>
                 </Stack>
             </div>
+            <div className="h10">
+                <Stack spacing="200px">
+                    <div>Alpha</div>
+                    <div>Bravo</div>
+                    <div>Charlie</div>
+                </Stack>
+            </div>
         </div>
     )
     .add("vertical", () =>
@@ -69,6 +76,13 @@ stories()
             </div>
             <div className="w12">
                 <Stack direction="vertical" spacing={10}>
+                    <div>Alpha</div>
+                    <div>Bravo</div>
+                    <div>Charlie</div>
+                </Stack>
+            </div>
+            <div className="w12">
+                <Stack direction="vertical" spacing="200px">
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
