@@ -1,5 +1,5 @@
-import { Button } from "../../button";
 import { CrossIcon } from "../../icons";
+import { IconButton } from "../../button";
 import { PureComponent } from "react";
 import { SIZE, mergeClasses } from "../../shared";
 import { Tag } from "../../tag";
@@ -19,7 +19,7 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
         <Tag
             variant="outline"
             size={size}
-            button={!disabled ? <Button icon={<CrossIcon />} onClick={onRemove} /> : undefined}
+            button={!disabled ? <IconButton onClick={onRemove}><CrossIcon /></IconButton> : undefined}
             data-testid={`tags-picker-selected-item-${item.value}`}
         >
             {item.text}

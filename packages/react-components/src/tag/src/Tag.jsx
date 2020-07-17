@@ -90,8 +90,8 @@ export function InnerTag({
     const buttonMarkup = !isNil(button) && embedButton(button, {
         size,
         circular: true,
-        ghost: true,
-        secondary: true
+        variant: "ghost",
+        color: "secondary"
     });
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {

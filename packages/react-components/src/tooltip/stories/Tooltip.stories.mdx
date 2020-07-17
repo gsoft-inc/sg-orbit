@@ -1,6 +1,6 @@
 import { AddIcon } from "@react-components/icons";
-import { Button } from "@react-components/button";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Button, IconButton } from "@react-components/button";
 import { InnerTooltip, Tooltip } from "@react-components/tooltip";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -39,7 +39,7 @@ A default tooltip.
     <Story name="default">
         <Tooltip
             content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-            trigger={<Button circular icon={<AddIcon />} />}
+            trigger={<IconButton circular><AddIcon /></IconButton>}
         />
     </Story>
 </Preview>
@@ -53,14 +53,14 @@ The available positions are: `"top center"` `"top left"` `"top right"` `"bottom 
 <Preview>
     <Story name="position">
         <div className="flex items-space-between">
-            <Tooltip position="top center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">TC</Button>} />
-            <Tooltip position="top left" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">TL</Button>} />
-            <Tooltip position="top right" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">TR</Button>} />
-            <Tooltip position="bottom center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">BC</Button>} />
-            <Tooltip position="bottom left" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">BL</Button>} />
-            <Tooltip position="bottom right" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">BR</Button>} />
-            <Tooltip position="right center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">RC</Button>} />
-            <Tooltip position="left center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary circular size="large">LC</Button>} />
+            <Tooltip position="top center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">TC</Button>} />
+            <Tooltip position="top left" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">TL</Button>} />
+            <Tooltip position="top right" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">TR</Button>} />
+            <Tooltip position="bottom center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">BC</Button>} />
+            <Tooltip position="bottom left" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">BL</Button>} />
+            <Tooltip position="bottom right" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">BR</Button>} />
+            <Tooltip position="right center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">RC</Button>} />
+            <Tooltip position="left center" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" circular size="large">LC</Button>} />
         </div>
     </Story>
 </Preview>
@@ -74,12 +74,12 @@ Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"`, `"huge"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-space-between">
-            <Tooltip size="mini" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Mini</Button>} />
-            <Tooltip size="tiny" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Tiny</Button>} />
-            <Tooltip size="small" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Small</Button>} />
-            <Tooltip content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Medium</Button>} />
-            <Tooltip size="large" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Large</Button>} />
-            <Tooltip size="huge" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button secondary >Huge</Button>} />
+            <Tooltip size="mini" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary">Mini</Button>} />
+            <Tooltip size="tiny" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary">Tiny</Button>} />
+            <Tooltip size="small" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary">Small</Button>} />
+            <Tooltip content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary" >Medium</Button>} />
+            <Tooltip size="large" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary">Large</Button>} />
+            <Tooltip size="huge" content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly." trigger={<Button color="secondary">Huge</Button>} />
         </div>
     </Story>
 </Preview>
@@ -94,12 +94,12 @@ A tooltip can be `wide` or `very wide` to allow for longer content.
             <Tooltip
                 wide
                 content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-                trigger={<Button secondary >Wide</Button>}
+                trigger={<Button color="secondary">Wide</Button>}
             />
             <Tooltip
                 wide="very"
                 content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-                trigger={<Button secondary >Very Wide</Button>}
+                trigger={<Button color="secondary">Very Wide</Button>}
             />
         </div>
     </Story>
@@ -111,7 +111,7 @@ A tooltip can offload padding to its child.
 
 <Preview>
     <Story name="flush">
-        <Tooltip flush trigger={<Button circular icon={<AddIcon />} />}>
+        <Tooltip flush trigger={<IconButton circular><AddIcon /></IconButton>}>
             <div className="pa10">
                 The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly.
             </div>
@@ -128,7 +128,7 @@ A tootip can provide more basic formatting.
         <Tooltip
             basic
             content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-            trigger={<Button circular icon={<AddIcon />} />}
+            trigger={<IconButton circular><AddIcon /></IconButton>}
         />
     </Story>
 </Preview>
@@ -142,7 +142,7 @@ A tooltip can have its colours inverted.
         <Tooltip
             inverted
             content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-            trigger={<Button circular icon={<AddIcon />} />}
+            trigger={<IconButton circular><AddIcon /></IconButton>}
         />
     </Story>
 </Preview>
@@ -156,7 +156,7 @@ A disabled tooltip only renders its trigger.
         <Tooltip
             disabled
             content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
-            trigger={<Button circular icon={<AddIcon />} />}
+            trigger={<IconButton circular><AddIcon /></IconButton>}
         />
     </Story>
 </Preview>
@@ -171,7 +171,7 @@ A disabled tooltip only renders its trigger.
         <Tooltip
             content="The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly."
             open
-            trigger={<Button circular secondary icon={<AddIcon />} />}
+            trigger={<IconButton circular secondary><AddIcon /></IconButton>}
         />
     </RefLogger>
 </Story>

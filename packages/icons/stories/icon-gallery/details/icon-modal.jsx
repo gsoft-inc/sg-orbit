@@ -1,4 +1,4 @@
-import { Button } from "@react-components/button";
+import { IconButton } from "@react-components/button";
 import { CrossIcon } from "@react-components/icons";
 import { IconDetail } from "./icon-detail";
 import { KEYS, useWindowListener } from "@react-components/shared";
@@ -20,7 +20,9 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
             <Modal.Header>
                 <div className="flex items-center">
                     <span className="flex-grow-1 marine-900">{iconDisplayName}</span>
-                    <Button variant="ghost secondary" circular icon={<CrossIcon />} size="small" onClick={onClose} />
+                    <IconButton variant="ghost" color="secondary" circular size="small" onClick={onClose}>
+                        <CrossIcon />
+                    </IconButton>
                 </div>
             </Modal.Header>
             <Modal.Content>

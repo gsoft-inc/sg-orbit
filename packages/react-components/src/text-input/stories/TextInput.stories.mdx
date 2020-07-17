@@ -1,6 +1,6 @@
-import { Button } from "@react-components/button";
 import { CrossIcon, MagnifierIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconButton } from "@react-components/button";
 import { InnerTextInput, TextInput } from "@react-components/text-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -112,7 +112,7 @@ A text input can contain a [button](?path=/docs/components-button--default-story
 
 <Preview>
     <Story name="button">
-        <TextInput button={<Button icon={<CrossIcon />} />} placeholder="Search..." />
+        <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
     </Story>
 </Preview>
 
@@ -122,7 +122,7 @@ A text input can contain a [button](?path=/docs/components-button--default-story
         .excludeFromDocs()
         .build()}
 >
-    <TextInput button={<Button icon={<CrossIcon />} />} placeholder="Search..." loading />
+    <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." loading />
 </Story>
 
 ### Loading

@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { Button } from "@react-components/button";
+import { IconButton } from "@react-components/button";
 import { CheckCircleIcon, CheckIcon, CrossIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -50,7 +50,7 @@ A tag can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
     <Story name="button">
-        <Tag button={<Button iconLeft={<CrossIcon />} />}>
+        <Tag button={<IconButton><CrossIcon /></IconButton>}>
             Falcon 9
         </Tag>
     </Story>

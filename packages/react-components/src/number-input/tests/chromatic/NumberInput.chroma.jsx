@@ -1,4 +1,4 @@
-import { Button } from "@react-components/button";
+import { IconButton } from "@react-components/button";
 import { CrossIcon, EditIcon } from "@react-components/icons";
 import { NumberInput } from "@react-components/number-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -40,7 +40,7 @@ stories()
     )
     .add("button", () =>
         <NumberInput
-            button={<Button icon={<CrossIcon />} />}
+            button={<IconButton><CrossIcon /></IconButton>}
         />
     )
     .add("loading", () =>

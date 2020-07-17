@@ -35,8 +35,7 @@ export class TagsPickerClearButton extends PureComponent {
         return (
             <Button
                 onClick={onClick}
-                ghost
-                compact
+                variant="ghost"
                 size={size}
                 className={className}
                 ref={this._buttonRef}

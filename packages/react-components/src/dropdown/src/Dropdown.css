@@ -7,6 +7,7 @@
 .o-ui.dropdown .title-trigger {
     background: none;
     border: none;
+    color: var(--marine-900);
     padding: 0;
     display: flex;
     align-items: center;

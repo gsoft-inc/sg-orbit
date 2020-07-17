@@ -125,6 +125,11 @@ a.o-ui.button.solid {
     color: var(--marine-900);
 }
 
+/* BUTTON | SOLID | SECONDARY | ICON */
+.o-ui.button.solid.secondary .icon {
+    fill: var(--marine-900);
+}
+
 /* BUTTON | OUTLINE */
 .o-ui.button.outline {
     border: none;
@@ -401,6 +406,11 @@ a.o-ui.button.outline {
 /* BUTTON | GHOST | SECONDARY */
 .o-ui.button.ghost.secondary {
     color: var(--marine-300);
+}
+
+/* BUTTON | OUTLINE | SECONDARY | ICON */
+.o-ui.button.ghost.secondary .icon {
+    fill: var(--marine-500);
 }
 
 /* BUTTON | FLUID */
