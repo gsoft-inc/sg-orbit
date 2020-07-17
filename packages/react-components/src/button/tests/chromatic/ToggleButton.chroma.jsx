@@ -1,4 +1,4 @@
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -14,7 +14,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <Stack align="end">
                 <ToggleButton size="small" value="any">Cutoff</ToggleButton>
                 <ToggleButton value="any">Cutoff</ToggleButton>
@@ -28,10 +28,10 @@ stories()
                 <ToggleButton focus hover value="any">Cutoff</ToggleButton>
                 <ToggleButton disabled value="any">Cutoff</ToggleButton>
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("circular outline", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <Stack align="end">
                 <ToggleButton size="small" variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton variant="outline" circular value="any">Aa</ToggleButton>
@@ -45,7 +45,7 @@ stories()
                 <ToggleButton focus hover variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton disabled variant="outline" circular value="any">Aa</ToggleButton>
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("selected", () =>
         <Stack>

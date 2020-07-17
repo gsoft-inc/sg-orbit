@@ -1,7 +1,7 @@
 import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
@@ -127,7 +127,7 @@ stories()
     )
     .add("basic trigger", () =>
         <Stack spacing="300px">
-            <Stack direction="vertical" spacing="200px">
+            <VerticalStack spacing="200px">
                 <Stack>
                     <BasicDropdown size="small" />
                     <BasicDropdown
@@ -146,8 +146,8 @@ stories()
                         open
                     />
                 </Stack>
-            </Stack>
-            <Stack direction="vertical">
+            </VerticalStack>
+            <VerticalStack>
                 <Stack>
                     <BasicDropdown active />
                     <BasicDropdown focus />
@@ -158,12 +158,12 @@ stories()
                     />
                     <BasicDropdown disabled />
                 </Stack>
-            </Stack>
+            </VerticalStack>
         </Stack>
     )
     .add("basic trigger icon", () =>
-        <Stack direction="vertical">
-            <Stack style={{ marginBottom: "150px" }}>
+        <VerticalStack spacing="200px">
+            <Stack>
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="small"
@@ -174,7 +174,7 @@ stories()
                     open
                 />
             </Stack>
-            <Stack style={{ marginBottom: "200px" }}>
+            <Stack>
                 <BasicDropdown
                     icon={<FileIcon />}
                 />
@@ -194,43 +194,39 @@ stories()
                     open
                 />
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("button trigger", () =>
-        <Stack direction="vertical">
-            <Stack style={{ marginBottom: "200px" }}>
-                <CircularButtonDropdown style={{ marginRight: "150px" }} />
+        <VerticalStack spacing="200px">
+            <Stack spacing="200px">
+                <CircularButtonDropdown />
                 <CircularButtonDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <CircularButtonDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <CircularButtonDropdown
                     size="large"
                     open
                 />
             </Stack>
-            <Stack style={{ marginBottom: "200px" }}>
-                <BasicButtonDropdown style={{ marginRight: "150px" }} />
+            <Stack spacing="200px">
+                <BasicButtonDropdown />
                 <BasicButtonDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <BasicButtonDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <BasicButtonDropdown
                     size="large"
                     open
                 />
             </Stack>
-            <div className="w-100" style={{ marginBottom: "50px" }}>
+            <div className="w-100">
                 <BasicButtonDropdown fluid />
             </div>
             <Stack>
@@ -242,11 +238,11 @@ stories()
                     hover
                 />
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("advanced trigger", () =>
-        <Stack>
-            <CustomTriggerDropdown style={{ marginRight: "200px" }}>Task</CustomTriggerDropdown>
+        <Stack spacing="200px">
+            <CustomTriggerDropdown>Task</CustomTriggerDropdown>
             <CustomTriggerDropdown open>Task</CustomTriggerDropdown>
         </Stack>
     )
@@ -269,17 +265,15 @@ stories()
         </Dropdown>
     )
     .add("upward", () =>
-        <Stack style={{ marginTop: "150px" }}>
+        <Stack spacing="200px" style={{ marginTop: "150px" }}>
             <BasicDropdown
                 upward
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             />
             <BasicDropdown
                 upward
                 open
-                style={{ marginRight: "200px" }}
             />
             <BasicDropdown
                 upward
@@ -289,43 +283,39 @@ stories()
         </Stack>
     )
     .add("direction", () =>
-        <Stack>
-            <Stack direction="vertical" className="mr12">
+        <Stack spacing={12}>
+            <VerticalStack spacing="200px">
                 <BasicDropdown
                     direction="left"
                     size="small"
                     open
-                    style={{ marginBottom: "150px" }}
                 />
                 <BasicDropdown
                     direction="left"
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     direction="left"
                     size="large"
                     open
                 />
-            </Stack>
-            <Stack direction="vertical">
+            </VerticalStack>
+            <VerticalStack spacing="200px">
                 <BasicDropdown
                     direction="right"
                     size="small"
                     open
-                    style={{ marginBottom: "150px" }}
                 />
                 <BasicDropdown
                     direction="right"
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     direction="right"
                     size="large"
                     open
                 />
-            </Stack>
+            </VerticalStack>
         </Stack>,
          {
              ...paramsBuilder()
@@ -333,49 +323,44 @@ stories()
                  .build()
          })
     .add("fluid", () =>
-        <Stack>
-            <Stack direction="vertical" className="w-50 mr12">
+        <Stack spacing={12}>
+            <VerticalStack spacing="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     fluid
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     size="large"
                     fluid
                 />
-            </Stack>
-            <Stack direction="vertical" className="w-50">
+            </VerticalStack>
+            <VerticalStack spacing="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     fluid
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     size="large"
                     fluid
                     open
                 />
-            </Stack>
+            </VerticalStack>
         </Stack>
     )
     .add("title", () =>
-        <Stack direction="vertical">
-            <Stack style={{ marginBottom: "200px" }}>
+        <VerticalStack spacing="200px">
+            <Stack spacing="200px">
                 <BasicDropdown
                     open
                     size="small"
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -392,10 +377,9 @@ stories()
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
             </Stack>
-            <Stack style={{ marginBottom: "200px" }}>
+            <Stack spacing="200px">
                 <BasicDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -409,11 +393,10 @@ stories()
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
             </Stack>
-            <Stack>
+            <Stack spacing="200px">
                 <BasicDropdown
                     open
                     size="large"
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -430,14 +413,13 @@ stories()
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("divider", () =>
-        <Stack>
+        <Stack spacing="200px">
             <BasicDropdown
                 open
                 size="small"
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -447,7 +429,6 @@ stories()
             </BasicDropdown>
             <BasicDropdown
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -506,11 +487,10 @@ stories()
         </BasicDropdown>
     )
     .add("item description", () =>
-        <Stack>
+        <Stack spacing="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -518,7 +498,6 @@ stories()
             </BasicDropdown>
             <BasicDropdown
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -535,21 +514,17 @@ stories()
         </Stack>
     )
     .add("item icon", () =>
-        <Stack>
+        <Stack spacing="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
                 <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
-            <BasicDropdown
-                open
-                style={{ marginRight: "200px" }}
-            >
+            <BasicDropdown open>
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
@@ -558,7 +533,6 @@ stories()
             <BasicDropdown
                 size="large"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
@@ -574,20 +548,16 @@ stories()
         </Stack>
     )
     .add("item button", () =>
-        <Stack>
+        <Stack spacing="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
             </BasicDropdown>
-            <BasicDropdown
-                open
-                style={{ marginRight: "200px" }}
-            >
+            <BasicDropdown open>
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
@@ -603,21 +573,17 @@ stories()
         </Stack>
     )
     .add("item link", () =>
-        <Stack direction="vertical">
-            <Stack style={{ marginBottom: "200px" }}>
+        <VerticalStack spacing="200px">
+            <Stack spacing="200px">
                 <BasicDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
-                <BasicDropdown
-                    open
-                    style={{ marginRight: "200px" }}
-                >
+                <BasicDropdown open>
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
@@ -631,11 +597,8 @@ stories()
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
             </Stack>
-            <Stack>
-                <BasicDropdown
-                    open
-                    style={{ marginRight: "200px" }}
-                >
+            <Stack spacing="200px">
+                <BasicDropdown open>
                     <Dropdown.LinkItem active href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem hover href="/internal-link">Save as...</Dropdown.LinkItem>
@@ -648,5 +611,5 @@ stories()
                     <Dropdown.LinkItem focus hover href="https://www.sharegate.com" target="_blank">Rename</Dropdown.LinkItem>
                 </BasicDropdown>
             </Stack>
-        </Stack>
+        </VerticalStack>
     );

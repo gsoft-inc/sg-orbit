@@ -1,5 +1,5 @@
 import { AddIcon } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { cloneElement } from "react";
 
 function IconButton({ element, ...rest }) {
@@ -9,7 +9,7 @@ function IconButton({ element, ...rest }) {
 export function createIconButtonTestSuite(iconButton, stories) {
     return stories
         .add("default", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <IconButton size="mini" element={iconButton}><AddIcon /></IconButton>
                     <IconButton size="tiny" element={iconButton}><AddIcon /></IconButton>
@@ -24,10 +24,10 @@ export function createIconButtonTestSuite(iconButton, stories) {
                     <IconButton loading element={iconButton}><AddIcon /></IconButton>
                     <IconButton loading size="large" element={iconButton}><AddIcon /></IconButton>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("primary", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <IconButton color="primary" size="mini" element={iconButton}><AddIcon /></IconButton>
                     <IconButton color="primary" size="tiny" element={iconButton}><AddIcon /></IconButton>
@@ -42,10 +42,10 @@ export function createIconButtonTestSuite(iconButton, stories) {
                     <IconButton loading color="primary" element={iconButton}><AddIcon /></IconButton>
                     <IconButton loading color="primary" size="large" element={iconButton}><AddIcon /></IconButton>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("secondary", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <IconButton color="secondary" size="mini" element={iconButton}><AddIcon /></IconButton>
                     <IconButton color="secondary" size="tiny" element={iconButton}><AddIcon /></IconButton>
@@ -60,10 +60,10 @@ export function createIconButtonTestSuite(iconButton, stories) {
                     <IconButton loading color="secondary" element={iconButton}><AddIcon /></IconButton>
                     <IconButton loading color="secondary" size="large" element={iconButton}><AddIcon /></IconButton>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("circular", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <IconButton circular size="mini" element={iconButton}><AddIcon /></IconButton>
                     <IconButton circular size="tiny" element={iconButton}><AddIcon /></IconButton>
@@ -78,10 +78,10 @@ export function createIconButtonTestSuite(iconButton, stories) {
                     <IconButton loading circular element={iconButton}><AddIcon /></IconButton>
                     <IconButton loading circular size="large" element={iconButton}><AddIcon /></IconButton>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("states", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <IconButton active size="mini" element={iconButton}><AddIcon /></IconButton>
                     <IconButton active size="tiny" element={iconButton}><AddIcon /></IconButton>
@@ -114,7 +114,7 @@ export function createIconButtonTestSuite(iconButton, stories) {
                     <IconButton focus hover size="large" element={iconButton}><AddIcon /></IconButton>
                     <IconButton loading focus hover element={iconButton}><AddIcon /></IconButton>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("styling", () =>
             <Stack>

@@ -1,4 +1,4 @@
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -54,39 +54,39 @@ stories()
     .add("vertical", () =>
         <div className="flex" style={{ height: "300px" }}>
             <div className="w12 mr8">
-                <Stack direction="vertical" fluid>
+                <VerticalStack fluid>
                     <div className="bg-primary-500">Alpha</div>
                     <div className="bg-primary-500">Bravo</div>
                     <div className="bg-primary-500">Charlie</div>
-                </Stack>
+                </VerticalStack>
             </div>
             <div className="w12 mr8">
-                <Stack direction="vertical" align="end" justify="end" fluid>
+                <VerticalStack align="end" justify="end" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </VerticalStack>
             </div>
             <div className="w12 mr8">
-                <Stack direction="vertical" align="center" justify="center" fluid>
+                <VerticalStack align="center" justify="center" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </VerticalStack>
             </div>
             <div className="w12">
-                <Stack direction="vertical" spacing={10}>
+                <VerticalStack spacing={10}>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </VerticalStack>
             </div>
             <div className="w12">
-                <Stack direction="vertical" spacing="200px">
+                <VerticalStack spacing="200px">
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </VerticalStack>
             </div>
         </div>
     );

@@ -102,3 +102,7 @@ InnerStack.defaultProps = defaultProps;
 export const Stack = forwardRef((props, ref) => (
     <InnerStack { ...props } forwardedRef={ref} />
 ));
+
+export const VerticalStack = forwardRef((props, ref) => (
+    <InnerStack { ...props } direction="vertical" forwardedRef={ref} />
+));

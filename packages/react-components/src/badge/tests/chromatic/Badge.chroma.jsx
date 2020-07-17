@@ -1,6 +1,6 @@
 import { Badge, embedBadge } from "@react-components/badge";
 import { CheckIcon } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -52,11 +52,11 @@ stories("/pill")
 
 stories("/inline")
     .add("default", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <div>Planets Visited <Badge variant="inline">2</Badge></div>
             <div className="f3">Planets Visited <Badge variant="inline">2</Badge></div>
             <div className="f1">Planets Visited <Badge variant="inline">2</Badge></div>
-        </Stack>
+        </VerticalStack>
     )
     .add("addition", () =>
         <Badge variant="inline">+1</Badge>

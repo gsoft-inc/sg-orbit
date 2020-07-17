@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -18,7 +18,7 @@ stories()
         <Lozenge>New</Lozenge>
     )
     .add("icon", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <Stack align="end">
                 <Lozenge size="small" iconLeft={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
@@ -29,7 +29,7 @@ stories()
                 <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge size="large" iconRight={<CheckCircleIcon />}>New</Lozenge>
             </Stack>
-        </Stack>
+        </VerticalStack>
     )
     .add("size", () =>
         <Stack align="end">

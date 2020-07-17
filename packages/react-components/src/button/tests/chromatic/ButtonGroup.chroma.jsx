@@ -1,6 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
-import { Stack } from "@react-components/stack";
+import { VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -15,7 +15,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ButtonGroup size="small">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
@@ -31,10 +31,10 @@ stories()
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
             </ButtonGroup>
-        </Stack>
+        </VerticalStack>
     )
     .add("icon button", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ButtonGroup size="small">
                 <IconButton variant="outline" circular><AddIcon /></IconButton>
                 <IconButton variant="outline" circular><AddIcon /></IconButton>
@@ -50,5 +50,5 @@ stories()
                 <IconButton variant="outline" circular><AddIcon /></IconButton>
                 <IconButton variant="outline" circular><AddIcon /></IconButton>
             </ButtonGroup>
-        </Stack>
+        </VerticalStack>
     );

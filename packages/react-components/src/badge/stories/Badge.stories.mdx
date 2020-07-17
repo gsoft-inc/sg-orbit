@@ -4,7 +4,7 @@ import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Square } from "./Square.jsx";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -62,7 +62,7 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <Stack direction="vertical">
+        <VerticalStack>
             <Stack align="end">
                 <Badge size="tiny">5</Badge>
                 <Badge size="small">5</Badge>
@@ -75,7 +75,7 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
                 <Badge>99</Badge>
                 <Badge size="large">99</Badge>
             </Stack>
-        </Stack>
+        </VerticalStack>
     </Story>
 </Preview>
 
@@ -93,10 +93,10 @@ An inline badge, is not affected by the `size` property. The badge will inherit 
 
 <Preview>
     <Story name="inline size">
-        <Stack direction="vertical">
+        <VerticalStack>
             <span className="f5">Galaxies<Badge variant="inline">100+</Badge></span>
             <span className="f4">Galaxies<Badge variant="inline">100+</Badge></span>
-        </Stack>
+        </VerticalStack>
     </Story>
 </Preview>
 
@@ -106,7 +106,7 @@ A badge can be rendered as a dot. A single digit is supported.
 
 <Preview>
     <Story name="dot">
-        <Stack direction="vertical">
+        <VerticalStack>
             <Stack align="end">
                 <Badge variant="dot" size="tiny" />
                 <Badge variant="dot" size="small" />
@@ -119,7 +119,7 @@ A badge can be rendered as a dot. A single digit is supported.
                 <Badge variant="dot">5</Badge>
                 <Badge variant="dot" size="large">5</Badge>
             </Stack>
-        </Stack>
+        </VerticalStack>
     </Story>
 </Preview>
 
