@@ -1,7 +1,7 @@
 import { Badge } from "@react-components/badge";
 import { CheckCircleIcon, CrossIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { cloneElement } from "react";
 
 function Tag({ element, ...rest }) {
@@ -11,7 +11,7 @@ function Tag({ element, ...rest }) {
 export function createTestSuite(tag, stories) {
     return stories
         .add("default", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Tag size="small" element={tag}>Falcon 9</Tag>
                     <Tag element={tag}>Falcon 9</Tag>
@@ -23,10 +23,10 @@ export function createTestSuite(tag, stories) {
                 <Stack className="w-10">
                     <Tag fluid element={tag}>Falcon 9</Tag>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("icon", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Tag iconLeft={<CheckCircleIcon />} size="small" element={tag}>Falcon 9</Tag>
                     <Tag iconLeft={<CheckCircleIcon />} element={tag}>Falcon 9</Tag>
@@ -58,10 +58,10 @@ export function createTestSuite(tag, stories) {
                 <Stack className="w-10">
                     <Tag fluid iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} element={tag}>Falcon 9</Tag>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("badge", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Tag badgeLeft={<Badge variant="dot" />} size="small" element={tag}>Falcon 9</Tag>
                     <Tag badgeLeft={<Badge variant="dot" />} element={tag}>Falcon 9</Tag>
@@ -93,10 +93,10 @@ export function createTestSuite(tag, stories) {
                 <Stack className="w-10">
                     <Tag fluid badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={tag}>Falcon 9</Tag>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("button", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Tag button={<IconButton><CrossIcon /></IconButton>} size="small" element={tag}>Falcon 9</Tag>
                     <Tag button={<IconButton><CrossIcon /></IconButton>} element={tag}>Falcon 9</Tag>
@@ -108,7 +108,7 @@ export function createTestSuite(tag, stories) {
                 <Stack className="w-10">
                     <Tag fluid button={<IconButton><CrossIcon /></IconButton>} element={tag}>Falcon 9</Tag>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("as link", () =>
             <Stack>

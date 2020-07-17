@@ -1,5 +1,5 @@
 import { EditIcon, IconGroup } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
+import { VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories() {
@@ -25,11 +25,11 @@ stories()
         <Icons />
     )
     .add("size", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <Icons size="small" />
             <Icons />
             <Icons size="large" />
-        </Stack>
+        </VerticalStack>
 
     );
 

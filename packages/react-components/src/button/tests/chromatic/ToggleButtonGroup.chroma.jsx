@@ -1,6 +1,6 @@
 import { AddIcon } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
 import { ToggleButton, ToggleButtonGroup, ToggleIconButton } from "@react-components/button";
+import { VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -15,7 +15,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ToggleButtonGroup size="small">
                 <ToggleButton value="1">Cutoff</ToggleButton>
                 <ToggleButton value="2">Cutoff</ToggleButton>
@@ -31,10 +31,10 @@ stories()
                 <ToggleButton value="2">Cutoff</ToggleButton>
                 <ToggleButton value="3">Cutoff</ToggleButton>
             </ToggleButtonGroup>
-        </Stack>
+        </VerticalStack>
     )
     .add("icon button", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ToggleButtonGroup size="small">
                 <ToggleIconButton variant="outline" circular value="1"><AddIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" circular value="2"><AddIcon /></ToggleIconButton>
@@ -50,10 +50,10 @@ stories()
                 <ToggleIconButton variant="outline" circular value="2"><AddIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" circular value="3"><AddIcon /></ToggleIconButton>
             </ToggleButtonGroup>
-        </Stack>
+        </VerticalStack>
     )
     .add("multiple selection", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ToggleButtonGroup value="2">
                 <ToggleButton variant="outline" circular value="1">1</ToggleButton>
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
@@ -74,10 +74,10 @@ stories()
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
                 <ToggleButton variant="outline" circular value="3">3</ToggleButton>
             </ToggleButtonGroup>
-        </Stack>
+        </VerticalStack>
     )
     .add("exclusive selection", () =>
-        <Stack direction="vertical">
+        <VerticalStack>
             <ToggleButtonGroup value="2">
                 <ToggleButton variant="outline" circular value="1">1</ToggleButton>
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
@@ -88,5 +88,5 @@ stories()
                 <ToggleButton variant="outline" circular value="2">2</ToggleButton>
                 <ToggleButton variant="outline" circular value="3">3</ToggleButton>
             </ToggleButtonGroup>
-        </Stack>
+        </VerticalStack>
     );

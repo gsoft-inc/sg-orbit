@@ -1,6 +1,6 @@
 import { Badge } from "@react-components/badge";
 import { IconGroup, SignoutIcon } from "@react-components/icons";
-import { Stack } from "@react-components/stack";
+import { Stack, VerticalStack } from "@react-components/stack";
 import { cloneElement } from "react";
 
 function Button({ element, ...rest }) {
@@ -10,7 +10,7 @@ function Button({ element, ...rest }) {
 export function createButtonTestSuite(button, stories) {
     return stories
         .add("default", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button size="mini" element={button}>Button</Button>
                     <Button size="tiny" element={button}>Button</Button>
@@ -34,10 +34,10 @@ export function createButtonTestSuite(button, stories) {
                 <Stack>
                     <Button loading fluid element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("icon", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button iconLeft={<SignoutIcon />} size="mini" element={button}>Button</Button>
                     <Button iconLeft={<SignoutIcon />} size="tiny" element={button}>Button</Button>
@@ -83,10 +83,10 @@ export function createButtonTestSuite(button, stories) {
                 <Stack>
                     <Button fluid iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("badge", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button badgeLeft={<Badge variant="dot" />} size="mini" element={button}>Button</Button>
                     <Button badgeLeft={<Badge variant="dot" />} size="tiny" element={button}>Button</Button>
@@ -132,10 +132,10 @@ export function createButtonTestSuite(button, stories) {
                 <Stack>
                     <Button fluid badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("primary", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button color="primary" size="mini" element={button}>Button</Button>
                     <Button color="primary" size="tiny" element={button}>Button</Button>
@@ -150,10 +150,10 @@ export function createButtonTestSuite(button, stories) {
                     <Button loading color="primary" element={button}>Button</Button>
                     <Button loading color="primary" size="large" element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("secondary", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button color="secondary" size="mini" element={button}>Button</Button>
                     <Button color="secondary" size="tiny" element={button}>Button</Button>
@@ -168,10 +168,10 @@ export function createButtonTestSuite(button, stories) {
                     <Button loading color="secondary" element={button}>Button</Button>
                     <Button loading color="secondary" size="large" element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("circular", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button circular size="mini" element={button}>Aa</Button>
                     <Button circular size="tiny" element={button}>Aa</Button>
@@ -186,10 +186,10 @@ export function createButtonTestSuite(button, stories) {
                     <Button loading circular element={button}>Aa</Button>
                     <Button loading circular size="large" element={button}>Aa</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("states", () =>
-            <Stack direction="vertical">
+            <VerticalStack>
                 <Stack align="end">
                     <Button active size="mini" element={button}>Button</Button>
                     <Button active size="tiny" element={button}>Button</Button>
@@ -245,7 +245,7 @@ export function createButtonTestSuite(button, stories) {
                 <Stack>
                     <Button fluid disabled element={button}>Button</Button>
                 </Stack>
-            </Stack>
+            </VerticalStack>
         )
         .add("styling", () =>
             <Stack>
