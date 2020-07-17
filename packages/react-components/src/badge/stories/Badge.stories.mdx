@@ -62,7 +62,7 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <VerticalStack>
+        <Stack spacing={8} align="end">
             <Stack align="end">
                 <Badge size="tiny">5</Badge>
                 <Badge size="small">5</Badge>
@@ -70,12 +70,12 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
                 <Badge size="large">5</Badge>
             </Stack>
             <Stack align="end">
-                <Badge size="tiny">99</Badge>
-                <Badge size="small">99</Badge>
-                <Badge>99</Badge>
-                <Badge size="large">99</Badge>
+                <Badge size="tiny">100</Badge>
+                <Badge size="small">100</Badge>
+                <Badge>100</Badge>
+                <Badge size="large">100</Badge>
             </Stack>
-        </VerticalStack>
+        </Stack>
     </Story>
 </Preview>
 
@@ -106,7 +106,7 @@ A badge can be rendered as a dot. A single digit is supported.
 
 <Preview>
     <Story name="dot">
-        <VerticalStack>
+        <Stack spacing={8} align="end">
             <Stack align="end">
                 <Badge variant="dot" size="tiny" />
                 <Badge variant="dot" size="small" />
@@ -119,7 +119,7 @@ A badge can be rendered as a dot. A single digit is supported.
                 <Badge variant="dot">5</Badge>
                 <Badge variant="dot" size="large">5</Badge>
             </Stack>
-        </VerticalStack>
+        </Stack>
     </Story>
 </Preview>
 
