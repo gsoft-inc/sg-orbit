@@ -172,3 +172,21 @@ A checkbox checkmark can be to the left or to the right of his label.
 >
     <RefLogger><Checkbox>Milky Way</Checkbox></RefLogger>
 </Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text checkbox component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Checkbox ref={ref} />
+        </div>
+    );
+}
+```

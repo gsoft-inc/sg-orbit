@@ -4,9 +4,9 @@ import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback, useRef } from "react";
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useAutoControlledState, useAutofocus, useChainedEventCallback } from "../../shared";
+import { mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 
 /*
 COMPONENTS:
@@ -81,6 +81,7 @@ export function InnerCheckbox({
     const [isChecked, setIsChecked] = useAutoControlledState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useAutoControlledState(indeterminate, defaultIndeterminate, false);
 
+    const labelRef = useRef();
     const inputRef = useRef();
 
     const setFocus = useCallback(() => {
@@ -90,6 +91,20 @@ export function InnerCheckbox({
     }, [inputRef]);
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
+    // Forward native input API to the external ref element.
+    useImperativeHandle(forwardedRef, () => {
+        const apiMethods = ["blur", "focus", "click", "checkValidity", "reportValidity", "setCustomValidity"];
+        const domElement = labelRef.current;
+
+        apiMethods.forEach(x => {
+            domElement[x] = (...args) => {
+                inputRef.current[x](...args);
+            };
+        });
+
+        return domElement;
+    });
 
     const labelMarkup = children && (
         <span className="label">{children}</span>
@@ -113,9 +128,13 @@ export function InnerCheckbox({
         </>
     );
 
-    const handleChange = useChainedEventCallback(onChange, () => {
-        setIsChecked(x => !x);
+    const handleChange = useEventCallback(event => {
+        setIsChecked(!isChecked);
         setIsIndeterminate(false);
+
+        if (!isNil(onChange)) {
+            onChange(event, { isChecked: !isChecked });
+        }
     });
 
     return (
@@ -126,23 +145,24 @@ export function InnerCheckbox({
                 "o-ui checkbox",
                 isChecked && "checked",
                 isIndeterminate && "indeterminate",
+                iconMarkup && "with-icon",
+                badgeMarkup && "with-badge",
                 reverse && "reverse",
+                disabled && "disabled",
+                readOnly && "readonly",
                 active && "active",
                 focus && "focus",
                 hover && "hover",
                 className
             )}
-            disabled={disabled}
-            readOnly={readOnly}
-            ref={forwardedRef}
+            ref={labelRef}
         >
             <VisuallyHidden
                 {...autofocusProps}
                 as="input"
-                checked={isChecked}
-                onChange={handleChange}
+                checked={readOnly ? undefined : isChecked}
+                onChange={readOnly ? undefined : handleChange}
                 disabled={disabled}
-                readOnly={readOnly}
                 name={name}
                 tabIndex={tabIndex}
                 type="checkbox"
