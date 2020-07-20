@@ -130,6 +130,29 @@ a.o-ui.button.solid {
     fill: var(--marine-900);
 }
 
+/* BUTTON | SOLID | DANGER */
+.o-ui.button.solid.danger {
+    background-color: var(--alert-500);
+}
+
+/* BUTTON | SOLID | DANGER | HOVER */
+.o-ui.button.solid.danger:hover,
+.o-ui.button.solid.danger.hover {
+    background-color: var(--alert-700);
+}
+
+/* BUTTON | SOLID | DANGER | FOCUS */
+.o-ui.button.solid.danger:focus,
+.o-ui.button.solid.danger.focus {
+    background-color: var(--alert-500);
+}
+
+/* BUTTON | SOLID | DANGER | ACTIVE */
+.o-ui.button.solid.danger:active,
+.o-ui.button.solid.danger.active {
+    background-color: var(--alert-900);
+}
+
 /* BUTTON | OUTLINE */
 .o-ui.button.outline {
     border: none;
@@ -213,6 +236,12 @@ a.o-ui.button.solid {
     background-color: var(--primary-500);
 }
 
+/* BUTTON | OUTLINE | PRIMARY | ACTIVE | ICON */
+.o-ui.button.outline.primary:active .icon,
+.o-ui.button.outline.primary.active .icon {
+    fill: var(--white);
+}
+
 /* BUTTON | OUTLINE | PRIMARY | ICON */
 .o-ui.button.outline.primary .icon {
     fill: var(--primary-500);
@@ -243,6 +272,35 @@ a.o-ui.button.solid {
 .o-ui.button.outline.secondary:active,
 .o-ui.button.outline.secondary.active {
     box-shadow: 0 0 0 1px var(--cloud-700) inset;
+}
+
+/* BUTTON | OUTLINE | DANGER */
+.o-ui.button.outline.danger {
+    box-shadow: 0 0 0 1px var(--alert-500) inset;
+    color: var(--alert-500);
+}
+
+/* BUTTON | OUTLINE | DANGER | HOVER */
+.o-ui.button.outline.danger:hover,
+.o-ui.button.outline.danger.hover {
+    box-shadow: 0 0 0 1px var(--alert-700) inset;
+}
+
+/* BUTTON | OUTLINE | DANGER | ACTIVE */
+.o-ui.button.outline.danger:active,
+.o-ui.button.outline.danger.active {
+    box-shadow: 0 0 0 1px var(--alert-500) inset;
+    color: var(--white);
+    background-color: var(--alert-500);
+}
+
+/* BUTTON | OUTLINE | DANGER | ICON */
+.o-ui.button.outline.danger .icon {
+    fill: var(--alert-500);
+}
+
+.o-ui.button.outline.danger.active .icon {
+    fill: var(--white);
 }
 
 /* BUTTON | OUTLINE | ANCHOR */
@@ -403,6 +461,11 @@ a.o-ui.button.outline {
     color: var(--primary-500);
 }
 
+/* BUTTON | GHOST | PRIMARY | ICON  */
+.o-ui.button.ghost.primary .icon {
+    fill: var(--primary-500);
+}
+
 /* BUTTON | GHOST | SECONDARY */
 .o-ui.button.ghost.secondary {
     color: var(--marine-300);
@@ -411,6 +474,16 @@ a.o-ui.button.outline {
 /* BUTTON | OUTLINE | SECONDARY | ICON */
 .o-ui.button.ghost.secondary .icon {
     fill: var(--marine-500);
+}
+
+/* BUTTON | GHOST | DANGER */
+.o-ui.button.ghost.danger {
+    color: var(--alert-500);
+}
+
+/* BUTTON | GHOST | DANGER | ICON  */
+.o-ui.button.ghost.danger .icon {
+    fill: var(--alert-500);
 }
 
 /* BUTTON | FLUID */
@@ -486,6 +559,12 @@ a.o-ui.button.outline {
     border-top-color: var(--white);
 }
 
+/* BUTTON | SOLID | LOADING | DANGER */
+.o-ui.button.loading.solid.danger:after {
+    border: 2px solid var(--alert-300);
+    border-top-color: var(--white);
+}
+
 /* BUTTON | OUTLINE | LOADING | PRIMARY */
 .o-ui.button.loading.outline:after {
     border: 2px solid var(--marine-100);
@@ -502,6 +581,36 @@ a.o-ui.button.outline {
 .o-ui.button.loading.outline.secondary:after {
     border: 2px solid var(--cloud-300);
     border-top-color: var(--cloud-900);
+}
+
+/* BUTTON | OUTLINE | LOADING | DANGER */
+.o-ui.button.loading.outline.danger:after {
+    border: 2px solid var(--alert-300);
+    border-top-color: var(--alert-900);
+}
+
+/* BUTTON | GHOST | LOADING | PRIMARY */
+.o-ui.button.loading.ghost:after {
+    border: 2px solid var(--marine-100);
+    border-top-color: var(--marine-300);
+}
+
+/* BUTTON | GHOST | LOADING | PRIMARY */
+.o-ui.button.loading.ghost.primary:after {
+    border: 2px solid var(--primary-300);
+    border-top-color: var(--primary-900);
+}
+
+/* BUTTON | GHOST | LOADING | SECONDARY */
+.o-ui.button.loading.ghost.secondary:after {
+    border: 2px solid var(--cloud-300);
+    border-top-color: var(--cloud-900);
+}
+
+/* BUTTON | GHOST | LOADING | DANGER */
+.o-ui.button.loading.ghost.danger:after {
+    border: 2px solid var(--alert-300);
+    border-top-color: var(--alert-900);
 }
 
 /* BUTTON | DISABLED */
