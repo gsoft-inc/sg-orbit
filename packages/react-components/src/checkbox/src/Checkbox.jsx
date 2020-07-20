@@ -145,6 +145,8 @@ export function InnerCheckbox({
                 "o-ui checkbox",
                 isChecked && "checked",
                 isIndeterminate && "indeterminate",
+                iconMarkup && "with-icon",
+                badgeMarkup && "with-badge",
                 reverse && "reverse",
                 disabled && "disabled",
                 readOnly && "readonly",
