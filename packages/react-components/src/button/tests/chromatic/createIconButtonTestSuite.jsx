@@ -62,6 +62,24 @@ export function createIconButtonTestSuite(iconButton, stories) {
                 </Stack>
             </VerticalStack>
         )
+        .add("danger", () =>
+            <VerticalStack>
+                <Stack align="end">
+                    <IconButton color="danger" size="mini" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton color="danger" size="tiny" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton color="danger" size="small" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton color="danger" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton color="danger" size="large" element={iconButton}><AddIcon /></IconButton>
+                </Stack>
+                <Stack align="end">
+                    <IconButton loading color="danger" size="mini" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" size="tiny" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" size="small" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" element={iconButton}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" size="large" element={iconButton}><AddIcon /></IconButton>
+                </Stack>
+            </VerticalStack>
+        )
         .add("circular", () =>
             <VerticalStack>
                 <Stack align="end">

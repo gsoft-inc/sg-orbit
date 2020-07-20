@@ -170,6 +170,24 @@ export function createButtonTestSuite(button, stories) {
                 </Stack>
             </VerticalStack>
         )
+        .add("danger", () =>
+            <VerticalStack>
+                <Stack align="end">
+                    <Button color="danger" size="mini" element={button}>Button</Button>
+                    <Button color="danger" size="tiny" element={button}>Button</Button>
+                    <Button color="danger" size="small" element={button}>Button</Button>
+                    <Button color="danger" element={button}>Button</Button>
+                    <Button color="danger" size="large" element={button}>Button</Button>
+                </Stack>
+                <Stack align="end">
+                    <Button loading color="danger" size="mini" element={button}>Button</Button>
+                    <Button loading color="danger" size="tiny" element={button}>Button</Button>
+                    <Button loading color="danger" size="small" element={button}>Button</Button>
+                    <Button loading color="danger" element={button}>Button</Button>
+                    <Button loading color="danger" size="large" element={button}>Button</Button>
+                </Stack>
+            </VerticalStack>
+        )
         .add("circular", () =>
             <VerticalStack>
                 <Stack align="end">
