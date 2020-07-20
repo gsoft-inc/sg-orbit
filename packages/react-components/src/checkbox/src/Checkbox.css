@@ -1,0 +1,28 @@
+.o-ui.checkbox {
+    display: inline-flex;
+}
+
+.o-ui.checkbox .box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid;
+    margin-right: 4px;
+    border-radius: 4px;
+}
+
+.o-ui.checkbox.checked .box {
+    background-color: black;
+}
+
+.o-ui.checkbox.indeterminate .box {
+    background-color: teal;
+}
+
+.o-ui.checkbox input[type="checkbox"]:focus + .box {
+    box-shadow: 0 0 0 3px pink;
+}
+
+.o-ui.checkbox.reverse {
+    flex-direction: row-reverse;
+}

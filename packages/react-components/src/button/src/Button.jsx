@@ -123,13 +123,11 @@ export function InnerButton({
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
         size,
-        highlight: true,
         disabled
     });
 
     const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
         size,
-        highlight: true,
         disabled
     });
 

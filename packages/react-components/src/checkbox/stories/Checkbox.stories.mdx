@@ -1,15 +1,16 @@
 import { Badge } from "@react-components/badge";
 import { Checkbox, InnerCheckbox } from "@react-components/checkbox";
-import { HelpIcon, InfoIcon } from "@react-components/icons";
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Checkbox")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/checkbox/src" />)
         .build()}
 />
 
@@ -23,8 +24,6 @@ A checkbox allows a user to select a value from a small set of options, often bi
 
 ## Props
 
-<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
-
 <Props
     componentsDefinitions={[
         { displayName: "Checkbox", component: InnerCheckbox }
@@ -33,13 +32,9 @@ A checkbox allows a user to select a value from a small set of options, often bi
 
 ## Usage
 
-### Label
-
-A checkbox can have a label.
-
 <Preview>
-    <Story name="label">
-        <Checkbox label="Milky Way" />
+    <Story name="default">
+        <Checkbox>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -49,7 +44,7 @@ A checkbox can be checked.
 
 <Preview>
     <Story name="checked">
-        <Checkbox defaultChecked label="Milky Way" />
+        <Checkbox defaultChecked>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -59,7 +54,7 @@ A checkbox can be indeterminate.
 
 <Preview>
     <Story name="indeterminate">
-        <Checkbox defaultIndeterminate label="Milky Way" />
+        <Checkbox defaultIndeterminate>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -69,7 +64,7 @@ A checkbox can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Checkbox disabled label="Milky Way" />
+        <Checkbox disabled>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -79,7 +74,7 @@ A checkbox can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Checkbox readOnly label="Milky Way" />
+        <Checkbox readOnly>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -93,29 +88,29 @@ A checkbox can be rendered without a label.
     </Story>
 </Preview>
 
-### Icons
+### Icon
 
-A checkbox can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
+A checkbox can contain [icons](?path=/docs/materials-icons--page) after his label.
 
 <Preview>
     <Story name="icons">
-        <div className="flex items-lot-of-space-between">
-            <Checkbox label="Milky Way" icons={<InfoIcon />} />
-            <Checkbox label="Andromeda" icons={[<InfoIcon />, <HelpIcon />]} />
-        </div>
+        <Stack>
+            <Checkbox icon={<InfoIcon />}>Milky Way</Checkbox>
+            <Checkbox icon={<IconGroup><InfoIcon /><HelpIcon /></IconGroup>}>Andromeda</Checkbox>
+        </Stack>
     </Story>
 </Preview>
 
 ### Badge
 
-A checkbox can have a [badge](?path=/docs/components-badge--default-story) after his text.
+A checkbox can have a [badge](?path=/docs/components-badge--default-story) after his label.
 
 <Preview>
     <Story name="badge">
-        <div className="flex items-lot-of-space-between">
-            <Checkbox label="Milky Way" badge={<Badge>6</Badge>} />
-            <Checkbox label="Milky Way" badge={<Badge variant="inline">6</Badge>} />
-        </div>
+        <Stack>
+            <Checkbox badge={<Badge>6</Badge>}>Milky Way</Checkbox>
+            <Checkbox badge={<Badge variant="inline">6</Badge>}>Andromeda</Checkbox>
+        </Stack>
     </Story>
 </Preview>
 
@@ -128,10 +123,20 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <div className="flex items-end items-lot-of-space-between">
-            <Checkbox size="small" label="Milky Way" />
-            <Checkbox label="Milky Way" />
-            <Checkbox size="large" label="Milky Way" />
+            <Checkbox size="small">Milky Way</Checkbox>
+            <Checkbox>Milky Way</Checkbox>
+            <Checkbox size="large">Milky Way</Checkbox>
         </div>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Checkbox reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Milky Way</Checkbox>
     </Story>
 </Preview>
 
@@ -142,8 +147,8 @@ Can be set to: `"small"`, `"large"` or omitted.
         .build()}
 >
     <div className="flex items-space-between">
-        <Checkbox autofocus label="Milky Way" />
-        <Checkbox autofocus disabled label="Andromeda" />
+        <Checkbox autofocus>Milky Way</Checkbox>
+        <Checkbox autofocus disabled>Milky Way</Checkbox>
     </div>
 </Story>
 
@@ -154,8 +159,8 @@ Can be set to: `"small"`, `"large"` or omitted.
         .build()}
 >
     <div className="flex items-space-between">
-        <Checkbox autofocus autofocusDelay={500} label="Milky Way" />
-        <Checkbox autofocus disabled autofocusDelay={500} label="Andromeda" />
+        <Checkbox autofocus autofocusDelay={500}>Milky Way</Checkbox>
+        <Checkbox autofocus disabled autofocusDelay={500}>Milky Way</Checkbox>
     </div>
 </Story>
 
@@ -165,5 +170,5 @@ Can be set to: `"small"`, `"large"` or omitted.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Checkbox label="Milky Way" /></RefLogger>
+    <RefLogger><Checkbox>Milky Way</Checkbox></RefLogger>
 </Story>

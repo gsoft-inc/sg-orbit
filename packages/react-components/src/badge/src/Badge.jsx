@@ -1,7 +1,7 @@
 import "./Badge.css";
 
-import { Children, cloneElement, forwardRef } from "react";
-import { SIZE, createEmbeddableAdapter, getSizeClass, mergeClasses } from "../../shared";
+import { Children, forwardRef } from "react";
+import { SIZE, augmentElement, createEmbeddableAdapter, getSizeClass, mergeClasses } from "../../shared";
 import { bool, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -34,7 +34,7 @@ export function InnerBadge(props) {
     let content = children;
 
     if (variant === "icon") {
-        content = cloneElement(Children.only(children), {
+        content = augmentElement(Children.only(children), {
             size
         });
     }
