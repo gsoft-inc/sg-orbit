@@ -236,6 +236,12 @@ a.o-ui.button.solid {
     background-color: var(--primary-500);
 }
 
+/* BUTTON | OUTLINE | PRIMARY | ACTIVE | ICON */
+.o-ui.button.outline.primary:active .icon,
+.o-ui.button.outline.primary.active .icon {
+    fill: var(--white);
+}
+
 /* BUTTON | OUTLINE | PRIMARY | ICON */
 .o-ui.button.outline.primary .icon {
     fill: var(--primary-500);
