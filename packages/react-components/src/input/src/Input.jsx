@@ -102,7 +102,7 @@ export function InnerInput(props) {
 
     // Forward native input API to the external ref element.
     useImperativeHandle(forwardedRef, () => {
-        const apiMethods = ["blur", "focus", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
+        const apiMethods = ["blur", "focus", "click", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
         const domElement = wrapperRef.current;
 
         apiMethods.forEach(x => {
