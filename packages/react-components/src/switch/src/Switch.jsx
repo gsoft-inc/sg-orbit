@@ -1,14 +1,24 @@
-import { Checkbox } from "../../checkbox";
-import { SemanticRef } from "../../shared";
-import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import "./Switch.css";
 
-const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "radio", "type"];
+import { EmbeddedIcon } from "../../icons";
+import { VisuallyHidden } from "../../visually-hidden";
+import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { embedBadge } from "../../badge";
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { isNil } from "lodash";
+import { mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-export const CHECKBOX_PROP_TYPES = {
+const propTypes = {
     /**
-     * Whether or not the switch should autofocus on render.
+     * A controlled checked state value.
+     */
+    on: bool,
+    /**
+     * The initial value of `checked`.
+     */
+    defaultOn: bool,
+    /**
+     * Whether or not the checkbox should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -16,43 +26,157 @@ export const CHECKBOX_PROP_TYPES = {
      */
     autofocusDelay: number,
     /**
-     * The label associated to the switch.
+     * Called when the checkbox checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {{isChecked: bool}} data - Event data.
+     * @returns {void}
      */
-    label: string,
+    onChange: func,
     /**
-     * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    icons: oneOfType([element, arrayOf(element)]),
+    icon: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
     badge: element,
     /**
-     * A switch can vary in size.
+     * A checkbox can vary in size.
      */
-    size: oneOf(["small", "medium", "large"])
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * Invert the order the checkmark box and the label.
+     */
+    reverse: bool,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
 };
 
-export function InnerSwitch(props) {
-    const { forwardedRef, ...rest } = props;
+const defaultProps = {
+    as: "label"
+};
+
+export function InnerSwitch({
+    on,
+    defaultOn,
+    autofocus,
+    autofocusDelay,
+    onChange,
+    icon,
+    badge,
+    size,
+    reverse,
+    name,
+    tabIndex,
+    active,
+    focus,
+    hover,
+    disabled,
+    readOnly,
+    as: ElementType,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const [isOn, setIsOn] = useAutoControlledState(on, defaultOn, false);
+
+    const labelRef = useRef();
+    const inputRef = useRef();
+
+    const setFocus = useCallback(() => {
+        if (!isNil(inputRef.current)) {
+            inputRef.current.focus();
+        }
+    }, [inputRef]);
+
+    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+
+    // Forward native input API to the external ref element.
+    useImperativeHandle(forwardedRef, () => {
+        const apiMethods = ["blur", "focus", "click", "checkValidity", "reportValidity", "setCustomValidity"];
+        const domElement = labelRef.current;
+
+        apiMethods.forEach(x => {
+            domElement[x] = (...args) => {
+                inputRef.current[x](...args);
+            };
+        });
+
+        return domElement;
+    });
+
+    const labelMarkup = children && (
+        <span className="label">{children}</span>
+    );
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    );
+
+    // TODO: Add reverse
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+        size,
+        disabled
+    });
+
+    const content = (
+        <>
+            {labelMarkup}
+            {iconMarkup}
+            {badgeMarkup}
+        </>
+    );
+
+    const handleChange = useEventCallback(event => {
+        setIsOn(!isOn);
+
+        if (!isNil(onChange)) {
+            onChange(event, { isOn: !isOn });
+        }
+    });
 
     return (
-        <SemanticRef innerRef={forwardedRef}>
-            <Checkbox
-                {...rest}
-                toggle
-                __componentName="@orbit-ui/react-components/Switch"
-                __unsupportedProps={UNSUPPORTED_PROPS}
+        <ElementType
+            data-testid="switch"
+            {...rest}
+            className={mergeClasses(
+                "o-ui switch",
+                isOn && "on",
+                iconMarkup && "with-icon",
+                badgeMarkup && "with-badge",
+                reverse && "reverse",
+                disabled && "disabled",
+                readOnly && "readonly",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                className
+            )}
+            ref={labelRef}
+        >
+            <VisuallyHidden
+                {...autofocusProps}
+                as="input"
+                checked={readOnly ? undefined : isOn}
+                onChange={readOnly ? undefined : handleChange}
+                disabled={disabled}
+                name={name}
+                tabIndex={tabIndex}
+                type="checkbox"
+                ref={inputRef}
             />
-        </SemanticRef>
+            <span className="switch"></span>
+            {content}
+        </ElementType>
     );
 }
 
-InnerSwitch.propTypes = CHECKBOX_PROP_TYPES;
+InnerSwitch.propTypes = propTypes;
+InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
     <InnerSwitch { ...props } forwardedRef={ref} />
 ));
-
-// For backward compatibility.
-export const Toggle = Switch;

@@ -1,0 +1,14 @@
+.o-ui.switch {
+    display: inline-flex;
+}
+
+.o-ui.switch > .switch {
+    display: inline-block;
+    width: 30px;
+    height: 10px;
+    background-color: black;
+}
+
+.o-ui.switch.on > .switch {
+    background-color: teal;
+}
