@@ -3,6 +3,7 @@
     align-items: center;
     cursor: pointer;
     line-height: 1;
+    overflow: hidden;
 }
 
 .o-ui.checkbox .box {
@@ -13,12 +14,16 @@
     border: 1px solid var(--marine-100);
     border-radius: var(--scale-alpha);
     transition: all .125s ease-in;
+    flex-shrink: 0;
 }
 
 /* CHECKBOX | LABEL */
 .o-ui.checkbox .label {
     margin-left: var(--scale-bravo);
     font-size: var(--type-scale-7);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* INDETERMINATE */
@@ -58,11 +63,25 @@
 
 .o-ui.checkbox.reverse .label {
     margin-right: var(--scale-bravo);
+    margin-left: 0;
 }
 
 /* WITH ICON */
-.o-ui.checkbox.with-icon .label {
+.o-ui.checkbox.with-icon > .icon,
+.o-ui.checkbox.with-icon > .stack.horizontal {
+    margin-left: var(--scale-alpha);
+}
+
+/* WITH ICON | REVERSE */
+.o-ui.checkbox.with-icon.reverse > .icon,
+.o-ui.checkbox.with-icon.reverse > .stack.horizontal {
+    margin-left: 0;
     margin-right: var(--scale-alpha);
+}
+
+/* WITH ICON | ICON */
+.o-ui.checkbox.with-icon .icon {
+    fill: currentColor;
 }
 
 /* WITH ICON | REVERSE  */
@@ -74,6 +93,12 @@
 /* WITH BADGE */
 .o-ui.checkbox.with-badge .badge.pill {
     margin-left: var(--scale-bravo);
+}
+
+/* WITH BADGE | REVERSE */
+.o-ui.checkbox.with-badge.reverse .badge.pill {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
 }
 
 /* STATE | CHECKED */

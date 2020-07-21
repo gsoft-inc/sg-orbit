@@ -164,6 +164,11 @@ a.o-ui.button.solid {
     border-radius: calc(var(--height-default) / 2);
 }
 
+/* BUTTON | OUTLINE | ICON */
+.o-ui.button.outline .icon {
+    fill: currentColor;
+}
+
 /* BUTTON | OUTLINE | HOVER */
 .o-ui.button.outline:hover,
 .o-ui.button.outline.hover {
@@ -191,12 +196,6 @@ a.o-ui.button.solid {
 .o-ui.button.outline:focus:active,
 .o-ui.button.outline:focus.active {
     box-shadow: 0 0 0 1px var(--marine-500) inset, var(--outline);
-}
-
-/* BUTTON | OUTLINE | ACTIVE | ICON */
-.o-ui.button.outline:active .icon,
-.o-ui.button.outline.active .icon {
-    fill: var(--white);
 }
 
 /* BUTTON | OUTLINE | ACTIVE | DISABLED */
@@ -236,24 +235,10 @@ a.o-ui.button.solid {
     background-color: var(--primary-500);
 }
 
-/* BUTTON | OUTLINE | PRIMARY | ACTIVE | ICON */
-.o-ui.button.outline.primary:active .icon,
-.o-ui.button.outline.primary.active .icon {
-    fill: var(--white);
-}
-
-/* BUTTON | OUTLINE | PRIMARY | ICON */
-.o-ui.button.outline.primary .icon {
-    fill: var(--primary-500);
-}
-
-.o-ui.button.outline.primary.active .icon {
-    fill: var(--white);
-}
-
 /* BUTTON | OUTLINE | SECONDARY */
 .o-ui.button.outline.secondary {
     box-shadow: 0 0 0 1px var(--cloud-200) inset;
+    color: var(--cloud-500);
 }
 
 /* BUTTON | OUTLINE | SECONDARY | HOVER */
@@ -284,6 +269,12 @@ a.o-ui.button.solid {
 .o-ui.button.outline.danger:hover,
 .o-ui.button.outline.danger.hover {
     box-shadow: 0 0 0 1px var(--alert-700) inset;
+}
+
+/* BUTTON | OUTLINE | DANGER | FOCUS */
+.o-ui.button.outline.danger:focus,
+.o-ui.button.outline.danger.focus {
+    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--outline);
 }
 
 /* BUTTON | OUTLINE | DANGER | ACTIVE */
@@ -344,6 +335,10 @@ a.o-ui.button.outline {
     color: var(--marine-900);
     font-size: var(--type-scale-6);
     padding: 0;
+}
+
+.o-ui.button.link .icon {
+    fill: currentColor;
 }
 
 /* BUTTON | LINK | STATE | HOVER */
@@ -408,8 +403,8 @@ a.o-ui.button.outline {
 }
 
 /* BUTTON | LINK | PRIMARY | STATE | HOVER */
-.o-ui.button.link.primary:hover .text,
-.o-ui.button.link.primary.hover .text {
+.o-ui.button.link.primary:hover,
+.o-ui.button.link.primary.hover {
     color: var(--primary-700);
 }
 
@@ -511,6 +506,11 @@ a.o-ui.button.outline {
     background-color: var(--white);
 }
 
+/* BUTTON | GHOST | ICON  */
+.o-ui.button.ghost .icon {
+    fill: currentColor;
+}
+
 /* BUTTON | SOLID | SIZES */
 .o-ui.button.ghost.mini {
     padding: 0 var(--padding-mini);
@@ -545,29 +545,14 @@ a.o-ui.button.outline {
     color: var(--primary-500);
 }
 
-/* BUTTON | GHOST | PRIMARY | ICON  */
-.o-ui.button.ghost.primary .icon {
-    fill: var(--primary-500);
-}
-
 /* BUTTON | GHOST | SECONDARY */
 .o-ui.button.ghost.secondary {
     color: var(--marine-300);
 }
 
-/* BUTTON | OUTLINE | SECONDARY | ICON */
-.o-ui.button.ghost.secondary .icon {
-    fill: var(--marine-500);
-}
-
 /* BUTTON | GHOST | DANGER */
 .o-ui.button.ghost.danger {
     color: var(--alert-500);
-}
-
-/* BUTTON | GHOST | DANGER | ICON  */
-.o-ui.button.ghost.danger .icon {
-    fill: var(--alert-500);
 }
 
 /* BUTTON | FLUID */

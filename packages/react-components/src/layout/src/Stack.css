@@ -3,6 +3,7 @@
     --spacing: 10rem;
     display: flex;
     flex-direction: row;
+    color: inherit;
 }
 
 .o-ui.stack.horizontal > *:not(:last-child) {

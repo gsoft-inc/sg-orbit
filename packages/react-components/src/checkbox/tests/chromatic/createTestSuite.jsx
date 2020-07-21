@@ -146,16 +146,16 @@ export function createTestSuite(element, stories) {
         )
         .add("overflow", () =>
             <Stack>
-                <div className="mw5">
+                <div className="flex items-end mw5">
                     <Checkbox element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
-                <div className="mw5">
+                <div className="flex items-end mw5">
                     <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
-                <div className="mw5">
+                <div className="flex items-end mw5">
                     <Checkbox badge={<Badge variant="inline">60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
-                <div className="mw5">
+                <div className="flex items-end mw5">
                     <Checkbox badge={<Badge>60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
             </Stack>
