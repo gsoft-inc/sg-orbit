@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
-import { Stack, VerticalStack } from "@react-components/stack";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -18,33 +18,33 @@ stories()
         <Lozenge>New</Lozenge>
     )
     .add("icon", () =>
-        <VerticalStack>
-            <Stack align="end">
+        <Stack>
+            <Inline align="end">
                 <Lozenge size="small" iconLeft={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge size="large" iconLeft={<CheckCircleIcon />}>New</Lozenge>
-            </Stack>
-            <Stack align="end">
+            </Inline>
+            <Inline align="end">
                 <Lozenge size="small" iconRight={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
                 <Lozenge size="large" iconRight={<CheckCircleIcon />}>New</Lozenge>
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("size", () =>
-        <Stack align="end">
+        <Inline align="end">
             <Lozenge size="small">New</Lozenge>
             <Lozenge>New</Lozenge>
             <Lozenge size="large">New</Lozenge>
-        </Stack>
+        </Inline>
     )
     .add("styling", () =>
-        <Stack>
+        <Inline>
             <Lozenge className="border-red">New</Lozenge>
             <Lozenge
                 style={{
                     border: "1px solid red"
                 }}
             >New</Lozenge>
-        </Stack>
+        </Inline>
     );

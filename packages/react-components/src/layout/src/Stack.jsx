@@ -60,7 +60,7 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerStack({ direction, align, justify, spacing, fluid, as: ElementType, className, style, children, forwardedRef, ...rest }) {
+export function InnerInline({ direction, align, justify, spacing, fluid, as: ElementType, className, style, children, forwardedRef, ...rest }) {
     const [element, setElement] = useState();
 
     const ref = useMergedRefs(setElement, forwardedRef);
@@ -96,13 +96,13 @@ export function InnerStack({ direction, align, justify, spacing, fluid, as: Elem
     );
 }
 
-InnerStack.propTypes = propTypes;
-InnerStack.defaultProps = defaultProps;
+InnerInline.propTypes = propTypes;
+InnerInline.defaultProps = defaultProps;
 
-export const Stack = forwardRef((props, ref) => (
-    <InnerStack { ...props } forwardedRef={ref} />
+export const Inline = forwardRef((props, ref) => (
+    <InnerInline { ...props } forwardedRef={ref} />
 ));
 
-export const VerticalStack = forwardRef((props, ref) => (
-    <InnerStack { ...props } direction="vertical" forwardedRef={ref} />
+export const Stack = forwardRef((props, ref) => (
+    <InnerInline { ...props } direction="vertical" forwardedRef={ref} />
 ));

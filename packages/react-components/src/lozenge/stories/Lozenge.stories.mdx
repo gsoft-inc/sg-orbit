@@ -1,9 +1,9 @@
 import { CheckCircleIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -48,10 +48,10 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Stack>
+        <Inline>
             <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
             <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
@@ -63,11 +63,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <Stack align="end">
+        <Inline align="end">
             <Lozenge size="small">New</Lozenge>
             <Lozenge>New</Lozenge>
             <Lozenge size="large">New</Lozenge>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 

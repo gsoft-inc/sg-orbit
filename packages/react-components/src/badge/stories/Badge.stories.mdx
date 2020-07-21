@@ -1,10 +1,10 @@
 import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
 import { CheckCircleIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { Square } from "./Square.jsx";
-import { Stack, VerticalStack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -62,20 +62,20 @@ Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <Stack spacing={8} align="end">
-            <Stack align="end">
+        <Inline spacing={8} align="end">
+            <Inline align="end">
                 <Badge size="tiny">5</Badge>
                 <Badge size="small">5</Badge>
                 <Badge>5</Badge>
                 <Badge size="large">5</Badge>
-            </Stack>
-            <Stack align="end">
+            </Inline>
+            <Inline align="end">
                 <Badge size="tiny">100</Badge>
                 <Badge size="small">100</Badge>
                 <Badge>100</Badge>
                 <Badge size="large">100</Badge>
-            </Stack>
-        </Stack>
+            </Inline>
+        </Inline>
     </Story>
 </Preview>
 
@@ -93,10 +93,10 @@ An inline badge, is not affected by the `size` property. The badge will inherit 
 
 <Preview>
     <Story name="inline size">
-        <VerticalStack>
+        <Stack>
             <span className="f5">Galaxies<Badge variant="inline">100+</Badge></span>
             <span className="f4">Galaxies<Badge variant="inline">100+</Badge></span>
-        </VerticalStack>
+        </Stack>
     </Story>
 </Preview>
 
@@ -106,20 +106,20 @@ A badge can be rendered as a dot. A single digit is supported.
 
 <Preview>
     <Story name="dot">
-        <Stack spacing={8} align="end">
-            <Stack align="end">
+        <Inline spacing={8} align="end">
+            <Inline align="end">
                 <Badge variant="dot" size="tiny" />
                 <Badge variant="dot" size="small" />
                 <Badge variant="dot" />
                 <Badge variant="dot" size="large" />
-            </Stack>
-            <Stack align="end">
+            </Inline>
+            <Inline align="end">
                 <Badge variant="dot" size="tiny">5</Badge>
                 <Badge variant="dot" size="small">5</Badge>
                 <Badge variant="dot">5</Badge>
                 <Badge variant="dot" size="large">5</Badge>
-            </Stack>
-        </Stack>
+            </Inline>
+        </Inline>
     </Story>
 </Preview>
 
@@ -129,12 +129,12 @@ A badge can be an icon.
 
 <Preview>
     <Story name="icon">
-        <Stack align="end">
+        <Inline align="end">
             <Badge variant="icon" size="tiny"><CheckCircleIcon /></Badge>
             <Badge variant="icon" size="small"><CheckCircleIcon /></Badge>
             <Badge variant="icon"><CheckCircleIcon /></Badge>
             <Badge variant="icon" size="large"><CheckCircleIcon /></Badge>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
@@ -144,7 +144,7 @@ A badge can float to the top right corner of an element.
 
 <Preview>
     <Story name="floating">
-        <Stack>
+        <Inline>
             <FloatingBadge badge={<Badge variant="dot" />}>
                 <Square />
             </FloatingBadge>
@@ -160,7 +160,7 @@ A badge can float to the top right corner of an element.
             <FloatingBadge badge={<Badge>100</Badge>}>
                 <Square />
             </FloatingBadge>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 

@@ -1,4 +1,4 @@
-import { Stack } from "@react-components/stack";
+import { Inline } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
@@ -19,9 +19,9 @@ createTestSuite(<Tag variant="outline" />, stories("/outline"));
 
 stories()
     .add("styling", () =>
-        <Stack>
+        <Inline>
             <Tag className="bg-red">Falcon 9</Tag>
             <Tag style={{ backgroundColor: "red" }}>Falcon 9</Tag>
-        </Stack>
+        </Inline>
     );
 

@@ -1,7 +1,7 @@
 import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
-import { Stack, VerticalStack } from "@react-components/stack";
+import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
@@ -119,36 +119,36 @@ stories()
         <BasicDropdown />
     )
     .add("open", () =>
-        <Stack spacing="150px">
+        <Inline spacing="150px">
             <BasicDropdown open />
             <BasicDropdown defaultOpen />
-        </Stack>
+        </Inline>
 
     )
     .add("basic trigger", () =>
-        <Stack spacing="300px">
-            <VerticalStack spacing="200px">
-                <Stack>
+        <Inline spacing="300px">
+            <Stack spacing="200px">
+                <Inline>
                     <BasicDropdown size="small" />
                     <BasicDropdown
                         size="small"
                         open
                     />
-                </Stack>
-                <Stack>
+                </Inline>
+                <Inline>
                     <BasicDropdown />
                     <BasicDropdown open />
-                </Stack>
-                <Stack>
+                </Inline>
+                <Inline>
                     <BasicDropdown size="large" />
                     <BasicDropdown
                         size="large"
                         open
                     />
-                </Stack>
-            </VerticalStack>
-            <VerticalStack>
-                <Stack>
+                </Inline>
+            </Stack>
+            <Stack>
+                <Inline>
                     <BasicDropdown active />
                     <BasicDropdown focus />
                     <BasicDropdown hover />
@@ -157,13 +157,13 @@ stories()
                         hover
                     />
                     <BasicDropdown disabled />
-                </Stack>
-            </VerticalStack>
-        </Stack>
+                </Inline>
+            </Stack>
+        </Inline>
     )
     .add("basic trigger icon", () =>
-        <VerticalStack spacing="200px">
-            <Stack>
+        <Stack spacing="200px">
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="small"
@@ -173,8 +173,8 @@ stories()
                     size="small"
                     open
                 />
-            </Stack>
-            <Stack>
+            </Inline>
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
                 />
@@ -182,8 +182,8 @@ stories()
                     icon={<FileIcon />}
                     open
                 />
-            </Stack>
-            <Stack>
+            </Inline>
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="large"
@@ -193,12 +193,12 @@ stories()
                     size="large"
                     open
                 />
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("button trigger", () =>
-        <VerticalStack spacing="200px">
-            <Stack spacing="200px">
+        <Stack spacing="200px">
+            <Inline spacing="200px">
                 <CircularButtonDropdown />
                 <CircularButtonDropdown
                     size="small"
@@ -211,8 +211,8 @@ stories()
                     size="large"
                     open
                 />
-            </Stack>
-            <Stack spacing="200px">
+            </Inline>
+            <Inline spacing="200px">
                 <BasicButtonDropdown />
                 <BasicButtonDropdown
                     size="small"
@@ -225,11 +225,11 @@ stories()
                     size="large"
                     open
                 />
-            </Stack>
+            </Inline>
             <div className="w-100">
                 <BasicButtonDropdown fluid />
             </div>
-            <Stack>
+            <Inline>
                 <CircularButtonDropdown active />
                 <CircularButtonDropdown focus />
                 <CircularButtonDropdown hover />
@@ -237,14 +237,14 @@ stories()
                     focus
                     hover
                 />
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("advanced trigger", () =>
-        <Stack spacing="200px">
+        <Inline spacing="200px">
             <CustomTriggerDropdown>Task</CustomTriggerDropdown>
             <CustomTriggerDropdown open>Task</CustomTriggerDropdown>
-        </Stack>
+        </Inline>
     )
     .add("scrolling", () =>
         <Dropdown open>
@@ -265,7 +265,7 @@ stories()
         </Dropdown>
     )
     .add("upward", () =>
-        <Stack spacing="200px" style={{ marginTop: "150px" }}>
+        <Inline spacing="200px" style={{ marginTop: "150px" }}>
             <BasicDropdown
                 upward
                 size="small"
@@ -280,11 +280,11 @@ stories()
                 size="large"
                 open
             />
-        </Stack>
+        </Inline>
     )
     .add("direction", () =>
-        <Stack spacing={12}>
-            <VerticalStack spacing="200px">
+        <Inline spacing={12}>
+            <Stack spacing="200px">
                 <BasicDropdown
                     direction="left"
                     size="small"
@@ -299,8 +299,8 @@ stories()
                     size="large"
                     open
                 />
-            </VerticalStack>
-            <VerticalStack spacing="200px">
+            </Stack>
+            <Stack spacing="200px">
                 <BasicDropdown
                     direction="right"
                     size="small"
@@ -315,16 +315,16 @@ stories()
                     size="large"
                     open
                 />
-            </VerticalStack>
-        </Stack>,
+            </Stack>
+        </Inline>,
          {
              ...paramsBuilder()
                  .canvasLayout({ paddingLeft: "100px" })
                  .build()
          })
     .add("fluid", () =>
-        <Stack spacing={12}>
-            <VerticalStack spacing="200px" className="w-50">
+        <Inline spacing={12}>
+            <Stack spacing="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
@@ -336,8 +336,8 @@ stories()
                     size="large"
                     fluid
                 />
-            </VerticalStack>
-            <VerticalStack spacing="200px" className="w-50">
+            </Stack>
+            <Stack spacing="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
@@ -352,12 +352,12 @@ stories()
                     fluid
                     open
                 />
-            </VerticalStack>
-        </Stack>
+            </Stack>
+        </Inline>
     )
     .add("title", () =>
-        <VerticalStack spacing="200px">
-            <Stack spacing="200px">
+        <Stack spacing="200px">
+            <Inline spacing="200px">
                 <BasicDropdown
                     open
                     size="small"
@@ -376,8 +376,8 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </Stack>
-            <Stack spacing="200px">
+            </Inline>
+            <Inline spacing="200px">
                 <BasicDropdown
                     open
                 >
@@ -392,8 +392,8 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </Stack>
-            <Stack spacing="200px">
+            </Inline>
+            <Inline spacing="200px">
                 <BasicDropdown
                     open
                     size="large"
@@ -412,11 +412,11 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("divider", () =>
-        <Stack spacing="200px">
+        <Inline spacing="200px">
             <BasicDropdown
                 open
                 size="small"
@@ -446,38 +446,38 @@ stories()
                 <Dropdown.Item>Save as...</Dropdown.Item>
                 <Dropdown.Item>Rename</Dropdown.Item>
             </BasicDropdown>
-        </Stack>
+        </Inline>
     )
     .add("interaction states", () =>
-        <Stack>
+        <Inline>
             <BasicDropdown active />
             <BasicDropdown focus />
             <BasicDropdown hover />
             <BasicDropdown focus hover />
-        </Stack>
+        </Inline>
     )
     .add("disabled", () =>
         <BasicDropdown disabled />
     )
     .add("styling", () =>
-        <Stack>
+        <Inline>
             <BasicDropdown className="border-red" />
             <BasicDropdown
                 style={{
                     border: "1px solid red"
                 }}
             />
-        </Stack>
+        </Inline>
     )
     .add("item interaction states", () =>
-        <Stack>
+        <Inline>
             <BasicDropdown open>
                 <Dropdown.Item active>New</Dropdown.Item>
                 <Dropdown.Item focus>Open...</Dropdown.Item>
                 <Dropdown.Item hover>Save as...</Dropdown.Item>
                 <Dropdown.Item focus hover>Rename</Dropdown.Item>
             </BasicDropdown>
-        </Stack>
+        </Inline>
     )
     .add("item disabled", () =>
         <BasicDropdown open>
@@ -487,7 +487,7 @@ stories()
         </BasicDropdown>
     )
     .add("item description", () =>
-        <Stack spacing="200px">
+        <Inline spacing="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -511,10 +511,10 @@ stories()
                 <Dropdown.Item>Open...</Dropdown.Item>
                 <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
             </BasicDropdown>
-        </Stack>
+        </Inline>
     )
     .add("item icon", () =>
-        <Stack spacing="200px">
+        <Inline spacing="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -545,10 +545,10 @@ stories()
                 <Dropdown.Item iconRight={<EditIcon />} disabled>Save as...</Dropdown.Item>
                 <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
-        </Stack>
+        </Inline>
     )
     .add("item button", () =>
-        <Stack spacing="200px">
+        <Inline spacing="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -570,11 +570,11 @@ stories()
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
             </BasicDropdown>
-        </Stack>
+        </Inline>
     )
     .add("item link", () =>
-        <VerticalStack spacing="200px">
-            <Stack spacing="200px">
+        <Stack spacing="200px">
+            <Inline spacing="200px">
                 <BasicDropdown
                     size="small"
                     open
@@ -596,8 +596,8 @@ stories()
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
-            </Stack>
-            <Stack spacing="200px">
+            </Inline>
+            <Inline spacing="200px">
                 <BasicDropdown open>
                     <Dropdown.LinkItem active href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus href="/internal-link">Open...</Dropdown.LinkItem>
@@ -610,6 +610,6 @@ stories()
                     <Dropdown.LinkItem hover href="https://www.sharegate.com" target="_blank">Save as...</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus hover href="https://www.sharegate.com" target="_blank">Rename</Dropdown.LinkItem>
                 </BasicDropdown>
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     );

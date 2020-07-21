@@ -1,17 +1,17 @@
-import { Stack } from "@react-components/stack";
+import { Inline } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const StackedElements = forwardRef((props, ref) => {
     return (
-        <Stack
+        <Inline
             {...props}
             ref={ref}
         >
             <div>Alpha</div>
             <div>Bravo</div>
             <div>Charlie</div>
-        </Stack>
+        </Inline>
     );
 });
 

@@ -1,10 +1,10 @@
 import { Badge } from "@react-components/badge";
 import { Checkbox, InnerCheckbox } from "@react-components/checkbox";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -94,10 +94,10 @@ A checkbox can contain [icons](?path=/docs/materials-icons--page) after his labe
 
 <Preview>
     <Story name="icons">
-        <Stack>
+        <Inline>
             <Checkbox icon={<InfoIcon />}>Milky Way</Checkbox>
             <Checkbox icon={<IconGroup><InfoIcon /><HelpIcon /></IconGroup>}>Andromeda</Checkbox>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
@@ -107,10 +107,10 @@ A checkbox can have a [badge](?path=/docs/components-badge--default-story) after
 
 <Preview>
     <Story name="badge">
-        <Stack>
+        <Inline>
             <Checkbox badge={<Badge>6</Badge>}>Milky Way</Checkbox>
             <Checkbox badge={<Badge variant="inline">6</Badge>}>Andromeda</Checkbox>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 

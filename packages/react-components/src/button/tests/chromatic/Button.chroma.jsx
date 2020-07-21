@@ -1,5 +1,5 @@
 import { Button, embedButton } from "@react-components/button";
-import { Stack } from "@react-components/stack";
+import { Inline, Stack } from "@react-components/layout";
 import { createButtonTestSuite } from "./createButtonTestSuite";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -23,11 +23,11 @@ createButtonTestSuite(<Button variant="link" />, stories("/link"));
 
 stories()
     .add("embedded", () =>
-        <Stack align="end">
+        <Inline align="end">
             {embedButton(<Button>Button</Button>, { size: "small" })}
             {embedButton(<Button>Button</Button>)}
             {embedButton(<Button>Button</Button>, { size: "large" })}
-        </Stack>
+        </Inline>
     );
 
 

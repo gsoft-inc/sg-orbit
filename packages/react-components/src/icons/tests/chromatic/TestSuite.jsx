@@ -1,11 +1,11 @@
-import { Stack } from "@react-components/stack";
+import { Inline } from "@react-components/layout";
 import { isNil } from "lodash";
 
 export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
     return (
         <div className="flex flex-column">
             <If condition={!isNil(Icon24)}>
-                <Stack align="end">
+                <Inline align="end">
                     <Icon24 size="micro" />
                     <Icon24 size="mini" />
                     <Icon24 size="tiny" />
@@ -17,10 +17,10 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon24 size="massive" />
                     <Icon24 size="massive" className="fill-sunray-900" />
                     <Icon24 size="massive" style={{ fill: "var(--sunray-900)" }} />
-                </Stack>
+                </Inline>
             </If>
             <If condition={!isNil(Icon32)}>
-                <Stack align="end">
+                <Inline align="end">
                     <Icon32 size="micro" />
                     <Icon32 size="mini" />
                     <Icon32 size="tiny" />
@@ -32,9 +32,9 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon32 size="massive" />
                     <Icon32 size="massive" className="fill-sunray-900" />
                     <Icon32 size="massive" style={{ fill: "var(--sunray-900)" }} />
-                </Stack>
+                </Inline>
             </If>
-            <Stack align="end">
+            <Inline align="end">
                 <MultiIcon size="micro" />
                 <MultiIcon size="mini" />
                 <MultiIcon size="tiny" />
@@ -46,7 +46,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon size="massive" />
                 <MultiIcon size="massive" className="fill-sunray-900" />
                 <MultiIcon size="massive" style={{ fill: "var(--sunray-900)" }} />
-            </Stack>
+            </Inline>
         </div>
     );
 }

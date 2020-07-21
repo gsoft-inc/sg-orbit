@@ -15,7 +15,7 @@ const propTypes = {
     /**
      * Color accent to use.
      */
-    color: oneOf(["primary", "secondary"]),
+    color: oneOf(["primary", "secondary", "danger"]),
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */

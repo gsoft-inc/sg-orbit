@@ -1,5 +1,5 @@
 import { Children, forwardRef } from "react";
-import { Stack } from "@react-components/stack";
+import { Inline } from "@react-components/layout";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement } from "../../shared";
 
@@ -19,7 +19,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    as: Stack
+    as: Inline
 };
 
 export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef, ...rest }) {

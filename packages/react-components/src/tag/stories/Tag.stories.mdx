@@ -1,11 +1,11 @@
 import { Badge } from "@react-components/badge";
-import { IconButton } from "@react-components/button";
 import { CheckCircleIcon, CheckIcon, CrossIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
+import { IconButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { Stack } from "@react-components/stack";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -62,7 +62,7 @@ A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Stack>
+        <Inline>
             <Tag iconLeft={<CheckCircleIcon />}>
                 Falcon 9
             </Tag>
@@ -75,7 +75,7 @@ A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
             <Tag iconRight={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}>
                 Falcon 9
             </Tag>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
@@ -85,7 +85,7 @@ A tag can contain a left or right [badge](?path=/docs/components-badge--default-
 
 <Preview>
     <Story name="badge">
-        <Stack>
+        <Inline>
             <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>
                 Falcon 9
             </Tag>
@@ -95,7 +95,7 @@ A tag can contain a left or right [badge](?path=/docs/components-badge--default-
             <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />} badgeRight={<Badge>6</Badge>}>
                 Falcon 9
             </Tag>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
@@ -107,11 +107,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <Stack align="end">
+        <Inline align="end">
             <Tag size="small">Falcon 9</Tag>
             <Tag>Falcon 9</Tag>
             <Tag size="large">Falcon 9</Tag>
-        </Stack>
+        </Inline>
     </Story>
 </Preview>
 
