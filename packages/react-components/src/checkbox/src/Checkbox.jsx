@@ -5,8 +5,8 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { getSizeClass, mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 
 /*
 COMPONENTS:
@@ -17,9 +17,21 @@ COMPONENTS:
 */
 
 const propTypes = {
+    /**
+     * A controlled checked state value.
+     */
     checked: bool,
+    /**
+     * The initial value of `checked`.
+     */
     defaultChecked: bool,
+    /**
+     * A controlled indeterminate state value.
+     */
     indeterminate: bool,
+    /**
+     * The initial value of `indeterminate`.
+     */
     defaultIndeterminate: bool,
     /**
      * Whether or not the checkbox should autofocus on render.
@@ -29,6 +41,12 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autofocusDelay: number,
+    /**
+     * Called when the checkbox checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {{isChecked: bool}} data - Event data.
+     * @returns {void}
+     */
     onChange: func,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
@@ -42,6 +60,9 @@ const propTypes = {
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
+    /**
+     * Invert the order the checkmark box and the label.
+     */
     reverse: bool,
     /**
      * An HTML element type or a custom React element type to render as.
@@ -153,6 +174,7 @@ export function InnerCheckbox({
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                getSizeClass(size),
                 className
             )}
             ref={labelRef}

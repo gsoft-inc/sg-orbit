@@ -1,7 +1,8 @@
 import { Badge } from "@react-components/badge";
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
-import { InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -9,7 +10,7 @@ import Imports from "./Imports.mdx";
 <Meta
     title={createComponentSection("Switch")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/toggle/src" />)
         .build()}
 />
 
@@ -23,8 +24,6 @@ A switch offers an on or off choice to a user.
 
 ## Props
 
-<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
-
 <Props
     componentsDefinitions={[
         { displayName: "Switch", component: InnerSwitch }
@@ -33,17 +32,13 @@ A switch offers an on or off choice to a user.
 
 ## Usage
 
-<WarningMessage>
-    This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
-</WarningMessage>
-
 ### Label
 
 A switch can have a label.
 
 <Preview>
     <Story name="label">
-        <Switch label="Orion Arm"/>
+        <Switch>Engines</Switch>
     </Story>
 </Preview>
 
@@ -53,29 +48,10 @@ A switch can be on.
 
 <Preview>
     <Story name="on">
-        <Switch defaultChecked label="Orion Arm"/>
+        <Switch defaultOn>Engines</Switch>
     </Story>
 </Preview>
 
-### Disabled
-
-A switch can be disabled.
-
-<Preview>
-    <Story name="disabled">
-        <Switch disabled label="Orion Arm"/>
-    </Story>
-</Preview>
-
-### Readonly
-
-A switch can be readonly.
-
-<Preview>
-    <Story name="readonly">
-        <Switch readOnly label="Orion Arm" />
-    </Story>
-</Preview>
 
 ### No label
 
@@ -87,16 +63,36 @@ A switch can be rendered without a label.
     </Story>
 </Preview>
 
+### Disabled
+
+A switch can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Switch disabled>Engines</Switch>
+    </Story>
+</Preview>
+
+### Readonly
+
+A switch can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Switch readOnly>Engines</Switch>
+    </Story>
+</Preview>
+
 ### Icons
 
 A switch can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
     <Story name="icons">
-        <div className="flex items-lot-of-space-between">
-            <Switch label="Milky Way" icons={<LightbulbIcon />} />
-            <Switch label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
-        </div>
+        <Inline>
+            <Switch icon={<LightbulbIcon />}>Pressurization</Switch>
+            <Switch icon={<IconGroup><LightbulbIcon /><InfoIcon /></IconGroup>}>Engines</Switch>
+        </Inline>
     </Story>
 </Preview>
 
@@ -106,10 +102,10 @@ A switch can have a [badge](?path=/docs/components-badge--default-story) after h
 
 <Preview>
     <Story name="badge">
-        <div className="flex items-lot-of-space-between">
-            <Switch label="Milky Way" badge={<Badge>6</Badge>} />
-            <Switch label="Milky Way" badge={<Badge inline>6</Badge>} />
-        </div>
+        <Inline>
+            <Switch badge={<Badge>6</Badge>}>Pressurization</Switch>
+            <Switch badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+        </Inline>
     </Story>
 </Preview>
 
@@ -121,13 +117,47 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-lot-of-space-between">
-            <Switch size="small" label="Orion Arm" />
-            <Switch label="Orion Arm" />
-            <Switch size="large" label="Orion Arm" />
-        </div>
+        <Inline align="end">
+            <Switch size="small">Engines</Switch>
+            <Switch>Engines</Switch>
+            <Switch size="large">Engines</Switch>
+        </Inline>
     </Story>
 </Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Switch reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Switch autofocus>Engines</Switch>
+        <Switch autofocus disabled>Engines</Switch>
+    </Inline>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Switch autofocus autofocusDelay={500}>Engines</Switch>
+        <Switch autofocus disabled autofocusDelay={500}>Engines</Switch>
+    </Inline>
+</Story>
 
 <Story
     name="ref"
@@ -136,7 +166,24 @@ Can be set to: `"small"`, `"large"` or omitted.
         .build()}
 >
     <RefLogger>
-        <Switch label="Orion Arm" />
+        <Switch>Engines</Switch>
     </RefLogger>
 </Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text switch component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Switch ref={ref} />
+        </div>
+    );
+}
 

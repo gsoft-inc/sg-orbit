@@ -20,7 +20,7 @@ const propTypes = {
     /**
      * Called when the button selection state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {{value: any, isSelected: bool}} data - Event data.
+     * @param {{value: any, isChecked: bool}} data - Event data.
      * @returns {void}
      */
     onChange: func,
