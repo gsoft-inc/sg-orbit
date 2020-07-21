@@ -1,132 +1,163 @@
 import { Badge } from "@react-components/badge";
-import { EmailIcon } from "@react-components/icons";
+import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
 function Switch({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-function Icons({ element, ...rest }) {
-    const switchElement = cloneElement(element, rest);
-
-    return (
-        <>
-            <div className="flex items-end mb8">
-                <Switch icons={<EmailIcon />} size="small" element={switchElement} className="mr5" />
-                <Switch icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch icons={<EmailIcon />} size="large" element={switchElement} />
-            </div>
-            <div className="flex items-end mb8">
-                <Switch icons={[<EmailIcon />, <EmailIcon />]} size="small" element={switchElement} className="mr5" />
-                <Switch icons={[<EmailIcon />, <EmailIcon />]} element={switchElement} className="mr5" />
-                <Switch icons={[<EmailIcon />, <EmailIcon />]} size="large" element={switchElement} />
-            </div>
-            <div className="flex items-end mb8">
-                <Switch active icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch focus icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch hover icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch focus hover icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch readOnly icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch disabled icons={<EmailIcon />} element={switchElement} className="mr5" />
-            </div>
-            <div className="flex items-end mb8">
-                <Switch badge={<Badge>6</Badge>} icons={<EmailIcon />} size="small" element={switchElement} className="mr5" />
-                <Switch badge={<Badge>6</Badge>} icons={<EmailIcon />} element={switchElement} className="mr5" />
-                <Switch badge={<Badge>6</Badge>} icons={<EmailIcon />} size="large" element={switchElement} />
-            </div>
-        </>
-    );
-}
-
-function Badges({ element, ...rest }) {
-    const switchElement = cloneElement(element, rest);
-
-    return (
-        <>
-            <div className="flex items-end mb8">
-                <Switch badge={<Badge>6</Badge>} size="small" element={switchElement} className="mr5" />
-                <Switch badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch badge={<Badge>6</Badge>} size="large" element={switchElement} />
-            </div>
-            <div className="flex items-end mb8">
-                <Switch badge={<Badge variant="inline">6</Badge>} size="small" element={switchElement} className="mr5" />
-                <Switch badge={<Badge variant="inline">6</Badge>} element={switchElement} className="mr5" />
-                <Switch badge={<Badge variant="inline">6</Badge>} size="large" element={switchElement} />
-            </div>
-            <div className="flex">
-                <Switch active badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch focus badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch hover badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch focus hover badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch disabled badge={<Badge>6</Badge>} element={switchElement} className="mr5" />
-                <Switch readOnly badge={<Badge>6</Badge>} element={switchElement} />
-            </div>
-        </>
-    );
-}
-
-export function createTestSuite(switchElement, stories) {
+export function createTestSuite(element, stories) {
     return stories
-        .add("label", () =>
-            <div className="flex">
-                <div className="flex flex-column">
-                    <div className="flex items-end mb8">
-                        <Switch label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch active label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch focus label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch hover label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch focus hover label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch disabled label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch readOnly label="Milky Way" element={switchElement} />
-                    </div>
-                    <div className="flex items-end mb8">
-                        <Switch size="small" label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch label="Milky Way" element={switchElement} className="mr5" />
-                        <Switch size="large" label="Milky Way" element={switchElement} />
-                    </div>
-                    <Icons label="Milky Way" element={switchElement} />
-                    <Badges label="Milky Way" element={switchElement} />
-                </div>
-            </div>
+        .add("default", () =>
+            <Stack>
+                <Inline align="end">
+                    <Switch size="small" element={element}>Engines</Switch>
+                    <Switch element={element}>Engines</Switch>
+                    <Switch size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} element={element}>Engines</Switch>
+                    <Switch icon={<EmailIcon />} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<EmailIcon />} element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="large" badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="large" badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                </Inline>
+            </Stack>
         )
         .add("no label", () =>
-            <div className="flex">
-                <div className="flex flex-column">
-                    <div className="flex items-end mb8">
-                        <Switch element={switchElement} className="mr5" />
-                        <Switch active element={switchElement} className="mr5" />
-                        <Switch focus element={switchElement} className="mr5" />
-                        <Switch hover element={switchElement} className="mr5" />
-                        <Switch focus hover element={switchElement} className="mr5" />
-                        <Switch disabled element={switchElement} className="mr5" />
-                        <Switch readOnly element={switchElement} />
-                    </div>
-                    <div className="flex items-end mb8">
-                        <Switch size="small" element={switchElement} className="mr5" />
-                        <Switch element={switchElement} className="mr5" />
-                        <Switch size="large" element={switchElement} />
-                    </div>
-                    <Icons element={switchElement} />
-                    <Badges element={switchElement} />
+            <Stack>
+                <Inline align="end">
+                    <Switch size="small" element={element} />
+                    <Switch element={element} />
+                    <Switch size="large" element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} element={element} />
+                    <Switch icon={<EmailIcon />} element={element} />
+                    <Switch size="large" icon={<EmailIcon />} element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
+                    <Switch icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
+                    <Switch size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" badge={<Badge>60</Badge>} element={element} />
+                    <Switch badge={<Badge>60</Badge>} element={element} />
+                    <Switch size="large" badge={<Badge>60</Badge>} element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch size="large" badge={<Badge variant="inline">60</Badge>} element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
+                    <Switch icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
+                    <Switch size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
+                </Inline>
+                <Inline align="end">
+                    <Switch size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
+                </Inline>
+            </Stack>
+        )
+        .add("reverse", () =>
+            <Stack>
+                <div>
+                    <Switch reverse element={element}>Engines</Switch>
                 </div>
-            </div>
+                <Inline>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse element={element} />
+                </Inline>
+                <Inline>
+                    <Switch badge={<Badge>60</Badge>} reverse element={element}>Engines</Switch>
+                    <Switch badge={<Badge>60</Badge>} reverse element={element} />
+                    <Switch badge={<Badge variant="inline">60</Badge>} reverse element={element}>Engines</Switch>
+                    <Switch badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                </Inline>
+                <Inline>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element} />
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                </Inline>
+            </Stack>
+        )
+        .add("states", () =>
+            <Stack>
+                <Inline align="end">
+                    <Switch active size="small" element={element}>Engines</Switch>
+                    <Switch active element={element}>Engines</Switch>
+                    <Switch active size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch focus size="small" element={element}>Engines</Switch>
+                    <Switch focus element={element}>Engines</Switch>
+                    <Switch focus size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch hover size="small" element={element}>Engines</Switch>
+                    <Switch hover element={element}>Engines</Switch>
+                    <Switch hover size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch focus hover size="small" element={element}>Engines</Switch>
+                    <Switch focus hover element={element}>Engines</Switch>
+                    <Switch focus hover size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch disabled size="small" element={element}>Engines</Switch>
+                    <Switch disabled element={element}>Engines</Switch>
+                    <Switch disabled size="large" element={element}>Engines</Switch>
+                </Inline>
+                <Inline align="end">
+                    <Switch readOnly size="small" element={element}>Engines</Switch>
+                    <Switch readOnly element={element}>Engines</Switch>
+                    <Switch readOnly size="large" element={element}>Engines</Switch>
+                </Inline>
+            </Stack>
         )
         .add("overflow", () =>
-            <div className="flex">
-                <div className="flex">
-                    <div className="flex mw5">
-                        <Switch label="PA-99-N2 event and possible exoplanet in galaxy" element={switchElement} className="mr5" />
-                    </div>
-                    <div className="flex mw5">
-                        <Switch label="PA-99-N2 event and possible exoplanet in galaxy" element={switchElement} badge={<Badge>6</Badge>} className="mr5" />
-                    </div>
-                    <div className="flex mw5">
-                        <Switch badge={<Badge>6</Badge>} icons={[<EmailIcon />, <EmailIcon />]} label="PA-99-N2 event and possible exoplanet in galaxy" element={switchElement} className="mr5" />
-                    </div>
-                    <div className="flex mw5">
-                        <Switch count={<Badge variant="inline">6</Badge>} label="Shurnarkabtishashutu, under the southern horn of the bull" element={switchElement} className="mr5" />
-                    </div>
+            <Stack>
+                <div className="mw5">
+                    <Switch element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
                 </div>
-            </div>
+                <div className="mw5">
+                    <Switch icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
+                </div>
+                <div className="mw5">
+                    <Switch badge={<Badge variant="inline">60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
+                </div>
+                <div className="mw5">
+                    <Switch badge={<Badge>60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
+                </div>
+            </Stack>
         );
 }
