@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, EditIcon, IconGroup, InfoIcon, LightbulbIcon, NotificationIcon, NotificationOffIcon, WarningIcon } from "@react-components/icons";
+import { AddIcon, CheckIcon, IconGroup, LightbulbIcon, NotificationIcon, NotificationOffIcon } from "@react-components/icons";
 import { Badge } from "@react-components/badge";
 import {
     Button,
@@ -73,8 +73,8 @@ A button can contain left or right [icons](?path=/docs/materials-icons--page).
     <Story name="icon">
         <Inline>
             <Button iconLeft={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconRight={<EditIcon />}>Cutoff</Button>
-            <Button iconRight={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>}>Cutoff</Button>
+            <Button iconRight={<LightbulbIcon />}>Cutoff</Button>
+            <Button iconRight={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Cutoff</Button>
         </Inline>
     </Story>
 </Preview>
@@ -212,9 +212,10 @@ Or look like a link:
 <Preview>
     <Story name="link">
         <Inline>
-            <Button variant="link">Cutoff</Button>
-            <Button variant="link" color="primary">Cutoff</Button>
-            <Button variant="link" color="secondary">Cutoff</Button>
+            <Button variant="link">Default</Button>
+            <Button variant="link" color="primary">Primary</Button>
+            <Button variant="link" color="secondary">Secondary</Button>
+            <Button variant="link" color="danger">Danger</Button>
         </Inline>
     </Story>
 </Preview>
@@ -249,8 +250,8 @@ A button content can be a single icon.
             <Inline align="end">
                 <IconButton size="mini"><AddIcon /></IconButton>
                 <IconButton size="tiny"><AddIcon /></IconButton>
-                <IconButton size="small"><EditIcon /></IconButton>
-                <IconButton><EditIcon /></IconButton>
+                <IconButton size="small"><AddIcon /></IconButton>
+                <IconButton><AddIcon /></IconButton>
                 <IconButton size="large"><AddIcon /></IconButton>
             </Inline>
             <Inline align="end">
@@ -294,7 +295,7 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
     </Story>
 </Preview>
 
-### Icon Button
+### Toggle Icon Button
 
 A toggle button content can be a single icon.
 

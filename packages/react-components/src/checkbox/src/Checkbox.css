@@ -137,7 +137,7 @@
 
 /* STATE | FOCUS */
 .o-ui.checkbox input[type="checkbox"]:focus + .box,
-.o-ui.checkbox input[type="checkbox"].focus + .box {
+.o-ui.checkbox.focus .box {
     box-shadow: 0 0 0 2px var(--primary-100);
 }
 

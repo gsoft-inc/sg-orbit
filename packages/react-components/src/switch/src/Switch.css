@@ -43,7 +43,7 @@
     left: calc( var(--scale-hotel) - var(--scale-delta) - 2px);
 }
 
-.o-ui.switch:focus,
-.o-ui.switch.focus {
+.o-ui.switch input[type="checkbox"]:focus + .switch,
+.o-ui.switch.focus > .switch {
     box-shadow: var(--outline);
 }
