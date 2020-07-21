@@ -1,4 +1,4 @@
-import { Stack, VerticalStack } from "@react-components/stack";
+import { Inline, Stack } from "@react-components/layout";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -14,44 +14,44 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <VerticalStack>
-            <Stack align="end">
+        <Stack>
+            <Inline align="end">
                 <ToggleButton size="small" value="any">Cutoff</ToggleButton>
                 <ToggleButton value="any">Cutoff</ToggleButton>
                 <ToggleButton size="large" value="any">Cutoff</ToggleButton>
-            </Stack>
-            <Stack align="end">
+            </Inline>
+            <Inline align="end">
                 <ToggleButton selected value="any">Cutoff</ToggleButton>
                 <ToggleButton active value="any">Cutoff</ToggleButton>
                 <ToggleButton focus value="any">Cutoff</ToggleButton>
                 <ToggleButton hover value="any">Cutoff</ToggleButton>
                 <ToggleButton focus hover value="any">Cutoff</ToggleButton>
                 <ToggleButton disabled value="any">Cutoff</ToggleButton>
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("circular outline", () =>
-        <VerticalStack>
-            <Stack align="end">
+        <Stack>
+            <Inline align="end">
                 <ToggleButton size="small" variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton size="large" variant="outline" circular value="any">Aa</ToggleButton>
-            </Stack>
-            <Stack align="end">
+            </Inline>
+            <Inline align="end">
                 <ToggleButton selected variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton active variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton focus variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton hover variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton focus hover variant="outline" circular value="any">Aa</ToggleButton>
                 <ToggleButton disabled variant="outline" circular value="any">Aa</ToggleButton>
-            </Stack>
-        </VerticalStack>
+            </Inline>
+        </Stack>
     )
     .add("selected", () =>
-        <Stack>
+        <Inline>
             <ToggleButton selected value="any">Cutoff</ToggleButton>
             <ToggleButton defaultSelected value="any">Cutoff</ToggleButton>
-        </Stack>
+        </Inline>
     );
 
 

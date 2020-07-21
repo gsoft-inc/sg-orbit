@@ -1,5 +1,5 @@
 import { Children, cloneElement, forwardRef } from "react";
-import { Stack } from "../../stack";
+import { Inline } from "../../layout";
 import { any, elementType, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -23,7 +23,7 @@ const defaultProps = {
 
 export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
-        <Stack
+        <Inline
             {...rest}
             spacing={1}
             ref={forwardedRef}
@@ -33,7 +33,7 @@ export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
                     size
                 });
             })}
-        </Stack>
+        </Inline>
     );
 
 }

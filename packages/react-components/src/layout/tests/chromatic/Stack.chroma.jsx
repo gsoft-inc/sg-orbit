@@ -1,4 +1,4 @@
-import { Stack, VerticalStack } from "@react-components/stack";
+import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -15,78 +15,78 @@ stories()
     .add("horizontal", () =>
         <div className="flex flex-column">
             <div className="h10">
-                <Stack fluid>
+                <Inline fluid>
                     <div className="bg-primary-500">Alpha</div>
                     <div className="bg-primary-500">Bravo</div>
                     <div className="bg-primary-500">Charlie</div>
-                </Stack>
+                </Inline>
             </div>
             <div className="h10">
-                <Stack align="end" justify="end" fluid>
+                <Inline align="end" justify="end" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </Inline>
             </div>
             <div className="h10">
-                <Stack align="center" justify="center" fluid>
+                <Inline align="center" justify="center" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </Inline>
             </div>
             <div className="h10">
-                <Stack spacing={10}>
+                <Inline spacing={10}>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </Inline>
             </div>
             <div className="h10">
-                <Stack spacing="200px">
+                <Inline spacing="200px">
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </Stack>
+                </Inline>
             </div>
         </div>
     )
     .add("vertical", () =>
         <div className="flex" style={{ height: "300px" }}>
             <div className="w12 mr8">
-                <VerticalStack fluid>
+                <Stack fluid>
                     <div className="bg-primary-500">Alpha</div>
                     <div className="bg-primary-500">Bravo</div>
                     <div className="bg-primary-500">Charlie</div>
-                </VerticalStack>
+                </Stack>
             </div>
             <div className="w12 mr8">
-                <VerticalStack align="end" justify="end" fluid>
+                <Stack align="end" justify="end" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </VerticalStack>
+                </Stack>
             </div>
             <div className="w12 mr8">
-                <VerticalStack align="center" justify="center" fluid>
+                <Stack align="center" justify="center" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </VerticalStack>
+                </Stack>
             </div>
             <div className="w12">
-                <VerticalStack spacing={10}>
+                <Stack spacing={10}>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </VerticalStack>
+                </Stack>
             </div>
             <div className="w12">
-                <VerticalStack spacing="200px">
+                <Stack spacing="200px">
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
-                </VerticalStack>
+                </Stack>
             </div>
         </div>
     );
