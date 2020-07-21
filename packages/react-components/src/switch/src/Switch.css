@@ -1,14 +1,49 @@
+:root {
+    --outline: 0 0 0 2px var(--primary-200);
+}
+
 .o-ui.switch {
     display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 1;
+    overflow: hidden;
 }
 
 .o-ui.switch > .switch {
     display: inline-block;
-    width: 30px;
-    height: 10px;
-    background-color: black;
+    width: var(--scale-hotel);
+    height: var(--scale-echo);
+    background-color: var(--cloud-200);
+    border-radius: var(--scale-charlie);
+    position: relative;
+}
+
+.o-ui.switch > .switch::before {
+    content: "";
+    display: inline-block;
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+    background-color: var(--white);
+    border-radius: 100%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.o-ui.switch .label {
+    margin-left: var(--scale-bravo);
 }
 
 .o-ui.switch.on > .switch {
-    background-color: teal;
+    background-color: var(--primary-500);
+}
+
+.o-ui.switch.on > .switch::before {
+    left: calc( var(--scale-hotel) - var(--scale-delta) - 2px);
+}
+
+.o-ui.switch:focus,
+.o-ui.switch.focus {
+    box-shadow: var(--outline);
 }

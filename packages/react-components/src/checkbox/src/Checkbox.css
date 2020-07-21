@@ -3,7 +3,7 @@
     align-items: center;
     cursor: pointer;
     line-height: 1;
-    overflow: hidden;
+    max-width: 100%;
 }
 
 .o-ui.checkbox .box {
