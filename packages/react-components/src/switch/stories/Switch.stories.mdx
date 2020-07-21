@@ -38,7 +38,7 @@ A switch can have a label.
 
 <Preview>
     <Story name="label">
-        <Switch>Start engine</Switch>
+        <Switch>Engines</Switch>
     </Story>
 </Preview>
 
@@ -48,7 +48,7 @@ A switch can be on.
 
 <Preview>
     <Story name="on">
-        <Switch defaultOn>Start engine</Switch>
+        <Switch defaultOn>Engines</Switch>
     </Story>
 </Preview>
 
@@ -69,7 +69,7 @@ A switch can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Switch disabled>Start engine</Switch>
+        <Switch disabled>Engines</Switch>
     </Story>
 </Preview>
 
@@ -79,7 +79,7 @@ A switch can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <Switch readOnly>Start engine</Switch>
+        <Switch readOnly>Engines</Switch>
     </Story>
 </Preview>
 
@@ -90,8 +90,8 @@ A switch can display a single or multiple [icons](?path=/docs/materials-icons--p
 <Preview>
     <Story name="icons">
         <Inline>
-            <Switch icon={<LightbulbIcon />}>Pressurize cabin</Switch>
-            <Switch icon={<IconGroup><LightbulbIcon /><InfoIcon /></IconGroup>}>Start engine</Switch>
+            <Switch icon={<LightbulbIcon />}>Pressurization</Switch>
+            <Switch icon={<IconGroup><LightbulbIcon /><InfoIcon /></IconGroup>}>Engines</Switch>
         </Inline>
     </Story>
 </Preview>
@@ -103,8 +103,8 @@ A switch can have a [badge](?path=/docs/components-badge--default-story) after h
 <Preview>
     <Story name="badge">
         <Inline>
-            <Switch badge={<Badge>6</Badge>}>Pressurize cabin</Switch>
-            <Switch badge={<Badge variant="inline">6</Badge>}>Start engine</Switch>
+            <Switch badge={<Badge>6</Badge>}>Pressurization</Switch>
+            <Switch badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
         </Inline>
     </Story>
 </Preview>
@@ -118,12 +118,46 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <Switch size="small">Start engine</Switch>
-            <Switch>Start engine</Switch>
-            <Switch size="large">Start engine</Switch>
+            <Switch size="small">Engines</Switch>
+            <Switch>Engines</Switch>
+            <Switch size="large">Engines</Switch>
         </Inline>
     </Story>
 </Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Switch reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+    </Story>
+</Preview>
+
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Switch autofocus>Engines</Switch>
+        <Switch autofocus disabled>Engines</Switch>
+    </Inline>
+</Story>
+
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Switch autofocus autofocusDelay={500}>Engines</Switch>
+        <Switch autofocus disabled autofocusDelay={500}>Engines</Switch>
+    </Inline>
+</Story>
 
 <Story
     name="ref"
@@ -132,7 +166,24 @@ Can be set to: `"small"`, `"large"` or omitted.
         .build()}
 >
     <RefLogger>
-        <Switch>Start engine</Switch>
+        <Switch>Engines</Switch>
     </RefLogger>
 </Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text switch component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Switch ref={ref} />
+        </div>
+    );
+}
 

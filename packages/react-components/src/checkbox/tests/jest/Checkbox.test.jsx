@@ -137,7 +137,7 @@ test("dont call onChange when the checkbox is readonly", async () => {
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("can focus the button with the focus api", async () => {
+test("can focus the checkbox with the focus api", async () => {
     let refNode = null;
 
     render(
