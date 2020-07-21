@@ -1,5 +1,5 @@
 import { Button, embedButton } from "@react-components/button";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { createButtonTestSuite } from "./createButtonTestSuite";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

@@ -150,7 +150,7 @@ export function createTestSuite(checkbox, stories) {
                     <Checkbox element={checkbox}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
                 <div className="mw5">
-                    <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>}element={checkbox}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
+                    <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} element={checkbox}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
                 <div className="mw5">
                     <Checkbox badge={<Badge inline>60</Badge>} element={checkbox}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
