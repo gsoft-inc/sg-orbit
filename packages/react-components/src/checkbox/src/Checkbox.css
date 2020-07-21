@@ -47,7 +47,7 @@
 }
 
 /* READ ONLY */
-.o-ui.checkbox[readonly] {
+.o-ui.checkbox.readonly {
     cursor: default;
 }
 
@@ -62,13 +62,14 @@
 
 /* WITH ICON */
 .o-ui.checkbox.with-icon .label {
-    margin-left: var(--scale-alpha);
+    margin-right: var(--scale-alpha);
 }
 
 /* WITH ICON | REVERSE  */
-/* .o-ui.checkbox.with-icon.reverse .label {
+.o-ui.checkbox.with-icon.reverse .label {
     margin-left: var(--scale-alpha);
-} */
+    margin-right: var(--scale-bravo);
+}
 
 /* WITH BADGE */
 .o-ui.checkbox.with-badge .badge.pill {

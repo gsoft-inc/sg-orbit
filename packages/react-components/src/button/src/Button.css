@@ -342,13 +342,20 @@ a.o-ui.button.outline {
     border: none;
     background-color: var(--transparent);
     color: var(--marine-900);
+    font-size: var(--type-scale-6);
+    padding: 0;
 }
 
 /* BUTTON | LINK | STATE | HOVER */
 .o-ui.button.link:hover,
 .o-ui.button.link.hover {
-    text-decoration: underline;
     color: var(--marine-700);
+}
+
+/* BUTTON | LINK | TEXT | STATE | HOVER */
+.o-ui.button.link:hover .text,
+.o-ui.button.link.hover .text {
+    text-decoration: underline;
 }
 
 /* BUTTON | LINK | STATE | FOCUS */
@@ -356,6 +363,7 @@ a.o-ui.button.outline {
 .o-ui.button.link.focus {
     background-color: var(--marine-50);
     border-radius: 0.25rem;
+    box-shadow: 0 0 0 2px var(--marine-50);
 }
 
 /* BUTTON | LINK | STATE | ACTIVE */
@@ -364,14 +372,44 @@ a.o-ui.button.outline {
     color: var(--marine-900);
 }
 
+.o-ui.button.link:active .text,
+.o-ui.button.link.active .text {
+    text-decoration: underline;
+}
+
+/* BUTTON | LINK | SIZE */
+.o-ui.button.link.mini {
+    font-size: var(--type-scale-9);
+}
+
+.o-ui.button.link.tiny {
+    font-size: var(--type-scale-8);
+}
+
+.o-ui.button.link.small {
+    font-size: var(--type-scale-7);
+}
+
+.o-ui.button.link.large {
+    font-size: var(--type-scale-5);
+}
+
+/* BUTTON | LINK | STATE | DISABLED */
+.o-ui.button[disabled].link:hover .text,
+.o-ui.button[disabled].link.hover .text,
+.o-ui.button.disabled.link:hover .text,
+.o-ui.button.disabled.link.hover .text {
+    text-decoration: none;
+}
+
 /* BUTTON | LINK | PRIMARY */
 .o-ui.button.link.primary {
     color: var(--primary-500);
 }
 
 /* BUTTON | LINK | PRIMARY | STATE | HOVER */
-.o-ui.button.link.primary:hover,
-.o-ui.button.link.primary.hover {
+.o-ui.button.link.primary:hover .text,
+.o-ui.button.link.primary.hover .text {
     color: var(--primary-700);
 }
 
@@ -379,6 +417,7 @@ a.o-ui.button.outline {
 .o-ui.button.link.primary:focus,
 .o-ui.button.link.primary.focus {
     background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
 }
 
 /* BUTTON | LINK | PRIMARY | STATE | ACTIVE */
@@ -389,13 +428,50 @@ a.o-ui.button.outline {
 
 /* BUTTON | LINK | SECONDARY */
 .o-ui.button.link.secondary {
-    color: var(--marine-300);
+    color: var(--cloud-500);
 }
 
 /* BUTTON | LINK | SECONDARY | STATE | FOCUS */
 .o-ui.button.link.secondary:focus,
 .o-ui.button.link.secondary.focus {
     background-color: var(--cloud-50);
+    box-shadow: 0 0 0 2px var(--cloud-50);
+}
+
+/* BUTTON | LINK | SECONDARY | STATE | HOVER */
+.o-ui.button.link.secondary:hover,
+.o-ui.button.link.secondary.hover {
+    color: var(--cloud-700);
+}
+
+/* BUTTON | LINK | SECONDARY | STATE | ACTIVE */
+.o-ui.button.link.secondary:active,
+.o-ui.button.link.secondary.active {
+    color: var(--cloud-900);
+}
+
+/* BUTTON | LINK | DANGER */
+.o-ui.button.link.danger {
+    color: var(--alert-500);
+}
+
+/* BUTTON | LINK | DANGER | STATE | FOCUS */
+.o-ui.button.link.danger:focus,
+.o-ui.button.link.danger.focus {
+    background-color: var(--alert-50);
+    box-shadow: 0 0 0 2px var(--alert-50);
+}
+
+/* BUTTON | LINK | DANGER | STATE | HOVER */
+.o-ui.button.link.danger:hover,
+.o-ui.button.link.danger.hover {
+    color: var(--alert-700);
+}
+
+/* BUTTON | LINK | DANGER | STATE | ACTIVE */
+.o-ui.button.link.danger:active,
+.o-ui.button.link.danger.active {
+    color: var(--alert-900);
 }
 
 /* BUTTON | GHOST */
@@ -425,6 +501,14 @@ a.o-ui.button.outline {
 .o-ui.button.ghost:active,
 .o-ui.button.ghost.active {
     color: var(--marine-900);
+}
+
+/* BUTTON | GHOST | DISABLED */
+.o-ui.button.ghost[disabled]:hover,
+.o-ui.button.ghost[disabled].hover,
+.o-ui.button.ghost.disabled:hover,
+.o-ui.button.ghost.disabled.hover {
+    background-color: var(--white);
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -682,8 +766,18 @@ a.o-ui.button.outline {
     margin-left: var(--scale-bravo);
 }
 
+/* BUTTON | LINK | CONTENT | BADGE */
+.o-ui.button.with-left-badge.link  {
+    padding-left: 0;
+}
+
 .o-ui.button.with-right-badge  {
     padding-right: calc(var(--padding-default) / var(--padding-ratio-factor));
+}
+
+/* LINK */
+.o-ui.button.link.with-right-badge  {
+    padding-right: 0;
 }
 
 .o-ui.button.with-right-badge .text {
@@ -694,6 +788,12 @@ a.o-ui.button.outline {
 /* BUTTON | CONTENT | ICON | LEFT */
 .o-ui.button.with-left-icon {
     padding-left: calc(var(--padding-default) / var(--padding-ratio-factor));
+}
+
+/* BUTTON | LINK | CONTENT | ICON */
+/* BUTTON | LINK | CONTENT | ICON | LEFT */
+.o-ui.button.with-left-icon.link {
+    padding-left: 0;
 }
 
 /* BUTTON | CONTENT | ICON | LEFT | TEXT */
@@ -709,4 +809,9 @@ a.o-ui.button.outline {
 /* BUTTON | CONTENT | ICON | RIGHT */
 .o-ui.button.with-right-icon {
     padding-right: calc(var(--padding-default) / var(--padding-ratio-factor));
+}
+
+/* BUTTON | LINK | CONTENT | ICON | RIGHT */
+.o-ui.button.link.with-right-icon  {
+    padding-right: 0;
 }
