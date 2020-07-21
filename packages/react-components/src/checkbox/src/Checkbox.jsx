@@ -5,8 +5,8 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { getSizeClass, mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
 
 /*
 COMPONENTS:
@@ -174,6 +174,7 @@ export function InnerCheckbox({
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                getSizeClass(size),
                 className
             )}
             ref={labelRef}
