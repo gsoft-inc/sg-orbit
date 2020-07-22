@@ -8,8 +8,6 @@ function Button({ element, ...rest }) {
 }
 
 export function createButtonTestSuite(element, stories) {
-    const isLink = element.props.variant === "link";
-
     stories
         .add("default", () =>
             <Stack>
@@ -20,24 +18,22 @@ export function createButtonTestSuite(element, stories) {
                     <Button element={element}>Button</Button>
                     <Button size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading size="mini" element={element}>Button</Button>
-                        <Button loading size="tiny" element={element}>Button</Button>
-                        <Button loading size="small" element={element}>Button</Button>
-                        <Button loading element={element}>Button</Button>
-                        <Button loading size="large" element={element}>Button</Button>
-                    </Inline>
-                    <div>
-                        <Button fluid element={element}>Button</Button>
-                    </div>
-                    <div className="w-10">
-                        <Button fluid element={element}>Button</Button>
-                    </div>
-                    <div>
-                        <Button loading fluid element={element}>Button</Button>
-                    </div>
-                </If>
+                <Inline align="end">
+                    <Button loading size="mini" element={element}>Button</Button>
+                    <Button loading size="tiny" element={element}>Button</Button>
+                    <Button loading size="small" element={element}>Button</Button>
+                    <Button loading element={element}>Button</Button>
+                    <Button loading size="large" element={element}>Button</Button>
+                </Inline>
+                <div>
+                    <Button fluid element={element}>Button</Button>
+                </div>
+                <div className="w-10">
+                    <Button fluid element={element}>Button</Button>
+                </div>
+                <div>
+                    <Button loading fluid element={element}>Button</Button>
+                </div>
             </Stack>
         )
         .add("icon", () =>
@@ -77,23 +73,19 @@ export function createButtonTestSuite(element, stories) {
                     <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
                     <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="mini" element={element}>Button</Button>
-                        <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="tiny" element={element}>Button</Button>
-                        <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="small" element={element}>Button</Button>
-                        <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
-                        <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
-                    </Inline>
-                </If>
+                <Inline align="end">
+                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="mini" element={element}>Button</Button>
+                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="tiny" element={element}>Button</Button>
+                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="small" element={element}>Button</Button>
+                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
+                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
+                </Inline>
                 <div>
                     <Button disabled iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
                 </div>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
+                </div>
             </Stack>
         )
         .add("badge", () =>
@@ -133,23 +125,19 @@ export function createButtonTestSuite(element, stories) {
                     <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
                     <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                        <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                        <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                        <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
-                        <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
-                    </Inline>
-                </If>
+                <Inline align="end">
+                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
+                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
+                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="small" element={element}>Button</Button>
+                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
+                </Inline>
                 <div>
                     <Button disabled badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
                 </div>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
+                </div>
             </Stack>
         )
         .add("primary", () =>
@@ -161,15 +149,13 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="primary" element={element}>Button</Button>
                     <Button color="primary" size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading color="primary" size="mini" element={element}>Button</Button>
-                        <Button loading color="primary" size="tiny" element={element}>Button</Button>
-                        <Button loading color="primary" size="small" element={element}>Button</Button>
-                        <Button loading color="primary" element={element}>Button</Button>
-                        <Button loading color="primary" size="large" element={element}>Button</Button>
-                    </Inline>
-                </If>
+                <Inline align="end">
+                    <Button loading color="primary" size="mini" element={element}>Button</Button>
+                    <Button loading color="primary" size="tiny" element={element}>Button</Button>
+                    <Button loading color="primary" size="small" element={element}>Button</Button>
+                    <Button loading color="primary" element={element}>Button</Button>
+                    <Button loading color="primary" size="large" element={element}>Button</Button>
+                </Inline>
             </Stack>
         )
         .add("secondary", () =>
@@ -181,15 +167,13 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="secondary" element={element}>Button</Button>
                     <Button color="secondary" size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading color="secondary" size="mini" element={element}>Button</Button>
-                        <Button loading color="secondary" size="tiny" element={element}>Button</Button>
-                        <Button loading color="secondary" size="small" element={element}>Button</Button>
-                        <Button loading color="secondary" element={element}>Button</Button>
-                        <Button loading color="secondary" size="large" element={element}>Button</Button>
-                    </Inline>
-                </If>
+                <Inline align="end">
+                    <Button loading color="secondary" size="mini" element={element}>Button</Button>
+                    <Button loading color="secondary" size="tiny" element={element}>Button</Button>
+                    <Button loading color="secondary" size="small" element={element}>Button</Button>
+                    <Button loading color="secondary" element={element}>Button</Button>
+                    <Button loading color="secondary" size="large" element={element}>Button</Button>
+                </Inline>
             </Stack>
         )
         .add("danger", () =>
@@ -201,16 +185,31 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" element={element}>Button</Button>
                     <Button color="danger" size="large" element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <Inline align="end">
-                        <Button loading color="danger" size="mini" element={element}>Button</Button>
-                        <Button loading color="danger" size="tiny" element={element}>Button</Button>
-                        <Button loading color="danger" size="small" element={element}>Button</Button>
-                        <Button loading color="danger" element={element}>Button</Button>
-                        <Button loading color="danger" size="large" element={element}>Button</Button>
-                    </Inline>
-                </If>
-
+                <Inline align="end">
+                    <Button loading color="danger" size="mini" element={element}>Button</Button>
+                    <Button loading color="danger" size="tiny" element={element}>Button</Button>
+                    <Button loading color="danger" size="small" element={element}>Button</Button>
+                    <Button loading color="danger" element={element}>Button</Button>
+                    <Button loading color="danger" size="large" element={element}>Button</Button>
+                </Inline>
+            </Stack>
+        )
+        .add("circular", () =>
+            <Stack>
+                <Inline align="end">
+                    <Button circular size="mini" element={element}>Aa</Button>
+                    <Button circular size="tiny" element={element}>Aa</Button>
+                    <Button circular size="small" element={element}>Aa</Button>
+                    <Button circular element={element}>Aa</Button>
+                    <Button circular size="large" element={element}>Aa</Button>
+                </Inline>
+                <Inline align="end">
+                    <Button loading circular size="mini" element={element}>Aa</Button>
+                    <Button loading circular size="tiny" element={element}>Aa</Button>
+                    <Button loading circular size="small" element={element}>Aa</Button>
+                    <Button loading circular element={element}>Aa</Button>
+                    <Button loading circular size="large" element={element}>Aa</Button>
+                </Inline>
             </Stack>
         )
         .add("states", () =>
@@ -221,75 +220,55 @@ export function createButtonTestSuite(element, stories) {
                     <Button active size="small" element={element}>Button</Button>
                     <Button active element={element}>Button</Button>
                     <Button active size="large" element={element}>Button</Button>
-                    <If condition={!isLink}>
-                        <Button loading active element={element}>Button</Button>
-                    </If>
+                    <Button loading active element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid active element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid active element={element}>Button</Button>
+                </div>
                 <Inline align="end">
                     <Button focus size="mini" element={element}>Button</Button>
                     <Button focus size="tiny" element={element}>Button</Button>
                     <Button focus size="small" element={element}>Button</Button>
                     <Button focus element={element}>Button</Button>
                     <Button focus size="large" element={element}>Button</Button>
-                    <If condition={!isLink}>
-                        <Button loading focus element={element}>Button</Button>
-                    </If>
+                    <Button loading focus element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid focus element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid focus element={element}>Button</Button>
+                </div>
                 <Inline align="end">
                     <Button hover size="mini" element={element}>Button</Button>
                     <Button hover size="tiny" element={element}>Button</Button>
                     <Button hover size="small" element={element}>Button</Button>
                     <Button hover element={element}>Button</Button>
                     <Button hover size="large" element={element}>Button</Button>
-                    <If condition={!isLink}>
-                        <Button loading hover element={element}>Button</Button>
-                    </If>
+                    <Button loading hover element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid hover element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid hover element={element}>Button</Button>
+                </div>
                 <Inline align="end">
                     <Button focus hover size="mini" element={element}>Button</Button>
                     <Button focus hover size="tiny" element={element}>Button</Button>
                     <Button focus hover size="small" element={element}>Button</Button>
                     <Button focus hover element={element}>Button</Button>
                     <Button focus hover size="large" element={element}>Button</Button>
-                    <If condition={!isLink}>
-                        <Button loading focus hover element={element}>Button</Button>
-                    </If>
+                    <Button loading focus hover element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid focus hover element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid focus hover element={element}>Button</Button>
+                </div>
                 <Inline align="end">
                     <Button disabled size="mini" element={element}>Button</Button>
                     <Button disabled size="tiny" element={element}>Button</Button>
                     <Button disabled size="small" element={element}>Button</Button>
                     <Button disabled element={element}>Button</Button>
                     <Button disabled size="large" element={element}>Button</Button>
-                    <If condition={!isLink}>
-                        <Button loading disabled element={element}>Button</Button>
-                    </If>
+                    <Button loading disabled element={element}>Button</Button>
                 </Inline>
-                <If condition={!isLink}>
-                    <div>
-                        <Button fluid disabled element={element}>Button</Button>
-                    </div>
-                </If>
+                <div>
+                    <Button fluid disabled element={element}>Button</Button>
+                </div>
             </Stack>
         )
         .add("styling", () =>
@@ -301,27 +280,4 @@ export function createButtonTestSuite(element, stories) {
         .add("as anchor", () =>
             <Button as="a" href="https://www.sharegate.com" target="_blank" element={element}>Button</Button>
         );
-
-    if (!isLink) {
-        stories
-            .add("circular", () =>
-                <Stack>
-                    <Inline align="end">
-                        <Button circular size="mini" element={element}>Aa</Button>
-                        <Button circular size="tiny" element={element}>Aa</Button>
-                        <Button circular size="small" element={element}>Aa</Button>
-                        <Button circular element={element}>Aa</Button>
-                        <Button circular size="large" element={element}>Aa</Button>
-                    </Inline>
-                    <Inline align="end">
-                        <Button loading circular size="mini" element={element}>Aa</Button>
-                        <Button loading circular size="tiny" element={element}>Aa</Button>
-                        <Button loading circular size="small" element={element}>Aa</Button>
-                        <Button loading circular element={element}>Aa</Button>
-                        <Button loading circular size="large" element={element}>Aa</Button>
-                    </Inline>
-                </Stack>
-            );
-    }
-
 }

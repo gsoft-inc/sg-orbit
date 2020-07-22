@@ -9,7 +9,7 @@ const propTypes = {
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * Color accent to use.
+     * The color accent.
      */
     color: oneOf(["primary", "secondary"]),
     /**
@@ -42,6 +42,8 @@ const defaultProps = {
     variant: "solid",
     as: IconButton
 };
+
+// TODO: extract in a useToggleButton.
 
 export function InnerToggleIconButton({ children, forwardedRef, ...rest }) {
     return (

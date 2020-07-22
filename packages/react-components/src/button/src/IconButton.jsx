@@ -9,7 +9,7 @@ const propTypes = {
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * Color accent to use.
+     * The color accent.
      */
     color: oneOf(["primary", "secondary"]),
     /**

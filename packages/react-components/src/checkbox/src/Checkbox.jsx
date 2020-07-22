@@ -2,19 +2,14 @@ import "./Checkbox.css";
 
 import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
-import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
-import { isNil } from "lodash";
+import { forwardRef } from "react";
+import { isFunction, isNil } from "lodash";
+import { mergeClasses, useCheckableContext, useEventCallback } from "../../shared";
+import { useCheckbox } from "./useCheckbox";
 
-/*
-COMPONENTS:
-    - Checkbox
-    - Switch
-    - Radio
-    - RadioGroup
-*/
+// TODO: Support render function for content
 
 const propTypes = {
     /**
@@ -34,6 +29,10 @@ const propTypes = {
      */
     defaultIndeterminate: bool,
     /**
+     * The value to associate with when his part of a group.
+     */
+    value: oneOfType([string, number]),
+    /**
      * Whether or not the checkbox should autofocus on render.
      */
     autofocus: bool,
@@ -44,7 +43,6 @@ const propTypes = {
     /**
      * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {{isChecked: bool}} data - Event data.
      * @returns {void}
      */
     onChange: func,
@@ -67,130 +65,118 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    children: oneOfType([any, func])
 };
 
 const defaultProps = {
     as: "label"
 };
 
-export function InnerCheckbox({
-    checked,
-    defaultChecked,
-    indeterminate,
-    defaultIndeterminate,
-    autofocus,
-    autofocusDelay,
-    onChange,
-    icon,
-    badge,
-    size,
-    reverse,
-    name,
-    tabIndex,
-    active,
-    focus,
-    hover,
-    disabled,
-    readOnly,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
-    const [isChecked, setIsChecked] = useAutoControlledState(checked, defaultChecked, false);
-    const [isIndeterminate, setIsIndeterminate] = useAutoControlledState(indeterminate, defaultIndeterminate, false);
+export function InnerCheckbox(props) {
+    const {
+        checked,
+        defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
+        value,
+        autofocus,
+        autofocusDelay,
+        onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        name,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
 
-    const labelRef = useRef();
-    const inputRef = useRef();
+    const { isCheckedValue, onCheck } = useCheckableContext(value);
 
-    const setFocus = useCallback(() => {
-        if (!isNil(inputRef.current)) {
-            inputRef.current.focus();
-        }
-    }, [inputRef]);
+    const handleCheck = useEventCallback(event => {
+        onCheck(event, value);
+    });
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const {
+        isChecked,
+        isIndeterminate,
+        containerProps,
+        inputProps
+    } = useCheckbox({
+        checked: !isNil(isCheckedValue) ? isCheckedValue : checked,
+        defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
+        autofocus,
+        autofocusDelay,
+        onChange: !isNil(onCheck) ? handleCheck : onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        name,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        className,
+        ref: forwardedRef,
+        ...rest
+    });
 
-    // Forward native input API to the external ref element.
-    useImperativeHandle(forwardedRef, () => {
-        const apiMethods = ["blur", "focus", "click", "checkValidity", "reportValidity", "setCustomValidity"];
-        const domElement = labelRef.current;
+    const createMarkup = () => {
+        const labelMarkup = children && (
+            <span className="label">{children}</span>
+        );
 
-        apiMethods.forEach(x => {
-            domElement[x] = (...args) => {
-                inputRef.current[x](...args);
-            };
+        const iconMarkup = !isNil(icon) && (
+            <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+        );
+
+        // TODO: Add reverse
+        const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+            size,
+            disabled
         });
 
-        return domElement;
-    });
+        return (
+            <>
+                {labelMarkup}
+                {iconMarkup}
+                {badgeMarkup}
+            </>
+        );
+    };
 
-    const labelMarkup = children && (
-        <span className="label">{children}</span>
-    );
-
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
-
-    // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
-
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {badgeMarkup}
-        </>
-    );
-
-    const handleChange = useEventCallback(event => {
-        setIsChecked(!isChecked);
-        setIsIndeterminate(false);
-
-        if (!isNil(onChange)) {
-            onChange(event, { isChecked: !isChecked });
-        }
-    });
+    const content = isFunction(children)
+        ? children({ isChecked, isIndeterminate }, props)
+        : createMarkup();
 
     return (
         <ElementType
             data-testid="checkbox"
-            {...rest}
+            {...containerProps}
             className={mergeClasses(
                 "o-ui checkbox",
-                isChecked && "checked",
-                isIndeterminate && "indeterminate",
-                iconMarkup && "with-icon",
-                badgeMarkup && "with-badge",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
-                className
+                containerProps.className
             )}
-            ref={labelRef}
         >
             <VisuallyHidden
-                {...autofocusProps}
-                as="input"
-                checked={readOnly ? undefined : isChecked}
-                onChange={readOnly ? undefined : handleChange}
-                disabled={disabled}
-                name={name}
-                tabIndex={tabIndex}
-                type="checkbox"
-                ref={inputRef}
+                {...inputProps}
             />
-            <span className="box"></span>
+            <span className="box" />
             {content}
         </ElementType>
     );

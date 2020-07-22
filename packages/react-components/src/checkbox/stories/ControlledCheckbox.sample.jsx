@@ -1,7 +1,7 @@
-import { ToggleButton } from "@react-components/button";
+import { Checkbox } from "@react-components/checkbox";
 import { useState } from "react";
 
-export function ControlledToggleButton() {
+export function ControlledCheckbox() {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
@@ -9,14 +9,13 @@ export function ControlledToggleButton() {
             <div className="mb6">
                 <span className="dib fw6">checked:</span> {isChecked ? "true" : "false"}
             </div>
-            <ToggleButton
+            <Checkbox
                 checked={isChecked}
-                value="isActive"
                 color={isChecked ? "primary" : undefined}
                 onChange={() => { setIsChecked(x => !x); }}
             >
                 {isChecked ? "On" : "Off"}
-            </ToggleButton>
+            </Checkbox>
         </>
     );
 }

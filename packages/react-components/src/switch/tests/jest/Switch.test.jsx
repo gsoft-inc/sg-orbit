@@ -74,7 +74,7 @@ test("call onChange when the switch is turned on", async () => {
         userEvent.click(getInput(getByTestId));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { isOn: true });
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });
 
 test("call onChange when the switch is turned off", async () => {
@@ -92,7 +92,7 @@ test("call onChange when the switch is turned off", async () => {
         userEvent.click(getInput(getByTestId));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { isOn: false });
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });
 
 test("dont call onChange when the switch is disabled", async () => {

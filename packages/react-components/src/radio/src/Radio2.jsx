@@ -1,5 +1,3 @@
-import "./Switch.css";
-
 import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -9,6 +7,8 @@ import { getSizeClass, mergeClasses, useAutofocus, useControllableState, useEven
 import { isNil } from "lodash";
 
 const propTypes = {
+    value: string.isRequired,
+    name: string.isRequired,
     /**
      * A controlled checked state value.
      */
@@ -18,7 +18,7 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the radio should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -26,8 +26,9 @@ const propTypes = {
      */
     autofocusDelay: number,
     /**
-     * Called when the checkbox checked state change.
+     * Called when the radio checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {{isSelected: bool}} data - Event data.
      * @returns {void}
      */
     onChange: func,
@@ -57,7 +58,9 @@ const defaultProps = {
     as: "label"
 };
 
-export function InnerSwitch({
+export function InnerRadio({
+    value,
+    name,
     checked,
     defaultChecked,
     autofocus,
@@ -67,7 +70,6 @@ export function InnerSwitch({
     badge,
     size,
     reverse,
-    name,
     tabIndex,
     active,
     focus,
@@ -133,18 +135,17 @@ export function InnerSwitch({
         setIsChecked(!isChecked);
 
         if (!isNil(onChange)) {
-            onChange(event);
+            onChange(event, { value, isSelected: !isChecked });
         }
     });
 
     return (
         <ElementType
-            data-testid="switch"
+            data-testid="radio"
             {...rest}
             className={mergeClasses(
-                "o-ui switch",
-                // TODO: Changed for "checked"
-                isChecked && "on",
+                "o-ui radio",
+                isChecked && "checked",
                 iconMarkup && "with-icon",
                 badgeMarkup && "with-badge",
                 reverse && "reverse",
@@ -161,25 +162,24 @@ export function InnerSwitch({
             <VisuallyHidden
                 {...autofocusProps}
                 as="input"
-                type="checkbox"
+                type="radio"
+                value={value}
+                name={name}
                 checked={readOnly ? undefined : isChecked}
                 onChange={readOnly ? undefined : handleChange}
                 disabled={disabled}
-                name={name}
                 tabIndex={tabIndex}
                 ref={inputRef}
             />
-            <span className="switch"></span>
+            <span className="button"></span>
             {content}
         </ElementType>
     );
 }
 
-InnerSwitch.propTypes = propTypes;
-InnerSwitch.defaultProps = defaultProps;
+InnerRadio.propTypes = propTypes;
+InnerRadio.defaultProps = defaultProps;
 
-export const Switch = forwardRef((props, ref) => (
-    <InnerSwitch { ...props } forwardedRef={ref} />
+export const Radio = forwardRef((props, ref) => (
+    <InnerRadio { ...props } forwardedRef={ref} />
 ));
-
-export const Toggle = Switch;
