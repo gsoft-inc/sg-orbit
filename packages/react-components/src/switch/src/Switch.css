@@ -7,7 +7,7 @@
     align-items: center;
     cursor: pointer;
     line-height: 1;
-    overflow: hidden;
+    max-width: 100%;
 }
 
 .o-ui.switch > .switch {
@@ -17,6 +17,7 @@
     background-color: var(--cloud-200);
     border-radius: var(--scale-charlie);
     position: relative;
+    flex-shrink: 0;
 }
 
 .o-ui.switch > .switch::before {
@@ -27,23 +28,120 @@
     background-color: var(--white);
     border-radius: 100%;
     position: absolute;
-    top: 2px;
-    left: 2px;
+    transform: translate(2px, 2px);
+    transition: transform .1875s ease-in;
+}
+
+.o-ui.switch.on > .switch::before {
+    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
 .o-ui.switch .label {
     margin-left: var(--scale-bravo);
+    line-height: 1.15;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.o-ui.switch.reverse .label {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
 }
 
 .o-ui.switch.on > .switch {
     background-color: var(--primary-500);
 }
 
-.o-ui.switch.on > .switch::before {
-    left: calc( var(--scale-hotel) - var(--scale-delta) - 2px);
-}
-
 .o-ui.switch input[type="checkbox"]:focus + .switch,
 .o-ui.switch.focus > .switch {
     box-shadow: var(--outline);
+}
+
+.o-ui.switch[disabled],
+.o-ui.switch.disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.o-ui.switch.readonly {
+    cursor: default;
+}
+
+/* WITH BADGE */
+.o-ui.switch.with-badge .badge.pill {
+    margin-left: var(--scale-bravo);
+}
+
+/* WITH BADGE | REVERSE */
+.o-ui.switch.with-badge.reverse .badge.pill {
+    margin-right: var(--scale-bravo);
+    margin-left: 0;
+}
+
+/* WITH ICON */
+.o-ui.switch.with-icon > .icon,
+.o-ui.switch.with-icon > .stack {
+    margin-left: var(--scale-alpha);
+}
+
+/* WITH ICON | REVERSE */
+.o-ui.switch.reverse.with-icon > .icon,
+.o-ui.switch.reverse.with-icon > .stack {
+    margin-left: 0;
+    margin-right: var(--scale-alpha);
+}
+
+/* REVERSE */
+.o-ui.switch.reverse {
+    flex-direction: row-reverse;
+}
+
+/* REVERSE | WITH BADGE */
+.o-ui.switch.with-badge.reverse .label {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+/* REVERSE | WITH ICOn */
+.o-ui.switch.with-icon.reverse > .icon {
+    margin-left: 0;
+    margin-right: var(--scale-alpha);
+}
+
+/* SIZING */
+.o-ui.switch.small > .switch {
+    width: var(--scale-golf);
+    height: var(--scale-delta);
+}
+
+.o-ui.switch.small .label {
+    font-size: var(--type-scale-8);
+}
+
+.o-ui.switch.small > .switch::before {
+    width: var(--scale-charlie);
+    height: var(--scale-charlie);
+}
+
+.o-ui.switch.small.on > .switch::before {
+    transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
+}
+
+.o-ui.switch.large > .switch {
+    width: var(--scale-india);
+    height: var(--scale-foxtrot);
+}
+
+.o-ui.switch.large .label {
+    font-size: var(--type-scale-6);
+}
+
+.o-ui.switch.large > .switch::before {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+}
+
+.o-ui.switch.large.on > .switch::before {
+    transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
 }
