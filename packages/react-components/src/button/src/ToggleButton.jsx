@@ -52,6 +52,9 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
+    /**
+     * Component children.
+     */
     children: oneOfType([any, func]).isRequired
 };
 

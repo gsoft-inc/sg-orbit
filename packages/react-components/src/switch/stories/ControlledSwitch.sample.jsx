@@ -1,19 +1,17 @@
-import { ToggleButton } from "@react-components/button";
+import { Switch } from "@react-components/switch";
 import { useState } from "react";
 
-export function ControlledToggleButton() {
+export function ControlledSwitch() {
     const [isChecked, setIsChecked] = useState(false);
 
     console.log(isChecked);
 
     return (
-        <ToggleButton
+        <Switch
             checked={isChecked}
-            value="isActive"
-            color={isChecked ? "primary" : undefined}
             onChange={() => { setIsChecked(x => !x); }}
         >
             {isChecked ? "On" : "Off"}
-        </ToggleButton>
+        </Switch>
     );
 }
