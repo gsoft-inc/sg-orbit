@@ -208,6 +208,16 @@ a.o-ui.tag:hover {
     padding-left: calc(var(--default-padding) / 1.5);
 }
 
+/* BADGE IN TAG | LEFT > TEXT */
+.o-ui.tag.with-left-badge .text {
+    margin-left: var(--scale-bravo);
+}
+
+/* BADGE IN TAG | RIGHT > TEXT */
+.o-ui.tag.with-right-badge .text {
+    margin-right: var(--scale-bravo);
+}
+
 /* WITH BADGE | RIGHT */
 .o-ui.tag.with-right-badge {
     padding-right: calc(var(--default-padding) / 1.5);
