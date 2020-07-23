@@ -1,7 +1,8 @@
 import { IconButton } from "./IconButton";
-import { ToggleButton } from "./ToggleButton";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { isFunction } from "lodash";
+import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
     /**
@@ -9,7 +10,7 @@ const propTypes = {
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * Color accent to use.
+     * The color accent.
      */
     color: oneOf(["primary", "secondary"]),
     /**
@@ -43,14 +44,42 @@ const defaultProps = {
     as: IconButton
 };
 
-export function InnerToggleIconButton({ children, forwardedRef, ...rest }) {
+export function InnerToggleIconButton(props) {
+    const {
+        checked,
+        defaultChecked,
+        value,
+        onChange,
+        onClick,
+        active,
+        as: ElementType,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
+
+    const { isChecked, buttonProps } = useToggleButton({
+        checked,
+        defaultChecked,
+        value,
+        onChange,
+        onClick,
+        active,
+        ref: forwardedRef,
+        ...rest
+    });
+
+    const content = isFunction(children)
+        ? children({ isChecked }, props)
+        : children;
+
     return (
-        <ToggleButton
-            {...rest}
-            ref={forwardedRef}
+        <ElementType
+            data-testid="toggle-icon-button"
+            {...buttonProps}
         >
-            {children}
-        </ToggleButton>
+            {content}
+        </ElementType>
     );
 }
 

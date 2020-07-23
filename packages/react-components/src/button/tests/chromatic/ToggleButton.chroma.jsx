@@ -1,4 +1,5 @@
 import { Inline, Stack } from "@react-components/layout";
+import { LightbulbIcon } from "@react-components/icons";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -16,41 +17,45 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" value="any">Cutoff</ToggleButton>
-                <ToggleButton value="any">Cutoff</ToggleButton>
-                <ToggleButton size="large" value="any">Cutoff</ToggleButton>
+                <ToggleButton size="small">Cutoff</ToggleButton>
+                <ToggleButton>Cutoff</ToggleButton>
+                <ToggleButton size="large">Cutoff</ToggleButton>
             </Inline>
             <Inline align="end">
-                <ToggleButton selected value="any">Cutoff</ToggleButton>
-                <ToggleButton active value="any">Cutoff</ToggleButton>
-                <ToggleButton focus value="any">Cutoff</ToggleButton>
-                <ToggleButton hover value="any">Cutoff</ToggleButton>
-                <ToggleButton focus hover value="any">Cutoff</ToggleButton>
-                <ToggleButton disabled value="any">Cutoff</ToggleButton>
+                <ToggleButton checked>Cutoff</ToggleButton>
+                <ToggleButton active>Cutoff</ToggleButton>
+                <ToggleButton focus>Cutoff</ToggleButton>
+                <ToggleButton hover>Cutoff</ToggleButton>
+                <ToggleButton focus hover>Cutoff</ToggleButton>
+                <ToggleButton disabled>Cutoff</ToggleButton>
             </Inline>
+            <div>
+                <ToggleButton iconLeft={<LightbulbIcon />}>Cutoff</ToggleButton>
+            </div>
         </Stack>
     )
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton size="large" variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton size="small" variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton size="large" variant="outline" circular>Aa</ToggleButton>
             </Inline>
             <Inline align="end">
-                <ToggleButton selected variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton active variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton focus variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton hover variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton focus hover variant="outline" circular value="any">Aa</ToggleButton>
-                <ToggleButton disabled variant="outline" circular value="any">Aa</ToggleButton>
+                <ToggleButton checked variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton active variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton focus variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton hover variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton focus hover variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton disabled variant="outline" circular>Aa</ToggleButton>
             </Inline>
         </Stack>
     )
-    .add("selected", () =>
+    .add("checked", () =>
         <Inline>
-            <ToggleButton selected value="any">Cutoff</ToggleButton>
-            <ToggleButton defaultSelected value="any">Cutoff</ToggleButton>
+            <ToggleButton checked>Cutoff</ToggleButton>
+            <ToggleButton defaultChecked>Cutoff</ToggleButton>
+            <ToggleButton iconLeft={<LightbulbIcon />} checked>Cutoff</ToggleButton>
         </Inline>
     );
 

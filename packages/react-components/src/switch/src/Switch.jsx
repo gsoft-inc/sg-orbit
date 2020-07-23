@@ -2,21 +2,22 @@ import "./Switch.css";
 
 import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
-import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutoControlledState, useAutofocus, useEventCallback } from "../../shared";
-import { isNil } from "lodash";
+import { forwardRef } from "react";
+import { isFunction, isNil } from "lodash";
+import { mergeClasses } from "../../shared";
+import { useCheckbox } from "../../checkbox";
 
 const propTypes = {
     /**
      * A controlled checked state value.
      */
-    on: bool,
+    checked: bool,
     /**
      * The initial value of `checked`.
      */
-    defaultOn: bool,
+    defaultChecked: bool,
     /**
      * Whether or not the checkbox should autofocus on render.
      */
@@ -28,7 +29,6 @@ const propTypes = {
     /**
      * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {{isChecked: bool}} data - Event data.
      * @returns {void}
      */
     onChange: func,
@@ -51,125 +51,109 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * Component children.
+     */
+    children: oneOfType([any, func])
 };
 
 const defaultProps = {
     as: "label"
 };
 
-export function InnerSwitch({
-    on,
-    defaultOn,
-    autofocus,
-    autofocusDelay,
-    onChange,
-    icon,
-    badge,
-    size,
-    reverse,
-    name,
-    tabIndex,
-    active,
-    focus,
-    hover,
-    disabled,
-    readOnly,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
-    const [isOn, setIsOn] = useAutoControlledState(on, defaultOn, false);
+export function InnerSwitch(props) {
+    const {
+        checked,
+        defaultChecked,
+        autofocus,
+        autofocusDelay,
+        onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        name,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
 
-    const labelRef = useRef();
-    const inputRef = useRef();
+    const {
+        isChecked,
+        containerProps,
+        inputProps
+    } = useCheckbox({
+        checked,
+        defaultChecked,
+        autofocus,
+        autofocusDelay,
+        onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        name,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        className,
+        ref: forwardedRef,
+        ...rest
+    });
 
-    const setFocus = useCallback(() => {
-        if (!isNil(inputRef.current)) {
-            inputRef.current.focus();
-        }
-    }, [inputRef]);
+    const createMarkup = () => {
+        const labelMarkup = children && (
+            <span className="label">{children}</span>
+        );
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+        const iconMarkup = !isNil(icon) && (
+            <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+        );
 
-    // Forward native input API to the external ref element.
-    useImperativeHandle(forwardedRef, () => {
-        const apiMethods = ["blur", "focus", "click", "checkValidity", "reportValidity", "setCustomValidity"];
-        const domElement = labelRef.current;
-
-        apiMethods.forEach(x => {
-            domElement[x] = (...args) => {
-                inputRef.current[x](...args);
-            };
+        // TODO: Add reverse
+        const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+            size,
+            disabled
         });
 
-        return domElement;
-    });
+        return (
+            <>
+                {labelMarkup}
+                {iconMarkup}
+                {badgeMarkup}
+            </>
+        );
+    };
 
-    const labelMarkup = children && (
-        <span className="label">{children}</span>
-    );
-
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
-
-    // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
-
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {badgeMarkup}
-        </>
-    );
-
-    const handleChange = useEventCallback(event => {
-        setIsOn(!isOn);
-
-        if (!isNil(onChange)) {
-            onChange(event, { isOn: !isOn });
-        }
-    });
+    const content = isFunction(children)
+        ? children({ isChecked }, props)
+        : createMarkup();
 
     return (
         <ElementType
             data-testid="switch"
-            {...rest}
+            {...containerProps}
             className={mergeClasses(
                 "o-ui switch",
-                isOn && "on",
-                iconMarkup && "with-icon",
-                badgeMarkup && "with-badge",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
-                className
+                containerProps.className
             )}
-            ref={labelRef}
         >
             <VisuallyHidden
-                {...autofocusProps}
-                as="input"
-                checked={readOnly ? undefined : isOn}
-                onChange={readOnly ? undefined : handleChange}
-                disabled={disabled}
-                name={name}
-                tabIndex={tabIndex}
-                type="checkbox"
-                ref={inputRef}
+                {...inputProps}
             />
-            <span className="switch"></span>
+            <span className="switch" />
             {content}
         </ElementType>
     );

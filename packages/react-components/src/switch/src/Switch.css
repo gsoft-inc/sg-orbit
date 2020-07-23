@@ -32,7 +32,7 @@
     transition: transform .1875s ease-in;
 }
 
-.o-ui.switch.on > .switch::before {
+.o-ui.switch.checked > .switch::before {
     transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
@@ -49,7 +49,7 @@
     margin-right: var(--scale-bravo);
 }
 
-.o-ui.switch.on > .switch {
+.o-ui.switch.checked > .switch {
     background-color: var(--primary-500);
 }
 
@@ -124,7 +124,7 @@
     height: var(--scale-charlie);
 }
 
-.o-ui.switch.small.on > .switch::before {
+.o-ui.switch.small.checked > .switch::before {
     transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
 }
 
@@ -142,6 +142,6 @@
     height: var(--scale-echo);
 }
 
-.o-ui.switch.large.on > .switch::before {
+.o-ui.switch.large.checked > .switch::before {
     transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
 }

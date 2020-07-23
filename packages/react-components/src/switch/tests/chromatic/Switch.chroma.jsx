@@ -12,6 +12,6 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Switch />, stories("/off"));
+createTestSuite(<Switch />, stories("/unchecked"));
 
-createTestSuite(<Switch defaultOn />, stories("/on"));
+createTestSuite(<Switch defaultChecked />, stories("/checked"));

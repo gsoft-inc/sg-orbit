@@ -20,8 +20,6 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { logToggleChange } from "./utils";
-import CustomColorHover from "./CustomColorHover.mdx";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -86,9 +84,7 @@ A button can contain a [badge](?path=/story/components-badge--default-story).
 <Preview>
     <Story name="badge">
         <Inline>
-            <Button badgeLeft={<Badge variant="dot" />}>Cutoff</Button>
-            <Button badgeRight={<Badge>6</Badge>}>Cutoff</Button>
-            <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>6</Badge>}>Cutoff</Button>
+            <Button badge={<Badge>6</Badge>}>Cutoff</Button>
         </Inline>
     </Story>
 </Preview>
@@ -220,47 +216,18 @@ Or look like a link:
     </Story>
 </Preview>
 
-### Custom color
-
-A button can have a custom color.
-
-<Preview>
-    <Story name="custom color">
-        <Button
-            style={{
-                backgroundColor: "#FFF6E7",
-                color: "var(--marine-500)",
-                boxShadow: "0px 0px 0px 1px #FEE9C3 inset"
-            }}
-        >
-            Cutoff
-        </Button>
-    </Story>
-</Preview>
-
-<CustomColorHover />
-
 ### Icon button
 
 A button content can be a single icon.
 
 <Preview>
     <Story name="icon button">
-        <Inline spacing={12}>
-            <Inline align="end">
-                <IconButton size="mini"><AddIcon /></IconButton>
-                <IconButton size="tiny"><AddIcon /></IconButton>
-                <IconButton size="small"><AddIcon /></IconButton>
-                <IconButton><AddIcon /></IconButton>
-                <IconButton size="large"><AddIcon /></IconButton>
-            </Inline>
-            <Inline align="end">
-                <IconButton circular size="mini"><AddIcon /></IconButton>
-                <IconButton circular size="tiny"><AddIcon /></IconButton>
-                <IconButton circular size="small"><AddIcon /></IconButton>
-                <IconButton circular><AddIcon /></IconButton>
-                <IconButton circular size="large"><AddIcon /></IconButton>
-            </Inline>
+        <Inline align="end">
+            <IconButton circular size="mini"><AddIcon /></IconButton>
+            <IconButton circular size="tiny"><AddIcon /></IconButton>
+            <IconButton circular size="small"><AddIcon /></IconButton>
+            <IconButton circular><AddIcon /></IconButton>
+            <IconButton circular size="large"><AddIcon /></IconButton>
         </Inline>
     </Story>
 </Preview>
@@ -287,10 +254,9 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
 
 <Preview>
     <Story name="toggle button">
-        <Inline align="end">
-            <ToggleButton value="isActive" variant="outline" color="primary" size="small" onChange={logToggleChange}>On</ToggleButton>
-            <ToggleButton value="isActive" variant="outline" color="primary" onChange={logToggleChange}>On</ToggleButton>
-            <ToggleButton value="isActive" variant="outline" color="primary" size="large" onChange={logToggleChange}>On</ToggleButton>
+        <Inline>
+            <ToggleButton variant="outline" color="primary" circular>On</ToggleButton>
+            <ToggleButton variant="outline" color="primary" iconLeft={<LightbulbIcon />}>Cutoff</ToggleButton>
         </Inline>
     </Story>
 </Preview>
@@ -301,33 +267,22 @@ A toggle button content can be a single icon.
 
 <Preview>
     <Story name="toggle icon button">
-        <Inline align="end">
-            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="small" onChange={logToggleChange}>
-                <CheckIcon />
-            </ToggleIconButton>
-            <ToggleIconButton value="isActive" variant="outline" color="primary" circular onChange={logToggleChange}>
-                <CheckIcon />
-            </ToggleIconButton>
-            <ToggleIconButton value="isActive" variant="outline" color="primary" circular size="large" onChange={logToggleChange}>
-                <CheckIcon />
-            </ToggleIconButton>
-        </Inline>
+        <ToggleIconButton variant="outline" circular>
+            <CheckIcon />
+        </ToggleIconButton>
     </Story>
 </Preview>
 
-### Render props
+### Render Props
 
-A toggle button can update is content with a render props based on the selected state value.
+A toggle button can update is content with a render props based on the state values.
 
 <Preview>
     <Story name="toggle icon render props">
-        <ToggleButton
-            value="isActive"
-            onChange={logToggleChange}
-        >
+        <ToggleButton>
             {
-                ({ isSelected }) => {
-                    return isSelected ? "On" : "Off"
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
                 }
             }
         </ToggleButton>
@@ -336,7 +291,7 @@ A toggle button can update is content with a render props based on the selected 
 
 ### Controlled
 
-A toggle button can handle `selected` state in controlled mode.
+A toggle button can handle `checked` state in controlled mode.
 
 <FilePreview filePath="/button/stories/ControlledToggleButton">
     <ControlledToggleButton />
@@ -352,7 +307,7 @@ A toggle button group can allow multiple options to be selected.
 
 <Preview>
     <Story name="toggle button group multiple">
-        <ToggleButtonGroup onChange={logToggleChange}>
+        <ToggleButtonGroup>
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
             <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
@@ -368,10 +323,7 @@ A toggle button group can enforce the selection of a single option.
 
 <Preview>
     <Story name="toggle button group exclusive">
-        <ToggleButtonGroup
-            exclusive
-            onChange={logToggleChange}
-        >
+        <ToggleButtonGroup exclusive>
             <ToggleIconButton value="on" variant="outline" circular>
                 <NotificationIcon />
             </ToggleIconButton>

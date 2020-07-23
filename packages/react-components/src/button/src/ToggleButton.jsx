@@ -1,26 +1,26 @@
 import { Button } from "./Button";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isFunction, isNil } from "lodash";
-import { useAutoControlledState, useChainedEventCallback } from "../../shared";
+import { isFunction } from "lodash";
+import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
     /**
-     * A controlled selected state value.
+     * A controlled checked value.
      */
-    selected: bool,
+    checked: bool,
     /**
-     * The initial value of `selected`.
+     * The initial value of `checked`.
      */
-    defaultSelected: bool,
+    defaultChecked: bool,
     /**
-     * 	The value to associate with the button when it's selected.
+     * 	The value to associate with when his part of a group.
      */
-    value: any.isRequired,
+    value: oneOfType([string, number]),
     /**
-     * Called when the button selection state change.
+     * Called when the button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {{value: any, isChecked: bool}} data - Event data.
+     * @param {bool} isChecked - Whether or not the button is checked.
      * @returns {void}
      */
     onChange: func,
@@ -29,9 +29,17 @@ const propTypes = {
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * Color accent to use.
+     * The color accent.
      */
     color: oneOf(["primary", "secondary"]),
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
+     */
+    iconLeft: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     */
+    iconRight: element,
     /**
      * Whether or not the button should autofocus on render.
      */
@@ -53,9 +61,9 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * Component children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func]).isRequired
 };
 
 const defaultProps = {
@@ -64,29 +72,38 @@ const defaultProps = {
 };
 
 export function InnerToggleButton(props) {
-    const { selected, defaultSelected, value, onChange, onClick, active, as: ElementType, children, forwardedRef, ...rest } = props;
+    const {
+        checked,
+        defaultChecked,
+        value,
+        onChange,
+        onClick,
+        active,
+        as: ElementType,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
 
-    const [isSelected, setIsSelected] = useAutoControlledState(selected, defaultSelected, false);
-
-    const handleClick = useChainedEventCallback(onClick, event => {
-        setIsSelected(!isSelected);
-
-        if (!isNil(onChange)) {
-            onChange(event, { value, isSelected: !isSelected });
-        }
+    const { isChecked, buttonProps } = useToggleButton({
+        checked,
+        defaultChecked,
+        value,
+        onChange,
+        onClick,
+        active,
+        ref: forwardedRef,
+        ...rest
     });
 
     const content = isFunction(children)
-        ? children({ isSelected }, props)
+        ? children({ isChecked }, props)
         : children;
 
     return (
         <ElementType
             data-testid="toggle-button"
-            {...rest}
-            onClick={handleClick}
-            active={active || isSelected}
-            ref={forwardedRef}
+            {...buttonProps}
         >
             {content}
         </ElementType>

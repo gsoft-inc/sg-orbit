@@ -1,10 +1,14 @@
 import { Badge } from "@react-components/badge";
-import { Checkbox, InnerCheckbox } from "@react-components/checkbox";
+import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@react-components/checkbox";
+import { ControlledCheckbox } from "./ControlledCheckbox.sample";
+import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
+import { CustomGroup } from "./CustomGroup.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { ToggleButton } from "@react-components/button";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -26,7 +30,8 @@ A checkbox allows a user to select a value from a small set of options, often bi
 
 <Props
     componentsDefinitions={[
-        { displayName: "Checkbox", component: InnerCheckbox }
+        { displayName: "Checkbox", component: InnerCheckbox },
+        { displayName: "CheckboxGroup", component: InnerCheckboxGroup }
     ]}
 />
 
@@ -140,6 +145,30 @@ A checkbox checkmark can be to the left or to the right of his label.
     </Story>
 </Preview>
 
+### Render Props
+
+A checkbox can update is content with a render props based on the state values.
+
+<Preview>
+    <Story name="render props">
+        <Checkbox>
+            {
+                ({ isChecked }) => (
+                    <span className="label">{isChecked ? "On" : "Off"}</span>
+                )
+            }
+        </Checkbox>
+    </Story>
+</Preview>
+
+### Controlled
+
+A checkbox can handle `checked` state in controlled mode.
+
+<FilePreview filePath="/checkbox/stories/ControlledCheckbox">
+    <ControlledCheckbox />
+</FilePreview>
+
 <Story
     name="autofocus"
     parameters={paramsBuilder()
@@ -172,6 +201,52 @@ A checkbox checkmark can be to the left or to the right of his label.
 >
     <RefLogger><Checkbox>Milky Way</Checkbox></RefLogger>
 </Story>
+
+## Checkbox Group
+
+Related checkboxes can be group together.
+
+<Preview>
+    <Story name="checkbox group">
+        <CheckboxGroup>
+            <Checkbox value="milky-way">Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Toggle Buttons
+
+In somes cases, you might want a group of toggle buttons to behave like a checkbox group.
+
+<Preview>
+    <Story name="toggle buttons">
+        <CheckboxGroup>
+            <ToggleButton value="none" variant="outline">None</ToggleButton>
+            <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
+            <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
+            <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Custom Components
+
+In fact, any component implementing the `CheckableContext` can behave like a checkbox group.
+
+<FilePreview filePath="/checkbox/stories/CustomGroup">
+    <CustomGroup />
+</FilePreview>
+
+### Controlled
+
+A checkbox group can handle `value` state in controlled mode.
+
+<FilePreview filePath="/checkbox/stories/ControlledCheckboxGroup">
+    <ControlledCheckboxGroup />
+</FilePreview>
 
 ## API
 

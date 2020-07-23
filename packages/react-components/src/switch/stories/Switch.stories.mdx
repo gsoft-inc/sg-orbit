@@ -1,8 +1,9 @@
 import { Badge } from "@react-components/badge";
+import { ControlledSwitch } from "./ControlledSwitch.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -134,6 +135,30 @@ A checkbox checkmark can be to the left or to the right of his label.
         <Switch reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
     </Story>
 </Preview>
+
+### Render Props
+
+A switch can update is content with a render props based on the state values.
+
+<Preview>
+    <Story name="render props">
+        <Switch>
+            {
+                ({ isChecked }) => (
+                    <span className="label">{isChecked ? "On" : "Off"}</span>
+                )
+            }
+        </Switch>
+    </Story>
+</Preview>
+
+### Controlled
+
+A switch can handle `checked` state in controlled mode.
+
+<FilePreview filePath="/switch/stories/ControlledSwitch">
+    <ControlledSwitch />
+</FilePreview>
 
 <Story
     name="autofocus"

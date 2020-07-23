@@ -1,4 +1,4 @@
-import { IS_PRODUCTION } from "../env";
+import { IS_PRODUCTION } from "./env";
 import { isFunction, isUndefined } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -6,7 +6,7 @@ function validatePrerequisites(controlledValue, initialValue) {
     if (!IS_PRODUCTION) {
         if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
             throw new Error(
-                "useAutoControlledState - An auto controlled prop can have either a controlled value or an initial value, but not both."
+                "useControllableState - A controllable state value can either have a controlled value or an initial value, but not both."
             );
         }
     }
@@ -14,7 +14,7 @@ function validatePrerequisites(controlledValue, initialValue) {
 
 function ensureControlledStateHaveNotChanged(controlledValue, isControlled) {
     if ((isControlled && isUndefined(controlledValue)) || (!isControlled && !isUndefined(controlledValue))) {
-        throw new Error("useAutoControlledState - An auto controlled prop cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
+        throw new Error("useControllableState - A controllable state value cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
     }
 }
 
@@ -70,13 +70,11 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
 }
 
 /**
- * Safely attempt to set state for an auto controlled prop that might be "controlled" by the consumer.
+ * Safely attempt to set state for a prop that might be "controlled" by the consumer.
  * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
  */
-function useSetAutoControlledState(currentState, setState, isControlled, onChange) {
+function useSetUncontrolledState(currentState, setState, isControlled, onChange) {
     return useCallback(maybeState => {
-        // ensure(maybeState, "maybeState", "useAutoControlledState").isNotNull();
-
         if (!isControlled) {
             if (maybeState !== currentState) {
                 setState(maybeState);
@@ -97,7 +95,7 @@ function useSetAutoControlledState(currentState, setState, isControlled, onChang
  * @param {Function} [onChange] - An optionnal function called when the auto controlled state is updated.
  * @returns {[Object, Function]} An array with the first value being the value of the state and the second value being a function to manually update the state value.
  * @example
- * const [autoControlledValue, setAutoControlledState] = useAutoControlledState(value, initialValue, defaultValue, (newValue, isInitialState) => {
+ * const [controllableValue, setUncontrolledState] = useControllableState(value, initialValue, defaultValue, (newValue, isInitialState) => {
  *      // Optionally compute derived state...
  *      if (isInitialState) {
  *          setSelectedValue(newValue)
@@ -106,9 +104,9 @@ function useSetAutoControlledState(currentState, setState, isControlled, onChang
  *
  * ...
  *
- * setAutoControlledState("Neil Armstrong");
+ * setUncontrolledState("Neil Armstrong");
  */
-export function useAutoControlledState(controlledValue, initialValue, defaultValue, onChange) {
+export function useControllableState(controlledValue, initialValue, defaultValue, onChange) {
     validatePrerequisites(controlledValue, initialValue);
 
     const { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
@@ -131,7 +129,7 @@ export function useAutoControlledState(controlledValue, initialValue, defaultVal
         }
     }, [state, isControlled, isInitialState, controlledValue, initialValue, defaultValue, onChange]);
 
-    const setAutoControlledState = useSetAutoControlledState(state, setState, isControlled, onChange);
+    const setUncontrolledState = useSetUncontrolledState(state, setState, isControlled, onChange);
 
-    return [state, setAutoControlledState];
+    return [state, setUncontrolledState];
 }

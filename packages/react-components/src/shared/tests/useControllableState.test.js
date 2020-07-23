@@ -1,6 +1,6 @@
 import { ErrorBoundary, muteConsoleErrors } from "@utils/error-handling";
 import { act, renderHook } from "@testing-library/react-hooks";
-import { useAutoControlledState } from "@react-components/shared";
+import { useControllableState } from "@react-components/shared";
 
 // Errors in useEffect are not catch by @testing-library/react-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
 function withErrorBoundary(onError) {
@@ -16,25 +16,25 @@ function muteReactTestRendererConsoleErrors() {
 // ***** State from props *****
 
 test("state is the controlled value when a controlled value is provided", () => {
-    const { result } = renderHook(() => useAutoControlledState(true, undefined, false));
+    const { result } = renderHook(() => useControllableState(true, undefined, false));
 
     expect(result.current[0]).toBeTruthy();
 });
 
 test("state is the initial value when an initial value is provided", () => {
-    const { result } = renderHook(() => useAutoControlledState(undefined, true, false));
+    const { result } = renderHook(() => useControllableState(undefined, true, false));
 
     expect(result.current[0]).toBeTruthy();
 });
 
 test("throw an error when a controlled value and an initial value are provided", () => {
-    const { result } = renderHook(() => useAutoControlledState(true, true, false));
+    const { result } = renderHook(() => useControllableState(true, true, false));
 
     expect(result.error).toBeDefined();
 });
 
 test("state is the default value when no controlled value and no initial value are provided", () => {
-    const { result } = renderHook(() => useAutoControlledState(undefined, undefined, false));
+    const { result } = renderHook(() => useControllableState(undefined, undefined, false));
 
     expect(result.current[0]).toBeFalsy();
 });
@@ -42,7 +42,7 @@ test("state is the default value when no controlled value and no initial value a
 test("state is unchanged when a subsequent run is made with the same values", () => {
     const handler = jest.fn();
 
-    const { result, rerender } = renderHook(() => useAutoControlledState(true, undefined, false, handler));
+    const { result, rerender } = renderHook(() => useControllableState(true, undefined, false, handler));
 
     expect(result.current[0]).toBeTruthy();
 
@@ -55,7 +55,7 @@ test("state is unchanged when a subsequent run is made with the same values", ()
 test("state is updated when a new controlled value is provided on a subsequent run", () => {
     const handler = jest.fn();
 
-    const { result, rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, handler), {
+    const { result, rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, handler), {
         initialProps: {
             controlledValue: true
         }
@@ -76,7 +76,7 @@ test("throw an error when a controlled value is not provided on the first run bu
 
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
-    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false), {
+    const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {
         initialProps: {
             controlledValue: undefined
         },
@@ -99,7 +99,7 @@ test("throw an error when a controlled value is provided on the first run but is
 
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
-    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false), {
+    const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {
         initialProps: {
             controlledValue: true
         },
@@ -118,7 +118,7 @@ test("throw an error when a controlled value is provided on the first run but is
 });
 
 test("initial value doesn't override state on a subsequent run when in uncontrolled mode", () => {
-    const { result, rerender } = renderHook(() => useAutoControlledState(undefined, false, false));
+    const { result, rerender } = renderHook(() => useControllableState(undefined, false, false));
 
     expect(result.current[0]).toBeFalsy();
 
@@ -134,7 +134,7 @@ test("initial value doesn't override state on a subsequent run when in uncontrol
 });
 
 test("default value doesn't override state on a subsequent run when in uncontrolled mode", () => {
-    const { result, rerender } = renderHook(() => useAutoControlledState(undefined, undefined, false));
+    const { result, rerender } = renderHook(() => useControllableState(undefined, undefined, false));
 
     expect(result.current[0]).toBeFalsy();
 
@@ -152,7 +152,7 @@ test("default value doesn't override state on a subsequent run when in uncontrol
 // ***** setAutoControlledState *****
 
 test("setting the value of an uncontrolled prop update the state with the new value", () => {
-    const { result } = renderHook(() => useAutoControlledState(undefined, undefined, false));
+    const { result } = renderHook(() => useControllableState(undefined, undefined, false));
 
     act(() => {
         result.current[1](true);
@@ -162,7 +162,7 @@ test("setting the value of an uncontrolled prop update the state with the new va
 });
 
 test("setting the value of a controlled prop doesn't update the state", () => {
-    const { result } = renderHook(() => useAutoControlledState(false, undefined, false));
+    const { result } = renderHook(() => useControllableState(false, undefined, false));
 
     act(() => {
         result.current[1](true);
@@ -178,7 +178,7 @@ test("call onChange on first run", () => {
     let lastState;
     let lastIsInitialState;
 
-    renderHook(() => useAutoControlledState(true, undefined, false, (state, isInitialState) => {
+    renderHook(() => useControllableState(true, undefined, false, (state, isInitialState) => {
         callCount++;
         lastState = state;
         lastIsInitialState = isInitialState;
@@ -193,7 +193,7 @@ test("call onChange when a new value is provided for a controlled prop", () => {
     let callCount = 0;
     let lastState;
 
-    const { rerender } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, state => {
+    const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, state => {
         callCount++;
         lastState = state;
     }), {
@@ -213,7 +213,7 @@ test("call onChange when a new value is provided for a controlled prop", () => {
 test("don't call onChange when a new value is set for a controlled prop", () => {
     const handler = jest.fn();
 
-    const { result } = renderHook(({ controlledValue }) => useAutoControlledState(controlledValue, undefined, false, handler), {
+    const { result } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, handler), {
         initialProps: {
             controlledValue: true
         }
@@ -230,7 +230,7 @@ test("call onChange when a new value is set for an uncontrolled prop", () => {
     let callCount = 0;
     let lastState;
 
-    const { result } = renderHook(() => useAutoControlledState(undefined, true, false, state => {
+    const { result } = renderHook(() => useControllableState(undefined, true, false, state => {
         callCount++;
         lastState = state;
     }));

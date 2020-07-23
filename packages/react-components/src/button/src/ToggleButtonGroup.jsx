@@ -1,7 +1,7 @@
 import { ButtonGroup } from "./ButtonGroup";
 import { Children, forwardRef, useMemo } from "react";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, useAutoControlledState, useEventCallback } from "../../shared";
+import { augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -72,7 +72,7 @@ function ToggleButtonGroupItem({ selected, onChange, children, ...rest }) {
 }
 
 export function InnerToggleButtonGroup({ value, defaultValue, onChange, exclusive, as: ElementType, children, forwardedRef, ...rest }) {
-    const [selectedValue, setSelectedValue] = useAutoControlledState(value, defaultValue, exclusive ? null : []);
+    const [selectedValue, setSelectedValue] = useControllableState(value, defaultValue, exclusive ? null : []);
 
     const handleChange = useEventCallback((event, { value: toggledValue }) => {
         let newSelectedValue;
