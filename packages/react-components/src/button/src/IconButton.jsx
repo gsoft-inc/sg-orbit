@@ -85,7 +85,7 @@ export function InnerIconButton({
         hover,
         disabled,
         className,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 

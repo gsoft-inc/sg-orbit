@@ -4,10 +4,8 @@ import { createRef } from "react";
 import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
-function getInput(getByTestId) {
-    const searchInputNode = getByTestId("switch");
-
-    return searchInputNode.querySelector("input");
+function getInput(element) {
+    return element.querySelector("input");
 }
 
 // ***** Behaviors *****
@@ -17,7 +15,7 @@ test("when autofocus is true, the switch is autofocused on render", async () => 
         <Switch autofocus />
     );
 
-    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
 });
 
 test("when autofocus on a disabled switch, the switch is not autofocused on render", async () => {
@@ -28,7 +26,7 @@ test("when autofocus on a disabled switch, the switch is not autofocused on rend
         />
     );
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
 });
 
 test("when delayed autofocus, the switch is autofocused after the delay", async () => {
@@ -42,9 +40,9 @@ test("when delayed autofocus, the switch is autofocused after the delay", async 
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled switch, the switch is not autofocused after the delay", async () => {
@@ -58,7 +56,7 @@ test("when delayed autofocus on a disabled switch, the switch is not autofocused
 
     await waitDelay(60);
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
 });
 
 // ***** API *****
@@ -71,7 +69,7 @@ test("call onChange when the switch is turned on", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("switch")));
     });
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything());
@@ -85,11 +83,11 @@ test("call onChange when the switch is turned off", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("switch")));
     });
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("switch")));
     });
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything());
@@ -103,7 +101,7 @@ test("dont call onChange when the switch is disabled", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("switch")));
     });
 
     expect(handler).not.toHaveBeenCalled();
@@ -117,7 +115,7 @@ test("dont call onChange when the switch is readonly", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("switch")));
     });
 
     expect(handler).not.toHaveBeenCalled();
@@ -138,7 +136,7 @@ test("can focus the switch with the focus api", async () => {
         refNode.focus();
     });
 
-    await waitFor(() => expect(refNode.querySelector("input")).toHaveFocus());
+    await waitFor(() => expect(getInput(refNode)).toHaveFocus());
 });
 
 // ***** Refs *****

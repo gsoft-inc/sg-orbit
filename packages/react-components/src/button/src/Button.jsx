@@ -109,7 +109,7 @@ export function InnerButton({
         hover,
         disabled,
         className,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 

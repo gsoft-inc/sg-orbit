@@ -1,0 +1,14 @@
+.o-ui.radio {
+    display: inline-flex;
+}
+
+.o-ui.radio .button {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+.o-ui.radio input[type="radio"]:focus + .button {
+    background-color: teal;
+}

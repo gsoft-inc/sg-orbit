@@ -43,13 +43,13 @@ A switch can have a label.
     </Story>
 </Preview>
 
-### On
+### Checked
 
-A switch can be on.
+A switch can be checked.
 
 <Preview>
-    <Story name="on">
-        <Switch defaultOn>Engines</Switch>
+    <Story name="checked">
+        <Switch defaultChecked>Engines</Switch>
     </Story>
 </Preview>
 
@@ -84,15 +84,15 @@ A switch can be readonly.
     </Story>
 </Preview>
 
-### Icons
+### Icon
 
-A switch can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
+A switch can have [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
-    <Story name="icons">
+    <Story name="icon">
         <Inline>
             <Switch icon={<LightbulbIcon />}>Pressurization</Switch>
-            <Switch icon={<IconGroup><LightbulbIcon /><InfoIcon /></IconGroup>}>Engines</Switch>
+            <Switch icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Engines</Switch>
         </Inline>
     </Story>
 </Preview>

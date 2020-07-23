@@ -4,10 +4,8 @@ import { createRef } from "react";
 import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
-function getInput(getByTestId) {
-    const searchInputNode = getByTestId("checkbox");
-
-    return searchInputNode.querySelector("input");
+function getInput(element) {
+    return element.querySelector("input");
 }
 
 // ***** Behaviors *****
@@ -17,7 +15,7 @@ test("when autofocus is true, the checkbox is autofocused on render", async () =
         <Checkbox autofocus />
     );
 
-    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });
 
 test("when autofocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
@@ -28,7 +26,7 @@ test("when autofocus on a disabled checkbox, the checkbox is not autofocused on 
         />
     );
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
 });
 
 test("when delayed autofocus, the checkbox is autofocused after the delay", async () => {
@@ -42,9 +40,9 @@ test("when delayed autofocus, the checkbox is autofocused after the delay", asyn
     // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
     await waitDelay(0);
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });
 
 test("when delayed autofocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
@@ -58,7 +56,7 @@ test("when delayed autofocus on a disabled checkbox, the checkbox is not autofoc
 
     await waitDelay(60);
 
-    expect(getInput(getByTestId)).not.toHaveFocus();
+    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
 });
 
 // ***** API *****
@@ -71,7 +69,7 @@ test("call onChange when the checkbox is checked", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything());
@@ -85,11 +83,11 @@ test("call onChange when the checkbox is unchecked", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything());
@@ -103,10 +101,10 @@ test("call onChange when the checkbox goes from indeterminate to checked", async
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { isChecked: true });
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
 });
 
 test("dont call onChange when the checkbox is disabled", async () => {
@@ -117,7 +115,7 @@ test("dont call onChange when the checkbox is disabled", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     expect(handler).not.toHaveBeenCalled();
@@ -131,7 +129,7 @@ test("dont call onChange when the checkbox is readonly", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId));
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     expect(handler).not.toHaveBeenCalled();
@@ -152,7 +150,7 @@ test("can focus the checkbox with the focus api", async () => {
         refNode.focus();
     });
 
-    await waitFor(() => expect(refNode.querySelector("input")).toHaveFocus());
+    await waitFor(() => expect(getInput(refNode)).toHaveFocus());
 });
 
 // ***** Refs *****

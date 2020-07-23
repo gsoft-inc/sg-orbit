@@ -109,7 +109,7 @@ export function InnerSwitch(props) {
         disabled,
         readOnly,
         className,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 

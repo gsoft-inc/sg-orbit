@@ -65,7 +65,7 @@ export function InnerToggleIconButton(props) {
         onChange,
         onClick,
         active,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 
