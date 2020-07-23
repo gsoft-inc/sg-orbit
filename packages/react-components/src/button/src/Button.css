@@ -589,9 +589,7 @@ a.o-ui.button.outline {
 }
 
 /* BUTTON | LOADING | ELEMENTS */
-.o-ui.button.loading .text,
-.o-ui.button.loading .icon,
-.o-ui.button.loading .badge {
+.o-ui.button.loading > * {
     visibility: hidden;
 }
 
@@ -743,29 +741,16 @@ a.o-ui.button.outline {
 
 /* BUTTON | CONTENT */
 /* BUTTON | CONTENT | BADGE */
-.o-ui.button.with-left-badge  {
-    padding-left: calc(var(--padding-default) / var(--padding-ratio-factor));
-}
-
-.o-ui.button.with-left-badge .text {
-    margin-left: var(--scale-bravo);
-}
-
-/* BUTTON | LINK | CONTENT | BADGE */
-.o-ui.button.with-left-badge.link  {
-    padding-left: 0;
-}
-
-.o-ui.button.with-right-badge  {
+.o-ui.button.with-badge  {
     padding-right: calc(var(--padding-default) / var(--padding-ratio-factor));
 }
 
 /* LINK */
-.o-ui.button.link.with-right-badge  {
+.o-ui.button.link.with-badge  {
     padding-right: 0;
 }
 
-.o-ui.button.with-right-badge .text {
+.o-ui.button.with-badge .text {
     margin-right: var(--scale-bravo);
 }
 

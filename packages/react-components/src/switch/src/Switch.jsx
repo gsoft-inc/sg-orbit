@@ -89,7 +89,6 @@ export function InnerSwitch(props) {
 
     const {
         isChecked,
-        isIndeterminate,
         containerProps,
         inputProps
     } = useCheckbox({
@@ -139,7 +138,7 @@ export function InnerSwitch(props) {
     };
 
     const content = isFunction(children)
-        ? children({ isChecked, isIndeterminate }, props)
+        ? children({ isChecked }, props)
         : createMarkup();
 
     return (

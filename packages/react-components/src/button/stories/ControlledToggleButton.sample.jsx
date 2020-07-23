@@ -4,14 +4,15 @@ import { useState } from "react";
 export function ControlledToggleButton() {
     const [isChecked, setIsChecked] = useState(false);
 
-    console.log(isChecked);
-
     return (
         <ToggleButton
             checked={isChecked}
             value="isActive"
             color={isChecked ? "primary" : undefined}
-            onChange={() => { setIsChecked(x => !x); }}
+            onChange={() => {
+                setIsChecked(x => !x);
+                console.log(!isChecked);
+            }}
         >
             {isChecked ? "On" : "Off"}
         </ToggleButton>

@@ -4,12 +4,13 @@ import { useState } from "react";
 export function ControlledToggleButtonGroup() {
     const [value, setValue] = useState([]);
 
-    console.log(value);
-
     return (
         <ToggleButtonGroup
             value={value}
-            onChange={(event, x) => { setValue(x); }}
+            onChange={(event, x) => {
+                setValue(x);
+                console.log(x);
+            }}
         >
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" circular>1</ToggleButton>

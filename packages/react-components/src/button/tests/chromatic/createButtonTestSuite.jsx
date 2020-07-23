@@ -91,52 +91,24 @@ export function createButtonTestSuite(element, stories) {
         .add("badge", () =>
             <Stack>
                 <Inline align="end">
-                    <Button badgeLeft={<Badge variant="dot" />} size="mini" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} size="tiny" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} size="small" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} size="large" element={element}>Button</Button>
+                    <Button badge={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
+                    <Button badge={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
+                    <Button badge={<Badge>60</Badge>} size="small" element={element}>Button</Button>
+                    <Button badge={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button badge={<Badge>60</Badge>} size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button badgeLeft={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button badgeLeft={<Badge>60</Badge>} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button badgeRight={<Badge variant="dot" />} size="mini" element={element}>Button</Button>
-                    <Button badgeRight={<Badge variant="dot" />} size="tiny" element={element}>Button</Button>
-                    <Button badgeRight={<Badge variant="dot" />} size="small" element={element}>Button</Button>
-                    <Button badgeRight={<Badge variant="dot" />} element={element}>Button</Button>
-                    <Button badgeRight={<Badge variant="dot" />} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button badgeRight={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button badgeRight={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button badgeRight={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button loading badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} size="large" element={element}>Button</Button>
+                    <Button loading badge={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
+                    <Button loading badge={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
+                    <Button loading badge={<Badge>60</Badge>} size="small" element={element}>Button</Button>
+                    <Button loading badge={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button loading badge={<Badge>60</Badge>} size="large" element={element}>Button</Button>
                 </Inline>
                 <div>
-                    <Button disabled badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button disabled badge={<Badge>60</Badge>} element={element}>Button</Button>
                 </div>
                 <div>
-                    <Button fluid badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button fluid badge={<Badge>60</Badge>} element={element}>Button</Button>
                 </div>
             </Stack>
         )

@@ -1,11 +1,12 @@
 import "./Button.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
+import { SIZE, createEmbeddableAdapter, mergeClasses } from "../../shared";
 import { any, bool, element, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback } from "react";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { useButton } from "./useButton";
 
 const propTypes = {
     /**
@@ -25,13 +26,9 @@ const propTypes = {
      */
     iconRight: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
-     */
-    badgeLeft: element,
-    /**
      * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
-    badgeRight: element,
+    badge: element,
     /**
      * Whether or not the button should autofocus on render.
      */
@@ -81,8 +78,7 @@ export function InnerButton({
     color,
     iconLeft,
     iconRight,
-    badgeLeft,
-    badgeRight,
+    badge,
     autofocus,
     autofocusDelay,
     fluid,
@@ -99,15 +95,23 @@ export function InnerButton({
     forwardedRef,
     ...rest
 }) {
-    const ref = useMergedRefs(forwardedRef);
-
-    const setFocus = useCallback(() => {
-        if (!isNil(ref.current)) {
-            ref.current.focus();
-        }
-    }, [ref]);
-
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const buttonProps = useButton({
+        variant,
+        color,
+        autofocus,
+        autofocusDelay,
+        fluid,
+        circular,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        className,
+        ref: forwardedRef,
+        ...rest
+    });
 
     const textMarkup = (
         <span className="text">{children}</span>
@@ -121,48 +125,30 @@ export function InnerButton({
         <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
-    const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
-        size,
-        disabled
-    });
-
-    const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
         size,
         disabled
     });
 
     const content = (
         <>
-            {iconLeftMarkup}{badgeLeftMarkup}
+            {iconLeftMarkup}
             {textMarkup}
-            {iconRightMarkup}{badgeRightMarkup}
+            {iconRightMarkup}{badgeMarkup}
         </>
     );
 
     return (
         <ElementType
             data-testid="button"
-            {...rest}
-            {...autofocusProps}
+            {...buttonProps}
             className={mergeClasses(
                 "o-ui button",
-                variant,
-                color && color,
                 iconLeftMarkup && "with-left-icon",
                 iconRightMarkup && "with-right-icon",
-                badgeLeftMarkup && "with-left-badge",
-                badgeRightMarkup && "with-right-badge",
-                fluid && "fluid",
-                circular && "circular",
-                loading && "loading",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
-                className)
-            }
-            disabled={disabled}
-            ref={ref}
+                badgeMarkup && "with-badge",
+                buttonProps.className
+            )}
         >
             {content}
         </ElementType>

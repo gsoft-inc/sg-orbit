@@ -1,8 +1,8 @@
 import { Button } from "./Button";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isFunction, isNil } from "lodash";
-import { useChainedEventCallback, useCheckableContext, useControllableState } from "../../shared";
+import { isFunction } from "lodash";
+import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
     /**
@@ -32,6 +32,14 @@ const propTypes = {
      * The color accent.
      */
     color: oneOf(["primary", "secondary"]),
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
+     */
+    iconLeft: element,
+    /**
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     */
+    iconRight: element,
     /**
      * Whether or not the button should autofocus on render.
      */
@@ -77,20 +85,15 @@ export function InnerToggleButton(props) {
         ...rest
     } = props;
 
-    const { isCheckedValue, onCheck } = useCheckableContext(value);
-
-    const [isChecked, setIsChecked] = useControllableState(!isNil(isCheckedValue) ? isCheckedValue : checked, defaultChecked, false);
-
-    const handleClick = useChainedEventCallback(onClick, event => {
-        setIsChecked(!isChecked);
-
-        if (!isNil(onCheck)) {
-            onCheck(event, value);
-        }
-
-        if (!isNil(onChange)) {
-            onChange(event, !isChecked);
-        }
+    const { isChecked, buttonProps } = useToggleButton({
+        checked,
+        defaultChecked,
+        value,
+        onChange,
+        onClick,
+        active,
+        ref: forwardedRef,
+        ...rest
     });
 
     const content = isFunction(children)
@@ -100,10 +103,7 @@ export function InnerToggleButton(props) {
     return (
         <ElementType
             data-testid="toggle-button"
-            {...rest}
-            onClick={handleClick}
-            active={active || isChecked}
-            ref={forwardedRef}
+            {...buttonProps}
         >
             {content}
         </ElementType>

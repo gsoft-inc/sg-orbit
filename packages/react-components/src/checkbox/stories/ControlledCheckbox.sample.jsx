@@ -4,12 +4,13 @@ import { useState } from "react";
 export function ControlledCheckbox() {
     const [isChecked, setIsChecked] = useState(false);
 
-    console.log(isChecked);
-
     return (
         <Checkbox
             checked={isChecked}
-            onChange={() => { setIsChecked(x => !x); }}
+            onChange={() => {
+                setIsChecked(x => !x);
+                console.log(!isChecked);
+            }}
         >
             {isChecked ? "On" : "Off"}
         </Checkbox>

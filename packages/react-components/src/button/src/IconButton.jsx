@@ -1,7 +1,7 @@
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
-import { forwardRef, useCallback } from "react";
-import { isNil } from "lodash";
+import { augmentElement, mergeClasses } from "../../shared";
+import { forwardRef } from "react";
+import { useButton } from "./useButton";
 
 const propTypes = {
     /**
@@ -71,15 +71,23 @@ export function InnerIconButton({
     forwardedRef,
     ...rest
 }) {
-    const ref = useMergedRefs(forwardedRef);
-
-    const setFocus = useCallback(() => {
-        if (!isNil(ref.current)) {
-            ref.current.focus();
-        }
-    }, [ref]);
-
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const buttonProps = useButton({
+        variant,
+        color,
+        autofocus,
+        autofocusDelay,
+        fluid,
+        circular,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        className,
+        ref: forwardedRef,
+        ...rest
+    });
 
     const content = augmentElement(children, {
         size
@@ -88,23 +96,11 @@ export function InnerIconButton({
     return (
         <ElementType
             data-testid="icon-button"
-            {...rest}
-            {...autofocusProps}
+            {...buttonProps}
             className={mergeClasses(
                 "o-ui button icon",
-                variant,
-                color && color,
-                fluid && "fluid",
-                circular && "circular",
-                loading && "loading",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
-                className
+                buttonProps.className
             )}
-            disabled={disabled}
-            ref={ref}
         >
             {content}
         </ElementType>

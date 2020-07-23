@@ -4,12 +4,13 @@ import { useState } from "react";
 export function ControlledCheckboxGroup() {
     const [value, setValue] = useState([]);
 
-    console.log(value);
-
     return (
         <CheckboxGroup
             value={value}
-            onChange={(event, x) => { setValue(x); }}
+            onChange={(event, x) => {
+                setValue(x);
+                console.log(value);
+            }}
         >
             <Checkbox value="milky-way">Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
