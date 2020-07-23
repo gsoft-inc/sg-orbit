@@ -4,23 +4,67 @@
 }
 
 /* AS BUTTON */
+button.o-ui.tag {
+    cursor: pointer;
+}
+
 /* As <a> / BUTTON | States */
 /* As <a> / BUTTON | States | HOVER */
 button.o-ui.tag.solid:hover,
-a.o-ui.tag.solid:hover {
+a.o-ui.tag.solid:hover,
+button.o-ui.tag.solid.hover,
+a.o-ui.tag.solid.hover {
     background-color: var(--cloud-100);
 }
 
 /* As <a> / BUTTON | States | ACTIVE */
 button.o-ui.tag.solid:active,
-a.o-ui.tag.solid:active {
+a.o-ui.tag.solid:active
+button.o-ui.tag.solid.active,
+a.o-ui.tag.solid.active {
     background-color: var(--cloud-200);
 }
 
 /* As <a> / BUTTON | States | FOCUS */
 button.o-ui.tag.solid:focus,
-a.o-ui.tag.solid:focus {
-    box-shadow: 0 0 0 2px var(--primary-200) !important;
+a.o-ui.tag.solid:focus,
+button.o-ui.tag.solid.focus,
+a.o-ui.tag.solid.focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-200);
+}
+
+/* As <a> / BUTTON | States | DISABLED */
+button.o-ui.tag.solid[disabled],
+button.o-ui.tag.solid.disabled,
+a.o-ui.tag.solid[disabled],
+a.o-ui.tag.solid.disabled {
+    cursor: default;
+    opacity: 0.4;
+}
+
+/* As <a> / BUTTON | States | DISABLED | HOVER */
+button.o-ui.tag.solid[disabled]:hover,
+button.o-ui.tag.solid.disabled:hover,
+button.o-ui.tag.solid[disabled].hover,
+button.o-ui.tag.solid.disabled.hover,
+a.o-ui.tag.solid[disabled]:hover,
+a.o-ui.tag.solid.disabled:hover,
+a.o-ui.tag.solid[disabled].hover,
+a.o-ui.tag.solid.disabled.hover {
+    background-color: var(--cloud-50);
+}
+
+/* As <a> / BUTTON | States | DISABLED | FOCUS */
+button.o-ui.tag.solid[disabled]:focus,
+button.o-ui.tag.solid.disabled:focus,
+button.o-ui.tag.solid[disabled].focus,
+button.o-ui.tag.solid.disabled.focus,
+a.o-ui.tag.solid[disabled]:focus,
+a.o-ui.tag.solid.disabled:focus,
+a.o-ui.tag.solid[disabled].focus,
+a.o-ui.tag.solid.disabled.focus {
+    box-shadow: none;
 }
 
 /* OUTLINE */
@@ -32,28 +76,69 @@ a.o-ui.tag.solid:focus {
 /* As <a> / BUTTON | States */
 /* As <a> / BUTTON | States | HOVER */
 button.o-ui.tag.outline:hover,
-a.o-ui.tag.outline:hover {
+a.o-ui.tag.outline:hover,
+button.o-ui.tag.outline.hover,
+a.o-ui.tag.outline.hover {
     background-color: transparent;
     box-shadow: 0 0 0 1px var(--cloud-300) inset;
 }
 
 /* As <a> / BUTTON | States | ACTIVE */
 button.o-ui.tag.outline:active,
-a.o-ui.tag.outline:active {
+a.o-ui.tag.outline:active,
+button.o-ui.tag.outline.active,
+a.o-ui.tag.outline.active {
     background-color: transparent;
     box-shadow: 0 0 0 1px var(--cloud-500) inset;
 }
 
 /* As <a> / BUTTON | States | FOCUS */
 button.o-ui.tag.outline:focus,
-a.o-ui.tag.outline:focus {
+a.o-ui.tag.outline:focus,
+button.o-ui.tag.outline.focus,
+a.o-ui.tag.outline.focus {
+    outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200) !important;
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200);
+}
+
+/* As <a> / BUTTON | States | DISABLED */
+button.o-ui.tag.outline[disabled],
+a.o-ui.tag.outline[disabled],
+button.o-ui.tag.outline.disabled,
+a.o-ui.tag.outline.disabled {
+    opacity: 0.4;
+}
+
+/* As <a> / BUTTON | States | DISABLED | FOCUS */
+button.o-ui.tag.outline[disabled]:focus,
+a.o-ui.tag.outline[disabled]:focus,
+button.o-ui.tag.outline.disabled:focus,
+a.o-ui.tag.outline.disabled:focus,
+button.o-ui.tag.outline[disabled].focus,
+a.o-ui.tag.outline[disabled].focus,
+button.o-ui.tag.outline.disabled.focus,
+a.o-ui.tag.outline.disabled.focus {
+    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+}
+
+/* As <a> / BUTTON | States | DISABLED | HOVER */
+button.o-ui.tag.outline[disabled]:hover,
+a.o-ui.tag.outline[disabled]:hover,
+button.o-ui.tag.outline.disabled:hover,
+a.o-ui.tag.outline.disabled:hover,
+button.o-ui.tag.outline[disabled].hover,
+a.o-ui.tag.outline[disabled].hover,
+button.o-ui.tag.outline.disabled.hover,
+a.o-ui.tag.outline.disabled.hover {
+    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+    cursor: default;
 }
 
 /* FLUID */
 .o-ui.tag.fluid {
     width: 100%;
+    text-align: center;
 }
 
 .o-ui.tag.fluid .text {
@@ -121,6 +206,16 @@ a.o-ui.tag:hover {
 /* WITH BADGE | LEFT */
 .o-ui.tag.with-left-badge {
     padding-left: calc(var(--default-padding) / 1.5);
+}
+
+/* BADGE IN TAG | LEFT > TEXT */
+.o-ui.tag.with-left-badge .text {
+    margin-left: var(--scale-bravo);
+}
+
+/* BADGE IN TAG | RIGHT > TEXT */
+.o-ui.tag.with-right-badge .text {
+    margin-right: var(--scale-bravo);
 }
 
 /* WITH BADGE | RIGHT */

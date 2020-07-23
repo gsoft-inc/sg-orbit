@@ -147,17 +147,6 @@
     font-size: var(--type-scale-2);
 }
 
-/* TODO: BADGE SHOULDN'T BE AWARE IT'S USED BY A TAG. ALL SPACING SHOULD BE DONE ON THE CONSUMER COMPONENT (TAG in this case) using the "text" CSS class. */
-/* BADGE IN TAG | LEFT > TEXT */
-/* .o-ui.tag.with-left-badge .text {
-    margin-left: var(--scale-bravo);
-} */
-
-/* BADGE IN TAG | RIGHT > TEXT */
-/* .o-ui.tag.with-right-badge .text {
-    margin-right: var(--scale-bravo);
-} */
-
 /* DISABLED */
 .o-ui.badge[disabled] {
     opacity: 0.4;
