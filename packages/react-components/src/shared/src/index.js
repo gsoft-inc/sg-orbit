@@ -31,6 +31,7 @@ export * from "./useCommittedRef";
 export * from "./useEventCallback";
 export * from "./useChainedEventCallback";
 export * from "./useControllableState";
+export * from "./useForwardInputApi";
 
 // Contexts
 export * from "./CheckableContext";

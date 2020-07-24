@@ -1,4 +1,4 @@
-import { getSizeClass, mergeClasses, useAutofocus, useControllableState, useEventCallback } from "../../shared";
+import { getSizeClass, mergeClasses, useAutofocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
 import { useCallback, useImperativeHandle, useLayoutEffect, useRef } from "react";
 
@@ -22,7 +22,7 @@ export function useCheckbox({
     disabled,
     readOnly,
     className,
-    ref,
+    forwardedRef,
     ...rest
 }) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -39,18 +39,10 @@ export function useCheckbox({
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
-    // Forward native input API to the external ref element.
-    useImperativeHandle(ref, () => {
-        const apiMethods = ["blur", "focus", "click", "checkValidity", "reportValidity", "setCustomValidity"];
-        const domElement = labelRef.current;
+    const forwardInputApi = useForwardInputApi(inputRef);
 
-        apiMethods.forEach(x => {
-            domElement[x] = (...args) => {
-                inputRef.current[x](...args);
-            };
-        });
-
-        return domElement;
+    useImperativeHandle(forwardedRef, () => {
+        return forwardInputApi(labelRef);
     });
 
     const handleChange = useEventCallback(event => {

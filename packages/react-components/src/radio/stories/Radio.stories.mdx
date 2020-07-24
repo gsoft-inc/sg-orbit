@@ -1,7 +1,7 @@
 import { Badge } from "../../badge";
-import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
-import { FilePreview, HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
-import { InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconGroup, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { InnerRadio, Radio } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -10,21 +10,19 @@ import Imports from "./Imports.mdx";
 <Meta
     title={createComponentSection("Radio")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/radio/src" />)
         .build()}
 />
 
 # Radio
 
-Radio buttons allow a user to select one option from a set.
+Radios allow a user to select one option from a set.
 
 ## Installation
 
 <InstallReactComponents imports={<Imports />} />
 
 ## Props
-
-<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
 
 <Props
     componentsDefinitions={[
@@ -34,17 +32,13 @@ Radio buttons allow a user to select one option from a set.
 
 ## Usage
 
-<WarningMessage>
-    This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
-</WarningMessage>
+### Default
 
-### Label
-
-A radio can have a label.
+A default radio.
 
 <Preview>
-    <Story name="label">
-        <Radio label="Mars"/>
+    <Story name="default">
+        <Radio>Mars</Radio>
     </Story>
 </Preview>
 
@@ -54,27 +48,7 @@ A radio can be selected.
 
 <Preview>
     <Story name="selected">
-        <Radio defaultChecked label="Mars"/>
-    </Story>
-</Preview>
-
-### Disabled
-
-A radio can be disabled.
-
-<Preview>
-    <Story name="disabled">
-        <Radio disabled label="Mars"/>
-    </Story>
-</Preview>
-
-### Readonly
-
-A radio can be readonly.
-
-<Preview>
-    <Story name="readonly">
-        <Radio readOnly label="Mars" />
+        <Radio defaultChecked>Mars</Radio>
     </Story>
 </Preview>
 
@@ -88,16 +62,36 @@ A radio can be rendered without a label.
     </Story>
 </Preview>
 
-### Icons
+### Disabled
 
-A radio can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
+A radio can be disabled.
 
 <Preview>
-    <Story name="icons">
-        <div className="flex items-lot-of-space-between">
-            <Radio label="Milky Way" icons={<LightbulbIcon />} />
-            <Radio label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
-        </div>
+    <Story name="disabled">
+        <Radio disabled>Mars</Radio>
+    </Story>
+</Preview>
+
+### Readonly
+
+A radio can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Radio readOnly>Mars</Radio>
+    </Story>
+</Preview>
+
+### Icons
+
+A checkbox can have [icons](?path=/docs/materials-icons--page) after his text.
+
+<Preview>
+    <Story name="icon">
+        <Inline>
+            <Radio icon={<LightbulbIcon />}>Mars</Radio>
+            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Mars</Radio>
+        </Inline>
     </Story>
 </Preview>
 
@@ -107,10 +101,10 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 
 <Preview>
     <Story name="badge">
-        <div className="flex items-lot-of-space-between">
-            <Radio label="Milky Way" badge={<Badge>6</Badge>} />
-            <Radio label="Milky Way" badge={<Badge inline>6</Badge>} />
-        </div>
+        <Inline>
+            <Radio badge={<Badge>6</Badge>}>Mars</Radio>
+            <Radio badge={<Badge variant="inline">6</Badge>}>Mars</Radio>
+        </Inline>
     </Story>
 </Preview>
 
@@ -122,21 +116,37 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-lot-of-space-between">
-            <Radio size="small" label="Mars" />
-            <Radio label="Mars" />
-            <Radio size="large" label="Mars" />
-        </div>
+        <Inline align="end">
+            <Radio size="small">Mars</Radio>
+            <Radio>Mars</Radio>
+            <Radio size="large">Mars</Radio>
+        </Inline>
     </Story>
 </Preview>
 
-### Group
+<Story
+    name="autofocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Radio autofocus>Mars</Radio>
+        <Radio autofocus disabled>Mars</Radio>
+    </Inline>
+</Story>
 
-Radios buttons in a group must be controlled components.
-
-<FilePreview filePath="/radio/stories/ControlledRadioGroup">
-    <ControlledRadioGroup />
-</FilePreview>
+<Story
+    name="autofocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <Inline>
+        <Radio autofocus autofocusDelay={500}>Mars</Radio>
+        <Radio autofocus disabled autofocusDelay={500}>Mars</Radio>
+    </Inline>
+</Story>
 
 <Story
     name="ref"
@@ -144,5 +154,5 @@ Radios buttons in a group must be controlled components.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Radio label="Mars" /></RefLogger>
+    <RefLogger><Radio>Mars</Radio></RefLogger>
 </Story>

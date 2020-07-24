@@ -8,7 +8,7 @@ export function useToggleButton({
     onChange,
     onClick,
     active,
-    ref,
+    forwardedRef,
     ...rest
 }) {
     const { isCheckedValue, onCheck } = useCheckableContext(value);
@@ -33,7 +33,7 @@ export function useToggleButton({
             ...rest,
             onClick: handleClick,
             active: active || isChecked,
-            ref
+            ref: forwardedRef
         }
     };
 }

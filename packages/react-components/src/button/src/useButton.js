@@ -16,10 +16,10 @@ export function useButton({
     hover,
     disabled,
     className,
-    ref,
+    forwardedRef,
     ...rest
 }) {
-    const buttonRef = useMergedRefs(ref);
+    const buttonRef = useMergedRefs(forwardedRef);
 
     const setFocus = useCallback(() => {
         if (!isNil(buttonRef.current)) {

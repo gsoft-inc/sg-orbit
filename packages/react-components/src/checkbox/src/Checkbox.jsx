@@ -29,7 +29,7 @@ const propTypes = {
      */
     defaultIndeterminate: bool,
     /**
-     * The value to associate with when his part of a group.
+     * The value to associate with when in a group.
      */
     value: oneOfType([string, number]),
     /**
@@ -135,7 +135,7 @@ export function InnerCheckbox(props) {
         disabled,
         readOnly,
         className,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 

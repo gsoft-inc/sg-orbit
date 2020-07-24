@@ -14,7 +14,7 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * 	The value to associate with when his part of a group.
+     * 	The value to associate with when in a group.
      */
     value: oneOfType([string, number]),
     /**
@@ -92,7 +92,7 @@ export function InnerToggleButton(props) {
         onChange,
         onClick,
         active,
-        ref: forwardedRef,
+        forwardedRef,
         ...rest
     });
 
