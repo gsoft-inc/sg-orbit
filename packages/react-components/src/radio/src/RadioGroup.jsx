@@ -78,10 +78,12 @@ function useKeyboardNavigation(setCheckedValue) {
         switch (event.keyCode) {
             case KEYS.down:
             case KEYS.right:
+                event.preventDefault();
                 setElement(getNextNavigableElement(event.currentTarget, event.target));
                 break;
             case KEYS.up:
             case KEYS.left:
+                event.preventDefault();
                 setElement(getPreviousNavigableElement(event.currentTarget, event.target));
                 break;
         }
