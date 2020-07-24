@@ -188,7 +188,7 @@ Or the whole group.
 
 ### Direction
 
-A radio group can change is direction from `column` to `row`.
+A radio group can change is direction to `row` to render his elements horizontally.
 
 <Preview>
     <Story name="direction">
@@ -233,6 +233,27 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
             <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
             <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
         </RadioGroup>
+    </Story>
+</Preview>
+
+### Wrapped
+
+Toggle buttons could be wrap on multiple lines.
+
+<Preview>
+    <Story name="wrap toggle buttons">
+        <div style={{ width: "200px" }}>
+            <RadioGroup wrap direction="row">
+                <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
+                <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
+                <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
+                <ToggleButton value="4" variant="outline" circular>4</ToggleButton>
+                <ToggleButton value="5" variant="outline" circular>5</ToggleButton>
+                <ToggleButton value="6" variant="outline" circular>6</ToggleButton>
+                <ToggleButton value="7" variant="outline" circular>7</ToggleButton>
+                <ToggleButton value="8" variant="outline" circular>8</ToggleButton>
+            </RadioGroup>
+        </div>
     </Story>
 </Preview>
 

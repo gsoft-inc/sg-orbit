@@ -39,6 +39,10 @@ const propTypes = {
    */
     direction: oneOf(["row", "column"]),
     /**
+     * Whether or not elements are forced onto one line or can wrap onto multiple lines
+     */
+    wrap: bool,
+    /**
    * Children size.
    */
     size: oneOf(["small", "medium", "large"]),
@@ -62,7 +66,7 @@ const propTypes = {
 
 const defaultProps = {
     direction: "column",
-    as: Flex
+    as: "div"
 };
 
 function useKeyboardNavigation(setCheckedValue) {
@@ -99,10 +103,10 @@ export function InnerRadioGroup({
     defaultValue,
     name,
     onChange,
+    wrap,
     size,
     disabled,
     readOnly,
-    as: ElementType,
     children,
     forwardedRef,
     ...rest
@@ -125,11 +129,12 @@ export function InnerRadioGroup({
     const shouldFocusFirst = isNil(checkedValue);
 
     return (
-        <ElementType
+        <Flex
             {...rest}
             {...navigationProps}
             alignItems="start"
             gap={2}
+            wrap={!isNil(wrap) ? "wrap" : undefined}
             role="radiogroup"
             aria-readonly={readOnly}
             aria-disabled={disabled}
@@ -156,7 +161,7 @@ export function InnerRadioGroup({
                     });
                 })}
             </CheckableContext.Provider>
-        </ElementType>
+        </Flex>
     );
 }
 

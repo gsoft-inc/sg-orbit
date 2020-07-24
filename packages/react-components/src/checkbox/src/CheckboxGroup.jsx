@@ -25,6 +25,10 @@ const propTypes = {
      */
     direction: oneOf(["row", "column"]),
     /**
+     * Whether or not elements are forced onto one line or can wrap onto multiple lines
+     */
+    wrap: bool,
+    /**
      * Children size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -47,7 +51,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    as: Flex
+    as: "div"
 };
 
 function arrayToggleValue(array, value) {
@@ -71,10 +75,10 @@ export function InnerCheckboxGroup({
     value,
     defaultValue,
     onChange,
+    wrap,
     size,
     disabled,
     readOnly,
-    as: ElementType,
     children,
     forwardedRef,
     ...rest
@@ -92,10 +96,11 @@ export function InnerCheckboxGroup({
     });
 
     return (
-        <ElementType
+        <Flex
             {...rest}
             alignItems="start"
             gap={2}
+            wrap={!isNil(wrap) ? "wrap" : undefined}
             role="group"
             aria-disabled={disabled}
             ref={forwardedRef}
@@ -115,7 +120,7 @@ export function InnerCheckboxGroup({
                     });
                 })}
             </CheckableContext.Provider>
-        </ElementType>
+        </Flex>
     );
 }
 
