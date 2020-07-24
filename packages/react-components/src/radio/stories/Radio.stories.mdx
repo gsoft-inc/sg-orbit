@@ -29,8 +29,8 @@ Radio group allow a user to select one option from a set.
 
 <Props
     componentsDefinitions={[
-        { displayName: "RadioGroup", component: InnerRadioGroup },
-        { displayName: "Radio", component: InnerRadio }
+        { displayName: "Radio", component: InnerRadio },
+        { displayName: "RadioGroup", component: InnerRadioGroup }
     ]}
 />
 
@@ -140,6 +140,20 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
             <Radio badge={<Badge>6</Badge>} value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio badge={<Badge variant="inline">6</Badge>} value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A radio button can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <RadioGroup>
+            <Radio reverse icon={<LightbulbIcon />} badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio reverse value="jupiter">Jupiter</Radio>
+            <Radio reverse value="pluton">Pluton</Radio>
         </RadioGroup>
     </Story>
 </Preview>
