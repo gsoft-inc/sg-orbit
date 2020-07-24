@@ -4,8 +4,7 @@ import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { isNil, isString } from "lodash";
 import { mergeClasses, useMergedRefs } from "../../shared";
-
-// TODO: support render props, view: https://react-spectrum.adobe.com/react-spectrum/Flex.html#wrapping
+import { useMemo } from "react";
 
 const SPACING = [
     "--scale-alpha",
@@ -112,6 +111,27 @@ const defaultProps = {
     as: "div"
 };
 
+function useIsGapSupported() {
+    return useMemo(() => {
+        const element = document.createElement("DIV");
+
+        element.innerHTML = `
+            <div id="o-ui-flex-gap-support" style="display: inline-flex; gap: 1px; visibility: hidden">
+                <div style="width: 1px"></div>
+                <div style="width: 1px"></div>
+            </div>
+        `;
+
+        document.body.appendChild(element);
+
+        const width = document.getElementById("o-ui-flex-gap-support").clientWidth;
+
+        document.body.removeChild(element);
+
+        return width === 3;
+    }, []);
+}
+
 export function InnerFlex({
     direction,
     reverse,
@@ -129,33 +149,27 @@ export function InnerFlex({
     forwardedRef,
     ...rest
 }) {
-    // const [hasNestedStack, setHasNestedStack] = useState(false);
+    const [hasNestedStack, setHasNestedStack] = useState(false);
 
-    // TODO: Don,t need merge if we dont use the extra div.
-    // See https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports
     const ref = useMergedRefs(forwardedRef);
+    const supportGap = useIsGapSupported();
 
-    // TODO:
-    // si gap not supported, had extra item logic in JS
-    // in CSS, if gap is not supported, use instead the child selectors with margins.
+    useLayoutEffect(() => {
+        if (!supportGap) {
+            if (!isNil(ref.current)) {
+                if (!isNil(ref.current.querySelector(":scope > .o-ui.flex"))) {
+                    setHasNestedStack(true);
+                }
+            }
+        }
 
-    // TODO: If we only use `gap`, I don't think we need to care about this extra div.
-    // useLayoutEffect(() => {
-    //     if (!isNil(ref.current)) {
-    //         if (!isNil(ref.current.querySelector(":scope > .o-ui.flex"))) {
-    //             setHasNestedStack(true);
-    //         }
-    //     }
-    // }, [ref, setHasNestedStack]);
+    }, [supportGap, setHasNestedStack, ref]);
 
-    // // When having a nested flex, we wrap the flex items into a DIV to prevent overriding the parent --spacing variable value with the item --spacing value.
-    // const items = !hasNestedStack ? children : Children.map(children, x => {
-    //     return (
-    //         <div className="flex-item">{x}</div>
-    //     );
-    // });
-
-    const items = children;
+    const items = wrapChildren || !hasNestedStack ? children : Children.map(children, x => {
+        return (
+            <div className="flex-item">{x}</div>
+        );
+    });
 
     return (
         <ElementType
@@ -163,7 +177,9 @@ export function InnerFlex({
             className={mergeClasses(
                 "o-ui flex",
                 direction,
+                reverse && "reverse",
                 fluid && "fluid",
+                !supportGap && "no-gap",
                 className
             )}
             style={{

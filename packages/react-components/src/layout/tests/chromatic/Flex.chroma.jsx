@@ -64,7 +64,7 @@ stories()
                 </Flex>
             </div>
             <div className="h10">
-                <Flex direction="row-reverse" fluid>
+                <Flex direction="row" reverse fluid>
                     <div className="bg-cloud-500">Alpha</div>
                     <div className="bg-cloud-500">Bravo</div>
                     <div className="bg-cloud-500">Charlie</div>
@@ -124,7 +124,7 @@ stories()
                 </Flex>
             </div>
             <div className="w12 mr8">
-                <Flex direction="column-reverse" fluid>
+                <Flex direction="column" reverse fluid>
                     <div className="bg-cloud-500">Alpha</div>
                     <div className="bg-cloud-500">Bravo</div>
                     <div className="bg-cloud-500">Charlie</div>
