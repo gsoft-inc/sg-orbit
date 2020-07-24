@@ -1,10 +1,13 @@
 import { Badge } from "../../badge";
+import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
+import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { InnerRadio, Radio } from "@react-components/radio";
+import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { ToggleButton } from "@react-components/button";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -16,7 +19,7 @@ import Imports from "./Imports.mdx";
 
 # Radio
 
-Radios allow a user to select one option from a set.
+Radio group allow a user to select one option from a set.
 
 ## Installation
 
@@ -26,7 +29,8 @@ Radios allow a user to select one option from a set.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Radio", component: InnerRadio }
+        { displayName: "Radio", component: InnerRadio },
+        { displayName: "RadioGroup", component: InnerRadioGroup }
     ]}
 />
 
@@ -34,64 +38,95 @@ Radios allow a user to select one option from a set.
 
 ### Default
 
-A default radio.
+A default radio group.
 
 <Preview>
     <Story name="default">
-        <Radio>Mars</Radio>
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
-### Selected
+### Selected value
 
-A radio can be selected.
+A radio group can have a selected value.
 
 <Preview>
     <Story name="selected">
-        <Radio defaultChecked>Mars</Radio>
-    </Story>
-</Preview>
-
-### No label
-
-A radio can be rendered without a label.
-
-<Preview>
-    <Story name="no label">
-        <Radio />
+        <RadioGroup value="jupiter">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
 ### Disabled
 
-A radio can be disabled.
+A single radio can be disabled.
 
 <Preview>
-    <Story name="disabled">
-        <Radio disabled>Mars</Radio>
+    <Story name="disabled radio">
+        <RadioGroup>
+            <Radio disabled value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="disabled group">
+        <RadioGroup disabled>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
 ### Readonly
 
-A radio can be readonly.
+A single radio can be readonly.
 
 <Preview>
-    <Story name="readonly">
-        <Radio readOnly>Mars</Radio>
+    <Story name="readonly radio">
+        <RadioGroup>
+            <Radio readOnly value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
-### Icons
+Or the whole group.
 
-A checkbox can have [icons](?path=/docs/materials-icons--page) after his text.
+<Preview>
+    <Story name="readonly group">
+        <RadioGroup readOnly>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Icon
+
+A radio can have [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Radio icon={<LightbulbIcon />}>Mars</Radio>
-            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Mars</Radio>
-        </Inline>
+        <RadioGroup>
+            <Radio icon={<LightbulbIcon />} value="mars">Mars</Radio>
+            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>} value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
@@ -101,10 +136,25 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 
 <Preview>
     <Story name="badge">
-        <Inline>
-            <Radio badge={<Badge>6</Badge>}>Mars</Radio>
-            <Radio badge={<Badge variant="inline">6</Badge>}>Mars</Radio>
-        </Inline>
+        <RadioGroup>
+            <Radio badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio badge={<Badge variant="inline">6</Badge>} value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A radio button can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <RadioGroup>
+            <Radio reverse icon={<LightbulbIcon />} badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio reverse value="jupiter">Jupiter</Radio>
+            <Radio reverse value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
@@ -116,13 +166,65 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <Inline align="end">
-            <Radio size="small">Mars</Radio>
-            <Radio>Mars</Radio>
-            <Radio size="large">Mars</Radio>
-        </Inline>
+        <RadioGroup>
+            <Radio size="small" value="mars" >Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio size="large" value="pluton">Pluton</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
+
+### Render Props
+
+A radio can update is content with a render props based on the state values.
+
+<Preview>
+    <Story name="render props">
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">
+                {
+                    ({ isChecked }) => {
+                        return isChecked ? "Selected" : "Jupiter";
+                    }
+                }
+            </Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Toggle Buttons
+
+In somes cases, you might want a group of toggle buttons to behave like a radio group.
+
+<Preview>
+    <Story name="toggle buttons">
+        <RadioGroup>
+            <ToggleButton value="none" variant="outline">None</ToggleButton>
+            <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
+            <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
+            <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Custom Components
+
+In fact, any component implementing the `CheckableContext` can behave like a radio group.
+
+<FilePreview filePath="/radio/stories/CustomGroup">
+    <CustomGroup />
+</FilePreview>
+
+### Controlled
+
+A radio group can handle `value` state in controlled mode.
+
+<FilePreview filePath="/radio/stories/ControlledRadioGroup">
+    <ControlledRadioGroup />
+</FilePreview>
 
 <Story
     name="autofocus"
@@ -156,3 +258,21 @@ Can be set to: `"small"`, `"large"` or omitted.
 >
     <RefLogger><Radio>Mars</Radio></RefLogger>
 </Story>
+
+## API
+
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the radio component, then call the API function.
+
+Here's an example for the `focus` function:
+
+```jsx dark
+function MyComponent() {
+    const ref = useRef();
+
+    return (
+        <div onFocus={() => { ref.focus(); }}>
+            <Radio ref={ref} />
+        </div>
+    );
+}
+```

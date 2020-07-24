@@ -9,8 +9,6 @@ import { isFunction, isNil } from "lodash";
 import { mergeClasses, useCheckableContext, useEventCallback } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 
-// TODO: Support render function for content
-
 const propTypes = {
     /**
      * A controlled checked state value.
@@ -116,7 +114,7 @@ export function InnerCheckbox(props) {
         containerProps,
         inputProps
     } = useCheckbox({
-        checked: !isNil(isCheckedValue) ? isCheckedValue : checked,
+        checked: isCheckedValue ?? checked,
         defaultChecked,
         indeterminate,
         defaultIndeterminate,
@@ -139,33 +137,31 @@ export function InnerCheckbox(props) {
         ...rest
     });
 
-    const createMarkup = () => {
-        const labelMarkup = children && (
-            <span className="label">{children}</span>
-        );
-
-        const iconMarkup = !isNil(icon) && (
-            <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-        );
-
-        // TODO: Add reverse
-        const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-            size,
-            disabled
-        });
-
-        return (
-            <>
-                {labelMarkup}
-                {iconMarkup}
-                {badgeMarkup}
-            </>
-        );
-    };
-
-    const content = isFunction(children)
+    const label = isFunction(children)
         ? children({ isChecked, isIndeterminate }, props)
-        : createMarkup();
+        : children;
+
+    const labelMarkup = label && (
+        <span className="label">{label}</span>
+    );
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    );
+
+    // TODO: Add reverse
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+        size,
+        disabled
+    });
+
+    const content = (
+        <>
+            {labelMarkup}
+            {iconMarkup}
+            {badgeMarkup}
+        </>
+    );
 
     return (
         <ElementType

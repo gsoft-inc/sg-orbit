@@ -9,7 +9,7 @@ export function ControlledCheckboxGroup() {
             value={value}
             onChange={(event, x) => {
                 setValue(x);
-                console.log(value);
+                console.log(x);
             }}
         >
             <Checkbox value="milky-way">Milky Way</Checkbox>

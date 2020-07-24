@@ -153,9 +153,9 @@ A checkbox can update is content with a render props based on the state values.
     <Story name="render props">
         <Checkbox>
             {
-                ({ isChecked }) => (
-                    <span className="label">{isChecked ? "On" : "Off"}</span>
-                )
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off";
+                }
             }
         </Checkbox>
     </Story>
@@ -250,7 +250,7 @@ A checkbox group can handle `value` state in controlled mode.
 
 ## API
 
-To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text checkbox component, then call the API function.
+To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the checkbox component, then call the API function.
 
 Here's an example for the `focus` function:
 

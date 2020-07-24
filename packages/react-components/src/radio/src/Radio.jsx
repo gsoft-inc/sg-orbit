@@ -2,11 +2,11 @@ import "./Radio.css";
 
 import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
-import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutofocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
-import { isNil } from "lodash";
+import { getSizeClass, mergeClasses, useAutofocus, useCheckableContext, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { isFunction, isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -20,9 +20,9 @@ const propTypes = {
     /**
      * The value to associate with when in a group.
      */
-    value: oneOfType([string, number]),
+    value: oneOfType([string, number]).isRequired,
     /**
-     * Whether or not the radio should autofocus on render.
+     * Whether or not the radio group should autofocus on render.
      */
     autofocus: bool,
     /**
@@ -54,47 +54,61 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 const defaultProps = {
     as: "label"
 };
 
-export function InnerRadio({
-    value,
-    name,
-    checked,
-    defaultChecked,
-    autofocus,
-    autofocusDelay,
-    onChange,
-    icon,
-    badge,
-    size,
-    reverse,
-    tabIndex,
-    active,
-    focus,
-    hover,
-    disabled,
-    readOnly,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
-    const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
+export function InnerRadio(props) {
+    const {
+        value,
+        name,
+        checked,
+        defaultChecked,
+        autofocus,
+        autofocusDelay,
+        onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
+
+    // Since this component render an input="radio" the role is unnecessary.
+    delete rest["role"];
+
+    const {
+        isCheckedValue,
+        onCheck
+    } = useCheckableContext(value);
+
+    const [isChecked, setIsChecked] = useControllableState(isCheckedValue ?? checked, defaultChecked, false);
 
     const labelRef = useRef();
     const inputRef = useRef();
 
     const setFocus = useCallback(() => {
-        if (!isNil(inputRef.current)) {
-            inputRef.current.focus();
+        if (!isNil(labelRef.current)) {
+            labelRef.current.focus();
         }
-    }, [inputRef]);
+    }, [labelRef]);
 
     const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
 
@@ -104,8 +118,12 @@ export function InnerRadio({
         return forwardInputApi(labelRef);
     });
 
-    const labelMarkup = children && (
-        <span className="label">{children}</span>
+    const label = isFunction(children)
+        ? children({ isChecked }, props)
+        : children;
+
+    const labelMarkup = label && (
+        <span className="label">{label}</span>
     );
 
     const iconMarkup = !isNil(icon) && (
@@ -132,6 +150,10 @@ export function InnerRadio({
         if (!isNil(onChange)) {
             onChange(event);
         }
+    });
+
+    const handleCheck = useEventCallback(event => {
+        onCheck(event, value);
     });
 
     return (
@@ -161,7 +183,7 @@ export function InnerRadio({
                 value={value}
                 name={name}
                 checked={readOnly ? undefined : isChecked}
-                onChange={readOnly ? undefined : handleChange}
+                onChange={readOnly ? undefined : !isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 ref={inputRef}

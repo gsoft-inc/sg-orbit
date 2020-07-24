@@ -1,4 +1,4 @@
-import { CheckboxGroup } from "@react-components/checkbox";
+import { RadioGroup } from "@react-components/radio";
 import { Tag } from "@react-components/tag";
 import { useCallback } from "react";
 import { useCheckableContext } from "@react-components/shared";
@@ -29,10 +29,10 @@ function CustomComponent({
 
 export function CustomGroup() {
     return (
-        <CheckboxGroup>
-            <CustomComponent value="milky-way">Milky Way</CustomComponent>
-            <CustomComponent value="andromeda">Andromeda</CustomComponent>
-            <CustomComponent value="medusa">Medusa</CustomComponent>
-        </CheckboxGroup>
+        <RadioGroup>
+            <CustomComponent value="mars">Mars</CustomComponent>
+            <CustomComponent value="jupiter">Jupiter</CustomComponent>
+            <CustomComponent value="pluton">Pluton</CustomComponent>
+        </RadioGroup>
     );
 }

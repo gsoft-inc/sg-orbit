@@ -2,7 +2,7 @@ import { DropdownContext } from "./DropdownContext";
 import { KEYS, getSizeClass, mergeClasses, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
 import { Popper } from "../../popper";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -44,7 +44,7 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
         [menuElement]
     );
 
-    const setKeyboardItem = useCallback(newIndex => {
+    const setKeyboardItem = newIndex => {
         const selectedItem = itemElements[newIndex];
 
         if (isFunction(selectedItem.focus)) {
@@ -52,7 +52,7 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
         }
 
         setKeyboardIndex(newIndex);
-    }, [itemElements]);
+    };
 
     const handleDocumentEnter = useEventCallback(event => {
         if (!isNil(onSelectItem)) {

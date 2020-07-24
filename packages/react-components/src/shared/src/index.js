@@ -22,6 +22,7 @@ export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createChainedFunction";
 export * from "./createEmbeddableAdapter";
+export * from "./createFocusableTreeWalker";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -32,6 +33,7 @@ export * from "./useEventCallback";
 export * from "./useChainedEventCallback";
 export * from "./useControllableState";
 export * from "./useForwardInputApi";
+export * from "./useId";
 
 // Contexts
 export * from "./CheckableContext";

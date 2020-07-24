@@ -32,7 +32,9 @@ export function useToggleButton({
         buttonProps: {
             ...rest,
             onClick: handleClick,
+            value,
             active: active || isChecked,
+            "aria-checked": isCheckedValue,
             ref: forwardedRef
         }
     };

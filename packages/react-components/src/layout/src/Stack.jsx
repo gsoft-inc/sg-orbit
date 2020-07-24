@@ -1,6 +1,6 @@
 import "./Stack.css";
 
-import { Children, forwardRef, useState } from "react";
+import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { isNil, isString } from "lodash";
 import { mergeClasses, useMergedRefs } from "../../shared";
@@ -37,10 +37,7 @@ const propTypes = {
     /**
      * Spacing scale between each elements.
      */
-    spacing: oneOfType([
-        oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
-        string
-    ]),
+    spacing: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
      * Whether or not the stack take up the width & height of its container.
      */
@@ -61,16 +58,22 @@ const defaultProps = {
 };
 
 export function InnerInline({ direction, align, justify, spacing, fluid, as: ElementType, className, style, children, forwardedRef, ...rest }) {
-    const [element, setElement] = useState();
+    const [hasNestedStack, setHasNestedStack] = useState(false);
 
-    const ref = useMergedRefs(setElement, forwardedRef);
+    const ref = useMergedRefs(forwardedRef);
 
-    const hasNestedStack = !isNil(element) ? !isNil(ref.current.querySelector(":scope > .o-ui.stack")) : false;
+    useLayoutEffect(() => {
+        if (!isNil(ref.current)) {
+            if (!isNil(ref.current.querySelector(":scope > .o-ui.stack"))) {
+                setHasNestedStack(true);
+            }
+        }
+    }, [ref, setHasNestedStack]);
 
     // When having a nested stack, we wrap the stack items into a DIV to prevent overriding the parent --spacing variable value with the item --spacing value.
     const items = !hasNestedStack ? children : Children.map(children, x => {
         return (
-            <div className="item">{x}</div>
+            <div className="flex-item">{x}</div>
         );
     });
 
