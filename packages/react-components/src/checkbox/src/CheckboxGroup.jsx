@@ -1,6 +1,6 @@
 import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
-import { Inline } from "@react-components/layout";
+import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
@@ -47,8 +47,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    // TODO: replace by Flex once available.
-    as: Inline
+    as: Flex
 };
 
 function arrayToggleValue(array, value) {
@@ -72,7 +71,6 @@ export function InnerCheckboxGroup({
     value,
     defaultValue,
     onChange,
-    direction,
     size,
     disabled,
     readOnly,
@@ -96,6 +94,7 @@ export function InnerCheckboxGroup({
     return (
         <ElementType
             {...rest}
+            alignItems="start"
             gap={2}
             role="group"
             aria-disabled={disabled}

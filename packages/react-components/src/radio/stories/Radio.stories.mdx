@@ -56,7 +56,7 @@ A radio group can have a selected value.
 
 <Preview>
     <Story name="selected">
-        <RadioGroup value="jupiter">
+        <RadioGroup defaultValue="jupiter">
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
@@ -153,7 +153,7 @@ A radio button can be to the left or to the right of his label.
         <RadioGroup>
             <Radio reverse icon={<LightbulbIcon />} badge={<Badge>6</Badge>} value="mars">Mars</Radio>
             <Radio reverse value="jupiter">Jupiter</Radio>
-            <Radio reverse value="pluto">Pluto</Radio>
+            <Radio reverse value="pluto" badge={<Badge variant="inline">6</Badge>}>Pluto</Radio>
         </RadioGroup>
     </Story>
 </Preview>
