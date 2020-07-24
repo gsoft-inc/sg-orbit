@@ -10,10 +10,6 @@
     margin-right: var(--spacing);
 }
 
-/* .o-ui.stack.horizontal > * + * {
-    margin-right: var(--spacing);
-}*/
-
 /* Stack | Vertical */
 .o-ui.stack.vertical {
     display: flex;

@@ -1,0 +1,34 @@
+/* Flex */
+.o-ui.flex {
+    display: flex;
+    flex-direction: var(--flex-direction);
+    align-content: var(--flex-align-content);
+    align-items: var(--flex-align-items);
+    justify-content: var(--flex-justify-content);
+    flex-wrap: var(--flex-wrap);
+    gap: var(--flex-gap);
+}
+
+/* Flex | No Gap | Horizontal */
+.o-ui.flex.no-gap.horizontal > *:not(:last-child) {
+    margin-right: var(--flex-gap);
+}
+
+.o-ui.flex.no-gap.horizontal.reverse > *:not(:last-child) {
+    margin-left: var(--flex-gap);
+}
+
+/* Flex | No Gap | Vertical */
+.o-ui.flex.no-gap.vertical > *:not(:last-child) {
+    margin-bottom: var(--flex-gap);
+}
+
+.o-ui.flex.no-gap.vertical.reverse > *:not(:last-child) {
+    margin-top: var(--flex-gap);
+}
+
+/* Flex | Fluid */
+.o-ui.flex.fluid {
+    width: 100%;
+    height: 100%;
+}
