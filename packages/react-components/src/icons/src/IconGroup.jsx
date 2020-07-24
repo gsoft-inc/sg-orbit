@@ -25,7 +25,7 @@ export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
         <Inline
             {...rest}
-            spacing={1}
+            gap={1}
             ref={forwardedRef}
         >
             {Children.map(children, x => {

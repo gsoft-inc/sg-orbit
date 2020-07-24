@@ -85,7 +85,7 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
+     * Whether or not flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
     wrap: oneOf(["nowrap", "wrap", "wrap-reverse"]),
     /**
@@ -107,7 +107,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    direction: "row",
     as: "div"
 };
 
@@ -138,7 +137,7 @@ function useShouldWrapForSpacing(isGapSupported, ref) {
     useLayoutEffect(() => {
         if (!isGapSupported) {
             if (!isNil(ref.current)) {
-                if (!isNil(ref.current.querySelector(":scope > .o-ui.flex"))) {
+                if (!isNil(ref.current.querySelector(":scope > .o-ui.o-ui-flex"))) {
                     setHasNesting(true);
                 }
             }
@@ -170,17 +169,19 @@ export function InnerFlex({
     const isGapSupported = useIsGapSupported();
     const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
 
-    const items = wrapChildren || wrapChildrenForSpacing ? children : Children.map(children, x => {
+    const items = !wrapChildren && !wrapChildrenForSpacing ? children : Children.map(children, x => {
         return (
-            <div className="flex-item">{x}</div>
+            <div className="o-ui-flex-item">{x}</div>
         );
     });
+
+    console.log(alignItems);
 
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui flex",
+                "o-ui o-ui-flex",
                 direction,
                 reverse && "reverse",
                 fluid && "fluid",
@@ -189,12 +190,12 @@ export function InnerFlex({
             )}
             style={{
                 ...style,
-                "--flex-direction": `${direction}${reverse ? "-reverse" : ""}`,
-                "--flex-align-content": alignContent,
-                "--flex-align-items": alignItems,
-                "--flex-justify-content": justifyContent,
-                "--flex-wrap": wrap,
-                "--flex-gap": gap && (isString(gap) ? gap : `var(${SPACING[(gap || 5) - 1]})`)
+                "--o-ui-direction": direction && `${direction}${reverse ? "-reverse" : ""}`,
+                "--o-ui-align-content": alignContent,
+                "--o-ui-align-items": alignItems,
+                "--o-ui-justify-content": justifyContent,
+                "--o-ui-wrap": wrap,
+                "--o-ui-gap": gap && (isString(gap) ? gap : `var(${SPACING[(gap) - 1]})`)
             }}
             ref={ref}
         >

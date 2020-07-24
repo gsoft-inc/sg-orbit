@@ -1,47 +1,32 @@
-import "./Stack.css";
-
-import { Children, forwardRef, useLayoutEffect, useState } from "react";
+import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { isNil, isString } from "lodash";
-import { mergeClasses, useMergedRefs } from "../../shared";
-
-const SPACING = [
-    "--scale-alpha",
-    "--scale-bravo",
-    "--scale-charlie",
-    "--scale-delta",
-    "--scale-echo",
-    "--scale-foxtrot",
-    "--scale-golf",
-    "--scale-hotel",
-    "--scale-india",
-    "--scale-juliett",
-    "--scale-kilo",
-    "--scale-lima",
-    "--scale-mike"
-];
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
-     * How the elements are placed in the container.
-     */
-    direction: oneOf(["horizontal", "vertical"]),
-    /**
-     * How the elements are aligned in the container along the main axis (view flexbox align-items).
+     * How the elements are aligned in the container along the main axis.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * How the elements are aligned in the container along the cross axis (view flexbox justify-content).
+     * How the elements are aligned in the container along the cross axis.
      */
     justify: oneOf(["start", "end", "center"]),
     /**
-     * Spacing scale between each elements.
+     * Space to display between each elements.
      */
-    spacing: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether or not the stack take up the width & height of its container.
+     * Whether or not elements are forced onto one line or can wrap onto multiple lines
+     */
+    wrap: bool,
+    /**
+     * Whether or not the elements take up the width & height of their container.
      */
     fluid: bool,
+    /**
+     * Whether or not to wrap children in a `div` element.
+     */
+    wrapChildren: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -53,59 +38,32 @@ const propTypes = {
 };
 
 const defaultProps = {
-    direction: "horizontal",
-    as: "div"
+    gap: 5
 };
 
-export function InnerInline({ direction, align, justify, spacing, fluid, as: ElementType, className, style, children, forwardedRef, ...rest }) {
-    const [hasNestedStack, setHasNestedStack] = useState(false);
-
-    const ref = useMergedRefs(forwardedRef);
-
-    useLayoutEffect(() => {
-        if (!isNil(ref.current)) {
-            if (!isNil(ref.current.querySelector(":scope > .o-ui.stack"))) {
-                setHasNestedStack(true);
-            }
-        }
-    }, [ref, setHasNestedStack]);
-
-    // When having a nested stack, we wrap the stack items into a DIV to prevent overriding the parent --spacing variable value with the item --spacing value.
-    const items = !hasNestedStack ? children : Children.map(children, x => {
-        return (
-            <div className="flex-item">{x}</div>
-        );
-    });
-
+export function InnerStack({
+    align,
+    justify,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
-        <ElementType
+        <Flex
             {...rest}
-            className={mergeClasses(
-                "o-ui stack",
-                direction,
-                align && `align-${align}`,
-                justify && `justify-${justify}`,
-                fluid && "fluid",
-                className
-            )}
-            style={{
-                "--spacing": isString(spacing) ? spacing : `var(${SPACING[(spacing || 5) - 1]})`,
-                ...style
-            }}
-            ref={ref}
+            direction="column"
+            alignItems={align}
+            justifyContent={justify}
+            ref={forwardedRef}
         >
-            {items}
-        </ElementType>
+            {children}
+        </Flex>
     );
 }
 
-InnerInline.propTypes = propTypes;
-InnerInline.defaultProps = defaultProps;
-
-export const Inline = forwardRef((props, ref) => (
-    <InnerInline { ...props } forwardedRef={ref} />
-));
+InnerStack.propTypes = propTypes;
+InnerStack.defaultProps = defaultProps;
 
 export const Stack = forwardRef((props, ref) => (
-    <InnerInline { ...props } direction="vertical" forwardedRef={ref} />
+    <InnerStack { ...props } forwardedRef={ref} />
 ));

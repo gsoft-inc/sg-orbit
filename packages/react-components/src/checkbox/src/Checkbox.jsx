@@ -137,8 +137,6 @@ export function InnerCheckbox(props) {
         ...rest
     });
 
-
-
     const label = isFunction(children)
         ? children({ isChecked, isIndeterminate }, props)
         : children;

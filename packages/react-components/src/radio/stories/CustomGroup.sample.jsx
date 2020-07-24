@@ -29,7 +29,7 @@ function CustomComponent({
 
 export function CustomGroup() {
     return (
-        <RadioGroup>
+        <RadioGroup direction="row">
             <CustomComponent value="mars">Mars</CustomComponent>
             <CustomComponent value="jupiter">Jupiter</CustomComponent>
             <CustomComponent value="pluton">Pluton</CustomComponent>

@@ -26,7 +26,7 @@ export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef
     return (
         <ElementType
             {...rest}
-            spacing={2}
+            gap={2}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
