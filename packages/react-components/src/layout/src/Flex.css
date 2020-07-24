@@ -6,7 +6,7 @@
     align-items: var(--flex-align-items);
     justify-content: var(--flex-justify-content);
     flex-wrap: var(--flex-wrap);
-    /* gap: var(--flex-gap); */
+    gap: var(--flex-gap);
 }
 
 /* Flex | No Gap | Row */
