@@ -132,6 +132,22 @@ function useIsGapSupported() {
     }, []);
 }
 
+function useShouldWrapForSpacing(isGapSupported, ref) {
+    const [hasNesting, setHasNesting] = useState(false);
+
+    useLayoutEffect(() => {
+        if (!isGapSupported) {
+            if (!isNil(ref.current)) {
+                if (!isNil(ref.current.querySelector(":scope > .o-ui.flex"))) {
+                    setHasNesting(true);
+                }
+            }
+        }
+    }, [isGapSupported, setHasNesting, ref]);
+
+    return hasNesting;
+}
+
 export function InnerFlex({
     direction,
     reverse,
@@ -149,23 +165,12 @@ export function InnerFlex({
     forwardedRef,
     ...rest
 }) {
-    const [hasNestedStack, setHasNestedStack] = useState(false);
-
     const ref = useMergedRefs(forwardedRef);
-    const supportGap = useIsGapSupported();
 
-    useLayoutEffect(() => {
-        if (!supportGap) {
-            if (!isNil(ref.current)) {
-                if (!isNil(ref.current.querySelector(":scope > .o-ui.flex"))) {
-                    setHasNestedStack(true);
-                }
-            }
-        }
+    const isGapSupported = useIsGapSupported();
+    const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
 
-    }, [supportGap, setHasNestedStack, ref]);
-
-    const items = wrapChildren || !hasNestedStack ? children : Children.map(children, x => {
+    const items = wrapChildren || wrapChildrenForSpacing ? children : Children.map(children, x => {
         return (
             <div className="flex-item">{x}</div>
         );
@@ -179,7 +184,7 @@ export function InnerFlex({
                 direction,
                 reverse && "reverse",
                 fluid && "fluid",
-                !supportGap && "no-gap",
+                !isGapSupported && "no-gap",
                 className
             )}
             style={{
