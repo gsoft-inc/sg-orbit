@@ -6,24 +6,24 @@
     align-items: var(--flex-align-items);
     justify-content: var(--flex-justify-content);
     flex-wrap: var(--flex-wrap);
-    gap: var(--flex-gap);
+    /* gap: var(--flex-gap); */
 }
 
-/* Flex | No Gap | Horizontal */
-.o-ui.flex.no-gap.horizontal > *:not(:last-child) {
+/* Flex | No Gap | Row */
+.o-ui.flex.no-gap.row > *:not(:last-child) {
     margin-right: var(--flex-gap);
 }
 
-.o-ui.flex.no-gap.horizontal.reverse > *:not(:last-child) {
+.o-ui.flex.no-gap.row.reverse > *:not(:last-child) {
     margin-left: var(--flex-gap);
 }
 
-/* Flex | No Gap | Vertical */
-.o-ui.flex.no-gap.vertical > *:not(:last-child) {
+/* Flex | No Gap | Column */
+.o-ui.flex.no-gap.column > *:not(:last-child) {
     margin-bottom: var(--flex-gap);
 }
 
-.o-ui.flex.no-gap.vertical.reverse > *:not(:last-child) {
+.o-ui.flex.no-gap.column.reverse > *:not(:last-child) {
     margin-top: var(--flex-gap);
 }
 
