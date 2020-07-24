@@ -1,34 +1,41 @@
 /* Flex */
-.o-ui.flex {
+.o-ui.o-ui-flex {
+    --o-ui-direction: "row";
     display: flex;
-    flex-direction: var(--flex-direction);
-    align-content: var(--flex-align-content);
-    align-items: var(--flex-align-items);
-    justify-content: var(--flex-justify-content);
-    flex-wrap: var(--flex-wrap);
-    gap: var(--flex-gap);
+    flex-direction: var(--o-ui-direction);
+    align-content: var(--o-ui-align-content);
+    align-items: var(--o-ui-align-items);
+    justify-content: var(--o-ui-justify-content);
+    flex-wrap: var(--o-ui-wrap);
+    gap: var(--o-ui-gap);
 }
 
 /* Flex | No Gap | Row */
-.o-ui.flex.no-gap.row > *:not(:last-child) {
+.o-ui.o-ui-flex.no-gap.row > *:not(:last-child) {
     margin-right: var(--flex-gap);
 }
 
-.o-ui.flex.no-gap.row.reverse > *:not(:last-child) {
+.o-ui.o-ui-flex.no-gap.row.reverse > *:not(:last-child) {
     margin-left: var(--flex-gap);
 }
 
 /* Flex | No Gap | Column */
-.o-ui.flex.no-gap.column > *:not(:last-child) {
+.o-ui.o-ui-flex.no-gap.column > *:not(:last-child) {
     margin-bottom: var(--flex-gap);
 }
 
-.o-ui.flex.no-gap.column.reverse > *:not(:last-child) {
+.o-ui.o-ui-flex.no-gap.column.reverse > *:not(:last-child) {
     margin-top: var(--flex-gap);
 }
 
 /* Flex | Fluid */
-.o-ui.flex.fluid {
+.o-ui.o-ui-flex.fluid {
+    width: 100%;
+    height: 100%;
+}
+
+/* Flex | Item */
+.o-ui.o-ui-flex .o-ui-flex-item {
     width: 100%;
     height: 100%;
 }

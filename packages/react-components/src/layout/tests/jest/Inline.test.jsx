@@ -1,17 +1,17 @@
-import { Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const Stacked = forwardRef((props, ref) => {
+const Inlined = forwardRef((props, ref) => {
     return (
-        <Stack
+        <Inline
             {...props}
             ref={ref}
         >
             <div>Alpha</div>
             <div>Bravo</div>
             <div>Charlie</div>
-        </Stack>
+        </Inline>
     );
 });
 
@@ -19,7 +19,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Stacked ref={ref} />
+        <Inlined ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -32,7 +32,7 @@ test("using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Stacked
+        <Inlined
             ref={node => {
                 refNode = node;
             }}
@@ -49,7 +49,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Stacked ref={handler} />
+        <Inlined ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

@@ -162,14 +162,40 @@ A radio button can be to the left or to the right of his label.
 
 A radio can vary in size.
 
-Can be set to: `"small"`, `"large"` or omitted.
+Can be set on a single radio to: `"small"`, `"large"` or omitted.
 
 <Preview>
-    <Story name="size">
+    <Story name="size radio">
         <RadioGroup>
             <Radio size="small" value="mars" >Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio size="large" value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="size group">
+        <RadioGroup size="large">
+            <Radio value="mars" >Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Direction
+
+A radio group can change is direction from `column` to `row`.
+
+<Preview>
+    <Story name="direction">
+        <RadioGroup direction="row">
+            <Radio value="mars" >Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluton">Pluton</Radio>
         </RadioGroup>
     </Story>
 </Preview>
@@ -200,7 +226,7 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
 
 <Preview>
     <Story name="toggle buttons">
-        <RadioGroup>
+        <RadioGroup direction="row">
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
             <ToggleButton value="2" variant="outline" circular>2</ToggleButton>

@@ -96,7 +96,7 @@ export function InnerCheckboxGroup({
     return (
         <ElementType
             {...rest}
-            spacing={2}
+            gap={2}
             role="group"
             aria-disabled={disabled}
             ref={forwardedRef}

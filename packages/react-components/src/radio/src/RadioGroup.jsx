@@ -10,7 +10,7 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Children, forwardRef } from "react";
-import { Stack } from "../../layout";
+import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 
@@ -61,8 +61,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-    // TODO: replace by Flex once available.
-    as: Stack
+    direction: "column",
+    as: Flex
 };
 
 function useKeyboardNavigation(setCheckedValue) {
@@ -99,7 +99,6 @@ export function InnerRadioGroup({
     defaultValue,
     name,
     onChange,
-    direction,
     size,
     disabled,
     readOnly,
@@ -129,7 +128,8 @@ export function InnerRadioGroup({
         <ElementType
             {...rest}
             {...navigationProps}
-            spacing={2}
+            alignItems="start"
+            gap={2}
             role="radiogroup"
             aria-readonly={readOnly}
             aria-disabled={disabled}

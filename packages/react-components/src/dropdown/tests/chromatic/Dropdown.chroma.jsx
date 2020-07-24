@@ -119,15 +119,15 @@ stories()
         <BasicDropdown />
     )
     .add("open", () =>
-        <Inline spacing="150px">
+        <Inline gap="150px">
             <BasicDropdown open />
             <BasicDropdown defaultOpen />
         </Inline>
 
     )
     .add("basic trigger", () =>
-        <Inline spacing="300px">
-            <Stack spacing="200px">
+        <Inline gap="300px">
+            <Stack gap="200px">
                 <Inline>
                     <BasicDropdown size="small" />
                     <BasicDropdown
@@ -162,7 +162,7 @@ stories()
         </Inline>
     )
     .add("basic trigger icon", () =>
-        <Stack spacing="200px">
+        <Stack gap="200px">
             <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
@@ -197,8 +197,8 @@ stories()
         </Stack>
     )
     .add("button trigger", () =>
-        <Stack spacing="200px">
-            <Inline spacing="200px">
+        <Stack gap="200px">
+            <Inline gap="200px">
                 <CircularButtonDropdown />
                 <CircularButtonDropdown
                     size="small"
@@ -212,7 +212,7 @@ stories()
                     open
                 />
             </Inline>
-            <Inline spacing="200px">
+            <Inline gap="200px">
                 <BasicButtonDropdown />
                 <BasicButtonDropdown
                     size="small"
@@ -241,7 +241,7 @@ stories()
         </Stack>
     )
     .add("advanced trigger", () =>
-        <Inline spacing="200px">
+        <Inline gap="200px">
             <CustomTriggerDropdown>Task</CustomTriggerDropdown>
             <CustomTriggerDropdown open>Task</CustomTriggerDropdown>
         </Inline>
@@ -265,7 +265,7 @@ stories()
         </Dropdown>
     )
     .add("upward", () =>
-        <Inline spacing="200px" style={{ marginTop: "150px" }}>
+        <Inline gap="200px" style={{ marginTop: "150px" }}>
             <BasicDropdown
                 upward
                 size="small"
@@ -283,8 +283,8 @@ stories()
         </Inline>
     )
     .add("direction", () =>
-        <Inline spacing={12}>
-            <Stack spacing="200px">
+        <Inline gap={12}>
+            <Stack gap="200px">
                 <BasicDropdown
                     direction="left"
                     size="small"
@@ -300,7 +300,7 @@ stories()
                     open
                 />
             </Stack>
-            <Stack spacing="200px">
+            <Stack gap="200px">
                 <BasicDropdown
                     direction="right"
                     size="small"
@@ -323,8 +323,8 @@ stories()
                  .build()
          })
     .add("fluid", () =>
-        <Inline spacing={12}>
-            <Stack spacing="200px" className="w-50">
+        <Inline gap={12}>
+            <Stack gap="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
@@ -337,7 +337,7 @@ stories()
                     fluid
                 />
             </Stack>
-            <Stack spacing="200px" className="w-50">
+            <Stack gap="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
@@ -356,8 +356,8 @@ stories()
         </Inline>
     )
     .add("title", () =>
-        <Stack spacing="200px">
-            <Inline spacing="200px">
+        <Stack gap="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     open
                     size="small"
@@ -377,7 +377,7 @@ stories()
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
             </Inline>
-            <Inline spacing="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     open
                 >
@@ -393,7 +393,7 @@ stories()
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
             </Inline>
-            <Inline spacing="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     open
                     size="large"
@@ -416,7 +416,7 @@ stories()
         </Stack>
     )
     .add("divider", () =>
-        <Inline spacing="200px">
+        <Inline gap="200px">
             <BasicDropdown
                 open
                 size="small"
@@ -487,7 +487,7 @@ stories()
         </BasicDropdown>
     )
     .add("item description", () =>
-        <Inline spacing="200px">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -514,7 +514,7 @@ stories()
         </Inline>
     )
     .add("item icon", () =>
-        <Inline spacing="200px">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -548,7 +548,7 @@ stories()
         </Inline>
     )
     .add("item button", () =>
-        <Inline spacing="200px">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
@@ -573,8 +573,8 @@ stories()
         </Inline>
     )
     .add("item link", () =>
-        <Stack spacing="200px">
-            <Inline spacing="200px">
+        <Stack gap="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     size="small"
                     open
@@ -597,7 +597,7 @@ stories()
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
             </Inline>
-            <Inline spacing="200px">
+            <Inline gap="200px">
                 <BasicDropdown open>
                     <Dropdown.LinkItem active href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus href="/internal-link">Open...</Dropdown.LinkItem>

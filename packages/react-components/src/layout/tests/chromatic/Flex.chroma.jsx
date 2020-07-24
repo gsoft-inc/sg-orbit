@@ -50,14 +50,14 @@ stories()
                 </Flex>
             </div>
             <div className="h10">
-                <Flex gap={10}>
+                <Flex gap={10} fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
             </div>
             <div className="h10">
-                <Flex gap="200px">
+                <Flex gap="200px" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
@@ -110,14 +110,14 @@ stories()
                 </Flex>
             </div>
             <div className="w12">
-                <Flex direction="column" gap={10}>
+                <Flex direction="column" gap={10} fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
             </div>
             <div className="w12">
-                <Flex direction="column" gap="200px">
+                <Flex direction="column" gap="200px" fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
@@ -181,4 +181,13 @@ stories()
                     )
             }
         </Flex>
+    )
+    .add("wrap children", () =>
+        <div className="h10">
+            <Flex wrapChildren gap={1} fluid>
+                <div className="bg-primary-500 h10">Alpha</div>
+                <div className="bg-primary-500">Bravo</div>
+                <div className="bg-primary-500">Charlie</div>
+            </Flex>
+        </div>
     );
