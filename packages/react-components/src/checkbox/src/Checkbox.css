@@ -111,9 +111,9 @@
 }
 
 /* WITH BADGE | REVERSE */
-.o-ui.checkbox.with-badge.reverse .badge.pill {
-    margin-left: 0;
-    margin-right: var(--scale-bravo);
+.o-ui.checkbox.with-badge.reverse > .label {
+    margin-right: 0;
+    margin-left: var(--scale-bravo);
 }
 
 /* STATE | CHECKED */
