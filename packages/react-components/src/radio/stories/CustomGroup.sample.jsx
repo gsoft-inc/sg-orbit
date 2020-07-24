@@ -32,7 +32,7 @@ export function CustomGroup() {
         <RadioGroup>
             <CustomComponent value="mars">Mars</CustomComponent>
             <CustomComponent value="jupiter">Jupiter</CustomComponent>
-            <CustomComponent value="pluton">Pluton</CustomComponent>
+            <CustomComponent value="pluto">Pluto</CustomComponent>
         </RadioGroup>
     );
 }

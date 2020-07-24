@@ -12,6 +12,7 @@
 .o-ui.radio .label {
     line-height: 1;
     font-size: var(--type-scale-7);
+    margin-left: var(--scale-bravo);
 }
 
 /* Circle */
@@ -115,12 +116,21 @@
     flex-direction: row-reverse;
 }
 
-/* REVERSE BUTTON */
-
+/* REVERSE | LABEL */
+.o-ui.radio.reverse .label {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
 
 /* REVERSE | ICON */
 .o-ui.radio.reverse.with-icon > .icon,
 .o-ui.radio.reverse.with-icon > .stack   {
-    margin-right: 0;
-    margin-left: var(--scale-alpha);
+    margin-right: var(--scale-alpha);
+    margin-left: 0;
+}
+
+/* REVERSE | BADGE */
+.o-ui.radio.reverse.with-badge .badge.pill {
+    margin-right: var(--scale-alpha);
+    margin-left: 0;
 }

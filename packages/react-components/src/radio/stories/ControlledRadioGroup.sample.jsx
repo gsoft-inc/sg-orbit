@@ -14,7 +14,7 @@ export function ControlledRadioGroup() {
         >
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluton">Pluton</Radio>
+            <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     );
 }
