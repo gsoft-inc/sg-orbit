@@ -216,6 +216,20 @@ Related checkboxes can be group together.
     </Story>
 </Preview>
 
+### Direction
+
+A checkbox group can change is direction to `column` to render his elements vertically.
+
+<Preview>
+    <Story name="direction">
+        <CheckboxGroup direction="column">
+            <Checkbox value="milky-way" >Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
 ### Toggle Buttons
 
 In somes cases, you might want a group of toggle buttons to behave like a checkbox group.
@@ -229,6 +243,27 @@ In somes cases, you might want a group of toggle buttons to behave like a checkb
             <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
             <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
         </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Wrapped
+
+Toggle buttons could be wrap on multiple lines.
+
+<Preview>
+    <Story name="wrap toggle buttons">
+        <div style={{ width: "200px" }}>
+            <CheckboxGroup wrap direction="row">
+                <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
+                <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
+                <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
+                <ToggleButton value="4" variant="outline" circular>4</ToggleButton>
+                <ToggleButton value="5" variant="outline" circular>5</ToggleButton>
+                <ToggleButton value="6" variant="outline" circular>6</ToggleButton>
+                <ToggleButton value="7" variant="outline" circular>7</ToggleButton>
+                <ToggleButton value="8" variant="outline" circular>8</ToggleButton>
+            </CheckboxGroup>
+        </div>
     </Story>
 </Preview>
 

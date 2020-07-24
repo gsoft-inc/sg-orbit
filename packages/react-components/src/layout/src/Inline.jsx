@@ -1,6 +1,7 @@
 import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -46,6 +47,7 @@ export function InnerInline({
     align,
     justify,
     children,
+    wrap,
     forwardedRef,
     ...rest
 }) {
@@ -54,6 +56,7 @@ export function InnerInline({
             {...rest}
             alignItems={align}
             justifyContent={justify}
+            wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >
             {children}
