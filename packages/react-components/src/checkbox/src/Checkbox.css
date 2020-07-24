@@ -17,6 +17,33 @@
     flex-shrink: 0;
 }
 
+.o-ui.checkbox .box:before {
+    content: "";
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+    background-color: var(--primary-500);
+    position: absolute;
+    transform: scale(0);
+    border-radius: var(--scale-alpha);
+    top: -1px;
+    left: -1px;
+    transition: transform .125s ease-in;
+}
+
+.o-ui.checkbox .box:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: var(--scale-echo) var(--scale-echo);
+    background-color: var(--white);
+    transform: translate(-50%, -50%) scale(0) rotate(2deg);
+    transition: all .125s ease-in .125s;
+}
+
 /* CHECKBOX | LABEL */
 .o-ui.checkbox .label {
     margin-left: var(--scale-bravo);
@@ -28,27 +55,17 @@
 
 /* INDETERMINATE */
 .o-ui.checkbox.indeterminate .box::before {
-    content: "";
-    display: block;
-    background-color: var(--primary-500);
-    border-radius: 0.25rem;
-    position: absolute;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: all 2.5s cubic-bezier(.17,.67,.59,.82);
+    transition: transform 0.0625s ease-in;
+    transform: scale(0.5);
 }
 
-/* INDETERMINATE | CHECKED */
-.o-ui.checkbox.indeterminate.checked .box {
-    background: var(--white);
+.o-ui.checkbox.indeterminate .box::after {
+    transition: transform 0.125 ease-in 0.0625s;
 }
 
 /* INDETERMINATE | CHECKED | HALF SQUARE */
 .o-ui.checkbox.indeterminate.checked .box::before {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
 }
 
 /* READ ONLY */
@@ -103,27 +120,21 @@
 
 /* STATE | CHECKED */
 .o-ui.checkbox.checked .box {
-    background-color: var(--primary-500);
     border: 1px solid var(--primary-500);
 }
 
-/* STATE | CHECKED */
+/* STATE | CHECKED | INDETERMINATE */
 .o-ui.checkbox.checked.indeterminate .box {
     background-color: var(--white);
 }
 
 /* STATE | CHECKED | CHECKMARK */
+.o-ui.checkbox.checked .box:before {
+    transform: scale(1);
+}
+
 .o-ui.checkbox.checked .box:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--scale-echo) var(--scale-echo);
-    background-color: var(--white);
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
 }
 
 /* STATE | DISABLED */
@@ -171,6 +182,11 @@
     height: var(--scale-delta);
 }
 
+.o-ui.checkbox.small .box:before {
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+}
+
 /* SIZING | SMALL | BOX | CHECKED */
 .o-ui.checkbox.checked.small .box:after {
     width: var(--scale-delta);
@@ -182,6 +198,11 @@
 /* SIZING | LARGE | LABEL */
 .o-ui.checkbox.large .label {
     font-size: var(--type-scale-6);
+}
+
+.o-ui.checkbox.large .box:before {
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
 }
 
 /* SIZING | LARGE | LABEL | */
