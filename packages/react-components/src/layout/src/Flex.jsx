@@ -183,10 +183,8 @@ export function InnerFlex({
                 "o-ui flex",
                 direction,
                 reverse && "reverse",
-                wrap && "wrap",
                 fluid && "fluid",
-                // !isGapSupported && "no-gap",
-                "no-gap",
+                !isGapSupported && "no-gap",
                 className
             )}
             style={{
