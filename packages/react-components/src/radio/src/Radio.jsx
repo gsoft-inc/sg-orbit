@@ -20,7 +20,7 @@ const propTypes = {
     /**
      * The value to associate with when in a group.
      */
-    value: oneOfType([string, number]),
+    value: oneOfType([string, number]).isRequired,
     /**
      * Whether or not the radio group should autofocus on render.
      */
