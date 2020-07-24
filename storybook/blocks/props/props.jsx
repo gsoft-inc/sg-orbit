@@ -50,10 +50,11 @@ export function Props({ componentsDefinitions }) {
         <div className={classes}>
             <div className={state.isVisible ? "mb5" : "mb3"}>
                 <Switch
-                    label={`View component${hasMultipleComponents ? "s" : ""} props`}
                     checked={state.isVisible}
                     onChange={handleToggleChange}
-                />
+                >
+                    {`View component${hasMultipleComponents ? "s" : ""} props`}
+                </Switch>
             </div>
             <Choose>
                 <When condition={hasMultipleComponents && state.isVisible}>

@@ -1,7 +1,7 @@
 import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Inline } from "@react-components/layout";
-import { any, arrayOf, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -28,6 +28,14 @@ const propTypes = {
      * Children size.
      */
     size: oneOf(["small", "medium", "large"]),
+    /**
+     * Whether or not the checkbox group is disabled.
+     */
+    disabled: bool,
+    /**
+     * Whether or not the checkbox group is read only.
+     */
+    readOnly: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -66,6 +74,8 @@ export function InnerCheckboxGroup({
     onChange,
     direction,
     size,
+    disabled,
+    readOnly,
     as: ElementType,
     children,
     forwardedRef,
@@ -87,6 +97,8 @@ export function InnerCheckboxGroup({
         <ElementType
             {...rest}
             spacing={2}
+            role="group"
+            aria-disabled={disabled}
             ref={forwardedRef}
         >
             <CheckableContext.Provider
@@ -97,7 +109,10 @@ export function InnerCheckboxGroup({
             >
                 {Children.map(children, x => {
                     return augmentElement(x, {
-                        size
+                        size,
+                        disabled,
+                        readOnly,
+                        role: "checkbox"
                     });
                 })}
             </CheckableContext.Provider>

@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react";
-import { isNil } from "lodash";
+import { isUndefined } from "lodash";
 
 export const CheckableContext = createContext({});
 
 export function useCheckableContext(value) {
     const { checkedValue, onCheck } = useContext(CheckableContext);
 
-    const isChecked = !isNil(checkedValue)
+    const isChecked = !isUndefined(checkedValue)
         ? Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value
         : undefined;
 

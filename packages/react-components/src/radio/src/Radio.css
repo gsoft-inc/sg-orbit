@@ -9,6 +9,10 @@
     background-color: black;
 }
 
+.o-ui.radio.checked .button {
+    background-color: green;
+}
+
 .o-ui.radio input[type="radio"]:focus + .button {
-    background-color: teal;
+    box-shadow: 0 0 0 2px var(--primary-100);
 }
