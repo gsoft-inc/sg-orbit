@@ -39,7 +39,7 @@ stories("/link")
                 <Button variant="link" iconLeft={<SignoutIcon />} size="small">Button</Button>
                 <Button variant="link" iconLeft={<SignoutIcon />}>Button</Button>
                 <Button variant="link" iconLeft={<SignoutIcon />} size="large">Button</Button>
-            </Inline> variant="link"
+            </Inline>
             <Inline align="end">
                 <Button variant="link" iconRight={<SignoutIcon />} size="mini">Button</Button>
                 <Button variant="link" iconRight={<SignoutIcon />} size="tiny">Button</Button>
@@ -48,7 +48,7 @@ stories("/link")
                 <Button variant="link" iconRight={<SignoutIcon />} size="large">Button</Button>
             </Inline>
             <div>
-                <Button disabled iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />}>Button</Button>
+                <Button variant="link" disabled iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />}>Button</Button>
             </div>
         </Stack>
     )
