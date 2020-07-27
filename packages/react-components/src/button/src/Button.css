@@ -372,6 +372,11 @@ a.o-ui.button.outline {
     text-decoration: underline;
 }
 
+/* BUTTON | LINK | ANCHOR */
+a.o-ui.button.link {
+    display: inline-flex;
+}
+
 /* BUTTON | LINK | SIZE */
 .o-ui.button.link.mini {
     font-size: var(--type-scale-9);
@@ -509,6 +514,11 @@ a.o-ui.button.outline {
 /* BUTTON | GHOST | ICON  */
 .o-ui.button.ghost .icon {
     fill: currentColor;
+}
+
+/* BUTTON | GHOST | ANCHOR */
+a.o-ui.button.ghost {
+    display: inline-flex;
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -693,8 +703,8 @@ a.o-ui.button.outline {
 }
 
 .o-ui.button.loading.large:after {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
 }
 
 /* BUTTON | SOLID | LOADING | PRIMARY */
