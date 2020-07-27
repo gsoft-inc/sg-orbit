@@ -48,9 +48,9 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * Component children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func]).isRequired
 };
 
 const defaultProps = {
@@ -91,7 +91,7 @@ export function InnerRadio(props) {
         onCheck
     } = useCheckableContext(value);
 
-    const [isChecked, setIsChecked] = useControllableState(isCheckedValue ?? checked, defaultChecked, false);
+    const [isChecked, setIsChecked] = useControllableState(checked ?? isCheckedValue, defaultChecked, false);
 
     const labelRef = useRef();
     const inputRef = useRef();

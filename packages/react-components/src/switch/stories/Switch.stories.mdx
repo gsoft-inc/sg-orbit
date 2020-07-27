@@ -161,30 +161,6 @@ A switch can handle `checked` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="autoFocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Switch autoFocus>Engines</Switch>
-        <Switch autoFocus disabled>Engines</Switch>
-    </Inline>
-</Story>
-
-<Story
-    name="autoFocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Switch autoFocus autoFocusDelay={500}>Engines</Switch>
-        <Switch autoFocus disabled autoFocusDelay={500}>Engines</Switch>
-    </Inline>
-</Story>
-
-<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()

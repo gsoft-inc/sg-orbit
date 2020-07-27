@@ -155,6 +155,18 @@ stories()
             {embedButton(<Button>Button</Button>)}
             {embedButton(<Button>Button</Button>, { size: "large" })}
         </Inline>
+    )
+    .add("autofocus", () =>
+        <Button autoFocus>Button</Button>
+    )
+    .add("when disabled do not autofocus", () =>
+        <Button disabled autoFocus>Button</Button>
+    )
+    .add("autofocus with delay", () =>
+        <Button autoFocus autoFocusDelay={50}>Button</Button>
+    )
+    .add("when disabled do not autofocus with delay", () =>
+        <Button disabled autoFocus autoFocusDelay={50}>Button</Button>
     );
 
 

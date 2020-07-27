@@ -127,29 +127,45 @@ stories()
             <CustomComponent value="3">3</CustomComponent>
         </RadioGroup>
     )
-    .add("autoFocus", () =>
+    .add("render props", () =>
+        <RadioGroup defaultValue="2">
+            {
+                ({ checkedValue }) =>
+                    ["1", "2", "3"].map(x =>
+                        <Radio
+                            className={checkedValue === x ? "bg-primary-500" : undefined}
+                            value={x}
+                            key={x}
+                        >
+                            {x}
+                        </Radio>
+                    )
+            }
+        </RadioGroup>
+    )
+    .add("autofocus", () =>
         <RadioGroup autoFocus defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
-    .add("when disabled do not autoFocus", () =>
+    .add("when disabled do not autofocus", () =>
         <RadioGroup autoFocus disabled defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
-    .add("when disabled do not autoFocus with delay", () =>
-        <RadioGroup autoFocus autoFocusDelay={50} disabled defaultValue="2">
+    .add("autofocus with delay", () =>
+        <RadioGroup autoFocus autoFocusDelay={50} defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
-    .add("autoFocus with delay", () =>
-        <RadioGroup autoFocus autoFocusDelay={50} defaultValue="2">
+    .add("when disabled do not autofocus with delay", () =>
+        <RadioGroup autoFocus autoFocusDelay={50} disabled defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>

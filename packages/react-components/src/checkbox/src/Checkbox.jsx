@@ -114,7 +114,7 @@ export function InnerCheckbox(props) {
         containerProps,
         inputProps
     } = useCheckbox({
-        checked: isCheckedValue ?? checked,
+        checked: checked ?? isCheckedValue,
         defaultChecked,
         indeterminate,
         defaultIndeterminate,

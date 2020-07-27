@@ -131,6 +131,22 @@ stories()
             <CustomComponent value="2">2</CustomComponent>
             <CustomComponent value="3">3</CustomComponent>
         </CheckboxGroup>
+    )
+    .add("render props", () =>
+        <CheckboxGroup defaultValue={["2"]}>
+            {
+                ({ checkedValue }) =>
+                    ["1", "2", "3"].map(x =>
+                        <Checkbox
+                            className={checkedValue && checkedValue.includes(x) ? "bg-primary-500" : undefined}
+                            value={x}
+                            key={x}
+                        >
+                            {x}
+                        </Checkbox>
+                    )
+            }
+        </CheckboxGroup>
     );
 
 

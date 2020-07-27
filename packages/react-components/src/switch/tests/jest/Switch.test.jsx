@@ -1,63 +1,11 @@
 import { Switch } from "@react-components/switch";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
 function getInput(element) {
     return element.querySelector("input");
 }
-
-// ***** Behaviors *****
-
-test("when autoFocus is true, the switch is autofocused on render", async () => {
-    const { getByTestId } = render(
-        <Switch autoFocus />
-    );
-
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
-});
-
-test("when autoFocus on a disabled switch, the switch is not autofocused on render", async () => {
-    const { getByTestId } = render(
-        <Switch
-            disabled
-            autoFocus
-        />
-    );
-
-    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
-});
-
-test("when delayed autoFocus, the switch is autofocused after the delay", async () => {
-    const { getByTestId } = render(
-        <Switch
-            autoFocus
-            autoFocusDelay={50}
-        />
-    );
-
-    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
-    await waitDelay(0);
-
-    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
-
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
-});
-
-test("when delayed autoFocus on a disabled switch, the switch is not autofocused after the delay", async () => {
-    const { getByTestId } = render(
-        <Switch
-            disabled
-            autoFocus
-            autoFocusDelay={50}
-        />
-    );
-
-    await waitDelay(60);
-
-    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
-});
 
 // ***** API *****
 

@@ -2,7 +2,7 @@ import { CheckableContext, augmentElement, useControllableState, useEventCallbac
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isNil } from "lodash";
+import { isFunction, isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -45,9 +45,9 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * Component children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func]).isRequired
 };
 
 const defaultProps = {
@@ -95,6 +95,10 @@ export function InnerCheckboxGroup({
         }
     });
 
+    const items = isFunction(children)
+        ? children({ checkedValue })
+        : children;
+
     return (
         <Flex
             {...rest}
@@ -111,7 +115,7 @@ export function InnerCheckboxGroup({
                     checkedValue
                 }}
             >
-                {Children.map(children, x => {
+                {Children.map(items, x => {
                     return augmentElement(x, {
                         size,
                         disabled,

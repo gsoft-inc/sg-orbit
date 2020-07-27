@@ -33,4 +33,16 @@ stories()
                 }
             </Checkbox>
         </Inline>
+    )
+    .add("autofocus", () =>
+        <Checkbox autoFocus>Milky Way</Checkbox>
+    )
+    .add("when disabled do not autofocus", () =>
+        <Checkbox autoFocus disabled>Milky Way</Checkbox>
+    )
+    .add("autofocus with delay", () =>
+        <Checkbox autoFocus autoFocusDelay={50}>Milky Way</Checkbox>
+    )
+    .add("when disabled do not autofocus with delay", () =>
+        <Checkbox autoFocus autoFocusDelay={50} disabled>Milky Way</Checkbox>
     );

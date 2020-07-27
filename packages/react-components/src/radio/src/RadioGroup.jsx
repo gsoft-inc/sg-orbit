@@ -68,9 +68,9 @@ const propTypes = {
    */
     as: oneOfType([string, elementType]),
     /**
-   * @ignore
-   */
-    children: any.isRequired
+     * Component children.
+     */
+    children: oneOfType([any, func]).isRequired
 };
 
 const defaultProps = {
@@ -169,6 +169,10 @@ export function InnerRadioGroup({
 
     const groupName = useId(name, "radio-group");
 
+    const items = isFunction(children)
+        ? children({ checkedValue })
+        : children;
+
     return (
         <Flex
             {...rest}
@@ -187,7 +191,7 @@ export function InnerRadioGroup({
                     checkedValue
                 }}
             >
-                {Children.map(children, (x, index) => {
+                {Children.map(items, (x, index) => {
                     return augmentElement(x, {
                         name: groupName,
                         size,

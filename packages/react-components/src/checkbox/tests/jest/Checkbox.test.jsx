@@ -1,63 +1,11 @@
 import { Checkbox } from "@react-components/checkbox";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/wait-delay";
 import userEvent from "@utils/user-event";
 
 function getInput(element) {
     return element.querySelector("input");
 }
-
-// ***** Behaviors *****
-
-test("when autoFocus is true, the checkbox is autofocused on render", async () => {
-    const { getByTestId } = render(
-        <Checkbox autoFocus />
-    );
-
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
-});
-
-test("when autoFocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
-    const { getByTestId } = render(
-        <Checkbox
-            disabled
-            autoFocus
-        />
-    );
-
-    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
-});
-
-test("when delayed autoFocus, the checkbox is autofocused after the delay", async () => {
-    const { getByTestId } = render(
-        <Checkbox
-            autoFocus
-            autoFocusDelay={50}
-        />
-    );
-
-    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
-    await waitDelay(0);
-
-    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
-
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
-});
-
-test("when delayed autoFocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
-    const { getByTestId } = render(
-        <Checkbox
-            disabled
-            autoFocus
-            autoFocusDelay={50}
-        />
-    );
-
-    await waitDelay(60);
-
-    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
-});
 
 // ***** API *****
 
