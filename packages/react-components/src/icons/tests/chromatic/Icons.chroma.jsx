@@ -102,6 +102,7 @@ import {
     PrinterIcon32,
     PrivacyIcon,
     PrivacyIcon24,
+    PrivacyIcon32,
     SignoutIcon,
     SignoutIcon24,
     SignoutIcon32,
@@ -176,7 +177,7 @@ stories()
     .add("pdf", () => <TestSuite icon24={PdfIcon24} icon32={PdfIcon32} multiIcon={PdfIcon} />)
     .add("image", () => <TestSuite icon24={ImageIcon24} icon32={ImageIcon32} multiIcon={ImageIcon} />)
     .add("printer", () => <TestSuite icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
-    .add("privacy", () => <TestSuite icon24={PrivacyIcon24} multiIcon={PrivacyIcon} />)
+    .add("privacy", () => <TestSuite icon24={PrivacyIcon24} icon32={PrivacyIcon32} multiIcon={PrivacyIcon} />)
     .add("signout", () => <TestSuite icon24={SignoutIcon24} icon32={SignoutIcon32} multiIcon={SignoutIcon} />)
     .add("sort", () => <TestSuite icon24={SortIcon24} icon32={SortIcon32} multiIcon={SortIcon} />)
     .add("trash", () => <TestSuite icon24={TrashIcon24} icon32={TrashIcon32} multiIcon={TrashIcon} />)
