@@ -9,7 +9,7 @@ function Checkbox({ element, ...rest }) {
 
 export function createTestSuite(element, stories) {
     return stories
-        .add("default", () =>
+        .add("labeled", () =>
             <Stack>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>Milky Way</Checkbox>
