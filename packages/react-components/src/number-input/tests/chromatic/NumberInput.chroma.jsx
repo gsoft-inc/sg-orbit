@@ -1,5 +1,5 @@
-import { IconButton } from "@react-components/button";
 import { CrossIcon, EditIcon } from "@react-components/icons";
+import { IconButton } from "@react-components/button";
 import { NumberInput } from "@react-components/number-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

@@ -1,5 +1,5 @@
-import { IconButton } from "../../button";
 import { CalendarIcon, CrossIcon } from "../../icons";
+import { IconButton } from "../../button";
 import { KEYS, SIZE, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
 import { TextInput } from "../../text-input";

@@ -16,7 +16,7 @@ test("call onChange when the button is selected", async () => {
         userEvent.click(getByTestId("toggle-button"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { value: "any", isSelected: true });
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
 });
 
 test("call onChange when the button is unselected", async () => {
@@ -34,7 +34,7 @@ test("call onChange when the button is unselected", async () => {
         userEvent.click(getByTestId("toggle-button"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { value: "any", isSelected: false });
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
 });
 
 // ***** Refs *****

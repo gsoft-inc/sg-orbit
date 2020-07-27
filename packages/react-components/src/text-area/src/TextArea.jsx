@@ -44,7 +44,7 @@ const propTypes = {
 };
 
 export function InnerTextArea(props) {
-    const { autoFocus, autofocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
+    const { autoFocus, autoFocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useMergedRefs(forwardedRef);
 
@@ -54,7 +54,7 @@ export function InnerTextArea(props) {
         }
     };
 
-    const autoFocusProps = useAutoFocus(autoFocus, autofocusDelay, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     return (
         <SemanticRef innerRef={innerRef}>

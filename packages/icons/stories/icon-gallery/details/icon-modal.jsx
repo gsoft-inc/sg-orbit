@@ -1,5 +1,5 @@
-import { IconButton } from "@react-components/button";
 import { CrossIcon } from "@react-components/icons";
+import { IconButton } from "@react-components/button";
 import { IconDetail } from "./icon-detail";
 import { KEYS, useWindowListener } from "@react-components/shared";
 import { Modal } from "semantic-ui-react";
