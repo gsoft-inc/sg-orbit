@@ -274,36 +274,14 @@ A radio group can handle `value` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Radio autofocus>Mars</Radio>
-        <Radio autofocus disabled>Mars</Radio>
-    </Inline>
-</Story>
-
-<Story
-    name="autofocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Radio autofocus autofocusDelay={500}>Mars</Radio>
-        <Radio autofocus disabled autofocusDelay={500}>Mars</Radio>
-    </Inline>
-</Story>
-
-<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Radio>Mars</Radio></RefLogger>
+    <RefLogger>
+        <Radio>Mars</Radio>
+    </RefLogger>
 </Story>
 
 ## API

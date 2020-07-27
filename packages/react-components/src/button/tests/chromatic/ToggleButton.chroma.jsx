@@ -57,6 +57,20 @@ stories()
             <ToggleButton defaultChecked>Cutoff</ToggleButton>
             <ToggleButton iconLeft={<LightbulbIcon />} checked>Cutoff</ToggleButton>
         </Inline>
+    )
+    .add("render props", () =>
+        <Inline>
+            <ToggleButton>
+                {
+                    () => "Cutoff"
+                }
+            </ToggleButton>
+            <ToggleButton defaultChecked>
+                {
+                    ({ isChecked }) => isChecked ? "Checked" : "Cutoff"
+                }
+            </ToggleButton>
+        </Inline>
     );
 
 

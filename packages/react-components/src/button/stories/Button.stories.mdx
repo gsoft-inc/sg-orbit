@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, IconGroup, LightbulbIcon, NotificationIcon, NotificationOffIcon } from "@react-components/icons";
+import { AddIcon, CheckIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
 import { Badge } from "@react-components/badge";
 import {
     Button,
@@ -11,11 +11,9 @@ import {
     InnerToggleButtonGroup,
     InnerToggleIconButton,
     ToggleButton,
-    ToggleButtonGroup,
     ToggleIconButton
 } from "@react-components/button";
 import { ControlledToggleButton } from "./ControlledToggleButton.sample";
-import { ControlledToggleButtonGroup } from "./ControlledToggleButtonGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -46,8 +44,7 @@ A Button indicates a possible user action.
         { displayName: "IconButton", component: InnerIconButton },
         { displayName: "ButtonGroup", component: InnerButtonGroup },
         { displayName: "ToggleButton", component: InnerToggleButton },
-        { displayName: "ToggleIconButton", component: InnerToggleIconButton },
-        { displayName: "ToggleButtonGroup", component: InnerToggleButtonGroup }
+        { displayName: "ToggleIconButton", component: InnerToggleIconButton }
     ]}
 />
 
@@ -296,65 +293,6 @@ A toggle button can handle `checked` state in controlled mode.
 <FilePreview filePath="/button/stories/ControlledToggleButton">
     <ControlledToggleButton />
 </FilePreview>
-
-## Toggle Button Group
-
-Related toggle button can be group together and allow exclusive or multiple selection.
-
-### Multiple selection
-
-A toggle button group can allow multiple options to be selected.
-
-<Preview>
-    <Story name="toggle button group multiple">
-        <ToggleButtonGroup>
-            <ToggleButton value="none" variant="outline">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
-            <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
-            <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
-        </ToggleButtonGroup>
-    </Story>
-</Preview>
-
-### Exclusive selection
-
-A toggle button group can enforce the selection of a single option.
-
-<Preview>
-    <Story name="toggle button group exclusive">
-        <ToggleButtonGroup exclusive>
-            <ToggleIconButton value="on" variant="outline" circular>
-                <NotificationIcon />
-            </ToggleIconButton>
-            <ToggleIconButton value="off" variant="outline" circular>
-                <NotificationOffIcon />
-            </ToggleIconButton>
-        </ToggleButtonGroup>
-    </Story>
-</Preview>
-
-### Controlled
-
-A toggle button group can handle `value` state in controlled mode.
-
-<FilePreview filePath="/button/stories/ControlledToggleButtonGroup">
-    <ControlledToggleButtonGroup />
-</FilePreview>
-
-<Story
-    name="autofocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Button
-        autofocus
-        autofocusDelay={500}
-    >
-        Cutoff
-    </Button>
-</Story>
 
 <Story
     name="ref"

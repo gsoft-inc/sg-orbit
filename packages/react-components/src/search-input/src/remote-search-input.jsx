@@ -156,13 +156,13 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether or not the search input should autofocus on render.
+         * Whether or not the search input should autoFocus on render.
          */
-        autofocus: bool,
+        autoFocus: bool,
         /**
          * Delay before trying to autofocus.
          */
-        autofocusDelay: number,
+        autoFocusDelay: number,
         /**
          * A remote search input can have different sizes.
          */
@@ -383,8 +383,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
             minCharacters,
             placeholder,
             disabled,
-            autofocus,
-            autofocusDelay,
+            autoFocus,
+            autoFocusDelay,
             size,
             fluid,
             input,
@@ -414,8 +414,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 loading={isLoading}
                 disabled={disabled}
-                autofocus={autofocus}
-                autofocusDelay={autofocusDelay}
+                autoFocus={autoFocus}
+                autoFocusDelay={autoFocusDelay}
                 size={size}
                 fluid={fluid}
                 input={input}

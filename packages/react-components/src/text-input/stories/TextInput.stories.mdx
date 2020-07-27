@@ -201,26 +201,26 @@ A text input can be transparent.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <TextInput autofocus placeholder="Search..." />
-        <TextInput autofocus disabled placeholder="Search..." />
+        <TextInput autoFocus placeholder="Search..." />
+        <TextInput autoFocus disabled placeholder="Search..." />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <TextInput autofocus autofocusDelay={500} placeholder="Search..." />
-        <TextInput autofocus disabled autofocusDelay={500} placeholder="Search..." />
+        <TextInput autoFocus autofocusDelay={500} placeholder="Search..." />
+        <TextInput autoFocus disabled autofocusDelay={500} placeholder="Search..." />
     </div>
 </Story>
 

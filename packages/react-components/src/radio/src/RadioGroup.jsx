@@ -4,12 +4,13 @@ import {
     augmentElement,
     getNextNavigableElement,
     getPreviousNavigableElement,
+    useAutoFocus,
     useControllableState,
     useEventCallback,
     useId,
     useMergedRefs
 } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useCallback, useLayoutEffect } from "react";
 import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -34,6 +35,14 @@ const propTypes = {
    * @returns {void}
    */
     onChange: func,
+    /**
+     * Whether or not the radio group should autoFocus on render.
+     */
+    autoFocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autoFocusDelay: number,
     /**
    * Flex direction to display the children.
    */
@@ -98,11 +107,33 @@ function useKeyboardNavigation(setCheckedValue) {
     };
 }
 
+function useGroupAutoFocus(autoFocus, autoFocusDelay, disabled, ref) {
+    const setFocus = useCallback(() => {
+        if (!isNil(ref.current)) {
+            const inputs = ref.current.querySelectorAll("input[tabIndex=\"0\"]");
+
+            if (inputs.length > 0) {
+                inputs[0].focus();
+            }
+        }
+    }, [ref]);
+
+    useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+
+    useLayoutEffect(() => {
+        if (!disabled && autoFocus) {
+            setFocus();
+        }
+    }, [autoFocus, disabled, setFocus]);
+}
+
 export function InnerRadioGroup({
     value,
     defaultValue,
     name,
     onChange,
+    autoFocus,
+    autoFocusDelay,
     wrap,
     size,
     disabled,
@@ -113,9 +144,20 @@ export function InnerRadioGroup({
 }) {
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const labelRef = useMergedRefs(forwardedRef);
+    const ref = useMergedRefs(forwardedRef);
 
     const navigationProps = useKeyboardNavigation(setCheckedValue);
+
+    useGroupAutoFocus(autoFocus, autoFocusDelay, disabled, ref);
+
+    // https://www.w3.org/TR/wai-aria-practices-1.1/examples/radio/radio-1/radio-1.html
+    const getRovingTabIndex = (props, index) => {
+        if (isNil(checkedValue)) {
+            return index === 0 ? "0" : "-1";
+        }
+
+        return !disabled && !props.disabled && checkedValue === props.value ? "0" : "-1";
+    };
 
     const handleCheck = useEventCallback((event, newValue) => {
         setCheckedValue(newValue);
@@ -126,7 +168,6 @@ export function InnerRadioGroup({
     });
 
     const groupName = useId(name, "radio-group");
-    const shouldFocusFirst = isNil(checkedValue);
 
     return (
         <Flex
@@ -138,7 +179,7 @@ export function InnerRadioGroup({
             role="radiogroup"
             aria-readonly={readOnly}
             aria-disabled={disabled}
-            ref={labelRef}
+            ref={ref}
         >
             <CheckableContext.Provider
                 value={{
@@ -147,16 +188,12 @@ export function InnerRadioGroup({
                 }}
             >
                 {Children.map(children, (x, index) => {
-                    const tabIndex = shouldFocusFirst
-                        ? index === 0 ? "0" : "-1"
-                        : checkedValue === x.props.value ? "0" : "-1";
-
                     return augmentElement(x, {
                         name: groupName,
                         size,
                         disabled,
                         readOnly,
-                        tabIndex,
+                        tabIndex: getRovingTabIndex(x.props, index),
                         role: "radio"
                     });
                 })}

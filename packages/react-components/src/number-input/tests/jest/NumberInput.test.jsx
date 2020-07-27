@@ -41,11 +41,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("DIV");
 });
 
-test("when a function ref is provided, delayed autofocus works", async () => {
+test("when a function ref is provided, delayed autoFocus works", async () => {
     const { getByTestId } = render(
         <NumberInput
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
             ref={() => {
                 // don't need to hold a ref..
             }}

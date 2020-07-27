@@ -1,12 +1,12 @@
-import { getSizeClass, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
+import { getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 import { useCallback } from "react";
 
 export function useButton({
     variant,
     color,
-    autofocus,
-    autofocusDelay,
+    autoFocus,
+    autoFocusDelay,
     fluid,
     circular,
     loading,
@@ -27,11 +27,11 @@ export function useButton({
         }
     }, [buttonRef]);
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     return {
         ...rest,
-        ...autofocusProps,
+        ...autoFocusProps,
         className: mergeClasses(
             variant,
             color && color,

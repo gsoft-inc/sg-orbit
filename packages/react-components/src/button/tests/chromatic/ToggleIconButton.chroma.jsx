@@ -1,4 +1,4 @@
-import { CheckIcon } from "@react-components/icons";
+import { CheckIcon, CrossIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ToggleIconButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -52,6 +52,20 @@ stories()
         <Inline>
             <ToggleIconButton checked><CheckIcon /></ToggleIconButton>
             <ToggleIconButton defaultChecked><CheckIcon /></ToggleIconButton>
+        </Inline>
+    )
+    .add("render props", () =>
+        <Inline>
+            <ToggleIconButton>
+                {
+                    () => <CheckIcon />
+                }
+            </ToggleIconButton>
+            <ToggleIconButton defaultChecked>
+                {
+                    ({ isChecked }) => isChecked ? <CheckIcon /> : <CrossIcon />
+                }
+            </ToggleIconButton>
         </Inline>
     );
 

@@ -19,13 +19,13 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the checkbox should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -66,8 +66,8 @@ export function InnerSwitch(props) {
     const {
         checked,
         defaultChecked,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         onChange,
         icon,
         badge,
@@ -94,8 +94,8 @@ export function InnerSwitch(props) {
     } = useCheckbox({
         checked,
         defaultChecked,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         onChange,
         icon,
         badge,

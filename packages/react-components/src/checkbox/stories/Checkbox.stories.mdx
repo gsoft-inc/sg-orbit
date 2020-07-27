@@ -170,26 +170,26 @@ A checkbox can handle `checked` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Checkbox autofocus>Milky Way</Checkbox>
-        <Checkbox autofocus disabled>Milky Way</Checkbox>
+        <Checkbox autoFocus>Milky Way</Checkbox>
+        <Checkbox autoFocus disabled>Milky Way</Checkbox>
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Checkbox autofocus autofocusDelay={500}>Milky Way</Checkbox>
-        <Checkbox autofocus disabled autofocusDelay={500}>Milky Way</Checkbox>
+        <Checkbox autoFocus autoFocusDelay={500}>Milky Way</Checkbox>
+        <Checkbox autoFocus disabled autoFocusDelay={500}>Milky Way</Checkbox>
     </div>
 </Story>
 
@@ -253,7 +253,7 @@ Toggle buttons can be wrap on multiple lines.
 <Preview>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
-            <CheckboxGroup wrap direction="row">
+            <CheckboxGroup wrap>
                 <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
                 <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
                 <ToggleButton value="3" variant="outline" circular>3</ToggleButton>

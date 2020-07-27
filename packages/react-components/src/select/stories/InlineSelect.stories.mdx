@@ -150,26 +150,26 @@ An inlined select can show that it is currently loading data.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline placeholder="select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus inline disabled placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autoFocus inline placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autoFocus inline disabled placeholder="select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus inline autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
-        <Select autofocus inline disabled autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autoFocus inline autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
+        <Select autoFocus inline disabled autofocusDelay={500} placeholder="select an astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 

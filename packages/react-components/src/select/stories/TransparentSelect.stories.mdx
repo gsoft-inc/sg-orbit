@@ -168,26 +168,26 @@ A transparent select can show that it is currently loading data.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
-        <Select autofocus transparent disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autoFocus transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autoFocus transparent disabled placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
-        <Select autofocus disabled autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autoFocus autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
+        <Select autoFocus disabled autofocusDelay={500} transparent placeholder="Select a galaxy" options={ASTRONAUTS} />
     </div>
 </Story>
 

@@ -34,10 +34,10 @@ stories()
                  open: true
              })
     )
-    .add("autofocus",
+    .add("autoFocus",
          () =>
              createSearchInputController({
-                 autofocus: true
+                 autoFocus: true
              })
     )
     .add("fluid",

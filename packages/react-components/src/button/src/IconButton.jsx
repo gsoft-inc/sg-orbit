@@ -13,13 +13,13 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary"]),
     /**
-     * Whether or not the button should autofocus on render.
+     * Whether or not the button should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * A button can have a circular form.
      */
@@ -55,8 +55,8 @@ const defaultProps = {
 export function InnerIconButton({
     variant,
     color,
-    autofocus,
-    autofocusDelay,
+    autoFocus,
+    autoFocusDelay,
     fluid,
     circular,
     loading,
@@ -74,8 +74,8 @@ export function InnerIconButton({
     const buttonProps = useButton({
         variant,
         color,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         fluid,
         circular,
         loading,

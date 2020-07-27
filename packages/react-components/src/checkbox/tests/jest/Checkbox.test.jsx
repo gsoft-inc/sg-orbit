@@ -10,34 +10,34 @@ function getInput(element) {
 
 // ***** Behaviors *****
 
-test("when autofocus is true, the checkbox is autofocused on render", async () => {
+test("when autoFocus is true, the checkbox is autofocused on render", async () => {
     const { getByTestId } = render(
-        <Checkbox autofocus />
+        <Checkbox autoFocus />
     );
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });
 
-test("when autofocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
+test("when autoFocus on a disabled checkbox, the checkbox is not autofocused on render", async () => {
     const { getByTestId } = render(
         <Checkbox
             disabled
-            autofocus
+            autoFocus
         />
     );
 
     expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
 });
 
-test("when delayed autofocus, the checkbox is autofocused after the delay", async () => {
+test("when delayed autoFocus, the checkbox is autofocused after the delay", async () => {
     const { getByTestId } = render(
         <Checkbox
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
         />
     );
 
-    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
     await waitDelay(0);
 
     expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
@@ -45,12 +45,12 @@ test("when delayed autofocus, the checkbox is autofocused after the delay", asyn
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });
 
-test("when delayed autofocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
+test("when delayed autoFocus on a disabled checkbox, the checkbox is not autofocused after the delay", async () => {
     const { getByTestId } = render(
         <Checkbox
             disabled
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
         />
     );
 

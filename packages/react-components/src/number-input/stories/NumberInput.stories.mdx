@@ -1,6 +1,6 @@
-import { IconButton } from "@react-components/button";
 import { CrossIcon, EditIcon } from "@react-components/icons";
 import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconButton } from "@react-components/button";
 import { InnerNumberInput, NumberInput } from "@react-components/number-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -201,26 +201,26 @@ A number input can be transparent.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <NumberInput autofocus placeholder="Amount" />
-        <NumberInput autofocus disabled placeholder="Amount" />
+        <NumberInput autoFocus placeholder="Amount" />
+        <NumberInput autoFocus disabled placeholder="Amount" />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <NumberInput autofocus autofocusDelay={500} placeholder="Amount" />
-        <NumberInput autofocus disabled autofocusDelay={500} placeholder="Amount" />
+        <NumberInput autoFocus autofocusDelay={500} placeholder="Amount" />
+        <NumberInput autoFocus disabled autofocusDelay={500} placeholder="Amount" />
     </div>
 </Story>
 

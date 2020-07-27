@@ -1,4 +1,5 @@
 import { Checkbox } from "@react-components/checkbox";
+import { Inline } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
 
@@ -17,3 +18,19 @@ createTestSuite(<Checkbox />, stories("/unchecked"));
 createTestSuite(<Checkbox defaultChecked />, stories("/checked"));
 
 createTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
+
+stories()
+    .add("render props", () =>
+        <Inline>
+            <Checkbox>
+                {
+                    () => "Milky Way"
+                }
+            </Checkbox>
+            <Checkbox defaultChecked>
+                {
+                    ({ isChecked }) => isChecked ? "Checked" : "Milky Way"
+                }
+            </Checkbox>
+        </Inline>
+    );

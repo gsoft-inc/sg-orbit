@@ -9,34 +9,34 @@ function getInput(getByTestId) {
 
 // ***** Behaviors *****
 
-test("when autofocus is true, the input is autofocused on render", async () => {
+test("when autoFocus is true, the input is autofocused on render", async () => {
     const { getByTestId } = render(
-        <Input autofocus />
+        <Input autoFocus />
     );
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
-test("when autofocus on a disabled input, the input is not autofocused on render", async () => {
+test("when autoFocus on a disabled input, the input is not autofocused on render", async () => {
     const { getByTestId } = render(
         <Input
             disabled
-            autofocus
+            autoFocus
         />
     );
 
     await waitFor(() => expect(getInput(getByTestId)).not.toHaveFocus());
 });
 
-test("when delayed autofocus, the input is autofocused after the delay", async () => {
+test("when delayed autoFocus, the input is autofocused after the delay", async () => {
     const { getByTestId } = render(
         <Input
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
         />
     );
 
-    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
     await waitDelay(0);
 
     expect(getInput(getByTestId)).not.toHaveFocus();
@@ -44,12 +44,12 @@ test("when delayed autofocus, the input is autofocused after the delay", async (
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
-test("when delayed autofocus on a disabled input, the input is not autofocused after the delay", async () => {
+test("when delayed autoFocus on a disabled input, the input is not autofocused after the delay", async () => {
     const { getByTestId } = render(
         <Input
             disabled
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
         />
     );
 
@@ -90,11 +90,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("DIV");
 });
 
-test("when a function ref is provided, delayed autofocus works", async () => {
+test("when a function ref is provided, delayed autoFocus works", async () => {
     const { getByTestId } = render(
         <Input
-            autofocus
-            autofocusDelay={50}
+            autoFocus
+            autoFocusDelay={50}
             ref={() => {
                 // don't need to hold a ref..
             }}
