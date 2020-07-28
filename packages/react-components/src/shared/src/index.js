@@ -26,7 +26,7 @@ export * from "./createFocusableTreeWalker";
 
 // Hooks
 export * from "./useMergedRefs";
-export * from "./useAutofocus";
+export * from "./useAutoFocus";
 export * from "./useEventListener";
 export * from "./useCommittedRef";
 export * from "./useEventCallback";

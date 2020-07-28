@@ -31,13 +31,13 @@ const propTypes = {
      */
     value: oneOfType([string, number]),
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * Whether or not the checkbox should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -81,8 +81,8 @@ export function InnerCheckbox(props) {
         indeterminate,
         defaultIndeterminate,
         value,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         onChange,
         icon,
         badge,
@@ -114,12 +114,12 @@ export function InnerCheckbox(props) {
         containerProps,
         inputProps
     } = useCheckbox({
-        checked: isCheckedValue ?? checked,
+        checked: checked ?? isCheckedValue,
         defaultChecked,
         indeterminate,
         defaultIndeterminate,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         onChange: !isNil(onCheck) ? handleCheck : onChange,
         icon,
         badge,

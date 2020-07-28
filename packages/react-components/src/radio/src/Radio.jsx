@@ -5,7 +5,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutofocus, useCheckableContext, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { getSizeClass, mergeClasses, useAutoFocus, useCheckableContext, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -21,14 +21,6 @@ const propTypes = {
      * The value to associate with when in a group.
      */
     value: oneOfType([string, number]).isRequired,
-    /**
-     * Whether or not the radio group should autofocus on render.
-     */
-    autofocus: bool,
-    /**
-     * Delay before trying to autofocus.
-     */
-    autofocusDelay: number,
     /**
      * Called when the radio checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -56,9 +48,9 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * Component children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func]).isRequired
 };
 
 const defaultProps = {
@@ -71,8 +63,8 @@ export function InnerRadio(props) {
         name,
         checked,
         defaultChecked,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         onChange,
         icon,
         badge,
@@ -99,7 +91,7 @@ export function InnerRadio(props) {
         onCheck
     } = useCheckableContext(value);
 
-    const [isChecked, setIsChecked] = useControllableState(isCheckedValue ?? checked, defaultChecked, false);
+    const [isChecked, setIsChecked] = useControllableState(checked ?? isCheckedValue, defaultChecked, false);
 
     const labelRef = useRef();
     const inputRef = useRef();
@@ -110,7 +102,7 @@ export function InnerRadio(props) {
         }
     }, [labelRef]);
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -177,7 +169,7 @@ export function InnerRadio(props) {
             ref={labelRef}
         >
             <VisuallyHidden
-                {...autofocusProps}
+                {...autoFocusProps}
                 as="input"
                 type="radio"
                 value={value}

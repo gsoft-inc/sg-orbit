@@ -41,13 +41,13 @@ const propTypes = {
      */
     iconRight: element,
     /**
-     * Whether or not the button should autofocus on render.
+     * Whether or not the button should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * A button can have a circular form.
      */

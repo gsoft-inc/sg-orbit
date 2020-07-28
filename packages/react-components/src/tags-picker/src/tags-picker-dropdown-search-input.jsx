@@ -27,7 +27,7 @@ export class TagsPickerDropdownSearchInput extends PureComponent {
                 onChange={this.handleChange}
                 icon={<MagnifierIcon className="fill-marine-900" />}
                 iconPosition="left"
-                autofocus
+                autoFocus
                 autoComplete="off"
                 data-testid="tags-picker-dropdown-search-input"
             />

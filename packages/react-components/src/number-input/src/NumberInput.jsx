@@ -8,13 +8,13 @@ const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "type"];
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether or not the input should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the value.
      */

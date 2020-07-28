@@ -138,18 +138,18 @@ test("can open the select on enter keydown after closing on blur", async () => {
     await waitFor(() => expect(getDropdownMenu(container)).toBeInTheDocument());
 });
 
-test("when autofocus is true, the dropdown is autofocused on render", async () => {
+test("when autoFocus is true, the dropdown is autofocused on render", async () => {
     const { getByTestId } = render(
-        <SimpleSelect autofocus />
+        <SimpleSelect autoFocus />
     );
 
     await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
-test("when autofocus is true, the inline dropdown is autofocused on render", async () => {
+test("when autoFocus is true, the inline dropdown is autofocused on render", async () => {
     const { getByTestId } = render(
         <SimpleSelect
-            autofocus
+            autoFocus
             inline
         />
     );
@@ -157,10 +157,10 @@ test("when autofocus is true, the inline dropdown is autofocused on render", asy
     await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
-test("when autofocus is true, the searchable dropdown is autofocused on render", async () => {
+test("when autoFocus is true, the searchable dropdown is autofocused on render", async () => {
     const { getByTestId } = render(
         <SimpleSelect
-            autofocus
+            autoFocus
             search
         />
     );
@@ -168,10 +168,10 @@ test("when autofocus is true, the searchable dropdown is autofocused on render",
     await waitFor(() => expect(getByTestId("dropdown").querySelector("input.search")).toHaveFocus());
 });
 
-test("when autofocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
+test("when autoFocus on a disabled dropdown, the dropdown is not autofocused on render", async () => {
     const { getByTestId } = render(
         <SimpleSelect
-            autofocus
+            autoFocus
             disabled
         />
     );
@@ -181,11 +181,11 @@ test("when autofocus on a disabled dropdown, the dropdown is not autofocused on 
     expect(getByTestId("dropdown")).not.toHaveFocus();
 });
 
-test("when delayed autofocus, the dropdown is autofocused after the delay", async () => {
+test("when delayed autoFocus, the dropdown is autofocused after the delay", async () => {
     const { getByTestId } = render(
         <SimpleSelect
-            autofocus
-            autofocusDelay={60}
+            autoFocus
+            autoFocusDelay={60}
         />
     );
 
@@ -196,11 +196,11 @@ test("when delayed autofocus, the dropdown is autofocused after the delay", asyn
     await waitFor(() => expect(getByTestId("dropdown")).toHaveFocus());
 });
 
-test("when delayed autofocus on a disabled dropdown, the dropdown is not autofocused after the delay", async () => {
+test("when delayed autoFocus on a disabled dropdown, the dropdown is not autofocused after the delay", async () => {
     const { getByTestId } = render(
         <SimpleSelect
-            autofocus
-            autofocusDelay={60}
+            autoFocus
+            autoFocusDelay={60}
             disabled
         />
     );

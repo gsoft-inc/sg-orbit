@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useDocumentListener, useEventCallback } from "../../shared";
+import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
 import { SelectContext } from "./SelectContext";
@@ -50,13 +50,13 @@ const propTypes = {
      */
     size: oneOf(["small", "large"]),
     /**
-     * Whether or not the dropdown should autofocus on render.
+     * Whether or not the dropdown should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * A transparent select has no background.
      */
@@ -133,8 +133,8 @@ export function InnerSelect(props) {
         inline,
         transparent,
         size,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         fluid,
         disabled,
         onOpen,
@@ -228,7 +228,7 @@ export function InnerSelect(props) {
 
     useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
 
-    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, !isNil(autoFocusDelay) ? autoFocusDelay : 5, disabled, setFocus);
 
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 
@@ -251,7 +251,7 @@ export function InnerSelect(props) {
                     <MonkeyPatchSemanticDropdown
                         data-testid="dropdown"
                         {...rest}
-                        {...autofocusProps}
+                        {...autoFocusProps}
                         options={options}
                         selectOnBlur={false}
                         selectOnNavigation={false}

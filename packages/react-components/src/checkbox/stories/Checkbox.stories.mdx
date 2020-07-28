@@ -170,30 +170,6 @@ A checkbox can handle `checked` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div className="flex items-space-between">
-        <Checkbox autofocus>Milky Way</Checkbox>
-        <Checkbox autofocus disabled>Milky Way</Checkbox>
-    </div>
-</Story>
-
-<Story
-    name="autofocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div className="flex items-space-between">
-        <Checkbox autofocus autofocusDelay={500}>Milky Way</Checkbox>
-        <Checkbox autofocus disabled autofocusDelay={500}>Milky Way</Checkbox>
-    </div>
-</Story>
-
-<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
@@ -218,7 +194,7 @@ Related checkboxes can be group together.
 
 ### Direction
 
-A checkbox group can change is direction to `column` to render his elements vertically.
+A checkbox group can change his direction to `column` to render his elements vertically.
 
 <Preview>
     <Story name="direction">
@@ -246,14 +222,22 @@ In somes cases, you might want a group of toggle buttons to behave like a checkb
     </Story>
 </Preview>
 
+### Custom Components
+
+In fact, any component implementing the `CheckableContext` can behave like a checkbox group.
+
+<FilePreview filePath="/checkbox/stories/CustomGroup">
+    <CustomGroup />
+</FilePreview>
+
 ### Wrapped
 
-Toggle buttons could be wrap on multiple lines.
+Checkable components can be wrap on multiple lines.
 
 <Preview>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
-            <CheckboxGroup wrap direction="row">
+            <CheckboxGroup wrap>
                 <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
                 <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
                 <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
@@ -267,13 +251,27 @@ Toggle buttons could be wrap on multiple lines.
     </Story>
 </Preview>
 
-### Custom Components
+### Render Props
 
-In fact, any component implementing the `CheckableContext` can behave like a checkbox group.
+A checkbox groups can render his items with a render props.
 
-<FilePreview filePath="/checkbox/stories/CustomGroup">
-    <CustomGroup />
-</FilePreview>
+<Preview>
+    <Story name="group render props">
+        <CheckboxGroup>
+            {
+                ({ checkedValue }) =>
+                    ["Milky Way", "Andromeda", "Medusa"].map(x =>
+                        <Checkbox
+                            className={checkedValue && checkedValue.includes(x) ? "primary-500" : undefined}
+                            value={x}
+                        >
+                            {x}
+                        </Checkbox>
+                    )
+            }
+        </CheckboxGroup>
+    </Story>
+</Preview>
 
 ### Controlled
 

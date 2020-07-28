@@ -169,13 +169,14 @@ export function InnerFlex({
     const isGapSupported = useIsGapSupported();
     const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
 
+    // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
+    alignItems = alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end");
+
     const items = !wrapChildren && !wrapChildrenForSpacing ? children : Children.map(children, x => {
         return (
             <div className="o-ui-flex-item">{x}</div>
         );
     });
-
-    console.log(alignItems);
 
     return (
         <ElementType

@@ -129,26 +129,26 @@ A textarea can be transparent.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <TextArea autofocus placeholder="Tell us more..." />
-        <TextArea autofocus disabled placeholder="Tell us more..." />
+        <TextArea autoFocus placeholder="Tell us more..." />
+        <TextArea autoFocus disabled placeholder="Tell us more..." />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <TextArea autofocus autofocusDelay={500} placeholder="Tell us more..." />
-        <TextArea autofocus disabled autofocusDelay={500} placeholder="Tell us more..." />
+        <TextArea autoFocus autofocusDelay={500} placeholder="Tell us more..." />
+        <TextArea autoFocus disabled autofocusDelay={500} placeholder="Tell us more..." />
     </div>
 </Story>
 

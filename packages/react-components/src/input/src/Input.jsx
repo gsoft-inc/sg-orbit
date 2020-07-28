@@ -6,20 +6,20 @@ import { bool, element, number, object, oneOf, string } from "prop-types";
 import { embedButton } from "../../button";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useAutofocus } from "../../shared";
+import { mergeClasses, useAutoFocus } from "../../shared";
 
 export const INPUT_SIZES = ["small", "medium", "large"];
 export const INPUT_UNSUPPORTED_PROPS = ["action", "actionPosition", "inverted"];
 
 const INPUT_PROP_TYPES = {
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether or not the input should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before or after the value.
      */
@@ -68,8 +68,8 @@ function throwWhenMutuallyExclusivePropsAreProvided({ button, icon, iconPosition
 
 export function InnerInput(props) {
     const {
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         fluid,
         icon,
         iconPosition,
@@ -98,7 +98,7 @@ export function InnerInput(props) {
         }
     }, [wrapperRef]);
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     // Forward native input API to the external ref element.
     useImperativeHandle(forwardedRef, () => {
@@ -143,7 +143,7 @@ export function InnerInput(props) {
         >
             <SemanticInput
                 {...rest}
-                {...autofocusProps}
+                {...autoFocusProps}
                 icon={iconMarkup || undefined}
                 iconPosition={iconPosition === "left" ? "left" : undefined}
                 fluid={fluid}

@@ -55,35 +55,14 @@ stories("/link")
     .add("badge", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" badgeLeft={<Badge variant="dot" />} size="mini">Button</Button>
-                <Button variant="link" badgeLeft={<Badge variant="dot" />} size="tiny">Button</Button>
-                <Button variant="link" badgeLeft={<Badge variant="dot" />} size="small">Button</Button>
-                <Button variant="link" badgeLeft={<Badge variant="dot" />}>Button</Button>
-                <Button variant="link" badgeLeft={<Badge variant="dot" />} size="large">Button</Button>
-            </Inline>
-            <Inline align="end">
-                <Button variant="link" badgeLeft={<Badge>60</Badge>} size="mini">Button</Button>
-                <Button variant="link" badgeLeft={<Badge>60</Badge>} size="tiny">Button</Button>
-                <Button variant="link" badgeLeft={<Badge>60</Badge>} size="small">Button</Button>
-                <Button variant="link" badgeLeft={<Badge>60</Badge>}>Button</Button>
-                <Button variant="link" badgeLeft={<Badge>60</Badge>} size="large">Button</Button>
-            </Inline>
-            <Inline align="end">
-                <Button variant="link" badgeRight={<Badge variant="dot" />} size="mini">Button</Button>
-                <Button variant="link" badgeRight={<Badge variant="dot" />} size="tiny">Button</Button>
-                <Button variant="link" badgeRight={<Badge variant="dot" />} size="small">Button</Button>
-                <Button variant="link" badgeRight={<Badge variant="dot" />}>Button</Button>
-                <Button variant="link" badgeRight={<Badge variant="dot" />} size="large">Button</Button>
-            </Inline>
-            <Inline align="end">
-                <Button variant="link" badgeRight={<Badge>60</Badge>} size="mini">Button</Button>
-                <Button variant="link" badgeRight={<Badge>60</Badge>} size="tiny">Button</Button>
-                <Button variant="link" badgeRight={<Badge>60</Badge>} size="small">Button</Button>
-                <Button variant="link" badgeRight={<Badge>60</Badge>}>Button</Button>
-                <Button variant="link" badgeRight={<Badge>60</Badge>} size="large">Button</Button>
+                <Button variant="link" badge={<Badge>60</Badge>} size="mini">Button</Button>
+                <Button variant="link" badge={<Badge>60</Badge>} size="tiny">Button</Button>
+                <Button variant="link" badge={<Badge>60</Badge>} size="small">Button</Button>
+                <Button variant="link" badge={<Badge>60</Badge>}>Button</Button>
+                <Button variant="link" badge={<Badge>60</Badge>} size="large">Button</Button>
             </Inline>
             <div>
-                <Button variant="link" disabled badgeLeft={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>}>Button</Button>
+                <Button variant="link" disabled badge={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>}>Button</Button>
             </div>
         </Stack>
     )
@@ -176,6 +155,18 @@ stories()
             {embedButton(<Button>Button</Button>)}
             {embedButton(<Button>Button</Button>, { size: "large" })}
         </Inline>
+    )
+    .add("autofocus", () =>
+        <Button autoFocus>Button</Button>
+    )
+    .add("when disabled do not autofocus", () =>
+        <Button disabled autoFocus>Button</Button>
+    )
+    .add("autofocus with delay", () =>
+        <Button autoFocus autoFocusDelay={50}>Button</Button>
+    )
+    .add("when disabled do not autofocus with delay", () =>
+        <Button disabled autoFocus autoFocusDelay={50}>Button</Button>
     );
 
 

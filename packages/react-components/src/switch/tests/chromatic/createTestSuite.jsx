@@ -9,7 +9,7 @@ function Switch({ element, ...rest }) {
 
 export function createTestSuite(element, stories) {
     return stories
-        .add("default", () =>
+        .add("labeled", () =>
             <Stack>
                 <Inline align="end">
                     <Switch size="small" element={element}>Engines</Switch>

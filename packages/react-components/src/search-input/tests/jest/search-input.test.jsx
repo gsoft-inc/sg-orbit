@@ -257,25 +257,25 @@ test("dropdown menu is closed on clear button click", async () => {
     expect(queries.getResultsMenu()).not.toBeInTheDocument();
 });
 
-test("when autofocus is true, the input is focused on render", async () => {
+test("when autoFocus is true, the input is focused on render", async () => {
     const { getByTestId } = render(createSearchInput({
-        autofocus: true,
-        autofocusDelay: 0
+        autoFocus: true,
+        autoFocusDelay: 0
     }));
 
-    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
     await waitDelay(0);
 
     await waitFor(() => expect(getInput(getByTestId)).toHaveFocus());
 });
 
-test("when delayed autofocus, the input is focused after the delay", async () => {
+test("when delayed autoFocus, the input is focused after the delay", async () => {
     const { getByTestId } = render(createSearchInput({
-        autofocus: true,
-        autofocusDelay: 50
+        autoFocus: true,
+        autoFocusDelay: 50
     }));
 
-    // Required for the JavaScript scheduler to run the autofocus code since it's in a setTimeout.
+    // Required for the JavaScript scheduler to run the autoFocus code since it's in a setTimeout.
     await waitDelay(0);
 
     expect(getInput(getByTestId)).not.toHaveFocus();
@@ -524,8 +524,8 @@ test("call onBlur when the input blur", async () => {
 
     const { getByTestId } = render(createSearchInput({
         onBlur: handler,
-        autofocus: true,
-        autofocusDelay: 0
+        autoFocus: true,
+        autoFocusDelay: 0
     }));
 
     act(() => {

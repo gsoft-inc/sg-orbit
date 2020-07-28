@@ -1,15 +1,15 @@
 import { isNil } from "lodash";
 import { useEffect } from "react";
 
-function useDelayedAutofocus(autofocus, autofocusDelay, disabled, onFocus) {
+function useDelayedAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus) {
     useEffect(() => {
         let timeoutId;
 
         if (!disabled) {
-            if (autofocus && !isNil(autofocusDelay)) {
+            if (autoFocus && !isNil(autoFocusDelay)) {
                 timeoutId = setTimeout(() => {
                     onFocus();
-                }, autofocusDelay);
+                }, autoFocusDelay);
             }
         }
 
@@ -18,13 +18,13 @@ function useDelayedAutofocus(autofocus, autofocusDelay, disabled, onFocus) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autofocus, autofocusDelay, disabled, onFocus]);
+    }, [autoFocus, autoFocusDelay, disabled, onFocus]);
 }
 
-export function useAutofocus(autofocus, autofocusDelay, disabled, onFocus) {
-    useDelayedAutofocus(autofocus, autofocusDelay, disabled, onFocus);
+export function useAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus) {
+    useDelayedAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus);
 
     return {
-        autoFocus: !disabled && autofocus && isNil(autofocusDelay)
+        autoFocus: !disabled && autoFocus && isNil(autoFocusDelay)
     };
 }

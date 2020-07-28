@@ -1,4 +1,4 @@
-import { SemanticRef, mergeClasses, useAutofocus, useMergedRefs } from "../../shared";
+import { SemanticRef, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 import { TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, number, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
@@ -14,13 +14,13 @@ const propTypes = {
      */
     defaultValue: string,
     /**
-     * Whether or not the textarea should autofocus on render.
+     * Whether or not the textarea should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * A textarea can have different sizes.
     */
@@ -44,7 +44,7 @@ const propTypes = {
 };
 
 export function InnerTextArea(props) {
-    const { autofocus, autofocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
+    const { autoFocus, autoFocusDelay, size, error, fluid, transparent, resizable, active, focus, hover, disabled, className, children, forwardedRef, ...rest } = props;
 
     const innerRef = useMergedRefs(forwardedRef);
 
@@ -54,14 +54,14 @@ export function InnerTextArea(props) {
         }
     };
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     return (
         <SemanticRef innerRef={innerRef}>
             <SemanticTextArea
                 data-testid="textarea"
                 {...rest}
-                {...autofocusProps}
+                {...autoFocusProps}
                 disabled={disabled}
                 className={mergeClasses(
                     "ui textarea",

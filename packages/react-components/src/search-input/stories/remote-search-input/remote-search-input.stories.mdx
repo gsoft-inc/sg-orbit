@@ -234,7 +234,7 @@ A remote search input can handle `value` and `open` state in controlled mode.
 </Story>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
@@ -242,14 +242,14 @@ A remote search input can handle `value` and `open` state in controlled mode.
     <RemoteSearchInput
         onFetchResults={dataFetcher}
         onResults={resultsMapper}
-        autofocus
+        autoFocus
         onValueChange={logValueChanged}
         placeholder="Type a country name"
     />
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
@@ -257,8 +257,8 @@ A remote search input can handle `value` and `open` state in controlled mode.
     <RemoteSearchInput
         onFetchResults={dataFetcher}
         onResults={resultsMapper}
-        autofocus
-        autofocusDelay={500}
+        autoFocus
+        autoFocusDelay={500}
         onValueChange={logValueChanged}
         placeholder="Type a country name"
     />

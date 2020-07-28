@@ -202,10 +202,10 @@ A radio group can change is direction to `row` to render his elements horizontal
 
 ### Render Props
 
-A radio can update is content with a render props based on the state values.
+A radio can update his content with a render props based on the state values:
 
 <Preview>
-    <Story name="render props">
+    <Story name="radio render props">
         <RadioGroup>
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">
@@ -216,6 +216,26 @@ A radio can update is content with a render props based on the state values.
                 }
             </Radio>
             <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or even use a render props for items:
+
+<Preview>
+    <Story name="group render props">
+        <RadioGroup>
+            {
+                ({ checkedValue }) =>
+                    ["Mars", "Jupiter", "Pluto"].map(x =>
+                        <Radio
+                            className={ checkedValue === x ? "primary-500" : undefined }
+                            value={x}
+                        >
+                            {x}
+                        </Radio>
+                    )
+            }
         </RadioGroup>
     </Story>
 </Preview>
@@ -236,9 +256,17 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
     </Story>
 </Preview>
 
+### Custom Components
+
+In fact, any component implementing the `CheckableContext` can behave like a radio group.
+
+<FilePreview filePath="/radio/stories/CustomGroup">
+    <CustomGroup />
+</FilePreview>
+
 ### Wrapped
 
-Toggle buttons could be wrap on multiple lines.
+Checkable components can be wrap on multiple lines.
 
 <Preview>
     <Story name="wrap toggle buttons">
@@ -257,14 +285,6 @@ Toggle buttons could be wrap on multiple lines.
     </Story>
 </Preview>
 
-### Custom Components
-
-In fact, any component implementing the `CheckableContext` can behave like a radio group.
-
-<FilePreview filePath="/radio/stories/CustomGroup">
-    <CustomGroup />
-</FilePreview>
-
 ### Controlled
 
 A radio group can handle `value` state in controlled mode.
@@ -274,36 +294,14 @@ A radio group can handle `value` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="autofocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Radio autofocus>Mars</Radio>
-        <Radio autofocus disabled>Mars</Radio>
-    </Inline>
-</Story>
-
-<Story
-    name="autofocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <Inline>
-        <Radio autofocus autofocusDelay={500}>Mars</Radio>
-        <Radio autofocus disabled autofocusDelay={500}>Mars</Radio>
-    </Inline>
-</Story>
-
-<Story
     name="ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Radio>Mars</Radio></RefLogger>
+    <RefLogger>
+        <Radio>Mars</Radio>
+    </RefLogger>
 </Story>
 
 ## API

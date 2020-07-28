@@ -1,3 +1,4 @@
+import { Inline } from "@react-components/layout";
 import { Radio } from "@react-components/radio";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTestSuite } from "./createTestSuite";
@@ -15,3 +16,19 @@ function stories(segment) {
 createTestSuite(<Radio />, stories("/unchecked"));
 
 createTestSuite(<Radio defaultChecked />, stories("/checked"));
+
+stories()
+    .add("render props", () =>
+        <Inline>
+            <Radio value="any">
+                {
+                    () => "Milky Way"
+                }
+            </Radio>
+            <Radio defaultChecked value="any">
+                {
+                    ({ isChecked }) => isChecked ? "Checked" : "Milky Way"
+                }
+            </Radio>
+        </Inline>
+    );

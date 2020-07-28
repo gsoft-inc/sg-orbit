@@ -27,4 +27,16 @@ stories()
             {embedButton(<IconButton><AddIcon /></IconButton>)}
             {embedButton(<IconButton><AddIcon /></IconButton>, { size: "large" })}
         </Inline>
+    )
+    .add("autofocus", () =>
+        <IconButton autoFocus><AddIcon /></IconButton>
+    )
+    .add("when disabled do not autofocus", () =>
+        <IconButton disabled autoFocus><AddIcon /></IconButton>
+    )
+    .add("autofocus with delay", () =>
+        <IconButton autoFocus autoFocusDelay={50}><AddIcon /></IconButton>
+    )
+    .add("when disabled do not autofocus with delay", () =>
+        <IconButton disabled autoFocus autoFocusDelay={50}><AddIcon /></IconButton>
     );
