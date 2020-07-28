@@ -5,7 +5,7 @@
     "command": {
         "version": {
             "ignoreChanges": ["**/*.md*", "**/*.json", "**/*.config.js", "**/*rc*", "**/tachyons/storybook/**", "**/stories/**", "**/tests/**", "**/dist/**", "**/scripts/**"],
-            "allowBranch": ["master", "icon-calendar-expedite"]
+            "allowBranch": ["master"]
         }
     }
 }
