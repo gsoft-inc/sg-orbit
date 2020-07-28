@@ -22,22 +22,22 @@ stories()
                 </Flex>
             </div>
             <div className="h10">
-                <Flex alignContent="end" justifyContent="end" fluid>
-                    <div>Alpha</div>
+                <Flex alignContent="end" justifyContent="end" wrap="wrap" fluid>
+                    <div>Alpha<br /> Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
             </div>
             <div className="h10">
-                <Flex alignContent="center" justifyContent="center" fluid>
-                    <div>Alpha</div>
+                <Flex alignContent="center" justifyContent="center" wrap="wrap" fluid>
+                    <div>Alpha<br /> Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
             </div>
             <div className="h10">
-                <Flex alignItems="end" justifyContent="end" fluid>
-                    <div>Alpha</div>
+                <Flex alignItems="end" justifyContent="end" wrap="wrap" fluid>
+                    <div>Alpha<br /> Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
@@ -82,15 +82,15 @@ stories()
                 </Flex>
             </div>
             <div className="w12 mr8">
-                <Flex direction="column" alignContent="end" justifyContent="end" fluid>
-                    <div>Alpha</div>
+                <Flex direction="column" alignContent="end" justifyContent="end" wrap="wrap" fluid>
+                    <div>Alpha<br />Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>
             </div>
             <div className="w12 mr8">
-                <Flex direction="column" alignContent="center" justifyContent="center" fluid>
-                    <div>Alpha</div>
+                <Flex direction="column" alignContent="center" justifyContent="center" wrap="wrap" fluid>
+                    <div>Alpha<br />Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
                 </Flex>

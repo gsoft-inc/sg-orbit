@@ -167,10 +167,26 @@
     border: 1px solid var(--primary-500);
 }
 
-/* STATE | HOVER | CHECKED */
+/* STATE | HOVER | CHECKED | BOX */
 .o-ui.checkbox.checked:hover .box:before,
 .o-ui.checkbox.checked.hover .box:before {
     border: 1px solid var(--primary-700);
+}
+
+/* STATE | HOVER | DISABLED */
+.o-ui.checkbox.disabled:hover .box,
+.o-ui.checkbox.disabled.hover .box,
+.o-ui.checkbox:disabled:hover .box,
+.o-ui.checkbox:disabled.hover .box {
+    border: 1px solid var(--marine-100);
+}
+
+/* STATE | HOVER | DISABLED | BOX */
+.o-ui.checkbox.disabled:hover .box:before,
+.o-ui.checkbox.disabled.hover .box:before,
+.o-ui.checkbox:disabled:hover .box:before,
+.o-ui.checkbox:disabled.hover .box:before {
+    border: 1px solid var(--marine-100);
 }
 
 /* SIZING */

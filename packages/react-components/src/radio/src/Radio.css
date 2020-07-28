@@ -1,7 +1,3 @@
-:root {
-    --outline: 0 0 0 2px var(--primary-100);
-}
-
 .o-ui.radio {
     display: inline-flex;
     align-items: center;
@@ -75,7 +71,7 @@
 /* STATE | FOCUS */
 .o-ui.radio input[type="radio"]:focus + .button,
 .o-ui.radio.focus > .button {
-    box-shadow: var(--outline);
+    box-shadow: var(--o-ui-outline);
 }
 
 /* STATE | HOVER */

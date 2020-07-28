@@ -1,3 +1,7 @@
+:root {
+    --o-ui-outline: 0 0 0 2px var(--primary-200);
+}
+
 .o-ui.test {
     background: red !important;
 }

@@ -9,7 +9,6 @@
     --height-small: var(--scale-golf);
     --height-default: var(--scale-hotel);
     --height-large: var(--scale-india);
-    --outline: 0 0 0 2px var(--primary-200);
     --padding-ratio-factor: 1.5;
 }
 
@@ -41,7 +40,7 @@
 /* BUTTON | SOLID | STATE | FOCUS */
 .o-ui.button.solid:focus,
 .o-ui.button.solid.focus {
-    box-shadow: var(--outline);
+    box-shadow: var(--o-ui-outline);
 }
 
 /* BUTTON | SOLID | STATE | ACTIVE */
@@ -179,7 +178,7 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | FOCUS */
 .o-ui.button.outline:focus,
 .o-ui.button.outline.focus {
-    box-shadow: 0 0 0 1px var(--marine-700) inset, var(--outline);
+    box-shadow: 0 0 0 1px var(--marine-700) inset, var(--o-ui-outline);
 }
 
 /* BUTTON | OUTLINE | ACTIVE */
@@ -195,7 +194,7 @@ a.o-ui.button.solid {
 .o-ui.button.outline.focus.active,
 .o-ui.button.outline:focus:active,
 .o-ui.button.outline:focus.active {
-    box-shadow: 0 0 0 1px var(--marine-500) inset, var(--outline);
+    box-shadow: 0 0 0 1px var(--marine-500) inset, var(--o-ui-outline);
 }
 
 /* BUTTON | OUTLINE | ACTIVE | DISABLED */
@@ -224,7 +223,7 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | PRIMARY | FOCUS */
 .o-ui.button.outline.primary:focus,
 .o-ui.button.outline.primary.focus {
-    box-shadow: 0 0 0 1px var(--primary-700) inset, var(--outline);
+    box-shadow: 0 0 0 1px var(--primary-700) inset, var(--o-ui-outline);
 }
 
 /* BUTTON | OUTLINE | PRIMARY | ACTIVE */
@@ -250,7 +249,7 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | SECONDARY | FOCUS */
 .o-ui.button.outline.secondary:focus,
 .o-ui.button.outline.secondary.focus {
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--outline);
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-outline);
 }
 
 /* BUTTON | OUTLINE | SECONDARY | ACTIVE */
@@ -274,7 +273,7 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | DANGER | FOCUS */
 .o-ui.button.outline.danger:focus,
 .o-ui.button.outline.danger.focus {
-    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--outline);
+    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-outline);
 }
 
 /* BUTTON | OUTLINE | DANGER | ACTIVE */
@@ -494,7 +493,7 @@ a.o-ui.button.link {
 /* BUTTON | GHOST | FOCUS */
 .o-ui.button.ghost:focus,
 .o-ui.button.ghost.focus {
-    box-shadow: var(--outline);
+    box-shadow: var(--o-ui-outline);
 }
 
 /* BUTTON | GHOST | ACTIVE */
