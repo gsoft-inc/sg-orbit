@@ -1,13 +1,6 @@
 import { TextInput } from "@react-components/text-input";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
-import { waitDelay } from "@utils/wait-delay";
-
-function getTextInput(getByTestId) {
-    const searchInputNode = getByTestId("input");
-
-    return searchInputNode.querySelector("input");
-}
 
 // ***** Refs *****
 
@@ -21,7 +14,7 @@ test("ref is a DOM element", async () => {
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("INPUT");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -38,23 +31,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
-});
-
-test("when a function ref is provided, delayed autoFocus works", async () => {
-    const { getByTestId } = render(
-        <TextInput
-            autoFocus
-            autoFocusDelay={50}
-            ref={() => {
-                // don't need to hold a ref..
-            }}
-        />
-    );
-
-    await waitDelay(60);
-
-    await waitFor(() => expect(getTextInput(getByTestId)).toHaveFocus());
+    expect(refNode.tagName).toBe("INPUT");
 });
 
 test("set ref once", async () => {

@@ -1,11 +1,30 @@
 import { IconButton } from "./IconButton";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
 import { useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
+    /**
+     * A controlled checked value.
+     */
+    checked: bool,
+    /**
+     * The initial value of `checked` when uncontrolled.
+     */
+    defaultChecked: bool,
+    /**
+     * 	The value to associate with when in a group.
+     */
+    value: oneOfType([string, number]),
+    /**
+     * Called when the button checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {bool} isChecked - Whether or not the button is checked.
+     * @returns {void}
+     */
+    onChange: func,
     /**
      * Style to use.
      */

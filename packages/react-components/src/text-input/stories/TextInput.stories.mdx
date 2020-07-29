@@ -1,6 +1,8 @@
-import { CrossIcon, MagnifierIcon } from "@react-components/icons";
-import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { CheckCircleIcon, CrossIcon, MagnifierIcon } from "@react-components/icons";
+import { ControlledTextInput } from "./ControlledTextInput.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
 import { InnerTextInput, TextInput } from "@react-components/text-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -10,7 +12,7 @@ import Imports from "./Imports.mdx";
     title={createComponentSection("TextInput")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout semanticPath="/elements/input" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text-input/src" />)
         .build()}
 />
 
@@ -23,8 +25,6 @@ A text input allow a user to enter and edit a text.
 <InstallReactComponents imports={<Imports />} />
 
 ## Props
-
-<HocWarning componentName="Input" semanticPath="/elements/input" />
 
 <Props
     componentsDefinitions={[
@@ -54,6 +54,35 @@ A text input can have a value.
     </Story>
 </Preview>
 
+### Prefix & Suffix
+
+A text input can contain [icons](?path=/docs/materials-icons--page), [button](?path=/docs/components-button--default-story) or text elements.
+
+<Preview>
+    <Story name="prefix & suffix">
+        <Inline>
+            <TextInput prefix={<MagnifierIcon />} suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
+            <TextInput prefix={<Text>$</Text>} suffix={<CheckCircleIcon />} placeholder="Amount" />
+        </Inline>
+    </Story>
+</Preview>
+
+### Size
+
+A text input can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <Inline align="end">
+            <TextInput size="small" fluid placeholder="Search..." />
+            <TextInput fluid placeholder="Search..." />
+            <TextInput size="large" fluid placeholder="Search..." />
+        </Inline>
+    </Story>
+</Preview>
+
 ### Disabled
 
 A text input can be disabled.
@@ -74,6 +103,16 @@ A text input can be readonly.
     </Story>
 </Preview>
 
+### Loading
+
+A text input can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <TextInput loading placeholder="Search..." />
+    </Story>
+</Preview>
+
 ### Fluid
 
 A text input can take the width of its container.
@@ -84,109 +123,13 @@ A text input can take the width of its container.
     </Story>
 </Preview>
 
-### Icon
+### Color
 
-A text input can be formatted with an [icon](?path=/docs/materials-icons--page).
-
-<Preview>
-    <Story name="icon">
-        <div className="flex items-space-between">
-            <TextInput icon={<MagnifierIcon />} placeholder="Search..." />
-            <TextInput icon={<MagnifierIcon />} iconPosition="left" placeholder="Search..." />
-        </div>
-    </Story>
-</Preview>
-
-<Story
-    name="icon & loading"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <TextInput icon={<MagnifierIcon />} loading />
-</Story>
-
-### Button
-
-A text input can contain a [button](?path=/docs/components-button--default-story).
-
-<Preview>
-    <Story name="button">
-        <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
-    </Story>
-</Preview>
-
-<Story
-    name="button & loading"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." loading />
-</Story>
-
-### Loading
-
-A text input can show that it is currently loading data.
-
-<Preview>
-    <Story name="loading">
-        <div className="flex items-space-between">
-            <TextInput loading placeholder="Search..." />
-            <TextInput loading iconPosition="left" placeholder="Search..." />
-        </div>
-    </Story>
-</Preview>
-
-### Size
-
-A text input can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
-
-<Preview>
-    <Story name="size">
-        <div className="flex items-end items-space-between">
-            <div className="flex-auto">
-                <TextInput size="small" fluid placeholder="Search..." />
-            </div>
-            <div className="flex-auto">
-                <TextInput fluid placeholder="Search..." />
-            </div>
-            <div className="flex-auto">
-                <TextInput size="large" fluid placeholder="Search..." />
-            </div>
-        </div>
-    </Story>
-</Preview>
-
-### Password
-
-An input can be formatted to accept a [password](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password).
-
-<Preview>
-    <Story name="password">
-        <TextInput type="password" placeholder="Password" />
-    </Story>
-</Preview>
-
-### Email
-
-An input can be formatted to accept an [email](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email) address.
-
-<Preview>
-    <Story name="email">
-        <TextInput type="email" placeholder="Email" />
-    </Story>
-</Preview>
-
-### Error
-
-A text input field can show that the data contains errors.
+A text input can use a different color accent.
 
 <Preview>
     <Story name="error">
-        <TextInput error placeholder="Search..." />
+        <TextInput color="error" placeholder="Search..." />
     </Story>
 </Preview>
 
@@ -196,33 +139,17 @@ A text input can be transparent.
 
 <Preview>
     <Story name="transparent">
-        <TextInput transparent placeholder="Search..." />
+        <TextInput variant="transparent" placeholder="Search..." />
     </Story>
 </Preview>
 
-<Story
-    name="autoFocus"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div className="flex items-space-between">
-        <TextInput autoFocus placeholder="Search..." />
-        <TextInput autoFocus disabled placeholder="Search..." />
-    </div>
-</Story>
+### Controlled
 
-<Story
-    name="autoFocus delay"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <div className="flex items-space-between">
-        <TextInput autoFocus autofocusDelay={500} placeholder="Search..." />
-        <TextInput autoFocus disabled autofocusDelay={500} placeholder="Search..." />
-    </div>
-</Story>
+A text input can handle `value` in controlled mode.
+
+<FilePreview filePath="/text-input/stories/ControlledTextInput">
+    <ControlledTextInput />
+</FilePreview>
 
 <Story
     name="ref"
@@ -232,21 +159,3 @@ A text input can be transparent.
 >
     <RefLogger><TextInput /></RefLogger>
 </Story>
-
-## API
-
-To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text input component, then call the API function.
-
-Here's an example for the `focus` function:
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <div onFocus={() => { ref.focus(); }}>
-            <TextInput ref={ref} />
-        </div>
-    );
-}
-```

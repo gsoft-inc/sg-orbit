@@ -8,7 +8,6 @@ import {
     InnerButtonGroup,
     InnerIconButton,
     InnerToggleButton,
-    InnerToggleButtonGroup,
     InnerToggleIconButton,
     ToggleButton,
     ToggleIconButton
@@ -86,16 +85,6 @@ A button can contain a [badge](?path=/story/components-badge--default-story).
     </Story>
 </Preview>
 
-### Loading
-
-A button can show a loading indicator.
-
-<Preview>
-    <Story name="loading">
-        <Button loading>Loading</Button>
-    </Story>
-</Preview>
-
 ### Size
 
 A button can vary in size.
@@ -119,6 +108,16 @@ A button can be disabled.
 <Preview>
     <Story name="disabled">
         <Button disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <Button loading>Loading</Button>
     </Story>
 </Preview>
 
@@ -213,7 +212,7 @@ Or look like a link:
     </Story>
 </Preview>
 
-### Icon button
+## Icon button
 
 A button content can be a single icon.
 
@@ -304,21 +303,3 @@ A toggle button can handle `checked` state in controlled mode.
         <Button>Cutoff</Button>
     </RefLogger>
 </Story>
-
-## API
-
-To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the button component, then call the API function.
-
-Here's an example for the `focus` function:
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <div onFocus={() => { ref.focus(); }}>
-            <Button ref={ref} />
-        </div>
-    );
-}
-```

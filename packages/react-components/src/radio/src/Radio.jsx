@@ -14,7 +14,7 @@ const propTypes = {
      */
     checked: bool,
     /**
-     * The initial value of `checked`.
+     * The initial value of `checked` when uncontrolled.
      */
     defaultChecked: bool,
     /**

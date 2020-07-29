@@ -1,5 +1,6 @@
 import { TextInput } from "@react-components/text-input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createTextInputTestSuite } from "./createTextInputTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("TextInput"))
@@ -11,23 +12,20 @@ function stories(segment) {
         .build();
 }
 
+createTextInputTestSuite(<TextInput variant="outline" />, stories("/outline"));
+
+createTextInputTestSuite(<TextInput variant="transparent" />, stories("/transparent"));
+
 stories()
-    .add("default", () =>
-        <div className="flex">
-            <TextInput className="mr5" />
-            <TextInput placeholder="Search..." className="mr5" />
-            <TextInput defaultValue="SpaceX will win the race!" />
-        </div>
+    .add("autofocus", () =>
+        <TextInput autoFocus />
     )
-    .add("password", () =>
-        <div className="flex">
-            <TextInput type="password" className="mr5" />
-            <TextInput defaultValue="temp123!" type="password" />
-        </div>
+    .add("when disabled do not autofocus", () =>
+        <TextInput disabled autoFocus />
     )
-    .add("email", () =>
-        <div className="flex">
-            <TextInput type="email" className="mr5" />
-            <TextInput defaultValue="info@spacex.com" type="email" />
-        </div>
+    .add("autofocus with delay", () =>
+        <TextInput autoFocus autoFocusDelay={50} />
+    )
+    .add("when disabled do not autofocus with delay", () =>
+        <TextInput disabled autoFocus autoFocusDelay={50} />
     );

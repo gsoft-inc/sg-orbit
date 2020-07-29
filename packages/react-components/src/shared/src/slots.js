@@ -21,8 +21,8 @@ export function SlotProvider({ slots, children }) {
         .concat(Object.keys(slots))
         .reduce((acc, key) => {
             acc[key] = {
-                ...(parentSlots[key] || {}),
-                ...(slots[key] || {})
+                ...(parentSlots[key] ?? {}),
+                ...(slots[key] ?? {})
             };
 
             return acc;
