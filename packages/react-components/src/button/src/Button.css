@@ -299,6 +299,9 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | ANCHOR */
 a.o-ui.button.outline {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | OUTLINE | SIZES */
@@ -377,6 +380,9 @@ a.o-ui.button.outline {
 /* BUTTON | LINK | ANCHOR */
 a.o-ui.button.link {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | LINK | SIZE */
@@ -521,6 +527,9 @@ a.o-ui.button.link {
 /* BUTTON | GHOST | ANCHOR */
 a.o-ui.button.ghost {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | SOLID | SIZES */

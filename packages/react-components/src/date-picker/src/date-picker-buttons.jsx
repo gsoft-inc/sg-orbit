@@ -75,8 +75,7 @@ export class DatePickerButtons extends PureComponent {
             <Button
                 onClick={this.handleApply}
                 variant="ghost"
-                compact
-                primary={canApply}
+                color={canApply ? "primary" : null}
                 disabled={!canApply}
                 size="small"
                 className="ml-auto"
