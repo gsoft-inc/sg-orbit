@@ -658,7 +658,7 @@ a.o-ui.button.ghost {
     position: relative;
 }
 
-.o-ui.button.loading:after {
+.o-ui.button.loading:before {
     content: "";
     position: absolute;
     top: 50%;
@@ -669,6 +669,7 @@ a.o-ui.button.ghost {
     border: 2px solid var(--marine-200);
     border-top-color: var(--white);
     animation: loading 1s linear infinite;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 @keyframes loading {
