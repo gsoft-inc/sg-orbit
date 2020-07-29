@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { useChainedEventCallback, useCheckableContext, useControllableState } from "../../shared";
+import { useChainedEventCallback, useControllableState } from "../../shared";
 
 export function useToggleButton({
     checked,
@@ -7,13 +7,12 @@ export function useToggleButton({
     value,
     onChange,
     onClick,
+    onCheck,
     active,
     forwardedRef,
     ...rest
 }) {
-    const { isCheckedValue, onCheck } = useCheckableContext(value);
-
-    const [isChecked, setIsChecked] = useControllableState(!isNil(isCheckedValue) ? isCheckedValue : checked, defaultChecked, false);
+    const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
     const handleClick = useChainedEventCallback(onClick, event => {
         setIsChecked(!isChecked);
@@ -34,7 +33,7 @@ export function useToggleButton({
             onClick: handleClick,
             value,
             active: active || isChecked,
-            "aria-checked": isCheckedValue,
+            "aria-checked": isChecked,
             ref: forwardedRef
         }
     };

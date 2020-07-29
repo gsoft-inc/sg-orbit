@@ -1,11 +1,8 @@
 // Legacy stuff to review
 export * from "./auto-controlled-state";
-export * from "./httpClient";
 export * from "./DomEventListener";
 export * from "./env";
-export * from "./isNilOrEmpty";
-export * from "./cancellablePromise";
-export * from "./defer";
+export * from "./types";
 export * from "./semantic-ui";
 export * from "./resize-observer";
 
@@ -14,14 +11,11 @@ export * from "./keys";
 export * from "./size";
 
 // Utils
+export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./getSizeClass";
-export * from "./assignRef";
-export * from "./mergeRefs";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
-export * from "./createChainedFunction";
-export * from "./createEmbeddableAdapter";
 export * from "./createFocusableTreeWalker";
 
 // Hooks
@@ -37,3 +31,6 @@ export * from "./useId";
 
 // Contexts
 export * from "./CheckableContext";
+
+// Features
+export * from "./slots";

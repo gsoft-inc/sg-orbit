@@ -1,14 +1,31 @@
-import { mergeRefs } from "./mergeRefs";
+import { isFunction, isNil } from "lodash";
 import { useCallback } from "react";
 
-/**
- * @param {...Function|Object} refs - Refs to combine.
- * @returns {Function} - A callback ref.
- * @example
- * const combinedRef = useMergedRefs(forwardedRef);
- *
- * return <div ref={combinedRef}>...</div>
- */
+export function assignRef(ref, node) {
+    if (!isNil(ref)) {
+        if (isFunction(ref)) {
+            ref(node);
+        } else {
+            ref.current = node;
+        }
+    }
+}
+
+export function mergeRefs(...refs) {
+    const mergedRef = current => {
+        // Support using the returned callback function has a ref.
+        mergedRef.current = current;
+
+        refs.forEach(ref => {
+            if (!isNil(ref)) {
+                assignRef(ref, current);
+            }
+        });
+    };
+
+    return mergedRef;
+}
+
 export function useMergedRefs(...refs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     return useCallback(mergeRefs(...refs), refs);

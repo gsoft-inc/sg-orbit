@@ -6,7 +6,7 @@ import { any, bool, element, elementType, func, number, oneOf, oneOfType, string
 import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
-import { mergeClasses, useCheckableContext, useEventCallback } from "../../shared";
+import { mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 
 const propTypes = {
@@ -39,12 +39,6 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Called when the checkbox checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onChange: func,
-    /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
     icon: element,
@@ -60,6 +54,12 @@ const propTypes = {
      * Invert the order the checkmark box and the label.
      */
     reverse: bool,
+    /**
+     * Called when the checkbox checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -84,6 +84,7 @@ export function InnerCheckbox(props) {
         autoFocus,
         autoFocusDelay,
         onChange,
+        onCheck,
         icon,
         badge,
         size,
@@ -100,9 +101,7 @@ export function InnerCheckbox(props) {
         children,
         forwardedRef,
         ...rest
-    } = props;
-
-    const { isCheckedValue, onCheck } = useCheckableContext(value);
+    } = useCheckableProps(props);
 
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
@@ -111,10 +110,10 @@ export function InnerCheckbox(props) {
     const {
         isChecked,
         isIndeterminate,
-        containerProps,
+        wrapperProps,
         inputProps
     } = useCheckbox({
-        checked: checked ?? isCheckedValue,
+        checked,
         defaultChecked,
         indeterminate,
         defaultIndeterminate,
@@ -166,10 +165,10 @@ export function InnerCheckbox(props) {
     return (
         <ElementType
             data-testid="checkbox"
-            {...containerProps}
+            {...wrapperProps}
             className={mergeClasses(
                 "o-ui checkbox",
-                containerProps.className
+                wrapperProps.className
             )}
         >
             <VisuallyHidden

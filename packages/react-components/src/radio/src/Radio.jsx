@@ -5,7 +5,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutoFocus, useCheckableContext, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -22,12 +22,6 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
-     * Called when the radio checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onChange: func,
-    /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
     icon: element,
@@ -43,6 +37,12 @@ const propTypes = {
      * Invert the order the checkmark box and the label.
      */
     reverse: bool,
+    /**
+     * Called when the radio checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -66,6 +66,7 @@ export function InnerRadio(props) {
         autoFocus,
         autoFocusDelay,
         onChange,
+        onCheck,
         icon,
         badge,
         size,
@@ -81,17 +82,12 @@ export function InnerRadio(props) {
         children,
         forwardedRef,
         ...rest
-    } = props;
+    } = useCheckableProps(props);
 
     // Since this component render an input="radio" the role is unnecessary.
     delete rest["role"];
 
-    const {
-        isCheckedValue,
-        onCheck
-    } = useCheckableContext(value);
-
-    const [isChecked, setIsChecked] = useControllableState(checked ?? isCheckedValue, defaultChecked, false);
+    const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
     const labelRef = useRef();
     const inputRef = useRef();

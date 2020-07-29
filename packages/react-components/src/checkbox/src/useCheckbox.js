@@ -31,7 +31,7 @@ export function useCheckbox({
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);
 
-    const labelRef = useRef();
+    const wrapperRef = useRef();
     const inputRef = useRef();
 
     const setFocus = useCallback(() => {
@@ -45,7 +45,7 @@ export function useCheckbox({
     const forwardInputApi = useForwardInputApi(inputRef);
 
     useImperativeHandle(forwardedRef, () => {
-        return forwardInputApi(labelRef);
+        return forwardInputApi(wrapperRef);
     });
 
     const handleChange = useEventCallback(event => {
@@ -66,7 +66,7 @@ export function useCheckbox({
     return {
         isChecked,
         isIndeterminate,
-        containerProps: {
+        wrapperProps: {
             ...rest,
             className: mergeClasses(
                 isChecked && "checked",
@@ -82,7 +82,7 @@ export function useCheckbox({
                 getSizeClass(size),
                 className
             ),
-            ref: labelRef
+            ref: wrapperRef
         },
         inputProps: {
             ...autoFocusProps,

@@ -190,4 +190,18 @@ stories()
                 <div className="bg-primary-500">Charlie</div>
             </Flex>
         </div>
+    )
+    .add("no-gap", () =>
+        <Flex gap={1} direction="column">
+            <Flex gap={1} noGap>
+                <div>Alpha</div>
+                <div>Bravo</div>
+                <div>Charlie</div>
+            </Flex>
+            <Flex gap={1} noGap direction="column">
+                <div>Alpha</div>
+                <div>Bravo</div>
+                <div>Charlie</div>
+            </Flex>
+        </Flex>
     );

@@ -1,8 +1,8 @@
 import "./Button.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, mergeClasses } from "../../shared";
-import { any, bool, element, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, registerSlotFactory, useSlotProps } from "../../shared";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -58,6 +58,12 @@ const propTypes = {
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
+     * Called when the button is click.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onClick: func,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -73,28 +79,30 @@ const defaultProps = {
     as: "button"
 };
 
-export function InnerButton({
-    variant,
-    color,
-    iconLeft,
-    iconRight,
-    badge,
-    autoFocus,
-    autoFocusDelay,
-    fluid,
-    circular,
-    loading,
-    size,
-    active,
-    focus,
-    hover,
-    disabled,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerButton(props) {
+    const {
+        variant,
+        color,
+        iconLeft,
+        iconRight,
+        badge,
+        autoFocus,
+        autoFocusDelay,
+        fluid,
+        circular,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props);
+
     const buttonProps = useButton({
         variant,
         color,
@@ -162,11 +170,19 @@ export const Button = forwardRef((props, ref) => (
     <InnerButton { ...props } forwardedRef={ref} />
 ));
 
+/******/
+
 export const embedButton = createEmbeddableAdapter({
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small
 });
+
+registerSlotFactory("button", createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
+}));
 
 
 

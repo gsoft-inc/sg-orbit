@@ -1,5 +1,5 @@
 import { isNil, pickBy } from "lodash";
-import { isNilOrEmpty } from "./isNilOrEmpty";
+import { isNilOrEmpty } from "../../shared";
 
 const DEFAULT_TIMEOUT = 0;
 
