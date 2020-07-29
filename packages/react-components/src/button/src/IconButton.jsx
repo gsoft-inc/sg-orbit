@@ -85,8 +85,7 @@ export function InnerIconButton({
         hover,
         disabled,
         className,
-        forwardedRef,
-        ...rest
+        forwardedRef
     });
 
     const content = augmentElement(children, {
@@ -96,6 +95,7 @@ export function InnerIconButton({
     return (
         <ElementType
             data-testid="icon-button"
+            {...rest}
             {...buttonProps}
             className={mergeClasses(
                 "o-ui button icon",

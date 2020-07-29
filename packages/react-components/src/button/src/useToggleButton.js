@@ -9,8 +9,7 @@ export function useToggleButton({
     onClick,
     onCheck,
     active,
-    forwardedRef,
-    ...rest
+    forwardedRef
 }) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
@@ -29,7 +28,6 @@ export function useToggleButton({
     return {
         isChecked,
         buttonProps: {
-            ...rest,
             onClick: handleClick,
             value,
             active: active || isChecked,

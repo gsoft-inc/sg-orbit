@@ -109,8 +109,7 @@ export function InnerSwitch(props) {
         disabled,
         readOnly,
         className,
-        forwardedRef,
-        ...rest
+        forwardedRef
     });
 
     const createMarkup = () => {
@@ -144,6 +143,7 @@ export function InnerSwitch(props) {
     return (
         <ElementType
             data-testid="switch"
+            {...rest}
             {...wrapperProps}
             className={mergeClasses(
                 "o-ui switch",

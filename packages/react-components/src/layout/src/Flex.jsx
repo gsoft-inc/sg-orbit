@@ -110,6 +110,7 @@ const defaultProps = {
     as: "div"
 };
 
+// @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap) {
     return useMemo(() => {
         if (noGap) {

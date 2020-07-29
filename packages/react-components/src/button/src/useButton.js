@@ -16,8 +16,7 @@ export function useButton({
     hover,
     disabled,
     className,
-    forwardedRef,
-    ...rest
+    forwardedRef
 }) {
     const buttonRef = useMergedRefs(forwardedRef);
 
@@ -30,7 +29,6 @@ export function useButton({
     const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     return {
-        ...rest,
         ...autoFocusProps,
         className: mergeClasses(
             variant,

@@ -26,7 +26,7 @@ export function SlotProvider({ slots, children }) {
             };
 
             return acc;
-        });
+        }, slots);
 
     return (
         <SlotContext.Provider value={value}>
@@ -36,9 +36,9 @@ export function SlotProvider({ slots, children }) {
 }
 
 function wrapSlotFactory(key, factory) {
-    return props => {
+    return (props, customKey) => {
         return {
-            [key]: factory(props)
+            [customKey ?? key]: factory(props)
         };
     };
 }
@@ -61,8 +61,8 @@ export function slotBuilder() {
     const builder = Object
         .keys(slotsFactory)
         .reduce((acc, key) => {
-            acc[key] = (props, customKey) => {
-                const factory = slotsFactory[customKey ?? key];
+            acc[key] = props => {
+                const factory = slotsFactory[key];
 
                 slots = {
                     ...slots,

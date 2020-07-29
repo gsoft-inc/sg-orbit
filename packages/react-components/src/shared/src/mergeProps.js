@@ -1,11 +1,13 @@
-const cache = new WeakMap();
-
 import { createChainedFunction } from "./useChainedEventCallback";
-import { isFunction, isUndefined } from "lodash";
+import { isFunction, isNil, isUndefined } from "lodash";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
+const cache = new WeakMap();
+
 function memoizedMerge(x, y, merge) {
+    console.log(x, y);
+
     if (cache.has(x)) {
         return cache.get(x);
     }
@@ -16,13 +18,15 @@ function memoizedMerge(x, y, merge) {
 }
 
 export function mergeProps(props, newProps) {
+    console.log(props, newProps);
+
     props = { ...props };
 
     Object
         .keys(newProps)
         .forEach(x => {
             if (!isUndefined(newProps[x])) {
-                if (!isUndefined(props[x])) {
+                if (!isNil(props[x])) {
                     if (x === "className") {
                         props[x] = mergeClasses(props[x], newProps[x]);
                     } else if (x === "style") {

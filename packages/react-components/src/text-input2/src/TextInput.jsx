@@ -1,11 +1,10 @@
-import { SlotProvider, slotBuilder, useForwardInputApi, useMergedRefs } from "../../shared";
+import { SlotProvider, getSizeClass, mergeClasses, slotBuilder, useAutoFocus, useChainedEventCallback, useControllableState, useForwardInputApi, useMergedRefs } from "../../shared";
 import { any, bool, element, elementType, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useImperativeHandle, useRef } from "react";
-import { useTextInput } from "./useTextInput";
+import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef } from "react";
+import { isNil } from "lodash";
 
-/*
-    inputMode -> defaulted by type
-*/
+// TODO:
+// Add slot support for text
 
 const propTypes = {
     value: string,
@@ -59,10 +58,11 @@ export function InnerTextInput({
     placeholder,
     variant,
     type,
+    inputMode: userInputMode,
     autoFocus,
     autoFocusDelay,
-    leftContent,
-    rightContent,
+    prefix,
+    suffix,
     disabled,
     readOnly,
     fluid,
@@ -81,30 +81,13 @@ export function InnerTextInput({
     wrapperClassName,
     wrapperStyle,
     as: ElementType,
-    forwardedRef
+    forwardedRef,
+    ...rest
 }) {
+    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
+
     const wrapperRef = useMergedRefs(forwardedRef);
     const inputRef = useRef();
-
-    const inputProps = useTextInput({
-        value,
-        defaultValue,
-        placeholder,
-        variant,
-        autoFocus,
-        autoFocusDelay,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
-        size,
-        active,
-        focus,
-        hover,
-        onChange,
-        className,
-        inputRef
-    });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -112,43 +95,89 @@ export function InnerTextInput({
         return forwardInputApi(wrapperRef);
     });
 
+    const setFocus = useCallback(() => {
+        if (!isNil(inputRef.current)) {
+            inputRef.focus();
+        }
+    }, [inputRef]);
+
+    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+
+    const inputMode = useMemo(() => {
+        if (!isNil(userInputMode)) {
+            return userInputMode;
+        }
+
+        return type !== "password" ? type : undefined;
+    }, [userInputMode, type]);
+
+
+    const handleChange = useChainedEventCallback(onChange, event => {
+        setValue(event);
+    });
+
     return (
         <ElementType
-            className={wrapperClassName}
+            data-testid="text-input"
+            {...rest}
+            className={mergeClasses(
+                "o-ui text-input",
+                variant && "variant",
+                fluid && "fluid",
+                loading && loading,
+                getSizeClass(size),
+                wrapperClassName
+            )}
             style={wrapperStyle}
             ref={wrapperRef}
         >
+            <div className="prefix">
+                <SlotProvider
+                    slots={slotBuilder()
+                        .icon({
+                            size,
+                            className: "icon"
+                        })
+                        .build()
+                    }
+                >
+                    {prefix}
+                </SlotProvider>
+            </div>
             <input
-                {...inputProps}
+                {...autoFocusProps}
+                value={inputValue}
+                placeholder={placeholder}
+                onChange={handleChange}
+                className={mergeClasses(
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    className
+                )}
                 type={type}
+                inputMode={inputMode}
+                disabled={disabled}
+                readOnly={readOnly}
                 ref={inputRef}
             />
-            <SlotProvider
-                slots={slotBuilder()
-                    .icon({
-                        size,
-                        className: "left-icon"
-                    })
-                    .build()
-                }
-            >
-                {leftContent}
-            </SlotProvider>
-            <SlotProvider
-                slots={slotBuilder()
-                    .icon({
-                        size,
-                        className: "right-icon"
-                    })
-                    .button({
-                        size,
-                        className: "button"
-                    })
-                    .build()
-                }
-            >
-                {rightContent}
-            </SlotProvider>
+            <div className="suffix">
+                <SlotProvider
+                    slots={slotBuilder()
+                        .icon({
+                            size,
+                            className: "icon"
+                        })
+                        .button({
+                            size,
+                            className: "button"
+                        })
+                        .build()
+                    }
+                >
+                    {suffix}
+                </SlotProvider>
+            </div>
         </ElementType>
     );
 }

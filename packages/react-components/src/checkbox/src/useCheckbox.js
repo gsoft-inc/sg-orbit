@@ -67,7 +67,6 @@ export function useCheckbox({
         isChecked,
         isIndeterminate,
         wrapperProps: {
-            ...rest,
             className: mergeClasses(
                 isChecked && "checked",
                 isIndeterminate && "indeterminate",

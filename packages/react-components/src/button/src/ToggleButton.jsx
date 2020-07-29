@@ -95,8 +95,7 @@ export function InnerToggleButton(props) {
         onClick,
         onCheck,
         active,
-        forwardedRef,
-        ...rest
+        forwardedRef
     });
 
     const content = isFunction(children)
@@ -106,6 +105,7 @@ export function InnerToggleButton(props) {
     return (
         <ElementType
             data-testid="toggle-button"
+            {...rest}
             {...buttonProps}
         >
             {content}
