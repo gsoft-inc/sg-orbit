@@ -1,3 +1,16 @@
 .o-ui.text-input {
+    display: inline-block;
     position: relative;
+}
+
+.o-ui.text-input .prefix {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.o-ui.text-input .suffix {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

@@ -175,8 +175,6 @@ export function InnerFlex({
     const isGapSupported = useIsGapSupported(noGap);
     const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
 
-    console.log(isGapSupported, wrapChildrenForSpacing);
-
     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
     alignItems = alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end");
 

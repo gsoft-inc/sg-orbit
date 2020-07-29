@@ -1,5 +1,5 @@
 import { Children, cloneElement } from "react";
-import { SIZE, createSizeAdapterSlotFactory, registerSlotFactory } from "../../shared";
+import { SIZE, createSizeAdapterSlotFactory } from "../../shared";
 import { any, bool, string } from "prop-types";
 
 const EMBED_SIZE = {
@@ -14,12 +14,6 @@ const EMBED_SIZE = {
     [SIZE.massive]: SIZE.huge
 };
 
-function getEmbedSize(size) {
-    return EMBED_SIZE[size || SIZE.medium];
-}
-
-/******/
-
 const propTypes = {
     size: string,
     standalone: bool,
@@ -30,13 +24,11 @@ export function EmbeddedIcon({ size, children, ...rest }) {
     const icon = Children.only(children);
 
     return cloneElement(icon, {
-        size: getEmbedSize(size),
+        size: EMBED_SIZE[size || SIZE.medium],
         ...rest
     });
 }
 
 EmbeddedIcon.propTypes = propTypes;
 
-/******/
-
-registerSlotFactory("icon", createSizeAdapterSlotFactory(EMBED_SIZE));
+export const iconSlot = createSizeAdapterSlotFactory(EMBED_SIZE);

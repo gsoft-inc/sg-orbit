@@ -1,7 +1,7 @@
 import "./Button.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, registerSlotFactory, useSlotProps } from "../../shared";
+import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, useSlotProps } from "../../shared";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
@@ -68,6 +68,10 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
@@ -101,7 +105,7 @@ export function InnerButton(props) {
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props);
+    } = useSlotProps(props, "button");
 
     const buttonProps = useButton({
         variant,
@@ -170,19 +174,17 @@ export const Button = forwardRef((props, ref) => (
     <InnerButton { ...props } forwardedRef={ref} />
 ));
 
-/******/
-
 export const embedButton = createEmbeddableAdapter({
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small
 });
 
-registerSlotFactory("button", createSizeAdapterSlotFactory({
+export const buttonSlot = createSizeAdapterSlotFactory({
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small
-}));
+});
 
 
 

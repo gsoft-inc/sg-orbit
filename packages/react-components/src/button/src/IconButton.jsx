@@ -1,5 +1,5 @@
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeClasses } from "../../shared";
+import { augmentElement, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 
@@ -41,6 +41,10 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
@@ -52,25 +56,27 @@ const defaultProps = {
     as: "button"
 };
 
-export function InnerIconButton({
-    variant,
-    color,
-    autoFocus,
-    autoFocusDelay,
-    fluid,
-    circular,
-    loading,
-    size,
-    active,
-    focus,
-    hover,
-    disabled,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerIconButton(props) {
+    const {
+        variant,
+        color,
+        autoFocus,
+        autoFocusDelay,
+        fluid,
+        circular,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props, "button");
+
     const buttonProps = useButton({
         variant,
         color,

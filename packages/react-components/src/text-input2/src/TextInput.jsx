@@ -1,16 +1,28 @@
-import { SlotProvider, getSizeClass, mergeClasses, slotBuilder, useAutoFocus, useChainedEventCallback, useControllableState, useForwardInputApi, useMergedRefs } from "../../shared";
-import { any, bool, element, elementType, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef } from "react";
-import { isNil } from "lodash";
+import "./TextInput.css";
 
-// TODO:
-// Add slot support for text
+import {
+    SlotProvider,
+    getSizeClass,
+    mergeClasses,
+    useAutoFocus,
+    useChainedEventCallback,
+    useControllableState,
+    useForwardInputApi,
+    useMergedRefs
+} from "../../shared";
+import { bool, element, elementType, number, object, oneOf, oneOfType, string } from "prop-types";
+import { buttonSlot } from "../../button";
+import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef } from "react";
+import { iconSlot } from "../../icons";
+import { isNil } from "lodash";
+import { textSlot } from "../../text";
 
 const propTypes = {
     value: string,
     defaultValue: string,
     placeholder: string,
-    variant: oneOf(["outline", "transparent", "error"]),
+    variant: oneOf(["outline", "transparent"]),
+    color: oneOf(["error"]),
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -32,14 +44,9 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Additional CSS classes to render on the wrapper element.
+     * Additional props to render on the wrapper element.
      */
-    wrapperClassName: string,
-    /**
-     * Additional style to render on the wrapper element.
-     */
-    wrapperStyle: object,
-    wrapperRef: any,
+    wrapperProps: object,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -57,6 +64,7 @@ export function InnerTextInput({
     defaultValue,
     placeholder,
     variant,
+    color,
     type,
     inputMode: userInputMode,
     autoFocus,
@@ -78,8 +86,7 @@ export function InnerTextInput({
      */
     onChange,
     className,
-    wrapperClassName,
-    wrapperStyle,
+    wrapperProps = {},
     as: ElementType,
     forwardedRef,
     ...rest
@@ -116,37 +123,67 @@ export function InnerTextInput({
         setValue(event);
     });
 
+    const prefixMarkup = prefix && (
+        <div className="prefix">
+            <SlotProvider
+                slots={{
+                    icon: iconSlot({
+                        size,
+                        className: "icon"
+                    }),
+                    text: textSlot({
+                        size,
+                        className: "text"
+                    })
+                }}
+            >
+                {prefix}
+            </SlotProvider>
+        </div>
+    );
+
+    const suffixMarkup = suffix && (
+        <div className="suffix">
+            <SlotProvider
+                slots={{
+                    icon: iconSlot({
+                        size,
+                        className: "icon"
+                    }),
+                    button: buttonSlot({
+                        size,
+                        circular: true,
+                        variant: "ghost",
+                        color: "secondary",
+                        className: "button"
+                    })
+                }}
+            >
+                {suffix}
+            </SlotProvider>
+        </div>
+    );
+
     return (
         <ElementType
             data-testid="text-input"
-            {...rest}
+            {...wrapperProps}
             className={mergeClasses(
                 "o-ui text-input",
-                variant && "variant",
+                variant,
+                color,
                 fluid && "fluid",
-                loading && loading,
+                loading && "loading",
                 getSizeClass(size),
-                wrapperClassName
+                wrapperProps.className
             )}
-            style={wrapperStyle}
             ref={wrapperRef}
         >
-            <div className="prefix">
-                <SlotProvider
-                    slots={slotBuilder()
-                        .icon({
-                            size,
-                            className: "icon"
-                        })
-                        .build()
-                    }
-                >
-                    {prefix}
-                </SlotProvider>
-            </div>
+            {prefixMarkup}
             <input
+                {...rest}
                 {...autoFocusProps}
-                value={inputValue}
+                value={inputValue ?? ""}
                 placeholder={placeholder}
                 onChange={handleChange}
                 className={mergeClasses(
@@ -161,23 +198,7 @@ export function InnerTextInput({
                 readOnly={readOnly}
                 ref={inputRef}
             />
-            <div className="suffix">
-                <SlotProvider
-                    slots={slotBuilder()
-                        .icon({
-                            size,
-                            className: "icon"
-                        })
-                        .button({
-                            size,
-                            className: "button"
-                        })
-                        .build()
-                    }
-                >
-                    {suffix}
-                </SlotProvider>
-            </div>
+            {suffixMarkup}
         </ElementType>
     );
 }

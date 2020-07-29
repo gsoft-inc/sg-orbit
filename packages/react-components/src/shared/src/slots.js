@@ -19,10 +19,10 @@ export function SlotProvider({ slots, children }) {
 
     const value = Object.keys(parentSlots)
         .concat(Object.keys(slots))
-        .reduce((acc, slotKey) => {
-            acc[slotKey] = {
-                ...(parentSlots[slotKey] || {}),
-                ...(slots[slotKey] || {})
+        .reduce((acc, key) => {
+            acc[key] = {
+                ...(parentSlots[key] || {}),
+                ...(slots[key] || {})
             };
 
             return acc;
@@ -35,56 +35,11 @@ export function SlotProvider({ slots, children }) {
     );
 }
 
-function wrapSlotFactory(key, factory) {
-    return (props, customKey) => {
-        return {
-            [customKey ?? key]: factory(props)
-        };
-    };
-}
-
-const slotsFactory = {
-    custom: (key, props) => {
-        return {
-            [key]: props
-        };
-    }
-};
-
-export function registerSlotFactory(key, factory) {
-    slotsFactory[key] = wrapSlotFactory(key, factory);
-}
-
-export function slotBuilder() {
-    let slots = {};
-
-    const builder = Object
-        .keys(slotsFactory)
-        .reduce((acc, key) => {
-            acc[key] = props => {
-                const factory = slotsFactory[key];
-
-                slots = {
-                    ...slots,
-                    ...factory(props)
-                };
-
-                return builder;
-            };
-
-            return acc;
-        }, {});
-
-    builder.build = () => {
-        return slots;
-    };
-
-    return builder;
-}
-
 export function createSizeAdapterSlotFactory(sizeAdapter) {
-    return ({ size, ...rest }) => ({
-        ...rest,
-        size:  sizeAdapter[size || SIZE.medium]
-    });
+    return ({ size, ...rest }) => {
+        return {
+            ...rest,
+            size:  sizeAdapter[size || SIZE.medium]
+        };
+    };
 }

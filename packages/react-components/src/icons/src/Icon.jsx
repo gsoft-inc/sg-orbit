@@ -1,5 +1,5 @@
 import { SIZE, mergeClasses, useSlotProps } from "../../shared";
-import { elementType, oneOf } from "prop-types";
+import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
@@ -23,7 +23,7 @@ export function InnerIcon(props) {
         className,
         forwardedRef,
         ...rest
-    } = useSlotProps(props);
+    } = useSlotProps(props, "icon");
 
     return (
         <ComponentType
@@ -46,7 +46,11 @@ InnerIcon.propTypes = {
     /**
      * An icon can vary in size.
      */
-    size: oneOf(SIZES)
+    size: oneOf(SIZES),
+    /**
+     * Default slot override.
+     */
+    slot: string
 };
 
 export const Icon = forwardRef((props, ref) => (
@@ -92,7 +96,11 @@ InnerMultiVariantIcon.propTypes = {
     /**
      * An icon can vary in size.
      */
-    size: oneOf(SIZES)
+    size: oneOf(SIZES),
+    /**
+     * Default slot override.
+     */
+    slot: string
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (

@@ -1,8 +1,6 @@
-import { Button } from "@react-components/button";
-import { CrossIcon, MagnifierIcon } from "@react-components/icons";
-import { Inline, Stack } from "@react-components/layout";
 import { TextInput } from "@react-components/text-input2";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createTextInputTestSuite } from "./createTextInputTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("TextInput2"))
@@ -14,9 +12,12 @@ function stories(segment) {
         .build();
 }
 
+createTextInputTestSuite(<TextInput variant="outline" />, stories("/outline"));
+
+createTextInputTestSuite(<TextInput variant="transparent" />, stories("/transparent"));
+
 /*
 outline
-error
 transparent
 */
 
@@ -25,22 +26,9 @@ default
 value
 icon
 button
+icon + button
+text
 states
 styling
+error
 */
-
-stories()
-    .add("default", () =>
-        <Stack>
-            <Inline>
-                <TextInput size="small" />
-                <TextInput />
-                <TextInput size="large" />
-            </Inline>
-            <Inline>
-                <TextInput size="small" placeholder="Where to?" />
-                <TextInput placeholder="Where to?" />
-                <TextInput size="large" placeholder="Where to?" />
-            </Inline>
-        </Stack>
-    );

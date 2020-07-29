@@ -19,4 +19,5 @@ export * from "./message";
 export * from "./badge";
 export * from "./lozenge";
 export * from "./visually-hidden";
+export * from "./text";
 export * from "./shared";

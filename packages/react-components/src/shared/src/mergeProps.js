@@ -6,8 +6,6 @@ import { mergeRefs } from "./useMergedRefs";
 const cache = new WeakMap();
 
 function memoizedMerge(x, y, merge) {
-    console.log(x, y);
-
     if (cache.has(x)) {
         return cache.get(x);
     }
@@ -18,8 +16,6 @@ function memoizedMerge(x, y, merge) {
 }
 
 export function mergeProps(props, newProps) {
-    console.log(props, newProps);
-
     props = { ...props };
 
     Object

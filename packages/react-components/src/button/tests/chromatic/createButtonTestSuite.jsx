@@ -194,9 +194,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button active size="large" element={element}>Button</Button>
                     <Button loading active element={element}>Button</Button>
                 </Inline>
-                <div>
-                    <Button fluid active element={element}>Button</Button>
-                </div>
                 <Inline align="end">
                     <Button focus size="mini" element={element}>Button</Button>
                     <Button focus size="tiny" element={element}>Button</Button>
@@ -205,9 +202,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button focus size="large" element={element}>Button</Button>
                     <Button loading focus element={element}>Button</Button>
                 </Inline>
-                <div>
-                    <Button fluid focus element={element}>Button</Button>
-                </div>
                 <Inline align="end">
                     <Button hover size="mini" element={element}>Button</Button>
                     <Button hover size="tiny" element={element}>Button</Button>
@@ -216,9 +210,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button hover size="large" element={element}>Button</Button>
                     <Button loading hover element={element}>Button</Button>
                 </Inline>
-                <div>
-                    <Button fluid hover element={element}>Button</Button>
-                </div>
                 <Inline align="end">
                     <Button focus hover size="mini" element={element}>Button</Button>
                     <Button focus hover size="tiny" element={element}>Button</Button>
@@ -227,20 +218,13 @@ export function createButtonTestSuite(element, stories) {
                     <Button focus hover size="large" element={element}>Button</Button>
                     <Button loading focus hover element={element}>Button</Button>
                 </Inline>
-                <div>
-                    <Button fluid focus hover element={element}>Button</Button>
-                </div>
                 <Inline align="end">
                     <Button disabled size="mini" element={element}>Button</Button>
                     <Button disabled size="tiny" element={element}>Button</Button>
                     <Button disabled size="small" element={element}>Button</Button>
                     <Button disabled element={element}>Button</Button>
                     <Button disabled size="large" element={element}>Button</Button>
-                    <Button loading disabled element={element}>Button</Button>
                 </Inline>
-                <div>
-                    <Button fluid disabled element={element}>Button</Button>
-                </div>
             </Stack>
         )
         .add("styling", () =>
