@@ -125,13 +125,13 @@
 /* REVERSE | ICON */
 .o-ui.radio.reverse.with-icon > .label   {
     margin-left: var(--scale-alpha);
-    margin-right: 0;
+    margin-right: var(--scale-bravo);
 }
 
 /* REVERSE | BADGE */
 .o-ui.radio.reverse.with-badge > .label {
     margin-left: var(--scale-alpha);
-    margin-right: 0;
+    margin-right: var(--scale-bravo);
 }
 
 /* REVERSE | BADGE + ICON  */
