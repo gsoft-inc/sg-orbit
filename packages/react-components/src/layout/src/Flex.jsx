@@ -110,8 +110,12 @@ const defaultProps = {
     as: "div"
 };
 
-function useIsGapSupported() {
+function useIsGapSupported(noGap) {
     return useMemo(() => {
+        if (noGap) {
+            return false;
+        }
+
         const element = document.createElement("DIV");
 
         element.innerHTML = `
@@ -128,7 +132,7 @@ function useIsGapSupported() {
         document.body.removeChild(element);
 
         return width === 3;
-    }, []);
+    }, [noGap]);
 }
 
 function useShouldWrapForSpacing(isGapSupported, ref) {
@@ -137,7 +141,7 @@ function useShouldWrapForSpacing(isGapSupported, ref) {
     useLayoutEffect(() => {
         if (!isGapSupported) {
             if (!isNil(ref.current)) {
-                if (!isNil(ref.current.querySelector(":scope > .o-ui.o-ui-flex"))) {
+                if (!isNil(ref.current.querySelector(":scope > .o-ui-flex"))) {
                     setHasNesting(true);
                 }
             }
@@ -158,6 +162,7 @@ export function InnerFlex({
     fluid,
     wrapChildren,
     as: ElementType,
+    noGap,
     className,
     style,
     children,
@@ -166,8 +171,10 @@ export function InnerFlex({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const isGapSupported = useIsGapSupported();
+    const isGapSupported = useIsGapSupported(noGap);
     const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
+
+    console.log(isGapSupported, wrapChildrenForSpacing);
 
     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
     alignItems = alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end");

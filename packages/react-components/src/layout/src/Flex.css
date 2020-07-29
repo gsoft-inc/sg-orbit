@@ -12,20 +12,20 @@
 
 /* Flex | No Gap | Row */
 .o-ui-flex.no-gap.row > *:not(:last-child) {
-    margin-right: var(--flex-gap);
+    margin-right: var(--o-ui-gap);
 }
 
 .o-ui-flex.no-gap.row.reverse > *:not(:last-child) {
-    margin-left: var(--flex-gap);
+    margin-left: var(--o-ui-gap);
 }
 
 /* Flex | No Gap | Column */
 .o-ui-flex.no-gap.column > *:not(:last-child) {
-    margin-bottom: var(--flex-gap);
+    margin-bottom: var(--o-ui-gap);
 }
 
 .o-ui-flex.no-gap.column.reverse > *:not(:last-child) {
-    margin-top: var(--flex-gap);
+    margin-top: var(--o-ui-gap);
 }
 
 /* Flex | Fluid */
