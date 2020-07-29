@@ -132,8 +132,7 @@ export function InnerCheckbox(props) {
         disabled,
         readOnly,
         className,
-        forwardedRef,
-        ...rest
+        forwardedRef
     });
 
     const label = isFunction(children)
@@ -165,6 +164,7 @@ export function InnerCheckbox(props) {
     return (
         <ElementType
             data-testid="checkbox"
+            {...rest}
             {...wrapperProps}
             className={mergeClasses(
                 "o-ui checkbox",
