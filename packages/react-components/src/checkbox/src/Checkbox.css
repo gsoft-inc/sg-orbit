@@ -112,7 +112,7 @@
 
 /* WITH BADGE | REVERSE */
 .o-ui.checkbox.with-badge.reverse > .label {
-    margin-right: 0;
+    margin-right: var(--scale-bravo);
     margin-left: var(--scale-bravo);
 }
 
@@ -138,7 +138,7 @@
 /* STATE | DISABLED */
 .o-ui.checkbox.disabled ,
 .o-ui.checkbox[disabled] {
-    color: var(--cloud-200);
+    opacity: 0.4;
     cursor: default;
 }
 
@@ -165,6 +165,28 @@
 .o-ui.checkbox.checked:hover .box,
 .o-ui.checkbox.checked.hover .box {
     border: 1px solid var(--primary-500);
+}
+
+/* STATE | HOVER | CHECKED | BOX */
+.o-ui.checkbox.checked:hover .box:before,
+.o-ui.checkbox.checked.hover .box:before {
+    border: 1px solid var(--primary-700);
+}
+
+/* STATE | HOVER | DISABLED */
+.o-ui.checkbox.disabled:hover .box,
+.o-ui.checkbox.disabled.hover .box,
+.o-ui.checkbox:disabled:hover .box,
+.o-ui.checkbox:disabled.hover .box {
+    border: 1px solid var(--marine-100);
+}
+
+/* STATE | HOVER | DISABLED | BOX */
+.o-ui.checkbox.disabled:hover .box:before,
+.o-ui.checkbox.disabled.hover .box:before,
+.o-ui.checkbox:disabled:hover .box:before,
+.o-ui.checkbox:disabled.hover .box:before {
+    border: 1px solid var(--marine-100);
 }
 
 /* SIZING */

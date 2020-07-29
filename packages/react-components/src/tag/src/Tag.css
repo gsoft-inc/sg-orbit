@@ -31,7 +31,7 @@ a.o-ui.tag.solid:focus,
 button.o-ui.tag.solid.focus,
 a.o-ui.tag.solid.focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--primary-200);
+    box-shadow: var(--o-ui-outline);
 }
 
 /* As <a> / BUTTON | States | DISABLED */
@@ -99,7 +99,7 @@ button.o-ui.tag.outline.focus,
 a.o-ui.tag.outline.focus {
     outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, 0 0 0 2px var(--primary-200);
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-outline);
 }
 
 /* As <a> / BUTTON | States | DISABLED */
