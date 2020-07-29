@@ -672,6 +672,31 @@ a.o-ui.button.ghost {
     transform: translate(-50%, -50%) rotate(0deg);
 }
 
+/* LOADING | SIZES */
+/* LOADING | SIZES | LARGE */
+.o-ui.button.loading.large:before {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+/* LOADING | SIZES | SMALL */
+.o-ui.button.loading.small:before {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* LOADING | SIZES | TINY */
+.o-ui.button.loading.tiny:before {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* LOADING | SIZES | MINI */
+.o-ui.button.loading.mini:before {
+    width: .875rem;
+    height: .875rem;
+}
+
 @keyframes loading {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
