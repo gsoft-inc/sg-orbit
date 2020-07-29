@@ -1,14 +1,16 @@
 import { CheckboxGroup } from "@react-components/checkbox";
 import { Tag } from "@react-components/tag";
 import { useCallback } from "react";
-import { useCheckableContext } from "@react-components/shared";
+import { useCheckableProps } from "@react-components/shared";
 
-function CustomComponent({
-    value,
-    children,
-    ...rest
-}) {
-    const { isCheckedValue, onCheck } = useCheckableContext(value);
+function CustomComponent(props) {
+    const {
+        value,
+        checked,
+        onCheck,
+        children,
+        ...rest
+    } = useCheckableProps(props);
 
     const handleCheck = useCallback(event => {
         onCheck(event, value);
@@ -19,8 +21,8 @@ function CustomComponent({
             {...rest}
             as="button"
             onClick={handleCheck}
-            className={isCheckedValue ? "white bg-primary-500" : "bg-secondary-500"}
-            aria-checked={isCheckedValue}
+            className={checked ? "white bg-primary-500" : "bg-secondary-500"}
+            aria-checked={checked}
         >
             {children}
         </Tag>

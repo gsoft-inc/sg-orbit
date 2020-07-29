@@ -182,8 +182,8 @@ export function InnerFlex({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui o-ui-flex",
-                direction,
+                "o-ui-flex",
+                direction || "row",
                 reverse && "reverse",
                 fluid && "fluid",
                 !isGapSupported && "no-gap",

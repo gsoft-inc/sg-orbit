@@ -27,12 +27,6 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Called when the checkbox checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onChange: func,
-    /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
     icon: element,
@@ -48,6 +42,12 @@ const propTypes = {
      * Invert the order the checkmark box and the label.
      */
     reverse: bool,
+    /**
+     * Called when the switch checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -89,7 +89,7 @@ export function InnerSwitch(props) {
 
     const {
         isChecked,
-        containerProps,
+        wrapperProps,
         inputProps
     } = useCheckbox({
         checked,
@@ -144,10 +144,10 @@ export function InnerSwitch(props) {
     return (
         <ElementType
             data-testid="switch"
-            {...containerProps}
+            {...wrapperProps}
             className={mergeClasses(
                 "o-ui switch",
-                containerProps.className
+                wrapperProps.className
             )}
         >
             <VisuallyHidden

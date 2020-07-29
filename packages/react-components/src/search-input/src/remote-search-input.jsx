@@ -1,14 +1,10 @@
-import {
-    AutoControlledPureComponent,
-    KEYS,
-    cancellablePromise,
-    defer,
-    getAutoControlledStateFromProps,
-    httpGet
-} from "../../shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { cancellablePromise } from "./cancellablePromise";
 import { debounce, isArray, isNil } from "lodash";
+import { defer } from "./defer";
+import { httpGet } from "./httpClient";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];

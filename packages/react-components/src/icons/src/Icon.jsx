@@ -1,4 +1,4 @@
-import { SIZE, mergeClasses } from "../../shared";
+import { SIZE, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf } from "prop-types";
 import { forwardRef } from "react";
 
@@ -16,17 +16,23 @@ const DIMENSION_CLASSES = {
     [SIZE.massive]: "w10 h10"
 };
 
-export function InnerIcon({ type: ComponentType, size, className, forwardedRef, ...rest }) {
-    const classes = mergeClasses(
-        "icon",
+export function InnerIcon(props) {
+    const {
+        type: ComponentType,
+        size,
         className,
-        DIMENSION_CLASSES[size || SIZE.medium]
-    );
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props);
 
     return (
         <ComponentType
             {...rest}
-            className={classes}
+            className={mergeClasses(
+                "icon",
+                className,
+                DIMENSION_CLASSES[size || SIZE.medium]
+            )}
             ref={forwardedRef}
         />
     );
@@ -55,7 +61,7 @@ function createIconFactory(type) {
     x.create = createIconFactory;
 });
 
-//////////////////////////////////////////////
+/******/
 
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;

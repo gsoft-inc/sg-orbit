@@ -11,7 +11,7 @@ function CustomComponent({
     children,
     ...rest
 }) {
-    const { isCheckedValue, onCheck } = useCheckableContext(value);
+    const { isChecked, onCheck } = useCheckableContext(value);
 
     const handleCheck = useCallback(event => {
         onCheck(event, value);
@@ -22,8 +22,8 @@ function CustomComponent({
             {...rest}
             as="button"
             onClick={handleCheck}
-            className={isCheckedValue ? "white bg-primary-500" : "bg-secondary-500"}
-            aria-checked={isCheckedValue}
+            className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
+            aria-checked={isChecked}
         >
             {children}
         </Tag>

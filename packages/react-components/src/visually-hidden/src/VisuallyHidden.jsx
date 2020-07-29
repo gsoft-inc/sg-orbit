@@ -23,6 +23,7 @@ export function InnerVisuallyHidden({ as: ElementType, className, children, forw
                 "o-ui visually-hidden",
                 className
             )}
+            aria-hidden="true"
             ref={forwardedRef}
         >
             {children}

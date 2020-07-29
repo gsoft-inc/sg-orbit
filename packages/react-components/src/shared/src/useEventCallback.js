@@ -1,4 +1,4 @@
-// Copied from https://github.com/react-restart/hooks/blob/master/src/useEventCallback.ts
+// Copied from https://github.com/react-restart/hooks/blob/master/src/useEventCallback.ts.
 
 import { isNil } from "lodash";
 import { useCallback } from "react";
