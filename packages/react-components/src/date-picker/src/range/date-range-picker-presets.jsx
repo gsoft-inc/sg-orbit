@@ -47,6 +47,7 @@ class Preset extends PureComponent {
                     <Otherwise>
                         <Button
                             variant="link"
+                            size="small"
                             onClick={this.handleClick}
                             className={classes}
                             data-testid={`date-range-picker-presets-${preset.text}`}

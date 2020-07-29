@@ -64,6 +64,9 @@
 /* BUTTON | SOLID | ANCHOR */
 a.o-ui.button.solid {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -296,6 +299,9 @@ a.o-ui.button.solid {
 /* BUTTON | OUTLINE | ANCHOR */
 a.o-ui.button.outline {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | OUTLINE | SIZES */
@@ -374,6 +380,9 @@ a.o-ui.button.outline {
 /* BUTTON | LINK | ANCHOR */
 a.o-ui.button.link {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | LINK | SIZE */
@@ -518,6 +527,9 @@ a.o-ui.button.link {
 /* BUTTON | GHOST | ANCHOR */
 a.o-ui.button.ghost {
     display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -733,20 +745,20 @@ a.o-ui.button.ghost {
 
 /* BUTTON | OUTLINE | LOADING | PRIMARY */
 .o-ui.button.loading.outline.primary:before {
-    border: 2px solid var(--primary-300);
-    border-top-color: var(--primary-900);
+    border: 2px solid var(--primary-100);
+    border-top-color: var(--primary-500);
 }
 
 /* BUTTON | OUTLINE | LOADING | SECONDARY */
 .o-ui.button.loading.outline.secondary:before {
-    border: 2px solid var(--cloud-300);
-    border-top-color: var(--cloud-900);
+    border: 2px solid var(--cloud-100);
+    border-top-color: var(--cloud-500);
 }
 
 /* BUTTON | OUTLINE | LOADING | DANGER */
 .o-ui.button.loading.outline.danger:before {
-    border: 2px solid var(--alert-300);
-    border-top-color: var(--alert-900);
+    border: 2px solid var(--alert-100);
+    border-top-color: var(--alert-500);
 }
 
 /* BUTTON | GHOST | LOADING | PRIMARY */
@@ -757,20 +769,20 @@ a.o-ui.button.ghost {
 
 /* BUTTON | GHOST | LOADING | PRIMARY */
 .o-ui.button.loading.ghost.primary:before {
-    border: 2px solid var(--primary-300);
-    border-top-color: var(--primary-900);
+    border: 2px solid var(--primary-100);
+    border-top-color: var(--primary-500);
 }
 
 /* BUTTON | GHOST | LOADING | SECONDARY */
 .o-ui.button.loading.ghost.secondary:before {
-    border: 2px solid var(--cloud-300);
-    border-top-color: var(--cloud-900);
+    border: 2px solid var(--cloud-100);
+    border-top-color: var(--cloud-500);
 }
 
 /* BUTTON | GHOST | LOADING | DANGER */
 .o-ui.button.loading.ghost.danger:before {
-    border: 2px solid var(--alert-300);
-    border-top-color: var(--alert-900);
+    border: 2px solid var(--alert-100);
+    border-top-color: var(--alert-500);
 }
 
 /* BUTTON | DISABLED */
