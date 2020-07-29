@@ -658,7 +658,7 @@ a.o-ui.button.ghost {
     position: relative;
 }
 
-.o-ui.button.loading:after {
+.o-ui.button.loading:before {
     content: "";
     position: absolute;
     top: 50%;
@@ -669,6 +669,7 @@ a.o-ui.button.ghost {
     border: 2px solid var(--marine-200);
     border-top-color: var(--white);
     animation: loading 1s linear infinite;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 @keyframes loading {
@@ -686,88 +687,88 @@ a.o-ui.button.ghost {
 }
 
 /* BUTTON | LOADING | SIZE */
-.o-ui.button.loading.mini:after {
+.o-ui.button.loading.mini:before {
     width: 0.75rem;
     height: 0.75rem;
 }
 
-.o-ui.button.loading.tiny:after {
+.o-ui.button.loading.tiny:before {
     width: 0.825rem;
     height: 0.825rem;
 }
 
-.o-ui.button.loading.small:after {
+.o-ui.button.loading.small:before {
     width: 1.25rem;
     height: 1.25rem;
 }
 
-.o-ui.button.loading.large:after {
+.o-ui.button.loading.large:before {
     width: 1.75rem;
     height: 1.75rem;
 }
 
 /* BUTTON | SOLID | LOADING | PRIMARY */
-.o-ui.button.loading.solid.primary:after {
+.o-ui.button.loading.solid.primary:before {
     border: 2px solid var(--primary-800);
     border-top-color: var(--white);
 }
 
 /* BUTTON | SOLID | LOADING | SECONDARY */
-.o-ui.button.loading.solid.secondary:after {
+.o-ui.button.loading.solid.secondary:before {
     border: 2px solid var(--cloud-300);
     border-top-color: var(--white);
 }
 
 /* BUTTON | SOLID | LOADING | DANGER */
-.o-ui.button.loading.solid.danger:after {
+.o-ui.button.loading.solid.danger:before {
     border: 2px solid var(--alert-300);
     border-top-color: var(--white);
 }
 
 /* BUTTON | OUTLINE | LOADING | PRIMARY */
-.o-ui.button.loading.outline:after {
+.o-ui.button.loading.outline:before {
     border: 2px solid var(--marine-100);
     border-top-color: var(--marine-300);
 }
 
 /* BUTTON | OUTLINE | LOADING | PRIMARY */
-.o-ui.button.loading.outline.primary:after {
+.o-ui.button.loading.outline.primary:before {
     border: 2px solid var(--primary-300);
     border-top-color: var(--primary-900);
 }
 
 /* BUTTON | OUTLINE | LOADING | SECONDARY */
-.o-ui.button.loading.outline.secondary:after {
+.o-ui.button.loading.outline.secondary:before {
     border: 2px solid var(--cloud-300);
     border-top-color: var(--cloud-900);
 }
 
 /* BUTTON | OUTLINE | LOADING | DANGER */
-.o-ui.button.loading.outline.danger:after {
+.o-ui.button.loading.outline.danger:before {
     border: 2px solid var(--alert-300);
     border-top-color: var(--alert-900);
 }
 
 /* BUTTON | GHOST | LOADING | PRIMARY */
-.o-ui.button.loading.ghost:after {
+.o-ui.button.loading.ghost:before {
     border: 2px solid var(--marine-100);
     border-top-color: var(--marine-300);
 }
 
 /* BUTTON | GHOST | LOADING | PRIMARY */
-.o-ui.button.loading.ghost.primary:after {
+.o-ui.button.loading.ghost.primary:before {
     border: 2px solid var(--primary-300);
     border-top-color: var(--primary-900);
 }
 
 /* BUTTON | GHOST | LOADING | SECONDARY */
-.o-ui.button.loading.ghost.secondary:after {
+.o-ui.button.loading.ghost.secondary:before {
     border: 2px solid var(--cloud-300);
     border-top-color: var(--cloud-900);
 }
 
 /* BUTTON | GHOST | LOADING | DANGER */
-.o-ui.button.loading.ghost.danger:after {
+.o-ui.button.loading.ghost.danger:before {
     border: 2px solid var(--alert-300);
     border-top-color: var(--alert-900);
 }
