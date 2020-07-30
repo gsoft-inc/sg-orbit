@@ -55,15 +55,27 @@ A text input can have a value.
     </Story>
 </Preview>
 
-### Prefix & Suffix
+### Icon
 
-A text input can contain [icons](?path=/docs/materials-icons--page), [button](?path=/docs/components-button--default-story) or text elements.
+A text input can contain left or right [icons](?path=/docs/materials-icons--page). [button](?path=/docs/components-button--default-story) or text elements.
 
 <Preview>
-    <Story name="prefix & suffix">
+    <Story name="icon">
         <Inline>
-            <TextInput prefix={<MagnifierIcon />} suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
-            <TextInput prefix={<Text>$</Text>} suffix={<CheckCircleIcon />} placeholder="Amount" />
+            <TextInput iconLeft={<MagnifierIcon />} placeholder="Search..." />
+            <TextInput iconRight={<MagnifierIcon />} placeholder="Search..." />
+        </Inline>
+    </Story>
+</Preview>
+
+### Button
+
+A text input can contain a [button](?path=/docs/components-button--default-story).
+
+<Preview>
+    <Story name="button">
+        <Inline>
+            <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
         </Inline>
     </Story>
 </Preview>

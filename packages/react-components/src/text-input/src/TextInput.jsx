@@ -1,7 +1,8 @@
 import "./TextInput.css";
 
+import { EmbeddedIcon } from "../../icons";
 import {
-    SlotProvider,
+    augmentElement,
     getSizeClass,
     mergeClasses,
     useAutoFocus,
@@ -10,11 +11,9 @@ import {
     useMergedRefs
 } from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { buttonSlot } from "../../button";
+import { embedButton } from "../../button";
 import { forwardRef, useCallback } from "react";
-import { iconSlot } from "../../icons";
 import { isNil } from "lodash";
-import { textSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -56,13 +55,17 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * An element to render inside the text input before the value.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    prefix: element,
+    iconLeft: element,
     /**
-     * An element to render inside the text input after the value.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the value.
      */
-    suffix: element,
+    iconRight: element,
+    /**
+     * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
+     */
+    button: element,
     /**
      * Whether or not the text input take up the width of its container.
      */
@@ -101,8 +104,9 @@ export function InnerTextInput({
     type,
     autoFocus,
     autoFocusDelay,
-    prefix,
-    suffix,
+    iconLeft,
+    iconRight,
+    button,
     disabled,
     readOnly,
     fluid,
@@ -133,46 +137,21 @@ export function InnerTextInput({
         setValue(event.target.value);
     });
 
-    const prefixMarkup = prefix && (
-        <div className="prefix">
-            <SlotProvider
-                slots={{
-                    icon: iconSlot({
-                        size,
-                        className: "icon"
-                    }),
-                    text: textSlot({
-                        size,
-                        className: "text"
-                    })
-                }}
-            >
-                {prefix}
-            </SlotProvider>
-        </div>
+    const iconLeftMarkup = !isNil(iconLeft) && (
+        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
     );
 
-    const suffixMarkup = suffix && (
-        <div className="suffix">
-            <SlotProvider
-                slots={{
-                    icon: iconSlot({
-                        size,
-                        className: "icon"
-                    }),
-                    button: buttonSlot({
-                        size,
-                        variant: "ghost",
-                        color: "secondary",
-                        shape: "variant",
-                        className: "button"
-                    })
-                }}
-            >
-                {suffix}
-            </SlotProvider>
-        </div>
+    const iconRightMarkup = !isNil(iconRight) && (
+        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
+
+    const buttonMarkup = !isNil(button) && embedButton(button, {
+        size,
+        variant: "ghost",
+        color: "secondary",
+        shape: "circular",
+        className: "button"
+    });
 
     wrapperProps = wrapperProps ?? {};
 
@@ -184,13 +163,16 @@ export function InnerTextInput({
                 "o-ui text-input",
                 variant,
                 color,
+                iconLeftMarkup && "with-left-icon",
+                iconRightMarkup && "with-right-icon",
+                button && "with-button",
                 fluid && "fluid",
                 loading && "loading",
                 getSizeClass(size),
                 wrapperProps.className
             )}
         >
-            {prefixMarkup}
+            {iconLeftMarkup}
             <input
                 {...rest}
                 {...autoFocusProps}
@@ -208,7 +190,8 @@ export function InnerTextInput({
                 readOnly={readOnly}
                 ref={inputRef}
             />
-            {suffixMarkup}
+            {iconRightMarkup}
+            {buttonMarkup}
         </ElementType>
     );
 }
