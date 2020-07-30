@@ -34,17 +34,34 @@ stories()
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" circular><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="small" variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="large" variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
-                <ToggleIconButton checked variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton active variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton hover variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus hover variant="outline" circular><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton disabled variant="outline" circular><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton checked variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+            </Inline>
+        </Stack>
+    )
+    .add("square outline", () =>
+        <Stack>
+            <Inline align="end">
+                <ToggleIconButton size="small" variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="large" variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+            </Inline>
+            <Inline align="end">
+                <ToggleIconButton checked variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
             </Inline>
         </Stack>
     )

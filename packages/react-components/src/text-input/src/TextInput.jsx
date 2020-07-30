@@ -117,7 +117,7 @@ export function InnerTextInput({
     forwardedRef,
     ...rest
 }) {
-    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
+    const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const inputRef = useMergedRefs(forwardedRef);
 
@@ -162,9 +162,9 @@ export function InnerTextInput({
                     }),
                     button: buttonSlot({
                         size,
-                        circular: true,
                         variant: "ghost",
                         color: "secondary",
+                        shape: "variant",
                         className: "button"
                     })
                 }}
@@ -194,7 +194,7 @@ export function InnerTextInput({
             <input
                 {...rest}
                 {...autoFocusProps}
-                value={inputValue ?? ""}
+                value={inputValue}
                 placeholder={placeholder}
                 onChange={handleChange}
                 className={mergeClasses(

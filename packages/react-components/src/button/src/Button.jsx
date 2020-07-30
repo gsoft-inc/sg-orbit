@@ -18,6 +18,10 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary", "danger"]),
     /**
+     * The button shape.
+     */
+    shape: oneOf(["rounded", "circular", "square"]),
+    /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
     iconLeft: element,
@@ -41,10 +45,6 @@ const propTypes = {
      * Whether or not the button take up the width of its container.
      */
     fluid: bool,
-    /**
-     * A button can have a circular form.
-     */
-    circular: bool,
     /**
      * A button can show a loading indicator.
      */
@@ -79,6 +79,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "solid",
+    shape: "rounded",
     type: "button",
     as: "button"
 };
@@ -87,13 +88,13 @@ export function InnerButton(props) {
     const {
         variant,
         color,
+        shape,
         iconLeft,
         iconRight,
         badge,
         autoFocus,
         autoFocusDelay,
         fluid,
-        circular,
         loading,
         size,
         active,
@@ -110,10 +111,10 @@ export function InnerButton(props) {
     const buttonProps = useButton({
         variant,
         color,
+        shape,
         autoFocus,
         autoFocusDelay,
         fluid,
-        circular,
         loading,
         size,
         active,
@@ -121,8 +122,7 @@ export function InnerButton(props) {
         hover,
         disabled,
         className,
-        forwardedRef,
-        ...rest
+        forwardedRef
     });
 
     const textMarkup = (
@@ -153,6 +153,7 @@ export function InnerButton(props) {
     return (
         <ElementType
             data-testid="button"
+            {...rest}
             {...buttonProps}
             className={mergeClasses(
                 "o-ui button",

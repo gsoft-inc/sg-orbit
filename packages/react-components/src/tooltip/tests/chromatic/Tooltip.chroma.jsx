@@ -218,7 +218,7 @@ stories()
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button circular icon={<AddIcon />}>Add</Button>}
+                        trigger={<Button shape="circular" icon={<AddIcon />}>Add</Button>}
                         open
                     />
                 </div>
@@ -232,7 +232,7 @@ stories()
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button circular>A</Button>}
+                        trigger={<Button shape="circular">A</Button>}
                         open
                     />
                 </div>

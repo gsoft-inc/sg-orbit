@@ -3,7 +3,7 @@ import { ControlledTextInput } from "./ControlledTextInput.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
-import { InnerTextInput, TextInput } from "@react-components/text-input";
+import { InnerTextInput, PasswordInput, TextInput } from "@react-components/text-input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -28,7 +28,8 @@ A text input allow a user to enter and edit a text.
 
 <Props
     componentsDefinitions={[
-        { displayName: "TextInput", component: InnerTextInput }
+        { displayName: "TextInput", component: InnerTextInput },
+        { displayName: "PasswordInput", component: PasswordInput }
     ]}
 />
 
@@ -160,19 +161,12 @@ A text input can handle `value` in controlled mode.
     <RefLogger><TextInput /></RefLogger>
 </Story>
 
-### Wrapper Props
+## PasswordInput
 
-To include elements like icons and buttons the `input` is wrapped in a `div`. Additional props are rendered directly on the `input` element. It is sometimes convenient to add additional props on the wrapper element. To do so, you can provide `wrapperProps` to a text input.
-
-For example, you could need to offset the text input:
+A specialized text input allowing to show / hide the password.
 
 <Preview>
-    <Story name="wrapper props">
-        <TextInput
-            wrapperProps={{
-                className: "ml5"
-            }}
-            placeholder="Search..."
-        />
+    <Story name="password">
+        <PasswordInput />
     </Story>
 </Preview>

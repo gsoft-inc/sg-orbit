@@ -83,18 +83,36 @@ export function createIconButtonTestSuite(element, stories) {
         .add("circular", () =>
             <Stack>
                 <Inline align="end">
-                    <IconButton circular size="mini" element={element}><AddIcon /></IconButton>
-                    <IconButton circular size="tiny" element={element}><AddIcon /></IconButton>
-                    <IconButton circular size="small" element={element}><AddIcon /></IconButton>
-                    <IconButton circular element={element}><AddIcon /></IconButton>
-                    <IconButton circular size="large" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="circular" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="circular" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="circular" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="circular" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="circular" size="large" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline align="end">
-                    <IconButton loading circular size="mini" element={element}><AddIcon /></IconButton>
-                    <IconButton loading circular size="tiny" element={element}><AddIcon /></IconButton>
-                    <IconButton loading circular size="small" element={element}><AddIcon /></IconButton>
-                    <IconButton loading circular element={element}><AddIcon /></IconButton>
-                    <IconButton loading circular size="large" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="circular" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="circular" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="circular" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="circular" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="circular" size="large" element={element}><AddIcon /></IconButton>
+                </Inline>
+            </Stack>
+        )
+        .add("square", () =>
+            <Stack>
+                <Inline align="end">
+                    <IconButton shape="square" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="square" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="square" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="square" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="square" size="large" element={element}><AddIcon /></IconButton>
+                </Inline>
+                <Inline align="end">
+                    <IconButton loading shape="square" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="square" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="square" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="square" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="square" size="large" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )

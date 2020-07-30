@@ -36,19 +36,19 @@ stories()
     .add("icon button", () =>
         <Stack>
             <ButtonGroup size="small">
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
             </ButtonGroup>
             <ButtonGroup>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
             </ButtonGroup>
             <ButtonGroup size="large">
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
-                <IconButton variant="outline" circular><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
             </ButtonGroup>
         </Stack>
     );

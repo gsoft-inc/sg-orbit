@@ -11,7 +11,11 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary"]),
+    color: oneOf(["primary", "secondary", "danger"]),
+    /**
+     * The button shape.
+     */
+    shape: oneOf(["rounded", "circular", "square"]),
     /**
      * Whether or not the button should autoFocus on render.
      */
@@ -20,10 +24,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * A button can have a circular form.
-     */
-    circular: bool,
     /**
      * A button can show a loading indicator.
      */
@@ -52,6 +52,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "solid",
+    shape: "rounded",
     type: "button",
     as: "button"
 };
@@ -60,10 +61,10 @@ export function InnerIconButton(props) {
     const {
         variant,
         color,
+        shape,
         autoFocus,
         autoFocusDelay,
         fluid,
-        circular,
         loading,
         size,
         active,
@@ -80,10 +81,10 @@ export function InnerIconButton(props) {
     const buttonProps = useButton({
         variant,
         color,
+        shape,
         autoFocus,
         autoFocusDelay,
         fluid,
-        circular,
         loading,
         size,
         active,

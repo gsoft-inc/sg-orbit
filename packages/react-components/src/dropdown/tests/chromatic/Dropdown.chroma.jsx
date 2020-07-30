@@ -102,7 +102,7 @@ function CircularButtonDropdown({ active, focus, hover, ...rest }) {
 function CustomTriggerDropdown(props) {
     return (
         <Dropdown {...props}>
-            <Dropdown.Trigger as={CustomTrigger} circular>
+            <Dropdown.Trigger as={CustomTrigger} shape="circular">
                 <VerticalDotsIcon />
             </Dropdown.Trigger>
             <Dropdown.Menu>

@@ -5,10 +5,10 @@ import { useCallback } from "react";
 export function useButton({
     variant,
     color,
+    shape,
     autoFocus,
     autoFocusDelay,
     fluid,
-    circular,
     loading,
     size,
     active,
@@ -31,10 +31,10 @@ export function useButton({
     return {
         ...autoFocusProps,
         className: mergeClasses(
-            variant,
+            variant && variant,
             color && color,
+            shape && shape,
             fluid && "fluid",
-            circular && "circular",
             loading && "loading",
             active && "active",
             focus && "focus",

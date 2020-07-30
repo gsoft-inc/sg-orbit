@@ -34,6 +34,10 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary"]),
     /**
+     * The button shape.
+     */
+    shape: oneOf(["rounded", "circular", "square"]),
+    /**
      * Whether or not the button should autoFocus on render.
      */
     autoFocus: bool,
@@ -41,10 +45,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * A button can have a circular form.
-     */
-    circular: bool,
     /**
      * A button can vary in size.
      */
@@ -61,6 +61,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "solid",
+    shape: "rounded",
     as: IconButton
 };
 
@@ -87,6 +88,8 @@ export function InnerToggleIconButton(props) {
         active,
         forwardedRef
     });
+
+    console.log(isChecked, buttonProps);
 
     const content = isFunction(children)
         ? children({ isChecked }, props)
