@@ -130,7 +130,7 @@ export function InnerTextInput({
     const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
 
     const handleChange = useChainedEventCallback(onChange, event => {
-        setValue(event);
+        setValue(event.target.value);
     });
 
     const prefixMarkup = prefix && (

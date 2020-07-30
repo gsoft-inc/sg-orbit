@@ -1,9 +1,5 @@
-import { INPUT_UNSUPPORTED_PROPS, Input } from "../../input";
 import { bool, element, number, object, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
-import { throwWhenUnsupportedPropIsProvided } from "../../shared";
-
-const UNSUPPORTED_PROPS = [...INPUT_UNSUPPORTED_PROPS, "type"];
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged.
 const INPUT_PROP_TYPES = {
@@ -74,19 +70,21 @@ const defaultProps = {
     ...INPUT_DEFAULT_PROPS
 };
 
-export function InnerNumberInput(props) {
-    const { forwardedRef, ...rest } = props;
+export function InnerNumberInput() {
+    return null;
 
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/NumberInput");
+    // const { forwardedRef, ...rest } = props;
 
-    return (
-        <Input
-            {...rest}
-            type="number"
-            ref={forwardedRef}
-            __componentName="@orbit-ui/react-components/NumberInput"
-        />
-    );
+    // throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/NumberInput");
+
+    // return (
+    //     <Input
+    //         {...rest}
+    //         type="number"
+    //         ref={forwardedRef}
+    //         __componentName="@orbit-ui/react-components/NumberInput"
+    //     />
+    // );
 }
 
 InnerNumberInput.propTypes = propTypes;
