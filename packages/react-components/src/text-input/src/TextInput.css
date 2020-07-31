@@ -301,3 +301,18 @@
     min-height: var(--scale-india);
     padding: 0 var(--padding-large);
 }
+
+/* LABEL */
+.o-ui.text-input-label {
+    display: flex;
+    margin-bottom: var(--scale-alpha);
+    color: var(--marine-500);
+}
+
+.o-ui.text-input-label.error {
+    color: var(--alert-400);
+    margin-bottom: 0;
+    margin-top: var(--scale-alpha);
+    font-style: italic;
+    font-size: var(--type-scale-8);
+}

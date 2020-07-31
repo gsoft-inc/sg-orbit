@@ -47,6 +47,10 @@ const propTypes = {
      */
     type: oneOf(["text", "search", "url", "tel", "email", "password"]),
     /**
+     * The label.
+     */
+    label: string,
+    /**
      * Whether or not the text input should autofocus on render.
      */
     autoFocus: bool,
@@ -112,6 +116,7 @@ export function InnerTextInput({
     fluid,
     loading,
     size,
+    label,
     active,
     focus,
     hover,
@@ -145,6 +150,10 @@ export function InnerTextInput({
         <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
+    const labelMarkup = !isNil(label) && (
+        <label className="o-ui text-input-label">{label}</label>
+    );
+
     const buttonMarkup = !isNil(button) && embedButton(button, {
         size,
         variant: "ghost",
@@ -156,43 +165,47 @@ export function InnerTextInput({
     wrapperProps = wrapperProps ?? {};
 
     return (
-        <ElementType
-            data-testid="text-input"
-            {...wrapperProps}
-            className={mergeClasses(
-                "o-ui text-input",
-                variant,
-                color,
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                button && "with-button",
-                fluid && "fluid",
-                loading && "loading",
-                getSizeClass(size),
-                wrapperProps.className
-            )}
-        >
-            {iconLeftMarkup}
-            <input
-                {...rest}
-                {...autoFocusProps}
-                value={inputValue}
-                placeholder={placeholder}
-                onChange={handleChange}
+        <>
+            {labelMarkup}
+            <ElementType
+                data-testid="text-input"
+                {...wrapperProps}
                 className={mergeClasses(
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    className
+                    "o-ui text-input",
+                    variant,
+                    color,
+                    iconLeftMarkup && "with-left-icon",
+                    iconRightMarkup && "with-right-icon",
+                    button && "with-button",
+                    fluid && "fluid",
+                    loading && "loading",
+                    getSizeClass(size),
+                    wrapperProps.className
                 )}
-                type={type}
-                disabled={disabled}
-                readOnly={readOnly}
-                ref={inputRef}
-            />
-            {iconRightMarkup}
-            {buttonMarkup}
-        </ElementType>
+            >
+                {iconLeftMarkup}
+                <input
+                    {...rest}
+                    {...autoFocusProps}
+                    value={inputValue}
+                    placeholder={placeholder}
+                    onChange={handleChange}
+                    className={mergeClasses(
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover",
+                        className
+                    )}
+                    type={type}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    ref={inputRef}
+                />
+                {iconRightMarkup}
+                {buttonMarkup}
+            </ElementType>
+            <label className="o-ui text-input-label error">Error, have you tried turning it on and off again?</label>
+        </>
     );
 }
 
