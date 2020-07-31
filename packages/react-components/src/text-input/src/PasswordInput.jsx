@@ -1,4 +1,4 @@
-import { CheckIcon, PrivacyIcon } from "../../icons";
+import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput } from "./TextInput";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
@@ -83,12 +83,12 @@ export function InnerPasswordInput(props) {
         <TextInput
             {...props}
             type={isHidden ? "password" : "text"}
-            suffix={
+            button={
                 <IconButton
                     variant="ghost"
                     onClick={handleClick}
                 >
-                    {isHidden ? <CheckIcon /> : <PrivacyIcon />}
+                    {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>
             }
         />

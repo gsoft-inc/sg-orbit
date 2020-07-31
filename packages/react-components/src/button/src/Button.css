@@ -22,12 +22,12 @@
     font-size: var(--type-scale-6);
 }
 
-/* BUTTON SOLID ROUNDED */
+/* BUTTON | SOLID | ROUNDED */
 .o-ui.button.solid.rounded {
     border-radius: calc(var(--height-default) / 2);
 }
 
-/* BUTTON SOLID SQUARE */
+/* BUTTON | SOLID | SQUARE */
 .o-ui.button.solid.square {
     border-radius: var(--scale-alpha);
 }
