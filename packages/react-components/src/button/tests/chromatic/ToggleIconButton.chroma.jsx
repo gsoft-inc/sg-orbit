@@ -48,20 +48,20 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("square outline", () =>
+    .add("rounded outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="small" variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="large" variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
-                <ToggleIconButton checked variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton active variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton hover variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus hover variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton disabled variant="outline" shape="square"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton checked variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
             </Inline>
         </Stack>
     )

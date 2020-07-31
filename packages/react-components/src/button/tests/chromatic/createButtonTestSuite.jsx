@@ -184,21 +184,21 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("square", () =>
+        .add("rounded", () =>
             <Stack>
                 <Inline align="end">
-                    <Button shape="square" size="mini" element={element}>Aa</Button>
-                    <Button shape="square" size="tiny" element={element}>Aa</Button>
-                    <Button shape="square" size="small" element={element}>Aa</Button>
-                    <Button shape="square" element={element}>Aa</Button>
-                    <Button shape="square" size="large" element={element}>Aa</Button>
+                    <Button shape="rounded" size="mini" element={element}>Aa</Button>
+                    <Button shape="rounded" size="tiny" element={element}>Aa</Button>
+                    <Button shape="rounded" size="small" element={element}>Aa</Button>
+                    <Button shape="rounded" element={element}>Aa</Button>
+                    <Button shape="rounded" size="large" element={element}>Aa</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading shape="square" size="mini" element={element}>Aa</Button>
-                    <Button loading shape="square" size="tiny" element={element}>Aa</Button>
-                    <Button loading shape="square" size="small" element={element}>Aa</Button>
-                    <Button loading shape="square" element={element}>Aa</Button>
-                    <Button loading shape="square" size="large" element={element}>Aa</Button>
+                    <Button loading shape="rounded" size="mini" element={element}>Aa</Button>
+                    <Button loading shape="rounded" size="tiny" element={element}>Aa</Button>
+                    <Button loading shape="rounded" size="small" element={element}>Aa</Button>
+                    <Button loading shape="rounded" element={element}>Aa</Button>
+                    <Button loading shape="rounded" size="large" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )

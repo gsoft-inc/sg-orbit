@@ -51,19 +51,19 @@ stories()
                 <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
             </ButtonGroup>
             <ButtonGroup size="small">
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
             </ButtonGroup>
             <ButtonGroup>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
             </ButtonGroup>
             <ButtonGroup size="large">
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="square"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
             </ButtonGroup>
         </Stack>
     );

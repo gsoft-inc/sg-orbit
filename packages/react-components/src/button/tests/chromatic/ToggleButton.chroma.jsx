@@ -51,20 +51,20 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("square outline", () =>
+    .add("rounded outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton size="large" variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton size="small" variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton size="large" variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
             <Inline align="end">
-                <ToggleButton checked variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton active variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton focus variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton hover variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton focus hover variant="outline" shape="square">Aa</ToggleButton>
-                <ToggleButton disabled variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton checked variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton active variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton focus variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton hover variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton focus hover variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton disabled variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
         </Stack>
     )

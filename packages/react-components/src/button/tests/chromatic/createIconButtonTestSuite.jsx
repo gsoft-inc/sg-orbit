@@ -98,21 +98,21 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("square", () =>
+        .add("rounded", () =>
             <Stack>
                 <Inline align="end">
-                    <IconButton shape="square" size="mini" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="square" size="tiny" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="square" size="small" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="square" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="square" size="large" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="rounded" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="rounded" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="rounded" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="rounded" element={element}><AddIcon /></IconButton>
+                    <IconButton shape="rounded" size="large" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline align="end">
-                    <IconButton loading shape="square" size="mini" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="square" size="tiny" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="square" size="small" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="square" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="square" size="large" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="rounded" size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="rounded" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="rounded" size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="rounded" element={element}><AddIcon /></IconButton>
+                    <IconButton loading shape="rounded" size="large" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )

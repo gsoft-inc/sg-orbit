@@ -15,7 +15,7 @@ const propTypes = {
     /**
      * The button shape.
      */
-    shape: oneOf(["rounded", "circular", "square"]),
+    shape: oneOf(["rounded", "circular", "pill"]),
     /**
      * Whether or not the button should autoFocus on render.
      */
@@ -52,7 +52,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "solid",
-    shape: "rounded",
+    shape: "pill",
     type: "button",
     as: "button"
 };
