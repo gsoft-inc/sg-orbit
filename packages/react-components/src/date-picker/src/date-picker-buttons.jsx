@@ -57,7 +57,8 @@ export class DatePickerButtons extends PureComponent {
         return (
             <Button
                 onClick={this.handleClear}
-                variant="ghost"
+                variant="outline"
+                shape="square"
                 size="small"
                 disabled={!canClear}
                 tabIndex={canClear ? "0" : "-1"}
@@ -74,7 +75,8 @@ export class DatePickerButtons extends PureComponent {
         return (
             <Button
                 onClick={this.handleApply}
-                variant="ghost"
+                variant="outline"
+                shape="square"
                 color={canApply ? "primary" : null}
                 disabled={!canApply}
                 size="small"

@@ -19,8 +19,17 @@
     color: var(--white);
     padding: 0 var(--padding-default);
     min-height: var(--height-default);
-    border-radius: calc(var(--height-default) / 2);
     font-size: var(--type-scale-6);
+}
+
+/* BUTTON SOLID ROUNDED */
+.o-ui.button.solid.rounded {
+    border-radius: calc(var(--height-default) / 2);
+}
+
+/* BUTTON SOLID SQUARE */
+.o-ui.button.solid.square {
+    border-radius: var(--scale-alpha);
 }
 
 /* BUTTON | SOLID | STATE | HOVER */
@@ -73,29 +82,41 @@ a.o-ui.button.solid {
 .o-ui.button.solid.mini {
     padding: 0 var(--padding-mini);
     min-height: var(--height-mini);
-    border-radius: calc(var(--height-mini) / 2);
     font-size: var(--type-scale-9);
+}
+
+.o-ui.button.solid.rounded.mini {
+    border-radius: calc(var(--height-mini) / 2);
 }
 
 .o-ui.button.solid.tiny {
     padding: 0 var(--padding-tiny);
     min-height: var(--height-tiny);
-    border-radius: calc(var(--height-tiny) / 2);
     font-size: var(--type-scale-8);
+}
+
+.o-ui.button.solid.rounded.tiny {
+    border-radius: calc(var(--height-tiny) / 2);
 }
 
 .o-ui.button.solid.small {
     padding: 0 var(--padding-small);
     min-height: var(--height-small);
-    border-radius: calc(var(--height-small) / 2);
     font-size: var(--type-scale-7);
+}
+
+.o-ui.button.solid.rounded.small {
+    border-radius: calc(var(--height-small) / 2);
 }
 
 .o-ui.button.solid.large {
     padding: 0 var(--padding-large);
     min-height: var(--height-large);
-    border-radius: calc(var(--height-large) / 2);
     font-size: var(--type-scale-5);
+}
+
+.o-ui.button.solid.rounded.large {
+    border-radius: calc(var(--height-large) / 2);
 }
 
 /* BUTTON | SOLID | PRIMARY */
@@ -163,7 +184,16 @@ a.o-ui.button.solid {
     box-shadow: 0 0 0 1px var(--marine-500) inset;
     padding: 0 var(--padding-default);
     min-height: var(--height-default);
+}
+
+/* BUTTON OUTLINE ROUNDED */
+.o-ui.button.outline.rounded {
     border-radius: calc(var(--height-default) / 2);
+}
+
+/* BUTTON OUTLINE SQUARE */
+.o-ui.button.outline.square {
+    border-radius: var(--scale-alpha);
 }
 
 /* BUTTON | OUTLINE | ICON */
@@ -308,29 +338,41 @@ a.o-ui.button.outline {
 .o-ui.button.outline.mini {
     padding: 0 var(--padding-mini);
     min-height: var(--height-mini);
-    border-radius: calc(var(--height-mini) / 2);
     font-size: var(--type-scale-9);
+}
+
+.o-ui.button.outline.rounded.mini {
+    border-radius: calc(var(--height-mini) / 2);
 }
 
 .o-ui.button.outline.tiny {
     padding: 0 var(--padding-tiny);
     min-height: var(--height-tiny);
-    border-radius: calc(var(--height-tiny) / 2);
     font-size: var(--type-scale-8);
+}
+
+.o-ui.button.outline.rounded.tiny {
+    border-radius: calc(var(--height-tiny) / 2);
 }
 
 .o-ui.button.outline.small {
     padding: 0 var(--padding-small);
     min-height: var(--height-small);
-    border-radius: calc(var(--height-small) / 2);
     font-size: var(--type-scale-7);
+}
+
+.o-ui.button.outline.rounded.small {
+    border-radius: calc(var(--height-small) / 2);
 }
 
 .o-ui.button.outline.large {
     padding: 0 var(--padding-large);
     min-height: var(--height-large);
-    border-radius: calc(var(--height-large) / 2);
     font-size: var(--type-scale-5);
+}
+
+.o-ui.button.outline.rounded.large {
+    border-radius: calc(var(--height-large) / 2);
 }
 
 /* BUTTON | LINK */
@@ -488,8 +530,17 @@ a.o-ui.button.link {
     border: none;
     padding: 0 var(--padding-default);
     min-height: var(--height-default);
-    border-radius: calc(var(--height-default) / 2);
     color: var(--marine-500);
+}
+
+/* BUTTON | GHOST ROUNDED */
+.o-ui.button.ghost.rounded {
+    border-radius: calc(var(--height-default) / 2);
+}
+
+/* BUTTON | GHOST SQUARE */
+.o-ui.button.ghost.square {
+    border-radius: var(--scale-alpha);
 }
 
 /* BUTTON | GHOST | HOVER */
@@ -536,29 +587,41 @@ a.o-ui.button.ghost {
 .o-ui.button.ghost.mini {
     padding: 0 var(--padding-mini);
     min-height: var(--height-mini);
-    border-radius: calc(var(--height-mini) / 2);
     font-size: var(--type-scale-9);
+}
+
+.o-ui.button.ghost.rounded.mini {
+    border-radius: calc(var(--height-mini) / 2);
 }
 
 .o-ui.button.ghost.tiny {
     padding: 0 var(--padding-tiny);
     min-height: var(--height-tiny);
-    border-radius: calc(var(--height-tiny) / 2);
     font-size: var(--type-scale-8);
+}
+
+.o-ui.button.ghost.rounded.tiny {
+    border-radius: calc(var(--height-tiny) / 2);
 }
 
 .o-ui.button.ghost.small {
     padding: 0 var(--padding-small);
     min-height: var(--height-small);
-    border-radius: calc(var(--height-small) / 2);
     font-size: var(--type-scale-7);
+}
+
+.o-ui.button.ghost.rounded.small {
+    border-radius: calc(var(--height-small) / 2);
 }
 
 .o-ui.button.ghost.large {
     padding: 0 var(--padding-large);
     min-height: var(--height-large);
-    border-radius: calc(var(--height-large) / 2);
     font-size: var(--type-scale-5);
+}
+
+.o-ui.button.ghost.rounded.large {
+    border-radius: calc(var(--height-large) / 2);
 }
 
 /* BUTTON | GHOST | PRIMARY */
@@ -826,6 +889,46 @@ a.o-ui.button.ghost {
     min-width: var(--scale-india);
     min-height: var(--scale-india);
     padding: 0 var(--scale-bravo);
+}
+
+/* BUTTON | SQUARE */
+.o-ui.button.square {
+    justify-content: center;
+}
+
+/* BUTTON | SQUARE ICON */
+.o-ui.button.square.icon {
+    min-width: var(--scale-hotel);
+    min-height: var(--scale-hotel);
+    padding: 0;
+}
+
+/* BUTTON | SQUARE | MINI */
+.o-ui.button.square.mini.icon {
+    min-width: var(--scale-echo);
+    min-height: var(--scale-echo);
+    padding: 0;
+}
+
+/* BUTTON | SQUARE | TINY */
+.o-ui.button.square.tiny.icon {
+    min-width: var(--scale-foxtrot);
+    min-height: var(--scale-foxtrot);
+    padding: 0;
+}
+
+/* BUTTON | SQUARE | SMALL */
+.o-ui.button.square.small.icon {
+    min-width: var(--scale-golf);
+    min-height: var(--scale-golf);
+    padding: 0;
+}
+
+/* BUTTON | SQUARE | LARGE */
+.o-ui.button.square.large.icon {
+    min-width: var(--scale-india);
+    min-height: var(--scale-india);
+    padding: 0;
 }
 
 /* COMMON */
