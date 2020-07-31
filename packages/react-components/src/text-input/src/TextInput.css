@@ -1,16 +1,193 @@
-.o-ui.text-input {
-    display: inline-block;
-    position: relative;
+:root {
+    --padding-small: var(--scale-delta);
+    --padding-default: var(--scale-echo);
+    --padding-large: var(--scale-foxtrot);
+    --padding-small-with-prefix: var(--scale-foxtrot);
+    --padding-default-with-prefix: var(--scale-golf);
+    --padding-large-with-suffix: var(--scale-hotel);
+    --padding-small-with-suffix: var(--scale-foxtrot);
+    --padding-default-with-suffix: var(--scale-golf);
+    --padding-large-with-prefix: var(--scale-hotel);
+    --border-color: var(--cloud-200);
 }
 
+.o-ui.text-input {
+    display: inline-flex;
+    position: relative;
+    transition: all .12s ease-in;
+}
+
+/* PLACEHOLDER COLOR */
+.o-ui.text-input input::placeholder {
+    color: var(--marine-300);
+}
+
+.o-ui.text-input input {
+    border-radius: var(--scale-alpha);
+    border: 1px solid var(--border-color);
+    color: var(--marine-900);
+    padding: 0 var(--padding-default);
+    min-height: 40px;
+    min-width: 325px;
+    background-color: var(--white);
+    transition: all .12s ease-in;
+}
+
+.o-ui.text-input input::selection {
+    background-color: var(--primary-50);
+    color: var(--marine-500);
+}
+
+/* TRANSPARENT */
+.o-ui.text-input.transparent input {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    padding-left: 0;
+}
+
+/* TRANSPARENT | STATE | FOCUS */
+.o-ui.text-input.transparent input:focus,
+.o-ui.text-input.transparent input.focus {
+    box-shadow: 0 2px 0 0 var(--primary-200);
+}
+
+/* FLUID */
+.o-ui.text-input.fluid {
+    width: 100%;
+}
+
+/* ERROR */
+.o-ui.text-input.error input {
+    --border-color: var(--alert-500);
+    color: var(--alert-500);
+}
+
+.o-ui.text-input.fluid input {
+    width: 100%;
+}
+
+/* PREFIX */
 .o-ui.text-input .prefix {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: var(--scale-bravo);
+    transform: translateY(-50%);
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
+/* PREFIX | INPUT  */
+.o-ui.text-input .prefix + input {
+    padding: 0 var(--padding-default-with-prefix);
+}
+
+/* SUFIX */
 .o-ui.text-input .suffix {
     position: absolute;
-    top: 0;
+    top: 50%;
+    right: var(--scale-bravo);
+    transform: translateY(-50%);
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* SUFIX | INPUT  */
+.o-ui.text-input .suffix + input {
+    padding-right: var(--padding-default-with-suffix);
+}
+
+/* PREFIX & SUFFIX | INPUT  */
+.o-ui.text-input .prefix + .suffix + input {
+    padding: 0 var(--padding-default-with-prefix);
+}
+
+/* STATES */
+/* STATES | FOCUS */
+.o-ui.text-input input:focus,
+.o-ui.text-input input.focus {
+    outline: none;
+    box-shadow: var(--o-ui-outline);
+}
+
+/* STATES | DISABLED */
+.o-ui.text-input input:disabled,
+.o-ui.text-input input.disabled {
+    opacity: 0.4;
+    background-color: var(--cloud-100);
+}
+
+/* STATES | LOADING */
+@keyframes loading {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.o-ui.text-input.loading::before {
+    content: "";
+    position: absolute;
+    top: 50%;
     right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50px;
+    border: 2px solid var(--marine-100);
+    border-top-color: var(--marine-300);
+    animation: loading 1s linear infinite;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.o-ui.text-input.loading input,
+.o-ui.text-input.loading .suffix input,
+.o-ui.text-input.loading .prefix + .suffix input {
+    padding-right: var(--scale-india);
+}
+
+.o-ui.text-input.loading .suffix {
+    display: none;
+}
+
+/* SIZES | SMALL | LOADING */
+.o-ui.text-input.loading.small::before {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.o-ui.text-input.loading.small input {
+    padding-right: var(--scale-hotel);
+}
+
+/* SIZES | LARGE | LOADING */
+.o-ui.text-input.loading.large::before {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.o-ui.text-input.loading.large input {
+    padding-right: var(--scale-juliett);
+}
+
+/* SIZES */
+/* SIZES | SMALL */
+.o-ui.text-input.small input {
+    min-height: var(--scale-golf);
+    padding: 0 var(--padding-small);
+}
+
+/* SIZES | LARGE */
+.o-ui.text-input.large input {
+    min-height: var(--scale-india);
+    padding: 0 var(--padding-large);
 }

@@ -43,6 +43,9 @@ import {
     EmailReminderIcon,
     EmailReminderIcon24,
     EmailReminderIcon32,
+    EyeIcon,
+    EyeIcon24,
+    EyeIcon32,
     FileIcon,
     FileIcon24,
     FileIcon32,
@@ -158,6 +161,7 @@ stories()
     .add("edit", () => <TestSuite icon24={EditIcon24} icon32={EditIcon32} multiIcon={EditIcon} />)
     .add("email", () => <TestSuite icon24={EmailIcon24} icon32={EmailIcon32} multiIcon={EmailIcon} />)
     .add("email reminder", () => <TestSuite icon24={EmailReminderIcon24} icon32={EmailReminderIcon32} multiIcon={EmailReminderIcon} />)
+    .add("eye", () => <TestSuite icon24={EyeIcon24} icon32={EyeIcon32} multiIcon={EyeIcon} />)
     .add("file", () => <TestSuite icon24={FileIcon24} icon32={FileIcon32} multiIcon={FileIcon} />)
     .add("filter", () => <TestSuite icon24={FilterIcon24} icon32={FilterIcon32} multiIcon={FilterIcon} />)
     .add("flag", () => <TestSuite icon24={FlagIcon24} icon32={FlagIcon32} multiIcon={FlagIcon} />)

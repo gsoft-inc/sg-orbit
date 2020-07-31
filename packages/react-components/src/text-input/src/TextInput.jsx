@@ -191,6 +191,7 @@ export function InnerTextInput({
             )}
         >
             {prefixMarkup}
+            {suffixMarkup}
             <input
                 {...rest}
                 {...autoFocusProps}
@@ -208,7 +209,6 @@ export function InnerTextInput({
                 readOnly={readOnly}
                 ref={inputRef}
             />
-            {suffixMarkup}
         </ElementType>
     );
 }
