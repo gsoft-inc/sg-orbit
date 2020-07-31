@@ -50,6 +50,7 @@
 .o-ui.button.solid:focus,
 .o-ui.button.solid.focus {
     box-shadow: var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | SOLID | STATE | ACTIVE */
@@ -212,6 +213,7 @@ a.o-ui.button.solid {
 .o-ui.button.outline:focus,
 .o-ui.button.outline.focus {
     box-shadow: 0 0 0 1px var(--marine-700) inset, var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | OUTLINE | ACTIVE */
@@ -257,6 +259,7 @@ a.o-ui.button.solid {
 .o-ui.button.outline.primary:focus,
 .o-ui.button.outline.primary.focus {
     box-shadow: 0 0 0 1px var(--primary-700) inset, var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | OUTLINE | PRIMARY | ACTIVE */
@@ -283,6 +286,7 @@ a.o-ui.button.solid {
 .o-ui.button.outline.secondary:focus,
 .o-ui.button.outline.secondary.focus {
     box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | OUTLINE | SECONDARY | ACTIVE */
@@ -307,6 +311,7 @@ a.o-ui.button.solid {
 .o-ui.button.outline.danger:focus,
 .o-ui.button.outline.danger.focus {
     box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | OUTLINE | DANGER | ACTIVE */
@@ -554,6 +559,7 @@ a.o-ui.button.link {
 .o-ui.button.ghost:focus,
 .o-ui.button.ghost.focus {
     box-shadow: var(--o-ui-outline);
+    z-index: 2;
 }
 
 /* BUTTON | GHOST | ACTIVE */
