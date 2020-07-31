@@ -34,6 +34,10 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary"]),
     /**
+     * The button shape.
+     */
+    shape: oneOf(["rounded", "circular", "square"]),
+    /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
     iconLeft: element,
@@ -50,10 +54,6 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * A button can have a circular form.
-     */
-    circular: bool,
-    /**
      * A button can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -69,6 +69,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "solid",
+    shape: "rounded",
     as: Button
 };
 

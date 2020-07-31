@@ -1,14 +1,7 @@
-import { CrossIcon, IconGroup, MagnifierIcon } from "@react-components/icons";
+import { CrossIcon, MagnifierIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
 import { cloneElement } from "react";
-
-function RedBox() {
-    return (
-        <div className="w3 h3 bg-red" />
-    );
-}
 
 function TextInput({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -89,70 +82,54 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("prefix & suffix", () =>
-            <Stack>
-                <Inline>
-                    <TextInput prefix={<RedBox />} placeholder="Where to?" element={element} />
-                    <TextInput prefix={<RedBox />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline>
-                    <TextInput suffix={<RedBox />} placeholder="Where to?" element={element} />
-                    <TextInput suffix={<RedBox />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline>
-                    <TextInput prefix={<RedBox />} suffix={<RedBox />} placeholder="Where to?" element={element} />
-                    <TextInput loading prefix={<RedBox />} suffix={<RedBox />} placeholder="Where to?" element={element} />
-                    <TextInput loading suffix={<RedBox />} placeholder="Where to?" element={element} />
-                </Inline>
-                <div>
-                    <TextInput fluid prefix={<RedBox />} suffix={<RedBox />} placeholder="Where to?" element={element} />
-                </div>
-            </Stack>
-        )
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" prefix={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput prefix={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput size="large" prefix={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="small" iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="large" iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="small" suffix={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput suffix={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput size="large" suffix={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="small" iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="large" iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                </Inline>
+                <Inline align="end">
+                    <TextInput size="small" iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                </Inline>
+                <Inline align="end">
+                    <TextInput size="small" iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <Inline>
-                    <TextInput prefix={<MagnifierIcon />} suffix={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput prefix={<IconGroup><MagnifierIcon /><MagnifierIcon /></IconGroup>} placeholder="Where to?" element={element} />
+                    <TextInput loading iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </Inline>
+                <div>
+                    <TextInput fluid iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                </div>
+                <div className="w10">
+                    <TextInput fluid iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                </div>
             </Stack>
         )
         .add("button", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput size="large" suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                </Inline>
-                <div>
-                    <TextInput prefix={<MagnifierIcon />} suffix={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                </div>
-            </Stack>
-        )
-        .add("text", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextInput size="small" prefix={<Text>$</Text>} placeholder="Where to?" element={element} />
-                    <TextInput prefix={<Text>$</Text>} placeholder="Where to?" element={element} />
-                    <TextInput size="large" prefix={<Text>$</Text>} placeholder="Where to?" element={element} />
+                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="small" suffix={<Text>$</Text>} placeholder="Where to?" element={element} />
-                    <TextInput suffix={<Text>$</Text>} placeholder="Where to?" element={element} />
-                    <TextInput size="large" suffix={<Text>$</Text>} placeholder="Where to?" element={element} />
+                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <div>
-                    <TextInput size="small" prefix={<Text>$</Text>} suffix={<Text>$</Text>} placeholder="Where to?" element={element} />
+                    <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

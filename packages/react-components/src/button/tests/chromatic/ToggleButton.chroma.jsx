@@ -37,17 +37,34 @@ stories()
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton size="large" variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton size="small" variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton size="large" variant="outline" shape="circular">Aa</ToggleButton>
             </Inline>
             <Inline align="end">
-                <ToggleButton checked variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton active variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton focus variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton hover variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton focus hover variant="outline" circular>Aa</ToggleButton>
-                <ToggleButton disabled variant="outline" circular>Aa</ToggleButton>
+                <ToggleButton checked variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton active variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton focus variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton hover variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton focus hover variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton disabled variant="outline" shape="circular">Aa</ToggleButton>
+            </Inline>
+        </Stack>
+    )
+    .add("square outline", () =>
+        <Stack>
+            <Inline align="end">
+                <ToggleButton size="small" variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton size="large" variant="outline" shape="square">Aa</ToggleButton>
+            </Inline>
+            <Inline align="end">
+                <ToggleButton checked variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton active variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton focus variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton hover variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton focus hover variant="outline" shape="square">Aa</ToggleButton>
+                <ToggleButton disabled variant="outline" shape="square">Aa</ToggleButton>
             </Inline>
         </Stack>
     )

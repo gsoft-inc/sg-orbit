@@ -248,10 +248,10 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
     <Story name="toggle buttons">
         <RadioGroup direction="row">
             <ToggleButton value="none" variant="outline">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
-            <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
-            <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" circular>4+</ToggleButton>
+            <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
+            <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
+            <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
         </RadioGroup>
     </Story>
 </Preview>
@@ -272,14 +272,14 @@ Checkable components can be wrap on multiple lines.
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
             <RadioGroup wrap direction="row">
-                <ToggleButton value="1" variant="outline" circular>1</ToggleButton>
-                <ToggleButton value="2" variant="outline" circular>2</ToggleButton>
-                <ToggleButton value="3" variant="outline" circular>3</ToggleButton>
-                <ToggleButton value="4" variant="outline" circular>4</ToggleButton>
-                <ToggleButton value="5" variant="outline" circular>5</ToggleButton>
-                <ToggleButton value="6" variant="outline" circular>6</ToggleButton>
-                <ToggleButton value="7" variant="outline" circular>7</ToggleButton>
-                <ToggleButton value="8" variant="outline" circular>8</ToggleButton>
+                <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
+                <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
+                <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
+                <ToggleButton value="4" variant="outline" shape="circular">4</ToggleButton>
+                <ToggleButton value="5" variant="outline" shape="circular">5</ToggleButton>
+                <ToggleButton value="6" variant="outline" shape="circular">6</ToggleButton>
+                <ToggleButton value="7" variant="outline" shape="circular">7</ToggleButton>
+                <ToggleButton value="8" variant="outline" shape="circular">8</ToggleButton>
             </RadioGroup>
         </div>
     </Story>
@@ -303,21 +303,3 @@ A radio group can handle `value` state in controlled mode.
         <Radio>Mars</Radio>
     </RefLogger>
 </Story>
-
-## API
-
-To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the radio component, then call the API function.
-
-Here's an example for the `focus` function:
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <div onFocus={() => { ref.focus(); }}>
-            <Radio ref={ref} />
-        </div>
-    );
-}
-```

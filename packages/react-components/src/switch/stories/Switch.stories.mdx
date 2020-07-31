@@ -171,20 +171,3 @@ A switch can handle `checked` state in controlled mode.
     </RefLogger>
 </Story>
 
-## API
-
-To use an [API function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods), first get a [ref](https://reactjs.org/docs/refs-and-the-dom.html) on the text switch component, then call the API function.
-
-Here's an example for the `focus` function:
-
-```jsx dark
-function MyComponent() {
-    const ref = useRef();
-
-    return (
-        <div onFocus={() => { ref.focus(); }}>
-            <Switch ref={ref} />
-        </div>
-    );
-}
-

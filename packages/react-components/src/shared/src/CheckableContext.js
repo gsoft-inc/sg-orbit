@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { isUndefined } from "lodash";
-import { mergeProps } from "../../shared";
+import { mergeProps } from "./mergeProps";
 
 export const CheckableContext = createContext({});
 

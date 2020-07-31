@@ -169,18 +169,36 @@ export function createButtonTestSuite(element, stories) {
         .add("circular", () =>
             <Stack>
                 <Inline align="end">
-                    <Button circular size="mini" element={element}>Aa</Button>
-                    <Button circular size="tiny" element={element}>Aa</Button>
-                    <Button circular size="small" element={element}>Aa</Button>
-                    <Button circular element={element}>Aa</Button>
-                    <Button circular size="large" element={element}>Aa</Button>
+                    <Button shape="circular" size="mini" element={element}>Aa</Button>
+                    <Button shape="circular" size="tiny" element={element}>Aa</Button>
+                    <Button shape="circular" size="small" element={element}>Aa</Button>
+                    <Button shape="circular" element={element}>Aa</Button>
+                    <Button shape="circular" size="large" element={element}>Aa</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading circular size="mini" element={element}>Aa</Button>
-                    <Button loading circular size="tiny" element={element}>Aa</Button>
-                    <Button loading circular size="small" element={element}>Aa</Button>
-                    <Button loading circular element={element}>Aa</Button>
-                    <Button loading circular size="large" element={element}>Aa</Button>
+                    <Button loading shape="circular" size="mini" element={element}>Aa</Button>
+                    <Button loading shape="circular" size="tiny" element={element}>Aa</Button>
+                    <Button loading shape="circular" size="small" element={element}>Aa</Button>
+                    <Button loading shape="circular" element={element}>Aa</Button>
+                    <Button loading shape="circular" size="large" element={element}>Aa</Button>
+                </Inline>
+            </Stack>
+        )
+        .add("square", () =>
+            <Stack>
+                <Inline align="end">
+                    <Button shape="square" size="mini" element={element}>Aa</Button>
+                    <Button shape="square" size="tiny" element={element}>Aa</Button>
+                    <Button shape="square" size="small" element={element}>Aa</Button>
+                    <Button shape="square" element={element}>Aa</Button>
+                    <Button shape="square" size="large" element={element}>Aa</Button>
+                </Inline>
+                <Inline align="end">
+                    <Button loading shape="square" size="mini" element={element}>Aa</Button>
+                    <Button loading shape="square" size="tiny" element={element}>Aa</Button>
+                    <Button loading shape="square" size="small" element={element}>Aa</Button>
+                    <Button loading shape="square" element={element}>Aa</Button>
+                    <Button loading shape="square" size="large" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )
