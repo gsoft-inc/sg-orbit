@@ -100,8 +100,8 @@ stories()
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
     )
-    .add("direction", () =>
-        <CheckboxGroup direction="column">
+    .add("vertical", () =>
+        <CheckboxGroup orientation="vertical">
             <Checkbox value="1">1</Checkbox>
             <Checkbox value="2">2</Checkbox>
             <Checkbox value="3">3</Checkbox>

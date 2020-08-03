@@ -21,6 +21,7 @@ function CustomComponent({
         <Tag
             {...rest}
             as="button"
+            value={value}
             onClick={handleCheck}
             className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
             aria-checked={isChecked}
@@ -95,8 +96,15 @@ stories()
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
-    .add("direction", () =>
-        <RadioGroup direction="row">
+    .add("disabled radio", () =>
+        <RadioGroup>
+            <Radio disabled value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    )
+    .add("horizontal", () =>
+        <RadioGroup orientation="horizontal">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
@@ -104,7 +112,7 @@ stories()
     )
     .add("wrapped", () =>
         <div style={{ width: "130px" }}>
-            <RadioGroup wrap direction="row">
+            <RadioGroup wrap orientation="horizontal">
                 {
                     ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
                         <Radio style={{ width: "35px" }} value={x} key={x}>{x}</Radio>
@@ -114,14 +122,14 @@ stories()
         </div>
     )
     .add("toggle buttons", () =>
-        <RadioGroup direction="row" defaultValue="2">
+        <RadioGroup orientation="horizontal" defaultValue="2">
             <ToggleButton variant="outline" shape="circular" value="1">1</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="2">2</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="3">3</ToggleButton>
         </RadioGroup>
     )
     .add("custom components", () =>
-        <RadioGroup direction="row" defaultValue="2">
+        <RadioGroup orientation="horizontal" defaultValue="2">
             <CustomComponent value="1">1</CustomComponent>
             <CustomComponent value="2">2</CustomComponent>
             <CustomComponent value="3">3</CustomComponent>

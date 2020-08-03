@@ -166,16 +166,6 @@ export function InnerSelect(props) {
     // eslint-disable-next-line react/destructuring-assignment
     delete props["children"];
 
-    const setFocus = useCallback(() => {
-        if (!isNil(dropdownInnerRef.current)) {
-            if (search) {
-                dropdownInnerRef.current.querySelector("input.search").focus();
-            } else {
-                dropdownInnerRef.current.focus();
-            }
-        }
-    }, [search, dropdownInnerRef]);
-
     const handleOpen = useEventCallback((...args) => {
         setIsOpen(true);
 
@@ -228,7 +218,18 @@ export function InnerSelect(props) {
 
     useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
 
-    const autoFocusProps = useAutoFocus(autoFocus, !isNil(autoFocusDelay) ? autoFocusDelay : 5, disabled, setFocus);
+    const setFocusWhenSearch = useCallback(() => {
+        if (!isNil(dropdownInnerRef.current)) {
+            if (search) {
+                dropdownInnerRef.current.querySelector("input.search").focus();
+            }
+        }
+    }, [search, dropdownInnerRef]);
+
+    useAutoFocus(dropdownInnerRef, autoFocus, {
+        delay: !isNil(autoFocusDelay) ? autoFocusDelay : 5,
+        setFocusWhenSearch
+    });
 
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 
@@ -251,7 +252,6 @@ export function InnerSelect(props) {
                     <MonkeyPatchSemanticDropdown
                         data-testid="dropdown"
                         {...rest}
-                        {...autoFocusProps}
                         options={options}
                         selectOnBlur={false}
                         selectOnNavigation={false}

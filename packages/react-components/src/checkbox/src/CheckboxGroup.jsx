@@ -3,6 +3,7 @@ import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { useToolbarProps } from "../../toolbar/src/ToolbarContext";
 
 const propTypes = {
     /**
@@ -21,9 +22,9 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Flex direction to display the children.
+     * Orientation of the children.
      */
-    direction: oneOf(["row", "column"]),
+    orientation: oneOf(["horizontal", "vertical"]),
     /**
      * Whether or not elements are forced onto one line or can wrap onto multiple lines
      */
@@ -71,18 +72,21 @@ function arrayToggleValue(array, value) {
     return [...array, value];
 }
 
-export function InnerCheckboxGroup({
-    value,
-    defaultValue,
-    onChange,
-    wrap,
-    size,
-    disabled,
-    readOnly,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerCheckboxGroup(props) {
+    const {
+        value,
+        defaultValue,
+        onChange,
+        orientation,
+        wrap,
+        size,
+        disabled,
+        readOnly,
+        children,
+        forwardedRef,
+        ...rest
+    } = useToolbarProps(props, { addNavigationMode: false });
+
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
     const handleCheck = useEventCallback((event, newValue) => {
@@ -102,6 +106,7 @@ export function InnerCheckboxGroup({
     return (
         <Flex
             {...rest}
+            direction={orientation === "vertical" ? "column" : "row"}
             alignItems="start"
             gap={2}
             wrap={!isNil(wrap) ? "wrap" : undefined}

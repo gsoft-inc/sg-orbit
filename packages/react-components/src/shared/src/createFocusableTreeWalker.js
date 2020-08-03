@@ -1,3 +1,5 @@
+// Tree walker code have been copied from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/focus/src/FocusScope.tsx.
+
 import { isNil } from "lodash";
 
 const FOCUSABLE_ELEMENT = [
@@ -16,9 +18,13 @@ const FOCUSABLE_ELEMENT = [
     "[contenteditable]"
 ];
 
-const FOCUSABLE_ELEMENT_SELECTOR = FOCUSABLE_ELEMENT.join(",") + ",[tabindex]";
+export const FOCUSABLE_ELEMENT_SELECTOR = [...FOCUSABLE_ELEMENT, "[tabindex]"].join(",");
 
-export function createFocusableTreeWalker(root, from) {
+export const TABBABLE_ELEMENT_SELECTOR = [...FOCUSABLE_ELEMENT, "[tabindex]:not([tabindex=\"-1\"])"].join(":not([tabindex=\"-1\"]),");
+
+export function createFocusableTreeWalker(root, from, { tabblable } = {}) {
+    const selector = tabblable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
+
     const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
@@ -31,7 +37,7 @@ export function createFocusableTreeWalker(root, from) {
                     }
                 }
 
-                if (node.matches(FOCUSABLE_ELEMENT_SELECTOR)) {
+                if (node.matches(selector)) {
                     return NodeFilter.FILTER_ACCEPT;
                 }
 
@@ -48,10 +54,15 @@ export function createFocusableTreeWalker(root, from) {
     return walker;
 }
 
-export function createNavigationTreeWalker(root, from) {
-    const walker = createFocusableTreeWalker(root, from);
+export function createNavigationTreeWalker(root, from, options) {
+    const walker = createFocusableTreeWalker(root, from, options);
 
     return {
+        first: () => {
+            walker.currentNode = root;
+
+            return walker.firstChild();
+        },
         next: () => {
             let element = walker.nextNode();
 
@@ -73,18 +84,41 @@ export function createNavigationTreeWalker(root, from) {
             }
 
             return element;
+        },
+        last: () => {
+            walker.currentNode = root;
+
+            return walker.lastChild();
         }
     };
 }
 
-export function getNextNavigableElement(root, currentElement) {
-    const walker = createNavigationTreeWalker(root, currentElement);
+export function getNextNavigableElement(root, currentElement, options) {
+    const walker = createNavigationTreeWalker(root, currentElement, options);
 
     return walker.next();
 }
 
-export function getPreviousNavigableElement(root, currentElement) {
-    const walker = createNavigationTreeWalker(root, currentElement);
+export function getPreviousNavigableElement(root, currentElement, options) {
+    const walker = createNavigationTreeWalker(root, currentElement, options);
 
     return walker.previous();
+}
+
+export function getFirstNavigableElement(root, options) {
+    const walker = createNavigationTreeWalker(root, options);
+
+    return walker.first();
+}
+
+export function getLastNavigableElement(root, options) {
+    const walker = createNavigationTreeWalker(root, options);
+
+    return walker.last();
+}
+
+export function walkAllFocusableElements(root, onElement, { tabblable } = {}) {
+    const selector = tabblable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
+
+    root.querySelectorAll(selector).forEach(onElement);
 }

@@ -1,18 +1,10 @@
 import "./TextInput.css";
 
 import { EmbeddedIcon } from "../../icons";
-import {
-    augmentElement,
-    getSizeClass,
-    mergeClasses,
-    useAutoFocus,
-    useChainedEventCallback,
-    useControllableState,
-    useMergedRefs
-} from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { embedButton } from "../../button";
-import { forwardRef, useCallback } from "react";
+import { forwardRef } from "react";
+import { getSizeClass, mergeClasses, useAutoFocus, useChainedEventCallback, useControllableState, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -130,13 +122,7 @@ export function InnerTextInput({
 
     const inputRef = useMergedRefs(forwardedRef);
 
-    const setFocus = useCallback(() => {
-        if (!isNil(inputRef.current)) {
-            inputRef.current.focus();
-        }
-    }, [inputRef]);
-
-    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
 
     const handleChange = useChainedEventCallback(onChange, event => {
         setValue(event.target.value);
@@ -186,7 +172,6 @@ export function InnerTextInput({
                 {iconLeftMarkup}
                 <input
                     {...rest}
-                    {...autoFocusProps}
                     value={inputValue}
                     placeholder={placeholder}
                     onChange={handleChange}

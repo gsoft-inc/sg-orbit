@@ -1,16 +1,15 @@
-import { isNil } from "lodash";
-import { useEffect } from "react";
+import { TABBABLE_ELEMENT_SELECTOR } from "./createFocusableTreeWalker";
+import { isFunction, isNil } from "lodash";
+import { useCallback, useEffect } from "react";
 
-function useDelayedAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus) {
+function useAbstractAutoFocus(targetRef, isActive, onFocus, { delay = 0 } = {}) {
     useEffect(() => {
         let timeoutId;
 
-        if (!disabled) {
-            if (autoFocus && !isNil(autoFocusDelay)) {
-                timeoutId = setTimeout(() => {
-                    onFocus();
-                }, autoFocusDelay);
-            }
+        if (isActive && !targetRef.current.disabled) {
+            timeoutId = setTimeout(() => {
+                onFocus();
+            }, delay);
         }
 
         return () => {
@@ -18,13 +17,37 @@ function useDelayedAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [autoFocus, autoFocusDelay, disabled, onFocus]);
+    }, [targetRef, isActive, onFocus, delay]);
 }
 
-export function useAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus) {
-    useDelayedAutoFocus(autoFocus, autoFocusDelay, disabled, onFocus);
+export function useAutoFocus(targetRef, isActive, { delay, onFocus } = {}) {
+    const handleFocus = useCallback(() => {
+        if (!isNil(targetRef.current)) {
+            targetRef.current.focus();
 
-    return {
-        autoFocus: !disabled && autoFocus && isNil(autoFocusDelay)
-    };
+            if (isFunction(onFocus)) {
+                onFocus();
+            }
+        }
+    }, [targetRef, onFocus]);
+
+    useAbstractAutoFocus(targetRef, isActive, handleFocus, { delay });
+}
+
+export function useAutoFocusFirstTabbableElement(rootRef, isActive, { delay = 0, onFocus } = {}) {
+    const handleFocus = useCallback(() => {
+        if (!isNil(rootRef.current)) {
+            const element = rootRef.current.querySelector(TABBABLE_ELEMENT_SELECTOR);
+
+            if (!isNil(element)) {
+                element.focus();
+            }
+
+            if (isFunction(onFocus)) {
+                onFocus();
+            }
+        }
+    }, [rootRef, onFocus]);
+
+    useAbstractAutoFocus(rootRef, isActive, handleFocus, { delay });
 }

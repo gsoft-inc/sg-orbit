@@ -1,4 +1,14 @@
-const API_METHODS = ["blur", "focus", "click", "select", "setRangeText", "setSelectionRange", "checkValidity", "reportValidity", "setCustomValidity"];
+const API_METHODS = [
+    "blur",
+    "focus",
+    "click",
+    "select",
+    "setRangeText",
+    "setSelectionRange",
+    "checkValidity",
+    "reportValidity",
+    "setCustomValidity"
+];
 
 export function useForwardInputApi(inputRef) {
     return targetRef => {

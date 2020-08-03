@@ -20,7 +20,7 @@ const propTypes = {
     /**
      * The button shape.
      */
-    shape: oneOf(["rounded", "circular", "pill"]),
+    shape: oneOf(["pill", "rounded", "circular"]),
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */

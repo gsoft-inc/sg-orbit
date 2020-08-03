@@ -1,6 +1,6 @@
 import { getSizeClass, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
-import { useCallback, useImperativeHandle, useLayoutEffect, useRef } from "react";
+import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
     checked,
@@ -34,13 +34,7 @@ export function useCheckbox({
     const wrapperRef = useRef();
     const inputRef = useRef();
 
-    const setFocus = useCallback(() => {
-        if (!isNil(inputRef.current)) {
-            inputRef.current.focus();
-        }
-    }, [inputRef]);
-
-    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -84,7 +78,6 @@ export function useCheckbox({
             ref: wrapperRef
         },
         inputProps: {
-            ...autoFocusProps,
             as: "input",
             type: "checkbox",
             checked: !readOnly ? isChecked : undefined,

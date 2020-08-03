@@ -2,18 +2,32 @@ import {
     CheckableContext,
     KEYS,
     augmentElement,
-    getNextNavigableElement,
-    getPreviousNavigableElement,
-    useAutoFocus,
+    useArrowNavigation,
+    useAutoFocusFirstTabbableElement,
     useControllableState,
     useEventCallback,
     useId,
-    useMergedRefs
+    useMergedRefs,
+    useRovingFocus
 } from "../../shared";
-import { Children, forwardRef, useCallback, useLayoutEffect } from "react";
+import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { useToolbarProps } from "../../toolbar/src/ToolbarContext";
+
+const ARROW_NAV_KEY_BINDING = {
+    "default": {
+        previous: [KEYS.left, KEYS.up],
+        next: [KEYS.right, KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    },
+    "toolbar": {
+        previous: [KEYS.up],
+        next: [KEYS.down]
+    }
+};
 
 const propTypes = {
     /**
@@ -44,16 +58,16 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-   * Flex direction to display the children.
-   */
-    direction: oneOf(["row", "column"]),
+     * Orientation of the children.
+     */
+    orientation: oneOf(["horizontal", "vertical"]),
     /**
      * Whether or not elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-   * Children size.
-   */
+     * Children size.
+     */
     size: oneOf(["small", "medium", "large"]),
     /**
      * Whether or not the radio group is disabled.
@@ -74,90 +88,40 @@ const propTypes = {
 };
 
 const defaultProps = {
-    direction: "column",
     as: "div"
 };
 
-function useKeyboardNavigation(setCheckedValue) {
-    const setElement = element => {
-        if (isFunction(element.focus)) {
-            element.focus();
-        }
+export function InnerRadioGroup(props) {
+    const {
+        value,
+        defaultValue,
+        name,
+        onChange,
+        autoFocus,
+        autoFocusDelay,
+        orientation,
+        wrap,
+        size,
+        disabled,
+        readOnly,
+        navigationMode,
+        children,
+        forwardedRef,
+        ...rest
+    } = useToolbarProps(props);
 
-        setCheckedValue(element.value);
-    };
-
-    const handleKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case KEYS.down:
-            case KEYS.right:
-                event.preventDefault();
-                setElement(getNextNavigableElement(event.currentTarget, event.target));
-                break;
-            case KEYS.up:
-            case KEYS.left:
-                event.preventDefault();
-                setElement(getPreviousNavigableElement(event.currentTarget, event.target));
-                break;
-        }
-    });
-
-    return {
-        onKeyDown: handleKeyDown
-    };
-}
-
-function useGroupAutoFocus(autoFocus, autoFocusDelay, disabled, ref) {
-    const setFocus = useCallback(() => {
-        if (!isNil(ref.current)) {
-            const inputs = ref.current.querySelectorAll("input[tabIndex=\"0\"]");
-
-            if (inputs.length > 0) {
-                inputs[0].focus();
-            }
-        }
-    }, [ref]);
-
-    useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
-
-    useLayoutEffect(() => {
-        if (!disabled && autoFocus) {
-            setFocus();
-        }
-    }, [autoFocus, disabled, setFocus]);
-}
-
-export function InnerRadioGroup({
-    value,
-    defaultValue,
-    name,
-    onChange,
-    autoFocus,
-    autoFocusDelay,
-    wrap,
-    size,
-    disabled,
-    readOnly,
-    children,
-    forwardedRef,
-    ...rest
-}) {
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
     const ref = useMergedRefs(forwardedRef);
 
-    const navigationProps = useKeyboardNavigation(setCheckedValue);
+    useRovingFocus(ref, checkedValue, { keyProp: "value" });
+    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    useGroupAutoFocus(autoFocus, autoFocusDelay, disabled, ref);
+    const handleArrowSelect = useEventCallback((event, element) => {
+        setCheckedValue(element.value);
+    });
 
-    // https://www.w3.org/TR/wai-aria-practices-1.1/examples/radio/radio-1/radio-1.html
-    const getRovingTabIndex = (props, index) => {
-        if (isNil(checkedValue)) {
-            return index === 0 ? "0" : "-1";
-        }
-
-        return !disabled && !props.disabled && checkedValue === props.value ? "0" : "-1";
-    };
+    const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], navigationMode !== "toolbar" ? handleArrowSelect : undefined);
 
     const handleCheck = useEventCallback((event, newValue) => {
         setCheckedValue(newValue);
@@ -177,12 +141,14 @@ export function InnerRadioGroup({
         <Flex
             {...rest}
             {...navigationProps}
+            direction={orientation === "horizontal" ? "row" : "column"}
             alignItems="start"
             gap={2}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             role="radiogroup"
             aria-readonly={readOnly}
             aria-disabled={disabled}
+            aria-orientation={orientation}
             ref={ref}
         >
             <CheckableContext.Provider
@@ -191,13 +157,12 @@ export function InnerRadioGroup({
                     checkedValue
                 }}
             >
-                {Children.map(items, (x, index) => {
+                {Children.map(items, x => {
                     return augmentElement(x, {
                         name: groupName,
                         size,
                         disabled,
                         readOnly,
-                        tabIndex: getRovingTabIndex(x.props, index),
                         role: "radio"
                     });
                 })}

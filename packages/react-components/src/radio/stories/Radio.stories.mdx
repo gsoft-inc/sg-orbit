@@ -3,7 +3,6 @@ import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
-import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -186,13 +185,13 @@ Or the whole group.
     </Story>
 </Preview>
 
-### Direction
+### Orientation
 
-A radio group can change is direction to `row` to render his elements horizontally.
+A radio group can change is orientation to `horizontal` to render his elements horizontally.
 
 <Preview>
-    <Story name="direction">
-        <RadioGroup direction="row">
+    <Story name="orientation">
+        <RadioGroup orientation="horizontal">
             <Radio value="mars" >Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
@@ -246,7 +245,7 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
 
 <Preview>
     <Story name="toggle buttons">
-        <RadioGroup direction="row">
+        <RadioGroup orientation="horizontal">
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
             <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
@@ -271,7 +270,7 @@ Checkable components can be wrap on multiple lines.
 <Preview>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
-            <RadioGroup wrap direction="row">
+            <RadioGroup wrap orientation="horizontal">
                 <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
                 <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
                 <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>

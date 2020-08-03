@@ -28,6 +28,8 @@ export * from "./useChainedEventCallback";
 export * from "./useControllableState";
 export * from "./useForwardInputApi";
 export * from "./useId";
+export * from "./useArrowNavigation";
+export * from "./useRovingFocus";
 
 // Contexts
 export * from "./CheckableContext";

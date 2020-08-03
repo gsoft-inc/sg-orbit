@@ -2,7 +2,6 @@ import { SemanticRef, mergeClasses, useAutoFocus, useMergedRefs } from "../../sh
 import { TextArea as SemanticTextArea } from "semantic-ui-react";
 import { bool, number, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -26,7 +25,7 @@ const propTypes = {
     */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Whether or not the textarea take up the width of its container
+     * Whether or not the textarea take up the width of its container.
      */
     fluid: bool,
     /**
@@ -48,20 +47,13 @@ export function InnerTextArea(props) {
 
     const innerRef = useMergedRefs(forwardedRef);
 
-    const setFocus = () => {
-        if (!isNil(innerRef.current)) {
-            innerRef.current.focus();
-        }
-    };
-
-    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+    useAutoFocus(innerRef, autoFocus, { delay: autoFocusDelay });
 
     return (
         <SemanticRef innerRef={innerRef}>
             <SemanticTextArea
                 data-testid="textarea"
                 {...rest}
-                {...autoFocusProps}
                 disabled={disabled}
                 className={mergeClasses(
                     "ui textarea",

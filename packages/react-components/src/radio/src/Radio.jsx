@@ -4,7 +4,7 @@ import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isFunction, isNil } from "lodash";
 
@@ -92,13 +92,7 @@ export function InnerRadio(props) {
     const labelRef = useRef();
     const inputRef = useRef();
 
-    const setFocus = useCallback(() => {
-        if (!isNil(labelRef.current)) {
-            labelRef.current.focus();
-        }
-    }, [labelRef]);
-
-    const autoFocusProps = useAutoFocus(autoFocus, autoFocusDelay, disabled, setFocus);
+    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -165,7 +159,6 @@ export function InnerRadio(props) {
             ref={labelRef}
         >
             <VisuallyHidden
-                {...autoFocusProps}
                 as="input"
                 type="radio"
                 value={value}
