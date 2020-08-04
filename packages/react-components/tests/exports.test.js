@@ -2,9 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const IGNORE_LIST = [
-    "dropdown",
-    "input",
-    "layout"
+    "dropdown"
 ];
 
 const indexJs = fs.readFileSync(path.resolve(__dirname, "../src/index.js"), "utf-8");

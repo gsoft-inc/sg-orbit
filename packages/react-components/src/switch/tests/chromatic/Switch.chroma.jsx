@@ -25,7 +25,4 @@ stories()
     )
     .add("autofocus with delay", () =>
         <Switch autoFocus autoFocusDelay={50}>Engines</Switch>
-    )
-    .add("when disabled do not autofocus with delay", () =>
-        <Switch disabled autoFocus autoFocusDelay={50}>Engines</Switch>
     );

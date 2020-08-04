@@ -25,7 +25,4 @@ stories()
     )
     .add("autofocus with delay", () =>
         <TextInput autoFocus autoFocusDelay={50} />
-    )
-    .add("when disabled do not autofocus with delay", () =>
-        <TextInput disabled autoFocus autoFocusDelay={50} />
     );

@@ -133,6 +133,36 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
+    .add("disabled", () =>
+        <Toolbar disabled align="center">
+            <CheckboxGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <ToggleButton fluid>Turn On</ToggleButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Toolbar>
+    )
+    .add("readonly", () =>
+        <Toolbar readOnly autoFocus align="center">
+            <CheckboxGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <ToggleButton fluid>Turn On</ToggleButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Toolbar>
+    )
     .add("gap", () =>
         <Toolbar gap={13} align="center">
             <CheckboxGroup>
@@ -171,6 +201,23 @@ stories()
     )
     .add("autofocus", () =>
         <Toolbar autoFocus align="center">
+            <CheckboxGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <ToggleIconButton shape="circular">
+                <NotificationIcon />
+            </ToggleIconButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Toolbar>
+    )
+    .add("when disabled do not autofocus", () =>
+        <Toolbar disabled autoFocus align="center">
             <CheckboxGroup>
                 <ToggleButton value="1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>

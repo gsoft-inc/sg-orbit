@@ -21,4 +21,5 @@ export * from "./lozenge";
 export * from "./visually-hidden";
 export * from "./text";
 export * from "./toolbar";
+export * from "./layout";
 export * from "./shared";

@@ -6,14 +6,11 @@ export * from "./types";
 export * from "./semantic-ui";
 export * from "./resize-observer";
 
-// Enums
+// Utils
 export * from "./keys";
 export * from "./size";
-
-// Utils
 export * from "./mergeProps";
 export * from "./mergeClasses";
-export * from "./getSizeClass";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createFocusableTreeWalker";

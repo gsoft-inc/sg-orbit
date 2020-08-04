@@ -13,7 +13,7 @@ export function assignRef(ref, node) {
 
 export function mergeRefs(...refs) {
     const mergedRef = current => {
-        // Support using the returned callback function has a ref.
+        // Resulting callback function can be used has a ref.
         mergedRef.current = current;
 
         refs.forEach(ref => {

@@ -1,6 +1,6 @@
 import { Children, forwardRef, useRef } from "react";
 import { Flex } from "../../layout";
-import { KEYS, augmentElement, mergeClasses, useArrowNavigation, useAutoFocusFirstTabbableElement, useRovingFocus } from "../../shared";
+import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -50,6 +50,14 @@ const propTypes = {
      */
     fluid: bool,
     /**
+     * Whether or not the radio group is disabled.
+     */
+    disabled: bool,
+    /**
+     * Whether or not the radio group is read only.
+     */
+    readOnly: bool,
+    /**
    * An HTML element type or a custom React element type to render as.
    */
     as: oneOfType([string, elementType]),
@@ -73,8 +81,8 @@ export function InnerToolbar({
     orientation,
     wrap,
     size,
-    fluid,
-    className,
+    disabled,
+    readOnly,
     children,
     ...rest
 }) {
@@ -95,11 +103,6 @@ export function InnerToolbar({
             justifyContent={justify}
             direction={orientation === "vertical" ? "column" : "row"}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            className={mergeClasses(
-                "o-ui toolbar",
-                fluid && "fluid",
-                className
-            )}
             aria-orientation={orientation}
             ref={ref}
         >
@@ -110,7 +113,9 @@ export function InnerToolbar({
             >
                 {Children.map(children, x => {
                     return x && augmentElement(x, {
-                        size
+                        size,
+                        disabled,
+                        readOnly
                     });
                 })}
             </ToolbarContext.Provider>

@@ -36,7 +36,4 @@ stories()
     )
     .add("autofocus with delay", () =>
         <IconButton autoFocus autoFocusDelay={50}><AddIcon /></IconButton>
-    )
-    .add("when disabled do not autofocus with delay", () =>
-        <IconButton disabled autoFocus autoFocusDelay={50}><AddIcon /></IconButton>
     );

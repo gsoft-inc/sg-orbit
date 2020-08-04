@@ -171,12 +171,5 @@ stories()
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    )
-    .add("when disabled do not autofocus with delay", () =>
-        <RadioGroup autoFocus autoFocusDelay={50} disabled defaultValue="2">
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
     );
 

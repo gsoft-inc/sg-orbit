@@ -34,7 +34,7 @@ export function useAutoFocus(targetRef, isActive, { delay, onFocus } = {}) {
     useAbstractAutoFocus(targetRef, isActive, handleFocus, { delay });
 }
 
-export function useAutoFocusFirstTabbableElement(rootRef, isActive, { delay = 0, onFocus } = {}) {
+export function useAutoFocusFirstTabbableElement(rootRef, isActive, { delay, onFocus } = {}) {
     const handleFocus = useCallback(() => {
         if (!isNil(rootRef.current)) {
             const element = rootRef.current.querySelector(TABBABLE_ELEMENT_SELECTOR);

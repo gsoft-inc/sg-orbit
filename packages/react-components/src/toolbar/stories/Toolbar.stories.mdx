@@ -1,0 +1,209 @@
+import { CheckboxGroup } from "@react-components/checkbox";
+import { IconGroup, LightbulbIcon } from "@react-components/icons";
+import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
+import { InnerToolbar, Toolbar } from "@react-components/toolbar";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { NumberInput } from "@react-components/number-input";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { TextInput } from "@react-components/text-input";
+import { ToggleButton } from "@react-components/button";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Toolbar")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/toolbar/src" />)
+        .build()}
+/>
+
+# Toolbar
+
+A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Toolbar", component: InnerToolbar }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default toolbar.
+
+<Preview>
+    <Story name="default">
+        <Toolbar align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Disabled
+
+A toolbar control can be disabled.
+
+<Preview>
+    <Story name="disabled control">
+        <Toolbar align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup disabled>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+Or all the controls.
+
+<Preview>
+    <Story name="disabled toolbar">
+        <Toolbar disabled align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Readonly
+
+A toolbar control can be readonly.
+
+<Preview>
+    <Story name="readonly control">
+        <Toolbar align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup readOnly>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+Or all the controls.
+
+<Preview>
+    <Story name="readonly group">
+        <Toolbar readOnly align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Gap
+
+The gap between a toolbar controls can be configured.
+
+<Preview>
+    <Story name="gap">
+        <Toolbar gap={9} align="center">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Orientation
+
+A toolbar can change is orientation to `vertical` to render his controls horizontally.
+
+<Preview>
+    <Story name="orientation">
+        <Toolbar orientation="vertical" align="start">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Wrapped
+
+Toolbar controls can be wrap on multiple lines.
+
+<Preview>
+    <Story name="wrap">
+        <div style={{ width: "700px" }}>
+            <Toolbar wrap align="center">
+                <TextInput placeholder="Destination" />
+                <RadioGroup>
+                    <Radio value="roscosmos">Roscosmos</Radio>
+                    <Radio value="nasa">NASA</Radio>
+                </RadioGroup>
+                <CheckboxGroup>
+                    <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                    <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+                </CheckboxGroup>
+            </Toolbar>
+        </div>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Toolbar>
+            <TextInput placeholder="Destination" />
+        </Toolbar>
+    </RefLogger>
+</Story>
+
+
