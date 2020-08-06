@@ -1,4 +1,4 @@
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTextInputTestSuite } from "./createTextInputTestSuite";
 

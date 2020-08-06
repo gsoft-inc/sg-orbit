@@ -30,7 +30,7 @@ function CustomComponent({
 
 export function CustomGroup() {
     return (
-        <RadioGroup orientation="horizontal">
+        <RadioGroup gap={2} orientation="horizontal">
             <CustomComponent value="mars">Mars</CustomComponent>
             <CustomComponent value="jupiter">Jupiter</CustomComponent>
             <CustomComponent value="pluton">Pluton</CustomComponent>

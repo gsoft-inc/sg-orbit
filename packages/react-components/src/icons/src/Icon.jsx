@@ -1,20 +1,10 @@
+import "./Icon.css";
+
 import { SIZE, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
-
-const DIMENSION_CLASSES = {
-    [SIZE.micro]: "w2 h2",
-    [SIZE.mini]: "w3 h3",
-    [SIZE.tiny]: "w4 h4",
-    [SIZE.small]: "w5 h5",
-    [SIZE.medium]: "w6 h6",
-    [SIZE.large]: "w7 h7",
-    [SIZE.big]: "w8 h8",
-    [SIZE.huge]: "w9 h9",
-    [SIZE.massive]: "w10 h10"
-};
 
 export function InnerIcon(props) {
     const {
@@ -29,10 +19,12 @@ export function InnerIcon(props) {
         <ComponentType
             {...rest}
             className={mergeClasses(
-                "icon",
-                className,
-                DIMENSION_CLASSES[size || SIZE.medium]
+                "o-ui icon",
+                size || SIZE.medium,
+                className
             )}
+            focusable="false"
+            aria-hidden="true"
             ref={forwardedRef}
         />
     );

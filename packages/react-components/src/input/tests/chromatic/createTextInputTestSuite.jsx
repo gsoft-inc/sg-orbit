@@ -55,6 +55,24 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
+        .add("label", () =>
+            <Stack>
+                <Inline align="end">
+                    <TextInput size="small" label="Where to?" element={element} />
+                    <TextInput label="Where to?" element={element} />
+                    <TextInput size="large" label="Where to?" element={element} />
+                </Inline>
+                <div>
+                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} element={element} />
+                </div>
+                <div>
+                    <TextInput fluid label="Where to?" element={element}></TextInput>
+                </div>
+                <div className="w-10">
+                    <TextInput fluid label="Where to?" element={element}></TextInput>
+                </div>
+            </Stack>
+        )
         .add("value", () =>
             <Stack>
                 <Inline align="end">
@@ -133,12 +151,24 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("error", () =>
-            <Inline align="end">
-                <TextInput color="error" size="small" placeholder="Where to?" element={element} />
-                <TextInput color="error" placeholder="Where to?" element={element} />
-                <TextInput color="error" size="large" placeholder="Where to?" element={element} />
-            </Inline>
+        .add("message", () =>
+            <Stack>
+                <Inline align="end">
+                    <TextInput help="Enter your final destination." size="small" placeholder="Where to?" element={element} />
+                    <TextInput help="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextInput help="Enter your final destination." size="large" placeholder="Where to?" element={element} />
+                </Inline>
+                <Inline>
+                    <TextInput help="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
+                    <TextInput help="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
+                </Inline>
+                <div>
+                    <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                </div>
+                <div className="w10">
+                    <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                </div>
+            </Stack>
         )
         .add("states", () =>
             <Stack>
@@ -146,25 +176,25 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput active size="small" placeholder="Where to?" element={element} />
                     <TextInput active placeholder="Where to?" element={element} />
                     <TextInput active size="large" placeholder="Where to?" element={element} />
-                    <TextInput loading active size="large" placeholder="Where to?" element={element} />
+                    <TextInput loading active placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
                     <TextInput focus size="small" placeholder="Where to?" element={element} />
                     <TextInput focus placeholder="Where to?" element={element} />
                     <TextInput focus size="large" placeholder="Where to?" element={element} />
-                    <TextInput loading focus size="large" placeholder="Where to?" element={element} />
+                    <TextInput loading focus placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
                     <TextInput hover size="small" placeholder="Where to?" element={element} />
                     <TextInput hover placeholder="Where to?" element={element} />
                     <TextInput hover size="large" placeholder="Where to?" element={element} />
-                    <TextInput loading hover size="large" placeholder="Where to?" element={element} />
+                    <TextInput loading hover placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
                     <TextInput focus hover size="small" placeholder="Where to?" element={element} />
                     <TextInput focus hover placeholder="Where to?" element={element} />
                     <TextInput focus hover size="large" placeholder="Where to?" element={element} />
-                    <TextInput loading focus hover size="large" placeholder="Where to?" element={element} />
+                    <TextInput loading focus hover placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
                     <TextInput disabled size="small" placeholder="Where to?" element={element} />

@@ -104,7 +104,26 @@ stories()
         </RadioGroup>
     )
     .add("horizontal", () =>
-        <RadioGroup orientation="horizontal">
+        <Stack>
+            <RadioGroup size="small" orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup size="large" orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Stack>
+    )
+    .add("gap", () =>
+        <RadioGroup gap={13}>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
@@ -122,14 +141,14 @@ stories()
         </div>
     )
     .add("toggle buttons", () =>
-        <RadioGroup orientation="horizontal" defaultValue="2">
+        <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
             <ToggleButton variant="outline" shape="circular" value="1">1</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="2">2</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="3">3</ToggleButton>
         </RadioGroup>
     )
     .add("custom components", () =>
-        <RadioGroup orientation="horizontal" defaultValue="2">
+        <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
             <CustomComponent value="1">1</CustomComponent>
             <CustomComponent value="2">2</CustomComponent>
             <CustomComponent value="3">3</CustomComponent>

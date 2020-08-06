@@ -30,7 +30,7 @@ function CustomComponent({
 
 export function CustomGroup() {
     return (
-        <CheckboxGroup>
+        <CheckboxGroup gap={2}>
             <CustomComponent value="milky-way">Milky Way</CustomComponent>
             <CustomComponent value="andromeda">Andromeda</CustomComponent>
             <CustomComponent value="medusa">Medusa</CustomComponent>

@@ -1,18 +1,18 @@
-import { ControlledTextInput } from "./ControlledTextInput.sample";
 import { CrossIcon, MagnifierIcon } from "@react-components/icons";
+import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
-import { InnerTextInput, PasswordInput, TextInput } from "@react-components/text-input";
+import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import Imports from "./Imports.mdx";
+import Imports from "./TextInputImports.mdx";
 
 <Meta
     title={createComponentSection("TextInput")}
     parameters={paramsBuilder()
         .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text-input/src" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
         .build()}
 />
 
@@ -29,7 +29,7 @@ A text input allow a user to enter and edit a text.
 <Props
     componentsDefinitions={[
         { displayName: "TextInput", component: InnerTextInput },
-        { displayName: "PasswordInput", component: PasswordInput }
+        { displayName: "PasswordInput", component: InnerPasswordInput }
     ]}
 />
 
@@ -41,7 +41,20 @@ A default text input.
 
 <Preview>
     <Story name="default">
-        <TextInput />
+        <TextInput placeholder="Where to?" />
+    </Story>
+</Preview>
+
+### Label
+
+A text input can be identified by a label.
+
+<Preview>
+    <Story name="label">
+        <Inline>
+            <TextInput label="Where to?" />
+            <TextInput label="Where to?" required />
+        </Inline>
     </Story>
 </Preview>
 
@@ -51,7 +64,7 @@ A text input can have a value.
 
 <Preview>
     <Story name="value">
-        <TextInput defaultValue="Deep space" />
+        <TextInput defaultValue="Deep space" placeholder="Where to?" />
     </Story>
 </Preview>
 
@@ -62,8 +75,8 @@ A text input can contain left or right [icons](?path=/docs/materials-icons--page
 <Preview>
     <Story name="icon">
         <Inline>
-            <TextInput iconLeft={<MagnifierIcon />} placeholder="Search..." />
-            <TextInput iconRight={<MagnifierIcon />} placeholder="Search..." />
+            <TextInput iconLeft={<MagnifierIcon />} placeholder="Where to?" />
+            <TextInput iconRight={<MagnifierIcon />} placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>
@@ -75,7 +88,7 @@ A text input can contain a [button](?path=/docs/components-button--default-story
 <Preview>
     <Story name="button">
         <Inline>
-            <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Search..." />
+            <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>
@@ -89,9 +102,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <TextInput size="small" fluid placeholder="Search..." />
-            <TextInput fluid placeholder="Search..." />
-            <TextInput size="large" fluid placeholder="Search..." />
+            <TextInput size="small" fluid placeholder="Where to?" />
+            <TextInput fluid placeholder="Where to?" />
+            <TextInput size="large" fluid placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>
@@ -102,7 +115,7 @@ A text input can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <TextInput disabled placeholder="Search..." />
+        <TextInput disabled placeholder="Where to?" />
     </Story>
 </Preview>
 
@@ -122,7 +135,7 @@ A text input can show that it is currently loading data.
 
 <Preview>
     <Story name="loading">
-        <TextInput loading placeholder="Search..." />
+        <TextInput loading />
     </Story>
 </Preview>
 
@@ -132,28 +145,21 @@ A text input can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <TextInput fluid placeholder="Search..." />
+        <TextInput fluid placeholder="Where to?" />
     </Story>
 </Preview>
 
-### Label
+### Message
 
-A text input can take a label.
-
-<Preview>
-    <Story name="label">
-        <TextInput label="Your name" placeholder="Search..." />
-    </Story>
-</Preview>
-
-
-### Color
-
-A text input can use a different color accent.
+A message can be displayed beneath a text input.
 
 <Preview>
-    <Story name="error">
-        <TextInput color="error" placeholder="Search..." />
+    <Story name="help">
+        <Inline>
+            <TextInput help="Your space id is a 9-digit number on the top right corner of your membership card." label="Space ID" placeholder="999-999-999" />
+            <TextInput invalidMessage="Invalid space id." validationState="invalid" label="Space ID" placeholder="999-999-999" />
+            <TextInput validMessage="Have a safe flight!" validationState="valid" label="Space ID" placeholder="999-999-999" />
+        </Inline>
     </Story>
 </Preview>
 
@@ -163,16 +169,18 @@ A text input can be transparent.
 
 <Preview>
     <Story name="transparent">
-        <TextInput variant="transparent" placeholder="Search..." />
+        <TextInput variant="transparent" placeholder="Where to?" />
     </Story>
 </Preview>
 
-### Controlled
+### Validation
 
-A text input can handle `value` in controlled mode.
+A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the text input via the `validationState` prop.
 
-<FilePreview filePath="/text-input/stories/ControlledTextInput">
-    <ControlledTextInput />
+The example below illustrates how one would validate if the user has entered a valid email.
+
+<FilePreview filePath="/input/stories/EmailValidation">
+    <EmailValidation />
 </FilePreview>
 
 <Story
@@ -186,7 +194,7 @@ A text input can handle `value` in controlled mode.
 
 ## PasswordInput
 
-A specialized text input allowing to show / hide the password.
+A specialized text input that show / hide a password.
 
 <Preview>
     <Story name="password">

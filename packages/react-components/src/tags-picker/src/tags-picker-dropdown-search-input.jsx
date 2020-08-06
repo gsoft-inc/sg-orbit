@@ -1,6 +1,6 @@
 import { MagnifierIcon } from "../../icons";
 import { PureComponent } from "react";
-import { TextInput } from "../../text-input";
+import { TextInput } from "../../input";
 import { func } from "prop-types";
 
 export class TagsPickerDropdownSearchInput extends PureComponent {

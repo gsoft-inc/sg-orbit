@@ -212,7 +212,7 @@ In somes cases, you might want a group of toggle buttons to behave like a checkb
 
 <Preview>
     <Story name="toggle buttons">
-        <CheckboxGroup>
+        <CheckboxGroup gap={2}>
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
             <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
@@ -237,7 +237,7 @@ Checkable components can be wrap on multiple lines.
 <Preview>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
-            <CheckboxGroup wrap>
+            <CheckboxGroup wrap gap={2}>
                 <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
                 <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
                 <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>

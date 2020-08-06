@@ -103,6 +103,9 @@ export function InnerCheckbox(props) {
         ...rest
     } = useCheckableProps(props);
 
+    // Unnecessary since the component render an input="checkbox".
+    delete rest["role"];
+
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
     });

@@ -245,7 +245,7 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
 
 <Preview>
     <Story name="toggle buttons">
-        <RadioGroup orientation="horizontal">
+        <RadioGroup gap={2} orientation="horizontal">
             <ToggleButton value="none" variant="outline">None</ToggleButton>
             <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
             <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
@@ -270,7 +270,7 @@ Checkable components can be wrap on multiple lines.
 <Preview>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
-            <RadioGroup wrap orientation="horizontal">
+            <RadioGroup wrap gap={2} orientation="horizontal">
                 <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
                 <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
                 <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>

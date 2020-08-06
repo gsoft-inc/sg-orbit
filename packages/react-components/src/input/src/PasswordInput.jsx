@@ -1,7 +1,7 @@
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput } from "./TextInput";
-import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useEventCallback } from "../../shared";
 import { useState } from "react";
@@ -16,9 +16,33 @@ const propTypes = {
      */
     defaultValue: string,
     /**
-     * Temporary text that occupies the text input when it is empty.
+     * Temporary text that occupies the input when it is empty.
      */
     placeholder: string,
+    /**
+     * Label identifying the input.
+     */
+    label: node,
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Help text displayed beneath the input when `validateState` is undefined.
+     */
+    help: node,
+    /**
+     * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
+     */
+    invalidMessage: node,
+    /**
+     * Valid message displayed beneath the input when `validateState` is `"valid"`.
+     */
+    validMessage: node,
+    /**
+     * Whether or not the input should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
     /**
      * Called when the text input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -30,11 +54,7 @@ const propTypes = {
      */
     variant: oneOf(["outline", "transparent"]),
     /**
-     * The color accent.
-     */
-    color: oneOf(["error"]),
-    /**
-     * Whether or not the text input should autofocus on render.
+     * Whether or not the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -42,11 +62,11 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * An element to render inside the text input before the value.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    prefix: element,
+    iconLeft: element,
     /**
-     * Whether or not the text input take up the width of its container.
+     * Whether or not theinput take up the width of its container.
      */
     fluid: bool,
     /**

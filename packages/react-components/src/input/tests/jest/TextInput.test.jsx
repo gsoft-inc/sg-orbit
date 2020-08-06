@@ -1,4 +1,4 @@
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 

@@ -11,8 +11,6 @@ export function useToolbarContext() {
 export function useToolbarProps(props, { addNavigationMode = true } = {}) {
     const context = useContext(ToolbarContext);
 
-    console.log(addNavigationMode);
-
     return mergeProps(props, {
         orientation: !isNil(context) ? context.orientation : undefined,
         navigationMode: addNavigationMode ?

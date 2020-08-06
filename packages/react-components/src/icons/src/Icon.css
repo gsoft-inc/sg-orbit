@@ -1,0 +1,45 @@
+/* SIZES */
+.o-ui.icon.micro {
+    width: var(--scale-bravo);
+    height: var(--scale-bravo);
+}
+
+.o-ui.icon.mini {
+    width: var(--scale-charlie);
+    height: var(--scale-charlie);
+}
+
+.o-ui.icon.tiny {
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+}
+
+.o-ui.icon.small {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+}
+
+.o-ui.icon.medium {
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
+}
+
+.o-ui.icon.large {
+    width: var(--scale-golf);
+    height: var(--scale-golf);
+}
+
+.o-ui.icon.big {
+    width: var(--scale-hotel);
+    height: var(--scale-hotel);
+}
+
+.o-ui.icon.huge {
+    width: var(--scale-india);
+    height: var(--scale-india);
+}
+
+.o-ui.icon.massive {
+    width: var(--scale-juliett);
+    height: var(--scale-juliett);
+}

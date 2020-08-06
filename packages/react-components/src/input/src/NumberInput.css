@@ -1,0 +1,94 @@
+@import "./Input.css";
+
+:root {
+    --stepper-width: var(--scale-foxtrot);
+}
+
+/* INPUT */
+.o-ui.number-input input::-webkit-inner-spin-button,
+.o-ui.number-input input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.o-ui.input.number-input {
+    width: 150px;
+}
+
+.o-ui.input.number-input input {
+    padding-right: var(--stepper-width);
+}
+
+/* INPUT | FLUID */
+.o-ui.input.fluid.number-input {
+    width: 100%;
+}
+
+/* STEPPER */
+.o-ui.number-input .o-ui.stepper {
+    display: flex;
+    flex-direction: column;
+    width: var(--stepper-width);
+    margin: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.o-ui.number-input .o-ui.stepper .increment,
+.o-ui.number-input .o-ui.stepper .decrement {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid var(--border-color);
+    outline: none;
+    cursor: pointer;
+    background-color: var(--neutral-100);
+}
+
+.o-ui.number-input .o-ui.stepper .increment {
+    border-top-right-radius: var(--border-radius);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.o-ui.number-input .o-ui.stepper .decrement {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* STEPPER | SMALL */
+.o-ui.number-input.small .o-ui.stepper {
+    min-height: calc(var(--scale-golf) - 2px);
+}
+
+/* STEPPER | MEDIUM */
+.o-ui.number-input.medium .o-ui.stepper {
+    min-height: calc(var(--scale-hotel) - 2px);
+}
+
+/* STEPPER | LARGE */
+.o-ui.number-input.large .o-ui.stepper {
+    min-height: calc(var(--scale-india) - 2px);
+}
+
+/* STEPPER | ACTIVE */
+.o-ui.number-input .o-ui.stepper .increment:active,
+.o-ui.number-input .o-ui.stepper .decrement:active {
+    background-color: var(--neutral-300);
+}
+
+/* STEPPER | DISABLED */
+.o-ui.number-input .o-ui.stepper .increment:disabled,
+.o-ui.number-input .o-ui.stepper .decrement:disabled {
+    background-color: var(--background-color);
+    opacity: var(--background-opacity);
+    cursor: default;
+}
+
+/* STEPPER | LOADING */
+.o-ui.number-input.loading .o-ui.stepper {
+    display: none;
+}

@@ -14,7 +14,7 @@ const ARROW_NAV_KEY_BINDING = {
 
 const propTypes = {
     /**
-     * Whether or not the radio group should autoFocus on render.
+     * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
     autoFocus: bool,
     /**
@@ -30,11 +30,11 @@ const propTypes = {
      */
     justify: oneOf(["start", "end", "center"]),
     /**
-     * Flex direction to display the children.
+     * Flex direction to display the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The space between element groups.
+     * The space between elements.
      */
     gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
@@ -42,7 +42,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Children size.
+     * Element size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**
@@ -50,16 +50,16 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether or not the radio group is disabled.
+     * Whether or not the toolbar elements are disabled.
      */
     disabled: bool,
     /**
-     * Whether or not the radio group is read only.
+     * Whether or not the toolbar elements are read only.
      */
     readOnly: bool,
     /**
-   * An HTML element type or a custom React element type to render as.
-   */
+     * An HTML element type or a custom React element type to render as.
+     */
     as: oneOfType([string, elementType]),
     /**
      * @ignore
@@ -68,8 +68,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    orientation: "horizontal",
-    gap: 5,
     as: "div"
 };
 
@@ -78,7 +76,8 @@ export function InnerToolbar({
     autoFocusDelay,
     align,
     justify,
-    orientation,
+    orientation = "horizontal",
+    gap = 5,
     wrap,
     size,
     disabled,
@@ -102,6 +101,7 @@ export function InnerToolbar({
             alignItems={align}
             justifyContent={justify}
             direction={orientation === "vertical" ? "column" : "row"}
+            gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             aria-orientation={orientation}
             ref={ref}

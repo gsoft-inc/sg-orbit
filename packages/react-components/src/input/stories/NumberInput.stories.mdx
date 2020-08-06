@@ -1,0 +1,38 @@
+import { ControlledNumberInput } from "./ControlledNumberInput.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { InnerNumberInput } from "@react-components/input";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./NumberInputImports.mdx";
+
+<Meta
+    title={createComponentSection("NumberInput")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
+        .build()}
+/>
+
+# NumberInput
+
+A number input is used to let the user enter a number.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "NumberInput", component: InnerNumberInput }
+    ]}
+/>
+
+## Usage
+
+### Controlled
+
+<FilePreview filePath="/input/stories/ControlledNumberInput">
+    <ControlledNumberInput />
+</FilePreview>

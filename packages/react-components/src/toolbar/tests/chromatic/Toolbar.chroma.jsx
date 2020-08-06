@@ -2,7 +2,7 @@ import { CheckboxGroup } from "@react-components/checkbox";
 import { NotificationIcon } from "@react-components/icons";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { Stack } from "@react-components/layout";
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";

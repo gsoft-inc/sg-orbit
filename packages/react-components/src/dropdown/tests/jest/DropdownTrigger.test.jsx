@@ -1,5 +1,5 @@
 import { Dropdown } from "@react-components/dropdown";
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 

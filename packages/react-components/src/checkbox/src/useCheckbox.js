@@ -22,12 +22,8 @@ export function useCheckbox({
     disabled,
     readOnly,
     className,
-    forwardedRef,
-    ...rest
+    forwardedRef
 }) {
-    // Since this component render an input="radio" the role is unnecessary.
-    delete rest["role"];
-
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);
 

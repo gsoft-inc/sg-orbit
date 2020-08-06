@@ -3,7 +3,7 @@ import { Button } from "../../button";
 import { CrossIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
-import { TextInput } from "../../text-input";
+import { TextInput } from "../../input";
 import { arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";

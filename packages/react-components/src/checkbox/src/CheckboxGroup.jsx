@@ -1,9 +1,22 @@
-import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, SIZE, augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { useToolbarProps } from "../../toolbar/src/ToolbarContext";
+
+const SIZE_GAP = {
+    "horizontal": {
+        [SIZE.small]: 4,
+        [SIZE.medium]: 5,
+        [SIZE.large]: 6
+    },
+    "vertical": {
+        [SIZE.small]: 2,
+        [SIZE.medium]: 3,
+        [SIZE.large]: 4
+    }
+};
 
 const propTypes = {
     /**
@@ -25,6 +38,10 @@ const propTypes = {
      * Orientation of the children.
      */
     orientation: oneOf(["horizontal", "vertical"]),
+    /**
+     * The space between elements.
+     */
+    gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
      * Whether or not elements are forced onto one line or can wrap onto multiple lines
      */
@@ -77,7 +94,8 @@ export function InnerCheckboxGroup(props) {
         value,
         defaultValue,
         onChange,
-        orientation,
+        orientation = "horizontal",
+        gap,
         wrap,
         size,
         disabled,
@@ -108,7 +126,7 @@ export function InnerCheckboxGroup(props) {
             {...rest}
             direction={orientation === "vertical" ? "column" : "row"}
             alignItems="start"
-            gap={2}
+            gap={gap ?? SIZE_GAP[orientation][size ?? SIZE.medium]}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             role="group"
             aria-disabled={disabled}

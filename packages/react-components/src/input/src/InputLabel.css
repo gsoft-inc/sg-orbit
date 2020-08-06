@@ -1,0 +1,19 @@
+.o-ui.label {
+    color: var(--marine-200);
+    margin-bottom: var(--scale-alpha);
+}
+
+/* SIZE | SMALL */
+.o-ui.label.small {
+    font-size: var(--type-scale-9);
+}
+
+/* SIZE | MEDIUM */
+.o-ui.label.medium {
+    font-size: var(--type-scale-8);
+}
+
+/* SIZE | LARGE */
+.o-ui.label.large {
+    font-size: var(--type-scale-7);
+}

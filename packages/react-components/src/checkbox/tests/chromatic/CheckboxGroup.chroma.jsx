@@ -1,5 +1,5 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
-import { Stack } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -101,7 +101,26 @@ stories()
         </CheckboxGroup>
     )
     .add("vertical", () =>
-        <CheckboxGroup orientation="vertical">
+        <Inline>
+            <CheckboxGroup size="small" orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup size="large" orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
+    )
+    .add("gap", () =>
+        <CheckboxGroup gap={13}>
             <Checkbox value="1">1</Checkbox>
             <Checkbox value="2">2</Checkbox>
             <Checkbox value="3">3</Checkbox>
@@ -119,14 +138,14 @@ stories()
         </div>
     )
     .add("toggle buttons", () =>
-        <CheckboxGroup defaultValue={["2"]}>
+        <CheckboxGroup gap={2} defaultValue={["2"]}>
             <ToggleButton variant="outline" shape="circular" value="1">1</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="2">2</ToggleButton>
             <ToggleButton variant="outline" shape="circular" value="3">3</ToggleButton>
         </CheckboxGroup>
     )
     .add("custom components", () =>
-        <CheckboxGroup defaultValue={["2"]}>
+        <CheckboxGroup gap={2} defaultValue={["2"]}>
             <CustomComponent value="1">1</CustomComponent>
             <CustomComponent value="2">2</CustomComponent>
             <CustomComponent value="3">3</CustomComponent>

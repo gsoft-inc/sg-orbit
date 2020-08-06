@@ -1,6 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
-import { Stack } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -34,36 +34,40 @@ stories()
         </Stack>
     )
     .add("icon button", () =>
-        <Stack>
-            <ButtonGroup size="small">
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-            </ButtonGroup>
-            <ButtonGroup>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-            </ButtonGroup>
-            <ButtonGroup size="large">
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-            </ButtonGroup>
-            <ButtonGroup size="small">
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-            </ButtonGroup>
-            <ButtonGroup>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-            </ButtonGroup>
-            <ButtonGroup size="large">
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-            </ButtonGroup>
-        </Stack>
+        <Inline>
+            <Stack>
+                <ButtonGroup size="small">
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                </ButtonGroup>
+                <ButtonGroup>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                </ButtonGroup>
+                <ButtonGroup size="large">
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                </ButtonGroup>
+            </Stack>
+            <Stack>
+                <ButtonGroup size="small">
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                </ButtonGroup>
+                <ButtonGroup>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                </ButtonGroup>
+                <ButtonGroup size="large">
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                </ButtonGroup>
+            </Stack>
+        </Inline>
     );

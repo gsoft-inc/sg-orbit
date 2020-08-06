@@ -19,12 +19,12 @@ const propTypes = {
 };
 
 const defaultProps = {
-    as: Inline
+    as: "div"
 };
 
-export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef, ...rest }) {
+export function InnerButtonGroup({ size, children, forwardedRef, ...rest }) {
     return (
-        <ElementType
+        <Inline
             {...rest}
             gap={2}
             ref={forwardedRef}
@@ -34,7 +34,7 @@ export function InnerButtonGroup({ size, as: ElementType, children, forwardedRef
                     size
                 });
             })}
-        </ElementType>
+        </Inline>
     );
 }
 
