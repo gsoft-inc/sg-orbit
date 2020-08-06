@@ -58,18 +58,18 @@ export function createTextInputTestSuite(element, stories) {
         .add("label", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" label="Where to?" element={element} />
-                    <TextInput label="Where to?" element={element} />
-                    <TextInput size="large" label="Where to?" element={element} />
+                    <TextInput size="small" label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput size="large" label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
                 </Inline>
                 <div>
-                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} element={element} />
+                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
                 </div>
                 <div>
-                    <TextInput fluid label="Where to?" element={element}></TextInput>
+                    <TextInput fluid label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
                 </div>
                 <div className="w-10">
-                    <TextInput fluid label="Where to?" element={element}></TextInput>
+                    <TextInput fluid label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
                 </div>
             </Stack>
         )

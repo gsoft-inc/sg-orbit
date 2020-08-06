@@ -184,11 +184,11 @@ export function InnerTextInput({
     );
 
     const iconLeftMarkup = iconLeft && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
+        <EmbeddedIcon size={size} className="input-icon">{iconLeft}</EmbeddedIcon>
     );
 
     const iconRightMarkup = iconRight && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
+        <EmbeddedIcon size={size} className="input-icon">{iconRight}</EmbeddedIcon>
     );
 
     const buttonMarkup = button && embedButton(button, {
@@ -198,6 +198,19 @@ export function InnerTextInput({
         shape: "circular",
         className: "button"
     });
+
+    const content = (
+        <>
+            {iconLeftMarkup}
+            <input
+                {...rest}
+                {...inputProps}
+            />
+            {iconRightMarkup}
+            {buttonMarkup}
+            {messageMarkup}
+        </>
+    );
 
     return (
         <ElementType
@@ -211,15 +224,14 @@ export function InnerTextInput({
                 wrapperProps.className
             )}
         >
-            {labelMarkup}
-            {iconLeftMarkup}
-            <input
-                {...rest}
-                {...inputProps}
-            />
-            {iconRightMarkup}
-            {buttonMarkup}
-            {messageMarkup}
+            {!labelMarkup ? content : (
+                <>
+                    {labelMarkup}
+                    <div className="labelled-input">
+                        {content}
+                    </div>
+                </>
+            )}
         </ElementType>
     );
 }

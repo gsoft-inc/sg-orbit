@@ -92,3 +92,20 @@
 .o-ui.number-input.loading .o-ui.stepper {
     display: none;
 }
+
+/* STEPPER | TRANSPARENT */
+.o-ui.number-input.transparent .o-ui.stepper .increment,
+.o-ui.number-input.transparent .o-ui.stepper .decrement {
+    background: none;
+    border: 0;
+}
+
+.o-ui.number-input.transparent .o-ui.stepper .increment {
+    border: 0;
+}
+
+/* STEPPER | TRANSPARENT | ACTIVE */
+.o-ui.number-input.transparent .o-ui.stepper .increment:active,
+.o-ui.number-input.transparent .o-ui.stepper .decrement:active {
+    background-color: var(--neutral-300);
+}

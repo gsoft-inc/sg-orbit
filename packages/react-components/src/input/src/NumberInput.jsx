@@ -177,7 +177,7 @@ function toNumber(value) {
     const result = parseFloat(value);
 
     if (isNaN(result)) {
-        return 0;
+        return null;
     }
 
     return result;
@@ -234,16 +234,6 @@ export function InnerNumberInput({
         }
     };
 
-    const clamp = event => {
-        const { isAboveMax, isBelowMin } = validateRange(inputValue);
-
-        if (isBelowMin) {
-            updateValue(event, min);
-        } else if (isAboveMax) {
-            updateValue(event, max);
-        }
-    };
-
     const validateRange = useCallback(newValue => {
         let isAboveMax = false;
         let isBelowMin = false;
@@ -264,6 +254,16 @@ export function InnerNumberInput({
     }, [min, max]);
 
     const isInRange = useMemo(() => { return validateRange(inputValue, min , max).isInRange; }, [inputValue, min, max, validateRange]);
+
+    const clamp = event => {
+        const { isAboveMax, isBelowMin } = validateRange(inputValue);
+
+        if (isBelowMin) {
+            updateValue(event, min);
+        } else if (isAboveMax) {
+            updateValue(event, max);
+        }
+    };
 
     const applyStep = (event, factor) => {
         if (!isNil(inputValue)) {
@@ -347,20 +347,11 @@ export function InnerNumberInput({
     );
 
     const iconLeftMarkup = iconLeft && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
+        <EmbeddedIcon size={size} className="input-icon">{iconLeft}</EmbeddedIcon>
     );
 
-    return (
-        <ElementType
-            data-testid="number-input"
-            {...wrapperProps}
-            className={mergeClasses(
-                "o-ui input number-input",
-                iconLeftMarkup && "with-left-icon",
-                wrapperProps.className
-            )}
-        >
-            {labelMarkup}
+    const content = (
+        <>
             {iconLeftMarkup}
             <input
                 {...rest}
@@ -376,6 +367,27 @@ export function InnerNumberInput({
                 aria-hidden={loading}
             />
             {messageMarkup}
+        </>
+    );
+
+    return (
+        <ElementType
+            data-testid="number-input"
+            {...wrapperProps}
+            className={mergeClasses(
+                "o-ui input number-input",
+                iconLeftMarkup && "with-left-icon",
+                wrapperProps.className
+            )}
+        >
+            {!labelMarkup ? content : (
+                <>
+                    {labelMarkup}
+                    <div className="labelled-input">
+                        {content}
+                    </div>
+                </>
+            )}
         </ElementType>
     );
 }

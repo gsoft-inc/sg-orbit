@@ -70,7 +70,7 @@ A text input can have a value.
 
 ### Icon
 
-A text input can contain left or right [icons](?path=/docs/materials-icons--page). [button](?path=/docs/components-button--default-story) or text elements.
+A text input can contain left or right [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
@@ -102,9 +102,9 @@ Can be set to: `"small"`, `"large"` or omitted.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <TextInput size="small" fluid placeholder="Where to?" />
-            <TextInput fluid placeholder="Where to?" />
-            <TextInput size="large" fluid placeholder="Where to?" />
+            <TextInput size="small" placeholder="Where to?" />
+            <TextInput placeholder="Where to?" />
+            <TextInput size="large" placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>
@@ -157,8 +157,8 @@ A message can be displayed beneath a text input.
     <Story name="help">
         <Inline>
             <TextInput help="Your space id is a 9-digit number on the top right corner of your membership card." label="Space ID" placeholder="999-999-999" />
-            <TextInput invalidMessage="Invalid space id." validationState="invalid" label="Space ID" placeholder="999-999-999" />
-            <TextInput validMessage="Have a safe flight!" validationState="valid" label="Space ID" placeholder="999-999-999" />
+            <TextInput invalidMessage="Invalid space id." validationState="invalid" label="Space ID" defaultValue="ABC-DEF-HIJ" />
+            <TextInput validMessage="Have a safe flight!" validationState="valid" label="Space ID" defaultValue="123-456-789" />
         </Inline>
     </Story>
 </Preview>

@@ -1,3 +1,4 @@
+import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -31,11 +32,28 @@ stories()
             </div>
         </Stack>
     )
-    .add("precision", () =>
-        <NumberInput precision={2} defaultValue={12.13} step={0.1} placeholder="Age" />
+    .add("integer value", () =>
+        <NumberInput defaultValue={12} step={1} placeholder="Age" />
+    )
+    .add("decimal value", () =>
+        <NumberInput defaultValue={12.10} step={0.1} placeholder="Grams" />
+    )
+    .add("icon", () =>
+        <Inline align="end">
+            <NumberInput iconLeft={<EditIcon />} size="small" placeholder="Age" />
+            <NumberInput iconLeft={<EditIcon />} placeholder="Age" />
+            <NumberInput iconLeft={<EditIcon />} size="large" placeholder="Age" />
+        </Inline>
     )
     .add("fluid", () =>
         <NumberInput fluid placeholder="Age" />
+    )
+    .add("label", () =>
+        <Inline align="end">
+            <NumberInput label="Age" size="small" />
+            <NumberInput label="Age" />
+            <NumberInput label="Age" size="large" />
+        </Inline>
     )
     .add("invalid", () =>
         <Stack>
@@ -63,4 +81,20 @@ stories()
             <NumberInput loading placeholder="Age" />
             <NumberInput loading size="large" placeholder="Age" />
         </Inline>
+    )
+    .add("transparent", () =>
+        <Inline align="end">
+            <NumberInput variant="transparent" size="small" placeholder="Age" />
+            <NumberInput variant="transparent" placeholder="Age" />
+            <NumberInput variant="transparent" size="large" placeholder="Age" />
+        </Inline>
+    )
+    .add("autofocus", () =>
+        <NumberInput autoFocus placeholder="Age" />
+    )
+    .add("when disabled do not autofocus", () =>
+        <NumberInput autoFocus disabled placeholder="Age" />
+    )
+    .add("autofocus with delay", () =>
+        <NumberInput autoFocus autoFocusDelay={5} placeholder="Age" />
     );
