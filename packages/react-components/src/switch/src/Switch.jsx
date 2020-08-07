@@ -19,7 +19,7 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * Whether or not the checkbox should autoFocus on render.
+     * Whether the checkbox should autoFocus on render.
      */
     autoFocus: bool,
     /**

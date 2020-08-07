@@ -1,13 +1,12 @@
-import "./TextInput.css";
+import "./Input.css";
 
-import { EmbeddedIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { embedButton } from "../../button";
 import { forwardRef } from "react";
 import { mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { useInput } from "./useInput";
+import { useInputButton, useInputIcon } from "./useInputContent";
 
 const propTypes = {
     /**
@@ -43,7 +42,7 @@ const propTypes = {
      */
     validMessage: node,
     /**
-     * Whether or not the input should display as "valid" or "invalid".
+     * Whether the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -61,7 +60,7 @@ const propTypes = {
      */
     type: oneOf(["text", "password", "search", "url", "tel", "email"]),
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -81,11 +80,11 @@ const propTypes = {
      */
     button: element,
     /**
-     * Whether or not theinput take up the width of its container.
+     * Whether theinput take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether or not to render a loader.
+     * Whether to render a loader.
      */
     loading: bool,
     /**
@@ -183,21 +182,11 @@ export function InnerTextInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = iconLeft && (
-        <EmbeddedIcon size={size} className="input-icon">{iconLeft}</EmbeddedIcon>
-    );
+    const iconLeftMarkup = useInputIcon(iconLeft, size);
 
-    const iconRightMarkup = iconRight && (
-        <EmbeddedIcon size={size} className="input-icon">{iconRight}</EmbeddedIcon>
-    );
+    const iconRightMarkup = useInputIcon(iconRight, size);
 
-    const buttonMarkup = button && embedButton(button, {
-        size,
-        variant: "ghost",
-        color: "secondary",
-        shape: "circular",
-        className: "button"
-    });
+    const buttonMarkup = useInputButton(button, size);
 
     const content = (
         <>

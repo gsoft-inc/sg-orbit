@@ -34,7 +34,7 @@ const propTypes = {
      */
     badge: element,
     /**
-     * Whether or not the button should autoFocus on render.
+     * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -42,7 +42,7 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether or not the button take up the width of its container.
+     * Whether the button take up the width of its container.
      */
     fluid: bool,
     /**

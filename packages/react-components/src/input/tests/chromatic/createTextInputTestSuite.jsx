@@ -165,7 +165,7 @@ export function createTextInputTestSuite(element, stories) {
                 <div>
                     <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
-                <div className="w10">
+                <div className="w-10">
                     <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
             </Stack>

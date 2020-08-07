@@ -31,7 +31,7 @@ const propTypes = {
      */
     value: oneOfType([string, number]),
     /**
-     * Whether or not the checkbox should autoFocus on render.
+     * Whether the checkbox should autoFocus on render.
      */
     autoFocus: bool,
     /**

@@ -40,7 +40,7 @@ const propTypes = {
      */
     validMessage: node,
     /**
-     * Whether or not the input should display as "valid" or "invalid".
+     * Whether the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -54,7 +54,7 @@ const propTypes = {
      */
     variant: oneOf(["outline", "transparent"]),
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -66,11 +66,11 @@ const propTypes = {
      */
     iconLeft: element,
     /**
-     * Whether or not theinput take up the width of its container.
+     * Whether theinput take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether or not to render a loader.
+     * Whether to render a loader.
      */
     loading: bool,
     /**

@@ -39,7 +39,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
          */
         onApply: func,
         /**
-         * Whether or not the calendar enforce the selection of of a range of dates.
+         * Whether the calendar enforce the selection of of a range of dates.
          */
         allowSingleDateSelection: bool,
         /**
@@ -71,7 +71,7 @@ export class InnerDateRangePickerCalendar extends PureComponent {
          */
         buttons: element,
         /**
-         * Whether or not the calendar selected date(s) can be cleared.
+         * Whether the calendar selected date(s) can be cleared.
          */
         allowClear: bool,
         /**

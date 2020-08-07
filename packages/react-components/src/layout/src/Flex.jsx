@@ -85,15 +85,15 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether or not flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
+     * Whether flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
     wrap: oneOf(["nowrap", "wrap", "wrap-reverse"]),
     /**
-     * Whether or not the elements take up the width & height of their container.
+     * Whether the elements take up the width & height of their container.
      */
     fluid: bool,
     /**
-     * Whether or not to wrap children in a `div` element.
+     * Whether to wrap children in a `div` element.
      */
     wrapChildren: bool,
     /**

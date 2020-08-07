@@ -31,7 +31,7 @@ const propTypes = {
      */
     pinned: bool,
     /**
-     * Whether or not to render the popper element in an additional element that will handles [Popper.js](https://popper.js.org) references, attributes and styles.
+     * Whether to render the popper element in an additional element that will handles [Popper.js](https://popper.js.org) references, attributes and styles.
      */
     noWrap: bool,
     /**
@@ -56,11 +56,11 @@ const propTypes = {
      */
     zIndex: number,
     /**
-     * Whether or not to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
+     * Whether to render the popper element with React portal. The popper element will be rendered within it's parent DOM hierarchy.
      */
     noPortal: bool,
     /**
-     * Whether or not to animate the popper element when opening / closing.
+     * Whether to animate the popper element when opening / closing.
      */
     animate: bool
 };

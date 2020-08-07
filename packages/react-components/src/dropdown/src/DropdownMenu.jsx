@@ -15,11 +15,11 @@ const propTypes = {
      */
     zIndex: number,
     /**
-     * Whether or not to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
+     * Whether to render the dropdown menu element with React portal. The dropdown menu element will be rendered within it's parent DOM hierarchy.
      */
     noPortal: bool,
     /**
-     * Whether or not the menu can scroll.
+     * Whether the menu can scroll.
      */
     scrolling: bool,
     /**

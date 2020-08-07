@@ -21,7 +21,7 @@ const propTypes = {
     /**
      * Called when the button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {bool} isChecked - Whether or not the button is checked.
+     * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
      */
     onChange: func,
@@ -46,7 +46,7 @@ const propTypes = {
      */
     iconRight: element,
     /**
-     * Whether or not the button should autoFocus on render.
+     * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
     /**

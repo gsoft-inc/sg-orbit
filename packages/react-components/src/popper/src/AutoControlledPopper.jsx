@@ -23,23 +23,23 @@ const propTypes = {
      */
     onVisibilityChange: func,
     /**
-     * Whether or not the trigger will be rendered as fluid.
+     * Whether the trigger will be rendered as fluid.
      */
     fluid: bool,
     /**
-     * Whether or not to focus the trigger when the popper is made visible. When `true`, the trigger must expose a `focus` function in order to work.
+     * Whether to focus the trigger when the popper is made visible. When `true`, the trigger must expose a `focus` function in order to work.
      */
     focusTriggerOnShow: bool,
     /**
-     * Whether or not to focus the trigger on escape keydown. When `true`, the trigger must expose a `focus` function in order to work.
+     * Whether to focus the trigger on escape keydown. When `true`, the trigger must expose a `focus` function in order to work.
      */
     focusTriggerOnEscape: bool,
     /**
-     * Whether or not to focus the first element of the popper when the popper is shown.
+     * Whether to focus the first element of the popper when the popper is shown.
      */
     focusFirstElementOnShow: bool,
     /**
-     * Whether or not to focus the first element of the popper when the popper is shown on keydown.
+     * Whether to focus the first element of the popper when the popper is shown on keydown.
      */
     focusFirstElementOnKeyboardShow: bool,
     /**
@@ -48,23 +48,23 @@ const propTypes = {
      */
     showOnKeys: arrayOf(number),
     /**
-     * Whether or not to toggle the popper on spacebar keydown.
+     * Whether to toggle the popper on spacebar keydown.
      */
     toggleOnSpacebar: bool,
     /**
-     * Whether or not to toggle the popper on enter keydown.
+     * Whether to toggle the popper on enter keydown.
      */
     toggleOnEnter: bool,
     /**
-     * Whether or not the popper should hide on escape keydown.
+     * Whether the popper should hide on escape keydown.
      */
     hideOnEscape: bool,
     /**
-     * Whether or not the popper should hide when it loose focus.
+     * Whether the popper should hide when it loose focus.
      */
     hideOnBlur: bool,
     /**
-     * Whether or not the popper should hide when a click happens outside.
+     * Whether the popper should hide when a click happens outside.
      */
     hideOnOutsideClick: bool,
     /**

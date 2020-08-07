@@ -51,7 +51,7 @@ export class TagsPickerDropdown extends PureComponent {
          */
         onClose: func,
         /**
-         * Whether or not the dropdown should close when an item is selected.
+         * Whether the dropdown should close when an item is selected.
          */
         closeOnSelect: bool,
         /**

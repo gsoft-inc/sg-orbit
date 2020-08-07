@@ -50,7 +50,7 @@ const propTypes = {
      */
     size: oneOf(["small", "large"]),
     /**
-     * Whether or not the dropdown should autoFocus on render.
+     * Whether the dropdown should autoFocus on render.
      */
     autoFocus: bool,
     /**

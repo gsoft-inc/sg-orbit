@@ -1,6 +1,6 @@
 import "./NumberInput.css";
 
-import { CarretIcon, EmbeddedIcon } from "../../icons";
+import { CarretIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { SIZE, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
@@ -8,6 +8,7 @@ import { bool, element, elementType, func, node, number, object, oneOf, oneOfTyp
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
 import { useInput } from "./useInput";
+import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
 
 const STEPPER_ICON = {
@@ -34,15 +35,15 @@ const propTypes = {
      */
     label: node,
     /**
-     * The minimum value of the input.
+     * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     min: number,
     /**
-     * The maximum value of the input.
+     * The maximum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     max: number,
     /**
-     * The step used to increment or decrement the value.
+     * The step used to increment or decrement the value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     step: number,
     /**
@@ -66,7 +67,7 @@ const propTypes = {
      */
     validMessage: node,
     /**
-     * Whether or not the input should display as "valid" or "invalid".
+     * Whether the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -81,7 +82,7 @@ const propTypes = {
      */
     variant: oneOf(["outline", "transparent"]),
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -93,11 +94,11 @@ const propTypes = {
      */
     iconLeft: element,
     /**
-     * Whether or not theinput take up the width of its container.
+     * Whether theinput take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether or not to render a loader.
+     * Whether to render a loader.
      */
     loading: bool,
     /**
@@ -121,7 +122,7 @@ const defaultProps = {
     as: "div"
 };
 
-export function NumberInputStepper({
+export function Spinner({
     onIncrement,
     onDecrement,
     onFocus,
@@ -140,7 +141,7 @@ export function NumberInputStepper({
     return (
         <div
             {...rest}
-            className="o-ui stepper"
+            className="o-ui spinner"
         >
             <button
                 onClick={handleIncrement}
@@ -183,7 +184,7 @@ function toNumber(value) {
     return result;
 }
 
-function toPrecision(value, precision) {
+function toFixed(value, precision) {
     return parseFloat(value.toFixed(precision));
 }
 
@@ -253,7 +254,7 @@ export function InnerNumberInput({
         };
     }, [min, max]);
 
-    const isInRange = useMemo(() => { return validateRange(inputValue, min , max).isInRange; }, [inputValue, min, max, validateRange]);
+    const isInRange = useMemo(() => validateRange(inputValue, min , max).isInRange, [inputValue, min, max, validateRange]);
 
     const clamp = event => {
         const { isAboveMax, isBelowMin } = validateRange(inputValue);
@@ -268,7 +269,7 @@ export function InnerNumberInput({
     const applyStep = (event, factor) => {
         if (!isNil(inputValue)) {
             const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
-            const newValue = toPrecision(inputValue + factor * step, precision);
+            const newValue = toFixed(inputValue + factor * step, precision);
 
             const { isInRange: inRange } = validateRange(newValue);
 
@@ -346,9 +347,7 @@ export function InnerNumberInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = iconLeft && (
-        <EmbeddedIcon size={size} className="input-icon">{iconLeft}</EmbeddedIcon>
-    );
+    const iconLeftMarkup = useInputIcon(iconLeft, size);
 
     const content = (
         <>
@@ -358,7 +357,7 @@ export function InnerNumberInput({
                 {...inputProps}
                 onBlur={handleBlur}
             />
-            <NumberInputStepper
+            <Spinner
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}

@@ -1,7 +1,6 @@
 import { Button } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { NumberInput } from "@react-components/input";
-import { isNil } from "lodash";
 import { useCallback, useMemo, useState } from "react";
 
 export function RequiredAgeValidation() {
@@ -13,11 +12,11 @@ export function RequiredAgeValidation() {
     }, [setValue]);
 
     const handleClick = useCallback(() => {
-        setValue(null);
+        setValue("");
     }, [setValue]);
 
     const isValid = useMemo(
-        () => !isNil(value),
+        () => value !== "",
         [value]
     );
 

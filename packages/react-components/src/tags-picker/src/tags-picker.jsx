@@ -84,7 +84,7 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         dropdown: element,
         /**
-         * Whether or not the dropdown should close when an item is selected.
+         * Whether the dropdown should close when an item is selected.
          */
         closeOnSelect: bool,
         /**

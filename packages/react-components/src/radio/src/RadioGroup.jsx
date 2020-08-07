@@ -64,7 +64,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Whether or not the radio group should autoFocus on render.
+     * Whether the radio group should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -80,7 +80,7 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether or not elements are forced onto one line or can wrap onto multiple lines
+     * Whether elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
@@ -88,11 +88,11 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Whether or not the radio group is disabled.
+     * Whether the radio group is disabled.
      */
     disabled: bool,
     /**
-     * Whether or not the radio group is read only.
+     * Whether the radio group is read only.
      */
     readOnly: bool,
     /**

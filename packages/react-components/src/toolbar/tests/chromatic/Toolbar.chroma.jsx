@@ -276,4 +276,31 @@ stories()
                 <ToggleButton value="3">3</ToggleButton>
             </RadioGroup>
         </Toolbar>
+    )
+    .add("labelled groups", () =>
+        <Toolbar align="center">
+            <CheckboxGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <TextInput label="Search" />
+            <ToggleButton>
+                {
+                    ({ isChecked }) => {
+                        return isChecked ? "On" : "Off";
+                    }
+                }
+            </ToggleButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </RadioGroup>
+        </Toolbar>
     );

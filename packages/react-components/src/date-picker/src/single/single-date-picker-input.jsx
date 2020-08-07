@@ -44,7 +44,7 @@ export class InnerSingleDatePickerInput extends PureComponent {
          */
         onBlur: func,
         /**
-         * Whether or not the calendar selected date(s) can be cleared.
+         * Whether the calendar selected date(s) can be cleared.
          */
         allowClear: bool,
         /**
@@ -56,7 +56,7 @@ export class InnerSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * Whether or not the date picker take up the width of its container.
+         * Whether the date picker take up the width of its container.
          */
         fluid: bool,
         /**

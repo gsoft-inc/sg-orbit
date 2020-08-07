@@ -14,7 +14,7 @@ const ARROW_NAV_KEY_BINDING = {
 
 const propTypes = {
     /**
-     * Whether or not the toolbar should autoFocus the first tabbable element on render.
+     * Whether the toolbar should autoFocus the first tabbable element on render.
      */
     autoFocus: bool,
     /**
@@ -38,7 +38,7 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether or not elements are forced onto one line or can wrap onto multiple lines
+     * Whether elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
@@ -46,15 +46,15 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Whether or not the toolbar take up the width of its container.
+     * Whether the toolbar take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether or not the toolbar elements are disabled.
+     * Whether the toolbar elements are disabled.
      */
     disabled: bool,
     /**
-     * Whether or not the toolbar elements are read only.
+     * Whether the toolbar elements are read only.
      */
     readOnly: bool,
     /**

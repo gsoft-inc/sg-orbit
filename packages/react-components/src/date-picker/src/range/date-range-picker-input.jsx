@@ -24,7 +24,7 @@ export class InnerDateRangePickerInput extends PureComponent {
          */
         onClear: func,
         /**
-         * Whether or not the calendar selected date(s) can be cleared.
+         * Whether the calendar selected date(s) can be cleared.
          */
         allowClear: bool,
         /**
@@ -36,7 +36,7 @@ export class InnerDateRangePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * Whether or not the date picker is opened.
+         * Whether the date picker is opened.
          */
         open: bool,
         /**

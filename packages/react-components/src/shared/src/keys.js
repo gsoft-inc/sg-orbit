@@ -1,4 +1,5 @@
 export const KEYS = {
+    backspace: 8,
     tab: 9,
     enter: 13,
     esc: 27,
@@ -8,5 +9,6 @@ export const KEYS = {
     left: 37,
     up: 38,
     right: 39,
-    down: 40
+    down: 40,
+    delete: 46
 };

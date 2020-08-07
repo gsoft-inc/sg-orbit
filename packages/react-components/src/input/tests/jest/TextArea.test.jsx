@@ -1,4 +1,4 @@
-import { NumberInput } from "@react-components/input";
+import { TextArea } from "@react-components/input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
@@ -8,7 +8,7 @@ test("can focus the input with the focus api", async () => {
     let refNode = null;
 
     render(
-        <NumberInput
+        <TextArea
             ref={node => {
                 refNode = node;
             }}
@@ -28,7 +28,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <NumberInput ref={ref} />
+        <TextArea ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -41,7 +41,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <NumberInput
+        <TextArea
             ref={node => {
                 refNode = node;
             }}
@@ -58,7 +58,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <NumberInput ref={handler} />
+        <TextArea ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

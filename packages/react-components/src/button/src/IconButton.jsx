@@ -17,7 +17,7 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
-     * Whether or not the button should autoFocus on render.
+     * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
     /**

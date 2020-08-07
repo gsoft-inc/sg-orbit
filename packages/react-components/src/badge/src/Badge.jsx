@@ -10,7 +10,7 @@ const propTypes = {
      */
     variant: oneOf(["pill", "inline", "dot", "icon"]),
     /**
-     * Whether or not to add emphasis on the label text.
+     * Whether to add emphasis on the label text.
      */
     highlight: bool,
     /**

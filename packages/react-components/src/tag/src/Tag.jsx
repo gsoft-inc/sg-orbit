@@ -34,7 +34,7 @@ const propTypes = {
      */
     badgeRight: element,
     /**
-     * Whether or not the tag take up the width of its container.
+     * Whether the tag take up the width of its container.
      */
     fluid: bool,
     /**
