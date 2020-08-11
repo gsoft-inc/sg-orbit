@@ -154,19 +154,19 @@ export function createTextInputTestSuite(element, stories) {
         .add("message", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput help="Enter your final destination." size="small" placeholder="Where to?" element={element} />
-                    <TextInput help="Enter your final destination." placeholder="Where to?" element={element} />
-                    <TextInput help="Enter your final destination." size="large" placeholder="Where to?" element={element} />
+                    <TextInput helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
+                    <TextInput helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextInput helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline>
-                    <TextInput help="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
-                    <TextInput help="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
+                    <TextInput helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
+                    <TextInput helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
-                    <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
                 <div className="w-10">
-                    <TextInput fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

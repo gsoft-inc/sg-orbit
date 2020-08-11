@@ -58,6 +58,16 @@ A text input can be identified by a label.
     </Story>
 </Preview>
 
+### Description
+
+A text input can have additional text to further describe the input.
+
+<Preview>
+    <Story name="description">
+        <TextInput label="Where to?" description="Trips to Andromeda galaxy are available every 2 months." />
+    </Story>
+</Preview>
+
 ### Value
 
 A text input can have a value.
@@ -125,7 +135,7 @@ A text input can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <TextInput readOnly value="Deep space" />
+        <TextInput readOnly defaultValue="Deep space" />
     </Story>
 </Preview>
 
@@ -154,9 +164,9 @@ A text input can take the width of its container.
 A message can be displayed beneath a text input.
 
 <Preview>
-    <Story name="help">
+    <Story name="message">
         <Inline>
-            <TextInput help="Your space id is a 9-digit number on the top right corner of your membership card." label="Space ID" placeholder="999-999-999" />
+            <TextInput helpMessage="Your space id is a 9-digit number on the top right corner of your membership card." label="Space ID" placeholder="999-999-999" />
             <TextInput invalidMessage="Invalid space id." validationState="invalid" label="Space ID" defaultValue="ABC-DEF-HIJ" />
             <TextInput validMessage="Have a safe flight!" validationState="valid" label="Space ID" defaultValue="123-456-789" />
         </Inline>

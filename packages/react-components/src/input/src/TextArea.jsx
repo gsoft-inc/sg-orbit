@@ -35,9 +35,13 @@ const propTypes = {
      */
     required: bool,
     /**
-     * Help text displayed beneath the input when `validateState` is undefined.
+     * Additional text to describe the input.
      */
-    help: node,
+    description: string,
+    /**
+     * Help message displayed beneath the input when `validateState` is undefined.
+     */
+    helpMessage: node,
     /**
      * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
      */
@@ -124,7 +128,8 @@ export function InnerTextArea({
     resize,
     label,
     required,
-    help,
+    description,
+    helpMessage,
     invalidMessage,
     validMessage,
     validationState,
@@ -166,7 +171,8 @@ export function InnerTextArea({
         placeholder,
         label,
         required,
-        help,
+        description,
+        helpMessage,
         invalidMessage,
         validMessage,
         validationState,

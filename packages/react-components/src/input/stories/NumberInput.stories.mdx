@@ -56,6 +56,16 @@ A number input can be identified by a label.
     </Story>
 </Preview>
 
+### Description
+
+A number input can have additional text to further describe the input.
+
+<Preview>
+    <Story name="description">
+        <NumberInput label="Age" description="We collect this information for anonymous statistical analysis." />
+    </Story>
+</Preview>
+
 ### Value
 
 A number input can have a value.
@@ -152,9 +162,9 @@ A number input can take the width of its container.
 A message can be displayed beneath a number input.
 
 <Preview>
-    <Story name="help">
+    <Story name="message">
         <Inline>
-            <NumberInput help="How long ago are you born?" label="Age" fluid />
+            <NumberInput helpMessage="How long ago are you born?" label="Age" fluid />
             <NumberInput invalidMessage="Are you a cyborg?" validationState="invalid" label="Age" defaultValue={200} fluid />
             <NumberInput validMessage="Accepted!" validationState="valid" label="Age" defaultValue={35} fluid />
         </Inline>

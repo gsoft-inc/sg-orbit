@@ -84,6 +84,12 @@ stories()
                 }
             </ToggleIconButton>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <ToggleIconButton className="bg-red"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton style={{ backgroundColor: "red" }}><CheckIcon /></ToggleIconButton>
+        </Inline>
     );
 
 

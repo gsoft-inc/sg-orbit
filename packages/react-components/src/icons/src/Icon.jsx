@@ -19,8 +19,7 @@ export function InnerIcon(props) {
         <ComponentType
             {...rest}
             className={mergeClasses(
-                "o-ui icon",
-                size || SIZE.medium,
+                `o-ui icon icon-${size || SIZE.medium}`,
                 className
             )}
             focusable="false"

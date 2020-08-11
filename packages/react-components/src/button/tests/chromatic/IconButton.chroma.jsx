@@ -28,6 +28,12 @@ stories()
             {embedButton(<IconButton><AddIcon /></IconButton>, { size: "large" })}
         </Inline>
     )
+    .add("styling", () =>
+        <Inline>
+            <IconButton className="bg-red"><AddIcon /></IconButton>
+            <IconButton style={{ backgroundColor: "red" }}><AddIcon /></IconButton>
+        </Inline>
+    )
     .add("autofocus", () =>
         <IconButton autoFocus><AddIcon /></IconButton>
     )

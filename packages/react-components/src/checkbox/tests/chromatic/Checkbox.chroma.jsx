@@ -34,6 +34,12 @@ stories()
             </Checkbox>
         </Inline>
     )
+    .add("styling", () =>
+        <Inline>
+            <Checkbox className="bg-red">Milky Way</Checkbox>
+            <Checkbox style={{ backgroundColor: "red" }}>Milky Way</Checkbox>
+        </Inline>
+    )
     .add("autofocus", () =>
         <Checkbox autoFocus>Milky Way</Checkbox>
     )

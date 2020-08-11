@@ -156,6 +156,12 @@ stories()
             {embedButton(<Button>Button</Button>, { size: "large" })}
         </Inline>
     )
+    .add("styling", () =>
+        <Inline>
+            <Button className="bg-red">Button</Button>
+            <Button style={{ backgroundColor: "red" }}>Button</Button>
+        </Inline>
+    )
     .add("autofocus", () =>
         <Button autoFocus>Button</Button>
     )

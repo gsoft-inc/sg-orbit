@@ -1,22 +1,10 @@
-import { CheckableContext, SIZE, augmentElement, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
+import { InputLabel, useInputGroup } from "../../input";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
-import { useToolbarProps } from "../../toolbar/src/ToolbarContext";
-
-const SIZE_GAP = {
-    "horizontal": {
-        [SIZE.small]: 4,
-        [SIZE.medium]: 5,
-        [SIZE.large]: 6
-    },
-    "vertical": {
-        [SIZE.small]: 2,
-        [SIZE.medium]: 3,
-        [SIZE.large]: 4
-    }
-};
+import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -27,6 +15,18 @@ const propTypes = {
      * The initial value of `value`.
      */
     defaultValue: oneOfType([arrayOf(string), arrayOf(number)]),
+    /**
+     * Label identifying the checkbox group.
+     */
+    label: string,
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Additional text to describe the checkbox group.
+     */
+    description: string,
     /**
      * Called when any of the children is checked or unchecked..
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -69,6 +69,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    orientation: "horizontal",
     as: "div"
 };
 
@@ -93,8 +94,11 @@ export function InnerCheckboxGroup(props) {
     const {
         value,
         defaultValue,
+        label,
+        required,
+        description,
         onChange,
-        orientation = "horizontal",
+        orientation,
         gap,
         wrap,
         size,
@@ -107,6 +111,22 @@ export function InnerCheckboxGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
+    const { groupProps, itemsProps, labelProps } = useInputGroup({
+        ...rest,
+        role: "group",
+        labelIdPrefix: "o-ui-checkbox-group-label",
+        label,
+        required,
+        description,
+        orientation,
+        gap,
+        wrap,
+        size,
+        readOnly,
+        disabled,
+        ref: forwardedRef
+    });
+
     const handleCheck = useEventCallback((event, newValue) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
@@ -117,37 +137,51 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const items = isFunction(children)
-        ? children({ checkedValue })
-        : children;
+    const labelMarkup = labelProps && (
+        <InputLabel {...labelProps} />
+    );
+
+    const renderItems = (additionalProps = {}) => {
+        const items = isFunction(children)
+            ? children({ checkedValue })
+            : children;
+
+        return (
+            <Flex
+                {...additionalProps}
+                {...itemsProps}
+                alignItems="start"
+            >
+                <CheckableContext.Provider
+                    value={{
+                        onCheck: handleCheck,
+                        checkedValue
+                    }}
+                >
+                    {Children.map(items, x => {
+                        return augmentElement(x, {
+                            size,
+                            disabled,
+                            readOnly,
+                            role: "checkbox"
+                        });
+                    })}
+                </CheckableContext.Provider>
+            </Flex>
+        );
+    };
 
     return (
-        <Flex
-            {...rest}
-            direction={orientation === "vertical" ? "column" : "row"}
-            alignItems="start"
-            gap={gap ?? SIZE_GAP[orientation][size ?? SIZE.medium]}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            role="group"
-            aria-disabled={disabled}
-            ref={forwardedRef}
-        >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue
-                }}
+        !labelMarkup ? renderItems(groupProps) : (
+            <Flex
+                {...groupProps}
+                direction="column"
+                gap={2}
             >
-                {Children.map(items, x => {
-                    return augmentElement(x, {
-                        size,
-                        disabled,
-                        readOnly,
-                        role: "checkbox"
-                    });
-                })}
-            </CheckableContext.Provider>
-        </Flex>
+                {labelMarkup}
+                {renderItems()}
+            </Flex>
+        )
     );
 }
 

@@ -120,19 +120,19 @@ export function createTextAreaTestSuite(element, stories) {
         .add("message", () =>
             <Stack>
                 <Inline align="end">
-                    <TextArea help="Enter your final destination." size="small" placeholder="Where to?" element={element} />
-                    <TextArea help="Enter your final destination." placeholder="Where to?" element={element} />
-                    <TextArea help="Enter your final destination." size="large" placeholder="Where to?" element={element} />
+                    <TextArea helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
+                    <TextArea helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextArea helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline>
-                    <TextArea help="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
-                    <TextArea help="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
+                    <TextArea helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
+                    <TextArea helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
-                    <TextArea fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
                 <div className="w-10">
-                    <TextArea fluid help="Enter your final destination." placeholder="Where to?" element={element} />
+                    <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

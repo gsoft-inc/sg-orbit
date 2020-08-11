@@ -259,12 +259,6 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("styling", () =>
-            <Inline>
-                <Button className="bg-red" element={element}>Button</Button>
-                <Button style={{ backgroundColor: "red" }} element={element}>Button</Button>
-            </Inline>
-        )
         .add("as anchor", () =>
             <Button as="a" href="https://www.sharegate.com" target="_blank" element={element}>Button</Button>
         );

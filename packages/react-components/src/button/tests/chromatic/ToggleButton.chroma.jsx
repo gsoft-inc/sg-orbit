@@ -88,6 +88,12 @@ stories()
                 }
             </ToggleButton>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <ToggleButton className="bg-red">Cutoff</ToggleButton>
+            <ToggleButton style={{ backgroundColor: "red" }}>Cutoff</ToggleButton>
+        </Inline>
     );
 
 

@@ -35,6 +35,14 @@ const propTypes = {
      */
     label: node,
     /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Additional text to describe the input.
+     */
+    description: string,
+    /**
      * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     min: number,
@@ -51,13 +59,9 @@ const propTypes = {
      */
     clampValue: bool,
     /**
-     * Whether a user input is required before form submission.
+     * Help message displayed beneath the input when `validateState` is undefined.
      */
-    required: bool,
-    /**
-     * Help text displayed beneath the input when `validateState` is undefined.
-     */
-    help: node,
+    helpMessage: node,
     /**
      * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
      */
@@ -193,13 +197,14 @@ export function InnerNumberInput({
     value,
     defaultValue,
     placeholder,
-    label,
     min,
     max,
     step,
     clampValue,
+    label,
     required,
-    help,
+    description,
+    helpMessage,
     invalidMessage,
     validMessage,
     validationState,
@@ -316,7 +321,8 @@ export function InnerNumberInput({
         placeholder,
         label,
         required,
-        help,
+        description,
+        helpMessage,
         invalidMessage,
         validMessage,
         validationState: !isInRange ? "invalid" : validationState,

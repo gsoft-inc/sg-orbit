@@ -57,6 +57,16 @@ A text area can be identified by a label.
     </Story>
 </Preview>
 
+### Description
+
+A text area can have additional text to further describe the input.
+
+<Preview>
+    <Story name="description">
+        <TextArea label="Why should you go to space?" description="We currently can't afford to send more than 2 austronauts per year. We must choose wisely!" />
+    </Story>
+</Preview>
+
 ### Value
 
 A text area can have a value.
@@ -123,7 +133,7 @@ A text area can be readonly.
 
 <Preview>
     <Story name="readonly">
-        <TextArea readOnly value="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
+        <TextArea readOnly defaultValue="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
     </Story>
 </Preview>
 
@@ -152,9 +162,9 @@ A text area can take the width of its container.
 A message can be displayed beneath a text area.
 
 <Preview>
-    <Story name="help">
+    <Story name="message">
         <Inline>
-            <TextArea help="Why should we choose you over another candidate?" label="Why should you go to space?" placeholder="When I was young..." />
+            <TextArea helpMessage="Why should we choose you over another candidate?" label="Why should you go to space?" placeholder="When I was young..." />
             <TextArea invalidMessage="Not good enough." validationState="invalid" label="Why should you go to space?" defaultValue="Because it's my dream." />
             <TextArea validMessage="Welcome aboard!" validationState="valid" label="Why should you go to space?" defaultValue="I possess a master's degree in engineering, biological and physical science. I do have over 1,000 hours of jet aircraft air time and I am in great physical condition." />
         </Inline>

@@ -28,9 +28,13 @@ const propTypes = {
      */
     required: bool,
     /**
-     * Help text displayed beneath the input when `validateState` is undefined.
+     * Additional text to describe the input.
      */
-    help: node,
+    description: string,
+    /**
+     * Help message displayed beneath the input when `validateState` is undefined.
+     */
+    helpMessage: node,
     /**
      * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
      */

@@ -23,6 +23,7 @@ module.exports = {
         {
             files: ["*.chroma.jsx"],
             rules: {
+                "max-len": "off",
                 "react/no-array-index-key": "off"
             }
         }

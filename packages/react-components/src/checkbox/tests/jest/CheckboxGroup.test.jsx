@@ -100,42 +100,91 @@ test("pass an empty array when no checkbox are selected", async () => {
 
 // ***** Refs *****
 
-test("ref is a DOM element", async () => {
-    const ref = createRef();
+describe("no label", () => {
+    test("ref is a DOM element", async () => {
+        const ref = createRef();
 
-    render(
-        <Group ref={ref} />
-    );
+        render(
+            <Group ref={ref} />
+        );
 
-    await waitFor(() => expect(ref.current).not.toBeNull());
+        await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+        expect(ref.current instanceof HTMLElement).toBeTruthy();
+        expect(ref.current.tagName).toBe("DIV");
+        expect(ref.current.getAttribute("role")).toBe("group");
+    });
+
+    test("when using a callback ref, ref is a DOM element", async () => {
+        let refNode = null;
+
+        render(
+            <Group
+                ref={node => {
+                    refNode = node;
+                }}
+            />
+        );
+
+        await waitFor(() => expect(refNode).not.toBeNull());
+
+        expect(refNode instanceof HTMLElement).toBeTruthy();
+        expect(refNode.tagName).toBe("DIV");
+        expect(refNode.getAttribute("role")).toBe("group");
+    });
+
+    test("set ref once", async () => {
+        const handler = jest.fn();
+
+        render(
+            <Group ref={handler} />
+        );
+
+        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+    });
 });
 
-test("when using a callback ref, ref is a DOM element", async () => {
-    let refNode = null;
+describe("with label", () => {
+    test("ref is a DOM element", async () => {
+        const ref = createRef();
 
-    render(
-        <Group
-            ref={node => {
-                refNode = node;
-            }}
-        />
-    );
+        render(
+            <Group label="Select your packages" ref={ref} />
+        );
 
-    await waitFor(() => expect(refNode).not.toBeNull());
+        await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
-});
+        expect(ref.current instanceof HTMLElement).toBeTruthy();
+        expect(ref.current.tagName).toBe("DIV");
+        expect(ref.current.getAttribute("role")).toBe("group");
+    });
 
-test("set ref once", async () => {
-    const handler = jest.fn();
+    test("when using a callback ref, ref is a DOM element", async () => {
+        let refNode = null;
 
-    render(
-        <Group ref={handler} />
-    );
+        render(
+            <Group
+                label="Select your packages"
+                ref={node => {
+                    refNode = node;
+                }}
+            />
+        );
 
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(refNode).not.toBeNull());
+
+        expect(refNode instanceof HTMLElement).toBeTruthy();
+        expect(refNode.tagName).toBe("DIV");
+        expect(refNode.getAttribute("role")).toBe("group");
+    });
+
+    test("set ref once", async () => {
+        const handler = jest.fn();
+
+        render(
+            <Group ref={handler} />
+        );
+
+        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+    });
 });

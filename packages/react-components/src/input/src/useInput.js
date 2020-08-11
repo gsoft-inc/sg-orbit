@@ -7,7 +7,8 @@ export function useInput({
     placeholder,
     label,
     required,
-    help,
+    description,
+    helpMessage,
     invalidMessage,
     validMessage,
     validationState,
@@ -31,8 +32,8 @@ export function useInput({
 }) {
     const inputRef = useMergedRefs(inputRefProp, forwardedRef);
 
-    const inputId = useId(id, id ?? "input");
-    const messageProps = useInputMessage(help, invalidMessage, validMessage, validationState, size);
+    const inputId = useId(id, id ?? "o-ui-input");
+    const messageProps = useInputMessage(helpMessage, invalidMessage, validMessage, validationState, size);
 
     useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
 
@@ -71,6 +72,7 @@ export function useInput({
         labelProps: label && {
             htmlFor: inputId,
             required,
+            description,
             size,
             children: label
         },

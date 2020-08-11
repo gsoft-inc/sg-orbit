@@ -22,14 +22,14 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
             scope.push(element);
 
             element.tabIndex = initialIndex;
-            element.addEventListener("focusin", handleFocus, false);
+            element.addEventListener("focusin", handleFocus, { capture: true });
         };
 
         const removeElement = (element, removeFromScope) => {
             const index = scope.indexOf(element);
 
             if (index !== -1) {
-                element.removeEventListener("focusin", handleFocus, false);
+                element.removeEventListener("focusin", handleFocus, { capture: true });
 
                 if (removeFromScope) {
                     scope.splice(index, 1);

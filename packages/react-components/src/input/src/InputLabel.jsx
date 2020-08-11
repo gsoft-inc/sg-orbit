@@ -1,5 +1,7 @@
 import "./InputLabel.css";
 
+import { EmbeddedIcon, InfoIcon } from "@react-components/icons";
+import { Tooltip } from "@react-components/tooltip";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
@@ -17,6 +19,7 @@ const defaultProps = {
 
 export function InnerInputLabel({
     required,
+    description,
     size,
     as: ElementType,
     className,
@@ -26,18 +29,28 @@ export function InnerInputLabel({
 }) {
     const label = required ? `${children} *` : children;
 
+    const descriptionMarkup = description && (
+        <Tooltip
+            content={description}
+            trigger={<EmbeddedIcon size={size}><InfoIcon className="input-description" /></EmbeddedIcon>}
+            size={size}
+        />
+    );
+
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui label",
+                "o-ui input-label",
                 required && "required",
+                descriptionMarkup && "with-description",
                 getSizeClass(size),
                 className
             )}
             ref={forwardedRef}
         >
             {label}
+            {descriptionMarkup}
         </ElementType>
     );
 }

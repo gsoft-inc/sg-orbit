@@ -11,6 +11,8 @@
     },
     "javascript.format.enable": false,
     "javascript.validate.enable": true,
+    "javascript.preferences.useAliasesForRenames": false,
+    "typescript.preferences.useAliasesForRenames": false,
     "json.format.enable": false,
     "css.validate": false,
     "eslint.alwaysShowStatus": true,

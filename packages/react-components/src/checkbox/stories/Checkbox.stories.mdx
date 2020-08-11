@@ -131,11 +131,11 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-lot-of-space-between">
+        <Inline align="end">
             <Checkbox size="small">Milky Way</Checkbox>
             <Checkbox>Milky Way</Checkbox>
             <Checkbox size="large">Milky Way</Checkbox>
-        </div>
+        </Inline>
     </Story>
 </Preview>
 
@@ -173,15 +173,6 @@ A checkbox can handle `checked` state in controlled mode.
     <ControlledCheckbox />
 </FilePreview>
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger><Checkbox>Milky Way</Checkbox></RefLogger>
-</Story>
-
 ## Checkbox Group
 
 Related checkboxes can be group together.
@@ -189,6 +180,20 @@ Related checkboxes can be group together.
 <Preview>
     <Story name="checkbox group">
         <CheckboxGroup>
+            <Checkbox value="milky-way">Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Label
+
+A checkbox group can have a label.
+
+<Preview>
+    <Story name="labelled checkbox group">
+        <CheckboxGroup label="Your favorite galaxies">
             <Checkbox value="milky-way">Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
             <Checkbox value="medusa">Medusa</Checkbox>
@@ -284,3 +289,44 @@ A checkbox group can handle `value` state in controlled mode.
 <FilePreview filePath="/checkbox/stories/ControlledCheckboxGroup">
     <ControlledCheckboxGroup />
 </FilePreview>
+
+<Story
+    name="checkbox ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Checkbox>Milky Way</Checkbox>
+    </RefLogger>
+</Story>
+
+<Story
+    name="checkbox group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <CheckboxGroup>
+            <Checkbox value="milky-way">Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </RefLogger>
+</Story>
+
+<Story
+    name="labelled checkbox group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <CheckboxGroup label="Your favorite galaxies">
+            <Checkbox value="milky-way">Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </RefLogger>
+</Story>

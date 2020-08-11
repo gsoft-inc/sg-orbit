@@ -3,6 +3,7 @@ import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -60,6 +61,20 @@ A radio group can have a selected value.
 <Preview>
     <Story name="selected">
         <RadioGroup defaultValue="jupiter">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Label
+
+A radio group can have a label.
+
+<Preview>
+    <Story name="label">
+        <RadioGroup label="Your favorite planet">
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
@@ -169,11 +184,11 @@ Can be set on a single radio to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size radio">
-        <RadioGroup>
-            <Radio size="small" value="mars" >Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio size="large" value="pluto">Pluto</Radio>
-        </RadioGroup>
+        <Inline align="end">
+            <Radio size="small" value="mars">Mars</Radio>
+            <Radio value="mars">Mars</Radio>
+            <Radio size="large" value="mars">Mars</Radio>
+        </Inline>
     </Story>
 </Preview>
 
@@ -235,7 +250,7 @@ Or even use a render props for items:
                             className={ checkedValue === x ? "primary-500" : undefined }
                             value={x}
                         >
-                            {x}
+                            {checkedValue === x ? "Select" : x}
                         </Radio>
                     )
             }
@@ -297,12 +312,42 @@ A radio group can handle `value` state in controlled mode.
 </FilePreview>
 
 <Story
-    name="ref"
+    name="radio ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <RefLogger>
         <Radio>Mars</Radio>
+    </RefLogger>
+</Story>
+
+<Story
+    name="radio group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </RefLogger>
+</Story>
+
+<Story
+    name="labelled radio group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <RadioGroup label="Your favorite planet">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </RefLogger>
 </Story>

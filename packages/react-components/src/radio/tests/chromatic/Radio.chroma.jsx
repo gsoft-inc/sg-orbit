@@ -31,4 +31,10 @@ stories()
                 }
             </Radio>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Radio className="bg-red" value="any">Milky Way</Radio>
+            <Radio style={{ backgroundColor: "red" }} value="any">Milky Way</Radio>
+        </Inline>
     );

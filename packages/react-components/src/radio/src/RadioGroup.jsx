@@ -1,7 +1,6 @@
 import {
     CheckableContext,
     KEYS,
-    SIZE,
     augmentElement,
     useArrowNavigation,
     useAutoFocusFirstTabbableElement,
@@ -13,9 +12,10 @@ import {
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
+import { InputLabel, useInputGroup } from "../../input";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
-import { useToolbarProps } from "../../toolbar/src/ToolbarContext";
+import { useToolbarProps } from "../../toolbar";
 
 const ARROW_NAV_KEY_BINDING = {
     "default": {
@@ -30,19 +30,6 @@ const ARROW_NAV_KEY_BINDING = {
     }
 };
 
-const SIZE_GAP = {
-    "horizontal": {
-        [SIZE.small]: 4,
-        [SIZE.medium]: 5,
-        [SIZE.large]: 6
-    },
-    "vertical": {
-        [SIZE.small]: 2,
-        [SIZE.medium]: 3,
-        [SIZE.large]: 4
-    }
-};
-
 const propTypes = {
     /**
      * The value of the radio group.
@@ -52,6 +39,18 @@ const propTypes = {
      * The initial value of `value`.
      */
     defaultValue: oneOfType([string, number]),
+    /**
+     * Label identifying the radio group.
+     */
+    label: string,
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Additional text to describe the radio group.
+     */
+    description: string,
     /**
      * Radio group name.
      */
@@ -106,6 +105,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    orientation: "vertical",
     as: "div"
 };
 
@@ -113,11 +113,14 @@ export function InnerRadioGroup(props) {
     const {
         value,
         defaultValue,
+        label,
+        required,
+        description,
         name,
         onChange,
         autoFocus,
         autoFocusDelay,
-        orientation = "vertical",
+        orientation,
         gap,
         wrap,
         size,
@@ -142,6 +145,22 @@ export function InnerRadioGroup(props) {
 
     const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], navigationMode !== "toolbar" ? handleArrowSelect : undefined);
 
+    const { groupProps, itemsProps, labelProps } = useInputGroup({
+        ...rest,
+        role: "radio-group",
+        labelIdPrefix: "o-ui-radio-group-label",
+        label,
+        required,
+        description,
+        orientation,
+        gap,
+        wrap,
+        size,
+        readOnly,
+        disabled,
+        ref
+    });
+
     const handleCheck = useEventCallback((event, newValue) => {
         setCheckedValue(newValue);
 
@@ -150,43 +169,55 @@ export function InnerRadioGroup(props) {
         }
     });
 
+    const labelMarkup = labelProps && (
+        <InputLabel {...labelProps} />
+    );
+
     const groupName = useId(name, "radio-group");
 
-    const items = isFunction(children)
-        ? children({ checkedValue })
-        : children;
+    const renderItems = (additionalProps = {}) => {
+        const items = isFunction(children)
+            ? children({ checkedValue })
+            : children;
+
+        return (
+            <Flex
+                {...additionalProps}
+                {...navigationProps}
+                {...itemsProps}
+                alignItems="start"
+            >
+                <CheckableContext.Provider
+                    value={{
+                        onCheck: handleCheck,
+                        checkedValue
+                    }}
+                >
+                    {Children.map(items, x => {
+                        return augmentElement(x, {
+                            name: groupName,
+                            size,
+                            disabled,
+                            readOnly,
+                            role: "radio"
+                        });
+                    })}
+                </CheckableContext.Provider>
+            </Flex>
+        );
+    };
 
     return (
-        <Flex
-            {...rest}
-            {...navigationProps}
-            direction={orientation === "horizontal" ? "row" : "column"}
-            alignItems="start"
-            gap={gap ?? SIZE_GAP[orientation][size ?? SIZE.medium]}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            role="radiogroup"
-            aria-readonly={readOnly}
-            aria-disabled={disabled}
-            aria-orientation={orientation}
-            ref={ref}
-        >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue
-                }}
+        !labelMarkup ? renderItems(groupProps) : (
+            <Flex
+                {...groupProps}
+                direction="column"
+                gap={2}
             >
-                {Children.map(items, x => {
-                    return augmentElement(x, {
-                        name: groupName,
-                        size,
-                        disabled,
-                        readOnly,
-                        role: "radio"
-                    });
-                })}
-            </CheckableContext.Provider>
-        </Flex>
+                {labelMarkup}
+                {renderItems()}
+            </Flex>
+        )
     );
 }
 

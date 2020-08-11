@@ -25,6 +25,13 @@ stories()
             <span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>
         </InputLabel>
     )
+    .add("description", () =>
+        <Inline align="end">
+            <InputLabel size="small" description="Trips to Andromeda galaxy are available every 2 months.">Where to?</InputLabel>
+            <InputLabel description="Trips to Andromeda galaxy are available every 2 months.">Where to?</InputLabel>
+            <InputLabel size="large" description="Trips to Andromeda galaxy are available every 2 months.">Where to?</InputLabel>
+        </Inline>
+    )
     .add("as span", () =>
         <Inline align="end">
             <InputLabel as="span" size="small">Where to?</InputLabel>

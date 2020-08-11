@@ -101,7 +101,7 @@ stories()
         </CheckboxGroup>
     )
     .add("vertical", () =>
-        <Inline>
+        <Inline align="end" gap={13}>
             <CheckboxGroup size="small" orientation="vertical">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
@@ -166,6 +166,39 @@ stories()
                     )
             }
         </CheckboxGroup>
+    )
+    .add("label", () =>
+        <Inline align="end" gap={13}>
+            <CheckboxGroup label="Select your packages" size="small">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup label="Select your packages">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup label="Select your packages" size="large">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <CheckboxGroup className="bg-red">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup style={{ backgroundColor: "red" }}>
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
     );
 
 

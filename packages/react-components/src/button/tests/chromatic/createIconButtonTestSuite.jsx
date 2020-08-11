@@ -152,12 +152,6 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("styling", () =>
-            <Inline>
-                <IconButton className="bg-red" element={element}><AddIcon /></IconButton>
-                <IconButton style={{ backgroundColor: "red" }} element={element}><AddIcon /></IconButton>
-            </Inline>
-        )
         .add("as anchor", () =>
             <IconButton as="a" element={element}><AddIcon /></IconButton>
         );

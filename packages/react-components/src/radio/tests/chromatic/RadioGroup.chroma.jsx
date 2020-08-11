@@ -1,5 +1,5 @@
+import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { Stack } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -43,7 +43,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
+        <Inline align="end" gap={13}>
             <RadioGroup size="small">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
@@ -59,10 +59,10 @@ stories()
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
             </RadioGroup>
-        </Stack>
+        </Inline>
     )
     .add("selection", () =>
-        <Stack>
+        <Inline>
             <RadioGroup value="2">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
@@ -73,7 +73,7 @@ stories()
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
             </RadioGroup>
-        </Stack>
+        </Inline>
     )
     .add("number", () =>
         <RadioGroup defaultValue={2}>
@@ -169,6 +169,39 @@ stories()
                     )
             }
         </RadioGroup>
+    )
+    .add("label", () =>
+        <Inline align="end" gap={13}>
+            <RadioGroup label="Select a package" size="small">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup label="Select a package">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup label="Select a package" size="large">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <RadioGroup className="bg-red">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup style={{ backgroundColor: "red" }}>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Inline>
     )
     .add("autofocus", () =>
         <RadioGroup autoFocus defaultValue="2">
