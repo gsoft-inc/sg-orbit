@@ -121,12 +121,9 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="primary" element={element}>Button</Button>
                     <Button color="primary" size="large" element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
-                    <Button loading color="primary" size="mini" element={element}>Button</Button>
-                    <Button loading color="primary" size="tiny" element={element}>Button</Button>
-                    <Button loading color="primary" size="small" element={element}>Button</Button>
+                <Inline>
+                    <Button iconLeft={<SignoutIcon />} color="primary" element={element}>Button</Button>
                     <Button loading color="primary" element={element}>Button</Button>
-                    <Button loading color="primary" size="large" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
@@ -140,11 +137,8 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="secondary" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading color="secondary" size="mini" element={element}>Button</Button>
-                    <Button loading color="secondary" size="tiny" element={element}>Button</Button>
-                    <Button loading color="secondary" size="small" element={element}>Button</Button>
+                    <Button iconLeft={<SignoutIcon />} color="secondary" element={element}>Button</Button>
                     <Button loading color="secondary" element={element}>Button</Button>
-                    <Button loading color="secondary" size="large" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
@@ -158,11 +152,8 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading color="danger" size="mini" element={element}>Button</Button>
-                    <Button loading color="danger" size="tiny" element={element}>Button</Button>
-                    <Button loading color="danger" size="small" element={element}>Button</Button>
+                    <Button iconLeft={<SignoutIcon />} color="danger" element={element}>Button</Button>
                     <Button loading color="danger" element={element}>Button</Button>
-                    <Button loading color="danger" size="large" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
