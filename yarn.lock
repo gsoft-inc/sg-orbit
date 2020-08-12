@@ -3016,6 +3016,11 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@orbit-ui/icons@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@orbit-ui/icons/-/icons-7.0.0.tgz#895e3dde1e126343627d9bd5c7ab4427c2514131"
+  integrity sha512-0oTADI7RWOQJQvmL/9DLVJi19LZ9a8aJzpcwUSsVrr6OY5EjnfmuKlR9KfmKdYJRy6PWDNtBu/vIaR7RTJv4AA==
+
 "@popperjs/core@2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.2.2.tgz#2e254f5eb31f3abc35470060fb7116937d837739"
@@ -15273,10 +15278,10 @@ lodash.uniq@4.5.0, lodash.uniq@^4.3.0, lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.15, lodash@^4.0.1, lodash@^4.1.1, lodash@^4.16.4, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+lodash@4.17.19, lodash@^4.0.1, lodash@^4.1.1, lodash@^4.16.4, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 lodash@^2.4.1:
   version "2.4.2"
