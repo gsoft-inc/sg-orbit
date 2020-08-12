@@ -226,9 +226,9 @@ export function InnerSelect(props) {
         }
     }, [search, dropdownInnerRef]);
 
-    useAutoFocus(dropdownInnerRef, autoFocus, {
-        delay: !isNil(autoFocusDelay) ? autoFocusDelay : 5,
-        setFocusWhenSearch
+    useAutoFocus(dropdownInnerRef, autoFocus && !disabled, {
+        delay: autoFocusDelay ?? 5,
+        onFocus: setFocusWhenSearch
     });
 
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
@@ -245,12 +245,12 @@ export function InnerSelect(props) {
             style={wrapperStyle}
             tabIndex="-1"
             ref={forwardedRef}
-            data-testid="dropdown-wrapper"
+            data-testid="select-wrapper"
         >
             <SelectContext.Provider value={{ size }}>
                 <SemanticRef innerRef={dropdownInnerRef}>
                     <MonkeyPatchSemanticDropdown
-                        data-testid="dropdown"
+                        data-testid="select"
                         {...rest}
                         options={options}
                         selectOnBlur={false}

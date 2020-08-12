@@ -1,6 +1,6 @@
 import { Children, forwardRef, useRef } from "react";
 import { Flex } from "../../layout";
-import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useRovingFocus } from "../../shared";
+import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -83,9 +83,10 @@ export function InnerToolbar({
     disabled,
     readOnly,
     children,
+    forwardedRef,
     ...rest
 }) {
-    const ref = useRef();
+    const ref = useMergedRefs(forwardedRef);
 
     useRovingFocus(ref);
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });

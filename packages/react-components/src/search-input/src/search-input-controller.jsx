@@ -48,7 +48,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         minCharacters: 1,
         placeholder: "Search",
         debounceDelay: 200,
-        autofocusDelay: 50,
+        autoFocusDelay: 50,
         size: SIZE.medium,
         input: <TextInput />
     };
@@ -273,7 +273,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return (
             <Button
-                icon={<CrossIcon />}
+                iconLeft={<CrossIcon />}
                 onClick={this.handleClear}
                 ref={this._clearButtonRef}
                 data-testid="search-input-clear-button"
@@ -286,8 +286,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return createOrAugmentElement(input, {
             onKeyDown: this.handleInputKeyDown,
-            icon: <MagnifierIcon />,
-            iconPosition: "left",
+            iconLeft: <MagnifierIcon />,
             button: this.renderClearButton(),
             loading: loading && !disabled,
             autoFocus: open || autoFocus,

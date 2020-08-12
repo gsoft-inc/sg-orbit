@@ -34,7 +34,7 @@ test("ref is a DOM element", async () => {
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("TEXTAREA");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -51,7 +51,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    expect(refNode.tagName).toBe("TEXTAREA");
 });
 
 test("set ref once", async () => {

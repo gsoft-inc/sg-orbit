@@ -96,7 +96,7 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerPasswordInput(props) {
+export function InnerPasswordInput({ forwardedRef, ...rest }) {
     const [isHidden, setIsHidden] = useState(true);
 
     const handleClick = useEventCallback(() => {
@@ -105,7 +105,7 @@ export function InnerPasswordInput(props) {
 
     return (
         <TextInput
-            {...props}
+            {...rest}
             type={isHidden ? "password" : "text"}
             button={
                 <IconButton
@@ -115,6 +115,7 @@ export function InnerPasswordInput(props) {
                     {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>
             }
+            ref={forwardedRef}
         />
     );
 }

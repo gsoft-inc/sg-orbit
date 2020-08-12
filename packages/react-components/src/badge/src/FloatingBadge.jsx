@@ -45,5 +45,5 @@ InnerFloatingBadge.propTypes = propTypes;
 InnerFloatingBadge.defaultProps = defaultProps;
 
 export const FloatingBadge = forwardRef((props, ref) => (
-    <InnerFloatingBadge { ...props } forwardedRef={ref} />
+    <InnerFloatingBadge {...props} forwardedRef={ref} />
 ));

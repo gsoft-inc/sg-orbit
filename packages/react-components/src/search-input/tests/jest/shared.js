@@ -28,9 +28,7 @@ export const DEFAULT_RESULTS = [
 export const NUMBER_OF_RESULTS_BEGINNING_WITH_A = 3;
 
 export function getInput(getByTestId) {
-    const textboxNode = getByTestId("search-input-textbox");
-
-    return textboxNode.querySelector("input");
+    return getByTestId("search-input-textbox");
 }
 
 export function getResultsMenu(container) {

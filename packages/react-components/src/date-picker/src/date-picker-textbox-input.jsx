@@ -80,8 +80,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
                 onBlur={onBlur}
                 value={value}
                 placeholder={placeholder}
-                icon={<CalendarIcon />}
-                iconPosition="left"
+                iconLeft={<CalendarIcon />}
                 button={this.renderClearButton()}
                 size={size}
                 disabled={disabled}

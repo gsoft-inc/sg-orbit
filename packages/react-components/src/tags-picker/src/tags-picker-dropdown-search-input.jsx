@@ -14,10 +14,10 @@ export class TagsPickerDropdownSearchInput extends PureComponent {
         onChange: func
     };
 
-    handleChange = (event, { value }) => {
+    handleChange = event => {
         const { onChange } = this.props;
 
-        onChange(event, value);
+        onChange(event, event.target.value);
     };
 
     render() {
@@ -25,8 +25,7 @@ export class TagsPickerDropdownSearchInput extends PureComponent {
             <TextInput
                 {...this.props}
                 onChange={this.handleChange}
-                icon={<MagnifierIcon className="fill-marine-900" />}
-                iconPosition="left"
+                iconLeft={<MagnifierIcon className="fill-marine-900" />}
                 autoFocus
                 autoComplete="off"
                 data-testid="tags-picker-dropdown-search-input"

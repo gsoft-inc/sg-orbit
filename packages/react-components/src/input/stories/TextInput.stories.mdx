@@ -193,15 +193,6 @@ The example below illustrates how one would validate if the user has entered a v
     <EmailValidation />
 </FilePreview>
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger><TextInput /></RefLogger>
-</Story>
-
 ## PasswordInput
 
 A specialized text input that show / hide a password.
@@ -211,3 +202,25 @@ A specialized text input that show / hide a password.
         <PasswordInput />
     </Story>
 </Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <TextInput />
+    </RefLogger>
+</Story>
+
+<Story
+    name="password ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <PasswordInput />
+    </RefLogger>
+</Story>
